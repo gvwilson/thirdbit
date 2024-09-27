@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Tooling a Book</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Tooling a Book</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/07/16/a-book-and-a-typewriter/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-07-16" class="post-date">2023-07-16</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/07/19/twenty-five-years-and-counting/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Shortly after I announced <a href="https://third-bit.com/2023/07/12/sdxpy-beta/">the beta release of <em>Software Design by Example (Python edition)</em></a>
+a couple of people reached out to ask why I hadn&rsquo;t used <a href="https://quarto.org/">Quarto</a> to build it.
+I pointed them at <a href="https://third-bit.com/2023/06/12/book-extensions/">the list of extensions I had to build</a>
+to turn source code and Markdown into something publishable
+and asked how much work Quarto would have saved me.
+Neither has replied,
+so I&rsquo;d like to throw the question out to a wider audience.
+I&rsquo;m pretty sure Quarto (and other tools) can do these things:</p>
+<ul>
+<li>
+<p>Convert a BibTeX-formatted bibliography into Markdown
+    and turn shortcodes into hyperlinked citations.</p>
+</li>
+<li>
+<p>Extract headings to support numered cross-references to sections.</p>
+</li>
+<li>
+<p>Copy the example files mentioned in each chapter into the output directory
+    <em>without</em> trying to expand macros in them.</p>
+</li>
+<li>
+<p>Insert the build date.</p>
+</li>
+<li>
+<p>Insert figures with proper labels (including alt text)
+    and resolve shortcode references to them.</p>
+</li>
+<li>
+<p>Insert tables with proper labels
+    and resolve <code>\[%t some-key %]</code> shortcode references to them.</p>
+</li>
+</ul>
+<p>I&rsquo;m pretty sure I&rsquo;d have to write Lua extensions and/or wrestle with Pandoc
+to do the following:</p>
+<ul>
+<li>
+<p>Include sections of example code files.
+    The &ldquo;sections&rdquo; part is necessary for teaching purposes:
+    I often want to show one or two methods from a class in one place,
+    another method or two in another,
+    and so on.
+    As far as I can tell,
+    computational notebooks and tools derived from them
+    don&rsquo;t support code fragments like this in a maintainable way.</p>
+</li>
+<li>
+<p>Convert a <a href="https://glosario.carpentries.org/">Glosario</a>-formatted glossary into Markdown,
+    turn glossary reference shortcodes into hyperlinked references,
+    and display a list of terms defined in a chapter at the top of the chapter.</p>
+</li>
+<li>
+<p>Turn shortcodes into index entries so readers can find out
+    which chapters say something interesting about which key subjects.</p>
+</li>
+<li>
+<p>Append links from a YAML-formatted link directory to each file
+    so that all chapters and appendices can refer to a single source of truth for external links
+    and use it to build a single-page directory of all the external links in the book.</p>
+</li>
+<li>
+<p>Turn a list of people who&rsquo;ve helped in some way
+    into a Markdown-formatted paragraph of acknowledgments.</p>
+</li>
+<li>
+<p>Compare the inclusions in the long-form prose for chapters
+    with inclusions in those chapters&rsquo; slide decks
+    to make sure they&rsquo;re consistent.</p>
+</li>
+<li>
+<p>Build a page with links to the slide decks for each chapter.</p>
+</li>
+<li>
+<p>Extract syllabus entries from the header of each chapter
+    to format as a callout box at the top of its page
+    and as a consolidated learning guide in an appendix.</p>
+</li>
+<li>
+<p>Check the sizes of SVG diagrams and the fonts they use.</p>
+</li>
+<li>
+<p>Extract inter-chapter dependencies and use them to create
+    <a href="https://third-bit.com/2019/03/30/curriculum-roadmap/">a curriculum roadmap</a>.</p>
+</li>
+<li>
+<p>Compare word counts, number of slides, number of figures, etc.
+    against targets and produce a status report
+    showing how close the book is to being finished.</p>
+</li>
+<li>
+<p>Run a dozen different checks to make sure that (for example)
+    glossary terms are defined before they are used,
+    section IDs are formatted consistently, etc.</p>
+</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

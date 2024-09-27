@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Throttling</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Throttling</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2016/03/21/registers/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2016-03-31" class="post-date">2016-03-31</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2016/04/01/zen-and-the-art-of-assignment-operators/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  Every technology that solves problems creates new ones,
+  most of which can't be solved by purely technological means.
+  Online discussions (including Twitter, mailing lists, and comment threads on blogs)
+  are a prime example.
+  As Megan O'Donnell points out in
+  <a href="http://lists.ala.org/sympa/arc/scholcomm/2016-03/msg00208.html">these</a>
+  <a href="http://lists.ala.org/sympa/arc/scholcomm/2016-03/msg00300.html">posts</a>
+  on the Scholarly Communication list [<a href="#1">1</a>]:
+</p>
+<blockquote>
+  <p>
+    …a few voices…are so loud and frequent that
+    this mailing list feels like a soapbox far more often than a discussion forum.
+  </p>
+  <p>
+    …
+  </p>
+  <p>
+    Consider the following: I'm a new librarian about to hit my 3rd work-anniversary.
+    I've written one research paper so far.
+    I am in the stage of my career where I still deal with imposter syndrome, sometimes daily.
+    This means that posting on a public, international mailing list can be hard.
+    It is harder when the list's most active posters have decades more experience,
+    a national reputation,
+    and post so often that I see their names and opinions daily.
+    If you cannot relate to this that's fine – but it is a reality for many and should not be dismissed.
+    Ignoring the options and feelings of those you disagree with is not a solution.
+    Waiting for things to blow over is also not a solution as it simply isolates those that disagree.
+  </p>
+</blockquote>
+<p>
+  She also said:
+</p>
+<blockquote>
+  <p>
+    Some of my suggestions for making this a more inclusive and welcoming environment:
+  </p>
+  <ul>
+    <li>
+      Don't feel like you need to respond to every post, you don't.
+    </li>
+    <li>
+      Wait at least 5-10 minutes before responding.
+    </li>
+    <li>
+      Consider if your message would be better as sent off-list.
+    </li>
+    <li>
+      Tone down the language – this is business, not personal.
+    </li>
+  </ul>
+</blockquote>
+<p>
+  This,
+  and my analysis of gender balance in the Software Carpentry community,
+  has prompted me to re-think <a href="https://gitlab.com/mailman/mailman/issues/119">this Mailman feature request</a>
+  that Barry Warsaw filed on my behalf last year:
+</p>
+<blockquote>
+  <p>
+    It would be very useful to add list options to limit the number of posts each subscriber can make per hour, day, week, or arbitrary time frame.
+    Many lists have rules limiting subscribers to 2, 3, 5, or 10 post per day, but depend the honor system or on moderators to enforce the rule.
+  </p>
+</blockquote>
+<p>
+  A comment on the feature request says that <a href="http://groupserver.org/groupserver/features/details/#postingRate">GroupServer already has this feature</a>.
+  As per the opening of this post,
+  I realize that featuring up a piece of software is unlikely to solve a social problem,
+  but I'd be grateful for feedback from people who've used this,
+  or something like it,
+  on how well it works.
+  Does throttling contributions from more verbose contributors actually encourage others to start saying their piece?
+  How about enforcing a delay (the second of Megan's points):
+  if the system bounced any replies posted in less than 10 minutes,
+  would that enforced cooling off lead to more reasonable, and more participatory, discussion?
+  Somebody must have tried this in real life–pointers would be very welcome.
+</p>
+<p id="1">
+  [1] To view these,
+  I had to click a button to say I'm not a robot,
+  then paste the original URLs back into the browser to get to the posts I wanted to read.
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example in Python 3: Finding Duplicate Files</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example in Python 3: Finding Duplicate Files</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/04/02/sdxpy-objects-and-classes/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-04-03" class="post-date">2024-04-03</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/04/03/worlds/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>The <a href="../../../../sdxpy/oop/">first chapter</a> of <a href="../../../../sdxpy/"><em>Software Design by Example</em></a> looks inward
+at Python itself
+to show how objects and classes are really just fancy dictionaries
+(for some large value of &ldquo;just&rdquo;).
+<a href="../../../../sdxpy/dup/">Chapter 3: Finding Duplicate Files</a> looks outward at the problems Python is used to solve,
+and in doing so,
+introduces some ideas about hashing,
+systems programming,
+and the conventions that Unix command-line tools are expected to respect.</p>
+<p>The first and third of these ideas are well-defined,
+but &ldquo;systems programming&rdquo; turned out to be a slippery concept.
+For me,
+it means &ldquo;doing things with a program that you&rsquo;d normally do in the shell&rdquo;,
+like making directories and renaming files or changing their permissions,
+but I discovered that other people reserve the term for more advanced problems
+like authentication and network configuration.
+I&rsquo;m now working sporadically on a <a href="https://gvwilson.github.io/sys-tutorial/">new tutorial</a>
+to figure out where I think the topic&rsquo;s boundaries are,
+which is proof yet again that every lesson leads to three others.</p>
+<p><img class="centered" src="../../../../sdxpy/dup/concept_map.svg" alt="Concept map for finding duplicate files"/></p>
+<blockquote>
+<p>Terms defined: big-oh notation, binary mode, bucket, collision (in hashing), cryptographic hash function, hash code, hash function, hexadecimal, SHA-256 (hash function), streaming API, time complexity.</p>
+</blockquote>
+<p><a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="../../../../sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

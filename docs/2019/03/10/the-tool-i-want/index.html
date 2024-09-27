@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Tool I Want</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Tool I Want</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/03/07/learning-to-program/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-03-10" class="post-date">2019-03-10</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/03/12/reviewing-lessons/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We talk about &ldquo;programming&rdquo; as if there was just one kind,
+but in the past three months I have:</p>
+<ol>
+<li>
+<p>written, refactored, and tested tools
+    that will be used by people I&rsquo;ve never met
+    in situations I haven&rsquo;t envisaged;</p>
+</li>
+<li>
+<p>explored complex data
+    by extending and revising a mixture of prose and code,
+    guided at each step by what I&rsquo;ve learned from what I&rsquo;ve done so far;
+    and</p>
+</li>
+<li>
+<p>created tutorials that present both small self-contained programs
+    and fragments from several revisions of larger ones.</p>
+</li>
+</ol>
+<p>We&rsquo;ve had good solutions for the first use case for decades,
+and dynamic documents like <a href="https://rmarkdown.rstudio.com/">R Markdown</a>,
+the <a href="https://jupyter.org/">Jupyter Notebook</a>,
+and <a href="https://stenci.la/">Stencila</a>
+have pretty much taken care of the second,
+at least for desktop-scale work.</p>
+<p>But what about the third case?
+Dynamic documents are great for showing short pieces of code and their output,
+and all of the tools listed above can generate slides with a little extra work,
+but I&rsquo;m still not satisfied:</p>
+<ol>
+<li>
+<p>I often want to have the full runnable code in the document,
+    but elide sections when displaying it.
+    For example,
+    the runnable version of this code is about 40 lines long,
+    but what I want to display for tutorial purposes is:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// …as before…</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">actual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">root</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">actual</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;.json&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// …parse file and set content type before returning…</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// …read file and return directly…</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>The gotcha is that I also want to display different fragments of the same piece of code in sequence,
+so that (for example)
+I can expand the second elision above to show the body of the <code>if</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">actual</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;.json&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">actual</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">200</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<p>I really, really don&rsquo;t want to duplicate any of this code;
+instead,
+I want to slice and dice one copy of the code in different ways
+at different points in my exposition.
+Knuth&rsquo;s <a href="http://www.literateprogramming.com/knuthweb.pdf">original description of literate programming</a>
+allowed for partial and out-of-order exposition,
+but today&rsquo;s systems don&rsquo;t,
+since it&rsquo;s mostly not needed for production code or analysis.</p>
+</li>
+<li>
+<p>Dynamic documents provide excellent support for charts
+    (by which I mean programmatically-generated data visualizations),
+    but they provide no support at all for diagrams
+    (by which I meant explanatory graphics created manually).
+    You can create these by switching to another tool,
+    drawing what you want,
+    and linking to that image file,
+    but that&rsquo;s a pretty awkward workflow—awkward enough that
+    most people either create fewer diagrams than cognitive science tells us we should
+    or create their presentations with slideshow tools like Keynote and PowerPoint
+    that put drawing and writing on a more equal footing.
+    Given that all of the dynamic document tools I mentioned earlier can display images inline,
+    it would be a simple matter of programming [tm] to embed or launch something like <a href="https://www.draw.io/">draw.io</a>
+    for editing in situ.
+    This wouldn&rsquo;t do everything that slideshow tools can do,
+    but it would still be a big step in the right direction.</p>
+</li>
+<li>
+<p>I&rsquo;ve been ranting for years about the fact that
+    version control tools can&rsquo;t diff and merge any format except lines of text,
+    which makes them effectively useless for managing spreadsheets,
+    images,
+    rich text documents,
+    PDFs,
+    and everything else that programmers have created to make everyone&rsquo;s life easier.
+    I won&rsquo;t repeat that rant now,
+    but bloody hell, folks,
+    it&rsquo;s 2019!
+    Surely we can—sorry,
+    sorry,
+    you&rsquo;re right,
+    I said I wouldn&rsquo;t.
+    (I&rsquo;m not yet at the point of advocating widespread re-adoption of ASCII art
+    as a solution for this one and the one above,
+    but the thought <em>has</em> crossed my mind.)</p>
+</li>
+</ol>
+<p>Years ago,
+I said that programmers&rsquo; tools hadn&rsquo;t changed since I was a grad student.
+<a href="http://margaretstorey.com/">Peggy Storey</a> corrected me:
+Stack Overflow and other Q&amp;A sites have changed the act of programming in fundamental ways.
+Dynamic documents have had a similar impact on data analysis;
+I think that with a few enhancements,
+they could do the same for teaching,
+and that&rsquo;s a pretty exciting idea.
+Now we just have to figure out how to combine them with blocks-based programming…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

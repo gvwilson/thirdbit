@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Teaching Programming to the Blind</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Teaching Programming to the Blind</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2016/09/21/reading-list/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2016-09-23" class="post-date">2016-09-23</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2016/09/27/terrified-sheep/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><a href="https://ramblesblog.files.wordpress.com/2016/05/inpraiseoftweaking.pdf">Andreas Stefik</a>
+(who discusses what we know about the usability of programming languages
+in <a href="https://www.functionalgeekery.com/episode-55-andreas-stefik/">this entertaining podcast</a>)
+has worked extensively on computing education and programming tools for the visually impaired.
+When asked earlier this week how to teach programming to the blind,
+he sent the response below.
+We&rsquo;re grateful for his comments,
+and for <a href="https://vivo.nkn.uidaho.edu/vivo/display/n43629">Evan Williamson</a>&rsquo;s
+recent pull request
+to improve the accessibility of our lessons.</p>
+<hr />
+<ol>
+<li>
+<p>If you are making any presentations, be sure to provide the
+   powerpoints to the blind individual in advance if you
+   can. Powerpoint is the &ldquo;most&rdquo; accessible, but if you have any
+   images, you need to manually specify &ldquo;alts&rdquo; inside the
+   presentation. It&rsquo;s not hard, but most people don&rsquo;t realize
+   powerpoint has this feature.</p>
+</li>
+<li>
+<p>When actually presenting material, for any kind of diagrams, I find
+   it helpful (if my audience is blind) to practice oral description
+   of the images ahead of time. This is sometimes tricky in code,
+   especially for things like linked structures or trees. So, if you
+   are explaining those kinds of concepts, just be aware that it might
+   take some practice. I&rsquo;ve practiced this for years in my own
+   presentations, but still find it challenging sometimes for highly
+   visual content (e.g., we taught 3D gaming to blind people this
+   summer, which was a real challenge).</p>
+</li>
+</ol>
+<p>Same goes with code. If the person doesn&rsquo;t read code coming in,
+   screen readers don&rsquo;t even output all of the special characters
+   without special modes turned on (e.g., verbosity mode in JAWS). For
+   example, if I have:</p>
+<div class="highlight"><pre><span></span><code>a = a - b
+</code></pre></div>
+<p>it might say &ldquo;a equals a b&rdquo; (notice the missing minus).  Point
+   being, depending on the experience level of the person coming in,
+   and how comfortable they are with their screen reader, they might
+   need some help getting used to the quirks. When presenting, you
+   sometimes have to actually say the special characters or they won&rsquo;t
+   know they need to be typed.</p>
+<ol>
+<li>
+<p>If you are using tools for programming, a great many out there
+   don&rsquo;t work for the blind. The best you can do here is make sure you
+   get them to the person in advance if you know they work. If you
+   don&rsquo;t, you can either ask or at least have a fallback. A basic text
+   editor and the console usually works on most systems, although that
+   doesn&rsquo;t mean that kind of setup is easy to use. We have some stuff
+   that might help, but it depends on what you are teaching and your
+   specific needs.</p>
+</li>
+<li>
+<p>Different languages can cause major issues for blind individuals. I
+   could go into detail, but imagine things like white space in
+   Python. Or, imagine hearing statements like, &ldquo;for left paren int i
+   equals semicolon i less than ten semicolon i plus plus right paren
+   left brace&rdquo; in C. Both can cause headaches for various reasons.</p>
+</li>
+<li>
+<p>Find out about their specific needs beforehand if you can and if
+   they are willing to tell you. If they just need magnification and
+   large print materials, this stuff is a lot easier. If they are a
+   total, then braille can be helpful. <strong>But</strong>, crucially, you need to
+   know whether they know Braille, and if so, which kind. Braille
+   standards have changed in recent years and it matters for computer
+   code because of the special characters. I&rsquo;m not a Braille expert,
+   but if this is an issue on your end, I can get you info from some
+   experts.</p>
+</li>
+</ol>
+<p>Finally, one thing I almost always recommend to do before hand, just
+to make sure you have a little bit of context, is to download a screen
+reader and give it a shot. On Windows, grab NVDA, or on Mac, just
+press APPLE F5. Even spending an hour going over a tutorial can help
+give you a little of context. Spending an hour programming blind on
+your own won&rsquo;t make you an expert, but it&rsquo;s such a different way of
+programming that it might help give a glimpse into that world.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

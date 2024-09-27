@@ -1,6 +1,0 @@
----
-title: "We Should Have Built This For Them"
-date: 2008-07-16 14:13:43
-year: 2008
----
-One Big Lab has a <a href="http://onebiglab.blogspot.com/2008/07/labmeetingcom-make-science-easier.html">short review</a> of <a href="http://www.labmeeting.com">LabMeeting.com</a>, a tool to help PhD students organize papers they've read, discover new ones, share lab procedures, and so on.  It was built by physics students; similar systems, like <a href="http://ologeez.stanford.edu/">Ologeez</a> and <a href="http://www.openwetware.org">OpenWetWare</a>, were built by geneticists and cell biologists respectively.  I can't help but think that we (computer scientists) should be building stuff like this for them, so that they can spend their time making tiny little black holes and intelligent viruses and stuff.  It isn't "just implementation": there are lots of interesting problems in user interfaces, and as soon as you get into things like <a href="http://reproducibleresearch.org/">reproducible research</a> there's a ton of publishable work in requirements engineering to be done to figure out what systems <em>ought</em> to be doing. *sigh*

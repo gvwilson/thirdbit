@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: First Draft of SQL Tutorial</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>First Draft of SQL Tutorial</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/01/31/lesson-log/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-02-03" class="post-date">2024-02-03</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/02/14/a-pair-of-interviews/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I still need to draw half a dozen diagrams,
+and it would be nice to have a few more examples for the appendix
+on PostgreSQL permissions,
+geospatial operations,
+and the like,
+but <a href="https://gvwilson.github.io/sql-tutorial/">this SQL tutorial</a> is now in a teachable state.
+I hope to deliver it for the first time later this month;
+comments, corrections, and additions are always welcome.</p>
+<p>Meanwhile,
+here are some early morning thoughts on lesson design and implementation.
+I just converted a hand-drawn (i.e., illegible to anyone but me) concept map
+into something readable and <a href="https://gvwilson.github.io/sql-tutorial/img/concept_map_datamod.svg">posted it in the tutorial</a>.
+The problem is,
+the lesson as implemented doesn&rsquo;t line up with the design:
+blobs and some of the row constraints mentioned in the diagram haven&rsquo;t been introduced at this point.</p>
+<p>In particular, &ldquo;primary key&rdquo; fit more naturally into the material on joins,
+but it&rsquo;s a data definition constraint.
+So what do I do?</p>
+<ol>
+<li>
+<p>Throw them in at this point and promise they&rsquo;ll be useful later?
+    Nope: every time an instructor makes a forward reference, they lose a few learners.</p>
+</li>
+<li>
+<p>Repeat this concept map later with a few additions?
+    I&rsquo;ve tried that in the past,
+    but even if the new concepts are highlighted the duplication is confusing.
+    It&rsquo;s also hard to maintain:
+    ideally,
+    I&rsquo;d be able to label the elements of the diagram as visible or not visible
+    based on some flag given in the HTML when the diagram is included (think about incremental reveal in slides),
+    but that doesn&rsquo;t appear to be a thing.</p>
+</li>
+<li>
+<p>Find a way to introduce notions here,
+    i.e., introduce primary key as a way to safely delete or update exactly the records you want?
+    I fiddled with that,
+    but so far I haven&rsquo;t come up with anything that doesn&rsquo;t feel clumsy.
+    That could just be me, though:
+    I hope that someone out there will find a way to do this
+    and will send me a pull request that makes it work. </p>
+</li>
+</ol>
+<p>Things like this are part of why we don&rsquo;t have open lessons with thousands of contributors.
+If I refactor code,
+I can run the test suite to make sure I haven&rsquo;t broken things.
+I don&rsquo;t have equivalent guardrails when I refactor a lesson:
+I don&rsquo;t have a way to check automatically and repeatably
+that moving topic X earlier or later hasn&rsquo;t introduced a forward reference or some other potential source of confusion.
+(I also can&rsquo;t auto-check diagrams against prose, but ignore that for now.)</p>
+<p>This, I think, is one of the reasons I focus on day-long tutorials rather than months-long courses:
+it&rsquo;s feasible to track the dependencies of something the size of this SQL tutorial manually,
+which means it&rsquo;s possible to collaborate without breaking things at every turn.
+It may also be part of why Wikipedia and <a href="https://aosabook.org/">AOSA</a> work:
+in the absence of a cognitive regression test suite,
+we <em>have</em> to create independent brain-sized chunks of learning if we want lots of contributors.</p>
+<p>All of which brings me to a question:
+can LLMs help?
+Not for writing lessons,
+but for checking for breakage as changes are made.
+I don&rsquo;t expect or require it to be perfect:
+the test suite for the last big software project I worked on
+didn&rsquo;t catch all of the regressions we introduced in a large refactoring,
+but it was still very useful
+and we wouldn&rsquo;t have dared tackle the work without that safety net.
+Can something like LLMs be given the existing lesson and a PR and say,
+&ldquo;Uh, wait a sec…&rdquo;?</p>
+<p><em>See also &ldquo;<a href="../../../../2018/12/02/oer-landmines/">OER Landmines</a>&rdquo; from 2018.</em></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

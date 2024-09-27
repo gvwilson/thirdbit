@@ -1,0 +1,7 @@
+---
+title: "ElmCity Reaches Toronto"
+date: 2012-12-08
+---
+<p>For the past few years, Jon Udell has been working on a project called <a href="http://elmcity.cloudapp.net/">ElmCity</a>. Its ostensible aim is to do for calendars what the RSS ecosystem has done for news: allow everyone to be an author, but also make it easy to aggregate, filter, and share information from a wide variety of sources. Its deeper aim, though, is to teach people by example that this is what the web is for–that it's a way to re-mix information to meet <em>your</em> needs, when and how you want.</p>
+<p>After several false starts, ElmCity now has <a href="http://elmcity.cloudapp.net/Toronto/">an aggregated calendar</a> for the city of Toronto that combines data in real time from a bunch of sources. If you want your own events to show up, you <em>don't</em> send Jon entries for its database, because it doesn't have one. Instead, you <a href="http://blog.jonudell.net/elmcity-project-faq/#contribute">give him the URL</a> for your event feed, so that whenever you add something new, it'll show up automatically. That's how to <a href="http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/">think like the web</a>, and if we're going to teach kids anything about computing in grade school, that ought to be part of it.</p>
+<p><em>Note: if you'd like to help ElmCity grow, please contact Jon: he's always looking for new curators.</em></p>

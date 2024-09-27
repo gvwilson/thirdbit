@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Assessing Competence</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Assessing Competence</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2018/01/15/ten-rules-education-research-partnership/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2018-01-26" class="post-date">2018-01-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2018/02/04/carpentrycon/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A friend who is running workshops to teach coding skills to people getting into tech
+asked me a question earlier this week:
+what&rsquo;s the best way to rate and report someone&rsquo;s skill,
+as opposed to their knowledge?
+The same question came up at work,
+and since I know far less about educational assessment than I should,
+I figured I&rsquo;d share my answer in the hope that someone would correct me.</p>
+<p>Our objective is to <em>rate</em> someone&rsquo;s skill (i.e., figure out what it is)
+and then <em>report</em> it (i.e., communicate our rating in a way other people will correctly understand).
+A common way to do this is to list the skills and levels:</p>
+<table class="centered">
+  <tr>
+    <th></th>
+    <th colspan="5" align="center">Understanding</th>
+  </tr>
+  <tr>
+    <th></th>
+    <th>None</th>
+    <th>Beginner</th>
+    <th>Basic</th>
+    <th>Good</th>
+    <th>Advanced</th>
+  </tr>
+  <tr>
+    <th>Functions</th>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+  </tr>
+  <tr>
+    <th>Filter/Map</th>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+  </tr>
+  <tr>
+    <th>Immutability</th>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+    <td>[ ]</td>
+  </tr>
+</table>
+
+<p>The problem is that terms like &ldquo;basic understanding&rdquo; and &ldquo;good understanding&rdquo; mean different things to different people.
+Unless you operationalize these levels somehow,
+different evaluators will use the same term with different meanings.
+This isn&rsquo;t a problem with a very small team who&rsquo;ve worked together and have a shared (implicit) understanding of goals and levels,
+but as soon as you bring on someone who <em>hasn&rsquo;t</em> been co-braining with you for ages,
+you&rsquo;re in trouble.</p>
+<p>Another way to approach this uses the
+<a href="https://en.wikipedia.org/wiki/Four_stages_of_competence">four stages of understanding</a> model.
+Given a concrete task like,
+&ldquo;Learner uses filter/map in place of loops or other control strucures,&rdquo;
+the evaluator rates the observed performance as:</p>
+<ol>
+<li>
+<p>unconscious incompetence (i.e., doesn&rsquo;t do it and doesn&rsquo;t know that she should)</p>
+</li>
+<li>
+<p>conscious incompetence (knows she should but fumbles execution)</p>
+</li>
+<li>
+<p>conscious competence (does it, but has to check details and makes mistakes)</p>
+</li>
+<li>
+<p>unconscious competence (writes correct code from muscle memory)</p>
+</li>
+</ol>
+<p>Evaluators are more likely to agree with each other on these ratings,
+but it does depend on observing process rather than inspection of final result:
+you can&rsquo;t distinguish conscious and unconscious competence by looking at a learner&rsquo;s final code.
+For small cohorts, though,
+observation is feasible:
+evaluators can either watch over the learner&rsquo;s shoulder,
+or have them record a short screencast of themselves programming
+and watch it at 5X.</p>
+<p>This approach surfaces another issue that any kind of assessment has to deal with.
+The three topics in the table shown earlier were &ldquo;functions&rdquo;, &ldquo;filter/map&rdquo;, and &ldquo;immutability&rdquo;.
+The first two are straightforward to operationalize:
+does the learner break her code into small, self-contained functions,
+and use filter and map instead of loops and conditionals?
+The third is a lot harder to fit into this framework.
+&ldquo;Learner uses <code>const</code> instead of <code>let</code>&rdquo; is a sign of understanding,
+but hardly the whole story.
+Requiring assessors to operationalize what they mean–i.e.,
+to be specific about what learners are doing to signal what they understand–forces
+the assessors to think carefully about what they actually mean.
+Sitting here right now,
+I honestly don&rsquo;t know how I would tell how well you understood the concept of immutability,
+which in turn means that I&rsquo;m probably shouldn&rsquo;t be trying to put a label on your understanding yet.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

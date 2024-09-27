@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: September 2014 Lab Meeting Report</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>September 2014 Lab Meeting Report</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2014/09/18/proposal-for-topic-maintainers/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2014-09-26" class="post-date">2014-09-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2014/09/28/ucosp-as-a-model/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>After a two-month break for a sprint and some holidays,
+we held another monthly lab meeting this week.
+About 50 people showed up to talk about issues large and small;
+the key points are below.</p>
+<ul>
+<li>
+<p>As mentioned last week,
+    we are asking specific people to take charge of particular topics in our core material.
+    They will <em>not</em> be responsible for developing lessons themselves
+    (though they may of course do so).
+    Instead,
+    their job will be to keep issues and pull requests moving by reviewing,
+    managing discussion,
+    merging into the master branch,
+    and so on.
+    Our initial maintainers are:</p>
+<ul>
+<li>Bash: Gabriel Devenyi and Christina Koch</li>
+<li>Git: Matt Davis and Jessica Hamrick</li>
+<li>Python: Azalee Bostroem and Trevor Bekolay</li>
+<li>SQL: Abigail Cabunoc and Sheldon McKay</li>
+<li>R: John Blischak and Denis Haine</li>
+<li>Mercurial: Doug Latornell</li>
+<li>MATLAB: Ashwin Srinath and Isabell Kiral-Kornek</li>
+<li>Build system: Raniere Silva and Rémi Emonet</li>
+<li>Windows installer: W. Trevor King and Ethan White</li>
+</ul>
+</li>
+<li>
+<p>Related to this,
+    we are going to break up the <code>bc</code> repository.
+    It currently holds both our lessons and the templates for creating workshop sites,
+    and has become too large and too complicated to manage.
+    Our plan is to have a one-to-one match between repositories and lessons
+    (e.g., the <code>novice/python</code> lesson will be in a small repository of its own);
+    we&rsquo;re working out a detailed proposal,
+    and hope to have it up early next week.
+    Trevor King, Trevor Bekolay, Ré Emonet, and Erik Bray have volunteered to help
+    with the Git magic that will be needed to do this without losing history–more help
+    will be very welcome when the time comes,
+    particularly from people who <em>aren&rsquo;t</em> Git experts,
+    and can therefore tell us whether what we&rsquo;re doing is usable.</p>
+</li>
+<li>
+<p>Greg Wilson&rsquo;s post on <em>Building a Better Teacher</em>
+    and companion posts by Azalee Bostroem and Justin Kitzes
+    have generated a lot of suggestions over the past three weeks
+    about how we could share good teaching practices among our instructors.
+    The specific suggestions made at this week&rsquo;s meeting were:</p>
+<ul>
+<li><em>Match each new instructor with an experienced instructor as a mentor.</em>
+    Azalee Bostroem,
+    Erik Bray,
+    Abigail Cabunoc,
+    Matt Davis,
+    Gabriel Devenyi,
+    Ivan Gonzalez,
+    Adina Howe
+    Karin Lagesen,
+    Bill Mills,
+    Tracy Teal,
+    and Naupaka Zimmerman
+    all volunteered to be mentors;
+    we&rsquo;ll match them with people who finished instructor training this summer.</li>
+<li>We&rsquo;ll set up a weekly or bi-weekly meeting in which
+    people who have taught in the past couple of weeks
+    can &ldquo;hand off&rdquo; what they&rsquo;ve learned about the lessons
+    to people who are going to teach in the coming couple of weeks.
+    This will also be an opportunity for Greg Wilson to debrief recent instructors.</li>
+<li>We will ask instructors to send us their checklists after each workshop
+    so that we can see what they actually did
+    (and trim the things they didn&rsquo;t).</li>
+<li>We&rsquo;ll have &ldquo;in-service days&rdquo; a couple of times a year
+    in which people who have been teaching for a while
+    can find out what changes have been made to our lessons recently.</li>
+</ul>
+</li>
+<li>
+<p>Before we break up the <code>bc</code> repository,
+    we&rsquo;re going to simplify things by using <code>gh-pages</code> as the main branch
+    (i.e., the starting point for new features)
+    instead of the <code>master</code> branch.
+    We have been using <code>master</code> as a staging area
+    (i.e., as a development branch, with <code>gh-pages</code> as the release branch),
+    but this has been causing confusion.
+    We won&rsquo;t delete <code>master</code> until outstanding pull requests are merged,
+    but we&rsquo;ll set up our new lesson repositories with <code>gh-pages</code> as their default.</p>
+</li>
+<li>
+<p>Naupaka Zimmerman, Chris Kees, and Karin Lagesen volunteered to help us revamp
+    our pre-assessment survey
+    based on feedback we&rsquo;ve received in the last few months.
+    In particular,
+    they&rsquo;ll make it easier to customize for particular workshops,
+    and try to come up with questions that will help us discriminate more accurately
+    between different levels of novice learner.</p>
+</li>
+<li>
+<p>Daniel Chen has received about 15 descriptions of what was actually taught in various workshops
+    from those workshops&rsquo; instructors.
+    He, Fan Yang, and Marios Isaakidis will use these descriptions
+    to revamp our post-workshop instructor survey
+    to help us learn more about how our lessons are actually being used,
+    and how well they&rsquo;re working.</p>
+</li>
+<li>
+<p>We&rsquo;re going to start using the term &ldquo;workshop&rdquo; instead of the term &ldquo;bootcamp&rdquo;,
+    since the latter is harder to translate in some languages,
+    and has paramilitary connotations to some people.</p>
+</li>
+</ul>
+<p>Many thanks to everyone who took part in these meetings–we have a lot of work in front of us,
+but a good crew to do it.</p>
+<p><strong>Round 1 Attendees (18:30-19:30 Eastern on Thursday, Sept 25)</strong></p>
+<ul>
+<li>Greg Wilson (Software Carpentry / Toronto)</li>
+<li>Bennet Fauber (University of Michigan)</li>
+<li>Matt Davis</li>
+<li>Damien Irving (University of Melbourne)</li>
+<li>Isabell Kiral-Kornek (University of Melbourne)</li>
+<li>Ashwin Srinath (Clemson University, SC)</li>
+<li>Trevor Bekolay (University of Waterloo)</li>
+<li>Balamurugan Desinghu (University of Chicago)</li>
+<li>Sarah Supp (Univ Wisconsin - Madison)</li>
+<li>Azalee Bostroem (UC Davis)</li>
+<li>Kirill Palamartchouk (Newcastle University, UK) Sorry, unable to type today</li>
+<li>Raniere Silva (University of Campinas, Brazil)</li>
+<li>Gabriel Devenyi (McGill University)</li>
+<li>Rémi Emonet (University of Saint Étienne, FR)</li>
+<li>Bill Mills (Mozilla Science Lab / Vancouver)</li>
+<li>Trevor (Olympia)</li>
+<li>Pauline Barmby (Western U, London Canada)</li>
+<li>Jason Williams (Cold Spring Harbor Laboratory)</li>
+</ul>
+<p><strong>Round 2 Attendees (11:00-12:00 Eastern time on Friday, Sept 26)</strong></p>
+<ul>
+<li>Greg Wilson (Software Carpentry / Toronto)</li>
+<li>Kristjan Onu (Gagest / Montreal)</li>
+<li>John Blischak (University of Chicago)</li>
+<li>Denis Haine (Université de Montréal)</li>
+<li>Nichole Bennett (University of Texas/Okinawa Institute of Science and Technology)</li>
+<li>Abigail Cabunoc (Mozilla Science Lab / Toronto)</li>
+<li>Ethan White (Utah State Univ/Univ of Florida)</li>
+<li>François Michonneau (University of Florida)</li>
+<li>Naupaka Zimmerman (U of Arizona)</li>
+<li>Lynne Williams (Child and Family Research Imaging Facility/Vancouver)</li>
+<li>Jose Beltran (Stockholm University)</li>
+<li>Adina Howe (Argonne National Lab)</li>
+<li>Fan Yang (Iowa State University)</li>
+<li>Arliss Collins (Mozilla Science Lab)</li>
+<li>Karin Lagesen (University of Oslo)</li>
+<li>Marios Isaakidis (Cyprus University of Technology)</li>
+<li>Janet Riley (Cantina Consulting, Boston)</li>
+<li>Tracy Teal (Michigan State)</li>
+<li>Sheldon McKay (New York)</li>
+<li>Robert Till (CUNY - John Jay)</li>
+<li>Amy Brown (no fixed address/Toronto)</li>
+<li>Ivan Gonzalez</li>
+<li>Olav Vahtras (KTH Stockholm)</li>
+<li>JC Leyder</li>
+<li>Tom (Sickkids)</li>
+<li>Stephen Turner (University of Virginia)</li>
+<li>Erik Bray (STScI)</li>
+<li>Daniel Chen (CUMC)</li>
+<li>Chris Kees (ERDC/Coastal and Hydraulics Lab)</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

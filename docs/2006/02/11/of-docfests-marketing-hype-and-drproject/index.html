@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Of DocFests, Marketing Hype, and DrProject</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Of DocFests, Marketing Hype, and DrProject</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/02/04/project-assets/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-02-11" class="post-date">2006-02-11</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/02/15/entry-level-requirements-engineering-revisited/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Sean, Michelle, and I spent a couple of hours yesterday writing and updating documentation for DrProject.  The first 1.0 release candidate is now up on the web; while there are lots of little things to fix, I&rsquo;m 99% confident we&rsquo;ll be able to announce it, and open up the Subversion repository, within the week.</p>
+<p>Which makes <a href="http://radar.oreilly.com/archives/2006/02/web_development_20.html">this piece</a>, by Marc Hedlund, very timely.  I&rsquo;m as amused by the invented-for-hype term &ldquo;Web 2.0&rdquo; as the next person, but that doesn&rsquo;t change the fact that software development has changed in the last ten years.  Here&rsquo;s my take on Hedlund&rsquo;s list:</p>
+<p><strong>The shadow app</strong> (which is his name for the internal application a company develops in order to figure out how their publicly released application is doing): we don&rsquo;t have anything like this yet for DrProject, but one of the principal reasons we built it was to collect data on how undergraduates program, so that we can improve our courses.  <a href="http://www.cs.utoronto.ca/~reid">Karen Reid</a> and I are taking <a href="http://www.cs.utoronto.ca/~sme">Steve Easterbrook</a>&rsquo;s grad course on <a href="http://www.cs.toronto.edu/~sme/CSC2130/index.html">Empirical Research Methods in Software Engineering</a> this term, in the hopes of learning how to design studies and experiments that are scientifically credible; our &ldquo;shadow app&rdquo; will be driven by what we are learning there.</p>
+<p><strong>Sampling and testing</strong>, i.e., randomly show a small fraction of your visitors the new interface, and see how they use it, before releasing it generally.  I don&rsquo;t think we&rsquo;ll ever be able to do this in the classroom: the code of ethics prevents us from varying the conditions under which students work solely to collect data without first getting informed consent, and experience elsewhere is that less than 10% of students will bother to fill in the appropriate form.  We <em>might</em> be able to do this with non-course projects, like DrProject itself.</p>
+<p><strong>Build your own API</strong>: of course.  <a href="http://www.cmlenz.net">Chris Lenz</a> remounted DrProject on <a href="http://www.python.org/peps/pep-0333.html">WSGI</a> in January, so building a SOAP API (or similar) should be straightforward.  I&rsquo;d love to see a DrProject-friendly <a href="http://www.eclipse.org">Eclipse</a> plugin…</p>
+<p><strong>Ship timestamps, not versions</strong>: no.  Once we open up the Subversion repository, people can grab whatever they want, whenever they want.  We&rsquo;ll still do old-fashioned releases—it wouldn&rsquo;t be fair to students who are using it in courses to push anything that hadn&rsquo;t been thoroughly tested.</p>
+<p><strong>Developers—and users—do the quality assurance</strong>.  We had to do this for budgetary reasons, but—no, who am I kidding?  We <em>chose</em> to do this: I could have had one of the three people working on the project in January do QA full time.  I know that dedicating some people to QA has been proven over and over again to be a more efficient way of producing usable software; I guess I&rsquo;m just a sinner at heart.</p>
+<p><strong>Developers—and executives—do the support</strong>.  Yes.</p>
+<p><strong>The eternal beta</strong>.  No.  Beta testing started as a way to give a few valued or experienced customers a sneak preview of what the next release was going to contain; it has degenerated into a two-syllable shorthand for &ldquo;you can&rsquo;t blame me&rdquo;.  I can&rsquo;t ask students facing hard deadlines in several courses at once to rely on DrProject unless I&rsquo;m sure it&rsquo;s stable, and if I&rsquo;m sure, why would I bother to call it a beta?</p>
+<p>So, what&rsquo;s next?  More testing infrastructure is at the top of my list: I&rsquo;m particularly excited by the newly-announced <a href="http://www.openqa.org/selenium-ide/">Selenium IDE</a>, which is a Firefox extension that lets you record, edit, and debug tests. Figuring out a way to run under <a href="http://www.modpython.org">mod_python</a> is up there too—we have to run as a pure CGI right now for security reasons, which won&rsquo;t scale to the kinds of loads we expect fifteen minutes before a major hand-in date.</p>
+<p>And then?  We&rsquo;d like to figure out what the simplest useful requirements management and traceability tool looks like; we&rsquo;d like to add some sort of continuous integration (that can handle builds in several languages, <em>without</em> requiring students to do a lot of configuration), and progress charts that let students see how they&rsquo;re doing compared to the rest of the class (a la <a href="http://www.cs.ualberta.ca/~stroulia/JRefleX/">JRefleX</a>) would be cool as well.</p>
+<p>But first we have to get the 1.0 release out the door…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

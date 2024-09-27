@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Complexity vs. Subtlety</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Complexity vs. Subtlety</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2016/02/25/a-modest-proposal/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2016-03-05" class="post-date">2016-03-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2016/03/13/in-my-better-world/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I gave a lightning talk on Software Carpentry for the <a href="http://oicr.on.ca/">OICR</a> yesterday,
+and in discussion afterward,
+<a href="http://www.dursi.ca/">Jonathan Dursi</a> made an observation that I&rsquo;ve been thinking about since.
+He wondered whether the key difference between commercial software and scientific software
+is <em>complexity</em> versus <em>subtlety</em>.
+For example,
+the software that manages workplace insurance payouts for the province of Ontario is complex because
+it has to handle every regulatory change since the mid-1920s.
+None of the its rules and exceptions are intellectually taxing,
+but by the time you turn them into a service,
+provide a dozen different interfaces for different business roles,
+and make the whole thing fault tolerant,
+the software is incredibly tangled.</p>
+<p>A lot of scientific software is relatively straightforward by comparison,
+so long all you look at is the control flow.
+It&rsquo;s the specific calculations that are hard:
+what differencing scheme or statistical test to use,
+what convergence criteria or significance measure to apply,
+and so on.
+And yes,
+there are a lot of fiendishly tricky algorithms in science,
+but they&rsquo;re often hidden in libraries built and maintained by specialists
+who work and think like software engineers.</p>
+<p>All of this brings me back to the issue of <a href="../../../../2014/10/30/why-we-dont-teach-testing/">testing</a>.
+(I&rsquo;ll pause a moment to let long-time readers groan, &ldquo;Oh no, not this again.&rdquo;)
+A lot of tools and techniques for testing mainstream software
+are really about managing its complexity:
+some of the <a href="http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/">most</a>
+<a href="http://www.amazon.com/Why-Programs-Fail-Second-Systematic/dp/0123745152/">useful</a>
+books I know about making software <em>right</em>
+are good precisely because they makes this explicit.
+Offhand,
+I can&rsquo;t think of any good books about managing subtlety–about
+picking the right calculation to perform
+rather than handling badly-formatted input data
+and corner cases in control flow.
+I suspect this is because subtlety is inherently domain-specific,
+which means many fewer people know enough to write about any particular bit.</p>
+<p>In response to an early draft of this post,
+Jonathan added,
+&ldquo;This distinction is especially important in the early experimental stage of developing a tool:
+if something is successful enough and widely applicable enough that it becomes &lsquo;hardened&rsquo; or &lsquo;productized&rsquo; or the like,
+then the complexity naturally grows to be robust and to handle a wider range of cases.&rdquo;
+This is why I enjoy Software Carpentry so much:
+someone always has new insights.
+As always,
+we&rsquo;d be grateful for yours.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

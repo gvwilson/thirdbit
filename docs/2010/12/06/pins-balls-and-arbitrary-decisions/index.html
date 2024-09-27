@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Pins, Balls, and Arbitrary Decisions</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Pins, Balls, and Arbitrary Decisions</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/12/02/programmer-competency-matrix/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-12-06" class="post-date">2010-12-06</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/12/13/blinkered-not-graceful/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We'd like to include more extended examples like invasion percolation in this course, but they're surprisingly hard to write.  One that seems simple at first is a <a href="http://en.wikipedia.org/wiki/Bean_machine">Galton box</a> simulator.  As the diagram below shows, this is simply a a vertical board with interleaved rows of pins.  Small balls are dropped in at the top, and bounce left and right as they hit pins until they land in the boxes at the bottom.  Since each bounce randomly goes left or right, the distribution of balls is binomial, which, in the limit, approximates a normal distribution.</p>
+<p><img src="../../../../files/2010/12/galton-box.png" class="centered"></p>
+<p>At first glance, this should be pretty simple to code up.  Our objects are:</p>
+<ul>
+<li>a <em>world</em>, which is W wide and H high;</li>
+<li>two <em>walls</em> at X=0 and X=W;</li>
+<li>P <em>pins</em>, each of which has an XY location;</li>
+<li>B non-overlapping <em>bins</em>, each W/B wide; and</li>
+<li>N <em>balls</em>, each of which starts life at X=W/2 and Y=H (i.e., the middle of the top of the board.</li>
+</ul>
+<p>The physics is pretty simple too: balls fall under the force of gravity until they hit a wall, a pin, or a bin.  If they hit a wall or a pin, we calculate their new velocity using conservation of energy and a bit of trig.  If they hit a bin, we increment its counter so that we can see how closely our final result approximates a bell curve.</p>
+<p>In order to calculate a new trajectory for a ball, though, we need to know exactly where it struck the pin, which means we need to know its radius and the pin's radius as well as the locations of their centers.  We can simplify by making one or the other a point instead of a circle, but we obviously can't do that for both of them–the chances of any collisions at all would be pretty close to zero.</p>
+<p>The choice isn't symmetrical: if the ball has a radius, then it can rotate as a result of collision.  That will affect its trajectory because its rotation will dissipate energy, so it won't bounce as vigorously.  Point masses <em>should</em> give the same distribution as real balls, but there's another trap waiting for us.  Think about what happens when we drop a ball vertically on the top center pin.  Its velocity when it hits is (0, v<sub>y</sub>), so if the coefficient of elasticity is <em>E</em>, its post-bounce velocity is (0, Ev<sub>y</sub>), so it goes uuuuuuup, and comes back dooooown, and bounces with velocity (0, E<sup>2</sup>v<sub>y</sub>) and goes up, and comes down, and on and on.  Barring numerical catastrophe, it never hits any other pins at all: after a few iterations, it's just vibrating infinitesimally in the Y axis on the top edge of the first pin.</p>
+<p>We can "fix" this by introducing balls with some initial X velocity, but how much should they have?  Alternatively, we could randomize bounces a little bit, but how?  Do we calculate a post-bounce angle and perturb it by a small random amount?  Or jitter the X and Y post-bounce energies?  Or something else equally artificial?  And no matter what we choose, how can we turn around after throwing together half a dozen arbitrary decisions and say that this is "simulating" anything?</p>
+<p>There are days when I really miss the Game of Life…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

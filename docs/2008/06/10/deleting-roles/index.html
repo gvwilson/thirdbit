@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Deleting Roles</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Deleting Roles</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2008/06/09/directions/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2008-06-10" class="post-date">2008-06-10</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2008/06/11/feedback-time/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>One of the ways DrProject improves on <a href="http://trac.edgewall.org">Trac</a> is role-based access control. A role is a set of capabilities, such as WIKI_VIEW or TICKET_EDIT, and users&rsquo; relationships to projects are represented by triples of the form (user, project, role). It makes administration a lot easier, and once Qiyu Zhu&rsquo;s <a href="http://qzdrproject.wordpress.com/">web-based role editor</a> comes online, it&rsquo;ll be easier still.</p>
+<p>But nothing worth having comes without some kind of price. Suppose a portal administrator decides to delete a role—what should happen to people who actually have that role with respect to one or more projects? For example, if the MEMBERSHIP table looks like this:</p>
+<table class="centered">
+<tr>
+<td colspan="3" align="center">MEMBERSHIP</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>PROJECT</td>
+<td>ROLE</td>
+</tr>
+<tr>
+<td>Greg</td>
+<td>Telepathy</td>
+<td>developer</td>
+</tr>
+<tr>
+<td>Greg</td>
+<td>Antigravity</td>
+<td>developer</td>
+</tr>
+<tr>
+<td>Qiyu</td>
+<td>Telepathy</td>
+<td>developer</td>
+</tr>
+<tr>
+<td>Qiyu</td>
+<td>Antigravity</td>
+<td>viewer</td>
+</tr>
+<tr>
+<td>Sandeep</td>
+<td>Telepathy</td>
+<td>viewer</td>
+</tr>
+</table>
+<p>then what should happen if the &ldquo;viewer&rdquo; role is deleted?  Options include:</p>
+<ol>
+  <li>Nothing—leave the MEMBERSHIP table as it is. That seems bad because role values like "viewer" are foreign keys for the CAPABILITY table, and dangling foreign keys would make joins and other operations scary.</li>
+  <li>Delete all records from MEMBERSHIP that have the role being deleted. This effectively removes everyone who had that role from those projects (if you don't have an explicit role, you have whatever rights the anonymous user has). This solves the dangling foreign key problem, but now the admin might have to go through all of the users in the portal and give them new roles in those projects one by one.</li>
+  <li>Only allow admins to delete roles that aren't being used. This option forces admins to reassign people <em>before</em> deleting the role, so they're easier to find, but still means a lot of hand-work.</li>
+  <li>Allow admins to reassign users' roles during the deletion process.</li>
+</ol>
+<p>We&rsquo;ve decided to go with #4, and Liz Blankenship has mocked up a UI for it. Aninteractive version is <a href="http://lizblankenship.com/drproject/admin_panelv3/Configure_roles.html">online</a> (follow the trail of green arrows), or you can check out the screenshots below. Comments would as always be welcome.</p>
+<p><strong>Step 1</strong></p>
+<p><img src="../../../../files/2008/06/step1.png" alt="Step 1" class="centered"></p>
+<p><strong>Step 2</strong></p>
+<p><img src="../../../../files/2008/06/step2.png" alt="Step 2" class="centered"></p>
+<p><strong>Step 3</strong></p>
+<p><img src="../../../../files/2008/06/step3.png" alt="Step 3" class="centered"></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Code reviews</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Code reviews</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2005/02/27/ajax-asynchronous-javascript-xml/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2005-03-11" class="post-date">2005-03-11</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2005/03/13/reading-the-fine-print/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We're two weeks away from the coding cutoff, so I've got students doing code reviews.  For most of them, this is the first time in their lives that they've marked someone else's code, and had their own examined line by line.  (They've all had plenty of code marked, of course, but with an average of 70 students in a course, TAs can't give the kind of detailed feedback students we all wish they could.)</p>
+
+<p>Coincidentally, I had to do a little code review of my own this morning.  I decided earlier this week to move my online bookmarks from Bookmark4U to <a href="http://del.icio.us">del.icio.us</a>.  The ever-useful Adam Goucher found <a href="http://delicious-py.berlios.de/">a Python module</a> for working with del.icio.us, so I downloaded all my old bookmarks, and wrote a 10-line script to parse that data and upload the links and tags to del.icio.us.  Simple, right?</p>
+
+<p>Wrong.  For some reason, all of the entries were showing up tagged as <code>"system:unfiled"</code>, and the tags themselves were showing up as the extended description of the link.  A quick check showed that I was calling <code>delicious.add()</code> correctly, so I started tracing the code.  It only took a couple of minutes to discover that <code>delicious.py</code>'s author had reversed the order of a couple of parameters in a nested call. Tweak tweak tweak, rerun my script, and all is now good.  (See <a href="http://del.icio.us/gvwilson">my del.icio.us page</a> for my links.)</p>
+
+<p>This experience reinforces conversations I had earlier this week with two different colleagues at <a href="http://www.cs.utoronto.ca">U of T</a>—conversations that I'm sure thousands of instructors around the world have had over and over again for the last thirty years.  We teach students how to write code, but we never (or hardly ever) teach them how to <em>read</em> it.  With the exception of Spinellis's <a href="http://www.amazon.com/exec/obidos/ASIN/0201799405">Code Reading</a>, I don't even know of any books devoted to the topic.  I'd love to make this part of the standard undergraduate curriculum, so that students could tackle coursework using realistically-sized code bases (such as the OS simulator used in <a href="http://www.cs.utoronto.ca/~csc369h">CSC369</a>), but I honestly don't know what I'd drop to make room for it…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

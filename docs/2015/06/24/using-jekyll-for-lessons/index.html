@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Using Jekyll for Lessons</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Using Jekyll for Lessons</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2015/06/21/splitting-the-shell/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2015-06-24" class="post-date">2015-06-24</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2015/06/26/training-lessons/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  A recurring complaint about our lesson template
+  is that it requires authors to commit generated HTML files to their repositories
+  as well as their Markdown source files.
+  This is necessary because we use <a href="http://pandoc.org">Pandoc</a> to convert Markdown to HTML,
+  but GitHub will only run <a href="http://jekyllrb.com/">Jekyll</a>.
+</p>
+<p>
+  There were a bunch of reasons for using Pandoc instead of Jekyll,
+  but it is now clear that the simplicity of only committing Markdown–i.e.,
+  of using GitHub pages the way they're meant to be used–is more important.
+  We have therefore created a prototype of a Jekyll-based template.
+  The most important changes are:
+</p>
+<ul>
+  <li>
+    <p>
+      Only the source Markdown files go into the repository's <code>gh-pages</code> branch,
+      <em>not</em> the generated HTML
+    </p>
+  </li>
+  <li>
+    <p>
+      The lesson's title, repository URL, and other values are defined once
+      in a configuration file called <code>_config.yml</code>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Blockquotes are styled like this:
+    </p>
+<pre>
+> ## Title
+>
+> body
+{: .style}
+</pre>
+    <p>
+      instead of like this:
+    </p>
+<pre>
+> ## Title {.style}
+>
+> body
+</pre>
+    <p>
+      Code blocks are styled similarly,
+      i.e.,
+      with the style <em>after</em> the block instead of at the top.
+    </p>
+  </li>
+</ul>
+<p>
+  People using source formats other than Markdown,
+  such as R Markdown or Jupyter Notebooks,
+  will still need to convert their files to plain old Markdown
+  (styled as shown above)
+  in order for them to be rendered properly by Jekyll.
+  And we'll need to upgrade the format checking script,
+  which means finding a Kramdown-compatible parser in Python
+  (or getting Kramdown to spit out its AST as a data structure
+  that a Python program can consume).
+  But most of these things have to be done anyway,
+  and it seems that most of our contributors think they're a price worth paying
+  for a "real" GitHub Pages experience.
+</p>
+<p>
+  If you think the change is worth making,
+  please say so in <strike>the comments below</strike>
+  this GitHub issue.
+  If you think we should stick with our existing tools,
+  please say that too.
+</p>
+<p>
+  Postscript:
+  many people have said they want the change,
+  largly because it brings us in line with the standard GitHub Pages workflow
+  (which Data Carpentry is using).
+  Several others have counter-arguments,
+  some of which are in 
+  this thread
+  from our discussion list.
+  In particular,
+  please read:
+</p>
+<ul>
+  <li>
+    <p>
+      this post
+      from John Blischak about us having come full circle,
+      and about us putting time into tooling that we should be putting into creating lesson content;
+    </p>
+  </li>
+  <li>
+    <p>
+      this one
+      from Doug Latornell about re-mixing our current Pandoc-based workflow; and
+    </p>
+  </li>
+  <li>
+    <p>
+      this one
+      from Carl Boettiger about Markdown syntax.
+    </p>
+  </li>
+</ul>
+<p>
+  <em>
+    We are grateful to <a href="http://brittanyhemming.com/">Brittany Hemming</a>
+    for her work on the CSS for this prototype,
+    and to <a href="http://www.mat.univie.ac.at/~leitner/">Thomas Leitner</a>
+    for advice on Kramdown's Markdown parsing.
+  </em>
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

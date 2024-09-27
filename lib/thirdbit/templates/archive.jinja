@@ -1,0 +1,17 @@
+{% extends "base.jinja" %}
+
+{% block head_title %}
+<title>{{site.title}} Archive {{node.year}}</title>
+{% endblock %}
+
+{% block page_title %}
+<h1>{{site.title}} Archive {{node.year}}</h1>
+{% endblock %}
+
+{% block content %}
+<table>
+{% for post in site._posts %}
+{% if post.date.year == node.year %}<tr><td>{{post.date}}</td><td><a href="">{{post.title}}</a></td></tr>{% endif %}
+{% endfor %}
+</table>
+{% endblock %}

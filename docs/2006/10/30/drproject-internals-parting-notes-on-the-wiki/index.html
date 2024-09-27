@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: DrProject Internals: Parting Notes on the Wiki</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>DrProject Internals: Parting Notes on the Wiki</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/10/30/jim-waldo-on-system-design/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-10-30" class="post-date">2006-10-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/10/31/computational-result-retracted/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I promised in the last article to move on to DrProject&rsquo;s ticketing system, but there are still a couple of issues around its wiki that need further description.  The first is how wiki text is transformed into HTML; the second is why this is harder to do in batch mode than you&rsquo;d think.</p>
+<p>Ward Cunningham created the first wiki in 1994-95 so that people could easily edit hypertext over the web.  The only input widget he trust browsers to support was the text input box.  Since editing HTML tags by hand is tedious and error-prone, he adopted and modified the notational conventions that people were using for email and other plain-text documents:</p>
+<table cellpadding="1" class="center">
+<tr>
+<td valign="middle"><code>== Level 2 ==</code></td>
+<td valign="middle">
+<h2>Level 2</h2>
+</td>
+</tr>
+<tr>
+<td valign="middle"><code>''emphasis''</code></td>
+<td valign="middle"><em>emphasis</em></td>
+</tr>
+<tr>
+<td valign="middle"><code>ThirdBit</code></td>
+<td valign="middle">ThirdBit</td>
+</tr>
+<tr>
+<td valign="middle"><code>[http://third-bit.com home]</code></td>
+<td valign="middle">home</td>
+</tr>
+</table>
+<p>If wikis had been invented later, these text notations might not have been adopted, since it&rsquo;s now straightforward to nest a WYSIWYG HTML editor written in Javascript in a web page.  On the other hand, there are a lot of out-of-browser cases where systems like DrProject want users to be able to create hyperlinked text, such as comments on check-ins to version control and the bodies of email messages, so perhaps ASCII styling would have arisen after all.</p>
+<p>Wiki markup simplifies input, but creates a new problem: somehow, pages have to be parsed, then transformed into HTML for display.  The parser that DrProject inherited from <a href="http://trac.edgewall.com">Trac</a> used a pile of regular expressions to match and extract bits of text.  This worked well enough, but was difficult to extend—every time we tried to add a new feature, we found our new regexp conflicted with some of the existing ones, or made some piece of formatting ambiguous.</p>
+<p>A graduate student named <a href="http://www.cs.toronto.edu/~liam/">Liam Stewart</a> (now with <a href="http://www.ideeinc.com">Idée</a>) therefore wrote an entirely new parser using <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/">Greg Ewing</a>&rsquo;s <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python/Plex/">Plex</a> toolkit.  Like <a href="http://dinosaur.compilertools.net/">yacc</a> and (many) other parser generators, <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python/Plex/">Plex</a> takes a grammar specification as input, and compiles it into executable code that will parse the language that grammar specifies. Developers can embed instructions in the grammar to create a parse tree as a side effect of analyzing input.  Here&rsquo;s a bit of our grammar (<code>Bol</code> means &ldquo;beginning of line&rdquo;, <code>Eol</code> means &ldquo;end of line&rdquo;, and—well, the details aren&rsquo;t important):</p>
+<pre>newline = Str("\n", "\r\n")
+h1 = Alt(Bol + Rep(Any(" \t")) + Str("="),
+Str("=") + Rep(Any(" \t")) + Alt(Eol,newline))
+h2 = Alt(Bol + Rep(Any(" \t")) + Str("=="),
+Str("==") + Rep(Any(" \t")) + Alt(Eol,newline))
+hr = Bol + Str("—-") + Rep(Str("-"))
+br = re('\[\[BR\]\]')
+ital = re("''")
+bold = re("'''")
+boldital = re("'''''")
+under = re("__")
+…
+rules = [
+(h1, (HEADING, H1)),
+(h2, (HEADING, H2)),
+(hr, (HR, None)),
+(ital, (STYLE, ITALIC)),
+(bold, (STYLE, BOLD)),
+(boldital, (STYLE, BOLDITALIC)),
+(under, (STYLE, UNDERLINE)),
+…
+]</pre>
+<p>The entire parser came in at 459 lines of Python, including blank lines and comments.  We were pretty pleased—until we noticed that DrProject had slowed down a <em>lot</em> after we introduced it.  An undergraduate student named Billy Chun looked into the problem over the summer, and discovered that <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python/Plex/">Plex</a> was re-generating the parser every time it was called.  More specifically, <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python/Plex/">Plex</a> was spending 1.9 seconds translating a nondeterministic finite state automaton (NFA) into its deterministic equivalent (a DFA) each time DrProject rendered a wiki page.</p>
+<p>This isn&rsquo;t a bug in <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python/Plex/">Plex</a>, but rather a misconception on our part.  <a href="http://dinosaur.compilertools.net/">Yacc</a> and similar tools produce C code that can be compiled into an application; we therefore assumed that <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python/Plex/">Plex</a> was doing the same, i.e., that the parser was being produced once and stored somewhere for re-use.  When that turned out not to be the case, we were stymied: we went as far as trying to serialize the byte codes that <a href="http://www.cosc.canterbury.ac.nz/greg.ewing/python/Plex/">Plex</a> generated before deciding that we were creating more complexity than we had eliminated by switching to a parser generator in the first place.</p>
+<p>Our eventual &ldquo;solution&rdquo; to this problem was to let another change to the system—the switch from pure CGI to <a href="http://www.mems-exchange.org/software/scgi/">SCGI</a>—take care of it for us.  While pure CGI forks a fresh Python interpreter to handle each HTTP request, <a href="http://www.mems-exchange.org/software/scgi/">SCGI</a> relies on a single interpreter running in parallel with the web server.  That long-lived interpreter only needs to generate the parser once; the second and subsequent times it has to render a wiki page, it can re-use the parser it generated the first time.</p>
+<p>As Billy was starting his investigation of DrProject&rsquo;s performance problems, two other students named Apple Viriyakattiyaporn and David Scannell were ramping up as well.  We&rsquo;d hired them to spend the summer doing development on the system; as a warm-up exercise, I asked them to write a standalone wiki formatter.  The idea was to have a command-line tool that would transform the text of a wiki page into HTML, so that people could check their formatting when editing offline, batch process pages for printing, and so on.</p>
+<p>It turned out to be a harder job than I&rsquo;d expected.  Some of the difficulty was simply tangled code: for example, the wiki processor expected an HTTP request object as input, but we obviously wouldn&rsquo;t have one when running from the command line in batch mode.  No problem—Python&rsquo;s <a href="http://en.wikipedia.org/wiki/Duck_typing">duck typing</a> makes it easy to create objects that implement just enough of an interface to get a particular job done.</p>
+<p>The real problem—what Fred Brooks Jr. would call the &ldquo;intrinsic complexity&rdquo;, as opposed to the &ldquo;accidental complexity&rdquo;—was how to format links.  In order to decide whether to format a particular CamelCaseWord as a link or not, the wiki processor needed to know what other pages the system contained.  That information was stored in DrProject&rsquo;s database.  Should the standalone wiki processor depend on access to a database?  That would be inconvenient; it would also require us to give users read privileges for the database, which would be a big security risk.</p>
+<p>What about decoupling the wiki processor from the database?  If the wiki processor only ever called a function <code>get_page_names</code>, we could import a database-specific version in DrProject, and something else in the standalone wiki processor.  That &ldquo;something else&rdquo; could read from a file, take a bunch of page names as command-line arguments, or anything else.</p>
+<p>That sounded sensible—until we started thinking about wiki macros.  A macro is a piece of Python code that generates HTML.  If <code>copyright.py</code> is saved in the right directory, for example, and contains a function called <code>copyright()</code> that returns the string <code>&ldquo;Copyright © 2006 University of Toronto&rdquo;</code> then putting <code>[[copyright()]]</code> in a wiki page will insert the copyright notice.  <a href="http://trac.edgewall.com">Trac</a>&rsquo;s <a href="http://trac.edgewall.org/wiki/MacroBazaar">Macro Bazaar</a> lists dozens of macros for navigation, inclusion, charts, and much else.</p>
+<p>How is the standalone wiki processor supposed to handle macros? Loading the Python code that implements a particular macro isn&rsquo;t (much of) a problem; the problem is that there&rsquo;s no way of knowing what data a particular macro is going to want.  Something that displays the last time a wiki page was edited, for example, is going to need access to an actualy DrProject database. (Either that, or we create a mock object that has all the features of such a database, which seems a little silly…)</p>
+<p>In the end, we punted: after working on the standalone wiki processor for more than a week, Apple and David had learned enough about DrProject&rsquo;s internals to start fixing bugs and implementing new features, so we put set the standalone wiki processor aside.  I&rsquo;d like to return to it some day, though; being able to batch process wiki pages and tickets (particularly for printing) is still an attractive idea.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Wanted: A Tool for Figure Labeling Exercises</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Wanted: A Tool for Figure Labeling Exercises</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2018/03/09/budget/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2018-03-11" class="post-date">2018-03-11</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2018/03/13/base-case-for-empirical-software-engineering/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;d like to be able to do the following:</p>
+<p>Step 1: Create a simple SVG diagram, some of whose labels are marked with <code>{% raw %}{{…}}{% endraw %}</code> or something similar:</p>
+<p><img src="../../../../files/2018/03/provinces-original.png" alt="Original diagram" width="500" class="centered"></p>
+<p>Step 2: Include that diagram in a web page, giving it a special class.</p>
+<p>Step 3: Include a small JavaScript library in the same web page (not shown).</p>
+<p>Step 4: When the page loads, the JS looks for SVGs that have the magic class and transforms them so that:</p>
+<ul>
+<li>All the specially-marked text is pulled over to one side and displayed without the <code>{% raw %}{{…}}{% endraw %}</code> delimiters.
+  (Any undelimited text is left where it was.)</li>
+<li>Markers are put in the figure to show where the delimited text was.</li>
+</ul>
+<p><img src="../../../../files/2018/03/provinces-unlabeled.png" alt="Labels on the side" width="600" class="centered"></p>
+<p>Step 5: The person viewing the page can now drag labels from the side and drop them on the markers to re-label the diagram.
+(If they change their mind about where a label should go, they can re-drag it as many times as they want.)</p>
+<p>Step 6: When they&rsquo;re done, the library can compare the diagram they&rsquo;ve reconstructed against the original and determine whether all the labels are in the right place.</p>
+<p>This tool would let instructors create <a href="../../../../2017/10/16/exercise-types/">many different kinds of exercises</a>,
+since Parsons Problems and &ldquo;match things in Column A with things in Column B&rdquo; are just special cases of &ldquo;put these bits of text in the right places&rdquo;.
+More importantly,
+it would let people who aren&rsquo;t programmers create them:
+Anyone who can use a drawing tool capable of exporting SVG would just have to remember to include the <code>{% raw %}{{…}}{% endraw %}</code> delimiters
+(or whatever the tool author chooses to use).
+If you&rsquo;re interested in helping to build this,
+please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

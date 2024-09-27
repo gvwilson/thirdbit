@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Why DrProject Is Slow</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Why DrProject Is Slow</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/06/23/perforce-for-beginners-only/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-06-27" class="post-date">2006-06-27</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/06/27/next-design-by-contract-please/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Billy Chun has been investigating why DrProject is so slow (5.1 seconds per request).  As regular readers will know, we&rsquo;re running it as a pure CGI: a new Python interpreter is forked for every request.  The fork itself costs about half a second, and importing all the libraries takes about the same, but the real culprit turns out to be the 1.9 seconds (yes, 1.9 seconds) spent in Plex.nfa_to_dfa.  <a href="http://www.cosc.canterbury.ac.nz/~greg/python/Plex/">Plex</a> is the parser generator we used to create a parser for our wiki pages; according to internal documentation, the nfa_to_dfa translates non-deterministic finite automata into deterministic ones.  In plain English, we&rsquo;re recompiling our wiki syntax parser <em>every single time a page is requested</em>.</p>
+<p>Oops.</p>
+<p>So how much improvement can we expect? Well, when Billy ran DrProject with <a href="http://www.mems-exchange.org/software/scgi/">SCGI</a>, the time per request dropped from 5.1 seconds per request to 0.6 seconds: no fork, no re-import, no regeneration of the wiki parser, and a few other things as well. That&rsquo;s a factor of eight, and will get us well within our target performance range. He&rsquo;s writing up an installation guide right now, and will then look at whether we can cache the <a href="http://www.cosc.canterbury.ac.nz/~greg/python/Plex/">Plex</a>-generated parser somehow. These changes won&rsquo;t be in this week&rsquo;s release candidate, but ought to make it into the final 1.0.</p>
+<p>Onward!</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

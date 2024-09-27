@@ -1,0 +1,116 @@
+---
+template: page
+title: "Dr. Greg Wilson"
+---
+
+<h2 id="highlights">Highlights</h2>
+
+<ul>
+  <li>Professional software developer for over 40 years</li>
+  <li>Fellow of the Python Software Foundation</li>
+  <li>Co-founder and first Executive Director of <a href="https://carpentries.org">Software Carpentry</a>, a world-wide volunteer organization that has taught software skills to almost 100,000 researchers since 2010.</li>
+  <li>Co-founder of <a href="https://neverworkintheory.org/">It Will Never Work in Theory</a> and <a href="https://aosabook.org/">The Architecture of Open Source Applications</a></li>
+  <li>Author or editor of fourteen books on programming (including a 2008 Jolt Award winner), one on teaching, and two for children.</li>
+</ul>
+
+<h2 id="employment">Employment</h2>
+
+<p><strong>2024-present:</strong> Engineering Manager, Open Source Libraries, Plotly. Responsible for managing in-house developers and coordinating open source community and strategy.</p>
+
+<p><strong>2021–2024:</strong> Senior Engineering Manager, Deep Genomics. Responsible for recruiting and managing developers, building back-end software in Python, and training.</p>
+
+<p><strong>2021:</strong> Head of Education, Metabase. Responsible for designing and delivering training material and managing content development team.</p>
+
+<p><strong>2018–2021:</strong> Data Scientist and Professional Educator, RStudio PBC. Created and ran an instructor certification program; also managed the student intern programs.</p>
+
+<p><strong>2017–2018:</strong> Content developer and instructor trainer, DataCamp. Created courses on Git and the Unix shell; recruited, trained, and edited the work of freelance instructors.</p>
+
+<p><strong>2017:</strong> Principal Consultant, Rangle.io. Revised training materials on Angular and React; coached company staff on training techniques.</p>
+
+<p><strong>2015–2016:</strong> Director of Instructor Training, Software Carpentry Foundation. Developed and delivered the foundation's train-the-trainers course; helped develop workflow tools used to manage thousands of volunteer instructors worldwide.</p>
+
+<p><strong>2012–2015:</strong> Executive Director, Software Carpentry Foundation. Developed curriculum, trained instructors, negotiated partnerships with multiple organizations, and led development of workflow tools.</p>
+
+<p><strong>2011:</strong> Software Engineer, Side Effects Software Inc. Helped build and test a web store for the company's flagship product using Django and Selenium.</p>
+
+<p><strong>2010–2011:</strong> Project lead, Software Carpentry. Developed and delivered workshops on research computing skills at several dozen universities; recruited and trained volunteer instructors; oversaw program assessment and fundraising.</p>
+
+<p><strong>2006–2010:</strong> Assistant Professor, Computer Science, University of Toronto. Taught courses at several levels; supervised theses; designed a Professional Master's program.</p>
+
+<p><strong>1982–2006:</strong> Software developer and consultant for academic research centers, national labs, and firms ranging from early-stage startups to IBM.</p>
+
+<h2 id="education">Education</h2>
+
+<p><strong>1993:</strong> PhD in Computer Science, University of Edinburgh.</p>
+
+<p><strong>1986:</strong> MSc in Artificial Intelligence, University of Edinburgh.</p>
+
+<p><strong>1984:</strong> BSc in Mathematics and Engineering (First Class Honors), Queen's University.</p>
+
+<h2 id="awards">Awards</h2>
+
+<ul>
+<li>ACM SIGSOFT Influential Educator of the Year Award, 2020.</li>
+<li>ComputerWorld Canada's "IT Educator of the Year" award, 2010.</li>
+<li>Co-winner of 2008 Jolt Award for Best General Book (for <em>Beautiful Code</em>).</li>
+<li>Co-winner of Howe Prize (best thesis in Artificial Intelligence), University of Edinburgh, 1986.</li>
+<li>Commonwealth Scholarship, 1985–86.</li>
+<li>University Medal, Queen's University, 1984 (top student in graduating class).</li>
+</ul>
+
+<h2 id="miscellaneous">Miscellaneous</h2>
+
+<ul>
+<li>Co-founder and editor of <em>It Will Never Work in Theory</em>.</li>
+<li>Founder and co-editor of <em>The Architecture of Open Source Applications</em>.</li>
+<li>Author of two children's books (<em>Bottle of Light</em>, 2008 and <em>Three Sensible Adventures</em>, 1999).</li>
+<li>Co-organized a summit meeting of free-range computing education groups in 2015.</li>
+<li>Python Software Foundation, 2010-present.</li>
+<li>Stencila Advisory Board, 2017-19.</li>
+<li>Toronto Public Library Innovation Council, 2017-18.</li>
+<li>Advisory Board, Ladies Learning Code, 2012-2014.</li>
+<li>Contributing editor with <em>Doctor Dobb's Journal</em>, 2001-10.</li>
+<li>Mentor for Google's Summer of Code, 2005-2015.</li>
+<li>Ultimate frisbee, 1995-2003 (Toronto "C" Division championship team 2002).</li>
+<li>Competitor in World Computer Chess Championship, 1989.</li>
+</ul>
+
+<h2 id="technical-books">Technical Books</h2>
+
+<ul>
+<li>Greg Wilson: <em><a href="https://third-bit.com/sdxjs/">Software Design by Example</a></em>. Chapman and Hall/CRC Press, 2022.</li>
+<li>Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson: <em><a href="https://merely-useful.tech/py-rse/">Research Software Engineering with Python</a></em>. Chapman and Hall/CRC Press, 2021.</li>
+<li>Maya Gans, Toby Hodges, and Greg Wilson: <em><a href="https://third-bit.com/js4ds/">JavaScript for Data Science</a></em>. Chapman and Hall/CRC Press, 2020.</li>
+<li>Greg Wilson: <em><a href="http://teachtogether.tech/">Teaching Tech Together</a></em>. Chapman and Hall/CRC Press, 2019.</li>
+<li>Amy Brown and Greg Wilson (eds.): <em><a href="https://aosabook.org/">The Architecture of Open Source Applications</a></em> (two volumes), Lulu.com, 2011 and 2012.</li>
+<li>Andy Oram and Greg Wilson (eds.): <em>Making Software: What Really Works, and Why We Believe It</em>. O'Reilly, 2010.</li>
+<li>Jennifer Campbell, Paul Gries, Jason Montojo, and Greg Wilson: <em>Practical Programming</em>. Pragmatic Bookshelf, 2009.</li>
+<li>Andy Oram and Greg Wilson (eds.): <em>Beautiful Code: Leading Programmers Explain How They Think</em>. O'Reilly and Associates, 2007; winner of 2008 Jolt Award for Best General Book.</li>
+<li>Greg Wilson: <em>Data Crunching: Solve Everyday Problems Using Java, Python, and More.</em> Pragmatic Bookshelf, 2005.</li>
+<li>Gregory V. Wilson and Paul Lu (eds.): <em>Parallel Programming Using C++</em>. MIT Press, 1996.</li>
+<li>Gregory V. Wilson: <em>Practical Parallel Programming</em>. MIT Press, 1995.</li>
+</ul>
+
+<h2 id="selected-papers-and-articles">Selected Papers and Articles</h2>
+
+<ul>
+<li>Jess Haberman and Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1011305">Ten Simple Rules for Writing a Technical Book</a>. <em>PLoS Comp. Bio.</em>, 2023.</li>
+<li>Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1009809">Twelve Quick Tips for Software Design</a>. <em>PLoS Comp. Bio.</em>, 2022.</li>
+<li>Danielle Smalls and Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1008563">Ten Quick Tips for Staying Safe Online</a>. <em>PLoS Comp. Bio.</em>, 2021.</li>
+<li>Sarah Lin, Ibraheem Ali, and Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1008469">Ten Quick Tips for Making Things Findable</a>. <em>PLoS Comp. Bio.</em>, 2020.</li>
+<li>Paul Denny, Brett A. Becker, Michelle Craig, Greg Wilson, and Piotr Banaszkiewicz: <a href="https://dl.acm.org/doi/10.1145/3291279.3339402">Research This! Questions that Computing Educators Most Want Computing Education Researchers to Answer</a>. <em>ICER 2019</em>.</li>
+<li>Dan Sholler, Igor Steinmacher, Denae Ford, Mara Averick, Mike Hoye, and Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1007296">Ten Simple Rules for Helping Newcomers Become Contributors to Open Projects</a>. <em>PLoS Comp. Bio.</em>, 2019.</li>
+<li>Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1007433">Ten Quick Tips for Delivering Programming Lessons</a>. <em>PLoS Comp. Bio.</em>, 2019.</li>
+<li>Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1006915">Ten Quick Tips for Creating an Effective Lesson</a>. <em>PLoS Comp. Bio.</em>, 2019.</li>
+<li>Neil Brown and Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1006023">Ten Quick Tips for Teaching Programming</a>. <em>PLoS Comp. Bio.</em>, 2018.</li>
+<li>Gabriel Devenyi, Rémi Emonet, Rayna Harris, Kate Hertweck, Damien Irving, Ian Milligan, and Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1005963">Ten Simple Rules for Collaborative Lesson Development</a>. <em>PLoS Comp. Bio.</em>, 2018.</li>
+<li>Daniel Almeida, Gail Murphy, Greg Wilson, and Mike Hoye: <a href="https://dl.acm.org/doi/10.1109/ICPC.2017.7">Do Software Developers Understand Open Source Licenses?</a> <em>ICSE'17</em>, 2017.</li>
+<li>Morgan Taschuk and Greg Wilson: <a href="https://doi.org/10.1371/journal.pcbi.1005412">Ten Simple Rules for Making Research Software More Robust</a>. <em>PLoS Comp. Bio.</em>, 2017.</li>
+<li>Greg Wilson, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal: <a href="https://doi.org/10.1371/journal.pcbi.1005510">Good Enough Practices in Scientific Computing</a>. <em>PLoS Comp.Bio.</em>, 2017.</li>
+<li>Greg Wilson: <a href="https://doi.org/10.12688/f1000research.3-62.v2">Software Carpentry: Lessons Learned</a>. <em>F1000 Research</em>, 2016.</li>
+<li>Greg Wilson, Dhavide Aruliah, Titus Brown, Neil Chue Hong, Matt Davis, Richard Guy, Steven Haddock, Kathryn Huff, Ian Mitchell, Mark Plumbley, Ben Waugh, Ethan White, and Paul Wilson: <a href="https://doi.org/10.1371/journal.pbio.1001745">Best Practices for Scientific Computing</a>. <em>PLoS Biology</em>, 2014.</li>
+</ul>
+
+<div class="center">
+  <a href="./gvwilson.pdf">PDF</a>
+</div>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: More Thoughts on Document Compilers</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>More Thoughts on Document Compilers</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/09/22/data-science-deployed/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-09-23" class="post-date">2021-09-23</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/09/27/current-project-list/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I let fly with some half-baked complaints about the state of document compilers on Twitter yesterday,
+so I&rsquo;d like to try to get some more organized thoughts down before I&rsquo;m distracted again.</p>
+<ol>
+<li>
+<p>By now we should all be using WYSIWYG tools.
+   We don&rsquo;t because version control tools refuse to diff and merge them.
+   I&rsquo;ve ranted about this <a href="../../../../2011/09/16/extensible-programming-a-new-hope/">before</a>;
+   I no longer believe it&rsquo;s going to be fixed in my working lifetime,
+   so I&rsquo;ll move on.</p>
+</li>
+<li>
+<p>Jamstack&rsquo;s list of open source static site generators (SSGs) currently has
+   <a href="https://jamstack.com/generators/">over 300 entries</a>.
+   Most of them are designed with blogging in mind,
+   which means they don&rsquo;t meet a lot of other authorial needs out of the box:</p>
+</li>
+<li>
+<p>Numbering chapters, sections, and subsections consecutively across files (e.g., across chapters).</p>
+</li>
+<li>Numbering figures, tables, examples, exercises, and everything else an author might want.
+     (No matter what counters you provide, people are going to need another one—for example,
+     did you notice that &ldquo;theorems&rdquo; wasn&rsquo;t in the previous sentence&rsquo;s list?)</li>
+<li><em>Not</em> requiring document names in cross-references,
+     because content often moves between files.</li>
+<li><em>Not</em> requiring manual numbering (e.g., an order number or weight in each chapter) because ditto.</li>
+<li>Handling bibliographic citations, glossary references, index references, and a bunch of other things
+     without requiring a lot of typing.</li>
+</ol>
+<p>Most SSGs are extensible <em>if you speak the language</em> (more on this below),
+   but many insist on a page-at-a-time processing model
+   so that (for example) consecutive sequential numbering of figures <em>across</em> rather than <em>within</em> chapters
+   simply isn&rsquo;t doable without external processing.</p>
+<ol>
+<li>
+<p>There are layers on top of SSGs that handle some of these things,
+   but in my experience they&rsquo;re very fragile.
+   (Go ahead, try to figure out which of Bookdown&rsquo;s several configuration files you need to modify
+   to change the way pages are numbered.)
+   A large part of that fragility comes from reliance on LaTeX and/or Pandoc.
+   These are both powerful tools,
+   but like FORTRAN,
+   the startup costs for casual users are prohibitive
+   and the number of expert users is slowly but steadily dwindling.
+   (Try to get the LaTeX templates of any of the major publishers to work nicely with the SSG of your choice
+   and tell me how long it took you.
+   Now go to someone who hasn&rsquo;t used LaTeX as long as you have and see how long it takes them.)</p>
+</li>
+<li>
+<p>&ldquo;Everybody should use the right tool for the job&rdquo; isn&rsquo;t a solution for the people I want to help,
+   any more than &ldquo;everybody should use the right programming language for the job,&rdquo;
+   because most people don&rsquo;t have the free time I had in my twenties to master obscure technologies.
+   If you don&rsquo;t agree,
+   we&rsquo;re probably thinking about different audiences.</p>
+</li>
+</ol>
+<p>One thing yesterday&rsquo;s Twitter exchange helped me realize is that
+I think user-level in-tool extensibility is a must-have.
+For all its quirks,
+most people can build the customizations they want for LaTeX <em>in the tool itself</em>.
+If you want to extend Pandoc you have to write in—well,
+you get to pick,
+which means that someone else who wants to use your extension has to install that language&rsquo;s toolchain.
+(Have fun.)
+You also have to work at the parse tree level rather than by slinging bits of text around;
+I recognize that the former is more general,
+but so is assembly code.</p>
+<p>At this point I&rsquo;d like to put forward a proposal that solves all these problems at once,
+but I don&rsquo;t have one.
+&ldquo;Simple things are easy and hard things can be approached gradually without switching paradigms&rdquo;
+is what every tool builder aspires to,
+but that doesn&rsquo;t mean it&rsquo;s always achievable.
+I think that LaTeX-style text splicing is enough for a lot of common cases,
+but a Turing-complete extension language is needed for more complex things,
+and that language should be one that people use anyway instead of (for example)
+the bastardized Ruby that things like Jekyll provide.
+I&rsquo;ve played with some SSGs that use JavaScript as the extension language,
+and liked them,
+but they don&rsquo;t provide a simpler mechanism equivalent to LaTeX&rsquo;s <code>\newcommand</code>
+with a couple of string parameters.</p>
+<p>And of course my perspective is heavily biased by my background
+and I might completely misunderstand the problems that most people face.
+If anyone knows of a comparative usability study of different document compilers
+(something more than just one person&rsquo;s drive-by based on misreading those tools&rsquo; home pages),
+I&rsquo;d be grateful for a pointer.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

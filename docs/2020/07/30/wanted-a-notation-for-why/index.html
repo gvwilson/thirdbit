@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Wanted: A Notation for 'Why'</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Wanted: A Notation for 'Why'</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2020/07/28/announcing-glosario/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2020-07-30" class="post-date">2020-07-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2020/07/30/save-the-humans/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We&rsquo;ve been working on the next version of TidyBlocks,
+which means I&rsquo;ve been programming again after a hiatus of several months.
+I enjoy it,
+much as I imagine my mother enjoyed knitting,
+but the older I get,
+the more frustrated I am by our tools.
+For example,
+the <code>Program</code> class has a <code>Map</code> called <code>waiting</code> from sets of strings to runnable pipelines,
+each of which can depend on zero or more other pipelines.
+As a pipeline runs,
+it can call <code>Program.notify(label)</code> to say,
+&ldquo;Tell anything that depends on <code>label</code> that the result it needs to run is now available.&rdquo;
+Once all of a pipeline&rsquo;s dependencies are ready,
+it is removed from <code>waiting</code> and added to the runnable queue (called <code>queue</code>).
+The code looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Notify the manager that a named pipeline has finished running.</span>
+<span class="cm"> * This enqueues pipeline functions to run if their dependencies are satisfied.</span>
+<span class="cm"> * @param {string} label Name of the result that was just produced.</span>
+<span class="cm"> */</span>
+<span class="nx">notify</span><span class="w"> </span><span class="p">(</span><span class="nx">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">util</span><span class="p">.</span><span class="nx">check</span><span class="p">(</span><span class="nx">label</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">),</span>
+<span class="w">             </span><span class="sb">`Cannot notify with empty label`</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">util</span><span class="p">.</span><span class="nx">check</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">env</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">Env</span><span class="p">,</span>
+<span class="w">             </span><span class="sb">`Program must have non-null environment when notifying`</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">toRemove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="nx">waiting</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">dependencies</span><span class="p">,</span><span class="w"> </span><span class="nx">pipeline</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">dependencies</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">label</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dependencies</span><span class="p">.</span><span class="nx">size</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">pipeline</span><span class="p">)</span>
+<span class="w">      </span><span class="nx">toRemove</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">pipeline</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="nx">toRemove</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">pipeline</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">waiting</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">pipeline</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>But why does this method build a list called <code>toRemove</code> while it&rsquo;s checking dependencies,
+then go back and remove the pipelines in that list from <code>waiting</code>?
+Why doesn&rsquo;t it just called <code>this.waiting.delete(pipeline)</code> inside the first <code>forEach</code>?
+The reason is that it&rsquo;s not safe to remove items from a <code>Map</code> while iterating over it:
+doing so can result in items being missed or in the wrong item being removed.</p>
+<p>That&rsquo;s not what annoys me, though.
+What annoys me is that I don&rsquo;t have any better way to explain why two <code>forEach</code>es are needed
+than a sentence or two of plain text.
+Modeling notations like UML can show what I&rsquo;m doing (sort of),
+and with enough work I could write something in a rigorous specification language like <a href="https://en.wikipedia.org/wiki/TLA%2B">TLA+</a>
+that would allow the computer to warn me if I <em>did</em> try to delete items inside the main <code>forEach</code>,
+but neither of those is the &ldquo;why&rdquo; that the next human being needs.</p>
+<p>All of which has me thinking about <a href="https://dplyr.tidyverse.org/">dplyr</a> pipelines
+and about whether every verb should have an optional <code>inOrderTo</code> parameter
+so that I can write pipelines like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">infant_hiv</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">estimate</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0.95</span><span class="p">,</span>
+<span class="w">         </span><span class="n">inOrderTo</span><span class="o">=</span><span class="s">&quot;Get rid of markers used by field workers to indicate unreliable data&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">((</span><span class="m">0.5</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">low</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">high</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0.7</span><span class="p">),</span>
+<span class="w">         </span><span class="n">inOrderTo</span><span class="o">=</span><span class="s">&quot;Select estimates in the 50-70% range&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">year</span><span class="p">,</span>
+<span class="w">           </span><span class="n">inOrderTo</span><span class="o">=</span><span class="s">&quot;Look at annual averages in this band&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">summarize</span><span class="p">(</span><span class="n">ave_range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">high</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">low</span><span class="p">),</span>
+<span class="w">            </span><span class="n">inOrderTo</span><span class="o">=</span><span class="s">&quot;Look at how the actual range in this band changes over time&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>I know I can do this with comments,
+but this would encourage authors to explain specific steps more precisely.
+The next step would be to come up with a (restricted, checkable) vocabulary
+like that used in <a href="https://cucumber.io/docs/gherkin/reference/">Gherkin</a>…</p>
+<p>…or something equally nebulous.
+I&rsquo;m not a data scientist,
+so I don&rsquo;t know exactly what would be most useful in practice,
+but as I help a colleague figure out why Booleans are showing up as strings,
+what I <em>do</em> know is that there has to be a better way.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Small Scale Real-World Requirements</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Small Scale Real-World Requirements</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/11/02/software-carpentry-continues-to-grow/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-11-05" class="post-date">2006-11-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/11/05/drproject-internals-tickets-again/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Over the past couple of weeks, I&rsquo;ve had some interesting conversations with local small software companies about their development process—in particular, about how they collect and manage requirements.  It isn&rsquo;t anything like it is in the textbooks, and I think I may have figured out why.</p>
+<p>Here&rsquo;s one web development company&rsquo;s process:</p>
+<ol>
+  <li>A technical salesperson interviews customer to find out what the customer wants.  For the most part, this consists of checking off items on a spreadsheet: "User self-registration… Mailing lists… Blog feeds… Product overview pages… Product pages…  Got it."  There may be a few "custom components" in the mix, but for the most part, the customer's web site can be assembled by customizing and combining off-the-shelf components.</li>
+  <li>The salesperson estimates the size and complexity of the job on a small/medium/large scale.  This selects the scaling factors that are applied to the individual work items, the basic implementation time of which is built into the spreadsheet.  The salesperson also estimates the time required to build any custom components, usually by analogy with similar items done previously.  What comes out the end is a preliminary estimate of the project's cost.</li>
+  <li>This estimate is taken back to the customer, who is then told how long it will take to firm up the design (a necessary step toward getting a final cost).  If the customer says, "No thank you," the two sides shake hands and go their separate ways.  Otherwise, the company works on a time-and-materials basis to turn the rough estimate into a design detailed enough to form the basis of a contract.</li>
+  <li>The finished design is taken back to the customer—in fact, it is the customer's property.  If the customer wants to take it elsewhere for implementation, there's another opportunity for a handshake and a farewell; in practice, though, that has never happened.  What <em>does</em> happen is that customers try to whittle down the price (which usually results in work items being pushed off, since the one thing customers are usually absolutely firm on is deadline).</li>
+  <li>The web development company then translates the design into code. Usually, the result is a happy customer, but sometimes the customer looks at the finished product and says, "This doesn't do what we asked for."  This is the point at which it becomes clear that the customer didn't actually read the design document: either they trusted the web development company, or didn't have time, or couldn't make any sense of it.  What follows is usually what the diplomats refer to as "full and frank discussions"…</li>
+</ol>
+<p>Here are some observations:</p>
+<ol>
+  <li>The development company has to commit to implementation details very early on in order to tell the customer how much things are going to cost (which in turn shapes the customer's requirements—if you can't afford it, you don't need it).  This is at odds with textbook approaches, in which you figure out what the customer wants, then figure out how you're going to build it.</li>
+  <li>The initial spreadsheet isn't nearly detailed enough to give to developers on its own.  Since the customer has already told the development company what it wants, the development company can't let its programmers go back and re-interview the customer to flesh the spreadsheet out (double cost to the customer, and it would look unprofessional).  The technical salesperson who spoke to the customer therefore has to dump everything s/he knows into to the mind of whoever is going to work up the detailed design as quickly and accurately as s/he can.</li>
+  <li>The detailed design is done in terms of features: this page has widgets with these capabilities, that database stores information according to such and such a schema, and so on.  Customers, on the other hand, think about what they're buying in terms of a muddled mix of pages and business processes: pages, because using the web has trained them to think that way, and business processes, because they want the web site to <em>do</em> something.  Mapping the customer's stew to a feature list is hard; mapping the features back to the stew in a way that the customer can understand is close to impossible.</li>
+</ol>
+<p>Why does this company do things this way?  Because any other methodology would lead to bankruptcy.  If you&rsquo;re IBM or Arthur Anderson, and the job itself is going to take five years and cost forty million dollars, customers will pay for your up-front design time (which may well be six months or a year).  Customers will <em>not</em> pay for the up-front on a two-person, six-week web site upgrade (in part because the kind of customer who needs that kind of job done usually isn&rsquo;t particularly clued in technically).  You have to figure out what the job&rsquo;s going to cost to make the sale; you need to know how you&rsquo;re going to build it to figure out what it&rsquo;s going to cost; so you need to turn stew into implementation features much earlier than purists would have you do.</p>
+<p>Another interesting observation is the way that this process steers development companies (not just the one whose process is outlined above) in certain directions.  The more you standardize your offerings, the better you will be able to estimate costs.  Whether it&rsquo;s web site development, telecoms, or data analytics, small companies doing on-demand work all seem to try to componentize their offerings in order to avoid losing their shirts.</p>
+<p>Finally, none of the people we&rsquo;ve spoken to so far have much time for <a href="http://www.extremeprogramming.org">Extreme Programming</a>.  Customers need to know what they&rsquo;re going to get months ahead of it being delivered, so that they can firm up all their other plans.  If purchasing tells marketing that the spec is, &ldquo;We&rsquo;re giving them money, and they&rsquo;re going to satisfy our needs,&rdquo; someone&rsquo;s gonna lose their job.  The only exception is when the development company has built up a lot of trust with the customer; if the developers have delivered above and beyond several times running, the customer may well say, &ldquo;Here are the keys, take it away.&rdquo;</p>
+<p>Here are the takeaways:</p>
+<ul>
+  <li>In order to succeed in the real world, a development process for small and medium-sized teams has to allow those teams to determine the time and effort a job is going to require very early on.  That in turn requires a "leap to implementation", with all the concomitant risks of focusing on plumbing at the expense of decor.</li>
+  <li>Companies want a lightweight, dynamic way to manage requirements. One idea (which we've heard twice) is to file a ticket for each requirement, then link those tickets somehow to the "feature to be implemented" tickets that satisfy it.  Such a system would also need to allow its users to impose an order on those tickets, so that they could be run off as a single, coherent document.  (Don't groan—what's important here isn't the paper, but a sensible linear ordering.)  This ties in nicely (we think) with adding parent/child relationships to tickets to help with scheduling ("X can only be started once Y and Z are finished", and so on).</li>
+</ul>
+<p>Thesis topic, anyone? ;-)</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

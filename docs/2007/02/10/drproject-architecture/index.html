@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: DrProject Architecture</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>DrProject Architecture</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2007/02/10/computing-with-railroads/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2007-02-10" class="post-date">2007-02-10</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2007/02/14/bitfrost/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I posted a picture of DrProject&rsquo;s database schema a while ago.  Last week, I found myself drawing its architecture on the blackboard in class, so I figured I should post that too.  (It would have been up two hours ago, but my Mac died again…)</p>
+<p><img alt="architecture1.png" src="../../../../files/2007/02/architecture1.png" class="centered"></p>
+<p>Here are the key elements:</p>
+<ul>
+  <li>Apache forwards HTTP requests for DrProject pages to SCGI; it also handles traffic from other Subversion clients (such as the command line or Eclipse).</li>
+  <li><a href="http://www.mems-exchange.org/software/scgi/">SCGI</a> runs the Python that makes up DrProject.  This is a long-running process, so that we don't pay the cost of repeated forking and loading.</li>
+  <li>A command-line tool called drproject-admin uses the same Python code; administrators can use it in shell scripts, or in other Python programs, to do batch operations (like setting up one project for each pair of students in a course).</li>
+  <li>(Almost) everything that isn't in a Subversion repository is stored in a PostgreSQL database.</li>
+  <li>When mail intended for a DrProject project lands on the machine, Postfix drops it in a spool directory.  Whenever DrProject runs, it pulls messages out of that directory, archives them in the database, indexes them, and forwards them to project members.</li>
+  <li>The "mail strobe" was written because DrProject <em>only</em> forwards mail when it runs. This means that if no-one visits the site for three days, mail will just pile up in the spool directory.  The strobe is just a cron job that pokes the server every minute or so.  DrProject 2.0 will pull mail handling out of the CGI, and have it run every time mail is delivered (or alternatively, have Postfix poke SCGI—we haven't decided yet).</li>
+  <li>The "service check" is another small program that polls all of the DrProject installations on a machine every few minutes to make sure they're still up, and sends the admins email if they're not.  We've always had occasional lockups, but they've been growing more common as load on the server increases; the folks at <a href="http://www.engcorp.com">Engenuity</a> are looking into this right now.</li>
+  <li>A program called validate, which checks user IDs and passwords against a password file.  We took user management out of the PostreSQL database so that we could piggyback on top of the departmental lab's user provisioning system; since we don't want a process running as www-data (the dummy user set up for Apache) to have access to password information, we use an external program that runs under setuid.</li>
+  <li>The password file that validate checks, which is stitched together periodically from (a) the server's own password file, (b) a subset of the user information from the departmental lab's password file, and (c) a mock password file for external users who don't have shell accounts, but who need access to projects.</li>
+  <li>DrProject's own configuration files.  I say "files" because each installation of DrProject has its own configuration (although they all share code).  Again, we'll fix this by the time 2.0 comes out…</li>
+</ul>
+<p>(I left out the Apache and Postfix configuration files, both of which have to be edited as well as part of an installation.)</p>
+<p>I have two observations about this diagram:</p>
+<ol>
+  <li>DrProject is actually a fairly simple system compared to many in widespread use today.  An equivalent diagram for <a href="http://www.sf.net">SourceForge</a> would probably have three times as many boxes on it; Indigo's order tracking system wouldn't fit onto your screen (I don't care how big your screen is, it wouldn't fit).  While we're making progress on debugging programs (even multithreaded ones—see Zeller's book), I haven't seen any substantive work on debugging configurations: if you don't get it write, all you can do is tweak and pray.  Anyone who wants to be rich, famous, and popular should consider tackling this problem.</li>
+  <li>This diagram combines several of <a href="http://www.win.tue.nl/~mchaudro/sa2004/Kruchten4+1.pdf">Kruchten's 4+1 views</a> into one: it shows a logical view of the system's components, a process-level view of the system's concurrency, and a development view of which code relies on which. It equally shows elements from all the major divisions in <a href="http://www.softwarepractice.org/">John Reekie's</a> system (which I've been using in class, and have been finding very useful).  I see this whenever I try to explain any system's architecture to anyone: I always want to mix entities of different types in my pictures, because every sensible narrative about the system incorporates them all.</li>
+</ol>
+<p>I&rsquo;d be interested in seeing pictures of other applications&rsquo; architectures if anyone has pointers—I rather suspect that everyone else is making up notations on the fly to fit their needs as well.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

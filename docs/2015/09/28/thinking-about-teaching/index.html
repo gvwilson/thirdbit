@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Thinking About Teaching</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Thinking About Teaching</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2015/09/26/scipy06/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2015-09-28" class="post-date">2015-09-28</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2015/09/30/citation-format/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  A little over a year ago,
+  we blogged about <em>jugyokenkyu</em>,
+  or "lesson study",
+  a bucket of practices that Japanese teachers use to hone their craft,
+  from observing each other at work
+  to discussing the lesson afterward
+  to studying curriculum materials with colleagues.
+  Getting the Software Carpentry Foundation up and running almost immediately pushed that aside,
+  but now that the SCF is up and running,
+  it's time to return to the subject.
+  Discussion of how teaching practices are transferred is part of that;
+  so are two other developments this week.
+</p>
+<p>
+  First, Victor Eijkhout has been thinking about
+  <a href="https://bitbucket.org/VictorEijkhout/parallel-computing-book/downloads/eijkhout-teachmpi.pdf">how to teach MPI</a>.
+  In particular,
+  he has been thinking about how the order in which concepts are usually introduced can mislead or confuse,
+  and about a different order that leads more naturally to proficient use.
+  We're not going to include MPI in Software Carpentry any time soon (if ever),
+  but I hope that the next major revision of our lessons will include this kind of design rationale.
+</p>
+<p>
+  Second,
+  Azalee Bostroem surveyed people who have taught our current Python lesson
+  to find out what they're actually doing and how it has been going.
+  46 people responded,
+  almost all of them instructors,
+  and the results are fascinating.
+  Here are some of the key findings, and my comments:
+</p>
+<dl>
+  <dt>
+    60% of our lessons are being taught to novices.
+  </dt>
+  <dd>
+    <p>
+      Here,
+      "novice" means "someone who has never programmed before".
+      (The survey defined "intermediate" as someone who had in a language other than Python,
+      and "advanced" as someone who had already used Python.)
+      When we re-design this lesson,
+      we could well wind up creating different versions for these audiences,
+      since someone who's learning Python as a second language will be able to move faster and farther
+      than someone who is new to ideas like "variable", "list", and "function".
+    </p>
+  </dd>
+  <dt>
+    53% of respondents would like an introduction to variables, data types, functions, and libraries
+    before jumping into the inflammation data example;
+    only 28% would not.
+  </dt>
+  <dd>
+    <p>
+      Related to this,
+      70% of respondents said that they carefully explained each part of the first episode of the Python lesson,
+      which is another indication that we need to warm up
+      rather than diving straight in.
+    </p>
+  </dd>
+  <dt>
+    Only 1/3 of respondents got through the whole Python lesson.
+  </dt>
+  <dd>
+    <p>
+      Which means we need to cut material as well as telling instructors how far people usually get.
+      (We've asked in the past for people to report times for lessons,
+      but returns have been slim.)
+    </p>
+  </dd>
+  <dt>
+    Over 80% of the respondents are teaching our materials with little
+    or no modification, but 22% are using an older version.
+  </dt>
+  <dd>
+    <p>
+      Based on a handful of conversations,
+      I think people use older material because
+      (a) they stick to whatever lesson they first taught,
+      and/or (b) they don't like the NumPy-early approach of the current lesson.
+      I don't know what we can do about (a),
+      but our "Python as a first language" lesson
+      should start with simpler tasks.
+    </p>
+  </dd>
+  <dt>
+    The defensive programming section which is skipped by over 85% of
+    the people who answered the survey, so we should move this
+    material elsewhere.
+  </dt>
+  <dd>
+    <p>
+      I (reluctantly) agree,
+      at least for people who are learning programming for the first time.
+      As with testing,
+      there's no point putting scarce classroom or maintenance time into something that doesn't stick.
+    </p>
+  </dd>
+  <dt>
+    82% of the people answering the survey are teaching out of the
+    Jupyter Notebook.
+  </dt>
+  <dd>
+    <p>
+      I was surprised by that, but I now wonder if it explains why it
+      takes so long to get through material with novices.  On the one
+      hand, the notebook is more like the graphical user interfaces
+      they are used to.  On the other hand, it's different in many
+      ways as well, which means they could be facing the double
+      cognitive load of a new programming language <em>and</em> a new
+      kind of editing interface.  As in the debate over whether
+      phonics or whole language is the best way to teach children to
+      read, what we need is a proper, unbiased study.
+    </p>
+  </dd>
+</dl>
+<p>
+  The biggest lesson in all of this is that
+  being able to pool our experiences is
+  the second-greatest benefit of teaching in the large.
+  (The greatest is having someone who can genuinely sympathize when something has gone wrong…)
+  It would take even our most active instructors several years to learn this much about our lessons;
+  comparing notes can help us all improve faster.
+</p>
+<p>
+  We would like even more data:
+  if you have taught Python for us and have three minutes to spare,
+  please fill in the survey.
+  And if you can give us half an hour,
+  we'd be grateful for help sorting and summarizing the comments we've had on our Python lessons
+  in debriefing sessions–please get in touch
+  if you can spare some time.
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

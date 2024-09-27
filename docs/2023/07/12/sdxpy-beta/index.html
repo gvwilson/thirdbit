@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example (Python edition) Now in Beta</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example (Python edition) Now in Beta</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/07/06/sdxpy-update/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-07-12" class="post-date">2023-07-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/07/14/performance-review-counterexamples/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>The first beta version of
+[<em>Software Design by Example: a Tool-Based Introduction with Python</em>][sdxpy]
+is now available at <a href="https://third-bit.com/sdxpy/">https://third-bit.com/sdxpy/</a>.
+It presents and explains small working models of two dozen different tools
+that developers use on a daily basis
+in order to show how experienced software designers think.
+All of the material is free to use under the CC-BY-NC and Hippocratic licenses,
+and I would be very grateful for feedback and fixes.
+It&rsquo;s a long way from being done
+(not that any tutorial is every really &ldquo;done&rdquo;)
+but I hope it&rsquo;s useful.
+My thanks to everyone listed in <a href="https://third-bit.com/sdxpy/intro/">https://third-bit.com/sdxpy/intro/</a>
+for the tools they&rsquo;ve built and shared and the feedback they&rsquo;ve already given.</p>
+<div align="center">
+  Start where you are.<br>
+  Use what you have.<br>
+  Help who you can.
+</div>
+
+<p>Note: red shows metrics that are under target
+(e.g., chapters that are too short),
+while blue shows ones that are over
+(e.g., slideshows with too many slides to fit into an hour).</p>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Slides</th>
+            <th>Words</th>
+            <th>Sections</th>
+            <th>Exercises</th>
+            <th>Figures</th>
+            <th>Syllabus</th>
+            <th>Index</th>
+            <th>Glossary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>intro</td>
+            <td><span style="color:green">11</span></td>
+            <td><span style="color:green">1324</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">2</span></td>
+            <td><span style="color:green">2</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">0</span></td>
+        </tr>
+        <tr>
+            <td>oop</td>
+            <td><span style="color:green">18</span></td>
+            <td><span style="color:red">1200</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">11</span></td>
+            <td><span style="color:green">9</span></td>
+        </tr>
+        <tr>
+            <td>dup</td>
+            <td><span style="color:green">20</span></td>
+            <td><span style="color:green">1820</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">2</span></td>
+            <td><span style="color:green">10</span></td>
+        </tr>
+        <tr>
+            <td>glob</td>
+            <td><span style="color:green">23</span></td>
+            <td><span style="color:green">1813</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">8</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">1</span></td>
+            <td><span style="color:green">14</span></td>
+        </tr>
+        <tr>
+            <td>parse</td>
+            <td><span style="color:green">16</span></td>
+            <td><span style="color:green">1352</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">12</span></td>
+        </tr>
+        <tr>
+            <td>test</td>
+            <td><span style="color:green">17</span></td>
+            <td><span style="color:green">1958</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">9</span></td>
+            <td><span style="color:green">14</span></td>
+        </tr>
+        <tr>
+            <td>interp</td>
+            <td><span style="color:green">17</span></td>
+            <td><span style="color:green">2036</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">8</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">10</span></td>
+            <td><span style="color:green">15</span></td>
+        </tr>
+        <tr>
+            <td>func</td>
+            <td><span style="color:green">20</span></td>
+            <td><span style="color:green">1433</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">13</span></td>
+        </tr>
+        <tr>
+            <td>reflect</td>
+            <td><span style="color:green">20</span></td>
+            <td><span style="color:green">1971</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">10</span></td>
+            <td><span style="color:green">7</span></td>
+        </tr>
+        <tr>
+            <td>archive</td>
+            <td><span style="color:green">20</span></td>
+            <td><span style="color:green">2182</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">14</span></td>
+            <td><span style="color:green">14</span></td>
+        </tr>
+        <tr>
+            <td>check</td>
+            <td><span style="color:green">21</span></td>
+            <td><span style="color:green">1545</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">12</span></td>
+            <td><span style="color:green">13</span></td>
+        </tr>
+        <tr>
+            <td>template</td>
+            <td><span style="color:green">24</span></td>
+            <td><span style="color:green">2260</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">10</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">20</span></td>
+            <td><span style="color:green">6</span></td>
+        </tr>
+        <tr>
+            <td>lint</td>
+            <td><span style="color:green">21</span></td>
+            <td><span style="color:green">2234</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">16</span></td>
+            <td><span style="color:green">3</span></td>
+        </tr>
+        <tr>
+            <td>layout</td>
+            <td><span style="color:green">18</span></td>
+            <td><span style="color:green">2295</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">10</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">15</span></td>
+            <td><span style="color:green">9</span></td>
+        </tr>
+        <tr>
+            <td>perf</td>
+            <td><span style="color:green">23</span></td>
+            <td><span style="color:blue">3265</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">11</span></td>
+            <td><span style="color:green">8</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">17</span></td>
+            <td><span style="color:green">14</span></td>
+        </tr>
+        <tr>
+            <td>persist</td>
+            <td><span style="color:green">16</span></td>
+            <td><span style="color:blue">3252</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">10</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">14</span></td>
+            <td><span style="color:green">7</span></td>
+        </tr>
+        <tr>
+            <td>binary</td>
+            <td><span style="color:green">26</span></td>
+            <td><span style="color:blue">3900</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">20</span></td>
+        </tr>
+        <tr>
+            <td>db</td>
+            <td><span style="color:green">26</span></td>
+            <td><span style="color:green">2254</span></td>
+            <td><span style="color:green">8</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">11</span></td>
+            <td><span style="color:green">7</span></td>
+        </tr>
+        <tr>
+            <td>build</td>
+            <td><span style="color:green">19</span></td>
+            <td><span style="color:green">1836</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">8</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">12</span></td>
+            <td><span style="color:green">17</span></td>
+        </tr>
+        <tr>
+            <td>pack</td>
+            <td><span style="color:green">24</span></td>
+            <td><span style="color:blue">2926</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">8</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">11</span></td>
+            <td><span style="color:green">11</span></td>
+        </tr>
+        <tr>
+            <td>ftp</td>
+            <td><span style="color:green">20</span></td>
+            <td><span style="color:green">1821</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">10</span></td>
+        </tr>
+        <tr>
+            <td>http</td>
+            <td><span style="color:green">19</span></td>
+            <td><span style="color:green">2273</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">9</span></td>
+            <td><span style="color:green">3</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">14</span></td>
+            <td><span style="color:green">12</span></td>
+        </tr>
+        <tr>
+            <td>viewer</td>
+            <td><span style="color:blue">33</span></td>
+            <td><span style="color:blue">2982</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:red">2</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">9</span></td>
+            <td><span style="color:green">8</span></td>
+        </tr>
+        <tr>
+            <td>undo</td>
+            <td><span style="color:green">21</span></td>
+            <td><span style="color:green">1392</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:green">5</span></td>
+            <td><span style="color:red">1</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">3</span></td>
+        </tr>
+        <tr>
+            <td>vm</td>
+            <td><span style="color:green">20</span></td>
+            <td><span style="color:green">2249</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">10</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">7</span></td>
+            <td><span style="color:green">13</span></td>
+        </tr>
+        <tr>
+            <td>debugger</td>
+            <td><span style="color:green">22</span></td>
+            <td><span style="color:blue">2820</span></td>
+            <td><span style="color:green">6</span></td>
+            <td><span style="color:green">10</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">9</span></td>
+            <td><span style="color:green">7</span></td>
+        </tr>
+        <tr>
+            <td>finale</td>
+            <td><span style="color:red">4</span></td>
+            <td><span style="color:red">582</span></td>
+            <td><span style="color:red">0</span></td>
+            <td><span style="color:red">0</span></td>
+            <td><span style="color:red">1</span></td>
+            <td><span style="color:red">0</span></td>
+            <td><span style="color:green">4</span></td>
+            <td><span style="color:green">0</span></td>
+        </tr>
+        <tr>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+        </tr>
+        <tr>
+            <td>Target</td>
+            <td>15-26</td>
+            <td>1300-2300</td>
+            <td>2-8</td>
+            <td>4-14</td>
+            <td>3-8</td>
+            <td>4-8</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Average</td>
+            <td>2110</td>
+            <td>20.0</td>
+            <td>5.5</td>
+            <td>6.5</td>
+            <td>3.6</td>
+            <td>5.0</td>
+            <td>9.7</td>
+            <td>9.9</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>539</td>
+            <td>56975</td>
+            <td>148</td>
+            <td>176</td>
+            <td>98</td>
+            <td>134</td>
+            <td>261</td>
+            <td>268</td>
+        </tr>
+    </tbody>
+</table><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

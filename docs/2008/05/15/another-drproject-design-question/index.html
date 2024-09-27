@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Another DrProject Design Question</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Another DrProject Design Question</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2008/05/14/what-im-reading-these-days/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2008-05-15" class="post-date">2008-05-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2008/05/16/but-i-was-gone-less-than-48-hours/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We&rsquo;re pleased to welcome <a href="http://www.lizblankenship.com/">Liz Blankenship</a>, a <a href="http://openusability.org/">Season of Usability</a> intern, to the DrProject team.  Liz, a grad student in HCI, is going to help us redesign DrProject&rsquo;s admin interface.  Along the way, I&rsquo;m hoping she can give us some advice on a few other things as well, chief among them the notion of the &ldquo;All&rdquo; project.</p>
+<p>The background is this: <a href="http://trac.edgewall.org">Trac</a> (DrProject&rsquo;s ancestor) only allows one project per installation.  We weren&rsquo;t going to install it forty times to manage a class of eighty students working in pairs, so one of the first things we did back in 2005 was extend it to support multiple projects per portal.  We then faced two questions, which we decided were related:</p>
+<ol>
+  <li>What project does a newcomer to the portal see by default (i.e., what's "home")?</li>
+  <li>How do reach everybody who has an account with a particular portal (e.g., to nofify them of impending downtime)?</li>
+</ol>
+<p>Our solution was to say that every portal has an undeletable project called &ldquo;All&rdquo;.  Every user of that portal is automatically a member of that project, so mailing &ldquo;all@wherever&rdquo; will reach everyone, and that project&rsquo;s wiki acts as the portal&rsquo;s home page.  As a bonus, this also provides a logical place for people to file tech support tickets: if you need your password reset, for example, you could file a ticket against &ldquo;All&rdquo;.</p>
+<p>It was nice in theory, but it hasn&rsquo;t worked out that well in practice:</p>
+<ol>
+  <li>Lots of people find it confusing.  This might be the project name (some people think that registering for "All" means asking to be put in all of the projects managed by a portal), but I don't think that's the whole story.</li>
+  <li>There turned out to be lots of reasons <em>not</em> to automatically include everyone in the "All" project.  For example, external clients for undergraduate projects really don't care about administrative matters; they only want email forwarded from their specific project, so we had to allow people to opt out and/or turn off email forwarding.</li>
+  <li>Almost nobody figures guesses "ticket All for tech support".  Instead, many users file tickets against "All" that should go against other, more specific, projects.  Since we don't have a way to move tickets from one project to another, this causes recurring irritation.</li>
+</ol>
+<p>So what should we do?  Options include:</p>
+<ol>
+  <li>Change the name of "All" to something like "home".  This would be (nearly) trivial, but it seems unlikely that a simple renaming will actually solve our problems.</li>
+  <li>Modify the URLs so that the project is a parameter, rather than part of the path; if a project isn't specified, take the user to a default project.  This would make the URLs harder to read aloud (a test I think any good web application should pass), but it would be more reliable than using URLs that might or might not contain a project name.</li>
+  <li>Get rid of "All" and:
+<ol>
+  <li>require admins to mark one project as the landing pad, or</li>
+  <li>give people a 404 if they don't specify a project when trying to connect.</li>
+</ol>
+</li>
+  <li>Create a special kind of project for the landing pad with:
+<ol>
+  <li>a wiki that can only be edited by the admin,</li>
+  <li>that automatically says something informative about all the public projects,</li>
+  <li>and whose mailing list includes every user, but can only be sent to by the admin.</li>
+</ol>
+</li>
+</ol>
+<p>As you can guess, #4 is my current favorite.  It could even be implemented without significant code changes, by defining a new role and giving every user who isn&rsquo;t an admin that role in the default project.  There&rsquo;d still be the problem of its name, though.</p>
+<p>So, what do <em>you</em> think we should do?  And why?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

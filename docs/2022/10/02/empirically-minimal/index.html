@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Empirically Minimal</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Empirically Minimal</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/09/24/least-assholish-person/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-10-02" class="post-date">2022-10-02</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/10/24/software-design-by-example/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;m wrapping up the JavaScript version of <a href="../../../../sdxjs/"><em>Software Design by Example</em></a>
+and hope to finish the Python version early next year.
+Writing these has convinced me that it&rsquo;s harder to teach with languages like Python or JavaScript
+than it used to be.
+These languages have features and libraries that make industrial-strength coding more productive,
+but that richness is bewildering for newcomers:
+every online search for &ldquo;how do I XYZ?&rdquo; throws them into a sea of concepts, terms, and APIs
+that they haven&rsquo;t yet met.</p>
+<p>I&rsquo;m therefore spending a lot of time thinking about minimal languages that are novice-friendly.
+<a href="https://www.hedycode.com/">Hedy</a> is explicitly layered;
+<a href="https://quorumlanguage.com/">Quorum</a>&rsquo;s insistence on testing new features&rsquo; usability keeps it small;
+<a href="https://www.lua.org/">Lua</a>&rsquo;s focus on embeddability has the same effect,
+and materialized thought experiments like <a href="https://wren.io/">Wren</a>
+are even closer to what I want.</p>
+<p>But what exactly <em>do</em> I want?
+Looking at <a href="../../../../sdxjs/"><em>SDXJS</em></a> and its Python sibling,
+and at my programming lessons for scientists,
+I rely on the following:</p>
+<ul>
+<li>Atomic types: Boolean, number, text, null<ul>
+<li>JavaScript has convinced me that we don&rsquo;t need to distinguish integers from reals for novices</li>
+<li>I think null and NA are interchangeable for this audience as well</li>
+<li>But I <em>do</em> distinguish Boolean from 1/0 even though the latter is perfectly serviceable</li>
+</ul>
+</li>
+<li>Collections: list, set, key-value map, multi-dimensional array, dataframe<ul>
+<li>I prefer sets to maps-without-values for the same reason that I prefer Booleans to 1&rsquo;s and 0&rsquo;s</li>
+<li>Yes, you can implement dataframes and multi-dim arrays using lists and maps,
+    but so many examples are so much easier if they&rsquo;re first-class citizens</li>
+<li>Weirdly, I don&rsquo;t feel the same way about graphs even though I use them pretty frequently</li>
+</ul>
+</li>
+<li>Control flow: while loop, iterators, if/else-if/else, with, try-catch<ul>
+<li>By &ldquo;iterators&rdquo; I mean &ldquo;a &lsquo;for&rsquo; loop that gives you each value in a collection in order&rdquo;.
+    This implies some way to extend the set of collections in the language (see below).</li>
+<li>Syntactic support for resource management (e.g., Python&rsquo;s <code>with</code> statement)
+    has had a surprisingly big impact on my lessons.
+    Again, it&rsquo;s most useful if it&rsquo;s extensible.</li>
+<li>try-catch has always felt like a clumsy case of &ldquo;what else are we going to do?&rdquo;
+    but, well, what else are we going to do?
+    (Please don&rsquo;t say &ldquo;multiple return values, one of which is conventionally an error code&rdquo;.)</li>
+</ul>
+</li>
+<li>Extensibility: function, module, class<ul>
+<li>This is where it&rsquo;s hardest for me to know where to stop.
+    User-definable functions are a no-brainer;
+    I don&rsquo;t need default parameter values or variable-length argument lists,
+    but if I have to choose I&rsquo;ll take the former over the latter
+    (because people can always pass &ldquo;extra&rdquo; arguments in lists or maps).</li>
+<li>Modules that are namespaces are similarly a no-brainer.</li>
+<li>But classes: once you open that up, where do you stop?
+    You need some way for people to create records with named parts,
+    extend the set of things they can iterate over,
+    and so on,
+    but if there&rsquo;s a core set of features in my writing and teaching,
+    I can&rsquo;t see it.</li>
+</ul>
+</li>
+<li>The weird stuff: coroutines, introspection<ul>
+<li>It may seem weird to put coroutines in a list of &ldquo;basic&rdquo; features,
+    but concurrency is too important to be left out of lessons on software design,
+    and coroutines are the easiest way to introduce it.</li>
+<li>(The easiest-easiest way is actually <a href="https://en.wikipedia.org/wiki/Tuple_space">tuple spaces</a>,
+    but I put them in the same bucket as Lisp-like syntax:
+    if they were going to catch on, they&rsquo;d have caught on by now.)</li>
+<li>Introspection might also seem out of place in this list,
+    but so many software design techniques rely on being able to treat code as data
+    that I&rsquo;d struggle to teach without it.</li>
+</ul>
+</li>
+</ul>
+<p>But here&rsquo;s the thing:
+this list is based on nothing more substantial than an hour-long cruise
+through lessons I&rsquo;ve developed.
+What I <em>really</em> want is for some enterprising graduate student
+to spend a couple of months going through lessons and textbooks
+and counting how often various language constructs are used
+(cf. #10 and #48 in <a href="https://neverworkintheory.org/2022/08/30/software-engineering-research-questions.html">this list</a>).
+I think it would be analogous to the way that chip designers work:
+look at what operations programs execute most often
+in order to figure out what to optimize.
+If you&rsquo;re interested,
+please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>:
+this is something I&rsquo;d be happy to make time for.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

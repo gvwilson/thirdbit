@@ -1,0 +1,5 @@
+---
+title: "An Observation"
+date: 2012-03-10
+---
+Someone asked me earlier today if it would be worth Mozilla's while going to SIGCSE (the big annual computer science education conference in the US). I said, "That's where the teachers are." They said, "But we're teaching non-programmers." To which I should have replied, "So are most people at SIGCSE, most of the time." Many (maybe even most?) of the people in "Computing 101" classes at colleges and universities have never done any programming before, and the grade school teachers who show up are always working with beginners as well. One difference between Moz and regular classroom teachers is that many (most?) college and university instructors focus on students who are likely to become full-time programmers. Another (probably more important) is the setting: free-range vs. battery-farmed.  I'm not sure what to do with these observations, but I think they're worth pondering. I also think there's a lot both groups could learn from each other…

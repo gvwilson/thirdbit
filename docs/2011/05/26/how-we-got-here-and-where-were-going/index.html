@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: How We Got Here, and Where We're Going</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>How We Got Here, and Where We're Going</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2011/05/23/the-architecture-of-open-source-applications-is-now-available/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2011-05-26" class="post-date">2011-05-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2011/05/27/its-not-theory-vs-practice-its-two-solitudes/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I got my first programming job in the summer of 1982, rewriting an RSA encryption library in C for Prof. <a href="http://research.cs.queensu.ca/~akl/">Selim Akl</a> at <a href="http://www.queensu.ca">Queen&rsquo;s University</a>.  One of the older students eventually took pity on me and gave me a copy of Kernighan and Plauger&rsquo;s <a href="http://www.amazon.com/Software-Tools-Brian-W-Kernighan/dp/020103669X/"><cite>Software Tools</cite></a>.  My first reaction was, &ldquo;Fortran?  What&rsquo;s that got to do with anything?&rdquo;.  But then I got past the first few pages and realized that this was exactly what I&rsquo;d been looking for.  Except for Wirth&rsquo;s <a href="http://www.amazon.com/Algorithms-Structures-Prentice-Hall-Automatic-Computation/dp/0130224189/"><cite>Algorithms + Data Structures = Programs</cite></a>, most of the other programming books I could find talked about the specifics of particular languages or systems, rather than about how to design programs or what good designs looked like.  The few that did raise their sights only got as far as programming style, but with an English teacher for a father, I&rsquo;d already internalized good variable names and Goldilocks modules (&ldquo;not too big, not too small&rdquo;).</p>
+<p>My complaint wasn&rsquo;t a new one, of course.  Over the years, lots of people have pointed out that we only teach students how to write programs, not how to read them, and never show them the great programs of the past.  <a href="http://www.amazon.com/Lions-Commentary-Unix-John/dp/1573980137/"><cite>Lions&rsquo; Commentary on Unix</cite></a>, Tanenbaum&rsquo;s description of Minix–if you wanted to see how good programmers built things that were more than a couple of pages long, the list was pretty short.</p>
+<p>Fast forward to 2006, when I was asked to teach a course at the <a href="http://www.utoronto.ca">University of Toronto</a> called &ldquo;CSC407: Software Architecture&rdquo;.  It had been created by a professor who, like me, had come to the department after many years in industry (and who, like I would later, gave up on academia after a few years and went back to the real world).  I taught the course three times, then told the department to cancel it because the raw material needed to teach it properly simply didn&rsquo;t exist.  I must have reviewed a dozen textbooks with &ldquo;Software Architecture&rdquo; in their titles, but they all seemed to follow the same pattern:</p>
+<ul>
+  <li>Gosh, good architecture is really important, isn't it?</li>
+  <li>So here's some fuzz about high-level design principles.</li>
+  <li>And N kinds of diagrams you can use to describe architectures.</li>
+  <li>Um…that's it.</li>
+  <li>Oh, wait, we should include some examples.  Wel, here's pipe-and-filter–not an actual pipe-and-filter system, of course, just, you know, pipe-and-filter in general.  And client/server, and model-view-controller, and (optionally) peer-to-peer, though again, not really truly actual existing systems.</li>
+</ul>
+<p>Yes, I&rsquo;m exaggerating a bit–Gorton&rsquo;s <a href="http://www.amazon.com/Essential-Software-Architecture-Ian-Gorton/dp/3642066844/"><cite>Essential Software Architecture</cite></a> and Reekie &amp; McAdam&rsquo;s <a href="http://www.amazon.com/Software-Architecture-Primer-John-Reekie/dp/0646458418/"><cite>A Software Architecture Primer</cite></a> were both useful exceptions–but there really was a mile of clear blue water between what was in the books, and what students actually wanted and needed to know.  That&rsquo;s why I organized <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><cite>Beautiful Code</cite></a>: I wanted examples of good design that I could put in front of students, and more importantly, some informed discussion of why those designs were good.</p>
+<p><cite>BC</cite> did well, but once the dust had settled, I realized it still wasn&rsquo;t exactly what I was after.  I had asked contributors, &ldquo;What is the most beautiful piece of software you&rsquo;ve ever seen, and what makes it beautiful?&rdquo; They had answered in a lot of different ways, many of which had nothing to do with &ldquo;architecture&rdquo; (a term I was still struggling to define).  And so, last year, while at <a href="http://us.pycon.org/2010/about/">PyCon</a>, I stood up and said, &ldquo;OK, let&rsquo;s fix this.&rdquo;  This time, though, I was more specific than I had been with <cite>BC</cite>. I told people, &ldquo;Imagine that a new developer has joined your team.  You have one hour to explain its architecture to them–what would you say?&rdquo; That turned out to be as good a definition of &ldquo;architecture&rdquo; as anything else: it&rsquo;s what you draw on the whiteboard when you&rsquo;re telling the new guy how things fit together and why they are the way they are.</p>
+<p>Fast forward another few weeks.  Having googled my fingers to nubbins finding email addresses for people who might be able to contribute, I had enough volunteers to make the project viable. Twelve months later, after some ups and downs with publishers and a lot of help from Amy Brown, we had a book–one that&rsquo;s pretty close to what my 19-year-old self wanted twenty-nine years ago.</p>
+<p>I now realize, though, that <a href="http://aosabook.org"><cite>The Architecture of Open Source Applications</cite></a> should be the start of something, not its culmination.  There are a lot of other interesting software systems out there crying out to be described, and a lot of people who would benefit from reading those descriptions.  Some of those systems are pretty crufty (yes, GDB, I&rsquo;m looking at you), but that doesn&rsquo;t mean they should be ignored. Every lurking horror in your favorite program was put there for a reason that made sense to someone once upon a time.  We might do things differently today, but if we don&rsquo;t analyze, critique, and learn from what came before, we will almost certainly do no better.</p>
+<p>So: if you would like to make the world a better place while doing something of lasting value, and if you know enough about the innards of some reasonably well known, reasonably complicated open source application, please <a href="mailto:gvwilson@third-bit.com">get in touch</a>–we&rsquo;d be happy to welcome you aboard.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

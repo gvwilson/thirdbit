@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: No Such Thing As One Program</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>No Such Thing As One Program</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2007/01/13/pervasive-computing-horror-and-the-double-chin-effect/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2007-01-14" class="post-date">2007-01-14</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2007/01/18/creating-tables-in-drproject/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>As Craig Andera <a href="http://pluralsight.com/blogs/craig/archive/2005/03/29/7102.aspx">observed</a> last March, there&rsquo;s no such thing as &ldquo;just one application&rdquo;.  Every real program is surrounded by ancillary tools to pre- and post-process its data files, monitor its status, connect it to other programs, and so on.  Six months after deploying DrProject in classrooms at <a href="http://www.utoronto.ca">U of T</a>, here&rsquo;s a snapshot of what else our doughty system administrator has to mess with when he&rsquo;s messing with DrProject:</p>
+<ul>
+  <li><code>/home/software/rc</code> to restart various instances (one per course) when the server goes down and comes back up.  This file is executed upon boot by being symlinked in as <code>/etc/rc2.d/S99zlocal</code>.</li>
+  <li><code>/usr/local/bin/stopstart</code>, a script he wrote to stop and re-start instances.  It would not be necessary to do this in such a "user-friendly" way if DrProject didn't crash occasionally (due to a concurrency bug we're still trying to track down).  Once that's solved, it would suffice for the sys admin to be the one to restart wedged instances, because that would be rare again. On the other hand, Apache still comes with a user-friendly stop/start script…</li>
+  <li><code>/usr/local/bin/stanleywatch</code> is another script that periodically checks the URLs of running instances and notifies us if they're down.  It takes its name from the server's (stanley.cs.toronto.edu).  We'll keep this even when DrProject is rock solid—in fact, it'll probably be even more important then.</li>
+  <li><code>pingdrproject</code> is a script driven by a cron job that accesses a mail URL in each instance every few minutes so that mail will be pushed out.  It should be possible to get this to be triggered by the arrival of new mail instead, or (better yet) DrProject could supply a program which the sys admin could set as a pipe-type target in the <code>.forward</code> file or <code>/etc/aliases</code> entry. Instead of the <code>/etc/aliases</code> entry or <code>.forward</code> having to put the mail message in a file in the right directory in the right format, and then strobe DrProject so that it actually processes the new mail, there could be a program which receives a raw e-mail message on standard input and just processes it right there. That is, the arrival of new mail would itself trigger the processing, and there would be no issue of maildir versus spooldir and so on.</li>
+  <li><code>/etc/apache2/sites-enabled/000-default</code>, which is the standard Apache config file for the primary virtual host on that machine.  It maps the URL <code>https://stanley.cs.toronto.edu/svn/<em>course-id</em>/<em>project-id</em></code> to run the DAV Subversion module for the directory name <code>/home/courses/<em>course-id</em>/drproject/repos/<em>project-id</em>, and the URL <code>https://stanley.cs.toronto.edu/<em>course-id</em>/drproject/<em>project-id</em>/wiki/PageName</code> to be relayed to the DrProject server process listening on port 4003 with pathname <code>/<em>project-id</em>/wiki/PageName</code>.  It also has other mappings for the normal server web pages and such, which don't change as courses come and go.</code></li>
+</ul>
+<p>It&rsquo;s more to install, configure, test, and keep consistent than we&rsquo;d like; one of the goals of Engenuity&rsquo;s work in the coming weeks will be to simplify this as much as possible.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

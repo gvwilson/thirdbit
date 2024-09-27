@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example in Python 1: Introduction</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example in Python 1: Introduction</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/03/31/bus-ticket/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-04-01" class="post-date">2024-04-01</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/04/02/sdxpy-objects-and-classes/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>In the early 2000s,
+the University of Toronto asked me to teach an undergraduate course on software architecture.
+After three runs I told the university to cancel it because of a lack of material:
+I&rsquo;d bought a dozen textbooks on the subject,
+but between them,
+they devoted a total of less than 30 pages to describing the designs of actual systems.</p>
+<p>Frustrated by that,
+Andy Oram and I persuaded some well-known programmers to contribute chapters
+to a book called <a href="https://www.oreilly.com/library/view/beautiful-code/9780596510046/"><em>Beautiful Code</em></a>.
+Entries described everything from figuring out whether three points are on a line
+to the ground station software for the Mars Rover,
+but the breadth that made them fun to read
+also meant they weren&rsquo;t particularly useful for teaching.</p>
+<p>Amy Brown, Tavish Armstrong, Mike Dibernardo, and I
+then edited a four-book series called <a href="https://aosabook.org/"><em>The Architecture of Open Source Applications</em></a>
+in which the creators of various open source projects described their systems&rsquo; designs.
+These books were closer to what a junior programmer would need,
+but each author used the programming language of their choice
+and most people still wouldn&rsquo;t be familiar with most of the problem domains.</p>
+<p>So last year I published
+<a href="../../../../sdxjs/"><em>Software Design by Example: A Tool-Based Introduction with JavaScript</em></a>,
+which I think is finally the book I needed twenty years ago.
+This year I&rsquo;m proud to announce the sequel:
+<a href="../../../../sdxpy/"><em>Software Design by Example: A Tool-Based Introduction with Python</em></a>.
+In it,
+I build tiny versions of Git, pytest, the Python VM, and other tools
+to show how they work
+and how experienced programmers think about software design.</p>
+<p>I had two <a href="https://teachtogether.tech/en/index.html#s:process-personas">learner personas</a> in mind as I wrote this book.
+The first is a student:</p>
+<blockquote>
+<p class="continue"><em>Maya has a master&rsquo;s degree in genomics.
+She knows enough Python to analyze data from her experiments,
+but struggles to write code other people can use.
+These lessons will show her how to design, build, and test large programs
+in less time and with less pain.</em></p>
+</blockquote>
+<p>The other is the instructor I was twenty years ago:</p>
+<blockquote>
+<p class="continue"><em>Yim teaches two college courses on software development.
+They are frustrated that so many books talk about details but not about design
+and use examples that their students can&rsquo;t relate to.
+This book will give them material they can use in class
+and starting points for course projects.</em></p>
+</blockquote>
+<p>As with its predecessor,
+all the material from <em>SDXPY</em> is available under open licenses,
+and all royalties from book sales go to support the <a href="https://www.reddoorshelter.ca/">Red Door Family Shelter</a> in Toronto.</p>
+<p>I hope to blog about one chapter each day for the next few weeks.
+Feedback is always welcome;
+while I&rsquo;ve had to disable comments on this blog because of trolls,
+you can file issues in <a href="https://github.com/gvwilson/sdxpy/">in the book&rsquo;s GitHub repository</a>.
+I hope you find the material useful,
+and I&rsquo;m happy to answer questions <a href="mailto:gvwilson@third-bit.com">by email</a>.</p>
+<p><a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215"><img src="../../../../sdxpy/sdxpy-cover.png" alt="Cover of 'Software Design by Example'" width="20%" class="centered">
+</a></p>
+<p>I am grateful to the creators of <a href="https://www.diagrams.net/">diagrams.net</a>,
+<a href="https://black.readthedocs.io/">Black</a>,
+<a href="https://www.gnu.org/software/emacs/">Emacs</a>,
+<a href="https://flake8.pycqa.org/">flake8</a>,
+<a href="https://github.com/carpentries/glosario">Glosario</a>,
+<a href="https://www.gnu.org/software/make/">GNU Make</a>,
+<a href="https://pycqa.github.io/isort/">isort</a>,
+<a href="https://www.latex-project.org/">LaTeX</a>,
+<a href="https://pip.pypa.io/">pip</a>,
+<a href="https://www.python.org/">Python</a>,
+<a href="https://remarkjs.com/">Remark</a>,
+<a href="https://wave.webaim.org/">WAVE</a>,
+and all the other open source tools used in creating these lessons:
+if we all give a little,
+we all get a lot.
+I would also like to thank everyone who took part in last year&rsquo;s beta testing for early and ongoing feedback,
+especially <a href="https://sback.it/">Alberto Bacchelli</a> and his students.
+Any errors, omissions, or misunderstandings that remain are entirely my fault.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

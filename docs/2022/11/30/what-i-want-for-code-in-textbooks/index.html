@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: What I Want for Code in Textbooks</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>What I Want for Code in Textbooks</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/11/21/sdx-personas/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-11-30" class="post-date">2022-11-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/12/01/sdxpy-glossary/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Regular readers will know that
+I find the tools we have for authoring long-form explanations of code
+very frustrating.
+I&rsquo;ve used LaTeX (both desktop and online), RMarkdown, Jupyter Notebooks, Microsoft Word, Google Docs,
+and a variety of lesser-known Markdown-based tools,
+and they all make simple things hard.</p>
+<p>For example,
+suppose I want to include a snippet of code in an explanation—not an entire class or function,
+but just a few lines or a method.
+I can&rsquo;t do this with computational notebooks:
+so far as I can tell,
+they all require cells to be runnable as-is,
+which means I can&rsquo;t have just a few key lines from the middle of a function
+or one method from the middle of a class.
+Similarly,
+suppose I want to show a class with placeholder ellipses instead of the method bodies
+so that readers can get an overview of what&rsquo;s where
+before we dive into specifics.
+Again,
+the tools that let me run code in situ don&rsquo;t allow this.</p>
+<p><img src="../../../../files/2022/code-inclusions.svg" alt="code inclusions" class="centered"></p>
+<p>Authors therefore wind up hacking together code scrapers
+that (for example) look for markers and directives in source code files
+and copy ranges of code during document compilation.
+This approach leads to code like that shown below,
+which is unpleasant to read
+if you&rsquo;re trying to single-step through it in a debugger,
+and which is usually made even more complicated by extra directives
+to suppress warning messages from linting tools:</p>
+<div class="highlight"><pre><span></span><code># [range key=&quot;class&quot; elide=true]
+class Example:
+    MARKERS = {&quot;[&quot;, &quot;]&quot;}
+
+    def __init__(self, filler):
+        self._filler = filler
+
+    # [range key=&quot;revise&quot;]
+    def revise(self, contents):
+        end = None
+        for (i, val) in enumerate(contents):
+            if self.spans(val):
+                if (end is None) or (i &gt; end):
+                    end = i
+        return end
+    # [/range]
+
+    def spans(self, value):
+        return self._filler(value) in self.MARKERS
+# [/range]
+</code></pre></div>
+<p>So what do I want?</p>
+<ol>
+<li>
+<p>I want a plugin for [pick your favorite IDE—I&rsquo;ll switch to it if you offer this feature]
+    that allows me to select a range of lines in a source code file
+    and add an annotation on them
+    that is stored outside the source file
+    in the same way that reviewers&rsquo; comments in Microsoft Word or Google Docs
+    are stored beside the main text.</p>
+</li>
+<li>
+<p>I also want a counterpart plugin for the IDE
+    that allows me to put a marker in a text file that says,
+    &ldquo;Find the annotation with this label
+    and display the selected range of lines right here, right now.&rdquo;
+    I don&rsquo;t want to have to go through a compilation step in order to see those lines
+    (not even one that runs continuously in the background);
+    I want actual fragment transclusion in real time.</p>
+</li>
+<li>
+<p>And yes,
+    users should be able to jump from the transcluded fragment
+    to the original source file
+    and run things,
+    or better yet,
+    click a button to open the entire runnable program
+    beside the text that displays the fragment
+    so that they can step through that bit of code
+    with the explanatory text beside it.</p>
+</li>
+</ol>
+<p>Once we have that,
+I want to be able to apply it to diagrams
+to transclude a portion of a larger diagram
+so that I can explain parts of the whole
+without trying to keep half-a-dozen SVG&rsquo;s in sync with each other.
+Before then,
+though,
+I&rsquo;d like to be able to drive this in the opposite direction.
+If I&rsquo;m viewing the code,
+whatever&rsquo;s displaying it should automatically point to the relevant explanations,
+because that&rsquo;s what I&rsquo;d do if I was coding in a classroom
+with some explanations on slides on another screen
+or some diagrams on a whiteboard beside me:</p>
+<p><img src="../../../../files/2022/code-references.svg" alt="code references" class="centered"></p>
+<p>It&rsquo;s all technically feasible,
+particularly if someone wants to leverage an existing platform like VSCode.
+I don&rsquo;t expect to see it in my working lifetime,
+but I do still hope that programming will some day free itself
+from backward compatibility with punchcards
+and all the misery that antiquated constraint causes.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

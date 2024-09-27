@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Gini Coefficients as a Measure of Team Effort</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Gini Coefficients as a Measure of Team Effort</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2007/10/10/drproject-funding-proposal-rejected/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2007-10-12" class="post-date">2007-10-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2007/10/12/a-useful-quotation/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>The <a href="http://en.wikipedia.org/wiki/Gini_coefficient"><em>Gini coefficient</em></a> is a widely-used measure of inequality in which 0 corresponds to perfect equality (e.g., everyone is equally wealthy), while 1 corresponds to perfect inequality (e.g., one person owns everything, nobody else has anything).  I calculated the Gini coefficient for each team in my CSC301 class based on the number of lines of Java code each team member contributed to what was in version control at the deadline.</p>
+<p>The results are shown below.  The first number shows the Gini coefficient taking into account only those people who actually contributed lines of code to the final solution, while the second shows the value when people who didn&rsquo;t contribute (or whose contributions didn&rsquo;t survive in the final submission) are given a score of 0.  By comparison, the Gini coefficient for incomes in highly unequal countries like Brazil is about 0.6, while Canada&rsquo;s is about 0.32.</p>
+<p>I&rsquo;m the first to acknowledge that this isn&rsquo;t an accurate assessment of how equally work was divided among team members.  For example, one member of one team did a &ldquo;reformat all&rdquo; in Eclipse shortly before the submission, so almost all of their code appears to have been written by him.  Similarly, people in other teams used pair programming (which means two people did the work, but only one gets the commit credit), while the written part of the assignment (which was submitted as a PDF) wasn&rsquo;t included in this count at all.  But I still the numbers are interesting and revealing: twenty-to-one line count ratios are common, and a few are fifty-to-one.</p>
+<table class="centered">
+<tr>
+<td>0.00 / 0.50</td>
+</tr>
+<tr>
+<td>0.01 / 0.75</td>
+</tr>
+<tr>
+<td>0.10 / 0.32</td>
+</tr>
+<tr>
+<td>0.17 / 0.59</td>
+</tr>
+<tr>
+<td>0.23 / 0.43</td>
+</tr>
+<tr>
+<td>0.24 / 0.43</td>
+</tr>
+<tr>
+<td>0.25 / 0.25</td>
+</tr>
+<tr>
+<td>0.25 / 0.63</td>
+</tr>
+<tr>
+<td>0.27 / 0.51</td>
+</tr>
+<tr>
+<td>0.28 / 0.46</td>
+</tr>
+<tr>
+<td>0.29 / 0.47</td>
+</tr>
+<tr>
+<td>0.29 / 0.47</td>
+</tr>
+<tr>
+<td>0.32 / 0.32</td>
+</tr>
+<tr>
+<td>0.36 / 0.52</td>
+</tr>
+<tr>
+<td>0.38 / 0.38</td>
+</tr>
+<tr>
+<td>0.38 / 0.54</td>
+</tr>
+<tr>
+<td>0.39 / 0.55</td>
+</tr>
+<tr>
+<td>0.41 / 0.41</td>
+</tr>
+<tr>
+<td>0.42 / 0.42</td>
+</tr>
+<tr>
+<td>0.42 / 0.71</td>
+</tr>
+<tr>
+<td>0.45 / 0.45</td>
+</tr>
+<tr>
+<td>0.45 / 0.45</td>
+</tr>
+<tr>
+<td>0.46 / 0.79</td>
+</tr>
+<tr>
+<td>0.55 / 0.55</td>
+</tr>
+<tr>
+<td>0.56 / 0.56</td>
+</tr>
+<tr>
+<td>0.56 / 0.56</td>
+</tr>
+<tr>
+<td>0.56 / 0.67</td>
+</tr>
+</table><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

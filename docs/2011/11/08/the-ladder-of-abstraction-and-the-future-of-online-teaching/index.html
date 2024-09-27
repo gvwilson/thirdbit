@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Ladder of Abstraction and the Future of Online Teaching</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Ladder of Abstraction and the Future of Online Teaching</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2011/11/08/the-best-vs-the-good/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2011-11-08" class="post-date">2011-11-08</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2011/11/08/happy-birthday/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><a href="http://worrydream.com/LadderOfAbstraction/">Up and Down the Ladder of Abstraction</a> is one of the most thought-provoking things to hit the web in a long time. Its author, Bret Victor, doesn't just talk about the design process–he shows us what a great interactive tutorial ought to look like. (For a shorter, simpler, but equally inspiring example, have a look at the home page for his <a href="http://worrydream.com/Tangle/">Tangle</a> project, and ask yourself what learning would be like if learners could play with every diagram and quantitative statement in their "textbooks" that way…)</p>
+<p>Examples like these, and reflection on things I've learned by following people like <a href="http://computinged.wordpress.com/">Mark Guzdial</a> and <a href="http://www.hackeducation.com/">Audrey Watters</a>, have made me realize that there's a big difference between online <em>teaching</em> and online <em>learning</em>. Unfortunately, Software Carpentry has focused on the former rather than the latter–on presenting content, rather than on how (and how much) people actually learn. Partly, this is because the former is easier, since I have control over the notes, the videos, and so on. Partly too, though, it reflects an academic culture in which professors focus on lecturing, rather than on changing students' understanding of the world. (We've all had students who got B's, or even A's, without really understanding the course material…) And partly, I've focused on production rather than consumption because the latter is very hard to assess. Even when we're teaching this stuff in person, as we're doing right now in Toronto, it's very difficult to get a handle on how much students have actually absorbed.</p>
+<p>For example, suppose we're teaching Python (which we are), and one of the exercises is to read a bunch of numbers from a file and print their mean. Ignoring floating-point issues, there's only one right answer, but that doesn't mean we can say, "If your program prints 6, then you understand loops, file I/O, and string-to-number conversions." What we'll actually see is people hacking and tweaking their code, more or less at random, until voila, a 6 pops out and they're done. Their programs will be littered with unused variables, five-stage assignments like:</p>
+<pre>a = 5
+b = a
+c = b
+print c</pre>
+<p>and so on (what <a href="http://homepages.cae.wisc.edu/~khuff/">Katy Huff</a> called <a href="http://en.wikipedia.org/wiki/Cargo_cult_programming">cargo cult programming</a>). We will have taught, and students will have produced the right answer for one specific case, but in many cases, they won't have <em>learned</em>.</p>
+<p>Now, you'd think this would be easy to check: give them a similar problem, and see if they can transfer their knowledge. But that's not going to work, because they can hack and tweak their way to an accidentally-correct answer to the second problem just as they did for the first. We could time them, on the assumption that if they've learned, they'll solve the second problem faster than the first, and the third faster than the second, but all that's going to do (at best) is identify the people who aren't learning; it isn't going to tell us why they aren't, or what they don't understand, which in turn means that we won't know what to explain to them to clear things up.</p>
+<p>And that's the real problem with many production-oriented approaches to online learning, from Software Carpentry to the <a href="http://khanacademy.org">Khan Academy</a>. To paraphrase Tolstoy, successful learners are all alike; every unsuccessful learner is unsuccessful in their own way. There's only one correct mental model of how regular expressions work, but there are dozens or hundreds of ways to misunderstand them, and each one requires a different corrective explanation. What's worse, as we shift from knowing that to knowing how–from memorizing the multiplication table to solving rope-and-pulley dynamics problems or using the Unix shell–the space of possible misconceptions grows very, very quickly, and with it, the difficulty of diagnosing and correcting misunderstandings.</p>
+<p>In the long run, we may be able to develop expert systems (or <a href="http://en.wikipedia.org/wiki/Cognitive_tutor">cognitive tutors</a>) to help with some of these issues. Right now, though, I think the only option is to keep a human mentor in the loop.  I only have to look over someone's shoulder for a couple of minutes to see whether they've understood a lesson or not; watching <em>how</em> they produce an answer tells me more about their learning than the answer itself. Using today's tools, it would be relatively easy to have students record screencasts of themselves solving simple programming exercises and submit those along with their source code. However, I suspect most learners would be uncomfortable doing this, as it would feel very Big Brother-ish.</p>
+<p>I'd welcome your thoughts on all of this: on how we can shift Software Carpentry's focus from teaching to learning, and on how to assess the latter so that we can tell what's working and what isn't. After all, we're here to learn too…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

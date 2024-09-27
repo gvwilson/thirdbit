@@ -1,0 +1,462 @@
+---
+title: Bibliography
+template: page
+---
+
+<h2>Non-Fiction</h2>
+
+<div class="center">
+  <p>My <a href="https://orcid.org/">ORCID</a> is <a href="https://orcid.org/0000-0001-8659-8979">0000-0001-8659-8979</a>.</p>
+</div>
+
+<div class="bibliography">
+
+<p id="Wilson2024b">
+Greg Wilson:
+<a href="@root/sdxpy/"><em>Software Design by Example: A Tool-Based Introduction with Python</em></a>.
+CRC Press/Taylor and Francis, 2024.
+ISBN 978-1032725215.</p>
+
+<p id="Wilson2024a">
+Greg Wilson, Jorge Aranda, Michael Hoye, and Brittany Johnson:
+It Will Never Work in Theory.
+<em>IEEE Software</em>, 2024.
+<a href="https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6">doi:10.1109/MS.2024.3362649</a>, <a href="@root/files/bib/Wilson2024a.pdf">PDF</a>.</p>
+
+<p id="Haberman2023">
+Jess Haberman and Greg Wilson:
+Ten simple rules for writing a technical book.
+<em>PLOS Computational Biology</em>, 19(8), Aug 2023.
+<a href="https://doi.org/10.1371/journal.pcbi.1011305">doi:10.1371/journal.pcbi.1011305</a>, <a href="@root/files/bib/Haberman2023.pdf">PDF</a>.</p>
+
+<p id="Wilson2022b">
+Greg Wilson:
+<a href="@root/sdxjs/"><em>Software Design by Example: A Tool-Based Introduction with JavaScript</em></a>.
+CRC Press/Taylor and Francis, 2022.
+ISBN 978-1032399676.</p>
+
+<p id="Wilson2022a">
+Greg Wilson:
+Twelve quick tips for software design.
+<em>PLOS Computational Biology</em>, 18(2):e1009809, Feb 2022.
+<a href="https://doi.org/10.1371/journal.pcbi.1009809">doi:10.1371/journal.pcbi.1009809</a>, <a href="@root/files/bib/Wilson2022a.pdf">PDF</a>.</p>
+
+<p id="Irving2021">
+Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham, and Greg Wilson:
+<a href="https://third-bit.com/py-rse/"><em>Research Software Engineering with Python: Building Software that Makes Research Possible</em></a>.
+CRC Press/Taylor and Francis, 2021.
+ISBN 978-0367698348.</p>
+
+<p id="Smalls2021">
+Danielle Smalls and Greg Wilson:
+Ten quick tips for staying safe online.
+<em>PLOS Computational Biology</em>, 17(3):e1008563, Mar 2021.
+<a href="https://doi.org/10.1371/journal.pcbi.1008563">doi:10.1371/journal.pcbi.1008563</a>, <a href="@root/files/bib/Smalls2021.pdf">PDF</a>.</p>
+
+<p id="Wilson2020">
+Greg Wilson:
+Thoughts from a not-so-influential educator.
+<em>ACM SIGSOFT Software Engineering Notes</em>, 45(3):21–22, Jul 2020.
+<a href="https://doi.org/10.1145/3402127.3402136">doi:10.1145/3402127.3402136</a>, <a href="@root/files/bib/Wilson2020.pdf">PDF</a>.</p>
+
+<p id="Lin2020">
+Sarah Lin, Ibraheem Ali, and Greg Wilson:
+Ten quick tips for making things findable.
+<em>PLOS Computational Biology</em>, 16(12):e1008469, Dec 2020.
+<a href="https://doi.org/10.1371/journal.pcbi.1008469">doi:10.1371/journal.pcbi.1008469</a>, <a href="@root/files/bib/Lin2020.pdf">PDF</a>.</p>
+
+<p id="Nederbragt2020">
+Alexander Nederbragt, Rayna Michelle Harris, Alison Presmanes Hill, and Greg Wilson:
+Ten quick tips for teaching with participatory live coding.
+<em>PLOS Computational Biology</em>, 16(9):e1008090, Sep 2020.
+<a href="https://doi.org/10.1371/journal.pcbi.1008090">doi:10.1371/journal.pcbi.1008090</a>, <a href="@root/files/bib/Nederbragt2020.pdf">PDF</a>.</p>
+
+<p id="Gans2020">
+Maya Gans, Toby Hodges, and Greg Wilson:
+<a href="@root/js4ds/"><em>JavaScript for Data Science</em></a>.
+Chapman &amp; Hall/CRC Press, 2020.
+ISBN 978-0367422486.</p>
+
+<p id="Wilson2019a">
+Greg Wilson:
+<a href="https://teachtogether.tech/"><em>Teaching Tech Together</em></a>.
+Chapman &amp; Hall/CRC Press, 2019.
+ISBN 978-0367352974.
+How to create and deliver lessons that work and build a teaching community around them.</p>
+
+<p id="Wilson2019b">
+Greg Wilson:
+Ten quick tips for creating an effective lesson.
+<em>PLOS Computational Biology</em>, 15(4):e1006915, Apr 2019.
+<a href="https://doi.org/10.1371/journal.pcbi.1006915">doi:10.1371/journal.pcbi.1006915</a>, <a href="@root/files/bib/Wilson2019b.pdf">PDF</a>.</p>
+
+<p id="Wilson2019c">
+Greg Wilson:
+Ten quick tips for delivering programming lessons.
+<em>PLOS Computational Biology</em>, 15(10):e1007433, Oct 2019.
+<a href="https://doi.org/10.1371/journal.pcbi.1007433">doi:10.1371/journal.pcbi.1007433</a>, <a href="@root/files/bib/Wilson2019c.pdf">PDF</a>.</p>
+
+<p id="Denny2019">
+Paul Denny, Brett A. Becker, Michelle Craig, Greg Wilson, and Piotr Banaszkiewicz:
+Research this! questions that computing educators most want computing education researchers to answer.
+<em>Proc. ICER'19</em>, ACM, 2019.
+<a href="https://doi.org/10.1145/3291279.3339402">doi:10.1145/3291279.3339402</a>, <a href="@root/files/bib/Denny2019.pdf">PDF</a>.</p>
+
+<p id="Sholler2019">
+Dan Sholler, Igor Steinmacher, Denae Ford, Mara Averick, Mike Hoye, and Greg Wilson:
+Ten simple rules for helping newcomers become contributors to open projects.
+<em>PLOS Computational Biology</em>, 15(9):e1007296, Sep 2019.
+<a href="https://doi.org/10.1371/journal.pcbi.1007296">doi:10.1371/journal.pcbi.1007296</a>, <a href="@root/files/bib/Sholler2019.pdf">PDF</a>.</p>
+
+<p id="Brown2018">
+Neil C.C. Brown and Greg Wilson:
+Ten quick tips for teaching programming.
+<em>PLOS Computational Biology</em>, Apr 2018.
+<a href="https://doi.org/10.1371/journal.pcbi.1006023">doi:10.1371/journal.pcbi.1006023</a>, <a href="@root/files/bib/Brown2018.pdf">PDF</a>.</p>
+
+<p id="Devenyi2018">
+Gabriel A. Devenyi, Rémi Emonet, Rayna M. Harris, Kate L. Hertweck, Damien Irving, Ian Milligan, and Greg Wilson:
+Ten simple rules for collaborative lesson development.
+<em>PLOS Computational Biology</em>, Mar 2018.
+<a href="https://doi.org/10.1371/journal.pcbi.1005963">doi:10.1371/journal.pcbi.1005963</a>, <a href="@root/files/bib/Devenyi2018.pdf">PDF</a>.</p>
+
+<p id="Almeida2017">
+Daniel A. Almeida, Gail C. Murphy, Greg Wilson, and Mike Hoye:
+Do software developers understand open source licenses?
+<em>Proc. ICPC'17</em>, IEEE Press, 2017.
+<a href="https://doi.org/10.1109/ICPC.2017.7">doi:10.1109/ICPC.2017.7</a>, <a href="@root/files/bib/Almeida2017.pdf">PDF</a>.</p>
+
+<p id="Taschuk2017">
+Morgan Taschuk and Greg Wilson:
+Ten simple rules for making research software more robust.
+<em>PLOS Computational Biology</em>, Apr 2017.
+<a href="https://doi.org/10.1371/journal.pcbi.1005412">doi:10.1371/journal.pcbi.1005412</a>, <a href="@root/files/bib/Taschuk2017.pdf">PDF</a>.</p>
+
+<p id="Wilson2017">
+Greg Wilson, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal:
+Good enough practices in scientific computing.
+<em>PLOS Computational Biology</em>, 13(6):1&ndash;20, Jun 2017.
+<a href="https://doi.org/10.1371/journal.pcbi.1005510">doi:10.1371/journal.pcbi.1005510</a>, <a href="@root/files/bib/Wilson2017.pdf">PDF</a>.</p>
+
+<p id="Blischak2016">
+John D. Blischak, Emily R. Davenport, and Greg Wilson:
+A quick introduction to version control with Git and GitHub.
+<em>PLOS Computational Biology</em>, 12(1):e1004668, Jan 2016.
+<a href="https://doi.org/10.1371/journal.pcbi.1004668">doi:10.1371/journal.pcbi.1004668</a>, <a href="@root/files/bib/Blischak2016.pdf">PDF</a>.</p>
+
+<p id="Wilson2016">
+Greg Wilson:
+Software Carpentry: lessons learned.
+<em>F1000Research</em>, Jan 2016.
+<a href="https://doi.org/10.12688/f1000research.3-62.v2">doi:10.12688/f1000research.3-62.v2</a>, <a href="@root/files/bib/Wilson2016.pdf">PDF</a>.</p>
+
+<p id="Teal2015">
+Tracy K. Teal, Karen A. Cranston, Hilmar Lapp, Ethan White, Greg Wilson, Karthik Ram, and Aleksandra Pawlik:
+Data Carpentry: workshops to increase data literacy for researchers.
+<em>International Journal of Digital Curation</em>, Feb 2015.
+<a href="https://doi.org/10.2218/ijdc.v10i1.351">doi:10.2218/ijdc.v10i1.351</a>, <a href="@root/files/bib/Teal2015.pdf">PDF</a>.</p>
+
+<p id="Wilson2014">
+Greg Wilson, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, Kathryn D. Huff, Ian M. Mitchell, Mark D. Plumbley, Ben Waugh, Ethan P. White, and Paul Wilson:
+Best practices for scientific computing.
+<em>PLOS Biology</em>, Jan 2014.
+<a href="https://doi.org/10.1371/journal.pbio.1001745">doi:10.1371/journal.pbio.1001745</a>, <a href="@root/files/bib/Wilson2014.pdf">PDF</a>.</p>
+
+<p id="Petre2014">
+Marian Petre and Greg Wilson:
+Code review for and by scientists.
+<em>Proc. SSSPE'14</em>, 2014.
+<a href="https://doi.org/arXiv:1407.5648">doi:arXiv:1407.5648</a>, <a href="@root/files/bib/Petre2014.pdf">PDF</a>.</p>
+
+<p id="Schossau2014">
+Jory Schossau and Greg Wilson:
+Which sustainable software practices do scientists find most useful?
+<em>Proc. SSSPE'14</em>, 2014.
+<a href="http://arxiv.org/abs/1407.6220">http://arxiv.org/abs/1407.6220</a>.</p>
+
+<p id="Brown2012">
+Amy Brown and Greg Wilson (ed.):
+<a href="https://aosabook.org/"><em>The Architecture of Open Source Applications: Structure, Scale, and a Few More Fearless Hacks</em></a>.
+Lulu, 2012.
+ISBN 978-0201103427.</p>
+
+<p id="Stroulia2011">
+Eleni Stroulia, Ken Bauer, Michelle Craig, Karen Reid, and Greg Wilson:
+Teaching distributed software engineering with UCOSP: the undergraduate capstone open-source project.
+<em>Proc. ICSE'11</em>, 2011.</p>
+
+<p id="Brown2011">
+Amy Brown and Greg Wilson (ed.):
+<a href="https://aosabook.org/"><em>The Architecture of Open Source Applications: Elegance, Evolution, and a Few Fearless Hacks</em></a>.
+Lulu, 2011.
+ISBN 978-1257638017.</p>
+
+<p id="Oram2010">
+Andy Oram and Greg Wilson (ed.):
+<em>Making Software: What Really Works, and Why We Believe It</em>.
+O'Reilly, 2010.
+ISBN 0-596-80832-1.</p>
+
+<p id="Hannay2009">
+Jo Erskine Hannay, Carolyn MacLeod, Janice Singer, Hans Petter Langtangen, Dietmar Pfahl, and Greg Wilson:
+How do scientists develop and use scientific software?
+<em>Proc. SECSE'09</em>, IEEE, 2009.
+<a href="https://doi.org/10.1109/secse.2009.5069155">doi:10.1109/secse.2009.5069155</a>, <a href="@root/files/bib/Hannay2009.pdf">PDF</a>.</p>
+
+<p id="Wilson2009a">
+Greg Wilson:
+Not on the shelves.
+<em>IEEE Software</em>, 26(3):8–9, May 2009.
+<a href="https://doi.org/10.1109/ms.2009.75">doi:10.1109/ms.2009.75</a>.</p>
+
+<p id="Wilson2009b">
+Greg Wilson:
+How do scientists really use computers?
+<em>American Scientist</em>, 97(5):360, Sep/Oct 2009.
+<a href="https://doi.org/10.1511/2009.80.360">doi:10.1511/2009.80.360</a>.</p>
+
+<p id="Campbell2009">
+Jennifer Campbell, Paul Gries, Jason Montojo, and Greg Wilson:
+<em>Practical Programming</em>.
+Pragmatic Bookshelf, 2009.
+ISBN 1934356271.</p>
+
+<p id="Cabot2009">
+Jordi Cabot and Greg Wilson:
+Tools for teams: a survey of web-based software project portals.
+<em>Doctor Dobb's Journal</em>, Oct 2009.</p>
+
+<p id="Matthews2008">
+David Matthews, Greg Wilson, and Steve Easterbrook:
+Configuration management for large-scale scientific computing at the UK Met Office.
+<em>Computing in Science and Engineering</em>, 10(6):56–64, Nov 2008.
+<a href="https://doi.org/10.1109/mcse.2008.144">doi:10.1109/mcse.2008.144</a>, <a href="@root/files/bib/Matthews2008.pdf">PDF</a>.</p>
+
+<p id="Wilson2008a">
+Greg Wilson:
+Those who will not learn from history…
+<em>Computing in Science and Engineering</em>, 10(3):5–6, May 2008.
+<a href="https://doi.org/10.1109/mcse.2008.86">doi:10.1109/mcse.2008.86</a>, <a href="@root/files/bib/Wilson2008a.pdf">PDF</a>.</p>
+
+<p id="Wilson2008b">
+Greg Wilson, Christine Alvarado, Jennifer Campbell, Rubin Landau, and Robert Sedgewick:
+CS-1 for scientists.
+<em>SIGCSE Bulletin</em>, 40(1):36, Feb 2008.
+<a href="https://doi.org/10.1145/1352322.1352151">doi:10.1145/1352322.1352151</a>.</p>
+
+<p id="Wilson2008d">
+Gregory V. Wilson:
+High-performance computing considered harmful.
+<em>Proc. HPCS'08</em>, 2008.</p>
+
+<p id="Lung2008">
+Jonathan Lung, Jorge Aranda, Steve M. Easterbrook, and Gregory V. Wilson:
+On the difficulty of replicating human subjects studies in software engineering.
+<em>Proc. ICSE'08</em>, ACM, 2008.</p>
+
+<p id="Aranda2007">
+Jorge Aranda, Steve Easterbrook, and Greg Wilson:
+Requirements in the wild: how small companies do it.
+<em>Proc. RE'07</em>, IEEE, 2007.
+<a href="https://doi.org/10.1109/re.2007.54">doi:10.1109/re.2007.54</a>, <a href="@root/files/bib/Aranda2007.pdf">PDF</a>.</p>
+
+<p id="Winter2007">
+D. Winter, B. Vinegar, H. Nahal, R. Ammar, G. V. Wilson, and N. J. Provart:
+An 'electronic fluorescent pictograph' browser for exploring and analyzing large-scale biological data sets.
+<em>PLOS ONE</em>, 2007.
+<a href="https://doi.org/10.1371/journal.pone.0000718">doi:10.1371/journal.pone.0000718</a>, <a href="@root/files/bib/Winter2007.pdf">PDF</a>.</p>
+
+<p id="Oram2007">
+Andy Oram and Greg Wilson (ed.):
+<em>Beautiful Code: Leading Programmers Explain How They Think</em>.
+O'Reilly, 2007.
+ISBN 0-596-51004-7.</p>
+
+<p id="Reid2007">
+Karen L. Reid and Gregory V. Wilson:
+DrProject: a software project management portal to meet educational needs.
+<em>Proc. SIGCSE'07</em>, ACM, 2007.</p>
+
+<p id="Wilson2006">
+Greg Wilson:
+Where's the real bottleneck in scientific computing?
+<em>American Scientist</em>, Jan/Feb 2006.</p>
+
+<p id="Mierle2005">
+Keir Mierle, Kevin Laven, Sam Roweis, and Greg Wilson:
+Mining student CVS repositories for performance indicators.
+<em>SIGSOFT Software Engineering Notes</em>, 30(4):1, Jul 2005.
+<a href="https://doi.org/10.1145/1082983.1083150">doi:10.1145/1082983.1083150</a>.</p>
+
+<p id="Reid2005">
+Karen L. Reid and Gregory V. Wilson:
+Learning by doing: introducing version control as a way to manage student assignments.
+<em>Proc. SIGCSE'05</em>, ACM, 2005.</p>
+
+<p id="Gries2005">
+Paul Gries, Volodymyr Mnih, Jonathan Taylor, Greg Wilson, and Lee Zamparo:
+Memview: a pedagogically-motivated visual debugger.
+<em>Proc. ASEE/IEEE Frontiers in Education'05</em>, 2005.</p>
+
+<p id="Wilson2005a">
+Greg Wilson:
+<em>Data Crunching: Solve Everyday Problems Using Java, Python, and More</em>.
+Pragmatic Bookshelf, 2005.
+ISBN 0-9745140-7-1.</p>
+
+<p id="Wilson2005b">
+Greg Wilson:
+Open source offers solutions for science software education.
+<em>Nature</em>, 436:600, Jul 2005.</p>
+
+<p id="Wilson2004">
+Gregory V. Wilson:
+Extensible programming for the 21st century.
+<em>ACM Queue</em>, 2(9):48–57, 2004.
+<a href="https://doi.org/10.1145/1039511.1039534">doi:10.1145/1039511.1039534</a>, <a href="@root/files/bib/Wilson2004.pdf">PDF</a>.</p>
+
+<p id="Levesque2004">
+Michelle Levesque and Greg Wilson:
+Open source, cold shoulder.
+<em>Software Development</em>, Nov 2004.</p>
+
+<p id="Wilson2003">
+Greg Wilson:
+XML-based programming systems.
+<em>Doctor Dobb's Journal</em>, Mar 2003.</p>
+
+<p id="Amdur2002">
+Gene Amdur, Andrew Flint, Irving Reid, and Greg Wilson:
+SelectAccess: extensible network access control.
+<em>Doctor Dobb's Journal</em>, Spring 2002.</p>
+
+<p id="Beckman2000">
+Pete Beckman and Greg Wilson:
+Open source meets big iron.
+<em>Doctor Dobb's Journal</em>, Jun 2000.</p>
+
+<p id="Webb1999">
+Peter Webb and Greg Wilson:
+MATLAB as a scripting language.
+<em>Doctor Dobb's Journal</em>, Jan 1999.</p>
+
+<p id="Wilson1999a">
+Gregory V. Wilson:
+High-performance programming for computational scientists.
+<em>Proc. HPSA'99</em>, 1999.</p>
+
+<p id="Wilson1999b">
+Greg Wilson:
+Is the open source community setting a bad example?
+<em>IEEE Software</em>, Jan 1999.</p>
+
+<p id="DeSimone1998">
+Mauricio de Simone and Greg Wilson:
+The active expressions library.
+<em>Doctor Dobb's Journal</em>, Aug 1998.</p>
+
+<p id="Gorda1997">
+Brent Gorda and Greg Wilson:
+Building and running online auctions.
+<em>Doctor Dobb's Journal</em>, Oct 1997.</p>
+
+<p id="VanDerGroot1997">
+Roel van der Goot, Jonathan Schaeffer, and Gregory V. Wilson:
+Safer tuple spaces.
+<em>Proc. COORD'97</em>,LNCS Vol 1282, Springer, 1997.</p>
+
+<p id="Arjomandi1996">
+Eshrat Arjomandi, William G. O'Farrell, and Gregory V. Wilson:
+Smart messages: an object-oriented communication mechanism for parallel systems.
+<em>Computing Systems</em>, 9(4):313–329, 1996.</p>
+
+<p id="Wilson1996a">
+Gregory V. Wilson and Paul Lu (ed.):
+<em>Parallel Programming Using C++</em>.
+MIT Press, 1996.
+ISBN 0-262-73118-5.</p>
+
+<p id="Wilson1996b">
+Gregory V. Wilson:
+What should computer scientists teach to physical scientists and engineers?
+<em>IEEE Computational Science and Engineering</em>, Summer/Fall 1996.</p>
+
+<p id="Hyde1995">
+Daniel C. Hyde, David Kotz, Gordon Makinson, Panagiotis Takis Metaxas, Christopher H. Nevison, Nan C. Schaller, and Gregory V. Wilson:
+Different approaches to parallel computing education.
+<em>Proc. IPPS'95</em>, IEEE, 1995.</p>
+
+<p id="Wilson1995">
+Gregory V. Wilson:
+<em>Practical Parallel Programming</em>.
+MIT Press, 1995.
+ISBN 0-262-23186-7.</p>
+
+<p id="Wilson1994">
+Gregory V. Wilson, Brent Gorda, and Paul Lu:
+Twelve ways to make sure your parallel programming system doesn't make others look bad.
+<em>IEEE Computer</em>, 1994.</p>
+
+<p id="Wilson1993">
+Gregory V. Wilson, Jonathan Schaeffer, and Duane Szafron:
+Enterprise in context: assessing the usability of parallel programming environments.
+<em>Proc. CASCON'93</em>, IBM, 1993.</p>
+
+<p id="Wilson1992">
+Gregory V. Wilson:
+Using opportunistic combining networks to reduce contention in multicomputers.
+<em>Proc. PARLE'92</em>, Springer, 1992.</p>
+
+<p id="Clarke1991">
+Lyndon Clarke and Greg Wilson:
+Tiny: an efficient routing harness for the Inmos transputer.
+<em>Concurrency: Practice &amp; Experience</em>, 3(3):221–245, Jun 1991.
+<a href="https://doi.org/10.1002/cpe.4330030307">doi:10.1002/cpe.4330030307</a>.</p>
+
+<p id="Trew1991">
+Arthur Trew and Greg Wilson (ed.):
+<em>Past, Present, Parallel</em>.
+Springer, 1991.
+ISBN 978-3540196648.</p>
+
+</div>
+
+<h2>Fiction</h2>
+
+<div class="bibliography">
+
+<p id="Wilson2021">
+Greg Wilson:
+And Should I Fall Behind.
+<em>On Spec</em>, Winter 2021.</p>
+
+<p id="Wilson2010">
+Greg Wilson:
+Still.
+<em>On Spec</em>, Summer 2010.</p>
+
+<p id="Wilson2008c">
+Greg Wilson:
+<em>Bottle of Light</em>.
+Scholastic, 2008.
+ISBN 978-0779183784.</p>
+
+<p id="Wilson2007a">
+Greg Wilson:
+…But With a Whimper.
+<em>On Spec</em>, Fall 2007.</p>
+
+<p id="Wilson2007b">
+Greg Wilson:
+Controlled Release.
+<em>On Spec</em>, Winter 2007.</p>
+
+<p id="Wilson1999c">
+Greg Wilson:
+<em>Three Sensible Adventures</em>.
+Annick Press, 1999.
+ISBN 978-1550375992.</p>
+
+</div>
+
+{% include books.html %}

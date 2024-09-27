@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Working Backwards</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Working Backwards</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/01/23/the-votes-are-in/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-01-24" class="post-date">2024-01-24</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/01/27/caught-stealing/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Here&rsquo;s the last exercise in an introductory programming course for biologists:</p>
+<blockquote>
+<p>This zip file contains 236 CSV files,
+each of which has readings from a 16x16 microplate.
+Some of the plates were calibration runs with no samples in them;
+other plates had samples placed in random locations in a handful of wells.
+We know that the samples have much higher readings on average than the untreated wells,
+but unfortunately we&rsquo;ve lost the records that would tell us which plates were calibration and which we treated.
+Write a Python script that:</p>
+<ol>
+<li>reads the CSV files;</li>
+<li>calculates the average reading for each plate; and</li>
+<li>classifies the plates into untreated or treated based on the average.</li>
+</ol>
+<p>Include some tests to convince the examiner that your solution is correct.</p>
+</blockquote>
+<p>Let&rsquo;s work backward to define the course&rsquo;s curriculum:</p>
+<ul>
+<li>Read CSV files<ul>
+<li>So either <code>sys.argv</code> and enough shell to write <code>python script.py *.csv</code>
+    or introduce the <code>glob</code> module</li>
+<li>Either way, they&rsquo;re going to have to loop over filenames…</li>
+<li>…and read each file into a dataframe</li>
+</ul>
+</li>
+<li>Calculate the average reading for each plate<ul>
+<li>They&rsquo;ll have to combine the dataframes they just read into one big dataframe…</li>
+<li>…after pivoting the data to have the four columns (filename, row, col, reading)…</li>
+<li>…and then perform a grouped aggregation to calculate the average for each</li>
+</ul>
+</li>
+<li>Classify the plates<ul>
+<li>Either classical statistics (identify the two means of a bimodal distribution)…</li>
+<li>…or fancier modern stuff (1-dimensional k-nearest neighbors for k=2)…</li>
+</ul>
+</li>
+<li>Testing<ul>
+<li>Check the values in each dataframe to make sure they didn&rsquo;t mis-read</li>
+<li>Generate a bit of synthetic data to test their classifier</li>
+</ul>
+</li>
+</ul>
+<p>The initial four goals have turned into ten or twelve,
+depending on how you count.
+We can now come up with a short exercise for each of those
+and work backward to discover their prerequisites,
+and continue until we get to printing &ldquo;Hello, world.&rdquo;</p>
+<p>The technique has several names,
+but I first learned it as &ldquo;reverse instructional design&rdquo;,
+and it brings me to something Cat Hicks posted on Mastodon earlier today:</p>
+<blockquote>
+<p>This morning&rsquo;s chats have got me thinking about
+an initiative at the Developer Success Lab we&rsquo;ve been talking about
+that we&rsquo;re calling Be Your Own Scientist—publishing guidance and teaching
+all about helping <em>you</em> bring the power of science
+to answer questions about software teams
+(and perhaps using it to protect the good stuff you already know you&rsquo;re doing!)</p>
+<p>What kinds of topics would you want our team of social scientists to tackle?</p>
+</blockquote>
+<p>I answered:</p>
+<blockquote>
+<ol>
+<li>How are various kinds of decisions actually made in software engineering organizations?</li>
+<li>Why are some specialties seen as higher-status than others, and (how) has that changed over time?</li>
+<li>How do developers acquire their understanding of users&rsquo; needs, and what gets lost or garbled in translation?</li>
+<li>How do programmers explain things to (a) peers (b) new team members (c) management and (d) users?
+    How and why do these differ?</li>
+</ol>
+</blockquote>
+<p>Cat responded:</p>
+<blockquote>
+<p>[Those] sound like research questions rather than teaching people how to answer their own questions?
+Good research questions but not quite the same as scientific thinking as a practice.</p>
+</blockquote>
+<p>to which I tooted:</p>
+<blockquote>
+<p>agreed—what science thinking / techniques would you teach me
+so that I could tackle these (or at least understand others&rsquo; answers)?
+I think I don&rsquo;t even know what to ask for…</p>
+</blockquote>
+<p>Thinking about it some more,
+I&rsquo;ve realized that I work backward more often than I&rsquo;d recognized.
+I don&rsquo;t know what I need to know,
+but I <em>do</em> know what questions I want to (be able to) answer.
+Whether it&rsquo;s a lesson on Python,
+training on scientific thinking,
+or what book to write next,
+I often jump ahead to the conclusion I want
+and then backtrack to figure out how to get there.
+It&rsquo;s not profound or original,
+but it works for me.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

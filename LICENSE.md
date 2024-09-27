@@ -1,8 +1,5 @@
----
-layout: page
-title: "License"
-permalink: /license/
----
+# License
+
 Except where otherwise noted,
 all of this site is made available under the Creative Commons Attribution license.
 You are free:

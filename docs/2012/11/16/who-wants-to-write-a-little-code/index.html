@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Who Wants To Write a Little Code?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Who Wants To Write a Little Code?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2012/11/16/matt-daviss-great-californian-adventure/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2012-11-16" class="post-date">2012-11-16</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2012/11/17/updating-our-reading-list/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We have always steered away from building libraries to use in teaching–we want to show people the "real" stuff, and we can't afford to maintain things. The IPython Notebook has us rethinking that: now that we can display images inline, it would be wonderful if we could leverage <a href="http://coweb.cc.gatech.edu/mediaComp-teach">Mark Guzdial and Barbara Ericson's work</a>, and teach basic Python using simple image manipulation for examples (rather than text munging). Their research found that using images led to higher retention: more students stuck around, and the ones who did, remembered and used more of what they'd learned.</p>
+
+<p>The problem is, libraries like <a href="http://www.pythonware.com/products/pil/">PIL</a> and <a href="http://scikit-image.org/">scikit-image</a> aren't novice-friendly or teaching-oriented. Again, drawing from Guzdial and Ericson's work (which my co-authors and I did in <em><a href="http://www.amazon.com/Practical-Programming-Introduction-Pragmatic-Programmers/dp/1934356271/">Practical Programming</a></em>), we want something like this:</p>
+<pre>&gt;&gt;&gt; from skimage import novice        <span style="color: darkred;"> # special submodule for beginners</span>
+&gt;&gt;&gt; picture = novice.open('kite.png') <span style="color: darkred;"> # create a picture object from a file</span>
+&gt;&gt;&gt; print picture.format <span style="color: darkred;"> # pictures know their format…</span>
+<span style="color: darkgreen;"><em>'png'</em></span>
+&gt;&gt;&gt; print picture.path                <span style="color: darkred;"> # …and where they came from…</span>
+<span style="color: darkgreen;"><em>'/Users/example/kite.png'</em></span>
+&gt;&gt;&gt; print picture.size                <span style="color: darkred;"> # …and their size</span>
+<span style="color: darkgreen;"><em>(400, 500)</em></span>
+&gt;&gt;&gt; print picture.width               <span style="color: darkred;"> # 'width' and 'height' also exposed</span>
+<span style="color: darkgreen;"><em>400</em></span>
+&gt;&gt;&gt; picture.size = (200, 250)         <span style="color: darkred;"> # changing size automatically resizes</span>
+&gt;&gt;&gt; for pixel in picture:             <span style="color: darkred;"> # can iterate over pixels</span>
+…     if (pixel.red &gt; 0.5) and \    <span style="color: darkred;"> # pixels have RGB (values are 0.0-1.0)…</span>
+…         (pixel.x &lt; picture.width):   <span style="color: darkred;"># …and know where they are</span>
+…         pixel.red /= 2               <span style="color: darkred;"># pixel is an alias into the picture</span>
+…
+&gt;&gt;&gt; print picture.modified               <span style="color: darkred;"># pictures know if their pixels are dirty</span>
+<span style="color: darkgreen;"><em>True</em></span>
+&gt;&gt;&gt; print picture.path                   <span style="color: darkred;"># picture no longer corresponds to file</span>
+<span style="color: darkgreen;"><em>None</em></span>
+&gt;&gt;&gt; picture[0:20, 0:20] = (0., 0., 0.)   <span style="color: darkred;"># overwrite lower-left rectangle with black</span>
+&gt;&gt;&gt; picture.save('kite-bluegreen.jpg')   <span style="color: darkred;"># guess file type from suffix</span>
+&gt;&gt;&gt; print picture.path                   <span style="color: darkred;"># picture now corresponds to file</span>
+<span style="color: darkgreen;"><em>'/Users/example/kite-bluegreen.jpg'</em></span>
+&gt;&gt;&gt; print picture.modified               <span style="color: darkred;"># and is now in sync</span>
+<span style="color: darkgreen;"><em>False</em></span></pre>
+<p>The key thing here is that the iterator variable aliases the pixel, but has extra information (its XY coordinates). Yes, this is a bit odd if you're used to standard image processing libraries, or worried about performance, but this is what works best for teaching.</p>
+
+<p>If this existed, we'd rewrite our intro Python material (variables, loops, conditionals, functions) on top of it. My question is, would any of our regular readers like to build it for us?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

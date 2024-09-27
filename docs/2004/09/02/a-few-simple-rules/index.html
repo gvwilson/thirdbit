@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: A Few Simple Rules</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>A Few Simple Rules</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2004/09/01/tasks-for-the-fall/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2004-09-02" class="post-date">2004-09-02</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2004/09/02/book-review-joel-on-software/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We held the post-mortem
+for Helium this
+morning.  Lots of things went wrong, but many more went right—it was
+a fun, productive summer.</p>
+
+<p>Lots of things contributed to the fun, but much of the productivity
+can be attributed to one thing: everyone learned to use modern tools,
+and adopted good working practices.  Many projects stumble or fail
+because programmers aren't willing to do this—far too many, young as
+well as old, still insist on using Vim, Emacs, and other legacy tools.
+This doesn't just make <em>them</em> less productive; it also
+handicaps the rest of the team, since it prevents people learning from
+each other, sharing resources (such as useful keyboard macros),
+doubling up to debug hard problems, and so on.</p>
+
+<p>So, with that, the post-mortem,
+and the <a href="http://www.joelonsoftware.com/articles/fog0000000043.html">Joel
+Test</a> in hand, here are the rules by which this fall's projects
+will be run:</p>
+
+<table class="centered">
+
+  <tr>
+    <td align="right" valign="top">1.</td>
+    <td>  </td>
+    <td valign="top">
+      <b>Everything important is versioned.</b>
+      Source code, web pages… anything and everything that you need
+      to build, install, or debug the project goes into the Subversion
+      repository.
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right" valign="top">2.</td>
+    <td>  </td>
+    <td valign="top">
+      <b>Everyone uses Eclipse.</b>
+      And Ant.  And JUnit.  And all the
+      other tools
+      that are part of the environment.  If you don't, you are slowing
+      down your teammates, and making extra work for them.
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right" valign="top">3.</td>
+    <td>  </td>
+    <td valign="top">
+      <b>The build is automated.</b>
+      And all tests are re-run by default every time the project is
+      built (which will be every 30 minutes, round the clock).
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right" valign="top">4.</td>
+    <td>  </td>
+    <td valign="top">
+      <b>Anything that isn't done immediately goes into the issue
+      tracker.</b>
+      Why?  Because even if you would remember it a month from now,
+      teammates who weren't sitting with you when you slapped your
+      forehead and said, "D'oh!" won't.
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right" valign="top">5.</td>
+    <td>  </td>
+    <td valign="top">
+      <b>Everyone writes tests,</b>
+      preferably <em>before</em> they write the code itself.
+      Take a look at Helium's progress chart;
+      one of the reasons the team go that far, that fast,
+      was that they tested early, and tested often.  You owe it to
+      your successors to do the same.
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right" valign="top">6.</td>
+    <td>  </td>
+    <td valign="top">
+      <b>Everyone fixes bugs.</b>
+      Code is done when it's all typed in; code is done when it
+      works, and "working" means "working for everyone, everywhere,
+      every time".  (Yes, this means that most software is never
+      done…)  When your tests turn up bugs, file 'em and fix 'em
+      before implementing more features.  Experience shows that this
+      will make your work faster, since you won't constantly be
+      doubling back to shore up the foundations.
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right" valign="top">7.</td>
+    <td>  </td>
+    <td valign="top">
+      <b>Every large piece of work is sanity checked <em>before</em>
+      code is written.</b>
+      Thinking of reorganizing some of the data model classes?
+      About to write forty new classes to handle threading of
+      email conversations?  Grab a teammate and a whiteboard, and
+      explain what you're about to do, or send email to the list,
+      or fire up IM.  Anything, just as long as someone else gets
+      a chance to tell you when you should switch back to decaf…
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right" valign="top">8.</td>
+    <td>  </td>
+    <td valign="top">
+      <b>Every meeting start with an agenda, and ends with minutes and
+      an action list.</b>
+      Where possible, the agenda should be circulated before the
+      meeting begins; the minutes and actions <em>must</em> be
+      circulated soon after it's over (and added to the project web
+      site).
+    </td>
+  </tr>
+
+  <tr>
+    <td align="right" valign="top">9.</td>
+    <td>  </td>
+    <td valign="top">
+      <b>Have fun.</b>
+      This is the most important rule of all.  ("Floggings will
+      continue until morale improves…")  Your project isn't just
+      about marks—it's about learning new things, making new
+      friends, and building something you can be proud of.  Most of
+      the students who've done projects in the past have had a lot
+      of fun—we hope you will too.
+    </td>
+  </tr>
+
+</table><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

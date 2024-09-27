@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Background Knowledge</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Background Knowledge</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/04/21/transferring-files/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-04-22" class="post-date">2024-04-22</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/04/22/web-server/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I would like to teach people how to use Git hooks in <a href="https://gvwilson.github.io/sys-tutorial">this tutorial</a>.
+After reading <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">the official explanation of Git hooks</a> I do this:</p>
+<div class="highlight"><pre><span></span><code># Make a place for this example.
+$ mkdir example
+$ cd example
+
+# Turn it into a Git repository.
+$ git init .
+Initialized empty Git repository in /Users/gvwilson/example/.git/
+
+# Create a pre-commit script that always fails (i.e., exits with non-zero status).
+$ cat &gt; .git/hooks/pre-commit.sh
+#!/bin/sh
+echo &quot;hook running&quot;
+exit 1
+
+# Make that script executable.
+$ chmod 755 .git/hooks/pre-commit.sh
+
+# Run it and check its exit status.
+$ .git/hooks/pre-commit.sh
+hook running
+
+$ echo $?
+1
+
+# Create some content.
+$ cat &gt; a.txt
+content
+
+# Try committing it.
+# The hook should print &quot;hook running&quot; and the commit should be prevented.
+$ git add a.txt
+
+$ git commit -m &quot;should not work&quot;
+[main (root-commit) 7e5fcba] should not work
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.txt
+
+# Whoops: the commit seems to have happened.
+# Let&#39;s check.
+$ git log
+commit 7e5fcba19343b513a88c3608126535416b67185d (HEAD -&gt; main)
+Author: Greg Wilson &lt;gvwilson@third-bit.com&gt;
+Date:   Mon Apr 22 18:14:18 2024 -0400
+
+    should not work
+</code></pre></div>
+<p>OK, clearly I&rsquo;m doing something wrong.
+After reading <a href="https://stackoverflow.com/questions/49912695/git-pre-and-post-commit-hooks-not-running">this Stack Overflow question</a> I try this:</p>
+<div class="highlight"><pre><span></span><code># See what core.hooksPath is set to: turns out it isn&#39;t.
+$ git config --local core.hooksPath
+
+# Double-check.
+$ cat .git/config
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    ignorecase = true
+    precomposeunicode = true
+
+# Set it.
+$ git config --local core.hooksPath .git/hooks
+$ git config --local core.hooksPath
+.git/hooks
+$ cat .git/config
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    ignorecase = true
+    precomposeunicode = true
+    hooksPath = .git/hooks
+
+# See if that has fixed things.
+$ cat &gt; b.txt
+more content
+$ git add b.txt
+$ git commit -m &quot;should not work&quot;
+[main 3c42b28] should not work
+ 1 file changed, 1 insertion(+)
+ create mode 100644 b.txt
+</code></pre></div>
+<p>My questions are:</p>
+<ol>
+<li>Why isn&rsquo;t this working? (I&rsquo;m using Git 2.39.3 on MacOS Sonoma 14.4.1 with Bash 3.2.57.)</li>
+<li>What would someone who is new to the world of scripts, actions, and what-not need to know
+    in order to understand what I&rsquo;ve done so far and then debug it?
+    The list includes, but is not limited to, <code>chmod</code>, <code>#!</code>, zero and non-zero exit statuses (statii?),
+    the fact that Git is configurable, and the commands used to configure it.</li>
+</ol>
+<p>The second matters more to me than the first.
+I&rsquo;m sure I can figure this out if I go and make tea,
+but working backwards from something that someone might reasonably want to do (or debug)
+is a good way to design a lesson,
+particularly if you want to avoid skipping things that you have known for so long
+that you forget they needed to be learned.
+As always, <a href="mailto:gvwilson@third-bit.com">your thoughts are appreciated</a>.</p>
+<blockquote>
+<p>The solution to #1 is that the program has to be called <code>pre-commit</code> not <code>pre-commit.sh</code>.
+This makes sense once you know it,
+but so does the Fundamental Theorem of Calculus.
+What would someone have to know in order to figure this out on their own,
+and what examples will motivate them to learn those things before they need them in this case?</p>
+</blockquote><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

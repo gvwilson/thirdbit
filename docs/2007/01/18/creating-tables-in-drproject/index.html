@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Creating Tables in DrProject</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Creating Tables in DrProject</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2007/01/14/no-such-thing-as-one-program/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2007-01-18" class="post-date">2007-01-18</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2007/01/18/structured-online-laboratory-notebooks/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Courtesy of David Scannell, here&rsquo;s a quick rundown of how to create a new table in DrProject&rsquo;s database.  (Yes, I know, we should convert to <a href="http://www.sqlobject.org/">SQLObject</a> or <a href="http://www.sqlalchemy.org/">SQLAlchemy</a>; if you have time to do the work, please let me know…)</p>
+<p>Suppose I want to create a table called <code>Demo</code> with three fields:</p>
+<ul>
+  <li><code>Named</code>: string</li>
+  <li><code>ID</code>: integer (primary key)</li>
+  <li><code>TicketID</code>: Integer (foreign key)</li>
+</ul>
+<p>We&rsquo;ll assume that all work is being done in a <code>drproject/demo</code> directory, that you have <code><strong>init</strong>.py</code> set up, and you have modified <code>setup.py</code> file to recognize the new package.</p>
+<h2>Step 1: Create the Model</h2>
+<p>A. Create a file call <code>model.py</code>.</p>
+<p>B. Import the following:</p>
+<pre>from drproject.db.record import *         # Base for all database modelling</pre>
+<pre>from drproject.ticket.model import Ticket # Because we want a foreign key</pre>
+<p>C. Create a new subclass for record.</p>
+<pre>Class Demo(Record):</pre>
+<p>D. Associated this model with a database table (by default the table it gets associated with is the same as the name of the class):</p>
+<pre>Class Demo(Record):   _table='demo_table'</pre>
+<p>E. Now add the columns to the table:</p>
+<pre>Class Demo(Record):</pre>
+<pre>_table='demo_table'</pre>
+<pre>id = IdColumn()                # Creates a self-incrementing id</pre>
+<pre>name = TextColumn()            # String column</pre>
+<pre>ticket_id = ForeignKey(Ticket) # Makes this a foreign key to the Ticket Table</pre>
+<p>F. Make the ID column our primary key:</p>
+<pre>Class Demo(Record):</pre>
+<pre>_table='demo_table'</pre>
+<pre>id = IdColumn()</pre>
+<pre>name = TextColumn()</pre>
+<pre>ticket_id = ForeignKey(Ticket)</pre>
+<pre>_key = (id,)</pre>
+<p>Done.</p>
+<h2>Step 2: Create the System</h2>
+<p>A. Create a file called <code>api.py</code>.</p>
+<p>B. Import the following:</p>
+<pre>from drproject.core import *</pre>
+<pre>from drproject.env import EnvironmentSetupParticipant # For database creation</pre>
+<pre>from drproject.demo.model import *                    # Our database model</pre>
+<p>C. Create our <code>EnviromentSetupParticipant</code> subclass.</p>
+<pre>Class DemoSystem(EnvironmentSetupParticipant):</pre>
+<p>D. Associate the table that this new system will work with. In our case, it is the demo table.</p>
+<pre>Class DemoSystem(EnvironmentSetupParticipant):</pre>
+<pre>database_tables = (Demo,)</pre>
+<p>E. Give our system a name and version number:</p>
+<pre>Class DemoSystem(EnvironmentSetupParticipant):</pre>
+<pre>database_tables = (Demo,)</pre>
+<pre>version_propery = 'demo_system'</pre>
+<pre>version = 1</pre>
+<p>Done.</p>
+<h2>Step 3: Finishing Off</h2>
+<p>Now, when we create a new environment, DrProject will go over all the <code>EnvironmentSetupParticipant</code> objects, and create all the database tables each one is associated with. Process occurs in the method <code><strong>init</strong></code> of the class <code>Environment</code> in the file <code>drproject/env.py</code>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

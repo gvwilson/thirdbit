@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Filters, Performance, and Priorities</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Filters, Performance, and Priorities</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2004/08/06/real-time-scheduling/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2004-08-18" class="post-date">2004-08-18</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2004/08/28/the-joel-test/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Where has the summer gone?  We've written a lot of software (and documentation), but there's still a lot to do before Helium (er, sorry, Hippo—we're renaming it, for reasons that are too silly to go into) is ready to deploy.</p>
+
+<p>Eleven undergraduates from the <a href="http://www.cs.utoronto.ca">Department of Computer Science</a> at the <a href="http://www.utoronto.ca">University of Toronto</a> will be carrying on with the project this fall.  Between now and September 9, we have to decide what we want them to work on.  In order to do that, we have to resolve some technical issues that we've been deferring.</p>
+
+<p>For example, Hippo includes mail management, so that projects can have mailing lists.  We'd like to make use of whatever SMTP server our host is running, but that means we have to find a way to get messages into Hippo.  We also have to put some kind of spam filtering in place.</p>
+
+<p>However, we also want to keep Hippo unilingual if at all possible.  It would be fairly easy for our existing programming team to write a Python script (or even a shell script) to feed Hippo mail, but if we do that, I'm afraid we'll be falling into the same trap that <a href="http://www.sf.net">SourceForge</a> did.  Last time I checked, <a href="http://www.sf.net">SourceForge</a> depended on five (5) different languages (PHP, Perl, Python, Bash, and C), plus more than a dozen major third-party packages and many smaller libraries.  Getting all this stuff installed is hard; keeping it all in synch is harder; and finding programmers who know XYZ when it breaks is a continuing headache.  ("Sorry, dude, if this bit was written in Perl, I could help you…")</p>
+
+<p>So why not write the necessary glue in Java?  Performance.  Write a little shell script that runs a simple "Hello, world" script in Python a thousand times, and see how long it takes to run.  Now do the same in Java.  Make sure you have other applications running on the box, so that you're getting realistic numbers, rather than never-to-be-exceeded everything-in-memory peaks.  On Pyre (the Linux box that's hosting Helium's development), the difference is about 4:1.  It was less (about 3:2) on my souped-up development box at work, but only when I wasn't running anything else.  As soon as the VMs were fighting with other applications for space, Java lost: badly.</p>
+
+<p>We have several ways to deal with this.  One is to bite the bullet and write the smallest possible shell/Python script to move mail from the SMTP server to (for example) a scratch directory, then have a long-running Java daemon do everything from there.  (I'm pretty sure that Java will match Python's performance on the actual processing, though I don't yet have any data to back that up.)  Another would be to throw up our hands and say, "OK, Java's been fun, but this is the N'th time (where N is approximately 3) that we've found a case where Python would have been easier, so maybe we should start over."  Needless to say, I'm less than excited about that…</p>
+
+<p>I'm sure there are other possibilities; I'm also sure that we're not the first development team to bang our heads against this particular wall.  As always, pointers and advice are welcome…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

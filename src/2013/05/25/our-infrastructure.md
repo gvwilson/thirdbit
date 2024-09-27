@@ -1,0 +1,277 @@
+---
+title: Our Infrastructure
+date: 2013-05-25
+original: swc
+---
+<p>
+  As described in these posts from
+  May,
+  and
+  October
+  2012
+  (which build on
+  this one
+  from April 2012),
+  we use a complicated collection of tools to manage our work:
+</p>
+<ul>
+  <li>
+    Our web pages and blog posts are <a href="http://jinja.pocoo.org/">Jinja2</a> templates
+    stored in three GitHub repositories:
+    one for the main web site,
+    one for the Version 4 videos and slides,
+    and one for the Version 3 notes.
+    (We split material between repositories
+    because we didn't want people to have to download the earlier versions
+    in order to write a blog post–they're fairly large.
+    In practice,
+    though,
+    the web site compiler doesn't work if you don't have everything at hand.)
+  </li>
+  <li>
+    We use a 950-line Python script to compile those templates into HTML pages.
+    (We'd like to use <a href="http://blog.getpelican.com/">Pelican</a>,
+    a blog compiler written in Python,
+    but need a few patches to land before we can easily integrate the plugins we need.)
+  </li>
+  <li>
+    Our tutorial videos are on <a href="https://www.youtube.com/user/softwarecarpentry">YouTube</a>
+    and embedded in our web pages.
+  </li>
+  <li>
+    We use Google Analytics to watch web site traffic.
+  </li>
+  <li>
+    And Disqus for managing comments.
+  </li>
+  <li>
+    And the <a href="http://openbadges.org">Open Badges</a> infrastructure
+    for the digital badges we issue.
+    (More about this later.)
+  </li>
+  <li>
+    We use EventBrite to handle registration
+    about two thirds of the time;
+    the rest of the time,
+    hosts take care of it themselves
+    (typically with an internal system they're required to use).
+  </li>
+  <li>
+    Our site is hosted by <a href="http://www.dreamhost.com/">Dreamhost</a>.
+    Their service has been increasingly erratic over the past ten months,
+    so we're probably going to move to another hosting service this summer.
+  </li>
+  <li>
+    We use <a href="http://www.gnu.org/software/mailman/">Mailman</a> to manage mailing lists,
+    primarily because it's what Dreamhost provides.
+    Unfortunately,
+    what Dreamhost <em>doesn't</em> provide is access to Mailman's command-line API:
+    they host mailing lists on a different set of servers
+    than the ones used for web sites and shell access,
+    so we can't write scripts to synchronize mailing lists with our database.
+    This is another reason to move to another hosting service…
+  </li>
+  <li>
+    And speaking of databases,
+    we have yet another version control repository that holds our contact database
+    (as an SQL file we can load into SQLite),
+    notes about bootcamp prospects,
+    and other information that can't be public
+    (because it includes personal email addresses, phone numbers, and so on).
+    Using an SQLite database makes it really easy for us to ask questions like,
+    "Which bootcamp attendees in 2012 became instructors in 2013?",
+    but keeping it up to date is tedious.
+  </li>
+  <li>
+    Which reminds me that there are three other repos as well.
+    assets
+    stores all the "extra" public files that don't go into the web site,
+    such as the vector source for our logo
+    and the LaTeX and Markdown versions of our papers.
+    guide
+    holds the source for
+    the instructors' guide
+    that was supposed to be finished five months ago.
+    Like the web site itself,
+    it is written in HTML with Jinja2 templates
+    and compiled using a little Python script.
+    Finally,
+    boot-camps
+    holds actual teaching materials,
+    plus the web pages that instructors create for their bootcamps.
+    This repo is a mess right now,
+    and cleaning it up is
+    one of the major jobs
+    for our summer break.
+  </li>
+  <li>
+    We use a Google Map to display the locations of past and future bootcamps,
+    and a Google Calendar to display their dates.
+    A little bit of custom Javascript populates the former
+    using data extracted from bootcamp pages in the web site,
+    while our web site compilation script creates the .ics file
+    that fills the latter.
+  </li>
+  <li>
+    And oh yeah,
+    we tweet.
+    When we were using WordPress,
+    tweets were sent automatically when new blog posts appeared;
+    we do that manually now
+    (and sometimes forget).
+    We also sometimes forget to post notices about newly-announced bootcamps.
+  </li>
+</ul>
+<p>
+  As you can tell,
+  there are a lot of moving parts.
+  Here are the steps involved in several common activities:
+</p>
+<table class="centered">
+  <tr>
+    <td>Write and publish a blog post.</td>
+    <td>
+      <ol>
+        <li>
+          Create a new branch in your clone of the GitHub website repo.
+        </li>
+        <li>
+          Write the post as an HTML file with a bit of Jinja2 boilerplate.
+        </li>
+        <li>
+          Run the compilation script to make sure it's valid, properly linked, etc.
+        </li>
+        <li>
+          Commit your changes, then send a pull request.
+        </li>
+        <li>
+          Once it's merged,
+          get an admin to log in to the server
+          and recompile the public-facing version of the web site.
+        </li>
+        <li>
+          Tweet about the post.
+        </li>
+      </ol>
+    </td>
+  </tr>
+  <tr>
+    <td>Set up a new bootcamp.</td>
+    <td>
+      <ol>
+        <li>
+          Create a new event on EventBrite.
+        </li>
+        <li>
+          (Optional) create a new mailing list for the instructors and helpers
+          (so that they can coordinate with each other),
+          and add the appropriate people to it.
+        </li>
+        <li>
+          Create a new branch in your clone of the GitHub website repo,
+          add an HTML page for the bootcamp,
+          send us a pull request,
+          and recompile the site on the server once it's merged
+          (or in other words,
+          do everything you'd do for a blog post).
+          Our calendar and map are automatically populated using this data.
+        </li>
+        <li>
+          Blog and tweet about the bootcamp so that people know they can register.
+          (We forget to do this sometimes.)
+        </li>
+        <li>
+          Create a new branch in the boot-camps repo
+          to hold teaching materials.
+        </li>
+        <li>
+          Add a page for the bootcamp to the <code>gh-pages</code> branch of that repo
+          (because that's the way GitHub does things).
+        </li>
+        <li>
+          Update the notes we keep in the private administrators' repo for each prospect
+          to say that a bootcamp has been scheduled.
+        </li>
+      </ol>
+    </td>
+  </tr>
+  <tr>
+    <td>Wrap up a bootcamp.</td>
+    <td>
+      <ol>
+        <li>
+          Add participants names and email addresses to the SQLite database file.
+        </li>
+        <li>
+          Invite them to join the announcements mailing list
+          (by uploading their addresses to a widget in Dreamhost's online control panel,
+          which then sends the invites and handles responses).
+        </li>
+        <li>
+          Write a blog post about how it went.
+          (We sometimes forget this step too,
+          or people don't send us a post.)
+        </li>
+        <li>
+        </li>
+      </ol>
+    </td>
+  </tr>
+  <tr>
+    <td>Add someone to the online study group.</td>
+    <td>
+      <ol>
+        <li>
+          Add their name and email address to the SQLite database file.
+        </li>
+        <li>
+          Add them to the appropriate mailing list
+          (by hand,
+          since Dreamhost doesn't let us use the Mailman API).
+        </li>
+        <li>
+          Make them an author on the
+          teaching blog.
+        </li>
+      </ol>
+    </td>
+  </tr>
+  <tr>
+    <td>Issue someone an instructor's badge.</td>
+    <td>
+      <ol>
+        <li>
+          Add an entry to our SQLite database file.
+        </li>
+        <li>
+          Add an includable snippet of HTML describing them to the web site,
+          along with a photo of some kind,
+          that we can use on the roster page.
+        </li>
+        <li>
+          Add a line to the badge directory's index file
+          (which handles everything else).
+        </li>
+      </ol>
+    </td>
+  </tr>
+</table>
+<p>
+  There are far too many manual steps in these lists,
+  but I'm not sure what to replace it with.
+  WordPress didn't meet many of our needs,
+  and while customer relationship management packages like <a href="http://www.sugarcrm.com/">SugarCRM</a>
+  would be useful for managing bootcamp prospects and attendees,
+  they don't handle blogging, event Registration, or badging.
+</p>
+<p>
+  It's tempting to build something ourselves,
+  but that way madness lies
+  we don't have the days needed to build, test, deploy, and maintain something.
+  Even if we did,
+  it always seems we'd be better off using them
+  to create new lesson material
+  or actually teach.
+  We can't go on like this,
+  but I honestly don't know what we should do instead.
+</p>

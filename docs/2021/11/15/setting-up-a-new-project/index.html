@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Setting Up a New Project</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Setting Up a New Project</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/11/14/maddy-roo/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-11-15" class="post-date">2021-11-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/11/23/not-what-i-set-out-to-do/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I recently helped a group of about fifteen people set up a new research software engineering project
+(where by &ldquo;new&rdquo; I mean &ldquo;restart something that was in bits and pieces scattered across half the internet&rdquo;).
+They all had GitHub accounts already,
+and a couple of them had read <em><a href="../../../../py-rse/">Research Software Engineering with Python</a></em>,
+but only one had any formal training as a programmer
+(a 12-week bootcamp four years ago).
+Here&rsquo;s what we did in order—I&rsquo;d be grateful for suggestions about what we missed
+or what you would reprioritize.</p>
+<ol>
+<li>Create a mailing list for the project.<ul>
+<li>The team voted 2:1 for email over Slack because they want better search and fewer interruptions.</li>
+</ul>
+</li>
+<li>Create a new GitHub organization for the project and add everyone to it.<ul>
+<li>So that nothing belonging to the project is under a personal account.</li>
+</ul>
+</li>
+<li>Create a new repo within that GitHub organization.<ul>
+<li>Everything is in one repo for now, but that might change.</li>
+</ul>
+</li>
+<li>Redefine the tags in that repo.<ul>
+<li>Governance: <code>discussion</code> (including questions) and <code>proposal</code> (for votable items).</li>
+<li>Issues: <code>bug</code> and <code>request</code>.</li>
+<li>Pull requests: <code>fix</code>, <code>enhancement</code>, <code>docs</code>, and <code>refactor</code>.</li>
+<li>Meta: <code>paused</code>, <code>helped wanted</code>, <code>good first issue</code>.</li>
+</ul>
+</li>
+<li>Add <code>README</code>, <code>LICENSE</code>, <code>CODE_OF_CONDUCT</code>, <code>GOVERNANCE</code>, <code>Makefile</code>, and <code>.gitignore</code> to the repo.<ul>
+<li>We settled on Make because nobody could agree on what to use instead.</li>
+</ul>
+</li>
+<li>Create two <code>pip</code> requirements files:<ul>
+<li><code>requirements.txt</code> is a minimal setup for using the software.</li>
+<li><code>development.txt</code> sources that and adds everything needed for building, testing, and documenting.</li>
+</ul>
+</li>
+<li>Create <code>socks</code>, <code>docs</code>, and <code>tests</code> directories in the root of the repo along with a <code>setup.py</code> file.<ul>
+<li>Pretty standard structure for a <code>pip</code>-installable Python package (and no, &ldquo;socks&rdquo; isn&rsquo;t its real name).</li>
+</ul>
+</li>
+<li>Set up <code>pytest</code> for running tests and <code>pdoc</code> for building documentation.<ul>
+<li><code>tests/conftest.py</code> for <code>pytest</code>.</li>
+<li>A docstring in every <code>__init__.py</code> file (rather than leaving it empty) to make <code>pdoc</code> happy.</li>
+<li>Use <a href="https://gist.github.com/redlotus/3bc387c2591e3e908c9b63b97b11d24e">Google-style docstrings</a>.</li>
+</ul>
+</li>
+<li>Add targets to <code>Makefile</code> to:<ul>
+<li>Build the package.</li>
+<li>Run the tests.</li>
+<li>Run the tests with coverage and display the coverage report (to identify untested code).</li>
+<li>Rebuild the documentation.</li>
+<li>Run <code>flake8</code>, <code>black</code>, and <code>isort</code> to check that the code meets style guidelines.</li>
+</ul>
+</li>
+<li>Add a <code>workflow.yml</code> file with pre-commit checks.</li>
+<li>Add a script that uses <a href="https://palletsprojects.com/p/jinja/">Jinja2</a> to turn hand-written documentation into HTML.<ul>
+<li>The team has Markdown design notes and the beginnings of a tutorial that they want to put beside the <code>pdoc</code> docs.</li>
+<li>And a <code>glossary.md</code> file in <a href="https://github.com/carpentries/glosario">glosario</a> format.</li>
+</ul>
+</li>
+<li>Add a <code>data</code> directory with sample data for testing and a couple of real datasets.<ul>
+<li>Each dataset is in its own subdirectory with a <code>MANIFEST.yml</code> file describing files, columns, provenance, etc.</li>
+</ul>
+</li>
+<li>Add a <code>CITATION.cff</code> file with citation information.<ul>
+<li>And make sure every contributor has an ORCID.</li>
+</ul>
+</li>
+<li>Add a <code>bin</code> directory at the top level with various utility scripts.<ul>
+<li>Most of which use the code in the <code>socks</code> directory directly (rather than through a local install of the package).</li>
+</ul>
+</li>
+<li>Add a <code>results</code> directory at the top level with one sub-directory for each paper the team intends to produce.<ul>
+<li>Each sub-directory under <code>results</code> has its own <code>Makefile</code>.</li>
+<li><code>make all</code> in the project sub-directory regenerates everything.</li>
+<li>We haven&rsquo;t added a <a href="https://cookiecutter.readthedocs.io/en/1.7.2/">cookiecutter</a> template yet, but we will.</li>
+</ul>
+</li>
+<li>Add another Jinja2 script to convert CSV results files into HTML pages.</li>
+<li>Add a <code>static</code> directory with some CSS and JavaScript files.<ul>
+<li>Because everyone wants their HTML tables to be dynamically sortable…</li>
+</ul>
+</li>
+<li>Add a BibTeX file to the root <code>results</code> directory to be used by all project papers.</li>
+<li>Write a short code review checklist.<ul>
+<li>How to run pre-commit checks, how and why to use the <code>logging</code> library, what exceptions to use for what, etc.</li>
+</ul>
+</li>
+<li>Add a small utility script for loading program configurations.<ul>
+<li>In order: system config, personal config, project config, config file specified on the command line, command-line flags.</li>
+</ul>
+</li>
+<li>Choose a project logo.<ul>
+<li>Which made discussion of build tools look calm and rational…</li>
+</ul>
+</li>
+</ol>
+<p>Later: things people have suggested that we didn&rsquo;t include:</p>
+<ul>
+<li>a list of supported platforms (FlavorOfLinux, OS X Version, etc.) </li>
+<li>a list of supported Python versions</li>
+<li>instructions for setting up, say, virtualenv, to make sure users are all on the same Python version</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

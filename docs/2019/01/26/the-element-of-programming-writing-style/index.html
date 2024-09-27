@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Elements of Programming Writing Style</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Elements of Programming Writing Style</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/01/24/principle-of-least-precision/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-01-26" class="post-date">2019-01-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/01/28/computing-skills-books-for-researchers/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Along with my <a href="../../../../2019/01/06/not-on-the-shelves-2019/">list of unwritten books</a> about programming,
+I&rsquo;ve kept a haphazard list of ones that have influenced the way I write about the subject.
+Sometimes what I&rsquo;ve learned from them is stylistic,
+other times it&rsquo;s about how to shape content,
+but I think they&rsquo;re all worth looking at if you&rsquo;re writing about code.</p>
+<ul>
+<li>
+<p><em><a href="https://www.amazon.com/Software-Tools-Pascal-Brian-Kernighan/dp/0201103427/">Software Tools in Pascal</a></em>
+    by Kernighan and Plauger
+    and <em><a href="https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628/">The C Programming Language</a></em>
+    by Kernighan and Ritchie
+    get everything right:
+    the prose is so clear it&rsquo;s almost transparent,
+    new ideas are introduced exactly as needed,
+    and every example is something the reader would actually want to do.</p>
+</li>
+<li>
+<p>Stroustrup&rsquo;s <em><a href="https://www.amazon.com/Design-Evolution-C-Bjarne-Stroustrup/dp/0201543303/">The Design and Evolution of C++</a></em>
+    is a bit more difficult to get through in places,
+    but it&rsquo;s a great example of challenge-and-response exposition:
+    here&rsquo;s an idea,
+    here&rsquo;s why it&rsquo;s interesting,
+    here are its shortcomings or the second-order problems that arise from its use,
+    here&rsquo;s how to solve those,
+    and so on and so on.
+    I don&rsquo;t know if Stroustrup was inspired by
+    Lakatos&rsquo;s <em><a href="https://www.amazon.com/Proofs-Refutations-Mathematical-Discovery-Philosophy/dp/1107534054/">Proofs and Refutations</a></em>,
+    but several of the best chapters in <em><a href="http://aosabook.org">The Architecture of Open Source Applications</a></em>
+    used this recapitulatory approach as well,
+    and I think it&rsquo;s the best way to explain the design of any complex thing.</p>
+</li>
+<li>
+<p>Johnson&rsquo;s <em><a href="https://www.amazon.com/GUI-Bloopers-2-0-Interactive-Technologies/dp/0123706432/">GUI Bloopers</a></em>
+    doesn&rsquo;t go from simple to complex,
+    but from clumsy to elegant.
+    Each small section (2&ndash;4 pages) analyzes a flaw in a specific user interface—the font selection
+    dialog in Microsoft Word, for example—and then describes how it could be improved.
+    This is much more effective than any direct exposition of high-level rules like &ldquo;make use of negative space&rdquo;,
+    since it allows the reader to build and test a mental model grounded in specifics.
+    (In my experience, expounding on general rules is usually ineffective,
+    since the reader must already more-or-less understand the subject in order to understand the rules.
+    One of the few exceptions I&rsquo;ve encountered is
+    Bentley&rsquo;s <em><a href="https://www.amazon.com/Efficient-Programs-Prentice-Hall-Software-1982-05-23/dp/B01N1WX781/">Writing Efficient Programs</a></em>.)</p>
+</li>
+<li>
+<p>Kerievsky&rsquo;s <em><a href="https://www.amazon.com/Refactoring-Patterns-Joshua-Kerievsky/dp/0321213351/">Refactoring to Patterns</a></em>
+    is explicit where <em>GUI Bloopers</em> is implicit.
+    In it,
+    the author takes two big ideas—design patterns and refactoring—and shows how they are complements of one another.
+    Design patterns are the resting states of software;
+    refactorings are how to move software from one of those states to another.
+    It&rsquo;s one of the few examples I know of effective big-picture exposition.</p>
+</li>
+<li>
+<p>Rather than starting with something simple and adding well-motivated complexity,
+    Olsen&rsquo;s <em><a href="https://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452/">Design Patterns in Ruby</a></em>
+    presents what a naturalist would call type specimens:
+    each design pattern is explained by showing examples of its use in the Ruby standard library.
+    As with the books by Kernighan et al,
+    this authenticity adds authority to the writing,
+    and I would bet that in searching for examples,
+    the author learned a great deal more about his chosen subject.</p>
+</li>
+<li>
+<p>McConnell&rsquo;s <em><a href="https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/">Code Complete</a></em>
+    completely changed how I view programming and how I (try to) write about it.
+    I&rsquo;d been working for ten years, and had recently completed a PhD,
+    and had absolutely no idea that there was this much evidence about software engineering.
+    It&rsquo;s not an exciting read,
+    but statement after claim after suggestion is backed up with references to empirical research.
+    If nothing else
+    it made me impatient with <a href="https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X/">other books</a>
+    that make general claims based on anecdotes and personal experience.</p>
+</li>
+<li>
+<p>Petzold&rsquo;s deep love for his subject shines through in every page of
+    <em><a href="https://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055/">The Annotated Turing</a></em>.
+    He doesn&rsquo;t gush,
+    or tell us how important Turing&rsquo;s seminal paper on computability was;
+    instead,
+    he dissects it line by line and word by word,
+    using everything from its typography to its method of proof
+    as starting points for engrossing little excursions into the intellectual world of the 1930s
+    and the ripples from it we still swim in today.
+    Few books on any subject have been so quietly enjoyable.</p>
+</li>
+</ul>
+<p>There are a lot of other rewarding books about computing,
+and quite a few whose reputation I struggle to understand,
+but there are the ones that I think have had the most influence on <em>how</em> I write.</p>
+<p>What struck me as I compiled this list is that the authors on it are all white and male.
+I don&rsquo;t know how that has affected my writing style,
+but the books I have enjoyed most in the past few years,
+like Jemisin&rsquo;s <em><a href="https://www.amazon.com/Broken-Earth-Trilogy-Season-Obelisk/dp/031652719X/">Broken Earth</a></em> trilogy
+or Jahren&rsquo;s <em><a href="https://www.amazon.com/Lab-Girl-Hope-Jahren/dp/1101873728/">Lab Girl</a></em>,
+have made me wonder how many more exemplars of great writing we might have in computing
+if we were to stop making most people feel unwelcome.
+As someone who thinks that a well-crafted page is as close to paradise as I&rsquo;m ever likely to get,
+I think it&rsquo;s just one more reason to try to fix what&rsquo;s broken in our profession.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

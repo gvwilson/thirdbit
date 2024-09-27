@@ -1,0 +1,32 @@
+{% extends "base.jinja" %}
+
+{% block head_title %}
+<title>{{site.title}}: {{node.title}}</title>
+{% endblock %}
+
+{% block page_title %}
+<h1>{{node.title}}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-2 left">
+    {% if node.prev %}
+      <a href="{{node.prev.url}}">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    {% endif %}
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="{{node.date}}" class="post-date">{{node.date}}</time>
+  </div>
+  <div class="col-2 right">
+    {% if node.next %}
+      <a href="{{node.next.url}}">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    {% endif %}
+  </div>
+</div>
+<!-- content -->{{node.html}}<!-- /content -->
+{% endblock %}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Building a Book (Part 2)</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Building a Book (Part 2)</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/03/09/books-for-africa/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-03-10" class="post-date">2021-03-10</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/03/15/homework/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>As a follow-up to <a href="../../../../2021/02/10/building-a-book/">last month&rsquo;s post about building a book</a>,
+here&rsquo;s a rundown of what the template for <a href="../../../../sdxjs/"><em>Software Design by Example Using JavaScript</em></a>
+and my other book projects does right now.</p>
+<ol>
+<li>
+<p><strong>Jekyll with GitHub Pages&rsquo; settings.</strong>
+    I don&rsquo;t like Jekyll,
+    but since it is well documented and no other tool does what I want either,
+    I might as well stick to it.</p>
+</li>
+<li>
+<p><strong>Use HTML tags for simple extensions.</strong>
+    Glossary references are written as <code>&lt;span g="label"&gt;text&lt;/span&gt;</code>,
+    cross-references to chapters and appendices as <code>&lt;span x="label"&gt;&lt;/span&gt;</code>,
+    and so on.
+    A previous template used Jekyll inclusions like <code>{% raw %}{% include g key="label" text="text" %}{% endraw %}</code>,
+    but I find the spans much easier to read.
+    They&rsquo;re copied verbatim into the generated pages like any other HTML
+    and I use a little bit of JavaScript to convert them to links (more about this below).</p>
+<p><em>Note: I can&rsquo;t use special tags like <code>&lt;g key="label"&gt;text&lt;/g&gt;</code>
+since the Kramdown parser doesn&rsquo;t transcribe non-standard tags in some cases.
+After working as a programmer for almost 40 years,
+I still don&rsquo;t know where to document insights like this
+so that the next person can find them.</em></p>
+</li>
+<li>
+<p><strong>Pre-processing.</strong>
+    I need a global lookup table to make cross-references to chapters, sections, figures, and other things work.
+    While Jekyll will give me a list of posts or collection items,
+    there&rsquo;s no way (with GitHub Pages&rsquo; settings)
+    to add my own counted objects.
+    I therefore have a bunch of little Python scripts driven by a Makefile
+    to produce <em>chapter.number</em>-style IDs for things.
+    These are saved in YAML files in the <code>_data</code> directory
+    so that they&rsquo;re accessible to Jekyll while it&rsquo;s building pages,
+    and transcribed as JSON in each page&rsquo;s header
+    so that the little bits of JavaScript mentioned above can do their job.</p>
+</li>
+<li>
+<p><strong>Jekyll inclusions for code fragments.</strong>
+    One of the reasons I don&rsquo;t use computational notebooks is that
+    they don&rsquo;t give me a way to transclude excerpts from programs,
+    i.e.,
+    I can&rsquo;t show some methods of a class but not others,
+    or interleave a few lines of a function with a few lines of prose.
+    I therefore put specially-formatted comments in my source code to mark regions,
+    then use Jekyll inclusions to slice those files into pieces during page compilation.
+    It&rsquo;s not elegant,
+    but it does the job,
+    and it gives me an opportunity to check during the build
+    that every snippet of code I mention actually exists.</p>
+</li>
+<li>
+<p><strong>Checks. Lots of checks.</strong>
+    The Makefile includes these targets to make sure things will build:</p>
+<ul>
+<li><code>check</code>: run all checks</li>
+<li><code>check-bib</code>: compare citations and definitions</li>
+<li><code>check-chunk-length</code>: see whether any inclusions are overly long</li>
+<li><code>check-code-blocks</code>: check inline code blocks</li>
+<li><code>check-gloss</code>: compare references and definitions</li>
+<li><code>check-links</code>: make sure all external links resolve</li>
+<li><code>check-numbering</code>: make sure all internal cross-references resolve</li>
+<li><code>check-spelling</code>: check for misspelled words</li>
+</ul>
+</li>
+<li>
+<p><strong>Structured exercises.</strong>
+    Every exercise is in a sub-directory whose name starts with <code>x-</code>,
+    such as <code>x-glob-patterns</code>,
+    so that I can find them easily using wildcards.
+    Each sub-directory contains files called <code>problem.md</code> and <code>solution.md</code>
+    and has an entry in Jekyll&rsquo;s <code>_config.yml</code> file with metadata like its title
+    (to ensure consistency between problems-in-the-chapter
+    and solutions-in-the-appendix).
+    It&rsquo;s clumsy,
+    but so is everything else I&rsquo;ve tried.</p>
+</li>
+<li>
+<p><strong>Link definitions in the configuration file.</strong>
+    I want to be sure that external references resolve consistently.
+    I used to do this by including a file called <code>links.md</code> in each page
+    (in each page rather than in the template because Jekyll&rsquo;s order of operations prevents the latter from working).
+    I then discovered Kramdown&rsquo;s <code>link_defs</code> option and was briefly excited.
+    What I <em>want</em> to be able to put in <code>_config.yml</code> is:</p>
+<div class="highlight"><pre><span></span><code>kramdown:
+  link_defs: _data/link_defs.yml
+</code></pre></div>
+<p>I&rsquo;d settle for:</p>
+<div class="highlight"><pre><span></span><code>kramdown:
+  link_defs:
+    - acorn:
+      - https://github.com/acornjs/acorn
+      - acorn.js
+    - alloy:
+      - https://alloytools.org/
+      - Alloy
+    - antlr:
+      - https://www.antlr.org/
+      - ANTLR
+    …
+</code></pre></div>
+<p>To get around <a href="https://stackoverflow.com/questions/66320774/how-to-pre-define-links-in-jekyll-config-yml-using-kramdown-links-def-options">this bug</a>,
+though,
+I need to write YAML that contains a string that can be parsed as YAML:</p>
+<div class="highlight"><pre><span></span><code>kramdown:
+  syntax_highlighter_opts:
+    disable: true
+  link_defs: &gt;
+  {
+    &quot;acorn&quot;: [&quot;https://github.com/acornjs/acorn&quot;, &quot;acorn.js&quot;],
+    &quot;alloy&quot;: [&quot;https://alloytools.org/&quot;, &quot;Alloy&quot;],
+    &quot;antlr&quot;: [&quot;https://www.antlr.org/&quot;, &quot;ANTLR&quot;],
+    …
+  }
+</code></pre></div>
+<p>I can then write <code>{% raw %}[Acorn][acorn]{% endraw %}</code> everywhere in my pages,
+but have to do some messy string operations in a Jekyll inclusion
+to print a table of links in an appendix.</p>
+</li>
+<li>
+<p><strong>Figures saved as PDF as well as SVG.</strong>
+    I draw all of my diagrams with <a href="https://www.diagrams.net/">diagrams.net</a> and save them as SVG;
+    all screenshots are done using <a href="https://chrome.google.com/webstore/detail/svg-screenshot/nfakpcpmhhilkdpphcjgnokknpbpdllg">SVG Screenshot</a>.
+    I need PDFs for the print version: since SVG is only 22 years old, LaTeX doesn&rsquo;t support it yet.
+    Unfortunately,
+    I can&rsquo;t use off-the-shelf SVG-to-PDF tools because diagrams.net&rsquo;s SVG includes extra fields
+    to support things like smart connectors,
+    and since diagrams.net doesn&rsquo;t have a command-line API,
+    I can&rsquo;t script the translation.</p>
+</li>
+<li>
+<p><strong>Custom HTML-to-LaTeX conversion.</strong>
+    My template depends on Jekyll, Python, Make, CSS, and JavaScript;
+    adding <a href="https://pandoc.org/">Pandoc</a> to the mix seemed like a step too far, even for me.
+    I therefore have a 440-line Python script that turns the HTML generated by Jekyll into LaTeX,
+    which I then compile to produce a PDF.
+    I translate the generated HTML rather than the original Markdown
+    to ensure consistent interpretation of the latter (Python&rsquo;s Markdown processors don&rsquo;t work exactly like Kramdown)
+    and so that I don&rsquo;t have to write Python equivalents of my Jekyll inclusions;
+    I use Jekyll for this and my other scripts rather than Ruby
+    because neither I nor the researchers I work with speak the latter.</p>
+</li>
+</ol>
+<p>It&rsquo;s a mess,
+but it&rsquo;s reasonably fast,
+reasonably flexible (I&rsquo;m using it for three projects right now),
+and I&rsquo;ve learned a lot from assembling it.
+As I said in my note on point #2 above,
+though,
+I still don&rsquo;t know where to document my insights so that the next person can find them.
+&ldquo;Write it down&rdquo; doesn&rsquo;t work:
+it rusts very quickly
+and it&rsquo;s hard to make material findable.
+Solve this problem,
+and you&rsquo;ll have given us a way to start sharing software design insights at scale.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

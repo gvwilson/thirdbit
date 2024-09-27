@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Designing Lessons Collaboratively</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Designing Lessons Collaboratively</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2016/02/08/correlations/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2016-02-15" class="post-date">2016-02-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2016/02/16/collaboration-counterpoint/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A few days ago,
+I asked for feedback on a new Python lesson aimed at people who&rsquo;ve never programmed before.
+The outline
+had already received several rounds of feedback from a handful of people,
+but there were still lots of comments:</p>
+<ul>
+<li>
+<p>As always,
+    the choice of <strong>tools</strong> attracted a lot of discussion.
+    Jeremy Metz opened by saying,
+    &ldquo;I worry that the use of a more abstract environment like the Jupyter Notebook
+    might confuse and add an additional barrier to people wanting to &lsquo;really&rsquo; use Python.&rdquo;
+    I agree that the Notebook imposes an extra cognitive load,
+    since it&rsquo;s so different from anything else novices are likely to have seen,
+    but it has become the tool of choice for many scientists for good reasons:
+    it&rsquo;s stable, cross-platform, encourages reproducible practices,
+    and has a great, supportive community.
+    We&rsquo;re also starved for alternatives:
+    the audience for this class isn&rsquo;t required to have seen the shell,
+    so running scripts from the command line is out,
+    and all of the Python IDEs we&rsquo;ve tried have significant shortcomings for our audience.</p>
+</li>
+<li>
+<p><strong>Time estimates</strong> are one of the places where community input matters most.
+    In this issue,
+    two experienced instructors discuss how far they think learners could get by lunch,
+    while here,
+    two others talk about whether lots of short exercises will be manageable in practice,
+    and whether using the Notebook will help.
+    The former was a useful reality check
+    (which is my way of saying &ldquo;I cut some material based on their feedback&rdquo;)
+    while we will address the latter by having most exercises be multiple choice questions,
+    Parsons Problems,
+    and filling in the blanks or tweaking existing code
+    rather than writing things from scratch.
+    Rayna Harris has also suggested
+    that we use <a href="http://www.socrative.com/">Socrative</a> quizzes for real-time assessment.
+    While I&rsquo;m a bit nervous about becoming any more dependent on closed-source commercial sites than we already are,
+    it&rsquo;s a great tool,
+    and we&rsquo;ll definitely explore it.</p>
+</li>
+<li>
+<p><strong>Potential problems</strong> are another place where having a community makes a big difference.
+    This discussion reminded me that loading data is hard
+    if you don&rsquo;t know how to navigate the filesystem;
+    we&rsquo;ve addressed that by allocating 10 minutes for learners to read their first CSV data set,
+    most of which we expect will be taken up with tech support.</p>
+</li>
+<li>
+<p><strong>Testing</strong> is important
+    and coverage of these practical aspects of programming
+    is part of what distinguishes SWC from &ldquo;pure programming&rdquo; classes,
+    but (a) will it be accessible,
+    (b) will it be compelling,
+    and (c) what should we take out to make room for it?
+    We could show <code>assert</code> and focus on defensive programming rather than testing per se,
+    and it&rsquo;s less effort (no separate functions).
+    See this thread for the discussion.</p>
+</li>
+<li>
+<p><strong>Debugging</strong> is also important.
+    I&rsquo;m a big fan of interactive symbolic debuggers,
+    but all the Notebook provides right now is <code>pdb</code>,
+    which we are <em>not</em> showing to novices.
+    Instead,
+    we have 15 minutes of lesson and discussion on how to make sense of error messages
+    (which will draw on this discussion
+    as well as recycling this material)
+    and 25 minutes on actual debugging.
+    The latter episode is toward the end of the lesson,
+    and I suspect that many workshops will drop it because they&rsquo;ll run short of time.</p>
+</li>
+<li>
+<p><strong>NumPy</strong> was the heart and soul of scientific Python for many years,
+    but this lesson will only mention it in passing,
+    devoting its attention to Pandas instead.
+    It really deserves more air time—as Bartosz Telenczuk observes,
+    &ldquo;students leaving the course without basic familiarity of NumPy
+    will not be able to understand ~60% (my rough guess) of scientific Python applications.&rdquo;
+    The problem once again is what to cut to make room…</p>
+</li>
+</ul>
+<p>The biggest message for me in this wasn&rsquo;t the specific feedback, though.
+It was the way that two dozen people who are familiar with our current content and teaching methods,
+and have first-hand experience delivering this material in the classroom,
+were willing and able to share what they knew.
+That doesn&rsquo;t guarantee that the first draft of the lesson will be perfect,
+but it does improve the odds of it being good.</p>
+<p>The next step is to figure out how to go about writing the lesson.
+Should one or two people assemble a first draft for others to critique?
+Or should we start by crowd-sourcing the creation of the exercises
+(which I think will parallelize better)?
+And if we do the latter,
+should we ask instructor trainees who already speak Python to propose exercises
+as part of their training?
+Comments would be greatly appreciated.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

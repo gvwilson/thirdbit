@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: I Don't Know What to Teach</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>I Don't Know What to Teach</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/10/29/escape-from-the-rest-of-us/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-10-29" class="post-date">2022-10-29</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/10/29/throttling/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;ve been working with biologists and bioinformaticians for a year now,
+and the more time I spend with them,
+the more I question what I&rsquo;ve been teaching and preaching for the past dozen years.
+For example,
+one of my colleagues has several hundred Jupyter notebooks in a Git repo,
+each of which analyses one or a few datasets.
+When a lab scientist sends him new data
+he makes a copy of one of the notebooks,
+tweaks it (a process which can take anywhere from minutes to days),
+and then runs it to produce the plots and tables the scientist needs.</p>
+<p>&ldquo;Why don&rsquo;t you just have one parameterized notebook?&rdquo; I asked.
+&ldquo;Because every single analysis is different,&rdquo; he said,
+patiently and somewhat wearily.
+The scientists are exploring new compounds, new experimental methods, new everything.
+He&rsquo;s already refactored the shared bits of code into a library,
+but if he adds enough options and configuration parameters to those functions
+to handle every case,
+he will essentially have moved his file structure into an untraceable tangle
+of if/else statements
+and overridden methods.</p>
+<p>I described this to a fellow programmer a few days ago,
+and she said,
+&ldquo;Oh come on: there <em>has</em> to be a way.&rdquo;
+That&rsquo;s when I realized that I don&rsquo;t know how to teach even more than I thought.
+The mindset, methods, and tools that software engineer have developed
+to solve their problems
+aren&rsquo;t automatically a fit for researchers and data analysts.
+We&rsquo;re manufacturing t-shirts in standard sizes;
+they&rsquo;re tailoring bespoke suits,
+and it&rsquo;s wrong in a very self-centered way for us to say
+that what they&rsquo;re doing <em>must</em> somehow fit into our paradigm.
+I therefore need to find things to teach to researchers that are a better fit to their needs,
+<em>and</em> find ways to convince software engineers
+that those needs really are different
+and really do need different kinds of support.</p>
+<p><em>Later:
+a data scientist DM&rsquo;d me to ask why there isn&rsquo;t a <code>git cp</code> command
+to record the fact that file X is a copy-with-modifications of file Y.
+They&rsquo;ve seen tools that draw the branch-and-merge structure of Git commits,
+and want something similar to show the genealogy of files
+that coexist simultaneously in the same branch.
+I&rsquo;m going to have to think about this one…</em></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

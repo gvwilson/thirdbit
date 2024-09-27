@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Orwell, Dickens, and How We'll Know We're Done</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Orwell, Dickens, and How We'll Know We're Done</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2015/01/14/language-wars-and-others/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2015-01-17" class="post-date">2015-01-17</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2015/01/22/improving-the-balance/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  I started working on a short capstone example last month
+  to show learners how to get a badly-formatted reference list out of an Excel spreadsheet
+  and into a relational database
+  so that it would be easy to answer questions like, "Who has co-authored papers with whom?"
+  I'd like to work up another capstone as well,
+  but there's a problem:
+  I can't actually do it myself
+  for reasons that are both technical and political.
+</p>
+<p>
+  The problem is easy to state:
+  given a bibliography (like this one),
+  find all papers published in the last N years that <em>aren't</em> in the bibliography
+  but which reference items that are.
+  The use case is someone wanting to find out what's been done in some area
+  after they've been away from it for a while,
+  and from a computer science point of view,
+  the solution is easy:
+</p>
+<ol>
+  <li>
+    Get the DOIs of all the papers in the bibliography.
+  </li>
+  <li>
+    Look up all papers whose references include one or more of those DOIs.
+  </li>
+  <li>
+    Subtract everything published after 2010 (or whatever the "since" year is).
+  </li>
+</ol>
+<p>
+  A third of the bibliography entries don't have DOIs,
+  so the set of known DOIs built in step 1 will be incomplete.
+  That's not fatal in this case,
+  since anything that references one entry in the bibliography
+  will probably also reference others.
+</p>
+<p>
+  The real problem is step number two–the one where the problem stops being technical
+  and starts being political.
+  I haven't been able to find any publicly available service
+  that lets me search for papers whose references include one or more DOIs.
+  "Publicly available" is important here:
+  I live outside the Great Paywall of Academia;
+  many of the tools that most scientists can use are blocked both for me
+  and for many of our learners
+  (particularly those in developing countries).
+  I could solve that problem by wrangling a courtesy appointment at some university or other,
+  but that would feel like cheating,
+  because it would only solve the problem for <em>me</em>.
+</p>
+<p>
+  All of which brings us to 
+  <a href="http://orwell.ru/library/reviews/dickens/english/e_chd">George Orwell's essay on Charles Dickens</a>.
+  In it,
+  Orwell said that while Dickens saw the sins of Victorian society very clearly,
+  he never allowed himself to see that those sins were part and parcel of how that society was organized.
+  The protagonists in Dickens' novels might be saved individually–an unexpected inheritance,
+  a fortunate encounter with a pious benefactor,
+  and the like–but such solutions leave the equally deserving people standing to their left and right
+  still mired in muck.
+  Equally,
+  having friends who are still in academia mail me PDFs of papers doesn't help my neighbors,
+  much less allow me to build a tool that would let me find researchers
+  I should be talking to.
+</p>
+<p>
+  In 2013,
+  I said that we would know we had won
+  when scientists stopped submitting, publishing, and downloading papers,
+  and started forking and merging projects instead.
+  I now realize that goal was incomplete;
+  what I should have said was:
+</p>
+<blockquote>
+    Scientists won't submit, publish, and download papers.
+    <br>
+    They will fork and merge projects
+    <br>
+    <em>that everyone has equal access to.</em>
+</blockquote>
+<p>
+  Friends sending me PDFs of papers won't bring that world closer,
+  any more than giving one child a hot meal and a pair of shoes would have ended poverty in Dickens' London.
+  Teaching scientists the skills they need to build the program I outlined will,
+  but even that won't be enough.
+  What we really need is for scientists to use what we're teaching to change the practice of science,
+  so that anyone who wants to can write and run such tools.
+  As Emma Lazarus said:
+</p>
+<blockquote>
+  Until we are all free, we are none of us free.
+</blockquote>
+<hr/>
+<p>
+  <em>
+    Some people I respect said on Twitter that I shouldn't have used the Emma Lazarus quote in this post,
+    since it has particular significance in the American civil rights movement.
+    Saying "I didn't know that - I'm Canadian" is an explanation but not an excuse:
+    it's ridiculous and offensive to equate PDFs with people,
+    and I apologize for giving the impression that I was doing so.
+  </em>
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

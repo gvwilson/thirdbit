@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Can't Get (Directly) There From Here</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Can't Get (Directly) There From Here</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/11/08/csc49x-projects-winter-2007/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-11-09" class="post-date">2006-11-09</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/11/11/expressing-temporal-type-information-in-programs/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>One of the projects I&rsquo;m contributing to these days is writing a first-year Computer Science textbook using Python.  We&rsquo;re using DrProject to manage it: after all, <a href="http://www.latex-project.org/">LaTeX</a> files are really just another kind of source code, and what better way to keep track of who&rsquo;s supposed to be doing what than ticketing?</p>
+<p>Well, since you asked…  The truth is, we&rsquo;re storing to-do information in two ways: as tickets in DrProject, and as specially-formatted text in the <a href="http://www.latex-project.org/">LaTeX</a>.  All the big items use the former; the little notes to ourselves like, &ldquo;This sentence is cheesy,&rdquo; are inside the <code>.tex</code> files like this:</p>
+<pre>\FIXME{This sentence is cheesy.}</pre>
+<p>Embedding &ldquo;tickets&rdquo; in the source is a bad idea for several reasons.  First, the embedded items are invisible to DrProject: they can&rsquo;t be searched, ordered, assigned to particular users, and so on [1].  Second, whenever you store information in two places, you run the risk of duplication, contradiction, or omission.  Right now, we have no way of knowing which of our FIXMEs are also recorded as tickets, and which aren&rsquo;t; we could ask people to file a ticket each time they create a FIXME, and delete the FIXME when they close the ticket, but that&rsquo;s a lot of extra work.</p>
+<p>Despite these problems, embedding little notes in code is such a popular working practice that <a href="http://www.eclipse.org">Eclipse</a> and other IDEs have tools to collate and present markers of this kind.  The reason is simple: embedding in code is <em>easy</em>.  Even if you have <a href="http://www.eclipse.org/mylar/">Mylar</a> installed, so that you can work with your ticketing system from within <a href="http://www.eclipse.org">Eclipse</a> [2], throwing a TODO comment or a FIXME macro into your source file disrupts your train of thought—your flow—much less than filing a ticket [3].</p>
+<p>There&rsquo;s another, subtler issue here as well.  Suppose you did want to file a ticket to say that a particular sentence was cheesy, or that a particularly complex assignment statement should be refactored. Would you quote it in the ticket?  There goes your flow, but what else can you do?  You can&rsquo;t point to it (e.g., quote file name and line number), because the text or code in question might be reorganized between the time the ticket is created, and the time someone gets to it.  The only thing to do is to follow where <a href="http://www.literateprogramming.com/">literate programming</a> led, and <a href="http://java.sun.com/j2se/javadoc/">Javadoc</a> half-heartedly followed: store the &ldquo;documentation&rdquo; with the &ldquo;code&rdquo;, and tell ourselves that it&rsquo;s the least of the available evils.</p>
+<p>But wait: our source files are under version control, aren&rsquo;t they? And DrProject can see the version control repository.  Why can&rsquo;t DrProject scan the files in the repository, extract the FIXMEs and TODOs, and turn them into tickets? Better yet, why not have it look for FIXMEs like the one above and insert an automatically-generated ticket ID, i.e., turn the FIXME into something like this:</p>
+<pre>\FIXME[179]{This sentence is cheesy.}</pre>
+<p>Those &ldquo;tickets&rdquo; can then be managed like any others: if someone closes one in the database, DrProject can delete the corresponding line from the source file, and vice versa.</p>
+<p>What I&rsquo;m really proposing is to treat information-in-the-database and information-in-the-repository on an equal footing.  At some level of abstraction (which we have to define and implement), it shouldn&rsquo;t matter how or where the ticket is stored.  All that really matters is the information it contains, and the operations users can perform on it.  If it&rsquo;s easiest for them to enter that data by adding a line to their source code, great—we can handle that.  If there&rsquo;s enough data to justify them switching tools (e.g., a one-page description of how to reproduce a complicated synchronization bug), we can support that too.</p>
+<p>It&rsquo;s tempting—but it won&rsquo;t work.  The problem is that the editors people use when they&rsquo;re working with source code are unstructured. The editor I&rsquo;m using to create this posting knows about HTML; if I press the <code>&lt;</code> key on my keyboard, it adds the string <code>&lt;</code> to the file.  In contrast, the editor in <a href="http://www.eclipse.org">Eclipse</a> lets me put whatever I want in my Java files—even text that can&rsquo;t possibly be legal Java.  We would therefore have to trust users (a) to format their FIXMEs and TODOs exactly the right way when initially adding them to files, and (b) not to mess up any of the information the system added. Experience with first-generation CASE tools and similar systems proves (at least to me) that people will get both wrong often enough to find the system a hindrance rather than a help.</p>
+<p>Teaching <a href="http://www.eclipse.org">Eclipse</a>&rsquo;s editor how to format a <code>\FIXME[…]{…}</code> in a <code>.tex</code> file is <em>not</em> the right answer: different issue tracking tools will have different conventions, and anyway, what do we do when someone wants to add <code>\CODEREVIEW{…}</code> or <code>\QUESTION{…}</code> or something else?  The right answer is to allow developers to create custom micro-editors and bind them to particular flavors of micro-content.  The document then becomes an assemblage of strongly-typed elements, the presence of which causes display/modify/diff/merge handlers [4] to be loaded and run.</p>
+<p>So once again it comes back to extensible programming.  We separate models, views, and controllers when we&rsquo;re building tools for other people, but we still, in the early 21st Century, insist that <em>our</em> files be unstructured text.  It&rsquo;s easy to see the cost of changing—legacy tools would stop working, and we might have to (shock horror) put Vi or Emacs out to pasture.  I think it&rsquo;s time we started thinking about the cost of staying stuck in the 1970s; I think we ought to start paying attention to all the neat tools that aren&rsquo;t feasible to build because we&rsquo;re afraid of embracing the very future that we&rsquo;ve dedicated ourselves to creating.</p>
+<hr />
+<p>[1] OK, we could add another parameter to the <code>\FIXME</code> macro to record a user ID, but then we&rsquo;d have to validate it.  And what about priority?  Should <code>\FIXME</code> have as many parameters as tickets have fields?  Brr…</p>
+<p>[2] DrProject doesn&rsquo;t support <a href="http://www.eclipse.org/mylar/">Mylar</a> yet, though there is a plugin for <a href="http://trac.edgewall.com">Trac</a>.  If anyone is looking for a challenging, useful CSC49X project…</p>
+<p>[3] The problem isn&rsquo;t the time it takes to fix whatever you&rsquo;ve noticed; the problem is that you have to put aside whatever problem you <em>were</em> thinking about to do so.  People talk about &ldquo;pushing&rdquo; and &ldquo;popping&rdquo; issues on a mental stack, but the brain doesn&rsquo;t actually work that way: lots of studies have shown that it takes several minutes to get back in a flow state after any significant interruption.</p>
+<p>[4] Display and modify should be obvious; diff and merge are needed so as not to discourage users from putting files containing such content under version control.  (I would give you real cash money right now for an Excel merge-and-diff tool, and no, export as CSV and use text diff is <em>not</em> an answer.)</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

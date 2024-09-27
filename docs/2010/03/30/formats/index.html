@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Formats</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Formats</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/03/30/why-do-students-cheat/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-03-30" class="post-date">2010-03-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/03/31/this-is-history-this-is-science/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>As I said in last week's announcement, and mentioned again in a later post, one of the main goals of this rewrite is to make it possible for students to do the course when and where they want to. That means recording audio and video, but much of the material will probably still be textual: code samples (obviously), lecture notes (for those who prefer skimming to viewing, or who want to teach the material locally), and exercises will still be words on a virtual page. And even the AV material will (probably) be accompanied by scripts or transcripts, depending on what turns out to work best.</p>
+<p>Which brings up a question everyone working with computers eventually faces: what format(s) should material be stored in? For images, audio, and video, the choices are straightforward: SVG for line drawings, PNG for images, MP3 for audio, and MP4, MPEG, or FLV or video (I don't know enough yet to choose). But there's a bewildering variety of options for text, each with its pros and cons.</p>
+<ol>
+<li><strong>A</strong>uthoring tools: do authors need to use a specialized editor? If so, is it freely available for the three major platforms (Windows, Linux, and Mac)?</li>
+<li><strong>C</strong>omposition: can authors "just type", or do they need to spend a lot of keystrokes on markup?</li>
+<li><strong>D</strong>iffing and merging: does the format play nicely with version control systems, i.e., if two or more people edit independently, can their changes easily be merged after the fact?</li>
+<li><strong>F</strong>ormatting: does the format allow fine-grained control over layout? (My personal test here is how easy it is to create tables with irregular arrangements of rows and columns.)</li>
+<li><strong>M</strong>ultiple output formats: can HTML pages, slides, PDFs, and what-not all be produced from a single source?</li>
+<li><strong>R</strong>eferencing: does the format take care of section and figure numbering, cross-references, and bibliographic citations automatically?</li>
+<li><strong>W</strong>YSIWYG: does the raw content have to be compiled or transformed to produce something viewable, or is what you see what you get?</li>
+</ol>
+<p>Here are the options as I see them:</p>
+<table class="centered">
+<tbody>
+<tr>
+<td>Format</td>
+<td style="text-align:center;">A</td>
+<td style="text-align:center;">C</td>
+<td style="text-align:center;">D</td>
+<td style="text-align:center;">F</td>
+<td style="text-align:center;">M</td>
+<td style="text-align:center;">R</td>
+<td style="text-align:center;">W</td>
+<td style="text-align:center;">Minimum</td>
+</tr>
+<tr>
+<td><a href="http://office.microsoft.com/en-us/word/default.aspx">Microsoft Word</a></td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">-1</td>
+</tr>
+<tr>
+<td><a href="http://www.openoffice.org/product/writer.html">OpenOffice</a></td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">-1</td>
+</tr>
+<tr>
+<td><a href="http://www.docbook.org/">DocBook</a></td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">-1</td>
+</tr>
+<tr>
+<td>Other XML</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">-1</td>
+</tr>
+<tr>
+<td>Plain Old HTML</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">-1</td>
+</tr>
+<tr>
+<td><a href="http://meyerweb.com/eric/tools/s5/">S5</a> and its kin</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">-1</td>
+</tr>
+<tr>
+<td>Wiki text</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">-1</td>
+<td style="text-align:center;">-1</td>
+</tr>
+<tr>
+<td><a href="http://www.latex-project.org/">LaTeX</a></td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">+1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>I use the minimum in evaluation, rather than the average or total score, because what you notice most when you're working with something is usually what's most annoying about it. Or maybe that's just me… But what do these numbers actually mean? In no particular order:</p>
+<ul>
+<li>Binary file formats don't work well with version control systems, since the latter use textual differencing to reconcile changes between versions or by concurrent editors. This rules out the default formats used by Microsoft and OpenOffice.</li>
+<li>Machine-generated XML doesn't fare any better, since the differencing tools used in version control systems ignore the semantics ("element inserted") and become confused by the representation ("18 lines changed"). This rules out various XML-based options for Word and OO.</li>
+<li>In contrast, XML or HTML that has been written using a plain old text editor usually has line breaks in useful places (i.e., more of the semantics is reflected in the representation) so diff and merge work much better. On the other hand, if you're using a POTE, 20-40% of your keystrokes go into markup (all those angle brackets and attributes) rather than content. WYSIWYG XML/HTML editors help a bit (I'm using the one built into WordPress right now), but most generate the same tangled diff-hostile output as the options dismissed above. With respect to particular formats:
+<ul>
+<li>"Real" DocBook is a lot of work to produce. <a href="http://www.oreilly.com/">O'Reilly</a>'s  <a href="ftp://ftp.ora.com/pub/dblite/dblite_0.1.tar.gz">DocBook Lite</a> (a subset of the official format) is less effort, but there are still a lot of angle brackets to type in–I haven't yet found an editor that will let me type Ctrl-B and switch to DocBook-compliant bolding, for example.</li>
+<li>Homebrew XML markups, like the one used by <a href="http://pragprog.com/">Pragmatic</a>, all seem to converge on the features of DocBook Lite. There's also the problem of finding (or building), tweaking, and maintaining tools to produce the end result.  (I created my own format, and built my own tools, for Version 2 of the course; won't make that mistake again.)</li>
+<li>Plain old HTML has all the disadvantages of homebrew XML markup, but <em>does</em> have the advantage of being able to view without a compilation step–so long as you don't care about numbering, cross-references, etc. For that, you need tools, which need to be created, maintained, and tweaked.</li>
+<li>Various HTML-based slideshow formats, like S5, add some semantic information to plain old HTML that a bit of in-browser Javascript can use to produce PowerPoint-style effects. Numbering and cross-referencing still need tools, though, and S5 and various follow-ons are mostly orphaned these days.</li>
+</ul>
+</li>
+<li>Wiki text: easy to type in (that's the whole point), and plays well with version control, but (a) processing tools (again), and (b) the degree of control over markup is usually fairly limited. That said, <a href="http://www.wikicreole.org/">Wiki Creole</a> and <a href="http://en.wikipedia.org/wiki/ReStructuredText">reStructured Text</a> are appealing: there are lots of compilation/conversion tools for both. The downside is that both actually <em>require</em> compilation: so far as I can tell, there isn't a WYSIWYG editor for either that is still being maintained. (Update: there <a href="http://blog.enthought.com/?p=127">may be one</a> for reST: I'd welcome input from anyone who has used it.)</li>
+<li>LaTeX: ah, LaTeX, my old nemesis–it has been a while, hasn't it? It plays nicely with version control; it handles cross-referencing, gives users fine control over layout–very fine control, if you want it–and there is even <a href="http://www.lyx.org/">a WYSIWYG editor</a>. On the downside, its syntax is complicated, but I've already mastered it, and so have  many other scientists. More importantly, though, my past attempts to produce pretty HTML from LaTeX using <a href="http://www.latex2html.org/">Latex2Html</a> and <a href="http://plastex.sourceforge.net/">Plastex</a> have been frustrating.</li>
+</ul>
+<p>So, does that mean LaTeX is the right answer? My scoring says I should–what do you think?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

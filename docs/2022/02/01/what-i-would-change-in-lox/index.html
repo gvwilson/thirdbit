@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: What I Would Change in Lox for Teaching</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>What I Would Change in Lox for Teaching</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/01/16/cacaphony-of-explanations/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-02-01" class="post-date">2022-02-01</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/02/25/software-design/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I spent a couple of weeks last year noodling around with Lox,
+the little language that Bob Nystrom created for his wonderful book
+<em><a href="https://craftinginterpreters.com/">Crafting Interpreters</a></em>.
+As <a href="../../../../2021/12/26/effort-estimation/">I said then</a>,
+languages like Python and JavaScript are larger than they used to be,
+so I&rsquo;m looking for something smaller for teaching <a href="../../../../sdxjs/">software design</a>
+(say, about the same size as Pascal was in 1980).
+I don&rsquo;t have time to make all the changes I&rsquo;d like to Lox,
+but I hope that writing them down and explaining why will spark ideas in someone else:</p>
+<ol>
+<li>
+<p><em>Add array and hash values</em> so that <code>x = [1, 2, 3]</code> and <code>y = {"a": 1, "b": 2}</code> work.
+    I&rsquo;d like to add sets as well—I think they&rsquo;re under-rated and under-used—but
+    I&rsquo;m trying to budget complexity.</p>
+</li>
+<li>
+<p><em>Add modules</em> and some kind of import mechanism
+    so that learners can see how to break problems down into reusable pieces
+    and manage the namespaces that come from doing so.</p>
+</li>
+<li>
+<p><em>Add an infix string conversion operator</em> so that <code>print("We need " # x # " balls of yarn.")</code> works.
+    If the thing being stringified has the right method,
+    the operator should call that
+    (which turned out to be trickier to implement in Lox than I expected).
+    This isn&rsquo;t just about making <code>print</code> easier to use without adding varargs to the language:
+    showing learners how to hook into a language&rsquo;s runtime can be mindblowing.</p>
+</li>
+<li>
+<p><em>Replace Lox&rsquo;s C-style <code>for</code> loops with iterators</em>
+    and implement a Python-style iterator protocol so that programs can loop over user-level classes.
+    Again, the main purpose for doing this is to explore the design possibilities it opens up.</p>
+</li>
+<li>
+<p><em>Make function definition an expression</em> rather than a statement
+    so that users can define little functions on the fly.
+    The idea that functions are just another kind of data is one of the most powerful in programming,
+    and I&rsquo;d like to make it as frictionless to use (and teach) as possible.</p>
+</li>
+<li>
+<p><em>Add fibers</em> or some other lightweight concurrency mechanism
+    (but <em>not</em> JS-style callbacks or promises, because brr…).
+    Lox&rsquo;s predecessor <a href="https://wren.io/">Wren</a> provides fibers for co-operative multitasking;
+    combined with <a href="http://libuv.org/"><code>libuv</code></a> it would allow lessons on asynchronous I/O,
+    which I believe is as important to learn now as <code>stdio</code>-based pipes were for my generation.</p>
+</li>
+<li>
+<p><em>Add reflection</em>.
+    Going back to point #5, treating code as data is a tremendously powerful idea,
+    and everything from testing harnesses to object-relational mappers rely on it.</p>
+</li>
+</ol>
+<p>The one other thing I really want to add that isn&rsquo;t on this list is
+the hooks needed for a breakpointing debugger and for coverage/profiling tools.
+I think the debugger hooks are the most important,
+but there&rsquo;s no point adding them without also providing a debugger;
+that said,
+a 1970s-style command-line interface would work,
+and once again would open a lot of teaching doors.
+(For example, I&rsquo;d really like to be able to show students
+how to write scripts to control debugging sessions
+because boy howdy is that powerful once you have it.)</p>
+<p>My guess is that there&rsquo;s about 100 hours of work on the bullet list
+and another 100 for the runtime hooks and debugger,
+but I think the result would be a very nice little teaching language.
+If only the days were longer…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

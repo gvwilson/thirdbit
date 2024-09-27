@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Page Is Not The Lesson</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Page Is Not The Lesson</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/01/09/pickled-carrots/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-01-17" class="post-date">2021-01-17</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/01/17/punchcards-considered-harmful/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><blockquote>
+<p><em>The finger pointing at the moon is not the moon.</em></p>
+<p>—variously attributed</p>
+</blockquote>
+<p>I tweeted yesterday
+about using static website generator templates for lessons:</p>
+<ol>
+<li>
+<p>Programmers follow many conventions to make code repos more usable,
+    from having <code>README</code>, <code>LICENSE</code>, and <code>CONDUCT</code> files in the root directory
+    to naming conventions, package structure, and having <code>make test</code> or <code>npm run test</code> do something useful.</p>
+</li>
+<li>
+<p>Every time I see an aggregation like this,
+    I wish we had similar interoperability/discoverability conventions for tutorials.
+    That doesn&rsquo;t mean &ldquo;one template to rule them all&rdquo;
+    any more than it means every software project must have exactly the same structure, but…</p>
+</li>
+<li>
+<p>…imagine a world in which every tutorial had a <code>GLOSSARY</code> file beside its <code>README</code> and <code>LICENSE</code> files
+    so that you could easily find out what terms that lesson defined
+    (which in turn would tell you what it was about)?
+    Or a convention for structuring exercises…</p>
+</li>
+<li>
+<p>…similar to the conventions that programming languages have for structuring tests
+    (where they are, what they&rsquo;re called, etc.).
+    There are standards for creating and packaging learning objects for use with learning management systems,
+    but…</p>
+</li>
+<li>
+<p>…they are much too burdensome for most free-range teaching—it&rsquo;s as if our only options were chaos or Enterprise Java.
+    I hope some day that creating a lesson on GitHub is as easy
+    (i.e., as well supported both technically and socially)
+    as creating a Node project.</p>
+</li>
+<li>
+<p>One way forward could start with a change of perspective:
+    instead of thinking a package as &ldquo;code with some docs&rdquo;,
+    think about it as &ldquo;docs with some supporting code&rdquo;.
+    What would we have to add to turn a site like <a href="https://readthedocs.org">https://readthedocs.org</a> into a lesson hub?</p>
+</li>
+<li>
+<p>Auto-grading is a distraction in this context—it&rsquo;s certainly not a must-have,
+    not even for coding lessons.
+    (Proof: textbooks have been around and useful for centuries without auto-grading.)
+    But think about things like…</p>
+</li>
+<li>
+<p>…consistent numbering of exercises and figures <em>across multiple source documents</em>.
+    Think about learning objectives that can be put in each individual lesson,
+    but extracted and collated as a summary.
+    All of these things…</p>
+</li>
+<li>
+<p>…can be done with existing tools,
+    but they&rsquo;re all harder and more fragile than documenting the parameters to a method
+    or cross-referencing classes and their ancestors/decendants.
+    (If your &ldquo;solution&rdquo; requires people to indent their YAML, it&rsquo;s not a solution.)</p>
+</li>
+<li>
+<p>And yes, the analogy with reusing code is flawed—the <a href="http://opencontent.org/docs/paradox.html">Reusability Paradox</a>
+    is very real—but I believe <em>discoverability</em> and <em>interoperability</em> are worthwhile, achievable goals.</p>
+</li>
+<li>
+<p>How can I tell at a glance that a site or repo is a lesson rather than [noun]?
+    What about the (human) language it&rsquo;s in?
+    Ditto its major topics.
+    We&rsquo;re done this part when I can search for &ldquo;lesson in Spanish about JavaScript callbacks&rdquo; with high signal-to-noise.</p>
+</li>
+<li>
+<p>This is part of why we wrote <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008469">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008469</a>
+    (see also <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007854">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007854</a>):
+    we should listen to librarians &amp; teachers before we create more templates
+    (but then, I think the world would be a better place if we all listened to librarians and teachers more…)</p>
+</li>
+</ol>
+<p>Much of the discussion that followed on Twitter and by email took the form,
+&ldquo;If we build a good enough template, people will adopt it.&rdquo;
+With respect,
+I think that if better templates were the solution,
+they would have worked by now.
+I have written several myself,
+including the first version of <a href="https://github.com/carpentries/styles/">the Carpentries template</a>;
+I&rsquo;ve used several others,
+and a search on GitHub turns up dozens of others.</p>
+<p>The problem is that templates help <em>present</em> the lesson but don&rsquo;t help <em>write</em> it.
+For example,
+all of the templates I&rsquo;ve looked at allow authors to write whatever they want for learning objectives.
+They don&rsquo;t help connect those objectives together
+or check that the objectives are still consistent with the lesson&rsquo;s content:
+&ldquo;still&rdquo; because lessons evolve over time,
+and people forget to check and update objectives
+just as they forget to check and update documentation and installation instructions for code.
+Just as UML <a href="http://oro.open.ac.uk/35805/8/UML%20in%20practice%208.pdf">doesn&rsquo;t help developers solve the hard parts of their problems</a>,
+static website frameworks don&rsquo;t help teachers any more than a Microsoft Word or Google Doc template.</p>
+<blockquote>
+<p>That&rsquo;s a slight exaggeration:
+templates <em>do</em> help keep common values like the author&rsquo;s email address consistent.
+However, the cost is very high:
+installing Jekyll or Hugo,
+writing YAML to configure them,
+and getting the right plugins in place (never mind keeping them up to date)
+is a hell of a cover charge.
+The payoff seems small,
+particularly if you aren&rsquo;t already steeped in the technology,
+so on any given Thursday,
+most teachers really are better off using Word or Docs.</p>
+</blockquote>
+<p>The Glosario project (<a href="https://glosario.carpentries.org/">site</a>, <a href="https://github.com/carpentries/glosario">repo</a>)
+is an experiment to see if we can do better.
+Suppose you&rsquo;re writing a lesson about data science using Markdown.
+Instead of using <strong>bold</strong> or <code>[an arbitrary link](http://somewhere/#term)</code> to highlight a definition,
+you either:</p>
+<ol>
+<li>
+<p>refer to <code>[the online glossary](https://glosario.carpentries.org/en/#term)</code> (in your preferred language), or</p>
+</li>
+<li>
+<p>call an inline function like <code>gloss('key', 'inline text')</code> to generate that text and link
+    (if you&rsquo;re using something like R Markdown).</p>
+</li>
+</ol>
+<p>In both cases,
+tools can now tell which terms a particular lesson defines.
+Those terms can then be put in the <code>&lt;head&gt;</code> of a web page,
+stuffed in a database,
+or added to a summary page for the course as a whole.
+Doing this accomplishes two things:</p>
+<ol>
+<li>
+<p>It makes the lessons more discoverable.</p>
+</li>
+<li>
+<p>It allows to build another tool for stitching lessons together.
+    People will not manually highlight all of the terms they use in a lesson that they don&rsquo;t define:
+    it&rsquo;s too much work,
+    and requires too much re-work as the glossary evolves.
+    However,
+    it would be relatively straightforward to compare the text of a lesson against a glossary
+    to determine what terms it depends on
+    so that we can say, &ldquo;You probably want to look at lessons X and Y before tackling lesson Z.&rdquo;</p>
+</li>
+</ol>
+<p>No templating engine I know of will do this right now.
+Most of them won&rsquo;t even do simpler but equally necessary things
+like create two-part IDs for the figures within chapters
+and then fill in references with <code>chapter.figure</code>.</p>
+<blockquote>
+<p>Yes, I&rsquo;ve used <a href="https://www.gitbook.com/">GitBook</a>,
+<a href="https://www.bookdown.org/">Bookdown</a>,
+and <a href="https://jupyterbook.org/">JupyterBook</a>.
+No, they are not solutions for the 99.9% of our species
+that can&rsquo;t or won&rsquo;t spend their afternoons messing with Pandoc templates,
+LaTeX packages,
+and conflicts between multiple YAML configuration files.</p>
+</blockquote>
+<p>So here&rsquo;s what I&rsquo;d like,
+and yes,
+I <em>do</em> think this would be a great project for someone doing a PhD in HCI:
+finish the tooling for <a href="https://glosario.carpentries.org/">Glosario</a>,
+fold it into lessons written with the template of your choice,
+and tell us what you&rsquo;ve learned about how to build it
+and about whether authors, instructors, and learners actually find it useful.
+It may seem like a small thing,
+but I bet it&rsquo;s harder than it looks,
+and I bet we&rsquo;ll learn a lot more from doing it than we expect.
+Most importantly,
+I think it would a good first step toward shifting our attention from the page to the lesson.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

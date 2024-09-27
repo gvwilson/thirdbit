@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Using a Package Manager for Lessons and Papers</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Using a Package Manager for Lessons and Papers</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2014/07/21/scipy-2014-talks/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2014-07-21" class="post-date">2014-07-21</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2014/07/29/sprint-summary/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  I've been musing for a couple of years now about
+  ways in which we could re-purpose off-the-shelf software engineering tools and techniques
+  to serve the needs of teachers.
+  One theme,
+  which I touched on in <a href="https://www.youtube.com/watch?v=FtKO619O5g0">my SciPy 2014 talk</a>,
+  is to get people to patch shared learning materials
+  in the way they patch Wikipedia articles and open source code.
+  Another is to use <a href="https://en.wikipedia.org/wiki/Package_manager">package managers</a>
+  like RPM, Homebrew, and Conda to track dependencies between lessons,
+  so that I could say something like <code>conda install suffragette_movement</code>
+  and get a lesson on the struggle for women's voting rights,
+  along with the other lessons and materials it depends on
+  (or updates and links to those other lessons if I already have some of them installed).
+</p>
+<p>
+  Setting aside for the moment the risk that this would be a technical "solution" to a social problem
+  (because we all know how well <em>those</em> work),
+  I've started wondering:
+  should we be using package managers to aid reproducible research?
+  In particular,
+  if I know the DOI that identifies a particular paper,
+  should I be able to type:
+</p>
+<pre>
+  $ conda install doi://10.1109/SECSE.2009.5069155
+</pre>
+<p>
+  and get the LaTeX source for the article,
+  the style files it depends on,
+  its data (or links to such),
+  and the code used to generate the results
+  (including updates to third-party libraries that code depends on)?
+  It begs the question of <em>how</em> results are regenerated,
+  of course,
+  and mutter mutter virtual environments to avoid conflicts between papers mutter mutter,
+  but it seems like a way to manage the kinds of things that
+  <a href="http://ivory.idyll.org/blog/2014-citations.html">some of our colleagues are already thinking about</a>.
+</p>
+<p>
+  Several people are taking a run at this idea as part of our two-day sprint this week:
+  see <a href="https://etherpad.mozilla.org/sciencelab-2014summersprint-lessons-package-manager">this Etherpad</a>
+  for details,
+  and <a href="https://github.com/twitwi/lesson-manager">this GitHub repo</a> for further discussion.
+  We'd be grateful for your thoughts and your help.
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

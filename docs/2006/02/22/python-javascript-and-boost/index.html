@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Python, JavaScript, and Boost</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Python, JavaScript, and Boost</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/02/21/state-of-drproject/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-02-22" class="post-date">2006-02-22</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/02/27/what-it-takes-to-get-eclipse-out-the-door/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A few days ago, Brendan Eich wrote a <a href="http://weblogs.mozillazine.org/roadmap/archives/2006/02/js_and_python_news.html">thoughtful
+post</a> on incorporating a few ideas from Python into JS 2.0
+(specifically iterators, generators, and comprehensions, but that's
+beside the point for the moment).  I replied:</p>
+
+<blockquote>
+t would be tremendously helpful if JS2 could standardize plugin APIs
+in both C and C++ (and do the latter in a template-smart way). Having
+simple C APIs accelerated the growth of Python and Ruby tremendously,
+and (I believe) is crucial to getting JS accepted as a "traditional"
+scripting and glue language. Standardizing "one way to do it" for C++
+(esp. templated C++) would avoid a lot of the grief P&amp;R have gone
+through.
+</blockquote>
+
+<p>Brendan's response was:</p>
+
+<blockquote>
+…for Mozilla, XPIDL and XPCOM (<a href="http://www.mozilla.org/scriptable/">http://www.mozilla.org/scriptable/</a>)
+are the way to interface to "plugins" (generally construed)
+implemented in other languages, not just C++ but also Python (a C
+XPCOM binding could be done, and one was started, but there hasn't
+been much interest). A truly painless C or C++ binding should work as
+with OCaml -- that is,
+<br />
+<code>ocamlc foo.c</code>
+<br />
+This is a fine goal, but not something for ECMA TG1 to standardize
+just yet. I would welcome a prototype for SpiderMonkey, if volunteers
+capable of pulling it off are motivated.
+<br />
+Plugins loaded from the net are a different animal, requiring lots of
+trust as well as highly compatible, stable APIs on both plugin and
+browser sides of the fence.
+</blockquote>
+
+<p>I've argued <a href="http://www.ddj.com/documents/s=9776/ddj1126538834462/">elsewhere</a>
+that Javascript could be the dominant scripting language five years
+from now: it's sexy, it's (relatively) simple, and it's one of the two
+languages every programmer has to learn (the other being C).  An easy
+way to wrap and call legacy C/C++ code—one that handles C++ objects
+and templates, rather than requiring programmers to pretend they're
+C functions—would be a big step toward this.  <a href="http://www.boost.org/libs/python/doc/index.html">Boost.Python</a>
+is the closest thing I've seen yet to a usable solution; if anyone out
+there wants to be rich, famous, and popular, Boost.Javascript is just
+begging to be created.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

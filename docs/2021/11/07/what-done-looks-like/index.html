@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: What (a subset of) Done Looks Like</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>What (a subset of) Done Looks Like</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/10/03/three-weeks-off/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-11-07" class="post-date">2021-11-07</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/11/14/maddy-roo/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I recently ran <a href="../../../../mrsp/">a workshop on managing research software projects</a>,
+and one of the questions that came up was,
+&ldquo;What does &lsquo;done&rsquo; look like?&rdquo;
+There are lots of answers elsewhere for the technical side
+[<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">1</a>,
+<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">2</a>,
+<a href="../../../../py-rse/">3</a>],
+but what about project management and governance?
+Here&rsquo;s a first cut of the artifacts used to support those activities
+for a project with up to a couple of dozen contributors;
+additions, deletions, and corrections would be very welcome.
+(As always, please <a href="mailto:gvwilson@third-bit.com">email me</a>:
+the last time I opened up comments on this site
+it took all of two days for the trolls to show up.)</p>
+<div class="tightlist">
+<ol>
+<li>A shared Google Drive with a doc called &ldquo;Roles and Responsibilities&rdquo;<ul>
+<li>Google Doc because some collaborators aren&rsquo;t comfortable with Git<ul>
+<li>And to make it easier to paste in figures and screenshots</li>
+</ul>
+</li>
+<li>Defines roles and explains what each is responsible for in one page</li>
+<li>Each role has a doc of its own with its checklists</li>
+</ul>
+</li>
+<li>The same shared Google Drive has one doc per year called (e.g.) &ldquo;Progress 2022&rdquo;<ul>
+<li>Section headings are weekly meeting dates<ul>
+<li>Table for each week with columns <code>Name</code>, <code>Progress</code>, <code>Plans</code>, and <code>Problems</code> (bullet points)</li>
+<li>Anything too long to fit comfortably in the table is linked to an issue in the project&rsquo;s GitHub repository</li>
+</ul>
+</li>
+<li>Project has a little script that lists issues and PRs touched by each person (reminder)</li>
+</ul>
+</li>
+<li>Weekly hour-long status meeting (which often finishes early)<ul>
+<li>On Wednesday so that people aren&rsquo;t scrambling on Friday or a weekend (or holiday Monday) to write status updates</li>
+<li>Rotating moderator: last week&rsquo;s moderator is this week&rsquo;s note-taker</li>
+<li>Before meeting, members star points in the status doc they want to discuss</li>
+<li>Moderator draws up agenda based on starred items</li>
+</ul>
+</li>
+<li>Proposals can be done as either Google Docs (in shared folder) or GitHub issues<ul>
+<li>Must be flagged to moderator the day before the meeting for inclusion</li>
+<li>Added to agenda</li>
+</ul>
+</li>
+<li>Project has a single repo with code, website, tutorials, etc.<ul>
+<li>So that releases are in sync</li>
+</ul>
+</li>
+<li>Uses Google Docs (again) for publicity materials (because non-programmers)<ul>
+<li>All materials are owned by project account, not personal accounts</li>
+<li>Every change larger than a typo produces a new doc</li>
+<li>Every doc has date in title, e.g., &ldquo;University Press Release 2022-05-13&rdquo;</li>
+</ul>
+</li>
+<li>Budgets for grant proposals, job contracts, etc., are stored in university system<ul>
+<li>Legal requirement</li>
+</ul>
+</li>
+<li><code>GOVERNANCE.md</code> in root directory of project explains <a href="../../../../2019/06/13/marthas-rules/">Martha&rsquo;s Rules</a><ul>
+<li>And membership rule:
+    anyone who has had a PR merged in the last year or made some other significant contribution (as determined by the PI)</li>
+<li>List of active members and alumni is in the foot of <code>GOVERNANCE.md</code></li>
+</ul>
+</li>
+<li>Another small script checks that the tags in each project repository are consistent
+    and that each issue has at least one tag</li>
+<li>Project website has a &ldquo;skills ladder&rdquo; on the &ldquo;Positions&rdquo; page (even when positions aren&rsquo;t open)<ul>
+<li>&ldquo;What we mean by each of these terms for the research and coding tracks&rdquo;</li>
+</ul>
+</li>
+<li>Project website has a value statement and a contact address that <em>isn&rsquo;t</em> anyone&rsquo;s personal address<ul>
+<li>Plus a page for publications</li>
+<li>Plus a page pointing at all repositories</li>
+<li>Plus a &ldquo;Getting Started&rdquo; page</li>
+<li>And a &ldquo;Who&rsquo;s Using Us How&rdquo; page</li>
+<li>And a &ldquo;People&rdquo; page</li>
+</ul>
+</li>
+<li>The &ldquo;help&rdquo; option for the software includes the URL to the project page</li>
+</ol>
+</div>
+<h2>A Note on Consensus</h2>
+<p>As Jo Freeman pointed out in &ldquo;The Tyranny of Structurelessness&rdquo;, every group has a power structure;
+the only question is whether it is explicit and accountable, or implicit and unaccountable.
+Unfortunately,
+GitHub&rsquo;s <a href="https://github.com/github/MVG">Minimum Viable Governance</a> guidelines duck this issue:</p>
+<blockquote>
+<p><strong>2.1. Consensus-Based Decision Making</strong></p>
+<p>Projects make decisions through consensus of the Maintainers.
+While explicit agreement of all Maintainers is preferred, it is not required for consensus.
+Rather, the Maintainers will determine consensus based on their good faith consideration of a number of factors,
+including the dominant view of the Contributors and nature of support and objections.
+The Maintainers will document evidence of consensus in accordance with these requirements.</p>
+</blockquote>
+<p>In practice,
+since people&rsquo;s idea of what constitutes &ldquo;good faith&rdquo; varies widely,
+&ldquo;consensus-based&rdquo; means governance by the self-confident, stubborn, and well-connected,
+which marginalizes a lot of people.
+<a href="../../../../2019/06/13/marthas-rules/">Martha&rsquo;s Rules</a> and other procedures
+for putting proposals forward and voting on them aren&rsquo;t perfect—democracy never is—but
+they&rsquo;re better.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

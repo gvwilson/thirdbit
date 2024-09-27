@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Next… Design by Contract?  (Please)</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Next… Design by Contract?  (Please)</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/06/27/why-drproject-is-slow/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-06-27" class="post-date">2006-06-27</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/07/03/watching-static-and-dynamic-analysis-go-mainstream/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I was pleasantly surprised a few years ago when programmers (particularly open source programmers) actually started writing unit tests.  <a href="http://www.extremeprogramming.org">XP</a> is usually given the lion&rsquo;s share of the credit, but I think that <a href="http://www.junit.org">JUnit</a> was the real reason: it was just enough structure to get people in, and had a perfect balance between simplicity and extensibility.</p>
+<p>What I&rsquo;d like to see catch on next is <a href="http://en.wikipedia.org/wiki/Design_by_contract">design by contract</a>. Most people who&rsquo;ve encountered it think it&rsquo;s about enforcing modularity, or about making sure that derived classes respect the rules of their parents.  What I like, though, is its temporal application: making sure that Version 3.1.2 of a class has the same externally-visible behavior as Version 3.1.1, so that upgrading is guaranteed not to break things.  I&rsquo;d particularly like this <em>right now</em>, as we&rsquo;re banging our heads once more against  &ldquo;slight&rdquo; differences between successive versions of what&rsquo;s supposed to be the same damn library. The release notes for 3.1.2 of—let&rsquo;s call it &ldquo;Fred&rdquo;, shall we?—don&rsquo;t mention any backward-incompatible changes, but somewhere eight levels down in the call stack, something is passing an Element where it should be passing a string, and everything after that is blowing up.</p>
+<p>Given pre- and post-conditions (a big given, I&rsquo;ll grant you), a tool that checks an RPM, JAR file, or Egg against an existing installation, and reports discrepancies, shouldn&rsquo;t be all that hard to build—the general problem may be undecidable, but even something conservative, that draws human attention to possibly problematic mutations, would go a long way toward making lives like mine a little better.</p>
+<p><strong>Update</strong>: Aaron Bingham&rsquo;s <a href="http://indico.cern.ch/contributionDisplay.py?contribId=83&sessionId=41&confId=44">presentation</a> from EuroPython 2006.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

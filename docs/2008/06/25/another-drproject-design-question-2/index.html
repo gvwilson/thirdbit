@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Another DrProject Design Question</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Another DrProject Design Question</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2008/06/23/navigating-irc-logs/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2008-06-25" class="post-date">2008-06-25</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2008/06/27/as-we-head-into-the-holiday-weekend/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We&rsquo;ve hit another &ldquo;what should it do?&rdquo; question in DrProject, and I&rsquo;d welcome opinions from readers.  As I&rsquo;ve mentioned previously, the new ticketing system for DrProject is going to be extensible.  Each project&rsquo;s tickets will initially contain just four fields: sequence number, date created, creator ID, and one line of text.  The first three will be filled in automatically; the user will only have to type the fourth.  From experience, a simple &ldquo;to do list&rdquo; like this is all student teams really want or need.</p>
+<p>However, almost everyone wants to add &ldquo;just one more field&rdquo; to this design. Sometimes it&rsquo;s a person responsible; other times it&rsquo;s priority, due date, a larger text area for a detailed description of the problem, or attachments. The new ticketing system will therefore allow the developers in a project to change the ticket schema <em>for that project</em> using a drag-and-drop form editor.</p>
+<p>(Not that it matters right now, but we&rsquo;re not just building this to support teams&rsquo; chosen workflows. It will also give us a way to find out what those workflows actually are—if we deploy DrProject, wait a few months, then look at what people have chosen to record, it should give us some insight into how they&rsquo;re thinking about their work.)</p>
+<p>Now here&rsquo;s the problem. DrProject currently offers two &ldquo;personal&rdquo; views called &ldquo;All Projects&rdquo; and &ldquo;All Tickets&rdquo;. The first shows a merge of the event logs from all the projects the user belongs to; the second shows all the tickets assigned to the user from across all the same projects. The question is, what should we show for &ldquo;All Tickets&rdquo; if every project&rsquo;s ticketing schema can be different? To make this more concrete, imagine that project Telepathy&rsquo;s schema has grown to:</p>
+<p>(id INTEGER, created DATE, creator USER_ID, title TEXT, duedate DATE, priority ENUM(&ldquo;hi&rdquo;, &ldquo;med&rdquo;, &ldquo;low&rdquo;))</p>
+<p>while project Antigravity&rsquo;s schema has grown to:</p>
+<p>(id INTEGER, created DATE, creator USER_ID, title TEXT, priority(&ldquo;urgent&rdquo;, &ldquo;optional&rdquo;), owner USER_ID)</p>
+<p>Options we can see are:</p>
+<ol>
+  <li>Only show the common fields. (Unlike user-added fields, the four basic fields can never be deleted from a project's ticket schema, so we know they'll always be there.)</li>
+  <li>Show the union of all the columns. This is awkward for all the obvious reasons: it'll be very wide, many tickets will have blanks in many columns, enumerations with the same name but different values will be a pain, etc.</li>
+  <li>Have one table for each project, but put all the tables on the same HTML page. A basic version is easy to implement, but sorting and filtering would be difficult.</li>
+</ol>
+<p>Anyone have strong preferences? Can anyone see anything better? The ticket for this problem is #1506,  and as I said, input would be welcome.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

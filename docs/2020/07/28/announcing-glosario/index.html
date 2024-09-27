@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Announcing Glosario</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Announcing Glosario</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2020/07/26/presentable/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2020-07-28" class="post-date">2020-07-28</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2020/07/30/wanted-a-notation-for-why/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><a href="https://github.com/carpentries/glosario"><code>glosario</code></a> is an open source glossary of terms used in data science
+that is <a href="https://carpentries.github.io/glosario/">available online</a>
+and also as a library in both <a href="https://github.com/carpentries/glosario-r/">R</a>
+and <a href="https://github.com/carpentries/glosario-py/">Python</a>.
+Authors can add glossary keys to a lesson&rsquo;s metadata to indicate
+what the lesson teaches,
+what learners ought to know before they start,
+and where they can go to find that knowledge.
+Authors can also use the library&rsquo;s functions to insert consistent hyperlinks for terms in their lessons
+in any of several (human) languages,
+and anyone who has installed the library can use it interactively to look things up while they&rsquo;re programming.</p>
+<h2>Defining Terms</h2>
+<p>The main <a href="https://github.com/carpentries/glosario">glosario</a> repository has a file called <code>glossary.yml</code>
+that contains entries like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">slug</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">plus_one</span>
+<span class="w">  </span><span class="nt">ref</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">upvote</span>
+<span class="w">  </span><span class="nt">en</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">term</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;+1&quot;</span>
+<span class="w">    </span><span class="nt">def</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">      </span><span class="no">A vote in favor of something.</span>
+<span class="w">  </span><span class="nt">fr</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">term</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;+1&quot;</span>
+<span class="w">    </span><span class="nt">def</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">      </span><span class="no">Un vote en faveur de quelque chose.</span>
+<span class="w">  </span><span class="nt">es</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">term</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;+1&quot;</span>
+<span class="w">    </span><span class="nt">def</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">      </span><span class="no">Un voto a favor de alguna cosa.</span>
+</code></pre></div>
+<p>The value of the <code>slug</code> key gives the entry a unique identifier,
+while the values under <code>ref</code> create &ldquo;see also&rdquo; cross-references
+and the other top-level keys give the term and its definition in various languages.</p>
+<h2>Use Cases</h2>
+<p>We envision that <code>glosario</code> will be used in several ways.</p>
+<h3>Finding lessons</h3>
+<p>Amari is writing a lesson in R Markdown.
+She adds glossary data to its YAML header as shown below
+to indicate that the lesson introduces the idea of least squares,
+but requires learners to already know about correlation and linear models.
+Those terms will be added to the head of the HTML page for her lesson,
+and other instructors can use tools provided with <code>glosario</code>
+to search for lessons that define the concepts this one requires.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">glossary</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">sources</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://carpentries.org/glosario/</span>
+<span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fr</span>
+<span class="w">  </span><span class="nt">requires</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">correlation</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linear_model</span>
+<span class="w">  </span><span class="nt">defines</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">least_squares</span>
+</code></pre></div>
+<h3>Summarizing a lesson</h3>
+<p>Amari can also add a code chunk to the end of her lesson
+that includes a call to <code>glosario::summarize_terms()</code>.
+When she knits the document to HTML,
+this code chunk inserts a definition list <code>dl</code> at that point.
+Its entries are the definitions of
+all of the terms listed under the <code>glossary/defines</code> key
+in the page&rsquo;s YAML header
+in alphabetical order by term according to the rules for <code>glossary/language</code>.</p>
+<h3>Linking to definitions</h3>
+<p>Amari adds an inline code block <code>`r knitr::inline_expr("gdef('linear_model', 'modéle linéaire')")`</code> to her lesson.
+When she knits her document the code block produces the HTML:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://carpentries.org/glosario/fr/#linear-model&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;glossary-definition&quot;</span><span class="p">&gt;</span>modéle linéaire<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3>Checking a lesson</h3>
+<p>Beatriz has made some changes to a lesson she inherited from Amari and wants to check that it is still consistent.
+She runs a tool provided with <code>glosario</code> that:</p>
+<ol>
+<li>Reads the R Markdown file.</li>
+<li>Extracts the terms under the <code>glossary/defines</code> key.</li>
+<li>Searches the body of the document for calls to <code>gdef(…)</code>.</li>
+<li>Checks that every term listed in <code>glossary/defines</code> is referenced in the document body,
+    and that every term referenced in the document body is mentioned in <code>glossary/defines</code>.</li>
+</ol>
+<h2>How to Contribute</h2>
+<p>There are lots of way to contribute:</p>
+<ol>
+<li>
+<p>Add definitions or translate and fix the ones already there.
+    If you are comfortable editing YAML and using Git,
+    you can send us a pull request.
+    If you&rsquo;re not,
+    please file an issue that includes the key of the term and the change you want to make.
+    (Please don&rsquo;t include multiple changes in a single issue:
+    they&rsquo;re a lot easier to manage if they aren&rsquo;t bundled together.)</p>
+</li>
+<li>
+<p>Work on the supporting tools in the <a href="https://carpentries.github.io/glosario/">glosario</a>,
+    <a href="https://github.com/carpentries/glosario-r/">R</a>,
+    or <a href="https://github.com/carpentries/glosario-py/">Python</a> repositories.</p>
+</li>
+<li>
+<p>Add glossary metadata and definitions to your favorite lessons.</p>
+</li>
+</ol>
+<h3>FAQ</h3>
+<ul>
+<li>
+<p><strong>Why not just use Wikipedia?</strong>
+    We expect that many glossary definitions will link to Wikipedia,
+    but its articles are explanations, not definitions.
+    (This is why we don&rsquo;t support diagrams in glossary entries.)</p>
+</li>
+<li>
+<p><strong>YAML is hard for people to edit—why not use something else for the glossary file?</strong>
+    Because other formats are just as hard to edit (e.g., JSON)
+    or make one-to-many relationships hard to express (e.g., CSV).</p>
+</li>
+</ul>
+<p><em>This article is cross-published on <a href="https://carpentries.org/blog/2020/07/announcing-glosario/">the Carpentries blog</a>
+and the <a href="https://education.rstudio.com/blog/2020/07/announcing-glosario/">RStudio education blog</a>.</em></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

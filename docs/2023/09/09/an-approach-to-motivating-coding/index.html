@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: An Approach to Motivating Coding</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>An Approach to Motivating Coding</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/08/27/weizenbaum-test/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-09-09" class="post-date">2023-09-09</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/09/14/adventures-in-publishing/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>One of the many challenges when teaching programming to adults is
+to find motivating examples.
+There&rsquo;s not a lot people do in real life
+that you can do in five or ten lines of Python,
+and the things you <em>can</em> do (like Scratch-style graphics)
+aren&rsquo;t things most people with jobs and families have time to care about.</p>
+<p>Data analysis is an exception.
+I&rsquo;m increasingly convinced that analytics-first
+is the best way to convince most adults that lessons will pay off,
+but R and Python both have unfortunate quirks.
+<a href="../../../../2021/07/22/whatever-happened-to-tidyblocks/">Tidyblocks</a> was an attempt to build something Scratch-like
+as a bridge between spreadsheets and textual coding,
+but foundered on the inability of click-together blocks to express joins
+(and on the fact that nobody would fund further work).
+I&rsquo;m now wondering whether some combination of click-together blocks
+and block-and-connector dataflow would work better,
+and whether we could use the question, &ldquo;How does a spreadsheet work?&rdquo;
+as a running example.
+A possible teaching sequence would be:</p>
+<ul>
+  <li>
+    A single input cell and a single output cell
+    with a block in the middle that does <code>out := 2 * in</code>.
+  </li>
+  <li>
+    Three such cell pairs, each with the same formula.
+    clearly we don't want to have to do this N times.
+  </li>
+  <li>
+    Two columns of three cells each to teach <code>in[i]</code> and <code>out[i]</code>,
+    with subscripting represented as two-blocks (name and index expression).
+  </li>
+  <li>
+    The same input and output columns but a loop block: <code>for i in 1..length(in)</code>.
+  </li>
+</ul>
+
+<p><img src="../../../../files/2023/block-column-transform.svg" alt="example"></p>
+<ul>
+  <li>
+    Attach a simple inspector showing (i, val) as an (x, y) bar plot to visualize while single-stepping.
+  </li>
+  <li>
+    Introduce a conditional block: <code>for... if in[i] >= 0</code>,
+    then point out that holes (NA) appear in the output.
+    (The watch plot shows special markers for missing values.)
+  </li>
+  <li>
+    Introduce solution #1: the <code>else</code> clause
+    (and watch what it does by single-stepping).
+  </li>
+  <li>
+    Introduce solution #2: <code>for... if... append(out, value)</code> and show the output column growing.
+    The final output column is a different length than the input.
+  </li>
+  <li>
+    Next, add two columns of the same length.
+  </li>
+  <li>
+    And then ask what happens if the input columns have different lengths? Options are:
+    <ul>
+      <li>Fail with an out-of-bounds error.</li>
+      <li>Use the shorter length.</li>
+      <li>Append NAs to the output.</li>
+    </ul>
+  </li>
+  <li>
+    We can now do things like sum the values in a column.
+    <ul>
+      <li>Create a scalar variable (visually like a column, but indexing not required).</li>
+      <li>Add values in column into that scalar.</li>
+      <li>Attach a watch plot that visualizes changes to the scalar's value.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>I know this isn&rsquo;t how spreadsheets actually work (mumble mumble observer/observable, mumble mumble),
+but what I <em>don&rsquo;t</em> know is if anyone has ever used calculations on columns
+to motivate basic programming for adult learners?
+I think it would be easy to extend this:
+for example,
+the next step could be &ldquo;how to create a function that operates on an arbitrary column&rdquo;,
+which opens up all sorts of interesting learning possibilities.
+If anyone has done this,
+I&rsquo;d be very grateful for pointers.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design Homework</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design Homework</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/11/01/how-to-reach-the-unconverted/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-11-12" class="post-date">2023-11-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/11/13/replacing-make/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;m giving a guest lecture this week in a course that&rsquo;s using the
+Python version of <a href="../../../../sdxpy/"><em>Software Design by Example</em></a> as a text,
+and am thinking about assigning this as homework. Feedback would
+be greatly appreciated.</p>
+<ol>
+<li>
+<p>Clone the GitHub repository for the Python version of &ldquo;Software
+    Design by Example&rdquo; from <a href="https://github.com/gvwilson/sdxpy">https://github.com/gvwilson/sdxpy</a> and
+    look in <code>./lib/mccole/extensions/includes.py</code>. This code is used
+    to extract fragments of code from source files to include in the
+    HTML that is generated for each chapter.</p>
+</li>
+<li>
+<p><code>includes.py</code> works by searching for specially-formatted comments
+    in source files. For example, if a Markdown file contains:</p>
+<pre><code>\[% inc file="example.py" keep="part" %]
+</code></pre>
+<p>then <code>includes.py</code> will read <code>example.py</code> and extract the lines
+delimited by comments like this:</p>
+<pre><code># [part]
+...code to include...
+# [/part]
+</code></pre>
+</li>
+<li>
+<p>This mechanism works, but means that the source code is littered
+    with comments like those shown above. A common alternative approach
+    is to specify sections with line numbers like this:</p>
+<pre><code>\[% inc file="example.py" start="20" end="36" %]
+</code></pre>
+<p>However, that is very fragile: if any lines are added to or
+removed from the file, all of the inclusion specifications may
+need to be updated.</p>
+</li>
+<li>
+<p>We can do better by taking advantage of the fact that the source
+    code of a program is structured as a tree. We have several
+    notations for selecting things from trees, the most widely used of
+    which is CSS. For example, the CSS shown below</p>
+<pre><code>div#example p.title {
+    text-align: right;
+    font-size: var(--tinytext);
+    font-style: italic;
+}
+</code></pre>
+<p>only applies to paragraphs with the class <code>title</code> located inside
+the <code>div</code> whose ID is <code>example</code>.</p>
+</li>
+<li>
+<p>Your assignment is to design and implement a tool for extracting
+    bits of code from Python files inspired by tools like <code>pyastgrep</code>
+    (see <a href="https://github.com/spookylukey/pyastgrep/">https://github.com/spookylukey/pyastgrep/</a>).  Given a Python
+    file like this:</p>
+<pre><code>import sys
+
+def distractor():
+    return None
+
+def example(param):
+    value = 0
+    while value &lt; param:
+        value *= 2
+    while value % 3 != 0:
+        value += 1
+    return value
+</code></pre>
+<p>and the selector:</p>
+<pre><code>func[name="example"] body stmt[2:]
+</code></pre>
+<p>your tool should return the three lines:</p>
+<pre><code>    while value % 3 != 0:
+        value += 1
+    return value
+</code></pre>
+<p>because:</p>
+<p>a.  <code>func[name="example"]</code> selects the function whose name is
+    <code>example</code>.</p>
+<p>b.  <code>body</code> selects the body of that function.</p>
+<p>c.  <code>stmt[2:]</code> select statements from the second to the end.
+    (<code>stmt[0]</code> is the initial assignment to <code>value</code> and <code>stmt[1]</code>
+    is the first <code>while</code> loop.)</p>
+</li>
+<li>
+<p>You may break the work down however you want, but we suggest
+    tackling it in three parts:</p>
+<p>a.  A parser that turns selectors like the one shown above into
+    one or more objects (see the chapter on parsing for an
+    example).</p>
+<p>b.  A set of related classes that know how to match parts of a
+    Python AST (see <a href="https://docs.python.org/3/library/ast.html">https://docs.python.org/3/library/ast.html</a>)
+    and return a set of lines (see the chapter on globbing for
+an example).</p>
+<p>c.  A comprehensive set of test cases for parts (a) and (b).</p>
+</li>
+<li>
+<p>The first step in this assignment is to decide what kinds of
+    selection your tool will support and how that will be represented
+    as selectors. For example:</p>
+<ul>
+<li>
+<p>Will users be able to ask for the docstring of a particular
+    method in a particular class?</p>
+</li>
+<li>
+<p>Will they be able to ask for <em>all</em> the docstrings of <em>all</em> the
+    methods in a particular class?</p>
+</li>
+<li>
+<p>Will they be able to ask for just a class header without any of
+    its methods?</p>
+</li>
+<li>
+<p>Will they be able to ask for a class and all its methods
+    <em>except</em> all the methods whose names begin with a single
+    underscore?</p>
+</li>
+</ul>
+<p>None of these are required&mdash;it is up to your team to decide how
+simple or elaborate your selectors will be&mdash;but looking at
+examples of code extracts in your textbooks or in online examples
+will give you ideas about what authors will want to be able to do.</p>
+</li>
+<li>
+<p>Your solution must include:</p>
+<p>a.  A Markdown file describing the syntax and matching rules of
+    the selectors you have implemented.</p>
+<p>b.  A test suite that covers 100% of the application code you
+    have written (as determined by the Python <code>coverage</code> tool).</p>
+<p>Please note that particular attention will be paid to how, and
+how well, your library handles badly-written selectors, so make
+sure you test both correct and incorrect input.</p>
+</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

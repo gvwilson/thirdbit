@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Online Teaching Setup</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Online Teaching Setup</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/03/30/curriculum-roadmap/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-03-30" class="post-date">2019-03-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/03/31/what-i-didnt-tweet/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>As <a href="../../../../2019/03/20/educational-paramedics/">I mentioned last week</a>,
+a colleague and I have been teaching
+<a href="https://blog.rstudio.com/2019/02/28/rstudio-instructor-training/">RStudio&rsquo;s instructor training and certification</a> online,
+and I&rsquo;m pretty pleased with our setup:</p>
+<ol>
+<li>
+<p><em>Zoom for video conferencing.</em>
+    Our class had 13 participants at peak,
+    but I&rsquo;ve used Zoom for up to two dozen in
+    <a href="https://carpentries.github.io/instructor-training/">the Carpentries&rsquo; instructor training</a>,
+    and it&rsquo;s handled the load well.</p>
+</li>
+<li>
+<p><em>Zoom chat for real-time coordination.</em>
+    We initially used a slack channel to keep track of speaking order (/hand for the win)
+    and to remind people how long exercises were supposed to take,
+    but relying on Zoom&rsquo;s built-in chat meant that participants had one less window to check,
+    which helped a lot.</p>
+</li>
+<li>
+<p><em>A Google Doc for exercises.</em>
+    The Carpentries have relied on Etherpad for years,
+    but I&rsquo;m finding it increasingly unstable.
+    Google Docs do have to be shared with participants,
+    and don&rsquo;t colorize contributions to show authorship,
+    but they handle two dozen simultaneous cursors quite easily,
+    allow participants to format their contributions,
+    and to be honest,
+    the lack of coloring makes them a lot easier to read.
+    As with Etherpad,
+    it&rsquo;s crucial to paste a list of names into the doc at the start of the exercise
+    so that everyone knows where to type;
+    without that,
+    the initial flurry of overwrites makes the exercise a really compelling demonstration
+    of why concurrent programming is hard.</p>
+</li>
+<li>
+<p>One other great advantage Google Docs have is that people can paste images directly into them,
+    rather than pasting in a link that opens up the image in another tab.
+    I was surprised at how much of a difference this made for some of the exercises:
+    having people draw a concept map,
+    take a picture with their phone,
+    and then paste that picture in the doc where everyone could see it
+    was remarkably effective.
+    And yes,
+    you can draw directly in a Google Doc just like you can in Word or PowerPoint,
+    but we encouraged people to draw elsewhere and then paste their finished diagram;
+    I&rsquo;ll ask people to draw in the doc in real time in the next class and see how that goes.</p>
+</li>
+<li>
+<p><em>Google Slides for slides.</em>
+    Google Slides lets me do everything I do in PowerPoint or Keynote
+    (which isn&rsquo;t to say it does everything they do—like most people,
+    I only use a small fraction of what desktop productivity software provides.)
+    More importantly,
+    Google Slides seems to be the best option for collaborating on graphics-rich slides:</p>
+<ul>
+<li>People can add comments on individual elements of slides, including individual graphical elements.</li>
+<li>Keynote and PowerPoint in GitHub are a waste of time,
+    since Git doesn&rsquo;t know how to diff and merge anything more sophisticated than punch cards.</li>
+<li>It&rsquo;s a lot harder to create and position graphics using slideshow packages based on Markdown or HTML
+    than in WYSIWYG editors,
+    and even if you go the extra kilometer,
+    Git still can&rsquo;t diff or merge the actual graphics.</li>
+</ul>
+</li>
+<li>
+<p><em><a href="https://www.peardeck.com/">Pear Deck</a> for presenting.</em>
+    When you launch a presentation with Pear Deck,
+    it gives you a link to share with your audience.
+    Instead of watching a video stream,
+    they then view your slides in a browser tab;
+    Pear Deck automatically keeps their views in sync with the presenter&rsquo;s.
+    It&rsquo;s pretty cool,
+    and much more accessible for people in low-bandwidth environments or with visual impairments.
+    Pear Deck also allows you to embed formative assessments like multiple choice questions in your slides,
+    and collects and displays viewers&rsquo; responses in real time.
+    However,
+    presenting from Firefox was problematic—I had to restart in Chrome—and one viewer using IE
+    occasionally had to advance slides manually
+    (although again, once he switched to Chrome it all started to work again).</p>
+</li>
+</ol>
+<p>I don&rsquo;t know how well this setup would work for a programming class,
+but I&rsquo;m keen to try.
+RStudio Server Pro will allow people to share live coding sessions,
+and so will other tools like <a href="https://jupyterhub.readthedocs.io/en/stable/">Jupyter</a>.
+I&rsquo;m not slated to teach R, Python, or JavaScript in the next few months,
+but when I am,
+I&rsquo;d like to give this a try.</p>
+<p>Stepping back,
+I now believe that MOOCs are going to prove to be an evolutionary backwater.
+Yes,
+they scale to hundreds of thousands of users,
+but what they scale is mediocre.
+My daughter regards the internet as a way to collaborate in real time:
+her friends held a surprise birthday party for her in Minecraft this morning,
+and I think that kind of interaction the future of online education.
+<a href="https://en.wikipedia.org/wiki/Peer_instruction">Peer instruction</a> works better than videos and robo-graded hand-ins,
+and discussing problems with peers is a lot better for mental health than sitting in a basement or cubicle
+and staring at a screen while you watch the same damn explanation for the fourth time.
+There&rsquo;s a place for solo study and review,
+but as the saying goes,
+if you want to learn further,
+learn together.
+I&rsquo;m pretty excited to have the chance to explore ways of helping people do that.</p>
+<p><img src="../../../../files/2019/03/minecraft.png" alt="Minecraft" width="80%" class="centered"></p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

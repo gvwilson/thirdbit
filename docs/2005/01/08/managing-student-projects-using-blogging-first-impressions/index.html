@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Managing Student Projects Using Blogging: First Impressions</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Managing Student Projects Using Blogging: First Impressions</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2005/01/05/why-python/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2005-01-08" class="post-date">2005-01-08</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2005/01/12/two-kinds-of-people/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>If you already know what blogs are, and how they work, you can skip <a href="#1">down</a> in this posting.  If not, read on…</p>
+<p>Students who are new to 49X will have heard me say that I&rsquo;m tracking each project&rsquo;s progress using blogs.  A &ldquo;blog&rdquo; (short for &ldquo;web log&rdquo;) is essentially an on-line journal; typically, one person posts articles to it, which many people can then read.  You can think of it as being like a mailing list or newsgroup, which only one person (or a small number of people) can send information to.</p>
+<p>Here&rsquo;s how blogs work: when the blog&rsquo;s author wants to post a new article, she adds information to a file (typically called <code>index.rss</code> or <code>index.rdf</code>) on her web server. Each entry in the file looks something like this:</p>
+<pre>&lt;item rdf:about="http://pyre.third-bit.com/blog/archives/000166.html"&gt;
+&lt;title&gt;Why Testing Matters&lt;/title&gt;
+&lt;link&gt;http://pyre.third-bit.com/blog/archives/000166.html&lt;/link&gt;
+&lt;description&gt;This story from the CBC is frightening:
+apparently, due to a computer error, abnormal radiology results
+for nearly 40 cancer patients weren't sent to their doctors.
+If FedEx or Canada Post had lost the results, they'd probably be sued;
+since…&lt;/description&gt;
+&lt;dc:creator&gt;Greg Wilson&lt;/dc:creator&gt;
+&lt;dc:date&gt;2005-01-07T09:31:09-05:00&lt;/dc:date&gt;
+&lt;/item&gt;</pre>
+
+<p>The blog&rsquo;s author almost certainly <em>doesn&rsquo;t</em> type in this XML by hand.  Instead, she typically uses a GUI, or a web interface, which has fill-in fields for the title and description, and which generates the rest of the information (such as the permanent link for the item) automatically.  Pyre&rsquo;s blog, for example, is created using a PHP-based system called <a href="http://www.movabletype.org/">Movable Type</a>.</p>
+<p>Now, suppose that I want to <em>read</em> some blogs, instead of writing a new entry for this one.  On my machine, I keep a list of the URLs of all the blogs I&rsquo;m interested in, along with the IDs of the entries from each that I&rsquo;ve read.  When I run my blog reader (such as <a href="http://minutillo.com/steve/feedonfeeds/">FeedOnFeeds</a> or <a href="http://www.feedreader.com/">FeedReader</a>—there are literally hundreds out there), it polls each of those URLs to find out which ones have new entries, then downloads those entries and shows them to me.  Once I&rsquo;ve read them, my blog reader updates its little database (the one stored on my hard drive).</p>
+<p>Blogging (which can mean both &ldquo;writing a blog&rdquo; and &ldquo;reading blogs&rdquo;) is exploding in popularity right now because it addresses one of the biggest problems on the internet: signal-to-noise ratio.  Sooner or later (usually sooner), mailing lists and newsgroups are either swamped by people asking questions that have been answered a hundred times before, consumed by flame wars, inundated with spam, or all three.  The only solutions (so far) are to have human moderators filter the messages, or to restrict who can post; the former is expensive, and the latter stifles the conversation.</p>
+<p>Blogs, on the other hand, are subscription-based, and since each feed usually has just one author, you can quickly decide if you want to keep listening or not.  If you don&rsquo;t, you just remove that feed&rsquo;s URL from the list your reader checks, and bingo, it&rsquo;s gone.</p>
+<p><a name="1"></a>Here&rsquo;s the cool bit.  Nothing says a blog&rsquo;s content has to be written by a human being: it can equally well be created by programs like <a href="http://projects.edgewall.com/trac">Trac</a>. Each Trac project generates a blog automatically; every time someone checks something into the project&rsquo;s Subversion repository, Trac makes a blog entry out of their check-in comments.  It does the same thing when someone creates, modifies, or closes a bug report or milestone.</p>
+<p>A week ago, I subscribed to the blogs being created by this term&rsquo;s projects.  This means that I can go to one web page, and click the &ldquo;update&rdquo; button, and get an up-to-the-minute summary of everything that has happened in each project since the last time I checked. (Assuming, of course, that people write meaningful comments when they make changes: if they write, &ldquo;Did stuff,&rdquo; I&rsquo;m not much wiser than I was before.)</p>
+<p>It&rsquo;s only been a week, but I already know that this is a much, much better way to track multiple projects than having Subversion and the bug tracker send me email.  Having everything consolidated on one page means that I can see at a glance that Sean updated <code>Important.java</code> three times in quick succession, or that Laurie just opened nine new bugs.  It wouldn&rsquo;t scale to a hundred projects, but then, no one can manage a hundred different projects anyway.</p>
+<p>I already have lots of ideas about how to improve Trac&rsquo;s project management blogging.  I&rsquo;m not posting them here yet because many of them are contradictory, and because I&rsquo;m sure all of them have already been tried, critiqued, and improved—I need to spend a few hours googling for prior art.  In the meantime, though, I&rsquo;m hoping to get <a href="http://minutillo.com/steve/feedonfeeds/">FeedOnFeeds</a> installed on Pyre some time in the next few days, so that students can track projects&rsquo; progress.</p>
+<p>Now, if only I could figure out how to integrate instant messaging into all of this…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

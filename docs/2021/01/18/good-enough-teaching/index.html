@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Good Enough Teaching</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Good Enough Teaching</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2021/01/18/how-to-write-a-memo/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2021-01-18" class="post-date">2021-01-18</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2021/01/19/data-dictionary/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;m blocked by a tech issue at work right now. I should do diagrams for <a href="../../../../sdxjs/"><em>Software Design by Example Using JavaScript</em></a>, but instead I&rsquo;m going to talk about good enough practices in teaching. Years ago we wrote a paper called &ldquo;<a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">Best Practices for Scientific Computing</a>&rdquo;. A lot of people found it useful, but a lot of other people found it intimidating (like, triathlete&rsquo;s daily workout intimidating), so we followed it up with &ldquo;<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good Enough Practices in Scientific Computing</a>&rdquo; to describe more approachable things that the majority could do right away.</p>
+<p>The &ldquo;Good Enough&rdquo; paper did more than just describe &ldquo;start here&rdquo; practices. It also told readers, &ldquo;You don&rsquo;t have to be running CI on Docker with 100% test coverage to be a good person. It&rsquo;s OK if you work this way.&rdquo; Lang&rsquo;s book <em><a href="https://www.wiley.com/en-ca/Small+Teaching%3A+Everyday+Lessons+from+the+Science+of+Learning-p-9781118944493">Small Teaching</a></em> did the same for me when I read it—it said, &ldquo;It&rsquo;s OK not to do <em>all</em> the right things.&rdquo; 
+I say this myself in <a href="https://drive.google.com/drive/folders/13ohFt3D0EJ5PDbMaWTxnHH-hwA7G0IvY">the instructor training class I run for RStudio</a> and in <em><a href="https://teachtogether.tech/">Teaching Tech Together</a></em>, but I get pushback. Ironically, some of the same education experts who would tell you to start novices with a simplified mental model of any other topic will get very huffy if you leave out the details when it comes to teaching and learning.</p>
+<p>All of which is preface to me saying, here are the things I think the average programmer or data scientist can do to improve their teaching right away, <em>in order</em>. I&rsquo;d be grateful for additions and corrections.</p>
+<ol>
+<li>
+<p>Add descriptive text to your slides. This helps people with vision or language comprehension issues; it also helps your future self (why do I have a picture of the Eiffel Tower labeled &ldquo;Not Leaning (Yet)&rdquo;?), but most importantly, it makes your material discoverable. Search engines struggle with images, diagrams, and spatially-significant layout of text. Give them prose to search so people can find your stuff.</p>
+</li>
+<li>
+<p>Use formative assessment every 5-15 minutes while teaching. Each one should take at most a minute to do (so it doesn&rsquo;t derail teaching) and be designed to check for flaws in learners&rsquo; mental models rather than simple factual recall.</p>
+</li>
+<li>
+<p>Always tell them how long they have to work on an in-class exercise or how long a homework problem should take; keep notes of how long the former actually took (and ask them to report the latter) so that you can correct your optimism.</p>
+</li>
+<li>
+<p>Have learners share work in real time. Google Docs or HackMD&rsquo;s shared in groups of 5-15 works pretty well; if you&rsquo;re teaching in person (remember that?), have a few people join a Zoom call with you so that they can share their screen with you and you can project it for the class. (You&rsquo;d have them show each other what they&rsquo;ve made in a drawing or cooking class, wouldn&rsquo;t you?)</p>
+</li>
+<li>
+<p>Keep track of who has spoken so that you can distribute attention fairly throughout the class. Take-down stickies on laptops works in person; online, I keep a text file with learners&rsquo; names and cross them off.</p>
+</li>
+<li>
+<p>Write the code in front of them so you can follow up their &ldquo;what if&rdquo; questions, and so that they learn how to use the tools. (Some people use VS Code or the RStudio IDE 2-10 times more effectively than others, and it adds up very quickly.)</p>
+</li>
+<li>
+<p>When you make a mistake live coding, always (a) tell them how you know it&rsquo;s wrong, (b) talk through how you diagnose the problem, (c) explain the fix, and (d) point out the difference in the correct behavior or output.</p>
+</li>
+</ol>
+<p>Now here&rsquo;s the sting in the tail: take a moment and compare the tutorials for your favorite software to these seven practices. If the tutorial scores more than 3/7, please give me a shout—I&rsquo;d really like to see it.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

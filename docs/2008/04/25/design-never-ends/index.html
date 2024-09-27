@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Design Never Ends</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Design Never Ends</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2008/04/25/drproject-30-schema/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2008-04-25" class="post-date">2008-04-25</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2008/04/28/i-would-never-have-believed/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>You&rsquo;re never done designing a useful system, because if it is actually useful, people are always coming up with new requirements for it.  For example, I&rsquo;ve been using DrProject to manage my software engineering course this term: the class notes are all in the wiki (so that students can fix &lsquo;em up), I communicate with students through the DrP-managed mailing list, and so on.  But now I want to archive that material in the portal used by the departmental lecturers, so that future instructors can find it after the current portal is shut down. Moving the SVN repository over is trivial, and dumping and restoring the relevant portions of the database needs just a few lines of SQL…</p>
+<p>…and might well result in disaster, since keys that are unique in one database might well not be unique in another. The &ldquo;All&rdquo; project in one portal is definitely <em>not</em> the same as the &ldquo;All&rdquo; project in another; I could replace uses of &ldquo;All&rdquo; as a key in appropriate places, but what about the user ID &ldquo;nick&rdquo;?  The odds are good that it&rsquo;s the same person in both portals (since they&rsquo;re both hosted by our department, and we use unique Unix IDs wherever possible), but it&rsquo;s not guaranteed.</p>
+<p>There are subtler problems too. Suppose there are no conflict in the user IDs I need to import to make ticket ownership and wiki page authorship references resolve.  I go ahead and add the users, import the data, and now the database believes that &ldquo;nick&rdquo; created some tickets and sent some email messages before his account existed.</p>
+<p>How important is this?  Not very—there&rsquo;s no real cost to leaving the old portal up.  How irritating is it?  Quite—I like to keep things tidy, and having all the old courses in one place just seems like the right thing to do.  (We also had some people from California approach us earlier this week about converting their existing Trac instance to DrProject, during which a similar problem would arise.)  Never done…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

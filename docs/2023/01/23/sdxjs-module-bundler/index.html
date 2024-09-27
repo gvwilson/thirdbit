@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example 17: Module Bundler</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example 17: Module Bundler</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/01/20/what-would-entice-them/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-01-23" class="post-date">2023-01-23</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/01/24/commands-i-use/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>JavaScript was designed in a hurry to make web pages interactive.
+Nobody expected it would become so popular,
+so it didn&rsquo;t include things like
+a standard, reliable way to turn a set of source files into a single &ldquo;executable&rdquo; for browsers to load.</p>
+<p><a href="../../../../sdxjs/module-bundler/">This chapter</a> of <a href="../../../../sdxjs/"><em>Software Design by Example</em></a>
+builds a simple module bundler
+that finds all the files that an application depends on
+and combines them into one.
+A bundler has to do two things:</p>
+<ol>
+<li>
+<p>Find the root file&rsquo;s dependencies—which is impossible in theory because of dynamic loading,
+    but which is mostly solvable in practice.</p>
+</li>
+<li>
+<p>Combine all those files into one without breaking namespacing.</p>
+</li>
+</ol>
+<p>Why is the problem of finding dependencies unsolvable in theory?
+Suppose creates an alias for <code>require</code> and uses that to load other files:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">weWillMissThis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">(</span><span class="s1">&#39;./other-file&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>We could try to trace variable assignments to catch cases like these,
+but someone could still fool us by writing this:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">clever</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">eval</span><span class="p">(</span><span class="sb">`require`</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">weWillMissThisToo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">clever</span><span class="p">(</span><span class="s1">&#39;./other-file&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>If you still don&rsquo;t believe me, consider this:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">module_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">NUM_EXTENSIONS</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">module_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`./extension-</span><span class="si">${</span><span class="nx">module_id</span><span class="si">}</span><span class="sb">.js`</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">(</span><span class="nx">module_name</span><span class="p">)</span>
+</code></pre></div>
+<p>That&rsquo;s right:
+the code loads a randomly-selected module.
+In the program where I first encountered this,
+the extensions controlled the behavior and appearance of characters in a game.
+Hundreds were available,
+so the game&rsquo;s author had (quite reasonably) decided to load only the ones needed in a particular session.</p>
+<p>Once again,
+<em>there is no general solution to this problem</em>
+other than running the code to see what it does.
+If you would like to understand why not,
+and learn about a pivotal moment in the history of computing,
+I highly recommend Petzold&rsquo;s <a href="http://www.theannotatedturing.com/"><em>The Annotated Turing</em></a>.
+You might also enjoy Levine&rsquo;s <a href="https://www.elsevier.com/books/linkers-and-loaders/levine/978-0-08-051031-6"><em>Linkers and Loaders</em></a>;
+while it is now more than 20 years old,
+it taught me things I&rsquo;d never known enough to even wonder about.</p>
+<figure id="module-bundler-bundling" class="center">
+  <img src="../../../../sdxjs/module-bundler/bundling.svg" alt="Bundling modules" class="centered">
+  <figcaption>Figure 17.1: Combining multiple modules into one.</figcaption>
+</figure>
+
+<blockquote>
+<p>Terms defined: entry point, module bundler, transitive closure.</p>
+</blockquote><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

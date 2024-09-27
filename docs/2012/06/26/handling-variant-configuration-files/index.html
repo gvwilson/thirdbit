@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Handling Variant Configuration Files</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Handling Variant Configuration Files</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2012/06/26/pessimism-and-doom/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2012-06-26" class="post-date">2012-06-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2012/06/27/where-we-are-june-2012-edition/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>One of our learners came to us with a problem last week. The program she uses depends on some complex configuration files, which she'd like to store in version control. However, a couple of parameters change depending on the machine the program is running on. She doesn't want to check <em>those</em> changes into version control over and over again; what should she do?</p>
+<p>To make this more concrete, imagine that her configuration file is a Makefile containing instructions to rebuild a set of files. Initially, it looks like this:</p>
+<pre>summary.dat : left.dat right.dat
+        summarize left.dat right.dat &gt; summary.dat</pre>
+<p>That works fine on one machine, but on another, the program <code>summarize</code> has been installed as <code>sum7</code>. She could do this:</p>
+<pre>SUMMARIZE=summarize # on Linux
+# SUMMARIZE=sum7 # on Mac OS X
+
+summary.dat : left.dat right.dat
+        ${SUMMARIZE} left.dat right.dat &gt; summary.dat</pre>
+<p>but then she'd have to edit the file to uncomment one line, and recomment the other, whenever she switched from her Mac laptop to her desktop Linux machine and vice versa. Here's what she can do instead:</p>
+<pre>ifeq ($(shell uname),Linux)
+        SUMMARIZE=summarize
+else
+        SUMMARIZE=sum7
+endif
+
+summary.dat : left.dat right.dat
+        ${SUMMARIZE} left.dat right.dat &gt; summary.dat</pre>
+<p>The trick is that Makefiles (and most other grown-up configuration files) allow conditionals and functions, just like programs. The function <code>$(shell <em>whatever</em>)</code> runs a shell command; <code>ifeq</code> then checks if that command's output is the string <code>Linux</code>, and the Makefile's variable <code>SUMMARIZE</code> is set accordingly.</p>
+<p>Another way to approach the problem is to put the machine-dependent parameters in separate files, and include one of those in the main file. For example, the Makefile could be written like this:</p>
+<pre>include settings.mk
+
+summary.dat : left.dat right.dat
+        ${SUMMARIZE} left.dat right.dat &gt; summary.dat</pre>
+<p>We would then put two files in version control–one for Linux:</p>
+<pre># settings-linux.mk
+SUMMARIZE=summarize</pre>
+<p>and one for Mac OS X:</p>
+<pre># settings-macosx.mk
+SUMMARIZE-sum7</pre>
+<p>Notice that neither of these is called <code>settings.mk</code>. The first time we check out on a machine, we manually copy either <code>settings-linux.mk</code> or <code>settings-macosx.mk</code> to create <code>settings.mk</code>. The <code>include</code> in the main Makefile then finds what it's looking for, and everything runs. If someone changes the settings for a particular platform, our next version control update will get the new platform-specific file, and we'll have to re-copy it to install it.</p>
+<p>That manual copying step is why I'm not a fan of this second approach. There <em>are</em> ways to have the copying done automatically, but they all basically come down to including a conditional in the main Makefile, and if we're going to do that, we might as well use that for setting the parameter values anyway. However, some configuration file formats don't support conditionals, so the "include if available and fail if not" trick is still worth knowing.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

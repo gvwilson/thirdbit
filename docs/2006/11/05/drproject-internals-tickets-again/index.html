@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: DrProject Internals: Tickets Again</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>DrProject Internals: Tickets Again</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/11/05/small-scale-real-world-requirements/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-11-05" class="post-date">2006-11-05</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/11/06/drproject-internals-i-wasnt-quite-done-with-tickets/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>So that&rsquo;s tickets taken care of, right?  If only…  Versioning is far from being the only thorny issue in building a ticketing system.  To understand some of the others, it helps to know a little about how DrProject evolved from <a href="http://trac.edgewall.org">Trac</a>.</p>
+<p>When we first started using <a href="http://trac.edgewall.org">Trac</a> in January 2005, each installation of the software managed one, and only one, project: a single ticket database, a single set of wiki pages, and (most importantly) a single Subversion repository.  Each installation needed its own stanza in Apache&rsquo;s configuration file, and users had to be added to each installation separately (Figure 1).</p>
+<p>That model made sense for one-of-a-kind open source hobby projects, but broke down in larger settings.  Even a small company, for example, would usually have several projects going on at once; setting up and managing each one completely independently would be (to quote a former colleague) &ldquo;nuthin&rsquo; but overhead&rdquo;.  And in a classroom setting, <a href="http://trac.edgewall.org">Trac</a>&rsquo;s model didn&rsquo;t work at all, since instructors need to start twenty or more nearly-identical projects every term.</p>
+<p>There were several ways we could fix this:</p>
+<ol>
+  <li>Put a facade in front of a collection of <a href="http://trac.edgewall.org">Trac</a>s to route HTTP and Subversion traffic to the right place (Figure 2).</li>
+  <li>Partition the database by adding a project ID column to each table, and use Subversion access control files to give each user access to only part of a common repository (Figure 3).</li>
+  <li>Partition the database as above, but give each project its own Subversion repository (Figure 4).</li>
+</ol>
+<p>We discarded the first option fairly quickly, since it would make integration (particularly configuring the web server) a lot more complicated than it already was, and would be very difficult to test and debug.  Option 2 seemed attractive for a while, but then we stumbled across this scenario:</p>
+<ul>
+  <li>Hamdan is a member of project H; Tong is a member of project T.</li>
+  <li>So Hamdan has read/write access to <code>/svn/drp/H</code>, and Tong has read/write access to <code>/svn/drp/T</code>.  Neither has any kind of access to any other part of the repository.</li>
+  <li>Hamdan creates <code>/svn/drp/H/README.txt</code> and adds it to the repository.  This becomes changelist 1.</li>
+  <li>Tong creates <code>/svn/drp/T/design.html</code> and adds it to the repository.  This becomes changelist 2.  Tong says, "Huh?"</li>
+  <li>Hamdan modifies <code>/svn/drp/H/README.txt</code>, checks in his changes, and is told that he has created changelist 3.  Hamdan says, "Huh?"</li>
+</ul>
+<p>At first, the non-consecutive numbering of changelists within projects sounds like it would just be an annoyance, but it&rsquo;s more than that.  Suppose we want to display the history of a project: we have to filter out all the changelists that refer to portions of the repository that the user requesting the history isn&rsquo;t allowed to see. And what happens when an instructor adds <code>start.java</code> to every team&rsquo;s repository, and checks them all in at once (instead of checking in one copy at a time)?  What do we show then?  What do we let people revert to?</p>
+<p>There&rsquo;s a much larger point here than just how we divvied up students&rsquo; files among repositories.  The phrase &ldquo;<a href="http://www.mcs.vuw.ac.nz/comp/Publications/archive/CS-TR-02/CS-TR-02-9.pdf">postmodern</a> programming&rdquo; refers to the observation that people don&rsquo;t build programs any more: they assemble them by re-mixing the work of others.  99% of the bits in the last big <a href="http://h20229.www2.hp.com/products/select/">product</a> I worked on were bought or downloaded; our part, as complex as it was, was &ldquo;just&rdquo; the glue holding it all together.  It&rsquo;s the only way to build large systems, but it means you have to know early on—at design time—what assumptions and limitations are built into the systems you&rsquo;re going to be assembling.  Like other architects, we must always design <em>toward</em> the materials at hand.</p>
+<p>Here&rsquo;s another instance of the same problem.  How do you identify tickets?  Every system I&rsquo;ve ever worked with numbers them: as Kronecker said, &ldquo;God created the integers; all else is the work of man.&rdquo;  That maps pretty cleanly to a database table:</p>
+<table class="centered">
+<tr>
+<td>id</td>
+<td>summary</td>
+<td>author</td>
+<td>creationtime</td>
+<td>…</td>
+</tr>
+</table>
+<p>But what if you want to store multiple projects in a single database?  You can&rsquo;t use a separate table for each project (well, you could, but it would be a lousy design for reasons that I hope are obvious).  What about this:</p>
+<table class="centered">
+<tr>
+<td>id</td>
+<td>project</td>
+<td>summary</td>
+<td>author</td>
+<td>creationtime</td>
+<td>…</td>
+</tr>
+</table>
+<p>Seems like it would work: to get a project&rsquo;s tickets, just add <code>WHERE project=whatever</code> to the <code>SELECT</code> statement.  Once again, though, we have a sequentiality problem: if people are filing tickets in different projects over the same period of time, a particular project&rsquo;s ticket IDs will seem to have gaps.</p>
+<p>All right, why don&rsquo;t we just use the project&rsquo;s name, and the ticket&rsquo;s ID within the project, as a <a href="http://en.wikipedia.org/wiki/Composite_key">composite key</a> to uniquely identify each ticket?  Our <code>SELECT</code>s are no more complicated than they were—but then every other table that wants to refer to tickets has to use a two-column composite as a <a href="http://en.wikipedia.org/wiki/Foreign_key">foreign key</a>, instead of a single-column integer value.</p>
+<p>Things like this are why I&rsquo;m sceptical about the most extreme interpretations of <a href="http://www.extremeprogramming.org/">Extreme Programming</a>. &ldquo;Don&rsquo;t design it &lsquo;til you need it&rdquo; is great if changes don&rsquo;t have long-range ripple effects, but in my experience, the harder the problem, the more likely it is to send shock waves through the whole system.</p>
+<h2>Tags</h2>
+<p>Here&rsquo;s another example.  Over the summer, Apple Viriyakattiyaporn added tagging to DrProject, so that keywords can be attached to wiki pages, tickets, email messages, and just about everything else. She had two independent decisions to make: how to store the tag values, and how to index them.  Options for storing the tag values were:</p>
+<ol>
+  <li>Store each tag separately, one per database record.</li>
+  <li>Store all the tags together in a delimited list (e.g., <code>"bug fix|concurrency|GUI"</code>) in a single record.</li>
+</ol>
+<p>The first wins hands-down: if she had used the second, searching for things with particular tags would have required us to delve into the stored values, which requires more code than a simple <code>WHERE</code>, and is less efficient.</p>
+<p>What about indexing?  If we only wanted to tag tickets, the table could be:</p>
+<table class="centered">
+<tr>
+<td>project id (text)</td>
+<td>ticket id (int)</td>
+<td>tag value (text)</td>
+</tr>
+</table>
+<p>i.e., a set of unique triples.  But we also want to tag wiki pages, whose unique identifiers are strings, not integers.  Oh, and email messages (integer keys).  And other things that we haven&rsquo;t though of yet, that might use some other type (such as dates) as an index.</p>
+<p>Choices:</p>
+<ol>
+  <li>a separate table for each module (such as tickets or the wiki);</li>
+  <li>one table for each type of index value (such as string or int); or</li>
+  <li>convert everything into strings.</li>
+</ol>
+<p>In the first option, the thing the tag belongs to is implicit in the table: only ticket tags appear in the ticket tag table, for example.  In the second and third option, the tag tables need an extra column to keep track of this information.</p>
+<p>We hemmed and hawed over this for a while, then finally went with option 3.  We thought that everything we&rsquo;d ever want to index tags by would be representable as text somehow, and options 1 and 2 might require us to add new tables (i.e., change the database schema) when adding new components in the future.  Changing the schema is always a Bad Thing, since it means upgrading existing installations; &ldquo;everything is text&rdquo; seemed like the lesser of the available evils.</p>
+<h2>Attachments</h2>
+<p>One final note on tickets.  People often want to attach screen shots, configuration files, and other odds and ends to them.  Like <a href="http://trac.edgewall.org">Trac</a>, DrProject stores attachments in the file system in an <code>attachments</code> sub-directory of its working directory. <code>attachments</code> has two sub-directories, <code>wiki</code> and <code>ticket</code>, which store the wiki and ticket attachments respectively.</p>
+<p>Each of these has sub-directories whose names correspond to the wiki page&rsquo;s name or the ticket&rsquo;s number; the attached files are put into these directories.  Thus, the attachment <code>attach.txt</code> for ticket #222 would be located at <code>/drp/attachments/ticket/222/attach.txt</code>, while the attachment <code>attach.txt</code> for the wiki page <code>MyWiki</code> would be located at <code>/drp/attachments/wiki/MyWiki/attach.txt</code>.</p>
+<p>Attachments aren&rsquo;t versioned (there&rsquo;s that word again): if a user attaches a fresh screenshot to a ticket that has the same name as the old screenshot, the old screenshot is lost.  What&rsquo;s worse, attachments aren&rsquo;t segregated by project, either: if someone attaches a file called <code>pic.png</code> to ticket #22 in the project <code>Venus</code>, it will overwrite the file with the same name that&rsquo;s attached to ticket #22 in the <code>Mars</code> project.</p>
+<p>We&rsquo;re going to fix this as soon as we can find the time.  What we should really do, though, is store attachments as <a href="http://en.wikipedia.org/wiki/BLOB">BLOB</a>s (Binary Large OBjects) in database we&rsquo;re using to store the tickets themselves, or backtrack even further and put everything under version control.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

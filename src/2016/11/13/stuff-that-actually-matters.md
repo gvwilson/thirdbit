@@ -1,0 +1,202 @@
+---
+title: "Stuff That Actually Matters"
+date: 2016-11-13
+---
+
+<p>
+  In the wake of things like GamerGate, Brexit, and the American election,
+  it seems pretty clear that the tech industry needs a backgrounder for people who want to know more about
+  how our political, legal, and economic systems actually work.
+  Having produced half a dozen crowd-sourced books on open source software and software engineering over the last ten years
+  (see <a href="https://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/">here</a>,
+  <a href="https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/">here</a>,
+  and <a href="http://aosabook.org/">here</a>),
+  our goal now is to create something like
+  <a href="https://www.amazon.com/Physics-Future-Presidents-Science-Headlines/dp/0393337111/"><em>Physics for Future Presidents</em></a>,
+  but instead of (for example) explaining nuclear power to someone who might one day run the country,
+  we want to explain things like voter suppression to people who might one day build online voting platforms.
+</p>
+
+<p>
+</p>
+
+<dl>
+
+  <dt>
+    What are you looking for?
+  </dt>
+  <dd>
+    Tutorial essays, each 2000-5000 words long.
+    Tell us a bit of history,
+    explain why a widely-held belief is wrong,
+    or connect the dots so that people don't have to on their own.
+  </dd>
+
+  <dt>
+    Can you give me some examples?
+  </dt>
+  <dd>
+    Sure:
+    Fred Clark's article on
+    <a href="http://www.patheos.com/blogs/slacktivist/2016/03/11/this-is-what-abortion-politics-is-for/">abortion politics</a>,
+    or Siyanda Mohutsiwa's analysis of how young white men are being radicalized online
+    both teach both useful specifics
+    and a way of seeing the world that most programmers have never been exposed to.
+    Similarly,
+    if understand how
+    <a href="@root/2012/05/24/everything-you-need-to-know-about-standardized-testing/">standardized testing perpetuates the status quo</a>
+    and know
+    <a href="https://en.wikipedia.org/wiki/Literacy_test#Voting">how literacy tests were used to disenfranchise racial minorities</a>,
+    you're less likely to be seduced by the idea that
+    <a href="https://aeon.co/ideas/the-right-to-vote-should-be-restricted-to-those-with-knowledge">citizens should have to pass an exam in order to vote</a>.
+    And if engineers at Facebook knew
+    <a href="http://www.hopesandfears.com/hopes/now/politics/216905-the-lingering-effects-of-nyc-racist-city-planning">how city planners made beaches inaccessible to public transit</a>
+    so that the "wrong" people couldn't reach them,
+    maybe they would have been less quick to build tools that
+    <a href="https://www.propublica.org/article/facebook-lets-advertisers-exclude-users-by-race">let advertisers hide certain ads from specific racial groups</a>
+    (sorry, "ethnic affinities").
+  </dd>
+
+  <dt>
+    What <em>aren't</em> you looking for?
+  </dt>
+  <dd>
+    Rants and sermons.
+    This book's job is to inform:
+    we hope that knowledge will lead to action,
+    but our focus is on the first.
+  </dd>
+
+  <dt>
+    Should contributions be about technology?
+  </dt>
+  <dd>
+    No.
+    Our focus is about the world technology acts in and on,
+    not technology itself.
+    For example,
+    we don't want an explanation of how encryption works.
+    Instead,
+    we want an explanation of how the rules on warrants for wiretapping have evolved,
+    how they're currently being used and mis-used,
+    and why the issue isn't as clear-cut as people on both sides sometimes seem to believe.
+  </dd>
+
+  <dt>
+    Should contributors have experience with social justice and activism?
+  </dt>
+  <dd>
+    Preferably:
+    this isn't meant to be a hobby project for programmers
+    who have suddenly realized that software isn't value-neutral.
+    However,
+    you don't have to be an expert on a topic to write about it,
+    so long as you're willing to learn and accept feedback from reviewers.
+  </dd>
+
+  <dt>
+    Does the material have to be original?
+  </dt>
+  <dd>
+    No.
+    If we can recycle something you have already written, please let us know.
+    And if you have seen something that you think we <em>ought</em> to recycle,
+    please point us at it:
+    we're happy to try to talk people into letting us share their work more widely.
+  </dd>
+
+  <dt>
+    Isn't all this stuff out there on the Internet already?
+  </dt>
+  <dd>
+    Sure,
+    but that's like saying that Google and Stack Overflow
+    mean that we don't need lessons on programming.
+    A lot of people don't know where to look or what to look for,
+    so providing some starting points and context can make a big difference.
+  </dd>
+
+  <dt>
+    How can I get involved?
+  </dt>
+  <dd>
+    <a href="mailto:gvwilson@third-bit.com">Mail us</a> if you'd like to contribute.
+    If you know what you want to write about, tell us;
+    if you don't, we have lots of topics that need to be covered.
+  </dd>
+
+  <dt>
+    How else can I get involved?
+  </dt>
+  <dd>
+    We will be looking for reviewers as well:
+    again, please <a href="mailto:gvwilson@third-bit.com">mail us</a> if you want to help.
+  </dd>
+
+  <dt>
+    How soon do you want contributions?
+  </dt>
+  <dd>
+    A year ago.
+    Hell, thirty years ago,
+    so that we wouldn't get into the mess we're in now.
+    But since we're here now,
+    we'd like people to commit by the end of the year,
+    and to get us first drafts by the end of February.
+  </dd>
+
+  <dt>
+    How are copyright and licensing being handled?
+  </dt>
+  <dd>
+    Authors will retain copyright to their own material.
+    Everything will be publicly available under the
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">Creative Commons - Attribution - No Derivatives</a> (CC-BY-ND) license.
+    This allows free re-use of the material so long as they cite the original source
+    and do <em>not</em> distribute modified copies (except as allowed under <a href="https://en.wikipedia.org/wiki/Fair_use">fair use</a>).
+    This is different from the simpler CC-BY license used in our previous books,
+    but given the nature of the material,
+    we think it's important to guard against the possibility of distortion and misrepresentation.
+  </dd>
+
+  <dt>
+    How will the book be published?
+  </dt>
+  <dd>
+    Electronic versions will be made freely available in common formats (HTML, PDF, EPUB, and MOBI).
+    Physical copies will be available from a print-on-demand service.
+  </dd>
+
+  <dt>
+    What about royalties?
+  </dt>
+  <dd>
+    As with previous books,
+    all royalties will be donated to <a href="https://www.amnesty.org/">Amnesty International</a>.
+  </dd>
+
+  <dt>
+    So are you asking people to work for free?
+  </dt>
+  <dd>
+    For now, yes, but we recognize that's unfair and exclusionary,
+    and we're pursuing several ideas for grants and crowdfunding
+    so that we can compensate contributors for their labor.
+    If you have experience, ideas, or leads,
+    please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.
+  </dd>
+
+  <dt>
+    Can I contribute anonymously?
+  </dt>
+  <dd>
+    No.
+    We recognize there's a risk of people being harassed for doing work like this,
+    but we believe in the importance of creditable authorship and demonstratably diverse voices
+    as a pushback against the devaluation of marginalized perspectives.
+    And realistically,
+    if someone really wants to find out who you are,
+    they'll probably be able to.
+  </dd>
+
+</dl>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Reorganizing</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Reorganizing</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2013/11/02/scope/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2013-11-02" class="post-date">2013-11-02</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2013/11/10/three-old-men-drinking-tea/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>TL;DR: We're going to:</p>
+<ul>
+  <li>
+    split our lesson materials for absolute beginners and people with some previous experience;
+  </li>
+  <li>
+    build some tools to manage those materials;
+  </li>
+  <li>
+    update and clarify the guidelines for instructor training,
+    Software Carpentry's scope,
+    making contributions,
+    and use of our name and logo; and
+  </li>
+  <li>
+    use GitHub issues and blog posts to manage discussion of details
+    rather than our mailing list.
+  </li>
+</ul>
+<hr/>
+<p>
+  It's been a busy couple of months, but also rewarding:
+  we've welcomed two new batches of instructors,
+  and more people have submitted lesson material in the last six weeks
+  than in the preceding 18 months.
+</p>
+<p>
+  But it's clear we need to simplify and consolidate things:
+</p>
+<ol>
+  <li>
+    A lot of our material is too advanced for many scientists, which
+    (a) isn't helpful and
+    (b) doesn't fit Mozilla's focus on helping people take their first steps.
+  </li>
+  <li>
+    My choice to break some lessons into small includable pieces
+    has proven more confusing than helpful.
+  </li>
+  <li>
+    There's a lot of redundancy in our material.
+  </li>
+  <li>
+    We need a clearer guide for people who want to contribute
+    and clearer metadata for the lessons themselves:
+    what's covered, what level, prerequisites, etc.
+  </li>
+  <li>
+    We need to explain where Software Carpentry stops and other things begin.
+  </li>
+</ol>
+<p>
+  One reason for our current tangle is that
+  we're not just teaching computing to scientists:
+  we're also creating teaching materials using open source practices,
+  which few people do.
+  Even programmers who use version control daily don't have many sets of collaborative,
+  code-reviewed lessons–certainly not using
+  tools as young as the IPython Notebook.
+</p>
+<p>
+  That,
+  rapid growth,
+  the fact that most of us are scientists first and coders second,
+  and the lack of a clear plan have muddled things.
+  Here's how we'll clear it up:
+</p>
+<table class="centered">
+  <tr>
+    <td>A.</td>
+    <td>
+      During the week of Nov. 4-9,
+      I'll merge the snippets in the <code>_includes</code> directory
+      into the <code>lessons</code> directory
+      and move image files into more rational places.
+    </td>
+  </tr>
+  <tr>
+    <td>B.</td>
+    <td>
+      The repo will have a directory for each topic (shell, Git, etc.).
+      Each will contain sub-directories called <code>novice</code> (for absolute beginners)
+      and <code>intermediate</code> (for people with some previous experience).
+      The lessons for each topic will be independent
+      because running intermediates through novice material at triple speed doesn't work well.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C.
+    </td>
+    <td>
+      I'll manage work on novice material for the next three months,
+      and Ethan White will coordinate work on intermediate.
+      We'll focus on instructor-led rather than self-study material
+      (because it's what we need for bootcamps),
+      and we'll decide whether to recycle existing material or write new stuff
+      on a case-by-case basis.
+    </td>
+  </tr>
+  <tr>
+    <td>D.</td>
+    <td>
+      Matt Davis will coordinate discussion about what needs to be in each lesson:
+      long-form vs. point-form vs. all-in-one,
+      manifests and README's,
+      etc.
+    </td>
+  </tr>
+  <tr>
+    <td>E.</td>
+    <td>
+      Aron Ahmadia will coordinate work on tooling for authors and instructors.
+      A lot of our material is now in formats that version control doesn't handle well;
+      we need to figure out how to manage them,
+      how to slim down the starter repo for bootcamps,
+      how to integrate lesson material into the main website,
+      etc.
+    </td>
+  </tr>
+  <tr>
+    <td>F.</td>
+    <td>
+      We'll use GitHub issues to manage discussion about topics C-E
+      so as not to flood our mailing lists.
+    </td>
+  </tr>
+</table>
+<p>
+  Finally, since I'm making lists, we're also going to:
+</p>
+<table class="centered">
+  <tr>
+    <td>G.</td>
+    <td>
+      Change the guidelines for instructor training so that
+      participants must have taken part in a bootcamp,
+      be planning to host one,
+      or have taught coding previously.
+    </td>
+  </tr>
+  <tr>
+    <td>H.</td>
+    <td>
+      Write an explicit description of Software Carpentry's scope.
+    </td>
+  </tr>
+  <tr>
+    <td>I.</td>
+    <td>
+      Bring Software Carpentry's contribution guidelines into line with
+      those of other Mozilla projects.
+      (I'll post this and the scope descriptions separately;
+      please discuss them there.)
+    </td>
+  </tr>
+  <tr>
+    <td>J.</td>
+    <td>
+      Clarify the rules on using our name and logo
+      so that people must always get explicit permission before doing so.
+      (Again, I'll blog, and please discuss in comments.)
+    </td>
+  </tr>
+</table>
+<p>
+  Our goal is to be ready for the rest of 2014–not least PyCon in April–by mid-January.
+  We really want you to join the discussion, write stuff, review stuff, etc.–we have
+  great momentum right now,
+  and I hope that having a plan for the next couple of months will fuel that.
+</p>
+<p>
+  I look forward to seeing you in our next lab meeting
+  at 11:00 am and 7:00 pm Eastern on Nov 14.
+</p>
+<p>
+  See also:
+</p>
+<ul>
+  <li>Find and/or build tools to help manage lesson material.</li>
+  <li>What structure and metadata should lessons have?</li>
+  <li>Unix Shell: novice and intermediate</li>
+  <li>Git: novice and intermediate</li>
+  <li>Python: novice and intermediate</li>
+  <li>R: novice and intermediate</li>
+  <li>SQL: novice and intermediate</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

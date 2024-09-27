@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Where Next for DrProject?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Where Next for DrProject?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/03/30/head-rush-black-belt-secret-hacks-of-the-buzzword-zen-masters/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-03-31" class="post-date">2006-03-31</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/04/04/movie-plot-threat-contest/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>It&rsquo;s time to start thinking about what to add to DrProject this summer. Please <a href="mailto:gvwilson@third-bit.com?subject=drproject-vote">vote</a> for any <em>two</em> of the following; I&rsquo;ll collate and re-post.</p>
+<ol>
+  <li>web-based administration interface</li>
+  <li>user-oriented pages</li>
+  <li>status dashboard</li>
+  <li>manual RSS feeds</li>
+  <li>continuous integration</li>
+  <li>pluggable authentication</li>
+  <li>web services</li>
+  <li>shared bookmarks</li>
+  <li>calendaring</li>
+</ol>
+<p><strong>1. Web-Based Administration Interface</strong></p>
+<p>Instructors and TAs should be able to do simple things (like add a user to a project) through a web interface.  Jeff Okawa prototyped an admin interface in Fall 2005; we&rsquo;ll need to update that, extend it, and add it in.</p>
+<p><strong>2. User-Oriented Pages</strong></p>
+<p>This page would show a user all the tickets and timeline entries for all of the projects she belongs to, so that she doesn&rsquo;t have to cycle through three or four separate views to get a picture of what she&rsquo;s supposed to be doing.  Raheel Ashraf prototyped something like this in Fall 2005; we&rsquo;d have to re-design from the ground up.</p>
+<p><strong>3. Status Dashboard</strong></p>
+<p>This is Maria&rsquo;s work from last summer—one form is a graphical display of what&rsquo;s in the timeline view for a single project, a second is a graphical display of the user-oriented page (#2), and a third (aimed at instructors) summarizes the status of all the projects in the system, so that problems can be spotted early.</p>
+<p><strong>4. Manual RSS Feeds</strong></p>
+<p>Right now, each project automatically generates an RSS feed of timeline items; there&rsquo;s no way for users to inject hand-written entries (like, &ldquo;W00t!  We did it!&rdquo;).  The plan is to have a second RSS feed per project containing the hand-written entries, which would also show up in the timeline RSS; that way, when the latter is disabled (as it usually will be for student projects, because of the authentication problems we&rsquo;ve discussed before), groups can still feed out selected information.</p>
+<p><strong>5. Continuous Integration</strong></p>
+<p>CI is the practice of rebuilding the software, and rerunning the tests, every time someone checks something in.  It&rsquo;s hard to do in the general case (how many different ways to build, and report build status, can you think of?), but if we can handle simple Ant and Make cases, that&rsquo;s probably enough…?</p>
+<p><strong>6. Pluggable Authentication</strong></p>
+<p>We decided a year ago to make the underlying Linux system responsible for user provisioning (i.e., accounts and passwords).  That&rsquo;s now proving awkward: in order to get the Foodbank project collaborators access to the source code and tickets, for example, we have to set them up with guest accounts on CDF.  A pluggable auth system would allow us to add our own accounts as needed (but would open up a big can of very squiggly worms).</p>
+<p><strong>7. Web Services</strong></p>
+<p>Providing either a REST or SOAP API to DrProject, so that it can be scripted remotely, should be relatively straightforward.  Throttling usage, so that students don&rsquo;t do silly things, will be more of a challenge…</p>
+<p><strong>8. Shared Bookmarks</strong></p>
+<p>A del.icio.us-style bookmarking system would allow students working on parallel projects to save useful links (pointers to relevant parts of the Java API, for example).  Dunno how much students would actually use it…</p>
+<p><strong>9. Calendaring</strong></p>
+<p>Finding times to meet, and keeping track of due dates, is one of the most tedious parts of student team projects.  A simple calendaring system that would let students mark off when they&rsquo;re available, and when assignments are due, would be useful—I question, though, how much they&rsquo;d actually use it.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

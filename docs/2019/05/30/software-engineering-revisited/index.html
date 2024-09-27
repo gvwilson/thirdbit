@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Engineering Revisited</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Engineering Revisited</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/05/28/checking-driven-development/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-05-30" class="post-date">2019-05-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/06/06/icer-paper/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I am at the <a href="https://conf.researchr.org/home/icse-2019">International Conference on Software Engineering</a>
+for the first time in a decade.
+It&rsquo;s been good to catch up with friends,
+but this fly-by has confirmed several things for me:</p>
+<ol>
+<li>
+<p>I did the right thing leaving academia—I don&rsquo;t have the patience or diligence
+    to be a good researcher.</p>
+</li>
+<li>
+<p>Most software engineering research has the same effect on programmers
+    that astronomy has on stars.
+    Some of this is because most of the problems that most working programmers face
+    are hard for researchers to tackle,
+    not considered &ldquo;interesting&rdquo;,
+    or both.
+    However,
+    some of it is also
+    <a href="../../../../2012/12/06/two-solitudes-illustrated/">the gulf between researchers and practitioners</a>,
+    which hasn&rsquo;t narrowed noticeably since Vancouver in 2009.
+    <a href="http://neverworkintheory.org/">Our effort to foster dialog</a> failed,
+    but…</p>
+</li>
+<li>
+<p>…I am more convinced than ever that the standard third-year introduction to software engineering
+    based on <a href="https://www.mheducation.com/highered/product/software-engineering-practitioner-s-approach-pressman-maxim/M9780078022128.html">textbooks</a>
+    <a href="https://www.pearson.com/us/higher-education/product/Sommerville-Software-Engineering-9th-Edition/9780137035151.html">like these</a>
+    should be replaced by one that teaches undergraduates how to get, clean, analyze, and understand
+    software engineering data.</p>
+</li>
+</ol>
+<p>I&rsquo;ve made the case for #3 <a href="../../../../2014/10/02/a-better-software-engineering-course/">before</a>,
+and if anything,
+the case is stronger now than it was <a href="../../../../2015/11/29/exaptation/">then</a>.
+If we call it &ldquo;Data Science for Software Engineering&rdquo; the dean will think it&rsquo;s a good idea;
+if we tell faculty in other disciplines that we&rsquo;re (finally) requiring some math
+in the core software engineering course,
+they will nod approvingly,
+and if we teach students how to use the scientific method to separate fact from fiction,
+a lot of the fads, half-truths, and outright bullshit floating around the murky pond of industry
+might finally settle to the bottom.</p>
+<p>A course like this would have to include some statistics—say,
+up to the level of the <a href="https://apcentral.collegeboard.org/courses/ap-statistics/course">AP Stats exam</a>
+in the US.
+It would also include a bit of programming to implement analyses,
+but I think that students in the second half of a Computer Science degree
+can pick up enough <a href="https://www.tidyverse.org/">tidyverse</a> or <a href="https://pandas.pydata.org/">Pandas</a>
+in a three-hour lab session to do what they&rsquo;d need to do.
+(They could even write their analyses in <a href="http://www.data-forge-js.com/">JavaScript</a> if they wanted to.)
+The heart of the course,
+though,
+would be how to translate imprecise questions into runnable statistical models
+and how the choices made while doing so affect the answers produced.
+By the end of the course,
+I would want students to be able to answer questions like these:</p>
+<ul>
+<li>How many active repositories are there on GitHub?<ul>
+<li>This can be answered with some API calls or via <a href="http://ghtorrent.org/">GHTorrent</a>,
+    but right away we have to decide whether we mean &ldquo;original repositories&rdquo;
+    or &ldquo;all repositories including forks&rdquo;,
+    and whether we&rsquo;re including repositories that haven&rsquo;t been touched in—hm, how long?</li>
+</ul>
+</li>
+<li>How many people contribute to the average project?<ul>
+<li>It isn&rsquo;t feasible to examine every project,
+    and they&rsquo;re constantly changing,
+    so we need to talk about sampling and estimation.</li>
+</ul>
+</li>
+<li>How long does the average project last?<ul>
+<li>And is there a correlation between how long a project has been going on
+    and how many people have contributed to it?
+    To answer that,
+    we&rsquo;ll have to talk about what correlation means and how to measure it.</li>
+</ul>
+</li>
+<li>Are there differences between projects that use different languages?<ul>
+<li>What do we mean by &ldquo;use different languages&rdquo;?
+    Do we rely on self-identification through repository tagging?
+    Do we look at the files in the project?
+    Do those classifications correlate?</li>
+<li>And once we have a way to classify projects,
+    what kinds of statistical tests will tell us if two populations are the same or different?</li>
+<li>Beyond <em>what</em> tests,
+    how do we interpet the results correctly,
+    especially without making errors about what the results are actually saying?</li>
+</ul>
+</li>
+<li>Are long functions or methods buggier than short ones?<ul>
+<li>It would be surprising if they weren&rsquo;t—what we&rsquo;re probably actually asking is,
+    &ldquo;Are longer pieces of code buggier <em>per line</em> (or per statement) than short ones?&rdquo;</li>
+<li>To answer that,
+    we need to figure out how to attribute bugs to lines of source,
+    and any three researchers will probably do this four different ways.</li>
+</ul>
+</li>
+<li>Are some programmers more productive than others?<ul>
+<li>What do actually we mean by &ldquo;productivity&rdquo;?</li>
+<li>Do we think that shows up in the digital artefacts we can collect?</li>
+<li>How will answers to this question be mis-used?
+    (Begel and Zimmermann found that
+    <a href="https://www.microsoft.com/en-us/research/publication/analyze-this-145-questions-for-data-scientists-in-software-engineering/">developers believe there&rsquo;s a high risk they would be</a>.</li>
+</ul>
+</li>
+</ul>
+<p>But I want to prepare students to go further.
+Peggy Storey&rsquo;s outstanding keynote at ICSE this morning described
+three schools of thought in software engineering research:</p>
+<ol>
+<li>Formal sciences (philosophical and mathematical foundations)
+    use the scientific method,
+    focus on evidence-based reality,
+    and value the quantitative over the qualitative.</li>
+<li>Explanatory sciences (descriptive and predictive theories)
+    acknowledge that reality is subjective and experiential,
+    expect biases and make them explicit,
+    focus on theory generation,
+    and value the qualitative over the quantitative.</li>
+<li>Design sciences (exemplified by medical treatments and engineering solutions)
+    are collaborative and change-oriented,
+    and use a mix of methods.
+    They are shaped by researchers&rsquo; political and social lenses;
+    to paraphrase Marx,
+    their goal isn&rsquo;t to understand the world, but to change it.</li>
+</ol>
+<p>The course I&rsquo;ve outlined above is firmly in category #1,
+but a lot of the work I value most (like <a href="http://mcs.open.ac.uk/mp8/">Marian Petre</a>&rsquo;s)
+falls into the second category,
+and I&rsquo;m personally in the third.
+I don&rsquo;t know if it&rsquo;s possible to give equal weight to all three in a single course;
+I suspect that if we try to do so,
+the kind of people who regarded Software Carpentry as &ldquo;merely useful&rdquo;
+will think that we are watering down the course.</p>
+<p>It&rsquo;s worth trying, though.
+Putting this course together would be a big project,
+but no bigger than creating a practical introduction to statistics for psychologists or economists.
+It would be fun,
+and if anyone needs a little self-interest to spur them on,
+I strongly suspect that people who&rsquo;d gone through this as undergrads
+would pay more attention to software engineering research
+and be more willing to collaborate with software engineering researchers
+once they were in industry.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

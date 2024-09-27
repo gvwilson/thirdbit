@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Do These Tools Exist?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Do These Tools Exist?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/01/13/sdxjs-layout-engine/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-01-14" class="post-date">2023-01-14</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/01/16/sdxjs-file-interpolator/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I wrote several posts last year about why teaching or learning programming
+is much harder than actually programming ([<a href="../../../../2022/12/14/teaching-in-the-third-dimension/">1</a>], [<a href="../../../../2022/11/18/debuggable-explanations/">2</a>])
+and about the tools I wish we had to make this easier
+([<a href="../../../../2022/11/30/what-i-want-for-code-in-textbooks/">3</a>], [<a href="../../../../2022/12/04/i-want-a-memory-diagram-generator/">4</a>], [<a href="../../../../2022/12/28/ways-to-explain-code/">5</a>]).
+Looking at what&rsquo;s supposed to be the final draft of the Python version of <a href="../../../../sdxjs/"><em>Software Design by Example</em></a>,
+I don&rsquo;t think I&rsquo;m going to be happy shipping it
+until I can incorporate at least one new explanatory technology.
+Before I start building anything,
+I&rsquo;d like to know if there&rsquo;s already a tool
+(preferably written in Python or JavaScript)
+that will take two text files as input
+and produce the sort of side-by-side diff that many version control GUIs display:</p>
+<p><img src="../../../../files/2023/diff-lineup.svg" alt="side-by-side diff of text files" class="centered"></p>
+<p>The catch is that the result must still be text that can be copied and pasted
+(and that can be accessed by screen readers and other accessibility aids),
+not an image or an SVG with characters placed one by one.
+The connecting lines can be drawn using SVG, though,
+or with a <code>canvas</code> element or whatever else clever kids are using these days.
+And yes,
+this only solves half the problem—I&rsquo;ll need to figure out
+some way to produce LaTeX in order to create the PDF my publisher needs—and yes,
+I&rsquo;ll need to embed this in a pipeline that selects small portions from larger before-and-after files
+so that I can show the differences between selected sections
+rather than the differences between entire files,
+but I know how to figure out all that stuff.</p>
+<p>Similarly,
+along with <a href="../../../../2022/12/04/i-want-a-memory-diagram-generator/">memory diagram snapshots</a>,
+I&rsquo;d like a tool that illustrates the execution order of a small snippet of code:</p>
+<p><img src="../../../../files/2023/sequence-of-steps.svg" alt="sequence of steps in code execution" class="centered"></p>
+<p>I can create all these diagrams by hand,
+but (a) it takes a lot of time
+and (b) maintenance is a killer:
+if I make even a small change in an example I have to check and re-do all the diagrams,
+and if I decide to change fonts or line styles I have to re-do <em>all</em> of them.
+If you have solutions,
+I&rsquo;d be grateful if you would <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

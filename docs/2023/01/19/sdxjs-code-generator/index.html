@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example 15: Code Generator</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example 15: Code Generator</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/01/18/sdxjs-style-checker/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-01-19" class="post-date">2023-01-19</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/01/20/sdxjs-doc-generator/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><a href="../../../../sdxjs/style-checker/">Chapter 14</a> turned source code into a data structure
+in order to check that the code obeyed style rules.
+<a href="../../../../sdxjs/code-generator/">This chapter</a> reverses the process
+by turning the data structure that represents source code back into text.
+This may seem like a pointless exercise,
+but in between the parsing and the unparsing
+we can modify the data structure
+in order to produce a program that&rsquo;s slightly different from the one we started with.
+If we do this carefully,
+we can insert extra statements to check which functions are called when the program runs
+or to record how long their execution takes.
+Once more,
+treating programs as data allows us to do some pretty powerful things.</p>
+<p>Tools like this are hard to build for languages like JavaScript
+because the source code as written is very different from
+the data structure that represents it in memory.
+The greatest strength of languages like <a href="https://en.wikipedia.org/wiki/Scheme_(programming_language)">Scheme</a> is that
+these two representations are much more closely aligned,
+which makes this kind of metaprogramming much easier—once you get over the hurdle
+of typing in parse trees.
+As <a href="../../../../sdxjs/style-checker/">noted yesterday</a>,
+the overwhelming majority of programmers still prefer not to do this
+sixty years after Lisp syntax was invented and despite decades of use in education.
+I <a href="https://queue.acm.org/detail.cfm?id=1039534">used to believe</a> that programmers would one day switch from
+punchcard-compatible programming tools to ones that separated models from views,
+but I no longer expect to see that in my lifetime.
+It&rsquo;s a shame—experiments like <a href="https://gtoolkit.com/">the Glamorous Toolkit</a>
+make programming with lines of text look as antiquated as chiseling hieroglyphics onto stone tablets—but
+even with this self-imposed clumsiness,
+I still believe that <a href="../../../../2017/12/17/consider-the-bicycle/">beautiful is possible</a>.</p>
+<blockquote>
+<p>Terms defined: byte code, code coverage (in testing), compiler, Decorator pattern, macro, nested function, two hard problems in computer science.</p>
+</blockquote><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

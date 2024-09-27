@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Who Wants To Build a Faded Example Tool for the IPython Notebook?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Who Wants To Build a Faded Example Tool for the IPython Notebook?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2012/11/17/updating-our-reading-list/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2012-11-19" class="post-date">2012-11-19</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2012/11/19/if-udacity-is-napster-who-will-be-itunes/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>While I'm asking people to write code for me, here's a small addition to the IPython Notebook that someone should be able to knock off in an hour. The starting points are <a href="http://en.wikipedia.org/wiki/Cognitive_load">cognitive load theory</a> and the idea of faded examples: long story short, one good way to teach is to show learners one example in detail, then ask them to fill in the ever-larger blanks in a series of similar partly-worked-out examples. Here's one that <a href="http://ethanwhite.org">Ethan White</a> did for our online study group:</p>
+<pre>def get_word_lengths(words):
+    word_lengths = []
+    for item in words:
+        word_lengths.append(len(item))
+    return word_lengths</pre>
+<p>This function creates and returns a list containing the lengths of a series of character strings. The list of character strings is passed in as the argument <code>words</code>, and the local variable <code>word_lengths</code> is initialized to an empty list. The loop iterates over each character string in the list. Each loop iteration determines the length of a single character string using the function <code>len()</code> and then appends that length to the list <code>word_lengths</code>. The final <code>word_lengths</code> list is returned by the function. An example of using it is:</p>
+<pre>&gt;&gt;&gt; print word_lengths(['hello', 'world'])
+<em>[2, 2]</em></pre>
+<p>Given that, we would ask learners to fill in the blanks to make this verison work:</p>
+<pre>def word_lengths(words):
+    word_lengths = ____
+    for item in range(len(____)):
+        word_lengths.append(len(____))
+    return word_lengths</pre>
+<p>and work up to:</p>
+<pre> def word_lengths(words):
+    return [____ for ____ in ____]</pre>
+<p>I'd like to be able to put exercises like this into the IPython Notebook. In particular, I'd like a two-by-two display:</p>
+<table class="centered">
+<tbody>
+<tr>
+<td align="center">code with blanks
+(read-only)</td>
+<td align="center">user's code
+(editable)</td>
+<td align="center">[reset]</td>
+</tr>
+<tr>
+<td align="center">expected output
+(read-only)</td>
+<td align="center">actual output
+(colorized)</td>
+<td align="center">[run]</td>
+</tr>
+</tbody>
+</table>
+<p>The column on the left is read-only. Whenever the user clicks the "reset" button, the code with blanks is copied over to the right column. Whenever the user clicks "run", the code is re-run, and the actual output is compared to the expected output (and if it's textual, differences are colorized to draw the eye).</p>
+
+<p>I <em>think</em> this is "just" a bit of Javascript–anyone want to take a crack at it and let me know?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: I Want a Memory Diagram Generator</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>I Want a Memory Diagram Generator</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/12/01/sdxpy-glossary/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-12-04" class="post-date">2022-12-04</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/12/10/this-years-books/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Following up on last week&rsquo;s grumble about
+<a href="../../../../2022/11/30/what-i-want-for-code-in-textbooks/">what I want for writing code examples in books</a>,
+I&rsquo;d like to make another request.
+I&rsquo;m a big fan of Guo et al&rsquo;s <a href="https://pythontutor.com/">online program visualizer</a>,
+which animates memory diagrams like the one below
+as users single-step through code:</p>
+<p><img src="../../../../files/2022/pythontutor.png" alt="PythonTutor screenshot" width="80%" class="centered"></p>
+<p>I want a tool that will let me specify a program,
+its inputs,
+and a specific instant in its execution,
+and will then run the program to that instant,
+generate the memory diagram,
+and save it in a scalable file format like SVG.
+Specifying the point at which I want the diagram is the hard part:
+&ldquo;stop at line 36&rdquo; isn&rsquo;t enough,
+since I might want to stop at that line on the fourth call
+or when the program is five levels deep in recursive calls.</p>
+<p>What would specify an instant in a program&rsquo;s execution look like?
+I&rsquo;m a lousy UX designer,
+so please don&rsquo;t take this proposal too seriously,
+but I imagine something with two parts:</p>
+<ol>
+<li>
+<p>A notation for specifying logical locations in source code
+    similar to <a href="https://www.w3.org/TR/2020/SPSD-selectors-api-20201103/">DOM selectors</a>,
+    <a href="https://www.w3.org/TR/2017/REC-xpath-31-20170321/">XPath</a>,
+    or <a href="https://datatracker.ietf.org/wg/jsonpath/about/">JSONPath</a>.
+    For example,
+    <code>pokey.clusp.marther[3:5]</code>
+    would be the third through fifth statements of the <code>marther</code> method
+    in the <code>clusp</code> class
+    of the <code>pokey</code> package.
+    (I did warn you not to take my design too seriously…)</p>
+</li>
+<li>
+<p>A second notation that would build on the first to specify call chains,
+    repetition counts,
+    etc.,
+    so that users could say, &ldquo;This point the thirty-third time it&rsquo;s encountered,&rdquo;
+    or, &ldquo;That point but only when the variable <code>nobble</code> is not null.&rdquo;
+    (I did warn you…)</p>
+</li>
+</ol>
+<p>That tool would be tremendously valuable,
+and would open the door to others:
+I could,
+for example,
+specify a dozen such stopping points in a program
+and a comment to display when each was encountered
+in order to give readers a guided tour of a program&rsquo;s execution.
+And if the whole thing came with a diagram diff tool
+that would tell users when one or more diagrams had changed
+with respect to earlier versions,
+there&rsquo;d be much less risk of code, diagrams, and descriptions getting out of sync.
+I realize these tools would be a lot of work to build,
+particularly if they were to be cross-language,
+but the benefits would be enormous.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

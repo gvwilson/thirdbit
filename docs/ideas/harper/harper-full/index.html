@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../page.css">
+    
+<title>The Third Bit: Harper: Lesson Discovery and Aggregation</title>
+
+    
+
+
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../about/">about</a>
+      <a class="navlink" href="../../../blog/">blog</a>
+      <a class="navlink" href="../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../advice/">advice</a>
+      <a class="navlink" href="../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../talks/">talks</a>
+      <a class="navlink" href="../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Harper: Lesson Discovery and Aggregation</h1>
+
+
+
+<blockquote>
+<p>Please see the description of <a href="../../../ideas/harper/">Harper-Lite</a> for a first step.</p>
+</blockquote>
+<p>Harper&rsquo;s goal is better learning outcomes with less effort.
+Its design principles are:</p>
+<ol>
+<li>Instead of building another repository or portal,
+    we will make it easier for teachers to make their lessons findable,
+    then aggregate the information they give us.</li>
+<li>We will use tagging, voting, and direct online annotation
+    to provide feedback to lesson creators.</li>
+<li>We will assume that people are going to adapt and remix material
+    instead of using it as-is.</li>
+<li>We will not require people to be technically sophisticated
+    in order to comment, contribute, and collaborate.</li>
+</ol>
+<p>Harper&rsquo;s design is shaped by:</p>
+<ul>
+<li>The success of RSS for decentralized content syndication.</li>
+<li>Mike Caulfield&rsquo;s analysis of <a href="http://stackoverflow.com">Stack Overflow</a>
+    in terms of <a href="https://hapgood.us/2016/05/13/choral-explanations/">choral explanations</a>.</li>
+<li><a href="http://third-bit.com/2018/12/02/oer-landmines/">This list</a> of what has been learned from previous open educational resource (OER) projects.</li>
+<li><a href="http://third-bit.com/2018/12/12/twelve-percent/">These</a> <a href="http://third-bit.com/2018/12/17/thirteen-percent/">three</a> <a href="http://third-bit.com/2018/12/19/fourteen-percent/">posts</a>
+    that included early thoughts on its design.</li>
+<li><a href="https://f1000research.com/articles/3-62/v2">Lessons learned</a> from the <a href="http://software-carpentry.org">Software Carpentry</a> project.</li>
+<li>Discussion with several dozen people over the last ten years.</li>
+</ul>
+<p>The project is named after <a href="https://en.wikipedia.org/wiki/William_Rainey_Harper">William Rainey Harper</a>,
+first president of the University of Chicago,
+who encouraged universities to offer distance education courses in the 1890s.
+&ldquo;Harper&rdquo; also happens to be the name of my youngest niece.</p>
+<p><strong>Contents</strong></p>
+<ul>
+  <li><a href="#s:proposal">Proposal</a></li>
+  <li><a href="#s:community">Community</a></li>
+  <li><a href="#s:usage">Usage</a></li>
+  <li><a href="#s:forces">Forces</a></li>
+  <li><a href="#s:questions">Questions</a></li>
+</ul>
+
+<p><strong>Acknowledgments</strong></p>
+<p>I&rsquo;m grateful to
+Mike Caulfield,
+Mine Çetinkaya-Rundel,
+Neal Davis,
+Garrett Grolemund,
+Alison Hill,
+Alyson Indrunas,
+Bracken Mosbacker,
+Nick Radcliffe,
+Raniere Silva,
+Alasdair Smith,
+Jon Udell,
+and David Wiley
+for comments,
+and to Peter Quill for show us that
+<a href="https://www.youtube.com/watch?v=XC8qrH3Zwog">you only need twelve percent of a plan</a> to save the galaxy.
+Everything that&rsquo;s still naive, confused, or just plain wrong is my responsibility;
+I&rsquo;d be very grateful for feedback <a href="mailto:gvwilson@third-bit.com">by email</a>
+or as comments on this page.</p>
+<h2 id="s:proposal">Proposal</h2>
+
+<p><em>We have moved the proposal itself to the top of this file
+because we <strike>believe</strike> hope that&rsquo;s what people will be most interested in.
+See the section <a href="#s:forces">Forces</a> for a discussion of motivating factors.</em></p>
+<h3>Lesson Registration</h3>
+<p>Authors create one extra text file called <code>harper.md</code> and put it in the lesson&rsquo;s root directory.
+<code>harper.md</code> is formatted as Markdown rather than YAML, JSON, or anything else
+because Markdown is the simplest set of rules for non-programmers to understand.
+This single-file convention is inspired by the <code>feed.xml</code> and <code>feed.rss</code> files used for blogging,
+and by the <code>README.md</code> and <code>LICENSE.md</code> files now commonly used in software projects;
+we use the name <code>harper.md</code> because Alasdair Smith pointed out that
+some systems use <code>lesson.md</code> for the actual content of the lesson.</p>
+<p><code>harper.md</code> contains the following information, in the specified order.
+(We use &lsquo;an H2 &ldquo;XYZ&rdquo;&rsquo; to mean &lsquo;a level-2 heading with the text &ldquo;XYZ&rdquo;&rsquo;.)</p>
+<ol>
+<li>title: short title of lesson (level-1 heading).</li>
+<li>abstract: an untitled single-paragraph summary (untitled paragraph immediately below <code>title</code>) followed by:<ol>
+<li>url: location of lesson.</li>
+<li>author: author&rsquo;s name or comma-separated list of authors&rsquo; names.</li>
+<li>contact: contact email address.</li>
+<li>date: date of last modification (ISO format please).</li>
+<li>license: name of license.</li>
+<li>copyright: name of copyright holder.</li>
+<li>package: URL of zip file containing starting materials for exercise(s).</li>
+<li>doi: the lesson&rsquo;s DOI (optional).</li>
+<li>language: the human language of the lesson (not the programming language).</li>
+</ol>
+</li>
+<li>context: an H2 &ldquo;Context&rdquo; with the background or context for the lesson.</li>
+<li>requirements: an H2 &ldquo;Requirements&rdquo; followed by point-form list of required tools and packages.
+    The &ldquo;requirements&rdquo; implicitly specify things like &ldquo;what language does this use?&rdquo;
+    We don&rsquo;t ask for this explicitly because that question may not be relevant
+    (e.g., for a question about ethics of data sharing)
+    and because a single answer might be wrong
+    (e.g., for a lesson that uses the Unix shell, Python, and SQLite).</li>
+<li>timeframe: an H2 &ldquo;Timeframe&rdquo; followed by a point-form list of
+    how long it takes to deliver or do the lesson.</li>
+<li>objectives: an H2 &ldquo;Objectives&rdquo; followed by point-form list of learning objectives (see below).</li>
+<li>glossary: an H2 &ldquo;Glossary&rdquo; followed by point-form list of terms and definitions (see below).</li>
+<li>keypoints: an H2 &ldquo;Key Points&rdquo; followed by point-form list suitable for inclusion in a cheatsheet.</li>
+<li>sources: an H2 &ldquo;Sources&rdquo; followed by a point-form list of links (see below).</li>
+</ol>
+<p>Notes:</p>
+<ul>
+<li>
+<p>The original proposal required a URL for the glossary and a point-form list of keys into that glossary
+    rather than embedding the glossary directly in <code>harper.md</code>.
+    The idea was that this would encourage people to refer to shared glossaries,
+    which would in turn encourage them to use a shared vocabulary for lessons.
+    Feedback indicated that this was too complicated;
+    instead,
+    we will look at the glossary entries of registered lessons and try to consolidate them automatically.</p>
+</li>
+<li>
+<p>Materials that learners need to do a lesson are distributed as a zip file
+    that unpacks to create a single directory named something like <code>stat454-exercise03</code>.
+    As noted earlier,
+    this isn&rsquo;t as straightforward as many technically sophisticated people believe,
+    but it&rsquo;s the simplest thing we can rely on
+    that will handle pretty much anything we want to provision.</p>
+</li>
+<li>
+<p>The original proposal required the setup instructions for learners in the lesson description.
+    Since learners need these instructions,
+    and we can extract them from the zip file,
+    that redundancy has been removed.</p>
+</li>
+<li>
+<p>There is no explicit &ldquo;background knowledge&rdquo;,
+    since these are almost always under-estimates of what&rsquo;s actually required.
+    Instead,
+    we will extract words used in glossary definitions
+    (rather than terms defined in the glossary itself)
+    and tools mentioned in the learner setup instructions in the zip file
+    to compile a list of prerequisite knowledge.</p>
+</li>
+<li>
+<p>The original proposal had a Feedback section
+    that authors could use to explain where and how they wanted feedback.
+    This proposal assumes <a href="https://web.hypothes.is/">hypothes.is</a> everywhere.</p>
+</li>
+<li>
+<p>We encourage people to include links to other Harper files in &ldquo;Sources&rdquo;
+    so that we can trace lessons&rsquo; ancestry more easily.
+    We encourage them even more strongly to use the archived permanent link on the Harper site
+    rather than linking directly to the <code>harper.md</code> file on the author&rsquo;s site,
+    since that will probably be longer-lived.</p>
+</li>
+</ul>
+<p>An example of a <code>harper.md</code> file is shown below;</p>
+<div class="highlight"><pre><span></span><code># Tests of Univariate Normality
+
+Describes and compares three ways to test if univariate data is normally distributed.
+
+-   url: http://stats.fringe.tv/stats454/normality.html
+-   author: Walter Bishop
+-   contact: w.bishop@fringe.tv
+-   date: 2018-12-05
+-   license: CC-BY-NC-ND
+-   copyright: Kelvin Genetics, Inc.
+-   package: http://stats.fringe.tv/stats454/normality/stats454-normality.zip
+-   language: English
+
+## Context
+
+This material was originally developed as part of a sequence on data integrity
+for seniors and graduate students in statistics, then modified for delivery in
+conference workshops.  The univariate material feels pretty solid at this point;
+the multivariate material has only been used a couple of times, and probably
+needs more attention.
+
+## Requirements
+
+-   R (&gt;= 3.5)
+
+## Timeframe
+
+-   Three lectures hours plus three hours of homework.
+-   A half-day hands-on workshop doing one exercise per section.
+
+## Objectives
+
+-   Describe the 68-95-99.7 rule and explain why it works and when it fails.
+-   Describe and apply the Shapiro-Wilk test for normality of univariate data.
+-   Describe and apply the ECF test for normality of multivariate data.
+
+## Glossary
+
+-   68/95/997 Rule: …definition…
+-   Shapiro-Wilk test: …definition…
+-   ECF test: …definition…
+
+## Keypoints
+
+-   68% of data should lie within one SD of the mean, 95% within two, and 99.7% within three.
+-   Use shapiro.test(data) to check normality of univariate data.
+-   The StableEstim package implements the ECF test for multivariate data.
+
+## Sources
+
+-   [Original lesson](http://euphoric-state.edu/stats/~bishop/stats-notes.html)
+-   [Properties of the normal distribution](http://harper.org/r/stats-normal-172ztq/)
+</code></pre></div>
+<h2 id="s:community">Community</h2>
+
+<p>We support collaboration with a voting mechanism like <a href="http://stackoverflow.com">Stack Overflow</a>&rsquo;s,
+but with subject headings drawn from lessons:</p>
+<ol>
+<li>
+<p>An author registers a lesson by providing the URL to its <code>harper.md</code> file,
+    just as someone can register a blog by providing a URL to an aggregator.</p>
+</li>
+<li>
+<p>The site extracts the motivating questions and defined terms from the Markdown
+    and displays the lesson under each of those headings (like a possible answer to a question on Stack Overflow).
+    Indexing by question helps novices find things;
+    indexing by key terms is probably more useful to competent practitioners who already know what they&rsquo;re looking for.</p>
+</li>
+<li>
+<p>When someone views the page for a question or term,
+    they can provide comments on the lessons that appear there and upvote or downvote them.
+    This means that a single lesson could appear as the top &ldquo;answer&rdquo; to one question and the third &ldquo;answer&rdquo; to another.</p>
+</li>
+<li>
+<p>Each lesson has its own RSS feed,
+    so authors and instructors can subscribe to notifications about things they&rsquo;re interested in.
+    (We can add this for questions and terms as well, so that if a new lesson appears, interested parties can be notified.)</p>
+</li>
+<li>
+<p>We will also provide an interactive upload mode:
+    after providing a URL for a lesson,
+    the author is walked through a very simple online form that asks for the information that goes in the lesson&rsquo;s Markdown file.
+    We save that information and give it back to them to download and add to the lesson.
+    We still require that the <code>harper.md</code> file be in the lesson&rsquo;s root directory to complete registration
+    as a check on authenticity:
+    allowing person X to describe a lesson created by person Y opens up too many opportunities for abuse.</p>
+</li>
+<li>
+<p>When someone registers a new lesson or an update to an existing one,
+    the site walks them through a very short workflow to get excerpts from their lessons onto our site.
+    We do this for the same reason that blog aggregators display short excerpts from blog posts:
+    so that people can tell in advance whether those posts might be worth reading.</p>
+<ol>
+<li>For each of the learning objectives they have listed,
+    a pop-up opens that displays their lesson&rsquo;s site.</li>
+<li>The author navigates in this pop-up to the part of their lesson
+    that is most closely connected to that learning objective,
+    highlights a short excerpt of the lesson,
+    and clicks &ldquo;OK&rdquo;.</li>
+<li>That excerpt is then displayed on our site under their lesson&rsquo;s heading for that objective.</li>
+</ol>
+</li>
+</ol>
+<h2 id="s:usage">Usage</h2>
+
+<h3>How does an instructor find a lesson?</h3>
+<ol>
+<li>She does a DuckDuckGo search for the word &ldquo;lesson&rdquo; and the keywords or questions she&rsquo;s interested in.
+   If we&rsquo;ve done our job right,
+   the lessons indexed by our site show up near the top of her search,
+   just as Stack Overflow answers show up near the top of a search for a technical question.</li>
+<li>She comes to our site and does a targeted search for her question or keywords.</li>
+<li>She subscribes to a question or keyword
+   and <a href="http://feedly.com">Feedly</a> or some other feed reader
+   tells her when something new appears or something relevant is updated.</li>
+</ol>
+<h3>How does an author register a lesson?</h3>
+<ol>
+<li>They create a directory on their website with a meaningful name that includes a <code>harper.md</code> file
+   and possibly a zip file containing starter materials (if the lesson&rsquo;s exercises need any).</li>
+<li>They sign into their account on our site and register the URL of the lesson directory.</li>
+<li>Our site validates their <code>harper.md</code> file.</li>
+</ol>
+<p>As noted above,
+we <em>don&rsquo;t</em> allow people to register lessons that they don&rsquo;t control,
+i.e.,
+they have to be able to add <code>harper.md</code> to the lesson&rsquo;s website in order for us to accept the registration.</p>
+<p>Critically,
+our site does some fuzzy matching to suggest rewording of learning objectives or glossary terms
+to match ones in lessons that are already registered.
+The term &ldquo;<a href="https://en.wikipedia.org/wiki/Folksonomy">folksonomy</a>&rdquo; seems to have lost its luster,
+but encouraging convergence on a shared vocabulary seems crucial to making all of this work.</p>
+<h3>How does someone ask for a lesson?</h3>
+<p>Rather than waiting for people to register their own lessons,
+we provide a &ldquo;please register this&rdquo; workflow:</p>
+<ol>
+<li>
+<p>Jeanne stumbles across a lesson or exercise she finds interesting.</p>
+</li>
+<li>
+<p>She clicks the <a href="https://en.wikipedia.org/wiki/Bookmarklet">bookmarklet</a>
+    in her browser to check if there&rsquo;s a record of it.</p>
+</li>
+<li>
+<p>If there is, she&rsquo;s given the option of viewing metadata and reviews.</p>
+</li>
+<li>
+<p>If there isn&rsquo;t, but someone before her has expressed an interest, we add
+    one to the &ldquo;wanna have&rdquo; count in our database.</p>
+</li>
+<li>
+<p>If there isn&rsquo;t any record in our database, we scrape the site to get
+    contact info for the lesson&rsquo;s author, Vlad.  We then send Vlad a single
+    message saying, &ldquo;Hey, someone&rsquo;s interested in your lesson.&rdquo;</p>
+</li>
+<li>
+<p>Vlad will probably ignore the message, but if he responds by creating
+    a record for his lesson, we stash that so that future inquiries will
+    resolve, and notify Jeanne that the record is now available.  This
+    workflow serves the triple purpose of attracting more authors, not
+    spamming them, and ensuring that the record for a lesson comes from
+    someone identified in the lesson&rsquo;s content (i.e., probably not a
+    disgruntled former student).</p>
+</li>
+</ol>
+<h3>How does an author update a lesson?</h3>
+<ol>
+<li>They sign into their account,
+    go to &ldquo;My Lessons&rdquo;,
+    and push the &ldquo;update&rdquo; button next to the lesson in question.</li>
+</ol>
+<p>Note that we archive past <code>harper.md</code> files, but not the actual lesson content.
+(We are not a repository, we&rsquo;re an index.)</p>
+<h3>How does a learner do a lesson?</h3>
+<ol>
+<li>The instructor gives him the link to the lesson on our site.
+    He clicks the &ldquo;Download&rdquo; button on the lesson&rsquo;s page to get a zip file.</li>
+<li>Alternatively, the instructor gives him a link directly to the zip file on the author&rsquo;s site.</li>
+<li>Finally, the overworked and underpaid graduate student who is TA&rsquo;ing the course
+    could unpack the zip file in a cloud instance
+    and send instructions to learners telling them how to get their own copy of that project to run.</li>
+</ol>
+<h2 id="s:forces">Forces</h2>
+
+<h3>Roles</h3>
+<p>People may be <strong>authors</strong> (who create lessons),
+<strong>instructors</strong> (who deliver them),
+or <strong>learners</strong> (who use them).
+These roles overlap:</p>
+<ol>
+<li>
+<p>Authors are usually also instructors. (At the very least, they&rsquo;re usually the first person to try out new material.)</p>
+</li>
+<li>
+<p>In practice, instructors are usually also authors, since most people adapt and remix materials rather than using them as-is.</p>
+</li>
+<li>
+<p>Instructors are often learners: a lot of us are
+    <a href="https://www.amazon.com/Teaching-What-You-Dont-Know/dp/0674066170/">teaching things we don&rsquo;t know well</a>.</p>
+</li>
+<li>
+<p>Instructors may also be absent, i.e., learners may use materials directly without a designated instructor.</p>
+</li>
+<li>
+<p>Learners are often instructors:
+    even where there <em>is</em> a designated instructor,
+    <a href="https://www.amazon.com/Hidden-Lives-Learners-Graham-Nuthall/dp/1877398241/">people learn as much from peers as from teachers</a>.</p>
+</li>
+<li>
+<p>Learners may also be authors: peer contribution of examples and exercises is something we&rsquo;d strongly like to encourage.</p>
+</li>
+</ol>
+<h3>Use Cases</h3>
+<p>Most of our use cases are centered around lessons that involve a small amount of programming:</p>
+<ol>
+<li>
+<p>The learner does a programming exercise on her laptop,
+    writing code as she would in real life
+    and running checks provided by the instructor as she goes along to ensure she&rsquo;s on track,
+    then submits the software she has created for grading.
+    (By &ldquo;as she would in real life&rdquo;, we mean &ldquo;with the same tools she&rsquo;d use for authentic work&rdquo;.
+    Most online environments for teaching programming give learners something akin to Notepad-in-a-browser
+    with a bit of syntax highlighting;
+    modern IDEs can do a lot more than that,
+    and we&rsquo;d like learners to be able to start using them as soon as possible.)</p>
+</li>
+<li>
+<p>The learner works through an instructional notebook,
+    reading instructions and doing multiple choice questions, short programming challenges, and other kinds of exercises.
+    This differs from the previous scenario in that
+    (a) the lesson and the exercises are in the same document
+    and (b) the learner may not be using the same tools she would use in an authentic situation.</p>
+</li>
+<li>
+<p>Both of the above, but in the cloud instead of on the learner&rsquo;s laptop.</p>
+</li>
+<li>
+<p>All of the above, but what is submitted for feedback is prose or a mathematical proof rather than runnable code
+    (i.e., is harder to check automatically).</p>
+</li>
+</ol>
+<h3>Distributing Content</h3>
+<p>The author or instructor might want to distribute the following to learners:</p>
+<ul>
+<li>Explanations of new ideas.</li>
+<li>A description of what the learner is supposed to do.</li>
+<li>A description of what she&rsquo;s supposed to submit (if anything) and how.</li>
+<li>Practice exercises (i.e., formative assessments), along with automated checks on the user&rsquo;s answers.</li>
+<li>Glossary definitions, a cheatsheet, a bibliography, and other supporting materials (or links to them).</li>
+<li>Starter code and data sets in a bewildering variety of formats.</li>
+<li>Learning objectives.</li>
+</ul>
+<p>(Surprisingly there isn&rsquo;t a standard format for these things,
+or for other things someone might want to put in a syllabus.)</p>
+<p>Our delivery mechanisms for getting lessons to learners are:</p>
+<ol>
+<li>
+<p>Everything on the web:
+    instructors don&rsquo;t deliver anything to learners&mdash;learners come to a web site and work there.
+    Most MOOCs and online coding schools use this model,
+    but (a) it begs the question of how instructors get materials into the virtual environments used by the learners
+    and (b) it makes authentic work more difficult.
+    Solutions such as hosted Jupyter notebooks or <a href="https://rstudio.cloud/">rstudio.cloud</a> are just one tool;
+    in real life,
+    people may use many tools in a variety of ways to solve a single problem.
+    To emulate that on the web,
+    we essentially need to provide a virtual desktop,
+    which brings us right back to the question of how we provision it.</p>
+</li>
+<li>
+<p>Version control:
+    the learner clones a repository specified by the instructor
+    (which may be the same as the one in which the authors created the lesson or one designed specifically for learners&rsquo; use).
+    Experienced programmers almost always think this is the best solution,
+    but &ldquo;GitHub for teachers&rdquo; is a dead end because
+    <a href="http://third-bit.com/2018/12/02/oer-landmines/">version control is too high a cover charge for most people</a>:
+    In practice, early adopters will use it because it&rsquo;s cool, everyone else will vote &ldquo;no&rdquo; with their feet.</p>
+</li>
+<li>
+<p>Software packages:
+    an R package or Python egg can contain software, data files, and documentation,
+    and the infrastructure for finding and installing packages is robust and authentic
+    (i.e., is something learners are going to have to master anyway).
+    However,
+    creating packages requires more time and technical sophistication than many authors have,
+    and the required structure of a package may be quite different from the structure we would want for a lesson.
+    (For example, the structure of an R package is not the structure of a typical data analysis project.)</p>
+</li>
+<li>
+<p>Archive files:
+    we assume that learners can download and unpack a zip file or similar archive,
+    but this does nothing to help ensure that the right versions of the right software are installed,
+    doesn&rsquo;t provide a way for learners to submit their work (which committing to a repository does),
+    and the assumption itself may be wrong.
+    A common pattern is that a zip file contains a whole project with multiple required files.
+    Users click into the zip (which their desktop GUI helpfully makes look like a normal folder)
+    and double-click the one file they need,
+    which the OS puts in a temporary directory.
+    hat file then cannot find its sibling files,
+    and the user is baffled because nothing seems to work.</p>
+</li>
+</ol>
+<h3>Constraints</h3>
+<ol>
+<li>
+<p>Most authors and instructors have little or no training in pedagogy,
+    so they may not consciously understand the differences between good and mediocre lessons,
+    and may not understand the purpose or value of instructional metadata like learning objectives.</p>
+</li>
+<li>
+<p>Many people believe they need to create their own material in order to understand what they&rsquo;re teaching
+    or customize it for their learners.
+    This may be related to the previous point,
+    i.e.,
+    self-taught authors/instructors may find it costlier to re-use other people&rsquo;s work
+    in the same way that novice programmers often write their own dot product function rather than using a library.</p>
+</li>
+<li>
+<p>A corollary to the previous point is that most people won&rsquo;t use others&rsquo; material directly (without modification),
+    so something like a &ldquo;Lessonopedia&rdquo; or &ldquo;Coursepedia&rdquo; won&rsquo;t work any better than &ldquo;GitHub for teachers&rdquo;.
+    They <em>will</em> sample and remix,
+    but the <a href="https://opencontent.org/blog/archives/3854">Reusability Paradox</a> states that,
+    &ldquo;The pedagogical effectiveness of a learning object and its potential for reuse are completely at odds with one another&rdquo;.
+    The more tightly integrated something is into a larger lesson plan,
+    the more effective it is,
+    but the harder it is to re-use in other contexts or by other people.</p>
+</li>
+<li>
+<p>Most people won&rsquo;t use lesson repositories, but <em>will</em> use search engines.
+    Tagging materials to make them easier to find is therefore more likely to succeed
+    than trying to put them all in one place.</p>
+</li>
+<li>
+<p>Most people will not use technically sophisticated solutions.
+    In particular,
+    only early adopters will use anything that depends on version control, Docker, or the like.</p>
+</li>
+<li>
+<p>We don&rsquo;t know what the best granularity for sharing is.
+    In software it&rsquo;s the package or library,
+    and there&rsquo;s a strong one-to-one relationship between packages and version control repositories.
+    In education, people can share at the level of a single exercise, a lecture,
+    a module (consisting of several lectures on a particular topic),
+    or an entire course (made up of several related modules).
+    People seem reluctant to collaborate at the level of entire courses (though there are a few exceptions);
+    <a href="http://software-carpentry.org">Software Carpentry</a> has had success getting people to collaborate at the level of modules and lessons
+    (but again is an exception),
+    and there&rsquo;s lots of informal and unacknowledged re-use, but very little collaborative contribution, at the level of exercises.</p>
+</li>
+<li>
+<p>The discussion earlier focused on how to distribute files.
+    It&rsquo;s equally important to think about what ought to be in those files and how to package them.
+    Surprisingly, there doesn&rsquo;t seem to be a standard format for this stuff:
+    <a href="https://scorm.com/">SCORM</a> defines a complex, enterprise-oriented format
+    for materials that are to be uploaded to a Learning Management System (LMS) like Moodle or Sakai,
+    but assumes that learners will then interact with those materials through the LMS
+    rather than (for example) using an IDE on their desktop.</p>
+</li>
+</ol>
+<h2 id="s:questions">Questions and Comments</h2>
+
+<ol>
+<li>There is nothing in the <code>harper.md</code> file that describes the intended audience for the lesson
+    (e.g., how sophisticated they are).
+    I&rsquo;m a big fan of learner personas,
+    and I think it&rsquo;s reasonable to ask people to write a couple of paragraphs to explain who the lesson is for,
+    but the &ldquo;Context&rdquo; section should give us enough to start.</li>
+<li>There is nothing in <code>harper.md</code> to connect the lesson to curriculum guidelines.
+    While we can debate their relevance,
+    linking to them would help instructors find relevant lessons
+    and possibly help get buy-in from professional bodies.</li>
+<li>Should the license key be a link to a license rather than an acronym?</li>
+<li>The &ldquo;Requirements&rdquo; field in <code>harper.md</code> is designed to specify packages and tools
+    but not things like &ldquo;access to a yottabyte of temporary storage&rdquo;.</li>
+<li>We&rsquo;ll need to provide &ldquo;export to XYZ&rdquo; to make incorporation into various LMSes easy.</li>
+</ol>
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

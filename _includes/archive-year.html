@@ -1,7 +1,0 @@
-{% assign posts = site.posts | where_exp: "post", "post.year == page.year" %}
-<p>{{posts | size}} posts</p>
-<table>
-  {% for post in posts reversed %}
-  <tr><td>{{ post.date | date: "%Y-%m-%d" }}</td><td><a href="{{ post.url | relative_url }}">{{ post.title }}</a></td></tr>
-  {% endfor %}
-</table>

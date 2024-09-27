@@ -1,0 +1,17 @@
+{% extends "base.jinja" %}
+
+{% block head_title %}
+<title>{{site.title}} Favorite Posts</title>
+{% endblock %}
+
+{% block page_title %}
+<h1>Favorite Posts</h1>
+{% endblock %}
+
+{% block content %}
+<table>
+{% for post in site._posts|reverse %}
+{% if post.favorite %}<tr><td>{{post.date}}</td><td><a href="{{post.url}}">{{post.title}}</a></td></tr>{% endif %}
+{% endfor %}
+</table>
+{% endblock %}

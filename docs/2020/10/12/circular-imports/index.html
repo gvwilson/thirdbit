@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Circular Imports</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Circular Imports</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2020/09/14/creating-the-future/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2020-10-12" class="post-date">2020-10-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2020/10/17/australian-wildlife/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I am struggling to find a readable explanation of how circular imports are handled
+in Python and JavaScript (more specifically, by the <code>require</code> function used for CommonJS modules).
+Here&rsquo;s a short example in Python:</p>
+<table class="centered">
+  <tr>
+    <th><code>a.py</code></th>
+    <th></th>
+    <th><code>b.py</code></th>
+  </tr> 
+  <tr>
+    <td class="top">
+<pre>
+import b
+
+def P():
+    print("P")
+    b.Q()
+
+def R():
+    print("R")
+</pre>
+    </td>
+    <td>    </td>
+    <td class="top">
+<pre>
+import a
+
+def Q():
+    print("Q")
+    a.R()
+</pre>
+    </td>
+  </tr>
+</table>
+
+<p>If we run this in the interpreter, the functions call each other as desired:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; import a
+&gt;&gt;&gt; a.P()
+P
+Q
+R
+</code></pre></div>
+<p>And if we change <code>a.py</code> to call <code>P()</code> <em>as the file is being loaded</em>, it still works:</p>
+<table class="centered">
+  <tr>
+    <th><code>a.py</code></th>
+    <th></th>
+    <th><code>b.py</code></th>
+  </tr> 
+  <tr>
+    <td class="top">
+<pre>
+import b
+
+def P():
+    print("P")
+    b.Q()
+
+def R():
+    print("R")
+
+P() # ADDED
+</pre>
+    </td>
+    <td>    </td>
+    <td class="top">
+<pre>
+import a
+
+def Q():
+    print("Q")
+    a.R()
+</pre>
+    </td>
+  </tr>
+</table>
+
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; import a
+P
+Q
+R
+</code></pre></div>
+<p>But if we run <code>a.py</code> directly from the command line, it fails:</p>
+<div class="highlight"><pre><span></span><code>$ python a.py
+P
+Traceback (most recent call last):
+  File &quot;a.py&quot;, line 1, in &lt;module&gt;
+    import b
+  File &quot;/home/gvwilson/example/b.py&quot;, line 1, in &lt;module&gt;
+    import a
+  File &quot;/home/gvwilson/example/a.py&quot;, line 10, in &lt;module&gt;
+    P()
+  File &quot;/home/gvwilson/example/a.py&quot;, line 5, in P
+    b.Q()
+AttributeError: module &#39;b&#39; has no attribute &#39;Q&#39;
+</code></pre></div>
+<p><em>Update: in a thread on Twitter from EM Bray.</em></p>
+<p>Node is more consistent.
+Suppose I have two JavaScript files <code>a.js</code> and <code>b.js</code>:</p>
+<table class="centered">
+  <tr>
+    <th><code>a.js</code></th>
+    <th></th>
+    <th><code>b.js</code></th>
+  </tr>
+  <tr>
+    <td class="top">
+<pre>
+const {Q} = require('./b')
+
+const P = () => {
+  console.log('P')
+  Q()
+}
+
+const R = () => {
+  console.log('R')
+}
+
+module.exports = {P, R}
+</pre>
+    </td>
+    <td>    </td>
+    <td class="top">
+<pre>
+const {R} = require('./a')
+
+const Q = () => {
+  console.log('Q')
+  R()
+}
+
+module.exports = {Q}
+</pre>
+    </td>
+  </tr>
+</table>
+
+<p>Running inside the interpreter fails during loading:</p>
+<div class="highlight"><pre><span></span><code>&gt; const {P} = require(&#39;./a&#39;)
+undefined
+&gt; (node:1756) Warning: Accessing non-existent property &#39;R&#39; of module exports inside circular dependency
+(Use `node --trace-warnings …` to show where the warning was created)
+&gt; P()
+P
+Q
+Uncaught TypeError: R is not a function
+    at Q (/home/gvwilson/example/b.js:5:3)
+    at P (/home/gvwilson/example/a.js:5:3) 
+</code></pre></div>
+<p>and we get a similar error if we modify <code>a.js</code> to call <code>P()</code> at the top level as the file is loading.
+It also fails if we use a bundler like Parcel.
+Our HTML file is:</p>
+<div class="highlight"><pre><span></span><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;./a.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Hello&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<p>and we run with:</p>
+<div class="highlight"><pre><span></span><code>$ parcel test.html
+Server running at http://localhost:234
+    Build in 0.124s.
+</code></pre></div>
+<p>When we look in the browser console, we see an uncaught error because <code>R</code> is not a function.</p>
+<p>Does this mean that circular imports simply don&rsquo;t work?
+That seems to be the case for JavaScript,
+but not necessarily for Python.
+My questions now are:</p>
+<ol>
+<li>Why do they work sometimes for Python but not always?</li>
+<li>Do they really not work in JavaScript without extra developer effort
+    (e.g., creating a module initialization function so that loading and initializing are separated)?</li>
+<li>Most importantly, where can I find tutorials that explain how things like this work—not just for these two languages
+    but in general?
+    Where are the compare-and-contrasts for up-and-coming software engineers
+    (and older ones like myself who know a lot less than we think we do)?
+    Why are books like Levine&rsquo;s <em><a href="https://www.elsevier.com/books/linkers-and-loaders/levine/978-0-08-051031-6">Linkers and Loaders</a></em>
+    and Pearson&rsquo;s <em><a href="http://catalogue.pearsoned.ca/educator/product/Software-Build-Systems-Principles-and-Experience/9780321717283.page">Software Build Systems</a></em>
+    so rare?</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

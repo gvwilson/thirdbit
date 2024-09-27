@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Empirical Software Engineering Vignettes</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Empirical Software Engineering Vignettes</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/08/11/t3-slides/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-08-14" class="post-date">2022-08-14</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/08/25/hippocratic/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I have been <a href="../../../../2020/07/09/acm-sigsoft-award/">arguing for years</a>
+that we should replace the standard undergraduate course on software engineering
+with one that:</p>
+<ol>
+<li>
+<p>shows students how to gather and analyze data about programs, programmers, and programming,
+    and then</p>
+</li>
+<li>
+<p>has them recapitulate key findings from empirical software engineering research.</p>
+</li>
+</ol>
+<p>The vignette below is an example of what I mean.
+It introduces several important ideas
+and would naturally lead into in-class analysis of
+how quickly the students themselves could complete some small tasks,
+how big and how correct their solutions were,
+and so on.
+A re-analysis of <a href="https://neverworkintheory.org/2016/10/05/test-driven-development.html">Fucci et al&rsquo;s data on test-driven development</a>
+or a repeat of <a href="https://neverworkintheory.org/2021/08/19/toxic-code-snippets-on-stack-overflow.html">Ragkhitwetsagul et al&rsquo;s study of toxic code snippets on Stack Overflow</a>
+would be just as much fun,
+and would helps students learn about code analysis tools and practical data science
+as well as teaching them what we actually know about software engineering
+and why we believe it&rsquo;s true.</p>
+<p>I think it would take one year to build this course,
+test it in the classroom,
+and get it into production.
+I&rsquo;m pessimistic about update—my current job has reminded me
+just how slowly academia curricula change—but as my spouse keeps reminding me,
+you miss 100% of the shots you don&rsquo;t take.
+If you know someone who would back this project,
+I&rsquo;d be grateful for an introduction.</p>
+<hr/>
+
+<p>Are some programmers really ten times more productive than average?
+To find out,
+<a href="#Prechelt2000">Prechelt2000</a>
+had a set of programmers solve the same problem in the language of their choice,
+then looked at how long it took them,
+how good their solutions were,
+and how fast those solutions ran.
+The data,
+which is <a href="http://page.mi.fu-berlin.de/prechelt/packages/jccpprtTR.csv">available online</a>,
+looks like this:</p>
+<div class="highlight"><pre><span></span><code>person,lang,z1000t,z0t,z1000mem,stmtL,z1000rel,m1000rel,whours,caps
+s015,C++,0.050,0.050,24616,374,99.24,100.0,11.20,??
+s017,Java,0.633,0.433,41952,509,100.00,10.2,48.90,??
+s018,C,0.017,0.017,22432,380,98.10,96.8,16.10,??
+s020,C++,1.983,0.550,6384,166,98.48,98.4,3.00,??
+s021,C++,4.867,0.017,5312,298,100.00,98.4,19.10,??
+s023,Java,2.633,0.650,89664,384,7.60,98.4,7.10,??
+s025,C++,0.083,0.083,28568,150,99.24,98.4,3.50,??
+…
+</code></pre></div>
+<p>The columns hold the following information:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>person</td>
+<td>subject identifier</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>programming language used</td>
+</tr>
+<tr>
+<td>z1000t</td>
+<td>running time for z1000 input file</td>
+</tr>
+<tr>
+<td>z0t</td>
+<td>running time for z0 input file</td>
+</tr>
+<tr>
+<td>z1000mem</td>
+<td>memory consumption at end of z1000 run</td>
+</tr>
+<tr>
+<td>stmtL</td>
+<td>program length in statement lines of code</td>
+</tr>
+<tr>
+<td>z1000rel</td>
+<td>output reliability for z1000 input file</td>
+</tr>
+<tr>
+<td>m1000rel</td>
+<td>output reliability for m1000 input file</td>
+</tr>
+<tr>
+<td>whours</td>
+<td>total subject work time</td>
+</tr>
+<tr>
+<td>caps</td>
+<td>subject self-evaluation</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>z1000rel</code> and <code>m1000rel</code> columns tell us that
+all of these implementations are correct 98% of the time or better,
+which is considered acceptable.
+The rest of the data is much easier to understand as a box-and-whisker plot
+of the working time in hours (the <code>whours</code> column from the table).
+Each dot is a single data point
+jittered up or down a bit to be easier to see).
+The left and right boundaries of the box show the 25th and 75th percentiles respectively,
+i.e., 25% of the points lie below the box and 25% lie above it,
+and the mark in the middle shows the median:</p>
+<div align="center">
+<figure>
+<img src="../../../../files/2022/prechelt-boxplot.svg" alt="Box-and-whisker plot show that most developers spent between zero and 20 hours but a few took as long as 63 hours.">
+<figcaption><strong>Development Time</strong></figcaption>
+</figure>
+</div>
+
+<p>So what does this data tell us about productivity?
+As <a href="#Prechelt2019">Prechelt2019</a> explains,
+that depends on exactly what we mean.
+The shortest and longest development times were 0.6 and 63 hours respectively,
+giving a ratio of 105X.
+However,
+the subjects used seven different languages;
+if we only look at those who used Java (about 30% of the whole)
+the shortest and longest times are 3.8 and 63 hours,
+giving a ratio of &ldquo;only&rdquo; 17X.</p>
+<p>But comparing the best and the worst of anything is guaranteed to give us
+an exaggerated impression of the difference.
+If we compare the 75th percentile (which is the middle of the top half of the data)
+to the 25th percentile (which is the middle of the bottom half)
+we get a ratio of 18.5/7.25 or 2.55;
+if we compare the 90th percentile to the 50th we get 3.7,
+and other comparisons give us other values.
+The answers to our original question are therefore:</p>
+<ol>
+<li>
+<p>It depends what you mean.</p>
+</li>
+<li>
+<p>No, good programmers aren&rsquo;t 10 times more productive than average.</p>
+</li>
+<li>
+<p>But yes, it&rsquo;s reasonable to say that they are about four times more productive.</p>
+</li>
+</ol>
+<dl>
+<dt id="Prechelt2000">Prechelt2000</dt>
+<dd>
+Lutz Prechelt:
+"An empirical comparison of seven programming languages".
+<em>IEEE Computer</em>,
+2000,
+<a href="https://doi.org/10.1109/2.876288">doi:10.1109/2.876288</a>.
+</dd>
+
+<dt id="Prechelt2019">Prechelt2019</dt>
+<dd>
+Lutz Prechelt:
+"The mythical 10x programmer".
+In Sadowski and Zimmermann (eds.)
+<a href="https://link.springer.com/book/10.1007/978-1-4842-4221-6"><em>Rethinking Productivity in Software Engineering</em></a>,
+2019.
+</dd>
+
+</dl><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

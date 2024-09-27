@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Making a Book</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Making a Book</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/06/12/nice-shirt/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-06-13" class="post-date">2023-06-13</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/06/19/tips-for-organizational-change/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Mike Hoye recently <a href="https://mastodon.social/@mhoye/110544320436786292">tooted</a>:</p>
+<blockquote>
+<p>The most common thing I want to say to GitHub projects is &ldquo;Please use Make&rdquo;.</p>
+<p>It&rsquo;s old as dirt and the syntax isn&rsquo;t great,
+but even in its simplest use being able to reduce a wall of shell copypasta
+to &ldquo;make whatever&rdquo; is such a breath of fresh air. </p>
+<p>Get yourself to where &ldquo;install&rdquo;, &ldquo;install-devenv&rdquo;, &ldquo;build&rdquo;,
+and &ldquo;run all my tests&rdquo; are all dead easy,
+zero chaff,
+no typos simple.
+And if you find yourself re-using some long command chain,
+add it to the makefile and you&rsquo;re done. It is so good.</p>
+</blockquote>
+<p>I strongly agree:
+every project I&rsquo;m on puts all of the commands someone might need to repeat
+in a Makefile, an <a href="https://earthly.dev/">Earthfile</a>, or something else
+that allows people to re-run chained commands with a few keystrokes
+in a reliable, repeatable way.
+Every one of those files also has a <code>make help</code> command (or equivalent)
+so that people can easily find out what they&rsquo;re able to do.
+That command&rsquo;s output for my current book project is shown below,
+and I can&rsquo;t even guess how many hours of work I&rsquo;ve saved
+by <em>not</em> having to figure out how to do these things
+a second, third, or N<sup>th</sup> time.</p>
+<div class="highlight"><pre><span></span><code>style        check source code style
+---          ---
+commands     show available commands
+build        rebuild site without running server
+serve        build site and run server
+pdf          create PDF version of material
+---          ---
+lint         check project structure
+inclusions   compare inclusions in prose and slides
+examples     re-run examples
+fonts        check fonts in diagrams
+spelling     check spelling against known words
+wordlist     make a list of unknown and unused words
+---          ---
+html         create single-page HTML
+latex        create LaTeX document
+pdf-once     create PDF document with a single compilation
+diagrams     convert diagrams from SVG to PDF
+---          ---
+github       make root pages for GitHub
+check        check source code
+fix          fix source code
+profile      profile compilation
+clean        clean up stray files
+---          ---
+status       status of chapters
+valid        run html5validator on generated files
+vars         show variables
+</code></pre></div><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

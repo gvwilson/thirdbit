@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Managing a Queue of Learners</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Managing a Queue of Learners</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/09/22/ecosystems/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-09-27" class="post-date">2019-09-27</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/10/11/proficiency/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>More than 200 people will have taken <a href="https://education.rstudio.com/trainers/">RStudio instructor training</a> by the end of this year.
+Unlike many courses,
+participants don&rsquo;t sign up for a specific class at a fixed time;
+instead,
+they <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnybZ-Zs64QE1h7bk67uRs1UCUi1Tibi3noefyStrTHplSDA/viewform">apply to take part</a>
+and we then arrange times to accommodate as many of them as we can.</p>
+<p>At present, we are using a home-brewed mix of Google Forms and scripts to track who wants what kind of training,
+when they are going to get it,
+when they actually <em>did</em> take part (if they have),
+what happened afterward,
+and whether or not they have paid us.
+We&rsquo;d like to use an off-the-shelf solution,
+but have explored and ruled out several possibilities:</p>
+<ol>
+<li>
+<p><strong>Storing information in a CRM like Salesforce.</strong>
+   These are contacts,
+   and it allows us to define workflows that people move through,
+   but (a) seats are expensive
+   and (b) it doesn’t help us manage facts like &ldquo;Jane Bloggs has completed two exams but still needs to do a third&rdquo;.</p>
+</li>
+<li>
+<p><strong>An LMS like Blackboard or Lessonly.</strong>
+   Most of what they provide is irrelevant to our needs—we aren’t handing out grades—and they also don&rsquo;t manage queues of registrants.
+   It also looks like we&rsquo;d have to write our own glue to connect the information from the application form
+   to the LMS&rsquo;s database.</p>
+</li>
+<li>
+<p><strong>Event management systems like Eventbrite and Cvent</strong> seem the closest fit,
+   but so far I haven&rsquo;t figured out how to get them to manage application queues and post-event workflows.</p>
+</li>
+</ol>
+<p>Requirements</p>
+<ol>
+<li>All information storage is GDPR compliant.</li>
+<li>The system can manage queues for several different kinds of training.</li>
+<li>People can apply for training without having to create YAFA (yet another account).</li>
+<li>We can customize the information we collect from people when they apply,
+   and that information feeds directly into a database we can easily query and integrate.</li>
+<li>We can set up particular training events and offer spots to specific people,
+   who can then accept or decline.
+   If they decline, they remain in queue.</li>
+<li>We can mark people as &ldquo;no longer interested&rdquo; so that we don&rsquo;t bother them again.</li>
+<li>We can mark people as having completed specific trainings or tasks (i.e., exams).</li>
+<li>We can search by various criteria,
+   e.g., &ldquo;Who has done the teaching course but hasn’t yet completed the tidyverse exam?&rdquo;</li>
+<li>It&rsquo;s easy to integrate the tool with invoicing systems
+   so that people can be invoiced when they get a spot
+   <em>without</em> any information having to be copied manually from one system to another.</li>
+</ol>
+<p>So: what&rsquo;s out there?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

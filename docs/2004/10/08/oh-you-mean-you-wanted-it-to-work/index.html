@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Oh, You Mean You Wanted It to *Work*…</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Oh, You Mean You Wanted It to *Work*…</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2004/10/07/ant-hibernate-confusion-and-pain/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2004-10-08" class="post-date">2004-10-08</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2004/10/08/ant-eclipse-more-pain/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Finally back on track building a simple Hibernate example to give future generations of students…or am I?  In case you haven't been following along, I had my project laid out as follows:</p>
+
+<ul>
+<li>build.xml</li>
+<li>hibernate.cfg.xml</li>
+<li>src/User.hbm.xml</li>
+<li>src/Test.java</li>
+</ul>
+
+<p>After building, I had all of the above, plus:</p>
+
+<ul>
+<li>gen/User.java</li>
+<li>class/User.hbml.xml</li>
+<li>class/User.class</li>
+<li>class/Test.class</li>
+<li>class/hibernate.cfg.xml</li>
+</ul>
+
+<p>Why copy the .hbm.xml and .cfg.xml files to the class directory?  Because they have to be on the classpath at runtime, and I'm eventually going to deploy only what's in class.</p>
+
+<p>Great—now let's try to run it.  Hm, missing a couple of JAR files… No problem, I can copy them out of hibernate-2.1/lib (I'm doing this on-demand, since I want a minimal set of JARs when I deploy).  But wait—even once all the required JARs are there, I still can't run my test class.</p>
+
+<p>Mutter, mutter… *whack* as my forehead bounces off the wall again… Guess what?  It turns out that Hibernate <em>doesn't</em> read settings from hibernate.cfg.xml at startup, even if said file is on the classpath.  It'll read from hibernate.properties, but you can't list your .hbm.xml mapping files in a .properties file.  So, your options are:</p>
+
+<ol>
+<li>Duplicate information (never a good idea).</li>
+<li>Separate information (i.e. put some settings in hibernate.properties, and some in your Java code).</li>
+</ol>
+
+<p>*sigh* All right, I'll do the latter, and there's another half hour lost googling, flipping through books, and trying things out.  Go ahead, ask me whether I'm looking forward to adding JUnit to this stew…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

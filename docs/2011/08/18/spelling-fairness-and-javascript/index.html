@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Spelling, Fairness, and JavaScript</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Spelling, Fairness, and JavaScript</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2011/08/17/demos-reinforce-errors-and-confusion-is-good/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2011-08-18" class="post-date">2011-08-18</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2011/08/19/youre-going-to-show-this-to-people-when-im-grown-up-arent-you/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>My daughter has been sounding out words for a while now, and in the last couple of weeks has gone from c-a-t to &ldquo;B-os-ton&rdquo; (as in &ldquo;Boston Pizza&rdquo;).  A couple of days ago, she was struggling with a new word: eff, are, eye, ee, en, dee—we&rsquo;ve taught her that when two vowels are together, the first one says its name, so she pronounced it to rhyme with &ldquo;blind&rdquo;.  &ldquo;Close,&rdquo; I told her. &ldquo;It&rsquo;s &lsquo;friend&rsquo;—in this word, the <em>second</em> vowel says its name.&rdquo; She wrinkled her nose and said, &ldquo;That&rsquo;s not fair.&rdquo;</p>
+<p>She&rsquo;s right: the &ldquo;rules&rdquo; of English spelling aren&rsquo;t fair. Neither, unfortunately, are the rules of many programming languages. For example, suppose I tell you that:</p>
+<pre>4 * "5" =&gt; 20</pre>
+<p>i.e., that using &lsquo;*&rsquo; on the integer 4 with the string containing digit &lsquo;5&rsquo; is the integer 20, because the string is automatically converted to a number. What would you guess the result of:</p>
+<pre>4 + "5"</pre>
+<p>to be? I asked four people in my office yesterday; three said &ldquo;the number 9&rdquo;, and one said, &ldquo;It&rsquo;s not allowed&rdquo; (clearly recognizing that it must be a trick question). No-one said, &ldquo;The string &lsquo;45&rsquo;,&rdquo; but that&rsquo;s the answer in JavaScript.  Just for comparison, here are the answers in two other languages:</p>
+<table class="centered">
+<tbody>
+<tr>
+<td></td>
+<td> Perl</td>
+<td> Python</td>
+</tr>
+<tr>
+<td>4 * "5"</td>
+<td> 20</td>
+<td> "5555"</td>
+</tr>
+<tr>
+<td>4 + "5"</td>
+<td> 9</td>
+<td> illegal</td>
+</tr>
+</tbody>
+</table>
+<p>Surprisingly, given its reputation, Perl is the most consistent. Python is just as bad as JavaScript: while I occasionally still do construct a row of dashes by multiplying &ldquo;-&rdquo; by 80, it&rsquo;s a rare enough case that I think the language would have done well to say, &ldquo;You can&rsquo;t combine strings and numbers without explicitly converting one to the other.&rdquo;  That would have made both operations illegal, which would have been easier to remember.</p>
+<p>That&rsquo;s really what we mean by &ldquo;fair&rdquo; or &ldquo;unfair&rdquo; in this context: how easy is it to remember the rule(s) and predict what&rsquo;s going to happen in new situations. Several tons of cognitive science research have shown that people are pattern matchers, not memorizers; our brains perform much better when applying a small number of general (i.e., consistent) rules than when trying to figure out which of a larger set of rules to use. Putting it another way, the shallower the decision tree, the faster and more correctly we solve problems.</p>
+<p>This is why we switched from Perl to Python in the early days of the Software Carpentry course. Back in 1998-99, Python was still very much a niche language: going by Amazon.com book rankings, we figured it had about a tenth of the user base of Perl. But every single page of the O&rsquo;Reilly pocket guide to Perl contained one or more of the words &ldquo;except&rdquo;, &ldquo;unless&rdquo;, or &ldquo;however&rdquo;, which meant that when we taught it, we kept having to say, &ldquo;It&rsquo;s usually like this, but sometimes like that.&rdquo; Python was more regular, so material that had taken three days to cover in Perl only took two days in Python, and retention was higher (both immediately afterward and six months later).</p>
+<p>And this is why I will continue to dislike JavaScript. Its inconsistencies impose extra <em>and unnecessary</em> cognitive burdens on users. Yes, I will eventually internalize its rules, just as I&rsquo;ve learned to pronounce &ldquo;friend&rdquo; properly. But if the research is right, even then those inconsistencies will slow me down and increase my error rates–perhaps only a little, once I immerse myself in it, but the effect will persist. Building the future is hard enough; I think it&rsquo;s fair to grumble a bit about tools that make it even harder.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

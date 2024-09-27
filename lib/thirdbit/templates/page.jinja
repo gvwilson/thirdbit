@@ -1,0 +1,22 @@
+{% extends "base.jinja" %}
+
+{% block head_title %}
+<title>{{site.title}}: {{node.title}}</title>
+{% endblock %}
+
+{% block head_includes %}
+{% if node.fiction %}
+  <link rel="stylesheet" href="@root/fiction.css" type="text/css">
+  <script src="@root/fiction.js"></script>
+  <script>window.addEventListener("load", fixPage)</script>
+{% endif %}
+{% endblock %}
+
+{% block page_title %}
+<h1>{{node.title}}</h1>
+{% if node.subtitle %}<h2 class="subtitle">{{node.subtitle}}</h2>{% endif %}
+{% endblock %}
+
+{% block content %}
+{{node.html}}
+{% endblock %}

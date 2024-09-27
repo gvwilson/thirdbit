@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Is This a Notional Machine for R?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Is This a Notional Machine for R?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/07/07/deskilling-learning/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-07-15" class="post-date">2019-07-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/07/22/third-wall-eighth-bolt/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A year ago,
+I wrote <a href="../../../../2018/04/12/notional-machine-for-python/">a description of a notional machine for Python</a>,
+i.e.,
+the mental model of how Python programs execute that I want to convey to learners when I&rsquo;m teaching.
+I didn&rsquo;t get much feedback on it at the time,
+so I still don&rsquo;t know how well it corresponds to other people&rsquo;s notional machines,
+but it was apparently mentioned in
+<a href="https://www.dagstuhl.de/de/programm/kalender/semhp/?semnr=19281">a recent workshop on notional machines</a>,
+so I thought it might be worth following up by describing my notional machine for
+the tidyverse in R
+(the programming framework I&rsquo;ve learned most recently).</p>
+<ol>
+<li>
+<p>When code is loaded,
+   R converts it to a sequence of instructions
+   that are stored in memory just like any other data.</p>
+</li>
+<li>
+<p>When code is executed,
+   R steps through the instructions,
+   doing what each tells it to in turn.</p>
+</li>
+<li>
+<p>A program manipulates three basic types of data:
+   numbers, text, and Booleans.</p>
+</li>
+<li>
+<p>A program stores data in vectors,
+   each of which contains zero or more values of the same type.</p>
+</li>
+<li>
+<p>Vectors may contain the special values <code>NA</code> (for missing data)
+   and <code>NaN</code> (for illegal numbers, like the result of dividing by zero).</p>
+</li>
+<li>
+<p>Basic operations like addition work on corresponding elements of vectors.</p>
+</li>
+<li>
+<p>A scalar like <code>3.14</code> or <code>"hello"</code> is just a vector of length 1.
+   Its value is repeated as necessary when it&rsquo;s combined with a longer vector
+   (which is why <code>1 + X</code> works).</p>
+</li>
+<li>
+<p>Vectors are usually not used on their own.
+   Instead, they are combined into tables,
+   each of which is a list of named vectors of the same length (but possibly different types).</p>
+</li>
+<li>
+<p>We think of the columns (vectors) in a table as statistical variables,
+   and the rows (corresponding elements) as observations of those variables.</p>
+</li>
+<li>
+<p>Vectors are not modified after they are created.
+   Instead,
+   a program calculates new vectors and adds them to existing tables,
+   or uses them to create entirely new tables.</p>
+</li>
+<li>
+<p>A program can do different calculations depending on the values in vectors,
+   or keep only a subset of results to produce a vector of a different length than the original.</p>
+</li>
+<li>
+<p>We make programs easier to understand by writing functions,
+   which are recipes that give a name to a series of calculations.</p>
+</li>
+<li>
+<p>When a function is called,
+   a new stack frame is pushed on the call stack.</p>
+</li>
+<li>
+<p>When a variable is used,
+   R looks for it in the top stack frame.</p>
+</li>
+<li>
+<p>When the function completes or returns,
+   R switches from its blob of instructions
+   back to the blob it was executing beforehand.
+   If there isn&rsquo;t a &ldquo;beforehand&rdquo;,
+   the program has finished.</p>
+</li>
+<li>
+<p>The functions that operate on tables are usually combined to create pipelines.
+   A pipeline starts with a table (or with a function that reads a table);
+   the output of each function is used as the input of the next in the pipeline,
+   and only the output of the last function in the pipeline is displayed.</p>
+</li>
+</ol>
+<p>A few notes:</p>
+<ol>
+<li>This notional machine overlaps with that for Python in many ways,
+   which is unsurprising given that they are both dynamically-typed, interactive, and garbage-collected.</li>
+<li>The elements in this notional machine <em>aren&rsquo;t</em> presented in the order in which I would teach them;
+   this description is the model I want learners to have at the end of an introductory course.</li>
+<li>It doesn&rsquo;t include loops or conditionals,
+   since modern R is a mostly-functional language.</li>
+<li>It also doesn&rsquo;t include <a href="../../../../2018/11/16/non-standard-evaluation/">non-standard evaluation</a>,
+   or try to explain that you can pass column names to functions as if they were variables.
+   In my (so far limited) teachinge experience,
+   questions about this don&rsquo;t come up:
+   I suspect that people who are new to programming don&rsquo;t know enough to realize how weird this is,
+   but that&rsquo;s just a guess.
+   If NSE is part of your notional machine for novices,
+   I&rsquo;d really like to hear what form it takes.</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

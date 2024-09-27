@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Why We Can't Have Nice Things</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Why We Can't Have Nice Things</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2015/06/10/le-guin-capitalism/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2015-06-11" class="post-date">2015-06-11</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2015/06/12/teaching-tech-together/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+  In the beginning, there were tables:
+  rows upon rows,
+  with columns separated by commas or tabs or something more exotic.
+  They were elegant but limited,
+  so programmers said,
+  "Let there be XML!"
+  And lo,
+  there came a great wailing and gnashing of teeth,
+  for who among us can truly comprehend external (parsed) general entity declarations
+  and the encoding thereof?
+</p>
+<p>
+  But there came to programmers a new hope called <a href="https://en.wikipedia.org/wiki/JSON">JSON</a>,
+  and JSON said,
+  "Look, folks, why don't you just write data the way you write data structures in programs?"
+  And programmers looked upon JSON,
+  with its lists of numbers and strings and name/value pairs,
+  and said,
+  "Cool!  But what about comments?  And do I really have to quote all those strings?"
+  And so programmers turned to <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>,
+  which permits the commenting of data,
+  and the unquoting of strings,
+  and much else that is good and welcome to those who believe that
+  if you couldn't have done it in a line-editor in 1970,
+  you shouldn't be doing it today.
+</p>
+<p>
+  But a darkness lurked within the heart of YAML,
+  for in striving to make life easy for its users,
+  it had left a slippery puddle of grease before the very gates of Hell.
+  In place of JSON's parentheses and quotes:
+</p>
+<pre>
+{"instructors": ["Canada", "Denmark", "France"],
+ "workshops": ["Brazil", "Norway", "Poland"]}
+</pre>
+<p>
+  YAML, ever gracious, allowed programmers to write:
+</p>
+<pre>
+instructors:
+- Canada
+- Denmark
+- France
+workshops:
+- Brazil
+- Norway
+- Poland
+</pre>
+<p>
+  And programmers looked upon it and said it was good,
+  for who truly likes typing the brace that is curly?
+  But then one programmer said,
+  "Cool!  Although we really should use ISO-3166 country codes instead of countries' names, because standards and internationalization."
+  And upon saying that,
+  he re-wrote the data as:
+</p>
+<pre>
+instructors:
+- ca
+- de
+- fr
+workshops:
+- br
+- no
+- pl
+</pre>
+<p>
+  But upon this change there came great puzzlement,
+  because this configuration file was used to select flag icons to display upon a map,
+  and among those flags were many countries, but not Norway.
+  And after much scratching of heads and googling of terms,
+  it was discovered that <strong><em>YAML interprets the unquoted word 'no' as meaning 'false'</em></strong>.
+  Upon learning which,
+  the programmer blasphemed mightily and at great length,
+  repeating also,
+  "Seriously?  Seriously??"
+</p>
+<p>
+  For inasmuch as it may be convenient for some to allow plain English synonyms for truth and falsity,
+  each such accommodation is a trap from which the unwary will emerge wearied and cynical,
+  if they emerge at all.
+  And all programmers know this,
+  having had their own spirits widdled upon by the inconsistencies of others
+  as a senile old poodle does widdle upon its owner's leg,
+  mistaking it (or not) for a fire hydrant.
+  All programmers know this,
+  but persist in committing these same sins themselves.
+</p>
+<p>
+  And this is why we cannot have nice things…
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

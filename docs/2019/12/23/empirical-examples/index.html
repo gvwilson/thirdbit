@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Empirical Examples</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Empirical Examples</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/12/20/terms/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-12-23" class="post-date">2019-12-23</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/12/23/gini-coefficients/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Back in July 2000,
+I sent <a href="http://mail.python.org/pipermail/python-dev/2000-July/006098.html">these</a>
+<a href="http://mail.python.org/pipermail/python-dev/2000-July/006427.html">messages</a>
+to the Python developers&rsquo; mailing list.
+List comprehensions were still a new feature,
+and I thought the best way to decide on a syntax was to try it out.
+The idea didn&rsquo;t catch on,
+but I still believe very strongly that
+we ought to field-test language features and additions to libraries
+<em>before</em> rolling them out,
+and that such tests are much easier to do than most people believe.</p>
+<h2>Message 1</h2>
+<p><strong><a href="http://mail.python.org/pipermail/python-dev/2000-July/006098.html">July 11, 2000</a></strong></p>
+<p>I sent the message below to the 11 developers here in the office this
+morning.  They all have 10+ years experience with C, and 2-3 years with
+C++, Java, or both.  None have used Python (I&rsquo;m working on it :-), but two
+have extensive Perl experience, and one worked on and with functional
+languages in grad school.  The question was:</p>
+<div style="font-size:80%">
+<div class="highlight"><pre><span></span><code>OK, folks, language question.  Given the statement:
+
+    for x in [10, 20, 30]; y in [1, 2]:
+        print x+y
+
+(note that the second list is shorter than the first),
+would you expect to see:
+
+(A) &#39;x&#39; and &#39;y&#39; move forward at the same rate:
+
+    11
+    22
+
+(B) &#39;y&#39; goes through the second list once for each value of &#39;x&#39;:
+
+    11
+    12
+    21
+    22
+    31
+    32
+
+(C) an error message because the two lists are not the same length?
+
+Votes to me, please.
+
+Thanks,
+Greg
+</code></pre></div>
+</div>
+<p><em>Everyone</em> voted (B).  As useful as this capability is, I therefore think
+the proposed syntax is likely to mislead.</p>
+<p>Hope it&rsquo;s helpful,
+Greg</p>
+<h2>Message 2</h2>
+<p><strong><a href="https://mail.python.org/pipermail/python-dev/2000-July/006427.html">July 13, 2000</a></strong></p>
+<p>I gave 20+ grad students in computer engineering and computer science
+(plus a couple of profs) the questionnaire below.
+A summary of results is:</p>
+<ul>
+<li>
+<p>Everyone understood the existing syntax (A).</p>
+</li>
+<li>
+<p>Most assumed that that the &lsquo;zip()&rsquo; function version would yield
+  cross-product iteration (B).  This surprised me a lot, particularly
+  as I think we all agree that &lsquo;zip()&rsquo; is the most suggestive possible
+  name for this function.</p>
+</li>
+<li>
+<p>Versions (D), (F), and (H) show that semi-colon separated targets
+  imply cross-product iteration, but &lsquo;and&rsquo; and &lsquo;while&rsquo; imply
+  simultaneous iteration.</p>
+</li>
+<li>
+<p>Version (G) shows that using &lsquo;and&rsquo; suggests that the sequences being
+  iterated over must have the same length.</p>
+</li>
+</ul>
+<p>The questionnaire and a table of responses are included below (100 characters wide).</p>
+<p>Greg</p>
+<div style="font-size:80%">
+<div class="highlight"><pre><span></span><code>The single and double loop below print the output shown:
+
+for x in [10, 20, 30]:          for x in [10, 20, 30]:
+    print x                         for y in [1, 2, 3]:
+                                        print x+y
+10                              11
+20                              12
+30                              13
+                                21
+                                22
+                                23
+                                31
+                                32
+                                33
+
+Match each of the following to its output.
+(Note that several examples may print the same thing.)
+
+
+                                                (1)     (2)     (3)     (4)     (5)     (6)
+
+                                                11      11      11      11      error   ??
+                                                22      12      22      12
+                                                33      13              21
+                                                        21              22
+                                                        22              31
+                                                        23              32
+                                                        31
+                                                        32
+                                                        33
+
+(A)
+for (x, y) in [[10, 1], [20, 2], [30, 3]]:      11      0       0       0       0       0
+    print x+y
+
+(B)
+for [x, y] in zip([10, 20, 30], [1, 2, 3]):     2       6       0       0       0       3
+    print x+y
+
+(C)
+for [x, y] in zip([10, 20, 30], [1, 2]):        0       0       1       4       4       2
+    print x+y
+
+(D)
+for x in [10, 20, 30]; y in [1, 2, 3]:          3       7       0       0       1       0
+    print x+y
+
+(E)
+for x in [10, 20, 30]; y in [1, 2]:             1       0       2       6       2       0
+    print x+y
+
+(F)
+for (x in [10, 20, 30]) and (y in [1, 2, 3]):   7       4       0       0       0       0
+    print x+y
+
+(G)
+for (x in [10, 20, 30]) and (y in [1, 2]):      0       0       1       2       6       2
+    print x+y
+
+(H)
+for x in [10, 20, 30] while y in [1, 2, 3]:     2       7       0       0       1       1
+    print x+y
+
+(I)
+for x in [10, 20, 30] while y in [1, 2]:        0       1       0       7       2       1
+    print x+y
+
+(J)
+for x; y in [10, 20, 30]; [1, 2, 3]:            2       3       0       1       3       2
+    print x+y
+
+(K)
+for x; y in [10, 20, 30]; [1, 2]:               0       1       0       3       5       2
+    print x+y
+</code></pre></div>
+</div><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

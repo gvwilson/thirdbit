@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Three Studies (Maybe Four)</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Three Studies (Maybe Four)</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2008/04/09/morning-routine/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2008-04-10" class="post-date">2008-04-10</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2008/04/10/it-went-well/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>We&rsquo;re in the thick of picking students and projects for Google Summer of Code, which has inspired some less-random-than-usual thoughts.  Here are two studies I&rsquo;d like to do (or see done):</p>
+<ol>
+  <li>What has happened to previous students?  How many are still involved in open source?  How many have gone on to {start a company, grad school, prison}?  What do they think they learned from the program?  How much of the software they wrote is still in use?  Etc.</li>
+  <li>Every one of the 175 organizations blessed by Google this year is using the same web application for collecting and voting on projects.  From what I can tell, they're all using it in different ways: +4 means something very different to the Python Software Foundation than it does to Eclipse or SWIG.  They're also using a bewildering variety of other channels for communication: wikis, IRC, Skype chat sessions, mailing lists (the most popular), and so on.  Why?  Is this another reflection of Jorge Aranda's finding that every small development group evolves a different process, but all those processes "work" in some sense, or is it—actually, I don't have any competing hypotheses right now, but I'm sure there are some.</li>
+</ol>
+<p>And while we&rsquo;re on the subject of studies, I just read Hochstein et al&rsquo;s paper <a href="http://www.ctwatch.org/quarterly/pdf/ctwatchquarterly-8.pdf">&ldquo;Experiments to Understand HPC Time to Development&rdquo;</a> (CT Watch Quarterly, 2(4A), November 2006).  They watched a bunch of grad students at different universities develop some simple parallel applications using a variety of tools, and measured productivity as (relative speedup)/(relative effort), where relative speedup is (reference execution time)/(parallel execution time), and relative effort is (parallel effort)/(reference effort).  The speedup measure is unproblematic, but as far as I can tell, they don&rsquo;t explain where their &ldquo;reference effort&rdquo; measure comes from.  I suspect it&rsquo;s the effort required to build a serial solution to the problem, and that &ldquo;parallel effort&rdquo; is then the <em>additional</em> time required to parallelize; I&rsquo;ve mailed the authors to ask, but haven&rsquo;t heard back yet.</p>
+<p>I wasn&rsquo;t surprised when I realized that the authors hadn&rsquo;t done the other half of the study, i.e., they hadn&rsquo;t benchmarked the productivity of a QDE (quantative development environment) like <a href="http://www.mathworks.com">MATLAB</a>—many people talk and think as if scientific computing and high-performance computing were the same thing.  At first glance, it doesn&rsquo;t seem like it would be hard to do—you could use the performance of the MATLAB or NumPy code over the performance of a functionally equivalent C or Fortran program for the numerator.  You have to be careful about the denominator, though: if my guess is right, then if things were done in real-world order, you&rsquo;d be comparing:</p>
+<table class="centered">
+<tr>
+<td align="center">time to write parallel code after writing serial code</td>
+<td valign="center"> </td>
+<td align="center">time to write serial code from scratch</td>
+</tr>
+<tr>
+<td><hr /></td>
+<td valign="center">vs</td>
+<td><hr /></td>
+</tr>
+<tr>
+<td align="center">time to write MATLAB from scratch</td>
+<td valign="center"> </td>
+<td align="center">time to write serial code having written MATLAB</td>
+</tr>
+</table>
+<p>Even with that, I strongly suspect that MATLAB (or any other full-featured QDE) would come out well ahead of any parallel programming environment currently in existence on problems of this size.  Yes, you need big iron to simulate global climate change over the course of centuries, but that&rsquo;s <em>not</em> what most scientists do, and the needs of that minority shouldn&rsquo;t dominate the needs of the desktop majority.</p>
+<p>I&rsquo;d also be interested in re-doing this study using MATLAB parallelized with <a href="http://www.interactivesupercomputing.com/">Interactive Supercomputing</a>&rsquo;s tools.  I have no idea what the performance would be, but the parallelization effort would be so low that I suspect it would once again leave today&rsquo;s mainstream HPC tools in the dust.</p>
+<p>And now let&rsquo;s double back for a moment.  I used the phrase &ldquo;desktop majority&rdquo; a couple of paragraphs ago, but is that really the case?  What <em>do</em> most computational scientists use?  What if we include scientists who don&rsquo;t think of themselves as computationalists, but find themselves doing a lot of programming anyway, just because they have to?  If you plotted rank vs. frequency, would you get a power law distribution, i.e., does <a href="http://en.wikipedia.org/wiki/Zipf's_law">Zipf&rsquo;s Law</a> hold in scientific computing?  Last term, I calculated a <a href="http://en.wikipedia.org/wiki/Gini_coefficient">Gini coefficient</a> for each team in my undergraduate software engineering class using lines of code instead of income as a raw metric; what&rsquo;s the Gini coefficient for the distribution of computing cycles used by scientists (i.e., how evenly or unevenly is computing power distributed)?  And how should the answers to these questions shape research directions, the development of new tools, and what we teach in courses like Software Carpentry?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

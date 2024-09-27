@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Where's My Shell?</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Where's My Shell?</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2011/11/30/good-news-and-bad-news/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2011-11-30" class="post-date">2011-11-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2011/11/30/the-greatest-story-never-told/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>My first programming language was PL/1. (Look it up if you need to, kid.) My second was Pascal, and then in the summer of 1982 I was introduced to two more: C, and the Unix shell. I realized that C was a programming language right away, mostly because that&rsquo;s what people said it was.  It took me longer to realize that the shell was also a programming language; I still remember the first time the sys admin responsible for our VAX 11/780 wrote a &lsquo;for&rsquo; loop on the command line to try my program for each of several input files.</p>
+<p>But now I&rsquo;m programming on the web, which means I&rsquo;m writing Javascript. OK, that&rsquo;s the equivalent of C: full of traps for the unwary, but able to do quite a bit once you get your head around it.  What I want to know is, where&rsquo;s my shell?  Where&rsquo;s the tool that&rsquo;s not quite as expressive (try manipulating tree-shaped data in the Bourne shell), and not as fast, but lets me do with two or three commands what would take half an hour to code and debug at the base level?</p>
+<p>JQuery isn&rsquo;t what I&rsquo;m looking for (though I&rsquo;m very, very grateful that it exists). JQuery isn&rsquo;t a watertight layer of abstraction above Javascript: it&rsquo;s <a href="http://en.wikipedia.org/wiki/Leaky_abstraction">leaky</a>, in the sense that users still have to pay attention to Javascript-y things.  (&ldquo;Wait, I forgot to say &lsquo;var&rsquo;…&rdquo;)  <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> and other compile-to-JS languages are leaky too, but the shell is as close to being leak-free as any abstraction layer I can think of. In almost 30 years of nearly constant use, I&rsquo;ve almost never had to think at the C level in order to debug a problem at the shell script level [1].</p>
+<p>So what would a shell-like tool for in-browser programming look like? Well, I think it would look something like Microsoft PowerShell. There&rsquo;d be lots of more-or-less orthogonal tools, each of which did one thing, but instead of communicating via streams of text, they&rsquo;d send one another streams of objects. Those tools would probably be written in Javascript, and the shell might be as well (just as bash and its ilk are written in C), but users wouldn&rsquo;t see that.  What they <em>would</em> see is that they could package combinations of tools into scripts that could then be used as tools in their own right. The syntax for simple operations would be much simpler than that of Javascript, at the cost of some expressive power, but that&rsquo;s OK: 80/20 splits are a good thing.</p>
+<p>And hey, it would give us a chance to choose command names that are more mnemonic than &lsquo;ls&rsquo; and &lsquo;mv&rsquo;… :-)</p>
+<p>[1] And the times I did were my own fault, because one of the components in my pipe was a program I&rsquo;d written myself, which didn&rsquo;t fork properly, and—never mind, it&rsquo;s not important.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

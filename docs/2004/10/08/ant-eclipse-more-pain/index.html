@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Ant + Eclipse = More Pain</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Ant + Eclipse = More Pain</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2004/10/08/oh-you-mean-you-wanted-it-to-work/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2004-10-08" class="post-date">2004-10-08</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2004/10/08/open-source-cold-shoulder/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>
+The biggest problem with classpaths is that there is no standard way of defining them.  Classpaths can be set through environment variables (which have an OS-specific syntax), command-line arguments to the VM, system properties (which can be set through the command-line or a properties file), and even by arbitrary code running within a JVM.
+</p>
+
+<p>
+For instance, Eclipse keeps track of classpaths for individual projects through the <code>.classpath</code> XML file in the project's root directory.
+</p>
+
+<p>
+Ant, on the other hand, builds its classpath from many places.  It looks through environment variables (<code>CLASSPATH</code> and <code>ANT_OPTS</code>, in particular), the system properties, and the build script that's currently loaded.  On top of that, Ant uses at least two distinct classloaders, which maintain their own individual classpaths: one for loading Ant, the tasks, and their dependencies, and one for for actually executing the tasks.
+</p>
+
+<p>
+When you put Eclipse and Ant together, the potential for distaster increases exponentially.
+</p>
+
+<p>
+About four-hundred revisions back in time (revision 94, to be exact), I changed the build file around to unify the data model of Hippo with the UI layer, which used to be contained within separate Eclipse projects.  Like all servlet-based web applications, the UI layer stored its class files in <code><em>$WEBAPP_ROOT</em>/WEB-INF/classes</code>.  The test case classes were stored in <code>build/test</code>.
+</p>
+
+<p>
+In the meantime, Eclipse's <code>.classpath</code> file was still set to compile all classes directly into the <code>build</code> directory.
+</p>
+
+<p>
+This isn't a problem if you use Eclipse's build system exclusively to build and run your code.  It's also not a problem if you use Ant to exclusively build and run your code.
+</p>
+
+<p>However, if Ant and Eclipse's classpath configurations are not in sync (which has been the case from revision 94 up to just a few days ago) and you use Ant to build and Eclipse to run, you will get many <code>ClassNotFoundException</code>s.</p>
+
+<p>
+Why did that happen?  Eclipse was set to compile classes into the <code>build</code> directory.  Therefore, it added the <code>build</code> directory to its default runtime classpath.
+</p>
+
+<p>
+When you use Ant to build the project, Ant stores the compiled class files in two places.  The test classes are saved in <code>build/test</code> while everything else is put into <code><em>$WEBAPP_ROOT</em>/WEB-INF/classes</code>.
+</p>
+
+<p>
+Now when you go to run the tests in Eclipse, Eclipse looks for them in <code>build</code>, but they're really stored in <code>build/test</code> and <code><em>$WEBAPP_ROOT</em>/WEB-INF/classes</code>.
+</p>
+
+<p>
+So what's the solution?  Configure Ant so that its build process is in sync with Eclipse.  Right now, this is being done redundantly and manually, but I'm sure with a little extra effort, Ant can be taught to read Eclipse's <code>.classpath</code> configuration automatically.
+</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

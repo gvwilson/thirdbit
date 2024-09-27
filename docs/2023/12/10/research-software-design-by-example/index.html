@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Research Software Design by Example</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Research Software Design by Example</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/12/08/depressing-reading/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-12-10" class="post-date">2023-12-10</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/12/11/meetings-interruptions-and-power/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;m thinking about running a 12-week course online next year,
+tentatively called &ldquo;Research Software Design by Example&rdquo;,
+to raise money for <a href="https://donate.rainbowrailroad.org/team/515984">Rainbow Railroad</a>.
+My plan is to take the same approach as
+the <a href="../../../../sdxjs/">JavaScript</a> and <a href="../../../../sdxpy/">Python</a> versions of
+<em>Software Design by Example</em>,
+i.e.,
+to show people how to think about the design of medium-sized programs
+by working through scaled-down examples of real applications,
+and to introduce some useful computer science-y ideas along the way.
+I would be grateful for [feedback][mailto:gvwilson@third-bit.com]
+on the very (very) tentative outline below.</p>
+<dl>
+<dt>Introduction: an overview of where we&rsquo;re going and why.</dt>
+<dd>The best way to learn design is to study examples, and the best programs to use as examples are ones like those you want to create. These lessons therefore build small versions of tools that research software engineers build and use every day to show how experienced software designers think. Along the way, they introduce some fundamental ideas in computer science that many self-taught programmers haven&rsquo;t encountered. The lessons assume readers can write small programs and want to write larger ones, or are looking for material to use in software design classes that they teach.</dd>
+<dt>Parsing: convert some messy CSV data files with geocoded pollution measurements into tidy CSV.</dt>
+<dd>Research data is often stored in idiosyncratic formats, or must be extracted from documents that were written for people to read rather than for machines to process. Our first lesson therefore shows how to build a parser that can handle several variations of a single data format and how to write command-line tools that respect <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412">Taschuk&rsquo;s Rules</a>
+.</dd>
+<dt>Plugin Architecture: find the center point of each polluted region and visualize it.</dt>
+<dd>Research data may come from files, databases, websites, and many other sources. Instead of rewriting a program each time a new source becomes available, we can build a plugin architecture that loads data handlers dynamically so that users can extend our program without modifying its internals. Doing this gives us an opportunity to look at how to query a SQL database and at the problem of testing visualizations.</dd>
+<dt>Refactoring: refactor a student-quality Python script that uses invasion percolation to model pollution spread.</dt>
+<dd>Computational notebooks are a great tool for exploratory work, but research software engineers must also be able to create software libraries that can be re-mixed and re-used. This lesson therefore critiques and refactors a script that uses invasion percolation to simulate to model the spread of pollution to show how to break code up into comprehensible chunks and how to validate implementations against one another.</dd>
+<dt>Testing: use mocks to test programs that rely on pseudo-randomness.</dt>
+<dd>Testing research software is hard: the algorithms are often subtle, and we often don&rsquo;t know what the correct output is supposed to be except in a handful of trivial cases. This lesson introduces several tools that can make the problem tractable, including the use of mock objects to make randomness less random and the use of coverage tools to determine what is and isn&rsquo;t being tested.</dd>
+<dt>Profiling: compare the performance of grid implementations empirically.</dt>
+<dd>Some pieces of research software have to be fast in order to be useful. This lesson therefore explores how profiling can help us figure out which parts of our program are worth optimizing. Along the way, it alos looks at how to capture program parameters in reproducible ways and why tuning code can&rsquo;t solve fundamental algorithmic issues.</dd>
+<dt>A Lazy Algorithm: create a lazy implementation of invasion percolation that&rsquo;s much faster.</dt>
+<dd>Simple algorithms are easy to implement and test, but often have poor performance. More complex algorithms—particularly lazy algorithms that don&rsquo;t perform calculations until they&rsquo;re sure the results are needed—are harder to write and test, but can improve performance by orders of magnitude. This lessons demonstrates this idea by implementing a better algorithm for invasion percolation, and along the way shows how to refactor code as needs and ideas evolve.</dd>
+<dt>Scaling Up: generate fractals using a workflow runner and store them remotely.</dt>
+<dd>Once we have an algorithm that&rsquo;s worth scaling up, we need to actually scale it up. This lesson shows how to describe a workflow as an acyclic graph, how to express that workflow in code to take advantage of cloud computing, and how support tools like logging frameworks and remote data storage can help.</dd>
+<dt>Packaging: navigating the confusion of creating a simple Python package.</dt>
+<dd>Creating an installable package is the best way to share your code with other people, but Python&rsquo;s packaging tools are a complex mess. This lesson therefore introduces key ideas such as virtual environments and package manifests while avoiding as much of the complexity as it can.</dd>
+<dt>Synthetic Data Generation: analyze snail genomes to see if a single mutation accounts for size differences.</dt>
+<dd>In this lesson we pivot from simulation to data analysis and build a simple pipeline to find out whether a single nucleotide polymorphism can explain differences in the sizes of snails in polluted regions. We also build a synthetic data generator to help us test our analysis pipeline, and use it to show how data analyses can be tested more generally.</dd>
+<dt>Building a Static Site: build a static site to display research results using Ark and Jinja.</dt>
+<dd>Sharing knowledge is as much a part of research as asking good questions and getting correct answers. This lesson therefore shows how to use a static site generator to create a website that displays research findings, and how to extend such a tool to handle the idiosyncratic needs of a particular research project.</dd>
+<dt>Scraping Data: pull data from web pages using requests and Beautiful Soup.</dt>
+<dd>Some researchers make their data easy to access and use, but in many other cases, the only way to get information is to scrape it off the web. This lesson therefore explains how the web&rsquo;s basic protocols work, how web pages are represented inside programs, and how to build a tool that can extract information from someone else&rsquo;s HTML.</dd>
+<dt>Building a Web Site: build a small Flask web server to display plate data.</dt>
+<dd>As a counterpart to the previous lesson, this one shows how web servers handle requests and generate dynamic HTML pages. Understanding how this works will help research software engineers design services of their own and debug them when things go wrong.</dd>
+<dt>Conclusion: what we&rsquo;ve covered and where readers might like to go next.</dt>
+<dd>Software is usually critiqued by asking if it does what it&rsquo;s supposed to do and if it&rsquo;s pleasurable to use. What is often missing is discussion of whether its design makes it easy to manufacture, test, and maintain. We hope these lessons will help you ask and answer that question about the things you build.</dd>
+</dl>
+<p>Some of the tools these lessons will use are listed below,
+but the goal <em>isn&rsquo;t</em> to teach those tools:
+it&rsquo;s to use them to teach research software engineers
+how to build software that is modular, reusable, testable, comprehensible, and shareable,
+and that those five virtues all arrive together or not at all.</p>
+<ul>
+<li><a href="https://www.dmulholl.com/docs/ark/main/">Ark</a> as a static site generator</li>
+<li><a href="https://beautiful-soup-4.readthedocs.io/">Beautiful Soup</a> because of course I would</li>
+<li><a href="https://dvc.org/">DVC</a> for version control of large data files</li>
+<li><a href="https://faker.readthedocs.io/">Faker</a> for generating test data.</li>
+<li><a href="https://flask.palletsprojects.com/">Flask</a> for building a web server
+    (because it will return HTML pages—I&rsquo;d use <a href="https://fastapi.tiangolo.com/">FastAPI</a>
+    if the lesson was about building a web service)</li>
+<li><a href="https://jinja.palletsprojects.com/">Jinja2</a> for templating</li>
+<li><a href="https://metaflow.org/">Metaflow</a>
+    (which seems to be the best-supported workflow tool with a pure-Python syntax)</li>
+<li><a href="https://pandas.pydata.org/">Pandas</a>
+    (I&rsquo;d rather use <a href="https://pola.rs/">Polars</a>—there is
+    so much less to explain away—but not enough other tools interoperate with it yet).</li>
+<li><a href="https://plotly.com/python/plotly-express/">Plotly Express</a></li>
+<li><a href="https://ponyorm.org/">Pony ORM</a>
+    (go ahead—read the first answer to <a href="https://stackoverflow.com/questions/16115713/how-pony-orm-does-its-tricks">this question</a>
+    and tell me you aren&rsquo;t impressed)</li>
+<li><a href="https://requests.readthedocs.io/"><code>requests</code></a> for getting data from the web
+    and <a href="https://geopy.readthedocs.io/"><code>geopy</code></a> for handling geocoded data.</li>
+<li>Several Python library modules, including
+    <a href="https://coverage.readthedocs.io/"><code>coverage</code></a>,
+    <a href="https://docs.python.org/3/library/dataclasses.html"><code>dataclasses</code></a>,
+    <a href="https://docs.python.org/3/library/logging.html"><code>logging</code></a>,
+    <a href="https://docs.python.org/3/library/profile.html"><code>profile</code></a>,
+    and <a href="https://docs.pytest.org/"><code>pytest</code></a>.</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

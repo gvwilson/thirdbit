@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Tools</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Tools</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2020/10/17/australian-wildlife/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2020-10-21" class="post-date">2020-10-21</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2020/11/02/lesson-team-process/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A couple of days ago I tweeted:</p>
+<blockquote>
+<p>What tools do you use daily to build software that aren&rsquo;t on this list:
+text editor, version control, test runner, build manager, debugger, style checker, doc generator, package manager, issue tracker?</p>
+</blockquote>
+<p>Answers included:</p>
+<ul>
+<li>An IDE (which combines many of the tools listed above and below)</li>
+<li>Pen and notebook</li>
+<li>Stack Overflow and other Q&amp;A sites for indirect collaboration</li>
+<li>Search engine (see above)</li>
+<li>Real-time collaboration tools (Slack, Zoom, …)</li>
+<li>Asynchronous collaboration tools (a wiki, a mailing list, …)</li>
+<li>Unix command-line tools (<code>find</code>, <code>grep</code>, home-grown scripts for scraping event logs)</li>
+<li>Code reviewing system (usually not a separate tool, but built into whatever online software forge the team is using)</li>
+<li>Continuous integration/continuous deployment</li>
+<li>UI design/review tools like <a href="https://www.figma.com/">Figma</a> or <a href="https://www.abstract.com/">Abstract</a></li>
+<li>A <a href="https://www.diagrams.net/">drawing tool</a></li>
+<li>File sync/backup tools (rsync, Dropbox) that <em>aren&rsquo;t</em> version control</li>
+<li><a href="https://en.wikipedia.org/wiki/Lint_(software)">Linter</a> and <a href="https://valgrind.org/">memory checker</a></li>
+<li>Code reformatter (often combined with the linter)</li>
+<li>Compiler (oh yeah, people still used compiled languages…)</li>
+<li>Coverage analyzer/profiler</li>
+<li>Issue tracker (for threaded discussions as well as bugs)</li>
+<li>Visual diff viewer</li>
+<li>Model checker</li>
+<li>Terminal multiplexer</li>
+<li>Docker or other container/virtualization system (particularly for testing installations)</li>
+<li>Package repository (because a package manager isn&rsquo;t much use without one)</li>
+<li>Mutation tester</li>
+<li>Databases (indirectly: the IDE keeps one for symbols and cross-references in programs, for example)</li>
+</ul>
+<p>It&rsquo;s quite a list, and I&rsquo;m willing to make a few bets:</p>
+<ol>
+<li>Most developers pick these up on their own rather than being taught explicitly how to use them.</li>
+<li>As a result, most developers don&rsquo;t use most of these
+    (where by &ldquo;most&rdquo; I mean Hanselman&rsquo;s <a href="https://www.hanselman.com/blog/dark-matter-developers-the-unseen-99">dark matter developers</a>,
+    not just the minority who blog and tweet and answer questions on forums and go to meetups).</li>
+<li>Proficiency with these tools doesn&rsquo;t just correlate with productivity—it predicts it.
+    In other words, if you teach people how to use these tools well, they will become more productive.</li>
+</ol>
+<p>I further believe that:</p>
+<ol>
+<li>These tools aren&rsquo;t in the curriculum because the act of building software isn&rsquo;t considered part of computer science.
+    Consider: to the best of my knowledge, no university in the English-speaking world offers a full semester course on debugging,
+    and I&rsquo;ve only ever seen <a href="https://www.spinellis.gr/debugging/">one decent textbook</a> on the subject
+    (compared to literally hundreds on writing compilers).</li>
+<li>They also aren&rsquo;t included in the curriculum because it&rsquo;s hard to create meaningful pen-and-paper exam questions for them.</li>
+<li>It <em>would</em> be possible to examine proficiency meaningfully by having students record their desktop while solving problems
+    and then submitting the video.
+    I believe this could be done without violating students&rsquo; privacy,
+    and that instructors could watch those videos at 5X or 10X and give meaningful feedback.</li>
+</ol>
+<p>If you&rsquo;re a graduate student in software engineering or computing education and looking for a research topic,
+I think this would be a good one—I&rsquo;d be happy to chat any time if you want to brainstorm.</p>
+<p>And following up on a suggestion from a friend,
+I guesstimated the genders of the people who responded to my original tweet from their profiles.
+This may not be accurate—studies have shown that
+women often use neutral or male identities online to avoid harassment—but
+the breakdown saddens me:</p>
+<ul>
+<li>apparently male: 46</li>
+<li>apparently female: 4</li>
+<li>indeterminate or non-binary: 3</li>
+</ul>
+<p>My estimate of the breakdown by race is undoubtedly no more accurate,
+but looks even more one-sided :-(</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

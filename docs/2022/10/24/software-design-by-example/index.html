@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Software Design by Example</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Software Design by Example</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/10/02/empirically-minimal/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-10-24" class="post-date">2022-10-24</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/10/26/software-design-homework/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>The (hopefully) final version of
+<a href="https://third-bit.com/sdxjs/"><em>Software Design by Example: A Tool-Based Introduction with JavaScript</em></a>
+has gone to <a href="https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-JavaScript/Wilson/p/book/9781032330235">the publisher</a>,
+and physical copies should be available by the end of the year.</p>
+<p>Lots of things didn&rsquo;t get into the book,
+partly because I ran out of steam but also because I wanted to see if the book had any impact before investing more effort.
+The most important was a text editor about the size of kilo
+(<a href="http://antirez.com/news/108">1</a>, <a href="https://viewsourcecode.org/snaptoken/kilo/">2</a>)
+with undo/redo (which is complex enough to need a whole chapter).
+The second would be a message queue or pub/sub system like <a href="https://www.rabbitmq.com/">RabbitMQ</a>
+because partial failure in distributed systems is now a fact of most programmers&rsquo; lives, but is rarely taught.
+I would also have liked to include a <a href="https://www.fuzzingbook.org/">fuzz tester</a>,
+the world&rsquo;s smallest useful <a href="https://cstack.github.io/db_tutorial/">database</a>,
+something to show readers how model checking works,
+and other tools.</p>
+<p>But what I&rsquo;d like most is to <em>edit</em> these chapters rather than write them.
+It&rsquo;s not less work (trust me),
+but I&rsquo;d really like to help other people get a chance to raise their profiles.
+So if you&rsquo;re a junior developer and would like to see your name in a book,
+or an undergrad student who needs a senior project that combines research, design, coding, and writing,
+please reach out,
+especially if you&rsquo;re from an underrepresented or marginalized group.</p>
+<p>We make beautiful things,
+and we ought to share them.</p>
+<hr />
+<p>I&rsquo;ve also now started on a Python version;
+the topics and some key ideas are listed below,
+and I&rsquo;d be <a href="mailto:gvwilson@third-bit.com">grateful for feedback</a> on what else you&rsquo;d like to see included.</p>
+<table class="centered">
+  <tr>
+    <th>Tool</th>
+    <th>Key Ideas</th>
+  </tr>
+  <tr>
+    <td>unit testing framework</td>
+    <td>code as data; introspection</td>
+  </tr>
+  <tr>
+    <td>file backup</td>
+    <td>hashing; interface vs. implementation</td>
+  </tr>
+  <tr>
+    <td>an interpreter</td>
+    <td>code as data; the read-eval-print cycle</td>
+  </tr>
+  <tr>
+    <td>dataframes</td>
+    <td>interface vs. implementation; performance optimization</td>
+  </tr>
+  <tr>
+    <td>pipelines</td>
+    <td>inheritance vs. composition; traceability; task execution</td>
+  </tr>
+  <tr>
+    <td>a build manager</td>
+    <td>dependencies as graphs; task execution</td>
+  </tr>
+  <tr>
+    <td>pattern matching</td>
+    <td>recursive search; composability</td>
+  </tr>
+  <tr>
+    <td>a regular expression parser</td>
+    <td>lazy vs. greedy execution; composability</td>
+  </tr>
+  <tr>
+    <td>a web server</td>
+    <td>event-driven computation; error handling; security</td>
+  </tr>
+  <tr>
+    <td>a large file cache</td>
+    <td>hashing; interface vs. implementation</td>
+  </tr>
+  <tr>
+    <td>a log-structured database</td>
+    <td>systems programming; performance optimization</td>
+  </tr>
+  <tr>
+    <td>a persistence framework</td>
+    <td>introspection; interface vs. implementation</td>
+  </tr>
+  <tr>
+    <td>binary data storage</td>
+    <td>interpreter internals</td>
+  </tr>
+  <tr>
+    <td>a page templating tool</td>
+    <td>code as data; introspection</td>
+  </tr>
+  <tr>
+    <td>a package manager</td>
+    <td>recursive search; performance optimization</td>
+  </tr>
+  <tr>
+    <td>a page layout tool</td>
+    <td>recursive search; interface vs. implementation</td>
+  </tr>
+  <tr>
+    <td>a code quality checker</td>
+    <td>recursive search; introspection; extensibility</td>
+  </tr>
+  <tr>
+    <td>a code generator</td>
+    <td>code as data</td>
+  </tr>
+  <tr>
+    <td>a virtual machine</td>
+    <td>interpreter internals</td>
+  </tr>
+  <tr>
+    <td>an interactive debugger</td>
+    <td>interpreter internals</td>
+  </tr>
+</table><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

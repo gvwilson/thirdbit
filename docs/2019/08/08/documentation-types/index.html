@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Documentation Types</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Documentation Types</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/08/06/toni-morrison/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-08-08" class="post-date">2019-08-08</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/08/10/exoplanets/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><em>This post is an update on <a href="../../../../2019/04/16/what-docs-when/">an earlier one</a>
+that slims down the set of documentation types.
+<a href="mailto:gvwilson@third-bit.com">Feedback</a> is very welcome.</em></p>
+<p>Our starting point is a three-stage model of cognitive development:</p>
+<ul>
+<li>A <em>novice</em> doesn&rsquo;t yet have a mental model of the domain.
+    They don&rsquo;t know what they don&rsquo;t know,
+    don&rsquo;t speak the jargon,
+    and do things by analogy or by rote.</li>
+<li>A <em>competent practitioner</em> has a usable mental model of the domain.
+    They can do routine tasks and solve routine problems,
+    know where to look to find more information,
+    and can recognize solutions to their problems when they find them.</li>
+<li>An <em>expert</em> has a large, densely-connected model of the domain.
+    They can solve common problems at a glance and figure out the one-in-a-thousand cases.</li>
+</ul>
+<p>The diagram below shows how different kinds of material help different people.
+The X axis is the user&rsquo;s general knowledge of R, RStudio, the tidyverse, and data science.
+The Y axis is their <em>domain expertise</em>,
+i.e., how well they understand the particular problem they&rsquo;re trying to solve.
+The difference is illustrated by these two cases:</p>
+<ul>
+<li>Someone can have expert knowledge of R in general,
+    but be a novice when it comes to the features of the latest release of the IDE.
+    (The jargon term for such a person is <em>false beginner</em>:
+    they look like a novice if you test their knowledge,
+    but move much faster than someone without their background knowledge.)</li>
+<li>Less commonly,
+    someone can be competent in one specific area
+    but know little or nothing about the larger domain.
+    Someone who has learned how to install and configure RStudio Connect but has never used it may fall into this category.
+    We sometimes say that their understanding is <em>brittle</em>:
+    even small changes can shatter their ability to accomplish tasks because they don&rsquo;t have enough of a mental model to generalize or adapt.</li>
+</ul>
+<p><img src="../../../../files/2019/08/doctypes.svg" width="80%" alt="Documentation Types" class="centered"></p>
+<p>This diagram refers to the following kinds of material:</p>
+<ol>
+<li>
+<p>A <strong>how-to</strong> is a step-by-step recipe for solving a particular problem.
+    Novices can use it without understanding the &ldquo;why&rdquo; behind each step;
+    it increases knowledge of a very specific topic (how to accomplish one particular task)
+    but doesn&rsquo;t do much for general domain knowledge.</p>
+</li>
+<li>
+<p>An <strong>overview</strong> is a high-level introduction that makes people aware something exists;
+    they increase general understanding,
+    but aren&rsquo;t much help with specific problems.
+    Overviews are often delivered as webinars,
+    as the first lecture of a larger workshop or course,
+    or as elevator pitches and other marketing material;
+    concept maps and other visual aids are particularly useful.</p>
+</li>
+<li>
+<p>A <strong>tutorial</strong> is a planned lesson that helps people build a mental model of a domain
+    and acquire a few basic skills so that they can start to tackle problems of interest.
+    We have shown tutorials as moving people from novice to competent;
+    any single tutorial will probably only move people part of the way along this vector.</p>
+</li>
+<li>
+<p>A <strong>translation</strong> shows a reader who knows how to do something with tool X how to do it with tool Y,
+    i.e., it leverages understanding of one topic to increase understanding of another.
+    (Note that translations include &ldquo;Linux for Windows sys admins&rdquo;
+    as well as &ldquo;the Frisian version of a Spanish-language cheatsheet&rdquo;).</p>
+</li>
+<li>
+<p><strong>Release notes</strong> and similar &ldquo;updaters&rdquo; assume general understanding,
+    and fill in pre-identified gaps in knowledge of detail.</p>
+</li>
+<li>
+<p><strong>References</strong> (and Q&amp;A sites) assume you know what you&rsquo;re looking for
+    but have forgotten or never knew the details.
+    They keep being useful no matter how far you progress,
+    so the arrow should extend into expertise,
+    but that would clutter the diagram.</p>
+</li>
+<li>
+<p>A <strong>worked example</strong> is like a how-to,
+    but assumes the user knows enough to generalize from a specific series of steps to solve a particular problem.
+    (Checklists, on the other hand, continue to be useful even for experts.)</p>
+</li>
+</ol>
+<p>This list doesn&rsquo;t encompass everything,
+but most of what&rsquo;s not here can fit into it or be explained in terms of it.
+The key is to distinguish content from presentation,
+i.e., what&rsquo;s being delivered from how it&rsquo;s being delivered:</p>
+<ul>
+<li>
+<p>A <strong>workshop</strong> is usually a way to deliver a tutorial.</p>
+</li>
+<li>
+<p>A <strong>book</strong> often includes tutorials, reference material, worked examples, and case studies in one place.</p>
+</li>
+<li>
+<p>A <strong>vignette</strong> can be an overview or a worked example.</p>
+</li>
+<li>
+<p>A <strong>cheatsheet</strong> is a one-page reference guide that opens with an overview
+    and includes a bit of cookbook material as well;
+    it&rsquo;s mostly a reminder of things the reader has probably already seen with a few other useful bits thrown in.</p>
+</li>
+<li>
+<p>Similarly, a <strong>computational notebook</strong>
+    (sometimes also called a <strong>knuth</strong> in honor of the inventor of literate programming)
+    can be a tutorial,
+    a case study,
+    a reference manual,
+    or many other things depending on its primary purpose.</p>
+</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

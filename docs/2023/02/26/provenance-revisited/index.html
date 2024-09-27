@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Provenance Revisited</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Provenance Revisited</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2023/02/23/nwit-april-2023/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2023-02-26" class="post-date">2023-02-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2023/03/04/the-only-features-i-need/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;ve been thinking recently about how best to help the data scientists I work with,
+and I think the thing they stumble over most is <em>provenance</em>,
+i.e.,
+keeping track of exactly what code was used to produce each result and what data it depends on.
+There were some attempts starting in the 00&rsquo;s to address this (see <a href="https://openprovenance.org/">https://openprovenance.org/</a>),
+but none of them saw significant uptake:
+unless every tool in the chain (including legacy tools like &lsquo;grep&rsquo;, ad hoc shell scripts, and so on) is instrumented,
+there will be gaps in the chain of provenance that undermine the whole exercise.
+(If I recall the results of
+<a href="https://onlinelibrary.wiley.com/doi/10.1002/cpe.1233">the original provenance bakeoff</a> correctly,
+the only group that had a solution to this problem
+instrumented the underlying operating system instead of the individual tools.
+That &ldquo;worked&rdquo;,
+but most scientists aren&rsquo;t going to install a new OS on their laptop
+just to get a record of exactly which data files they&rsquo;ve processed.)</p>
+<p>One of my colleagues recently put together a script that tackles this problem in a way I hadn&rsquo;t seen before.
+Whenever the scientist runs an analysis, her script uploads a record with:</p>
+<ol>
+<li>
+<p>The most recent Git hash of the repo the scientist is working in.</p>
+</li>
+<li>
+<p>A patch of all the files that have been changed in the repo since that hash.</p>
+</li>
+<li>
+<p>The command-line parameters used to run the task.</p>
+</li>
+</ol>
+<p>This seems to give a high degree of reproducibility,
+particularly if the data files are stored in something like <a href="https://dvc.org/">DVC</a>.
+What it has made me realize is that
+the environment around scientific work has changed in useful ways since 2006-07:
+for example,
+I think it&rsquo;s safe to assume today that scientists are using Git.
+I realize that the topic isn&rsquo;t as fashionable as blockchain or machine learning,
+but I think a solution <em>that scientists would actually adopt</em>
+would have a lot of impact.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

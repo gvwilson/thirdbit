@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: REST APIs for Batch Operations</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>REST APIs for Batch Operations</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2008/09/15/how-do-i-enlarge-a-fizzbar/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2008-09-15" class="post-date">2008-09-15</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2008/09/16/life-dont-talk-to-me-about-life/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I have a question about the &ldquo;right&rdquo; way to design a REST API, and am hoping someone out there on the Interweb will point me in the right direction.  The short version of the question is, &ldquo;How should batch operations be structured?&rdquo;  The long version goes something like this:</p>
+<p>Suppose your web application has to keep track of fruit flies.  Each fruit fly has a unique (system-assigned) integer ID, a name (hey, even flies can be cuddly), and a genome (represented as a string of characters).  If you only had to work with one fly at a time, the API might look something like this (with the data values formatted as XML, JSON, or what have you):</p>
+<table class="centered">
+<tr>
+<td><strong>Operation</strong></td>
+<td><strong>URL</strong></td>
+<td><strong>HTTP Verb</strong></td>
+<td><strong>Request Data</strong></td>
+<td><strong>Response Code(s)</strong></td>
+<td><strong>Response Data</strong></td>
+</tr>
+<tr>
+<td>Find out what flies exist</td>
+<td>/api/fly</td>
+<td>GET</td>
+<td>—</td>
+<td>200</td>
+<td>{id, id, …}</td>
+</tr>
+<tr>
+<td>Get a fly's record</td>
+<td>/api/fly/id</td>
+<td>GET</td>
+<td>—</td>
+<td>200</td>
+<td>{id, name, genome}</td>
+</tr>
+<tr>
+<td>Create a fly in the database</td>
+<td>/api/fly</td>
+<td>POST</td>
+<td>{name, genome}</td>
+<td>200</td>
+<td>{id}</td>
+</tr>
+<tr>
+<td>Update a fly's record</td>
+<td>/api/fly/id</td>
+<td>PUT</td>
+<td>{new name and/or genome}</td>
+<td>200</td>
+<td>{id}</td>
+</tr>
+<tr>
+<td>Delete a fly's record</td>
+<td>/api/fly/id</td>
+<td>DELETE</td>
+<td>—</td>
+<td>200</td>
+<td>{id}</td>
+</tr>
+</table>
+<p>I&rsquo;ve left out error cases because they aren&rsquo;t relevant to my question—at least, I don&rsquo;t think they are.</p>
+<p>But now suppose that you want to do batch operations, i.e., that you want to create, read, update, or delete hundreds or thousands of flies at once.  Your client (which may be a desktop application or something else that isn&rsquo;t a browser) can POST data for lots of flies at once, but you do <em>not</em> want to handle the set of values like this:</p>
+<pre>
+result = OK
+
+for chunk_of_data in HTTP_Request:
+
+    start_database_transaction
+
+    result = result and process(chunk_of_data)
+
+    end_database_transaction
+
+return result</pre>
+<p>The first reason you don&rsquo;t want to do this is that it&rsquo;s not atomic: if anything goes wrong partway through, you could have five hundred flies updated, and five hundred not.  The second reason is that the <code>process</code> function is actually very slow: if you call it five hundred times, there&rsquo;s a real risk of taking so long that the web server will time out the request.  (Note: in reality, a lot more is going on inside <code>process</code> than just a few SQL queries—files are being opened, parsed, and closed, log entries are being created, etc., so &ldquo;get a faster web server&rdquo; is <em>not</em> a valid solution.)</p>
+<p>The solution I&rsquo;ve come up with is to make batch operations fundamental to the REST API, and to define the single-fly operations in terms of them.  This leads to API entries like this:</p>
+<table class="centered">
+<tr>
+<td><strong>Operation</strong></td>
+<td><strong>URL</strong></td>
+<td><strong>HTTP Verb</strong></td>
+<td><strong>Request Data</strong></td>
+<td><strong>Response Code(s)</strong></td>
+<td><strong>Response Data</strong></td>
+</tr>
+<tr>
+<td>Update flies' records</td>
+<td>/api/fly</td>
+<td>PUT</td>
+<td>{ {id_0, name_0, genome_0}, {id_1, name_1, genome_1}, …}</td>
+<td>200</td>
+<td>number_of_updates</td>
+</tr>
+</table>
+<p>with the obvious definition of a PUT to <code>/api/fly/<em>id</em></code> as a multi-fly PUT with only one fly.</p>
+<p>This doesn&rsquo;t feel right, but I&rsquo;m not sure where I&rsquo;ve gone wrong.  My performance constraints (i.e., the need to support batch operations) isn&rsquo;t going to go away, but the whole point of REST seems to be a fundamental one-to-one mapping between URLs and entities, which the batch API seems to violate.  So, how do other people (or APIs) do this?  And why?</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

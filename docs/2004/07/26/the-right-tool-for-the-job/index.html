@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: The Right Tool for the Job</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Right Tool for the Job</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2004/07/23/preparing-for-the-next-round/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2004-07-26" class="post-date">2004-07-26</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2004/08/04/poor-cousins/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>It is easier to bang in a nail with the back of a screwdriver than with a handleless hammer (believe me, I&rsquo;ve tried and it wasn&rsquo;t pretty).  Even though a hammer is the right tool for that job, sometimes you have to switch tools if the one that you would like to use isn&rsquo;t complete.</p>
+<p>When we began Helium a few months ago, I&rsquo;d hoped that we would be able to use <a href="http://www.python.org/">Python</a> for most of the project.  Python is my favourite programming language, and I felt that it would help the project with productivity (by reducing the amount of time spent struggling with syntax) and longevity (since code that is easier to read is also easier to maintain).  Since then, I&rsquo;ve discovered several other more important reasons why Python was the right tool for the job.  So why, then, is Helium written in <a href="http://java.sun.com/">Java</a>?</p>
+<p>The answer to this question can be found on the <a href="http://www.python.org/moin/FrontPage">PythonInfo Wiki</a> under <a href="http://www.python.org/cgi-bin/moinmoin/WebProgramming">WebProgramming</a>.  In order to list all of the web frameworks in Python, you have to scroll through several screenfuls of names.  This, in and of itself, is enough to make me cringe.  I can&rsquo;t help but feel that this goes against part of Python&rsquo;s spirit.  In fact, one of the postulates of the <a href="http://c2.com/cgi/wiki?PythonPhilosophy">Python philosophy</a> states that <em>&ldquo;there should be one &ndash; and preferably only one &ndash; obvious way to do [something]&rdquo;</em>.  It turns out that there isn&rsquo;t just one obvious way to build a web application in Python: there are several pages worth of options to choose from.</p>
+<p>If the problem only ran as deep as having to make a choice between them, I wouldn&rsquo;t mind so much; I can get a coin (or, in this case, a 70-sided die) to make that decision for me.  The real problem with this kind of rampant fragmentation is that you have no guarantee that the piece you choose will still be an active project in one, two, or five years from now.  Furthermore, every piece will be far less mature than if there were very few options to choose from, since the developer effort will be spread thin across so many projects.</p>
+<p>Beyond the choice of web framework, it was no more clear which <a href="http://www.thinkware.se/cgi-bin/thinki.cgi/ObjectRelationalMappersForPython">Python Object/Relational mapping tool</a> Helium should use.  Every developer you ask has a different opinion of what the best way to do this is in Python.  Again, it&rsquo;s not their disagreement itself which is the problem, it is what their disagreement implies: there is not a single obvious way to do O/R in Python.</p>
+<p>For these reasons, we chose to write Helium in Java.  For the first few weeks our language choice made little difference.  But as Helium grew in size and complexity, we kept finding ourselves stumbling over the language, rather than having the language make our lives easier.  There are currently three independent parts of Helium which had to be written in a wrapper scripting language (we, of course, chose Python) because we couldn&rsquo;t get Java to do what we needed it to.  We&rsquo;re also heavily interfacing with Subversion, and the Python-SVN bindings are <em>far</em> more mature than the Java bindings.  Over and over, I felt constantly reminded that Python was the right tool for this job.  Unfortunately, it was the hammer without a handle.</p>
+<p>On my next web application project, I would like to use Python.  But I&rsquo;m not going to feel comfortable doing so until there&rsquo;s a clear &ldquo;winner&rdquo; or two in the web framework field.  Just a few minutes ago, Jon from the Memview team asked me, &ldquo;What sort of web architecture do you like to use with python?&rdquo;, and I was forced to shrug helplessly.  I didn&rsquo;t have a good answer.  His response captured my feelings exactly: &ldquo;At least with php you dont have to choose&rdquo;.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

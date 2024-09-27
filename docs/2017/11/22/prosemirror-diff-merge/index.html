@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Diff and Merge for ProseMirror</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Diff and Merge for ProseMirror</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2017/11/20/data-science-for-software-dev/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2017-11-22" class="post-date">2017-11-22</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2017/11/24/common-misconceptions/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p><a href="https://prosemirror.net/">ProseMirror</a> is one of the most interesting projects I&rsquo;ve come across this year.
+As its blurb says:</p>
+<blockquote>
+<p>An ideal content editor produces structured, semantically meaningful
+documents, but does so in a way that is easy for users to
+understand. ProseMirror tries to bridge the gap between Markdown
+text editing and classical WYSIWYG editors.</p>
+<p>It does this by implementing a WYSIWYG-style editing interface for
+documents more constrained and structured than plain HTML. You can
+customize the shape and structure of the documents your editor
+creates, and tailor them to your application&rsquo;s needs.</p>
+</blockquote>
+<p>More specifically,
+ProseMirror stores a document as JSON,
+and allows the creators of custom editors to provide templates
+to specify what&rsquo;s allowed where.
+For example,
+you can say that a page like this one has to have
+a header with three fields called <code>layout</code>, <code>title</code>, and <code>date</code>,
+a body consisting of paragraphs and block quotes,
+and a list of URLs at the end.</p>
+<p>ProseMirror is designed for real-time collaborative editing:
+its author even says that <a href="http://marijnhaverbeke.nl/blog/collaborative-editing.html#offline-work">its model is useless</a>.
+Respectfully,
+I disagree:
+<a href="https://jupyter.org/">Jupyter Notebooks</a> are stored as JSON,
+<a href="http://tavisharmstrong.com/">Tavish Armstrong</a> and his colleagues
+implemented <a href="http://tavisharmstrong.com/2014/04/06/nbdiff-a-diffing-and-merging-tool-for-the-ipython-notebook/">diff and merge for them</a> back in 2014 as an undergraduate honors project,
+and <a href="https://github.com/jupyter/nbdime">nbdime</a> now provides a full suite of diff and merge tools.
+I think it would be really exciting to implement a general JSON-based diff-and-merge for ProseMirror
+that leveraged the structural information in the schemas
+in the way that <a href="http://cmpp.coodesoft.com/">Compare++</a> and <a href="https://www.semanticmerge.com/">SemanticMerge</a> do syntax-aware merging for code.
+&ldquo;Slide moved&rdquo; is just the beginning:
+once there&rsquo;s a schema for tables,
+there&rsquo;s the possibility of diffing rows and columns instead of the markup used to represent them,
+and if anyone ever gets around to creating a diagram plugin for ProseMirror
+(using a JSON encoding of SVG as a store)
+we might finally get the diff tool for diagrams that I&rsquo;ve been yearning for.</p>
+<p>I&rsquo;ve been advocating <a href="http://queue.acm.org/detail.cfm?id=1039534">extensible programming systems</a>
+(and more generally, extensible authoring systems) for years.
+A few tools, like <a href="http://foswiki.cs.uu.nl/foswiki/Proxima/WebHome">Proxima</a>, <a href="../../../../2011/09/16/extensible-programming-a-new-hope/">Larch</a>, <a href="https://www.jetbrains.com/mps/">MPS</a>, and <a href="https://www.eclipse.org/Xtext/">Xtext</a>
+showed what could be done,
+but the idea never caught on.
+I&rsquo;ve also been arguing that <a href="../../../../2013/05/01/merging-is-the-real-revolution/">merging is the magic that makes collaboration at scale possible</a>,
+and asking (or begging) developers to implement diff and merge in LibreOffice
+so that the 99% of humanity who <em>aren&rsquo;t</em> willing to dumb everything down to ASCII text
+can use this powerful idea with the tools and formats they&rsquo;re already using.
+Diff and merge for ProseMirror wouldn&rsquo;t be everything I want,
+but it would be a big step in the right direction.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

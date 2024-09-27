@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: CSC49X: Figuring Out Where the Goalposts Are</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>CSC49X: Figuring Out Where the Goalposts Are</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/08/25/why-real-world-programming-is-difficult/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-08-30" class="post-date">2006-08-30</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/08/31/step-2-analysis-estimation/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Another batch of CSC49X projects are due to start next week, so this seems like a good time to fulfil the promise I made two years ago to write up how the course is run, and why. (For readers outside <a href="http://www.cs.utoronto.ca">U of T</a>, CSC494/495 is a term-long project course, in which students work directly under the supervision of a professor.)
+Step 1: <strong>Figure out where the goalposts are</strong>, so you know which way to kick the ball.  If you&rsquo;re an academic, this means finding something that is interesting and challenging enough to be publishable, but not intractable.  In a startup, it means figuring out <a href="http://www.ericsink.com/Marketing_for_Geeks.html">what you can build that people will pay for</a>.  Working for someone else? Check your job description (including criteria for performance evaluation and bonuses).</p>
+<p>Life&rsquo;s easier if you&rsquo;re a student: all you have to do is check the marking scheme.  Here&rsquo;s what we&rsquo;ll be using in 49X this fall, and why.</p>
+<dl>
+<dt>Warmup exercise: 10%</dt> <dd> The purpose of the warmup exercise is to give students a chance to familiarize themselves with the tools they'll be using in the rest of the course.  Whether it's <a href="http://www.hibernate.org">Hibernate</a>, <a href="http://www.turbogears.org">, </a><a href="http://www.adobe.com/devnet/flash/">Flash</a>, or something more exotic, students have to have some hands-on experience before they can start planning the rest of their term.  The code students write for this is thrown away after being graded; they are strongly encouraged <em>not</em> to try to turn their finger exercises into finished products. </dd>
+<dt>Analysis & estimation: 10%</dt> <dd> Now that they know what they're going to be working with, students can analyze their customers' requirements, figure out what features will satisfy them, prioritize, and draw up a schedule.  This is an important enough topic to merit a post of its own; until then, check out the lecture on development at the Software Carpentry site. </dd>
+<dt>Code: 10%</dt> <dd> Yes, that's right: the code students write for this course is only worth 10% of their final grade, even though it's where most of them will spend the bulk of their time.  There are two reasons for this: (1) if they don't know how to program, they shouldn't be in 49X, and (2) if they don't create some code, they can't test, do a demo, or write their final report. </dd>
+<dt>Testing: 10%</dt> <dd> Testing is just as important as coding, so it's given the same weight. Note, though, that only <em>automated</em> tests count: if I can't check the project out of <a href="http://subversion.tigris.org">Subversion</a> and re-run the tests (possibly after configuring a server or two), then as far as I'm concerned, <em>the code hasn't been tested</em>.  And it's no good saying, "But I can't write unit tests for my GUI," because (a) if you design your program the right way, you can write 'em for the back end, and (b) tools like <a href="http://www.openqa.org/selenium">Selenium</a> can do a lot more than most students realize is possible. </dd>
+<dt>Demos: 10%</dt> <dd> I used to require students to prepare a 20-minute PowerPoint lecture on a topic of their choosing, and deliver it to either their coursemates or a junior class.  It was a valuable experience, but it ate up a lot of time.  This summer, I took a page from <a href="http://davidcrow.ca/">David Crow</a>'s DemoCamp playbook, and had students do 10-minute demos instead.  It worked well: in most cases, the first one (which isn't graded) was shaky, but the second (which is) was slick, so I'll stick to this format in future. </dd>
+<dt>Teamwork: 10%</dt> <dd> Most of the students I take on are mature, responsible, and polite; the teamwork mark is the stick I use to beat the ones who aren't. Everyone starts with 10 out of 10, but if they only do their work at the last moment, or check in code that breaks the build, or are rude or condescending in email, marks come off. </dd>
+<dt>Final report: 40%</dt> <dd> Students deliver software to their customers; they deliver their final reports to me.  Each term, I tell them to write the document they wish they'd had when they started the project, so that whoever inherits their work will have an easier life.  What does it do?  Why does it do it that way?  How is it structured?  Built?  Tested?  What went well? What should the next person or team avoid like stinky cheese?  Most importantly (for me, anyway), what have the students learned from the whole experience?  Past reports have ranged from 8 pages to almost 50; these days, I look for 8-10 pages per student (i.e., roughly 25 pages for a 3-person team).  If time permits (i.e., if students start work early enough), they can submit their report once to get feedback from me, revise it, and then resubmit for marking.  This usually makes at least one full letter grade difference in the mark, which gives teams yet another reason to plan their time carefully. </dd>
+</dl>
+
+<p>This grading scheme is labor-intensive: I probably spend 6-8 hours reading and grading each project in a term, or roughly 50 hours in total.  I&rsquo;ve thought several times about using peer grading to reduce my load (and give students some experience of what life is like on the other side of the red pen), but I&rsquo;ve never been able to convince myself that it would actually work.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,6 +1,0 @@
-<table>
-  <tr><th>Author(s)</th><th>Year</th><th>Title</th></tr>
-  {% for paper in site.data.papers %}
-  <tr><td>{{ paper.author | replace: " ", "&nbsp;" }}</td><td>{{ paper.year }}</td><td><a href="{{ paper.url }}">{{ paper.title }}</a></td></tr>
-  {% endfor %}
-</table>

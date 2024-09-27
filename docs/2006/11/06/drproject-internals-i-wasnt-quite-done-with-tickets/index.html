@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: DrProject Internals: I Wasn't Quite Done With Tickets</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>DrProject Internals: I Wasn't Quite Done With Tickets</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/11/05/drproject-internals-tickets-again/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-11-06" class="post-date">2006-11-06</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/11/08/csc49x-projects-winter-2007/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>OK, we&rsquo;re not quite done with tickets yet—at least, not with the issues that tickets raise.</p>
+<p>The first one is email notification.  In Trac and many other systems, you can specify that you want to receive email every time a ticket that you filed is updated.  This is a lot handier than logging in every once in a while and asking the system to display all the tickets you created that have been modified in the last, um, six days? Ten?  When did I last log in, anyway?</p>
+<p>We took this out of DrProject because we thought there wouldn&rsquo;t be a need for it.  It&rsquo;s common in industrial-strength systems to open up ticketing to customers and users, so that (a) the number of people who can file tickets is much greater than the number who will be dealing with them, and (b) many of the people filing tickets aren&rsquo;t &ldquo;members&rdquo; of the project in any sense.  In contrast, the primary use case for DrProject is lots of little teams, each of which is developing the software primarily for itself.  Since DrProject supports per-project RSS feeds (see below), email notification of changes to tickets seemed redundant.</p>
+<p>Well, we [1] were wrong.  Even on a two-person team, people like to be poked when tickets they care about change (or when new tickets are assigned to them).  What we failed to take into account is that students are slicing their time between many different courses; it is very useful for them to have their attention drawn to things as they happen, and email is still the best way to do that.</p>
+<p>Turning email notification in specific circumstances back on won&rsquo;t be too hard.  What will be is generalizing it, so that people can (a) specify a rule for when they want notification, and (b) override that rule to be notified (or not) for specific tickets.  For example, as an instructor, I might want to set things up so that I&rsquo;m only notified about changes to tickets assigned to me, and not to tickets I created, since I&rsquo;m going to be filing dozens or hundreds of tickets over the course of a term to give students work.  I might also want to add myself as an observer of particular tickets that I didn&rsquo;t create, and that I&rsquo;m not supposed to be working on.  It isn&rsquo;t rocket science, but it&rsquo;s going to be a grumpy bear to test.</p>
+<p>And speaking of RSS: like Trac, DrProject creates an RSS feed (in DrProject&rsquo;s case, one per project) that summarizes the events occurring in a project.  Ticket changes, Subversion check-ins, wiki page edits, and the like are all turned into blog entries.  It&rsquo;s a great way to keep track of what&rsquo;s going on in projects, particularly if you&rsquo;re trying to monitor a dozen at once.</p>
+<p>Unfortunately, we&rsquo;ve had to disable the RSS feeds for our undergraduates&rsquo; course projects.  We can&rsquo;t allow one team to see another team&rsquo;s RSS feed, since check-in comments and ticket bodies can contain sensitive information [2].  If we could password-protect the RSS feeds, we would, but there isn&rsquo;t yet a standard way for blog readers to forward credentials.  (And even if there was, we wouldn&rsquo;t be comfortable with students storing the passwords for their lab accounts on web-based feed readers like <a href="http://www.bloglines.com">Bloglines</a>.)  We don&rsquo;t see any way to fix this one…</p>
+<p>Another feature of Trac that we&rsquo;ve dropped is custom ticket queries.  The idea is seductive: allow users to write arbitrary queries against the ticket database, store them, and create links that trigger them, so that other users can run the same or similar queries. This is a complete non-starter in our context: there is no way we&rsquo;re going to allow students to run their SQL against a shared multi-project database.  That said, it would be nice if there was a way to capture and save the settings someone is using to view the ticket database, so that people could share their favorite views on what it contains…</p>
+<p>The last [sic] part of the ticketing system we&rsquo;d like to revisit is the set of actions users are allowed to perform.  Right now, you have three choices when you update a ticket: leave it open, mark it as complete, or reject it.  No matter what you do, you&rsquo;re supposed to write a short comment explaining your action (just as you&rsquo;re supposed to write comments when you check files into Subversion).</p>
+<p>This is working well, but doesn&rsquo;t capture one important use case. The more users a project has, the more likely it is that someone will file a ticket that duplicates one filed earlier.  At present, we rely on users to write something like &ldquo;Duplicates #456&rdquo; when the reject redundant tickets; all three of the companies that are thinking about adopting DrProject internally would like something a little more structured, so that they can (for example) search for tickets that were duplicates.</p>
+<p>The reason we haven&rsquo;t done this is that it complicates our representation of ticket states.  Right now, states are taken from an enumeration with three values; if we want to add &ldquo;duplicate&rdquo; as a fourth state, we have to add another field to keep track of which ticket (or tickets) this one is a duplicate of—fields that wouldn&rsquo;t be meaningful in other states.  Irregularities like this are bad news for maintenance and testing; we won&rsquo;t add &ldquo;duplicate&rdquo; until we can think of a way to avoid this one.</p>
+<p>Of course, suggestions are always welcome…</p>
+<hr />
+<p>[1] This is a royal &ldquo;we&rdquo;…</p>
+<p>[2] Yes, the world would be a better place if students could share information and learn from one another.  However, part of our job is to evaluate their work, and we need to be sure that it&rsquo;s <em>their</em> work, which limits how much <del>plagiarism</del> sharing we can allow.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

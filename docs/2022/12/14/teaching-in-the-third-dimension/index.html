@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Teaching in the Third Dimension</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Teaching in the Third Dimension</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2022/12/10/this-years-books/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2022-12-14" class="post-date">2022-12-14</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2022/12/17/compassionate-programmer/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;ve been blogging recently about teaching tools I want,
+such as <a href="../../../../2022/12/04/i-want-a-memory-diagram-generator/">a memory diagram generator</a> and <a href="../../../../2022/11/30/what-i-want-for-code-in-textbooks/">a code annotator</a>.
+Talking to people about them,
+and about <a href="../../../../2022/11/13/the-notebook-not-taken/">an alternative history for computational notebooks</a>,
+has reminded me that I&rsquo;ve never actually explained
+why learning programming is much harder than actually programming.</p>
+<p>Here&rsquo;s the physical organization of a small program.
+The boxes can represent files in a directory structure or a class inheritance hierarchy;
+what matters is that a programmer who wants to work with this code
+must build a mental model of what&rsquo;s where:</p>
+<p><img src="../../../../files/2022/physical_organization.svg" alt="physical structure of code in a lesson" class="centered"></p>
+<p>They must also build a mental model of what runs in what order:</p>
+<p><img src="../../../../files/2022/execution_flow.svg" alt="flow of execution through code in a lesson" class="centered"></p>
+<p>If a programmer wants to add a feature or fix a bug,
+they need to have two models in their head at once
+along with the difference between them:</p>
+<p><img src="../../../../files/2022/single_change.svg" alt="mental model of a single change to a program" class="centered"></p>
+<p>Keeping that straight is more difficult than remembering either model on its own,
+but what happens when we&rsquo;re trying to teach or learn programming?
+In particular,
+what happens when we&rsquo;re trying to explain the design of even a small program step by step?</p>
+<p>I tried to draw an example for this blog post but couldn&rsquo;t—not in two dimensions.
+The problem is the need for a third kind of connection
+that links changes to physical elements and execution paths.
+It&rsquo;s just barely readable for a single small change:</p>
+<p><img src="../../../../files/2022/connecting_changes.svg" alt="connecting changes to program" class="centered"></p>
+<p>but some programs in <a href="../../../../sdxjs/"><em>Software Design by Example</em></a> evolve ten or eleven times.
+If I draw those changes side by side with the change connectors on top of the diagrams,
+the result is unreadable.
+The only solution I can think of is to use a third dimension:</p>
+<ul>
+<li>
+<p>spatial: stack the versions on top of each other like panes of glass
+    so that the change connectors run vertically</p>
+</li>
+<li>
+<p>temporal: animate the additions, deletions, and modifications
+    so that the person trying to understand them
+    only has to keep one or two in their head at a time</p>
+</li>
+</ul>
+<p>Both options would require more sophisticated tools
+and much (much) more time than most instructors have,
+but that&rsquo;s not the point.
+The point is that no matter what we do,
+<em>it&rsquo;s harder to understand than everyday programming</em>.</p>
+<p>I&rsquo;m trying to fix some data access code at work right now.
+I&rsquo;ve been working on the problem for two days and have touched about two dozen files,
+but I only need to keep two mental models in my head at once.
+If I was teaching someone how this code had grown over time
+in response to new requirements,
+they and I would have to build half a dozen mental models one after another,
+<em>and</em> keep track of the connections between the newest one and its predecessor.
+We could probably dump parts of the older models as we formed the newer ones,
+but only parts,
+and &ldquo;dumping&rdquo; is the wrong metaphor here anyway.
+Our brains can&rsquo;t discard information the way a computer can flush a cache,
+and the no-longer-relevant parts of old models would linger
+and interfere with the new models we&rsquo;re trying to form.
+(&ldquo;Wait, are we using callbacks or observers at this point?&rdquo;)</p>
+<p>We can try to minimize the need for third-dimensional thinking
+by presenting learners with finished, full-formed programs,
+but that only teaches &ldquo;what&rdquo;, not &ldquo;why&rdquo; or &ldquo;how&rdquo;:</p>
+<ul>
+<li>
+<p>&ldquo;Why do we split the array at <code>mid-1</code> instead of <code>mid</code>?&rdquo;
+    To avoid an edge case that I haven&rsquo;t shown you
+    and that doesn&rsquo;t cause problems if the code is written correctly
+    right from the start.</p>
+</li>
+<li>
+<p>&ldquo;How did you figure out why the split has to be <code>mid-1</code>?&rdquo;
+    By testing an edge case that only fails with incorrect code,
+    figuring out why it failed,
+    and then figuring out where to make the necessary change.</p>
+</li>
+</ul>
+<p>All of which is to say,
+if programming is like playing chess,
+learning to program is like playing three-dimensional chess
+when there&rsquo;s a cat in the room who occasionally jumps up on the board and knocks the pieces around.
+This is why I believe that having learners start with &ldquo;real&rdquo; tools
+like <a href="https://code.visualstudio.com/">VSCode</a> or <a href="https://jupyter.org/">Jupyter notebooks</a> is misguided:
+they increase <a href="https://teachtogether.tech/en/index.html#s:architecture-load">cognitive load</a> by solving problems learners don&rsquo;t have yet,
+but more importantly,
+they don&rsquo;t even address the unique problems that teachers and learners have.</p>
+<p>Tools to help people understand the evolution of code over time would be useful to working programmers as well,
+but twenty-five years after <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">UML</a> was standardized,
+it still doesn&rsquo;t have a way to represent <em>changes</em> to programs.
+No other notation I&rsquo;m familiar with can do this either;
+they all describe static snapshots of programs
+rather than the dynamic, evolving programs we all build, learn, and teach.
+Solving this is just <a href="../../../../ideas/research/">one question among many</a>,
+but speaking as a teacher,
+it&rsquo;s one of the most important.
+If you&rsquo;re working on it,
+or know someone who is,
+I&rsquo;d be grateful for a pointer.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

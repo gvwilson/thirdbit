@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: What's Not on the Reading List</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>What's Not on the Reading List</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2010/03/26/online-delivery/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2010-03-29" class="post-date">2010-03-29</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2010/03/30/why-do-students-cheat/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I mentioned yesterday that I maintain a list of books that haven't been written yet. Partly it's an exercise in sympathetic magic–if the reviews exist, maybe the books will follow–but it's also useful for organizing my thoughts about what a programmer's education <em>should</em> look like. Looking at the books I've matched to various topics in the Software Carpentry course outline, there are some distressing gaps:</p>
+<ol>
+<li>Given that programmers spend upwards of 40% of their time debugging, there are very few books about it, and only one collection of exercises (Barr's <cite>Find the Bug</cite>).</li>
+<li>There's a lot on higher-level programming techniques, but it's scattered across dozens of books as disparate as <a href="http://www.amazon.com/Seasoned-Schemer-Daniel-P-Friedman/dp/026256100X"><em>The Seasoned Schemer</em></a>, <a href="http://www.amazon.com/Effective-Specific-Improve-Programs-Designs/dp/0321334876"><em>Effective C++</em></a>, and <a href="http://www.amazon.com/Practice-Programming-Brian-W-Kernighan/dp/020161586X"><em>The Practice of Programming</em></a>. I haven't read Perrotta's <a href="http://www.amazon.com/Metaprogramming-Ruby-Facets-Paolo-Perrotta/dp/1934356476"><em>Metaprogramming Ruby</em></a> yet, but it looks like it will be another rich source of ideas.</li>
+<li>Material on systems programming–manipulating files and directories, running sub-processes, etc.–is equally scattered. <a href="http://www.amazon.com/Art-UNIX-Programming-Eric-Raymond/dp/0131429019"><em>The Art of Unix Programming</em></a> includes all the right topics, but covers too much, in too much detail, at too low a level. Gift &amp; Jones' <cite>Python for Unix and Linux System Administration</cite> has the same two faults (from Software Carpentry's point of view–I think both are excellent books in general), but uses a scripting language for examples, so it made the list.</li>
+<li><a href="http://computinged.wordpress.com/">Mark Guzdial</a> and others have done excellent research showing the benefits of teaching programming using multimedia, i.e., showing students how to manipulate images, sound, and video as a way of explaining loops and conditionals. That's half of why the revised course outline includes image processing early on (the other halves being "it's fun" and "it's useful"). Once again, most of what I'm familiar with is either documentation for specific libraries, or textbooks on the theory of computer vision, but there are <a href="http://www.amazon.com/Digital-Image-Processing-Using-MATLAB/dp/0982085400">some promising titles</a> in the MATLAB world that I need to explore further.</li>
+<li>Performance. It's been 15 years since I first grumbled about this, and the situation hasn't improved. Most books on computer systems performance are really textbooks on queueing theory; of that family, Jain's <a href="http://www.amazon.com/Art-Computer-Systems-Performance-Analysis/dp/0471503363"><em>Art of Computer Systems Performance Analysis</em></a> is still head and shoulders above the crowd. Souders' <cite>High Performance Web Sites</cite> is the closest modern equivalent I've found to Bentley's classic <cite>Writing Efficient Programs</cite>, but neither is really appropriate for scientists, who need to think about disk I/O (biologists and their databases), pipelining and caching (climatologists with their differential equations), and garbage collection (everybody using a VM-based language). I had hoped that <a href="http://www.amazon.com/High-Performance-Python-Anthony-Lewis/dp/0596522088"><em>High Performance Python</em></a> would fill this gap, but it seems to have been delayed indefinitely. (And yes, I've looked at <a href="http://my.safaribooksonline.com/9780321540034"><em>Writing Efficient Ruby Code</em></a>; it has some of what our students want, but not nearly enough.)</li>
+<li>There are lots of books about data modeling, but all the ones I know focus exclusively on either the relational approach or object-oriented design, with a smattering that talk about XML, RDF, and so on. I haven't yet found something that compares and contrasts the three approaches; pointers would be welcome.</li>
+<li>Web programming. There are (literally) thousands of books on the subject, but that's the problem: almost all treatments are book-length, and this course only has room for one or two lectures. It is possible to build a simple web service in that time, but only by (a) using a cookbook approach, rather than teaching students how things actually work, and (b) ignoring security issues completely. I'm not comfortable with the first, and flat-out refuse to do the second: if this course shows people how to write a simple CGI script that's vulnerable to SQL injection and cross-site scripting, then it's our fault when the students' machines are hacked. This gap is as much in the available libraries as in the books, but that doesn't make it any less pressing.</li>
+</ol>
+<p>Given these gaps, I may drop one or two topics (such as performance and web programming) and either swap in one of the discarded topics or spend more time on some of the core material. I'm hoping neither will be necessary; as I said above, pointers to books in any language that are at the right level, and cover the right areas, would be very welcome.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Our Process</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Our Process</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/03/07/labels/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-03-08" class="post-date">2024-03-08</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2024/03/14/promo-code/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Back in 2022 I wrote that there are two ways of looking at roles in a small-to-medium tech company:
+what people do, and <a href="../../../../2022/06/06/mitigation/">what risks they address</a>.
+Coincidentally,
+I had just started working with someone who has turned out to be
+<a href="https://www.linkedin.com/in/dottie-omino/">the best product manager I&rsquo;ve ever met</a>.
+In the two years since she joined the company
+she has overseen lots of improvements in our software engineering processes
+(partly, I suspect, to make it easier for her to do her job properly).
+She recently summarized the state of play to orient a new hire;
+what follows is a summary of her summary with a few explanatory notes
+that I hope will be useful to other software developers
+working in research-intensive organizations.</p>
+<p>I believe the most important part of what follows
+is how she has organized her thinking.
+Each process exists <em>to answer key questions</em>,
+has its own <em>frequency</em>,
+is <em>someone&rsquo;s responsibility</em>,
+and generates <em>specific products</em>.
+If you have a description like this of how your team operates,
+please <a href="mailto:gvwilson@third-bit.com">get in touch</a>:
+I think we could learn a lot from comparisons.</p>
+<h2>Company Goals and Priority Projects</h2>
+<p>This activity happens up in the stratosphere.
+As an engineering manager I may occasionally be called on for input,
+but for the most part this is the ground for everything else described below.</p>
+<ul>
+<li>Summary: Prioritized company objectives and initiatives for the year</li>
+<li>Key Questions:<ul>
+<li>What should we invest in/focus on?</li>
+</ul>
+</li>
+<li>Frequency: 6-24 months</li>
+<li>Responsible: executive team </li>
+<li>Contributors: company leadership and technical experts at all levels</li>
+<li>Products:<ul>
+<li>Prioritized list of strategic goals and investment for the company as a whole</li>
+</ul>
+</li>
+</ul>
+<h2>Engineering Team</h2>
+<p>Our team includes about a dozen people
+and is responsible for half that number of applications,
+ranging from complex C++ libraries wrapped up in Python
+to three-tier web applications for managing experimental data
+and command-line tools to support routine tasks.
+The activities below are done by the whole team.</p>
+<h3>Engineering OKRs</h3>
+<p>The VP of Engineering defines objectives and key results at the start of each quarter
+based on discussions with senior management,
+the leaders of other teams,
+and members of our team.
+Goals are prioritized as P0 (not doing this will block something critical to the company),
+P1 (we need this, but we can scale it back or it can slip if a P0 overruns),
+and P2 (it would be nice to have).</p>
+<ul>
+<li>Summary: Engineering-specific objectives and projects based on:<ol>
+<li>company goals</li>
+<li>users&rsquo; needs</li>
+<li>technical opportunities</li>
+</ol>
+</li>
+<li>Key Questions:<ul>
+<li>What should each engineering team focus on and why?</li>
+</ul>
+</li>
+<li>Frequency: quarterly</li>
+<li>Responsible: VP Engineering</li>
+<li>Contributors: entire engineering team</li>
+<li>Products:<ul>
+<li>Prioritized list of objectives and key results</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Note: we used to define thirty or more tasks each quarter
+rather than a handful of OKRs.
+The theory was that if we&rsquo;re meeting all of our targets,
+our targets weren&rsquo;t ambitious enough.
+We now realize that setting ourselves up to fall short time and again
+isn&rsquo;t actually helpful.</p>
+</blockquote>
+<h3>Engineering OKR Reviews</h3>
+<p>Improvement in anything requires <a href="https://www.taylorfrancis.com/books/mono/10.4324/9781315237473/reflective-practitioner-donald-sch%C3%B6n">reflective practice</a>.
+Our end-of-quarter OKR reviews therefore have two purposes:
+to make sure everyone understands where we actually are,
+and to summarize what we&rsquo;ve learned so that we can do better next time.</p>
+<ul>
+<li>Summary: End of quarter sync on OKR progress</li>
+<li>Key Questions:<ul>
+<li>What is the status of each OKR?</li>
+<li>What progress did each team make towards overall goals?</li>
+<li>What losses, challenges, and obstacles did we encounter?</li>
+<li>What did we learn?</li>
+</ul>
+</li>
+<li>Frequency: quarterly</li>
+<li>Responsible: VP Engineering</li>
+<li>Contributors: project leads and other team members</li>
+<li>Products:<ul>
+<li>One-line summary of progress on each OKR (hopefully &ldquo;we finished it&rdquo; but not always)</li>
+<li>Ranked list of things that worked well and things that didn&rsquo;t</li>
+<li>Ranked list of ideas for things to try to adopt, improve, or drop</li>
+</ul>
+</li>
+</ul>
+<h3>Engineering Quarterly Retrospective</h3>
+<p>Similarly,
+we have a general retrospective at the end of each quarter
+to ask ourselves wider-ranging questions
+that may not be specific to a particular project&rsquo;s goals.
+Practices like having an on-call user support rotation
+have grown out of these self-reviews.</p>
+<ul>
+<li>Summary: End of quarter team sync to reflect on the quarter and identify ways to improve how we work and our ability to deliver</li>
+<li>Key Questions:<ul>
+<li>What went well?</li>
+<li>What didn&rsquo;t?</li>
+<li>What changes would we like to implement to improve the way we work?</li>
+</ul>
+</li>
+<li>Frequency: quarterly</li>
+<li>Responsible: Scrum master</li>
+<li>Contributors: entire engineering team</li>
+<li>Products:<ul>
+<li>Ranked list of things that worked well and things that didn&rsquo;t</li>
+<li>Ranked list of ideas for things to try to adopt, improve, or drop</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Note: our product manager has been doubling as our scrum master for the last couple of years.
+Those jobs are usually done by different people in larger organizations,
+so the description above lists the role rather than the person who happens to be doing it right now.</p>
+</blockquote>
+<h3>Engineering All Hands</h3>
+<p>Our company includes biologists working in a wet lab,
+data scientists,
+and machine learning specialists staring into the void and hoping it blinks first.
+And while most of us are in Toronto,
+a substantial minority live and/or work remotely.
+This meeting is where the VP of Engineering updates us all
+on things we might otherwise miss
+(both organizationally and technically).
+We also host guest speakers from other teams in the company
+so that we can can keep abreast of what they&rsquo;re doing,
+have AMA (ask me anything) meetings with senior management,
+or do a deep dive into new tools or processes we might want to adopt.</p>
+<ul>
+<li>Summary: Biweekly team sync to discuss company and/or engineering news</li>
+<li>Key Questions:<ul>
+<li>What&rsquo;s going on elsewhere in the company that might affect us?</li>
+<li>What&rsquo;s coming up that we ought to know about?</li>
+</ul>
+</li>
+<li>Frequency: biweekly</li>
+<li>Responsible: VP Engineering</li>
+<li>Contributors: entire engineering team plus invited guests</li>
+<li>Products:<ul>
+<li>Heightened awareness of recent and upcoming changes</li>
+</ul>
+</li>
+</ul>
+<h3>Engineering Design Reviews</h3>
+<p>One of the things that has come out of our end-of-quarter reviews
+is a greater emphasis on presenting designs for new features or applications to the whole team
+before diving into implementation.
+The goal here is <em>not</em> to create a pile of UML diagrams that no one will ever look at again,
+but rather to explain what the problem actually is,
+what factors a solution must take into account,
+what alternatives there are,
+and what we&rsquo;re <em>not</em> going to do.
+Some designs go through two or three overhauls before work starts;
+in almost every case,
+checking our thinking like this has saved us
+the pain and delay of re-thinking, re-architecting, and re-writing halfway through implementation.</p>
+<ul>
+<li>Summary: Weekly sync to present and discuss technical proposals</li>
+<li>Key Questions:<ul>
+<li>What problem is the design solving?</li>
+<li>For who?</li>
+<li>How are they solving the problem today?</li>
+<li>Why isn&rsquo;t that good enough?</li>
+<li>What is out of scope?</li>
+</ul>
+</li>
+<li>Frequency: weekly</li>
+<li>Responsible: VP Engineering</li>
+<li>Contributors: entire engineering team</li>
+<li>Products:<ul>
+<li>Designs for new features or applications</li>
+<li>Lateral awareness of who&rsquo;s doing what and why</li>
+<li>Buy-in from the team (or at least a chance to air our differences)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>A recent change is to update the design doc a few weeks after work starts
+to explain where and why reality has diverged from the plan.
+Doing this extends the useful life of that document,
+but more importantly,
+it&rsquo;s a chance to reflect on what the code is teaching us
+and share that with other people
+so that our next design(s) can be better.</p>
+</blockquote>
+<h3>Weekly Friday Engineering Demos</h3>
+<p>One of our more experienced team members instituted Friday afternoon demo sessions last year,
+and we have all become believers.
+Some demos show off a new feature;
+others walk the audience through a bug that has been fixed
+or introduce the team to useful third-party tools.
+Demos runs anywhere from a few minutes to half an hour,
+with most being near the low end of that range.
+It&rsquo;s a fun way to wrap up the week and remind ourselves that we&rsquo;re actually making progress.</p>
+<ul>
+<li>Summary: Weekly sync for team to share ongoing work and discoveries</li>
+<li>Key Questions:<ul>
+<li>What problem does the thing being demo&rsquo;d solve?</li>
+<li>For whom?</li>
+<li>How does it work?</li>
+</ul>
+</li>
+<li>Frequency: weekly</li>
+<li>Responsible: volunteer engineer</li>
+<li>Contributors: entire engineering team</li>
+<li>Products:<ul>
+<li>Team spirit</li>
+<li>Lateral knowledge transfer</li>
+</ul>
+</li>
+</ul>
+<h3>User Support</h3>
+<p>As mentioned earlier,
+we now take week-long turns monitoring the <code>#eng-support</code> channel
+and responding to users&rsquo; problems.
+In some cases (e.g., when it&rsquo;s my turn to do support)
+the response usually takes the form of,
+&ldquo;OK, let me pull in someone who actually understands what&rsquo;s going on here,&rdquo;
+but whether the on-call engineer handles the problem themself or hands it off,
+it gives us all regular reminders of how our software is being used
+and what state it is actually in.</p>
+<ul>
+<li>Summary: Ongoing support of issues and requests</li>
+<li>Frequency: ongoing</li>
+<li>Responsible: designated engineer (rotation)</li>
+<li>Contributors: team members as needed</li>
+<li>Products:<ul>
+<li>Happier users,
+    both because we&rsquo;ve addressed their problems
+    and because they can see that we&rsquo;re trying to do so</li>
+<li>Issues in the issue tracker (both &ldquo;bugs to be fixed&rdquo; and &ldquo;ideas for future improvements&rdquo;)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>The &ldquo;issues&rdquo; product deserves a bit more explanation.
+The on-call engineer creates a new issue in our issue tracker (we use <a href="https://linear.app/">Linear</a>)
+for <em>every</em> incident
+so that there is a single point of reference for the conversation.
+Doing this saves people from having to hunt through GitHub, a wiki,
+and various Slack channels and/or Google docs
+when there&rsquo;s a hand-off
+or the issue occurs again.</p>
+</blockquote>
+<h3>Fixit Sprints</h3>
+<p>We work in two-weeks sprints,
+and for the last year and a half,
+we&rsquo;ve dedicated one sprint each quarter to paying down technical debt.
+If we need to clean up the data access layer in an application
+or migrate to a backward-incompatible version of a key library,
+we put that work in &ldquo;our&rdquo; sprint
+so that it won&rsquo;t disrupt work on user-facing changes.
+The benefits are hard to quantify but very real,
+and making this a regular activity makes the time easier to defend.</p>
+<ul>
+<li>Summary: 1-2 week dedicated period to address technical debt</li>
+<li>Frequency: quarterly</li>
+<li>Responsible: VP Engineering</li>
+<li>Contributors: entire engineering team</li>
+<li>Products:<ul>
+<li>Less technical debt</li>
+<li>Happier engineers
+    (both because they have a chance to clean up things that have been annoying them
+and because being given time to do so is a sign that
+management is serious about prioritizing long-term productivity)</li>
+</ul>
+</li>
+</ul>
+<h2>Team Activities</h2>
+<p>Everyone on the engineering team is involved in the activities described above.
+In contrast,
+the activities below are undertaken by specific people or groups of people.</p>
+<h3>Problem Discovery</h3>
+<p>If you&rsquo;ve never had the pleasure of working with a good product manager,
+you may not realize how much better your life could be.
+This activity and the one that follows are the core of what they do:
+question, observe, and listen to users,
+figure out what their <em>actual</em> needs are,
+and translate those needs into things for engineers to fix or build.</p>
+<ul>
+<li>Summary: Ongoing investigation of users&rsquo; needs</li>
+<li>Key Questions:<ul>
+<li>Who are our primary stakeholders?</li>
+<li>What projects and iniatives are they working on?</li>
+<li>What would accelerate their work?</li>
+<li>Which of these needs is most pressing to solve?</li>
+</ul>
+</li>
+<li>Frequency: ongoing</li>
+<li>Responsible: product manager</li>
+<li>Contributors: technical leads and selected users</li>
+<li>Products:<ul>
+<li>Prioritized lists of problems and opportunities,
+    i.e., a product roadmap</li>
+</ul>
+</li>
+</ul>
+<h3>Solution Discovery</h3>
+<p>This activity is where product management and engineering design overlap.
+Its output is the starting point for the design docs mentioned earlier:
+in particular,
+this is where needs, constraints, and big-picture alternatives are formulated.</p>
+<ul>
+<li>Summary: Exploration and validation of potential solutions to prioritized problems</li>
+<li>Key Questions:<ul>
+<li>Should we build it or buy it?</li>
+<li>How could we solve this problem for our users?</li>
+<li>Which of these solutions seems most promising and are worth further exploration?</li>
+<li>What risks and assumptions are inherent to these solutions?</li>
+<li>What is the fastest, cheapest way to validate these solutions?</li>
+</ul>
+</li>
+<li>Frequency: ongoing</li>
+<li>Responsible: product manager and technical leads</li>
+<li>Contributors: users and engineering team members</li>
+<li>Products:<ul>
+<li>Prioritized lists of features or fixes that would solve them</li>
+<li>Designs for those features that both the users and the developers believe in</li>
+</ul>
+</li>
+</ul>
+<h3>Engineering Needs</h3>
+<p>Software engineers are people too,
+and have their own specialized needs.
+Our product manager occasionally treats us as users
+and uses discovery techniques to (help us) figure out
+what would make <em>our</em> lives better.</p>
+<ul>
+<li>Summary: Ongoing assessment of engineering&rsquo;s needs</li>
+<li>Key Questions:<ul>
+<li>What parts of our tools, systems, architecture are slowing us down?</li>
+<li>What new technical advancements should we be aware of?</li>
+<li>What do we <em>need</em> vs. what do we <em>want</em>?</li>
+</ul>
+</li>
+<li>Frequency: ongoing</li>
+<li>Responsible: technical leads</li>
+<li>Contributors: entire engineering team</li>
+<li>Products:<ul>
+<li>Designs for new features or applications</li>
+</ul>
+</li>
+</ul>
+<h3>Biweekly Sprint Goals/Backlog Grooming</h3>
+<p>OK,
+we&rsquo;ve agreed on what we&rsquo;re going to build—now we actually have to build it.
+Every two weeks,
+the product manager and the project&rsquo;s technical lead
+create issues for new work
+and (if necessary) relabel old issues
+to define what we&rsquo;re going to try to accomplish in this sprint.
+Most of the new issues come from the design docs,
+or are elaborations or breakdowns of things discussed in those docs;
+depending on the size of the work,
+we may create several sub-issues under a single high-level issue
+so that progress reports aren&rsquo;t &ldquo;I&rsquo;m working on it&rdquo; several days in a row.</p>
+<ul>
+<li>Summary: Biweekly prioritization to determine team focus for the sprint</li>
+<li>Key Questions:<ul>
+<li>What is the next slice of work we want to deliver?</li>
+<li>What small improvements should we prioritize?</li>
+<li>What key bugs should we prioritize?</li>
+<li>What tech debt needs to be addressed?</li>
+</ul>
+</li>
+<li>Frequency: biweekly</li>
+<li>Responsible: product manager and technical leads</li>
+<li>Contributors: engineering team members</li>
+<li>Products:<ul>
+<li>Goals for the sprint (i.e., what we want to accomplish)</li>
+<li>Prioritized issues that will achieve those goals
+    (i.e., what we have to do to get there)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>I&rsquo;ve worked on teams where issues had a &ldquo;percent complete&rdquo; field
+that the people responsible for it were supposed to update daily.
+It wasn&rsquo;t helpful:
+it&rsquo;s easy to see how much ditch you have left to dig,
+but much harder to know how much code you have left to write and debug.
+Breaking milestones down into inch-pebbles
+and marking the latter as &ldquo;finished&rdquo; or &ldquo;not finished&rdquo;
+has proven much more useful.</p>
+<p>Separately,
+it&rsquo;s worth highlighting again that
+a big part of this process is making sure that
+the people who are doing the work understand <em>why</em> they&rsquo;re doing it
+so that they can make small judgment calls on their own
+and know when to come back and ask for guidance.
+You can tell a team has reached this point
+if most people,
+most of the time,
+would make the same decision about something minor on their own,
+and if they would mostly agree on when discussion is needed.</p>
+</blockquote>
+<h3>Daily Standups</h3>
+<p>We don&rsquo;t actually stand up,
+but this is still the most important meeting each team has.
+The tech lead of the project does a quick lap around the team to find out
+what each person has done,
+what they&rsquo;re planning to do,
+and what&rsquo;s holding them back.
+We try to enforce a three-sentence rule:
+if a discussion during individual updates goes on longer than that
+we defer it until after everyone has finished their initial report.</p>
+<ul>
+<li>Summary: Daily team sync</li>
+<li>Key Questions:<ul>
+<li>What did you work on yesterday?</li>
+<li>What are you working on today?</li>
+<li>What is blocking you?</li>
+</ul>
+</li>
+<li>Frequency: daily</li>
+<li>Responsible: technical leads</li>
+<li>Contributors: engineering team members</li>
+<li>Products:<ul>
+<li>In-team awareness of the progress everyone is making</li>
+<li>Updated issues (reprioritized as necessary)</li>
+</ul>
+</li>
+</ul>
+<h3>Sprint Retros</h3>
+<ul>
+<li>Summary: Bi-weekly sync to reflect on the past sprint and identify possible improvements</li>
+<li>Key Questions:<ul>
+<li>What went well?</li>
+<li>What didn&rsquo;t go well?</li>
+<li>What should we improve/change/adopt to make things better?</li>
+</ul>
+</li>
+<li>Frequency: biweekly</li>
+<li>Responsible: Scrum master</li>
+<li>Contributors: engineering team members</li>
+<li>Products:<ul>
+<li>As with quarterly retros,
+    a list of things that the team should keep doing
+and a list of things to change</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>The suggestions coming out of sprint retros
+tend to be smaller than those coming out of quarterly retros,
+but big things do show up sometimes.</p>
+</blockquote>
+<h3>Feature/Slice Deployment</h3>
+<ul>
+<li>Summary: Testing, deployment, documentation, and communication of fixes and features</li>
+<li>Key Questions:<ul>
+<li>Is the feature/fix/change working as expected?</li>
+<li>Is it well documented both from a technical and user-facing perspective?</li>
+<li>Who needs to be aware of this change once pushed to production?</li>
+<li>Is there any training needed to enable use of this change?</li>
+</ul>
+</li>
+<li>Frequency: ongoing</li>
+<li>Responsible: technical leads</li>
+<li>Contributors: entire engineering team</li>
+</ul>
+<h3>Customer Feedback and Metrics</h3>
+<ul>
+<li>Summary: Measuring and assessing impact and identifying gaps or areas for improvement</li>
+<li>Frequency: ongoing</li>
+<li>Responsible: VP Engineering and product manager</li>
+<li>Contributors: entire engineering team</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

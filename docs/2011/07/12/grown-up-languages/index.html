@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Grown-Up Languages</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Grown-Up Languages</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2011/07/11/architecture-of-open-source-applications-webinars-july-12-and-19/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2011-07-12" class="post-date">2011-07-12</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2011/07/13/learning-lernanta/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>A few days ago, after browsing the <a href="http://en.wikipedia.org/wiki/CoffeeScript">Coffeescript</a> docs and examples, I tweeted, &ldquo;I will take your new language seriously when you have a symbolic  debugger for it. For <em>it</em>, not for the C/JavaScript/whatever it compiles  to.&rdquo; So what exactly did I mean by that?  Well, a <a href="http://en.wikipedia.org/wiki/Debugger">debugger</a> is a program that lets you watch and control another program.  (If you&rsquo;ve never used one, have a look at <a href="https://software-carpentry.org/4_0/python/debugger/">this 6-minute video</a>.)  Instead of staring at your code, trying to figure out why it&rsquo;s broken, or adding &lsquo;print&rsquo; statements left and right to display values, debuggers let you stop the program at any point and look at the values, or tell the program to execute one line at a time so that you can see which &ldquo;if/else&rdquo; branches it&rsquo;s taking, what parameters are being passed to function calls, and so on.</p>
+<p>Debuggers make programming much less painful and much more productive, but a lot of students never pick up the habit of using one.  Personally, I think this is because teachers have never figured out how to put questions about using debuggers on mid-terms: most computer science programs don&rsquo;t have an equivalent of the &ldquo;lab exams&rdquo; that are common in chemistry and biology, and if students are never examined on their ability to do things the right way, they never <em>have</em> to climb the learning curve.  But that&rsquo;s just a guess, and tangential to the main point of this post.</p>
+<p>What I really want to talk about is languages like Coffeescript, and why I won&rsquo;t use them.  If I write a program in C, Java, Python, or Javascript, it is translated into instructions for some kind of machine (either real hardware, in the case of C, or a virtual machine in the case of the other three).  When that program runs, the debugger can match up the source code of the program and the instructions that are being executed, so that when I say, &ldquo;Go to the next line,&rdquo; the debugger can do what I ask.  These debuggers are WYSIWYG: the code I wrote (i.e., the code that&rsquo;s in my mind) and the operations and data that I&rsquo;m debugging, line up neatly.</p>
+<p>But if I write a program in Coffeescript, it isn&rsquo;t executed directly.  Instead, it is translated into Javascript, and then <em>that</em> is what&rsquo;s run.  If I want to debug that Javascript, I can, but <em>I didn&rsquo;t write it</em>: a computer program did.  Yes, the bits and pieces of that Javascript correspond to my Coffeescript, but the match is not obvious, and may not even be one-to-one.  It&rsquo;s as if I wrote a contract in English in terms of Ontario law, then had to defend it in court in French under Quebec law.  Without near-expert understanding of how the one translates to the other, it&rsquo;s hard or impossible for people to reverse engineer what the debugger is showing them and figure out which bits of the code they actually wrote needs to change.</p>
+<p>I first ran into this problem in the 1980s, when the C++ compiler I was working with translated my object-oriented programs into a tangle of strangely-named C functions for me to compile and run.  After a while, I figured out that if the error was in XX_@<em>YY</em>@@_ZZ, I should look for a method called XX.YY taking a parameter of type ZZ, but the C that implemented overloaded operators was ugly enough that I never really wrapped my head around it.  Debuggers eventually appeared that could handle C++ &ldquo;in source&rdquo;, and I&rsquo;m sure that if Coffeescript proves popular, a native debugger for it will appear as well.  &lsquo;Til then, as much as I prefer its syntax to Javascript&rsquo;s, I will (regretfully) turn away…</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

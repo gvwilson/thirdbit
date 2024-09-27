@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: ITiCSE'06 Readings</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>ITiCSE'06 Readings</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2006/08/07/naive-sqlite-question/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2006-08-14" class="post-date">2006-08-14</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2006/08/14/drproject-11-screencast/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>As I&rsquo;ve said before, one of the nice perks of working for a university is free access to journals and conference proceedings. (And as I&rsquo;ve also said before, I think the fact that these aren&rsquo;t free to everyone is one of the main causes of the gulf between academia and real-world practitioners.)  Here&rsquo;s a few highlights from the Eleventh Annual Conference on <a href="http://www.iticse06.cs.unibo.it/">Innovation and Technology in Computer Science Education</a>, held in Bologna earlier this year:</p>
+<ul>
+  <li>Radenski: "Python First: A Lab-Based Digital Introduction to Computer Science", and Holt, Rauchas, and Sanders: "Introducing Python into the First Year Curriculum at Wits".  An idea whose time may finally have come—we're putting together a first-year course in Python for science students, and we're finding a growing number of people doing similar things elsewhere.  The University of Witwatersrand group is still ramping up, but Radenski (Chapman University, in Orange, California) has built an entire <a href="http://www.moodle.org">Moodle</a> education pack for his.</li>
+  <li>Boetje: "Foundational Actions: Teaching Software Engineering When Time Is Tight".  It's always tight, and Boetje's two-semester sequence focusing on the day-to-day practices common to all successful software projects (no matter what philosophy they espouse) is timely as we finalize a proposal to reorganize our own SE courses.</li>
+  <li>Petkovic, Thompson, and Todtenhoefer: "Teaching Practical Software Engineering and Global Software Engineering: Evaluation and Comparison".  Ties in nicely with Boetje's paper; the authors run a SE course in which student teams in California and Germany are each other's customers.  Now that DrProject is solid, I'd like to try this myself with teams at different Canadian universities.</li>
+  <li>Paterson, Haddow, and Nairn: "A Design Patterns Extension for the BlueJ IDE".  <a href="http://www.bluej.org/">BlueJ</a>, an entry-level Java IDE, is <a href="http://www.drjava.org">DrJava</a>'s main competitor.  Paterson et al's tool is a wizard driven by XML configuration files that lets users pick a design pattern, and then name the classes and their attributes.  I don't know that I'd ever use it, but I'd be interested in trying it out as a teaching tool.</li>
+  <li>Pullen: "Scaling Up a Distance Education Program in Computer Science".  Pullen teaches at <a href="http://www.gmu.edu">George Mason University</a>; this paper reports his experiences building a web-based system to support graduate-level distance learning.  Lots of interesting ideas, many of which might apply if we go ahead with a professional master's degree in our department.</li>
+  <li>Almstrum and Last: "Men Are From Toys; Women Are From Tools".  A short summary of a presentation on gender-correlated differences in attitudes toward computing.  I'm going to have to dig up the full paper.</li>
+  <li>Ellis: "Self-Grading: An Approach to Supporting Self-Directed Learning".  Let students decide at the start of term what the grading and due dates will be in their project courses?  Interesting; I'm going to want to try this one in CSC49X as well.</li>
+  <li>Hanks: "Student Attitudes Toward Pair Programming", and Mendes, Al-Fakhri, and Luxton-Reilly: "A Replicated Experiment of Pair-Programming in a 2nd-Year Software Development and Design Computer Science Course".  I've long been sceptical of pair programming, but there are now several studies showing that students enjoy it, and that it helps them learn.  Interestingly, the authors of the second study are willing to make their raw data available to other researchers.</li>
+  <li>Thomas, Waugh, and Smith: "Using Patterns in the Automatic Marking of ER-Diagrams".  I'm still sceptical, even after reading the paper. Their idea is to use pattern recognition techniques to check entity-relationship diagrams in order to auto-mark where no auto-marker has gone before.  I'd want to see it in action, and (more importantly) see how students feel about it…</li>
+  <li>Chen, Wei, Huang, and Lee: "Design and Applications of an Algorithm Benchmark System in a Computational Problem Solving Environment".  Pet gripe #178 is that CS students don't learn anything about performance analysis or tuning.  This paper describes a system that lets students see how well their code is performing, and compare it with others.  Ought to be straightforward to plug into DrProject, once we get our continuous integration and dashboard systems up and running…</li>
+  <li>Stevenson: "PNG Palette Permuter".  Most students don't realize how hard it is to come up with projects that are challenging, but not too challenging.  Stevenson describes one that seems to fit the bill: a steganographic tool to embed messages in PNG images by tweaking the color values of pixels.</li>
+  <li>Gerdt and Sajaniemi: "A Web-Based Service for the Automatic Detection of Roles of Variables".  The dataflow analysis used to categorize variables as "fixed value", "stepper", "most-recent holder", and so on is interesting; the categories themselves are what really attracted my attention.  Do people teach these patterns explicitly?</li>
+  <li>Lauer: "Learner Ineraction wit Algorithm Visualizations: Viewing vs. Changing vs. Constructing".  The author set out to test the hypothesis that as students move from viewing algorithm visualizations, to controlling their parameters, to actually building them, they'll learn more from them.  The experiment he ran showed no such correlation, which I'm sure was disappointing, but is still useful information.</li>
+  <li>Robila and Ragucci: "Don't be a Phish: Steps in User Education". Teaching students how to recognize phishing attacks, and not be taken in?  Makes as much sense as defensive driving, and these days, is probably as important.</li>
+  <li>Hislop, Hilburn, Lutz, and Sebern: "Sharing Software Engineering Curriculum Materials".  An update on <a href="http://www.swenet.org/">SWENET</a>, the Network Community for Software Engineering Education.  Their site was down when I wrote this blog entry, as it has been several times in the past; I really need to be patient, and trawl through what they've collected.</li>
+</ul><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

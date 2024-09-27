@@ -1,0 +1,21 @@
+{% extends "base.jinja" %}
+
+{% block head_title %}
+<title>{{site.title}}</title>
+{% endblock %}
+
+{% block page_title %}
+<h1>{{site.title}}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="center">
+  <p><em>start where you are - use what you have - help who you can</em></p>
+</div>
+
+{% include "homepage_bio.jinja" %}
+{% include "homepage_sdx.jinja" %}
+{% include "homepage_prior.jinja" %}
+{% include "recent_posts.jinja" %}
+{% include "recent_papers.jinja" %}
+{% endblock %}

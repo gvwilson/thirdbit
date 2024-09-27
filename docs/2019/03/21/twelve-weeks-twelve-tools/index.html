@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Twelve Weeks, Twelve Tools</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Twelve Weeks, Twelve Tools</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2019/03/20/educational-paramedics/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2019-03-21" class="post-date">2019-03-21</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2019/03/24/occupations/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Suppose you have a group of junior developers
+who have built moderately complicated web applications using <a href="https://expressjs.org/">Express</a>
+and <a href="https://reactjs.org/">React</a>,
+but don&rsquo;t really understand how their tools work.
+Suppose further that they want to learn,
+both because they&rsquo;re curious
+and because it would help improve their software design skills.
+Finally,
+suppose they have six hours a week for twelve weeks
+in which to build simplified versions of a set of basic tools.
+What would you have them build?
+My list would be:</p>
+<ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises</a>
+    to make sure that they really understand callbacks and exception handling.</li>
+<li>A documentation generator like <a href="http://usejsdoc.org/">JSDoc</a>
+    so that they learn to think about code as data.</li>
+<li>A style checker like <a href="https://www.jslint.com/">JSLint</a>
+    to drive that lesson home.</li>
+<li>A function-level profiler that manipulated a program&rsquo;s <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST</a>
+    instead of just walking it.</li>
+<li>A module loader
+    to help them understand how large programs are actually assembled.</li>
+<li>A unit testing framework like <a href="https://jestjs.io/">Jest</a>
+    that includes mocking
+    (again, to help them understand that code is data).</li>
+<li>A text editor so that they&rsquo;ll have a better grasp of what theirs can do.
+    (In my experience, most people only use a fraction of their editor&rsquo;s power.)</li>
+<li>A smart backup tool that stores compressed files indexed by hashes
+    (which is the core of how <a href="https://git-scm.com/">Git</a> works).</li>
+<li>An HTTP server—basically a stripped-down <a href="https://expressjs.org/">Express</a>.</li>
+<li>A text-only web browser like <a href="https://lynx.invisible-island.net/">Lynx</a>
+    to help them understand how a DOM tree in memory becomes positioned text on a screen.
+    (It wouldn&rsquo;t handle CSS, but it <em>would</em> do simple tables.)</li>
+<li>An interactive command shell like <a href="https://www.gnu.org/software/bash/">Bash</a>
+    or <a href="https://docs.microsoft.com/en-us/powershell/">PowerShell</a>.</li>
+<li>A state management framework like <a href="https://redux.js.org/">Redux</a>
+    to show them how to manage concurrency without going mad.</li>
+</ol>
+<p>And speaking of going mad,
+you might think that I have at this point.
+Building any one of the tools described above would be a big job for an experienced developer;
+there&rsquo;s no way a junior could do it in just six hours.
+The answer is that we would scale the project down to fit the time available.
+A style checker that only checks variable names and the number of parameters per function
+illustrates how such tools work
+and is only a single page of code
+on top of a parser like <a href="https://github.com/acornjs/acorn">Acorn</a>.
+Similarly,
+Mary Rose Cook&rsquo;s <a href="http://gitlet.maryrosecook.com/docs/gitlet.html">Gitlet</a>
+(which is truly beautiful) can&rsquo;t be rebuilt in just six hours,
+but a hashing-based backup tools can be.</p>
+<p>This idea is inspired by books like
+<em><a href="https://www.amazon.com/Unix-Programming-Environment-Prentice-Hall-Software/dp/013937681X/">The Unix Programming Environment</a></em>,
+<em><a href="https://www.amazon.com/Elements-Programming-Style-2nd/dp/0070342075/">The Elements of Programming Style</a></em>,
+and <em><a href="https://www.amazon.com/Software-Tools-Pascal-Brian-Kernighan/dp/0201103427/">Software Tools in Pascal</a></em>,
+which taught my entire generation to think about programs as tools and code as data.
+<em><a href="http://aosabook.org/">500 Lines or Less</a></em> convinced me that it&rsquo;s possble and worthwhile;
+if you have any pointers to prior art,
+or thoughts about the kinds of tools that should be added and which ones could be removed to make room,
+I&rsquo;d enjoy hearing from you.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

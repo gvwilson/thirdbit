@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: A Typical Developer's Typical Day (not humor)</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>A Typical Developer's Typical Day (not humor)</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2005/11/24/fogels-producing-open-source-software/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2005-11-24" class="post-date">2005-11-24</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2005/12/02/how-do-you-want-to-see-source-code/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>Jon Erickson, the editor-in-chief of <em><a href="http://www.ddj.com">Doctor Dobb&rsquo;s Journal</a></em>, asked me to write a couple of paragraphs about a typical developer&rsquo;s typical day.  As usual, I went a little overboard; unusually, I veered toward the bright side.</p>
+<p>It&rsquo;s 9:30.  You&rsquo;ve caught up on email from the contractors in India, skimmed a dozen blog postings, and finished your first cup of coffee: time to get to work.  Open <a href="http://www.eclipse.org">Eclipse</a>, and check your working copy against the repository.  Hm… Maria and Sukhmeet have checked in changes to the charting module.  Two clicks takes you to the web page that shows the results of the overnight build and smoke tests.  Total coverage has dropped slightly, but the new functionality <em>is</em> being tested, so you update and recompile.</p>
+<p>Next, you flip over to the bug tracking web page, and re-read the description that Bin in QA filed against the password strength checker.  &ldquo;Doesn&rsquo;t recognize digits immediately following non-Latin characters.&rdquo;  OK, that&rsquo;s probably a character encoding problem.  You write a unit test, copy and paste the Chinese character passwords Bin used to find the problem, set a couple of breakpoints, and dive in.</p>
+<p>By 11:00, you know that the problem is something to do with the LDAP server not reporting encodings correctly.  You have to put it aside for a while, though, because there&rsquo;s a 1:00 meeting to review the schedule estimates for the new biometrics module, and you want to get forty minutes on the exercise bike downstairs before then.  You print the requirements doc, get a fresh cup of coffee, and settle in with your favorite red pen.</p>
+<p>3:00.  The meeting ran well over time, but the pizza was good, and several important decisions were made.  The minutes won&rsquo;t be up on the project web site for checking until the end of the day, so you have at least a couple of hours to track down that encoding issue.  You&rsquo;re interrupted twice: once by the intern with a question about environment variables in <a href="http://ant.apache.org">Ant</a>, and one by a phone call from a field engineer in Calgary, whom you redirect to second-line support.  Despite that, you&rsquo;re able to figure out that the admin UI isn&rsquo;t setting the domain object properties correctly.  A one-line change, two new unit tests, and a three-line check-in comment later, it&rsquo;s 4:30, and you have half an hour in which to catch up with <a href="http://www.joelonsoftware.com/">Joel Spolsky</a>, <a href="http://weblog.infoworld.com/udell/">Jon Udell</a>, and the fine folks at <a href="http://www.artima.com/index.jsp">Artima</a> before catching the train home.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

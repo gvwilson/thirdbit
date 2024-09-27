@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="me" href="https://mastodon.social/@gvwilson">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <link rel="stylesheet" href="../../../../thirdbit.css">
+    <link rel="stylesheet" href="../../../../page.css">
+    
+<title>The Third Bit: Teaching Code Review</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../favorites/">favorites</a>
+      <a class="navlink" href="../../../../advice/">advice</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Teaching Code Review</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2020/03/30/sigsoft-educator/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2020-04-06" class="post-date">2020-04-06</time>
+  </div>
+  <div class="col-2 right">
+    
+      <a href="../../../../2020/05/24/sunday-nights/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
+  </div>
+</div>
+<!-- content --><p>I have taught code review a few times to computer science students (but not yet to data scientists).
+The method I&rsquo;ve used is:</p>
+<ol>
+<li>
+<p>Give learners a half-page program and a short checklist (6-8 points) of things to look for.</p>
+</li>
+<li>
+<p>They have 5 minutes to go through the code and mark it up with numbers from the checklist
+    (&ldquo;this line violates rules 5 and 8&rdquo;).</p>
+</li>
+<li>
+<p>We then go through it as a class so that they compare their evaluation with mine.
+    This helps them understand how to interpret the points in the checklist.</p>
+</li>
+<li>
+<p>Repeat the exercise with another piece of code and the same checklist.
+    Hopefully there will be closer agreement between their evaluation and mine
+    now that they&rsquo;ve seen how to interpret the checklist items.</p>
+</li>
+<li>
+<p>Give them a homework exercise with a larger piece of code (a full page, maybe longer)
+    and a longer checklist (12-15 items).</p>
+</li>
+</ol>
+<p>Some of the items in the checklist can come straight from sources like
+Python&rsquo;s <a href="https://www.python.org/dev/peps/pep-0008/">PEP-8 style guide</a>
+or the <a href="https://style.tidyverse.org/">tidyverse style guide</a>.
+Others should require higher-level thinking,
+e.g.,
+&ldquo;function should be split&rdquo; or &ldquo;functions should be combined&rdquo;.
+For example,
+this short Python program is supposed to count stop words in a list of strings:</p>
+<div class="highlight"><pre><span></span><code>stops = [&#39;a&#39;, &#39;A&#39;, &#39;the&#39;, &#39;The&#39;, &#39;and&#39;]
+
+def count(ln):
+    n = 0
+    for i in range(len(ln)):
+        line = ln[i]
+        stuff = line.split()
+        for word in stuff:
+            # print(word)
+            j = stops.count(word)
+            if (j &gt; 0) == True:
+                n = n + 1
+    return n
+
+import sys
+
+lines = sys.stdin.readlines()
+# print(&#39;number of lines&#39;, len(lines))
+n = count(lines)
+print(&#39;number&#39;, n)
+</code></pre></div>
+<p>I expect learners to say that:</p>
+<ul>
+<li>We should use two blank lines before the function definition on line 3 and after it on line 15.</li>
+<li>Using <code>== True</code> or <code>== False</code> is redundant
+    (because <code>x == True</code> is the same as <code>x</code>
+    and <code>x == False</code> is the same as <code>not x</code>).</li>
+<li>The <code>import</code> on line 15 should be at the top of the file.</li>
+<li>The commented-out <code>print</code> statements should be removed.</li>
+<li>The variables <code>ln</code>, <code>i</code>, and <code>j</code> should be given clearer names.</li>
+<li>The outer loop in <code>count</code> loops over the indices of the line list rather than over the lines.
+    It should do the latter (which will allow us to get rid of the variable <code>i</code>).</li>
+<li>There&rsquo;s no reason to store the result of <code>line.split</code> in a temporary variable:
+    the inner loop of <code>count</code> can use it directly.</li>
+<li>Since the set of stop words is a global variable,
+    it should be written in upper case.</li>
+<li>We should use <code>+=</code> to increment the counter <code>n</code>.</li>
+</ul>
+<p>I would probably also point out that:</p>
+<ul>
+<li>Rather than reading the input into a list of lines and then looping over that,
+    we can give <code>count</code> a stream and have it process the lines one by one.</li>
+<li>Since we might want to use <code>count</code> in other programs some day,
+    we should put the two lines at the bottom that handle input into a conditional
+    so that they aren&rsquo;t executed when this script is imported.</li>
+<li>Rather than counting how often a word occurs in the list of stop words with <code>stops.count</code>,
+    we can turn the stop words into a set and use <code>in</code> to check words.
+    This will be more readable <em>and</em> more efficient.</li>
+</ul>
+<p>The last thing I do is show them what code looks like after problems have been fixed:</p>
+<div class="highlight"><pre><span></span><code>import sys
+
+
+STOPS = {&#39;a&#39;, &#39;A&#39;, &#39;the&#39;, &#39;The&#39;, &#39;and&#39;}
+
+
+def count(reader):
+    n = 0
+    for line in reader:
+        for word in line.split():
+            if word in STOPS:
+                n += 1
+    return n
+
+
+if __name__ == &#39;__main__&#39;:
+    n = count(sys.stdin)
+    print(&#39;number&#39;, n)
+</code></pre></div>
+<p>I haven&rsquo;t (yet) had learners do code reviews with checklists on GitHub,
+but it seems like a natural next step.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004- <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>
