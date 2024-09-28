@@ -9455,57 +9455,33 @@ FIXME
 
 ## Chapter 11
 
-Benício insisted on climbing down the ladder ahead of Iffy,
-so he was the first one to realize that something bad had happened in the shelter
-many years ago.
-"You might not wanna come down here,"
-he called up to her.
-
-*Ain't like a got a lot o' choices,*
-she thought but didn't say.
-The Marines could reach them in a couple of hours if they pushed their exoskeletons to their limits,
-but the governor was sure to have other tools at his disposal.
-If they couldn't find something in the shelter they could be trapped,
-and a siege would only end one way.
-
-The smell hit her halfway down.
-It wasn't rank like the week-dead seagull she had once found in a storage bin behind the Sandhus' store,
-trapped by a lid closing behind it as it scrounged for scraps.
+Iffy was halfway down the ladder when her nose told her
+that something bad had happened in the bunker many years ago.
+The smell wasn't rank like the week-dead seagull she had once found in a dumpster behind the Sandhus' store,
+trapped when the lid closed as it scrounged for scraps.
 Instead,
-the smell was tired and a little bit sour.
+it was tired and a little bit sour.
 
-"Core woulda shut off power after he died,"
-Benício said as they studied the mummified body
-lying a stride away from the bottom of the ladder.
-"Cold an' dry air—coulda happened last year,
-coulda been a hundred years ago."
-
-"More likely a hundred,"
-Iffy replied,
-feeling oddly detached.
+She felt oddly detached
+as she studied the mummified body lying a stride away from the bottom of the ladder.
 Whoever he had been,
 he'd had long dark hair and a beard.
-The inside of his parka was silvered like hers,
-and if he had brought any gear,
-it had either been taken by whoever shot him
-or was lying on the shelves that lined the shelter's walls.
+His parka was silvered like hers,
+but unlike hers,
+had a bullet hole in the back surrounded by an old, dark stain.
 
 She shook herself.
-"C'mon.
-Let's see what we got."
+"Well," she said out loud.
+"Let's see what we got."
 
-What they had turned out to be weapons,
+The answer turned out to be weapons,
 dried food that had either spoiled or mummified like the corpse,
-several camouflage snowsuits with boots and breathing masks
+several snowsuits with boots and breathing masks
 (she puzzled over this for a bit),
 and a small workshop stocked with tools and spare parts that made her hands itch.
-"Looks like they were buildin' bots,"
-she told Benício,
-turning a laser cutter over in her hands.
-
-"Or takin' 'em apart."
-He pulled a tarp off something that looked like
-an oversized version of the sentry bots she was familiar with.
+She turned a laser cutter over in her hands,
+then pulled a tarp off something that looked like
+an oversized version of the sentry bots from the governor's mansion.
 One of its side panels was folded back to reveal its motors and cables.
 Another tarp revealed a second bot with the same bulky body and limbs
 but a cluster of cameras and antennas where its head should have been.
@@ -9513,131 +9489,78 @@ The mod had clearly been made in haste:
 the welds joining the additions to the bot's neck looked messy and unfinished,
 and a handful of string-thin optical cables dangled from the opening.
 
-Iffy looked around the shelter's single large room a second time.
+Iffy looked around the room a second time.
 Something didn't make sense.
-"How were th' bots gonna get out?" she asked suddenly.
-"No way they could make it up th' ladder."
+How were the bots going get out?
+They wouldn't have been able to climb the ladder.
 
-Benício nodded,
-putting the short-barrelled thump gun he had picked up
-back on its shelf.
-"I'll check th' walls.
-You wanna see if you can get anythin' outta that?"
-He pointed at the desktop near the two bots.
-
-She nodded and sat on the stool in front of it.
-The faint scum of dust on the app felt gritty under
-the finger she swiped across it.
-"Aright,"
-she muttered.
-"What have you got for me?"
-
-Five minutes later she smacked the app in frustration.
-"I can't find a way in," she sulked,
-slumping down in the chair.
-
-"Here."
-Benício tossed her a thumb-sized key on a thin chain.
-"It was around his neck,"
-he explained as she stooped over to pick it up.
-
-The key fit into a slot on the edge of the app.
-Its screen went a deep blue.
+She sat down and put her elbows on the workbench.
+It hummed faintly and came to life.
 A single icon appeared,
 waiting patiently to be tapped.
 
-Iffy bit her lip.
-"Could be some kind o' malware.
-Like, a trap or somethin' to fry anyone that looks at it."
+She studied it for a moment.
+It could a trap—malware designed to mesmerize anyone who looked it,
+or any of a hundred other scenarios from sims,
+but what choice did she have?
 
-Benício nodded.
-"Could be."
-Without warning he spun her around
-and pushed hard on the back of her chair.
-
-"Hey!" she squawked as she rolled away.
-"What are you—"
+A faint scum of dust felt gritty under her finger as she swiped its top.
+"User recognized," a soft voice said.
+Iffy blinked in surprise as the icon folded in on itself.
 
 "—a chance to hear this,
 but if you do,
-I'm sorry, love.
+I'm sorry.
 I'm so, so sorry."
 The recorded voice was a man,
 and sounded tired and frightened and brave all at once.
-"I thought we could fix things,
+"We thought we could fix things,
 but we've only made them worse."
 
-Benício turned and beckoned her to join him as the recording continued.
-"Suyin left this morning with the last of the shielding."
 The voice chuckled or choked back a sob—it was impossible to tell which.
-"She said she thought she might be able to make it to the machine
-if she cycled the algorithm rapidly enough,
-but I think she just wanted to be with Georgia,
-wherever the hell she is now.
-None of the other shelters are answering any more,
-not even Johnson's team."
+"Suyin went back in this morning while the rest of us were asleep.
+She thought she might be able to make it to the machine
+if she cycled the shielding rapidly enough,
+but I think she just wanted to be with Georgia."
 
-Iffy reached for Benício's hand.
-He squeezed hers back.
-"I've disabled two of the guard robots—at least I think I have—but
-number three is still roaming around in the auxiliary tunnels.
-I know we all agreed that—that the project needed a failsafe,
-but…"
+"I tried to disable the guard robots,
+but some of them are still loose in the auxiliary tunnels."
 The voice paused for a heartbreaking moment.
-"But I never thought we'd need it.
-I never thought we'd—oh crap."
+I know we all agreed that the project needed a failsafe,
+but I never thought we'd need it.
+I never thought—oh shit."
 
 Iffy jumped at the sharp *crack!*
-Benício squeezed her hand again at the sound of something heavy hitting the floor.
-A moment later metal clicked on concrete
-as something approached the app,
+There was the sound of something heavy hitting the floor.
+A moment later metal clicked on concrete,
 and then the recording ended with a soft, cheerful *ding*.
 
-"Well."
-Benício gently pulled his hand free and swiped the app.
-"Doctor Arno Severin,"
-he read aloud as Iffy lowered herself back into her chair.
-"Doesn't say who it was for,
-but I'm guessin' these two were Suyin an' Georgia."
-He paused.
-"Oh.
-Well,
-ain't this a surprise."
-He looked at her over his shoulder.
-"I think you're gonna wanna see this."
-
-Iffy nodded but didn't stand.
-She knew the Marines were getting closer every moment,
-but all of a sudden she just felt tired.
-
-"Iffy?
-Y'aright?"
-
-"Yeah."
-She pulled herself to her feet.
-
+The screen filled with icons and images like those in Iffy's app.
 Two dozen smiling, confident faces were arranged on the app
 in eight rows of three.
 The top row contained a man with long dark hair and a beard
 and two women who looked like clones of each other.
+"Doctor Arno Severin,"
+she read aloud.
+The names below other images identified Suyin and Georgia.
+The others were all of a similar age,
+all smiling,
+and—
 
-"Recognize him?" Benício asked,
-pointing.
-
-Iffy nodded slowly.
-"Yeah.
-Yeah, I do."
-Somehow she wasn't surprised to see Johnson Wales looking back at her.
+And there,
+in the bottom row,
+was Commander Johnson Wales,
+another man named Surjinder Johel that Iffy guessed was Doctor Johel's grandfather,
+and an older version of herself labeled Suhailah Kwan.
 
 There were no other recordings,
 at least not that Iffy could find,
 but there were maps and schematics.
 The maps showed a network of maintenance tunnels
-just big enough for centipede-shaped bots
-that reminded Iffy of French Henry.
+just big enough for raccoons or maintenance bots.
 She would be able to fit her arm into one of them,
 but no more,
-and some of them ran (or had run) for tens of kilometers.
+and some of them ran for kilometers.
 
 There were other tunnels too, though,
 big enough for heavy equipment.
@@ -9646,29 +9569,16 @@ flooding,
 or chronic instability.
 She puzzled over that for a second before dismissing it.
 Reasons weren't important:
-a blocked tunnel was no use to them.
+a blocked tunnel was no use to her.
 
-Iffy had expected the web of tunnels to be centered on the Niobium base.
+It took her a few minutes to realize that
+the web of tunnels wasn't centered on the Niobium base.
 Instead,
-the center was a kilometer further south
-on the slope of Mount Tyree instead of at its peak.
-Benício shrugged when she pointed this out.
-"Wouldn't be surprised if th' real whatever is somewhere else again."
-He jerked his head toward Severin's remains,
-which he had wrapped in the tarp he had pulled off the sentry bot.
-"Folks like this never thought in straight lines.
-Whatever you can see ain't real,
-and whatever's real,
-they'll have hidden under three different kinds o' camouflage."
-
-But the mystery of what was actually buried under Mount Tyree
-wasn't what made Iffy chew her lips
-the way she had when she was first learning algebra.
-That was the schematics' fault.
-They made no sense.
+its heart was a kilometer further south.
+That wasn't what made Iffy chew her lips, though.
 She could think of a hundred uses for a superconducting ring
 large enough to sail the *Guinevere* through,
-but why put a bamboo rat cage at its center?
+but why put a cage for lab rats at its center?
 And if you had a yottahertz laser capable of vaporizing steel from orbit,
 why would you point it directly at an identical laser,
 and why would you leave just enough space between them for
@@ -9678,52 +9588,13 @@ and a month's worth of high-energy rations?
 She sat back,
 stretched,
 and yawned so widely that her jaw clicked.
-The only explanation that made sense was that
-the app's records had been deliberately scrambled and polluted
-when things went skew.
-It didn't matter now:
-if the governor had sent Marines,
-they would arrive in an hour,
-maybe less.
-She had done her best to wipe the shelter from the hovercraft's memory,
-but they would have other records.
-Even if they didn't,
-they would have to be blind to miss the parawing and bootprints,
-and they wouldn't have come all this way
-without something that could cut through
-the rock concealing the entrance.
+*Any suggestions?* she thought,
+but her voices were still silent.
+It wouldn't be long before Wales and the Marines caught up with her.
+As tired as she was,
+she needed to get moving.
 
-"I don't like it,"
-Benício said,
-studying the route she had sketched on the map
-that filled half the app.
-
-Iffy shrugged.
-"Every other way I can find has a big chunk o' walkin' in it.
-This might too if there's been more cave-ins,
-but there's no way o' knowin' 'til we get there.
-'Sides,
-more chance o' meetin' some actual monsters this way.
-Be a waste t' be down here an' not run into any."
-
-The Ecologist snorted.
-"Folks ever tell you you're a bit sideways from normal?"
-
-Iffy shrugged again.
-"Most never get t' know me well enough to find out,"
-she admitted.
-
-Benício put his hand on her shoulder and gave her a gentle shake.
-"I'm glad I have.
-You get th' bots back online.
-I'll see what I can do about wheels."
-He studied the sketch she had thrown together
-on the other half of the app,
-shook his head,
-and began rummaging through the shelves of equipment that lined the shelter's wall.
-
-It took Iffy ten minutes to fix the damage done to the sentry bots
-and another ten to convince herself they were safe to power on.
+It took her ten minutes to get the two sentry bots online.
 Their optical sensors didn't glow red—that only happened in sims—but
 she did take an involuntary step back
 when their heads turned in unison toward her.
@@ -9739,22 +9610,6 @@ The bot took a step toward her,
 hesitated,
 and crouched beside its twin.
 
-Iffy swallowed drily.
-The problem wasn't that the bots' programming was too complex for her to figure out.
-The problem was that it was too simple to fool easily.
-She didn't know if that was because they were old enough
-that their code didn't have anything from the machine wars mixed into it,
-or whether they had been built that way deliberately for safety.
-Mister Mishra was fond of saying that there was no way to fool a hammer.
-Just this once she hoped he was wrong.
-
-"You just about done?"
-She jumped at Benício's voice.
-
-"Hope so," she said briskly,
-promising herself mentally that she would never watch another horror sim again.
-"Let's hook 'em up."
-
 Long before there were buses and hovercraft there were ox-carts and chariots.
 Iffy didn't know if anyone had ever built one to be pulled by two sentry robots,
 but if so,
@@ -9767,38 +9622,23 @@ but even without the schematics in her head
 she could see that it would want to slip, tip, or flip
 at every bump and corner.
 
-Benício took a moment to say a few quiet words over what was left of Arno Severin,
-then lowered himself gingerly onto the dolly beside her.
-A plastic crate full of tools sat beside her,
-and another one with weapons and spare parts for the bots nestled under his elbow.
-None of the weapons had responded to their touch,
-but they would still add useful weight.
-
-The Ecologist looked at her and grinned.
-She grinned back.
+She lowered herself gingerly onto the dolly.
+A plastic crate full of tools pressed against her side,
+and another with spare parts for the bots nestled under her elbow.
 "Yip yip!" she said,
 snapping the cables she had rigged as reins.
-("So that I'll have somethin' t' hold onto,"
-she had told Benício,
-who had nodded straight-faced in response.)
 
 The bots didn't move.
 Iffy sighed.
 "Forward one quarter speed," she ordered.
 The dolly jerked beneath her as the bots set off at a trot into the tunnel.
-Benício thumbed a handlight and pointed it ahead of them.
 
+She thumbed a handlight and pointed it ahead of them.
 "Increase speed to one half."
 The dolly's wheels made a sizzling sound as they rolled faster into the unknown.
 
-Iffy had expected the tunnel to be level,
-but instead it rose and fell with a kilometer-long rhythm.
-"For drainage?" Benício hazarded,
-though the floor was desert dry.
-
 After half an hour her back was aching and her backside had gone numb.
-She was about to suggest that they stop to stretch
-when the two sentry bots pulled up short.
+She was about to order the bots to stop when they pulled up short.
 "Whoa!" she squawked as the dolly smacked hard into their hind legs.
 
 The bots ignored her.
@@ -9807,61 +9647,34 @@ The one that had hesitated before accepting her orders took a step and stopped.
 Without warning a panel on its back flipped open
 and something stubby and lethal looking popped up.
 
-Benício swore under his breath and reached for the crate beside him.
-The gun on the bot's back spun around to point at him.
-"Aright, aright," the Ecologist said,
-raising both hands.
-
-He caught Iffy's eye and jerked his head backward.
-She nodded,
-then swivelled slowly to the side and put her boots on the concrete.
-When Neither of the bots moved
-she slid forward and slowly stood up.
+She swore under her breath.
+The gun on the bot's back spun around to point at her.
+"Take it easy," she said,
+her heart suddenly pounding.
 
 Metal clicked on concrete somewhere in the darkness ahead of them.
 The bot's gun spun around again.
-"Easy, easy," Benício said soothingly as he got to his feet as well.
-"I'll just get all this off you an'—nope, nope, ne'er mind."
-He let go of the cables he had gathered up in one hand and stepped back.
-The bot's gun tracked his motion for one extra warning second
-before spinning around to point into the darkness once again.
 
-"I think—" Iffy started,
-biting off her words when Benício flashed the flat-palmed handsign that meant "quiet".
-*I think it's the other bot,*
-she finished in her head.
-She closed her eyes and tried to slow her breathing.
+Iffy closed her eyes and tried to slow her breathing.
 Nothing:
 no images flashed into her mind
 and no thoughts suddenly emerged fully-formed.
 
 Metal clicked on concrete again.
 Her eyes snapped open.
-The sound was *behind* them this time.
+The sound was *behind* her this time.
 
-She and Benício turned in unison.
-The light in the Ecologist's hand reflected off three—no, four—bots
+She turned her head slowly.
+Light reflected off three—no, four—bots
 like the pair that had been pulling the dolly.
 One was missing part of a foreleg.
 Another's side was deeply dented
 as if something had tried to punch right through it,
 and all four bore more scratches and scars than Iffy could count.
 
-The lead bot took a step toward them.
-"Hey now," Benício cautioned.
-"We ain't lookin' for trouble."
-
-"Ssh."
-Iffy studied the bot.
-"I don't think it wants t' hurt us.
-Matter o' fact…"
-She raised both her hands,
-turned around slowly,
-and reached into the crate of tools she had packed earlier.
-
-"F'real?" Benício muttered disbelievingly.
-
-"You got a better idea?" she shot back under her breath.
+The lead bot took one more step and halted.
+Struck by a sudden thought,
+she reached into the crate of tools she had packed earlier.
 An adjustable wrench,
 a screw jack that might be able to outdent the bot's side—what she really needed
 was Mister Mishra's shop and Johnson Wales' toolbox,
@@ -9872,28 +9685,18 @@ She turned around to face the bots and held the tools out.
 
 None of the bots moved.
 For one panicked moment Iffy thought she had guessed wrong,
-but then the bot that had stepped forward took two more steps toward her
+but then the bot took two more steps toward her
 and lowered itself into a crouch.
 
-"We don't have time for this,"
-Benício said quietly a moment later.
-
-"Tell them that,"
-Iffy replied absently.
-These bots had been built to be scouts and guards and weapons.
+The bots had been built to be scouts and guards and weapons.
 The blunt claws on the ends of their legs could pick up a rock
 or grab hold of someone's arm,
 but were no good for delicate work.
 Scratches and dents on the bot's inner frame showed
 where they had tried to repair each other anyway.
 
-"Gimme the crate,"
-she said over her shoulder.
-"Please."
-Benício lifted it off the dolly and set it down beside her without comment.
-
 Wire,
-a crimping tool that she could use to cut it,
+a crimping tool,
 a screwdriver with a torsion readout built into its handle—there.
 She patted the bot's back.
 "Good as new."
@@ -9910,12 +9713,12 @@ and stepped aside to make room for another member of its pack.
 Iffy put her tools back in the crate and stood.
 "I'm sorry,"
 she said.
-"We gotta keep movin',
-but if you wanna come with us
+"I gotta keep movin',
+but if you wanna come with me
 I'll fix you when we get somewhere safe."
 
 The bots didn't move.
-"We really gotta go,"
+"I really gotta go,"
 Iff said,
 turning to pick up her crate.
 
@@ -9925,99 +9728,67 @@ She smacked it with her hand.
 "None o' that, aright?"
 
 The bot released her but didn't back up.
-She glanced at the two still in harness and frowned.
-"Pass me a cable,"
-she said to Benício.
-"I have an idea."
-
+She glanced at the two still in harness and frowned,
+struck by another idea.
 The bots didn't have collars,
 but a lifetime at sea had taught Iffy dozens of ways to tie a knot.
 She left plenty of slack so that the bots could pull their heads out if they needed to.
 
 When she was done,
 the three bots that had all of their legs waited patiently in a line behind the dolly,
-the cable loops around their necks.
-Benício shook his head.
-"Nagatha's never gonna believe this."
+the cable looped around their necks.
 
-Iffy grinned.
-"Come on, you," she said to the fourth bot.
+"Come on, you," she said to the bot that was missing part of its leg.
 "Up you get."
 She put her hand where its neck would have been and tugged it forward.
 Limping,
-it clambered up onto the dolly and crouched down
-where Iffy and Benício had been sitting.
+it clambered up onto the dolly and crouched down.
 
 "Nope, nope, not there."
 She tugged it again,
 then sighed when it didn't move.
 "Aright,
-stay there if you want to—we'll get a better view up front anyway."
+stay there if you want to—I'll get a better view up front anyway."
+A moment later she was rolling through the tunnel once again
+with three of the new bots following single file behind her.
 
-"Can we go now?"
-Benício asked testily.
-
-Iffy nodded.
-"Yip yip!"
-The bots in front of them didn't move.
-"Worth a try," she muttered.
-
-"Forward one quarter speed,"
-Benício ordered.
-A moment later they were rolling through the tunnel once again
-with three of the new bots following single file behind them.
-
-Iffy leaned back gingerly.
-The crippled bot on the dolly rotated its head to study her.
+Iffy leaned back gingerly against the crippled bot.
+It rotated its head to study her.
 After a moment she draped an arm over its back to steady herself.
 It wasn't actually more comfortable than just sitting upright,
 but it was somehow more comforting.
 
-She didn't notice the extra clattering at first.
-Or rather,
-she wasn't the first to notice that
-there was more sound behind them than there should be.
-
-She snapped out of her daze when the three sentry bots
-trotting in step in the dolly's wake pulled up short.
+Against all odds her eyes began to close.
+She snapped out of her doze when the bots pulled up short.
 "Shad!"
-The dolly smacked hard into the hind legs of the ones in front,
-who had stopped two mechanical strides later.
+The dolly smacked hard into the hind legs of the ones in front.
 Six boxy clusters of sensors and cameras swivelled
 to point back the way they had come.
+That's when Iffy heard the rhythmic *clunk clunk clunk* of exoskeletoned feet on concrete.
 
-That's when Iffy heard it:
-the rhythmic *clunk clunk clunk* of exoskeletoned feet on concrete.
-Benício was already on his feet
-with something that looked like a high-pressure paint sprayer in his hands.
-"Only thing that doesn't have a lock-out,"
-he said.
-
-Iffy was already unlooping the cables around the bots' necks.
+She unlooped the cables around the bots' necks.
 "Listen,"
 she said,
 squatting in front of the one she had repaired
 so that her head and its sensors were on the same level.
-"I know we're not who you were s'posed t' be guardin',
+"I know I'm not who you were s'posed t' be guardin',
 but those folk back there?
 They're *really* not s'posed t' be here."
 She fished the screwdriver out of her pocket and held it up.
 "You fix that an' I promise,
-I'll do my best t' fix you all."
+I'll do my best t' fix you an' your friends."
 
 She had no reason to believe the bot could understand her.
-Its core had probably been imprinted with a dog's mind
-like Doctor Johel's armored G-80 back in Rothera.
-There was no telling what strange loops it might have formed
-in the century it had spent patrolling these abandoned tunnels.
+There was no telling what strange loops might have formed in its core
+as it patrolled these abandoned tunnels.
 For all she knew it would take one look at the Marines
 and decide they were its true masters.
 
-The bot took a step forward and to butted her gently with its head,
+But the bot took a step forward and to butted her gently with its head,
 then turned and disappeared into the darkness
 with its two companions at its heels.
 
-The fourth bot rose onto its three good legs.
+The crippled bot rose on its three good legs.
 It didn't make a sound,
 but Iffy imagined that if it could have whined it would have.
 "They'll be aright,"
@@ -10025,8 +9796,8 @@ she told it as she took her seat on the dolly,
 wishing she believed her own words.
 
 The first explosion echoed through the tunnel a few minutes later.
-"Increase speed to full,"
-Benício snapped at the harnessed bots.
+"Full speed!"
+she ordered the harnessed bots.
 Gunfire chattered behind them—Iffy couldn't tell how far away—and then
 the sound-shock of another explosion rolled past them.
 
@@ -10035,97 +9806,44 @@ The three-legged bot had risen to its feet again,
 its body swaying slightly as its algorithms steadied its misbalanced weight
 atop the dolly.
 
-"I said get—affin' heck, look out!"
+"I said get—affin' heck!"
 Iffy ducked
-as the three-legged bot jumped over her.
+as the bot jumped over her.
 The dolly slewed wildly,
 skidded,
 and straightened out.
 
-The tunnel was climbing now,
-a long steady incline that Iffy hoped would lead to
-the surface or the secret Niobium base
-or whatever it had been built to distract from.
+The tunnel was climbing now in a long steady incline.
 The first painted stripe on the wall flew past so quickly that
 she wasn't sure she had seen it.
-A second, then a third with a six-digit number stenciled next to it,
-and then the tunnel leveled out and automatic lights came on over their heads,
+A second followed,
+then a third with a six-digit number stenciled next to it,
+and then the tunnel leveled out and automatic lights came on over her head,
 turning everything the dark red she associated with night watches.
 
 The bots slowed and stopped
 as the dolly rolled into a dimly-lit space several times larger
 than the bunker they had left.
-A blast door slid closed behind them,
+A blast door slid closed behind her,
 metal scraping on stone for the first time in a century.
-They had arrived.
+She had arrived.
 
-"Lights on?" Benício said after a moment.
+"Lights?" she said after a moment.
 "*Acendé luz?*
 *Lampo roshan kon?*"
 
-The three-legged bot made a high-pitched whining sound.
+The crippled bot made a high-pitched whining sound.
 Iffy squinted as clinically-white strips in the walls and ceiling obediently lit up,
 then sucked in her breath.
 She had hoped they would find a workshop
 and feared it would be a graveyard,
 but this—she hadn't expected this.
 
-Six thick cylinders lay on their sides in two rows of three,
-each one surrounded by pipes and machinery.
+A thick cylinder lay on its side surrounded by pipes and machinery.
 A bulky mass made of meter-square bricks loomed in the background.
 The three-armed logo painted on its side was redundant:
 even before schematics took shape in her head
 she recognized the reactor for what it was.
-
-One of the cylinders had been opened.
-She and Benício exchanged looks.
-He nodded as if to answer a question she hadn't asked,
-then hefted the thing that looked like a paint sprayer
-and edged forward cautiously.
-
-She held her breath as he neared the cylinder,
-only letting it out when he glanced inside and lowered the sprayer.
-"'S empty," he said,
-sounding as relieved as she felt.
-"An' look—one o' th' suits is missin' too."
-He gestured at the wall to their left
-where five silvered body suits hung from swing-out racks
-in front of matching boots and helmets.
-
-"Stay here,"
-Iffy told the bots.
-Singh, Velikov, DiOrio, Yuen, Boghosian—and Johnson.
-The label above the missing suit read "Johnson",
-but what did "High Medina" mean,
-and where had she seen that logo before?
-A red circle with a green crescent set into it,
-a four-pointed white star…
-
-"They were Martians!" she blurted.
-"It was in one o' my history sims.
-Some trillionaire gave up on fixin' th' world
-an' wanted t' run away t' Mars.
-They got a few rockets up b'fore space got affed up
-an' then—"
-She shrugged,
-slightly embarrassed by how excited she had momentarily sounded.
-Honesty had teased her once about being a space geek
-and she had never mentioned it to der again.
-"Th' machine wars started an' nobody ever heard anythin' more from them."
-
-Benício nodded, stony-faced.
-"I know th' story.
-Coulda saved a million trees or a million lives
-with what they spent tryin' t' get away from what they'd done."
-He hefted the sprayer again,
-and for a moment she thought he might use it on the empty cylinder.
-"You ever meet any o' my folk an' they call you an astronaut,
-it ain't a compliment."
-
-"But what're they doin' here?"
-Iffy walked past the motionless bots harnessed to the dolly
-and ran a finger along one of the unopened cylinders.
-"An' who's been cleanin' this all these years?"
 
 The crippled bot on the dolly surged to its feet.
 The panel on its back flipped open.
@@ -10139,138 +9857,54 @@ The three-legged bot tilted its head toward Iffy.
 "Um, sure," she said helplessly.
 The laser blinked off,
 but the sentry bot stayed on its feet
-as the service bot began to wipe down the nearest cylinder
+as the service bot began to wipe down the cylinder
 with a brush whose bristles had long since worn away.
 
-Benício swiped an app set into a work table next to one of the cylinders
-and studied the displays that appeared.
-"Reconciliation Team Beta,"
-he read aloud.
-"Alpha's in a shelter east o' here
-an' Gamma 'n' Delta are 'round th' other way."
-He frowned.
-"This doesn't make any sense.
-They all have cryogenization an' the same date,
-but then decryogenization on different dates."
-
-"So they all got unfrozen at different times,"
-Iffy said,
-shrugging.
-
-Benício shook his head.
-"That's what's weird about it.
-Accordin' to this,
-they all got unfrozen *before* they were frozen, not after."
-He cleared his throat.
-"And,
-um,
-those five?
-They all got a flag beside their names that says 'nonviable'.
-Only one marked green is Johnson."
-
 Iffy hunched her shoulders inside her parka and shivered.
-She was hungry and needed a bathroom
-and she was tired of being in places where people were dead.
-"That thing show you a way outta here?"
+She was hungry and tired and needed a bathroom,
+but most importantly,
+she didn't know what she was supposed to *do*.
+Open the cylinder?
+Fix it,
+or blow it up somehow?
 
-The Ecologist shrugged.
-"Th' tunnel that way gets us to Alpha,
-or we can go th' other way to Gamma.
-There's another one into th' Niobium thing,
-an' from there we can get to whatever's in th' middle of all this.
-'Scuse me."
-He stepped aside to let the service bot roll past him on its rounds.
-
-He looked as tired as she felt,
-Iffy realized,
-and felt a pang for not having thought about it before.
-"Maybe there's bunks in back or somethin'?" she hazarded.
-
-"Nah."
-Benício shook his head.
-"This place wasn't for workin' or livin'.
-This was a warehouse.
-An' anyway,
-we gotta keep movin'.
-Those bots mighta slowed th' Marines down,
-but they won't'a stopped 'em."
-
-Iffy *really* wanted a bathroom,
-but she had once stood an eight-hour watch on the *Guinevere*
-when Aunt Naggie was sick
-without a single break
-despite six cups of tea.
-"Th' hell with whatever they were doin' down here,"
-she said.
-"Let's get to th' base and figure out a way outta this mess."
+"Or just find a way out an' forget about it?"
+she asked the empty air.
 
 The service bot pivoted on its wheels to face her.
-"The way out is simple, Citizen Kwan,"
+"The way out is simple, Iffy,"
 a familiar voice said.
-"All you have to do is stay where you are
-so that my team can collect you without any more theatrics.
-Your friend goes about his business,
-you help me with mine,
-and we all get a happy ending."
+"All you have to do is stay where you are until I get there,
+then talk to the machines for me
+and we'll all get a happy ending."
 
-Benício hefted the sprayer and aimed it at the bot.
-"Now, now,"
-the governor's voice chided.
-"I have no idea if that still works and neither do you.
-Even if it does,
-you're sixty meters underground and breathing recycled air.
-Do you really want to set things on fire?"
-
-Benício hesitated.
-"I s'pose not," he said,
-setting it down beside the dolly.
-And then casually,
-as if it was the most natural thing in the world,
-he slipped the loops of cables off the two sentry bots harnessed that had been pulling them
-and shouted,
-"Get 'em!"
-
-The bots didn't move.
-
-The governor's voice chuckled.
-"Did you really think that would—"
+Iffy reached into the tool crate and picked up a wrench.
+"Iffy, please,"
+Wales' voice chided.
+"Do you really think—"
 
 "Target!"
 Iffy snapped,
-pointing.
-The gun on the back of the three-legged bot barked twice.
+pointing the wrench at the service bot.
+The gun on the back of the sentry bot beside barked twice.
 The first shot punched a hole through the service bot.
 The second caught it off-center and sent it spinning across the floor.
-
-"What—"
-Benício started.
-
-"You just gotta know how t' talk to 'em,"
-Iffy said,
-grabbing a couple of tools out of her crate and stuffing them into her pockets.
-"C'mon.
-We gotta get a leg on."
 
 The tunnel at the other end of the bunker had a blast door
 to match the one that had closed behind them.
 Iffy closed her eyes and rooted around in her not-memories of this place.
 There.
 She traced a shape on a contact pad beside the door,
-then gasped as it slid open to reveal a pair of Marines,
-their gun-arms pointed straight at her and Benício.
+then gasped as it slid open to reveal a pair of Marines.
 
-"Oh rabbit,"
-the governor's voice said,
-and for a moment Iffy could almost believe the sympathy in his voice was genuine.
+"Oh Iffy,"
+Wales' voice said through a speaker on one of their exoskeletons.
 "Did you really think you could find a hole deep enough to hide from *me*?"
 
 Iffy felt rather than saw the three-legged bot begin to move.
-"No!" she shouted,
-lunging to stop it
-as if it was a pet rat or a drone she had just spent hours building out of spare parts.
+"No!" she shouted.
 Its gun fired twice
-but it was already falling as the Marines' auto-targeted shots
-hit the knee joint in its remaining front leg.
+but it was already falling as the Marines' auto-targeted shots brought it down.
 
 She was falling too.
 Something had knocked the breath out of her.
@@ -10282,9 +9916,7 @@ just above her hip
 and when she tried to breathe it felt like someone was kneeling on her back
 and squeezing all the air out of her.
 
-Benício was shouting her name.
-She was pretty sure it was Benício.
-She could hear the governor's voice barking order too.
+She heard Wales' voice bark order too.
 "No, don't," she tried to say
 as exoskeletoned arms picked her up,
 but the words came out as a gasp
@@ -10292,16 +9924,7 @@ and now she could breathe again
 and the hurt spread through her like milk poured into tea.
 
 Her head lolled to the side as the Marine placed her on a nearby work table.
-Benício was shouting and struggling to free himself from the other Marine's grip,
-which was working about as well as the time
-she had tried to pull herself free from Aunt Naggie
-after having her first and only temper tantrum outside the Sandhus' shop
-when she was eight years old.
-She couldn't remember what she had wanted so badly,
-but it didn't matter.
-
-The Marine who had picked her up had put a patch on her arm
-to take the pain away
+One of them put a patch on her arm to take the pain away
 except it was more like taking her away from the pain.
 She floated inside her own body as if it was a warm bath
 while the Marine sliced open her parka with a very sharp knife
