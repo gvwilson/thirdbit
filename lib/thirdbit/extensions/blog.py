@@ -33,7 +33,7 @@ def generate_feed():
         loader=FileSystemLoader(Path(ark.site.home(), "lib", ark.site.config["theme"], "templates")),
     )
     template = env.get_template("atom.jinja")
-    updated = min(post.meta["date"] for post in ark.site.config["_posts"])
+    updated = max(post.meta["date"] for post in ark.site.config["_posts"])
     text = template.render(site=ark.site.config, updated=updated)
     text = text.replace("@root", ark.site.config["url"])
     Path(ark.site.home(), ark.site.config["out_dir"], "atom.xml").write_text(text)

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  <title>{{site.title | escape}}</title>
- <link href="/atom.xml" rel="self"/>
+ <link href="{{site.url}}/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>{{updated}}</updated>
- <id>{{site.url}}</id>
+ <updated>{{updated}}T00:00:00Z</updated>
+ <id>{{site.url}}/</id>
  <author>
    <name>{{site.author.name}}</name>
    <email>{{site.author.email}}</email>
@@ -12,9 +12,9 @@
  {% for post in site._posts[-20:]|reverse %}
  <entry>
    <title>{{post.title | escape}}</title>
-   <link href="{{site.url}}{{post.url}}"/>
-   <updated>{{post.date}}</updated>
-   <id>{{site.url}}{{post.url}}</id>
+   <link href="{{post.url | replace('//', '/')}}"/>
+   <updated>{{post.date}}T00:00:00Z</updated>
+   <id>{{post.url | replace('//', '/')}}</id>
    <content type="html">{{post.html | escape}}</content>
  </entry>
  {% endfor %}
