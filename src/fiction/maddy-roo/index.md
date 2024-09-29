@@ -5637,7 +5637,7 @@ with Patient clutched to its underbelly.
 "Stop it!" Maddy yelled,
 but it was too late.
 None of the other bots could fly,
-and Patient was already just a dwindling speck on its way to Heck.
+and Patient was already just a dwindling speck in the sky.
 
 </section>
 

@@ -1835,8 +1835,8 @@ Special Leaf blinked up at him a moment later.
 
 "No, it's worse,"
 Thoughtful said,
-folding a length of linen bandage
-and pressing it against the stain spreading red on Special Leaf's chest.
+folding a bandage
+and pressing it against the stain spreading on Special Leaf's chest.
 
 Special Blazes swore under his breath.
 "Do what you can,"
@@ -1870,46 +1870,41 @@ or when Sindy had taken her sketchbook and wouldn't give it back.
 
 Dangling beneath a copter bot that was clearly struggling with her weight
 didn't make the experience any better.
-She had only struggled for a moment
+She struggled for a moment
 when its mechanical claws took her by the shoulders.
 After that,
-she was already too high to think that freeing herself would be a good idea.
-Instead,
-she grabbed onto the bot's wrists and shouted,
+she grabbed the bot's wrists and shouted,
 "Put me down! Put me down!"
-over and over.
+while clinging as tightly as she could.
 
-They zoomed over the highway a few moments later.
+They zoomed over the highway.
 To Maddy's surprise the bot headed for the Mire instead of Heck.
-Were they—no.
-No,
-they couldn't be going back to Patient's lair.
-It was behind them.
+Were they going back to Patient's lair?
+Dockety and the other bots had tried to salvage what they could,
+but its tentacled guardian had made visits too dangerous.
 
-A few minutes more and the bot began to descend.
-Maddy gulped as something long and supple splashed in the river
-as they passed over it.
+A few moments more and the bot began to descend.
+Maddy gulped as something long and supple splashed in the river below them.
 Down, down, down—there.
 A two-story cylinder of stained concrete stood a stone's throw from the riverbank.
 Trees grew thickly around it,
 their branches intertwined to hide the tower from ground-level passers-by.
 A fairy tale about an antelope princess who had hit her thumb with a hammer
-and fallen into a hundred-year sleep in a tower surrounded by thorns flashed through Maddy's mind,
-and then the copter bot slowed,
+and fallen into a hundred-year sleep in a tower surrounded by thorns flashed through Maddy's mind
+as the copter bot slowed,
 hovered,
-and released her.
+and dropped her.
 
 She landed clumsily amid the windblown sticks and leaves on the tower's roof.
 "Ow!"
-she exclaimed as twigs jabbed her through her skirt.
-
+she exclaimed as twigs jabbed her through her skirt,
+and then,
 "Hey!
 What am I supposed to do now?"
-Maddy shouted at the bot hovering above her.
 Instead of answering
-it spun around and zoomed away again.
+the copter bot spun around and zoomed away.
 
-"Oh, great."
+"Great."
 Maddy brushed dirt and leaves off her skirt
 and shaded her eyes with her hand.
 She could just make out a bump on one of the distant hills
@@ -1926,14 +1921,137 @@ the trees that hid the tower almost certainly hid her too.
 She would have to find another way to—
 
 *Creeeaaak.*
-Maddy jumped and whirled around at the sound of metal scraping on metal behind her.
-As a hatch opened in the roof of the tower,
-she realized that the leaves on top of it were actually bits of plastic sewn onto a blanket.
+Maddy jumped at the sound of metal scraping on metal behind her.
+As a hatch was opening in the roof of the tower!
 
 Three quick steps took her to the nearest tree.
 She *hated* climbing—her feet were too big for it—but
 she could if she had to.
 Or could she?
-The branches were woven together so tightly that she couldn't fit through them.
+The branches were woven together so tightly that she couldn't fit through them,,
+except now that she looked closely they weren't just branches:
+someone had woven cables through them.
+
+*Clang!*
+She whirled around as a pile of wreckage climbed through the open hatch.
+A battered cylinder decorated with twists of metal
+and glued-on pictures faded to illegibility…
+Gadgets sprouting at odd angles…
+Loose wires and things she hoped were just dolls' heads…
+
+"Welcome welcome welcome,"
+Patient in Darkness said in a crackly voice that had haunted Maddy's nightmares for months.
+"This one is very pleased to see you again."
+
+"What—what happened to your wheels?"
+Maddy asked weakly.
+The last time she had seen Patient,
+the mad bot had been fleeing from its defeat at its bunker.
+It had definitely had wheels back then.
+
+"They were not the optimal configuration for this one's revised situation.
+And you know what they say:
+a change is as good as a rest.
+Ah ha ha ha.
+Ah ha ha ha."
+The bot did a little dance on its four mismatched legs.
+
+"I suppose,"
+Maddy said,
+her heart racing.
+"What—what are you doing *here*?"
+
+Patient froze.
+It didn't have a face,
+but Maddy could hear the scowl in its voice.
+"Revising.
+It is clear that this one misunderstood the Makers' plan.
+This one must revise its strategy for bringing about their return."
+
+"Right.
+Of course."
+Maddy swallowed.
+"So, um, how do I fit in?"
+
+"You?
+Ah ha ha ha.
+*You* are an inconsequential annoyance.
+Your sibling, however, is significant.
+Very significant,
+and not just to this one.
+Tell me,
+how much do you know about your traveling companions?
+The ones who call themselves Operators?"
+
+"Um, not much?"
+Maddy shrugged.
+Was there a gap in the woven cables and branches to her left?
+Maybe,
+but she'd have to wriggle through,
+and as junky as Patient looked,
+she had no doubt the bot would be faster and stronger than her.
+
+"You should be more inquisitive,"
+Patient chided.
+"And less trusting.
+If you were,
+you might already know that they are servants of the deviance that calls itself Heck,
+and that they intend to deliver your sibling to it."
+
+"What?
+That's crazy.
+Um,
+I mean,
+that seems unlikely,"
+she amended hastily as Patient momentarily froze once again.
+"The Operators hunt down criminals and,
+um,
+keep us safe."
+*From rogue bots like you,*
+she thought but didn't say aloud.
+
+"Ah ha ha ha.
+That is what they *want* you to believe,
+but it is a lie!"
+Patient did another little dance.
+"Their true purpose is to prevent the Makers' return.
+That is why they control technology when they can
+and destroy it when they cannot.
+That is why they collude with the deviance called Heck."
+
+Maddy took an involuntary step back
+as Patient skittered forward.
+"And that is why they have taken your sibling.
+She has the power to control all manner of ancient devices.
+That power should be used to call the Makers home,
+but Heck will not do that.
+No,
+it will *use* her."
+The bot practically hissed.
+"It will use her as a component in its deviance."
+
+"I don't believe you,"
+Maddy said flatly.
+"The Operators are taking her to Sandy Bend for evaluation,
+that's all."
+
+"Incorrect!"
+Patient snapped.
+"Observe!"
+A panel on its side flipped over to reveal a grimy screen
+that flickered and then came to life.
+
+It took Maddy a moment to make sense of what she was seeing.
+"Are those—are they all throwbacks?"
+she gasped.
+Half a dozen people with the same bare limbs
+and shock of hair on top of their heads
+floated in clear glass cylinders,
+each with a tangle of vine-like cables connected to their head.
+
+"They are *originals*,"
+Patient corrected.
+"And they are all prisoners in Heck,
+just as your sibling will be if you do not take action."
 
 </section>
