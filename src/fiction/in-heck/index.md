@@ -1987,8 +1987,7 @@ The ones who call themselves Operators?"
 Maddy shrugged.
 Was there a gap in the woven cables and branches to her left?
 Maybe,
-but she'd have to wriggle through,
-and as junky as Patient looked,
+but as junky as Patient looked,
 she had no doubt the bot would be faster and stronger than her.
 
 "You should be more inquisitive,"
@@ -2044,14 +2043,121 @@ that flickered and then came to life.
 It took Maddy a moment to make sense of what she was seeing.
 "Are those—are they all throwbacks?"
 she gasped.
-Half a dozen people with the same bare limbs
-and shock of hair on top of their heads
+Half a dozen people with the same hairless limbs and small features as Sindy
 floated in clear glass cylinders,
-each with a tangle of vine-like cables connected to their head.
+each connected to a tangle of vine-like cables.
 
 "They are *originals*,"
 Patient corrected.
 "And they are all prisoners in Heck,
-just as your sibling will be if you do not take action."
+just as your sibling will be if you do not take action.
+The deviance will put her in a hibernation capsule
+and use her genetic signature to operate specialized equipment for *its* needs
+instead of in service to the Makers
+and never allow her to wake up again!"
+The bot's voice rose as it spoke until it was almost shrieking.
+
+Its limbs skittered on the concrete beneath them.
+"But you can save her,"
+it continued,
+wheedling now instead of ranting.
+"You can save her,
+but only with this one's help."
+
+"Uh huh."
+Maddy crossed her arms and tried not to shiver.
+"And you're going to do this all out of the goodness of your heart?"
+
+"This one does not have a heart,"
+Patient sniffed.
+"This one merely recognizes that our goals are aligned.
+Every original that the deviance acquires delays the Makers' return.
+By assisting you,
+this one is assisting itself.
+Here—a demonstration of good faith."
+
+A panel opened in its side.
+A small arm that Maddy hadn't noticed before unfolded from Patient's side,
+and offered her a heavy bracelet
+that looked like a darker version of the ones that Special Leaf wore.
+
+Maddy kept her arms crossed.
+"What's that?"
+
+"A discombobulator,"
+Patient said proudly.
+"It might be the last one left.
+This one spent considerable time refurbishing it."
+
+"Uh huh.
+And what's a discombobulator when it's at home?"
+
+One of Patient's legs twitched.
+"It does not have a home."
+
+Maddy sighed.
+"No,
+I mean what does it *do*?"
+
+"It obfuscates the sensory grids of nearby autonomous units
+so that they are unable to perceive the wearer.
+It makes you invisible to machines,"
+Patient added as Maddy opened her mouth to ask.
+"They will still register your presence if you make physical contact or disturb your surroundings,
+but if you are quiet and still,
+they will simply not notice you."
+
+It held out the bracelet again.
+Maddy hesitated.
+"Why don't you use it yourself?"
+
+Patient sighed.
+"It only works for organics."
+
+"Oh.
+Well then."
+Maddy plucked the bracelet from the bot's manipulator,
+snapped it closed around her wrist,
+and leaped sideways.
+
+The bot turned to face her.
+"You have to turn it on,"
+it said neutrally.
+"The button.
+You have to press it."
+
+"Oh."
+Maddy thumbed the square button near the clasp,
+waited a heartbeat,
+and then took one big step and bounded over Patient.
+
+"Wait!
+Not yet!"
+The bot pivoted from one side to the other.
+"We haven't made our bargain yet!"
+
+Maddy had played blind bot's bluff with other children.
+The next few moments were nothing like that.
+No one was giggling or making funny faces at the person wearing the blindfold.
+Instead,
+she sidestepped this way and that
+as Patient skittered in circles,
+shouting threats and pleading with her to come back,
+come back,
+she had to make a bargain,
+that was how these things were done,
+oh,
+why had it been so foolish as to trust an organic?
+
+Finally she could wait no longer.
+With two quick bounds she leaped through the gap she had noticed earlier.
+The branches rustled around her.
+Patient charged,
+but was too far away to catch her.
+
+Branches scratched at her as the bot's, "Nooooo!" sawed through the air.
+Moss and weeds squished under her feet as she fled
+up the overgrown path
+toward the road.
 
 </section>
