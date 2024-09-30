@@ -209,5 +209,9 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Fan et al 2024: "Developer Reactions to Protestware in Open Source Software: The cases of color.js and es5.ext" <https://arxiv.org/abs/2409.15674> An in-depth analysis of how open source communities reacted to two specific instances of software-as-protest.
 
+1.  Nierstrasz and Girba 2024: "Moldable Development Patterns" <https://arxiv.org/abs/2409.18811> explores a better world programmers could have.
+
+1.  Amjad et al 2024: "Accessibility Issues in Ad-Driven Web Applications" <https://arxiv.org/abs/2409.18590> 67% of websites experience increased accessibility violations due to ads; what's worse, user-identifiable data is collected on 94% of websites through interactions that people using disability aids require.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
