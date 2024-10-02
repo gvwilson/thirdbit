@@ -213,5 +213,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Amjad et al 2024: "Accessibility Issues in Ad-Driven Web Applications" <https://arxiv.org/abs/2409.18590> 67% of websites experience increased accessibility violations due to ads; what's worse, user-identifiable data is collected on 94% of websites through interactions that people using disability aids require.
 
+1.  Gorostidi et al 2024: "On the Creation of Representative Samples of Software Repositories" <https://arxiv.org/abs/2410.00639> We present a methodology for creating representative samples of software repositories, where such representativeness is properly aligned with both the characteristics of the population of repositories and the requirements of the empirical study.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
