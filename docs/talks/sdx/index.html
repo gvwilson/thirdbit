@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,15 +7,13 @@
 <link rel="me" href="https://mastodon.social/@gvwilson">
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
 <link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../atom.xml">
-<script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
-<link rel="stylesheet" href="../../assets/thirdbit.css">
     <title>Software Design by Example: Lessons Learned</title>
+    <script src="../../assets/slides.js" defer></script>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="../../assets/slides.css">
   </head>
   <body>
-    <textarea id="source">
-
 <div class="center padtop">
   <h1>Software Design by Example:<br>Lessons Learned</h1>
   <p><img src="../../files/talks/codebender-logo.svg" alt="Third Bit logo" width="15%" /></p>
@@ -24,13 +22,12 @@
   <p><img src="../../files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
 </div>
 
----
-
-## Why Should You Listen to Me?
-
-- I've built a lot of complicated software
-- And I've been lucky enough to hang out with some very smart people
-
+<hr />
+<h2>Why Should You Listen to Me?</h2>
+<ul>
+<li>I&rsquo;ve built a lot of complicated software</li>
+<li>And I&rsquo;ve been lucky enough to hang out with some very smart people</li>
+</ul>
 <div align="center">
   <p>
     <img src="../../files/talks/beautiful-code.png" alt="Beautiful Code cover" />
@@ -39,40 +36,38 @@
   </p>
 </div>
 
----
+<hr />
+<!--# class=aside -->
 
-class: aside
-
-## A Note on Self-References
-
-- *I refer to my own work several times in this talk
-  because I've spent the last twenty years
-  trying to turn dozens of books and hundreds of papers
-  into something that working programmers and computer science professors might actually read.*
-
-- *Please see the bibliographies of the cited works for pointers to the original material,
-  and please accept my apologies in advance for over-simplifications.*
-
----
-
-## Starting Point
-
+<h2>A Note on Self-References</h2>
+<ul>
+<li>
+<p><em>I refer to my own work several times in this talk
+    because I&rsquo;ve spent the last twenty years
+    trying to turn dozens of books and hundreds of papers
+    into something that working programmers and computer science professors might actually read.</em></p>
+</li>
+<li>
+<p><em>Please see the bibliographies of the cited works for pointers to the original material,
+    and please accept my apologies in advance for over-simplifications.</em></p>
+</li>
+</ul>
+<hr />
+<h2>Starting Point</h2>
 <p class="center"><strong>Computer scientists aren't taught software design</strong></p>
 
-- The most design-intensive "engineering" discipline there is
-- But students don't read, analyze, and critique programs
-- We are architects who don't look at existing buildings
-
+<ul>
+<li>The most design-intensive &ldquo;engineering&rdquo; discipline there is</li>
+<li>But students don&rsquo;t read, analyze, and critique programs</li>
+<li>We are architects who don&rsquo;t look at existing buildings</li>
+</ul>
 <div align="center">
   <img src="./frank-wang-PndRZBtlSCE-unsplash.jpg" width="50%" alt="Photo by Frank Wang https://unsplash.com/photos/PndRZBtlSCE">
 </div>
 
----
-
-## Twelve Rules
-
-From [[Wi22a](https://doi.org/10.1371/journal.pcbi.1009809)]
-
+<hr />
+<h2>Twelve Rules</h2>
+<p>From [<a href="https://doi.org/10.1371/journal.pcbi.1009809">Wi22a</a>]</p>
 <ol>
   <li>Design after the fact</li>
   <li>Design for people's cognitive capacity</li>
@@ -88,80 +83,82 @@ From [[Wi22a](https://doi.org/10.1371/journal.pcbi.1009809)]
   <li>Design for contribution</li>
 </ol>
 
----
+<hr />
+<h2>&ldquo;But What Do They <em>Mean</em>?&rdquo;</h2>
+<blockquote>
+<p>Rooks should always be placed behind passed pawns,
+except when it is incorrect to do so.
+<br>
+– Siegbert Tarrasch</p>
+</blockquote>
+<ul>
+<li>&ldquo;Divide code into coherent pieces&rdquo; is meaningless until you have seen it done</li>
+<li>&ldquo;Plan for reasonable future changes&rdquo; is unhelpful if you haven&rsquo;t seen how code evolves over time</li>
+<li>Top-down instruction (almost) never works because novices don&rsquo;t know what the generalizations are generalizing <em>from</em></li>
+</ul>
+<hr />
+<h2>The PETE Pedagogical Pattern</h2>
+<p>From [<a href="#Wi19a">Wi19a</a>]</p>
+<ol>
+  <li><em>Problem</em>: describe what we want to accomplish.</li>
+  <li><em>Example</em>: present a solution to that specific problem.</li>
+  <li><em>Theory</em>: explain the underlying principles and give names to the parts.</li>
+  <li><em>Elaboration</em>: present a second problem/solution pair so that learners can see what stays the same and what varies.</li>
+</ol>
+<ul>
+  <li>Depends on careful selection of problems and solutions</li>
+  <li>And on understanding what the audience is ready for at each stage</li>
+</ul>
 
-## "But What Do They <em>Mean</em>?"
-
-> Rooks should always be placed behind passed pawns,
-> except when it is incorrect to do so.
-> <br>
-> – Siegbert Tarrasch
-
-- "Divide code into coherent pieces" is meaningless until you have seen it done
-- "Plan for reasonable future changes" is unhelpful if you haven't seen how code evolves over time
-- Top-down instruction (almost) never works because novices don't know what the generalizations are generalizing *from*
-
----
-
-## The PETE Pedagogical Pattern
-
-From [[Wi19a](#Wi19a)]
-
-1. *Problem*: describe what we want to accomplish.
-2. *Example*: present a solution to that specific problem.
-3. *Theory*: explain the underlying principles and give names to the parts.
-4. *Elaboration*: present a second problem/solution pair
-   so that learners can see what stays the same and what varies.
-
-- Depends on careful selection of problems and solutions
-- And on understanding what the audience is ready for at each stage
-
----
-
-## Learner Personas
-
-- **Aïsha** started writing VB macros for Excel in an accounting course and never looked back.
-  After spending three years doing front-end JavaScript work
-  she now wants to learn how to build back-end applications.
-
-- **Rupinder** is a computer science undergrad.
-  He has learned a lot of theory,
-  and uses Git and unit testing tools in assignments,
-  but doesn't understand how they work.
-
-- **Yim** teaches courses on full-stack web development and software design.
-  They are happy with the former,
-  but frustrated that books about the latter are so abstract
-  and use examples that their students can't relate to.
-
----
-
-## Learner Personas
-
-- This material will fill in some gaps in **Aïsha's** knowledge
-  and teach her some common design patterns.
-
-- This material will give **Rupinder** a better understanding of those tools
-  and of how to design new ones.
-
-- This material will give **Yim** starting points for a wide variety of course assignments.
-
----
-
-## Prerequisites
-
--   Install Node and run programs with it from the command line.
--   Write JavaScript programs using loops, lists, objects, functions, and classes.
--   Create static web pages using HTML and CSS.
--   Use Git to save and share files.
-    (It's OK not to know the 90% of its commands.)
--   Know what a tree is and how to process one recursively.
-    (This is the most complicated data structure and algorithm we *don't* explain.)
-
----
-
-## Inspirations
-
+<hr />
+<h2>Learner Personas</h2>
+<ul>
+<li>
+<p><strong>Aïsha</strong> started writing VB macros for Excel in an accounting course and never looked back.
+    After spending three years doing front-end JavaScript work
+    she now wants to learn how to build back-end applications.</p>
+</li>
+<li>
+<p><strong>Rupinder</strong> is a computer science undergrad.
+    He has learned a lot of theory,
+    and uses Git and unit testing tools in assignments,
+    but doesn&rsquo;t understand how they work.</p>
+</li>
+<li>
+<p><strong>Yim</strong> teaches courses on full-stack web development and software design.
+    They are happy with the former,
+    but frustrated that books about the latter are so abstract
+    and use examples that their students can&rsquo;t relate to.</p>
+</li>
+</ul>
+<hr />
+<h2>Learner Personas</h2>
+<ul>
+<li>
+<p>This material will fill in some gaps in <strong>Aïsha&rsquo;s</strong> knowledge
+    and teach her some common design patterns.</p>
+</li>
+<li>
+<p>This material will give <strong>Rupinder</strong> a better understanding of those tools
+    and of how to design new ones.</p>
+</li>
+<li>
+<p>This material will give <strong>Yim</strong> starting points for a wide variety of course assignments.</p>
+</li>
+</ul>
+<hr />
+<h2>Prerequisites</h2>
+<ul>
+<li>Install Node and run programs with it from the command line.</li>
+<li>Write JavaScript programs using loops, lists, objects, functions, and classes.</li>
+<li>Create static web pages using HTML and CSS.</li>
+<li>Use Git to save and share files.
+      (It&rsquo;s OK not to know the 90% of its commands.)</li>
+<li>Know what a tree is and how to process one recursively.
+      (This is the most complicated data structure and algorithm we <em>don&rsquo;t</em> explain.)</li>
+</ul>
+<hr />
+<h2>Inspirations</h2>
 <div class="row">
   <div class="col-4">
     <img src="./software-tools-in-pascal.jpg" alt="Cover of 'Software Tools in Pascal'" width="100px">
@@ -189,30 +186,34 @@ From [[Wi19a](#Wi19a)]
   </div>
 </div>
 
----
-
-## Choosing Examples
-
-- [*500 Lines or Less*](https://aosabook.org/en/#500lines) had two weaknesses:
-- Every author used their favorite language
-  - …most of which students won't have seen
-- The applications ranged from 3D modeling to OCR to a scheduling system for assembly lines
-  - …most of which will be new to most readers
-
----
-
-## Choosing Examples
-
-- But we can assume programmers know how to use (some) programming tools
-  - …so use those for examples
-- Narrower range of problems, but still plenty for a book
-  - And if people realize their tools are just software,
-    maybe they'll build more tools of their own
-
----
-
-## Version 1: <a href="../../sdxjs/">JavaScript</a>
-
+<hr />
+<h2>Choosing Examples</h2>
+<ul>
+<li><a href="https://aosabook.org/en/#500lines"><em>500 Lines or Less</em></a> had two weaknesses:</li>
+<li>Every author used their favorite language<ul>
+<li>…most of which students won&rsquo;t have seen</li>
+</ul>
+</li>
+<li>The applications ranged from 3D modeling to OCR to a scheduling system for assembly lines<ul>
+<li>…most of which will be new to most readers</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Choosing Examples</h2>
+<ul>
+<li>But we can assume programmers know how to use (some) programming tools<ul>
+<li>…so use those for examples</li>
+</ul>
+</li>
+<li>Narrower range of problems, but still plenty for a book<ul>
+<li>And if people realize their tools are just software,
+maybe they&rsquo;ll build more tools of their own</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Version 1: <a href="../../sdxjs/">JavaScript</a></h2>
 <div class="row">
   <div class="col-6">
     <ol>
@@ -243,11 +244,8 @@ From [[Wi19a](#Wi19a)]
   </div>
 </div>
 
----
-
-## A Better Way to Think About It
-
-<div align="center">
+<hr />
+<h2>A Better Way to Think About It</h2>
 <table>
 <tr><th>Count</th><th>Idea</th></td>
 <tr><td>18</td><td>functions as data</td></tr>
@@ -260,14 +258,9 @@ From [[Wi19a](#Wi19a)]
 <tr><td>2</td><td>code as text</td></tr>
 <tr><td>2</td><td>hashing</td></tr>
 </table>
-</div>
 
----
-
-class: bibliography
-
-## Bibliography
-
+<hr />
+<h2>Bibliography</h2>
 <p id="Wi22b">[Wi22b] Greg Wilson:
 <a href="https://www.taylorfrancis.com/books/mono/10.1201/9781003317807/software-design-example-greg-wilson" /><em>Software Design by Example: A Tool-Based Introduction with JavaScript</em></a>.
 CRC Press/Taylor and Francis, 2022, 978-1032399676.
@@ -283,14 +276,5 @@ CRC Press/Taylor and Francis, 2022, 978-1032399676.
 Chapman &amp; Hall/CRC Press, 2019.
 ISBN 978-0367352974.
 </p>
-
-    </textarea>
-    <script src="../../assets/remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create({
-        highlightLines: true
-      });
-    </script>
   </body>
 </html>

@@ -15,23 +15,23 @@ template: slides
 
 ## A Word of Caution
 
--  Years ago, I lost my temper while arguing with my brother, and said,
-   "Jeff, I could teach you everything I know and you'd still be an idiot."
+-   Years ago, I lost my temper while arguing with my brother, and said,
+    "Jeff, I could teach you everything I know and you'd still be an idiot."
 
-- Please keep that in mind as you listen to what follows
+-   Please keep that in mind as you listen to what follows
 
 
 ---
 
 ## In the Beginning
 
-- 1991: I wish scientists wrote better software
+-   1991: I wish scientists wrote better software
 
-- 1998: I wish someone would teach scientists how to program
+-   1998: I wish someone would teach scientists how to program
 
-- 2011: I wish someone would teach them how to teach well
+-   2011: I wish someone would teach them how to teach well
 
-- 2017: I wish people knew how to organize because I think we're in trouble here…
+-   2017: I wish people knew how to organize because I think we're in trouble here…
 
 ---
 
@@ -138,9 +138,9 @@ template: slides
 
 ## Lesson #1
 
-- **Most scientists think of programming as a tax they have to pay to do science**
+-   **Most scientists think of programming as a tax they have to pay to do science**
 
-- Those who don't are *not* representative of the other 90%
+-   Those who don't are *not* representative of the other 90%
 
 <p class="center">See <a href="https://www.hanselman.com/blog/DarkMatterDevelopersTheUnseen99.aspx">Scott Hanselman: Dark Matter Developers</a></p>
 
@@ -148,9 +148,9 @@ template: slides
 
 ## Lesson #2
 
-- **The curriculum is full**
+-   **The curriculum is full**
 
-- And even if it wasn't:
+-   And even if it wasn't:
 
 <img src="@root/files/talks/blind-leading-blind.png" alt="Cartoon of the blind leading the blind" class="center">
 
@@ -158,9 +158,9 @@ template: slides
 
 ## Lesson #3
 
-- **The future (of teaching) is already here**
+-   **The future (of teaching) is already here**
 
-- It's just not evenly distributed
+-   It's just not evenly distributed
 
 <div class="center">
   <img src="./how-learning-works.jpg" alt="Book: How Learning Works" width="20%">
@@ -173,10 +173,10 @@ template: slides
 
 ## Examples
 
-- <a href="http://tinyurl.com/guzdial-subgoals">Labelled subgoals improve performance</a>
-- <a href="http://tinyurl.com/guzdial-peer-instruction">Peer instruction beats lecture</a>
-- <a href="http://dl.acm.org/authorize.cfm?key=6833065">Media-first instruction increases retention</a>
-- <a href="http://dl.acm.org/citation.cfm?id=2960312">Grades in computing classes are <em>not</em> bimodal</a>
+-   <a href="http://tinyurl.com/guzdial-subgoals">Labelled subgoals improve performance</a>
+-   <a href="http://tinyurl.com/guzdial-peer-instruction">Peer instruction beats lecture</a>
+-   <a href="http://dl.acm.org/authorize.cfm?key=6833065">Media-first instruction increases retention</a>
+-   <a href="http://dl.acm.org/citation.cfm?id=2960312">Grades in computing classes are <em>not</em> bimodal</a>
 
 <a href="http://teachtogether.tech"><img src="../../files/bib/t3.jpg" width="25%" class="center"></a>
 
@@ -184,8 +184,8 @@ template: slides
 
 ## Lesson #4
 
-- **Most people would rather fail than change**
-- I.e., they would rather ignore evidence than change their working practices or business plan
+-   **Most people would rather fail than change**
+-   I.e., they would rather ignore evidence than change their working practices or business plan
 
 <img src="./global-warming-myth.jpg" alt="Magazine cover claiming global warming is a myth" class="center">
 
@@ -193,31 +193,31 @@ template: slides
 
 ## Lesson #5
 
-- **Programmers can rationalize _anything_**
+-   **Programmers can rationalize _anything_**
 
 <img src="./git-merge.png" alt="Screenshot of a complicated Git merge" class="center">
 
-- Git is as horrible as it is useful
-- Stop blaming users for its shortcomings
+-   Git is as horrible as it is useful
+-   Stop blaming users for its shortcomings
 
 ---
 
 ## Lesson #5
 
-- **Programmers can rationalize _anything_**
+-   **Programmers can rationalize _anything_**
 
 <img src="@root/files/talks/spreadsheet.png" alt="Screenshot of a spreadsheet" class="center">
 
-- This is a good tool
-- Please stop sneering at scientists for using it
+-   This is a good tool
+-   Please stop sneering at scientists for using it
 
 ---
 
 ## Lesson #6
 
-- **Correctness isn't compelling**
-- Because the odds of being caught are vanishingly small
-- But people care a *lot* about productivity
+-   **Correctness isn't compelling**
+-   Because the odds of being caught are vanishingly small
+-   But people care a *lot* about productivity
 
 <div class="row">
   <div class="col-2"></div>
@@ -249,13 +249,13 @@ template: slides
 
 ## Lesson #7
 
-- **You're not alone.**
-- Single-author curriculum = unmet needs
-- Single source of funding = single point of failure
-- So recruit the willing…
-  - …train them…
-  - …reward them…
-  - …and cede power to them
+-   **You're not alone.**
+-   Single-author curriculum = unmet needs
+-   Single source of funding = single point of failure
+-   So recruit the willing…
+    -   …train them…
+    -   …reward them…
+    -   …and cede power to them
 
 ---
 
@@ -279,7 +279,7 @@ template: slides
   <img src="./nabt.png" width="100%">
 </div>
 
-- I think we're finally ready
+-   I think we're finally ready
 
 ---
 

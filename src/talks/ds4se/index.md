@@ -15,11 +15,11 @@ template: slides
 
 ## Once Upon a Time…
 
-- Book review editor for *[Doctor Dobb's Journal](http://drdobbs.com)*
+-   Book review editor for *[Doctor Dobb's Journal](http://drdobbs.com)*
 
-- There were hundreds of textbooks on compilers, but none on debuggers or debugging
+-   There were hundreds of textbooks on compilers, but none on debuggers or debugging
 
-- Or build tools, or package managers, or…
+-   Or build tools, or package managers, or…
 
 <img src="./ddj.png" alt="Dr Dobb's Journal" class="center">
 
@@ -27,13 +27,13 @@ template: slides
 
 ## Early 2000s
 
-- Asked to teach a course on software architecture
+-   Asked to teach a course on software architecture
 
-- Looked at two dozen books and other people's courses…
+-   Looked at two dozen books and other people's courses…
 
-- …but none described actual architectures
+-   …but none described actual architectures
 
-- This, we can fix
+-   This, we can fix
 
 <div class="center">
   <a href="https://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/">
@@ -49,9 +49,9 @@ template: slides
 
 ## Countervailing Currents
 
-- Learning should always flow in both directions
+-   Learning should always flow in both directions
 
-- What do software engineering researchers know that practitioners might care about?
+-   What do software engineering researchers know that practitioners might care about?
 
 <a href="https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/">
   <img src="@root/files/talks/making-software.jpg" alt="Making Software" width="25%" class="center">
@@ -64,7 +64,7 @@ template: slides
 -   [It Will Never Work in Theory](https://neverworkintheory.org/) launched in 2011
     -   Brief reviews of research results that might interest practitioners
 
--   Relaunched in 2021 with reviews and online lightning talks
+-     Relaunched in 2021 with reviews and online lightning talks
 
 <img src="./nwit.png" alt="It Will Never Work in Theory" width="60%" class="center">
 
@@ -72,11 +72,11 @@ template: slides
 
 ## What Impact Has This Had?
 
-- None
+-   None
 
-- We still don't teach science to CS students
+-   We still don't teach science to CS students
 
-- So practitioners don't know what they're missing or how to interpret it if they found it
+-   So practitioners don't know what they're missing or how to interpret it if they found it
 
 <img src="@root/files/talks/blind-leading-blind.png" alt="The Blind Leading the Blind" width="60%" class="center">
 
@@ -84,39 +84,39 @@ template: slides
 
 ## Which Is a Shame
 
-- [Languages in the C family are as hard to learn as a randomly-designed language](http://dl.acm.org/citation.cfm?id=2534973)
+-   [Languages in the C family are as hard to learn as a randomly-designed language](http://dl.acm.org/citation.cfm?id=2534973)
 
-- [Computer science grades are not bimodal](http://www.cs.toronto.edu/~sme/papers/2016/icer_2016_bimodal.pdf)
-  - I.e., there is no geek gene
+-   [Computer science grades are not bimodal](http://www.cs.toronto.edu/~sme/papers/2016/icer_2016_bimodal.pdf)
+    -   I.e., there is no geek gene
 
-- [Students don't make the mistakes instructors think they make](https://kar.kent.ac.uk/46742/1/fp1187-altadmri.pdf)
+-   [Students don't make the mistakes instructors think they make](https://kar.kent.ac.uk/46742/1/fp1187-altadmri.pdf)
 
-- [No significant difference between test-driven and test-after development](http://people.brunel.ac.uk/~csstmms/FucciEtAl_ESEM2016.pdf)
-  - But there *is* a difference between coarse-grained and fine-grained coding
+-   [No significant difference between test-driven and test-after development](http://people.brunel.ac.uk/~csstmms/FucciEtAl_ESEM2016.pdf)
+    -   But there *is* a difference between coarse-grained and fine-grained coding
 
 ---
 
 ## A Window of Opportunity
 
-- Data science is rather popular these days…
+-   Data science is rather popular these days…
 
-  - Students have heard of it
+    -   Students have heard of it
 
-  - Deans and provosts think it's a Good Thing [tm]
+    -   Deans and provosts think it's a Good Thing [tm]
 
-- *Teach empirical software engineering in disguise*
+-   *Teach empirical software engineering in disguise*
 
 ---
 
 ## More Specifically
 
-- Single-semester course with work done in small teams
+-   Single-semester course with work done in small teams
 
-  - Minimize curricular disruption
+    -   Minimize curricular disruption
 
-  - Still teach workflow, meetings, progress reporting, etc.
+    -   Still teach workflow, meetings, progress reporting, etc.
 
-- Build an analysis pipeline for software engineering data
+-   Build an analysis pipeline for software engineering data
 
 <div class="row">
   <div class="col-3"></div>
@@ -138,11 +138,11 @@ template: slides
 > Given the GitHub repositories for six software projects,
 > determine whether large PRs take longer to merge than short ones.
 	  
-- Requires tool use, model building, and statistical analysis
+-   Requires tool use, model building, and statistical analysis
 
-- Students *do* science, so they *understand and value* it, so they *engage* with it later
+-   Students *do* science, so they *understand and value* it, so they *engage* with it later
 
-- And is *culturally defensible*
+-   And is *culturally defensible*
 
 ---
 

@@ -15,8 +15,8 @@ template: slides
 
 ## Why Should You Listen to Me?
 
-- I've built a lot of complicated software…
-- …and have been lucky enough to hang out with some very smart people
+-   I've built a lot of complicated software…
+-   …and have been lucky enough to hang out with some very smart people
 
 <div class="center">
   <img src="@root/files/talks/beautiful-code.png" alt="Beautiful Code cover">
@@ -30,176 +30,174 @@ template: slides
 
 <p class="center"><strong>Computer scientists aren't taught how to design software</strong></p>
 
-- The most design-intensive "engineering" discipline there is
-- But courses where students analyze and critique others' programs are rare
-- So no, you haven't missed something obvious
+-   The most design-intensive "engineering" discipline there is
+-   But courses where students analyze and critique others' programs are rare
+-   So no, you haven't missed something obvious
 
 ---
 
 ## 1. Design after the fact
 
-- The most important thing is to *look* as though you designed things (<a href="#Parnas1986">Parnas1986</a>)
-- So that the next person can understand it
-- Many designers explain architecture by recapitulating history (<a href="#Brown2011">Brown2011</a>,<a href="#Brown2012">Brown2012</a>)
-- Challenge and response
-  - Can only understand why it does what it does by understanding the problem it was designed to solve
+-   The most important thing is to *look* as though you designed things (<a href="#Parnas1986">Parnas1986</a>)
+-   So that the next person can understand it
+-   Many designers explain architecture by recapitulating history (<a href="#Brown2011">Brown2011</a>,<a href="#Brown2012">Brown2012</a>)
+-   Challenge and response
+    -   Can only understand why it does what it does by understanding the problem it was designed to solve
 
 ---
       
 ## 1. Design after the fact
 
-- *Refactoring* is the process of reorganizing or rewriting code without changing behavior
-  - By which we mean "high-level behavior" because of course if you look closely enough...
-- <a href="#Fowler2018">Fowler2018</a> describes common refactoring moves for code
-- These do to code what tidying steps in a data pipeline do to data (<a href="#Wickham2017">Wickham2017</a>):
-  move it toward well-understood forms (<a href="#Kerievsky2004">Kerievsky2004</a>)
+-   *Refactoring* is the process of reorganizing or rewriting code without changing behavior
+    -   By which we mean "high-level behavior" because of course if you look closely enough...
+-   <a href="#Fowler2018">Fowler2018</a> describes common refactoring moves for code
+-   These do to code what tidying steps in a data pipeline do to data (<a href="#Wickham2017">Wickham2017</a>):
+    move it toward well-understood forms (<a href="#Kerievsky2004">Kerievsky2004</a>)
 
 ---
 
 ## 2. Design for cognitive capacity
 
-- Short-term memory vs. long-term memory
-- You can manage 7±2 things at a time (<a href="#Miller1956">Miller1956</a>)
-- So design software to keep *cognitive load* manageable
+-   Short-term memory vs. long-term memory
+-   You can manage 7±2 things at a time (<a href="#Miller1956">Miller1956</a>)
+-   So design software to keep *cognitive load* manageable
 
 ---
 
 ## 2. Design for cognitive capacity
 
-- Constants are easier to remember than varying values…
-  - …unless those values vary in predictable ways
-- Keep number of parameters or variables in (mental) scope at any time below this threshold
-- Pipes with strict left-to-right reading order are easier to understand than nested function calls
-- *Build frameworks that encourage this*
+-   Constants are easier to remember than varying values…
+    -   …unless those values vary in predictable ways
+-   Keep number of parameters or variables in (mental) scope at any time below this threshold
+-   Pipes with strict left-to-right reading order are easier to understand than nested function calls
+-   *Build frameworks that encourage this*
 
 ---
 
 ## Aside
 
-- Some people say that if you need to comment your code you should have written clearer code
-- That is *expert blind spot* at work
-- Newcomers need help building a *mental model* of the code and problem
-- And everyone needs the "why" that code alone doesn't capture
+-   Some people say that if you need to comment your code you should have written clearer code
+-   That is *expert blind spot* at work
+-   Newcomers need help building a *mental model* of the code and problem
+-   And everyone needs the "why" that code alone doesn't capture
 
 ---
 
 ## 3. Design in coherent levels
 
-- Functions should be short, shallow, and single-purpose
-  - Of course, no one would argue the opposite…
-- If I read a function aloud, are all the steps at the same conceptual level?
+-   Functions should be short, shallow, and single-purpose
+    -   Of course, no one would argue the opposite…
+-   If I read a function aloud, are all the steps at the same conceptual level?
 
 ```
- def main():
-     config = buildConfig(sys.argv)
-     state = initState(config)
-     while (config.currentTime < config.haltTime):
-         updateState(config, state)
-     report(config, state)
-```
-
----
-
-## 3. Design in coherent levels
-
-- Functions should be short, shallow, and single-purpose
-  - Of course, no one would argue the opposite…
-- If I read a function aloud, are all the steps at the same conceptual level?
-
-```
- def main():
-     config = buildConfig(sys.argv)
-     state = initState(config)
-*    while (config.currentTime < config.haltTime):
-         updateState(config, state)
-     report(config, state)
+def main():
+    config = buildConfig(sys.argv)
+    state = initState(config)
+    while (config.currentTime < config.haltTime):
+        updateState(config, state)
+    report(config, state)
 ```
 
 ---
 
 ## 3. Design in coherent levels
 
-- Functions should be short, shallow, and single-purpose
-  - Of course, no one would argue the opposite…
-- If I read a function aloud, are all the steps at the same conceptual level?
+-   Functions should be short, shallow, and single-purpose
+    -   Of course, no one would argue the opposite…
+-   If I read a function aloud, are all the steps at the same conceptual level?
 
 ```
- def main():
-     config = buildConfig(sys.argv)
-     state = initState(config)
-*    while stillEvolving(config):
-         updateState(config, state)
-     report(config, state)
+def main():
+    config = buildConfig(sys.argv)
+    state = initState(config)
+    while (config.currentTime < config.haltTime):   ##
+        updateState(config, state)
+    report(config, state)
+```
+
+---
+
+## 3. Design in coherent levels
+
+-   Functions should be short, shallow, and single-purpose
+    -   Of course, no one would argue the opposite…
+-   If I read a function aloud, are all the steps at the same conceptual level?
+
+```
+def main():
+    config = buildConfig(sys.argv)
+    state = initState(config)
+    while stillEvolving(config):                    ##
+        updateState(config, state)
+    report(config, state)
 ```
 
 ---
 
 <h2>Levels</h2>
 
-- <a href="#Schon1984">Schon1984</a> and others have found that
-  experts jump between levels looking for concrete refutations of plans as soon as possible
-- Depth-first design is therefore a good strategy *if* you write the hard parts first
-  - Which most of us avoid
+-   <a href="#Schon1984">Schon1984</a> and others have found that
+    experts jump between levels looking for concrete refutations of plans as soon as possible
+-   Depth-first design is therefore a good strategy *if* you write the hard parts first
+    -   Which most of us avoid
 
 ---
 
 ## 4. Design for evolution
 
-- Software changes over time because the problem changes *and* because we learn more
-  - The tool shapes the hand
-- A good design makes independent evolution of parts easier
-  - A fix *here* shouldn't require changes *there*
-  - Realistically, should only require a small number of changes in limited, predictable places
-- The switch to `stillEvolving` in the previous slide insulates `main` from lower-level changes
+-   Software changes over time because the problem changes *and* because we learn more
+    -   The tool shapes the hand
+-   A good design makes independent evolution of parts easier
+    -   A fix *here* shouldn't require changes *there*
+    -   Realistically, should only require a small number of changes in limited, predictable places
+-   The switch to `stillEvolving` in the previous slide insulates `main` from lower-level changes
 
 ---
 
 ## 4. Design for evolution
 
-- Key ideas are *information hiding* and *loose coupling*
-- Which manifest as *interface vs. implementation*
-  - Many of the more advanced features of programming languages exist to check this
-- Examples
-  - Deriving classes
-  - Polymorphic functions
-  - Explicit interfaces or traits
+-   Key ideas are *information hiding* and *loose coupling*
+-   Which manifest as *interface vs. implementation*
+    -   Many of the more advanced features of programming languages exist to check this
+-   Examples
+    -   Deriving classes
+    -   Polymorphic functions
+    -   Explicit interfaces or traits
 
 ---
 
 ## 4. Design for evolution
 
-- Design by contract (<a href="#Meyer1994">Meyer1994</a>) extends this idea through time
-  - *Pre-conditions* have to be true in order for the function to run
-  - *Post-conditions* are what the function guarantees will be true when it completes
-  - Can be used to define and verify tests
+-   Design by contract (<a href="#Meyer1994">Meyer1994</a>) extends this idea through time
+    -   *Pre-conditions* have to be true in order for the function to run
+    -   *Post-conditions* are what the function guarantees will be true when it completes
+    -   Can be used to define and verify tests
 
 ---
 
 ## 4. Design for evolution
 
-- But wait, there's more
-- Pre-conditions can only be *relaxed*
-  - I.e., the function can take input the earlier implementation wouldn't
-- Post-conditions can only be strengthened
-  - I.e., the function can only produce a subset of the earlier implementation's output
+-   But wait, there's more
+-   Pre-conditions can only be *relaxed*
+    -   I.e., the function can take input the earlier implementation wouldn't
+-   Post-conditions can only be strengthened
+    -   I.e., the function can only produce a subset of the earlier implementation's output
 
 ---
 
 ## 5. Group related information
 
-- Brains use *chunks* to expand effective size of short-term memory
-- So combine things into structures
-
-<hr>
+-   Brains use *chunks* to expand effective size of short-term memory
+-   So combine things into structures
 
 ```
+# Bad
 def enclose(x0, y0, z0, x1, y1, z1, nearness):
     …
 ```
 
-<hr>
-
 ```
+# Good
 def enclose(p0, p1, nearness):
     …
 ```
@@ -208,61 +206,61 @@ def enclose(p0, p1, nearness):
 
 ## 6. Use common patterns
 
-- Experts have *design patterns* in mind when building code
-- Learning them makes you a better programmer (<a href="#Tichy2010">Tichy2010</a>)
-- But also makes your code seem more familiar to others
-- Examples include:
-  - "Most valuable" variable (<a href="#Byckling2005">Byckling2005</a>)
-  - Nested loops over 2D array
-  - Filter-group-summarize
+-   Experts have *design patterns* in mind when building code
+-   Learning them makes you a better programmer (<a href="#Tichy2010">Tichy2010</a>)
+-   But also makes your code seem more familiar to others
+-   Examples include:
+    -   "Most valuable" variable (<a href="#Byckling2005">Byckling2005</a>)
+    -   Nested loops over 2D array
+    -   Filter-group-summarize
 
 ---
 
 ## 6. Use common patterns
 
-- A near miss is worse than no pattern at all
+-   A near miss is worse than no pattern at all
 
 ```
- for (i=0; i<a.width; i++) {
-     for (j=0; i<a.height; j++) {
-         a[i][j] = cos(abs(a[i][j]) - lemaitre(b_norm, a[j][i]))
-     }
- }
+for (i=0; i<a.width; i++) {
+    for (j=0; i<a.height; j++) {
+        a[i][j] = cos(abs(a[i][j]) - lemaitre(b_norm, a[j][i]))
+    }
+}
 ```
 
 ---
 
 ## 6. Use common patterns
 
-- A near miss is worse than no pattern at all
+-   A near miss is worse than no pattern at all
 
 ```
- for (i=0; i<a.width; i++) {
-*    for (j=0; i<a.height; j++) {
-         a[i][j] = cos(abs(a[i][j]) - lemaitre(b_norm, a[j][i]))
-     }
- }
+for (i=0; i<a.width; i++) {
+    for (j=0; i<a.height; j++) {                    ##
+        a[i][j] = cos(abs(a[i][j]) - lemaitre(b_norm, a[j][i]))
+    }
+}
 ```
 
-- The eye (literally) doesn't see it
+-   The eye (literally) doesn't see it
 
 ---
 
 ## 6. Use common patterns
 
-- Maximize "what's unique to this operation / boilerplate"
+-   Maximize "what's unique to this operation / boilerplate"
 
 ```
 a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 ```
 
-- *Build frameworks that encourage this*
+-   *Build frameworks that encourage this*
 
 ---
 
 ## 6. Use common patterns
 
-- Balance of abstraction and comprehension depends on how much people know
+-   Balance of abstraction and comprehension depends on how much people know
 
 <div class="row">
   <div class="col-6 center"><img src="./comprehension-01.svg" alt="Novice comprehension" width="80%"></div>
@@ -273,7 +271,7 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 
 ## 6. Use common patterns
 
-- Patterns can be taught (but only by example)
+-   Patterns can be taught (but only by example)
 
 <img src="@root/files/talks/design-patterns-ruby.jpg" alt="cover of 'Design Patterns in Ruby'" width="40%" class="center">
 
@@ -281,71 +279,71 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 
 ## 7. Design for delivery
 
-- Development operations (DevOps) has become a buzzword
-  - Like "data science" or "computational thinking", the term is popular because people can use it to mean whatever they want
-- But the core idea is a good one (<a href="#Kim2016">Kim2016</a>,<a href="#Forsgren2018">Forsgren2018</a>)
-  - The code you ship is surrounded and supported by software (and practices) that deliver that code
-- Investment in automation pays off many times over
-  - *If* you design things so that they can be automated
+-   Development operations (DevOps) has become a buzzword
+    -   Like "data science" or "computational thinking", the term is popular because people can use it to mean whatever they want
+-   But the core idea is a good one (<a href="#Kim2016">Kim2016</a>,<a href="#Forsgren2018">Forsgren2018</a>)
+    -   The code you ship is surrounded and supported by software (and practices) that deliver that code
+-   Investment in automation pays off many times over
+    -   *If* you design things so that they can be automated
 
 ---
 
 ## 7. Design for delivery
 
-- Use whatever *build tool* your language expects
-  - `pip` or `conda` for Python
-  - `devtools` for R
-  - Many conflicting options for JavaScript
-- Organize code and files the way your build system expects
+-   Use whatever *build tool* your language expects
+    -   `pip` or `conda` for Python
+    -   `devtools` for R
+    -   Many conflicting options for JavaScript
+-   Organize code and files the way your build system expects
 
 ---
 
 ## 7. Design for delivery
 
-- Use a logging library
-  - A volume control is really helpful in production…
-  - …particularly if messages are collated…
-  - …but only if the messages are helpful
-- And follow the rest of <a href="#Taschuk2017">Taschuk2017</a>
+-   Use a logging library
+    -   A volume control is really helpful in production…
+    -   …particularly if messages are collated…
+    -   …but only if the messages are helpful
+-   And follow the rest of <a href="#Taschuk2017">Taschuk2017</a>
 
 ---
       
 ## 8. Design for testability
 
-- *Legacy code:* we're afraid to modify it because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
-- Comprehensive tests make us less afraid
-  - But we need testable pieces in order to create tests economically
-  - Brings us back to pre-and-post rather than how
+-   *Legacy code:* we're afraid to modify it because things will break unexpectedly (<a href="#Feathers2004">Feathers2004</a>)
+-   Comprehensive tests make us less afraid
+    -   But we need testable pieces in order to create tests economically
+    -   Brings us back to pre-and-post rather than how
 
 ---
       
 ## 8. Design for testability
 
-- How easy is it to create a *fixture*?
-- How easy is it to invoke just the behavior we want?
-- How easy is it to check the result?
-- How easy is it to figure out what "right" is?
-- How easy is it to delete the feature?
+-   How easy is it to create a *fixture*?
+-   How easy is it to invoke just the behavior we want?
+-   How easy is it to check the result?
+-   How easy is it to figure out what "right" is?
+-   How easy is it to delete the feature?
 
 ---
 
 <h2>Test-Driven Development</h2>
 
-- Test-driven development (TDD) is the practice of writing the tests
-  *before* writing the code
-- Multiple studies have shown that it doesn't actually improve productivity
-  (<a href="#Fucci2016">Fucci2016</a>)
-- But alternating rapidly between testing and coding seems to
+-   Test-driven development (TDD) is the practice of writing the tests
+    *before* writing the code
+-   Multiple studies have shown that it doesn't actually improve productivity
+    (<a href="#Fucci2016">Fucci2016</a>)
+-   But alternating rapidly between testing and coding seems to
 
 ---
 
 ## 9. Design as if code was data
 
-- The insight on which modern computing is based
-- Programs are just text files
-  - Style-checking tools
-  - Specially-formatted comments as embedded documentation
-- But wait…
+-   The insight on which modern computing is based
+-   Programs are just text files
+    -   Style-checking tools
+    -   Specially-formatted comments as embedded documentation
+-   But wait…
 
 ---
 
@@ -353,68 +351,68 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 
 <p class="center"><strong>Code in memory is just another data structure</strong></p>
 
-- Functions as arguments
-- Functions in data structures
-- Dynamic loading
-  - Interface vs. implementation
-- Lazy evaluation in R
-- Decorators in Python
+-   Functions as arguments
+-   Functions in data structures
+-   Dynamic loading
+    -   Interface vs. implementation
+-   Lazy evaluation in R
+-   Decorators in Python
 
 ---
 
 ## 9. Design as if code was data
 
-- Count the number of values that pass a test
+-   Count the number of values that pass a test
 
 ```
- def count_positive(array):
-     number = 0
-     for value in array:
-*        if value >= 0:
-             number = number + 1
-     return number
+def count_positive(array):
+    number = 0
+    for value in array:
+        if value >= 0:                              ##
+            number = number + 1
+    return number
 ```
 
 ---
 
 ## 9. Design as if code was data
 
-- Count the number of values that pass a test
+-   Count the number of values that pass a test
 
 ```
-*def count_interesting(array, test):
-     number = 0
-     for value in array:
-*        if test(value):
-             number = number + 1
-     return number
+def count_interesting(array, test):
+    number = 0
+    for value in array:
+        if test(value):                             ##
+            number = number + 1
+    return number
 
-*def is_positive(value):
-*    return value >= 0
-*
-*count_interesting(array, is_positive)
+def is_positive(value):                             ##
+    return value >= 0                               ##
+
+count_interesting(array, is_positive)               ##
 ```
 
 ---
 
 ## The Audience Matters
 
-- But see the discussion earlier of comprehension curves
-- What is powerful in the hands of experts is spooky action-at-a-distance for novices
+-   But see the discussion earlier of comprehension curves
+-   What is powerful in the hands of experts is spooky action-at-a-distance for novices
 
 ---
 
 ## 10. Design graphically
 
-- Very few programmers use UML the "right" way (<a href="#Petre2013">Petre2013</a>)
-- But almost all draw pictures to help them design (<a href="#Cherubini2007">Cherubini2007</a>)
-- Blueprints versus brainstorming
+-   Very few programmers use UML the "right" way (<a href="#Petre2013">Petre2013</a>)
+-   But almost all draw pictures to help them design (<a href="#Cherubini2007">Cherubini2007</a>)
+-   Blueprints versus brainstorming
 
 ---
 
 ## 10. Design graphically
 
-- Flowcharts are unfairly maligned (<a href="#Scanlan1989">Scanlan1989</a>)
+-   Flowcharts are unfairly maligned (<a href="#Scanlan1989">Scanlan1989</a>)
 
 <img src="flowchart.svg" alt=" complaint flowchart" width="30%" class="center">
 
@@ -422,7 +420,7 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 
 ## 10. Design graphically
 
-- Architecture diagrams: probably the most widely used (probably because of their informality)
+-   Architecture diagrams: probably the most widely used (probably because of their informality)
 
 <img src="architecture-diagram.png" alt="Architecture diagram" width="60%" class="center">
 
@@ -430,7 +428,7 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 
 ## 10. Design graphically
 
-- Entity-relationship diagrams: widely used because they are actually helpful
+-   Entity-relationship diagrams: widely used because they are actually helpful
 
 <img src="er-diagram.png" alt="Entity-relationship diagram" width="80%" class="center">
 
@@ -438,7 +436,7 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 
 ## 10. Design graphically
 
-- Use case maps: actions overlaid on architecture
+-   Use case maps: actions overlaid on architecture
 
 <img src="use-case-map.png" alt="Use case map" width="70%" class="center">
 
@@ -446,49 +444,49 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 
 ## 11. Design with everyone in mind
 
-- Fairness, privacy, and security cannot be sprinkled on afterward
-- *Principle of Least Privilege:* what is the least information this part of the software absolutely needs to do its job?
-- But that's not all
-  - If users have to reset passwords frequently, they will choose insecure passwords (<a href="#Smalls2021">Smalls2021</a>)
-  - Systems that email attachments train people to be vulnerable to phishing attacks
-  - Most social media isn't designed with abusive ex-partners in mind…
+-   Fairness, privacy, and security cannot be sprinkled on afterward
+-   *Principle of Least Privilege:* what is the least information this part of the software absolutely needs to do its job?
+-   But that's not all
+    -   If users have to reset passwords frequently, they will choose insecure passwords (<a href="#Smalls2021">Smalls2021</a>)
+    -   Systems that email attachments train people to be vulnerable to phishing attacks
+    -   Most social media isn't designed with abusive ex-partners in mind…
 
 ---
 
 ## 11. Design with everyone in mind
 
-- Accessibility can't be sprinkled on afterward either
-- Close your eyes and try to navigate your department's website
-  - Or tape popsicle sticks to your fingers to simulate severe arthritis
-- More important as the population ages (<a href="#Johnson2017">Johnson2017</a>)
+-   Accessibility can't be sprinkled on afterward either
+-   Close your eyes and try to navigate your department's website
+    -   Or tape popsicle sticks to your fingers to simulate severe arthritis
+-   More important as the population ages (<a href="#Johnson2017">Johnson2017</a>)
 
 ---
 
 ## 12. Design for contribution
 
-- Diversity improves outcomes in fields from business to healthcare
-  (<a href="#Gompers2018">Gompers2018</a>,<a href="#Gomez2019">Gomez2019</a>)
-- But you should do it because *it's the right thing to do*
+-   Diversity improves outcomes in fields from business to healthcare
+    (<a href="#Gompers2018">Gompers2018</a>,<a href="#Gomez2019">Gomez2019</a>)
+-   But you should do it because *it's the right thing to do*
 
 ---
 
 ## 12. Design for contribution
 
-- Licensing is a design issue
-  - You cannot use components whose licenses are incompatible with yours
-- Plugin architectures make small additions more approachable
-- Discoverable designs do too (<a href="#Sholler2019">Sholler2019</a>)
+-   Licensing is a design issue
+    -   You cannot use components whose licenses are incompatible with yours
+-   Plugin architectures make small additions more approachable
+-   Discoverable designs do too (<a href="#Sholler2019">Sholler2019</a>)
 
 ---
 
 ## Conclusion
 
-- This is not art
-- But it *is* beautiful
+-   This is not art
+-   But it *is* beautiful
 
 <img src="derosa.jpg" alt="bicycle" width="50%" class="center">
 
-- I believe we can make bicycles too
+-   I believe we can make bicycles too
 
 ---
 
@@ -502,7 +500,7 @@ a = cos(abs(a) - lemaitre(b_norm, a.transpose()))
 
 ---
 
-class: bibliography
+<!--# class=bibliography -->
 
 ## Bibliography
 
@@ -550,7 +548,7 @@ Addison-Wesley Professional, 2018, 978-0134757599.
 
 ---
 
-class: bibliography
+<!--# class=bibliography -->
 
 ## Bibliography
 
@@ -599,7 +597,7 @@ Addison-Wesley Professional, 2004, 978-0321213358.
 
 ---
 
-class: bibliography
+<!--# class=bibliography -->
 
 ## Bibliography
 
@@ -653,7 +651,7 @@ Dan Sholler, Igor Steinmacher, Denae Ford, Mara Averick, Mike Hoye, and Greg Wil
 
 ---
 
-class: bibliography
+<!--# class=bibliography -->
 
 ## Bibliography
 

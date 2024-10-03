@@ -15,8 +15,8 @@ template: slides
 
 ## Why Should You Listen to Me?
 
-- I've built a lot of complicated software
-- And I've been lucky enough to hang out with some very smart people
+-   I've built a lot of complicated software
+-   And I've been lucky enough to hang out with some very smart people
 
 <div align="center">
   <p>
@@ -28,17 +28,17 @@ template: slides
 
 ---
 
-class: aside
+<!--# class=aside -->
 
 ## A Note on Self-References
 
-- *I refer to my own work several times in this talk
-  because I've spent the last twenty years
-  trying to turn dozens of books and hundreds of papers
-  into something that working programmers and computer science professors might actually read.*
+-   *I refer to my own work several times in this talk
+    because I've spent the last twenty years
+    trying to turn dozens of books and hundreds of papers
+    into something that working programmers and computer science professors might actually read.*
 
-- *Please see the bibliographies of the cited works for pointers to the original material,
-  and please accept my apologies in advance for over-simplifications.*
+-   *Please see the bibliographies of the cited works for pointers to the original material,
+    and please accept my apologies in advance for over-simplifications.*
 
 ---
 
@@ -46,9 +46,9 @@ class: aside
 
 <p class="center"><strong>Computer scientists aren't taught software design</strong></p>
 
-- The most design-intensive "engineering" discipline there is
-- But students don't read, analyze, and critique programs
-- We are architects who don't look at existing buildings
+-   The most design-intensive "engineering" discipline there is
+-   But students don't read, analyze, and critique programs
+-   We are architects who don't look at existing buildings
 
 <div align="center">
   <img src="./frank-wang-PndRZBtlSCE-unsplash.jpg" width="50%" alt="Photo by Frank Wang https://unsplash.com/photos/PndRZBtlSCE">
@@ -84,9 +84,9 @@ From [[Wi22a](https://doi.org/10.1371/journal.pcbi.1009809)]
 > <br>
 > – Siegbert Tarrasch
 
-- "Divide code into coherent pieces" is meaningless until you have seen it done
-- "Plan for reasonable future changes" is unhelpful if you haven't seen how code evolves over time
-- Top-down instruction (almost) never works because novices don't know what the generalizations are generalizing *from*
+-   "Divide code into coherent pieces" is meaningless until you have seen it done
+-   "Plan for reasonable future changes" is unhelpful if you haven't seen how code evolves over time
+-   Top-down instruction (almost) never works because novices don't know what the generalizations are generalizing *from*
 
 ---
 
@@ -94,56 +94,58 @@ From [[Wi22a](https://doi.org/10.1371/journal.pcbi.1009809)]
 
 From [[Wi19a](#Wi19a)]
 
-1. *Problem*: describe what we want to accomplish.
-2. *Example*: present a solution to that specific problem.
-3. *Theory*: explain the underlying principles and give names to the parts.
-4. *Elaboration*: present a second problem/solution pair
-   so that learners can see what stays the same and what varies.
-
-- Depends on careful selection of problems and solutions
-- And on understanding what the audience is ready for at each stage
-
----
-
-## Learner Personas
-
-- **Aïsha** started writing VB macros for Excel in an accounting course and never looked back.
-  After spending three years doing front-end JavaScript work
-  she now wants to learn how to build back-end applications.
-
-- **Rupinder** is a computer science undergrad.
-  He has learned a lot of theory,
-  and uses Git and unit testing tools in assignments,
-  but doesn't understand how they work.
-
-- **Yim** teaches courses on full-stack web development and software design.
-  They are happy with the former,
-  but frustrated that books about the latter are so abstract
-  and use examples that their students can't relate to.
+<ol>
+  <li><em>Problem</em>: describe what we want to accomplish.</li>
+  <li><em>Example</em>: present a solution to that specific problem.</li>
+  <li><em>Theory</em>: explain the underlying principles and give names to the parts.</li>
+  <li><em>Elaboration</em>: present a second problem/solution pair so that learners can see what stays the same and what varies.</li>
+</ol>
+<ul>
+  <li>Depends on careful selection of problems and solutions</li>
+  <li>And on understanding what the audience is ready for at each stage</li>
+</ul>
 
 ---
 
 ## Learner Personas
 
-- This material will fill in some gaps in **Aïsha's** knowledge
-  and teach her some common design patterns.
+-   **Aïsha** started writing VB macros for Excel in an accounting course and never looked back.
+    After spending three years doing front-end JavaScript work
+    she now wants to learn how to build back-end applications.
 
-- This material will give **Rupinder** a better understanding of those tools
-  and of how to design new ones.
+-   **Rupinder** is a computer science undergrad.
+    He has learned a lot of theory,
+    and uses Git and unit testing tools in assignments,
+    but doesn't understand how they work.
 
-- This material will give **Yim** starting points for a wide variety of course assignments.
+-   **Yim** teaches courses on full-stack web development and software design.
+    They are happy with the former,
+    but frustrated that books about the latter are so abstract
+    and use examples that their students can't relate to.
+
+---
+
+## Learner Personas
+
+-   This material will fill in some gaps in **Aïsha's** knowledge
+    and teach her some common design patterns.
+
+-   This material will give **Rupinder** a better understanding of those tools
+    and of how to design new ones.
+
+-   This material will give **Yim** starting points for a wide variety of course assignments.
 
 ---
 
 ## Prerequisites
 
--   Install Node and run programs with it from the command line.
--   Write JavaScript programs using loops, lists, objects, functions, and classes.
--   Create static web pages using HTML and CSS.
--   Use Git to save and share files.
-    (It's OK not to know the 90% of its commands.)
--   Know what a tree is and how to process one recursively.
-    (This is the most complicated data structure and algorithm we *don't* explain.)
+-     Install Node and run programs with it from the command line.
+-     Write JavaScript programs using loops, lists, objects, functions, and classes.
+-     Create static web pages using HTML and CSS.
+-     Use Git to save and share files.
+      (It's OK not to know the 90% of its commands.)
+-     Know what a tree is and how to process one recursively.
+      (This is the most complicated data structure and algorithm we *don't* explain.)
 
 ---
 
@@ -180,20 +182,20 @@ From [[Wi19a](#Wi19a)]
 
 ## Choosing Examples
 
-- [*500 Lines or Less*](https://aosabook.org/en/#500lines) had two weaknesses:
-- Every author used their favorite language
-  - …most of which students won't have seen
-- The applications ranged from 3D modeling to OCR to a scheduling system for assembly lines
-  - …most of which will be new to most readers
+-   [*500 Lines or Less*](https://aosabook.org/en/#500lines) had two weaknesses:
+-   Every author used their favorite language
+    -   …most of which students won't have seen
+-   The applications ranged from 3D modeling to OCR to a scheduling system for assembly lines
+    -   …most of which will be new to most readers
 
 ---
 
 ## Choosing Examples
 
-- But we can assume programmers know how to use (some) programming tools
-  - …so use those for examples
-- Narrower range of problems, but still plenty for a book
-  - And if people realize their tools are just software,
+-   But we can assume programmers know how to use (some) programming tools
+    -   …so use those for examples
+-   Narrower range of problems, but still plenty for a book
+    -   And if people realize their tools are just software,
     maybe they'll build more tools of their own
 
 ---
@@ -234,7 +236,6 @@ From [[Wi19a](#Wi19a)]
 
 ## A Better Way to Think About It
 
-<div align="center">
 <table>
 <tr><th>Count</th><th>Idea</th></td>
 <tr><td>18</td><td>functions as data</td></tr>
@@ -247,11 +248,8 @@ From [[Wi19a](#Wi19a)]
 <tr><td>2</td><td>code as text</td></tr>
 <tr><td>2</td><td>hashing</td></tr>
 </table>
-</div>
 
 ---
-
-class: bibliography
 
 ## Bibliography
 

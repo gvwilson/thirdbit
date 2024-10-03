@@ -4,7 +4,7 @@ template: slides
 ---
 
 <div class="center padtop">
-  <h1>Software Engineering's Greatest Hits</h1>
+  <h1>Software Engineering's<br>Greatest Hits</h1>
   <p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
   <p>Greg Wilson</p>
   <p><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></p>
@@ -17,9 +17,9 @@ template: slides
 
 <img src="ships.jpg" alt="Sailing ships" class="center">
 
-- Seven Years' War (actually lasted nine years)
-- British lost 1512 sailors to enemy action…
-- …and almost 100,000 to scurvy
+-   Seven Years' War (actually lasted nine years)
+-   British lost 1512 sailors to enemy action…
+-   …and almost 100,000 to scurvy
 
 ---
 
@@ -51,8 +51,8 @@ template: slides
   </div>
 </div>
 
-- Those given oranges survived
-- Admiralty ignored the result until 1794
+-   Those given oranges survived
+-   Admiralty ignored the result until 1794
 
 ---
 
@@ -60,9 +60,9 @@ template: slides
 
 <img src="doctors.jpg" alt="Doctors" class="center">
 
-- 1950: Hill & Doll publish a case-control study comparing smokers with non-smokers
-- Found that smoking causes lung cancer…
-- …and that many people would rather fail than change
+-   1950: Hill & Doll publish a case-control study comparing smokers with non-smokers
+-   Found that smoking causes lung cancer…
+-   …and that many people would rather fail than change
 
 ---
 
@@ -70,8 +70,8 @@ template: slides
 
 <img src="./engineer-600.jpg" alt="Street Preacher" class="center">
 
-- "The use of the scientific method to design novel things"
-- So… no
+-   "The use of the scientific method to design novel things"
+-   So… no
 
 ---
 
@@ -79,18 +79,18 @@ template: slides
 
 <img src="@root/files/talks/blind-leading-blind.png" alt="The blind leading the blind" class="center">
 
-- We know a lot about software and how it's built
-- But students aren't taught methods or results in school
-- And we're all too busy to learn them later
+-   We know a lot about software and how it's built
+-   But students aren't taught methods or results in school
+-   And we're all too busy to learn them later
 
 ---
 
 ## We Can Do Better
 
-- Steady growth of empirical studies over 30 years
-- Fueled in part by data from open source projects
-- Many studies are small, and not all are well done
-- But we can refute some myths and reveal new insights
+-   Steady growth of empirical studies over 30 years
+-   Fueled in part by data from open source projects
+-   Many studies are small, and not all are well done
+-   But we can refute some myths and reveal new insights
 
 <img src="./icse-2023.png" alt="ICSE 2023" width="80%" class="center">
 
@@ -100,30 +100,29 @@ template: slides
 
 <a href="#Stefik2013">Stefik2013</a>: "An Empirical Investigation into Programming Language Syntax"
 
-- Measured how easily novices could read:
-  - Perl
-  - Quorum: the language their team is building
-  - Randomo: syntax "designed" by rolling D&D dice
-
-- Perl is as hard for novices to learn as a language with a randomly-designed syntax
+-   Measured how easily novices could read:
+    -   Perl
+    -   Quorum: the language their team is building
+    -   Randomo: syntax "designed" by rolling D&D dice
+-   Perl is as hard for novices to learn as a language with a randomly-designed syntax
 
 ---
 
 ## Are Some Languages Better?
 
-- Second study
-  - More subjects
-  - Multiple assessment strategies
-- Languages in the C family are as hard for novices to learn to read as a randomly-designed language
-- Ruby and Python are significantly easier
-- Quorum is easier still
+-   Second study
+    -   More subjects
+    -   Multiple assessment strategies
+-   Languages in the C family are as hard for novices to learn to read as a randomly-designed language
+-   Ruby and Python are significantly easier
+-   Quorum is easier still
 
 ---
 
 ## Productivity
 
-- <a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice
-- How long did it take?
+-   <a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice
+-   How long did it take?
 
 <img src="productivity.svg" class="center">
 
@@ -131,12 +130,12 @@ template: slides
 
 ## Productivity
 
-- Shortest and longest times were 0.6 and 63 hours
-  - Ratio is 150X (!)
-- But people used 7 different languages
-- If we only look at Java, times are 3.8 vs. 63 hours (17X)
-- But comparing best and worst exaggerates differences
-- 90th percentile vs. 50th gives 3.7X
+-   Shortest and longest times were 0.6 and 63 hours
+    -   Ratio is 150X (!)
+-   But people used 7 different languages
+-   If we only look at Java, times are 3.8 vs. 63 hours (17X)
+-   But comparing best and worst exaggerates differences
+-   90th percentile vs. 50th gives 3.7X
 
 ---
 
@@ -159,11 +158,9 @@ template: slides
 
 <a href="#Fucci2016">Fucci2016</a>: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach"
 
-- Replication study, 39 professionals, real projects
-- No significant difference between test-first and test-last development
-- "The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."
-
---
+-   Replication study, 39 professionals, real projects
+-   No significant difference between test-first and test-last development
+-   "The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."
 
 > I practice TDD…and it works great. We don't need to prove that it works anymore.
 
@@ -173,11 +170,11 @@ template: slides
 
 <a href="#Altadmri2016">Altadmri2016</a>: "37 Million Compilations: Investigating Novice Programming Mistakes in Large-Scale Student Data"
 
-- Ask educators for learners' most common mistakes
-- Compare their answers to empirical data
-- Weak consensus among educators
-- Weak correlation with observations
-- Educator experience had only weak impact on results
+-   Ask educators for learners' most common mistakes
+-   Compare their answers to empirical data
+-   Weak consensus among educators
+-   Weak correlation with observations
+-   Educator experience had only weak impact on results
 
 ---
 
@@ -185,15 +182,15 @@ template: slides
 
 Most common actual errors are:
 
-- Mis-matched parentheses (*not* confusing `=` with `==`)
-- Invoking methods with the wrong arguments
-- Reaching end of non-`void` method without `return`
+-   Mis-matched parentheses (*not* confusing `=` with `==`)
+-   Invoking methods with the wrong arguments
+-   Reaching end of non-`void` method without `return`
 
 The three that take the most time to fix are:
 
-- Confusing  short-circuit logical and bitwise operators
-- Using `==` instead of `.equals` to compare strings
-- Ignoring the return value from a non-void method
+-   Confusing  short-circuit logical and bitwise operators
+-   Using `==` instead of `.equals` to compare strings
+-   Ignoring the return value from a non-void method
 
 ---
 
@@ -201,10 +198,10 @@ The three that take the most time to fix are:
 
 <a href="#Begel2014">Begel2014</a>: "Analyze This! 145 Questions for Data Scientists in Software Engineering"
 
-- Ask a bunch of developers to propose questions, then ask another bunch to rate them
-- Developers want to know how people actually use their products
-- They *don't* want assessments of individual performance
-  - Because they're afraid such measures will be weaponized
+-   Ask a bunch of developers to propose questions, then ask another bunch to rate them
+-   Developers want to know how people actually use their products
+-   They *don't* want assessments of individual performance
+    -   Because they're afraid such measures will be weaponized
 
 ---
 
@@ -212,11 +209,11 @@ The three that take the most time to fix are:
 
 <a href="#Steinmacher2015">Steinmacher2015</a>: "Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects"
 
-- Identify 58 potential barriers
-- What matters most?
-  1. How easy it is to get set up to make a contribution
-  1. How easy it is to find a task to start with
-- Other work has also identified "how warmly first contribution was received"
+-   Identify 58 potential barriers
+-   What matters most?
+    1.  How easy it is to get set up to make a contribution
+    1.  How easy it is to find a task to start with
+-   Other work has also identified "how warmly first contribution was received"
 
 ---
 
@@ -224,22 +221,22 @@ The three that take the most time to fix are:
 
 <a href="#Patitsas2016">Patitsas2016</a>: "Computer Science Grades Are Not Bimodal"
 
-- The "geek gene" is computing's most enduring and damaging myth
-- In fact, only 5.8% of course grade distributions at a large university were actually multi-modal
-- But CS faculty are more likely to see distributions as bimodal if they think they're from a CS class
-- Even *more* likely if they believe some students are innately predisposed to do well in CS
+-   The "geek gene" is computing's most enduring and damaging myth
+-   In fact, only 5.8% of course grade distributions at a large university were actually multi-modal
+-   But CS faculty are more likely to see distributions as bimodal if they think they're from a CS class
+-   Even *more* likely if they believe some students are innately predisposed to do well in CS
 
 ---
 
 ## Code Metrics
 
-- Lots of code metrics have been proposed
-  - Halstead's measures
-  - Cyclomatic complexity
-  - Many object-oriented measures
-- But nothing works better than counting lines of code
-  - <a href="#ElEmam2001">ElEmam2001</a>: "Confounding Effects of Class Size on the Validity of Object-Oriented Metrics"
-  - <a href="#Herraiz2010">Herraiz2010</a>: "Beyond Lines of Code: Do We Need More Complexity Metrics?"
+-   Lots of code metrics have been proposed
+    -   Halstead's measures
+    -   Cyclomatic complexity
+    -   Many object-oriented measures
+-   But nothing works better than counting lines of code
+    -   <a href="#ElEmam2001">ElEmam2001</a>: "Confounding Effects of Class Size on the Validity of Object-Oriented Metrics"
+    -   <a href="#Herraiz2010">Herraiz2010</a>: "Beyond Lines of Code: Do We Need More Complexity Metrics?"
 
 ---
 
@@ -253,8 +250,8 @@ The three that take the most time to fix are:
 
 ## Who Fixes What?
 
-- Original authors fix their own simple bugs much faster than other people (<a href="#Zhu2021">Zhu2021</a>)
-- But are more likely to fix or change other things at the same time
+-   Original authors fix their own simple bugs much faster than other people (<a href="#Zhu2021">Zhu2021</a>)
+-   But are more likely to fix or change other things at the same time
 
 <div class="row">
   <div class="col-6 center">
@@ -283,32 +280,32 @@ The three that take the most time to fix are:
 
 ## Miscellaneous
 
-- Design patterns
-  - Teaching people design patterns makes them better programmers (<a href="#Tichy2010">Tichy2010</a>)
-  - Three experiments demonstrated cause and effect
-  - This is *not* obvious
-    - Maybe good programmers are just more likely to use patterns
-- Fuzz testing
-  - Invented by accident in 1988 (<a href="#Miller2021">Miller2021</a>)
-  - 25-33% of Unix utilities crashed when fuzzed
-  - Thirty years later, "only" 12-20% still crash
-  - [*The Fuzzing Book*](https://www.fuzzingbook.org/)
+-   Design patterns
+    -   Teaching people design patterns makes them better programmers (<a href="#Tichy2010">Tichy2010</a>)
+    -   Three experiments demonstrated cause and effect
+    -   This is *not* obvious
+    -   Maybe good programmers are just more likely to use patterns
+-   Fuzz testing
+    -   Invented by accident in 1988 (<a href="#Miller2021">Miller2021</a>)
+    -   25-33% of Unix utilities crashed when fuzzed
+    -   Thirty years later, "only" 12-20% still crash
+    -   [*The Fuzzing Book*](https://www.fuzzingbook.org/)
 
 ---
 
 ## Miscellaneous
 
-- Strong typing catches about 15% of bugs (<a href="#Gao2017">Gao2017</a>)
-  - Which is a lot or a little depending on your point of view
-- Only 6-17% of configuration options are set by most users (<a href="#Xu2015">Xu2015</a>)
-  - Only 2%-8% of parameters are configured by more than 90% of users
-- Secret management is a solved problem
-  - But most developers don't know the solutions (<a href="#Basak2023">Basak2023</a>)
+-   Strong typing catches about 15% of bugs (<a href="#Gao2017">Gao2017</a>)
+    -   Which is a lot or a little depending on your point of view
+-   Only 6-17% of configuration options are set by most users (<a href="#Xu2015">Xu2015</a>)
+    -   Only 2%-8% of parameters are configured by more than 90% of users
+-   Secret management is a solved problem
+    -   But most developers don't know the solutions (<a href="#Basak2023">Basak2023</a>)
 ---
 
 ## What Hasn't Worked?
 
-- People have tried explaining all of this before
+-   People have tried explaining all of this before
 
 <div class="row">
   <div class="col-3"><img src="./rapid-development.jpg" width="70%"></div>
@@ -324,13 +321,13 @@ The three that take the most time to fix are:
 
 ## What Might?
 
-- Start with a little data science
-  - Using software engineering datasets (because people learn best when examples are relevant)
-  - And Python (because computer science students will probably already know it)
-  - Academically defensible ("Look, math!")
-  - And attractive to students
-- Then replicate a few simple results
-- At this point, students will be able to understand and assess the claims
+-   Start with a little data science
+    -   Using software engineering datasets (because people learn best when examples are relevant)
+    -   And Python (because computer science students will probably already know it)
+    -   Academically defensible ("Look, math!")
+    -   And attractive to students
+-   Then replicate a few simple results
+-   At this point, students will be able to understand and assess the claims
 
 ---
 
@@ -342,10 +339,10 @@ The three that take the most time to fix are:
 > projects, determine whether long functions are
 > more likely to be buggy than short ones.
 
-- Requires tool use, model building, and statistics
-- Require students to *do* science
-  - So they *understand* it
-  - So they *value* it
+-   Requires tool use, model building, and statistics
+-   Require students to *do* science
+    -   So they *understand* it
+    -   So they *value* it
 
 ---
 
@@ -353,8 +350,8 @@ The three that take the most time to fix are:
 
 <img src="./wikipedian_protester.png" class="center">
 
-- The world needs more of this
-- What are you waiting for?
+-   The world needs more of this
+-   What are you waiting for?
 
 ---
 
