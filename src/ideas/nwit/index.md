@@ -215,5 +215,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Gorostidi et al 2024: "On the Creation of Representative Samples of Software Repositories" <https://arxiv.org/abs/2410.00639> We present a methodology for creating representative samples of software repositories, where such representativeness is properly aligned with both the characteristics of the population of repositories and the requirements of the empirical study.
 
+1.  Casanueva et al 2024: "The Impact of the COVID-19 Pandemic on Women's Contribution to Public Code" <https://arxiv.org/abs/2410.01454> Findings show that the COVID-19 pandemic has disproportionately impacted women's ability to contribute to the development of public code, relatively to men. Further, our observations of specific contributor subgroups indicate that COVID-19 particularly affected women hobbyists…
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
