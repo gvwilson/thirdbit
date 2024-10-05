@@ -217,5 +217,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Casanueva et al 2024: "The Impact of the COVID-19 Pandemic on Women's Contribution to Public Code" <https://arxiv.org/abs/2410.01454> Findings show that the COVID-19 pandemic has disproportionately impacted women's ability to contribute to the development of public code, relatively to men. Further, our observations of specific contributor subgroups indicate that COVID-19 particularly affected women hobbyists…
 
+1.  Sesari et al 2024: "It is Giving Major Satisfaction" <https://arxiv.org/abs/2410.02482> …distributive, procedural, interpersonal, and informational [fairness] significantly affect…overall job satisfaction and satisfaction with job security…interpersonal fairness has the biggest impact, being more than twice as influential on overall job satisfaction. The relationship …is notably stronger for female, ethnically underrepresented, less experienced practitioners, and those with work limitations.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
