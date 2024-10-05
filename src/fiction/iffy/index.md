@@ -9359,10 +9359,10 @@ to stand guard between them and the fallen Marines.
 A hatch opened on the hovercraft's leading edge just as they reached it.
 Something bulbous poked out.
 Iffy thought it was another bot,
-but then she removed his helmet.
+but then he removed his helmet.
 
 "Well,"
-Doctor Johel said conversationally.
+Johnson Wales said conversationally.
 "Isn't this a fine mess?"
 
 Benício put a cautioning hand on Iffy's shoulder.
@@ -9370,7 +9370,7 @@ Benício put a cautioning hand on Iffy's shoulder.
 but we're fine t' make our own way along by th' coast."
 
 "Mm."
-Doctor Johel nodded as if agreeing.
+Wales nodded as if agreeing.
 "How far do you think you'll get, exactly?
 And how much of your precious herd will die along the way?
 How many trees will burn, Ecologist,
@@ -9379,11 +9379,11 @@ and how much difference do you think any of it will make?"
 "What are you doin' here?"
 Iffy asked in the silence that followed.
 
-Doctor Johel sighed.
-"Trying to fix what's broken.
-I'm afraid we can't dawdle any further.
+Wales sighed.
+"The same thing I've been doing for the last hundred years:
+trying to fix what's broken.
 Citizen Corrales,
-you and Citizen Kwan can come aboard of your own accord or not as you choose,
+you and Iffy can come aboard of your own accord or not as you choose,
 but you *are* coming with me."
 
 One—two—three more sentry bots blurred out of invisibility
@@ -9394,7 +9394,7 @@ as the two she had seen moved closer.
 Benício puffed out his cheeks and exhaled slowly.
 "You know I can't do that," he said.
 
-Doctor Johel put her hand on her chest.
+Wales raised his hand.
 "You have my solemn pledge that you will not be interfered with.
 I have no desire at all to pick a fight with the Shepherds.
 Whatever secrets or access codes you have will remain yours and yours alone."
@@ -9425,7 +9425,7 @@ Clench the hand like *this*,
 hold it *there*,
 and—
 
-As Benício raised his hand Doctor Johel shouted, "Wait!"
+As Benício raised his hand Wales shouted, "Wait!"
 Iffy tackled the Ecologist,
 grabbing his arm and knocking him clumsily to the ground.
 The EMP that was supposed to scramble his brain
@@ -9447,7 +9447,692 @@ you can do it yourself!"
 
 ## Chapter 10
 
-FIXME
+There were Marines on board the hovercraft,
+all apparently imprinted with the same taciturn personality.
+Two of them flanked Benício
+as he disappeared stone-faced into the belly of the hovercraft
+while Wales explained to Iffy
+that the Ecologist would be fine.
+"Anyway,
+it's not as if what he tried to do would actually have worked,"
+he said.
+In real life,
+brainwipes were a lot less reliable but a lot more predictable than they were in sims.
+Deep memories would survive the EMP pulse,
+just as a person's original personality survived imprinting.
+As for more recent knowledge,
+well,
+the Shepherds had undoubtedly changed their access codes already,
+and their network of shelters and greenhouses weren't actually as secret as they thought.
+
+Iffy expected to be locked in a cell next to Benício.
+Instead,
+a Marine ushered her up steeply-laddered steps to the hovercraft's cockpit.
+"Have a seat," Wales said,
+gesturing at the padded chair to the left of the one he had been sitting in.
+"And buckle up.
+This thing was built for speed, not comfort."
+
+Iffy limped over to the chair
+and lowered herself onto it with a wince.
+Wales clucked his tongue.
+"I'll have someone take a look at that for you later."
+
+"Don' worry about it,"
+Iffy muttered.
+
+Wales sighed.
+"Look,
+Iffy,
+I'm sorry, all right?
+I am.
+If there had been any other way I would have taken it,
+but once Gayathri figured out who you are—*what* you are—I had to play along.
+Believe me,
+everything else would have been a lot worse."
+
+Seating himself and snapping harness straps together across his chest,
+he laid his hands on the apps set into the arms of his chair.
+The display in front of them came to life.
+A dozen views of the surrounding tundra
+nestled between status displays like those Iffy had grown up with on the *Guinevere*.
+Temperatures and battery reserves,
+the rotational speeds of idling engines,
+weather reports,
+and projections from a hundred independent simulations of the next few moments
+waited for attention
+like courtiers waiting on a king.
+
+"Where are you takin' us?" Iffy asked sullenly.
+She had loosened the straps of her harness so that she could wriggle out if she needed to,
+but the straps had re-tightened themselves
+as soon as the engine came to life.
+
+"Home, sort of,"
+Wales replied absently
+as he rearranged the display with a few flicks of his fingers.
+"Now don't mind the noise.
+You'll get used to it."
+
+The engines beneath them rumbled.
+The hovercraft rose like a ship being lifted by a wave
+and rotated smoothly on its cushion of air.
+Orange status lights blinked and turned green
+as the sentry bots climbed back aboard.
+"All accounted for, sir,"
+said the Marine seated beside Iffy.
+
+"Yippe ki-yay."
+Wales flicked his fingers again.
+
+The hovercraft shot forward like a startled seagull.
+Acceleration pushed Iffy back in her seat.
+Fifty klicks an hour, a hundred… two hundred…
+At two hundred and fifty the numbers on the display stopped climbing
+and the pressure lifted from her chest.
+She took a deep breath and watched the world race by
+as the hovercraft bumped and shook toward the horizon.
+The only people in the world going faster than her at that precise moment
+were either on trains
+or desperate enough to take to the air
+and hope the machines' satellites didn't spot them.
+
+The novelty wore off quickly.
+
+A Marine showed up a few minutes later
+to give Iffy a patch to dull the pain in her knee
+and speed its healing.
+Her eyelids grew heavy
+as the drugs and accelerators seeped through her skin.
+Even a mug of thick, sweet tea
+wasn't enough to keep them from closing.
+
+At least,
+that's what she hoped whoever was watching her would believe.
+She had learned how to keep sleep at bay on night watches long ago.
+Right now,
+she had some thinking to do
+and she didn't want to be disturbed.
+
+*Wireframes swam in the darkness.
+The hovercraft had been built as a blockade runner in Tashkent
+before the start of the machine wars.
+Its heart was a reactor originally designed for use in a submarine—she
+took a moment to admire the sleek, single-minded recklessness of its design—and
+the motors that created its cushion of air
+would have pumped fuel at hypersonic speeds
+in orbital booster rockets
+if history had unfolded just a little bit differently.
+The hull plating was angled to deflect the energy of ballistic attacks
+and threaded with microfilaments not unlike those in Benício's skull
+to handle electronic ones.
+Ventilation tubes,
+triple-redundant optical wiring,
+and plumbing liberated from a luxury hotel
+slithered between bulkheads.*
+
+*She flipped the wireframe upside down and rightside up,
+flew through it,
+spun it around.
+Any of a dozen rooms or holds could have been repurposed as a cell.
+For one moment she thought about reaching out to the hovercraft's core,
+but it would be better protected than the railgun back on the pier.*
+
+She yawned widely.
+The images slipped away as her concentration finally conceded
+to the painkillers and reconstructives.
+A moment later she began to snore for real.
+
+She woke to the smell of curried noodles,
+and for a few disoriented seconds she thought she was back on the *Guinevere*.
+But no,
+she was still buckled into her chair in the cockpit of the hovercraft.
+She took the plate that the expressionless Marine offered her
+and fumbled with the chopsticks
+while she waited for her mind to catch up with the rest of her.
+
+Wales was gone,
+but the gently undulating tundra on the screens around her looked the same as it had.
+Their speed hadn't changed either,
+she noticed,
+or their heading.
+They were headed for Mount Tyree or somewhere nearby.
+
+She looked up at the Marine.
+"It's really good,
+but can I please have some more onions on it?
+An' some more tea?
+If that's aright,"
+she added hastily.
+
+The Marine looked at her,
+his expression still as empty as the tundra.
+"Good morning,
+Iffy,"
+Wales said through a speaker somewhere behind her.
+"I'm glad to see you have an appetite."
+
+"It's really good," she said truthfully.
+"I'm just used t' more onions."
+
+"Mm.
+And of course you'd like to see more of the *Henry Lion*,
+I assume."
+
+She shrugged.
+"Not much else t' do,
+'less you're aright with me talkin' to Benício for a bit."
+
+"I'm afraid that's out of the question for now,"
+Wales said regretfully.
+"All right.
+Private Norbu will take you down to the galley
+and then show you to your cabin.
+Promise you won't do anything foolish?"
+
+"Sure.
+An' I promise I'll keep it as well as you've kept yours."
+She wriggled out of the straps without spilling any of her noodles,
+then stood up and tested her knee.
+Whatever had been in the patch seemed to have set it right.
+If she had to run,
+she could.
+The trick now was having somewhere to run *to*.
+
+As she stepped past Private Norbu
+she slipped the metal button cover she had pried off her chair
+into her pocket.
+
+The galley was twice the size of the *Guinevere*'s
+but much noisier.
+The schematic in her head showed her the pipes,
+drive shafts,
+and optical cables
+crammed into the half meter between its floor
+and the foamed steel armor on the hovercraft's belly.
+She could see three different ways to make trouble if she could reach them,
+but she had no way to do that.
+Even if she did,
+they all had backups that had backups of their own.
+The hovercraft was tough by design:
+someone could punch a dozen shots from a heavy-duty railgun right through it
+without slowing it down.
+
+Private Norbu stood near the galley door and watched her eat.
+She ignored him the same way she had learned to ignore shopkeepers
+who didn't think an orphan dredger had any place in their store.
+She thought briefly about trying to steal her chopsticks,
+but by the time she finished her tea she had decided it was too risky.
+They felt like aluminum,
+and she could do a lot with a couple of aluminum rods,
+but Private Norbu was right there
+and there were probably cameras she couldn't see as well.
+No,
+the chopsticks were almost certainly a dead end.
+The loose screw on the underside of the table,
+on the other hand…
+
+Her cabin had a fold-up bunk
+and a single shallow drawer set into the bulkhead.
+She picked up the app that lay on the neatly-dressed bunk
+as Private Norbu closed and locked the door behind her.
+It was the same model she had used as a child,
+but completely locked down:
+she couldn't even get the weather on it,
+much less connect to Hell.
+
+She kicked off her boots and lay down.
+"Lights," she said after a moment.
+The room dutifully went dark.
+She closed her eyes,
+took slow, steady breaths to slow her pulse,
+then tried to visualize herself.
+
+Nothing happened at first,
+or rather,
+hundreds of things that weren't her formed, flew apart, and re-formed behind her eyes.
+She saw something that looked like a mechanical musk ox
+designed to hide in the herd,
+and marvelled for a moment at
+the ingenious way it emulated its organic namesake's digestive processes.
+This was the *Guinevere* as she had been the day she first sailed.
+And that—right there—was her.
+
+She forgot to breathe for a moment as the image rotated slowly,
+panning and zooming as her attention shifted.
+In her spine,
+along her nerves,
+laced through her brain:
+they weren't wires—those would be too easy for a scanner to spot—but rather
+tiny fractalized patches of cells arranged in precisely the right way
+to make her a living antenna.
+
+And any antenna that could receive a signal could send one.
+
+It only took her a minute to find an opening in the hovercraft's systems.
+It took her another five to find one that wasn't a trap,
+and another hour to convince herself that she was right.
+Fifteen years ago,
+just a few days after she had been born,
+a tech in Paddington South had replaced a reactor coolant pump
+with one salvaged from an Aussie submarine
+that had suffered a catastrophic loss of containment.
+(Her hand twitched as if swiping an app
+to toss aside the insurance reports and obituaries
+that thought called up.)
+The tech had cut corners to meet a deadline
+(another twitch dispelled performance reviews and der eventual punitive imprinting).
+One of those corners had been a software shim
+to connect the monitor's century-old software
+to the hovercraft's merely elderly systems.
+
+She studied the code tangled around the hardware
+like nerves and veins around bones.
+The pump's core was dumber than a seagull:
+if she nudged it there and there and *there*,
+it would believe that the hovercraft's reactor was going critical
+and bypass its own safeties to prevent disaster.
+When the other pumps asked it what the hell it thought it was doing,
+the long-ago tech's shoddy work would let her persuade them
+that they had been ordered to shut down for maintenance.
+
+She smiled,
+not caring who might be watching through a hidden camera,
+then rolled on her side and brought her hand to her mouth
+as if to stifle a yawn.
+
+The metal button cover she had stolen was stronger than she had expected.
+For a moment she thought she might crack a tooth,
+but then it bent enough for her to bite down and flatten it.
+She spat the half-circle of metal with its two precious points
+back into her hand,
+rolled over again to cover the motion of slipping it back into her pocket,
+and *pushed* with her mind.
+
+Eleven point two meters away,
+a pump whirred into overdrive.
+Exactly three seconds later
+its partners queried it,
+compared the answers they received,
+and powered down.
+Iffy squelched the notifications they sent to the hovercraft's core
+moments before they would have set off an alarm.
+*Sleep well,* she thought giddily.
+She had never ridden a high-speed multi-ton atom bomb before.
+She wondered how many people had,
+and how many of them had lived to tell the tale.
+
+She didn't realize her nose was bleeding
+until an alarm klaxon began to blare
+and she tried to stand up.
+She had expected the alarm—in fact,
+she was counting on it—but
+she hadn't counted on being so lightheaded that
+the room went distant and swam around her.
+She bent over,
+her elbows on the bunk and her face pressed against her forearms.
+
+"Shad," she swore weakly.
+There was a lot of blood,
+even more than the time Akumé had punched her in the face
+for calling der a thief
+(which de had been,
+but the other kids on the pier had been too smart or too afraid of der to say it).
+Wiping her face with a handful of bedsheet didn't stop the steady red drip.
+
+Iffy laughed weakly.
+She had been so worried that someone would notice her stealing the button cover,
+and now it turned out she needn't have bothered.
+She wouldn't have to scratch herself to get a few red cells
+to fool the hovercraft's genetic sensors:
+she had as many as she could possibly want.
+
+She straightened up and worked her tongue in her mouth.
+It still felt like someone had replaced it with a piece of pressed jellyfish,
+but the room was longer an endlessly-receding tunnel from a horror sim.
+She focused on the app lying on the bunk and pushed with her mind once again.
+Something inside the door clicked and it slid aside.
+
+Two minutes later she stood in front of another cabin door
+and pressed her sticky hand against the contact place beside it.
+
+"Affin' heck, girl, what happened t' you?"
+Benício asked as he stood.
+
+"You should see the other guy," she said
+grinning woozily.
+"Any idea where our gear is?"
+
+He shook his head.
+"Not a moss.
+So what now?"
+
+She jerked her chin toward the stern.
+"Back an' out 's as far as I got."
+
+Someone was banging against one of the doors they passed.
+They were shouting, too.
+Iffy thought it was funny but didn't have enough energy to laugh.
+At some point Benício had put his arm around her to help her stay upright.
+He had picked up a fire extinguisher as well,
+a compact red cylinder with a silver handle
+whose basic design hadn't changed in centuries.
+She blinked away the specs that flashed into her mind.
+*Not now,* she thought.
+Her nose was still dripping.
+Anyone who wanted to find them could just follow the trail of drops and streaks on the floor.
+
+"Here," she mumbled.
+"…straps…"
+
+"*Está bem*, I got it,"
+Benício said soothingly.
+He turned her around and lowered her onto the molded plastic seat,
+then buckled the harness across her chest
+and pulled a bulky pair of goggles down over her eyes and nose.
+"Bite on this,"
+he told her,
+pushing a mouthpiece against her lips.
+
+Cold air filled her lungs as she breathed in.
+"Ready?
+No,
+don' worry,
+I'll be right behind you."
+He took her wrists and placed her hands on the grips built into the seat.
+"One… two… *three*."
+
+She screamed into the mouthpiece as hovercraft fired the ejection seat into the air
+like an old-fashioned artillery shell.
+Daylight blinded her and ice-cold wind instantly numbed her cheeks.
+Tiny gyros whined to stabilize the chair
+long enough for the explosive bolts in its back to fire.
+A translucent parawing snapped open.
+The surge of deceleration threw her against her harness
+and then she was swinging like a pendulum
+as the parawing's tiny core picked a safe landing spot
+and turned toward it.
+
+The ground below her was covered with snow.
+The harsh white reached from horizon to horizon,
+interrupted only by a few dark boulders
+and the camouflaged rectangular bulk of the hovercraft
+that was already two hundred meters away,
+but Iffy didn't have time to think about that.
+She was flying,
+really actually flying,
+except it was going to be over in a few seconds
+and if the chair hit the ground the wrong way
+she might tumble and snap her neck.
+The gyros were supposed to prevent that,
+but she had seen their specs when she was planning her escape
+and they had last been serviced by the same tech
+who had screwed up the coolant pump.
+
+A flash of light at the rear of the hovercraft
+threw a black dot into the seamless blue sky.
+A hundred meters above the ground it jerked suddenly
+as its parawing deployed.
+
+Snow raced away beneath her far too fast for safety.
+She was headed straight for a boulder.
+She was going to hit it.
+She was going to hit it,
+but the parawing cupped the air to brake,
+throwing her hard against the straps.
+
+The chair landed on the snow with a crunch.
+Iffy spat out the mouthpiece,
+pulled off her goggles,
+wriggled out of the straps,
+tripped,
+and fell face-first into the little snowbank thrown up by the chair's impact.
+Ice crystals stung her face and hands.
+It was cold,
+she realized,
+really cold.
+They must have come further inland than she had realized.
+
+The chair bleeped.
+Panels popped off its bulky arms
+to reveal a featherweight windproof parka rolled up
+to be not much larger than a roti on one side
+and a waistpack on the other.
+She unrolled the parka and put it on,
+then unzipped the pack.
+A tiny first aid kid,
+a ruggedized app,
+a pair of multitools,
+and three high-energy snack bars:
+the specs had shown four,
+and for a moment she wondered if that long-ago tech had gotten hungry while de was working.
+
+Her nosebleed had stopped,
+but she was still lightheaded.
+She clambered awkwardly up the boulder
+and shielded her eyes with her hand.
+There—Benício's chair had just landed a few hundred meters away.
+Wales had undoubtedly retaken control of the hovercraft,
+only to discover that all three coolant pumps had burned out
+and would need to be replaced
+before it could move again.
+That meant his Marines would be putting on their exoskeletons,
+which meant she and Benício only had a few minutes before they arrived.
+
+"Hey!"
+She waved both arms.
+Benício waved back and started toward her.
+Iffy slipped off the boulder,
+made her way back to the chair,
+and got to work.
+
+The upper back plate on the ejection seat had six screws.
+The lower plate only had four.
+She pocketed them as she took them out.
+"No such thing as scrap," she muttered under her breath.
+It was one of Mister Mishra's favorite sayings,
+but there wasn't time to think about him or Jeep
+because she had to tighten the spigot valve on the seat's tiny fuel line all the way
+before prying out the fist-sized tank of high-test peroxide
+or she and her escape were going to be very short-lived.
+
+Benício's boots crunched on the snow.
+"What're you—oh no.
+No no no,
+you can't be serious."
+
+She grinned madly and pointed at the parawing
+without looking up from the vernier motor she was crimping into place.
+"Straighten that out if you can
+an' then get the straps off th' chair.
+We're gonna have t' double up."
+
+Another minute, another minute—there.
+Benício handed her the ends of the parawing's tether lines.
+She clipped them onto the harness and handed it back to him.
+"I can't carry you, so you gotta carry me," she said,
+cutting off his protests.
+
+The snow field dipped gently on the far side of the boulder.
+It wasn't much,
+but it would have to do.
+"Ready?" she asked.
+
+Benício shook his head.
+"Nope."
+He bent over like a sprinter and started to run.
+
+Iffy waited for the lines to go nearly taut before shouting,
+"Now!"
+and yanking the edge of the parawing up as hard as she could.
+The makeshift rocket strapped to Benício's back flared,
+kicking him forward.
+For an instant Iffy thought it wasn't going to work,
+but the core she had pulled out of the chair wasn't smart enough to wonder
+how or why its world had changed.
+It just knew its wing was out of position.
+Tiny motors whirred,
+frantically adjusting the parawing's shape
+so that it cut the air at just the right angle
+to lift Benício into the air.
+
+He whooped,
+his feet still pedalling as they left the ground.
+Iffy ran back and scrambled up the boulder and shielded her eyes,
+her heart pounding.
+Four black dots had come over the horizon.
+She counted seconds under her breath.
+The snow was slowing them down, but not much.
+
+"Over here!" she shouted,
+waving as Benício banked in a wide, clumsy turn.
+One moment he was over *there*
+and the next he was coming straight at her,
+wide-eyed and shouting something she couldn't hear.
+She took a deep breath and spread her arms wide.
+
+Benício hit her with a thump that cracked her spine.
+His hands scrabbled for purchase on her parka,
+but the fabric was too slippery,
+it was designed to shed water and he couldn't get a grip
+but that was aright,
+she had grabbed hold of the straps
+and her feet were kicking at nothing but air.
+
+She twisted around as far as she dared as he whooped again.
+The rocket on his back flared again,
+lifting them higher.
+*It's me, it's just me,* she thought frantically,
+hoping that whatever faraway machine she had made her bargain with was listening.
+
+"So what now?"
+Benício had to shout to be heard over the wind in their ears.
+
+"We got about half an hour in the air,"
+Iffy shouted back.
+"We'll have to walk the rest o' the way."
+The snow field below her looked exactly like a sim but was completely different.
+She finally understood why so many people wrote poetry about flying,
+and why they said that of all the machines had taken away from humanity,
+this was the one whose loss hurt the most.
+
+In the end the little rocket only lasted ten minutes,
+but that was enough to get them high enough to catch the wind.
+Antarctica rolled away behind them.
+Iffy's shoulders began to ache,
+then to burn.
+The straps they were tangled in dug in to her triceps.
+She'd have bruises,
+but the view—whatever else happened,
+she swore she would find a way to fly again.
+
+After one last lift from a thermal rising off a stretch of exposed rock
+they began a long, slow descent.
+"Get ready!" Benício shouted.
+Iffy grabbed the strap with one numb hand and let go with the other
+so that she was half beside and half behind him.
+The parawing's little motors whined in protest as they reshaped it
+to adjust for the shift in weight.
+Ten seconds…
+Five…
+As her boots grazed the snow she tried to run,
+but her toe caught on a crust of ice.
+She let go of Benício and sprawled face-forward.
+
+"Well," Benício said a moment later
+as the parawing carried the harness away.
+"Can't wait to tell Nagatha about *that*."
+
+She wiped ice and snow off her face and returned his grin.
+"Me too.
+C'mon,
+we gotta keep movin'."
+
+Two snack bars and several mouthfuls of lukewarm water later,
+they reached an outcropping of rock too regular to be natural.
+Benício ran his hands over the pipe shafts drilled into its laser-cut top.
+"Old weather station?" he hazarded.
+"Looks like it was salvaged a long time gone."
+
+"Mm hm."
+Iffy pointed at the shadow on the horizon.
+"You know what that is?"
+
+Benício laughed.
+"Girl,
+I have no idea where I am right now.
+You could tell me that was the Andes an' I'd believe you."
+
+"That's Mount Tyree."
+Iffy's voice was more serious than she'd intended.
+"The secret base Wales an' th' machines an' everyone have been goin' on about?
+It's pretty much right underneath us."
+
+She pulled off her glove,
+scraped some dried blood out of her nostril,
+and stuck her finger in one of the drill holes.
+The rock thought for a second and then opened with a faint click.
+
+She grinned at Benício.
+"Welcome to my secret lair."
+
+*Suppose the world is ending
+and you want to build a secret research facility—a place
+completely cut off from what's left of the world's governments
+and their artificial minions
+so that you can create or study things you shouldn't
+without being interrupted.
+You might think that the first step was to choose a location,
+but it's not.
+The actual first step is to pick a cover story
+that gives you a plausible reason to imprint prisoners and indentured laborers
+with the skills you need
+and then erase their memories afterward.
+(In theory you will only erase their memories of where they were and what they did.
+In practice the process is sometimes imprecise,
+particularly if you want to err on the side of caution,
+but if you're the sort of person who needs a secret research facility,
+you're probably also the sort who believes that
+nothing worth having comes without some kind of price.)*
+
+*If your cover story is something to do with reforesting ravaged rainforests
+you will probably build your base in Africa or Indonesia.
+You might consider Brazil,
+but even before the war with the machines
+it has become a complicated place as nationalism,
+macumba,
+and apocalyptic ecology hybridize in ever-more-strident ways.
+If your cover story is related to climate engineering,
+on the other hand,
+no one will raise an eyebrow if your site is somewhere formerly arctic.
+The Melt hit the poles first and hardest,
+and most of those mad enough to believe that the damage can be undone
+by scattering megatons of absorbent catalysts over thousands of square kilometers
+naturally congregate there.*
+
+*The poles are exactly the wrong place to go
+if you want people to believe that you plan to launch something into orbit,
+but in a way that works in your favor.
+Everyone expects you to lie about what you're actually doing,
+so telling part of the truth is a good way to hide the part left unsaid.
+A ground station for a network of microsatellites
+flung into orbit by an automated factory located somewhere on the far side of the Moon?
+You are so obviously courting condemnation for adding to the already catastrophic volume of space junk
+that no one will suspect that's what your base is actually for.
+Or rather,
+everyone (and everything) will suspect it,
+but only as one of a thousand low-probability possibitilies.*
+
+*To finish throwing them off the scent,
+you can build a dozen safe havens in a circle around your base.
+To keep the workers safe,
+your public relations bot explains to anyone who cares to pay attention.
+Antarctica's storms have been growing in frequency and severity for decades,
+and it will only be a matter of time before tornadoes appear.
+You may not be able to guarantee that your laborers will return with their memories intact,
+but you will of course do your utmost to ensure that they do return.
+Deeply dug and well provisioned,
+your bunkers will allow them to wait out the worst the southern continent can throw at them in comfort.*
 
 </section>
 
