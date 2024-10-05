@@ -1842,7 +1842,7 @@ Special Blazes swore under his breath.
 "Do what you can,"
 he said curtly.
 "Bee! Meri! Load up!
-Looks like we're turning around after all."
+We're rolling in three minutes."
 He glared at the burned-out crab bot.
 "What in the Makers' names were they doing this far out?"
 
@@ -2159,5 +2159,105 @@ Branches scratched at her as the bot's, "Nooooo!" sawed through the air.
 Moss and weeds squished under her feet as she fled
 up the overgrown path
 toward the road.
+
+</section>
+
+<section markdown="1">
+
+## Hide and Seek (Gumption)
+
+"Maddy!" Sindy screamed.
+Gumption whirled around just in time to see
+the flying bot that had escaped earlier
+shoot into the sky
+with Maddy dangling in its claws.
+
+Thoughtful raised his rifle and took aim.
+"No!" Gumption shouted,
+knocking it aside.
+
+The rabbit stepped back and leveled the rifle at Gumption's head.
+"Don't *ever* do that,"
+he said,
+his voice completely empty of emotion.
+
+Blazes put a hand on his companion's shoulder.
+"Easy," he said.
+"Boy didn't mean any harm."
+
+*Click.*
+Gumption let out his breath with a whoosh
+as Thoughtful safetied the rifle and lowered it.
+
+Three minutes later
+Special Leaf was lying on an improvised bed of blankets in the back of the wagon
+with a second layer of bandages wrapped around his chest.
+Meribeth and Dockety had shovelled dirt onto the burning bushes to damp down the fire.
+Acrid smoke still hung in the air,
+smelling like desperation and failure.
+As the bear hitched Crusher and Bee Six Vee back to the wagon,
+Gumption and Sindy argued with Special Blazes.
+
+Finally the tiger exploded.
+"Are you even listening to yourselves?" he demanded.
+"If she isn't in Heck already she will be soon.
+We go after her,
+folks will just be saying the words for all of us instead of just her."
+
+"But—"
+Gumption started for the fifth time.
+
+"I said *no*."
+Blazes jabbed a clawed finger at him.
+"And don't be making the villain in this.
+What happened here is your fault,
+yours and hers.
+Nobody made you sneak onto the wagon.
+Nobody made you put yourselves in harm's way."
+
+He lowered his voice.
+"This isn't the newspapers, son.
+This is the real world.
+Now put aside your foolishness
+and get on the damn wagon.
+We still have to get young Miz Roo here to Sandy Bend,
+and *you* need to figure out what you're going to say to her momma."
+
+"There is another option,"
+Dockety buzzed.
+"Gumption and this one can look for Maddy while you deliver Sindy.
+The aerial unit was a scout, not a transport,"
+it continued as Special Blazes opened his mouth.
+"If it came from Heck as you suspect,
+its battery would already have been depleted by the time it reached us.
+There is at least a chance it would have to land and recharge."
+
+The tiger studied him.
+"And if you get caught?"
+
+Dockety's lenses rotated and then rotated back.
+"That is a chance we are willing to take."
+
+Sindy objected, loudly.
+To Gumption's surprise Thoughtful did too,
+but five minutes later he tied the top of his knapsack shut.
+"If we don't find her by nightfall we'll head back to Rusty Bridge,"
+he promised.
+
+Special Blazes nodded as if he believed it.
+"We'll come back this way as soon as we can," he said gruffly.
+"Good luck."
+
+Gumption nodded and climbed onto Dockety's back.
+*Do actual adventures always feel like this?*
+he wondered.
+Did real heroes always have a sick knot in their stomach
+from thinking about all the things that could go wrong
+that could never be put right?
+"I'm ready," he lied.
+
+Dockety retracted his legs and dropped his wheel.
+With Sindy crying behind them,
+they set off down the mountain.
 
 </section>
