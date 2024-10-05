@@ -458,5 +458,3 @@ Annick Press, 1999.
 ISBN 978-1550375992.</p>
 
 </div>
-
-{% include books.html %}
