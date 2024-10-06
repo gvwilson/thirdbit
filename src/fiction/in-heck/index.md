@@ -2258,6 +2258,48 @@ that could never be put right?
 
 Dockety retracted his legs and dropped his wheel.
 With Sindy crying behind them,
-they set off down the mountain.
+they accelerated away.
+
+When Gumption was just a buckling,
+his father had given him piggyback rides up to bed at night.
+Clinging to Dockety's back as the bot raced down the mountain was nothing like that.
+For one thing,
+Dockety smelled of metal, oil, and ozone
+rather than sweat, fur, and the tar soap that Gumption's mother insisted the family use
+at least once a week.
+For another,
+his father had climbed the stairs in a steady rhythm that helped rock his son to sleep.
+Bumping over small chunks of broken paving
+and swerving to dodge larger ones and potholes
+was about as relaxing as a game of dodgeball.
+
+Dockety slowed and stopped as they reached the Makers' road.
+"Oww…" Gumption moaned,
+twisting one way and then the other until his spine made a satisfying sound.
+"Why are we stopping?"
+
+"To give you this."
+Dockety opened a panel in its side and took out something
+that looked like brass knuckles with a heavy tuning fork welded to its top.
+
+"Is that the zap gun Bluster and Bravo said they saw?"
+Gumption asked,
+not taking it.
+
+Dockety's lenses rotated.
+"It is.
+And it is operational now,
+though it only has three charges.
+You must be close to your target for it to have an effect."
+
+"Uh huh."
+Gumption hesitated a moment longer,
+then took the weapon,
+hefted it,
+and tucked it into the pocket of his overalls.
+"You got something for yourself?"
+
+The bot's lenses rotated again.
+"This one has several enhancements that may prove useful."
 
 </section>
