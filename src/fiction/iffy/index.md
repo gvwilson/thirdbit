@@ -10008,7 +10008,7 @@ hoping that whatever faraway machine she had made her bargain with was listening
 "So what now?"
 Benício had to shout to be heard over the wind in their ears.
 
-"We got about half an hour in the air,"
+"We only got a few minutes in the air,"
 Iffy shouted back.
 "We'll have to walk the rest o' the way."
 The snow field below her looked exactly like a sim but was completely different.
@@ -10071,10 +10071,115 @@ It's pretty much right underneath us."
 She pulled off her glove,
 scraped some dried blood out of her nostril,
 and stuck her finger in one of the drill holes.
-The rock thought for a second and then opened with a faint click.
+The rock thought for a second and then opened with a faint click
+to reveal a space the size of the toilet stall on the *Guinevere*.
+A wraparound shelf held tools,
+a rifle connected to a flimsy jumpsuit,
+and a medical kit.
+The center of the floor was taken up by a circular hatch.
 
 She grinned at Benício.
 "Welcome to my secret lair."
+
+Whatever he might have said in reply was cut off by a low rumble.
+She whirled around and froze as a white-furred head lifted off the snow three strides away.
+"*Mãe do mundo*," Benício breathed
+as the polar bear rosed to its feet.
+For a heart-stopping moment Iffy *knew* that this was where and how her story would end,
+but then she saw the familiar silver sheen of tech beneath the bear's fur.
+She desperately hoped that meant it was on their side.
+
+*«danger / nearing / haste»*
+
+"It says trouble's comin'," Iffy relayed.
+
+"No kidding," Benício muttered.
+"Don't suppose it's offerin' to help with that?"
+
+As if on cue a second bear and then a third ambled around the outcropping.
+One of them stopped next to the first.
+The other took a tentative step forward,
+only to hesitate and withdraw when the first bear growled at it.
+It wasn't accelerated like the other two,
+Iffy realized.
+It was just several hundred kilograms of predator
+looking at something edible and defenseless.
+
+*«haste»*
+
+Iffy jerked her chin at the hatch.
+"It wants us to get movin'."
+
+"Aright."
+Benício stepped into the small chamber,
+bent down,
+grabbed the handwheel,
+and yelped,
+snatching his hand back.
+
+"What's wrong?"
+Iffy asked as the Ecologist swore in four different languages.
+
+"It shocked me,"
+he said accusingly.
+
+*«undesired»*
+Ideas emerged in Iffy's mind,
+bumping into each other like ice floes.
+She shook her head to clear it.
+
+"I think it wants me on my own,"
+she told Benício.
+Without waiting for his reply she bent over and grabbed the handwheel herself.
+When nothing happened she pulled it,
+gently at first and then harder.
+Metal screeched as it turned.
+Once, twice, three times—click.
+She lifted the hatch.
+
+"Secret lair, eh?"
+Benício said,
+looking over her shoulder at the laddered shaft descending into the mountain.
+
+She shrugged.
+"Think there's a dragon down there?"
+
+The Ecologist snorted.
+"I think whatever's down there is gonna make you wish it was just a dragon."
+He reached past her to take the rifle and wriggled into its attached jumpsuit,
+then oophed as she hugged him.
+
+"Don't do anythin' stupid,"
+she said fiercely.
+
+He snorted again.
+"Don't *you*."
+They squeezed each other once more,
+and then he turned to the bears and said,
+"Aright, let's get goin'."
+
+Iffy watched the foursome head downhill,
+wondering if it was just an accident that the two accelerated bears
+kept themselves between their unmodified partner and Benício.
+The Marines' infrared would spot them immediately,
+but even as she had the thought,
+schematics and false-color visualizations flashed through her head.
+The accelerated bears' tech would dampen and modify their heat signatures
+long enough for them to look like half a dozen arctic rabbits
+fleeing from the unmodified bear,
+while Benício's jumpsuit would—
+
+She shook her head.
+It didn't matter.
+They would do what they could, and so would she.
+With a deep breath,
+she turned around and started her descent.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 11
 
 *Suppose the world is ending
 and you want to build a secret research facility—a place
@@ -10134,11 +10239,7 @@ but you will of course do your utmost to ensure that they do return.
 Deeply dug and well provisioned,
 your bunkers will allow them to wait out the worst the southern continent can throw at them in comfort.*
 
-</section>
-
-<section markdown="1">
-
-## Chapter 11
+*Assuming, that is, that nothing goes wrong…*
 
 Iffy was halfway down the ladder when her nose told her
 that something bad had happened in the bunker many years ago.
