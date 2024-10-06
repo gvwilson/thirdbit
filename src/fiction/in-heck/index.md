@@ -2300,6 +2300,54 @@ and tucked it into the pocket of his overalls.
 "You got something for yourself?"
 
 The bot's lenses rotated again.
-"This one has several enhancements that may prove useful."
+"This one has several enhancements that may prove useful
+once we locate Miz Roo."
+
+Gumption sucked in his cheeks.
+"Yeah… Any ideas on how we're gonna do that?"
+
+"Yes,"
+the bot replied.
+"We will ask for help."
+
+Fifteen bumpy minutes later they stopped again.
+Dockety retracted its wheel and extended its legs
+as Gumption cracked his back once more.
+His ribs were aching,
+but he had grown used to that.
+
+"Keep your weapon out of sight,"
+Dockety cautioned.
+With no more instruction than that,
+it marched into the trees that lay between the road and the Mire.
+
+It took Gumption a moment to realize they were on a path.
+It took him another to realize it had been made by bots.
+Triangular indentations in the mud had been made by something with clawed feet.
+Parallel ruts the width of his thumb showed where
+something with narrow wheels had crossed a patch of mud.
+When they reached a clearing,
+he was only half surprised to see one of the black glass pillars
+that the bots used for recharging.
+
+"What now?" he asked.
+
+"Now we wait.
+Quietly,"
+the bot added as Gumption opened his mouth.
+
+Five minutes dragged by,
+then ten.
+When Gumption slapped at a mosquito,
+Dockety clacked one of its manipulators.
+After that,
+the young goat suffered in silence.
+
+The air grew more humid as the shadows started to lengthen.
+Gumption was just about to ask how much longer it would be
+when something scuttled out of the undergrowth and froze
+a few steps away from him.
+*Well hello there,* he thought.
+The flat, square bot looked like the one Maddy had met in Patient's bunker.
 
 </section>
