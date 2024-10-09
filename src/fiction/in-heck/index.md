@@ -2348,6 +2348,132 @@ Gumption was just about to ask how much longer it would be
 when something scuttled out of the undergrowth and froze
 a few steps away from him.
 *Well hello there,* he thought.
-The flat, square bot looked like the one Maddy had met in Patient's bunker.
+The flat, square bot looked like the one Maddy had met in Patient's bunker,
+but with crab legs instead of little wheels.
+
+The little bot clicked its forelegs together three times,
+paused,
+clicked again,
+and turned around.
+Turning back to Dockety and Gumption it repeated the action:
+three clicks and one,
+turn,
+hesitate,
+and try again.
+
+Gumption glanced at Dockety.
+"I'm sorry, we don't understand," he said,
+crouching down.
+
+He squeaked as the bot rushed forward
+and grabbed his coveralls with its claw.
+"Does it want us to go with it?"
+Gumption asked
+as the little bot tugged his cuff.
+
+"That seems probable,"
+Dockety buzzed.
+"Be alert."
+
+Gumption followed the little bot into the trees
+with Dockety squelching behind them.
+The ground was muddy underfoot in places.
+The little bot scrambled around the wet patches with surprising speed.
+
+Gumption ducked under low-hanging branch,
+then pulled up short.
+"Huh," was all he could manage.
+
+A dozen little bots waited for them in a semi-circle in a little clearing.
+The one they had followed clambered up the trunk of a fallen tree
+and tucked its legs beneath itself.
+
+Something Gumption immediately christened a storkbot stepped forward.
+"Explain your presence!" it demanded
+in a reedy voice that reminded Gumption of a poorly-played harmonica.
+
+"We're looking for a friend of ours,"
+Gumption ventured.
+"She was taken by a flying bot just an hour ago.
+We were hoping—"
+
+A rustle ran through the assembled bots.
+"These do not like flyers,"
+the storkbot wheezed.
+"These do not wish to attract their attention."
+
+"The one who was taken has been a friend to many free bots,"
+Dockety said.
+
+"Breathers are not friend,"
+the stork snapped back.
+The other bots twittered and warbled in agreement.
+
+"These *organics* are,"
+Dockety replied firmly.
+"If that is not sufficient incentive for collaboration,
+this one offers parts and assistance with repairs."
+
+More twittering and warbling ensued.
+"The offer is enticing,"
+the storkbot said,
+"But depends upon your survival.
+These believe that if you pursue your friend,
+the odds of you fulfilling your side of a bargain would be significantly diminished."
+
+"Then provide more information and increase the probability,"
+Dockety countered coolly.
+
+Something that Gumption hoped had been built to do gardening rather than surgery beeped.
+"These will need a demonstration of sincerity,"
+the storkbot said.
+"You are equipped with NPX-170 model optical sensors."
+
+"Correct."
+*Uh oh,* Gumption thought.
+Dockety's voice didn't have much emotional range,
+but it had just gone cold.
+
+"Give these one.
+These will return it to you when you deliver the parts you have promised."
+
+Dockety's lenses rotated and rotated back.
+"Agreed."
+It turned to Gumption.
+"Please remove one of this one's eyes and give it to the unit we have been negotiating with."
+
+"What?
+Eww."
+Gumption shook his head.
+"Why can't you do it?"
+
+"This one cannot inflict damage upon itself,"
+Dockety said.
+"Many bots would have destroyed themselves long ago without such an inhibition.
+It will not hurt,
+but this one would be grateful if you could avoid scratching the lenses."
+
+It only took Gumption a minute to undo the little screws
+that held Dockety's right eye in place.
+He slipped them into his pocket,
+then unclipped the silvery cable that connected the eye to whatever bots' eyes connected to
+and held out the eye.
+
+The storkbot plucked it from his hand and passed it to one of the other bots in the circle.
+"The flyer took your friend to a disused ventilation outlet,"
+it said.
+"The tower's current resident is—"
+The bot hesitated.
+"Unpleasant."
+
+"However,"
+it went on as Gumption opened his mouth,
+"She was able to escape."
+
+"So where is she now?"
+he asked.
+
+The storkbot clacked its metal beak.
+"These have no idea."
 
 </section>
