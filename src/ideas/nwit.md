@@ -219,5 +219,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Sesari et al 2024: "It is Giving Major Satisfaction" <https://arxiv.org/abs/2410.02482> …distributive, procedural, interpersonal, and informational [fairness] significantly affect…overall job satisfaction and satisfaction with job security…interpersonal fairness has the biggest impact, being more than twice as influential on overall job satisfaction. The relationship …is notably stronger for female, ethnically underrepresented, less experienced practitioners, and those with work limitations.
 
+1.  Olson et al 2024: "Crossing Margins: Intersectional Users' Ethical Concerns about Software" https://arxiv.org/abs/2410.08090 Worth reading for the methodology as well as the findings - makes me think yet again about how hard it would be to put together an undergrad course on empirical methods in software engineering, and how valuable such a course would be.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
