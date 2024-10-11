@@ -1656,7 +1656,7 @@ Her scowl told Gumption that questions wouldn't be welcome
 even if he had any more sensible than,
 "Are we gonna be aright?"
 
-The flying bots' rotors whined and then shrieked as they dove at the camp.
+The helibots' rotors whined and then shrieked as they dove at the camp.
 Bright sparks danced across their bellies.
 Gumption heard the *rat a tat tat* of their guns a moment later.
 Puffs of dirt spattered from the ground.
@@ -1708,7 +1708,7 @@ grabbing the back of his overalls and hauling him back.
 "If we're still here in five minutes
 we can worry about the fire then."
 
-The third flying bot raced away.
+The third helibot raced away.
 The earth split under the force of Special Leaf's tech.
 Zig-zag cracks appeared in the hard-packed road.
 *He can't keep doing this,* Gumption thought,
@@ -1720,7 +1720,7 @@ One breath, two, and a fresh wave of attackers came around the corner.
 These weren't rag-tag machines
 like the ones Patient in Darkness had cobbled together out of spare parts.
 These were weapons.
-The small six-wheeled scouts in front were almost as fast as the flying bots.
+The small six-wheeled scouts in front were almost as fast as the helibots.
 The two behind them were almost as large as Crusher,
 squat and heavily armored,
 with four wheeled legs for speed
@@ -1849,7 +1849,7 @@ He glared at the burned-out crab bot.
 And that was when Gumption heard Sindy scream,
 "Maddy!"
 He whirled around just in time to see
-the flying bot that had escaped earlier
+the helibot that had escaped earlier
 shoot into the sky
 with the older Roo sister dangling in its claws.
 
@@ -2156,7 +2156,7 @@ Patient charged,
 but was too far away to catch her.
 
 Branches scratched at her as the bot's, "Nooooo!" sawed through the air.
-Moss and weeds squished under her feet as she fled
+Moss and weeds squelched under her feet as she fled
 up the overgrown path
 toward the road.
 
@@ -2164,11 +2164,11 @@ toward the road.
 
 <section markdown="1">
 
-## Hide and Seek (Gumption)
+## A Meeting in the Trees (Gumption)
 
 "Maddy!" Sindy screamed.
 Gumption whirled around just in time to see
-the flying bot that had escaped earlier
+the helibot that had escaped earlier
 shoot into the sky
 with Maddy dangling in its claws.
 
@@ -2394,7 +2394,7 @@ in a reedy voice that reminded Gumption of a poorly-played harmonica.
 
 "We're looking for a friend of ours,"
 Gumption ventured.
-"She was taken by a flying bot just an hour ago.
+"She was taken by a helibot just an hour ago.
 We were hoping—"
 
 A rustle ran through the assembled bots.
@@ -2474,6 +2474,103 @@ it went on as Gumption opened his mouth,
 he asked.
 
 The storkbot clacked its metal beak.
-"These have no idea."
+"She is in Trouble."
+
+</section>
+
+<section markdown="1">
+
+## Hide and Seek (Maddy)
+
+The most important thing you need to know about being invisible
+is that you actually aren't.
+Is your body transparent?
+Your clothes aren't,
+and even if they were,
+how could you see anything if light just passed through your eyes?
+Or are you somehow hidden from sight or made unnoticeable?
+Great:
+does it muffle the sound of your breathing?
+Does it conceal your footsteps
+or stop branches and tall grass from swaying as you brush against them?
+
+None of this made being invisible useless,
+but as Maddy squelched up the overgrown path toward the road,
+she quickly realized that it wouldn't save her on its own.
+The helibot that had kidnapped her would be in the air soon if it wasn't already,
+and Patient was sure to send other minions after her as well.
+She needed somewhere to hide, fast.
+
+The path brought her to the Makers' road sooner than she expected.
+One moment her boots were sinking into soft ground,
+the next they were on cracked pavement.
+She hesitated.
+She could move a lot faster on the road,
+but she couldn't risk being out in the open.
+
+Something buzzed in the sky above her.
+She ducked under a willow branch and held her breath
+as the helibot zoomed past overhead.
+The road was definitely out.
+
+Maddy counted twenty in her head,
+took a deep breath,
+and sprinted across the road in a dozen bounding steps.
+The undergrowth on the other side was just as smelly and scratchy,
+and the mosquitoes found her again almost immediately,
+but she had to do *something*.
+
+The discombobulator on her wrist vibrated.
+"Charge exhausted,"
+its readout told her.
+"Please wait one (1) hour before re-enabling."
+
+"Great,"
+she muttered,
+then jumped and squeaked
+as a hexabot with a missing middle leg scuttled out from under a nearby bush.
+She whirled around and squeaked again.
+Two other bots had come up behind her, boxing her in.
+One had a body no larger than her boot
+suspended between a pair of balloon tires.
+The other looked more like a centipede with something like a wire paintbrush for a head.
+
+*Click click click.*
+Pause.
+*Click.*
+She turned back to the hexabot.
+It clicked its forelegs together again in the same rhythm,
+three, pause, one,
+three, pause, one.
+
+"I—I don't know what that means,"
+Maddy said as calmly as she could,
+then spoiled it by jumping as the rollerbot bumped into her leg.
+
+"What—" she started.
+It bumped into her again,
+harder.
+As it did she heard the helibot's now-familiar buzzing in the distance.
+
+"All right, all right, I get it.
+Which way do you want me to go?"
+
+There wasn't a path on this side of the road,
+but as she followed the rollerbot she caught glimpses of tracks here and there.
+When it nudged her under a tree
+she closed her eyes and tried to think very still thoughts
+until the helibot was past.
+
+She quickly lost track of how far they'd come or what direction they were going,
+so it could have been ten minutes or an hour before the rollerbot abruptly stopped.
+Hidden beneath grass and trailing vines was an old concrete wall
+with a partly-open door.
+
+"Oh.
+Oh no.
+No no no,"
+Maddy said.
+The wall and door looked exactly like the underground bunker
+where she had first encountered Patient.
 
 </section>
