@@ -2561,16 +2561,98 @@ When it nudged her under a tree
 she closed her eyes and tried to think very still thoughts
 until the helibot was past.
 
-She quickly lost track of how far they'd come or what direction they were going,
-so it could have been ten minutes or an hour before the rollerbot abruptly stopped.
-Hidden beneath grass and trailing vines was an old concrete wall
-with a partly-open door.
+She quickly lost track of how far they'd come or what direction they were going.
+All she knew for sure was that they were getting closer to
+the river that oozed through the Mire.
+She didn't remember seeing a bridge when the helibot had carried her over it.
 
-"Oh.
-Oh no.
+Ten minutes or an hour later the rollerbot abruptly stopped.
+Hidden beneath grass and trailing vines was a stained concrete wall
+with a partly-open door.
+"Oh no.
 No no no,"
 Maddy said.
-The wall and door looked exactly like the underground bunker
-where she had first encountered Patient.
+The door looked exactly like the one that had led to
+the underground bunker where she had first encountered Patient.
+
+The rollerbot nudged her again, harder.
+Maddy shook her head.
+"No,"
+she said emphatically.
+"I am *not* going in there."
+
+A rectangular patch on the door flickered to life.
+"—AN—ER -F Y-U S-AY"
+appeared.
+
+"What?
+Oh,
+hang on."
+With a sigh of exasperation,
+she rubbed dirt off the patch with her sleeve.
+
+"DANGER -F YOU STAY"
+the door spelled out.
+
+"Uh huh,"
+she scoffed,
+crossing her arms.
+"And of course I'll be safe and snug if I trust you, right?"
+
+"ALSO DANGER BUT LESS"
+The rollerbot bleeped agreement.
+"FLYER COMES SOON DECIDE DECIDE DECIDE"
+
+Maddy threw up her hands.
+"All right, fine.
+But I'll be really disappointed in you if this is a trap."
+She took a deep breath and squeezed through the door.
+
+Inside was a large, empty room.
+The walls and roof were bare concrete blocks,
+and the air was damp and still.
+Where the entrance to Patient's bunker had been blanketed with dried mud and blown leaves,
+though,
+this room had been swept clean.
+
+A light came on overhead to reveal a rust-streaked sign
+fastened opposite the door that read,
+"Deep Space Monitoring Auxiliary Control Station".
+A black glass panel and a keyhole lay in the wall beside it,
+and next to them were a pair of sturdy levers and an open door.
+
+"PLEASE COME IN" scrolled across the glass panel.
+Pushing aside her memories of what had happened the last time she had been in a place like this,
+Maddy stepped through the door
+onto a small platform at the top of a flight of broad concrete stairs
+and started her descent into the unknown.
+
+Ten… twenty… fifty…
+Seventy-two steps below her starting point
+she reached a corridor made of the same featureless gray concrete as the stairs.
+Small glass panels set into the ceiling cast a cold white light
+that had haunted her dreams for months.
+
+She had expected the same warren of tunnels that Patient had used as its lair.
+Instead,
+after a few dozen steps she found herself at another heavy door.
+It slid aside at her touch to reveal a circular room with a domed ceiling.
+Four reclining chairs waited in the center of the room,
+none of them holding a skeleton or anything else that would give her nightmares.
+
+Light blinked in the control panels set into the arms of one of the chairs.
+"Sure, why not?"
+Maddy muttered.
+She lowered herself into the chair,
+wriggled a bit to make herself more comfortable,
+and placed her hands on the control panels.
+
+The lights overhead dimmed.
+She took an involuntary breath as the ceiling came to life
+to show hundreds of stars in a clear night sky.
+Faint colored lines arced from one horizon to the other.
+After a moment she saw dots moving slowly along some of them.
+Most were dull red,
+but one was a vibrant green.
 
 </section>

@@ -3,12 +3,103 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2024-10-11T00:00:00Z</updated>
+ <updated>2024-10-13T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Browsercast Revisited</title>
+   <link href="https://third-bit.com/2024/10/13/browsercast-revisited/"/>
+   <updated>2024-10-13T00:00:00Z</updated>
+   <id>https://third-bit.com/2024/10/13/browsercast-revisited/</id>
+   <content type="html">&lt;p&gt;Shakespeare wrote sonnets;
+we write PowerPoint
+A lot of people blame it for bad presentations,
+but that&amp;rsquo;s like blaming fountain pens for bad poetry.
+The real problem with tools like PowerPoint is that they aren&amp;rsquo;t web-friendly.
+When you export a slideshow to present on the web,
+what you actually get is a bunch of images.
+There&amp;rsquo;s no text,
+just pixels arranged in the shapes of letters;
+no hyperlinks;
+and nothing search engines or disability aids can read.
+What&amp;rsquo;s worse,
+if you want something people can replay,
+you have to make a screencast.
+These are just as opaque to search engines and disability aids,
+and probably several times larger than the original slides.&lt;/p&gt;
+&lt;p&gt;A decade ago,
+we built a solution called Browsercast
+that played audio in sync with an HTML slideshow.
+&amp;ldquo;View Source&amp;rdquo;, links, CSS, screen readers, and search worked as they should
+because everything was web-native HTML.
+And since it was just text and audio,
+it was a fraction of the size of a video,
+which made it ideal for mobile devices.&lt;/p&gt;
+&lt;p&gt;Browsercast never caught on,
+but I&amp;rsquo;m hoping &lt;a href=&#34;https://gvwilson.github.io/browsercast/&#34;&gt;this new version&lt;/a&gt; will.
+It&amp;rsquo;s just 5kb of JavaScript and 1.5kb of CSS,
+and,
+like its predecessor,
+is available under the MIT License.
+However,
+there&amp;rsquo;s still a lot to do:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The first challenge is to find a better way to manage replay.
+    If the &lt;code&gt;audio&lt;/code&gt; element on the first slide doesn&amp;rsquo;t display controls,
+    browsers refuse to play any of the sound clips
+    because the user hasn&amp;rsquo;t interacted with the page.
+    (Try removing &lt;code&gt;control=true&lt;/code&gt; from the first &lt;code&gt;audio&lt;/code&gt; element
+    and then check the error messages in browser&amp;rsquo;s console log to confirm this.)
+    This behavior prevents pop-up audio ads,
+    but in this case it makes for a poor user experience.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Second, we need a better way to manage the audio clips themselves.
+    It&amp;rsquo;s easiest for a person to record their presentation as a single audio file,
+    but the &lt;code&gt;audio&lt;/code&gt; elements in the slides would then need start and end time markers,
+    which are annoying to find and copy into the browsercast file.
+    On the other hand,
+    splitting one file into a couple of dozens short clips
+    or recording the presentation in a couple of dozen bursts
+    is equally annoying.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;This prototype replays narration every time a slide comes into view,
+    which means the audience hears a clip repeated
+    when the presenter backs up to a previous slide.
+    The JavaScript could keep track of which clips have already played
+    and not replay them unless asked to,
+    but should that be controlled by hot keys?
+    Or should the audio control on the first slide be repeated on subsequent slides?
+    Or should we approach this problem in some other way entirely?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;a href=&#34;https://yihui.org/en/2023/09/snap-slides/&#34;&gt;snap-scroll technique&lt;/a&gt; for presenting slides
+    does not behave gracefully when a slide is too tall to fit on the screen.
+    We would like to clip slides to fit the viewport
+    and to report clipped slides to authors as they are developing slideshows,
+    but need ways to implement and present this.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally [sic],
+    we need to think about captioning and internationalization.
+    Transcripts in different languages can easily be added to slides in hidden elements;
+    how should the accompanying audio clips be added,
+    and how should users indicate which set of clips they want to hear?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;My thanks to David Seifried,
+Jeremy Banks,
+David Wolever,
+Gabriel Ivanica,
+and Rémi Emonet for their work on Version 1,
+and to Yihui Xie for inventing the &lt;a href=&#34;https://yihui.org/en/2023/09/snap-slides/&#34;&gt;snap-scroll technique&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>How to Be Interviewed</title>
@@ -1486,74 +1577,6 @@ and that if I don&amp;rsquo;t accept that responsibility,
 I don&amp;rsquo;t know what to do next;
 if you do,
 &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;I&amp;rsquo;d like to hear from you&lt;/a&gt;.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Software Design by Example in Python 27: Conclusion</title>
-   <link href="https://third-bit.com/2024/04/27/conclusion/"/>
-   <updated>2024-04-27T00:00:00Z</updated>
-   <id>https://third-bit.com/2024/04/27/conclusion/</id>
-   <content type="html">&lt;p&gt;&lt;a href=&#34;https://third-bit.com/sdxpy/finale/&#34;&gt;Consider the bicycle&lt;/a&gt;:
-more specifically,
-the De Rosa SK Pininfarina.
-I think it&amp;rsquo;s beautiful,
-but I wouldn&amp;rsquo;t call it art,
-because being beautiful isn&amp;rsquo;t its primary purpose.
-It was created to be useful;
-the fact that it can also be appreciated aesthetically is an intentional bonus.&lt;/p&gt;
-&lt;p&gt;&lt;img class=&#34;centered&#34; src=&#34;https://third-bit.com/sdxpy/finale/derosa.jpg&#34; alt=&#34;De Rosa SK Pininfarina bicycle&#34; width=&#34;25%&#34;/&gt;&lt;/p&gt;
-&lt;p&gt;Now think about your favorite pieces of software.
-We routinely critique their interfaces by asking:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Does it do what it&amp;rsquo;s supposed to?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Is it pleasurable to use?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;What&amp;rsquo;s missing is the third leg of the industrial design tripod:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Did its design facilitate its manufacture and maintenance?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;At a deeper level,
-what&amp;rsquo;s &lt;em&gt;really&lt;/em&gt; missing is a shared vocabulary
-and a suite of canonical examples
-that would give us a basis for critiquing software
-in the way that we can a train or a sofa.
-We use words like &amp;ldquo;elegant&amp;rdquo; when referring to Unix&amp;rsquo;s pipe-and-filter model,
-but when asked to explain,
-we run out of meaning long before any reasonably intelligent industrial designer
-runs out of things to say about the design of a toenail clipper.&lt;/p&gt;
-&lt;p&gt;In retrospect this is what I have been groping toward for the last twenty-five years.
-I haven&amp;rsquo;t succeeded,
-but I hope this book will help us get a little closer.
-I hope that some day we&amp;rsquo;ll be able to talk meaningfully about the beauty of software,
-because it &lt;em&gt;is&lt;/em&gt; beautiful and we deserve to have ways to say that.
-Until then:&lt;/p&gt;
-&lt;div class=&#34;center&#34;&gt;
-&lt;p&gt;
-Start where you are.
-&lt;br&gt;
-Use what you have.
-&lt;br&gt;
-Help who you can.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.routledge.com/Software-Design-by-Example-A-Tool-Based-Introduction-with-Python/Wilson/p/book/9781032725215&#34;&gt;&lt;img src=&#34;https://third-bit.com/sdxpy/sdxpy-cover.png&#34; alt=&#34;Cover of &#39;Software Design by Example&#39;&#34; width=&#34;20%&#34; class=&#34;centered&#34;&gt;
-&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Postscript:
-It&amp;rsquo;s been a good run.
-Since 1991 I have written five technical books,
-co-written three,
-and edited or co-edited six,
-one of them was moderately popular.
-I&amp;rsquo;d like to finish &lt;a href=&#34;https://third-bit.com/btt/&#34;&gt;one more book&lt;/a&gt; before they go out of fashion entirely;
-if you&amp;rsquo;d like to help,
-please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;get in touch&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;</content>
  </entry>
  
 </feed>
