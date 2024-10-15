@@ -2617,8 +2617,8 @@ this room had been swept clean.
 
 A light came on overhead to reveal a rust-streaked sign
 fastened opposite the entrance that read,
-"Data Analysis Network: Genetic Enhancement and Research".
-Maddy had no idea what that mean,
+"Data Analysis Network: Genetic Enhancement Research".
+Maddy had no idea what that meant,
 but a black glass panel and a keyhole lay in the wall beside the door
 next to a pair of sturdy levers and an open door.
 
@@ -2652,8 +2652,68 @@ The lights overhead dimmed.
 She took an involuntary breath as the ceiling came to life
 to show hundreds of stars in a clear night sky.
 Faint colored lines arced from one horizon to the other.
-After a moment she saw dots moving slowly along some of them.
+After a moment she realized there were dots moving along some of them.
 Most were dull red,
 but one was a vibrant green.
+
+She waited a moment for something to happen.
+When nothing did,
+she cleared her throat self-consciously and said,
+"Can you show me where I am, please?"
+
+The scene dimmed
+and was replaced with a grainy picture of her sitting in a reclining chair.
+As she opened her mouth to say,
+"Very funny,"
+the picture zoomed out to become a floor plan of the room she was in
+and half a dozen others connected by corridors.
+It zoomed out again until the underground complex was just a blinking square.
+Stippled green marked the Mire.
+A meandering blue line was the river,
+and a straighter black one must be the Makers' road.
+She had no idea what the various circles and squares were for,
+but as the scene zoomed out one more time
+a large dark blob came into view.
+She didn't need the blinking red exclamation triangle on top of it
+to know what it represented.
+
+"Do you know where Patient is?"
+she asked.
+"The bot that captured me.
+Not the flying one,
+the—oh.
+Thank you."
+
+The picture above her had been taken through willow branches,
+but was definitely Patient in Darkness.
+A blinking line connected it to a white circle south of her.
+Images of other bots popped up in a circle it:
+some built to fly,
+others to crawl,
+others obviously intended for battle.
+
+A blue circle appeared north and west of her,
+then split in two unequal pieces.
+One moved toward the Makers' road.
+A moment later,
+the other began heading more slowly in the opposite direction.
+Pictures popped up beside them.
+The smaller circle was Dockety and Gumption—they must be looking for her!
+That meant the larger one was the Operators and Sindy on their way to Sandy Bend.
+
+Maddy let out a breath she hadn't realized she was holding.
+Sindy was safe.
+She *knew* Patient was lying.
+
+"—about her sister."
+Meribeth's voice boomed all around her,
+making her jump.
+
+"Damn shame,"
+Thoughtful agreed.
+"Roundin' up throwback kids is hard enough on the soul
+without innocent folk like her gettin' caught up in it.
+Sooner this one's in a tank and on her way to Heck,
+the easier I'll sleep."
 
 </section>
