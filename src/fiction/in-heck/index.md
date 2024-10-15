@@ -2474,7 +2474,7 @@ it went on as Gumption opened his mouth,
 he asked.
 
 The storkbot clacked its metal beak.
-"She is in Trouble."
+"She is in Danger."
 
 </section>
 
@@ -2582,7 +2582,7 @@ she said emphatically.
 "I am *not* going in there."
 
 A rectangular patch on the door flickered to life.
-"—AN—ER -F Y-U S-AY"
+"N-- S--E -O ST--"
 appeared.
 
 "What?
@@ -2591,7 +2591,7 @@ hang on."
 With a sigh of exasperation,
 she rubbed dirt off the patch with her sleeve.
 
-"DANGER -F YOU STAY"
+"NOT SAFE TO STAY"
 the door spelled out.
 
 "Uh huh,"
@@ -2599,13 +2599,13 @@ she scoffed,
 crossing her arms.
 "And of course I'll be safe and snug if I trust you, right?"
 
-"ALSO DANGER BUT LESS"
+"NO BUT BETTER"
 The rollerbot bleeped agreement.
-"FLYER COMES SOON DECIDE DECIDE DECIDE"
+"FLYER COMING DECIDE"
 
 Maddy threw up her hands.
 "All right, fine.
-But I'll be really disappointed in you if this is a trap."
+But I'll be *really* disappointed if this is a trap."
 She took a deep breath and squeezed through the door.
 
 Inside was a large, empty room.
@@ -2616,12 +2616,13 @@ though,
 this room had been swept clean.
 
 A light came on overhead to reveal a rust-streaked sign
-fastened opposite the door that read,
-"Deep Space Monitoring Auxiliary Control Station".
-A black glass panel and a keyhole lay in the wall beside it,
-and next to them were a pair of sturdy levers and an open door.
+fastened opposite the entrance that read,
+"Data Analysis Network: Genetic Enhancement and Research".
+Maddy had no idea what that mean,
+but a black glass panel and a keyhole lay in the wall beside the door
+next to a pair of sturdy levers and an open door.
 
-"PLEASE COME IN" scrolled across the glass panel.
+"ENTER ENTER ENTER" scrolled across the glass panel.
 Pushing aside her memories of what had happened the last time she had been in a place like this,
 Maddy stepped through the door
 onto a small platform at the top of a flight of broad concrete stairs
