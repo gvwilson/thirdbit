@@ -2474,7 +2474,7 @@ it went on as Gumption opened his mouth,
 he asked.
 
 The storkbot clacked its metal beak.
-"She is in Danger."
+"She is in danger."
 
 </section>
 
@@ -2702,18 +2702,48 @@ The smaller circle was Dockety and Gumption—they must be looking for her!
 That meant the larger one was the Operators and Sindy on their way to Sandy Bend.
 
 Maddy let out a breath she hadn't realized she was holding.
-Sindy was safe.
-She *knew* Patient was lying.
+At least Sindy was safe.
 
+As if on cue,
+Meribeth's voice boomed all around her.
 "—about her sister."
-Meribeth's voice boomed all around her,
-making her jump.
 
 "Damn shame,"
 Thoughtful agreed.
-"Roundin' up throwback kids is hard enough on the soul
-without innocent folk like her gettin' caught up in it.
-Sooner this one's in a tank and on her way to Heck,
-the easier I'll sleep."
+"Roundin' up throwbacks is wearin' enough
+without other folk gettin' caught up in it.
+The sooner this one's in a tank and on her way to Heck,
+the sooner I can get over feelin' sorry for myself."
+
+"Pshaw,"
+Meribeth scoffed.
+"You ain't never gonna stop feelin' sorry for yourself."
+
+"'Spose not."
+The rabbit sighed.
+"On the bright side,
+there's this lady I know in Sandy Bend who'll do her best to take my mind off it
+if I ask nice."
+
+The room fell silent.
+Maddy felt sick.
+She hadn't believed Patient,
+not for a moment,
+but now…
+
+Unless the conversation was made up.
+Able the mailbot could imitate people's voices.
+She had even heard it imitate a four-piece string band once.
+"Who *are* you?" she demanded out loud,
+suddenly angry.
+"And what is this place,
+and why are you helping me?"
+
+She swung her legs off the reclining chair and stood up,
+or tried to.
+Her limbs felt strangely heavy—so heavy that she could barely move them.
+And she was so tired that she could barely keep her eyes open.
+The last thing she saw before the world went away was Special Blazes' face
+looking down at her from the ceiling overhead.
 
 </section>
