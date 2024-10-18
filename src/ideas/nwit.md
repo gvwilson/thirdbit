@@ -219,7 +219,15 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Sesari et al 2024: "It is Giving Major Satisfaction" <https://arxiv.org/abs/2410.02482> …distributive, procedural, interpersonal, and informational [fairness] significantly affect…overall job satisfaction and satisfaction with job security…interpersonal fairness has the biggest impact, being more than twice as influential on overall job satisfaction. The relationship …is notably stronger for female, ethnically underrepresented, less experienced practitioners, and those with work limitations.
 
-1.  Olson et al 2024: "Crossing Margins: Intersectional Users' Ethical Concerns about Software" https://arxiv.org/abs/2410.08090 Worth reading for the methodology as well as the findings - makes me think yet again about how hard it would be to put together an undergrad course on empirical methods in software engineering, and how valuable such a course would be.
+1.  Olson et al 2024: "Crossing Margins: Intersectional Users' Ethical Concerns about Software" <https://arxiv.org/abs/2410.08090> Worth reading for the methodology as well as the findings - makes me think yet again about how hard it would be to put together an undergrad course on empirical methods in software engineering, and how valuable such a course would be.
+
+1.  Schesh et al 2024: "Evaluation of Version Control Merge Tools" <https://arxiv.org/abs/2410.09934> I've wanted usable diff-and-merge tools for non-textual files for decades; hopefully this systematic evaluation of alternatives for text files will be a step in that direction.
+
+1.  Birillo et al 2024: "One Step at a Time: Combining LLMs and Static Analysis to Generate Next-Step Hints for Programming Tasks" <https://arxiv.org/abs/2410.09268> Computing ed researchers have been studying the value of labeled subgoals for years; this paper looks at how well AI tools can generate them on the fly to help novices take their next step.
+
+1.  Dorner et al 2024: "The Upper Bound of Information Diffusion in Code Review" <https://arxiv.org/abs/2306.08980> "…code review participants…can spread information to between 72% and 85% of all…participants within four weeks; for large…systems, we found…about 11000 reachable participants…information can spread between two participants in code review in less than five hops and less than five days."
+
+1.  Xavier 2024: "An evidence-based and critical analysis of the Fediverse decentralization promises" <https://arxiv.org/abs/2408.15383> "Our findings suggest that Fediverse will face significant challenges in fulfilling its decentralization promises, potentially hindering its ability to positively impact the social Web on a large scale."
 
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
