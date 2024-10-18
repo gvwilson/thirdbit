@@ -229,5 +229,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Xavier 2024: "An evidence-based and critical analysis of the Fediverse decentralization promises" <https://arxiv.org/abs/2408.15383> "Our findings suggest that Fediverse will face significant challenges in fulfilling its decentralization promises, potentially hindering its ability to positively impact the social Web on a large scale."
 
+1.  Spinellis et al 2024: "Broken Windows: Exploring the Applicability of a Controversial Theory on Code Quality" <https://arxiv.org/abs/2410.13480> "Our results show that history matters, that developers behave differently depending on some aspects of the code quality they encounter, and that programming style inconsistency is not necessarily related to structural qualities."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
