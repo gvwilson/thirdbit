@@ -7250,7 +7250,7 @@ Another moment passed.
 She caught a brief mental image of a young woman taking a deep breath.
 "First thing, I gotta make a call."
 
-*Nova Zembla wasn't the only cold mind to wake up to itself.
+*Nova Zembla wasn't the only cold mind to wake up.
 As things got worse,
 leaders all over the world were so afraid of their own people
 that they wanted to watch everyone all the time
@@ -8670,7 +8670,7 @@ The bot buzzed.
 With no more signal than that,
 the musk ox turned and walked away.
 
-As the herd followed in ones and threes,
+As the herd followed in two and threes,
 Benício picked up his rifle.
 Iffy waited for him to say something,
 but he just stood there
@@ -9857,22 +9857,20 @@ The ground below her was covered with snow.
 The harsh white reached from horizon to horizon,
 interrupted only by a few dark boulders
 and the camouflaged rectangular bulk of the hovercraft
-that was already two hundred meters away,
-but Iffy didn't have time to think about that.
+that was already a hundred meters away,
+but Iffy didn't have time to think about that,
+or about the second ejection seat that the hovercraft
+had just fired into the air.
 She was flying,
 really actually flying,
-except it was going to be over in a few seconds
-and if the chair hit the ground the wrong way
-she might tumble and snap her neck.
+except it had to be over in a few seconds
+before a satellite decided they had broken the machines' "no flying" rule,
+and even if that didn't happen
+the chair hit the ground the wrong way and snap her neck.
 The gyros were supposed to prevent that,
-but she had seen their specs when she was planning her escape
+but she had seen their specs when she was planning her escape,
 and they had last been serviced by the same tech
 who had screwed up the coolant pump.
-
-A flash of light at the rear of the hovercraft
-threw a black dot into the seamless blue sky.
-A hundred meters above the ground it jerked suddenly
-as its parawing deployed.
 
 Snow raced away beneath her far too fast for safety.
 She was headed straight for a boulder.
@@ -9933,7 +9931,7 @@ She pocketed them as she took them out.
 It was one of Mister Mishra's favorite sayings,
 but there wasn't time to think about him or Jeep
 because she had to tighten the spigot valve on the seat's tiny fuel line all the way
-before prying out the fist-sized tank of high-test peroxide
+before prying out the fist-sized tank of peroxide
 or she and her escape were going to be very short-lived.
 
 Benício's boots crunched on the snow.
@@ -9965,7 +9963,7 @@ He bent over like a sprinter and started to run.
 Iffy waited for the lines to go nearly taut before shouting,
 "Now!"
 and yanking the edge of the parawing up as hard as she could.
-The makeshift rocket strapped to Benício's back flared,
+The makeshift motor strapped to Benício's back shrieked into life,
 kicking him forward.
 For an instant Iffy thought it wasn't going to work,
 but the core she had pulled out of the chair wasn't smart enough to wonder
@@ -9996,28 +9994,29 @@ His hands scrabbled for purchase on her parka,
 but the fabric was too slippery,
 it was designed to shed water and he couldn't get a grip
 but that was aright,
-she had grabbed hold of the straps
+she had grabbed the straps
 and her feet were kicking at nothing but air.
 
 She twisted around as far as she dared as he whooped again.
-The rocket on his back flared again,
-lifting them higher.
+The motor on his back shrieked again,
+pushing them higher.
 *It's me, it's just me,* she thought frantically,
 hoping that whatever faraway machine she had made her bargain with was listening.
 
 "So what now?"
 Benício had to shout to be heard over the wind in their ears.
 
-"We only got a few minutes in the air,"
+"There's a place up ahead,"
 Iffy shouted back.
-"We'll have to walk the rest o' the way."
+"We'll have to walk after that."
+
 The snow field below her looked exactly like a sim but was completely different.
 She finally understood why so many people wrote poetry about flying,
 and why they said that of all the machines had taken away from humanity,
 this was the one whose loss hurt the most.
 
-In the end the little rocket only lasted ten minutes,
-but that was enough to get them high enough to catch the wind.
+The makeshift motor burned out the next time they tried to use it,
+but lasted long enough for them to catch the wind.
 Antarctica rolled away behind them.
 Iffy's shoulders began to ache,
 then to burn.
@@ -10049,6 +10048,9 @@ C'mon,
 we gotta keep movin'."
 
 Two snack bars and several mouthfuls of lukewarm water later,
+they reached the nearest of the enormous machines.
+Benício put a reverent hand on its tread.
+
 they reached an outcropping of rock too regular to be natural.
 Benício ran his hands over the pipe shafts drilled into its laser-cut top.
 "Old weather station?" he hazarded.
@@ -10087,7 +10089,6 @@ She whirled around and froze as a white-furred head lifted off the snow three st
 as the polar bear rosed to its feet.
 For a heart-stopping moment Iffy *knew* that this was where and how her story would end,
 but then she saw the familiar silver sheen of tech beneath the bear's fur.
-She desperately hoped that meant it was on their side.
 
 *«danger / nearing / haste»*
 
@@ -10142,10 +10143,10 @@ Benício said,
 looking over her shoulder at the laddered shaft descending into the mountain.
 
 She shrugged.
-"Think there's a dragon down there?"
+"Think there's treasure down there?"
 
 The Ecologist snorted.
-"I think whatever's down there is gonna make you wish it was just a dragon."
+"Nope."
 He reached past her to take the rifle and wriggled into its attached jumpsuit,
 then oophed as she hugged him.
 
@@ -10175,78 +10176,11 @@ They would do what they could, and so would she.
 With a deep breath,
 she turned around and started her descent.
 
-</section>
-
-<section markdown="1">
-
-## Chapter 11
-
-*Suppose the world is ending
-and you want to build a secret research facility—a place
-completely cut off from what's left of the world's governments
-and their artificial minions
-so that you can create or study things you shouldn't
-without being interrupted.
-You might think that the first step was to choose a location,
-but it's not.
-The actual first step is to pick a cover story
-that gives you a plausible reason to imprint prisoners and indentured laborers
-with the skills you need
-and then erase their memories afterward.
-(In theory you will only erase their memories of where they were and what they did.
-In practice the process is sometimes imprecise,
-particularly if you want to err on the side of caution,
-but if you're the sort of person who needs a secret research facility,
-you're probably also the sort who believes that
-nothing worth having comes without some kind of price.)*
-
-*If your cover story is something to do with reforesting ravaged rainforests
-you will probably build your base in Africa or Indonesia.
-You might consider Brazil,
-but even before the war with the machines
-it has become a complicated place as nationalism,
-macumba,
-and apocalyptic ecology hybridize in ever-more-strident ways.
-If your cover story is related to climate engineering,
-on the other hand,
-no one will raise an eyebrow if your site is somewhere formerly arctic.
-The Melt hit the poles first and hardest,
-and most of those mad enough to believe that the damage can be undone
-by scattering megatons of absorbent catalysts over thousands of square kilometers
-naturally congregate there.*
-
-*The poles are exactly the wrong place to go
-if you want people to believe that you plan to launch something into orbit,
-but in a way that works in your favor.
-Everyone expects you to lie about what you're actually doing,
-so telling part of the truth is a good way to hide the part left unsaid.
-A ground station for a network of microsatellites
-flung into orbit by an automated factory located somewhere on the far side of the Moon?
-You are so obviously courting condemnation for adding to the already catastrophic volume of space junk
-that no one will suspect that's what your base is actually for.
-Or rather,
-everyone (and everything) will suspect it,
-but only as one of a thousand low-probability possibitilies.*
-
-*To finish throwing them off the scent,
-you can build a dozen safe havens in a circle around your base.
-To keep the workers safe,
-your public relations bot explains to anyone who cares to pay attention.
-Antarctica's storms have been growing in frequency and severity for decades,
-and it will only be a matter of time before tornadoes appear.
-You may not be able to guarantee that your laborers will return with their memories intact,
-but you will of course do your utmost to ensure that they do return.
-Deeply dug and well provisioned,
-your bunkers will allow them to wait out the worst the southern continent can throw at them in comfort.*
-
-*Assuming, that is, that nothing goes wrong…*
-
-Iffy was halfway down the ladder when her nose told her
-that something bad had happened in the bunker many years ago.
+Iffy was halfway down the ladder when her nose told her something was wrong.
 The smell wasn't rank like the week-dead seagull she had once found in a dumpster behind the Sandhus' store,
 trapped when the lid closed as it scrounged for scraps.
 Instead,
-it was tired and a little bit sour.
+it was tired and a little bit sad.
 
 She felt oddly detached
 as she studied the mummified body lying a stride away from the bottom of the ladder.
@@ -10341,27 +10275,25 @@ and an older version of herself labeled Suhailah Kwan.
 
 There were no other recordings,
 at least not that Iffy could find,
-but there were maps and schematics.
-The maps showed a network of maintenance tunnels
-just big enough for raccoons or maintenance bots.
+but there were maps showing a network of maintenance tunnels
+just big enough for raccoons or slinky bots,
+some running for kilometers.
 She would be able to fit her arm into one of them,
-but no more,
-and some of them ran for kilometers.
+but no more.
 
-There were other tunnels too, though,
-big enough for heavy equipment.
+There were other tunnels,
+though,
+big enough for people and heavy equipment.
 Some were dense with red flags that showed collapse,
 flooding,
 or chronic instability.
 She puzzled over that for a second before dismissing it.
-Reasons weren't important:
-a blocked tunnel was no use to her.
 
 It took her a few minutes to realize that
 the web of tunnels wasn't centered on the Niobium base.
 Instead,
 its heart was a kilometer further south.
-That wasn't what made Iffy chew her lips, though.
+That wasn't what made Iffy chew her lips as she studied the accompanying schematics, though.
 She could think of a hundred uses for a superconducting ring
 large enough to sail the *Guinevere* through,
 but why put a cage for lab rats at its center?
@@ -10374,16 +10306,14 @@ and a month's worth of high-energy rations?
 She sat back,
 stretched,
 and yawned so widely that her jaw clicked.
-*Any suggestions?* she thought,
-but her voices were still silent.
-It wouldn't be long before Wales and the Marines caught up with her.
 As tired as she was,
 she needed to get moving.
+*Any suggestions?* she thought,
+but her voices were still silent.
 
 It took her ten minutes to get the two sentry bots online.
 Their optical sensors didn't glow red—that only happened in sims—but
-she did take an involuntary step back
-when their heads turned in unison toward her.
+she still took an involuntary step back when their heads turned in unison toward her.
 
 "Sit," she ordered.
 One lowered itself to the concrete.
@@ -10396,11 +10326,9 @@ The bot took a step toward her,
 hesitated,
 and crouched beside its twin.
 
-Long before there were buses and hovercraft there were ox-carts and chariots.
-Iffy didn't know if anyone had ever built one to be pulled by two sentry robots,
+Iffy didn't know if anyone had ever built a chariot to be pulled by two sentry robots,
 but if so,
-she was pretty sure they hadn't made it out of
-a heavy-duty dolly and fiber optic cables.
+she was pretty sure they hadn't made it out of a heavy-duty dolly and fiber optic cables.
 She nudged it skeptically with her boot.
 The frictionless bearings in its wheels were undamaged,
 so it would roll enough,
@@ -10660,14 +10588,19 @@ she asked the empty air.
 The service bot pivoted on its wheels to face her.
 "The way out is simple, Iffy,"
 a familiar voice said.
-"All you have to do is stay where you are until I get there,
-then talk to the machines for me
+"All you have to do is talk to the machines for me
 and we'll all get a happy ending."
+
+</section>
+
+<section markdown="1">
+
+## Chapter 11
 
 Iffy reached into the tool crate and picked up a wrench.
 "Iffy, please,"
 Wales' voice chided.
-"Do you really think—"
+"That's not going to—"
 
 "Target!"
 Iffy snapped,
@@ -10677,7 +10610,7 @@ The first shot punched a hole through the service bot.
 The second caught it off-center and sent it spinning across the floor.
 
 The tunnel at the other end of the bunker had a blast door
-to match the one that had closed behind them.
+to match the one behind them.
 Iffy closed her eyes and rooted around in her not-memories of this place.
 There.
 She traced a shape on a contact pad beside the door,
@@ -10685,9 +10618,9 @@ then gasped as it slid open to reveal a pair of Marines.
 
 "Oh Iffy,"
 Wales' voice said through a speaker on one of their exoskeletons.
-"Did you really think you could find a hole deep enough to hide from *me*?"
+"I really didn't want to have to do this."
 
-Iffy felt rather than saw the three-legged bot begin to move.
+Iffy felt rather than saw the three-legged bot move.
 "No!" she shouted.
 Its gun fired twice
 but it was already falling as the Marines' auto-targeted shots brought it down.
@@ -10702,7 +10635,7 @@ just above her hip
 and when she tried to breathe it felt like someone was kneeling on her back
 and squeezing all the air out of her.
 
-She heard Wales' voice bark order too.
+She heard Wales bark an order.
 "No, don't," she tried to say
 as exoskeletoned arms picked her up,
 but the words came out as a gasp
@@ -10723,7 +10656,7 @@ the hole that the other kind would have made.
 
 "Oh there you are."
 She didn't know if she had said the words out loud or not.
-*Are you going to shoot me too?*
+*Don't suppose you could lend a hand?*
 
 *«inspection»*
 
