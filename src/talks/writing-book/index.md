@@ -85,8 +85,6 @@ template: slides
 
 ---
 
-<!--# class=aside -->
-
 ## Don't Try to Be Funny
 
 -   Few jokes are funny the second time
@@ -97,8 +95,6 @@ template: slides
     -   And you should let the reader decide if it's exciting!!
 
 ---
-
-<!--# class=aside -->
 
 ## Avoid Banal Advice
 
@@ -125,8 +121,6 @@ template: slides
 
 ---
 
-<!--# class=aside -->
-
 ## Three Kinds of Learners
 
 -   Novice: trying to build a mental model
@@ -137,8 +131,6 @@ template: slides
 
 ---
 
-<!--# class=aside -->
-
 ## Three Kinds of Learners
 
 <div class="center">
@@ -146,8 +138,6 @@ template: slides
 </div>
 
 ---
-
-<!--# class=aside -->
 
 ## Don't Write to Cover Your Ass
 
@@ -204,8 +194,6 @@ template: slides
 
 ---
 
-<!--# class=aside -->
-
 ## Self-Publication
 
 -   Many venues for self-publishing physically or electronically
@@ -215,8 +203,6 @@ template: slides
 
 ---
 
-<!--# class=aside -->
-
 ## Agents
 
 -   Unnecessary for technical books
@@ -225,8 +211,6 @@ template: slides
 -   A good reason to go to conventions…
 
 ---
-
-<!--# class=aside -->
 
 ## Licensing
 
