@@ -2388,37 +2388,43 @@ A dozen little bots waited for them in a semi-circle in a little clearing.
 The one they had followed clambered up the trunk of a fallen tree
 and tucked its legs beneath itself.
 
-Something Gumption immediately christened a storkbot stepped forward.
-"Explain your presence!" it demanded
-in a reedy voice that reminded Gumption of a poorly-played harmonica.
+Something Gumption immediately christened a storkbot clacked its beak.
+"Explain your presence,"
+it demanded.
+Or no, not it.
+The bots had spoken together,
+but even that wasn't right.
+One hummed,
+another clicked,
+and another went *brr* at just the right moment
+for the sounds the made to form words
+that came from nowhere and everywhere.
 
 "We're looking for a friend of ours,"
-Gumption ventured.
-"She was taken by a helibot just an hour ago.
+Gumption said.
+"She was taken by a flying bot just an hour ago.
 We were hoping—"
 
 A rustle ran through the assembled bots.
 "These do not like flyers,"
-the storkbot wheezed.
+they said.
 "These do not wish to attract their attention."
 
 "The one who was taken has been a friend to many free bots,"
 Dockety said.
 
-"Breathers are not friend,"
-the stork snapped back.
-The other bots twittered and warbled in agreement.
+"Breathers are not friends,"
+the bots whispered and warbled.
 
 "These *organics* are,"
 Dockety replied firmly.
 "If that is not sufficient incentive for collaboration,
 this one offers parts and assistance with repairs."
 
-More twittering and warbling ensued.
+The bots were silent for a moment.
 "The offer is enticing,"
-the storkbot said,
-"But depends upon your survival.
-These believe that if you pursue your friend,
+they finally allowed.
+"But these believe that if you pursue your friend,
 the odds of you fulfilling your side of a bargain would be significantly diminished."
 
 "Then provide more information and increase the probability,"
@@ -2426,7 +2432,7 @@ Dockety countered coolly.
 
 Something that Gumption hoped had been built to do gardening rather than surgery beeped.
 "These will need a demonstration of sincerity,"
-the storkbot said.
+the bots said.
 "You are equipped with NPX-170 model optical sensors."
 
 "Correct."
@@ -2460,18 +2466,19 @@ then unclipped the silvery cable that connected the eye to whatever bots' eyes c
 and held out the eye.
 
 The storkbot plucked it from his hand and passed it to one of the other bots in the circle.
-"The flyer took your friend to a disused ventilation outlet,"
-it said.
+"The flyer took your companion to a disused ventilation outlet,"
+they said.
 "The tower's current resident is—"
-The bot hesitated.
+The bots hesitated.
 "Unpleasant."
 
 "However,"
-it went on as Gumption opened his mouth,
+they went on as Gumption opened his mouth,
 "She was able to escape."
 
+"Great,"
+he said.
 "So where is she now?"
-he asked.
 
 The storkbot clacked its metal beak.
 "She is in danger."
@@ -2745,5 +2752,93 @@ Her limbs felt strangely heavy—so heavy that she could barely move them.
 And she was so tired that she could barely keep her eyes open.
 The last thing she saw before the world went away was Special Blazes' face
 looking down at her from the ceiling overhead.
+
+</section>
+
+<section markdown="1">
+
+## Armor to Hide Your Heart (Gumption)
+
+The storkbot clacked its metal beak.
+"She is in danger,"
+the bots said.
+
+And with those words,
+Gumption felt a now-familiar fear squeeze his chest.
+He hadn't ever talked to anyone about it—it wasn't the kind of thing
+a teenage goat would discuss with his parents,
+and he *definitely* couldn't talk about it with Maddy.
+She was the only real friend he had.
+He didn't know what would happen if she found out how much he worried about her.
+He had been hurt in the attack on Rusty Bridge,
+but she could have *died*,
+and whenever his thoughts got close to that,
+his mind just balked.
+
+"So what are we waiting for?"
+he said angrily.
+"You've got Dockety's eye—let's go!"
+
+Another rustle ran through the circle of bots.
+"No.
+Your companion is already in a secure location under Central's control.
+Retrieval will not be possible until she is moved.
+We must use that time to prepare you."
+
+Gumption's mouth worked.
+"Prepare me how?" he finally said.
+
+"We must fit you with armor to hide your heart."
+With no more warning than that,
+the assembled bots surged forward.
+
+"Stop! Wait! Let me go!"
+Gumption shouted as a motley dozen clamps, manipulators, and tentacles seized him.
+"Dockety! Dockety, help!"
+
+His companion's single eye rotated and then rotated back.
+"These ones are correct," it buzzed.
+"You will be detected immediately if you approach any of Central's facilities as you are.
+You must let them disguise you."
+
+Gumption struggled and swore as the bots carried him through the forest.
+Low-hanging branches scratched his face,
+and at one point his head was lower than his feet as they surged up a hill.
+He stopped yelling,
+but he couldn't stop himself struggling.
+
+Suddenly there was a dirty gray ceiling over them.
+The squelch of treads and mechanical feet on swampy ground
+gave way to the click and clatter of metal on concrete.
+The last of the daylight vanished as they rounded a corner.
+
+Gumption's heart hammered as they hurried forward in darkness.
+After what felt like forever but was probably only a minute or two
+the darkness lightened
+and then lightened again.
+He twitched as something heavy and metallic clanged up ahead.
+Was it a door opening?
+
+"Hey—hey!
+I can walk, all right?"
+
+The bots dropped him unceremoniously on the concrete
+and scuttled, slithered, or rolled away.
+He clambered angrily to his feet.
+"Thanks," he muttered to Dockety as the bot came up beside him.
+
+"You are welcome,"
+the bot replied.
+
+The room was an improvised workshop.
+Mismatched tables stood against the walls,
+each piled high with salvaged parts and misshapen scraps of metal.
+Pulleys hung from the ceiling on cables and chains
+above band saws,
+press drills taller than Gumption,
+and a compact, blocky furnace with a smiling cartoon face on its side.
+
+One of the tables turned around.
+"Welcome," it said.
 
 </section>
