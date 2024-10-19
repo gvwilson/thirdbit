@@ -31,7 +31,7 @@ MIT License. There are many open questions; we are looking for a team
 of 2-4 students with strong JavaScript skills and an interest in user
 experience design to explore ways we can make it better.
 
-- [Browsercast](https://github.com/gvwilson/browsercast)
+- [Browsercast][browsercast]
 
 ## Marimo and H5P
 
@@ -48,18 +48,39 @@ are looking for a team of 2-4 students with both JavaScript and Python
 skills who have an interest in both user experience design and
 teaching.
 
-- [Marimo Notebook](https://marimo.io/)
-- [AnyWidget](https://anywidget.dev/)
-- [H5P Content Types](https://h5p.org/content-types-and-applications)
+- [Marimo Notebook][marimo]
+- [AnyWidget][anywidget]
+- [H5P Content Types][h5]
 
 ## Dragnet
 
 One type of exercise that H5P *doesn't* support is adding labels to
-diagrams. [This prototype](https://iezer.github.io/dragnet/) takes an
-SVG with some specially-marked labels, moves those labels to the side,
-and then lets the user try to drag them back into the right places.  A
-deployable version would need to do a lot more, such as dealing with
-scaling transformations; the goal of this project is to turn the demo
-into something a classroom teacher could use.
+diagrams. [This prototype][dragnet] takes an SVG with some
+specially-marked labels, moves those labels to the side, and then lets
+the user try to drag them back into the right places.  A deployable
+version would need to do a lot more, such as dealing with scaling
+transformations; the goal of this project is to turn the demo into
+something a classroom teacher could use.
 
-- [Dragnet](https://github.com/iezer/dragnet)
+- [Dragnet][dragnet]
+
+## A Tutorial Simulation of Network Protocols
+
+[*Software Design by Example in Python*][sdxpy] deliberately ignored
+concurrency, partial failure, and everything else associated with
+modern distributed applications. The aim of this project is to (start
+to) fix that by building scale models of real network protocols such
+as TCP and the BitTorrent protocol using either [Py-DES][pydes] or
+[SimPy][simpy]. The tutorials will use simulators so that the
+accompanying lessons could illustrate edge cases in reproducible ways;
+making the implementations work on a real network as well will be a
+good stretch goal.
+
+[anywidget]: https://anywidget.dev/
+[browsercast]: https://github.com/gvwilson/browsercast
+[dragnet]: https://iezer.github.io/dragnet/
+[h5p]: https://h5p.org/content-types-and-applications
+[marimo]: https://marimo.io/
+[pydes]: https://pydes.readthedocs.io/
+[sdxpy]: https://third-bit.com/sdxpy/
+[simpy]: https://simpy.readthedocs.io/
