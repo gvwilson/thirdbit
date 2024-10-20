@@ -76,9 +76,28 @@ accompanying lessons could illustrate edge cases in reproducible ways;
 making the implementations work on a real network as well will be a
 good stretch goal.
 
+## Software Design by Example in Gleam
+
+For decades, functional programming (FP) has offered an alternative to
+the imperative, procedural model used by most languages. As highly
+concurrent systems have become the norm, FP's promise of preventing
+entire classes of bugs by avoiding mutable state has led a growing
+number of programmers to re-examine it, but there is still often a
+gulf between the kinds of examples language designers find
+interesting and the kinds of things most working programmers build.
+
+[Gleam][gleam] is a modern functional language that runs on the
+[Erlang/OTP][erlang] platform (and can also be compiled to
+JavaScript). The aim of this project is to translate examples from
+[*Software Design by Example in Python*][sdxpy] into Gleam to help
+people coming from Python and other mainstream languages understand
+how to use FP in practice.
+
 [anywidget]: https://anywidget.dev/
 [browsercast]: https://github.com/gvwilson/browsercast
 [dragnet]: https://iezer.github.io/dragnet/
+[erlang]: https://www.erlang.org/
+[gleam]: https://gleam.run/
 [h5p]: https://h5p.org/content-types-and-applications
 [marimo]: https://marimo.io/
 [pydes]: https://pydes.readthedocs.io/
