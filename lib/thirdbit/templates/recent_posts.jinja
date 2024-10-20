@@ -1,7 +1,7 @@
 <h2><a href="@root/blog/">Recent Posts</a></h2>
 <table>
   <tr><th>Date</th><th>Title</th></tr>
-  {% for post in site._posts[-8:]|reverse %}
+  {% for post in site._posts[-5:]|reverse %}
   <tr><td>{{post.date}}</td><td><a href="{{post.url}}">{{post.title}}</a></td></tr>
   {% endfor %}
 </table>

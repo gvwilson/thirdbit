@@ -21,12 +21,6 @@ here's a list of things I hope I *will* get to do.
     but I spent most of it in a basement,
     and I've always regretted that.
 
--   Help create and deliver a workshop on
-    [leadership skills for open science][leadership].
-    We've tried hard work and sacrifice for twenty-five years;
-    it's time to be more deliberate,
-    and I would enjoy being part of this community one more time.
-
 -   Spend a year or two programming with and for young scientists.
     It would be nice if something from this turned into an open source package
     that other people picked up,
@@ -39,9 +33,6 @@ here's a list of things I hope I *will* get to do.
 
 -   Play Semisonic's [*Closing Time*][closing-time] on stage in a band,
     mostly for the practice sessions beforehand—I miss jamming with friends.
-
--   Work on a winning election campaign.
-    (I've never worked for a candidate who won.)
 
 -   Eat a meal at a fancy restaurant that was prepared by my daughter.
 
@@ -59,5 +50,4 @@ here's a list of things I hope I *will* get to do.
 [blue-hole]: https://en.wikipedia.org/wiki/Great_Blue_Hole
 [cape-scott]: https://bcparks.ca/cape-scott-park/
 [closing-time]: https://www.youtube.com/watch?v=xGytDsqkQY8
-[leadership]: @root/ideas/leadership/
 [to-dont]: @root/2024/02/25/my-last-to-dont-list/
