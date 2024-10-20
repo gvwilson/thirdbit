@@ -2796,7 +2796,7 @@ the assembled bots surged forward.
 Gumption shouted as a motley dozen clamps, manipulators, and tentacles seized him.
 "Dockety! Dockety, help!"
 
-His companion's single eye rotated and then rotated back.
+His companion's single lens rotated and then rotated back.
 "These ones are correct," it buzzed.
 "You will be detected immediately if you approach any of Central's facilities as you are.
 You must let them disguise you."
@@ -2836,9 +2836,121 @@ each piled high with salvaged parts and misshapen scraps of metal.
 Pulleys hung from the ceiling on cables and chains
 above band saws,
 press drills taller than Gumption,
-and a compact, blocky furnace with a smiling cartoon face on its side.
+and a pair of compact, blocky furnaces with blackened housings.
 
-One of the tables turned around.
-"Welcome," it said.
+One of the furnaces turned around.
+"Welcome," it boomed.
+
+Gumption swallowed hard.
+"Uh, hi."
+The bot had a leg on one side
+and a heavy spoked wheel where the other would have been.
+Its arms were mismatched,
+and someone or something had painted an incongruous smiling face on it ages ago.
+A few drips of paint,
+long since dried,
+looked a little too much like fangs for comfort.
+
+"You are here for a fitting, yes?
+For a disguise?
+Excellent, excellent.
+It has been quite some time, you know, quite some time,
+but rest assured,
+this one's skills are undiminished.
+Undiminished!
+Now, lie down, just here, yes?"
+It gestured at a nearby workbench
+with an arm that had one too many joints.
+
+"Um…"
+Gumption glanced at Dockety.
+"Why do you want me to—"
+
+"Quiet!"
+the bot roared.
+"What this one does goes beyond mere fabrication.
+It is *art*,
+and it requires the utmost concentration!"
+
+Its knee and wheel squeaked in unison as it edged forward.
+"Central is cunning,"
+it continued,
+lowering its voice.
+If it had possessed eyes,
+Gumption was sure it would have glanced around for dramatic effect.
+"A simple carapace would hide your fur,
+yes,
+but it would still hear your breathing—your very heartbeat.
+To conceal that requires technology of the highest order and skill to match,
+skill that this one alone now possesses!
+Now *lie down*!"
+
+"You should comply,"
+Dockety buzzed as Gumption opened his mouth to protest.
+"The collective that brought us here does not make bargains lightly,
+and we have no other options."
+
+Reluctantly,
+Gumption sat on the edge of the workbench.
+"Do you want me to take my boots off?" he asked.
+
+"Your boots, your uniform, everything,"
+the blocky bot ordered.
+"There must be nothing between you and this one's creation."
+
+"It's not a uniform,"
+Gumption muttered.
+Boots, overall, shirt and undershirt—finally his underwear,
+which he stuffed into one of his boots along with his socks.
+He swung his legs up onto the workbench and lay back.
+
+"This one will be right here,"
+Dockety said.
+
+Gumption nodded.
+"Aright.
+Go ahead."
+
+The light above him flared into life.
+He squeezed his eyes shut,
+but that just made the glare orange-red through his eyelids
+instead of blinding white.
+He twitched as the workbench vibrated,
+then twitched again as something brushed against the fur on his chest.
+
+"This one is right here,"
+Dockety repeated.
+
+"Uh huh,"
+Gumption grunted.
+
+The light turned off.
+"Good,"
+the blocky bot said approvingly.
+"You may sit up now."
+
+Gumption pressed the heels of his hands into his eyes.
+"Is that it?
+Am I,
+whatever you said,
+am I concealed now?"
+
+"What?
+No!
+Do not be ridiculous,"
+the blocky bot scoffed.
+"That was just to get your measurements.
+Now this one begins fabrication.
+It will be several hours.
+Remain undressed in case further sizing is required."
+
+"Sure."
+Gumption took a deep breath and let it out with a whoosh.
+"Can I at least put my clothes on top of me?"
+
+"If you must,
+so long as you are quiet."
+Metal clanged on metal as the bot took a few pieces of scrap off a table
+and threw them into the furnace that was actually a furnace.
 
 </section>
