@@ -61,6 +61,7 @@ links:
 ## clean: clean up stray files
 clean:
 	@find . -name '*~' -exec rm {} \;
+	@find . -name '.DS_Store' -exec rm {} \;
 
 ## sterile: clean up and erase generated site
 sterile:

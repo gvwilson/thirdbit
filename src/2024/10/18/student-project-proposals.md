@@ -50,7 +50,7 @@ teaching.
 
 - [Marimo Notebook][marimo]
 - [AnyWidget][anywidget]
-- [H5P Content Types][h5]
+- [H5P Content Types][h5p]
 
 ## Dragnet
 
