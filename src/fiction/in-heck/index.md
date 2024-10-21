@@ -2845,7 +2845,7 @@ Gumption swallowed hard.
 "Uh, hi."
 The bot had a leg on one side
 and a heavy spoked wheel where the other would have been.
-Its arms were mismatched,
+It had two skinny arms on the leg's side and one heavier one above the wheel,
 and someone or something had painted an incongruous smiling face on it ages ago.
 A few drips of paint,
 long since dried,
@@ -2860,22 +2860,23 @@ this one's skills are undiminished.
 Undiminished!
 Now, lie down, just here, yes?"
 It gestured at a nearby workbench
-with an arm that had one too many joints.
+with one of its skinnier arms.
 
 "Um…"
 Gumption glanced at Dockety.
 "Why do you want me to—"
 
 "Quiet!"
-the bot roared.
+the three-armed bot snapped.
 "What this one does goes beyond mere fabrication.
 It is *art*,
 and it requires the utmost concentration!"
 
-Its knee and wheel squeaked in unison as it edged forward.
+"But—"
+
+The bot's knee and wheel clanked and squeaked as it rounded on Gumption.
 "Central is cunning,"
-it continued,
-lowering its voice.
+it hissed.
 If it had possessed eyes,
 Gumption was sure it would have glanced around for dramatic effect.
 "A simple carapace would hide your fur,
@@ -2895,7 +2896,7 @@ Gumption sat on the edge of the workbench.
 "Do you want me to take my boots off?" he asked.
 
 "Your boots, your uniform, everything,"
-the blocky bot ordered.
+the three-armed bot ordered.
 "There must be nothing between you and this one's creation."
 
 "It's not a uniform,"
@@ -2926,7 +2927,7 @@ Gumption grunted.
 
 The light turned off.
 "Good,"
-the blocky bot said approvingly.
+the three-armed bot said approvingly.
 "You may sit up now."
 
 Gumption pressed the heels of his hands into his eyes.
@@ -2938,7 +2939,7 @@ am I concealed now?"
 "What?
 No!
 Do not be ridiculous,"
-the blocky bot scoffed.
+the bot scoffed.
 "That was just to get your measurements.
 Now this one begins fabrication.
 It will be several hours.
@@ -2946,11 +2947,110 @@ Remain undressed in case further sizing is required."
 
 "Sure."
 Gumption took a deep breath and let it out with a whoosh.
-"Can I at least put my clothes on top of me?"
+"Can I at least, um, put my clothes on top of me?"
+He gestured.
 
 "If you must,
 so long as you are quiet."
 Metal clanged on metal as the bot took a few pieces of scrap off a table
-and threw them into the furnace that was actually a furnace.
+and threw them into the furnace.
+A few moments later Gumption felt heat prickle across his fur.
+
+Apparently,
+being naked in a mad bot's underground lair *could* in fact be boring.
+He yawned,
+wishing he dared to roll onto his side.
+"Does it hurt?" he asked Dockety.
+"Your eye, I mean."
+
+The bot raised its arm and turned its head from side to side.
+"It is unusual.
+This one has lost limbs in the past,
+but never sensory attachments.
+Not being able to see this one's surroundings feels…unsafe."
+
+"I bet."
+Gumption closed one eye,
+then opened it and closed the other.
+It didn't seem to make much difference to how much of the dirty gray ceiling he could see.
+
+As the workroom grew warmer,
+Gumption gave up trying to keep either eye open.
+He had always been more patient than his siblings and cousins.
+Long bouts in bed or on the porch as his ribs healed after the attack on Rusty Bridge
+had taught him that most problems could be slept away.
+He woke up the first time the three-armed bot banged on the furnace with its larger arm
+and tucked his overall under his head,
+figuring that if the bots didn't care that he was naked,
+he didn't need to either.
+
+He woke when Dockety pinched his toe.
+"Wuzza?"
+His stomach rumbled as he sat up.
+
+"Behold!" the three-armed bot said proudly.
+"Your disguise!"
+
+Gumption rubbed his eyes.
+He had expected something like a suit of armor
+like the ones Operators wore in stories
+when they had to fight particularly dangerous bots.
+What he was looking at seemed more like a cross between a cast-iron bathing suit
+and a pair of washboards
+with a helmet tied on for good measure.
+
+"'Zat it?" he mumbled.
+
+The three-armed bot lowered the contraption.
+"Hmph.
+Most of my clients express thanks and praise at this juncture."
+
+"Um,
+yes,
+thank you,
+I just—"
+Gumption suddenly remembered his grandfather's reaction
+to being given twelve jars of canned rhubarb as a birthday present.
+"It's just so much more than I was expecting."
+
+"How does he operate it?"
+Dockety buzzed.
+
+"Operate it? Pfah."
+The three-armed bot waved the question away.
+"It operates itself!
+He simply needs to wear it.
+This one will demonstrate."
+
+Two minutes later,
+after some uncomfortable fumbling
+and a double handful of exasperated comments from the three-armed bot,
+Gumption studied his reflection in a small mirror.
+Helmet on head: check.
+Washboards strapped to his back and chest: check.
+Metal bathing suit where bathing suits go: unfortunately, check again.
+It already chafed.
+
+"I hope I don't have to run in this,"
+he muttered to Dockety.
+
+"Run, jump—you can even swim!"
+the three-armed bot said proudly.
+"Well, if you can actually swim, that is.
+Now go ahead.
+Turn it on!"
+
+"Um…"
+Gumption patted the washboards.
+"Where's the switch?"
+
+"Switch?
+Switch?
+My creations do not use switches!
+There is a button!"
+It darted forward more quickly than Gumption would have believed possible
+and pressed a skinny digit against a slight bump on the side of the bathing suit part.
+With that,
+Gumption's heart stopped.
 
 </section>
