@@ -231,5 +231,13 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Spinellis et al 2024: "Broken Windows: Exploring the Applicability of a Controversial Theory on Code Quality" <https://arxiv.org/abs/2410.13480> "Our results show that history matters, that developers behave differently depending on some aspects of the code quality they encounter, and that programming style inconsistency is not necessarily related to structural qualities."
 
+1.  Obi et al 2024: "Identifying Factors Contributing to Bad Days for Software Developers: A Mixed Methods Study" <https://arxiv.org/abs/2410.18379> The ranked results in Figures 4 and 6 aren't surprising, but as is often the case, different rankings wouldn't have been surprising either - that's the value of actually doing these studies.
+
+1.  Butler et al 2024: "Dear Diary: A randomized controlled trial of Generative AI coding tools in the workplace" <https://arxiv.org/abs/2410.18334> "...the introduction and sustained use of generative AI coding tools significantly increases developers' perceptions of these tools as both useful and enjoyable. However, developers' views on the trustworthiness of AI generated code remained unchanged. We also discovered unexpected uses of these tools, such as replacing web searches and fostering creative ideation."
+
+1.  Osborne et al 2024: "Characterising Open Source Co-opetition in Company-hosted Open Source Software Projects" <https://arxiv.org/abs/2410.18241> "while [these three] projects exhibit similar code authorship patterns between host and external companies (80%/20% of commits), collaborations are structured differently (e.g., decentralised vs. hub-and-spoke networks)… Third, single-vendor governance creates a power imbalance that influences open source co-opetition practices and possibilities…"
+
+1.  Perez et al 2024: "Software Frugality in an Accelerating World: the Case of Continuous Integration" <https://arxiv.org/abs/2410.15816> "the average…energy cost of a [CI] pipeline is relatively low, at 10 Wh. However, due to repeated invocations of these pipelines…the aggregated energy consumption cost per project is high, averaging 22 kWh [and] the average aggregated CO2 emissions are significant, averaging 10.5 kg [which is] akin to the emissions produced by driving approximately 100 kilometers in a typical European car."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
