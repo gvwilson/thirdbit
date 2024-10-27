@@ -14,8 +14,11 @@
 </div>
 
 {% include "homepage_bio.jinja" %}
-{% include "homepage_sdx.jinja" %}
-{% include "homepage_prior.jinja" %}
+
+<h2>Software Design by Example</h2>
+
+{% with showlink=True %}{% include "sdx_overview.jinja" %}{% endwith %}
+
 <div class="row">
   <div class="col-6 col">
     <div class="card">
@@ -28,4 +31,6 @@
     </div>
   </div>
 </div>
+
+{% include "homepage_prior.jinja" %}
 {% endblock %}
