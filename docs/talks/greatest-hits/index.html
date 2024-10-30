@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="me" href="https://mastodon.social/@gvwilson">
-<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
-<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../atom.xml">
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
-    <title>Software Engineering's Greatest Hits</title>
-    <script src="../../assets/slides.js" defer></script>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../assets/slides.css">
-  </head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../assets/tango.css">
+  <link rel="stylesheet" href="../../assets/slides.css">
+  <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script
+    type="text/javascript"
+    id="MathJax-script"
+    async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <title>Software Engineering's Greatest Hits</title>
+</head>
+
   <body>
-<div class="center padtop">
-  <h1>Software Engineering's<br>Greatest Hits</h1>
+    <textarea id="source">
+
+<div class="center">
+  <h1>Software Engineering's Greatest Hits</h1>
   <p><img src="../../files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
   <p>Greg Wilson</p>
-  <p><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></p>
   <p><img src="../../files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
 </div>
 
-<hr />
-<h2>In the Beginning</h2>
-<p><img src="ships.jpg" alt="Sailing ships" class="center"></p>
-<ul>
-<li>Seven Years&rsquo; War (actually lasted nine years)</li>
-<li>British lost 1512 sailors to enemy action…</li>
-<li>…and almost 100,000 to scurvy</li>
-</ul>
-<hr />
-<h2>Irony</h2>
+---
+
+
+## In the Beginning
+
+<img src="ships.jpg" alt="Sailing ships" class="center">
+
+-   Seven Years' War (actually lasted nine years)
+-   British lost 1512 sailors to enemy action…
+-   …and almost 100,000 to scurvy
+
+---
+
+## Irony
+
 <div class="row">
   <div class="col-6 center">
     <img src="james-lind.jpg" alt="James Lind">
@@ -43,205 +58,223 @@
     </ul>
     <table>
       <tr>
-    <td>cider</td>
-    <td>sea water</td>
+	<td>cider</td>
+	<td>sea water</td>
       </tr>
       <tr>
-    <td>vitriol</td>
-    <td>vinegar</td>
+	<td>vitriol</td>
+	<td>vinegar</td>
       </tr>
       <tr>
-    <td>barley water</td>
-    <td>oranges</td>
+	<td>barley water</td>
+	<td>oranges</td>
       </tr>
     </table>
   </div>
 </div>
 
-<ul>
-<li>Those given oranges survived</li>
-<li>Admiralty ignored the result until 1794</li>
-</ul>
-<hr />
-<h2>It Took a While</h2>
-<p><img src="doctors.jpg" alt="Doctors" class="center"></p>
-<ul>
-<li>1950: Hill &amp; Doll publish a case-control study comparing smokers with non-smokers</li>
-<li>Found that smoking causes lung cancer…</li>
-<li>…and that many people would rather fail than change</li>
-</ul>
-<hr />
-<h2>Is Software Engineering?</h2>
-<p><img src="./engineer-600.jpg" alt="Street Preacher" class="center"></p>
-<ul>
-<li>&ldquo;The use of the scientific method to design novel things&rdquo;</li>
-<li>So… no</li>
-</ul>
-<hr />
-<h2>Chickens and Eggs</h2>
-<p><img src="../../files/talks/blind-leading-blind.png" alt="The blind leading the blind" class="center"></p>
-<ul>
-<li>We know a lot about software and how it&rsquo;s built</li>
-<li>But students aren&rsquo;t taught methods or results in school</li>
-<li>And we&rsquo;re all too busy to learn them later</li>
-</ul>
-<hr />
-<h2>We Can Do Better</h2>
-<ul>
-<li>Steady growth of empirical studies over 30 years</li>
-<li>Fueled in part by data from open source projects</li>
-<li>Many studies are small, and not all are well done</li>
-<li>But we can refute some myths and reveal new insights</li>
-</ul>
-<p><img src="./icse-2023.png" alt="ICSE 2023" width="80%" class="center"></p>
-<hr />
-<h2>Are Some Languages Better?</h2>
-<p><a href="#Stefik2013">Stefik2013</a>: &ldquo;An Empirical Investigation into Programming Language Syntax&rdquo;</p>
-<ul>
-<li>Measured how easily novices could read:<ul>
-<li>Perl</li>
-<li>Quorum: the language their team is building</li>
-<li>Randomo: syntax &ldquo;designed&rdquo; by rolling D&amp;D dice</li>
-</ul>
-</li>
-<li>Perl is as hard for novices to learn as a language with a randomly-designed syntax</li>
-</ul>
-<hr />
-<h2>Are Some Languages Better?</h2>
-<ul>
-<li>Second study<ul>
-<li>More subjects</li>
-<li>Multiple assessment strategies</li>
-</ul>
-</li>
-<li>Languages in the C family are as hard for novices to learn to read as a randomly-designed language</li>
-<li>Ruby and Python are significantly easier</li>
-<li>Quorum is easier still</li>
-</ul>
-<hr />
-<h2>Productivity</h2>
-<ul>
-<li><a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice</li>
-<li>How long did it take?</li>
-</ul>
-<p><img src="productivity.svg" class="center"></p>
-<hr />
-<h2>Productivity</h2>
-<ul>
-<li>Shortest and longest times were 0.6 and 63 hours<ul>
-<li>Ratio is 150X (!)</li>
-</ul>
-</li>
-<li>But people used 7 different languages</li>
-<li>If we only look at Java, times are 3.8 vs. 63 hours (17X)</li>
-<li>But comparing best and worst exaggerates differences</li>
-<li>90th percentile vs. 50th gives 3.7X</li>
-</ul>
-<hr />
-<h2>Test-Driven Development</h2>
-<p><a href="#Shull2010">Shull2010</a>: &ldquo;How Effective is Test-Driven Development?&rdquo;</p>
-<blockquote>
-<p>…evidence from controlled experiments suggests an
-improvement in productivity when TDD is used.
-However…pilot studies provide mixed evidence, some in
-favor of and others against TDD. In the industrial
-studies…evidence suggests that TDD yields worse
-productivity. Even when considering only the more rigorous
-studies…the evidence is equally split for and against a
-positive effect.</p>
-</blockquote>
-<hr />
-<h2>Test-Driven Development</h2>
-<p><a href="#Fucci2016">Fucci2016</a>: &ldquo;An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach&rdquo;</p>
-<ul>
-<li>Replication study, 39 professionals, real projects</li>
-<li>No significant difference between test-first and test-last development</li>
-<li>&ldquo;The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow.&rdquo;</li>
-</ul>
-<blockquote>
-<p>I practice TDD…and it works great. We don&rsquo;t need to prove that it works anymore.</p>
-</blockquote>
-<hr />
-<h2>Nobody Knows Anything</h2>
-<p><a href="#Altadmri2016">Altadmri2016</a>: &ldquo;37 Million Compilations: Investigating Novice Programming Mistakes in Large-Scale Student Data&rdquo;</p>
-<ul>
-<li>Ask educators for learners&rsquo; most common mistakes</li>
-<li>Compare their answers to empirical data</li>
-<li>Weak consensus among educators</li>
-<li>Weak correlation with observations</li>
-<li>Educator experience had only weak impact on results</li>
-</ul>
-<hr />
-<h2>Nobody Knows Anything</h2>
-<p>Most common actual errors are:</p>
-<ul>
-<li>Mis-matched parentheses (<em>not</em> confusing <code>=</code> with <code>==</code>)</li>
-<li>Invoking methods with the wrong arguments</li>
-<li>Reaching end of non-<code>void</code> method without <code>return</code></li>
-</ul>
-<p>The three that take the most time to fix are:</p>
-<ul>
-<li>Confusing  short-circuit logical and bitwise operators</li>
-<li>Using <code>==</code> instead of <code>.equals</code> to compare strings</li>
-<li>Ignoring the return value from a non-void method</li>
-</ul>
-<hr />
-<h2>A Caution</h2>
-<p><a href="#Begel2014">Begel2014</a>: &ldquo;Analyze This! 145 Questions for Data Scientists in Software Engineering&rdquo;</p>
-<ul>
-<li>Ask a bunch of developers to propose questions, then ask another bunch to rate them</li>
-<li>Developers want to know how people actually use their products</li>
-<li>They <em>don&rsquo;t</em> want assessments of individual performance<ul>
-<li>Because they&rsquo;re afraid such measures will be weaponized</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h2>Open Source</h2>
-<p><a href="#Steinmacher2015">Steinmacher2015</a>: &ldquo;Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects&rdquo;</p>
-<ul>
-<li>Identify 58 potential barriers</li>
-<li>What matters most?<ol>
-<li>How easy it is to get set up to make a contribution</li>
-<li>How easy it is to find a task to start with</li>
-</ol>
-</li>
-<li>Other work has also identified &ldquo;how warmly first contribution was received&rdquo;</li>
-</ul>
-<hr />
-<h2>There Is No &ldquo;Geek Gene&rdquo;</h2>
-<p><a href="#Patitsas2016">Patitsas2016</a>: &ldquo;Computer Science Grades Are Not Bimodal&rdquo;</p>
-<ul>
-<li>The &ldquo;geek gene&rdquo; is computing&rsquo;s most enduring and damaging myth</li>
-<li>In fact, only 5.8% of course grade distributions at a large university were actually multi-modal</li>
-<li>But CS faculty are more likely to see distributions as bimodal if they think they&rsquo;re from a CS class</li>
-<li>Even <em>more</em> likely if they believe some students are innately predisposed to do well in CS</li>
-</ul>
-<hr />
-<h2>Code Metrics</h2>
-<ul>
-<li>Lots of code metrics have been proposed<ul>
-<li>Halstead&rsquo;s measures</li>
-<li>Cyclomatic complexity</li>
-<li>Many object-oriented measures</li>
-</ul>
-</li>
-<li>But nothing works better than counting lines of code<ul>
-<li><a href="#ElEmam2001">ElEmam2001</a>: &ldquo;Confounding Effects of Class Size on the Validity of Object-Oriented Metrics&rdquo;</li>
-<li><a href="#Herraiz2010">Herraiz2010</a>: &ldquo;Beyond Lines of Code: Do We Need More Complexity Metrics?&rdquo;</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h2>Test Flakiness</h2>
-<p><a href="#Costa2022">Costa2022</a>: &ldquo;Test Flakiness Across Programming Languages&rdquo;</p>
-<p><img src="costa2022-table6.png" class="center"></p>
-<hr />
-<h2>Who Fixes What?</h2>
-<ul>
-<li>Original authors fix their own simple bugs much faster than other people (<a href="#Zhu2021">Zhu2021</a>)</li>
-<li>But are more likely to fix or change other things at the same time</li>
-</ul>
+-   Those given oranges survived
+-   Admiralty ignored the result until 1794
+
+---
+
+## It Took a While
+
+<img src="doctors.jpg" alt="Doctors" class="center">
+
+-   1950: Hill & Doll publish a case-control study comparing smokers with non-smokers
+-   Found that smoking causes lung cancer…
+-   …and that many people would rather fail than change
+
+---
+
+## Is Software Engineering?
+
+<img src="./engineer-600.jpg" alt="Street Preacher" class="center">
+
+-   "The use of the scientific method to design novel things"
+-   So… no
+
+---
+
+## Chickens and Eggs
+
+<img src="../../files/talks/blind-leading-blind.png" alt="The blind leading the blind" class="center">
+
+-   We know a lot about software and how it's built
+-   But students aren't taught methods or results in school
+-   And we're all too busy to learn them later
+
+---
+
+## We Can Do Better
+
+-   Steady growth of empirical studies over 30 years
+-   Fueled in part by data from open source projects
+-   Many studies are small, and not all are well done
+-   But we can refute some myths and reveal new insights
+
+<img src="./icse-2023.png" alt="ICSE 2023" width="80%" class="center">
+
+---
+
+## Are Some Languages Better?
+
+<a href="#Stefik2013">Stefik2013</a>: "An Empirical Investigation into Programming Language Syntax"
+
+-   Measured how easily novices could read:
+    -   Perl
+    -   Quorum: the language their team is building
+    -   Randomo: syntax "designed" by rolling D&D dice
+-   Perl is as hard for novices to learn as a language with a randomly-designed syntax
+
+---
+
+## Are Some Languages Better?
+
+-   Second study
+    -   More subjects
+    -   Multiple assessment strategies
+-   Languages in the C family are as hard for novices to learn to read as a randomly-designed language
+-   Ruby and Python are significantly easier
+-   Quorum is easier still
+
+---
+
+## Productivity
+
+-   <a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice
+-   How long did it take?
+
+<img src="productivity.svg" class="center">
+
+---
+
+## Productivity
+
+-   Shortest and longest times were 0.6 and 63 hours
+    -   Ratio is 150X (!)
+-   But people used 7 different languages
+-   If we only look at Java, times are 3.8 vs. 63 hours (17X)
+-   But comparing best and worst exaggerates differences
+-   90th percentile vs. 50th gives 3.7X
+
+---
+
+## Test-Driven Development
+
+<a href="#Shull2010">Shull2010</a>: "How Effective is Test-Driven Development?"
+
+> …evidence from controlled experiments suggests an
+> improvement in productivity when TDD is used.
+> However…pilot studies provide mixed evidence, some in
+> favor of and others against TDD. In the industrial
+> studies…evidence suggests that TDD yields worse
+> productivity. Even when considering only the more rigorous
+> studies…the evidence is equally split for and against a
+> positive effect.
+
+---
+
+## Test-Driven Development
+
+<a href="#Fucci2016">Fucci2016</a>: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach"
+
+-   Replication study, 39 professionals, real projects
+-   No significant difference between test-first and test-last development
+-   "The claimed benefits of TDD may…rather [be] due to the fact that [it] encourages fine-grained steady steps that improve focus and flow."
+
+> I practice TDD…and it works great. We don't need to prove that it works anymore.
+
+---
+
+## Nobody Knows Anything
+
+<a href="#Altadmri2016">Altadmri2016</a>: "37 Million Compilations: Investigating Novice Programming Mistakes in Large-Scale Student Data"
+
+-   Ask educators for learners' most common mistakes
+-   Compare their answers to empirical data
+-   Weak consensus among educators
+-   Weak correlation with observations
+-   Educator experience had only weak impact on results
+
+---
+
+## Nobody Knows Anything
+
+Most common actual errors are:
+
+-   Mis-matched parentheses (*not* confusing `=` with `==`)
+-   Invoking methods with the wrong arguments
+-   Reaching end of non-`void` method without `return`
+
+The three that take the most time to fix are:
+
+-   Confusing  short-circuit logical and bitwise operators
+-   Using `==` instead of `.equals` to compare strings
+-   Ignoring the return value from a non-void method
+
+---
+
+## A Caution
+
+<a href="#Begel2014">Begel2014</a>: "Analyze This! 145 Questions for Data Scientists in Software Engineering"
+
+-   Ask a bunch of developers to propose questions, then ask another bunch to rate them
+-   Developers want to know how people actually use their products
+-   They *don't* want assessments of individual performance
+    -   Because they're afraid such measures will be weaponized
+
+---
+
+## Open Source
+
+<a href="#Steinmacher2015">Steinmacher2015</a>: "Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects"
+
+-   Identify 58 potential barriers
+-   What matters most?
+    1.  How easy it is to get set up to make a contribution
+    1.  How easy it is to find a task to start with
+-   Other work has also identified "how warmly first contribution was received"
+
+---
+
+## There Is No "Geek Gene"
+
+<a href="#Patitsas2016">Patitsas2016</a>: "Computer Science Grades Are Not Bimodal"
+
+-   The "geek gene" is computing's most enduring and damaging myth
+-   In fact, only 5.8% of course grade distributions at a large university were actually multi-modal
+-   But CS faculty are more likely to see distributions as bimodal if they think they're from a CS class
+-   Even *more* likely if they believe some students are innately predisposed to do well in CS
+
+---
+
+## Code Metrics
+
+-   Lots of code metrics have been proposed
+    -   Halstead's measures
+    -   Cyclomatic complexity
+    -   Many object-oriented measures
+-   But nothing works better than counting lines of code
+    -   <a href="#ElEmam2001">ElEmam2001</a>: "Confounding Effects of Class Size on the Validity of Object-Oriented Metrics"
+    -   <a href="#Herraiz2010">Herraiz2010</a>: "Beyond Lines of Code: Do We Need More Complexity Metrics?"
+
+---
+
+## Test Flakiness
+
+<a href="#Costa2022">Costa2022</a>: "Test Flakiness Across Programming Languages"
+
+<img src="costa2022-table6.png" class="center">
+
+---
+
+## Who Fixes What?
+
+-   Original authors fix their own simple bugs much faster than other people (<a href="#Zhu2021">Zhu2021</a>)
+-   But are more likely to fix or change other things at the same time
+
 <div class="row">
   <div class="col-6 center">
     <img src="bug-fix-time.png" alt="Bug fix time">
@@ -251,8 +284,10 @@ positive effect.</p>
   </div>
 </div>
 
-<hr />
-<h2>Language Features</h2>
+---
+
+## Language Features
+
 <div class="row">
   <div class="col-12 center">
     <img src="typescript-features.png" alt="Typescript feature adoption" width="90%">
@@ -261,48 +296,39 @@ positive effect.</p>
   </div>
 </div>
 
-<ul>
-<li>Nobody knows anything…</li>
-</ul>
-<hr />
-<h2>Miscellaneous</h2>
-<ul>
-<li>Design patterns<ul>
-<li>Teaching people design patterns makes them better programmers (<a href="#Tichy2010">Tichy2010</a>)</li>
-<li>Three experiments demonstrated cause and effect</li>
-<li>This is <em>not</em> obvious</li>
-<li>Maybe good programmers are just more likely to use patterns</li>
-</ul>
-</li>
-<li>Fuzz testing<ul>
-<li>Invented by accident in 1988 (<a href="#Miller2021">Miller2021</a>)</li>
-<li>25-33% of Unix utilities crashed when fuzzed</li>
-<li>Thirty years later, &ldquo;only&rdquo; 12-20% still crash</li>
-<li><a href="https://www.fuzzingbook.org/"><em>The Fuzzing Book</em></a></li>
-</ul>
-</li>
-</ul>
-<hr />
-<h2>Miscellaneous</h2>
-<ul>
-<li>Strong typing catches about 15% of bugs (<a href="#Gao2017">Gao2017</a>)<ul>
-<li>Which is a lot or a little depending on your point of view</li>
-</ul>
-</li>
-<li>Only 6-17% of configuration options are set by most users (<a href="#Xu2015">Xu2015</a>)<ul>
-<li>Only 2%-8% of parameters are configured by more than 90% of users</li>
-</ul>
-</li>
-<li>Secret management is a solved problem<ul>
-<li>But most developers don&rsquo;t know the solutions (<a href="#Basak2023">Basak2023</a>)</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h2>What Hasn&rsquo;t Worked?</h2>
-<ul>
-<li>People have tried explaining all of this before</li>
-</ul>
+-   Nobody knows anything…
+
+---
+
+## Miscellaneous
+
+-   Design patterns
+    -   Teaching people design patterns makes them better programmers (<a href="#Tichy2010">Tichy2010</a>)
+    -   Three experiments demonstrated cause and effect
+    -   This is *not* obvious
+    -   Maybe good programmers are just more likely to use patterns
+-   Fuzz testing
+    -   Invented by accident in 1988 (<a href="#Miller2021">Miller2021</a>)
+    -   25-33% of Unix utilities crashed when fuzzed
+    -   Thirty years later, "only" 12-20% still crash
+    -   [*The Fuzzing Book*](https://www.fuzzingbook.org/)
+
+---
+
+## Miscellaneous
+
+-   Strong typing catches about 15% of bugs (<a href="#Gao2017">Gao2017</a>)
+    -   Which is a lot or a little depending on your point of view
+-   Only 6-17% of configuration options are set by most users (<a href="#Xu2015">Xu2015</a>)
+    -   Only 2%-8% of parameters are configured by more than 90% of users
+-   Secret management is a solved problem
+    -   But most developers don't know the solutions (<a href="#Basak2023">Basak2023</a>)
+---
+
+## What Hasn't Worked?
+
+-   People have tried explaining all of this before
+
 <div class="row">
   <div class="col-3"><img src="./rapid-development.jpg" width="70%"></div>
   <div class="col-3"><img src="./facts-fallacies.jpg" width="70%"></div>
@@ -313,44 +339,46 @@ positive effect.</p>
   <a href="https://neverworkintheory.org/"><strong>https://neverworkintheory.org/</strong></a>
 </div>
 
-<hr />
-<h2>What Might?</h2>
-<ul>
-<li>Start with a little data science<ul>
-<li>Using software engineering datasets (because people learn best when examples are relevant)</li>
-<li>And Python (because computer science students will probably already know it)</li>
-<li>Academically defensible (&ldquo;Look, math!&rdquo;)</li>
-<li>And attractive to students</li>
-</ul>
-</li>
-<li>Then replicate a few simple results</li>
-<li>At this point, students will be able to understand and assess the claims</li>
-</ul>
-<hr />
-<h2>When We&rsquo;re Done</h2>
-<p><strong>Assignment #3</strong></p>
-<blockquote>
-<p>Given version control repositories for six software
-projects, determine whether long functions are
-more likely to be buggy than short ones.</p>
-</blockquote>
-<ul>
-<li>Requires tool use, model building, and statistics</li>
-<li>Require students to <em>do</em> science<ul>
-<li>So they <em>understand</em> it</li>
-<li>So they <em>value</em> it</li>
-</ul>
-</li>
-</ul>
-<hr />
-<h2>Conclusions</h2>
-<p><img src="./wikipedian_protester.png" class="center"></p>
-<ul>
-<li>The world needs more of this</li>
-<li>What are you waiting for?</li>
-</ul>
-<hr />
-<h2>Thank You</h2>
+---
+
+## What Might?
+
+-   Start with a little data science
+    -   Using software engineering datasets (because people learn best when examples are relevant)
+    -   And Python (because computer science students will probably already know it)
+    -   Academically defensible ("Look, math!")
+    -   And attractive to students
+-   Then replicate a few simple results
+-   At this point, students will be able to understand and assess the claims
+
+---
+
+## When We're Done
+
+**Assignment #3**
+
+> Given version control repositories for six software
+> projects, determine whether long functions are
+> more likely to be buggy than short ones.
+
+-   Requires tool use, model building, and statistics
+-   Require students to *do* science
+    -   So they *understand* it
+    -   So they *value* it
+
+---
+
+## Conclusions
+
+<img src="./wikipedian_protester.png" class="center">
+
+-   The world needs more of this
+-   What are you waiting for?
+
+---
+
+## Thank You
+
 <div class="center">
   <p><img src="../../files/talks/gvwilson.png" width="40%"></p>
   <p><a href="http://third-bit.com">Greg Wilson</a></p>
@@ -358,8 +386,10 @@ more likely to be buggy than short ones.</p>
   <p><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></p>
 </div>
 
-<hr />
-<h2>Bibliography</h2>
+---
+
+## Bibliography
+
 <div class="bibliography">
 
   <p id="Altadmri2015">[Altadmri2015]
@@ -399,8 +429,10 @@ more likely to be buggy than short ones.</p>
 
 </div>
 
-<hr />
-<h2>Bibliography</h2>
+---
+
+## Bibliography
+
 <div class="bibliography">
 
   <p id="ElEmam2001">[ElEmam2001]
@@ -433,8 +465,10 @@ more likely to be buggy than short ones.</p>
 
 </div>
 
-<hr />
-<h2>Bibliography</h2>
+---
+
+## Bibliography
+
 <div class="bibliography">
 
   <p id="Kim2023">[Kim2023]
@@ -474,8 +508,10 @@ more likely to be buggy than short ones.</p>
 
 </div>
 
-<hr />
-<h2>Bibliography</h2>
+---
+
+## Bibliography
+
 <div class="bibliography">
 
   <p id="Patitsas2016">[Patitsas2016]
@@ -515,8 +551,10 @@ more likely to be buggy than short ones.</p>
 
 </div>
 
-<hr />
-<h2>Bibliography</h2>
+---
+
+## Bibliography
+
 <div class="bibliography">
 
   <p id="Steinmacher2015">[Steinmacher2015]
@@ -549,8 +587,10 @@ more likely to be buggy than short ones.</p>
 
 </div>
 
-<hr />
-<h2>Bibliography</h2>
+---
+
+## Bibliography
+
 <div class="bibliography">
 
   <p id="Yuan2014">[Yuan2014]
@@ -575,5 +615,12 @@ more likely to be buggy than short ones.</p>
   </p>
 
 </div>
+
+
+    </textarea>
+    <script src="../../assets/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create()
+    </script>
   </body>
 </html>

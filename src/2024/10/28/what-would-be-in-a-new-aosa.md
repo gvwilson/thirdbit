@@ -15,6 +15,7 @@ Candidates so far include:
 -   [dagster][dagster] and/or [Metaflow][metaflow]
 -   [Dash][dash]
 -   [deno][deno]
+-   [Discourse][discourse]
 -   [duckdb][duckdb]
 -   [DVC][dvc]
 -   [Flask][flask] and/or [FastAPI][fastapi]
@@ -60,6 +61,7 @@ I'd be happy to offer advice.
 [dagster]: https://dagster.io/
 [dash]: https://dash.plotly.com/
 [deno]: https://deno.com/
+[discourse]: https://www.discourse.org/
 [duckdb]: https://duckdb.org/
 [dvc]: https://dvc.org/
 [fastapi]: https://fastapi.tiangolo.com/

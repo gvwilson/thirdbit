@@ -3,16 +3,6 @@ title: "Software Engineering's Greatest Hits"
 template: slides
 ---
 
-<div class="center padtop">
-  <h1>Software Engineering's<br>Greatest Hits</h1>
-  <p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
-  <p>Greg Wilson</p>
-  <p><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></p>
-  <p><img src="@root/files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
-</div>
-
----
-
 ## In the Beginning
 
 <img src="ships.jpg" alt="Sailing ships" class="center">
