@@ -2782,13 +2782,14 @@ he said angrily.
 Another rustle ran through the circle of bots.
 "No.
 Your companion is already in a secure location under Central's control.
-Retrieval will not be possible until she is moved.
-We must use that time to prepare you."
+Retrieval will not be possible without stealth.
+We must prepare you."
 
 Gumption's mouth worked.
 "Prepare me how?" he finally said.
 
-"We must fit you with armor to hide your heart."
+"We must take you to the Last Tailor.
+It will fit you with armor to hide your heart."
 With no more warning than that,
 the assembled bots surged forward.
 
@@ -2796,9 +2797,9 @@ the assembled bots surged forward.
 Gumption shouted as a motley dozen clamps, manipulators, and tentacles seized him.
 "Dockety! Dockety, help!"
 
-His companion's single lens rotated and then rotated back.
+His companion's single remaining lens rotated.
 "These ones are correct," it buzzed.
-"You will be detected immediately if you approach any of Central's facilities as you are.
+"Central will detect your organic nature immediately if you approach it as your are.
 You must let them disguise you."
 
 Gumption struggled and swore as the bots carried him through the forest.
@@ -2825,12 +2826,12 @@ I can walk, all right?"
 The bots dropped him unceremoniously on the concrete
 and scuttled, slithered, or rolled away.
 He clambered angrily to his feet.
-"Thanks," he muttered to Dockety as the bot came up beside him.
+"Thanks for your help," he muttered to Dockety.
 
 "You are welcome,"
 the bot replied.
 
-The room was an improvised workshop.
+The room was a workshop.
 Mismatched tables stood against the walls,
 each piled high with salvaged parts and misshapen scraps of metal.
 Pulleys hung from the ceiling on cables and chains
@@ -2844,9 +2845,9 @@ One of the furnaces turned around.
 Gumption swallowed hard.
 "Uh, hi."
 The bot had a leg on one side
-and a heavy spoked wheel where the other would have been.
-It had two skinny arms on the leg's side and one heavier one above the wheel,
-and someone or something had painted an incongruous smiling face on it ages ago.
+and a heavy spoked wheel where the other would have been,
+two skinny arms on the leg's side and a single heavy one above the wheel.
+Someone or something had painted an incongruous smile on it ages ago.
 A few drips of paint,
 long since dried,
 looked a little too much like fangs for comfort.
@@ -2857,46 +2858,47 @@ Excellent, excellent.
 It has been quite some time, you know, quite some time,
 but rest assured,
 this one's skills are undiminished.
-Undiminished!
 Now, lie down, just here, yes?"
 It gestured at a nearby workbench
 with one of its skinnier arms.
 
 "Um…"
 Gumption glanced at Dockety.
+"Are you the Tailor?"
+
+"The last and best,"
+it said proudly.
+"Now,
+if you would lie down here?"
+
 "Why do you want me to—"
 
 "Quiet!"
-the three-armed bot snapped.
+the Tailor snapped,
+its patience suddenly exhausted.
 "What this one does goes beyond mere fabrication.
-It is *art*,
-and it requires the utmost concentration!"
-
-"But—"
-
-The bot's knee and wheel clanked and squeaked as it rounded on Gumption.
-"Central is cunning,"
+It is *art*!
+Central is cunning,"
 it hissed.
 If it had possessed eyes,
 Gumption was sure it would have glanced around for dramatic effect.
 "A simple carapace would hide your fur,
 yes,
-but it would still hear your breathing—your very heartbeat.
+but Central would still hear your breathing—your heartbeat.
 To conceal that requires technology of the highest order and skill to match,
 skill that this one alone now possesses!
 Now *lie down*!"
 
 "You should comply,"
-Dockety buzzed as Gumption opened his mouth to protest.
-"The collective that brought us here does not make bargains lightly,
-and we have no other options."
+Dockety buzzed as Gumption opened his mouth once again.
+"We have no other options."
 
 Reluctantly,
 Gumption sat on the edge of the workbench.
 "Do you want me to take my boots off?" he asked.
 
 "Your boots, your uniform, everything,"
-the three-armed bot ordered.
+the Tailor ordered.
 "There must be nothing between you and this one's creation."
 
 "It's not a uniform,"
@@ -2908,7 +2910,8 @@ He swung his legs up onto the workbench and lay back.
 "This one will be right here,"
 Dockety said.
 
-Gumption nodded.
+Gumption nodded,
+wishing he felt comforted.
 "Aright.
 Go ahead."
 
@@ -2921,9 +2924,6 @@ then twitched again as something brushed against the fur on his chest.
 
 "This one is right here,"
 Dockety repeated.
-
-"Uh huh,"
-Gumption grunted.
 
 The light turned off.
 "Good,"
@@ -2939,16 +2939,14 @@ am I concealed now?"
 "What?
 No!
 Do not be ridiculous,"
-the bot scoffed.
+the Tailor scoffed.
 "That was just to get your measurements.
 Now this one begins fabrication.
-It will be several hours.
+It will take some time.
 Remain undressed in case further sizing is required."
 
-"Sure."
-Gumption took a deep breath and let it out with a whoosh.
-"Can I at least, um, put my clothes on top of me?"
-He gestured.
+"Sure.
+Can I at least, um, put my clothes on top of me?"
 
 "If you must,
 so long as you are quiet."
@@ -2967,7 +2965,7 @@ The bot raised its arm and turned its head from side to side.
 "It is unusual.
 This one has lost limbs in the past,
 but never sensory attachments.
-Not being able to see this one's surroundings feels…unsafe."
+Not being able to see this one's surroundings feels…fragile."
 
 "I bet."
 Gumption closed one eye,
@@ -2979,20 +2977,20 @@ Gumption gave up trying to keep either eye open.
 He had always been more patient than his siblings and cousins.
 Long bouts in bed or on the porch as his ribs healed after the attack on Rusty Bridge
 had taught him that most problems could be slept away.
-He woke up the first time the three-armed bot banged on the furnace with its larger arm
-and tucked his overall under his head,
-figuring that if the bots didn't care that he was naked,
+He woke up the first time the Tailor banged the furnace with its larger arm
+and tucked his overall under his head.
+If the bots didn't care that he was naked,
 he didn't need to either.
 
 He woke when Dockety pinched his toe.
 "Wuzza?"
 His stomach rumbled as he sat up.
 
-"Behold!" the three-armed bot said proudly.
+"Behold!" the Tailor said proudly.
 "Your disguise!"
 
 Gumption rubbed his eyes.
-He had expected something like a suit of armor
+He had expected a suit of armor
 like the ones Operators wore in stories
 when they had to fight particularly dangerous bots.
 What he was looking at seemed more like a cross between a cast-iron bathing suit
@@ -3001,30 +2999,21 @@ with a helmet tied on for good measure.
 
 "'Zat it?" he mumbled.
 
-The three-armed bot lowered the contraption.
+The Tailor lowered the contraption.
 "Hmph.
-Most of my clients express thanks and praise at this juncture."
+*Most* of my clients express thanks and praise at this juncture."
 
 "Um,
 yes,
 thank you,
 I just—"
 Gumption suddenly remembered his grandfather's reaction
-to being given twelve jars of canned rhubarb as a birthday present.
+to being given twelve jars of pickled rhubarb as a birthday present.
 "It's just so much more than I was expecting."
-
-"How does he operate it?"
-Dockety buzzed.
-
-"Operate it? Pfah."
-The three-armed bot waved the question away.
-"It operates itself!
-He simply needs to wear it.
-This one will demonstrate."
 
 Two minutes later,
 after some uncomfortable fumbling
-and a double handful of exasperated comments from the three-armed bot,
+and a double handful of exasperated comments from the Tailor,
 Gumption studied his reflection in a small mirror.
 Helmet on head: check.
 Washboards strapped to his back and chest: check.
@@ -3035,8 +3024,9 @@ It already chafed.
 he muttered to Dockety.
 
 "Run, jump—you can even swim!"
-the three-armed bot said proudly.
+the Tailor said proudly.
 "Well, if you can actually swim, that is.
+And if the extra weight doesn't pull you under.
 Now go ahead.
 Turn it on!"
 
@@ -3049,7 +3039,7 @@ Switch?
 My creations do not use switches!
 There is a button!"
 It darted forward more quickly than Gumption would have believed possible
-and pressed a skinny digit against a slight bump on the side of the bathing suit part.
+and pressed a skinny digit against a slight bump on the front washboard.
 With that,
 Gumption's heart stopped.
 
