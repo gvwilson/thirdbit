@@ -2719,12 +2719,12 @@ Meribeth's voice boomed all around her.
 Thoughtful agreed.
 "Roundin' up throwbacks is wearin' enough
 without other folk gettin' caught up in it.
-The sooner this one's in a tank and on her way to Heck,
-the sooner I can get over feelin' sorry for myself."
+The sooner this one's on her way to Heck,
+the sooner I can stop hatin' myself."
 
 "Pshaw,"
 Meribeth scoffed.
-"You ain't never gonna stop feelin' sorry for yourself."
+"You ain't never gonna stop hatin' yourself."
 
 "'Spose not."
 The rabbit sighed.
@@ -3041,6 +3041,92 @@ There is a button!"
 It darted forward more quickly than Gumption would have believed possible
 and pressed a skinny digit against a slight bump on the front washboard.
 With that,
+and with no other warning,
 Gumption's heart stopped.
+
+</section>
+
+<section markdown="1">
+
+## The Gates of Heck (Maddy)
+
+Something tickled Maddy's nose.
+She brushed it away,
+but a moment later it was back.
+
+"Mmph?"
+She opened a sleep-encrusted eye
+and brushed away the leaf caught between her sleeve and her cheek.
+Her tongue felt like a piece of soggy shoe leather stuffed into her mouth,
+and—great.
+She had drooled on her fur.
+
+As she sat up and rubbed her eyes,
+something bumped the floor beneath her.
+No,
+that wasn't right.
+It wasn't the floor,
+it was the bottom of a cart.
+She swayed slightly as it rounded a long bend.
+Where *was* she?
+
+She rubbed her eyes again,
+now fully awake.
+The floor and walls were metal,
+and so was the roof over her.
+Small barred windows just below the roof let in light and air on two sides.
+She lurched to her feet,
+bracing herself against the wall as the cart rounded another bend,
+then reached up to grab the bars and pulled herself up.
+
+She could only hold her weight for a moment,
+but that was long enough to see trees race by outside.
+The cart must be on the Makers' road.
+Judging from how thirsty she was and how much she needed to pee,
+she must have been asleep for at least a couple of hours.
+
+Maddy sat down with her back against the rear wall of the cart.
+A moment later she wiped her eyes again,
+this time angrily.
+She was *not* going to cry.
+
+Wait—the discomboulator!
+She clutched her wrist and let out a sigh of relief.
+She still had it.
+"Full charge," its readout told her.
+
+She let her arm fall back into her lap.
+There wasn't much point being invisible to bots when she was inside one.
+She would just have to wait until the cart got wherever it was going
+and figure out what to do then.
+
+She closed her eyes.
+Had she really seen Special Blazes on the ceiling of the bunker?
+Was he really going to deliver Sindy to Central,
+or was Patient in Darkness trying to trick her so that—
+so that—
+
+Maddy sighed.
+She couldn't think of a way to end that thought that made sense.
+
+The cart bumped and swayed,
+its tires humming on the pavement.
+The motion and the tedium almost put Maddy back to sleep.
+Only her aching bladder kept her awake.
+Still,
+it took her a moment to realize the cart was slowing down.
+
+She got back to her feet and pulled herself up to the bars once again.
+The trees were gone—all she could see was fading daylight in a cloud-studded sky.
+
+"Whoa!"
+she exclaimed
+as a concrete wall suddenly appeared an arm's length from the cart.
+She dropped back to the floor,
+flexing her arms to ease the ache of holding her weight.
+
+The cart braked and stopped just as she was about to pull herself up again.
+She stumbled three steps and banged her shoulder against the front wall.
+A red light came on in the roof over her head.
 
 </section>
