@@ -1,7 +1,7 @@
 ---
 title: "The Sisyphus Test"
 date: 2022-08-07
-favorite: true
+category: favorite
 ---
 
 I believe that if you're serious about diversity, equity, and inclusivity

@@ -1,7 +1,7 @@
 ---
 title: "Just Keep Swimming"
 date: 2015-12-06
-favorite: true
+category: favorite
 ---
 <p>
   I had a conversation a few days ago with a young colleague who said (basically),

@@ -1,7 +1,7 @@
 ---
 title: "Goodbye, Dad"
 date: 2015-09-22
-favorite: true
+category: favorite
 ---
 <p>
   At the end, you think about the beginning.

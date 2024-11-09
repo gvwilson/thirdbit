@@ -1,7 +1,7 @@
 ---
 date: 2018-12-02
 title: "OER Landmines"
-favorite: true
+category: favorite
 ---
 
 Some great discussions this past week with some new friends in the Open Educational Resources movement.

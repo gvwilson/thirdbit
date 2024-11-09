@@ -1,7 +1,7 @@
 ---
 title: "Tattoos"
 date: 2023-12-31
-anecdote: true
+category: anecdote
 ---
 
 Someone asked me if I had any tattoos,

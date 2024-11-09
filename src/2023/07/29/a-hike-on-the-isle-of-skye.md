@@ -1,7 +1,7 @@
 ---
 title: "A Hike on the Isle of Skye"
 date: 2023-07-29
-anecdote: true
+category: anecdote
 ---
 
 Many years ago I went for a hike with some friends on the Isle of Skye.

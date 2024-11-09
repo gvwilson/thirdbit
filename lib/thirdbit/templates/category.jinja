@@ -1,0 +1,9 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<table>
+{% for post in site._posts|reverse %}
+{%- if post.category == node.category -%}<tr><td>{{post.date}}</td><td><a href="{{post.url}}">{{post.title}}</a></td></tr>{%- endif -%}
+{% endfor %}
+</table>
+{% endblock %}

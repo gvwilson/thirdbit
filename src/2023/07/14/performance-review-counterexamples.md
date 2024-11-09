@@ -1,7 +1,7 @@
 ---
 title: "Performance Review Counterexamples"
 date: 2023-07-14
-favorite: true
+category: favorite
 ---
 
 Performance reviews are essential to a company's operations.

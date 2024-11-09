@@ -1,7 +1,7 @@
 ---
 date: 2024-01-20
 title: "The Moon and Tears"
-anecdote: true
+category: anecdote
 ---
 
 A few minutes before 8:00 pm on Sunday, July 20, 1969,

@@ -1,7 +1,7 @@
 ---
 title: "Heaven and Dirty Dishes"
 date: 2023-10-21
-anecdote: true
+category: anecdote
 ---
 
 After [my sister died][sylvia],

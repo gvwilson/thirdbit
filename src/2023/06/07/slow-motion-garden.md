@@ -1,7 +1,7 @@
 ---
 title: "A Slow-Motion Garden"
 date: 2023-06-07
-anecdote: true
+category: anecdote
 ---
 
 My wife and I woke up three weeks ago to discover that

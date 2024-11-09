@@ -1,7 +1,7 @@
 ---
 title: "Nice Shirt"
 date: 2023-06-12
-anecdote: true
+category: anecdote
 ---
 
 I biked into the office last Thursday,

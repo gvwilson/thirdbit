@@ -1,7 +1,7 @@
 ---
 title: "Because of You"
 date: 2024-04-19
-anecdote: true
+category: anecdote
 ---
 
 Thirty-one years ago

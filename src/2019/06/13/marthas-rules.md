@@ -1,7 +1,7 @@
 ---
 date: 2019-06-13
 title: "Martha's Rules"
-favorite: true
+category: favorite
 ---
 
 A group I'm part of is using [Martha's Rules](https://doi.org/10.1177/088610998600100206) for consensus-based decision making.

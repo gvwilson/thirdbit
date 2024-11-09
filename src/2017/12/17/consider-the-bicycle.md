@@ -1,7 +1,7 @@
 ---
 title: "Consider the Bicycle"
 date: 2017-12-17
-favorite: true
+category: favorite
 ---
 
 Consider the bicycle–more specifically,

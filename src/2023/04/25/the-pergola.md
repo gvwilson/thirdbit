@@ -1,7 +1,7 @@
 ---
 title: "The Pergola"
 date: 2023-04-25
-anecdote: true
+category: anecdote
 ---
 
 I had to be up at 4:30 this morning for the first round of [It Will Never Work in Theory][nwit] talks,

@@ -1,4 +1,5 @@
 ---
-title: "Favorites"
-template: favorites
+title: "Favorite Posts"
+template: category
+category: favorite
 ---

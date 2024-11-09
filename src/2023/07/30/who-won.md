@@ -1,7 +1,7 @@
 ---
 title: "Who Won?"
 date: 2023-07-30
-anecdote: true
+category: anecdote
 ---
 
 Years ago,

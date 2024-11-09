@@ -1,7 +1,7 @@
 ---
 title: "A Bag of Hippos"
 date: 2024-09-23
-anecdote: true
+category: anecdote
 ---
 
 <img class="centered" src="@root/files/2024/pink-hippo.jpg" alt="pink hippo" width="25%">

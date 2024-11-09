@@ -1,7 +1,7 @@
 ---
 title: "Angry for Myself"
 date: 2024-01-14
-anecdote: true
+category: anecdote
 ---
 
 Years ago, I overheard a grownup trying to calm down a child who was holding back tears.

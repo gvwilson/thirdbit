@@ -1,7 +1,7 @@
 ---
 date: 2019-05-04
 title: "In the Classroom"
-favorite: true
+category: favorite
 ---
 
 My [ten rules for teaching](http://teachtogether.tech/en/#s:index-rules)

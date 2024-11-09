@@ -1,7 +1,7 @@
 ---
 title: "The Fourth Tradition"
 date: 2022-12-29
-favorite: true
+category: favorite
 ---
 
 Tedre and Sutinen's paper "Three Traditions of Computing: What Educators Should Know" (2008)

@@ -1,7 +1,7 @@
 ---
 title: "Seven Ways to Think Like a Programmer"
 date: 2018-03-16
-favorite: true
+category: favorite
 ---
 
 Jon Udell's essay "[Seven Ways to Think Like the Web](http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/)"

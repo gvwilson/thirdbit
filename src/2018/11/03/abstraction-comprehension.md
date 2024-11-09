@@ -1,7 +1,7 @@
 ---
 date: 2018-11-03
 title: "Abstraction and Comprehension"
-favorite: true
+category: favorite
 ---
 
 I've been thinking a lot about the notations we use for programming
