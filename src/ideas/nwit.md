@@ -239,5 +239,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Perez et al 2024: "Software Frugality in an Accelerating World: the Case of Continuous Integration" <https://arxiv.org/abs/2410.15816> "the average…energy cost of a [CI] pipeline is relatively low, at 10 Wh. However, due to repeated invocations of these pipelines…the aggregated energy consumption cost per project is high, averaging 22 kWh [and] the average aggregated CO2 emissions are significant, averaging 10.5 kg [which is] akin to the emissions produced by driving approximately 100 kilometers in a typical European car."
 
+1.  Foster 2024: "The New Dynamics of Open Source: Relicensing, Forks, & Community Impact" <https://arxiv.org/abs/2411.04739> "The research indicates that the forks resulting from these relicensing events have more organizational diversity than the original projects, especially when the forks are created under a neutral foundation, like the Linux Foundation, rather than by a single company."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
