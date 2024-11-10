@@ -3125,8 +3125,80 @@ as a concrete wall suddenly appeared an arm's length from the cart.
 She dropped back to the floor,
 flexing her arms to ease the ache of holding her weight.
 
-The cart braked and stopped just as she was about to pull herself up again.
+The cart tilted slightly to climb a hill,
+then braked and stopped just as she was about to pull herself up again.
 She stumbled three steps and banged her shoulder against the front wall.
-A red light came on in the roof over her head.
+A red light came on in the roof over her head,
+a horn bleated a warning,
+and one entire side of the cart folded up on itself like a sideways accordion.
+
+Maddy stepped down onto stained concrete.
+A wall of the same material stood in front of her,
+easily as high as the mayor's house in Rusty Bridge was tall.
+She jumped as the side of the cart accordioned back into place behind her.
+With another bleat of its horn,
+the cart rolled away.
+Another concrete wall ran along the other edge of the road,
+making Maddy feel as if she was an ant in the bottom of a rut.
+
+Except ruts didn't have gates made of heavy metal bars
+likes the ones that swung shut behind the cart as it departed.
+*Clang!*
+She swallowed hard.
+
+*Clunk.*
+The matching gate on her right opened,
+somehow more ominous for being quieter.
+A three-wheeled bot half as tall as Maddy scooted through,
+zipped past her,
+spun around,
+and stopped just out of reach.
+A skinny arm unfolded from underneath the bot and pointed toward the now-open gate.
+The bot beeped loudly.
+
+"Aright, aright, I'm going."
+Maddy started walking.
+Wherever she was,
+she really hoped it had a bathroom.
+
+The sun broke through the clouds just as she reached the gate.
+What lay beyond made her gasp,
+her aching bladder momentarily forgotten.
+The wall that curved away on either side loomed over a jumble of windowless buildings,
+each connected to its neighbors by a bewildering tangle of pipes and rails and conveyor belts.
+Bots twice and ten times the size of Crusher rumbled through the broad paved canyons
+while others wheeled, walked, or flew past them.
+
+The three-wheeled bot beeped at her again,
+pointing to the ramp to her left.
+Maddy nodded mutely.
+The idea of finding her papa or Sindy,
+much less rescuing them,
+suddenly seemed like a child's make-believe.
+
+She trudged down the ramp despondently,
+the noise growing louder as she went.
+There weren't even weeds,
+she realized,
+much less trees or flowers.
+And every bot she could see looked new.
+Or no,
+not new but well maintained.
+Patient's bots and the ones she had met in Rusty Bridge
+all bore replacement pats and signs of hard use.
+These ones all looked like they'd had a fresh coat of paint last week,
+and if they had ever been repaired,
+their new parts were identical to their old ones.
+None of them paid any more attention to her
+than she would have paid to a pebble on the side of the road.
+
+Five minutes and a close call with a bicycle bot
+brought her to a building no different from any of the ones they had passed.
+The three-wheeled bot beeped and pointed at its door,
+then wheeled around and zipped away.
+"Wait!" she called after it.
+"What am I supposed to—oh, never mind, I'll figure it out, I'm sure."
+Her sarcasm was probably wasted on the bot,
+but it made her feel a little braver.
 
 </section>
