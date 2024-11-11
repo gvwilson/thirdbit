@@ -3159,7 +3159,7 @@ The bot beeped loudly.
 "Aright, aright, I'm going."
 Maddy started walking.
 Wherever she was,
-she really hoped it had a bathroom.
+she really hoped it had a toilet.
 
 The sun broke through the clouds just as she reached the gate.
 What lay beyond made her gasp,
@@ -3199,6 +3199,94 @@ then wheeled around and zipped away.
 "Wait!" she called after it.
 "What am I supposed to—oh, never mind, I'll figure it out, I'm sure."
 Her sarcasm was probably wasted on the bot,
-but it made her feel a little braver.
+but maybe if she acted brave she would feel brave as well.
+
+The door slid open as she approached it.
+Inside was a room not much larger than the cart that had brought her to Heck.
+Panels in the ceiling cast a cold white light on gray walls and a matching floor.
+A rectangular slab at right angles to the door looked enough like a bench
+for her to set herself onto it
+facing the flat glass screen set into the opposite wall.
+
+The screen lit up as the door snicked close behind her.
+The word "intake" scrolled across it in big green letters.
+Maddy fidgeted as she waited for something else to happen.
+Finally she couldn't stand it any more.
+
+"Excuse me,"
+she said,
+"But is there a toilet somewhere nearby that I could use?"
+
+Nothing happened.
+"Please?" she added a bit desperately.
+
+A section of the wall beside her rotated soundlessly
+to bring the most beautiful white porcelain toilet Maddy had ever seen into the room.
+There was even toilet paper and a small basin with a tap…
+
+The toilet disappeared again as soon as she was done washing her hands.
+"Thank you," she said,
+seating herself on the bench again.
+She half-expected "you're welcome" to appear on the screen,
+but it stayed dark.
+
+And stayed dark.
+
+And stayed dark.
+
+"This is ridiculous!"
+Maddy uncrossed her arms and stood up.
+"You must have brought me here for a reason.
+What is it?
+What is 'intake'?"
+
+As soon as she said the word,
+the screen lit up once again.
+"…suitability depends on m-m-many factors,
+including ph-ph-physical health,
+m-m-mental acuity,
+and…"
+a cheerful voice said
+as images splashed onto the screen.
+In one,
+a person with the same mostly-hairless head and tiny nose as Sindy
+smiled and waved.
+In another,
+someone wearing a tight-fitting body suit floated against a black starlit sky,
+while in a third,
+a whole room full of throwbacks—no, *originals*, Maddy corrected herself—sat in a classroom
+not much different from the one back in Rusty Bridge.
+
+The images disappeared,
+only to be replaced with others.
+"Those n-n-not selected will st-st-still have a role to play,"
+the cheerful voice stuttered.
+An original with long, curly hair picked up tortoise and kissed its nose.
+As she turned to face Maddy,
+she and the tortoise both morphed into cartoon drawings
+that slid on top of each other to produce something akin to a young Special Leaf.
+"Our g-g-genetic enhancement research
+is c-c-creating new breeds of c-c-caretakers
+to m-m-m-
+to m-m-m-"
+
+The voice ground to a halt.
+Other drawings materialized around the first one:
+a goat,
+a bear,
+and a tiger,
+each starting on all fours and turning into something like
+the people Maddy had grown up with.
+
+"…waiting for th-th-them to return
+wh-wh-when their long sleep ends!"
+the voice finished triumphantly.
+A dot in the center of the screen swelled
+to become a single original in one of the strange skintight suits,
+three times larger than the people around it.
+Happy music started,
+stopped,
+re-started,
+and finally ended in a plaintive warble.
 
 </section>
