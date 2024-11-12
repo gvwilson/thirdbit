@@ -241,5 +241,11 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Foster 2024: "The New Dynamics of Open Source: Relicensing, Forks, & Community Impact" <https://arxiv.org/abs/2411.04739> "The research indicates that the forks resulting from these relicensing events have more organizational diversity than the original projects, especially when the forks are created under a neutral foundation, like the Linux Foundation, rather than by a single company."
 
+1.  Fang et al 2024: "Weak Ties Explain Open Source Innovation" <https://arxiv.org/abs/2411.05646> "…weak ties (reflecting low-intensity, infrequent interactions) act as bridges and connect people to different social circles…do [they] facilitate creativity in software in similar ways?" This paper's answer is "yes", and that "the diversity of projects in which developers engage correlates positively with [fugure] innovativeness…whereas the volume of interactions exerts minimal influence."
+
+1.  Borysenkov et al 2024: "Analyzing Logs of Large-Scale Software Systems using Time Curves Visualization" <https://arxiv.org/abs/2411.05533> I don't know nearly enough about monitoring distributed systems to know how useful this is—I'd welcome comments from others who do after reading the paper.
+
+1.  Brown et al 2024: "Measuring Software Innovation with Open Source Software Development Data" <https://arxiv.org/abs/2411.05087> "We examine dependency growth and release complexity among ∼200,000 unique releases from 28,000 unique packages [in] JavaScript, Python, and Ruby over two years post-release… Major versions show differential, strong prediction of one-year lagged log change in dependencies [and] semantic versioning of OSS releases correlates with complexity and predict downstream adoption."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
