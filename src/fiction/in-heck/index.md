@@ -3289,4 +3289,105 @@ stopped,
 re-started,
 and finally ended in a plaintive warble.
 
+"Now,
+you're p-p-probably asking yourself,
+how can *I* help?
+The answer is,
+however you can!"
+The original flew away off screen.
+The goat, bear, and tiger held up tools.
+"You will b-b-be assigned tasks that m-m-match your abilities.
+And to ensure peak p-p-performance,
+you will be fitted with a reg- a reg- a regulator
+that will op-op-optimize your every move.
+Isn't that wonderful?"
+As the cheerful voice spoke,
+helmets dropped onto the heads of the three people on screen,
+who immediately began sawing, raking, and tightening screws at breakneck speed.
+
+Horrified,
+Maddy took an involuntary step back.
+"Now, now," the voice chided.
+"Regulators d-d-don't hurt,
+and you will b-b-be allowed several hours of rest every day!"
+
+A section of the wall pivoted.
+A four-wheeled bot rolled into the room
+holding a helmed in its manipulators.
+"P-p-please take a seat,"
+the voice said.
+"The f-f-fitting will only t-t-take a moment."
+
+"Um, thank you, but I don't really—"
+Maddy started.
+
+"C-c-compliance *is* mandatory,"
+the voice said.
+"After all,
+you were m-m-made for this."
+
+Two more arms unfolded from the bot's side,
+heavier than the pair holding the helmet.
+As the bot rolled forward and reached for Maddy,
+she grabbed her wrist and pressed the button on her discombobulator.
+
+</section>
+
+</section>
+
+<section markdown="1">
+
+## Hard Choices (Gumption)
+
+The people of Rusty Bridge had a saying:
+we don't know what water tastes like because it's been in our mouths since the day we were born.
+Similarly,
+Gumption had never realized that he could hear his own heartbeat
+until he couldn't any more.
+He looked from the Tailor to Dockety and back,
+then reached for the button the Tailor had just pushed.
+
+"No no no,"
+the Tailor said impatiently,
+slapping his hand away just a little harder than necessary.
+"You must get used to it.
+Try walking, yes?"
+
+Gumption nodded jerkily.
+Without a heartbeat ticking away in his chest,
+it appeared that he would have to remind himself to breathe every once in a while.
+He took a step, then another.
+Just as he'd expected,
+the armor around his hips chafed,
+but it was as if someone else was feeling it,
+or there was an invisible pane of glass between him and his body.
+
+"How do I—hrrm."
+He cleared his throat.
+"How do I look?" he asked Dockety.
+
+The bot's lens rotated and rotated back.
+"Odd.
+This one can see that you are a naked goat,
+but all sensor data indicates that you are a CQ-40 maintenance bot
+with a modified antenna array."
+
+"I'm not—"
+*I'm not actually naked,* Gumption finished in his head.
+Speaking felt strange:
+he had to focus on forcing air out of his lungs,
+and his lips and tongue didn't want to take part in shaping the sound.
+
+"Excellent,"
+the Tailor purred.
+"Of course, this one's work always is.
+You may show yourselves out."
+
+"Are we required to return the equipment?"
+Dockety buzzed.
+
+The Tailor waved a manipulator.
+"If you can,
+but this one doubts you will survive long enough to do so."
+
 </section>
