@@ -247,5 +247,11 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Brown et al 2024: "Measuring Software Innovation with Open Source Software Development Data" <https://arxiv.org/abs/2411.05087> "We examine dependency growth and release complexity among ∼200,000 unique releases from 28,000 unique packages [in] JavaScript, Python, and Ruby over two years post-release… Major versions show differential, strong prediction of one-year lagged log change in dependencies [and] semantic versioning of OSS releases correlates with complexity and predict downstream adoption."
 
+1.  Zhang et al 2024: "Extracting Database Access-control Policies From Web Applications" <https://arxiv.org/abs/2411.11380>.
+
+1.  Cappendijk et al 2024: "Generating Energy-efficient code with LLMs" <https://arxiv.org/abs/2411.10599>.
+
+1.  Vu et al 2024: "A Study of Malware Prevention in Linux Distributions" <https://arxiv.org/abs/2411.11017>.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
