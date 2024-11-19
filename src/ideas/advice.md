@@ -13,7 +13,7 @@ This page is miscellaneous advice on:
 -   [Teaching](#teaching)
 -   [Supervising Undergraduate Software Projects](#supervising-undergraduate-software-projects)
 
-## Being Fired
+## Being Fired {: #being-fired}
 
 These ten rules are based on [my experience with DataCamp](@root/2019/04/22/datacamp-clarifications/)
 and on the experiences of friends and colleagues there and at other companies.
@@ -72,7 +72,7 @@ and on the experiences of friends and colleagues there and at other companies.
 10) Remember that it's OK to cry
 :   and that there's nothing shameful in asking for help.
 
-## Changing Organizations
+## Changing Organizations {: #changing-organizations}
 
 1)  Be sure this is where you want to focus your efforts.
 :   It's going to take years,
@@ -160,7 +160,7 @@ and on the experiences of friends and colleagues there and at other companies.
     but those who do will be able to share your victories
     and commiserate with your defeats like no one else.
 
-## Being a Good Research Partner
+## Being a Good Research Partner {: #being-a-good-research-partner}
 
 Data scientists often have to bridge the divide between academic research and
 commercial practice.  The ten simple rules listed below may help mitigate the
@@ -273,7 +273,7 @@ Researchers and practitioners can each do great things on their own, but both
 are better able to solve big problems—problems that really matter—if they
 find ways to work together.
 
-## Talking People Into Things
+## Talking People Into Things {: #talking-people-into-things}
 
 I don't always exhibit good judgment, but I *am* pretty good at talking people
 into things.  Here are ten simple rules for doing it that I hope you will only
@@ -350,7 +350,7 @@ use for good.
     or the tenth person says "no", ask yourself if what you're trying to do makes
     sense and is worth doing.
 
-## Handing Over and Moving On
+## Handing Over and Moving On {: #handing-over-and-moving-on}
 
 This advice is for founders who are handing on their projects;
 see [my CarpentryCon 2018 talk](https://www.youtube.com/watch?v=7xR50ty5DZ0) for more detail.
@@ -405,7 +405,7 @@ see [my CarpentryCon 2018 talk](https://www.youtube.com/watch?v=7xR50ty5DZ0) for
 :   Everything comes to an end, but you have time before then to do something.  What
     are you waiting for?
 
-## Teaching
+## Teaching {: #teaching}
 
 See *[Teaching Tech Together][t3]* for a much longer discussion.
 
@@ -429,7 +429,7 @@ See *[Teaching Tech Together][t3]* for a much longer discussion.
 
 1.  …and that nobody will be more excited about the lesson than you are.
 
-## Supervising Undergraduate Software Projects
+## Supervising Undergraduate Software Projects {: #supervising-undergraduate-software-projects}
 
 These tips are based on the dozens of projects I supervised at the University of Toronto
 between 2000 and 2010.
