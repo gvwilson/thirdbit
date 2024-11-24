@@ -2788,7 +2788,7 @@ We must prepare you."
 Gumption's mouth worked.
 "Prepare me how?" he finally said.
 
-"We must take you to the Last Tailor.
+"We must take you to the Tailor.
 It will fit you with armor to hide your heart."
 With no more warning than that,
 the assembled bots surged forward.
@@ -3313,7 +3313,7 @@ and you will b-b-be allowed several hours of rest every day!"
 
 A section of the wall pivoted.
 A four-wheeled bot rolled into the room
-holding a helmed in its manipulators.
+holding a helmet in its manipulators.
 "P-p-please take a seat,"
 the voice said.
 "The f-f-fitting will only t-t-take a moment."
@@ -3386,8 +3386,80 @@ You may show yourselves out."
 "Are we required to return the equipment?"
 Dockety buzzed.
 
-The Tailor waved a manipulator.
+The Tailor waved the question away with a manipulator.
 "If you can,
 but this one doubts you will survive long enough to do so."
+
+The dirty gray tunnel that led back to the outside world
+seemed longer than Gumption remembered.
+The armor didn't seem to improve his vision,
+so Dockety turned on its chest light.
+Walking felt strange,
+but by the time they reached the entrance he was getting used to it.
+
+The forest seemed to crowd around them in the evening gloom.
+"So what now?" he asked Dockety.
+"Back to the road?"
+
+"That will be fastest."
+The bot paused.
+"But if this one carries you,
+we will reach Heck in the dark.
+Will that frighten you?"
+
+Gumption snorted.
+"Yup.
+Let's go."
+
+Night had fallen by the time they reached the road.
+Gumption climbed onto Dockety's back,
+wriggling in an unsuccessful attempt to find a position
+that *didn't* press the bathing suit part of the armor against him in uncomfortable places.
+"Aright, let's go."
+
+The bot lowered its wheel,
+retracted its legs,
+and accelerated.
+A moment later,
+thin green lasers lanced out from either side of its head.
+The bot began turning its head from side to side,
+sweeping the lasers across the pavement to highlight its bumps and cracks in the darkness.
+
+It could have been ten minutes later or half an hour when Dockety buzzed,
+"We are approaching a surveillance point.
+This one will inform it that you are damaged and are being taken to Heck for repair.
+Please do not engage in any organic activity until we are safely past it."
+
+"I'll try not to,"
+Gumption said,
+grinning against the bot's back.
+"Organic activity" was how Rusty Bridge's bots referred to visits to the outhouse.
+
+A moment later he felt a strange pressure in his—no.
+It wasn't in his head.
+Or in his chest either.
+He wasn't sure where or what it was exactly,
+but he could definitely feel it.
+It was like knowing that someone was looking at you
+without having seen them.
+"Is that—" he started,
+stopping himself when Dockety buzzed.
+
+The feeling grew stronger.
+Up ahead on their left–he didn't know how he knew something was there,
+but he did,
+and it was watching them.
+
+Suddenly Dockety warbled a staccato series of tones.
+The feeling of being watched intensified, then vanished.
+Gumption took a deep breath that he didn't actually need
+just so that he could let it out with a whoosh.
+"Are we aright?" he whispered loudly.
+
+"Yes,"
+Dockety replied.
+"There is more surveillance up ahead,
+but if that one did not destroy us,
+it is unlikely that the others will either."
 
 </section>
