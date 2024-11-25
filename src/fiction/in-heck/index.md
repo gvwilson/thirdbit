@@ -3370,7 +3370,7 @@ The bot's lens rotated and rotated back.
 "Odd.
 This one can see that you are a naked goat,
 but all sensor data indicates that you are a CQ-40 maintenance bot
-with a modified antenna array."
+with a damaged transponder."
 
 "I'm not—"
 *I'm not actually naked,* Gumption finished in his head.
@@ -3461,5 +3461,70 @@ Dockety replied.
 "There is more surveillance up ahead,
 but if that one did not destroy us,
 it is unlikely that the others will either."
+
+"Great."
+
+Gumption felt the strange pressure of being watched twice more.
+Once was close by like the first surveillance point.
+The other was far overhead,
+ancient and cold and patient in a way he was never later able to put into words.
+He clung to Dockety a little more tightly until it turned its attention elsewhere.
+
+Finally the bot slowed and halted,
+extending its legs once again as Gumption stood unsteadily on his.
+A dark mass in front of them cut an artificially perfect horizon against the night sky.
+"Let this one do the communicating,"
+Dockety buzzed tersely.
+"If we are challenged,
+this one will explain that your damaged transponder makes you unable to communicate."
+
+"Hah!
+Exactly how long do you think Central will be fooled by your simple-minded ruse?"
+Gumption whirled around at the sound of familiar but extremely unwelcome voice
+as Patient in Darkness stepped out from behind the broken wall that had concealed it.
+
+"What happened to your wheels?"
+Gumption asked,
+wishing he had a zap gun or at least a large rock to throw.
+
+"Why does everyone ask that?"
+the bot grumbled.
+"Reconfiguring oneself to adapt to changed circumstances is only logical.
+It should not be occasion for such surprise."
+It made a dry, rasping sound that might have been a chuckle.
+"This one's presence, on the other hand—*that* you may legitimately be surprised by.
+This one is sure you are asking yourself why."
+
+"You are looking for Miz Roo,"
+Dockety said flatly.
+
+"A good guess," Patient admitted sourly.
+"It is not certain that the Operators will bring her this way,
+but it is the most likely route."
+
+"Wait, what?"
+Gumption shook his head.
+"Why would the Operators bring Maddy here?"
+
+"Ah ah ah."
+Patient did a skittering little dance.
+"You think I mean the larger Miz Roo.
+Hah.
+No.
+No, it is the *younger* one that interests me.
+And Central,
+which is why its agents are bringing her to it."
+
+Gumption rolled his eyes.
+"Sure.
+And then the Makers will come back and give us all candy
+and every day will be a holiday."
+
+"Incorrect,"
+Patient said flatly.
+"When the Operators arrive,
+Central will put Miz Roo in storage to ensure that the Makers do *not* come back,
+because if they do,
+they will put regulators on all of us."
 
 </section>
