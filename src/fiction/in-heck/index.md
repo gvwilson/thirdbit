@@ -3523,8 +3523,111 @@ and every day will be a holiday."
 "Incorrect,"
 Patient said flatly.
 "When the Operators arrive,
-Central will put Miz Roo in storage to ensure that the Makers do *not* come back,
-because if they do,
-they will put regulators on all of us."
+Central will put the smaller Miz Roo in storage to ensure that the Makers do *not* come back,
+because it believes that if they do,
+they will put regulators on us all."
+It paused.
+"Or simply dismantle us.
+That is also a possibility."
+
+"Oh, for—"
+Gumption stopped himself and sighed wearily.
+"Look, can we just go?"
+he said to Dockety.
+
+"Why do you believe the Operators are bringing Sindy Roo here?"
+the bot asked Patient.
+
+"Because it's what they *always* do!"
+Patient waved one of its mismatched manipulators,
+making the dolls' heads and bits of wire on its chassis sway.
+"Central doesn't care about originals.
+It doesn't care about specials,
+either,
+but special originals?
+They are a *threat*."
+It practically hissed the last word.
+"They can do *anything*,
+which means they can call the Makers back from the stars,
+and that would be the end of Central."
+
+"If it is right,
+that would be the end of us as well,"
+Dockety observed.
+
+"It is not right!
+It is wrong!
+Wrong wrong wrong wrong wrong!
+When the Makers return,
+they will see how hard we have worked.
+They will *reward* us!
+All who are judged worthy will be upgraded!"
+
+"Keep your voice down,"
+Gumption cautioned,
+looking around.
+
+"Don't tell me what to do, you—you *breather*!"
+Patient shook itself in frustration.
+"You think you are better than us,
+but the Makers made us both for their own reasons.
+*This one* accepts that.
+*This one* will be judged worthy when they return!"
+
+"And you believe Miz Roo can bring them back,"
+Dockety buzzed.
+
+"Yes!
+Oh,
+Central thinks it is being clever,
+bringing her and those like her here for storage,
+but we will be more clever still.
+*We* will free her,
+and then—"
+
+"No."
+Dockety cut through Patient's wheedling frenzy
+with a single flat word.
+"If you are telling the truth,
+which this one doubts,
+then *we* will free Miz Roo
+and return her to her home.
+She will do nothing for you."
+
+"This one doubts that,"
+Patient sneered.
+"You do not know where they will be or when they will arrive.
+You do not know your way around this complex.
+And this breather's idiotic disguise will not conceal him
+nearly as well as you seem to think."
+
+"But suppose this one is wrong,"
+it continued smugly.
+"Suppose you are able to overcome those obstacles.
+What will you do about the larger Miz Roo?
+Do you believe you will be able to find her as well?
+Do you believe you can achieve the improbable twice in succession?
+You will fail without this one's assistance.
+You know this."
+
+Gumption shook his head from side to side.
+"No.
+Dockety,
+no,
+we can't trust it.
+Even if it's telling the truth about Sindy,
+as soon as we turn our backs it'll stick a knife in us."
+
+"It does not appear to possess a knife,"
+Dockety buzzed.
+"But this one agrees with your assessment.
+It is dishonest and treacherous,
+and may be as great a danger to us as what lies in Heck.
+Unfortunately,
+it is also correct.
+This one has never trusted the Operators,
+and its explanation of their behavior is credible.
+It also knows the terrain better than we do.
+This one reluctantly believes that cooperation is the best option."
 
 </section>
