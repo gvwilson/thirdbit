@@ -255,5 +255,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Ramos et al 2024: "Are Large Language Models Memorizing Bug Benchmarks?" <https://arxiv.org/abs/2411.13323> "certain models, in particular codegen-multi, exhibit significant evidence of memorization in widely used benchmarks like Defects4J, while newer models trained on larger datasets like LLaMa 3.1 exhibit limited signs of leakage."
 
+1.  Mészáros and Wachs 2024: "The Dynamics of Innovation in Open Source Software Ecosystems" <https://arxiv.org/abs/2411.14894> Analyzes library imports and pairs of imports across multiple languages and confirms Pareto distribution and sublinear growth. (As with much SE research, this is interesting but I'm not sure what to do with it…)
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
