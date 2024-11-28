@@ -3303,13 +3303,14 @@ that will op-op-optimize your every move.
 Isn't that wonderful?"
 As the cheerful voice spoke,
 helmets dropped onto the heads of the three people on screen,
-who immediately began sawing, raking, and tightening screws at breakneck speed.
+who immediately began sawing, raking, and tightening screws
+in time with what was probably supposed to be a happy tune.
 
 Horrified,
 Maddy took an involuntary step back.
 "Now, now," the voice chided.
-"Regulators d-d-don't hurt,
-and you will b-b-be allowed several hours of rest every day!"
+"A regulator d-d-doesn't hurt once you g-g-get used to it,
+and you will b-b-be allowed several hours of sleep every day!"
 
 A section of the wall pivoted.
 A four-wheeled bot rolled into the room
@@ -3323,7 +3324,7 @@ Maddy started.
 
 "C-c-compliance *is* mandatory,"
 the voice said.
-"After all,
+"Remember,
 you were m-m-made for this."
 
 Two more arms unfolded from the bot's side,
@@ -3337,7 +3338,7 @@ she grabbed her wrist and pressed the button on her discombobulator.
 
 <section markdown="1">
 
-## Hard Choices (Gumption)
+## An Unwelcome Alliance (Gumption)
 
 The people of Rusty Bridge had a saying:
 we don't know what water tastes like because it's been in our mouths since the day we were born.
@@ -3629,5 +3630,69 @@ This one has never trusted the Operators,
 and its explanation of their behavior is credible.
 It also knows the terrain better than we do.
 This one reluctantly believes that cooperation is the best option."
+
+"Excellent,"
+Patient purred.
+"The first step is for us to be captured."
+And with no further warning,
+half a dozen lights on its chassis began strobing
+as two different sirens likewise attached began to wail.
+
+</section>
+
+<section markdown="1">
+
+## Regulated (Maddy)
+
+Maddy dodged the four-wheeled bot as it rolled forward with the helmet in its manipulators,
+then pressed herself against the wall and held her breath.
+
+"Error," the voice said.
+"Error.
+No subject found.
+Where is th-th-the subject?"
+
+A periscope popped up from the top of the four-wheeled bot and rotated through a full circle.
+It bleeped apologetically.
+
+"C-c-calculating."
+The voice fell silent for a moment.
+"The subject must have ex-ex-exited containment.
+Pursue."
+
+The door in the exterior wall slid open.
+Heart pounding,
+Maddy slipped out behind the four-wheeled bot,
+squeaking as the door closed on the tip of her tail.
+
+The bot whirled around and lunged.
+Its manipulator closed on empty air just a finger's length from her ear.
+*Please please please,* she thought.
+
+The bot backed up and whirled around again.
+A small round dish popped up from beneath a hatch in the top of its chassis
+As the dish began to swing from side to side,
+Maddy tiptoed away.
+
+A few moments later she huddled beneath a metal ramp,
+hugging her shins to her chest.
+"Aright," she said.
+She reached for her wrist,
+hesitated,
+and pressed the button on the discombobulator.
+
+"Power off," slid across its readout.
+She had no idea if the bots in Heck would be able to see her where she was hiding,
+but she couldn't risk the discombobulator running out of charge at the wrong time.
+She pressed her face into her skirt,
+took a deep, shuddering breath,
+and let tears come.
+
+After they were done,
+she wiped her face on her sleeve,
+turned the discombobulator back on,
+and crept out of her hiding place.
+Her papa was somewhere in this machine city,
+and she wasn't going to leave without him.
 
 </section>
