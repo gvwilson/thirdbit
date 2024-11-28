@@ -23,7 +23,7 @@ count:
 	@echo "'book' not defined"
 else
 count:
-	@python bin/count.py src/fiction/$${book}/index.md
+	@python bin/count.py src/fiction/$${book}/index.md $${prev}
 endif
 
 ## ----

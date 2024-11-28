@@ -1,4 +1,3 @@
-import argparse
 import sys
 
 
@@ -9,16 +8,16 @@ SECTION_END = "</section>"
 
 def main():
     """Main driver."""
-    args = parse_args()
-    with open(args.filename, "r") as reader:
+    filename, previous = parse_args()
+    with open(filename, "r") as reader:
         text = reader.read()
     if SECTION_START in text:
-        chapters(args, text)
+        chapters(filename, text, previous)
     else:
-        sections(args, text)
+        sections(filename, text, previous)
 
 
-def chapters(args, text):
+def chapters(filename, text, previous):
     """Analyze chapters in long work."""
     lines = text.split("\n")
     in_chapter = False
@@ -43,7 +42,7 @@ def chapters(args, text):
             if count > 0:
                 if title:
                     title = f": {title}"
-                if args.details:
+                if previous is None:
                     print(f"{number:02d}){count:5d}{title}")
                 total += count
             count = 0
@@ -55,10 +54,14 @@ def chapters(args, text):
         else:
             pass
 
-    print(f"{total:6d}")
+    if previous is None:
+        print(f"{total:6d}")
+    else:
+        increase = total - previous
+        print(f"{total:6d} ({increase})")
 
 
-def sections(args, text, base):
+def sections(filename, text, base):
     """Analyze sections in short story."""
     total = len([x for x in text.split() if x])
     base = "" if base is None else f" ({total - base})"
@@ -67,10 +70,12 @@ def sections(args, text, base):
 
 def parse_args():
     """Parse command-line arguments."""
-    parser = argparse.ArgumentParser()
-    parser.add_argument("details", action="store_true", help="show details")
-    parser.add_argument("filename", type=str, default=None, help="book file")
-    return parser.parse_args()
+    if not (2 <= len(sys.argv) <= 3):
+        print("Usage: count.py filename [previous]", file=sys.stderr)
+        sys.exit(1)
+    filename = sys.argv[1]
+    previous = int(sys.argv[2]) if len(sys.argv) > 2 else None
+    return filename, previous
 
 
 if __name__ == "__main__":
