@@ -82,12 +82,99 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2024/11/30/another-ssg-for-lessons/">
+      Another Static Site Generator for Lessons
+    </a>
+  </h2>
+  <p><time datetime="2024-11-30" class="post-date">2024-11-30</time></p>
+  <p>I built a very simple static site generator (SSG) called <a href="https://github.com/lessonomicon/mccole">McCole</a>
+to support the lessons I mentioned in <a href="../2024/11/24/unfinished-projects/">my previous post</a>.
+I could have stuck with <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a>
+(which I use to build this site and books like <a href="../sdxpy/"><em>Software Design in Python</em></a>),
+but writing my own helped me figure out what I actually need,
+and might someday serve as the basis for a tutorial of some sort.
+In no particular order, <a href="https://github.com/lessonomicon/mccole">McCole</a>&rsquo;s features are:</p>
+<ol>
+<li>Read configuration from the project&rsquo;s <code>pyproject.toml</code> file.</li>
+<li>Convert all the Markdown files in or below the project&rsquo;s root directory to HTML
+    using <a href="https://jinja.palletsprojects.com/">Jinja</a> templates.</li>
+<li>Rename a few files along the way:<ul>
+<li><code>README.md</code> becomes <code>index.html</code></li>
+<li><code>CODE_OF_CONDUCT.md</code> becomes <code>code_of_conduct.html</code></li>
+<li><code>CONTRIBUTING.md</code> becomes <code>contributing.html</code></li>
+<li><code>LICENSE.md</code> becomes <code>license.html</code></li>
+</ul>
+</li>
+<li>Create an HTML page corresponding to every source code file
+    so that (for example) <code>a/b.py</code> is visible online as <code>a/b.py.html</code>.</li>
+<li>Replace <code>@root</code> at the start of URLs with the relative path to the site&rsquo;s root directory.</li>
+<li>Replace links to Markdown files with links to the corresponding HTML files.
+    I do this so that links would work properly when people view the Markdown files on GitHub.</li>
+<li>Rewrite the URL in something like <code>[label](b:key)</code> to <code>[label](@root/bibliography.html#key)</code>
+    to make it easy for authors to link to bibliographic citations.
+    These special links <em>don&rsquo;t</em> work when files are viewed on GitHub,
+    but it&rsquo;s a lot less typing that the alternative.
+    (I use the <a href="https://github.com/dmulholl/shortcodes">shortcodes</a> package to do this with <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a> sites,
+    but after a bit of experimentation I decided to special-case these links in <a href="https://github.com/lessonomicon/mccole">McCole</a>.)</li>
+<li>Similarly,
+    <a href="https://github.com/lessonomicon/mccole">McCole</a> rewrites <code>[term](g:key)</code> to <code>[term](@root/glossary.html#key)</code>
+    so that authors can easily insert glossary references.</li>
+<li>If a page contains any glossary references,
+    <a href="https://github.com/lessonomicon/mccole">McCole</a> creates a list of defined terms at the top of the page.
+    (In my experience,
+    this is the most useful way to tell a would-be instructor what the lesson is actually about.)</li>
+<li>I tried using shortcodes to format figures consistently,
+    but once I decided not to use them for the glossary and bibliography,
+    it didn&rsquo;t seem worth keeping them for figures.
+    Instead,
+    I check their properties during linting (see below).</li>
+<li>My tutorials focus on programming,
+    so I need to be able to include snippets of source code in pages.
+    &ldquo;Snippets&rdquo; makes the problem more complex:
+    I often want to include just one function or a couple of methods rather than an entire source file.
+    My previous SSG had a couple of hundred lines of code
+    to pull sections out of source files in various ways;
+    <a href="https://github.com/lessonomicon/mccole">McCole</a> just checks that the text in the Markdown file
+    is contained in the source file.</li>
+<li><a href="https://github.com/lessonomicon/mccole">McCole</a> defines a class for each inclusion like <code>language-py</code> or <code>language-sql</code>
+    so that inclusions from different languages can be styled differently.
+    I haven&rsquo;t included syntax highlighting,
+    partly because I want to keep this SSG simple
+    but also because the highlighting rules I choose probably <em>won&rsquo;t</em> match what learners see
+    in their editor or IDE.</li>
+<li><a href="https://github.com/lessonomicon/mccole">McCole</a> includes a tool for linting sites,
+    i.e.,
+    for checking that links resolve,
+    glossary entries are mentioned somewhere,
+    and so on.
+    It turned out to be a lot simpler to check for problems
+    than to generate correct content automatically,
+    at least for small lessons.
+    <a href="https://github.com/lessonomicon/mccole">McCole</a> also uses <a href="https://pypi.org/project/html5validator/">html5validator</a>
+    to check the formatting of the HTML pages it generates;
+    specific lessons use tools like <a href="https://docs.astral.sh/ruff/">ruff</a> to check source code as well.</li>
+</ol>
+<p>So what <em>doesn&rsquo;t</em> <a href="https://github.com/lessonomicon/mccole">McCole</a> include that a full-featured lesson SSG would?
+The most important thing is probably some sort of support for exercises:
+styling them,
+numbering them,
+keeping track of solutions,
+and so on.
+I could also add CSS styling for various kinds of callouts,
+but I&rsquo;m not trying to reproduce something like <a href="https://carpentries.github.io/workbench/">the Carpentries Workbench</a>:
+<a href="https://github.com/lessonomicon/mccole">McCole</a> is a multi-bit screwdriver,
+not a fully-equipped machine shop.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2024/11/24/unfinished-projects/">
       Unfinished Projects
     </a>
   </h2>
   <p><time datetime="2024-11-24" class="post-date">2024-11-24</time></p>
-  <ul>
+  <p>Things I haven&rsquo;t finished:</p>
+<ul>
 <li>A <a href="https://lessonomicon.github.io/querynomicon/">tutorial on SQL</a> for data scientists</li>
 <li>A <a href="https://lessonomicon.github.io/sudonomicon/">tutorial on systems programming</a> for data scientists</li>
 <li>A <a href="https://lessonomicon.github.io/webonomicon/">tutorial on web programming</a> for data scientists</li>
@@ -374,93 +461,6 @@ here&rsquo;s a list of things I hope I <em>will</em> get to do.</p>
 <p>Leave this world believing that it&rsquo;s going to be OK.</p>
 </li>
 </ul>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2024/10/18/student-project-proposals/">
-      Student Project Proposals
-    </a>
-  </h2>
-  <p><time datetime="2024-10-18" class="post-date">2024-10-18</time></p>
-  <p>My laptop screensaver says &ldquo;no new projects&rdquo; but I&rsquo;d make an exception
-to supervise a team of 2-4 undergraduates who wanted to tackle one of
-the challenges described below. If you are teaching an undergraduate
-capstone course and might be interested, please reach out.</p>
-<h2>Browsercast</h2>
-<p>Tools like PowerPoint aren&rsquo;t web-friendly.  When you export a
-slideshow to present on the web, what you actually get is a bunch of
-images.  There&rsquo;s no text, just pixels arranged in the shapes of
-letters; no hyperlinks; and nothing search engines or disability aids
-can read.  What&rsquo;s worse, if you want something people can replay, you
-have to make a screencast, which are just as opaque to search engines
-and disability aids and probably several times larger than the
-original slides.</p>
-<p>Browsercast is our solution to this problem.  It plays snippets of
-audio in your browser as you move through your slides.  &ldquo;View Source&rdquo;,
-links, CSS, screen readers, and search work as they should because
-it&rsquo;s all still web-native HTML.  And since it&rsquo;s just text and audio,
-it&rsquo;s a fraction of the size of a video, which makes it ideal for
-mobile devices.</p>
-<p>Our prototype uses just 5kb of JavaScript and is available under the
-MIT License. There are many open questions; we are looking for a team
-of 2-4 students with strong JavaScript skills and an interest in user
-experience design to explore ways we can make it better.</p>
-<ul>
-<li><a href="https://github.com/gvwilson/browsercast">Browsercast</a></li>
-</ul>
-<h2>Marimo and H5P</h2>
-<p>Marimo is a next-generation computational notebook that enables data
-scientists to mix code, discussion, and results in a reproducible way.
-Its plugin system relies on AnyWidget, which specifies a simple
-contract between extensions and Marimo&rsquo;s rendering and execution
-engine.</p>
-<p>The aim of this project is to design, build, and test a set of Marimo
-plugins that can be used for classroom exercises similar to those in
-the H5P toolkit: multiple choice, fill in the blanks, and so on. We
-are looking for a team of 2-4 students with both JavaScript and Python
-skills who have an interest in both user experience design and
-teaching.</p>
-<ul>
-<li><a href="https://marimo.io/">Marimo Notebook</a></li>
-<li><a href="https://anywidget.dev/">AnyWidget</a></li>
-<li><a href="https://h5p.org/content-types-and-applications">H5P Content Types</a></li>
-</ul>
-<h2>Dragnet</h2>
-<p>One type of exercise that H5P <em>doesn&rsquo;t</em> support is adding labels to
-diagrams. <a href="https://iezer.github.io/dragnet/">This prototype</a> takes an SVG with some
-specially-marked labels, moves those labels to the side, and then lets
-the user try to drag them back into the right places.  A deployable
-version would need to do a lot more, such as dealing with scaling
-transformations; the goal of this project is to turn the demo into
-something a classroom teacher could use.</p>
-<ul>
-<li><a href="https://iezer.github.io/dragnet/">Dragnet</a></li>
-</ul>
-<h2>A Tutorial Simulation of Network Protocols</h2>
-<p><a href="https://third-bit.com/sdxpy/"><em>Software Design by Example in Python</em></a> deliberately ignored
-concurrency, partial failure, and everything else associated with
-modern distributed applications. The aim of this project is to (start
-to) fix that by building scale models of real network protocols such
-as TCP and the BitTorrent protocol using either <a href="https://pydes.readthedocs.io/">Py-DES</a> or
-<a href="https://simpy.readthedocs.io/">SimPy</a>. The tutorials will use simulators so that the
-accompanying lessons could illustrate edge cases in reproducible ways;
-making the implementations work on a real network as well will be a
-good stretch goal.</p>
-<h2>Software Design by Example in Gleam</h2>
-<p>For decades, functional programming (FP) has offered an alternative to
-the imperative, procedural model used by most languages. As highly
-concurrent systems have become the norm, FP&rsquo;s promise of preventing
-entire classes of bugs by avoiding mutable state has led a growing
-number of programmers to re-examine it, but there is still often a
-gulf between the kinds of examples language designers find
-interesting and the kinds of things most working programmers build.</p>
-<p><a href="https://gleam.run/">Gleam</a> is a modern functional language that runs on the
-<a href="https://www.erlang.org/">Erlang/OTP</a> platform (and can also be compiled to
-JavaScript). The aim of this project is to translate examples from
-<a href="https://third-bit.com/sdxpy/"><em>Software Design by Example in Python</em></a> into Gleam to help
-people coming from Python and other mainstream languages understand
-how to use FP in practice.</p>
 </article>
 
 

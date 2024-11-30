@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Another Static Site Generator for Lessons</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Another Static Site Generator for Lessons</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/11/24/unfinished-projects/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-11-30" class="post-date">2024-11-30</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>I built a very simple static site generator (SSG) called <a href="https://github.com/lessonomicon/mccole">McCole</a>
+to support the lessons I mentioned in <a href="../../../../2024/11/24/unfinished-projects/">my previous post</a>.
+I could have stuck with <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a>
+(which I use to build this site and books like <a href="../../../../sdxpy/"><em>Software Design in Python</em></a>),
+but writing my own helped me figure out what I actually need,
+and might someday serve as the basis for a tutorial of some sort.
+In no particular order, <a href="https://github.com/lessonomicon/mccole">McCole</a>&rsquo;s features are:</p>
+<ol>
+<li>Read configuration from the project&rsquo;s <code>pyproject.toml</code> file.</li>
+<li>Convert all the Markdown files in or below the project&rsquo;s root directory to HTML
+    using <a href="https://jinja.palletsprojects.com/">Jinja</a> templates.</li>
+<li>Rename a few files along the way:<ul>
+<li><code>README.md</code> becomes <code>index.html</code></li>
+<li><code>CODE_OF_CONDUCT.md</code> becomes <code>code_of_conduct.html</code></li>
+<li><code>CONTRIBUTING.md</code> becomes <code>contributing.html</code></li>
+<li><code>LICENSE.md</code> becomes <code>license.html</code></li>
+</ul>
+</li>
+<li>Create an HTML page corresponding to every source code file
+    so that (for example) <code>a/b.py</code> is visible online as <code>a/b.py.html</code>.</li>
+<li>Replace <code>@root</code> at the start of URLs with the relative path to the site&rsquo;s root directory.</li>
+<li>Replace links to Markdown files with links to the corresponding HTML files.
+    I do this so that links would work properly when people view the Markdown files on GitHub.</li>
+<li>Rewrite the URL in something like <code>[label](b:key)</code> to <code>[label](@root/bibliography.html#key)</code>
+    to make it easy for authors to link to bibliographic citations.
+    These special links <em>don&rsquo;t</em> work when files are viewed on GitHub,
+    but it&rsquo;s a lot less typing that the alternative.
+    (I use the <a href="https://github.com/dmulholl/shortcodes">shortcodes</a> package to do this with <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a> sites,
+    but after a bit of experimentation I decided to special-case these links in <a href="https://github.com/lessonomicon/mccole">McCole</a>.)</li>
+<li>Similarly,
+    <a href="https://github.com/lessonomicon/mccole">McCole</a> rewrites <code>[term](g:key)</code> to <code>[term](@root/glossary.html#key)</code>
+    so that authors can easily insert glossary references.</li>
+<li>If a page contains any glossary references,
+    <a href="https://github.com/lessonomicon/mccole">McCole</a> creates a list of defined terms at the top of the page.
+    (In my experience,
+    this is the most useful way to tell a would-be instructor what the lesson is actually about.)</li>
+<li>I tried using shortcodes to format figures consistently,
+    but once I decided not to use them for the glossary and bibliography,
+    it didn&rsquo;t seem worth keeping them for figures.
+    Instead,
+    I check their properties during linting (see below).</li>
+<li>My tutorials focus on programming,
+    so I need to be able to include snippets of source code in pages.
+    &ldquo;Snippets&rdquo; makes the problem more complex:
+    I often want to include just one function or a couple of methods rather than an entire source file.
+    My previous SSG had a couple of hundred lines of code
+    to pull sections out of source files in various ways;
+    <a href="https://github.com/lessonomicon/mccole">McCole</a> just checks that the text in the Markdown file
+    is contained in the source file.</li>
+<li><a href="https://github.com/lessonomicon/mccole">McCole</a> defines a class for each inclusion like <code>language-py</code> or <code>language-sql</code>
+    so that inclusions from different languages can be styled differently.
+    I haven&rsquo;t included syntax highlighting,
+    partly because I want to keep this SSG simple
+    but also because the highlighting rules I choose probably <em>won&rsquo;t</em> match what learners see
+    in their editor or IDE.</li>
+<li><a href="https://github.com/lessonomicon/mccole">McCole</a> includes a tool for linting sites,
+    i.e.,
+    for checking that links resolve,
+    glossary entries are mentioned somewhere,
+    and so on.
+    It turned out to be a lot simpler to check for problems
+    than to generate correct content automatically,
+    at least for small lessons.
+    <a href="https://github.com/lessonomicon/mccole">McCole</a> also uses <a href="https://pypi.org/project/html5validator/">html5validator</a>
+    to check the formatting of the HTML pages it generates;
+    specific lessons use tools like <a href="https://docs.astral.sh/ruff/">ruff</a> to check source code as well.</li>
+</ol>
+<p>So what <em>doesn&rsquo;t</em> <a href="https://github.com/lessonomicon/mccole">McCole</a> include that a full-featured lesson SSG would?
+The most important thing is probably some sort of support for exercises:
+styling them,
+numbering them,
+keeping track of solutions,
+and so on.
+I could also add CSS styling for various kinds of callouts,
+but I&rsquo;m not trying to reproduce something like <a href="https://carpentries.github.io/workbench/">the Carpentries Workbench</a>:
+<a href="https://github.com/lessonomicon/mccole">McCole</a> is a multi-bit screwdriver,
+not a fully-equipped machine shop.</p><!-- /content -->
+
+    </main>
+    <footer>
+  <i class="fa fa-copyright"></i> 2004-2024 <a href="../../../../about/">Greg Wilson</a>
+  &middot;
+  <a href="mailto:gvwilson@third-bit.com"><i class="fas fa-envelope-square" aria-hidden="true" title="author email"></i></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><i class="fab fa-linkedin-in" aria-hidden="true" title="LinkedIn"></i></a>
+  <a href="https://mastodon.social/@gvwilson"><i class="fab fa-mastodon" aria-hidden="true" title="Mastodon"></i></a>
+  <a href="https://github.com/gvwilson"><i class="fab fa-github" aria-hidden="true" title="GitHub"></i></a>
+  <a href="https://calendly.com/gvwilson"><i class="fas fa-calendar-week" aria-hidden="true" title="calendar"></i></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><i class="fab fa-youtube" aria-hidden="true" title="YouTube"></i></a>
+  &middot;
+  <a href="../../../../bib/"><i class="fab fa-orcid" aria-hidden="true" title="bibliography"></i></a>
+  <a href="../../../../atom.xml"><i class="fas fa-rss" aria-hidden="true" title="RSS feed"></i></a>
+  <a href="../../../../license/"><i class="fab fa-creative-commons-by" aria-hidden="true" title="license"></i></a>
+  <a href="../../../../colophon/"><i class="fas fa-pen-fancy" aria-hidden="true" title="colophon"></i></a>
+  <a href="../../../../cv/"><i class="fas fa-file" aria-hidden="true" title="CV"></i></a>
+</footer>
+  </body>
+</html>

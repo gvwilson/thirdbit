@@ -3,6 +3,8 @@ title: "Unfinished Projects"
 date: 2024-11-24
 ---
 
+Things I haven't finished:
+
 -   A [tutorial on SQL][sql-tutorial] for data scientists
 -   A [tutorial on systems programming][sys-tutorial] for data scientists
 -   A [tutorial on web programming][web-tutorial] for data scientists

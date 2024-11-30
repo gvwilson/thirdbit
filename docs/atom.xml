@@ -3,7 +3,7 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2024-11-24T00:00:00Z</updated>
+ <updated>2024-11-30T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
@@ -11,11 +11,96 @@
  </author>
  
  <entry>
+   <title>Another Static Site Generator for Lessons</title>
+   <link href="https://third-bit.com/2024/11/30/another-ssg-for-lessons/"/>
+   <updated>2024-11-30T00:00:00Z</updated>
+   <id>https://third-bit.com/2024/11/30/another-ssg-for-lessons/</id>
+   <content type="html">&lt;p&gt;I built a very simple static site generator (SSG) called &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt;
+to support the lessons I mentioned in &lt;a href=&#34;https://third-bit.com/2024/11/24/unfinished-projects/&#34;&gt;my previous post&lt;/a&gt;.
+I could have stuck with &lt;a href=&#34;https://www.dmulholl.com/docs/ark/main/&#34;&gt;Ark&lt;/a&gt;
+(which I use to build this site and books like &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design in Python&lt;/em&gt;&lt;/a&gt;),
+but writing my own helped me figure out what I actually need,
+and might someday serve as the basis for a tutorial of some sort.
+In no particular order, &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt;&amp;rsquo;s features are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Read configuration from the project&amp;rsquo;s &lt;code&gt;pyproject.toml&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;Convert all the Markdown files in or below the project&amp;rsquo;s root directory to HTML
+    using &lt;a href=&#34;https://jinja.palletsprojects.com/&#34;&gt;Jinja&lt;/a&gt; templates.&lt;/li&gt;
+&lt;li&gt;Rename a few files along the way:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;README.md&lt;/code&gt; becomes &lt;code&gt;index.html&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CODE_OF_CONDUCT.md&lt;/code&gt; becomes &lt;code&gt;code_of_conduct.html&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CONTRIBUTING.md&lt;/code&gt; becomes &lt;code&gt;contributing.html&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LICENSE.md&lt;/code&gt; becomes &lt;code&gt;license.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Create an HTML page corresponding to every source code file
+    so that (for example) &lt;code&gt;a/b.py&lt;/code&gt; is visible online as &lt;code&gt;a/b.py.html&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Replace &lt;code&gt;https://third-bit.com&lt;/code&gt; at the start of URLs with the relative path to the site&amp;rsquo;s root directory.&lt;/li&gt;
+&lt;li&gt;Replace links to Markdown files with links to the corresponding HTML files.
+    I do this so that links would work properly when people view the Markdown files on GitHub.&lt;/li&gt;
+&lt;li&gt;Rewrite the URL in something like &lt;code&gt;[label](b:key)&lt;/code&gt; to &lt;code&gt;[label](https://third-bit.com/bibliography.html#key)&lt;/code&gt;
+    to make it easy for authors to link to bibliographic citations.
+    These special links &lt;em&gt;don&amp;rsquo;t&lt;/em&gt; work when files are viewed on GitHub,
+    but it&amp;rsquo;s a lot less typing that the alternative.
+    (I use the &lt;a href=&#34;https://github.com/dmulholl/shortcodes&#34;&gt;shortcodes&lt;/a&gt; package to do this with &lt;a href=&#34;https://www.dmulholl.com/docs/ark/main/&#34;&gt;Ark&lt;/a&gt; sites,
+    but after a bit of experimentation I decided to special-case these links in &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt;.)&lt;/li&gt;
+&lt;li&gt;Similarly,
+    &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; rewrites &lt;code&gt;[term](g:key)&lt;/code&gt; to &lt;code&gt;[term](https://third-bit.com/glossary.html#key)&lt;/code&gt;
+    so that authors can easily insert glossary references.&lt;/li&gt;
+&lt;li&gt;If a page contains any glossary references,
+    &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; creates a list of defined terms at the top of the page.
+    (In my experience,
+    this is the most useful way to tell a would-be instructor what the lesson is actually about.)&lt;/li&gt;
+&lt;li&gt;I tried using shortcodes to format figures consistently,
+    but once I decided not to use them for the glossary and bibliography,
+    it didn&amp;rsquo;t seem worth keeping them for figures.
+    Instead,
+    I check their properties during linting (see below).&lt;/li&gt;
+&lt;li&gt;My tutorials focus on programming,
+    so I need to be able to include snippets of source code in pages.
+    &amp;ldquo;Snippets&amp;rdquo; makes the problem more complex:
+    I often want to include just one function or a couple of methods rather than an entire source file.
+    My previous SSG had a couple of hundred lines of code
+    to pull sections out of source files in various ways;
+    &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; just checks that the text in the Markdown file
+    is contained in the source file.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; defines a class for each inclusion like &lt;code&gt;language-py&lt;/code&gt; or &lt;code&gt;language-sql&lt;/code&gt;
+    so that inclusions from different languages can be styled differently.
+    I haven&amp;rsquo;t included syntax highlighting,
+    partly because I want to keep this SSG simple
+    but also because the highlighting rules I choose probably &lt;em&gt;won&amp;rsquo;t&lt;/em&gt; match what learners see
+    in their editor or IDE.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; includes a tool for linting sites,
+    i.e.,
+    for checking that links resolve,
+    glossary entries are mentioned somewhere,
+    and so on.
+    It turned out to be a lot simpler to check for problems
+    than to generate correct content automatically,
+    at least for small lessons.
+    &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; also uses &lt;a href=&#34;https://pypi.org/project/html5validator/&#34;&gt;html5validator&lt;/a&gt;
+    to check the formatting of the HTML pages it generates;
+    specific lessons use tools like &lt;a href=&#34;https://docs.astral.sh/ruff/&#34;&gt;ruff&lt;/a&gt; to check source code as well.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So what &lt;em&gt;doesn&amp;rsquo;t&lt;/em&gt; &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; include that a full-featured lesson SSG would?
+The most important thing is probably some sort of support for exercises:
+styling them,
+numbering them,
+keeping track of solutions,
+and so on.
+I could also add CSS styling for various kinds of callouts,
+but I&amp;rsquo;m not trying to reproduce something like &lt;a href=&#34;https://carpentries.github.io/workbench/&#34;&gt;the Carpentries Workbench&lt;/a&gt;:
+&lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; is a multi-bit screwdriver,
+not a fully-equipped machine shop.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Unfinished Projects</title>
    <link href="https://third-bit.com/2024/11/24/unfinished-projects/"/>
    <updated>2024-11-24T00:00:00Z</updated>
    <id>https://third-bit.com/2024/11/24/unfinished-projects/</id>
-   <content type="html">&lt;ul&gt;
+   <content type="html">&lt;p&gt;Things I haven&amp;rsquo;t finished:&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;A &lt;a href=&#34;https://lessonomicon.github.io/querynomicon/&#34;&gt;tutorial on SQL&lt;/a&gt; for data scientists&lt;/li&gt;
 &lt;li&gt;A &lt;a href=&#34;https://lessonomicon.github.io/sudonomicon/&#34;&gt;tutorial on systems programming&lt;/a&gt; for data scientists&lt;/li&gt;
 &lt;li&gt;A &lt;a href=&#34;https://lessonomicon.github.io/webonomicon/&#34;&gt;tutorial on web programming&lt;/a&gt; for data scientists&lt;/li&gt;
@@ -1659,27 +1744,6 @@ please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;let me know&lt;/a&g
     and this is already far too ambitious for something that would already take a year of unpaid work.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content>
- </entry>
- 
- <entry>
-   <title>Narconomics and Big Tech</title>
-   <link href="https://third-bit.com/2024/06/14/narconomics-and-big-tech/"/>
-   <updated>2024-06-14T00:00:00Z</updated>
-   <id>https://third-bit.com/2024/06/14/narconomics-and-big-tech/</id>
-   <content type="html">&lt;p&gt;I really enjoyed Wainwright&amp;rsquo;s &lt;em&gt;&lt;a href=&#34;https://www.hachettebookgroup.com/titles/tom-wainwright/narconomics/9781610397704/&#34;&gt;Narconomics&lt;/a&gt;&lt;/em&gt;,
-which explores the economics of the illegal drug trade.
-It turns out that (for example) HR is more of a problem than you&amp;rsquo;d think:
-good accountants know they can actually make more money on Wall Street where crime is legal.
-Marketing, dispute resolution, quality control: it&amp;rsquo;s a very fun read.
-But it sparked a thought:
-I think a book comparing Big Tech to drug cartels would be awesome.
-Both make money from selling addictive products and shrugging off externalities;
-both needed new offerings to bring in new revenue (AI is to Google what meth was to the Juarez cartel);
-both regard the legal system as merely an operating cost;
-and both tend to be run by egomaniacal sociopaths.
-(I expect Musk and Escobar would have gotten on well.)
-If I knew enough, I&amp;rsquo;d start writing today;
-if you do, please start writing tomorrow.&lt;/p&gt;</content>
  </entry>
  
 </feed>
