@@ -3224,10 +3224,12 @@ A section of the wall beside her rotated soundlessly
 to bring the most beautiful white porcelain toilet Maddy had ever seen into the room.
 There was even toilet paper and a small basin with a tap…
 
-The toilet disappeared again as soon as she was done washing her hands.
+The toilet rotated away again as soon as she was done washing her hands.
 "Thank you," she said,
-seating herself on the bench again.
-She half-expected "you're welcome" to appear on the screen,
+seating herself on the bench again
+and gobbling the flat rectangle with the word "food" printed on it
+that had appeared while she was otherwise occupied.
+She half-expected "you're welcome" to appear on the screen on the wall,
 but it stayed dark.
 
 And stayed dark.
@@ -3694,5 +3696,74 @@ turned the discombobulator back on,
 and crept out of her hiding place.
 Her papa was somewhere in this machine city,
 and she wasn't going to leave without him.
+
+Night was falling by the time she gave up.
+Heck was so much bigger than Rusty Bridge—bigger even than Sandy Bend,
+which was the biggest town she had ever been to.
+It didn't help that she was hungry and thirsty,
+or that she only dared walk for a few minutes before finding a hiding place
+so that the discombobulator could recharge itself.
+
+The worst part was that she had no idea what she was looking for.
+There were lots of signs,
+but they were all written in dots and bars rather than letters.
+Windows,
+on the other hand,
+were nonexistent.
+The only way to look inside a building was to wait by a door
+in the hope that a bot would want to enter or exit,
+then hurry through before it closed.
+The second time she did that,
+the discombobulator's readout showed "5% remaining" in red
+before the door opened again and she was able to escape.
+After that,
+she contented herself with glimpses of the buildings' interiors.
+
+She found a covered corner where two buildings almost touched
+and sat down in a heap on the cold, hard concrete.
+This was hopeless.
+One of the buildings had been a greenhouse filled with waist-high miniature trees.
+Other than that,
+and a wall in another building that might have been a enormous beehive,
+she had seen no signs of life.
+Half-assembled bots waiting patiently for parts to arrive
+or for something to finish taking them apart, yes:
+a couple of buildings had held ranks of those.
+Another had contained nothing except a silver-gray sphere floating in mid-air.
+Her papa could have been around a corner or in a basement in any of them
+and she would have no way of knowing.
+
+"So start over," she said under her breath.
+That was always Special Leaf's advice when she was stuck on a drawing or a homework problem.
+If you didn't know what to do next,
+go back to the beginning and retrace your steps to see where you'd gone wrong.
+She took a deep breath,
+got to her feet,
+and turned the discombobulator back on.
+
+Ten minutes later she was back outside the intake building—or at least she hoped she was.
+On impulse,
+she picked up a pebble and tossed it at the door.
+*Pock.*
+It bounced off and fell to the ground.
+
+She waited a moment.
+When nothing happened,
+she picked up another one and threw it overhand.
+*Thunk.*
+
+Something bleeped inside the building.
+An answering bleep in the distance made her press herself back against the nearest wall.
+A few moments later the four-wheeled bot she had seen earlier rolled around the corner
+with the helmet still in one of its manipulators.
+It stopped outside the door and bleeped questioningly.
+The building bleeped back.
+The bot rolled spun around slowly,
+reminding Maddy of Gumption's grandfather looking for a pistachio he had dropped on the floor.
+
+Finally the bot bleeped again.
+The building replied with a single disappointed *ping*.
+As the bot rolled away,
+Maddy hurried after it.
 
 </section>
