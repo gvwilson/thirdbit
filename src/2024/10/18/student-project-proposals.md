@@ -62,8 +62,6 @@ version would need to do a lot more, such as dealing with scaling
 transformations; the goal of this project is to turn the demo into
 something a classroom teacher could use.
 
-- [Dragnet][dragnet]
-
 ## A Tutorial Simulation of Network Protocols
 
 [*Software Design by Example in Python*][sdxpy] deliberately ignored

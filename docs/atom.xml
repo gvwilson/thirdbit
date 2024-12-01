@@ -3,12 +3,87 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2024-11-30T00:00:00Z</updated>
+ <updated>2024-12-01T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>More Student Project Proposals</title>
+   <link href="https://third-bit.com/2024/12/01/more-student-project-proposals/"/>
+   <updated>2024-12-01T00:00:00Z</updated>
+   <id>https://third-bit.com/2024/12/01/more-student-project-proposals/</id>
+   <content type="html">&lt;p&gt;Six weeks ago I posted some &lt;a href=&#34;https://third-bit.com/2024/10/18/student-project-proposals/&#34;&gt;undergraduate software projects&lt;/a&gt;
+that I would be excited about supervising.  Two of those—Browsercast
+and the Marimo plugins—have been picked up by students at the
+University of Toronto.  The other three are still available, and I&amp;rsquo;ve
+added a couple of others (see below). If you&amp;rsquo;re a senior looking for
+a capstone project or a professor looking for projects with a
+supervisor, please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;get in touch&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Dragnet&lt;/h2&gt;
+&lt;p&gt;One type of exercise that H5P &lt;em&gt;doesn&amp;rsquo;t&lt;/em&gt; support is adding labels to
+diagrams. &lt;a href=&#34;https://iezer.github.io/dragnet/&#34;&gt;This prototype&lt;/a&gt; takes an SVG with some
+specially-marked labels, moves those labels to the side, and then lets
+the user try to drag them back into the right places.  A deployable
+version would need to do a lot more, such as dealing with scaling
+transformations; the goal of this project is to turn the demo into
+something a classroom teacher could use.&lt;/p&gt;
+&lt;h2&gt;Tutorial Simulations of Distributed Systems&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example in Python&lt;/em&gt;&lt;/a&gt; deliberately ignored
+concurrency, partial failure, and everything else associated with
+modern distributed applications. The aim of this project is to (start
+to) fix that by building scale models of distributed protocols and
+systems from TCP to BitTorrent and load-balancing tools using either
+&lt;a href=&#34;https://pydes.readthedocs.io/&#34;&gt;Py-DES&lt;/a&gt; or &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt;. The tutorials will use simulators
+so that the accompanying lessons could illustrate edge cases in
+reproducible ways.&lt;/p&gt;
+&lt;h2&gt;Software Design by Example in Gleam&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://gleam.run/&#34;&gt;Gleam&lt;/a&gt; is a modern functional language that runs on the
+&lt;a href=&#34;https://www.erlang.org/&#34;&gt;Erlang/OTP&lt;/a&gt; platform (and can also be compiled to
+JavaScript). The aim of this project is to translate examples from
+&lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example in Python&lt;/em&gt;&lt;/a&gt; into Gleam to help
+people coming from Python and other mainstream languages understand
+how to use FP in practice.&lt;/p&gt;
+&lt;h2&gt;Parallelizing Marimo Notebooks&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://marimo.io/&#34;&gt;Marimo&lt;/a&gt; is a next-generation computational notebook that (a)
+stores everything as Python source code and (b) analyzes code to
+prevent out-of-order execution of cells. &lt;a href=&#34;https://dagster.io/&#34;&gt;Dagster&lt;/a&gt; and
+&lt;a href=&#34;https://metaflow.org/&#34;&gt;Metaflow&lt;/a&gt; are computational workflow tools that allow users
+to add decorators to functions and methods to specify computational
+chunks. The goal of this project is to see if the two can be married,
+i.e., to see if it&amp;rsquo;s possible to add decorators to cell functions in
+Marimo to parallelize notebooks directly.&lt;/p&gt;
+&lt;h2&gt;Extending Lox&lt;/h2&gt;
+&lt;p&gt;Lox is a simple interpreted language created by Robert Nystrom for his
+(excellent) book &lt;a href=&#34;https://craftinginterpreters.com/&#34;&gt;&lt;em&gt;Crafting Interpreters&lt;/em&gt;&lt;/a&gt;. Many people have
+extended it in various ways; in this project, students would re-create
+Lox by working through the second half of Nystrom&amp;rsquo;s book, then add
+operator overloading, cooperative concurrency, and a few other features
+to bring the language up to par with &lt;a href=&#34;https://www.lua.org/&#34;&gt;Lua&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Automatic Identification of Variable Roles&lt;/h2&gt;
+&lt;p&gt;Sajaniemi et al&amp;rsquo;s work on &lt;a href=&#34;https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf&#34;&gt;roles of variables&lt;/a&gt; identified and
+named ten small patterns in the way variables are used in novice
+programs. This project would build static and dynamic analysis tools
+to detect those patterns (and possibly others) in programs as an aid
+to teaching, debugging, and code review.&lt;/p&gt;
+&lt;h2&gt;Entity-Relationship Diagrams for Dataframes&lt;/h2&gt;
+&lt;p&gt;Entity-relation (ER) diagrams are one of the few graphical notations
+that programmers actually use voluntarily.  This project would use
+static and dynamic analysis to extract ER diagrams from programs that
+use dataframe libraries like &lt;a href=&#34;https://pandas.pydata.org/&#34;&gt;Pandas&lt;/a&gt; and &lt;a href=&#34;https://pola.rs/&#34;&gt;Polars&lt;/a&gt; to
+show how dataframes are being combined, e.g., to infer foreign key
+relationships.&lt;/p&gt;
+&lt;h2&gt;The Impact of Calibrated Peer Review&lt;/h2&gt;
+&lt;p&gt;Give a novice programmer a one-page program and have them score it
+using a checklist, then grade them on how closely their scoring
+matches the instructor’s. (They start with 100%, and lose one mark for
+each false positive or false negative.) After doing this a handful of
+times, they should learn to see code through the instructor’s
+eyes. Does this help them write better code? If so, how quickly and
+how well?&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Another Static Site Generator for Lessons</title>
@@ -433,9 +508,6 @@ the user try to drag them back into the right places.  A deployable
 version would need to do a lot more, such as dealing with scaling
 transformations; the goal of this project is to turn the demo into
 something a classroom teacher could use.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://iezer.github.io/dragnet/&#34;&gt;Dragnet&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h2&gt;A Tutorial Simulation of Network Protocols&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example in Python&lt;/em&gt;&lt;/a&gt; deliberately ignored
 concurrency, partial failure, and everything else associated with
@@ -1571,179 +1643,6 @@ I hope to help the PSF take the lead in tackling the sustainability crisis,
 and by doing so,
 help ensure that the Python community grows and thrives. &lt;/p&gt;
 &lt;/blockquote&gt;</content>
- </entry>
- 
- <entry>
-   <title>Human-Scale Software</title>
-   <link href="https://third-bit.com/2024/06/14/human-scale-software/"/>
-   <updated>2024-06-14T00:00:00Z</updated>
-   <id>https://third-bit.com/2024/06/14/human-scale-software/</id>
-   <content type="html">&lt;p&gt;I recently posted on Mastodon:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;I&amp;rsquo;m going to write another tech book.&lt;/li&gt;
-&lt;li&gt;If I do, it will be about evidence-based software engineering and/or how big tech companies operate like drug cartels.&lt;/li&gt;
-&lt;li&gt;But I&amp;rsquo;m still thinking about &amp;ldquo;Human-Scale Software: A Guide for the 99.9% of Developers Who Don&amp;rsquo;t Need Scalability&amp;rdquo;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;So what would I use for #3?&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://sqlite.org/&#34;&gt;SQLite&lt;/a&gt; for storage.
-    (&lt;a href=&#34;https://duckdb.org/&#34;&gt;DuckDB&lt;/a&gt; is cool, but I&amp;rsquo;m being deliberately conservative in my choices.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;I wouldn&amp;rsquo;t use an object-relational mapper:
-    I&amp;rsquo;ve used &lt;a href=&#34;https://www.sqlalchemy.org/&#34;&gt;SQLAlchemy&lt;/a&gt; for years,
-    but I think embedded SQL is easier to debug than an ORM for small-to-medium use cases.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://bottlepy.org/&#34;&gt;Bottle&lt;/a&gt; on the back end
-    because it has stayed small while &lt;a href=&#34;https://flask.palletsprojects.com/&#34;&gt;Flask&lt;/a&gt; keeps growing.
-    Note that I wouldn&amp;rsquo;t use type hints in the Python code:
-    if I wanted to write Java, I&amp;rsquo;d write Java.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.dmulholl.com/docs/ibis/master/&#34;&gt;Ibis&lt;/a&gt; templates because they&amp;rsquo;re simpler than &lt;a href=&#34;https://jinja.palletsprojects.com/&#34;&gt;Jinja&lt;/a&gt;.
-    (See also &lt;a href=&#34;https://third-bit.com/2024/02/25/community-norms/&#34;&gt;this post&lt;/a&gt;.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://mamba.readthedocs.io/&#34;&gt;mamba&lt;/a&gt;, &lt;a href=&#34;https://docs.astral.sh/ruff/&#34;&gt;ruff&lt;/a&gt;, and &lt;a href=&#34;https://github.com/astral-sh/uv&#34;&gt;uv&lt;/a&gt; for Python tooling.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://alpinejs.dev/&#34;&gt;Alpine.js&lt;/a&gt; as a front-end framework
-    because &lt;a href=&#34;https://htmx.org/&#34;&gt;htmx&lt;/a&gt; feels a bit left-field
-    and &lt;a href=&#34;https://react.dev/&#34;&gt;React&lt;/a&gt; and &lt;a href=&#34;https://vuejs.org/&#34;&gt;Vue&lt;/a&gt; seem bent on cosplaying Enterprise Java.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.npmjs.com/&#34;&gt;npm&lt;/a&gt;, &lt;a href=&#34;https://vitejs.dev/&#34;&gt;Vite&lt;/a&gt;, and &lt;a href=&#34;https://standardjs.com/&#34;&gt;StandardJS&lt;/a&gt; for JavaScript tooling.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://ui.mantine.dev/&#34;&gt;Mantine&lt;/a&gt; for the UI,
-    though I could be persuaded to stick to &lt;a href=&#34;https://getbootstrap.com/&#34;&gt;Bootstrap&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://pa11y.org/&#34;&gt;Pa11y&lt;/a&gt; for accessibility testing
-    (because &lt;a href=&#34;https://wave.webaim.org/standalone&#34;&gt;the standalone version of WebAIM WAVE&lt;/a&gt; costs US$4000/year).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.netlify.com/&#34;&gt;Netlify&lt;/a&gt; for deployment.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;This list deliberately isn&amp;rsquo;t &lt;a href=&#34;https://third-bit.com/2024/04/18/a-new-stack/&#34;&gt;an entirely new stack&lt;/a&gt;,
-but it&amp;rsquo;s also not entirely conservative.
-I know it should include a security auditing tool to sit beside Pa11y,
-but while I&amp;rsquo;ve watched people use &lt;a href=&#34;https://snyk.io/&#34;&gt;Snyk&lt;/a&gt;
-I don&amp;rsquo;t have any experience with it or alternatives.&lt;/p&gt;
-&lt;p&gt;So much for tools:
-what would I teach?
-My learner persona is:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;Carter has a BSc in bioinformatics
-    and now works as a data scientist for a mid-sized therapeutics company.&lt;/li&gt;
-&lt;li&gt;They know Python well enough to analyze data for their colleagues
-    and build dashboards using &lt;a href=&#34;https://dash.plotly.com/&#34;&gt;Dash&lt;/a&gt;,
-    but only ever did a couple of assignments using JavaScript.&lt;/li&gt;
-&lt;li&gt;Carter wants to build something to replace their company&amp;rsquo;s aging PHP-based record keeping tools.&lt;/li&gt;
-&lt;li&gt;Carter has an &lt;a href=&#34;https://en.wikipedia.org/wiki/Essential_tremor&#34;&gt;idiopathic tremor&lt;/a&gt;
-    that sometimes makes fine motor control difficult.
-    As a result,
-    they find many websites awkward or impossible to use
-    and strongly prefer typing to using a mouse or a touch screen,&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;The motivating example would be a &lt;em&gt;laboratory information management system&lt;/em&gt; (LIMS)
-    designed to handle field samples and laboratory experiments.
-    Luckily,
-    I already have &lt;a href=&#34;https://github.com/gvwilson/snailz&#34;&gt;a synthetic data generator for this&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Database schema design&lt;/em&gt;:
-    I&amp;rsquo;d start with something simple and extend it chapter by chapter.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;…which means the list above should have included a &lt;em&gt;database migration&lt;/em&gt; tool like &lt;a href=&#34;https://sqitch.org/&#34;&gt;Sqitch&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Building a &lt;em&gt;command-line user interface&lt;/em&gt; (CLUI) for administration, batch operations, and testing.
-    (Crap, that means adding &lt;a href=&#34;https://docs.pytest.org/&#34;&gt;pytest&lt;/a&gt; and &lt;a href=&#34;https://click.palletsprojects.com/&#34;&gt;Click&lt;/a&gt; to the list of tools.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Authentication&lt;/em&gt;:
-    it&amp;rsquo;s straightforward to add this to the CLUI,
-    but will require something like &lt;a href=&#34;https://flask-login.readthedocs.io/&#34;&gt;Flask-Login&lt;/a&gt; for the web UI.
-    I don&amp;rsquo;t know of a framework-agnostic alternative,
-    so I might have to revisit my decision to use Bottle.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Routing URLs&lt;/em&gt; to handler functions
-    (and redirecting when authentication is needed).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Permissions&lt;/em&gt;,
-    which means &lt;em&gt;user roles&lt;/em&gt;.
-    Again,
-    &lt;a href=&#34;https://flask-user.readthedocs.io/&#34;&gt;Flask-User&lt;/a&gt; does this and I don&amp;rsquo;t know of a framework-agnostic alternative,
-    so yeah, Flask…&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Generating pages from templates&lt;/em&gt; and &lt;em&gt;form handling&lt;/em&gt;.
-    I hope we&amp;rsquo;ve all outgrown single-page applications,
-    so &lt;em&gt;site architecture design&lt;/em&gt; as a complement to schema design will need to be here.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Paging&lt;/em&gt; for displaying large data sets and &lt;em&gt;plotting&lt;/em&gt; for displaying data graphically.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Responsive web design&lt;/em&gt; because most a lot of people use their phones more than their laptops
-    (particularly when they&amp;rsquo;re in the field).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Accessibility&lt;/em&gt; because I&amp;rsquo;d be ashamed not to
-    and because &lt;a href=&#34;https://educate.elsevier.com/book/details/9780128044674&#34;&gt;I&amp;rsquo;m not getting any younger&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Security&lt;/em&gt; is a hard one.
-    &lt;a href=&#34;https://en.wikipedia.org/wiki/Cross-origin_resource_sharing&#34;&gt;CORS&lt;/a&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/Cross-site_request_forgery&#34;&gt;CSRF&lt;/a&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/SQL_injection&#34;&gt;SQL injection&lt;/a&gt;, authentication, site certificates, and password management
-    are all must-haves,
-    but as &lt;a href=&#34;https://exple.tive.org/blarg/&#34;&gt;Mike Hoye&lt;/a&gt; has observed,
-    what we really need to teach people is things like,
-    &amp;ldquo;How to build websites that can&amp;rsquo;t be exploited by abusive domestic partners.&amp;rdquo;
-    I really don&amp;rsquo;t know what I could do here that wouldn&amp;rsquo;t require a second book;
-    I would try crowdsourcing it like &lt;a href=&#34;https://aosabook.org/&#34;&gt;&lt;em&gt;The Architecture of Open Source Applications&lt;/em&gt;&lt;/a&gt;,
-    but that didn&amp;rsquo;t go anywhere &lt;a href=&#34;https://third-bit.com/2024/01/23/the-votes-are-in/&#34;&gt;the last time I tried it&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;This book will probably never happen,
-but probably isn&amp;rsquo;t the same as definitely.
-If you think of anything else that ought to be included,
-please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;let me know&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Later:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Irving Reid pointed out that running the application is as important as building it,
-    and suggested the lessons should include creating and restoring backups,
-    deploying updates,
-    and observability
-    (which involves more than creating log messages that are findable, comprehensible, and informative,
-    but that would be a good start).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Someone else (name unknown) felt that dependency maintenance should be on the list as well,
-    i.e.,
-    that there should be a lesson about vulnerability scans and automating checks for dependency updates.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Someone else (name also unknown) suggested that there ought to be a lesson on debugging full-stack applications,
-    and that the lessons should show how to create good pull requests and how to review them.
-    I strongly agree,
-    but teaching verbs is a lot harder than teaching nouns,
-    and this is already far too ambitious for something that would already take a year of unpaid work.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</content>
  </entry>
  
 </feed>

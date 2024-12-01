@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../../../assets/thirdbit.css">
     <link rel="stylesheet" href="../../../../assets/page.css">
     
-<title>The Third Bit: Student Project Proposals</title>
+<title>The Third Bit: More Student Project Proposals</title>
 
     
   </head>
@@ -35,71 +35,31 @@
 </nav>
     <main>
       
-<h1>Student Project Proposals</h1>
+<h1>More Student Project Proposals</h1>
 
 
 <div class="row">
   <div class="col-2 left">
     
-      <a href="../../../../2024/10/14/case-studies-in-open-x/">
+      <a href="../../../../2024/11/30/another-ssg-for-lessons/">
         &lArr; <span class="pagination-text">previous</span>
       </a>
     
   </div>
   <div class="col-8 center">
-    Posted <time datetime="2024-10-18" class="post-date">2024-10-18</time>
+    Posted <time datetime="2024-12-01" class="post-date">2024-12-01</time>
   </div>
   <div class="col-2 right">
     
-      <a href="../../../../2024/10/20/wish-list/">
-        <span class="pagination-text">next</span> &rArr;
-      </a>
-    
   </div>
 </div>
-<!-- content --><p>My laptop screensaver says &ldquo;no new projects&rdquo; but I&rsquo;d make an exception
-to supervise a team of 2-4 undergraduates who wanted to tackle one of
-the challenges described below. If you are teaching an undergraduate
-capstone course and might be interested, please reach out.</p>
-<h2>Browsercast</h2>
-<p>Tools like PowerPoint aren&rsquo;t web-friendly.  When you export a
-slideshow to present on the web, what you actually get is a bunch of
-images.  There&rsquo;s no text, just pixels arranged in the shapes of
-letters; no hyperlinks; and nothing search engines or disability aids
-can read.  What&rsquo;s worse, if you want something people can replay, you
-have to make a screencast, which are just as opaque to search engines
-and disability aids and probably several times larger than the
-original slides.</p>
-<p>Browsercast is our solution to this problem.  It plays snippets of
-audio in your browser as you move through your slides.  &ldquo;View Source&rdquo;,
-links, CSS, screen readers, and search work as they should because
-it&rsquo;s all still web-native HTML.  And since it&rsquo;s just text and audio,
-it&rsquo;s a fraction of the size of a video, which makes it ideal for
-mobile devices.</p>
-<p>Our prototype uses just 5kb of JavaScript and is available under the
-MIT License. There are many open questions; we are looking for a team
-of 2-4 students with strong JavaScript skills and an interest in user
-experience design to explore ways we can make it better.</p>
-<ul>
-<li><a href="https://github.com/gvwilson/browsercast">Browsercast</a></li>
-</ul>
-<h2>Marimo and H5P</h2>
-<p>Marimo is a next-generation computational notebook that enables data
-scientists to mix code, discussion, and results in a reproducible way.
-Its plugin system relies on AnyWidget, which specifies a simple
-contract between extensions and Marimo&rsquo;s rendering and execution
-engine.</p>
-<p>The aim of this project is to design, build, and test a set of Marimo
-plugins that can be used for classroom exercises similar to those in
-the H5P toolkit: multiple choice, fill in the blanks, and so on. We
-are looking for a team of 2-4 students with both JavaScript and Python
-skills who have an interest in both user experience design and
-teaching.</p>
-<ul>
-<li><a href="https://marimo.io/">Marimo Notebook</a></li>
-<li><a href="https://anywidget.dev/">AnyWidget</a></li>
-<li><a href="https://h5p.org/content-types-and-applications">H5P Content Types</a></li>
-</ul>
+<!-- content --><p>Six weeks ago I posted some <a href="../../../../2024/10/18/student-project-proposals/">undergraduate software projects</a>
+that I would be excited about supervising.  Two of those—Browsercast
+and the Marimo plugins—have been picked up by students at the
+University of Toronto.  The other three are still available, and I&rsquo;ve
+added a couple of others (see below). If you&rsquo;re a senior looking for
+a capstone project or a professor looking for projects with a
+supervisor, please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
 <h2>Dragnet</h2>
 <p>One type of exercise that H5P <em>doesn&rsquo;t</em> support is adding labels to
 diagrams. <a href="https://iezer.github.io/dragnet/">This prototype</a> takes an SVG with some
@@ -108,30 +68,59 @@ the user try to drag them back into the right places.  A deployable
 version would need to do a lot more, such as dealing with scaling
 transformations; the goal of this project is to turn the demo into
 something a classroom teacher could use.</p>
-<h2>A Tutorial Simulation of Network Protocols</h2>
+<h2>Tutorial Simulations of Distributed Systems</h2>
 <p><a href="https://third-bit.com/sdxpy/"><em>Software Design by Example in Python</em></a> deliberately ignored
 concurrency, partial failure, and everything else associated with
 modern distributed applications. The aim of this project is to (start
-to) fix that by building scale models of real network protocols such
-as TCP and the BitTorrent protocol using either <a href="https://pydes.readthedocs.io/">Py-DES</a> or
-<a href="https://simpy.readthedocs.io/">SimPy</a>. The tutorials will use simulators so that the
-accompanying lessons could illustrate edge cases in reproducible ways;
-making the implementations work on a real network as well will be a
-good stretch goal.</p>
+to) fix that by building scale models of distributed protocols and
+systems from TCP to BitTorrent and load-balancing tools using either
+<a href="https://pydes.readthedocs.io/">Py-DES</a> or <a href="https://simpy.readthedocs.io/">SimPy</a>. The tutorials will use simulators
+so that the accompanying lessons could illustrate edge cases in
+reproducible ways.</p>
 <h2>Software Design by Example in Gleam</h2>
-<p>For decades, functional programming (FP) has offered an alternative to
-the imperative, procedural model used by most languages. As highly
-concurrent systems have become the norm, FP&rsquo;s promise of preventing
-entire classes of bugs by avoiding mutable state has led a growing
-number of programmers to re-examine it, but there is still often a
-gulf between the kinds of examples language designers find
-interesting and the kinds of things most working programmers build.</p>
 <p><a href="https://gleam.run/">Gleam</a> is a modern functional language that runs on the
 <a href="https://www.erlang.org/">Erlang/OTP</a> platform (and can also be compiled to
 JavaScript). The aim of this project is to translate examples from
 <a href="https://third-bit.com/sdxpy/"><em>Software Design by Example in Python</em></a> into Gleam to help
 people coming from Python and other mainstream languages understand
-how to use FP in practice.</p><!-- /content -->
+how to use FP in practice.</p>
+<h2>Parallelizing Marimo Notebooks</h2>
+<p><a href="https://marimo.io/">Marimo</a> is a next-generation computational notebook that (a)
+stores everything as Python source code and (b) analyzes code to
+prevent out-of-order execution of cells. <a href="https://dagster.io/">Dagster</a> and
+<a href="https://metaflow.org/">Metaflow</a> are computational workflow tools that allow users
+to add decorators to functions and methods to specify computational
+chunks. The goal of this project is to see if the two can be married,
+i.e., to see if it&rsquo;s possible to add decorators to cell functions in
+Marimo to parallelize notebooks directly.</p>
+<h2>Extending Lox</h2>
+<p>Lox is a simple interpreted language created by Robert Nystrom for his
+(excellent) book <a href="https://craftinginterpreters.com/"><em>Crafting Interpreters</em></a>. Many people have
+extended it in various ways; in this project, students would re-create
+Lox by working through the second half of Nystrom&rsquo;s book, then add
+operator overloading, cooperative concurrency, and a few other features
+to bring the language up to par with <a href="https://www.lua.org/">Lua</a>.</p>
+<h2>Automatic Identification of Variable Roles</h2>
+<p>Sajaniemi et al&rsquo;s work on <a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles of variables</a> identified and
+named ten small patterns in the way variables are used in novice
+programs. This project would build static and dynamic analysis tools
+to detect those patterns (and possibly others) in programs as an aid
+to teaching, debugging, and code review.</p>
+<h2>Entity-Relationship Diagrams for Dataframes</h2>
+<p>Entity-relation (ER) diagrams are one of the few graphical notations
+that programmers actually use voluntarily.  This project would use
+static and dynamic analysis to extract ER diagrams from programs that
+use dataframe libraries like <a href="https://pandas.pydata.org/">Pandas</a> and <a href="https://pola.rs/">Polars</a> to
+show how dataframes are being combined, e.g., to infer foreign key
+relationships.</p>
+<h2>The Impact of Calibrated Peer Review</h2>
+<p>Give a novice programmer a one-page program and have them score it
+using a checklist, then grade them on how closely their scoring
+matches the instructor’s. (They start with 100%, and lose one mark for
+each false positive or false negative.) After doing this a handful of
+times, they should learn to see code through the instructor’s
+eyes. Does this help them write better code? If so, how quickly and
+how well?</p><!-- /content -->
 
     </main>
     <footer>
