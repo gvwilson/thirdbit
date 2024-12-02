@@ -21,4 +21,3 @@ and one of my colleagues looked me up and down and said,
 
 Time to make another cup of tea.
 If you came in peace, be welcome.
-If not, be damned with you.

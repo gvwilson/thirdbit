@@ -13,6 +13,6 @@ he laughed and asked,
 "Who won?"
 
 Time to make another cup of tea.
-If you came in peace, be welcome; if not, be damned with you.
+If you came in peace, be welcome.
 
 [jeff]: @root/2018/03/20/goodbye-jeff/

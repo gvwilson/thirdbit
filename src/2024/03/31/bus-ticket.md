@@ -46,5 +46,4 @@ I can't even really remember his face any more,
 but in a way I think I've spent a lot of the last forty years trying to pay him back.
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.

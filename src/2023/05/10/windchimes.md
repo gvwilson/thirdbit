@@ -23,5 +23,4 @@ Either way,
 did the other chimes miss it?
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.

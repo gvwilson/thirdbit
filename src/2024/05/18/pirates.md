@@ -36,5 +36,4 @@ And for a little while at least,
 my nephew was a believer.
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.

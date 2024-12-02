@@ -19,8 +19,7 @@ and I wonder sometimes if [the things I've done][directions]
 have just been my way of washing dishes.
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.
 
 [directions]: @root/2023/10/15/directions/
 [sylvia]: @root/2012/01/21/the-life-i-did-live-the-breath-i-breathed/

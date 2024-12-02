@@ -28,4 +28,3 @@ just lives its life at a slower pace.
 
 Time to make another cup of tea.
 If you came in peace, be welcome.
-If not, be damned with you.

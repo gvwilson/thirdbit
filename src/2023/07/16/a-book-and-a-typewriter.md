@@ -17,5 +17,4 @@ or whether meaning is like an old house that each generation renovates to meet i
 only to have the next generation renovate again.
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.

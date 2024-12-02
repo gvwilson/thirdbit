@@ -61,5 +61,4 @@ but thirty-one years later,
 I can still sometimes hear the hurt and anger in her voice.
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.

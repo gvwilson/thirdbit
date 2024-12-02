@@ -22,7 +22,6 @@ and if so,
 for how long?
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.
 
 [nwit]: https://neverworkintheory.org/

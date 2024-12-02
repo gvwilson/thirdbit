@@ -58,5 +58,4 @@ if we'd been willing to listen
 and what else I've missed along the way.
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.

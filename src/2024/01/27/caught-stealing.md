@@ -24,6 +24,4 @@ You're just afraid there will be consequences.
 It's not the same thing."
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not,
-be damned with you.
+If you came in peace, be welcome.

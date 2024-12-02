@@ -40,5 +40,4 @@ before he was too weak to go out on his own any more.
 I hope it was enough for him to feel that he'd done as much as he could.
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.

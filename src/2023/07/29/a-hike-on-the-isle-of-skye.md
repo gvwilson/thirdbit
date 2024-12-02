@@ -33,4 +33,4 @@ and if so,
 whether visitors still make the sound I made when the water comes on.
 
 Time to make another cup of tea.
-If you came in peace, be welcome; if not, be damned with you.
+If you came in peace, be welcome.

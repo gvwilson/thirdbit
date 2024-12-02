@@ -26,5 +26,4 @@ that state in which you don't yet feel embarrassed or idiotic,
 but know that you're about to.
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.

@@ -33,5 +33,4 @@ and whatever window might once have been open had closed.
 My advice to you is there to build robots whenever you can.
 
 Time to make another cup of tea.
-If you came in peace, be welcome;
-if not, be damned with you.
+If you came in peace, be welcome.
