@@ -257,5 +257,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Mészáros and Wachs 2024: "The Dynamics of Innovation in Open Source Software Ecosystems" <https://arxiv.org/abs/2411.14894> Analyzes library imports and pairs of imports across multiple languages and confirms Pareto distribution and sublinear growth. (As with much SE research, this is interesting but I'm not sure what to do with it…)
 
+1.  Nourry et al 2024: "Myth: The loss of core developers is a critical issue for OSS communities" <https://arxiv.org/abs/2412.00313> "89% of studied projects have lost their core development team at least once…in 70% of cases, this happened in the first three years of the project… most projects rely on a single core developer [and] only 27% of projects that were abandoned were able to attract at least one new [core] developer." actually makes it sound like loss of core devs *is* an issue, not a myth…
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
