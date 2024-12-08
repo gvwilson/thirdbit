@@ -18,10 +18,10 @@ I have two answers:
     other ideas might.
 
 1.  A mid-level developer position building software for scientists.
-    I say "building" because I miss making useful things,
-    "mid-level" because I'd really like to learn a few new things
-    before I put my keyboard aside,
-    and "for scientists" because it's so rewarding.
+    I say "for scientists" because it's so rewarding,
+    "building" because I miss being neck-deep in code,
+    and "mid-level" because I'd really like to learn
+    a few of the things that slid by me over the past twenty years.
     [Gleam][gleam]?
     [htmx][htmx]?
     [Marimo][marimo]?
@@ -29,12 +29,11 @@ I have two answers:
     It wouldn't really matter as long as I felt every day
     that I understood something I hadn't understood the day before.
 
-I don't think I could combine these two roles:
-I always put programming to the side if I'm managing and networking.
-I also think that it would be easier for me to get the first one than the second:
-ageism is real,
-and our industry doesn't know what to do with people who say that
-they deliberately want to take (what is viewed as) a step down in their career.
+I don't think I could combine these two roles
+because I always put programming to the side if I'm managing and networking.
+I also think that it would be easier for me to get the first role than the second:
+our industry doesn't know what to do with people who want to take (what is viewed as)
+a step down in their career for personal satisfaction.
 
 The most surprising thing is that "teaching full-time" isn't on my list
 for the first time in two decades.
@@ -46,6 +45,9 @@ that I didn't already know ten or fifteen years ago;
 while there's a lot to be said for [playing the standards][late-night-thoughts],
 my daughter will be moving out in a few months to start college,
 and I need to find something to occupy my mind when she does.
+
+p.s. one other thing I'd put on the wish list is an office within cycling distance.
+I miss being able to grab a coffee with my co-workers once or twice a week…
 
 [aosa]: https://aosabook.org/
 [gleam]: https://gleam.run/
