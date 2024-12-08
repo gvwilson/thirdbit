@@ -3761,9 +3761,89 @@ The building bleeped back.
 The bot rolled spun around slowly,
 reminding Maddy of Gumption's grandfather looking for a pistachio he had dropped on the floor.
 
-Finally the bot bleeped again.
-The building replied with a single disappointed *ping*.
-As the bot rolled away,
-Maddy hurried after it.
+Finally the building bleeped again.
+The bot replied with a single disappointed *ping*.
+As it rolled away,
+Maddy hurried after it,
+hoping desperately that the discombobulator wouldn't run out of charge
+before she found *something*.
+
+As it turned out,
+she didn't have to worry.
+Three long blocks away the bot rolled past the greenhouse Maddy had seen earlier
+and turned a corner.
+A door large enough for the barn back in Rusty Bridge slid open as the bot approached.
+*Aright,* she thought,
+*Play or go home.*
+Holding her breath,
+she followed the bot inside.
+
+Five other bots just like it lined the walls of the room she found herself in,
+though "room" didn't feel like the right word.
+The ceiling was two stories above her,
+maybe more,
+and the only exit was a normal-sized door opposite the one behind her.
+It felt like a warehouse without shelves
+or a machine shop that someone had emptied out,
+lonely and somehow purposeless.
+
+She waited while the four-wheeled bot had backed into a spot beside two of the others.
+The lights on its sides dimmed.
+As the lights overhead began to dim as well,
+she tiptoed forward.
+To her surprise,
+the interior door slid aside as she approached.
+She froze for a moment,
+expecting alarms or lasers or possibly both.
+When nothing happened,
+she stepped inside.
+
+Ceiling lights came on automatically as she crept along a perfectly normal corridor
+with perfectly normal doors on either side.
+None of them were labeled,
+and none responded to her touch.
+It felt more and more like she was walking into a trap,
+but what else could she do?
+
+A set of stairs like the one's in Patient's lair brought her to another corridor
+on the the second floor.
+The doors here had handles.
+She paused for a moment before reaching for the nearest one.
+The four-wheeled bot wouldn't have been able to climb those stairs.
+If this really was where people like her were brought,
+something else must have come to meet it.
+
+*Click.*
+She pulled the door open,
+stepped inside,
+and froze in shock.
+
+A dozen plain metal cots filled an airless, windowless room.
+Half were empty,
+but the ones nearest her held—she swallowed hard.
+Those had been people, once,
+deer and ox and wolves and goats and something she thought was a crocodile
+but might have been an alligator,
+she could never tell the two apart.
+All of them still wore simple white shirts and trousers.
+All of them had wires attached to helmets on their heads,
+and all of them had been dead for quite some time.
+
+She backed up and closed the door gently.
+There were two more doors on this side of the corridor
+and three on the other.
+On impulse,
+she turned off her discombobulator—it would need to recharge soon
+no matter what she did—and strode down the hall to the door furthest from the stairs.
+
+*Click.*
+She pulled it open,
+expecting another scene out of one of the books Special Leaf always warned her
+would give her nightmares.
+Another dozen cots stood in three neat rows of four.
+Two rows were empty.
+The third—she gasped.
+
+"Papa?"
 
 </section>
