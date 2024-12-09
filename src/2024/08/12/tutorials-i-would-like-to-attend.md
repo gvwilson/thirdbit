@@ -67,8 +67,8 @@ please [get in touch](mailto:gvwilson@third-bit.com).
 [bitarray]: https://pypi.org/project/bitarray/
 [browser-tut]: https://browser.engineering/
 [dash]: https://dash.plotly.com/
-[nots]: @root/not-on-the-shelves/
-[nots-2024]: @root/not-on-the-shelves/2024/
+[nots]: @root/ideas/not-on-the-shelves/
+[nots-2024]: @root/ideas/not-on-the-shelves/2024/
 [numpy]: https://numpy.org/
 [shiny]: https://shiny.posit.co/
 [sys-tutorial]: https://gvwilson.github.io/sys-tutorial/
