@@ -17,5 +17,5 @@ If you'd like to help with any of the ideas in [my list][shelves] or take one on
 please [let me know](mailto:gvwilson@third-bit.com).
 
 [js4ds]: @root/js4ds/
-[shelves]: @root/not-on-the-shelves/2019/
+[shelves]: @root/ideas/not-on-the-shelves/2019/
 [t3]: http://teachtogether.tech

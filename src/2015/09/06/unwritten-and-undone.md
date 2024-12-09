@@ -8,10 +8,10 @@ date: 2015-09-06
   by writing reviews of books that don't actually exist
   in the hope that it will inspire someone to write them.
   Previous versions written in
-  <a href="@root/not-on-the-shelves/1997/">1997</a>,
-  <a href="@root/not-on-the-shelves/2003/">2003</a>,
-  <a href="@root/not-on-the-shelves/2009/">2009</a>,
-  and <a href="@root/not-on-the-shelves/2014/">2014</a>
+  <a href="@root/ideas/not-on-the-shelves/1997/">1997</a>,
+  <a href="@root/ideas/not-on-the-shelves/2003/">2003</a>,
+  <a href="@root/ideas/not-on-the-shelves/2009/">2009</a>,
+  and <a href="@root/ideas/not-on-the-shelves/2014/">2014</a>
   led to
   <a href="http://www.amazon.com/Beautiful-Code-Leading-Programmers-Practice/dp/0596510047/"><em>Beautiful Code</em></a>,
   <a href="http://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321/"><em>Making Software</em></a>,

@@ -59,4 +59,4 @@ If you have any to contribute, please [get in touch](mailto:gvwilson@third-bit.c
   <li>RHB: Rebecca Hartman-Baker</li>
 </ul>
 
-[talking]: @root/advice/#talking-people-into-things
+[talking]: @root/ideas/advice/#talking-people-into-things

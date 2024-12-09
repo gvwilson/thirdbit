@@ -39,6 +39,6 @@ please [reach out](mailto:gvwilson@third-bit.com).
 [rsepy]: @root/py-rse/
 [sdxjs]: @root/sdxjs/
 [sdxpy]: @root/sdxpy/
-[shelves]: @root/not-on-the-shelves/2024/
+[shelves]: @root/ideas/not-on-the-shelves/2024/
 [t3]: https://teachtogether.tech/
-[unwritten]: @root/not-on-the-shelves/
+[unwritten]: @root/ideas/not-on-the-shelves/

@@ -104,7 +104,7 @@ please let me know.
 
 [aosa]: https://aosabook.org/
 [beautiful-code]: https://www.oreilly.com/library/view/beautiful-code/9780596510046/
-[being-fired]: @root/advice/#being-fired
+[being-fired]: @root/ideas/advice/#being-fired
 [iq-personality-tests]: @root/2021/09/13/iq-and-personality-tests/
 [making-software]: https://www.amazon.com/Making-Software-Really-Works-Believe/dp/0596808321
 [meeting-video]: https://www.youtube.com/watch?v=K77Mi7pysGM

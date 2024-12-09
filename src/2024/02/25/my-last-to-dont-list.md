@@ -130,7 +130,7 @@ A caravan defense game.
 [tidyblocks-repo]: https://github.com/tidyblocks/tidyblocks
 [tidynomicon]: https://tidynomicon.github.io/tidynomicon/
 [to-dont-post]: @root/2018/11/28/to-dont-list/
-[unwritten]: @root/not-on-the-shelves/
+[unwritten]: @root/ideas/not-on-the-shelves/
 [use-case-maps-post]: @root/2018/12/27/use-case-maps/
 [vignette-post]: @root/2022/08/14/ese-vignette/
 [yahoo-pipes]: https://en.wikipedia.org/wiki/Yahoo!_Pipes

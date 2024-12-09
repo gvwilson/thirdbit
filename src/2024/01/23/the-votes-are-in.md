@@ -13,4 +13,4 @@ only placed fifth.
 
 <img width="100%" src="@root/files/2024/unwritten-2024-01.svg" />
 
-[unwritten-2024]: https://third-bit.com/not-on-the-shelves/2024/
+[unwritten-2024]: @root/ideas/not-on-the-shelves/2024/

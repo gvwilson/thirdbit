@@ -46,7 +46,7 @@ can show just how large the space of possible designs actually is.
 [cook]: https://maryrosecook.com/
 [fossil]: https://www2.fossil-scm.org/
 [gitlet]: http://gitlet.maryrosecook.com/
-[not_on_the_shelves]: @root/not-on-the-shelves/
+[not_on_the_shelves]: @root/ideas/not-on-the-shelves/
 [sdxjs_debugger]: @root/sdxjs/debugger/
 [sdxjs_backup]: @root/sdxjs/file-backup/
 [sdxjs_layout]: @root/sdxjs/layout-engine/
