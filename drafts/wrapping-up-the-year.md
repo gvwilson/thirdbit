@@ -48,9 +48,139 @@ Another year over and what have I done?
     or find a writing group in Toronto.
 
 What have I read that I would recommend?
-Top of the list is Samantha Harvey's *Orbital*,
+Top of the list is Samantha Harvey's Orbital,
 which deserves all the praise it has been given—I can't remember
 the last time I read something so beautifully written.
+
+<div class="row">
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/bohannon-eve.jpg" alt="Bohannon: Eve: How the Female Body Drove 200 Millions Years of Evolution" width="80%">
+    <br>
+    Cat Bohannon: <em>Eve: How the Female Body Drove 200 Millions Years of Evolution</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/brooks-cautious.jpg" alt="Brooks: The Cautious Traveller's Guide to the Wastelands" width="80%">
+    <br>
+    Sarah Brooks: <em>The Cautious Traveller's Guide to the Wastelands</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/czerski-blue.jpg" alt="Czerski: The Blue Machine" width="80%">
+    <br>
+    Helen Czerski: <em>The Blue Machine</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/davies-lying.jpg" alt="Davies: Lying for Money" width="80%">
+    <br>
+    Dan Davies: <em>Lying for Money</em>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/davis-girls.jpg" alt="Davis: The Good Luck Girls" width="80%">
+    <br>
+    Charlotte Nicole Davis: <em>The Good Luck Girls</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/diehl-walls.jpg" alt="Diehl: Glass Walls: Shattering the Six Gender Bias Barriers Still Holding Women Back at Work" width="80%">
+    <br>
+    Amy Diehl: <em>Glass Walls: Shattering the Six Gender Bias Barriers Still Holding Women Back at Work</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/farmer-elderflora.jpg" alt="Farmer: Elderflora" width="80%">
+    <br>
+    Jared Farmer: <em>Elderflora</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/glenny-balkans.jpg" alt="Glenny: The Balkans" width="80%">
+    <br>
+    Misha Glenny: <em>The Balkans</em>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/googins-transition.jpg" alt="Googins: The Great Transition" width="80%">
+    <br>
+    Nick Fuller Googins: <em>The Great Transition</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/harrow-starling.jpg" alt="Harrow: Starling House" width="80%">
+    <br>
+    Alix Harrow: <em>Starling House</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/harvey-orbital.jpg" alt="Harvey: Orbital" width="80%">
+    <br>
+    Samantha Harvey: <em>Orbital</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/henderson-noises.jpg" alt="Henderson: A Book of Noises: Notes on the Auraculous" width="80%">
+    <br>
+    Caspar Henderson: <em>A Book of Noises: Notes on the Auraculous</em>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/hershovitz-philosophy.jpg" alt="Hershovitz: Nasty, Brutish, and Short: Adventures in Philosophy with Kids" width="80%">
+    <br>
+    Scott Hershovitz: <em>Nasty, Brutish, and Short: Adventures in Philosophy with Kids</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/house-consciousness.jpg" alt="House: Nineteen Ways of Looking at Consciousness" width="80%">
+    <br>
+    Patrick House: <em>Nineteen Ways of Looking at Consciousness</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/jimenez-spear.jpg" alt="Jimenez: The Spear Cuts Through Water" width="80%">
+    <br>
+    Simon Jimenez: <em>The Spear Cuts Through Water</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/king-bookseller.jpg" alt="King: The Bookseller of Florence" width="80%">
+    <br>
+    Ross King: <em>The Bookseller of Florence</em>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/koenig-sorrows.jpg" alt="Koenig: The Dictionary of Obscure Sorrows" width="80%">
+    <br>
+    John Koenig: <em>The Dictionary of Obscure Sorrows</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/liss-peculiarities.jpg" alt="Liss: The Peculiarities" width="80%">
+    <br>
+    David Liss: <em>The Peculiarities</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/merchant-machine.jpg" alt="Merchant: Blood in the Machine" width="80%">
+    <br>
+    Brian Merchant: <em>Blood in the Machine</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/prasad-silk.jpg" alt="Prasad: Silk: A World History" width="80%">
+    <br>
+    Aarathi Prasad: <em>Silk: A World History</em>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/robeyns-limitarianism.jpg" alt="Robeyns: Limitarianism: The Case Against Extreme Wealth" width="80%">
+    <br>
+    Ingrid Robeyns: <em>Limitarianism: The Case Against Extreme Wealth</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/young-abolishing.jpg" alt="Young: Abolishing Fossil Fuels: Lessons from Movements that Won" width="80%">
+    <br>
+    Kevin Young: <em>Abolishing Fossil Fuels: Lessons from Movements that Won</em>
+  </div>
+  <div class="col-3 col center">
+    <img src="@root/files/2024/books/zevin-tomorrow.jpg" alt="Zevin: Tomorrow, and Tomorrow, and Tomorrow" width="80%">
+    <br>
+    Gabrielle Zevin: <em>Tomorrow, and Tomorrow, and Tomorrow</em>
+  </div>
+  <div class="col-3 col center">
+  </div>
+</div>
 
 -   Cat Bohannon: *Eve: How the Female Body Drove 200 Millions Years of Evolution*
 -   Sarah Brooks: *The Cautious Traveller's Guide to the Wastelands*
@@ -75,7 +205,7 @@ the last time I read something so beautifully written.
 -   Kevin Young: *Abolishing Fossil Fuels: Lessons from Movements that Won*
 -   Gabrielle Zevin: *Tomorrow, and Tomorrow, and Tomorrow*
 
-so what about the year to come?
+So what about the year to come?
 
 -   My daughter will finish high school in June and leave home in August to start college.
     I don't know how we're going to fill our evenings and weekends without her,
