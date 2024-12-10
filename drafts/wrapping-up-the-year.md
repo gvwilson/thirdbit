@@ -47,25 +47,52 @@ Another year over and what have I done?
     write any new short stories,
     or find a writing group in Toronto.
 
-What about the year to come?
+What have I read that I would recommend?
+Top of the list is Samantha Harvey's *Orbital*,
+which deserves all the praise it has been given—I can't remember
+the last time I read something so beautifully written.
 
--   My daughter is set to finish high school in June and will leave home in August to start college.
-    I don't know how we're going to fill our evenings and weekends without her;
-    terracing the slope in our back yard will only keep us busy for a few weekends.
+-   Cat Bohannon: *Eve: How the Female Body Drove 200 Millions Years of Evolution*
+-   Sarah Brooks: *The Cautious Traveller's Guide to the Wastelands*
+-   Helen Czerski: *The Blue Machine*
+-   Dan Davies: *Lying for Money*
+-   Charlotte Nicole Davis: *The Good Luck Girls*
+-   Amy Diehl: *Glass Walls: Shattering the Six Gender Bias Barriers Still Holding Women Back at Work*
+-   Jared Farmer: *Elderflora*
+-   Misha Glenny: *The Balkans*
+-   Nick Fuller Googins: *The Great Transition*
+-   Alix Harrow: *Starling House*
+-   Caspar Henderson: *A Book of Noises: Notes on the Auraculous*
+-   Scott Hershovitz: *Nasty, Brutish, and Short: Adventures in Philosophy with Kids*
+-   Patrick House: *Nineteen Ways of Looking at Consciousness*
+-   Simon Jimenez: *The Spear Cuts Through Water*
+-   Ross King: *The Bookseller of Florence*
+-   John Koenig: *The Dictionary of Obscure Sorrows*
+-   David Liss: *The Peculiarities*
+-   Brian Merchant: *Blood in the Machine*
+-   Aarathi Prasad: *Silk: A World History*
+-   Ingrid Robeyns: *Limitarianism: The Case Against Extreme Wealth*
+-   Kevin Young: *Abolishing Fossil Fuels: Lessons from Movements that Won*
+-   Gabrielle Zevin: *Tomorrow, and Tomorrow, and Tomorrow*
+
+so what about the year to come?
+
+-   My daughter will finish high school in June and leave home in August to start college.
+    I don't know how we're going to fill our evenings and weekends without her,
+    but we might finally get around to terracing the slope in our back yard.
 
 -   I'll be supervising some [undergrad][browsercast] [projects][mossball] at the University of Toronto
     for the first time in 15 years.
 
--   I'm going to keep trying to write,
+-   I'm going to keep trying to write fiction,
     but without peers to write *for* or the prospect of a market,
     it's a hard slog.
 
 -   The same holds for the penny whistle:
     I have to find a teacher or a group to play with or I probably won't stick with it.
     (By way of which,
-    if you know anyone organizing jazz sessions in the east end of Toronto,
-    please give me a shout—the only thing I can find
-    is on the other side of the city.)
+    if you know anyone organizing small ensemble lessons in Toronto's east end
+    please give me a shout—the only person I can find is on the other side of the city.)
 
 [browsercast]: https://github.com/gvwilson/browercast/
 [capilano]: https://www.capbridge.com/
