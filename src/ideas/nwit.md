@@ -259,5 +259,11 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Nourry et al 2024: "Myth: The loss of core developers is a critical issue for OSS communities" <https://arxiv.org/abs/2412.00313> "89% of studied projects have lost their core development team at least once…in 70% of cases, this happened in the first three years of the project… most projects rely on a single core developer [and] only 27% of projects that were abandoned were able to attract at least one new [core] developer." actually makes it sound like loss of core devs *is* an issue, not a myth…
 
+1.  Ruohonen et al 2024: "An Overview of Cyber Security Funding for Open Source Software" <https://arxiv.org/abs/2412.05887> A brief look at who's funding what and why in open source security.
+
+1.  Felix de Sousa et al 2024: "Integrating Positionality Statements in Empirical Software Engineering Research" <https://arxiv.org/abs/2412.06567> Social science researchers are routinely explicit about identities and experiences that might shape their work; this paper looks at the use of the practice in software engineering research.
+
+1.  Cui et al 2024: "Fearless unsafe. Safety Property is all you need" <https://arxiv.org/abs/2412.06251> Categorizes the use of `unsafe` in Rust and looks at its impact on vulnerability exploits.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
