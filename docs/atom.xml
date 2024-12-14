@@ -3,12 +3,54 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2024-12-12T00:00:00Z</updated>
+ <updated>2024-12-14T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Snailz</title>
+   <link href="https://third-bit.com/2024/12/14/snailz/"/>
+   <updated>2024-12-14T00:00:00Z</updated>
+   <id>https://third-bit.com/2024/12/14/snailz/</id>
+   <content type="html">&lt;p&gt;Earlier this year I put together notes for
+a companion to the &lt;a href=&#34;https://third-bit.com/sdxjs/&#34;&gt;JavaScript&lt;/a&gt; and &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;Python&lt;/a&gt; versions of &lt;em&gt;Software Design by Example&lt;/em&gt;
+aimed at &lt;a href=&#34;https://en.wikipedia.org/wiki/Research_software_engineering&#34;&gt;research software engineers&lt;/a&gt;.
+I shelved &lt;a href=&#34;https://lessonomicon.github.io/rsdx/&#34;&gt;the project&lt;/a&gt; because the (lack of) reaction to the first two books
+convinced me that this isn&amp;rsquo;t what most people are looking for,
+but I still hope that one of the software packages I built along the way might be useful.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pypi.org/project/snailz/&#34;&gt;Snailz&lt;/a&gt; is a set of &lt;a href=&#34;https://en.wikipedia.org/wiki/Synthetic_data&#34;&gt;synthetic data generators&lt;/a&gt;
+that simulate the collection, storage, and analysis of data related to
+snails in the Pacific Northwest
+that are growing unusually large as a result of exposure to pollution.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One or more &lt;em&gt;surveys&lt;/em&gt; are conducted at one or more &lt;em&gt;sites&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Each survey collects &lt;em&gt;genomes&lt;/em&gt; and &lt;em&gt;sizes&lt;/em&gt; of snails.&lt;/li&gt;
+&lt;li&gt;A &lt;em&gt;grid&lt;/em&gt; at each site is marked out to show the presence or absence of pollution.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Laboratory staff&lt;/em&gt; perform &lt;em&gt;assays&lt;/em&gt; of the snails&amp;rsquo; genetic material.&lt;/li&gt;
+&lt;li&gt;Each assay plate has a &lt;em&gt;design&lt;/em&gt; showing the material applied and &lt;em&gt;readings&lt;/em&gt; showing the measured response.&lt;/li&gt;
+&lt;li&gt;Plates may be &lt;em&gt;invalidated&lt;/em&gt; after the fact if a staff member believes it is contaminated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The first diagram below shows the schema of the database that holds the results;
+the second shows how various scripts and parameter files interact
+to create that database.
+Along the way,
+the scripts also create CSV files describing the designs of genomic assay plates
+and both messy and tidy versions of readings for those plates.
+The whole process is documented on &lt;a href=&#34;https://lessonomicon.github.io/snailz/&#34;&gt;the package site&lt;/a&gt;,
+and all the code is open source.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;https://third-bit.com/files/2024/snailz-schema.svg&#34; alt=&#34;Database schema of snailz data&#34;&gt;
+  &lt;figcaption&gt;Snailz database schema&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&#34;https://third-bit.com/files/2024/snailz-workflow.svg&#34; alt=&#34;Workflow for generating snailz data&#34;&gt;
+  &lt;figcaption&gt;Snailz data generation workflow&lt;/figcaption&gt;
+&lt;/figure&gt;</content>
+ </entry>
  
  <entry>
    <title>Long Evenings</title>
@@ -1186,160 +1228,6 @@ and I handed her the bag with the remaining hippos
 and got off the streetcar without looking back.&lt;/p&gt;
 &lt;p&gt;Time to make another cup of tea.
 If you came in peace, be welcome.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Labels for Technical Writing Projects</title>
-   <link href="https://third-bit.com/2024/09/12/writing-project-labels-revisited/"/>
-   <updated>2024-09-12T00:00:00Z</updated>
-   <id>https://third-bit.com/2024/09/12/writing-project-labels-revisited/</id>
-   <content type="html">&lt;p&gt;&lt;em&gt;(Originally posted in the &lt;a href=&#34;https://ropensci.org/blog/2024/09/12/labels-writing-projects/&#34;&gt;rOpenSci blog&lt;/a&gt;—my thanks to &lt;a href=&#34;https://yabellini.netlify.app/&#34;&gt;Yanina Bellini Saibene&lt;/a&gt; for editing.)&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Over the past thirty years I have written five technical books,
-co-written three others,
-and edited a further six.
-Since 2007 they have all lived in GitHub repositories,
-as did the first versions of the &lt;a href=&#34;https://carpentries.org/&#34;&gt;Software Carpentry&lt;/a&gt; lessons that I helped to write.&lt;/p&gt;
-&lt;p&gt;A few months ago I wrote about &lt;a href=&#34;https://third-bit.com/2024/03/07/labels/&#34;&gt;the GitHub issue labels I use&lt;/a&gt;
-for writing projects like these.
-As I put that post together,
-I realized that I wasn&amp;rsquo;t actually using all of the labels I had created,
-and that the problem of choosing good labels for a mixture of code and prose
-is more complicated than it seems.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;GitHub only allows one set of labels per project,
-    which means that the labels you would want to apply to issues
-    are in the same pile as labels you&amp;rsquo;d want to apply to pull requests (PRs).
-    This overlap quickly leads to confusion:
-    &amp;ldquo;bug&amp;rdquo; is the right label for an issue reporting a problem,
-    but doesn&amp;rsquo;t feel appropriate for the PR that fixes the problem.
-    (&amp;ldquo;Wait, is this PR adding a bug?&amp;rdquo;)
-    Most projects use two different labels (e.g., &amp;ldquo;bug&amp;rdquo; and &amp;ldquo;fix&amp;rdquo;),
-    but after going back and forth,
-    I&amp;rsquo;ve settled on &amp;ldquo;fix&amp;rdquo; to mean both &amp;ldquo;Please fix this&amp;rdquo; (in an issue)
-    and &amp;ldquo;This contains a fix&amp;rdquo; (in a PR).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;By default,
-    GitHub provides nine labels for issues and PRs.
-    Fully a third of these—&lt;code&gt;duplicate&lt;/code&gt;, &lt;code&gt;invalid&lt;/code&gt;, and &lt;code&gt;wontfix&lt;/code&gt;—describe reasons to close an issue
-    or discard a PR.
-    That seems excessive to me,
-    and I feel it&amp;rsquo;s polite to add a sentence or two of explanation as a comment.
-    (You have to do this anyway when marking an issue or PR as &lt;code&gt;duplicate&lt;/code&gt; to point at what it&amp;rsquo;s duplicating.)&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note: I find it a bit ironic that GitHub provides three ways to say &amp;ldquo;no&amp;rdquo; but none for saying &amp;ldquo;yes&amp;rdquo;.
-If I was going to use labels to mark closed issues,
-I would include &amp;ldquo;resolved&amp;rdquo; and/or &amp;ldquo;merged&amp;rdquo;.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Also note: English doesn&amp;rsquo;t have an antonym for &amp;ldquo;mistake&amp;rdquo;, i.e., we don&amp;rsquo;t have a single word
-that means, &amp;ldquo;A thing done well.&amp;rdquo;
-We sometimes say &amp;ldquo;a score&amp;rdquo; or &amp;ldquo;a win&amp;rdquo; to mean this,
-but those are the outcome, not the act itself.
-I sometimes wonder what this absence says about English speakers&amp;rsquo; view of the world…&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;When you create a new project on GitHub,
-    you can select any of several widely-used licenses.
-    However,
-    all of those licenses apply to code:
-    the &lt;a href=&#34;https://creativecommons.org/&#34;&gt;Creative Commons&lt;/a&gt; licenses for prose (written work) aren&amp;rsquo;t offered.
-    I always wind up writing &lt;a href=&#34;https://github.com/gvwilson/sql-tutorial/blob/main/LICENSE.md&#34;&gt;a custom &lt;code&gt;LICENSE.md&lt;/code&gt;&lt;/a&gt; to say that
-    all of the written material is made available under the CC-BY-NC-4.0 license
-    while the software is made available under the MIT License.&lt;/p&gt;
-&lt;p&gt;I mention this here because I find other things missing as well for writing projects.
-One of GitHub&amp;rsquo;s default issue labels is &amp;ldquo;documentation&amp;rdquo;,
-but I don&amp;rsquo;t think the prose in a lesson or chapter is documentation of code:
-the code is there to support the writing.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;So here&amp;rsquo;s what I&amp;rsquo;m using in my current writing projects:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Name&lt;/th&gt;
-&lt;th&gt;Purpose&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;add&lt;/td&gt;
-&lt;td&gt;(request for) new feature&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;change&lt;/td&gt;
-&lt;td&gt;exists but could be better&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;code&lt;/td&gt;
-&lt;td&gt;in software&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;discussion&lt;/td&gt;
-&lt;td&gt;questions and conversations&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;fix&lt;/td&gt;
-&lt;td&gt;something is broken&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;good first issue&lt;/td&gt;
-&lt;td&gt;good for newcomers&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;governance&lt;/td&gt;
-&lt;td&gt;meta-discussion of project management&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;prose&lt;/td&gt;
-&lt;td&gt;in written content&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;task&lt;/td&gt;
-&lt;td&gt;one-off task&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;tooling&lt;/td&gt;
-&lt;td&gt;infrastructure&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;In more detail:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;add&lt;/code&gt;, &lt;code&gt;change&lt;/code&gt;, and &lt;code&gt;fix&lt;/code&gt; are meant to be mutually exclusive&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;code&lt;/code&gt; and &lt;code&gt;prose&lt;/code&gt; can be used together (e.g., a new lesson adds both)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;discussion&lt;/code&gt; and &lt;code&gt;governance&lt;/code&gt; are for project management&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tooling&lt;/code&gt; is used for the build system, page templates, etc.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;task&lt;/code&gt; is something that needs to be done once (e.g., &amp;ldquo;publish a release&amp;rdquo;)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;good first issue&lt;/code&gt; is there because we want people to feel welcome&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I&amp;rsquo;d enjoy hearing about what you&amp;rsquo;re using—please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;email me&lt;/a&gt;
-if you&amp;rsquo;d like to start a conversation.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Later: someone mailed to ask why I use the &amp;ldquo;NC&amp;rdquo; (non-commercial) clause in my license.
-The answer is that I don&amp;rsquo;t think it&amp;rsquo;s sustainable for companies to take lesson material that people have made public
-and profit from it without compensating the authors of that material.
-If you, as an academic, want to re-use my notes and slides, you are very welcome to do so;
-if Elsevier wants to bundle them up in a book and charge students €60 for it,
-I want to be able to say &amp;ldquo;no&amp;rdquo;,
-or to say, &amp;ldquo;yes, but you have to give me some of that so that I can keep producing this material&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;The NC clause is also part of my deal with my publisher (CRC Press):
-they are OK with me putting an HTML version of &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example&lt;/em&gt;&lt;/a&gt; and other books online
-for people to read for free,
-but would &lt;em&gt;not&lt;/em&gt; be OK with some other for-profit publisher taking that and republishing it without permission.
-I think that&amp;rsquo;s a fair bargain:
-people who can&amp;rsquo;t afford to buy the book can read it,
-and the publisher can make money from the printed, PDF, and EPUB versions
-as compensation for the effort they put into editing and publicizing the book.&lt;/p&gt;
-&lt;p&gt;Later: a collaborator pointed out an interesting inconsistency.
-I follow &lt;a href=&#34;https://www.conventionalcommits.org/&#34;&gt;Conventional Commits&lt;/a&gt; style in my Git commit messages,
-so the title line of each commit starts with a single word like &amp;ldquo;fix&amp;rdquo;,
-&amp;ldquo;feat&amp;rdquo; (short for &amp;ldquo;feature&amp;rdquo;),
-or &amp;ldquo;publish&amp;rdquo; (when all I&amp;rsquo;m doing is rebuilding the HTML version of the lesson).
-These words don&amp;rsquo;t line up with the labels I use for issues and PRs:
-I don&amp;rsquo;t have a label for &amp;ldquo;publish&amp;rdquo;,
-and I use &amp;ldquo;feat&amp;rdquo; instead of &amp;ldquo;add&amp;rdquo; for something new.
-I&amp;rsquo;m embarrassed that I didn&amp;rsquo;t notice this before,
-and now I need to think about what to do about it…&lt;/p&gt;
-&lt;/blockquote&gt;</content>
  </entry>
  
 </feed>

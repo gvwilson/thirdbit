@@ -82,6 +82,50 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2024/12/14/snailz/">
+      Snailz
+    </a>
+  </h2>
+  <p><time datetime="2024-12-14" class="post-date">2024-12-14</time></p>
+  <p>Earlier this year I put together notes for
+a companion to the <a href="../sdxjs/">JavaScript</a> and <a href="../sdxpy/">Python</a> versions of <em>Software Design by Example</em>
+aimed at <a href="https://en.wikipedia.org/wiki/Research_software_engineering">research software engineers</a>.
+I shelved <a href="https://lessonomicon.github.io/rsdx/">the project</a> because the (lack of) reaction to the first two books
+convinced me that this isn&rsquo;t what most people are looking for,
+but I still hope that one of the software packages I built along the way might be useful.</p>
+<p><a href="https://pypi.org/project/snailz/">Snailz</a> is a set of <a href="https://en.wikipedia.org/wiki/Synthetic_data">synthetic data generators</a>
+that simulate the collection, storage, and analysis of data related to
+snails in the Pacific Northwest
+that are growing unusually large as a result of exposure to pollution.</p>
+<ul>
+<li>One or more <em>surveys</em> are conducted at one or more <em>sites</em>.</li>
+<li>Each survey collects <em>genomes</em> and <em>sizes</em> of snails.</li>
+<li>A <em>grid</em> at each site is marked out to show the presence or absence of pollution.</li>
+<li><em>Laboratory staff</em> perform <em>assays</em> of the snails&rsquo; genetic material.</li>
+<li>Each assay plate has a <em>design</em> showing the material applied and <em>readings</em> showing the measured response.</li>
+<li>Plates may be <em>invalidated</em> after the fact if a staff member believes it is contaminated.</li>
+</ul>
+<p>The first diagram below shows the schema of the database that holds the results;
+the second shows how various scripts and parameter files interact
+to create that database.
+Along the way,
+the scripts also create CSV files describing the designs of genomic assay plates
+and both messy and tidy versions of readings for those plates.
+The whole process is documented on <a href="https://lessonomicon.github.io/snailz/">the package site</a>,
+and all the code is open source.</p>
+<figure>
+  <img src="../files/2024/snailz-schema.svg" alt="Database schema of snailz data">
+  <figcaption>Snailz database schema</figcaption>
+</figure>
+
+<figure>
+  <img src="../files/2024/snailz-workflow.svg" alt="Workflow for generating snailz data">
+  <figcaption>Snailz data generation workflow</figcaption>
+</figure>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2024/12/10/long-evenings/">
       Long Evenings
     </a>
@@ -452,23 +496,6 @@ not a fully-equipped machine shop.</p>
 <li>I enjoy teaching and mentoring more than I enjoy managing.</li>
 <li>I run out of steam when I&rsquo;m working on my own or don&rsquo;t have a specific audience and deadline.</li>
 </ol>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2024/11/21/project-students/">
-      Project Students
-    </a>
-  </h2>
-  <p><time datetime="2024-11-21" class="post-date">2024-11-21</time></p>
-  <p>I will be supervising some undergraduate projects at the University of Toronto next semester
-for the first time in 15 years.
-The map below shows the birthplaces (where I know them) of
-the 146 students I supervised or co-supervised between 2002 and 2010;
-I&rsquo;m looking forward to adding another few points.</p>
-<div class="center">
-<img src="../files/2024/csc49x.png" alt="map of student birthplaces"/>
-</div>
 </article>
 
 
