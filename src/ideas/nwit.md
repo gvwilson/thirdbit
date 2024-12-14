@@ -265,5 +265,11 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Cui et al 2024: "Fearless unsafe. Safety Property is all you need" <https://arxiv.org/abs/2412.06251> Categorizes the use of `unsafe` in Rust and looks at its impact on vulnerability exploits.
 
+1.  Vepsäläinen et al 2024: "Overview of Web Application Performance Optimization Techniques". <https://arxiv.org/abs/2412.07892> A useful overview of techniques for making web apps faster; I've bookmarked a few of the things it mentions as "need to learn".
+
+1.  Saarimäki et al 2024: "Taxonomy of Software Log Smells" <https://arxiv.org/abs/2412.09284> "[P]resents a taxonomy of ten log smells, describing several facets for each of them…reviews existing tools addressing some of these facets, highlighting the lack of tools addressing some log smells and identifying future research opportunities to close this gap."
+
+1.  Arya et al 2024: "The Software Documentor Mindset" <https://arxiv.org/abs/2412.09422> Explores why people voluntarily create documentation for open source software projects, how they pick topics, and other related factors; none of the findings are particularly surprising in retrospect, but that's not the same as saying I could have predicted them.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
