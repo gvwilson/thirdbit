@@ -59,6 +59,31 @@ Another year, another look back.
     write any new short stories,
     or find a writing group in Toronto.
 
+-   I took the family trailbiking for the first time,
+    almost had my (regular) bike stolen,
+    spent Thanksgiving at the cottage,
+    and went to the gym less than I should have.
+
+<div class="row">
+  <div class="col-2 col center">
+    <img src="@root/files/2024/bike-lock-2024-08-25.jpg" alt="broken bike lock" width="80%">
+  </div>
+  <div class="col-2 col center">
+    <img src="@root/files/2024/ossai-sdxpy-2024-04.jpg" alt="Software Design by Example in Python" width="80%">
+  </div>
+  <div class="col-2 col center">
+    <img src="@root/files/2024/capilano-suspension-bridge-2024-07-14-c.jpg" alt="Capilano Suspension Bridge" width="80%">
+  </div>
+  <div class="col-2 col center">
+    <img src="@root/files/2024/trailbikes-2024-10-26-a.jpg" alt="family on trail bikes" width="80%">
+  </div>
+  <div class="col-2 col center">
+    <img src="@root/files/2024/cottage-trail-2024-10-c.jpg" alt="cottage trail" width="80%">
+  </div>
+  <div class="col-2 col center">
+  </div>
+</div>
+
 ## What I Read
 
 Top of the list is Samantha Harvey's <a href="https://isbnsearch.org/isbn/9780802163622"><em>Orbital</em></a>,
