@@ -1,0 +1,13 @@
+{% extends "base.jinja" %}
+
+{% block head_title %}
+<title>{{site.title}}: {{node.title}}</title>
+<meta http-equiv="Refresh" content="0; url='{{node.redirect}}'" />
+{% endblock %}
+
+{% block head_includes %}
+{% endblock %}
+
+{% block content %}
+<p><em>Redirecting to <a href="{{node.redirect}}">{{node.redirect}}</a>…</em></p>
+{% endblock %}

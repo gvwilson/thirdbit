@@ -24,7 +24,7 @@ A browser-based drag-and-drop tool for data analytics.
 :   The [TidyBlocks][tidyblocks-repo] project [ground to a halt][tidyblocks-post]
     due to a lack of funding and some difficult technical challenges.
     I still believe in the idea, though,
-    and think that using [Node-RED] as a starting point instead of [Blockly][blockly]
+    and think that using [Node-RED][node-red] as a starting point instead of [Blockly][blockly]
     would circumvent the technical challenges,
     give non-programmers an interface they could use immediately,
     *and* be a natural successor to [Yahoo! Pipes][yahoo-pipes].
