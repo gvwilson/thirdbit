@@ -271,5 +271,13 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Arya et al 2024: "The Software Documentor Mindset" <https://arxiv.org/abs/2412.09422> Explores why people voluntarily create documentation for open source software projects, how they pick topics, and other related factors; none of the findings are particularly surprising in retrospect, but that's not the same as saying I could have predicted them.
 
+1.  Barba Roque et al 2024: "Unveiling the Energy Vampires: A Methodology for Debugging Software Energy Consumption" <https://arxiv.org/abs/2412.10063> Presents an energy debugging methodology for identifying and isolating energy consumption hotspots in software systems. One finding: Redis uses 20% more power on Alpine than Ubuntu in some cases because of a difference in different C library implementations of memcpy.
+
+1.  Ayoola et al 2024: "User Personas Improve Social Sustainability by Encouraging Software Developers to Deprioritize Antisocial Features" <https://arxiv.org/abs/2412.10672> Participants prioritized prosocial, neutral, and antisocial user stories… They received persona models, a stakeholder map, both, or neither… Those who received persona models gave…lower priorities to antisocial user stories…no significant difference was evident for prosocial user stories. The…stakeholder map was not significant.
+
+1.  Prather et al 2024: "Breaking the Programming Language Barrier" <https://arxiv.org/abs/2412.12800> "We provide the first exploration of non-native English speakers prompting in their native languages (Arabic, Chinese, and Portuguese) to generate code to solve programming problems…students are able to successfully use their native language to solve programming problems, but not without some difficulty specifying programming terminology and concepts."
+
+1.  Anaraki et al 2024: "Managing Project Teams in an Online Class of 1000+ Students" <https://arxiv.org/abs/2412.11046> "We discuss our approach of managing, evaluating, and providing constructive feedback to over 200 project teams, comprising 1000+ graduate students distributed globally, two professors, and 25+ teaching assistants." Based on 10 years of work at Georgia Tech; lots of hard-won experience here.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
