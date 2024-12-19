@@ -6,11 +6,22 @@ template: page
 <div class="row" markdown="1">
   <div class="col col-6" markdown="1">
 
-This map shows the birthplaces of the 146 students I supervised
-or co-supervised between 2002 and 2010.  I would welcome a chance to
-add a few more points: if you are a student or free-range learner
-interested in doing any of the projects described below, or an
-instructor whose students need projects, please [get in touch][email].
+This map shows the birthplaces of the 146 students I supervised from
+2002 to 2010.  I would welcome a chance to help a few more, so if you
+are a student or independent learner interested in doing any of the
+projects described below, or an instructor whose students need
+projects, please [get in touch][email].  And if you are in Toronto and
+your team needs help with [research software engineering][rse]
+projects (large or small), I would also be happy to chat.
+
+As a mentor, I interact with students through email, chat, and code
+reviews as I would with junior colleagues, and meet with them once a
+week in person or online. Timezones are not an issue, but
+unfortunately English is the only (human) language I'm comfortable
+working in. Finally, all software must be open source, all
+publications must be open access, and projects must have a code of
+conduct at least as strong as [this one][conduct], and all
+participants must respect it.
 
   </div>
   <div class="col col-6">
@@ -37,7 +48,9 @@ contrast, [Browsercast][browsercast] plays snippets of audio in the
 browser as the viewer moves through the slides, so "View Source",
 links, CSS, screen readers, and search work as they should.  The
 prototype uses just 5kb of JavaScript; the aim of this project is to
-turn it into a functional tool
+turn it into a functional tool.
+<br>
+*Keywords: JavaScript, UI design, multimedia, accessibility*
 
 </div>
 </div>
@@ -54,6 +67,8 @@ rendering and execution engine.  The aim of this project is to design,
 build, and test a set of Marimo plugins that can be used for classroom
 exercises similar to those in the [H5P][h5p] toolkit: multiple choice,
 fill in the blanks, and so on.
+<br>
+*Keywords: Python, JavaScript, computational notebooks, education*
 
 </div>
 </div>
@@ -73,6 +88,8 @@ between dataframe libraries, allowing applications to use
 common API. Students working on this project will contribute directly
 to Narwhals, and will be responsible for fixing bugs, designing new
 features, and shepherding their work through review into production.
+<br>
+*Keywords: Python, data science, open source*
 
 </div>
 </div>
@@ -87,6 +104,8 @@ then parse the HTML using a library like [BeautifulSoup][bs4], perform
 whatever operations it needs to, and then convert the DOM back to
 HTML. In this project, students will refactor Python-Markdown so that
 it can generate a Beautiful Soup-compatible DOM tree directly.
+<br>
+*Keywords: Python, open source, parsing*
 
 </div>
 </div>
@@ -105,6 +124,8 @@ the user try to drag them back into the right places.  A deployable
 version would need to do a lot more, such as dealing with scaling
 transformations; the goal of this project is to turn the demo into
 something a classroom teacher could use.
+<br>
+*Keywords: JavaScript, SVG, UI design, education*
 
 </div>
 </div>
@@ -119,6 +140,8 @@ JavaScript). The aim of this project is to translate examples from
 [*Software Design by Example in Python*][sdxpy] into Gleam to help
 people coming from Python and other mainstream languages understand
 how to use FP in practice.
+<br>
+*Keywords: Gleam, functional programming, software design, education*
 
 </div>
 </div>
@@ -138,6 +161,8 @@ to add decorators to functions and methods to specify computational
 chunks. The goal of this project is to see if the two can be married,
 i.e., to see if it's possible to add decorators to cell functions in
 Marimo to parallelize notebooks directly.
+<br>
+*Keywords: Python, parallel computing, workflows, computational notebooks*
 
 </div>
 </div>
@@ -152,6 +177,8 @@ extended it in various ways; in this project, students would re-create
 Lox by working through the second half of Nystrom's book, then add
 operator overloading, cooperative concurrency, and a few other features
 to bring the language up to par with [Lua][lua].
+<br>
+*Keywords: C, compilers, programming languages*
 
 </div>
 </div>
@@ -168,6 +195,8 @@ named ten small patterns in the way variables are used in novice
 programs. This project would build static and dynamic analysis tools
 to detect those patterns (and possibly others) in programs as an aid
 to teaching, debugging, and code review.
+<br>
+*Keywords: research, program analysis, education*
 
 </div>
 </div>
@@ -181,6 +210,8 @@ in the sketchy hand-drawn style of [XKCD][xkcd]. Its creator is no
 longer maintaining it; this project will fork the original code, fix
 outstanding issues, and add new features such as axis limits and
 stable coloring schemes.
+<br>
+*Keywords: JavaScript, SVG, UI design, data visualization, open source*
 
 </div>
 </div>
@@ -199,6 +230,8 @@ each false positive or false negative.) After doing this a handful of
 times, they should learn to see code through the instructor’s
 eyes. Does this help them write better code? If so, how quickly and
 how well?  This project will attempt to answer these questions.
+<br>
+*Keywords: research, code review, education*
 
 </div>
 </div>
@@ -215,6 +248,8 @@ questions, this project will assemble and apply tools to analyze the
 text of several dozen textbooks; along the way, the students doing the
 project will have to decide how to identify topics, how to count them,
 and how to make their work reproducible.
+<br>
+*Keywords: research, natural language processing, education*
 
 </div>
 </div>
@@ -232,6 +267,8 @@ inappropriate visual paradigm, as there was no natural way to
 represent join operations as nested blocks.  The aim of this project
 is to explore an alternative using a node-and-connector model like
 that of [Node-RED][node-red] or [Yahoo! Pipes][yahoo-pipes].
+<br>
+*Keywords: JavaScript, UI design, programming tools, education*
 
 </div>
 </div>
@@ -248,6 +285,8 @@ explore a third option by building an
 using the [the Jupyter messaging protocol][jupyter-protocol] so that
 people who prefer WYSIWYG editors can embed code and its output
 alongside diagrams, tables, and other media.
+<br>
+*Keywords: Java, computational notebooks, UI design*
 
 </div>
 </div>
@@ -267,6 +306,8 @@ systems from TCP to BitTorrent and load-balancing tools using either
 [Py-DES][pydes] or [SimPy][simpy]. The tutorials will use simulators
 so that the accompanying lessons could illustrate edge cases in
 reproducible ways.
+<br>
+*Keywords: Python, distributed systems, discrete event simulation, education*
 
 </div>
 </div>
@@ -285,6 +326,8 @@ will be missing features such as basic authentication or
 every sys admin wishes they had, static code analysis, and eventually
 the audit and emergency response procedures that such tools are meant
 to support.
+<br>
+*Keywords: web programming, digital security, education*
 
 </div>
 </div>
@@ -297,16 +340,16 @@ to support.
 ### Software Design for Everyone
 
 Each lesson in this tutorial will present a "what if?" scenario and
-then explores its implications for software design.  What if you had
-crippling arthritis (which you can simulate by taping popsicle sticks
-to your fingers): how would you redesign a cell phone app?  What if
-you thought your government might take a sharp turn to the right and
+then explores its implications for software design.  How would you
+redesign a cell phone app if you had crippling arthritis (which you
+can simulate by taping popsicle sticks to your fingers)?  What if you
+thought your government might take a sharp turn to the right and
 retroactively weaponize women's health records: (how) could you
-satisfy doctors' need for information with patient safety?  How would
-you redesign a Q&A site like Stack Overflow if you thought most people
-in the world *didn't* speak English as their first language?  The
+satisfy doctors' need for information with patient safety? The
 practical exercises will assume enough programming skill to build
 simple web applications.
+<br>
+*Keywords: accessibility, UI design, education*
 
 </div>
 </div>
@@ -322,6 +365,8 @@ gap by presenting dozens of case studies showing how to find and fix
 real-world problems.  Along the way, it will present examples of what
 programmers can do to handle errors gracefully, from data structure
 repair to automatically restarting servers.
+<br>
+*Keywords: software design, debugging, education*
 
 </div>
 </div>
@@ -339,6 +384,8 @@ experience with JavaScript, HTTP requests, and related technologies.
 In this project, a student (or team of students) with an interest in
 teaching would fill it in and offer it at least once in order to learn
 more about how to create and deliver high-quality lessons.
+<br>
+*Keywords: JavaScript, Python, web programming, education*
 
 </div>
 </div>
@@ -355,6 +402,8 @@ data analysis pipelines, and then shows readers how to test them.
 Each lesson will open with a short recap of the science and a
 walk-through of the untested code, then explore how that code can be
 tested.
+<br>
+*Keywords: Python, computational science, software testing, education*
 
 </div>
 </div>
@@ -365,6 +414,7 @@ tested.
 [browsercast]: https://github.com/gvwilson/browsercast
 [bs4]: https://beautiful-soup-4.readthedocs.io/
 [chart-xkcd]: https://timqian.com/chart.xkcd/
+[conduct]: @root/conduct/
 [crafting]: https://craftinginterpreters.com/
 [dagster]: https://dagster.io/
 [dragnet]: https://iezer.github.io/dragnet/
@@ -388,6 +438,7 @@ tested.
 [py-markdown]: https://python-markdown.github.io/
 [quarto]: https://quarto.org/
 [roles]: https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf
+[rse]: https://en.wikipedia.org/wiki/Research_software_engineering
 [scratch]: https://scratch.mit.edu/
 [sdxjs]: https://third-bit.com/sdxjs/
 [sdxpy]: https://third-bit.com/sdxpy/
