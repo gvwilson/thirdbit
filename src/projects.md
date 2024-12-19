@@ -39,7 +39,7 @@ participants must respect it.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Browsercast
+### Browsercast {: #browsercast}
 
 Tools like PowerPoint aren't web-friendly.  When you export a
 slideshow to the web, what you get is a bunch of images, while
@@ -57,7 +57,7 @@ turn it into a functional tool.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Marimo and H5P
+### Marimo and H5P {: #marimo-h5p}
 
 [Marimo][marimo] is a next-generation computational notebook that
 enables data scientists to mix code, discussion, and results in a
@@ -80,7 +80,7 @@ fill in the blanks, and so on.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Narwhals
+### Narwhals {: #narwhals}
 
 [Narwhals][narwhals] is a Python package that provides compatibility
 between dataframe libraries, allowing applications to use
@@ -96,7 +96,7 @@ features, and shepherding their work through review into production.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Markdown to DOM
+### Markdown to DOM {: #markdown-dom}
 
 [Python-Markdown][py-markdown] converts Markdown to HTML; if an
 application needs a DOM tree that it can check or manipulate, it must
@@ -115,7 +115,7 @@ it can generate a Beautiful Soup-compatible DOM tree directly.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Dragnet
+### Dragnet {: #dragnet}
 
 One type of exercise that H5P *doesn't* support is adding labels to
 diagrams. [This prototype][dragnet] takes an SVG with some
@@ -132,7 +132,7 @@ something a classroom teacher could use.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Software Design by Example in Gleam
+### Software Design by Example in Gleam {: #sdx-gleam}
 
 [Gleam][gleam] is a modern functional language that runs on the
 [Erlang/OTP][erlang] platform (and can also be compiled to
@@ -151,7 +151,7 @@ how to use FP in practice.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Parallelizing Marimo Notebooks
+### Parallelizing Marimo Notebooks {: #parallel-marimo}
 
 [Marimo][marimo] is a next-generation computational notebook that (a)
 stores everything as Python source code and (b) analyzes code to
@@ -169,7 +169,7 @@ Marimo to parallelize notebooks directly.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Extending Lox
+### Extending Lox {: #lox}
 
 Lox is a simple interpreted language created by Robert Nystrom for his
 (excellent) book [*Crafting Interpreters*][crafting]. Many people have
@@ -188,7 +188,7 @@ to bring the language up to par with [Lua][lua].
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Identification of Variable Roles
+### Identification of Variable Roles {: #variable-roles}
 
 Sajaniemi et al's work on [roles of variables][roles] identified and
 named ten small patterns in the way variables are used in novice
@@ -203,7 +203,7 @@ to teaching, debugging, and code review.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### XKCD Charts
+### XKCD Charts {: #xkcd-charts}
 
 [Chart.xkcd][chart-xkcd] is a JavaScript library that displays charts
 in the sketchy hand-drawn style of [XKCD][xkcd]. Its creator is no
@@ -221,7 +221,7 @@ stable coloring schemes.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### The Impact of Calibrated Peer Review
+### The Impact of Calibrated Code Review {: #code-review}
 
 Give a novice programmer a one-page program and have them score it
 using a checklist, then grade them on how closely their scoring
@@ -238,7 +238,7 @@ how well?  This project will attempt to answer these questions.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Analysis of Undergrad Textbooks
+### Analysis of Undergrad Textbooks {: #undergrad-textbooks}
 
 Most undergraduate computer science programs have a first- or
 second-year course on data structures and algorithms.  What do these
@@ -259,7 +259,7 @@ and how to make their work reproducible.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### A Blocks-Based Data Science Tool
+### A Blocks-Based Data Science Tool {: #tidyblocks}
 
 [TidyBlocks][tidyblocks] was a prototype of a [Scratch][scratch]-like
 tool for teaching introductory data ascience.  It turned out to be an
@@ -275,7 +275,7 @@ that of [Node-RED][node-red] or [Yahoo! Pipes][yahoo-pipes].
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### A WYSIWYG Computational Notebook
+### A WYSIWYG Computational Notebook {: #wysiwyg-notebook}
 
 [Jupyter][jupyter] uses JSON as its storage format, while
 [Marimo][marimo] and [Quarto][quarto] use Python with embedded strings
@@ -296,7 +296,7 @@ alongside diagrams, tables, and other media.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Simulations of Distributed Systems
+### Simulations of Distributed Systems {: #des-sim}
 
 [*Software Design by Example in Python*][sdxpy] deliberately ignored
 concurrency, partial failure, and everything else associated with
@@ -314,7 +314,7 @@ reproducible ways.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Software Security by Example
+### Software Security by Example {: #security-example}
 
 The first lesson in this tutorial will present a simple implementation
 of a wiki designed for shared note-taking.  Each of the following
@@ -337,7 +337,7 @@ to support.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Software Design for Everyone
+### Software Design for Everyone {: #sdx-everyone}
 
 Each lesson in this tutorial will present a "what if?" scenario and
 then explores its implications for software design.  How would you
@@ -356,7 +356,7 @@ simple web applications.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Unbreaking Software
+### Unbreaking Software {: #unbreaking}
 
 Most programmers spend a large part of their time debugging, but most
 courses only show working code, and most textbooks don't discuss how
@@ -376,7 +376,7 @@ repair to automatically restarting servers.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Human-Scale Web Programming
+### Human-Scale Web Programming {: #web-tutorial}
 
 [This incomplete tutorial][webonomicon] is an introduction to web
 programming aimed at scientists and others will little or no
@@ -392,7 +392,7 @@ more about how to create and deliver high-quality lessons.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Testing Research Software
+### Testing Research Software {: #testing-rse}
 
 The [JavaScript][sdxjs] and [Python][sdxpy] versions of *Software
 Design by Example* showed readers how to design programs by working
