@@ -279,5 +279,11 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Anaraki et al 2024: "Managing Project Teams in an Online Class of 1000+ Students" <https://arxiv.org/abs/2412.11046> "We discuss our approach of managing, evaluating, and providing constructive feedback to over 200 project teams, comprising 1000+ graduate students distributed globally, two professors, and 25+ teaching assistants." Based on 10 years of work at Georgia Tech; lots of hard-won experience here.
 
+1.  Matthews & Nagappan 2024: "Design choices made by LLM-based test generators prevent them from finding bugs" <https://arxiv.org/abs/2412.14137> Shows that LLM-generated tests can fail to detect bugs and, more alarmingly, how their design can worsen the situation by validating bugs in the generated test suite and rejecting bug-revealing tests.
+
+1.  Popoola et al 2024: "What do Computing Interns Discuss Online? An Empirical Analysis of Reddit Posts" <https://arxiv.org/abs/2412.13296> "…computing interns generally express a positive sentiment and the discussions were mostly related to academics, school admissions, professional career, entertainment activities, and social interactions."
+
+1.  He et al 2024: "4.5 Million (Suspected) Fake Stars in GitHub: A Growing Spiral of Popularity Contests, Scams, and Malware" <https://arxiv.org/abs/2412.13459> (1) fake-star-related activities have surged since 2024; (2) user profiles characteristics of fake stargazers are not distinct from users but have abnormal activity patterns; (3) the majority are used to promote short-lived malware repos; (4) fake stars only have a promotion effect in the short term (i.e., less than two months).
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6

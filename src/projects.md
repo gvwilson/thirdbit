@@ -257,16 +257,16 @@ alongside diagrams, tables, and other media.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Testing Research Software
+### Simulations of Distributed Systems
 
-The [JavaScript][sdxjs] and [Python][sdxpy] versions of *Software
-Design by Example* showed readers how to design programs by working
-through scaled-down examples. In contrast, this project will develop
-scaled-down versions of things like [fluid flow simulators][barba] and
-data analysis pipelines, and then shows readers how to test them.
-Each lesson will open with a short recap of the science and a
-walk-through of the untested code, then explore how that code can be
-tested.
+[*Software Design by Example in Python*][sdxpy] deliberately ignored
+concurrency, partial failure, and everything else associated with
+modern distributed applications. The aim of this project is to (start
+to) fix that by building scale models of distributed protocols and
+systems from TCP to BitTorrent and load-balancing tools using either
+[Py-DES][pydes] or [SimPy][simpy]. The tutorials will use simulators
+so that the accompanying lessons could illustrate edge cases in
+reproducible ways.
 
 </div>
 </div>
@@ -345,16 +345,16 @@ more about how to create and deliver high-quality lessons.
 <div class="col col-6" markdown="1">
 <div class="card" markdown="1">
 
-### Simulations of Distributed Systems
+### Testing Research Software
 
-[*Software Design by Example in Python*][sdxpy] deliberately ignored
-concurrency, partial failure, and everything else associated with
-modern distributed applications. The aim of this project is to (start
-to) fix that by building scale models of distributed protocols and
-systems from TCP to BitTorrent and load-balancing tools using either
-[Py-DES][pydes] or [SimPy][simpy]. The tutorials will use simulators
-so that the accompanying lessons could illustrate edge cases in
-reproducible ways.
+The [JavaScript][sdxjs] and [Python][sdxpy] versions of *Software
+Design by Example* showed readers how to design programs by working
+through scaled-down examples. In contrast, this project will develop
+scaled-down versions of things like [fluid flow simulators][barba] and
+data analysis pipelines, and then shows readers how to test them.
+Each lesson will open with a short recap of the science and a
+walk-through of the untested code, then explore how that code can be
+tested.
 
 </div>
 </div>
