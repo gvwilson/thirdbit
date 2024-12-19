@@ -42,288 +42,818 @@
 
 
 
-<div class="row">
-<div class="col col-6">
-<p>This map shows the birthplaces of the 146 students I supervised
-or co-supervised between 2002 and 2010.  I would welcome a chance to
-add a few more points: if you are a student or free-range learner
-interested in doing any of the projects described below, or an
-instructor whose students need projects, please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
-</div>
-<div class="col col-6">
+<div class="row" markdown="1">
+  <div class="col col-6" markdown="1">
+    <p>
+      This map shows the birthplaces of the 146 students I supervised
+      from 2002 to 2010.  I would welcome a chance to help a few more,
+      so if you are a student or independent learner interested in
+      doing any of the projects described below, or an instructor
+      whose students need projects,
+      please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.
+      And if you are in Toronto and your team needs help with research
+      software engineering projects (large or small), I would also be
+      happy to chat.
+    </p>
+    <p>
+      As a mentor, I interact with students through email, chat, and
+      code reviews as I would with junior colleagues, and meet with
+      them once a week in person or online. Timezones are not an
+      issue, but unfortunately English is the only (human) language
+      I'm comfortable working in. Finally, all software must be open
+      source, all publications must be open access, and projects must
+      have a <a href="../conduct/">code of conduct</a>.
+    </p>
+  </div>
+  <div class="col col-6">
     <div class="center">
-      <a href="../files/2024/csc49x.png">
-        <img src="../files/2024/csc49x.png" alt="map of student birthplaces" width="100%">
-      </a>
+      <p>
+        <a href="../files/2024/csc49x.png">
+          <img src="../files/2024/csc49x.png" alt="map of student birthplaces" width="90%">
+        </a>
+	<br>
+        <a href="#in-progress">In Progress</a> (2)
+        &middot;
+        <a href="#programming">Programming</a> (12)
+        &middot;
+        <a href="#tutorials">Tutorials</a> (8)
+        &middot;
+        <a href="#research">Research</a> (9)
+      </p>
     </div>
+  </div>
 </div>
-</div>
-<h2>In Progress</h2>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>Browsercast</h3>
-<p>Tools like PowerPoint aren&rsquo;t web-friendly.  When you export a
-slideshow to the web, what you get is a bunch of images, while
-screencasts are opaque to search engines and disability aids.  In
-contrast, <a href="https://github.com/gvwilson/browsercast">Browsercast</a> plays snippets of audio in the
-browser as the viewer moves through the slides, so &ldquo;View Source&rdquo;,
-links, CSS, screen readers, and search work as they should.  The
-prototype uses just 5kb of JavaScript; the aim of this project is to
-turn it into a functional tool</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>Marimo and H5P</h3>
-<p><a href="https://marimo.io/">Marimo</a> is a next-generation computational notebook that
-enables data scientists to mix code, discussion, and results in a
-reproducible way.  Its plugin system relies on <a href="https://anywidget.dev/">AnyWidget</a>,
-which specifies a simple contract between extensions and Marimo&rsquo;s
-rendering and execution engine.  The aim of this project is to design,
-build, and test a set of Marimo plugins that can be used for classroom
-exercises similar to those in the <a href="https://h5p.org/content-types-and-applications">H5P</a> toolkit: multiple choice,
-fill in the blanks, and so on.</p>
-</div>
-</div>
-</div>
-<h2>Available</h2>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>Narwhals</h3>
-<p><a href="https://narwhals-dev.github.io/narwhals/">Narwhals</a> is a Python package that provides compatibility
-between dataframe libraries, allowing applications to use
-<a href="https://pandas.pydata.org/">Pandas</a>, <a href="https://pola.rs/">Polars</a>, and other libraries through a
-common API. Students working on this project will contribute directly
-to Narwhals, and will be responsible for fixing bugs, designing new
-features, and shepherding their work through review into production.</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>Markdown to DOM</h3>
-<p><a href="https://python-markdown.github.io/">Python-Markdown</a> converts Markdown to HTML; if an
-application needs a DOM tree that it can check or manipulate, it must
-then parse the HTML using a library like <a href="https://beautiful-soup-4.readthedocs.io/">BeautifulSoup</a>, perform
-whatever operations it needs to, and then convert the DOM back to
-HTML. In this project, students will refactor Python-Markdown so that
-it can generate a Beautiful Soup-compatible DOM tree directly.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>Dragnet</h3>
-<p>One type of exercise that H5P <em>doesn&rsquo;t</em> support is adding labels to
-diagrams. <a href="https://iezer.github.io/dragnet/">This prototype</a> takes an SVG with some
-specially-marked labels, moves those labels to the side, and then lets
-the user try to drag them back into the right places.  A deployable
-version would need to do a lot more, such as dealing with scaling
-transformations; the goal of this project is to turn the demo into
-something a classroom teacher could use.</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>Software Design by Example in Gleam</h3>
-<p><a href="https://gleam.run/">Gleam</a> is a modern functional language that runs on the
-<a href="https://www.erlang.org/">Erlang/OTP</a> platform (and can also be compiled to
-JavaScript). The aim of this project is to translate examples from
-<a href="https://third-bit.com/sdxpy/"><em>Software Design by Example in Python</em></a> into Gleam to help
-people coming from Python and other mainstream languages understand
-how to use FP in practice.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>Parallelizing Marimo Notebooks</h3>
-<p><a href="https://marimo.io/">Marimo</a> is a next-generation computational notebook that (a)
-stores everything as Python source code and (b) analyzes code to
-prevent out-of-order execution of cells. <a href="https://dagster.io/">Dagster</a> and
-<a href="https://metaflow.org/">Metaflow</a> are computational workflow tools that allow users
-to add decorators to functions and methods to specify computational
-chunks. The goal of this project is to see if the two can be married,
-i.e., to see if it&rsquo;s possible to add decorators to cell functions in
-Marimo to parallelize notebooks directly.</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>Extending Lox</h3>
-<p>Lox is a simple interpreted language created by Robert Nystrom for his
-(excellent) book <a href="https://craftinginterpreters.com/"><em>Crafting Interpreters</em></a>. Many people have
-extended it in various ways; in this project, students would re-create
-Lox by working through the second half of Nystrom&rsquo;s book, then add
-operator overloading, cooperative concurrency, and a few other features
-to bring the language up to par with <a href="https://www.lua.org/">Lua</a>.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>Identification of Variable Roles</h3>
-<p>Sajaniemi et al&rsquo;s work on <a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles of variables</a> identified and
-named ten small patterns in the way variables are used in novice
-programs. This project would build static and dynamic analysis tools
-to detect those patterns (and possibly others) in programs as an aid
-to teaching, debugging, and code review.</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>XKCD Charts</h3>
-<p><a href="https://timqian.com/chart.xkcd/">Chart.xkcd</a> is a JavaScript library that displays charts
-in the sketchy hand-drawn style of <a href="https://xkcd.com/">XKCD</a>. Its creator is no
-longer maintaining it; this project will fork the original code, fix
-outstanding issues, and add new features such as axis limits and
-stable coloring schemes.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>The Impact of Calibrated Peer Review</h3>
-<p>Give a novice programmer a one-page program and have them score it
-using a checklist, then grade them on how closely their scoring
-matches the instructor’s. (They start with 100%, and lose one mark for
-each false positive or false negative.) After doing this a handful of
-times, they should learn to see code through the instructor’s
-eyes. Does this help them write better code? If so, how quickly and
-how well?  This project will attempt to answer these questions.</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>Analysis of Undergrad Textbooks</h3>
-<p>Most undergraduate computer science programs have a first- or
-second-year course on data structures and algorithms.  What do these
-courses actually teach, and how has their content changed since
-Wirth&rsquo;s <a href="https://en.wikipedia.org/wiki/Algorithms_%2B_Data_Structures_%3D_Programs">classic book</a> appeared in 1976? To answer these
-questions, this project will assemble and apply tools to analyze the
-text of several dozen textbooks; along the way, the students doing the
-project will have to decide how to identify topics, how to count them,
-and how to make their work reproducible.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>A Blocks-Based Data Science Tool</h3>
-<p><a href="https://github.com/tidyblocks/tidyblocks">TidyBlocks</a> was a prototype of a <a href="https://scratch.mit.edu/">Scratch</a>-like
-tool for teaching introductory data ascience.  It turned out to be an
-inappropriate visual paradigm, as there was no natural way to
-represent join operations as nested blocks.  The aim of this project
-is to explore an alternative using a node-and-connector model like
-that of <a href="https://nodered.org/">Node-RED</a> or <a href="https://en.wikipedia.org/wiki/Yahoo!_Pipes">Yahoo! Pipes</a>.</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>A WYSIWYG Computational Notebook</h3>
-<p><a href="https://jupyter.org/">Jupyter</a> uses JSON as its storage format, while
-<a href="https://marimo.io/">Marimo</a> and <a href="https://quarto.org/">Quarto</a> use Python with embedded strings
-and Markdown with embedded code respectively. This project will
-explore a third option by building an
-<a href="https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions">extension</a> for <a href="https://www.libreoffice.org/">LibreOffice</a>
-using the <a href="https://jupyter-client.readthedocs.io/en/latest/">the Jupyter messaging protocol</a> so that
-people who prefer WYSIWYG editors can embed code and its output
-alongside diagrams, tables, and other media.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>Simulations of Distributed Systems</h3>
-<p><a href="https://third-bit.com/sdxpy/"><em>Software Design by Example in Python</em></a> deliberately ignored
-concurrency, partial failure, and everything else associated with
-modern distributed applications. The aim of this project is to (start
-to) fix that by building scale models of distributed protocols and
-systems from TCP to BitTorrent and load-balancing tools using either
-<a href="https://pydes.readthedocs.io/">Py-DES</a> or <a href="https://simpy.readthedocs.io/">SimPy</a>. The tutorials will use simulators
-so that the accompanying lessons could illustrate edge cases in
-reproducible ways.</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>Software Security by Example</h3>
-<p>The first lesson in this tutorial will present a simple implementation
-of a wiki designed for shared note-taking.  Each of the following
-lessons will fix one of its security shortcomings (or one of the
-shortcomings introduced by an earlier fix).  Some will be
-vulnerabilities such as cross-site scripting or SQL injection; others
-will be missing features such as basic authentication or
-<a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>, role-based access control, the kind of logging that
-every sys admin wishes they had, static code analysis, and eventually
-the audit and emergency response procedures that such tools are meant
-to support.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>Software Design for Everyone</h3>
-<p>Each lesson in this tutorial will present a &ldquo;what if?&rdquo; scenario and
-then explores its implications for software design.  What if you had
-crippling arthritis (which you can simulate by taping popsicle sticks
-to your fingers): how would you redesign a cell phone app?  What if
-you thought your government might take a sharp turn to the right and
-retroactively weaponize women&rsquo;s health records: (how) could you
-satisfy doctors&rsquo; need for information with patient safety?  How would
-you redesign a Q&amp;A site like Stack Overflow if you thought most people
-in the world <em>didn&rsquo;t</em> speak English as their first language?  The
-practical exercises will assume enough programming skill to build
-simple web applications.</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>Unbreaking Software</h3>
-<p>Most programmers spend a large part of their time debugging, but most
-courses only show working code, and most textbooks don&rsquo;t discuss how
-to prevent, diagnose, and fix errors.  This tutorial will fill that
-gap by presenting dozens of case studies showing how to find and fix
-real-world problems.  Along the way, it will present examples of what
-programmers can do to handle errors gracefully, from data structure
-repair to automatically restarting servers.</p>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col col-6">
-<div class="card">
-<h3>Human-Scale Web Programming</h3>
-<p><a href="https://lessonomicon.github.io/webonomicon/">This incomplete tutorial</a> is an introduction to web
-programming aimed at scientists and others will little or no
-experience with JavaScript, HTTP requests, and related technologies.
-In this project, a student (or team of students) with an interest in
-teaching would fill it in and offer it at least once in order to learn
-more about how to create and deliver high-quality lessons.</p>
-</div>
-</div>
-<div class="col col-6">
-<div class="card">
-<h3>Testing Research Software</h3>
-<p>The <a href="https://third-bit.com/sdxjs/">JavaScript</a> and <a href="https://third-bit.com/sdxpy/">Python</a> versions of <em>Software
-Design by Example</em> showed readers how to design programs by working
-through scaled-down examples. In contrast, this project will develop
-scaled-down versions of things like <a href="https://lorenabarba.com/blog/cfd-python-12-steps-to-navier-stokes/">fluid flow simulators</a> and
-data analysis pipelines, and then shows readers how to test them.
-Each lesson will open with a short recap of the science and a
-walk-through of the untested code, then explore how that code can be
-tested.</p>
-</div>
-</div>
-</div>
+
+<h2 id="in-progress">In Progress</h2>
+
+<p>
+  These projects are currently in students' hands but may become
+  available again afterwards.
+</p>
+
+
+  
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="browsercast">
+        <h3>Browsercast</h3>
+<p>
+  Tools like PowerPoint aren't web-friendly.  When you export a
+  slideshow to the web, what you get is a bunch of images, while
+  screencasts are opaque to search engines and disability aids.  In
+  contrast, <a href="https://github.com/gvwilson/browsercast">Browsercast</a>
+  plays snippets of audio in the browser as the viewer moves through
+  the slides, so "View Source", links, CSS, screen readers, and search
+  work as they should.  The prototype uses just 5kb of JavaScript; the
+  aim of this project is to turn it into a functional tool.
+  <br>
+  <em>Keywords: JavaScript, UI design, multimedia, accessibility</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="marimo-h5p">
+        <h3>Marimo and H5P</h3>
+<p>
+  <a href="https://marimo.io/">Marimo</a> is a next-generation
+  computational notebook that enables data scientists to mix code,
+  discussion, and results in a reproducible way.  Its plugin system
+  relies on <a href="https://anywidget.dev/">AnyWidget</a>, which
+  specifies a simple contract between extensions and Marimo's
+  rendering and execution engine.  The aim of this project is to
+  design, build, and test a set of Marimo plugins that can be used for
+  classroom exercises similar to those in the
+  <a href="https://h5p.org/content-types-and-applications">H5P</a>
+  toolkit: multiple choice, fill in the blanks, and so on.
+  <br>
+  <em>Keywords: Python, JavaScript, computational notebooks, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+
+
+<h2 id="programming">Programming</h2>
+
+<p>
+  The primary focus of these projects is building and testing software.
+</p>
+
+
+  
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="narwhals">
+        <h3>Narwhals</h3>
+<p>
+  <a href="https://narwhals-dev.github.io/narwhals/">Narwhals</a> is a
+  Python package that provides compatibility between dataframe
+  libraries, allowing applications to use
+  <a href="https://pandas.pydata.org/">Pandas</a>, <a href="https://pola.rs/">Polars</a>,
+  and other libraries through a common API. Students working on this
+  project will contribute directly to Narwhals, and will be
+  responsible for fixing bugs, designing new features, and shepherding
+  their work through review into production.
+  <br>
+  <em>Keywords: Python, data science, open source</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="markdown-dom">
+        <h3>Markdown to DOM</h3>
+<p>
+  <a href="https://python-markdown.github.io/">Python-Markdown</a>
+  converts Markdown to HTML; if an application needs a DOM tree that
+  it can check or manipulate, it must then parse the HTML using a
+  library like <a href="https://beautiful-soup-4.readthedocs.io/">BeautifulSoup</a>,
+  perform whatever operations it needs to, and then convert the DOM
+  back to HTML. In this project, students will refactor
+  Python-Markdown so that it can generate a Beautiful Soup-compatible
+  DOM tree directly.
+  <br>
+  <em>Keywords: Python, open source, parsing</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="dragnet">
+        <h3>Dragnet</h3>
+<p>
+  One type of exercise that H5P <em>doesn't</em> support is adding
+  labels to diagrams. <a href="https://iezer.github.io/dragnet/">This
+  prototype</a> takes an SVG with some specially-marked labels, moves
+  those labels to the side, and then lets the user try to drag them
+  back into the right places.  A deployable version would need to do a
+  lot more, such as dealing with scaling transformations; the goal of
+  this project is to turn the demo into something a classroom teacher
+  could use.
+  <br>
+  <em>Keywords: JavaScript, SVG, UI design, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="wysiwyg-editor">
+        <h3>A Little WYSIWYG Editor</h3>
+<p>
+  Panchekha and Harrelson's
+  <a href="https://browser.engineering/"><em>Web Browser Engineering</em></a>
+  builds a small but fully-functional web browser step by step to show
+  students how real ones work. The aim of this project is to build an
+  equally simple desktop WYSIWYG editor in Python that supports both
+  styled text and embedded sketching.
+  <br>
+  <em>Keywords: Python, UI design</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="xkcd-charts">
+        <h3>XKCD Charts</h3>
+<p>
+  <a href="https://timqian.com/chart.xkcd/">Chart.xkcd</a> is a
+  JavaScript library that displays charts in the sketchy hand-drawn
+  style of <a href="https://xkcd.com/">XKCD</a>. Its creator is no
+  longer maintaining it; this project will fork the original code, fix
+  outstanding issues, and add new features such as axis limits and
+  stable coloring schemes.
+  <br>
+  <em>Keywords: JavaScript, SVG, UI design, data visualization, open source</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="extending-lox">
+        <h3>Extending Lox</h3>
+<p>
+  Lox is a simple interpreted language created by Robert Nystrom for
+  his book <a href="https://craftinginterpreters.com/"><em>Crafting
+  Interpreters</em></a>. Many people have extended it in various ways;
+  in this project, students would re-create Lox by working through the
+  second half of Nystrom's book, then add operator overloading,
+  cooperative concurrency, and a few other features to bring the
+  language up to par with <a href="https://www.lua.org/">Lua</a>.
+  <br>
+  <em>Keywords: C, compilers, programming languages</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="testing-rse">
+        <h3>Testing Research Software</h3>
+<p>
+  The <a href="../sdxjs/">JavaScript</a> and
+  <a href="../sdxpy/">Python</a> versions of <em>Software Design by
+  Example</em> showed readers how to design programs by working
+  through scaled-down examples. In contrast, this project will develop
+  scaled-down versions of things like
+  <a href="https://lorenabarba.com/blog/cfd-python-12-steps-to-navier-stokes/">fluid
+  flow simulators</a> and data analysis pipelines, and then shows
+  readers how to test them.  Each lesson will open with a short recap
+  of the science and a walk-through of the untested code, then explore
+  how that code can be tested.
+  <br>
+  <em>Keywords: Python, computational science, software testing, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="parallel-marimo">
+        <h3>Parallelizing Marimo Notebooks</h3>
+<p>
+  <a href="https://marimo.io/">Marimo</a> is a next-generation
+  computational notebook that (a) stores everything as Python source
+  code and (b) analyzes code to prevent out-of-order execution of
+  cells. <a href="https://dagster.io/">Dagster</a> and
+  <a href="https://metaflow.org/">Metaflow</a> are computational
+  workflow tools that allow users to add decorators to functions and
+  methods to specify computational chunks. The goal of this project is
+  to see if the two can be married, i.e., to see if it's possible to
+  add decorators to cell functions in Marimo to parallelize notebooks
+  directly.
+  <br>
+  <em>Keywords: Python, parallel computing, workflows, computational notebooks</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="tidyblocks">
+        <h3>A Blocks-Based Data Science Tool</h3>
+<p>
+  <a href="https://github.com/tidyblocks/tidyblocks">TidyBlocks</a>
+  was a prototype of a
+  <a href="https://scratch.mit.edu/">Scratch</a>-like tool for
+  teaching introductory data ascience.  It turned out to be an
+  inappropriate visual paradigm, as there was no natural way to
+  represent join operations as nested blocks.  The aim of this project
+  is to explore an alternative using a node-and-connector model like
+  that of <a href="https://nodered.org/">Node-RED</a>
+  or <a href="https://en.wikipedia.org/wiki/Yahoo!_Pipes">Yahoo!
+  Pipes</a>.
+  <br>
+  <em>Keywords: JavaScript, UI design, programming tools, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="wysiwyg-notebook">
+        <h3>A WYSIWYG Computational Notebook</h3>
+<p>
+  <a href="https://jupyter.org/">Jupyter</a> uses JSON as its storage format, while
+  <a href="https://marimo.io/">Marimo</a>
+  and <a href="https://quarto.org/">Quarto</a> use Python with
+  embedded strings and Markdown with embedded code respectively. This
+  project will explore a third option by building an
+  <a href="https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions">extension</a>
+  for <a href="https://www.libreoffice.org/">LibreOffice</a> using
+  the <a href="https://jupyter-client.readthedocs.io/en/latest/">the
+  Jupyter messaging protocol</a> so that people who prefer WYSIWYG
+  editors can embed code and its output alongside diagrams, tables,
+  and other media.
+  <br>
+  <em>Keywords: Java, computational notebooks, UI design</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="execution-order">
+        <h3>Drawing Execution Order</h3>
+<p>
+  Philip Guo's <a href="https://pythontutor.com/">Python Tutor</a>
+  helps novice programmers visualize the data structures in their
+  programs. The aim of this project is to build a similar tool that
+  can display the order in which statements are executed in a more
+  readable way than is shown below:
+  <br>
+  <img src="../files/2023/sequence-of-steps.svg" alt="execution tracer">
+  <br>
+  <em>Keywords: education, program analysis</em>
+</p>
+
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="code-selectors">
+        <h3>Code Selectors</h3>
+<p>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors">CSS
+  Selectors</a> allow developers to select elements in a web page,
+  and <a href="https://jqlang.github.io/jq/manual/">jq</a> offers a
+  similar notation for selecting elements in JSON documents. The aim
+  of this project is to develop a similar notation for selecting
+  blocks of source code, e.g., to say, "Get the first for loop in the
+  method <code>m</code> in the class <code>C</code>".  The primary use
+  case will be including snippets of code in books and tutorials, so
+  the notation must be able to handle multiple languages.
+  <br>
+  <em>Keywords: Python, programming languages, parsing</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+
+
+<h2 id="tutorials">Tutorials</h2>
+
+<p>
+  These projects require substantial software development, but their
+  main deliverable is the explanations of how that software works or
+  what ideas it illustrates.
+</p>
+
+
+  
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="web-tutorial">
+        <h3>Human-Scale Web Programming</h3>
+<p>
+  <a href="https://lessonomicon.github.io/webonomicon/">This
+  incomplete tutorial</a> is an introduction to web programming aimed
+  at scientists and others will little or no experience with
+  JavaScript, HTTP requests, and related technologies.  In this
+  project, a student (or team of students) with an interest in
+  teaching would fill it in and offer it at least once in order to
+  learn more about how to create and deliver high-quality lessons.
+  <br>
+  <em>Keywords: JavaScript, Python, web programming, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="generative-art">
+        <h3>Generative Art</h3>
+<p>
+  The goal of this project is to translate Danielle Navarro's tutorial
+  on generative art that starts
+  with <a href="https://blog.djnavarro.net/posts/2024-12-18_art-from-code-1/">this
+  blog post</a> from R to Python. By the end, learners should be able
+  to build software that creates art like the examples
+  in <a href="https://art.djnavarro.net/gallery/">this gallery</a>.
+  <br>
+  <em>Keywords: Python, R, generative art</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="sdx-gleam">
+        <h3>Software Design by Example in Gleam</h3>
+<p>
+  <a href="https://gleam.run/">Gleam</a> is a modern functional language that runs on the
+  <a href="https://www.erlang.org/">Erlang/OTP</a> platform (and can
+  also be compiled to JavaScript). The aim of this project is to
+  translate examples from <a href="../sdxpy/"><em>Software Design
+  by Example</em></a> into Gleam to help people coming from Python and
+  other mainstream languages understand how to use FP in practice.
+  <br>
+  <em>Keywords: Gleam, functional programming, software design, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="des-sim">
+        <h3>Simulations of Distributed Systems</h3>
+<p>
+  <a href="https://third-bit.com/sdxpy/"><em>Software Design by
+  Example in Python</em></a> deliberately ignored concurrency, partial
+  failure, and everything else associated with modern distributed
+  applications. The aim of this project is to (start to) fix that by
+  building scale models of distributed protocols and systems from TCP
+  to BitTorrent and load-balancing tools using either
+  <a href="https://pydes.readthedocs.io/">Py-DES</a>
+  or <a href="https://simpy.readthedocs.io/">SimPy</a>. The tutorials
+  will use simulators so that the accompanying lessons could
+  illustrate edge cases in reproducible ways.
+  <br>
+  <em>Keywords: Python, distributed systems, discrete event simulation, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="sdx-security">
+        <h3>Software Security by Example</h3>
+<p>
+  The first lesson in this tutorial will present a simple
+  implementation of a wiki designed for shared note-taking.  Each of
+  the following lessons will fix one of its security shortcomings (or
+  one of the shortcomings introduced by an earlier fix).  Some will be
+  vulnerabilities such as cross-site scripting or SQL injection;
+  others will be missing features such as basic authentication or
+  <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>, role-based
+  access control, the kind of logging that every sys admin wishes they
+  had, static code analysis, and eventually the audit and emergency
+  response procedures that such tools are meant to support.
+  <br>
+  <em>Keywords: web programming, digital security, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="sdx-everyone">
+        <h3>Software Design for Everyone</h3>
+<p>
+  Each lesson in this tutorial will present a "what if?" scenario and
+  then explores its implications for software design.  How would you
+  redesign a cell phone app if you had crippling arthritis (which you
+  can simulate by taping popsicle sticks to your fingers)?  What if
+  you thought your government might take a sharp turn to the right and
+  retroactively weaponize women's health records: (how) could you
+  satisfy doctors' need for information with patient safety? The
+  practical exercises will assume enough programming skill to build
+  simple web applications.
+  <br>
+  <em>Keywords: accessibility, UI design, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="unbreaking">
+        <h3>Unbreaking Software</h3>
+<p>
+  Most programmers spend a large part of their time debugging, but
+  most courses only show working code, and most textbooks don't
+  discuss how to prevent, diagnose, and fix errors.  This tutorial
+  will fill that gap by presenting dozens of case studies showing how
+  to find and fix real-world problems.  Along the way, it will present
+  examples of what programmers can do to handle errors gracefully,
+  from data structure repair to automatically restarting servers.
+  <br>
+  <em>Keywords: software design, debugging, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="sdx-performance">
+        <h3>Software Performance by Example</h3>
+<p>
+  Each lesson in this tutorial will take a simple application, analyze
+  its performance, and then make it faster. Along the way, the lessons
+  will present general tips for improving performance similar to those
+  in Jon Bentley's classic book <em>Writing Efficient Programs</em>,
+  update them, and show how to apply them in practice.
+  <br>
+  <em>Keywords: C, Python, JavaScript, SQL, distributed systems, performance</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+
+
+<h2 id="research">Research</h2>
+
+<p>
+  The main deliverable of these projects is answers rather than software
+  or tutorials.
+</p>
+
+
+  
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="undergrad-textbooks">
+        <h3>Analysis of Undergrad Textbooks</h3>
+<p>
+  Most undergraduate computer science programs have a first- or
+  second-year course on data structures and algorithms.  What do these
+  courses actually teach, how has their content changed since
+  Wirth's <a href="https://en.wikipedia.org/wiki/Algorithms_%2B_Data_Structures_%3D_Programs">classic
+  book</a> appeared in 1976, and which of these algorithms and data
+  structures are used in upper-year courses? To answer these
+  questions, this project will assemble and apply tools to analyze the
+  text of several dozen textbooks; along the way, the students doing
+  the project will have to decide how to identify topics, how to count
+  them, and how to make their work reproducible.
+  <br>
+  <em>Keywords: natural language processing, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="variable-roles">
+        <h3>Identification of Variable Roles</h3>
+<p>
+  Sajaniemi et al's work
+  on <a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles
+  of variables</a> identified and named ten small patterns in the way
+  variables are used in novice programs. This project would build
+  static and dynamic analysis tools to detect those patterns (and
+  possibly others) in programs as an aid to teaching, debugging, and
+  code review.
+  <br>
+  <em>Keywords: program analysis, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="code-review">
+        <h3>The Impact of Calibrated Code Review</h3>
+<p>
+  Give a novice programmer a one-page program and have them score it
+  using a checklist, then grade them on how closely their scoring
+  matches the instructor’s. (They start with 100%, and lose one mark
+  for each false positive or false negative.) After doing this a
+  handful of times, they should learn to see code through the
+  instructor’s eyes. Does this help them write better code? If so, how
+  quickly and how well?  This project will attempt to answer these
+  questions.
+  <br>
+  <em>Keywords: code review, education</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="claim-validity">
+        <h3>Validity of Claims</h3>
+<p>
+  Are some programmers really ten times more productive than others?
+  Does test-driven development actually make programmers more
+  productive?  And do people actually believe these claims?  This
+  project will conduct a quantitative survey of best-selling books on
+  software developmnt to measure how many of their claims are backed
+  by citations, and of those, how many are considered valid, then
+  survey programmers to see which (if any) they believe.
+  <br>
+  <em>Keywords: evidence-based software engineering</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="understanding-ethics">
+        <h3>Understanding Ethics</h3>
+<p>
+  This project will start by creating a set of scenarios in which a
+  programmer needs to make an ethical decision, each with
+  multiple-choice options.  An expert will determine the best answer
+  for each; students and professionals will then be asked to answer
+  the same questions, and the results will be analyzed to see how well
+  each group matches the experts' opinions and whether practitioners'
+  opinions are any better than those of students.
+  <br>
+  <em>Keywords: ethics, professional development</em>
+</p>
+
+
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="missing-lessons">
+        <h3>What "Business of Software" Doesn't Teach</h3>
+<p>
+  Many universities offer an undergraduate course on entrepreneurship
+  or the business of software. This project will survey these courses
+  to determine what they <em>don't</em> teach. For example, how many
+  of these courses (if any) devote time to labor rights? How many
+  discuss anti-trust legislation? And how does that variy by country
+  and by the nature of the institution?
+  <br>
+  <em>Keywords: business of software, entrepreneurship, lesson content</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="slide-text">
+        <h3>Comparing Slideshow Tools</h3>
+<p>
+  Are slideshows written using HTML- or Markdown-based tools more
+  text-intensive than those written in PowerPoint?  Putting it another
+  way, are slides written in formats that version control understands
+  (text) less likely to use diagrams than slides written with GUI
+  tools? To answer this question, the student(s) doing this project
+  will have to develop ways to quantify how graphical or textful a
+  presentation is, and learn how to make work of this kind
+  reproducible.
+  <br>
+  <em>Keywords: slideshows, tools, reproducible research</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      <div class="card" id="tooling-effort">
+        <h3>Tooling Effort over Time</h3>
+<p>
+  How does the percentage of effort devoted to tooling and deployment
+  change as a project grows and/or ages?  And how has it changed as
+  we've moved from desktop applications to cloud-based applications?
+  Once a project reaches a certain size, does the amount of tooling
+  (measured by number of files or lines of configuration) level off?
+  Does the effort required to maintain the tooling grow as the code
+  base grows, or does it level off as well? Answering these questions
+  will give the student(s) a chance to learn how to mine software
+  repositories.
+  <br>
+  <em>Keywords: mining software repositories, tooling, reproducible research</em>
+</p>
+
+
+
+      </div>
+      
+    </div>
+  
+  </div>
+
+  <div class="row">
+  
+    <div class="col col-6">
+      
+      <div class="card" id="developer-discussions">
+        <h3>Developer Discussions</h3>
+<p>
+  Which of the techniques catalogued in
+  <a href="https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715"><em>The
+  Discussion Book</em></a> are programmers familiar with?  Which ones
+  are supported by their tools?  Which ones do they use informally
+  without explicit tool support, and how do they operationalize them?
+  These questions cannot be answered by mining software repositories;
+  instead, the student(s) doing this project will have to administer
+  surveys and conduct observational studies.
+  <br>
+  <em>Keywords: observational study, surveys</em>
+</p>
+
+      </div>
+      
+    </div>
+  
+    <div class="col col-6">
+      
+      &nbsp;
+      
+    </div>
+  
+  </div>
+
+
+
 
     </main>
     <footer>

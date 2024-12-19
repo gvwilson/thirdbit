@@ -25,8 +25,8 @@ If you see someone rolling a rock up a hill over and over, do you:
 3. Go help in order to lighten their burden.
 4. Dig up the hill so no one ever has to do this again.
 
-#1 seems to be most conservatives' default.
-#2 is the mushy middle,
+The first seems to be most conservatives' default.
+the second is the mushy middle,
 while #3 is favored by well-meaning people
 who want things to be better
 but don't really want anything important to change.

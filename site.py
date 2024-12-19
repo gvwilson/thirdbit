@@ -18,6 +18,50 @@ author = {
 today = date.today()
 now = datetime.now().isoformat()
 
+projects = {
+    "ongoing": [
+        "browsercast",
+        "marimo-h5p",
+    ],
+    "programming": [
+        "narwhals",
+        "markdown-dom",
+        "dragnet",
+        "wysiwyg-editor",
+        "xkcd-charts",
+        "extending-lox",
+        "testing-rse",
+        "parallel-marimo",
+        "tidyblocks",
+        "wysiwyg-notebook",
+        "execution-order",
+        "code-selectors",
+    ],
+    "tutorials": [
+        "web-tutorial",
+        "generative-art",
+        "sdx-gleam",
+        "des-sim",
+        "sdx-security",
+        "sdx-everyone",
+        "unbreaking",
+        "sdx-performance",
+    ],
+    "research": [
+        "undergrad-textbooks",
+        "variable-roles",
+        "code-review",
+        "claim-validity",
+        "understanding-ethics",
+        "missing-lessons",
+        "slide-text",
+        "tooling-effort",
+        "developer-discussions",
+        # "hoye-test",
+        # "altruism",
+    ]
+}
+
 papers = [
     {
         "author": "Wilson et al",

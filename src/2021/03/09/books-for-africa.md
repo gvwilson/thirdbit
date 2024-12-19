@@ -11,7 +11,7 @@ in a few weeks)
 posted this:
 
 > Thank you to our author Greg Wilson for his continual support of our
-> #DataScience publishing program, through authoring, reviewing, and consulting
+> DataScience publishing program, through authoring, reviewing, and consulting
 > on key projects. In appreciation, we have made a large donation of books to
 > [Books For Africa](https://www.booksforafrica.org/) on Greg's behalf.
 

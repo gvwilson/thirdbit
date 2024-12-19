@@ -1,0 +1,90 @@
+{% extends "page.jinja" %}
+
+{% block content %}
+<div class="row" markdown="1">
+  <div class="col col-6" markdown="1">
+    <p>
+      This map shows the birthplaces of the 146 students I supervised
+      from 2002 to 2010.  I would welcome a chance to help a few more,
+      so if you are a student or independent learner interested in
+      doing any of the projects described below, or an instructor
+      whose students need projects,
+      please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.
+      And if you are in Toronto and your team needs help with research
+      software engineering projects (large or small), I would also be
+      happy to chat.
+    </p>
+    <p>
+      As a mentor, I interact with students through email, chat, and
+      code reviews as I would with junior colleagues, and meet with
+      them once a week in person or online. Timezones are not an
+      issue, but unfortunately English is the only (human) language
+      I'm comfortable working in. Finally, all software must be open
+      source, all publications must be open access, and projects must
+      have a <a href="@root/conduct/">code of conduct</a>.
+    </p>
+  </div>
+  <div class="col col-6">
+    <div class="center">
+      <p>
+        <a href="@root/files/2024/csc49x.png">
+          <img src="@root/files/2024/csc49x.png" alt="map of student birthplaces" width="90%">
+        </a>
+	<br>
+        <a href="#in-progress">In Progress</a> ({{site.projects.ongoing | length}})
+        &middot;
+        <a href="#programming">Programming</a> ({{site.projects.programming | length}})
+        &middot;
+        <a href="#tutorials">Tutorials</a> ({{site.projects.tutorials | length}})
+        &middot;
+        <a href="#research">Research</a> ({{site.projects.research | length}})
+      </p>
+    </div>
+  </div>
+</div>
+
+<h2 id="in-progress">In Progress</h2>
+
+<p>
+  These projects are currently in students' hands but may become
+  available again afterwards.
+</p>
+
+{% with snippets=site.projects.ongoing %}
+  {% include "project-section.jinja" %}
+{% endwith %}
+
+<h2 id="programming">Programming</h2>
+
+<p>
+  The primary focus of these projects is building and testing software.
+</p>
+
+{% with snippets=site.projects.programming %}
+  {% include "project-section.jinja" %}
+{% endwith %}
+
+<h2 id="tutorials">Tutorials</h2>
+
+<p>
+  These projects require substantial software development, but their
+  main deliverable is the explanations of how that software works or
+  what ideas it illustrates.
+</p>
+
+{% with snippets=site.projects.tutorials %}
+  {% include "project-section.jinja" %}
+{% endwith %}
+
+<h2 id="research">Research</h2>
+
+<p>
+  The main deliverable of these projects is answers rather than software
+  or tutorials.
+</p>
+
+{% with snippets=site.projects.research %}
+  {% include "project-section.jinja" %}
+{% endwith %}
+
+{% endblock %}

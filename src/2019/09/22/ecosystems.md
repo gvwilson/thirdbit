@@ -20,6 +20,7 @@ we got this:
 > Climate change hasn't had an impact that we know of.
 >
 > What I learned:
+>
 > -   There are no whales on the Moon.
 > -   There are also no trees.
 > -   Which means there is also no deforestation.

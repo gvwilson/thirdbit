@@ -74,7 +74,13 @@ is cynical rather than immature,
 but springs from the same desire to avoid growing up—the same deep fear of real, meaningful change.
 
 <em>
-Footnote:
+For those wondering why Shopify is on this list,
+see [this quote](@root/2019/03/15/christchurch-and-shopify/) from Johnathan Nightingale
+in the wake of the Christchurch massacre.
+</em>
+
+<em>
+Later:
 the workshop was held at
 a <a href="@root/2019/04/15/an-exchange-with-datacamp/">DataCamp</a> all-hands meeting,
 several months after the company's CEO sexually assaulted one of the staff

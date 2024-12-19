@@ -34,18 +34,18 @@ it would have one of three flavors:
     and everything else that has taken the place of manual memory management in programmers' hurt list
     would be useful and (I believe) fun.
 
-    However,
-    the chapters of the existing *Software Design* books averaged 25 hours of work each,
-    not including end-to-end proofreading and discussions with the publisher.
-    I believe concurrent and distributed equivalents would be 3X harder to design, build, debug, and explain,
-    so this book would require approximately 1800 hours total.
-    On top of that,
-    I haven't built anything more complex than straightforward client/server applications since I finished my PhD 30 years ago,
-    and the concurrency tools in the languages I speak well (Python, JavaScript, C) are wearying to wrestle with.
-    [Pony][pony] and [Gleam][gleam] look interesting—the former would scratch my "very strongly typed" itch like most pure functional languages
-    while the latter would give me a chance to learn a bit about [Erlang][erlang] as well—but again,
-    I'd have to spend a year getting comfortable with the language and paradigm
-    before I could start designing things.
+However,
+the chapters of the existing *Software Design* books averaged 25 hours of work each,
+not including end-to-end proofreading and discussions with the publisher.
+I believe concurrent and distributed equivalents would be 3X harder to design, build, debug, and explain,
+so this book would require approximately 1800 hours total.
+On top of that,
+I haven't built anything more complex than straightforward client/server applications since I finished my PhD 30 years ago,
+and the concurrency tools in the languages I speak well (Python, JavaScript, C) are wearying to wrestle with.
+[Pony][pony] and [Gleam][gleam] look interesting—the former would scratch my "very strongly typed" itch like most pure functional languages
+while the latter would give me a chance to learn a bit about [Erlang][erlang] as well—but again,
+I'd have to spend a year getting comfortable with the language and paradigm
+before I could start designing things.
 
 So like I said,
 I'm not going to tackle these books.
