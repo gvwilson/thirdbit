@@ -57,6 +57,7 @@ projects = {
         "slide-text",
         "tooling-effort",
         "developer-discussions",
+        "ide-adoption",
         # "hoye-test",
         # "altruism",
     ]
