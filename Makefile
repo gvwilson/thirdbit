@@ -12,6 +12,17 @@ build:
 oops:
 	bash bin/oops.sh
 
+## references: rebuild references Markdown page
+references:
+	cd bib && \
+	pandoc references.md --citeproc --metadata title="References" -s -t html -o - \
+	| python ../bin/reformat-bib.py \
+	> ../src/references.md
+
+## checkbib: check bibliography
+checkbib:
+	cat bib/*.bib | python bin/check-bib.py ${BIBDIR}
+
 ## serve: build site and run server
 serve:
 	ark serve
