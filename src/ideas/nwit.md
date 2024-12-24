@@ -77,8 +77,6 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1. Stray et al 2024: "The Agile Coach Role: Coaching for Agile Performance Impact" <https://arxiv.org/abs/2010.15738> Reports results from semi-structured interviews with 19 agile coaches at 10 different companies. No big surprises, but it's nice to see this increasingly influential role put under the microscope.
 
-1. Florath 2024: "LLM Interactive Optimization of Open Source Python Libraries -- Case Studies and Generalization" <https://arxiv.org/abs/2312.14949> "We find that contemporary LLM ChatGPT-4 is surprisingly adept at optimizing energy and compute efficiency. However, this is only the case in interactive use, with a human expert in the loop."
-
 1. Sesari et al 2024: "Understanding Fairness in Software Engineering: Insights from Stack Exchange" <https://arxiv.org/abs/2402.19038> "The majority of fairness discussions revolve around the topic of income… Further…while not discussed as often, discussions on fairness in recruitment tend to receive the highest number of views and scores."
 
 1. da Gião et al 2024: "Chronicles of CI/CD: A Deep Dive into its Usage Over Time" <https://arxiv.org/abs/2402.17588> Usage of CI/CD is tied to language (which may reflect developer age cohorts), and a surprising number of projects use multiple CI/CD technologies.
@@ -116,8 +114,6 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 1. Madugalla et al 2024: "Engineering Adaptive Information Graphics for Disabled Communities: A Case Study with Public Space Indoor Maps" <https://arxiv.org/abs/2401.05659> "Our research [develops] a framework that generates adaptive and accessible information graphics for multiple disabilities. Uniquely, the approach also serves people with multiple simultaneous disabilities…people with low vision, colour blindness, dyslexia and mobility impairment."
 
 1. Wang & Lopez Moreno 2024: "Version Control of Speaker Recognition Systems" <https://arxiv.org/abs/2007.12069> This paper discusses the practical engineering challenges of version control of models and user profiles based on strategies for speaker recognition systems at Google. These strategies are categorized into device-side deployment, server-side deployment, and hybrid deployment and compared using SpeakerVerSim, a Python simulation framework. 
-
-1. Peng et al: "Less is More? An Empirical Study on Configuration Issues in Python PyPI Ecosystem" <https://arxiv.org/abs/2310.12598> "To evaluate the effectiveness o current automatic dependency inference approaches, we build a benchmark[…]identify 15 kinds of configuration issues and find that 183,864 library releases suffer from potential configuration issues. Remarkably, 68% of these issues can only be detected via the source-level check."
 
 1. Cheong et al: "Ethical Considerations Towards Protestware" <https://arxiv.org/abs/2306.10019> "Using different frameworks commonly used in AI ethics, we illustrate how an open-source maintainer's decision to protest is influenced by different stakeholders (viz., their membership in the OSS community, their personal views, financial motivations, social status, and moral viewpoints), making protestware a multifaceted and intricate matter."
 
@@ -161,8 +157,6 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1. Nitin et al: "Yuga: Automatically Detecting Lifetime Annotation Bugs in the Rust Language" From the abstract: "Yuga successfully detects bugs with good precision on these datasets, and we make the code and datasets publicly available for review." <https://arxiv.org/abs/2310.08507>
 
-1. Ma et al.: "HypoCompass: Large-Language-Model-based Tutor for Hypothesis Construction in Debugging for Novices" From the abstract: "Hypothesis construction in debugging is rarely taught due to a lack of explicit instruction. In this work, we explore whether LLMs can be used to train novices on hypothesis construction…" I think this is a really interesting use case for LLMs: ask me if I've checked for X or why I think Y might be wrong. <https://arxiv.org/abs/2310.05292>
-
 1. Ye et al: "PreciseBugCollector: Extensible, Executable and Precise Bug-fix Collection" <https://arxiv.org/abs/2309.06229> From the abstract: "Bug datasets are vital for enabling deep learning techniques to address software maintenance tasks related to bugs. However, existing bug datasets…are either small-scale but precise…or large-scale but imprecise… In this paper, we introduce PreciseBugCollector, a precise, multi-language bug collection approach that overcomes these two limitations."
 
 1. Fu et al: "Security Weaknesses of Copilot Generated Code in GitHub" finds (1) 35.8% of Copilot generated code snippets contain CWEs, (2) the security weaknesses are diverse and related to 42 different CWEs, in which CWE-78: OS Command Injection, CWE-330: Use of Insufficiently Random Values, and CWE-703: Improper Check or Handling of Exceptional Conditions occurred the most frequently, and (3) 11 of those belong to the currently recognized 2022 CWE Top-25. <https://arxiv.org/abs/2310.02059>
@@ -170,8 +164,6 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 1. "40 Years of Designing Code Comprehension Experiments: A Systematic Mapping Study" by Wyrich et al is a great look back at how people have tried to measure the readability and comprehensibility of code 1979–2019. If you are building any kind of programming support tools or experimenting with LLMs for programmers, this is a great introduction to how people have tried to build goalposts in the past to evaluate success (or otherwise). <https://arxiv.org/abs/2206.11102>
 
 1. Huang et al: "Bias Assessment and Mitigation in LLM-based Code Generation" looks at the degree to which different prompts to nine different LLM-based code generators produce answers biased on age, race, sex, gender, etc. <https://arxiv.org/abs/2309.14345>
-
-1. Deiner and Fraser: "NuzzleBug: Debugging Block-Based Programs in Scratch" presents an extension of the Scratch block-based environment that provides better debugging support. <https://arxiv.org/abs/2309.14465>
 
 1. Melegati and Guera: "DAnTE: a taxonomy for the automation degree of software engineering tasks" describes several levels of automation in software engineering, then uses that classification scheme to try to figure out where LLMs might be of use. <https://arxiv.org/abs/2309.14903>
 
