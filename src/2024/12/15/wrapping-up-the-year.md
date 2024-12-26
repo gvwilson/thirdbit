@@ -260,7 +260,7 @@ but life is full of surprises.
     if I don't find a teacher or a group to play with, I probably won't stick with it.
 
 [aosa]: https://aosabook.org/
-[aosa-ideas]: @book/2024/10/28/what-would-be-in-a-new-aosa/
+[aosa-ideas]: @root/2024/10/28/what-would-be-in-a-new-aosa/
 [browsercast]: https://github.com/gvwilson/browercast/
 [capilano]: https://www.capbridge.com/
 [code-thought]: https://codeforthought.buzzsprout.com/1326658/episodes/15010367-en-carpentries-for-all-greg-wilson
