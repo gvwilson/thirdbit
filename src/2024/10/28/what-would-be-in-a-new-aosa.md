@@ -38,7 +38,7 @@ Candidates so far include:
 1.  [ruff][ruff]
 1.  [Tauri][tauri]
 1.  [Visual Studio Code][vscode]
-1.  [Svelte.][svelte] and/or [Vue.js][vuejs]
+1.  [Svelte][svelte] and/or [Vue.js][vuejs]
 
 Two things stand out for me:
 
