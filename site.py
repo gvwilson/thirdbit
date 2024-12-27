@@ -34,8 +34,9 @@ projects = {
         "parallel-marimo",
         "tidyblocks",
         "wysiwyg-notebook",
-        "execution-order",
         "code-selectors",
+        "session-recording",
+        "execution-order",
     ],
     "tutorials": [
         "web-tutorial",
