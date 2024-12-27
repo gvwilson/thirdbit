@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Not Very Scalable</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../projects/">projects</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Not Very Scalable</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2024/12/15/wrapping-up-the-year/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2024-12-27" class="post-date">2024-12-27</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>I have been teaching some informal lessons to colleagues based on
+the Python version of <a href="../../../../sdxpy/"><em>Software Design by Example</em></a>,
+and one thing that has bothered me is the sizing of the diagrams.
+It&rsquo;s not too bad in a chapter like <a href="../../../../sdxpy/glob/">this one</a>,
+but when those same SVG files are displayed in <a href="../../../../sdxpy/glob/slides/#2">slides like these</a>
+they are a bit hard to read.</p>
+<p>I thought the solution would be simple:
+&ldquo;SVG&rdquo; stands for &ldquo;Scalable Vector Graphics&rdquo;,
+so I should just be able to apply a scaling factor via CSS to enlarge the diagrams
+when they are displayed in slide files.
+(Modifying the source isn&rsquo;t an option:
+they are all carefully sized for the print edition,
+and I&rsquo;m not going to duplicate 107 diagrams to solve what is in reality a minor annoyance.)</p>
+<p>But what scaling factor should I apply and how should I apply it?
+I can&rsquo;t specify an absolute width or a page-relative fraction:
+the source diagrams have different intrinsic sizes,
+so either of those options would result in different diagrams being scaled by different amounts.
+Doing this wouldn&rsquo;t actually be so bad if they just contained lines,
+but they all have text as well,
+and if some of the diagrams are effectively scaled from (for example) 12-point to 15-point
+while others are scaled from 12-point to 18-point,
+it really stands out.</p>
+<p>What&rsquo;s worse is that when I scale up the SVG by a fixed amount (e.g., 120%)
+it overlaps with the text below it.
+A bit of poking around revealed that the browser lays out the text on the slide
+using the SVG&rsquo;s original (intrinsic) size,
+and <em>then</em> resizes the SVG.
+It isn&rsquo;t noticeable if the figure is the last or only thing on the slide,
+but that&rsquo;s not always the case.</p>
+<p>The best solution so far comes from <a href="https://www.linkedin.com/in/camerondecoster/">Cameron DeCoster</a>,
+and relies on the fact that all of these SVG images are contained in <code>figure</code> elements:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nv">--image-width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">figure</span><span class="p">.</span><span class="nc">fullwidth</span><span class="w"> </span><span class="nt">img</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">img</span><span class="p">.</span><span class="nc">centered</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">    </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">img</span><span class="p">.</span><span class="nc">image</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--image-width</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nt">img</span><span class="p">.</span><span class="nc">scaled-img</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c">/*</span>
+<span class="c">    Setting the width to a percentage increases the size of the of</span>
+<span class="c">    the image, but the width of the image is calculated using the</span>
+<span class="c">    intrinsic size during the initial layout phase and doesn&#39;t get</span>
+<span class="c">    updated as the image is scaled up.</span>
+<span class="c">    (https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size)</span>
+<span class="c">    */</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="kt">%</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c">/*</span>
+<span class="c">    Setting the width to an explicit number provides an</span>
+<span class="c">    independent container element and everything works correctly.</span>
+<span class="c">    */</span>
+<span class="w">    </span><span class="c">/* width: 500px; */</span>
+
+<span class="w">    </span><span class="c">/* </span>
+<span class="c">    Using a scale transform increases the size of the image but</span>
+<span class="c">    doesn&#39;t update the page layout.  As such, the image element</span>
+<span class="c">    will begin to overlap surrounding elements at higher scales.</span>
+<span class="c">    */</span>
+<span class="w">    </span><span class="c">/* transform: scale(1.6); */</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>It&rsquo;s still not perfect:
+as the image below shows,
+the rescaled figure is no longer centered.
+As Cameron explains:</p>
+<blockquote>
+<p>The centering issue is due to the fact that there&rsquo;s a cyclic dependency between two elements:
+the image and the container.
+Using flexbox on the figure with center justified content means that
+the content of the container (the image) will set the width.
+However, we&rsquo;re using a percentage for the width on the image,
+which depends on the width of the parent (the container).
+The W3C resolves this as stated <a href="https://www.w3.org/TR/css-sizing-3/#cyclic-percentage-contribution">here</a>.
+The result is that the initial width calculation is performed using the original size of the image,
+then the container is centered,
+then the image is scaled.
+Unfortunately,
+that means that the image centering calculation is done with a different width than the image we see,
+and things look wonky.</p>
+</blockquote>
+<div class="center">
+<img src="../../../../files/2024/decoster-css.png" alt="DeCoster CSS example" width="90%">
+</div>
+
+<p>SVG is now 25 years old.
+I think &ldquo;scale this up&rdquo; ought to be a lot easier than it is,
+but my real gripe is that I have no idea how the average person
+would ever figure this out.
+If you want to play around with a small example,
+please check out <a href="https://github.com/gvwilson/resize-demo">this repository</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2024 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+</footer>
+  </body>
+</html>

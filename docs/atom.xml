@@ -3,7 +3,7 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2024-12-16T00:00:00Z</updated>
+ <updated>2024-12-27T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
@@ -11,15 +11,110 @@
  </author>
  
  <entry>
-   <title>Bibliography Dates</title>
-   <link href="https://third-bit.com/2024/12/16/bibliography-dates/"/>
-   <updated>2024-12-16T00:00:00Z</updated>
-   <id>https://third-bit.com/2024/12/16/bibliography-dates/</id>
-   <content type="html">&lt;p&gt;Apropos of nothing,
-here&amp;rsquo;s the distribution of papers in my bibliography by year:&lt;/p&gt;
+   <title>Not Very Scalable</title>
+   <link href="https://third-bit.com/2024/12/27/not-very-scalable/"/>
+   <updated>2024-12-27T00:00:00Z</updated>
+   <id>https://third-bit.com/2024/12/27/not-very-scalable/</id>
+   <content type="html">&lt;p&gt;I have been teaching some informal lessons to colleagues based on
+the Python version of &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example&lt;/em&gt;&lt;/a&gt;,
+and one thing that has bothered me is the sizing of the diagrams.
+It&amp;rsquo;s not too bad in a chapter like &lt;a href=&#34;https://third-bit.com/sdxpy/glob/&#34;&gt;this one&lt;/a&gt;,
+but when those same SVG files are displayed in &lt;a href=&#34;https://third-bit.com/sdxpy/glob/slides/#2&#34;&gt;slides like these&lt;/a&gt;
+they are a bit hard to read.&lt;/p&gt;
+&lt;p&gt;I thought the solution would be simple:
+&amp;ldquo;SVG&amp;rdquo; stands for &amp;ldquo;Scalable Vector Graphics&amp;rdquo;,
+so I should just be able to apply a scaling factor via CSS to enlarge the diagrams
+when they are displayed in slide files.
+(Modifying the source isn&amp;rsquo;t an option:
+they are all carefully sized for the print edition,
+and I&amp;rsquo;m not going to duplicate 107 diagrams to solve what is in reality a minor annoyance.)&lt;/p&gt;
+&lt;p&gt;But what scaling factor should I apply and how should I apply it?
+I can&amp;rsquo;t specify an absolute width or a page-relative fraction:
+the source diagrams have different intrinsic sizes,
+so either of those options would result in different diagrams being scaled by different amounts.
+Doing this wouldn&amp;rsquo;t actually be so bad if they just contained lines,
+but they all have text as well,
+and if some of the diagrams are effectively scaled from (for example) 12-point to 15-point
+while others are scaled from 12-point to 18-point,
+it really stands out.&lt;/p&gt;
+&lt;p&gt;What&amp;rsquo;s worse is that when I scale up the SVG by a fixed amount (e.g., 120%)
+it overlaps with the text below it.
+A bit of poking around revealed that the browser lays out the text on the slide
+using the SVG&amp;rsquo;s original (intrinsic) size,
+and &lt;em&gt;then&lt;/em&gt; resizes the SVG.
+It isn&amp;rsquo;t noticeable if the figure is the last or only thing on the slide,
+but that&amp;rsquo;s not always the case.&lt;/p&gt;
+&lt;p&gt;The best solution so far comes from &lt;a href=&#34;https://www.linkedin.com/in/camerondecoster/&#34;&gt;Cameron DeCoster&lt;/a&gt;,
+and relies on the fact that all of these SVG images are contained in &lt;code&gt;figure&lt;/code&gt; elements:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;     &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;--image-width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;80&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;figure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;fullwidth&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;centered&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;block&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;margin-left&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;auto&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;margin-right&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;auto&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;var&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;--image-width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;scaled-img&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    Setting the width to a percentage increases the size of the of&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    the image, but the width of the image is calculated using the&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    intrinsic size during the initial layout phase and doesn&amp;#39;t get&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    updated as the image is scaled up.&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    (https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size)&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    */&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;120&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;%&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;/*&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    Setting the width to an explicit number provides an&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    independent container element and everything works correctly.&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    */&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;/* width: 500px; */&lt;/span&gt;
+
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;/* &lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    Using a scale transform increases the size of the image but&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    doesn&amp;#39;t update the page layout.  As such, the image element&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    will begin to overlap surrounding elements at higher scales.&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;    */&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;/* transform: scale(1.6); */&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It&amp;rsquo;s still not perfect:
+as the image below shows,
+the rescaled figure is no longer centered.
+As Cameron explains:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The centering issue is due to the fact that there&amp;rsquo;s a cyclic dependency between two elements:
+the image and the container.
+Using flexbox on the figure with center justified content means that
+the content of the container (the image) will set the width.
+However, we&amp;rsquo;re using a percentage for the width on the image,
+which depends on the width of the parent (the container).
+The W3C resolves this as stated &lt;a href=&#34;https://www.w3.org/TR/css-sizing-3/#cyclic-percentage-contribution&#34;&gt;here&lt;/a&gt;.
+The result is that the initial width calculation is performed using the original size of the image,
+then the container is centered,
+then the image is scaled.
+Unfortunately,
+that means that the image centering calculation is done with a different width than the image we see,
+and things look wonky.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class=&#34;center&#34;&gt;
-  &lt;img src=&#34;https://third-bit.com/files/2024/bibliography-dates.png&#34; alt=&#34;histogram of paper publication dates&#34; width=&#34;80%&#34;&gt;
-&lt;/div&gt;</content>
+&lt;img src=&#34;https://third-bit.com/files/2024/decoster-css.png&#34; alt=&#34;DeCoster CSS example&#34; width=&#34;90%&#34;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;SVG is now 25 years old.
+I think &amp;ldquo;scale this up&amp;rdquo; ought to be a lot easier than it is,
+but my real gripe is that I have no idea how the average person
+would ever figure this out.
+If you want to play around with a small example,
+please check out &lt;a href=&#34;https://github.com/gvwilson/resize-demo&#34;&gt;this repository&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  
  <entry>
