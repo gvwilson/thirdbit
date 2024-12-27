@@ -277,5 +277,19 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  He et al 2024: "4.5 Million (Suspected) Fake Stars in GitHub: A Growing Spiral of Popularity Contests, Scams, and Malware" <https://arxiv.org/abs/2412.13459> (1) fake-star-related activities have surged since 2024; (2) user profiles characteristics of fake stargazers are not distinct from users but have abnormal activity patterns; (3) the majority are used to promote short-lived malware repos; (4) fake stars only have a promotion effect in the short term (i.e., less than two months).
 
+1.  Zhang et al 2022: "Corporate Dominance in Open Source Ecosystems: A Case Study of OpenStack" <https://dl.acm.org/doi/10.1145/3540250.3549117> "We find evidence of company domination in >73% of the repositories in OpenStack…We identify five patterns of corporate dominance: Early incubation, Full-time hosting, Growing domination, Occasional domination, and Last remaining. We find that domination has a significantly negative relationship with the survival probability of OSS projects."
+
+1.  Dumanis et al: "From policy to practice: Lessons learned from an open science funding initiative" <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011626> An interesting retrospect on the Aligning Science Across Parkinson’s (ASAP) initiative with lessons for everyone involved in open science at scale.
+
+1.  Rosa et al: "Fixing Dockerfile Smells: An Empirical Study" <https://link.springer.com/article/10.1007/s10664-024-10471-7> "We evaluated the survivability of Dockerfile smells from a total of 53,456 unique Dockerfiles…used a rule-based tool to automatically fix them… and submitted pull requests. Most developers pay more attention to changes aimed at improving the performance of Dockerfiles [and] are willing to accept fixes for the most common smells with some exceptions (e.g., missing version pinning)."
+
+1.  Barnes et al 2024: "Towards understanding barriers and mitigation strategies of software engineers with non-traditional educational and occupational backgrounds" <https://doi.org/10.1007/s10664-024-10493-1> Explores and categorizes the challenges people without CS degrees face in tech, from restricted access to educational resources and lack of dedicated time to improve skills to age-related barriers.
+
+1.  Fallahzadeh et al 2024: "Contrasting Test Selection, Prioritization, and Batch Testing at Scale: Large-scale Empirical Study on 285 Million Test Results" <http://dx.doi.org/10.1007/s10664-024-10589-8> A great example of what it looks like when people take the "engineering" part of "software engineering" seriously, this paper compares three different methods for managing very large test suites, looking at reduction in run times, how frequently the methods result in missed failures, and more.
+
+1.  Ghadesi et al 2024: "What Causes Exceptions in Machine Learning Applications?" <http://dx.doi.org/10.1007/s10664-024-10499-9> Studies 11,449 stack traces from seven popular Python ML libraries on Stack Overflow and finds that questions with traces are more popular than those without, but are less likely to get accepted answers, then categorizes repeating patterns in the problems reported and questions answered.
+
+1.  Schantong et al 2024: "Toward a Theory on Programmer’s Block Inspired by Writer's Block" <http://dx.doi.org/10.1007/s10664-024-10542-9> Useful in its own right and a great example of the insights that in-depth qualitative research can achieve that no amount of statistical analysis could replicate.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
