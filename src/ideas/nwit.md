@@ -291,5 +291,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Schantong et al 2024: "Toward a Theory on Programmer’s Block Inspired by Writer's Block" <http://dx.doi.org/10.1007/s10664-024-10542-9> Useful in its own right and a great example of the insights that in-depth qualitative research can achieve that no amount of statistical analysis could replicate.
 
+1.  Job & Hora 2024: "How and Why Developers Implement OS-Specific Tests" <http://dx.doi.org/10.1007/s10664-024-10571-4> Among other things, the author finds that 56% of the 100 Python projects they studied have OS-specific tests, mostly targeting Windows, and that OS-specific tests are implemented mostly to overcome unavailable external resources, unsupported standard libraries, and flaky tests.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
