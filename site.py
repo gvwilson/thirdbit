@@ -59,6 +59,7 @@ projects = {
         "tooling-effort",
         "developer-discussions",
         "ide-adoption",
+        "ghost-engineers",
         # "hoye-test",
         # "altruism",
     ]

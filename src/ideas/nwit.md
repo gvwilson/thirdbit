@@ -293,5 +293,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Job & Hora 2024: "How and Why Developers Implement OS-Specific Tests" <http://dx.doi.org/10.1007/s10664-024-10571-4> Among other things, the author finds that 56% of the 100 Python projects they studied have OS-specific tests, mostly targeting Windows, and that OS-specific tests are implemented mostly to overcome unavailable external resources, unsupported standard libraries, and flaky tests.
 
+1.  Gundersen et al 2024: "The Unreasonable Effectiveness of Open Science in AI: A Replication Study" <https://arxiv.org/abs/2412.17859> "We performed a systematic replication study including 30 highly cited AI studies relying on original materials when available. The availability of code and data correlate strongly with reproducibility… Surprisingly, [w]hether the code is poorly documented, partially missing, or not versioned is not important for successful replication, as long as the code is shared."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
