@@ -127,7 +127,7 @@ Ah, you say, but that's *long-term* output.
 What about short bursts now and then,
 like pulling an all-nighter to meet a deadline?
 That's been studied too,
-and the results aren't pleasant.
+and the results aren't pleasant [[Fucci2018][Fucci2018]].
 Your ability to think drops by 25 points for each 24 hours you're awake.
 Put it another way,
 the average person's IQ is only 75 after one all-nighter,
@@ -147,6 +147,7 @@ to think about what's more important—how much you produce
 or how much of a martyr you appear to be—and to pace yourself accordingly.
 
 [Forsgren2021]: https://dl.acm.org/doi/10.1145/3454122.3454124
+[Fucci2018]: https://arxiv.org/abs/1805.02544
 [Fucci2020]: https://ieeexplore.ieee.org/document/8357494
 [Robinson2005]: https://igda.org/resources-archive/why-crunch-mode-doesnt-work-six-lessons-2005/
 [Sadowski2019b]: https://link.springer.com/book/10.1007/978-1-4842-4221-6
