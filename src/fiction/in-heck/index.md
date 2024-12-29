@@ -3336,8 +3336,6 @@ she grabbed her wrist and pressed the button on her discombobulator.
 
 </section>
 
-</section>
-
 <section markdown="1">
 
 ## An Unwelcome Alliance (Gumption)
