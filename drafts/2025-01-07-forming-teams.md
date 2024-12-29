@@ -19,7 +19,11 @@ These conflicts are more wearying than any number of buffer overruns or accident
 which is why most computer science courses stick to individual assignments.
 It doesn't take much to make a team work smoothly, though.
 The rules for running meetings [posted earlier][meetings] are a good start;
-this post looks at a few other things you can do.
+this post looks at a few other things you can do,
+and [[Parker2019][Parker2019]] goes into more detail.
+
+<div class="callout" markdown="1">
+**Team size**
 
 I once heard an anthropologist ask, "How big is a sports team?"
 When people said it depends on the sport,
@@ -39,6 +43,7 @@ Three or four people can work tightly on a single piece of code,
 but when there are more they define some interfaces and develop in parallel.
 Tools like GitHub help groups coordinate more effectively,
 but the groups themselves stay the same size.
+</div>
 
 Teams of three to five provide a good balance between skills and accountability.
 A team of two may not have enough breadth and background to tackle a large piece of work;
@@ -61,7 +66,7 @@ but that this was *negatively* correlated with outcomes
 (possibly because people are less willing to hold friends accountable for missed work).
 
 One surprising finding is that having students with a range of grades in the same team
-either has no effect or improves outcomes *for everyone*
+either has no effect or improves outcomes for everyone
 [[Donovan2018][Donovan2018],[Farland2019][Farland2019],[Auvinen2020][Auvinen2020]].
 It's easy to see how this benefits teams of weak students:
 they are likely to get coaching from their stronger teammates.
@@ -135,6 +140,7 @@ the meeting will drag on into working time or vice versa.
 [Farland2019]: https://linkinghub.elsevier.com/retrieve/pii/S0002945923015395
 [Margolis2002]: https://isbnsearch.org/isbn/9780262632690
 [Michaelson2004]: https://isbnsearch.org/isbn/9781579220860
+[Parker2019]: https://www.ijee.ie/1atestissues/Vol35-6B/05_ijee3838.pdf
 [Post2020]: https://scholarworks.iu.edu/journals/index.php/josotl/article/view/24128
 [Zavgorodniaia2021]: http://arxiv.org/abs/2103.01752v1
 [meetings]: @root/2025/01/04/meetings/
