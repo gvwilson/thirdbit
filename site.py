@@ -37,6 +37,7 @@ projects = {
         "code-selectors",
         "session-recording",
         "execution-order",
+        "tower-support",
     ],
     "tutorials": [
         "web-tutorial",
