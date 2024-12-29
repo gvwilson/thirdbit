@@ -17,7 +17,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1. Grabinger et al 2023: "On the perception of graph layouts" <https://onlinelibrary.wiley.com/doi/10.1002/smr.2599> uses eye tracking to explore how programmers look at graphs (which in turn has implications for how we ought to lay them out)
 
-1. Tan et al 2024: "How to Gain Commit Rights in Modern Top Open Source Communities?" <https://arxiv.org/abs/2405.01803>
+1. Tan et al 2024: "How to Gain Commit Rights in Modern Top Open Source Communities?" <https://arxiv.org/abs/2405.01803> Constructs a taxonomy of committer qualifications with 26 codes categorized into nine themes.
 
 1. Sun et al 2024: "AI Coders Are Among Us: Rethinking Programming Language Grammar Towards Efficient Code Generation" <https://arxiv.org/abs/2404.16333> Designs a new grammar for Python that maintains the same AST for backward compatibility but reduces token usage for LLMs. I'm still deeply ambivalent about LLMs for coding, but I think we're going to see a lot more of pre-existing tools being reshaped so that they work better.
 
@@ -59,19 +59,19 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1. Ma et al 2024: "How to Teach Programming in the AI Era? Using LLMs as a Teachable Agent for Debugging" <https://arxiv.org/abs/2310.05292> "We introduce a novel system to facilitate deliberate practice on debugging, where human novices play the role of Teaching Assistants and help LLM-powered teachable agents debug code…students focus on hypothesizing the cause of code errors, while adjacent skills like code completion are offloaded to LLM-agents."
 
-1. Assad et al 2024: "Can My Microservice Tolerate an Unreliable Database? Resilience Testing with Fault Injection and Visualization" <https://arxiv.org/abs/2404.01886>.
+1. Assad et al 2024: "Can My Microservice Tolerate an Unreliable Database? Resilience Testing with Fault Injection and Visualization" <https://arxiv.org/abs/2404.01886> Describes a tool that systematically simulates database disruptions for testing both SQL and NoSQL databases.
 
-1. Jovanovic and Sullivan: "Right or Wrong—Understanding How Novice Users Write Software Models" <https://arxiv.org/abs/2402.06624>.
+1. Jovanovic and Sullivan: "Right or Wrong-Understanding How Novice Users Write Software Models" <https://arxiv.org/abs/2402.06624> Presents an empirical study of over 97,000 models written by novice users trying to learn Alloy and analyzes how novices write both correct and incorrect models.
 
-1. Ben Braiek and Khomh: "Machine Learning Robustness: A Primer" <https://arxiv.org/abs/2404.00897>.
+1. Ben Braiek and Khomh: "Machine Learning Robustness: A Primer" <https://arxiv.org/abs/2404.00897> A chapter of a forthcoming book that provides an overview of what makes ML systems stable and reliable.
 
 1. Lee et al 2024: "Towards Optimizing Performance-Resource Trade-Off for Serverless Functions" We propose the first differentiated scheduler for runtime cold start mitigation by optimizing serverless function provision. Experiments demonstrate success in optimizing serverless function provision: reducing the 75th-percentile cold start rates by 49.77% and the wasted memory time by 56.43%, compared to the state-of-the-art. <https://arxiv.org/abs/2403.17574>
 
 1. Rahman et al 2024: "Characterizing Dependency Update Practice of NPM, PyPI and Cargo Packages" We find that PyPI packages update dependencies faster than NPM and Cargo. Conversely, Cargo packages update their vulnerable dependencies faster than NPM and PyPI. <https://arxiv.org/abs/2403.17382>
 
-1. Gunatilake et al 2024: "Enablers and Barriers of Empathy in Software Developer and User Interactions: A Mixed Methods Case Study" <https://dl.acm.org/doi/10.1145/3641849>
+1. Gunatilake et al 2024: "Enablers and Barriers of Empathy in Software Developer and User Interactions: A Mixed Methods Case Study" <https://dl.acm.org/doi/10.1145/3641849> Explores things that make developers *not* care about users.
 
-1. Sülün et al 2024: "An Empirical Analysis of Issue Templates Usage in Large-Scale Projects on GitHub" <https://dl.acm.org/doi/10.1145/3643673>
+1. Sülün et al 2024: "An Empirical Analysis of Issue Templates Usage in Large-Scale Projects on GitHub" <https://dl.acm.org/doi/10.1145/3643673> Finds extensive usage of templates in 99 of the 100 surveyed projects, with a growing preference for YAML templates; projects with a template have reduced resolution time (381.02 days to 103.18 days) and reduced issue comment count (4.95 to 4.32) that those without.
 
 1. Nam et al 2024: "Understanding Documentation Use Through Log Analysis: An Exploratory Case Study of Four Cloud Services" <https://arxiv.org/abs/2310.10817> " By analyzing page-view logs for over 100,000 users…we show that which documentation pages people visit often correlates with user characteristics such as past experience with the specific product, on the one hand, and with future adoption of the API on the other hand."
 
@@ -81,7 +81,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1. da Gião et al 2024: "Chronicles of CI/CD: A Deep Dive into its Usage Over Time" <https://arxiv.org/abs/2402.17588> Usage of CI/CD is tied to language (which may reflect developer age cohorts), and a surprising number of projects use multiple CI/CD technologies.
 
-1. New paper by Druskat et al on the quality and reliability of datasets collecting mentions of software in scientific papers is depressing reading: <https://arxiv.org/abs/2402.14602> What makes it even more depressing is that _this_ is the data AI models are being trained on...
+1. Druskat et al: "Don't mention it: An approach to assess challenges to using software mentions for citation and discoverability research" <https://arxiv.org/abs/2402.14602> Linking is poor and inconsistent; what makes this even more depressing is that _this_ is the data AI models are being trained on…
 
 1. Calefato et al: "A Lot of Talk and a Badge: An Exploratory Analysis of Personal Achievements in GitHub" <https://arxiv.org/abs/2303.14702> 1. Most developers have at least a badge, but an increasing number of users choose to keep their profile private and opt out of displaying badges. 2. Badges are generally poorly correlated with developers' timeliness and desire to collaborate. 3. Except for the Starstruck badge (reflecting the number of followers), badges' introduction does not have an effect.
 
@@ -125,19 +125,19 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1. Chen et al 2023: Why Not Mitigate Vulnerabilities in Helm Charts? "We conduct a mixed-methods study on 11,035 Helm Charts affected by 10,982 fixable vulnerabilities…the complexity of a Chart correlates with the number of vulnerabilities, and the official Charts do not contain fewer vulnerabilities compared to unofficial Charts…The use of automated [mitigation] strategies is low as automation has…a high number of false positives…" <https://arxiv.org/abs/2312.15350>
 
-1. Florath & Kiraly 2023: LLM Interactive Optimization of Open Source Python Libraries–Case Studies and Generalization. "We find that contemporary LLMs… are surprisingly adept at optimizing energy and compute efficiency. However, this is only the case…with a human expert in the loop…Nonetheless, we were surprised by how few iterations were required to achieve substantial performance improvements that were not obvious to the expert in the loop." <https://arxiv.org/abs/2312.14949>
+1. Florath & Kiraly 2023: LLM Interactive Optimization of Open Source Python Libraries-Case Studies and Generalization. "We find that contemporary LLMs… are surprisingly adept at optimizing energy and compute efficiency. However, this is only the case…with a human expert in the loop…Nonetheless, we were surprised by how few iterations were required to achieve substantial performance improvements that were not obvious to the expert in the loop." <https://arxiv.org/abs/2312.14949>
 
-1. Guenes et al: "Impostor Phenomenon in Software Engineers" <https://arxiv.org/abs/2312.03966>
+1. Guenes et al: "Impostor Phenomenon in Software Engineers" <https://arxiv.org/abs/2312.03966> Finds that 52.7% of software engineers experience frequent to intense levels of impostor phenomenon, that women suffer at a significantly higher proportion (60.6%) than men (48.8%), and more frequent impostor feelings in Asian (67.9%) and Black (65.1%) than in White (50.0%) software engineers."
 
 1. Gao et al 2023: '"Add more config detail": A Taxonomy of Installation Instruction Changes'. <https://arxiv.org/abs/2312.03250> Having every student team in an undergrad software engineering class try to install and run every other team's software using only the instructions in the latter's README would be an interesting exercise :-)
 
-1. Dinh et al 2023: "Large Language Models of Code Fail at Completing Code with Potential Bugs" <https://arxiv.org/abs/2306.03438>
+1. Dinh et al 2023: "Large Language Models of Code Fail at Completing Code with Potential Bugs" <https://arxiv.org/abs/2306.03438> Finds that "…the presence of potential bugs significantly degrades the generation performance of LLMs."
 
 1. Li et al: "Exploring Multi-Programming-Language Commits and Their Impacts on Software Quality: An Empirical Study on Apache Projects" finds, among other things, that issues in multi-programming-language commits take significantly longer to be resolved and introduce more bugs than commits in a single programming language. <https://arxiv.org/abs/2311.08424> As much as I like Python, I gotta say, TypeScript front and back is looking pretty compelling…
 
 1. Sajadi et al: "Interpersonal Trust in OSS: Exploring Dimensions of Trust in GitHub Pull Requests" The authors investigate various dimensions of trust to identify the ways trusting behavior can be observed in OSS, then sample a set of 100 GitHub pull requests from Apache Software Foundation projects, to analyze and demonstrate how each dimension of trust can be exhibited. I think handbooks for software engineering teams have to include ideas like these to be useful. <https://arxiv.org/abs/2311.04767v1>
 
-1. Saavedra et al: "GitBug-Actions: Building Reproducible Bug-Fix Benchmarks with GitHub Actions" is a neat idea—the authors mine GitHub Actions to detect bug fixes, then use that data to build a benchmark suite for automatic program repair and fault localization tools. <https://arxiv.org/abs/2310.15642>
+1. Saavedra et al: "GitBug-Actions: Building Reproducible Bug-Fix Benchmarks with GitHub Actions" is a neat idea-the authors mine GitHub Actions to detect bug fixes, then use that data to build a benchmark suite for automatic program repair and fault localization tools. <https://arxiv.org/abs/2310.15642>
 
 1. Butler et al: "Objectives and Key Results in Software Teams: Challenges, Opportunities and Impact on Development" finds (among other things) that "…tracking, measuring and setting goals is hard work, regardless of tools used. Middle management seems to be a critical component of the translation of lofty goals to actionable work items." <https://arxiv.org/abs/2311.00236>
 
@@ -153,7 +153,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1. Di Cosmo and Zacchiroli: "The Software Heritage Open Science Ecosystem" <https://arxiv.org/abs/2310.10295> describes an incredibly useful resource for empirical studies of software that is itself a pretty major piece of engineering.
 
-1. Huang et al: "Detecting and Fixing Violations of Modification Terms in Open Source Licenses during Forking" <https://arxiv.org/abs/2310.07991>
+1. Huang et al: "Detecting and Fixing Violations of Modification Terms in Open Source Licenses during Forking" <https://arxiv.org/abs/2310.07991> Empirically characterizes modification terms in 47 open source licenses, then builds a tool to detect and fix violations of their notification requirements.
 
 1. Nitin et al: "Yuga: Automatically Detecting Lifetime Annotation Bugs in the Rust Language" From the abstract: "Yuga successfully detects bugs with good precision on these datasets, and we make the code and datasets publicly available for review." <https://arxiv.org/abs/2310.08507>
 
@@ -161,7 +161,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1. Fu et al: "Security Weaknesses of Copilot Generated Code in GitHub" finds (1) 35.8% of Copilot generated code snippets contain CWEs, (2) the security weaknesses are diverse and related to 42 different CWEs, in which CWE-78: OS Command Injection, CWE-330: Use of Insufficiently Random Values, and CWE-703: Improper Check or Handling of Exceptional Conditions occurred the most frequently, and (3) 11 of those belong to the currently recognized 2022 CWE Top-25. <https://arxiv.org/abs/2310.02059>
 
-1. "40 Years of Designing Code Comprehension Experiments: A Systematic Mapping Study" by Wyrich et al is a great look back at how people have tried to measure the readability and comprehensibility of code 1979–2019. If you are building any kind of programming support tools or experimenting with LLMs for programmers, this is a great introduction to how people have tried to build goalposts in the past to evaluate success (or otherwise). <https://arxiv.org/abs/2206.11102>
+1. "40 Years of Designing Code Comprehension Experiments: A Systematic Mapping Study" by Wyrich et al is a great look back at how people have tried to measure the readability and comprehensibility of code 1979-2019. If you are building any kind of programming support tools or experimenting with LLMs for programmers, this is a great introduction to how people have tried to build goalposts in the past to evaluate success (or otherwise). <https://arxiv.org/abs/2206.11102>
 
 1. Huang et al: "Bias Assessment and Mitigation in LLM-based Code Generation" looks at the degree to which different prompts to nine different LLM-based code generators produce answers biased on age, race, sex, gender, etc. <https://arxiv.org/abs/2309.14345>
 
@@ -235,15 +235,15 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Fang et al 2024: "Weak Ties Explain Open Source Innovation" <https://arxiv.org/abs/2411.05646> "…weak ties (reflecting low-intensity, infrequent interactions) act as bridges and connect people to different social circles…do [they] facilitate creativity in software in similar ways?" This paper's answer is "yes", and that "the diversity of projects in which developers engage correlates positively with [fugure] innovativeness…whereas the volume of interactions exerts minimal influence."
 
-1.  Borysenkov et al 2024: "Analyzing Logs of Large-Scale Software Systems using Time Curves Visualization" <https://arxiv.org/abs/2411.05533> I don't know nearly enough about monitoring distributed systems to know how useful this is—I'd welcome comments from others who do after reading the paper.
+1.  Borysenkov et al 2024: "Analyzing Logs of Large-Scale Software Systems using Time Curves Visualization" <https://arxiv.org/abs/2411.05533> I don't know nearly enough about monitoring distributed systems to know how useful this is-I'd welcome comments from others who do after reading the paper.
 
-1.  Brown et al 2024: "Measuring Software Innovation with Open Source Software Development Data" <https://arxiv.org/abs/2411.05087> "We examine dependency growth and release complexity among ∼200,000 unique releases from 28,000 unique packages [in] JavaScript, Python, and Ruby over two years post-release… Major versions show differential, strong prediction of one-year lagged log change in dependencies [and] semantic versioning of OSS releases correlates with complexity and predict downstream adoption."
+1.  Brown et al 2024: "Measuring Software Innovation with Open Source Software Development Data" <https://arxiv.org/abs/2411.05087> "We examine dependency growth and release complexity among ~200,000 unique releases from 28,000 unique packages [in] JavaScript, Python, and Ruby over two years post-release… Major versions show differential, strong prediction of one-year lagged log change in dependencies [and] semantic versioning of OSS releases correlates with complexity and predict downstream adoption."
 
-1.  Zhang et al 2024: "Extracting Database Access-control Policies From Web Applications" <https://arxiv.org/abs/2411.11380>.
+1.  Zhang et al 2024: "Extracting Database Access-control Policies From Web Applications" <https://arxiv.org/abs/2411.11380> Uses a concolic execution to explore execution paths in an application, consolidating their data queries in order to reverse engineer the actual access policy.
 
-1.  Cappendijk et al 2024: "Generating Energy-efficient code with LLMs" <https://arxiv.org/abs/2411.10599>.
+1.  Cappendijk et al 2024: "Generating Energy-efficient code with LLMs" <https://arxiv.org/abs/2411.10599>. Finds that "no single optimization prompt consistently decreases energy consumption for the same LLM across the different Python code problems."
 
-1.  Vu et al 2024: "A Study of Malware Prevention in Linux Distributions" <https://arxiv.org/abs/2411.11017>.
+1.  Vu et al 2024: "A Study of Malware Prevention in Linux Distributions" <https://arxiv.org/abs/2411.11017>. Found that only one Linux distribution actively scans for malware, and that open-source malware scanners are (in their words) underwhelming.
 
 1.  Ramos et al 2024: "Are Large Language Models Memorizing Bug Benchmarks?" <https://arxiv.org/abs/2411.13323> "certain models, in particular codegen-multi, exhibit significant evidence of memorization in widely used benchmarks like Defects4J, while newer models trained on larger datasets like LLaMa 3.1 exhibit limited signs of leakage."
 
@@ -279,7 +279,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Zhang et al 2022: "Corporate Dominance in Open Source Ecosystems: A Case Study of OpenStack" <https://dl.acm.org/doi/10.1145/3540250.3549117> "We find evidence of company domination in >73% of the repositories in OpenStack…We identify five patterns of corporate dominance: Early incubation, Full-time hosting, Growing domination, Occasional domination, and Last remaining. We find that domination has a significantly negative relationship with the survival probability of OSS projects."
 
-1.  Dumanis et al: "From policy to practice: Lessons learned from an open science funding initiative" <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011626> An interesting retrospect on the Aligning Science Across Parkinson’s (ASAP) initiative with lessons for everyone involved in open science at scale.
+1.  Dumanis et al: "From policy to practice: Lessons learned from an open science funding initiative" <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011626> An interesting retrospect on the Aligning Science Across Parkinson's (ASAP) initiative with lessons for everyone involved in open science at scale.
 
 1.  Rosa et al: "Fixing Dockerfile Smells: An Empirical Study" <https://link.springer.com/article/10.1007/s10664-024-10471-7> "We evaluated the survivability of Dockerfile smells from a total of 53,456 unique Dockerfiles…used a rule-based tool to automatically fix them… and submitted pull requests. Most developers pay more attention to changes aimed at improving the performance of Dockerfiles [and] are willing to accept fixes for the most common smells with some exceptions (e.g., missing version pinning)."
 
@@ -289,7 +289,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Ghadesi et al 2024: "What Causes Exceptions in Machine Learning Applications?" <http://dx.doi.org/10.1007/s10664-024-10499-9> Studies 11,449 stack traces from seven popular Python ML libraries on Stack Overflow and finds that questions with traces are more popular than those without, but are less likely to get accepted answers, then categorizes repeating patterns in the problems reported and questions answered.
 
-1.  Schantong et al 2024: "Toward a Theory on Programmer’s Block Inspired by Writer's Block" <http://dx.doi.org/10.1007/s10664-024-10542-9> Useful in its own right and a great example of the insights that in-depth qualitative research can achieve that no amount of statistical analysis could replicate.
+1.  Schantong et al 2024: "Toward a Theory on Programmer's Block Inspired by Writer's Block" <http://dx.doi.org/10.1007/s10664-024-10542-9> Useful in its own right and a great example of the insights that in-depth qualitative research can achieve that no amount of statistical analysis could replicate.
 
 1.  Job & Hora 2024: "How and Why Developers Implement OS-Specific Tests" <http://dx.doi.org/10.1007/s10664-024-10571-4> Among other things, the author finds that 56% of the 100 Python projects they studied have OS-specific tests, mostly targeting Windows, and that OS-specific tests are implemented mostly to overcome unavailable external resources, unsupported standard libraries, and flaky tests.
 
