@@ -16,7 +16,7 @@ and my other book projects does right now.
     Glossary references are written as `<span g="label">text</span>`,
     cross-references to chapters and appendices as `<span x="label"></span>`,
     and so on.
-    A previous template used Jekyll inclusions like `{% raw %}{% include g key="label" text="text" %}{% endraw %}`,
+    A previous template used Jekyll inclusions like `{% include g key="label" text="text" %}`,
     but I find the spans much easier to read.
     They're copied verbatim into the generated pages like any other HTML
     and I use a little bit of JavaScript to convert them to links (more about this below).
@@ -120,7 +120,7 @@ and my other book projects does right now.
       }
     ```
 
-    I can then write `{% raw %}[Acorn][acorn]{% endraw %}` everywhere in my pages,
+    I can then write `[Acorn][acorn]` everywhere in my pages,
     but have to do some messy string operations in a Jekyll inclusion
     to print a table of links in an appendix.
 

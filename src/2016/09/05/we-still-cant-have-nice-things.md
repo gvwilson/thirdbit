@@ -116,7 +116,7 @@ In our running example,
 the value of `site.github.url` is `http://gloom.github.io/despair`.
 Our layout can then use:
 
-    <link rel="stylesheet" type="text/css" href="{% raw %}{{site.github.url}}{% endraw %}/css/pretty.css" />
+    <link rel="stylesheet" type="text/css" href="{{site.github.url}}/css/pretty.css" />
 
 to refer to things.
 The double curly braces tell Jekyll to insert the variable's value,
@@ -197,7 +197,7 @@ Suppose each of our websites defines a variable called `site.baseurl` in its con
 to be the name of the project with a leading `/`.
 All of our web pages can then refer to things using:
 
-    <link rel="stylesheet" type="text/css" href="{% raw %}{{site.github.url}}{% endraw %}/css/pretty.css" />
+    <link rel="stylesheet" type="text/css" href="{{site.github.url}}/css/pretty.css" />
 
 which Jekyll expands to something like:
 
@@ -306,7 +306,7 @@ if it's a level down, `page.root` is `..`,
 and so on.
 The layout pages can then link to the CSS using:
 
-    <link rel="stylesheet" type="text/css" href="{% raw %}{{page.root}}{% endraw %}/css/pretty.css" />
+    <link rel="stylesheet" type="text/css" href="{{page.root}}/css/pretty.css" />
 
 Requiring every single page to define a particular variable
 when almost all of those pages will give it the same value
@@ -341,7 +341,7 @@ so its `page.root` needs to be `.` rather than `..`
 We can handle that by explicitly defining `page.root` in `index.md`,
 which overrides the default set in `_config.yml`.
 Once we've done that,
-our pages, layouts, and included HTML fragments can all use `{% raw %}{{page.root}}{% endraw %}/this/that`
+our pages, layouts, and included HTML fragments can all use `{{page.root}}/this/that`
 to refer to whatever they want.
 It's not ideal—we'll have to explain it to people who've used Jekyll before,
 and if we ever create deeper directory hierarchies,
@@ -354,7 +354,7 @@ We recognized the problem with HTTP vs. HTTPS early on,
 so the standard layouts shared by all the lessons do this:
 
 ```
-<link rel="stylesheet" type="text/css" href="{% raw %}{{ site.github.url | replace_first: 'http:', 'https:' }}{% endraw %}/css/pretty.css" />
+<link rel="stylesheet" type="text/css" href="{{ site.github.url | replace_first: 'http:', 'https:' }}/css/pretty.css" />
 ```
 
 i.e., they convert the `http` prefix given in `site.github.url` into `https`.

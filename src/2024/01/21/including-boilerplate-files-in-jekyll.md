@@ -16,21 +16,21 @@ My solution is to create a parallel file called (for example) `license_.md`
 (with a trailing underscore)
 that contains this:
 
-```{% raw %}
+```
 ---
 title: License
 permalink: /license/
 ---
 
 {% include boilerplate.md filename='LICENSE.md' %}
-{% endraw %}```
+```
 
 and then put this in `_includes/boilerplate.md`:
 
-```{% raw %}
+```
 {% capture other %}{% include_relative {{include.filename}} %}{% endcapture %}
 {{ other | markdownify | split: "</h1>" | last }}
-{% endraw %}```
+```
 
 It only works correctly if the file being included has exactly one `h1` header,
 but well-formed pages shouldn't have more (or none).

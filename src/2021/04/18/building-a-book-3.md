@@ -57,7 +57,7 @@ for a second-year course on software design and testing.
 
 1.  `check-links.py`:
     compare the link definitions in `_config.yml`
-    with the `{% raw %}[name][link]{% endraw %}` references in the Markdown source files
+    with the `[name][link]` references in the Markdown source files
     to make sure that all definitions are used and all references to links resolve.
     I'd really like to put link definitions in an external YAML file in the `_data` directory,
     but Jekyll doesn't support that;

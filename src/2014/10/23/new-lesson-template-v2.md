@@ -82,7 +82,7 @@ Emily, Karin, Rémi, and Andromeda for their feedback.
     fix, since we're limited in what we can do with Jekyll. Briefly,
     we can have the `slides.html` layout do something like
     this:
-    <pre>&lt;div class="slides"&gt;&lt;section data-markdown="{% raw %}{{page.path}}{% endraw %}" data-separator="^\n\n\n" data-vertical="^\n\n"&gt;&lt;/section&gt;&lt;/div&gt;</pre>
+    <pre>&lt;div class="slides"&gt;&lt;section data-markdown="{{page.path}}" data-separator="^\n\n\n" data-vertical="^\n\n"&gt;&lt;/section&gt;&lt;/div&gt;</pre>
     The only wart with this is that the Markdown file
     (i.e., `page.path`) doesn't get copied
     to `_site`. I couldn't figure out a way to do it using

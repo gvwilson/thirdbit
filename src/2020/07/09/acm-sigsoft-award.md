@@ -129,6 +129,6 @@ Published in [ACM SIGSOFT Software Engineering Notes, July 2020](https://dl.acm.
   pages = {21--22},
   author = {Greg Wilson},
   title = {Thoughts from a Not-So-Influential Educator},
-  journal = {% raw %}{{ACM}{% endraw %} {SIGSOFT} Software Engineering Notes}
+  journal = {{ACM} {SIGSOFT} Software Engineering Notes}
 }
 ```

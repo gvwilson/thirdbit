@@ -70,17 +70,17 @@ for rendering on GitHub Pages.
 My solution is to create a parallel file called (for example) <code>license_.md</code>
 (with a trailing underscore)
 that contains this:</p>
-<h2>```{% raw %}</h2>
-<p>title: License
-permalink: /license/</p>
-<hr />
-<p>{% include boilerplate.md filename=&rsquo;LICENSE.md&rsquo; %}
-{% endraw %}```</p>
+<div class="highlight"><pre><span></span><code>---
+title: License
+permalink: /license/
+---
+
+{% include boilerplate.md filename=&#39;LICENSE.md&#39; %}
+</code></pre></div>
 <p>and then put this in <code>_includes/boilerplate.md</code>:</p>
-<p><code>{% raw %}
-{% capture other %}{% include_relative {{include.filename}} %}{% endcapture %}
-{{ other | markdownify | split: "&lt;/h1&gt;" | last }}
-{% endraw %}</code></p>
+<div class="highlight"><pre><span></span><code>{% capture other %}{% include_relative {{include.filename}} %}{% endcapture %}
+{{ other | markdownify | split: &quot;&lt;/h1&gt;&quot; | last }}
+</code></pre></div>
 <p>It only works correctly if the file being included has exactly one <code>h1</code> header,
 but well-formed pages shouldn&rsquo;t have more (or none).
 I hope it&rsquo;s useful.</p>

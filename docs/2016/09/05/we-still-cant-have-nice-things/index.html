@@ -154,7 +154,7 @@ the sub-domain <em>with</em> the base URL of our website.</p>
 <p>In our running example,
 the value of <code>site.github.url</code> is <code>http://gloom.github.io/despair</code>.
 Our layout can then use:</p>
-<pre><code>&lt;link rel="stylesheet" type="text/css" href="{% raw %}{{site.github.url}}{% endraw %}/css/pretty.css" /&gt;
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="{{site.github.url}}/css/pretty.css" /&gt;
 </code></pre>
 <p>to refer to things.
 The double curly braces tell Jekyll to insert the variable&rsquo;s value,
@@ -226,7 +226,7 @@ let&rsquo;s try another approach.
 Suppose each of our websites defines a variable called <code>site.baseurl</code> in its configuration file
 to be the name of the project with a leading <code>/</code>.
 All of our web pages can then refer to things using:</p>
-<pre><code>&lt;link rel="stylesheet" type="text/css" href="{% raw %}{{site.github.url}}{% endraw %}/css/pretty.css" /&gt;
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="{{site.github.url}}/css/pretty.css" /&gt;
 </code></pre>
 <p>which Jekyll expands to something like:</p>
 <pre><code>&lt;link rel="stylesheet" type="text/css" href="/despair/css/pretty.css" /&gt;
@@ -325,7 +325,7 @@ If the page is in the root directory, <code>page.root</code> is <code>.</code>;
 if it&rsquo;s a level down, <code>page.root</code> is <code>..</code>,
 and so on.
 The layout pages can then link to the CSS using:</p>
-<pre><code>&lt;link rel="stylesheet" type="text/css" href="{% raw %}{{page.root}}{% endraw %}/css/pretty.css" /&gt;
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="{{page.root}}/css/pretty.css" /&gt;
 </code></pre>
 <p>Requiring every single page to define a particular variable
 when almost all of those pages will give it the same value
@@ -358,7 +358,7 @@ so its <code>page.root</code> needs to be <code>.</code> rather than <code>..</c
 We can handle that by explicitly defining <code>page.root</code> in <code>index.md</code>,
 which overrides the default set in <code>_config.yml</code>.
 Once we&rsquo;ve done that,
-our pages, layouts, and included HTML fragments can all use <code>{% raw %}{{page.root}}{% endraw %}/this/that</code>
+our pages, layouts, and included HTML fragments can all use <code>{{page.root}}/this/that</code>
 to refer to whatever they want.
 It&rsquo;s not idealâ€”we&rsquo;ll have to explain it to people who&rsquo;ve used Jekyll before,
 and if we ever create deeper directory hierarchies,
@@ -367,7 +367,7 @@ it will quickly become as complicated as the alternatives we&rsquo;ve discardedâ
 <p>The new template that we deployed in June 2016 uses <code>site.github.url</code>.
 We recognized the problem with HTTP vs. HTTPS early on,
 so the standard layouts shared by all the lessons do this:</p>
-<div class="highlight"><pre><span></span><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{% raw %}{{ site.github.url | replace_first: &#39;http:&#39;, &#39;https:&#39; }}{% endraw %}/css/pretty.css&quot; /&gt;
+<div class="highlight"><pre><span></span><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{ site.github.url | replace_first: &#39;http:&#39;, &#39;https:&#39; }}/css/pretty.css&quot; /&gt;
 </code></pre></div>
 <p>i.e., they convert the <code>http</code> prefix given in <code>site.github.url</code> into <code>https</code>.
 That solved the problem for pages served from <code>github.io</code> domains,

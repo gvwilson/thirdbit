@@ -5,7 +5,7 @@ date: 2018-03-11
 
 I'd like to be able to do the following:
 
-Step 1: Create a simple SVG diagram, some of whose labels are marked with `{% raw %}{{…}}{% endraw %}` or something similar:
+Step 1: Create a simple SVG diagram, some of whose labels are marked with `{{…}}` or something similar:
 
 <img src="@root/files/2018/03/provinces-original.png" alt="Original diagram" width="500" class="centered">
 
@@ -15,7 +15,7 @@ Step 3: Include a small JavaScript library in the same web page (not shown).
 
 Step 4: When the page loads, the JS looks for SVGs that have the magic class and transforms them so that:
 
-- All the specially-marked text is pulled over to one side and displayed without the `{% raw %}{{…}}{% endraw %}` delimiters.
+- All the specially-marked text is pulled over to one side and displayed without the `{{…}}` delimiters.
   (Any undelimited text is left where it was.)
 - Markers are put in the figure to show where the delimited text was.
 
@@ -30,7 +30,7 @@ This tool would let instructors create [many different kinds of exercises](@root
 since Parsons Problems and "match things in Column A with things in Column B" are just special cases of "put these bits of text in the right places".
 More importantly,
 it would let people who aren't programmers create them:
-Anyone who can use a drawing tool capable of exporting SVG would just have to remember to include the `{% raw %}{{…}}{% endraw %}` delimiters
+Anyone who can use a drawing tool capable of exporting SVG would just have to remember to include the `{{…}}` delimiters
 (or whatever the tool author chooses to use).
 If you're interested in helping to build this,
 please [give me a shout](mailto:gvwilson@third-bit.com).

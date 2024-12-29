@@ -73,7 +73,7 @@ and my other book projects does right now.</p>
     Glossary references are written as <code>&lt;span g="label"&gt;text&lt;/span&gt;</code>,
     cross-references to chapters and appendices as <code>&lt;span x="label"&gt;&lt;/span&gt;</code>,
     and so on.
-    A previous template used Jekyll inclusions like <code>{% raw %}{% include g key="label" text="text" %}{% endraw %}</code>,
+    A previous template used Jekyll inclusions like <code>{% include g key="label" text="text" %}</code>,
     but I find the spans much easier to read.
     They&rsquo;re copied verbatim into the generated pages like any other HTML
     and I use a little bit of JavaScript to convert them to links (more about this below).</p>
@@ -174,7 +174,7 @@ I need to write YAML that contains a string that can be parsed as YAML:</p>
     …
   }
 </code></pre></div>
-<p>I can then write <code>{% raw %}[Acorn][acorn]{% endraw %}</code> everywhere in my pages,
+<p>I can then write <code>[Acorn][acorn]</code> everywhere in my pages,
 but have to do some messy string operations in a Jekyll inclusion
 to print a table of links in an appendix.</p>
 </li>
