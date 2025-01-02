@@ -118,7 +118,7 @@ eventually it becomes negative.
 </div>
 
 It's hard to quantify the productivity of programmers, testers, and UI designers
-[[Sadowski2019b][Sadowski2019b], [Forsgren2021][Forsgren2021]],
+[[Sadowski2019][Sadowski2019], [Forsgren2021][Forsgren2021]],
 but five eight-hour days per week has been proven to maximize long-term total output
 in every industry that has ever been studied.
 There is no reason to believe that ours is any different.
@@ -150,5 +150,5 @@ or how much of a martyr you appear to be—and to pace yourself accordingly.
 [Fucci2018]: https://arxiv.org/abs/1805.02544
 [Fucci2020]: https://ieeexplore.ieee.org/document/8357494
 [Robinson2005]: https://igda.org/resources-archive/why-crunch-mode-doesnt-work-six-lessons-2005/
-[Sadowski2019b]: https://link.springer.com/book/10.1007/978-1-4842-4221-6
-[Sedano17]: http://dx.doi.org/10.1109/icse.2017.20
+[Sadowski2019]: https://link.springer.com/book/10.1007/978-1-4842-4221-6
+[Sedano2017]: http://dx.doi.org/10.1109/icse.2017.20
