@@ -3,15 +3,20 @@ title: Time Management
 date: 2025-01-03
 ---
 
-[[Edwards2009][Edwards2009]] found that
+My [previous post][crunch-mode] explained why people are most productive
+when they work at a steady pace and get lots of rest,
+and [[Edwards2009][Edwards2009]] found that
 starting assignments early and working consistently predicted good grades.
 However,
 while people in industry joke that having two bosses means living in hell,
 students usually answer to four or five professors
 whom don't coordinate due dates across their courses.
+I remember a week where I had two major assignments due,
+two mid-terms to write,
+and a bad cold;
+what can you do when this happens to you?
 
-The best way to handle this situation—or more honestly, the least bad way—is
-to prioritize carefully.
+The best solution—or more honestly, the least bad—is to prioritize carefully.
 Get a piece of paper and draw a 3×3 grid.
 The X axis is effort: label its divisions "minutes", "hours", and "days".
 The Y axis is time: label it "low", "medium", and "high".
@@ -37,10 +42,12 @@ but require the same total effort?
 Laying things out on a grid can't answer that question,
 but at least it can tell you what the question is.
 
-> How to prioritize:
-> always finish first the tasks that will allow other people to continue/start/finish their work.
-> <br>
-> — [Yanina Bellini Saibene][yabellini]
+<div class="callout" markdown="1">
+How to prioritize:
+always finish first the tasks that will allow other people to continue/start/finish their work.
+<br>
+— [Yanina Bellini Saibene][yabellini]
+</div>
 
 If any task on your list is more than an hour long,
 break it down into smaller pieces and prioritize those separately.
@@ -100,4 +107,5 @@ by taking a short walk.
 [Edwards2009]: https://dl.acm.org/doi/10.1145/1584322.1584325
 [Eley1995]: https://isbnsearch.org/isbn/9780140169126
 [Parnin2010]: https://link.springer.com/article/10.1007/s11219-010-9104-9
+[crunch-mode]: @root/2025/01/02/crunch-mode/
 [yabellini]: https://yabellini.netlify.app/
