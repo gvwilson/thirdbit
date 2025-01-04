@@ -3,12 +3,204 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-01-03T00:00:00Z</updated>
+ <updated>2025-01-04T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Meetings</title>
+   <link href="https://third-bit.com/2025/01/04/meetings/"/>
+   <updated>2025-01-04T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/01/04/meetings/</id>
+   <content type="html">&lt;p&gt;The &lt;a href=&#34;https://third-bit.com/2025/01/03/time-management/&#34;&gt;previous post&lt;/a&gt; explained how to be productive individually,
+but what about being productive with others?
+The most important thing is running meetings efficiently,
+and the key to doing that is to distinguish between:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Status meetings
+    for keeping everyone up to date on what everyone else is doing
+    and for making simple decisions when the options are well understood.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Discussion meetings
+    for weighing alternatives and making complex decisions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Co-working sessions like brainstorming sessions and programming sprints
+    that are devoted to the content of the project rather than its operation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Status Meetings&lt;/h2&gt;
+&lt;p&gt;Every team should have a short weekly status meeting.
+One way to organize these is
+to create a table in a shared document like the one below.
+Everyone adds a few bullet points to their row in the table
+at least half an hour before the meeting starts
+so that the whole team can mull everything over.
+If anyone wants to discuss something,
+they highlight it by adding a comment.
+The meeting moderator then goes through the highlighted items one by one,
+spending no more than a couple of minutes on each;
+anything that requires more time is deferred to a discussion meeting&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Person&lt;/th&gt;
+&lt;th&gt;Progress&lt;/th&gt;
+&lt;th&gt;Plans&lt;/th&gt;
+&lt;th&gt;Problems&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ren&lt;/td&gt;
+&lt;td&gt;Parsing OCTL records&lt;/td&gt;
+&lt;td&gt;Tag OCTL records in DVC&lt;/td&gt;
+&lt;td&gt;Duplicate OCTL tags?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Deployed progress bar patch&lt;/td&gt;
+&lt;td&gt;Help onboard Silvia&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mikka&lt;/td&gt;
+&lt;td&gt;Refactored PostgreSQL connector&lt;/td&gt;
+&lt;td&gt;#156: handle records with NULL timestamp&lt;/td&gt;
+&lt;td&gt;Clarify authorship guidelines&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Patched database tests&lt;/td&gt;
+&lt;td&gt;#171: auto-archive duplicate records&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sanjay&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Jess&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Another way to run a status meeting is to review issues that people have closed in the past week
+or are actively working on.
+&amp;ldquo;Actively&amp;rdquo; is the key word here,
+and in my experience,
+this method only works if someone is responsible for handling issue triage before each meeting.
+The biggest advantage of using issues is that there&amp;rsquo;s no extra work;
+the disadvantage is that there&amp;rsquo;s no record later on of what people were doing at any particular time.&lt;/p&gt;
+&lt;h2&gt;Decision Meetings&lt;/h2&gt;
+&lt;p&gt;Decision meetings are for issues that will have more long-term impact on the project
+or that team members disagree about.
+Since the stakes are higher,
+they need more structure.
+(See &lt;a href=&#34;https://www.youtube.com/watch?v=PtewOjRy-1U&#34;&gt;this video&lt;/a&gt; for a long version of the rules below.)&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Decide if there actually needs to be a meeting.&lt;/dt&gt;
+&lt;dd&gt;If the only purpose is to share information,
+send a brief email instead:
+most people can read faster than they can speak.&lt;/dd&gt;
+&lt;dt&gt;Write an agenda.&lt;/dt&gt;
+&lt;dd&gt;If nobody cares enough about the meeting to prepare
+a point-form list of what&amp;rsquo;s to be discussed,
+the meeting probably doesn&amp;rsquo;t need to happen.
+(Note that &amp;ldquo;the agenda is all the open issues in our GitHub repo&amp;rdquo; doesn&amp;rsquo;t count.)&lt;/dd&gt;
+&lt;dt&gt;Include timings in the agenda.&lt;/dt&gt;
+&lt;dd&gt;Doing this helps prevent early items stealing time from later ones.
+The first estimates with any new group are inevitably optimistic,
+so expect to revise them upward for subsequent meetings.
+But don&amp;rsquo;t have second or third
+meeting just because the first one ran over time: instead, try to figure out
+&lt;em&gt;why&lt;/em&gt; it ran over and fix the underlying problem.&lt;/dd&gt;
+&lt;dt&gt;Select a moderator.&lt;/dt&gt;
+&lt;dd&gt;Put one person in charge of keeping items on time,
+selecting the next person to speak,
+chiding people who are having side conversations or checking email,
+and asking people who are talking too much to get to the point.
+The moderator should &lt;em&gt;not&lt;/em&gt; do all the talking:
+in fact,
+the moderator will talk less in a well-run meeting than most other participants.&lt;/dd&gt;
+&lt;dt&gt;Prioritize.&lt;/dt&gt;
+&lt;dd&gt;Tackle the most important issues first, even if they&amp;rsquo;re the longest,
+because the little ones always take more time than you expect.&lt;/dd&gt;
+&lt;dt&gt;Require politeness.&lt;/dt&gt;
+&lt;dd&gt;No one gets to be rude,
+no one gets to ramble,
+and if someone goes off topic,
+it&amp;rsquo;s the moderator&amp;rsquo;s job to say, &amp;ldquo;Let&amp;rsquo;s discuss that elsewhere.&amp;rdquo;&lt;/dd&gt;
+&lt;dt&gt;No interruptions.&lt;/dt&gt;
+&lt;dd&gt;This rule is a special case of the one above,
+since treating other people with respect is the sincerest form of politeness.
+Participants should raise a hand (physically or electronically)
+when they want to speak.
+The moderator should keep track of the queue
+and give each person time in turn.&lt;/dd&gt;
+&lt;dt&gt;No distractions.&lt;/dt&gt;
+&lt;dd&gt;Side conversations make meetings less efficient
+because nobody can actually pay attention to two things at once.
+More importantly,
+if someone is checking their email or texting a friend during a meeting,
+it&amp;rsquo;s a clear signal that they don&amp;rsquo;t think the speaker or their work is important.
+This doesn&amp;rsquo;t mean a complete ban on technology—people may need accessibility aids
+or be waiting for a call about childcare—but by default
+phones should be face down and laptops should be closed
+during in-person meetings.&lt;/dd&gt;
+&lt;dt&gt;Take minutes.&lt;/dt&gt;
+&lt;dd&gt;As discussed below,
+someone other than the moderator should take
+point-form notes
+about the most important information that was shared
+and about every decision that was made or every task that was assigned to someone.&lt;/dd&gt;
+&lt;dt&gt;End early.&lt;/dt&gt;
+&lt;dd&gt;If the meeting is scheduled for 10:00–11:00,
+aim to end at 10:50 to give people a break before whatever they&amp;rsquo;re doing next.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;As soon as the meeting is over,
+add the minutes to the project&amp;rsquo;s wiki,
+version control repository,
+or shared cloud drive.
+Please don&amp;rsquo;t email minutes to everyone:
+our inboxes are full enough,
+and the more places new team members need to search in order to find things,
+the more likely they are to miss something important.&lt;/p&gt;
+&lt;p&gt;Sharing the minutes ensures that:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;People who weren&amp;rsquo;t at the meeting can follow what&amp;rsquo;s going on.&lt;/dt&gt;
+&lt;dd&gt;We all have to juggle tasks from several projects or courses,
+which means that sometimes we can&amp;rsquo;t make it to meetings.
+Checking a shared record is more accurate and more efficient than asking a colleague,
+&amp;ldquo;What did I miss?&amp;rdquo;&lt;/dd&gt;
+&lt;dt&gt;Everyone can check what was actually said or promised.&lt;/dt&gt;
+&lt;dd&gt;Accidentally or not, people often remember things differently;
+writing them down gives everyone a chance to correct mistakes
+and misinterpretations.&lt;/dd&gt;
+&lt;dt&gt;People can be held accountable.&lt;/dt&gt;
+&lt;dd&gt;Whoever has to draw up the agenda for the next meeting
+can start with the action items from the previous one.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;If you would like to become better at sharing information and making decisions,
+there is no better place to start than [&lt;a href=&#34;https://isbnsearch.org/isbn/9781119049715&#34;&gt;Brookfield2016&lt;/a&gt;],
+which catalogs fifty different techniques for managing discussions
+and explains when and how each is useful.&lt;/p&gt;
+&lt;div class=&#34;callout&#34;&gt;
+&lt;h3&gt;Are you a blowfish or a clam?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://coast.noaa.gov/ddb/&#34;&gt;NOAA&amp;rsquo;s guide&lt;/a&gt; to dealing with disruptive behaviors
+has useful labels and even more useful advice
+for handling people who may send meetings off course.&lt;/p&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Time Management</title>
@@ -1152,57 +1344,6 @@ it didn&amp;rsquo;t matter if he did or not,
 he failed to explain it to anyone and so the fact that Leibniz needed to independently invent it was Newton&amp;rsquo;s failure.&lt;/p&gt;
 &lt;p&gt;— &lt;a href=&#34;https://mastodon.social/@david_chisnall@infosec.exchange/113503287934765521&#34;&gt;David Chisnall&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
- </entry>
- 
- <entry>
-   <title>What Worked Last Time?</title>
-   <link href="https://third-bit.com/2024/11/10/what-worked-last-time/"/>
-   <updated>2024-11-10T00:00:00Z</updated>
-   <id>https://third-bit.com/2024/11/10/what-worked-last-time/</id>
-   <content type="html">&lt;p&gt;&lt;em&gt;I&amp;rsquo;m going to ask a favor, but I need to tell a story first.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Back in 2017,
-in the wake of Trump&amp;rsquo;s first inauguration and the Muslim travel ban,
-I tried to get a bunch of people to write a chapter each for
-&lt;a href=&#34;https://third-bit.com/ideas/sdgc/&#34;&gt;a book&lt;/a&gt; that would explain basic ideas in politics, economics, and justice to programmers.
-The model had succeeded before:
-&lt;a href=&#34;https://www.oreilly.com/library/view/beautiful-code/9780596510046/&#34;&gt;&lt;em&gt;Beautiful Code&lt;/em&gt;&lt;/a&gt;,
-&lt;a href=&#34;https://www.oreilly.com/library/view/making-software/9780596808310/&#34;&gt;&lt;em&gt;Making Software&lt;/em&gt;&lt;/a&gt;,
-and &lt;a href=&#34;https://aosabook.org/&#34;&gt;&lt;em&gt;The Architecture of Open Source Applications&lt;/em&gt;&lt;/a&gt;
-were all widely read,
-so I thought something that covered regulatory capture,
-how it is that &amp;ldquo;intellectual&amp;rdquo; became &amp;ldquo;property&amp;rdquo;,
-why people routinely vote against their own interests,
-and so on would find an audience.&lt;/p&gt;
-&lt;p&gt;The project never really got off the ground.
-The programmers who volunteered to help didn&amp;rsquo;t really know the subjects themselves
-(though a couple of them tried valiantly to learn as much as they could in a hurry).
-As for the social scientists I approached,
-they were either too busy with their own projects,
-(quite reasonably) wanted to be paid,
-or simply didn&amp;rsquo;t know how to talk to people in tech
-with essentially no background in the humanities.
-Their idea of &amp;ldquo;basic&amp;rdquo; was what they would teach in freshman college course;
-unfortunately,
-most programmers are at a tenth-grade level
-when it comes to understanding how society works.
-In fact it&amp;rsquo;s worse than that:
-most programmers (including me) know as little about politics and economics
-as the average political science major knows about recursion,
-but we &lt;em&gt;think&lt;/em&gt; we know a lot more.&lt;/p&gt;
-&lt;p&gt;So here we are eight years later.
-I think it&amp;rsquo;s more important than ever
-to offer an accessible, compelling alternative
-to the self-serving libertarian brogrammer bullshit that is
-Silicon Valley&amp;rsquo;s default setting,
-but before I break my &amp;ldquo;no new projects&amp;rdquo; rule and try to get something off the ground,
-I&amp;rsquo;d like to ask the favor I mentioned at the start of this post.
-If you were part of something post-2016 that actually had an impact in tech,
-I&amp;rsquo;d be very grateful if you could &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;let me know&lt;/a&gt;
-what you did,
-what it changed,
-and how you know.
-The Ford Foundation&amp;rsquo;s &lt;a href=&#34;https://www.fordfoundation.org/work/learning/learning-reflections/keeping-those-on-the-front-lines-of-change-safe-five-years-of-the-ford-foundation-grantee-safety-program/&#34;&gt;Grantee Safety Program&lt;/a&gt; is a great example:
-thank you in advance for pointers to others.&lt;/p&gt;</content>
  </entry>
  
 </feed>

@@ -21,8 +21,8 @@ and the key to doing that is to distinguish between:
 ## Status Meetings
 
 Every team should have a short weekly status meeting.
-For each meeting,
-create a table in a shared document like the one below.
+One way to organize these is
+to create a table in a shared document like the one below.
 Everyone adds a few bullet points to their row in the table
 at least half an hour before the meeting starts
 so that the whole team can mull everything over.
@@ -41,7 +41,13 @@ anything that requires more time is deferred to a discussion meeting
 | Sanjay | … | … | … |
 | Jess   | … | … | … |
 
-FIXME: going through tickets
+Another way to run a status meeting is to review issues that people have closed in the past week
+or are actively working on.
+"Actively" is the key word here,
+and in my experience,
+this method only works if someone is responsible for handling issue triage before each meeting.
+The biggest advantage of using issues is that there's no extra work;
+the disadvantage is that there's no record later on of what people were doing at any particular time.
 
 ## Decision Meetings
 
