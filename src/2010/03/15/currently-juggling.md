@@ -4,7 +4,7 @@ date: 2010-03-15
 ---
 I keep telling my students not to over-commit themselves.  It's a shame I don't take my own advice :-).  Here's what I've currently got on the go:
 
-<strong>Software Carpentry</strong> teaches basic software development skills to scientists and engineers.  I have 80% of the funding I need to spend a year <a href="http://softwarecarpentry.wordpress.com/a-fresh-start/">upgrading its content and delivery</a>.  I hope to raise the last 20% of the money in the next few weeks.  If I can pull it off, the major challenges will be:
+<strong>Software Carpentry</strong> teaches basic software development skills to scientists and engineers.  I have 80% of the funding I need to spend a year upgrading its content and delivery.  I hope to raise the last 20% of the money in the next few weeks.  If I can pull it off, the major challenges will be:
 <ol>
   <li>Learning how to create effective online course material: there's lots of handwaving out there about wikis in the classroom, but nothing substantive about instructional design for mature learners using present-day internet technologies.</li>
   <li>Assessment. We don't know how to measure the productivity of programmers, or the productivity of scientists; trying to gauge this course's impact on the productivity of scientific programmers will therefore be something of a challenge. (One of the reasons I left industry for academia in 2006 was to figure out how to do this, but my attempts to find research funding all failed.)</li>

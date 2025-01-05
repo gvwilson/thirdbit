@@ -35,7 +35,7 @@ original: swc
     but need a few patches to land before we can easily integrate the plugins we need.)
   </li>
   <li>
-    Our tutorial videos are on <a href="https://www.youtube.com/user/softwarecarpentry">YouTube</a>
+    Our tutorial videos are on YouTube
     and embedded in our web pages.
   </li>
   <li>

@@ -2,9 +2,9 @@
 title: "Presentation, Presentation, Presentation"
 date: 2009-09-24
 ---
-Over on the <a href="http://softwarecarpentry.wordpress.com/">Software Carpentry</a> blog, I've posted <a href="http://softwarecarpentry.wordpress.com/2009/09/24/presentation-presentation-presentation/">a plea for pointers to good online tutorials</a>: if I'm going to <a href="https://software-carpentry.org/capstone.html">reorganize the SC material</a>, I'd like to upgrade the format as well, and I'm looking for pointers to stuff that's effective, but (relatively) easy to produce.
+Over on the Software Carpentry blog, I've posted a plea for pointers to good online tutorials: if I'm going to reorganize the SC material, I'd like to upgrade the format as well, and I'm looking for pointers to stuff that's effective, but (relatively) easy to produce.
 
-And sticking to our presentation theme, I'm talking at <a href="http://stackoverflow.carsonified.com/events/toronto/">Stackoverflow DevDays</a> on Friday, October 23. Here's what I think I'm going to say (and yes, thank you, it <em>does</em> bear more than a passing resemblance to the book I'm editing for O'Reilly):
+And sticking to our presentation theme, I'm talking at Stackoverflow DevDays on Friday, October 23. Here's what I think I'm going to say (and yes, thank you, it <em>does</em> bear more than a passing resemblance to the book I'm editing for O'Reilly):
 
 <em>Bits of Evidence: What We Actually Know About Software Development, and Why We Believe It's True</em>
 

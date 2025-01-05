@@ -11,7 +11,7 @@ It's a sunny Sunday morning in Atlanta, and I'm on my way home. I came down Thur
 </ol>
 #4 actually happened first. Mark picked me up Friday morning; we chatted for a while, then I spent an hour with some other faculty before giving my <a href="http://www.slideshare.net/gvwilson/bits-of-evidence-2338367">evidence-based software engineering talk</a>. It was fun, and I came away from my discussion with Mark with half a dozen leads to follow up.
 
-#1 is most important to me personally—I really want to spend a year <a href="http://softwarecarpentry.wordpress.com/a-fresh-start/">upgrading the course</a> after I leave U of T at the end of this term—but I didn't have much luck. The people I spoke to were sympathetic, but it's been a hard 18 months for everyone financially, and there are a lot of other good causes clamoring for attention.
+#1 is most important to me personally—I really want to spend a year upgrading the course after I leave U of T at the end of this term—but I didn't have much luck. The people I spoke to were sympathetic, but it's been a hard 18 months for everyone financially, and there are a lot of other good causes clamoring for attention.
 
 I put less time into #2 than I probably should have, but still got some good feedback (which I've posted on the Basie blog). Long story short, if we can make Basie faster and provide a Trac-to-Basie migration tool, our prospects are good.
 
