@@ -83,6 +83,89 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/01/05/air-time/">
+      Air Time
+    </a>
+  </h2>
+  <p><time datetime="2025-01-05" class="post-date">2025-01-05</time></p>
+  <p>One problem with <a href="../2025/01/04/meetings/">meetings</a> is that
+some people may talk far more than others.
+Other people may be so accustomed to this
+that they don&rsquo;t speak up even when they have valuable points to make.</p>
+<p>You can combat this
+by giving everyone three sticky notes at the start of the meeting
+(or coins, or paperclips—anything inedible will do).
+Every time someone speaks,
+they have to give up one sticky note.
+When they&rsquo;re out of stickies,
+they aren&rsquo;t allowed to speak until everyone has used at least one,
+at which point everyone gets all of their sticky notes back.
+This ensures that nobody talks more than three times as often as
+the quietest person in the room,
+which completely changes group dynamics.
+People who have given up trying to be heard suddenly have space to contribute,
+while the overly-frequent speakers realize how talkative they have been.</p>
+<div class="callout">
+<p><strong>Learning the hard way</strong></p>
+<p>I first encountered this technique when someone on my team used it on me.
+No matter how many people were in the room,
+I seemed to think I should be talking half the time;
+I still do that sometimes,
+but I&rsquo;d like think I&rsquo;ve gotten better.</p>
+</div>
+<p>Another useful technique is called interruption bingo.
+Draw a grid and label the rows and columns with the participants&rsquo; names;
+each time person A interrupts person B,
+add a tally mark to the appropriate cell.
+Look at the results Halfway through the meeting:
+in most cases it will be clear that one or two people are doing all of the interrupting,
+and that they&rsquo;re always interrupting the same people.
+After that,
+saying, &ldquo;All right, I&rsquo;m adding another tally to the bingo card,&rdquo;
+is usually enough to get them to throttle back.
+If it isn&rsquo;t,
+well,
+you just learned something about your teammate…</p>
+<div class="callout">
+<p><strong>Unevenly distributed</strong></p>
+<p>One thing interruption bingo often reveals is that
+people who interrupt
+almost always interrupt down,
+i.e.,
+they only interrupt people they believe have lower social status than they do.
+People who do this also often use interruption to establish social status:
+if I can cut you off mid-sentence,
+I must be more important than you are.
+In the worst case two people will waste everyone else&rsquo;s time trying to out-interrupt each other,
+which a colleague of mine used to refer to as <a href="https://en.wikipedia.org/wiki/Lek_mating">lekking</a>.
+Please don&rsquo;t do this.</p>
+</div>
+<p>Online meetings provide special challenges for regulating how often individuals speak.
+[<a href="https://chelseatroy.com/2018/03/29/why-do-remote-meetings-suck-so-much/">Troy2018</a>] discusses why online meetings
+are often frustrating,
+and points out that in most online meetings,
+the first person to speak during a pause gets the floor.
+As a result,
+&ldquo;If you have something you want to say,
+you have to stop listening to the person currently speaking
+and instead focus on when they&rsquo;re gonna pause or finish
+so you can leap into that nanosecond of silence
+and be the first to utter something.
+The format…encourages participants who want to contribute to say more and listen less.&rdquo;</p>
+<p>The solution is to run a text chat beside the video conference
+where people can signal that they want to speak;
+the moderator can then select people from the waiting list.
+Text chat is better than the &ldquo;raise hand&rdquo; feature most video conferencing tools offer
+because the person who wants to speak can indicate why.
+For example,
+they can type &ldquo;question about budget&rdquo;
+rather than just &ldquo;question&rdquo;
+so that the moderator can group related questions together.
+Again, [<a href="https://isbnsearch.org/isbn/9781119049715">Brookfield2016</a>] is a useful, well-organized catalog of techniques like these.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/01/04/meetings/">
       Meetings
     </a>
@@ -598,115 +681,6 @@ to figure out how anti-vaccination conspiracy theories have displaced actual sci
 so that they can fight back;
 if people who study software and software developers want to do more than just observe—if they want
 to have some actual impact—I think they would do well to look at why bullshit finds such a large audience.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2024/12/27/not-very-scalable/">
-      Not Very Scalable
-    </a>
-  </h2>
-  <p><time datetime="2024-12-27" class="post-date">2024-12-27</time></p>
-  <p>I have been teaching some informal lessons to colleagues based on
-the Python version of <a href="../sdxpy/"><em>Software Design by Example</em></a>,
-and one thing that has bothered me is the sizing of the diagrams.
-It&rsquo;s not too bad in a chapter like <a href="../sdxpy/glob/">this one</a>,
-but when those same SVG files are displayed in <a href="../sdxpy/glob/slides/#2">slides like these</a>
-they are a bit hard to read.</p>
-<p>I thought the solution would be simple:
-&ldquo;SVG&rdquo; stands for &ldquo;Scalable Vector Graphics&rdquo;,
-so I should just be able to apply a scaling factor via CSS to enlarge the diagrams
-when they are displayed in slide files.
-(Modifying the source isn&rsquo;t an option:
-they are all carefully sized for the print edition,
-and I&rsquo;m not going to duplicate 107 diagrams to solve what is in reality a minor annoyance.)</p>
-<p>But what scaling factor should I apply and how should I apply it?
-I can&rsquo;t specify an absolute width or a page-relative fraction:
-the source diagrams have different intrinsic sizes,
-so either of those options would result in different diagrams being scaled by different amounts.
-Doing this wouldn&rsquo;t actually be so bad if they just contained lines,
-but they all have text as well,
-and if some of the diagrams are effectively scaled from (for example) 12-point to 15-point
-while others are scaled from 12-point to 18-point,
-it really stands out.</p>
-<p>What&rsquo;s worse is that when I scale up the SVG by a fixed amount (e.g., 120%)
-it overlaps with the text below it.
-A bit of poking around revealed that the browser lays out the text on the slide
-using the SVG&rsquo;s original (intrinsic) size,
-and <em>then</em> resizes the SVG.
-It isn&rsquo;t noticeable if the figure is the last or only thing on the slide,
-but that&rsquo;s not always the case.</p>
-<p>The best solution so far comes from <a href="https://www.linkedin.com/in/camerondecoster/">Cameron DeCoster</a>,
-and relies on the fact that all of these SVG images are contained in <code>figure</code> elements:</p>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="nv">--image-width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">figure</span><span class="p">.</span><span class="nc">fullwidth</span><span class="w"> </span><span class="nt">img</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">img</span><span class="p">.</span><span class="nc">centered</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
-<span class="w">    </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
-<span class="w">    </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">img</span><span class="p">.</span><span class="nc">image</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--image-width</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nt">img</span><span class="p">.</span><span class="nc">scaled-img</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c">/*</span>
-<span class="c">    Setting the width to a percentage increases the size of the of</span>
-<span class="c">    the image, but the width of the image is calculated using the</span>
-<span class="c">    intrinsic size during the initial layout phase and doesn&#39;t get</span>
-<span class="c">    updated as the image is scaled up.</span>
-<span class="c">    (https://developer.mozilla.org/en-US/docs/Glossary/Intrinsic_Size)</span>
-<span class="c">    */</span>
-<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="kt">%</span><span class="p">;</span>
-
-<span class="w">    </span><span class="c">/*</span>
-<span class="c">    Setting the width to an explicit number provides an</span>
-<span class="c">    independent container element and everything works correctly.</span>
-<span class="c">    */</span>
-<span class="w">    </span><span class="c">/* width: 500px; */</span>
-
-<span class="w">    </span><span class="c">/* </span>
-<span class="c">    Using a scale transform increases the size of the image but</span>
-<span class="c">    doesn&#39;t update the page layout.  As such, the image element</span>
-<span class="c">    will begin to overlap surrounding elements at higher scales.</span>
-<span class="c">    */</span>
-<span class="w">    </span><span class="c">/* transform: scale(1.6); */</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>It&rsquo;s still not perfect:
-as the image below shows,
-the rescaled figure is no longer centered.
-As Cameron explains:</p>
-<blockquote>
-<p>The centering issue is due to the fact that there&rsquo;s a cyclic dependency between two elements:
-the image and the container.
-Using flexbox on the figure with center justified content means that
-the content of the container (the image) will set the width.
-However, we&rsquo;re using a percentage for the width on the image,
-which depends on the width of the parent (the container).
-The W3C resolves this as stated <a href="https://www.w3.org/TR/css-sizing-3/#cyclic-percentage-contribution">here</a>.
-The result is that the initial width calculation is performed using the original size of the image,
-then the container is centered,
-then the image is scaled.
-Unfortunately,
-that means that the image centering calculation is done with a different width than the image we see,
-and things look wonky.</p>
-</blockquote>
-<div class="center">
-<img src="../files/2024/decoster-css.png" alt="DeCoster CSS example" width="90%">
-</div>
-
-<p>SVG is now 25 years old.
-I think &ldquo;scale this up&rdquo; ought to be a lot easier than it is,
-but my real gripe is that I have no idea how the average person
-would ever figure this out.
-If you want to play around with a small example,
-please check out <a href="https://github.com/gvwilson/resize-demo">this repository</a>.</p>
 </article>
 
 

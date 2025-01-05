@@ -3,14 +3,14 @@ title: Air Time
 date: 2025-01-05
 ---
 
-One problem with meetings is that
+One problem with [meetings][meetings] is that
 some people may talk far more than others.
 Other people may be so accustomed to this
 that they don't speak up even when they have valuable points to make.
 
 You can combat this
-by giving everyone three sticky notes
-(or coins, or paperclips—anything inedible will do) at the start of the meeting.
+by giving everyone three sticky notes at the start of the meeting
+(or coins, or paperclips—anything inedible will do).
 Every time someone speaks,
 they have to give up one sticky note.
 When they're out of stickies,
@@ -20,10 +20,19 @@ This ensures that nobody talks more than three times as often as
 the quietest person in the room,
 which completely changes group dynamics.
 People who have given up trying to be heard suddenly have space to contribute,
-and the overly-frequent speakers realize how talkative they have been.
+while the overly-frequent speakers realize how talkative they have been.
 
-Another useful technique is called
-interruption bingo.
+<div class="callout" markdown="1">
+**Learning the hard way**
+
+I first encountered this technique when someone on my team used it on me.
+No matter how many people were in the room,
+I seemed to think I should be talking half the time;
+I still do that sometimes,
+but I'd like think I've gotten better.
+</div>
+
+Another useful technique is called interruption bingo.
 Draw a grid and label the rows and columns with the participants' names;
 each time person A interrupts person B,
 add a tally mark to the appropriate cell.
@@ -38,7 +47,7 @@ well,
 you just learned something about your teammate…
 
 <div class="callout" markdown="1">
-***Unevenly distributed***
+**Unevenly distributed**
 
 One thing interruption bingo often reveals is that
 people who interrupt
@@ -75,6 +84,9 @@ For example,
 they can type "question about budget"
 rather than just "question"
 so that the moderator can group related questions together.
+Again, [[Brookfield2016][Brookfield2016]] is a useful, well-organized catalog of techniques like these.
 
 [lekking]: https://en.wikipedia.org/wiki/Lek_mating
+[meetings]: @root/2025/01/04/meetings/
+[Brookfield2016]: https://isbnsearch.org/isbn/9781119049715
 [Troy2018]: https://chelseatroy.com/2018/03/29/why-do-remote-meetings-suck-so-much/
