@@ -6,18 +6,20 @@ date: 2025-01-06
 The first release of GitHub's [Minimum Viable Governance][github-mvg] guidelines
 included this:
 
-> **2.1. Consensus-Based Decision Making**
-> 
-> Projects make decisions through consensus of the Maintainers.
-> While explicit agreement of all Maintainers is preferred,
-> it is not required for consensus.
-> Rather,
-> the Maintainers will determine consensus based on their good faith consideration of a number of factors,
-> including the dominant view of the Contributors and nature of support and objections.
-> The Maintainers will document evidence of consensus in accordance with these requirements.
+<div class="callout" markdown="1">
+**2.1. Consensus-Based Decision Making**
+
+Projects make decisions through consensus of the Maintainers.
+While explicit agreement of all Maintainers is preferred,
+it is not required for consensus.
+Rather,
+the Maintainers will determine consensus based on their good faith consideration of a number of factors,
+including the dominant view of the Contributors and nature of support and objections.
+The Maintainers will document evidence of consensus in accordance with these requirements.
+</div>
 
 It sounds reasonable,
-but it is harmfully wrong.
+but it's wrong-headed.
 Every team has a power structure:
 the question is whether it's formal or informal—in other words,
 whether it's accountable or unaccountable [[Freeman2013][Freeman2013]].
@@ -77,7 +79,7 @@ Every group that uses Martha's Rules must make two procedural decisions:
 How are proposals put forward?
 :   The easiest way to do this in a software project
     is to file an issue in the project's issue tracker
-    tagged *Proposal*.
+    tagged `proposal`.
     Team members can comment on it there
     so that the sponsor can revise it before bringing it to a vote.
 
@@ -96,7 +98,7 @@ Rules that people don't know about can't help them.
 Once your team agrees on a decision-making procedure,
 document it for newcomers
 (and to prevent disputes among people already in the team).
-You can put this in the project's `README` file ([%x starting %])
+You can put this in the project's `README` file
 or in a separate file called `CONTRIBUTING`.
 Wherever it goes,
 remember that the easier it is for people to figure out how to contribute,
@@ -115,8 +117,7 @@ But while society accepts that
 people of different heights need different desks and seating to be comfortable,
 there is still a lot of stigma
 associated with differences in mental function,
-which are often classified according to
-[how inconvenient they are to other people][adhd-thread].
+which are often classified according to how inconvenient they are to other people.
 One example is how tests for
 attention-deficit/hyperactivity disorder (ADHD) are phrased.
 "Subject is overly talkative": compared to who?

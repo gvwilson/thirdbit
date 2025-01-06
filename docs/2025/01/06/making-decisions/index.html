@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Making Decisions</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../projects/">projects</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Making Decisions</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/01/05/air-time/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-01-06" class="post-date">2025-01-06</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>The first release of GitHub&rsquo;s <a href="https://github.com/github/MVG">Minimum Viable Governance</a> guidelines
+included this:</p>
+<div class="callout">
+<p><strong>2.1. Consensus-Based Decision Making</strong></p>
+<p>Projects make decisions through consensus of the Maintainers.
+While explicit agreement of all Maintainers is preferred,
+it is not required for consensus.
+Rather,
+the Maintainers will determine consensus based on their good faith consideration of a number of factors,
+including the dominant view of the Contributors and nature of support and objections.
+The Maintainers will document evidence of consensus in accordance with these requirements.</p>
+</div>
+<p>It sounds reasonable,
+but it&rsquo;s wrong-headed.
+Every team has a power structure:
+the question is whether it&rsquo;s formal or informal—in other words,
+whether it&rsquo;s accountable or unaccountable [<a href="https://muse.jhu.edu/article/528558">Freeman2013</a>].
+In the latter case,
+decisions will effectively be made by the people
+who are the most self-confident or stubborn
+rather than by those with the most insight.</p>
+<p>To guard against this,
+groups need to spell out who has the authority to make which decisions
+and how to achieve consensus.
+In short,
+they need explicit governance.</p>
+<p>Martha&rsquo;s Rules [<a href="https://doi.org/10.1177/088610998600100206">Minahan1986</a>]
+are a practical way to do this in groups of up to a few dozen people,
+and work very well for smaller teams too:</p>
+<ol>
+<li>
+<p>Before each meeting, anyone who wishes may sponsor a proposal.
+    Proposals must be filed at least 24 hours before a meeting in order to be considered,
+    and must include:</p>
+<ul>
+<li>a one-line summary</li>
+<li>the full text of the proposal</li>
+<li>any required background information</li>
+<li>pros and cons</li>
+<li>possible alternatives</li>
+</ul>
+</li>
+<li>
+<p>A quorum is established in a meeting if half or more of voting members are present.</p>
+</li>
+<li>
+<p>Once a person has sponsored a proposal,
+    the group may not discuss or vote on the issue
+    unless the sponsor or their delegate is present.</p>
+</li>
+<li>
+<p>After the sponsor presents the proposal a <em>sense vote</em> is cast:</p>
+<ul>
+<li>Thumbs up: who likes the proposal?</li>
+<li>Thumbs down: who is uncomfortable with the proposal?</li>
+<li>Thumbs sideways: who can live with?</li>
+</ul>
+</li>
+<li>
+<p>If everyone likes or can live with the proposal,
+    it passes with no further discussion.</p>
+</li>
+<li>
+<p>If the majority is uncomfortable with the proposal,
+    it is sent back to its sponsor for further work.
+    (The sponsor may decide to drop it if it&rsquo;s clear the majority isn&rsquo;t ever going to support it.)</p>
+</li>
+<li>
+<p>Otherwise,
+    the group has a brief moderated discussion.
+    After 10 minutes,
+    or when no one has anything further to add,
+    the moderator calls for a straight yes-or-no vote on the proposal.
+    If a majority votes &ldquo;yes&rdquo; it is adopted;
+    otherwise,
+    it is returned to the sponsor for further work.</p>
+</li>
+</ol>
+<p>Every group that uses Martha&rsquo;s Rules must make two procedural decisions:</p>
+<dl>
+<dt>How are proposals put forward?</dt>
+<dd>The easiest way to do this in a software project
+is to file an issue in the project&rsquo;s issue tracker
+tagged <code>proposal</code>.
+Team members can comment on it there
+so that the sponsor can revise it before bringing it to a vote.</dd>
+<dt>Who gets to vote?</dt>
+<dd>In a course project the answer is &ldquo;whoever is part of the team,&rdquo;
+but a more explicit rule is needed for larger or longer-lived projects.
+One method is for existing members to nominate new ones,
+and for the team to hold a straight yes-or-no vote on each.
+Another is to automatically include anyone whose changes to the code
+were accepted by existing members,
+though this under-values non-programming contributions
+like doing code reviews
+or testing new releases.</dd>
+</dl>
+<p>Rules that people don&rsquo;t know about can&rsquo;t help them.
+Once your team agrees on a decision-making procedure,
+document it for newcomers
+(and to prevent disputes among people already in the team).
+You can put this in the project&rsquo;s <code>README</code> file
+or in a separate file called <code>CONTRIBUTING</code>.
+Wherever it goes,
+remember that the easier it is for people to figure out how to contribute,
+the more likely they are to do so [<a href="https://dl.acm.org/doi/10.1145/2593702.2593704">Steinmacher2014</a>].</p>
+<h2>Nothing about us without us</h2>
+<p>The rules laid out above were created
+by and for people near the middle of the bell curve with respect to focus and attention span.
+People who are neurodivergent
+(i.e., whose brains work differently from the average
+when it comes to sociability, learning, attention, and mood)
+may find that other approaches work better for them.</p>
+<p>But while society accepts that
+people of different heights need different desks and seating to be comfortable,
+there is still a lot of stigma
+associated with differences in mental function,
+which are often classified according to how inconvenient they are to other people.
+One example is how tests for
+attention-deficit/hyperactivity disorder (ADHD) are phrased.
+&ldquo;Subject is overly talkative&rdquo;: compared to who?
+&ldquo;Subject does X when it is inappropriate&rdquo;: by whose rules?
+&ldquo;Struggles to pay attention&rdquo;: in fact,
+most people with ADHD can pay very close attention,
+but not when they are in environments like noisy classrooms
+that are full of distractions.</p>
+<p>Decisions that affect people should only be made
+with the full participation of those who will be affected.
+If you are neurodivergent,
+you probably have a set of strategies for managing time and attention.
+If you are neurotypical and have neurodivergent teammates,
+ask them what works well for them rather than ignoring the difference
+or guessing what they might want.
+Please do the same if you have teammates who have difficulty seeing, hearing, or moving about:
+they have expertise you don&rsquo;t.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+</footer>
+  </body>
+</html>
