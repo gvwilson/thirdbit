@@ -124,7 +124,7 @@ Putting the two on the same team pretty much guarantees that someone will miss m
 or sleep through them
 no matter when they're held.
 Simply asking people, "Do you prefer to work in the morning, or the evening?"
-can be surprisingly effective [[Zavgorodniaia2021]].
+can be surprisingly effective [[Zavgorodniaia2021][Zavgorodniaia2021]].
 
 However people are put together,
 each team should have at least one block of two hours to work together each week outside of class.
