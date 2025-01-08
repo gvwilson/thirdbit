@@ -6,6 +6,8 @@ fiction: true
 
 <ol id="toc"></ol>
 
+<section markdown="1">
+
 ## Chapter 1
 
 Once upon a time, a young puppet named Still lived in a city full of
@@ -122,6 +124,10 @@ cobblestones to ring Mister Leaf's doorbell.
 
 The door opened a moment later. A deep, warm voice said, "Why, what a
 pleasant surprise! Please, please, come in."
+
+</section>
+
+<section markdown="1">
 
 ## Chapter 2
 
@@ -336,6 +342,10 @@ and run black silk strings through them. They'd never let you move your
 own arms and legs, just to make sure you couldn't ever do anything like
 this again. Do you want that? No, I didn't think so. Now look, the rain
 has stopped---I think it's time for you to go home."
+
+</section>
+
+<section markdown="1">
 
 ## Chapter 3
 
@@ -648,6 +658,10 @@ Out the door, down the steps, across the yard to the street… Still
 had come this way a thousand times. But that afternoon, she didn't turn
 left for home. Instead, she set her books on the sidewalk for anyone who
 wanted them and kept going straight.
+
+</section>
+
+<section markdown="1">
 
 ## Chapter 4
 
@@ -1049,6 +1063,10 @@ going to put strings on her. She was safe. She was safe…
 
 With her back against a chimney, watched over by the moon, the fog, and
 an old gargoyle, Still went back to sleep.
+
+</section>
+
+<section markdown="1">
 
 ## Chapter 5
 
@@ -1509,6 +1527,10 @@ it? Guarding things?
 reason, the thought of the gargoyle watching over her violin made her
 feel better. "Sure. Let's go have a look at this trick of yours."
 
+</section>
+
+<section markdown="1">
+
 ## Chapter 6
 
 Leaving her violin behind was harder than she had expected. The
@@ -1756,6 +1778,10 @@ was it? What had happened to it?
 
 Still was just about to scream or cry when a grating voice above her
 said, "Is this what you're looking for?"
+
+</section>
+
+<section markdown="1">
 
 ## Chapter 7
 
@@ -2094,6 +2120,10 @@ the fog just a little thinner? She stretched out at the gargoyle's feet
 with her violin in her arms. "Good night," she said softly.
 
 "Good night," he replied, but she was already asleep.
+
+</section>
+
+<section markdown="1">
 
 ## Chapter 8
 
@@ -2557,6 +2587,10 @@ roller skaters gathered. She stayed away from the stalls in case any
 police were on patrol, then let her feet take their usual route across
 the canal.
 
+</section>
+
+<section markdown="1">
+
 ## Chapter 9
 
 "Oh…" Still groaned. It was morning. She lay curled up in a
@@ -2906,6 +2940,10 @@ wasn't already in jail. They just *had* to still be there…
 "Anyway, I really should get cleaned up. Thanks again." Still punched
 Attic gently on the arm, then turned and hurried away.
 
+</section>
+
+<section markdown="1">
+
 ## Chapter 10
 
 Still stole a small scrap of cloth from the throw-away pile behind a
@@ -3121,6 +3159,10 @@ that?"
 
 The gargoyle shook his weathered old head. "How could anyone do
 anything?" he asked softly in return.
+
+</section>
+
+<section markdown="1">
 
 ## Chapter 11
 
@@ -3433,6 +3475,10 @@ violin flew from her hand and tumbled end over end through the air.
 "Noooo!" Still shrieked as it vanished over a low brick wall. She
 heard a faint *kersplash*.
 
+</section>
+
+<section markdown="1">
+
 ## Chapter 12
 
 Still scrambled to her feet. The wall was only a little taller than
@@ -3639,6 +3685,10 @@ And there it was---her violin. The current that had carried the boats to
 this little backwater had brought her violin as well. She picked it up
 gently and hugged it close.
 
+</section>
+
+<section markdown="1">
+
 ## Chapter 13
 
 Still walked out into the dawn with her violin in one hand, and a
@@ -3749,6 +3799,10 @@ what they ought to put on him!"
 
 "Strings will be enough," Still said quietly.
 
+</section>
+
+<section markdown="1">
+
 ## Chapter 14
 
 It was several days before she could slip away and go back to the
@@ -3768,3 +3822,5 @@ needed guarding any more.
 She wrapped the scarf around its neck, climbed back down the drainpipe,
 and headed for the market. She had a feeling that Attic would like to
 share a hot cup of oil. And maybe, one day, to hear her play.
+
+</section>

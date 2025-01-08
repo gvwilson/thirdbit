@@ -83,6 +83,134 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/01/08/division-of-labor/">
+      Division of Labor
+    </a>
+  </h2>
+  <p><time datetime="2025-01-08" class="post-date">2025-01-08</time></p>
+  <p>All right, you&rsquo;ve <a href="../2025/01/07/forming-teams/">formed a team</a>:
+now what?
+How do you decide who does what?
+How do you make sure that everyone actually does what they&rsquo;re supposed to?
+And most importantly, how do you do this fairly?</p>
+<p>Some jobs have higher social status than others,
+and what is or isn&rsquo;t considered important
+usually reflects racial and gender divides within society—so much so that
+sociologists use the phrase &ldquo;<a href="https://en.wikipedia.org/wiki/Women%27s_work">women&rsquo;s work</a>&rdquo; to describe the phenomenon.
+It is also known as &ldquo;<a href="https://en.wikipedia.org/wiki/Racial_issues_faced_by_black_quarterbacks">quarterback syndrome</a>&rdquo;:
+two thirds of NFL players overall in the United States are Black,
+but only 17% of quarterbacks,
+which is the position on a team with the highest social status.</p>
+<p>Among programmers,
+writing operating systems or other software that is close to the hardware
+has higher status than building user interfaces;
+people doing the former are both paid more and more likely to be male
+than people doing the latter,
+regardless of ability or value delivered to the employer.
+This creates a feedback loop:
+white and Asian men pursue certain career paths because they have high status
+(they want to be &ldquo;real programmers&rdquo;),
+and the fact that they are pursuing those careers is what maintains their higher status.
+It also creates a confirmation loop:
+since women and people of color get fewer chances to do certain tasks,
+they are less good at them,
+which &ldquo;confirms&rdquo; the initial bias.</p>
+<p>All of this starts in the classroom.
+In mixed-gender teams,
+for example,
+female students are more likely to be given responsibility for taking notes,
+writing documentation,
+and other low-status tasks.
+Some have experienced this so often that they have come to accept it as
+the price they have to pay for being in tech.
+Others protest, but those who do are often dismissed as being &ldquo;difficult&rdquo;.
+Many take a third path and decide to leave programming—after all,
+why play a game that&rsquo;s unfair?</p>
+<div class="callout">
+<p><strong>In the beginning</strong></p>
+<p>Programming was originally considered a female occupation,
+but as it became more lucrative it came to be viewed as &ldquo;naturally&rdquo; male.
+[<a href="https://isbnsearch.org/isbn/9780262534536">Abbate2012</a>] and [<a href="https://isbnsearch.org/isbn/9780262517966">Ensmenger2012</a>] describe how this happened,
+while [<a href="https://isbnsearch.org/isbn/9780262535182">Hicks2018</a>] looks at how Britain lost its early dominance in computing
+by systematically discriminating against its most qualified workers:
+women.
+Some men become quite uncomfortable whenever this is brought up,
+but we need to learn how to discuss our own history
+if we want to be able to think clearly about how the things we&rsquo;re doing today
+might change society tomorrow.</p>
+</div>
+<p>There are many ways to divide project work between team members,
+but no matter how you do it,
+the software you get will reflect the division of labor
+(a phenomenon known as <a href="https://en.wikipedia.org/wiki/Conway's_law">Conway&rsquo;s Law</a>
+or socio-technical congruence [<a href="https://dl.acm.org/doi/10.1145/1414004.1414008">Cataldo2008</a>]).
+In a <em>modular decomposition</em>,
+each person is responsible for one part of the program.
+For example,
+one person might design and build the GUI
+while another writes the database interface
+and a third implements the business rules.
+Having people own parts of the code like this produces lower failure rates in industry [<a href="https://dl.acm.org/doi/10.1145/2025113.2025119">Bird2011</a>],
+but is generally a bad strategy in a course project:</p>
+<ol>
+<li>
+<p>It leads to <em>big bang integration</em>
+    in which all the components meet each other for the first time
+    right at the end of the project.
+    Big bang almost always fails.</p>
+</li>
+<li>
+<p>Each team member only really understands one aspect of the project,
+    which often proves fragile.
+    (Imagine what happens if someone gets sick or drops the course…)</p>
+</li>
+<li>
+<p>It increases the risk of people from marginalized groups being assigned lower-status work,
+    since self-appointed alpha geeks will usually snag jobs like architecture and coding,
+    leaving less appealing work to people who aren&rsquo;t as pushy, privileged, or self-confident.
+    This tends to reinforce existing inequities;
+    it also tends to lower the team&rsquo;s overall grade,
+    since there&rsquo;s often little relationship between how outspoken people are
+    and how well they work.</p>
+</li>
+</ol>
+<p>With <em>functional decomposition</em>,
+each person is responsible for one type of task,
+i.e.,
+one person does the testing,
+another handles the documentation,
+a third does the bulk of the coding,
+and the fourth takes care of build and deployment.
+This strategy has the same drawbacks as modular decomposition.</p>
+<p>I therefore recommend that student teams use <em>feature decomposition</em>:
+instead of owning an entire subsystem for the life of the project,
+each team member handles the design, coding, testing, and documentation of one feature.
+There isn&rsquo;t as much need for close collaboration between students
+as there is with the previous two strategies,
+but feature decomposition is more robust and more equitable.</p>
+<p>Any of these strategies is better than <em>chaotic decomposition</em>,
+which unfortunately is the most common approach.
+If people have different ideas about who&rsquo;s supposed to do what,
+some things won&rsquo;t be done at all while others will be done several times over.
+(You can tell if your decomposition is chaotic by counting how often people say,
+&ldquo;I thought <em>you</em> were doing that!&rdquo; or &ldquo;But I&rsquo;ve already done that!&rdquo;)
+All other decompositions tend toward chaos under pressure,
+so it&rsquo;s important to establish rules early
+and stick to them when the going is easy
+so that the instinct to do the right thing will be there
+when mid-terms other deadlines strike.</p>
+<div class="callout">
+<p><strong>Clarity</strong></p>
+<p>No matter how you allocate work, make sure that everyone understands who is doing what, when.
+As [<a href="https://peerj.com/articles/cs-241/">Barke2019</a>] found,
+actual roles can be fluid;
+what matters most is that team members understand and accept their responsibilities
+and everyone else&rsquo;s at any particular moment.</p>
+</div>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/01/07/forming-teams/">
       Forming Teams
     </a>
@@ -884,22 +1012,6 @@ but even if that doesn&rsquo;t happen,
 I&rsquo;m glad to be able to cross one book off my <a href="../ideas/not-on-the-shelves/2024/">unwritten list</a>.</p>
 <div class="center">
   <img src="../files/2024/troubleshooting-java.jpg" alt="cover of 'Troubleshooting Java'" width="25%">
-</div>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2024/12/29/jimmy-carter/">
-      Jimmy Carter
-    </a>
-  </h2>
-  <p><time datetime="2024-12-29" class="post-date">2024-12-29</time></p>
-  <div class="center">
-  <p>
-    <img src="../files/2024/jimmy-carter.webp" alt="Jimmy Carter" width="50%">
-    <br>
-    1924 - 2024
-  </p>
 </div>
 </article>
 

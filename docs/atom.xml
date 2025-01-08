@@ -3,12 +3,138 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-01-07T00:00:00Z</updated>
+ <updated>2025-01-08T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Division of Labor</title>
+   <link href="https://third-bit.com/2025/01/08/division-of-labor/"/>
+   <updated>2025-01-08T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/01/08/division-of-labor/</id>
+   <content type="html">&lt;p&gt;All right, you&amp;rsquo;ve &lt;a href=&#34;https://third-bit.com/2025/01/07/forming-teams/&#34;&gt;formed a team&lt;/a&gt;:
+now what?
+How do you decide who does what?
+How do you make sure that everyone actually does what they&amp;rsquo;re supposed to?
+And most importantly, how do you do this fairly?&lt;/p&gt;
+&lt;p&gt;Some jobs have higher social status than others,
+and what is or isn&amp;rsquo;t considered important
+usually reflects racial and gender divides within society—so much so that
+sociologists use the phrase &amp;ldquo;&lt;a href=&#34;https://en.wikipedia.org/wiki/Women%27s_work&#34;&gt;women&amp;rsquo;s work&lt;/a&gt;&amp;rdquo; to describe the phenomenon.
+It is also known as &amp;ldquo;&lt;a href=&#34;https://en.wikipedia.org/wiki/Racial_issues_faced_by_black_quarterbacks&#34;&gt;quarterback syndrome&lt;/a&gt;&amp;rdquo;:
+two thirds of NFL players overall in the United States are Black,
+but only 17% of quarterbacks,
+which is the position on a team with the highest social status.&lt;/p&gt;
+&lt;p&gt;Among programmers,
+writing operating systems or other software that is close to the hardware
+has higher status than building user interfaces;
+people doing the former are both paid more and more likely to be male
+than people doing the latter,
+regardless of ability or value delivered to the employer.
+This creates a feedback loop:
+white and Asian men pursue certain career paths because they have high status
+(they want to be &amp;ldquo;real programmers&amp;rdquo;),
+and the fact that they are pursuing those careers is what maintains their higher status.
+It also creates a confirmation loop:
+since women and people of color get fewer chances to do certain tasks,
+they are less good at them,
+which &amp;ldquo;confirms&amp;rdquo; the initial bias.&lt;/p&gt;
+&lt;p&gt;All of this starts in the classroom.
+In mixed-gender teams,
+for example,
+female students are more likely to be given responsibility for taking notes,
+writing documentation,
+and other low-status tasks.
+Some have experienced this so often that they have come to accept it as
+the price they have to pay for being in tech.
+Others protest, but those who do are often dismissed as being &amp;ldquo;difficult&amp;rdquo;.
+Many take a third path and decide to leave programming—after all,
+why play a game that&amp;rsquo;s unfair?&lt;/p&gt;
+&lt;div class=&#34;callout&#34;&gt;
+&lt;p&gt;&lt;strong&gt;In the beginning&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Programming was originally considered a female occupation,
+but as it became more lucrative it came to be viewed as &amp;ldquo;naturally&amp;rdquo; male.
+[&lt;a href=&#34;https://isbnsearch.org/isbn/9780262534536&#34;&gt;Abbate2012&lt;/a&gt;] and [&lt;a href=&#34;https://isbnsearch.org/isbn/9780262517966&#34;&gt;Ensmenger2012&lt;/a&gt;] describe how this happened,
+while [&lt;a href=&#34;https://isbnsearch.org/isbn/9780262535182&#34;&gt;Hicks2018&lt;/a&gt;] looks at how Britain lost its early dominance in computing
+by systematically discriminating against its most qualified workers:
+women.
+Some men become quite uncomfortable whenever this is brought up,
+but we need to learn how to discuss our own history
+if we want to be able to think clearly about how the things we&amp;rsquo;re doing today
+might change society tomorrow.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There are many ways to divide project work between team members,
+but no matter how you do it,
+the software you get will reflect the division of labor
+(a phenomenon known as &lt;a href=&#34;https://en.wikipedia.org/wiki/Conway&#39;s_law&#34;&gt;Conway&amp;rsquo;s Law&lt;/a&gt;
+or socio-technical congruence [&lt;a href=&#34;https://dl.acm.org/doi/10.1145/1414004.1414008&#34;&gt;Cataldo2008&lt;/a&gt;]).
+In a &lt;em&gt;modular decomposition&lt;/em&gt;,
+each person is responsible for one part of the program.
+For example,
+one person might design and build the GUI
+while another writes the database interface
+and a third implements the business rules.
+Having people own parts of the code like this produces lower failure rates in industry [&lt;a href=&#34;https://dl.acm.org/doi/10.1145/2025113.2025119&#34;&gt;Bird2011&lt;/a&gt;],
+but is generally a bad strategy in a course project:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;It leads to &lt;em&gt;big bang integration&lt;/em&gt;
+    in which all the components meet each other for the first time
+    right at the end of the project.
+    Big bang almost always fails.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Each team member only really understands one aspect of the project,
+    which often proves fragile.
+    (Imagine what happens if someone gets sick or drops the course…)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It increases the risk of people from marginalized groups being assigned lower-status work,
+    since self-appointed alpha geeks will usually snag jobs like architecture and coding,
+    leaving less appealing work to people who aren&amp;rsquo;t as pushy, privileged, or self-confident.
+    This tends to reinforce existing inequities;
+    it also tends to lower the team&amp;rsquo;s overall grade,
+    since there&amp;rsquo;s often little relationship between how outspoken people are
+    and how well they work.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;With &lt;em&gt;functional decomposition&lt;/em&gt;,
+each person is responsible for one type of task,
+i.e.,
+one person does the testing,
+another handles the documentation,
+a third does the bulk of the coding,
+and the fourth takes care of build and deployment.
+This strategy has the same drawbacks as modular decomposition.&lt;/p&gt;
+&lt;p&gt;I therefore recommend that student teams use &lt;em&gt;feature decomposition&lt;/em&gt;:
+instead of owning an entire subsystem for the life of the project,
+each team member handles the design, coding, testing, and documentation of one feature.
+There isn&amp;rsquo;t as much need for close collaboration between students
+as there is with the previous two strategies,
+but feature decomposition is more robust and more equitable.&lt;/p&gt;
+&lt;p&gt;Any of these strategies is better than &lt;em&gt;chaotic decomposition&lt;/em&gt;,
+which unfortunately is the most common approach.
+If people have different ideas about who&amp;rsquo;s supposed to do what,
+some things won&amp;rsquo;t be done at all while others will be done several times over.
+(You can tell if your decomposition is chaotic by counting how often people say,
+&amp;ldquo;I thought &lt;em&gt;you&lt;/em&gt; were doing that!&amp;rdquo; or &amp;ldquo;But I&amp;rsquo;ve already done that!&amp;rdquo;)
+All other decompositions tend toward chaos under pressure,
+so it&amp;rsquo;s important to establish rules early
+and stick to them when the going is easy
+so that the instinct to do the right thing will be there
+when mid-terms other deadlines strike.&lt;/p&gt;
+&lt;div class=&#34;callout&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Clarity&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;No matter how you allocate work, make sure that everyone understands who is doing what, when.
+As [&lt;a href=&#34;https://peerj.com/articles/cs-241/&#34;&gt;Barke2019&lt;/a&gt;] found,
+actual roles can be fluid;
+what matters most is that team members understand and accept their responsibilities
+and everyone else&amp;rsquo;s at any particular moment.&lt;/p&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Forming Teams</title>
@@ -1537,90 +1663,6 @@ If you came in peace, be welcome.&lt;/p&gt;</content>
    <updated>2024-12-01T00:00:00Z</updated>
    <id>https://third-bit.com/2024/12/01/more-student-project-proposals/</id>
    <content type="html"></content>
- </entry>
- 
- <entry>
-   <title>Another Static Site Generator for Lessons</title>
-   <link href="https://third-bit.com/2024/11/30/another-ssg-for-lessons/"/>
-   <updated>2024-11-30T00:00:00Z</updated>
-   <id>https://third-bit.com/2024/11/30/another-ssg-for-lessons/</id>
-   <content type="html">&lt;p&gt;I built a very simple static site generator (SSG) called &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt;
-to support the lessons I mentioned in &lt;a href=&#34;https://third-bit.com/2024/11/24/unfinished-projects/&#34;&gt;my previous post&lt;/a&gt;.
-I could have stuck with &lt;a href=&#34;https://www.dmulholl.com/docs/ark/main/&#34;&gt;Ark&lt;/a&gt;
-(which I use to build this site and books like &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design in Python&lt;/em&gt;&lt;/a&gt;),
-but writing my own helped me figure out what I actually need,
-and might someday serve as the basis for a tutorial of some sort.
-In no particular order, &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt;&amp;rsquo;s features are:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Read configuration from the project&amp;rsquo;s &lt;code&gt;pyproject.toml&lt;/code&gt; file.&lt;/li&gt;
-&lt;li&gt;Convert all the Markdown files in or below the project&amp;rsquo;s root directory to HTML
-    using &lt;a href=&#34;https://jinja.palletsprojects.com/&#34;&gt;Jinja&lt;/a&gt; templates.&lt;/li&gt;
-&lt;li&gt;Rename a few files along the way:&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;README.md&lt;/code&gt; becomes &lt;code&gt;index.html&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;CODE_OF_CONDUCT.md&lt;/code&gt; becomes &lt;code&gt;code_of_conduct.html&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;CONTRIBUTING.md&lt;/code&gt; becomes &lt;code&gt;contributing.html&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;LICENSE.md&lt;/code&gt; becomes &lt;code&gt;license.html&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Create an HTML page corresponding to every source code file
-    so that (for example) &lt;code&gt;a/b.py&lt;/code&gt; is visible online as &lt;code&gt;a/b.py.html&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Replace &lt;code&gt;https://third-bit.com&lt;/code&gt; at the start of URLs with the relative path to the site&amp;rsquo;s root directory.&lt;/li&gt;
-&lt;li&gt;Replace links to Markdown files with links to the corresponding HTML files.
-    I do this so that links would work properly when people view the Markdown files on GitHub.&lt;/li&gt;
-&lt;li&gt;Rewrite the URL in something like &lt;code&gt;[label](b:key)&lt;/code&gt; to &lt;code&gt;[label](https://third-bit.com/bibliography.html#key)&lt;/code&gt;
-    to make it easy for authors to link to bibliographic citations.
-    These special links &lt;em&gt;don&amp;rsquo;t&lt;/em&gt; work when files are viewed on GitHub,
-    but it&amp;rsquo;s a lot less typing that the alternative.
-    (I use the &lt;a href=&#34;https://github.com/dmulholl/shortcodes&#34;&gt;shortcodes&lt;/a&gt; package to do this with &lt;a href=&#34;https://www.dmulholl.com/docs/ark/main/&#34;&gt;Ark&lt;/a&gt; sites,
-    but after a bit of experimentation I decided to special-case these links in &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt;.)&lt;/li&gt;
-&lt;li&gt;Similarly,
-    &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; rewrites &lt;code&gt;[term](g:key)&lt;/code&gt; to &lt;code&gt;[term](https://third-bit.com/glossary.html#key)&lt;/code&gt;
-    so that authors can easily insert glossary references.&lt;/li&gt;
-&lt;li&gt;If a page contains any glossary references,
-    &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; creates a list of defined terms at the top of the page.
-    (In my experience,
-    this is the most useful way to tell a would-be instructor what the lesson is actually about.)&lt;/li&gt;
-&lt;li&gt;I tried using shortcodes to format figures consistently,
-    but once I decided not to use them for the glossary and bibliography,
-    it didn&amp;rsquo;t seem worth keeping them for figures.
-    Instead,
-    I check their properties during linting (see below).&lt;/li&gt;
-&lt;li&gt;My tutorials focus on programming,
-    so I need to be able to include snippets of source code in pages.
-    &amp;ldquo;Snippets&amp;rdquo; makes the problem more complex:
-    I often want to include just one function or a couple of methods rather than an entire source file.
-    My previous SSG had a couple of hundred lines of code
-    to pull sections out of source files in various ways;
-    &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; just checks that the text in the Markdown file
-    is contained in the source file.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; defines a class for each inclusion like &lt;code&gt;language-py&lt;/code&gt; or &lt;code&gt;language-sql&lt;/code&gt;
-    so that inclusions from different languages can be styled differently.
-    I haven&amp;rsquo;t included syntax highlighting,
-    partly because I want to keep this SSG simple
-    but also because the highlighting rules I choose probably &lt;em&gt;won&amp;rsquo;t&lt;/em&gt; match what learners see
-    in their editor or IDE.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; includes a tool for linting sites,
-    i.e.,
-    for checking that links resolve,
-    glossary entries are mentioned somewhere,
-    and so on.
-    It turned out to be a lot simpler to check for problems
-    than to generate correct content automatically,
-    at least for small lessons.
-    &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; also uses &lt;a href=&#34;https://pypi.org/project/html5validator/&#34;&gt;html5validator&lt;/a&gt;
-    to check the formatting of the HTML pages it generates;
-    specific lessons use tools like &lt;a href=&#34;https://docs.astral.sh/ruff/&#34;&gt;ruff&lt;/a&gt; to check source code as well.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;So what &lt;em&gt;doesn&amp;rsquo;t&lt;/em&gt; &lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; include that a full-featured lesson SSG would?
-The most important thing is probably some sort of support for exercises:
-styling them,
-numbering them,
-keeping track of solutions,
-and so on.
-I could also add CSS styling for various kinds of callouts,
-but I&amp;rsquo;m not trying to reproduce something like &lt;a href=&#34;https://carpentries.github.io/workbench/&#34;&gt;the Carpentries Workbench&lt;/a&gt;:
-&lt;a href=&#34;https://github.com/lessonomicon/mccole&#34;&gt;McCole&lt;/a&gt; is a multi-bit screwdriver,
-not a fully-equipped machine shop.&lt;/p&gt;</content>
  </entry>
  
 </feed>
