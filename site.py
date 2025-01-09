@@ -22,6 +22,7 @@ projects = {
     "ongoing": [
         "browsercast",
         "marimo-h5p",
+        "execution-order",
     ],
     "programming": [
         "narwhals",
@@ -36,7 +37,6 @@ projects = {
         "wysiwyg-notebook",
         "code-selectors",
         "session-recording",
-        "execution-order",
         "tower-support",
     ],
     "tutorials": [
