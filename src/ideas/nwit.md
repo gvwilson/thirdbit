@@ -295,5 +295,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Gundersen et al 2024: "The Unreasonable Effectiveness of Open Science in AI: A Replication Study" <https://arxiv.org/abs/2412.17859> "We performed a systematic replication study including 30 highly cited AI studies relying on original materials when available. The availability of code and data correlate strongly with reproducibility… Surprisingly, [w]hether the code is poorly documented, partially missing, or not versioned is not important for successful replication, as long as the code is shared."
 
+1.  Bano et al 2024: "What Does a Software Engineer Look Like? Exploring Societal Stereotypes in LLMs" <https://arxiv.org/abs/2501.03569> "Our analysis reveals that both GPT-4 and Copilot prefer male and Caucasian profiles, particularly for senior roles, and favoured images featuring traits such as lighter skin tones, slimmer body types, and younger appearances."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
