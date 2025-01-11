@@ -297,5 +297,7 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Bano et al 2024: "What Does a Software Engineer Look Like? Exploring Societal Stereotypes in LLMs" <https://arxiv.org/abs/2501.03569> "Our analysis reveals that both GPT-4 and Copilot prefer male and Caucasian profiles, particularly for senior roles, and favoured images featuring traits such as lighter skin tones, slimmer body types, and younger appearances."
 
+1.  De Souza Santos et al 2025: "Software Fairness Debt" <https://arxiv.org/abs/2405.02490> Presents a useful categorization of ways in which software can be unfair or reinforce unfairness, synthesized from multiple sources.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
