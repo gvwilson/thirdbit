@@ -83,6 +83,199 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/01/11/fairness/">
+      Fairness
+    </a>
+  </h2>
+  <p><time datetime="2025-01-11" class="post-date">2025-01-11</time></p>
+  <p>This series of posts is about course projects designed to prepare students for real jobs.
+How companies get this wrong contributes to how they sometimes build things that harm society
+(and embarrass their creators).
+It easy to avoid these mistakes if you are willing to look beyond the code you write;
+that first step is often the hardest,
+but I hope this discussion will help.</p>
+<h2>How Tech Companies Get Hiring Wrong</h2>
+<p>In 1905,
+Harvard began selecting students based on their College Entrance Exam Board results.
+As a result,
+Jewish enrolment began to rise,
+and by the early 1920s they made up more than a fifth of the incoming class.
+This wasn&rsquo;t an outcome the establishment was willing to accept,
+but neither were explicit quotas,
+so they moved the goalposts [<a href="https://isbnsearch.org/isbn/9780618773558">Karabel2006</a>].
+Admissions officers began asking questions about the &ldquo;character&rdquo; of prospective students,
+and the university began asking for personal essays
+that could be graded however the university found most convenient.
+By 1933,
+the rate of Jewish admission was back down to an &ldquo;acceptable&rdquo; 15%.</p>
+<p>Harvard&rsquo;s decision to turn away more capable people in favor of less capable ones
+seems ridiculous if you think that a university&rsquo;s job is to find and train the smartest people it can.
+It makes more sense when you realize that
+most institutions&rsquo; first priority is to perpetuate themselves:
+if it wasn&rsquo;t,
+they probably wouldn&rsquo;t still be around.</p>
+<p>Similarly,
+the hiring process at many tech companies isn&rsquo;t designed to find the best programmers.
+Instead,
+it is designed (or more often has just evolved)
+to find people who are like those doing the hiring.
+&ldquo;Cultural fit&rdquo; almost always means &ldquo;like me&rdquo;:
+consciously or not,
+we are all biased toward those who look like us,
+talk like us,
+and make the same pop culture references as us,
+which has nothing to do with on-the-job ability
+[<a href="https://doi.org/10.1037/0033-295x.102.1.4">Greenwald1995</a>,<a href="https://doi.org/10.1016/j.riob.2009.10.001">Jost2009</a>].</p>
+<p>One way this bias shows up is in whiteboard coding questions about linked lists,
+dynamic programming,
+and other topics from computer science classes on data structures and algorithms.
+As <a href="https://hillelwayne.com/">Hillel Wayne</a> discovered when he looked at <a href="https://www.hillelwayne.com/post/linked-lists/">their history</a>,
+they might have indicated how much experience someone had using C or Pascal in the 1980s,
+but they have no more to do with on-the-job performance today
+than the essay questions used by Ivy League schools have to do with your ability to learn.
+When April Christina Curley,
+a recruiter at Google,
+began coaching Black students how to prepare for interviews with Google that included questions like these,
+the company shut her down—even though
+schools like Stanford had been running coaching sessions for their students for years [<a href="https://www.washingtonpost.com/technology/2021/03/04/google-hbcu-recruiting/">Tiku2021</a>].</p>
+<p>[<a href="https://doi.org/10.1109/VLHCC.2019.8818836">Behroozi2019</a>,<a href="https://dl.acm.org/doi/10.1145/3377815.3381372">Behroozi2020a</a>,<a href="https://doi.org/10.1145/3368089.3409712">Behroozi2020b</a>]
+summarize many other things that often go wrong in hiring in tech,
+from long delays waiting for feedback
+to asking candidates to spend several days working for free on programming assignments.
+These aren&rsquo;t just signs of dysfunctional company culture:
+they also make hiring harder for some people than others.
+For example,
+a single parent or someone caring for a relative with chronic illness
+may not be able to devote ten hours to an unpaid side project.
+If the interview process requires that,
+the company is effectively selecting for people who are economically secure and have lots of free time,
+which doesn&rsquo;t correlate with how well they can program in a full-time job.</p>
+<div class="callout">
+<p><strong>A sign of privilege</strong></p>
+<p>You probably won&rsquo;t be treated with any more respect on the job than you were while interviewing.
+However, when suggested in an early draft of this post that,
+&ldquo;If a company does any of these things, go find another one,&rdquo;
+one reviewer replied,
+&ldquo;It must be nice to be able to walk away.&rdquo;
+They were right:
+most people aren&rsquo;t as financially secure as me,
+so they aren&rsquo;t able to be as finicky about who they work for as I am.
+In other words,
+I made the same mistake as a team lead who assumed that
+since their evenings and weekends were theirs to do with as they wished,
+everyone else&rsquo;s would be too.</p>
+</div>
+<p>As a student looking for your first full-time job
+you probably won&rsquo;t have any control over the hiring process,
+but seeing whether the company does it well or not
+gives you valuable information about how well run it is.
+Here are a few positive indicators:</p>
+<dl>
+<dt>Write inclusive, accessible job ads.</dt>
+<dd>[<a href="https://doi.org/10.1037/a0022530">Gaucher2011</a>] is just one of many studies showing
+that gendered wording in job ads reinforces gender inequality in male-dominated occupations.
+<a href="http://gender-decoder.katmatfield.com/">Gender Decoder</a> and <a href="http://gendermag.org/">GenderMag</a> can help you find bugs like this
+in ads and software [<a href="https://doi.org/10.1145/3377811.3380371">Hilderbrand2020</a>].
+Tools for finding and eliminating racial bias and other problems aren&rsquo;t as common,
+but [<a href="https://doi.org/10.1145/3328778.3366792">Washington2020</a>] will tell you what to aim for,
+and if <a href="https://wave.webaim.org/">WebAIM WAVE</a> doesn&rsquo;t give your online job ads a clean bill of health,
+please fix the accessibility problems it reports.</dd>
+<dt>Post a public description of the hiring process.</dt>
+<dd>Does the company share a page with you (or an email)
+that lays out what&rsquo;s going to happen in what order,
+how much time is expected,
+and the principles everything is based on?</dd>
+<dt>Use blinded screening.</dt>
+<dd>Everyone has implicit biases,
+and many of the rules scientists follow when running experiments are designed
+to prevent such biases contaminating their results.
+The same is true of hiring;
+for example,
+companies should redact things like a candidate&rsquo;s age, race, and gender
+when circulating resumes for internal review.</dd>
+<dt>Use diverse interview panels.</dt>
+<dd>Giving people from under-represented backgrounds a say in who&rsquo;s hired next
+gives other people with similar backgrounds a better chance of being treated fairly.</dd>
+<dt>Have candidates solve realistic problems with their preferred tools.</dt>
+<dd>Most programmers have laptops,
+and video calls are now a part of everyday life in industrialized countries,
+so there&rsquo;s no reason <em>not</em> to give people an hour to show what they can do using the IDE of their choice.
+There is also no reason to stop them using online search or AI tools while they do this:
+every working programmer relies on our external collective memory,
+so telling a candidate they can&rsquo;t during an interview
+is like telling a chef to make a meal without using saucepans or knives.</dd>
+</dl>
+<p>These guidelines apply to school and courses as well.
+Are course descriptions and course websites inclusive?
+Are instructors required to use blinded grading to ensure that personal likes and dislikes don&rsquo;t affect grades?
+If the answers are &ldquo;no&rdquo;, what can you and your classmates do to fix things?</p>
+<div class="callout">
+<p><strong>Questions to ask</strong></p>
+<p>I have interviewed people who didn&rsquo;t ask a single question about the company,
+what an average day would look like, or how their career might evolve.
+<a href="https://jvns.ca/">Julia Evans</a> has a good list of <a href="https://jvns.ca/blog/2013/12/30/questions-im-asking-in-interviews/">questions to ask in interviews</a>,
+and <a href="https://another.rodeo/">T. Carter Baxter</a> has <a href="https://github.com/tBaxter/questions-for-employers">another</a>.
+There won&rsquo;t be time to get to them all,
+but asking two or three will impress your interviewer
+as well as giving you valuable information.</p>
+</div>
+<h2>On the Job</h2>
+<p>Unfair treatment doesn&rsquo;t end after people are hired.
+Study after study has shown that men and women are treated differently on the job:
+women have to work twice as hard to be given half as much credit,
+they are listened to less often or given less credit for new ideas,
+and what is seen as confidence in men is seen as pushiness or stridency in women [<a href="https://hbr.org/2017/12/what-research-tells-us-about-how-women-are-treated-at-work">Gavett2017</a>].
+People of color are undermined and discounted in the same way in majority-white workplaces in Europe and North America,
+and discrimination based on race, faith, and caste are endemic in the rest of the world as well.</p>
+<p>Many companies have taken steps to remedy this during hiring.
+However,
+hiring more people from under-represented groups doesn&rsquo;t make a difference
+if they have to work twice as hard to be taken half as seriously,
+if they are constantly passed over for promotion,
+or if discussions about promotion continue to take place in the men&rsquo;s locker room
+after the department&rsquo;s Friday afternoon hockey game.
+There are no easy fixes to these problems,
+but there are things you can ask for even as a junior hire:</p>
+<dl>
+<dt>Share data on how well the company has been doing recently.</dt>
+<dd>It&rsquo;s reasonable to ask what proportion of a company&rsquo;s staff (technical and otherwise)
+come from under-represented backgrounds
+and about the average length of stay at the company.
+If the interviewer doesn&rsquo;t know the answer,
+they should be able to get it;
+if the company doesn&rsquo;t have that data or won&rsquo;t share it,
+you&rsquo;ve just learned something.
+(However,
+see the note above about my privilege:
+I can afford to make an interviewer uncomfortable
+in a way that most juniors looking for their first job cannot.)</dd>
+<dt>Have an org chart.</dt>
+<dd>As I said when talking about <a href="../2025/01/06/making-decisions/">making decisions</a>,
+every organization has a power structure:
+the only question is whether it&rsquo;s public and accountable
+or whether the organization runs on who you know and how willing people are to barge in on strangers.</dd>
+<dt>Have written criteria for performance reviews.</dt>
+<dd>This is a legal requirement in many places,
+and these are something a company can share before hiring you.
+(Asking for them is a good way to impress interviewers.)
+If a company doesn&rsquo;t have criteria,
+or if performance reviews are only done when an employee asks for one,
+the system is once again biased toward extroverts and the well-connected.</dd>
+<dt>Specify how much time employees can take off.</dt>
+<dd>Some tech companies have an &ldquo;unlimited vacation&rdquo; policy,
+meaning that employees can take as much time off as they want as long as their work gets done.
+This sounds attractive,
+but <a href="https://library.namely.com/hr-mythbusters-2017">people actually take <em>less</em> time off</a> under these policies
+than the legal minimum in most jurisddictions,
+both because they feel guilty and because they worry about taking too much.
+It also saves companies money:
+the company has to compensate people for unused vacation days if the person is laid off,
+but not if there&rsquo;s no target.</dd>
+</dl>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/01/11/edinburgh-winter-talk/">
       Edinburgh Winter Talk
     </a>
@@ -986,200 +1179,6 @@ they can type &ldquo;question about budget&rdquo;
 rather than just &ldquo;question&rdquo;
 so that the moderator can group related questions together.
 Again, [<a href="https://isbnsearch.org/isbn/9781119049715">Brookfield2016</a>] is a useful, well-organized catalog of techniques like these.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/01/04/meetings/">
-      Meetings
-    </a>
-  </h2>
-  <p><time datetime="2025-01-04" class="post-date">2025-01-04</time></p>
-  <p>The <a href="../2025/01/03/time-management/">previous post</a> explained how to be productive individually,
-but what about being productive with others?
-The most important thing is running meetings efficiently,
-and the key to doing that is to distinguish between:</p>
-<ul>
-<li>
-<p>Status meetings
-    for keeping everyone up to date on what everyone else is doing
-    and for making simple decisions when the options are well understood.</p>
-</li>
-<li>
-<p>Discussion meetings
-    for weighing alternatives and making complex decisions.</p>
-</li>
-<li>
-<p>Co-working sessions like brainstorming sessions and programming sprints
-    that are devoted to the content of the project rather than its operation.</p>
-</li>
-</ul>
-<h2>Status Meetings</h2>
-<p>Every team should have a short weekly status meeting.
-One way to organize these is
-to create a table in a shared document like the one below.
-Everyone adds a few bullet points to their row in the table
-at least half an hour before the meeting starts
-so that the whole team can mull everything over.
-If anyone wants to discuss something,
-they highlight it by adding a comment.
-The meeting moderator then goes through the highlighted items one by one,
-spending no more than a couple of minutes on each;
-anything that requires more time is deferred to a discussion meeting</p>
-<table>
-<thead>
-<tr>
-<th>Person</th>
-<th>Progress</th>
-<th>Plans</th>
-<th>Problems</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ren</td>
-<td>Parsing OCTL records</td>
-<td>Tag OCTL records in DVC</td>
-<td>Duplicate OCTL tags?</td>
-</tr>
-<tr>
-<td></td>
-<td>Deployed progress bar patch</td>
-<td>Help onboard Silvia</td>
-<td></td>
-</tr>
-<tr>
-<td>Mikka</td>
-<td>Refactored PostgreSQL connector</td>
-<td>#156: handle records with NULL timestamp</td>
-<td>Clarify authorship guidelines</td>
-</tr>
-<tr>
-<td></td>
-<td>Patched database tests</td>
-<td>#171: auto-archive duplicate records</td>
-<td></td>
-</tr>
-<tr>
-<td>Sanjay</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-<tr>
-<td>Jess</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-</tr>
-</tbody>
-</table>
-<p>Another way to run a status meeting is to review issues that people have closed in the past week
-or are actively working on.
-&ldquo;Actively&rdquo; is the key word here,
-and in my experience,
-this method only works if someone is responsible for handling issue triage before each meeting.
-The biggest advantage of using issues is that there&rsquo;s no extra work;
-the disadvantage is that there&rsquo;s no record later on of what people were doing at any particular time.</p>
-<h2>Decision Meetings</h2>
-<p>Decision meetings are for issues that will have more long-term impact on the project
-or that team members disagree about.
-Since the stakes are higher,
-they need more structure.
-(See <a href="https://www.youtube.com/watch?v=PtewOjRy-1U">this video</a> for a long version of the rules below.)</p>
-<dl>
-<dt>Decide if there actually needs to be a meeting.</dt>
-<dd>If the only purpose is to share information,
-send a brief email instead:
-most people can read faster than they can speak.</dd>
-<dt>Write an agenda.</dt>
-<dd>If nobody cares enough about the meeting to prepare
-a point-form list of what&rsquo;s to be discussed,
-the meeting probably doesn&rsquo;t need to happen.
-(Note that &ldquo;the agenda is all the open issues in our GitHub repo&rdquo; doesn&rsquo;t count.)</dd>
-<dt>Include timings in the agenda.</dt>
-<dd>Doing this helps prevent early items stealing time from later ones.
-The first estimates with any new group are inevitably optimistic,
-so expect to revise them upward for subsequent meetings.
-But don&rsquo;t have second or third
-meeting just because the first one ran over time: instead, try to figure out
-<em>why</em> it ran over and fix the underlying problem.</dd>
-<dt>Select a moderator.</dt>
-<dd>Put one person in charge of keeping items on time,
-selecting the next person to speak,
-chiding people who are having side conversations or checking email,
-and asking people who are talking too much to get to the point.
-The moderator should <em>not</em> do all the talking:
-in fact,
-the moderator will talk less in a well-run meeting than most other participants.</dd>
-<dt>Prioritize.</dt>
-<dd>Tackle the most important issues first, even if they&rsquo;re the longest,
-because the little ones always take more time than you expect.</dd>
-<dt>Require politeness.</dt>
-<dd>No one gets to be rude,
-no one gets to ramble,
-and if someone goes off topic,
-it&rsquo;s the moderator&rsquo;s job to say, &ldquo;Let&rsquo;s discuss that elsewhere.&rdquo;</dd>
-<dt>No interruptions.</dt>
-<dd>This rule is a special case of the one above,
-since treating other people with respect is the sincerest form of politeness.
-Participants should raise a hand (physically or electronically)
-when they want to speak.
-The moderator should keep track of the queue
-and give each person time in turn.</dd>
-<dt>No distractions.</dt>
-<dd>Side conversations make meetings less efficient
-because nobody can actually pay attention to two things at once.
-More importantly,
-if someone is checking their email or texting a friend during a meeting,
-it&rsquo;s a clear signal that they don&rsquo;t think the speaker or their work is important.
-This doesn&rsquo;t mean a complete ban on technology—people may need accessibility aids
-or be waiting for a call about childcare—but by default
-phones should be face down and laptops should be closed
-during in-person meetings.</dd>
-<dt>Take minutes.</dt>
-<dd>As discussed below,
-someone other than the moderator should take
-point-form notes
-about the most important information that was shared
-and about every decision that was made or every task that was assigned to someone.</dd>
-<dt>End early.</dt>
-<dd>If the meeting is scheduled for 10:00–11:00,
-aim to end at 10:50 to give people a break before whatever they&rsquo;re doing next.</dd>
-</dl>
-<p>As soon as the meeting is over,
-add the minutes to the project&rsquo;s wiki,
-version control repository,
-or shared cloud drive.
-Please don&rsquo;t email minutes to everyone:
-our inboxes are full enough,
-and the more places new team members need to search in order to find things,
-the more likely they are to miss something important.</p>
-<p>Sharing the minutes ensures that:</p>
-<dl>
-<dt>People who weren&rsquo;t at the meeting can follow what&rsquo;s going on.</dt>
-<dd>We all have to juggle tasks from several projects or courses,
-which means that sometimes we can&rsquo;t make it to meetings.
-Checking a shared record is more accurate and more efficient than asking a colleague,
-&ldquo;What did I miss?&rdquo;</dd>
-<dt>Everyone can check what was actually said or promised.</dt>
-<dd>Accidentally or not, people often remember things differently;
-writing them down gives everyone a chance to correct mistakes
-and misinterpretations.</dd>
-<dt>People can be held accountable.</dt>
-<dd>Whoever has to draw up the agenda for the next meeting
-can start with the action items from the previous one.</dd>
-</dl>
-<p>If you would like to become better at sharing information and making decisions,
-there is no better place to start than [<a href="https://isbnsearch.org/isbn/9781119049715">Brookfield2016</a>],
-which catalogs fifty different techniques for managing discussions
-and explains when and how each is useful.</p>
-<div class="callout">
-<h3>Are you a blowfish or a clam?</h3>
-<p><a href="https://coast.noaa.gov/ddb/">NOAA&rsquo;s guide</a> to dealing with disruptive behaviors
-has useful labels and even more useful advice
-for handling people who may send meetings off course.</p>
-</div>
 </article>
 
 
