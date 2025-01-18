@@ -3,6 +3,13 @@ title: "About Me"
 template: page
 ---
 
+<div class="row" markdown="1">
+  <div class="col-3">
+    <p>
+      <img src="@root/files/cv/gvwilson-gage-2019.png" alt="Greg Wilson" class="image centered" >
+    </p>
+  </div>
+  <div class="col-9" markdown="1">
 Dr. Greg Wilson is a programmer, author, and educator based in Toronto.
 He co-founded and and was the first Executive Director of [Software Carpentry][carpentries],
 which has taught basic software skills to tens of thousands of researchers worldwide,
@@ -13,9 +20,12 @@ including [*Beautiful Code*][bc],
 [*Teaching Tech Together*][t3],
 and most recently [*Software Design by Example in JavaScript*][sdxjs]
 and [*Software Design by Example in Python*][sdxpy].
+
 Greg is a member of the [Python Software Foundation][psf]
 and a recipient of [ACM SIGSOFT][sigsoft]'s Influential Educator of the Year award,
 and currently works as a software engineering manager at [Plotly][plotly].
+  </div>
+</div>
 
 ---
 
