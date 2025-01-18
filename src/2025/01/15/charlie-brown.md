@@ -10,7 +10,7 @@ But there are two other versions of the story.
 In one,
 Charlie Brown knows Lucy will pull the ball away
 but keeps trying to kick it
-because he has internalized everything have said about him
+because he has internalized everything people have said about him
 and believes repeated disappointment is all he deserves.
 In the other,
 he's waiting for Lucy to grow bored and ask,
