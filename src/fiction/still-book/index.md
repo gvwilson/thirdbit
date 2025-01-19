@@ -3711,7 +3711,7 @@ ones in front of the buildings down in the fog by the market. The high,
 hesitant sound of a flute floated through the air from the second-story
 window.
 
-Still set the paper boat on the sidewalk in front of the steps, lay her
+Still set the paper boat on the sidewalk in front of the steps, laid her
 violin down gently beside it, and bowed her head. Slowly, she raised her
 left arm, bent at the elbow. Slowly, so slowly, she tilted her head to
 one side, and brought her right arm up, the wrist and elbow loose, just
