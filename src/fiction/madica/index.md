@@ -156,122 +156,156 @@ And she would *definitely* do something about cats for her science project.
 
 ## Crash!
 
-Madica woke up like normal the next morning. First her mom came and
-shook her gently and told her it was time for breakfast. When that
-didn't work, her dad came and tickled her ear, saying, "Rise and
-shine, rise and shine," until she batted his hand away. And finally her
-mom came back and pulled off the covers Madica had wrapped around
-herself and said, "Come on, sweetie, we really have to get going."
+The next morning,
+Madica' mom came in,
+shook her gently,
+and told her it was time for breakfast.
+When that didn't work her dad came and tickled her ear,
+saying,
+"Rise and shine, rise and shine,"
+until she batted his hand away and pulled herself out of bed.
 
-Laurellen was waiting for her at the corner as usual. They said hi and
-skied uphill to school, puffing clouds of steam as they went. Madica
-didn't tell her about the strange lights or the strange cats—with a
-warm breakfast inside her, she wasn't sure she hadn't been dreaming.
+Laurellen was waiting for her at the corner as usual.
+Madica didn't tell her friend about the lights or the cats
+as they skied to school.
+In the light of day,
+she wasn't sure if it had been real or a dream.
 
-School was school, which is to say, they did math and science and
-fencing and imagination and had a snowball fight in gym class because
-Miss Ziggle was the best teacher ever and then had music and human
-studies (which Laurellen thought was boring, but Madica loved), and
-passed notes back and forth and ignored the boys making farting noises
-in the back of the class.
+School was school:
+they did science and fencing and imagination
+and had a snowball fight in gym class
+because Miss Ziggle was the best teacher ever,
+then had human studies
+(which Laurellen thought was boring, but Madica loved)
+and passed notes back and forth
+while ignoring the boys making farting noises in the back of the class.
 
-It was Laurellen's turn to come to Madica's house after class. She and
-Laurellen ate the raisins and smoked salmon their mom had left them,
-then went into the back yard.
+It was Laurellen's turn to come to Madica's house afterward.
+They went into the back yard
+and took the big blue tarp off Madica's snowbox.
+The castle inside was their best yet:
+its tallest tower came up to their waists,
+and they had even almost figured out how they could make a drawbridge.
 
-It took them a couple of minutes to untie the piece of twine that held a
-big blue tarp on top of Madica's snowbox. The castle inside was their
-best yet: its tallest tower came up to their waists, and they had even
-figured out how they could make a drawbridge, sort of.
+Today's goal was to finish off the walls.
+They stood two pieces of recycled cardboard upright
+and started piling snow between them.
+Scoop, plop, scoop, plop… *zzzZZZing!*
 
-Today's goal was to finish off the walls. They stood two pieces of
-cardboard rescued from the recycling upright and started piling snow
-between them. Scoop, plop, scoop, plop… *zzzZZZing!*
-
-Madica looked up, startled. "Did you hear that?" she asked.
+Madica looked up, startled.
+"Did you hear that?"
 
 "Hear what?" Laurellen asked.
 
-*zzzZZZing! zzzZZZing!* Two bright lights shot past just below the
-clouds that had gathered while they were working.
+*zzzZZZing! zzzZZZing!*
+Two bright lights shot past
+just below the clouds that had gathered while they were working.
 
-The girls jumped to their feet. Laurellen shaded her eyes. "What are
-they?"
+The girls jumped to their feet.
+Laurellen shaded her eyes.
+"What are they?"
 
-"I don't know," Madica replied, "But—"
+"I don't know," Madica replied,
+"But—"
 
-Before she could finish her sentence, the first light reappeared, only
-this time it wasn't going *zzzZZZing!* It was going *zzz…* *zzz…*
-*zzz…* and wobbling from side to side, and it was headed straight for
-them!
+Before she could finish her sentence,
+the first light reappeared,
+only this time it wasn't going *zzzZZZing!*
+It was going *zzz…* *zzz…* *zzz…* and wobbling from side to side,
+and it was headed straight for them!
 
-Madica and Laurellen jumped out of the snowbox just in time. *Whump!*
+Madica and Laurellen jumped out of the snowbox just in time.
+*Whump!*
 Snow splattered in every direction.
 
-"Ack! Ptooie!" Madica spluttered, spitting snow out of her mouth. It
-was all over her glasses too—she couldn't see a thing. She wiped the
-wet gunk off the lenses with her finger, then wiped her face on her
-sleeve and put her glasses back on.
+"Ack! Ptooie!"
+Madica spluttered,
+spitting snow out of her mouth.
+She wiped her face on her sleeve,
+then gasped.
 
-And gasped. There in her snowbox was a flying saucer just a few feet
-across. It was as shiny as a mirror, and shaped like two fat frisbees
-stuck together with a shallow dome on top. Madica could feel heat coming
-off it, as if it was an oven door too hot to touch. And it had landed
-right on top of—
+There in her snowbox was a flying saucer just a few feet across.
+It was as shiny as a mirror
+and shaped like two fat frisbees stuck together with a shallow dome on top.
+Madica could feel heat coming off it,
+as if it was an oven door too hot to touch.
+And it had landed right on top of—
 
-"Our castle!" Laurellen shrieked. It was squished! It was squashed!
+"Our castle!" Laurellen shrieked.
+It was squished!
+It was squashed!
 And what was left of it was melting under the saucer!
 
-*Click!* The dome on top of the saucer opened like a lid. Madica and
-Laurellen grabbed each other in fright. *Tikka*, *tikka*, *tikka*…
-The dome ratcheted back jerkily. The girls gasped again. There in the
-saucer sat a small silvery figure with a bubble for a head. It stood up,
-then wobbled and nearly toppled over.
+*Click!*
+The dome on top of the saucer opened like a lid.
+Madica and Laurellen grabbed each other in fright.
+*Tikka*, *tikka*, *tikka*…
+The dome ratcheted back with short jerks like a broken windup toy.
+The girls gasped again
+as a small silvery figure with a bubble for a head stood up,
+wobbled,
+and nearly toppled over.
 
-Without thinking, Madica reached out to stop it from falling, but the
-little figure batted her hand away. "I'm all right!" said a tinny,
-echoey voice. "Now quick, hide me in the castle!"
+Without thinking,
+Madica reached out to stop it from falling,
+but the little figure batted her hand away.
+"I'm all right!" said a tinny, echoey voice.
+"Now quick, hide me in the castle!"
 
 "The castle?" Madica repeated.
 
-"Yes, the big thing with walls and towers?" the little figure said
-impatiently. "I need to hide, and it's bound to have secret passages
-and stuff."
+"You know, the big thing with walls and towers?"
+the little figure said impatiently.
+"It's bound to have secret passages and stuff."
 
-"You, um, you landed on the castle," Laurellen explained. Then she
-frowned and put her hands on her hips. "And you ruined it, too! And we
-spent a whole *week* working on it!" Which wasn't really true—they
-had only started on Saturday—but Madica put her hands on her own hips
-and frowned too.
+"You, um, you landed on the castle," Laurellen explained.
+Then she frowned and put her hands on her hips.
+"And you ruined it, too!
+We spent a whole *week* working on it!"
+Which wasn't really true—they had only started on Saturday—but
+Madica put her hands on her own hips and frowned too.
 
-"I *ruined* it?" The little silver figure slid down the saucer on its
-backside and surveyed the damage. "Huh. Not a very good castle, then,
-was it?"
+"I *ruined* it?"
+The little silver figure slid down the saucer on its backside
+and surveyed the damage.
+"Huh.
+Not much of a castle then, was it?"
 
-Laurellen bristled. "It was a *fine* castle 'til you ruined it!"
+Laurellen bristled.
+"It was a *fine* castle 'til you ruined it!"
 
-The little figure waved a hand dismissively. "Sure. I bet it didn't
-even have any secret passages, did it?"
+The little figure waved a hand dismissively.
+"Uh huh.
+I bet it didn't even have any secret passages, did it?"
 
-"Of course not! It wasn't real! Why did you think it was real?"
+"Of course not!
+It wasn't real!
+Did you think it was?"
 
-"Well, it *looked* real through my bigoscope. And I *was* a bit
-distracted, *if* you hadn't noticed. Speaking of which…" It pointed
-its right arm at the saucer and pressed some buttons on its wrist with
-its other hand. With a *pling pling pling* sound, the saucer sparkled
-and turned invisible.
+"Well, it *looked* real through my bigoscope.
+And I *was* a bit distracted, *if* you hadn't noticed.
+Speaking of which…"
+It pointed its right arm at the saucer
+and pressed some buttons on its wrist with its other hand.
+With a *pling pling pling* sound,
+the saucer turned invisible.
 
-"Now quick," it said. "They'll be coming back soon, so I really do
-need to hide." It started toward the back door of the house.
+"Now quick," it said.
+"They'll be coming back soon, so I really do need to hide."
+It started toward the back door of Madica's house.
 
-"Yes, but—hang on!" Madica took three quick steps and stood in its
-way. "Who are you? And why are those other things chasing you?"
+"Hang on!"
+Madica took three quick steps and stood in its way.
+"Who are you?
+And who is chasing you?"
 
-The little creature sighed and pointed at its head. *Ping!* The bubble
-on its head sparkled and turned transparent. "Is that better?"
+The little creature sighed and pointed at its head.
+*Ping!*
+The bubble on its head sparkled and turned transparent.
+"Is that better?"
 
-The two girls gasped once more. "You're—you're a dinosaur!" Madica
-said.
+The two girls gasped once more.
+"You're—you're a dinosaur!" Madica said.
 
 </section>
 
