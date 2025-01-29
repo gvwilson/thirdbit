@@ -301,7 +301,8 @@ And who is chasing you?"
 
 The little creature sighed and pointed at its head.
 *Ping!*
-The bubble on its head sparkled and turned transparent.
+The bubble on its head sparkled and turned transparent
+to reveal a hairless green head with sharp eyes and even sharper teeth.
 "Is that better?"
 
 The two girls gasped once more.
@@ -313,147 +314,188 @@ The two girls gasped once more.
 
 ## Lasers!
 
-"A snarkasaurus, actually," the little creature replied with a sniff.
-"Now can we please get inside before—uh oh." It dove into the
-snowbox and pulled Madica's bucket on top of itself. A second later
-Madica heard the now-familiar *zzzZZZing! zzzZZZing!*
+"A snarkasaurus, actually,"
+the little creature replied with a sniff.
+"Now can we please get inside before—uh oh."
+It dove into the snowbox and pulled Madica's bucket on top of itself.
+A second later Madica heard the now-familiar *zzzZZZing! zzzZZZing!*
 
-"Quick!" said a muffled, tinny voice. "Look busy!"
+"Quick!" said the dinosaur's muffled voice.
+"Look busy!"
 
-Not knowing what else to do, Madica bent down to pick up her shovel.
-*Bang!* "Ow!" she exclaimed, rubbing her nose. She had forgotten about
-the invisible flying saucer.
+Not knowing what else to do,
+Madica bent down to pick up her shovel.
+*Bang!*
+"Ow!" she exclaimed, rubbing her nose.
+She had forgotten about the invisible flying saucer.
 
-Laurellen knelt down beside her and started scooping snow into a big,
-messy pile. "Who are they?" she whispered loudly. "And why are they
-after you?"
+Laurellen knelt beside her
+and started scooping snow into a big, messy pile.
+"Who are they?" she whispered loudly.
+"And why are they after you?"
 
 "They probably want their saucer back," the little voice replied.
 "Now shush! If they point a listenator this way, they'll hear you!"
 
-The two girls busied themselves shovelling. From the look on
-Laurellen's face, Madica could tell they were thinking the same thing.
-*Their* saucer? Had the little dinosaur stolen it?
+The two girls busied themselves shovelling.
+From the look on Laurellen's face,
+Madica could tell they were thinking the same thing.
+*Their* saucer?
+Had the little dinosaur stolen it?
 
 "Are you a thief?" Laurellen whispered.
 
-"What? No!" the little voice said. "I'm a *pirate*." The bucket
-tilted back cautiously. "Now can we *please* get me inside? The
-saucer's invisibilator won't fool them forever."
+"What? No!" the little voice said.
+"I'm a *pirate*."
+The bucket tilted back cautiously.
+"Now can we *please* get me inside?
+The saucer's invisibilator won't fool them forever."
 
-Madica exchanged another look with Laurellen. Talking to a tiny dinosaur
-pirate from outer space in her back yard was one thing. Sneaking one
-into her house was completely another. If her dad found out—
+Madica exchanged another look with Laurellen.
+Talking to a tiny dinosaur pirate from outer space in her back yard was one thing.
+Sneaking one into her house was completely another.
+If her dad found out—
 
 "Maaadicaaa! Laureeellen! Time to come in!"
 
-*Clang!* The bucket toppled backward. The little dinosaur pointed its
-right arm wildly one way and then another. "What was that!?"
+*Clang!*
+The bucket toppled backward.
+The little dinosaur pointed its arm wildly one way and then another.
+"What was that!?"
 
-"It's just my dad!" Madica hissed. She didn't know what the blinking
-red light on the dinosaur's wrist was, but she had the feeling it
-wasn't good.
+"It's just my dad!" Madica hissed.
+She didn't know what the blinking red light on the dinosaur's wrist was,
+but she was sure it wasn't good.
 
-"Come on, girls!"
+"Come on girls!"
 
-"Coming, dad!" Madica hollered back. She thought furiously for a
-moment. "Can you make yourself invisible?" she asked.
+"Coming!"
+Madica hollered back.
+She thought furiously for a moment.
+"Can you make yourself invisible?" she asked.
 
-"Of course not," the dinosaur snapped. "If I did that, how would I
-ever find the switch to make myself visible again?"
+"Of course not," the dinosaur snapped.
+"If I did that,
+how would I ever find the switch to make myself visible again?"
 
-Madica and Laurellen looked at each other. Madica took a deep breath.
-"All right, then here's what we're going to do."
+Madica and Laurellen looked at each other.
+Madica took a deep breath.
+"All right,
+then here's my plan."
 
-Madica opened the back door a few seconds later. Her dad was already
-chopping vegetables for dinner.
-
+Madica opened the back door a few seconds later.
 "Hi, dad," she said as casually as she could.
 
-"Hi, squidge. Hi, Loolee." Her dad glanced at what she was carrying.
+"Hi, squidge. Hi, Loolee."
+Her dad looked up from the vegetables he was chopping
+and nodded at what she was carrying.
 "Is that new?"
 
-"Um, this?" Madica said, holding up the silver spaceman hanging limply
-in her hand. "It's, um, it's Zizzy's? We borrowed it so we can have
-a tea party with Mrs. Mop and Frankenprincess?"
+"Um, this?"
+Madica said,
+glancing at the silver spaceman hanging limply in her hand.
+"It's, um, it's Zizzy's?
+We borrowed it so we can have a tea party with Mrs. Mop and Frankenprincess?"
 
-"Cool. Have fun." Her dad was already back to his carrots and
-broccoli.
+"Cool. Have fun."
 
-Madica heaved a silent sigh of relief and hurried down the hall with
-Laurellen right behind her. "Who's Zizzy?" Laurellen whispered.
+Madica heaved a silent sigh of relief and hurried down the hall
+with Laurellen behind her
+as her dad started chopping another carrot.
+"Who's Zizzy?" Laurellen whispered.
 
-"I made it up," Madica whispered back. "He can't ever keep my
-friends' name straight."
+"I made it up," Madica whispered back.
+"He can't ever keep my friends' name straight."
 
-As they reached the bottom of the stairs, she glanced out the living
-room window and stopped so fast that Laurellen bumped into her. There,
-sitting in a neat row, were three black cats. And judging from the way
-their ears were laid flat on their heads, they were *not* pleased.
+As they reached the stairs,
+she glanced out the living room window
+and stopped so fast that Laurellen bumped into her.
+There,
+sitting in a neat row,
+were three black cats.
+And judging from the way their ears were laid flat on their heads,
+they were *not* pleased.
 
-"Hsst!" the dinosaur whispered. "What's happening?" Its back was to
-the window, so it wouldn't see the cats.
+"Hsst!" the dinosaur whispered.
+Its back was to the window,
+so it couldn't see the cats.
+"What's happening?"
 
-"Nothing," Madica whispered back, shushing Laurellen's question with
-her hand. One thing at a time—they needed to hide the dinosaur in her
-room before her mom got home. Her dad might not wonder where who Zizzy
-was, or where this new toy had come from, but getting anything past her
-mom was a different story…
+"Nothing," Madica whispered back,
+shushing Laurellen's question with her hand.
+One thing at a time—they needed to hide the dinosaur before her mom got home.
+Her dad might not wonder where this new "toy" had come from,
+but getting anything past her mom was a different story.
 
-Madica's room was exactly as she had left it that morning: dolls and
-stuffed animals tangled in the blanket on her bed, clothes she had
-decided not to wear lying on the floor, a stack of library books that
-hadn't quite tipped over yet, and in the corner, four doll-sized
-chairs, a table to match, and the tea set Grandma had given her for her
-fifth birthday. She let out a whoosh.
+Madica's room was exactly as she had left it that morning.
+Dolls and stuffed animals were tangled in the blanket on her bed,
+clothes she had decided not to wear lay on the floor,
+and a stack of library books hadn't quite tipped over yet.
+In the corner stood four doll-sized chairs,
+a table to match,
+and the tea set Grandma had given her for her fifth birthday.
 
-"We made it," she said, setting the dinosaur down on its feet.
+She let out a whoosh.
+"We made it," she said,
+setting the dinosaur down on its feet.
 
-"About time," the dinosaur grumbled. "Much more of that and my arm
-would have come out of its socket." *Ping!* It made its bubble helmet
-transparent again and looked around the room.
+"About time," the dinosaur grumbled.
+"Much more of that and my arm would have come out of its socket."
+*Ping!*
+It made its bubble helmet transparent again and looked around the room.
 
-"Well excuse *me*," Madica muttered under her breath. "Don't they
-have manners on your planet?" She pulled her two favorite dolls off her
-bed and plunked them down at the toy table.
+"Well excuse *me*," Madica muttered under her breath.
+"Don't they have manners on your planet?"
+She pulled her two favorite dolls off her bed
+and plunked them down at the toy table.
+"This is Mrs. Mop, and this is Frankenprincess.
+I'll put them in these seats.
+If anyone comes upstairs,
+you sit in this one and don't move."
 
-"This is Mrs. Mop, and this is Frankenprincess. I'll put them in these
-seats. If anyone comes upstairs, you sit in this one and don't move."
-
-The dinosaur nodded sharply, then held out its paw to Mrs. Mop.
+The dinosaur nodded sharply, then held out its gloved hand to Mrs. Mop.
 "Greetings, Earth comrade!"
 
-A moment passed. It lowered its paw (or hand). "Hmph. Don't *you* have
-manners on *your* planet?"
+A moment passed.
+It lowered its hand.
+"Hmph. Don't *you* have manners on *your* planet?"
 
-"They're just dolls," Madica explained, feeling slightly embarrassed.
+"They're just dolls," Madica explained,
+feeling vaguely embarrassed.
 
-"Well, obviously." The little dinosaur sounded impatient. "But are
-they *brave* dolls? Will they defend the house when the attack starts?"
+"Well, *obviously*,"
+the little dinosaur huffed.
+"But are they *brave* dolls?
+Will they defend the house when the attack starts?"
 
-"Attack?" Laurellen crossed her arms. "What attack? Who's going to
-attack us?"
+"Attack?" Laurellen crossed her arms.
+"What attack?
+Who's going to attack us?"
 
-"The other dinosaurs," the dinosaur explained patiently. "The real
-ones. They're not just going to hyperzoom away and leave me here, are
-they?"
+"The other dinosaurs," the dinosaur explained impatiently.
+"The real ones.
+They're not just going to hyperzoom away and leave me here, are they?"
 
-Madica sat down on the edge of her bed, her head whirling! She opened
-her mouth without even knowing which question was going to spill out of
-it when the dinosaur suddenly barked, "Look out—a ninja!" It jumped
-up from its seat at the tea party table and pointed its right arm at the
-window.
+Madica sat down on the edge of her bed, her head whirling.
+She opened her mouth
+without even knowing which question was going to spill out of it
+when the dinosaur suddenly barked,
+"Look out—a ninja!"
+It jumped up from its seat
+and pointed its arm at the window
+where a single black cat was looking straight at them.
 
-There, with its feet tucked underneath it, was a single black cat, and
-it was looking straight at them.
-
-"That's not a ninja," Madica said scornfully. "That's just a cat."
+"That's not a ninja," Madica said scornfully.
+"That's just a cat."
 
 Before Madica could answer, a now-familiar *zzzZZZing!* filled the air.
-The cat leaped out of sight as a silver saucer sank down in front of the
-window as lightly as a balloon. The little dinosaur threw itself under
-the bed. An instant later, a bright red beam of light shot through the
-window and blew Mrs. Mop's head into a thousand smoldering pieces.
+The cat leaped out of sight
+as a silver saucer floated down in front of the window
+as lightly as a balloon.
+The little dinosaur threw itself under the bed.
+An instant later,
+a bright red beam of light shot through the window
+and blew Mrs. Mop's head into a thousand smoldering pieces.
 
 </section>
 
