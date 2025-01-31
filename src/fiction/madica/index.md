@@ -503,146 +503,202 @@ and blew Mrs. Mop's head into a thousand smoldering pieces.
 
 ## Mom Comes Home!
 
-Madica shrieked. The saucer tilted forward to give its bubble-headed
-pilot a better view of her bedroom. "Look out!" Laurellen grabbed
-Madica's arm and pulled her out of the way as the red beam zapped
-through the window again, blowing Frankenprincess out of her chair.
+Madica shrieked.
+The saucer tilted forward
+to give its bubble-headed pilot a better view of her bedroom.
+"Look out!"
+Laurellen grabbed Madica's arm and pulled her out of the way
+as the red beam zapped through the window again,
+blowing Frankenprincess out of her chair.
 
-The two girls fell to the floor in a heap. The little saucer tilted
-forward again, took aim, tilted back to fire once more—
+The two girls fell to the floor in a heap.
+The little saucer tilted forward to take aim once again—
 
-—and the black cat landed on it with a *thump!* The saucer tipped
-wildly from side to side, trying to shake it off, but the cat swayed
-back and forth. Once, twice, a third time: it hooked the saucer's edge
-with its paws and flipped it over, leaping off in the same motion.
+—and the black cat landed on it with a *thump!*
+The saucer tipped wildly from side to side,
+trying to shake it off,
+but the cat swayed back and forth.
+Once, twice, a third time:
+it hooked the saucer's edge with its paws and flipped it over,
+leaping off in the same motion.
 
-*Zzzooorrrnnng—clank! clank! crash!* A moment later a very dented
-saucer wobbled up past Madica's window and flew away.
+*Zzzooorrrnnng—clank! clank! crash!*
+A moment later
+a very dented saucer wobbled up past Madica's window and flew away.
 
 "Maaadicaaa! What are you doing up there?"
 
-"Nothing, dad!" she yelled back. "I just narble flarble moo!" She
-held her breath. Nonsense words never worked with her mom, but if her
-dad was still chopping vegetables…
+"Nothing, dad!" she yelled back.
+"I just narble flarble moo!"
+She held her breath.
+Nonsense words never worked with her mom,
+but if her dad was still chopping vegetables…
 
 "Okay, but you promise you'll clean up before you come downstairs?"
 
-"I promise!" She whooshed out the breath she had been holding and sat
-up. "Are you all right?" she asked Laurellen.
+"I promise!"
+She whooshed out the breath she had been holding and sat up.
+"Are you all right?" she asked Laurellen.
 
-"I think so," her friend said shakily. "What—what just happened?
+"I think so," her friend said shakily.
+"What—what just happened?
 And where's the dinosaur?"
 
-Madica yanked the covers out of the way and peered under the bed. Sure
-enough, the little dinosaur had disappeared. She scrambled to her feet,
-dashed over to the window, threw it open, and stuck out her head. The
-black cat was gone too—all she could see were a few pawprints in the
-snow.
+Madica yanked the covers out of the way and peered under the bed.
+Sure enough,
+the little dinosaur had disappeared.
+She scrambled to her feet,
+dashed over to the window,
+threw it open,
+and stuck out her head.
+The black cat was gone too—all she could see
+was a few pawprints in the snow.
 
-She pulled her head back inside and slammed the window down. "All
-right!" she said loudly. "I know you're in here somewhere. If you
-don't come out right now, I'm going to be very, very cross!"
+She pulled her head back inside and slammed the window down.
+"All right," she said firmly.
+"I know you're in here somewhere.
+If you don't come out right now,
+I'm going to be very, very cross!"
 
-"Me too!" Laurellen echoed, brushing herself off and folding her arms
-to match Madica's.
+"Me too!" Laurellen echoed,
+brushing herself off and folding her arms to match Madica's.
 
-A moment passed, and another, and then a cheery voice downstairs said,
-"Hello the house!"
+A moment passed,
+and another,
+and then a cheery voice downstairs said,
+"Hello!"
 
-Madica's hand flew to her mouth. Laurellen looked at her wide-eyed.
-Madica's mom was home! And from the sound of her footsteps, she was
-coming upstairs!
+Madica's hand flew to her mouth.
+Laurellen looked at her wide-eyed.
+Madica's mom was home!
+And from the sound of her footsteps,
+she was coming upstairs!
 
-Without a word, the girls shoved the partly-disintegrated dolls under
-the bed. Laurellen grabbed a box of crayons and a pad of paper from
-Madica's dresser and started drawing penguins. Madica threw herself
-onto the bed beside her and picked up the nearest book just as her mom
-knocked opened her bedroom door.
+Without a word,
+the girls shoved the partly-disintegrated dolls under the bed.
+Laurellen grabbed a box of crayons and a pad of paper from Madica's dresser
+and started drawing penguins.
+Madica threw herself onto the bed beside her
+and picked up the nearest book
+just as her mom knocked opened her bedroom door.
 
-"Hello, love," Madica's mom said, bending down to kiss the top of her
-head. She frowned and sniffed. "What's that smell?"
+"Hello, love," Madica's mom said,
+bending down to kiss the top of her daughter's head.
+She frowned and sniffed.
+"What's that smell?"
 
-"Hi." "What smell?" Laurellen and Madica said at the same time.
+"Hi." "What smell?"
+Laurellen and Madica said at the same time.
 
-Madica's mom sniffed the air again. "It smells like something's
-burning."
+Madica's mom sniffed the air again.
+"It smells like something's burning."
 
-"It's dad's night to cook, remember?" Madica said.
+"It's dad's night to cook, remember?"
+Madica said.
 
-"Ah." Her mom smiled and tousled her mousy hair. "Well, I'd best go
-give him a hand then. You two wash up before you come down."
+"Ah."
+Her mom smiled and tousled her mousy hair.
+"Well, I'd best go give him a hand then.
+You two wash up before you come down."
 
-"We will," they said in unison. As soon as the door closed behind her,
-they let out huge sighs.
+"We will," they said in unison.
 
+They let out huge sighs as soon as the door closed behind her.
 "That was close," Madica said.
 
-"Too close," Laurellen agreed. She tossed the pad of paper across the
-room and flopped back on the bed. "I'm sorry about Mrs. Mop."
+"Too close," Laurellen agreed.
+She tossed the pad of paper across the room and flopped back on the bed.
+"I'm sorry about Mrs. Mop."
 
-"It's okay," Madica said, her nose still in her book. "I hardly
-played with her any more anyway. Or—or Frankenprincess." Laurellen
-reached up and squeezed her hand, but let the lie pass.
+"It's okay," Madica said, her nose still in her book.
+"I hardly played with her any more anyway.
+Or—or Frankenprincess."
+Laurellen squeezed her hand but let the lie pass.
 
-The rest of the evening was as normal as the previous hour hadn't been.
-Madica's mom told them about an old lady who had come into the library
-that day to return a book she'd checked out forty years ago, and about
-a boy—"I think he's in your class, love"—who had taken out every
-single one of the dozen books that the library had about asteroids and
-meteors. Madica and Laurellen looked at each other and rolled their
-eyes.
+The rest of the evening was as normal as the previous hour hadn't been
+despite the two girls wanting nothing more than
+to search for the missing dinosaur.
+Madica's mom told them about
+an old lady who had come into the library
+to return a book she'd checked out forty years ago,
+and about a boy—"I think he's in your class"—who
+had taken out every single book the library had
+about asteroids and meteors.
+Madica and Laurellen looked at each other and rolled their eyes.
 
 "Did he have a flumpy wing?" Madica asked.
 
-"Madica!" her father said reprovingly. "That's not a nice thing to
-say."
+"Madica!" her father said reprovingly.
+"That's not a nice thing to say."
 
-"Sorry," she muttered. "Did he have an *unusual* wing?" But she knew
-what her mother's answer would be before she said 'yes'. There was
-only one boy in her class who would take out a dozen books at once about
-anything.
+"Sorry," she muttered.
+"Did he have an *unusual* wing?"
+She knew what her mother's answer would be.
+There was only one boy in her class
+who would take out a dozen books at once about anything.
 
-Her dad talked about an email message he'd received from some fairies
-they had known years ago, while Madica and Laurellen ate their spaghetti
-carbonara and their apple pie, drank their carrot juice, cleared the
-table, and *didn't* say, "A little invisible dinosaur from outer space
-is hiding upstairs." After the table was cleared they voted on what
-game to play, as they always did, and the two girls chose "Escape", as
-they did every week.
+Her dad talked about an email message he'd received
+from some fairies they had known years ago,
+while Madica and Laurellen ate their spaghetti carbonara
+and their apple pie,
+drank their carrot juice,
+cleared the table,
+and *didn't* say,
+"By the way,
+we met a little invisible dinosaur from outer space."
+After the table was cleared they voted on what game to play,
+as they always did,
+and the two girls chose "Escape",
+as they did every week.
+"Aw, do I have to be Santa Claws again?"
+Madica's dad complained with a grin,
+but the girls were already setting up the board.
 
-"Aw, do I have to be Santa Claws again?" Madica's dad complained,
-grinning, but the girls were already setting up the board.
+The next half hour flew by.
+Madica, her mom, and Laurellen
+moved their little wooden fairies from one hiding place to another,
+slowly gathering the treasures they needed
+to escape from Santa's factory at the North Pole.
+Her father ho-ho-ho'd
+every time his chubby red Santa came close to them.
+"I'm gonna get you!" he growled.
+"I'm gonna get you and turn you into an elf!"
 
-The next half hour flew by. Madica, her mom, and Laurellen moved their
-little wooden fairies from one hiding place to another, slowly gathering
-the treasures they needed to escape from Santa's factory at the North
-Pole. Her father ho-ho-ho'd every time his chubby red Santa came close
-to them. "I'm gonna get you!" he growled. "I'm gonna get you and
-turn you into an elf!"
+"Ssh," Madica's mom said, putting her hand on his arm.
+"Let's not give them nightmares."
 
-"Ssh," Madica's mom said, putting her hand on his arm. "Let's not
-give them nightmares."
+"It's okay, mom," Madica said.
+She turned over the Secret Door card she had just drawn,
+stuck out her tongue at her dad,
+and said, "Ho ho ho yourself."
+They all laughed.
 
-"It's okay, mom," Madica said. She turned over the Secret Door card
-she had just drawn, stuck out her tongue at her dad, and said, "Ho ho
-ho yourself." They all laughed.
+In the end only the girls made it to the sleigh and got away.
+Madica's mom sighed theatrically.
+"I guess I'm washing dishes," she said.
 
-In the end, only the two girls made it to the sleigh and got away.
-Madica's mom sighed theatrically. "I guess I'm washing dishes," she
-said.
+"I'll help," said her dad.
+"You girls pack this up—it'll be time for Laurellen to go soon."
 
-"I'll help," said her dad. "You girls pack this up—it'll be time
-for Laurellen to go soon."
-
-Half an hour later, having hugged her friend goodbye and done her piano
-practice and brushed her teeth, Madica was back in her room with her
-light out and the covers pulled over her head once again. This time,
-though, she wasn't waiting for Santa Claws to come and kidnap her.
-Instead, she was wondering where the little dinosaur had gone, and who
-had been flying the saucer, and how the black cats fit into it all. She
-was still wondering when sleep found her, not knowing that a small,
-furry shape was curled up on the roof above her, its paws tucked under
-its body to stay warm, keeping watch through the night.
+Half an hour later,
+after hugging her friend goodbye,
+practicing piano,
+and brushing her teeth,
+Madica lay in bed
+with her light out
+and the covers pulled over her head once again.
+This time,
+though,
+she wasn't waiting for Santa Claws to come and kidnap her.
+Instead,
+she was wondering where the little dinosaur had gone,
+how the black cats fit into it all,
+and who had been flying the saucer that had zapped her dolls
+(which she was *not* going to cry about, she told herself firmly).
+She was still wondering when sleep found her,
+not knowing that a small furry shape was curled up on the roof above her,
+its paws tucked under its body to stay warm,
+keeping watch through the night.
 
 </section>
 
