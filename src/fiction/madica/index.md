@@ -360,7 +360,7 @@ If her dad found out—
 
 *Clang!*
 The bucket toppled backward.
-The little dinosaur pointed its arm wildly one way and then another.
+The snarkasaurus pointed its arm wildly one way and then another.
 "What was that!?"
 
 "It's just my dad!" Madica hissed.
@@ -374,7 +374,7 @@ Madica hollered back.
 She thought furiously for a moment.
 "Can you make yourself invisible?" she asked.
 
-"Of course not," the dinosaur snapped.
+"Of course not," the snarkasaurus snapped.
 "If I did that,
 how would I ever find the switch to make myself visible again?"
 
@@ -416,14 +416,14 @@ were three black cats.
 And judging from the way their ears were laid flat on their heads,
 they were *not* pleased.
 
-"Hsst!" the dinosaur whispered.
+"Hsst!" the snarkasaurus whispered.
 Its back was to the window,
 so it couldn't see the cats.
 "What's happening?"
 
 "Nothing," Madica whispered back,
 shushing Laurellen's question with her hand.
-One thing at a time—they needed to hide the dinosaur before her mom got home.
+One thing at a time—they needed to hide the snarkasaurus before her mom got home.
 Her dad might not wonder where this new "toy" had come from,
 but getting anything past her mom was a different story.
 
@@ -437,9 +437,9 @@ and the tea set Grandma had given her for her fifth birthday.
 
 She let out a whoosh.
 "We made it," she said,
-setting the dinosaur down on its feet.
+setting the snarkasaurus down on its feet.
 
-"About time," the dinosaur grumbled.
+"About time," it grumbled.
 "Much more of that and my arm would have come out of its socket."
 *Ping!*
 It made its bubble helmet transparent again and looked around the room.
@@ -453,7 +453,7 @@ I'll put them in these seats.
 If anyone comes upstairs,
 you sit in this one and don't move."
 
-The dinosaur nodded sharply, then held out its gloved hand to Mrs. Mop.
+The snarkasaurus nodded sharply, then held out its gloved hand to Mrs. Mop.
 "Greetings, Earth comrade!"
 
 A moment passed.
@@ -472,14 +472,14 @@ Will they defend the house when the attack starts?"
 "What attack?
 Who's going to attack us?"
 
-"The other dinosaurs," the dinosaur explained impatiently.
+"The other dinosaurs," the snarkasaurus explained impatiently.
 "The real ones.
 They're not just going to hyperzoom away and leave me here, are they?"
 
 Madica sat down on the edge of her bed, her head whirling.
 She opened her mouth
 without even knowing which question was going to spill out of it
-when the dinosaur suddenly barked,
+when the snarkasaurus suddenly barked,
 "Look out—a ninja!"
 It jumped up from its seat
 and pointed its arm at the window
@@ -546,7 +546,7 @@ And where's the dinosaur?"
 
 Madica yanked the covers out of the way and peered under the bed.
 Sure enough,
-the little dinosaur had disappeared.
+the snarkasaurus had disappeared.
 She scrambled to her feet,
 dashed over to the window,
 threw it open,
@@ -691,7 +691,7 @@ This time,
 though,
 she wasn't waiting for Santa Claws to come and kidnap her.
 Instead,
-she was wondering where the little dinosaur had gone,
+she was wondering where the snarkasaurus had gone,
 how the black cats fit into it all,
 and who had been flying the saucer that had zapped her dolls
 (which she was *not* going to cry about, she told herself firmly).
@@ -706,291 +706,384 @@ keeping watch through the night.
 
 ## Taken!
 
-Why was her mom was shaking her shoulder, telling her it was time to get
-up? She buried her head under her pillow, but it was no use: it really
-was morning.
+Why was mom shaking her shoulder,
+telling her it was time to get up?
+Madica buried her head under her pillow,
+but it was no use:
+it really was morning.
 
-She ate breakfast in a quiet daze, got dressed, brushed her teeth,
-straightened her wings, kissed her mom and dad goodbye, and skied up to
-the corner where Laurellen was waiting for her, just like it was a
-normal day. She stopped short partway when she saw a fat orange cat
-ambling across a neighbor's garden, but it didn't pay her any
-attention.
+She ate breakfast in a daze,
+got dressed,
+straightened her wings,
+kissed her mom and dad goodbye,
+and skied up to the corner where Laurellen was waiting for her
+as if it was a normal day.
+She stopped short when she saw a fat orange cat ambling across a neighbor's garden,
+but it didn't pay her any attention.
 
-Ike was under the big tree by the gate when she and Laurellen got to the
-playground. "Hsst!" He was practically bouncing up and down with
-excitement. "Did you two see them last night?" he asked in a loud
-whisper.
+Ike was under the big tree by the gate
+when she and Laurellen got to the playground,
+practically bouncing up and down.
+"Hsst!
+Did you see them last night?"
+he asked in a loud whisper.
 
-Madica's heart leaped into her throat. "Um, them?" she asked. "What
-'them'?"
+Madica's heart leaped into her throat.
+"Um, see who?"
 
-Ike dug into his backpack. It was the biggest backpack in their class,
-and full to bursting with unmatched mittens, bits of plastic he was
-going to use to build a submarine (or maybe a unicycle), crayon sketches
-of giant robots battling each other—definitely battling, not dancing,
-no matter what Erin and Chloe said—and plastic lunch containers that
-even he didn't dare open any longer. He pulled out a couple of books
-and waved them in front of her.
+Ike dug into his backpack.
+It was the biggest backpack in their class,
+full to bursting with unmatched mittens,
+bits of plastic he was going to use to build a submarine (or maybe a unicycle),
+and crayon sketches of giant robots battling each other—definitely battling,
+not dancing,
+no matter what Erin and Chloe said.
+He pulled out a couple of books and waved them in front of her.
 
-"The meteors!" he said in the same loud whisper. "There were meteors
-in the sky last night! And I think more are coming!"
+"The meteors!" he said in the same loud whisper.
+"There were meteors in the sky last night!
+And I think more are coming!"
 
-The girls looked sidelong at each other. "Meteors?"
+The girls looked sidelong at each other.
+"Meteors?"
 
-Ike nodded so fast that his glasses bounced up and down on his nose. "I
-saw one a couple of nights ago, so I went and got some books to find out
-more about them. Then I saw them again last night! What if it's like
-the dinosaurs all over again?"
+Ike nodded so fast that his glasses bounced up and down on his nose.
+"I saw one a couple of nights ago,
+so I went and got some books to find out more about them.
+Then I saw them again last night!
+What if it's like the dinosaurs all over again?"
 
-The girls looked sidelong at each other again. "D-dinosaurs?"
+"Um, dinosaurs?"
+Laurellen asked.
 
-Ike pulled another book from his backpack. "Like this!" He had put a
-sticky note in it to mark his place. Opened, it revealed a two-page
-picture of an enormous fireball hurtling toward the earth. A T. rex and
-a stegosaurus looked up at it, while in the distance a pair of
-pteranodons flew away as fast as they could.
+Ike pulled another book from his backpack.
+"Like this!"
+He had put a sticky note in it to mark his place.
+Opened,
+it revealed a two-page picture of an enormous fireball hurtling toward the earth.
+A T. rex and a stegosaurus looked up at it
+while a pair of pteranodons flew away as fast as they could.
 
-"Sixty-five million years ago, an asteroid hit the earth near what is
-now Mexico," Ike read aloud. "The impact threw so much dust into the
-air that the whole world was shrooded—"
+"Sixty-five million years ago,
+an asteroid hit the earth near what is now Mexico,"
+Ike read aloud.
+"The impact threw so much dust into the air that the whole world was shrooded—"
 
-"Shrouded," Madica corrected automatically.
+"Shrouded,"
+Madica corrected automatically.
 
-"…shrouded in darkness for years. This ended the Age of Dinosaurs."
+"…shrouded in darkness for years.
+This ended the Age of Dinosaurs."
 Ike pointed at the little inset box at the bottom of the page.
-"Scientists believe that asteroids have hit the earth many times in the
-past. Will another one hit us in the future? Nobody knows."
+"Scientists believe that asteroids have hit the earth many times in the past.
+Will another one hit us in the future?
+Nobody knows."
 
-"Actually, we *do* know," said a tiny voice in Madica's ear. "It's
-due tomorrow."
+"Actually, we *do* know,"
+said a tiny voice in Madica's ear.
+"It's due tomorrow."
 
-Madica shrieked so loudly that one of the older kids nearby turned to
-look and caught a snowball with his ear as a result. Ike jumped,
-startled, then said, "Yeah, it scared me too." He shivered
-dramatically.
+Madica shrieked so loudly that
+one of the older kids nearby turned to look
+and caught a snowball with his ear as a result.
+Ike jumped,
+startled,
+then said,
+"Yeah, it's pretty scary, isn't it?"
 
-"Eww, it scared me too," the dinosaur mimicked.
+"Yeah, it's pretty scary,"
+the snarkasaurus mimicked.
 
-"Oh, be quiet!" Madica snapped without thinking.
+"Oh, be quiet!"
+Madica snapped without thinking.
 
-Ike's face fell. He was the smallest kid in her year. One of his wings
-hadn't grown out straight, and he needed thick glasses to see properly.
-He was always going on about lasers or whether whales could talk or
-*something*, and, well, it just got on people's nerves. As a result, he
-spent a lot of lunch hours sitting under the big tree by the gate,
-paging through library books by himself and pretending he wasn't
-lonely.
+Ike's face fell.
+He was the smallest kid in her class.
+One of his wings hadn't grown out straight,
+and he needed thick glasses to see properly.
+He was always going on about lasers or whether whales could talk or *something*,
+and,
+well,
+it just got on people's nerves.
+As a result,
+he spent a lot of lunch hours sitting under the big tree by the gate,
+paging through library books by himself and pretending he wasn't lonely.
 
-"Sorry," he muttered. "I just thought it was… Never mind." He
-stuffed the books back in his bag.
+"Sorry," he muttered.
+"I just thought it was… Never mind."
+He stuffed the books back in his bag.
 
-"Madica…" Laurellen nudged her friend. "That wasn't nice."
+"Madica…"
+Laurellen nudged her friend.
+"That wasn't very nice."
 
-Madica felt her face burning. She opened her mouth to say that she had
-been speaking to the dinosaur, not to Ike, but just at that moment the
-school bell rang to call children away from their games and gossip.
+Madica felt her face burning.
+She opened her mouth to apologize,
+but just at that moment the school bell rang
+to call children away from their games and gossip.
+She jerked her head at her backpack to get Laurellen's attention and hissed,
+"Hey! What are you doing in there?"
 
-She waited for the ringing to stop, then jerked her head at her backpack
-to get Laurellen's attention, and hissed, "Hey! What are you doing in
-there?"
+"Hiding, of course!" the snarkasaurus hissed back.
+Laurellen's eyes widened as she realized who it must be.
+"Now quick,
+follow your herd before someone gets suspicious!"
 
-"Hiding, of course!" the dinosaur hissed back. Laurellen's eyes
-widened as she realized who it must be. "Now quick, follow your herd
-before someone gets suspicious!"
+"But why are you hiding in my backpack?"
+Madica started toward the door as Mr. Poudell
+("pronounced poo-DELL, not POO-dell", he told every single class, to no effect)
+beckoned to her.
 
-"But why are you hiding in my backpack?" Madica started toward the
-door as Mr. Poudell ("pronounced poo-DELL", he told every single
-class, to no effect) beckoned to her.
+"Well, I could hardly stay in your house, could I?"
+the snarkasaurus whispered back.
+"That's the first place the ninjas will look."
 
-"Well, I could hardly stay in your house, could I?" the dinosaur
-whispered back. "That's the first place the ninjas will look."
+"Ninjas? What ninjas?" Madica demanded.
+"And what do you mean, tomorrow?"
+But by then she was at the door,
+surrounded by other children,
+and the snarkasaurus didn't answer.
 
-"Ninjas? What ninjas?" Madica demanded. "And what do you mean,
-tomorrow?" But by then she was at the door, surrounded by other
-children, and the dinosaur didn't answer.
+Madica's classroom was on the second floor.
+It had six big windows and twenty-four desks,
+not counting Mr. Poudell's at the front
+or the visitor's desk at the rear
+where parents and other teachers sometimes sat
+and watched the backs of the children's heads.
 
-Madica's classroom was on the second floor. It had six big windows and
-twenty-four desks, not counting Mr. Poudell's at the front or the
-visitor's desk at the back where parents and other teachers sometimes
-sat to watch the backs of the children's heads.
+She said 'hi' to Zella and Abed and stowed her backpack under her desk.
+As she did so,
+she felt it jerk in her hands.
+"Don't move!" she whispered,
+then smiled weakly at Zella's curious look.
 
-She said 'hi' to Zella and Abed and stowed her backpack under her
-desk. As she did so, she felt it jerk in her hands. "Don't move!" she
-whispered loudly, then smiled weakly at Zella's curious look.
+"Sorry," the snarkasaurus whispered back.
+Madica pulled out her math homework,
+set it on her desk,
+and looked straight ahead while Mr. Poudell hobbled from desk to desk
+to give each student their work for the morning.
 
-"Sorry," the dinosaur whispered back. Madica pulled out her math
-homework, set it on her desk, and looked straight ahead while Mr.
-Poudell hobbled from desk to desk to give each student their work for
-the morning.
+As always,
+she wondered how old he really was.
+"A hundred," some kids said.
+"A thousand," others claimed.
+Madica knew that he had been a teacher when her mom and dad were in school,
+and had been old even then.
+"Some people just keep going,"
+her dad said with a shrug when Madica asked.
+"Or maybe hanging around kids helps keep him young."
+And then he tickled her and she forgot about her question.
 
-As always, she wondered how old he really was. "A hundred," some kids
-said. "A thousand," others claimed. Madica knew that he had been a
-teacher when her mom and dad were in school, and had been old even then.
-"Some people just keep going," her dad said with a shrug when Madica
-asked. "Or maybe hanging around kids helps keep him young." And then
-he tickled her and she forgot about it.
+She had only been looking at her geography for a couple of minutes
+when her bag rustled.
+"What's going on out there?"
+the snarkasaurus whispered.
 
-She had only been looking at her geography for a couple of minutes when
-her bag rustled. "What's going on out there?" the dinosaur whispered.
+Zella glanced over.
+Madica smiled weakly again and nudged her backpack with her foot.
+"Ssh!"
 
-Zella glanced over. Madica smiled weakly again and nudged her backpack
-with her foot. "Ssh!"
+"Okay, okay," the dinosaur grumbled.
+This time Zella and Abed both glanced at her.
+Madica bent over the map she was supposed to be drawing.
 
-"Okay, okay," the dinosaur grumbled. This time Zella and Abed both
-looked over. Madica bent over the map she was supposed to be drawing.
+The next hour and a half were the longest of Madica's life.
+Every few minutes the snarkasaurus wriggled
+or yawned really loudly
+or muttered,
+"I'm *bored!*"
+Each time the children around Madica looked around to see who was talking.
+Madica looked around too the first couple of times,
+as if she had no idea where the noise was coming from either,
+but she didn't think anone was fooled.
 
-The next hour and a half were the longest of Madica's life. Every few
-minutes the dinosaur wriggled, or yawned really loudly, or muttered,
-"But I'm *bored!*" Each time the children around Madica looked around
-to see who was talking. Madica looked around too the first couple of
-times, as if she had no idea where the noise was coming from either, but
-nobody was fooled.
+Especially not Mr. Poudell.
+When the bell rang for recess
+he put aside the papers he had been folding for their origami lesson and said,
+"Madica, could I please talk to you for a moment?"
+in his creaky, gravelly voice.
 
-Especially not Mr. Poudell. When the bell rang for recess he put aside
-the papers he had been folding for their origami lesson and said,
-"Madica, could I please talk to you for a moment?" in his creaky,
-gravelly voice.
+"Yes, Mr. Poudell," she said.
+Her mind raced.
+There was no way the snarkasaurus would stay quiet while Mr. Poudell talked to her.
 
-"Yes, Mr. Poudell," she said. Her mind raced. There was no way the
-dinosaur would stay quiet while Mr. Poudell talked to her.
+But as she walked to the front,
+Ike tried to squeeze past her,
+his eyes downcast.
+"Hey," she said,
+grabbing her backpack and thrusting it at him.
+"How about you take this
+and I'll come find you over by the tree in a couple of minutes?
+We can eat our snacks together and look at your books then."
 
-But as she walked to the front, Ike tried to squeeze past her, his eyes
-downcast. "Hey!" she said, grabbing her backpack and thrusting it at
-him. "How about you take this, and I'll come find you over by the tree
-in a couple of minutes, okay? We can eat our snacks together and look at
-your books then."
+Ike brightened.
+"Okay!"
+He slung the backpack over his shoulder and hurried away.
 
-Ike brightened. "Okay!" He slung the backpack over his shoulder and
-practically bounced out of the classroom.
+Madica walked hesitantly over to Mr. Poudell's desk.
+He didn't look up right away.
+Instead, he muttered,
+"Busy, busy, *quite* busy thank you, no time for details like this,"
+under his breath
+as his infamous red pen danced across the papers on his desk.
+They practically whooshed from one pile to another,
+each one decorated with a few lines of commentary
+and a big A or D in a circle at the top.
+Those were the only grades he gave,
+and he didn't give very many A's.
 
-Madica walked hesitantly over to Mr. Poudell's desk. He didn't look up
-right away. Instead, he muttered, "Busy, busy, busy, *quite* busy thank
-you, no time for details like this," under his breath as his infamous
-red pen danced across the papers on his desk. They practically whooshed
-from one pile to another, each one decorated with a few lines of
-commentary and a big A or D in a circle at the top. Those were the only
-grades he gave, and he didn't give very many A's.
+Finished,
+he neatened the pile of graded papers and looked up at Madica.
+"Now,"
+he said in a patient, weary voice that every child in the school could imitate,
+"I don't mind you having fun in my classroom.
+In fact, I encourage it.
+But we do need to let other children concentrate on their work, don't we?"
 
-It only took him a minute to finish, though it seemed like an hour. He
-neatened the pile of graded papers and looked up at Madica. "Now," he
-said in a patient, weary voice that every child in the school could
-imitate, "I don't mind you having fun in my classroom. In fact, I
-encourage it. But we do need to let other children concentrate on their
-work, don't we?"
+"Yes, Mr. Poudell," she said meekly.
 
-"Yes, Mr. Poudell," she said obediently.
+"And we shouldn't—wait,
+what's that *cat* doing there?"
 
-"And we shouldn't—wait, what's that *cat* doing there?"
-
-Madica glanced out the window and gulped. There, on a branch of the
-cottonwood tree that sheltered the playground, sat a single black cat.
+Madica glanced out the window and gulped.
+There,
+on a branch of the enormous fir tree that sheltered the playground,
+sat a single black cat.
 And it was staring right at her.
 
-Something inside Madica snapped. She pointed her finger accusingly at
-the cat. "You!" she said, not caring if it could hear her or not.
-"You stay right there! I want to have a word with you!"
+Something inside Madica snapped.
+She pointed her finger accusingly at the cat.
+"You!" she said,
+not caring if it could hear her or not.
+"You stay right there!
+I want to have a word with you!"
 
-"What?" said Mr. Poudell, rising from his chair. "Who are you talking
-to? Are you talking to the cat?"
+"What?" said Mr. Poudell, rising from his chair.
+"Who are you talking to?
+Are you talking to the cat?"
 
-Madica didn't get a chance to answer, because right then, right at that
-very moment, the sky above them flickered. *PLING PLING PLING!* and the
-bright blue of the Antarctic spring was gone, replaced by the scarred
-silver underbelly of a flying saucer so big that its shadow covered the
-whole city.
+Madica didn't get a chance to answer,
+because right at that very moment the sky above them flickered.
+*PLING PLING PLING!*
+The bright blue of the Antarctic spring was replaced
+by the scarred silver underbelly of a flying saucer
+so big that its shadow covered the whole city.
 
-Madica's stomach went cold. She knew that saucer. Every fairy child
-did. It was Santa Claws!
+Madica's stomach went cold.
+She knew that saucer.
+Every fairy did.
+It was Santa Claws!
 
-"Oh no!" she whispered. He hadn't raided the fairies in years. It
-couldn't be a coincidence that he had showed up today—he must be
-after the dinosaur, and it was in her backpack in the playground with
-Laurellen and Ike!
+"Oh no," she whispered.
+He hadn't raided the fairies in years.
+It couldn't be a coincidence that he had showed up today—was
+he after the snarkasaurus?
 
-"Madica! Where are you going? You have to hide!" She ignored Mr.
-Poudell's shout as she sprinted for the door and clattered down the
-stairs, only to find herself pushed back by a flood of frightened
-children rushing inside, shouting, "It's Santa Claws! It's Santa
-Claws!"
+"Madica! Where are you going?"
+She ignored Mr. Poudell's shout
+as she sprinted for the door
+and clattered down the stairs,
+only to find herself pushed back by a flood of frightened children rushing inside,
+shouting,
+"It's Santa Claws! It's Santa Claws!"
 
-"Laurellen!" she shouted. "Laurellen!" It was like trying to swim
-upstream—no matter how hard she pushed and squeezed, she found herself
-being swept backward by the panicked crowd.
+"Laurellen!" she shouted.
+"Laurellen!"
+It was like trying to swim upstream—no matter how hard she pushed and squeezed,
+she was swept backward by the panicked crowd.
 
-The principal's voice rose above the frightened chatter. "Hurry,
-everyone! Get to the gym as quickly as you can!"
+The principal's voice rose above the frightened chatter.
+"Hurry, everyone!
+Get to the gym as quickly as you can!"
 
-There was a loud *bzzZORP!*, then another. *PLING PLING PLING!*
-Madica's heart sank. The saucer must have turned invisible again. It
-would only do that if it had what it had come for: her friends.
+There was a loud *bzzZORP!*, then another,
+and then *PLING PLING PLING!* as the saucer turned invisible again.
+Madica's heart thudded in her chest.
+Where was Laurellen?
+And where were Ike and her backpack?
 
-The churning mob turned into a churning stream as children and teachers
-headed for the gym. It took ten minutes to get everyone there, and
-another ten to confirm the bad news, but Madica knew what the principal
-were going to say long before she said it: Laurellen and Ike were
-missing. "They were over by the gate," said a little boy, crying.
+It took half an hour for the teachers to call names and confirm the bad news,
+but somehow Madica knew what the principal were going to say
+long before she said it:
+Laurellen and Ike were missing.
+"They were over by the gate,"
+a little boy gulped.
 "They—they were fighting over a backpack, and then…"
 
-The rest was tears, and not just from him. All around the gym, children
-had started to cry. Teachers put their heads together to mutter. Why had
-Santa Claws come back after all these years? And why in daylight? He'd
-only ever come at night before. And those poor children—and their poor
-parents.
+All around the gym, children started to cry.
+Teachers put their heads together to mutter.
+"Those poor children," some said,
+while others asked,
+"Why has Santa Claws come back after all these years?"
 
-Madica felt light-headed through it all. "It's my fault," she
-whispered.
+Madica felt light-headed through it all.
+"It's my fault," she whispered.
 
-"I beg your pardon?" Mr. Poudell had stayed near her throughout the
-roll call, talking to other teachers and children but always keeping his
-eyes on her. "What do you mean, it's your fault?"
+"I beg your pardon?"
+Mr. Poudell had stayed near her throughout the roll call,
+talking to other teachers and children but always keeping his eyes on her.
+"What do you mean, it's your fault?"
 
-"It's my fault," she repeated wretchedly. "If I hadn't given Ike my
-backpack…"
+"It's my fault," she repeated wretchedly.
+"If I hadn't given Ike my backpack…"
 
-"Your backpack?" Mr. Poudell asked. "What does your backpack have to
-do with this?"
+"Your backpack?"
+Mr. Poudell asked suspiciously.
+"What does your backpack have to do with this?"
 
-Madica gulped, suddenly conscious of how closely Mr. Poudell was looking
-at her. "I… I don't know," she lied. "I just… I gave it to
-Ike, and then…" She didn't have to force herself to burst into
-tears again.
+Madica swallowed,
+suddenly conscious of how closely Mr. Poudell was looking at her.
+"I… I don't know," she lied.
+"I just… I gave it to Ike, and then…"
+She didn't have to force herself to burst into tears.
 
-Mr. Poudell leaned toward her, so close that she could smell warm talc
-and old coffee. "Do you think this might have something to do with that
-cat you were talking to? They're devious creatures, cats, and
-definitely not to be trusted. But you can trust me."
+Mr. Poudell leaned toward her,
+so close that she could smell warm talc and old coffee.
+"Do you think this might have something to do with that cat you were talking to?
+They're devious creatures, cats, and definitely not to be trusted.
+But you can trust me."
 
-At exactly that moment, Madica's dad showed up. He hugged her close,
-his head on her shoulder, as if he was the one who had been scared. Her
-mom burst into tears when she arrived a few moments later, and she
-*never* got upset. They all walked home together holding hands, just
-like they had when Madica was little, then had hot chocolate and tried
-to think of things to say.
+At just that moment Madica's dad showed up.
+He hugged her close,
+his chin on top of her head,
+as if he was the one who had been scared.
+Her mom burst into tears when she arrived a few moments later,
+and she *never* got upset.
 
-"What am I going to say to Laurellen's mom and dad?" Madica finally
-asked miserably.
+When they got home her dad made hot chocolate,
+just he did when Madica was sick.
+They blew on their mugs to cool it as they tried to think of things to say.
 
-Her father squeezed her shoulder. "There's not a lot you can say."
+"What am I going to tell Laurellen's mom and dad?"
+Madica finally asked miserably.
 
-She nodded. "Is it okay if I go outside for a while? I want…" She
-gulped back another round of tears. "I want to fix up the castle we
-were building."
+Her father squeezed her shoulder.
+"Just tell them you're sorry it happened."
 
-Her mom and dad exchanged looks. "Sure," her mom said. "I'll make us
-all hot chocolate when you come back in."
+She nodded.
+"Is it okay if I go outside for a while? I want…"
+She gulped back another round of tears.
+"I want to fix up the castle we were building."
 
-Madica bundled herself up and went out through the back door. *Thud!*
-Her foot bounced off the side of the invisible saucer when she kicked
-it. If only the stupid dinosaur hadn't hidden in her backpack. If only
-it hadn't landed in her yard! She kicked the saucer again, harder.
+Her mom and dad exchanged looks.
+"Sure," her mom said.
+"I'll make some more hot chocolate when you come back in."
 
-And froze, as still as a snowman, when a quiet voice behind her said,
-"Please do have a care with that. We shall need it if we're to
-retrieve your friends."
+Madica bundled herself up and went out through the back door.
+*Thud!*
+Her foot bounced off the side of the invisible saucer when she kicked it.
+If only the stupid dinosaur hadn't hidden in her backpack.
+If only it hadn't landed in her yard!
+She kicked the saucer again, harder.
 
-She turned around slowly. There, in the open gate, sat a familiar black
-cat.
+And froze,
+as still as a snowman,
+when a quiet voice behind her said,
+"Please do have a care with that.
+We shall need it if we're to retrieve your friends."
+
+She turned around slowly.
+There, in the open gate, sat a familiar black cat.
 
 </section>
 
