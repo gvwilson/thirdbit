@@ -1279,179 +1279,267 @@ the saucer shot into the air.
 
 ## Captured!
 
-Outer space is vast, empty, silent, and cold. A tiny flying saucer with
-a cat and a fairy crammed into it isn't any of those things,
+Outer space is vast, empty, silent, and cold.
+A tiny flying saucer with a cat and a fairy crammed into it
+isn't any of those things,
 particularly not when the fairy is screaming at the top of her lungs
 because the saucer is upside down.
 
-"Both hands! Both hands! Use your thumbs, you two-legged idiot!" the
-cat yowled, sinking its claws into Madica's arms. She squeezed the
-handlebars. The saucer flipped over, then flipped again.
+"Both hands, please!"
+the cat said sharply.
+"And use your thumbs, *if* you don't mind!"
+It sank its claws into Madica's arms.
+She squeezed the handlebars.
+The saucer flipped rightside up and then upside down again.
 
-"Not that tight, blast it!" Madica obeyed. The saucer righted itself,
-only to start spinning around and around as the cat's tail tickled her
-nose and made her sneeze.
+"Not that tight, blast it!" Madica obeyed.
+The saucer righted itself,
+only to start spinning around
+as the cat's tail tickled her nose and made her sneeze.
 
-Eventually—it was probably only a few seconds, but it felt long enough
-to be an "eventually"—the saucer was right side up and flying in a
-straight line. It was only then that Madica realized where they were.
+Eventually—it was probably only a few seconds,
+but it felt long enough to be an "eventually"—the saucer was right side up
+and flying in a straight line.
+It was only then that Madica realized where they were.
 
-"We're in outer space…" she breathed.
+"We're in outer space…"
+she breathed.
 
-"Hardly," the cat drawled, "This is only the upper atmosphere." But
-its eyes were as wide as Madica's. "Look—d'you see the satellite up
-there?" A bright white dot in front of them grew in a heartbeat into an
-actual shape, then into a silver-blue drum with dark rectangular wings,
+"Hardly," the cat drawled.
+"This is only the upper atmosphere."
+But its eyes were as wide as Madica's.
+"Look—d'you see the satellite up there?"
+A bright white dot in front of them grew in a heartbeat into an actual shape,
+then into a silver-blue drum with dark rectangular wings,
 and then—
 
-"We're going to hit it!" Madica pulled back on the controls, pulling
-the saucer to one side as they shot past the slowly-spinning satellite.
+"Look out!"
+Madica pulled back on the controls,
+throwing the saucer to one side
+as they shot past the slowly-spinning satellite.
 
-As she let out a shaky breath, she realized the cat had started licking
-one of its paws. "We could have crashed!" she said accusingly.
+As she let out a shaky breath,
+she realized the cat had started licking one of its paws.
+"We could have hit it!"
+Madica said.
 
-"But we didn't," the cat replied calmly. "You're not an entirely
-awful flyer, considering your species. Now, tally ho!"
+"But we didn't," the cat replied calmly.
+"You're not an entirely awful flyer,
+considering your species.
+Now, tally ho!"
 
-Africa rolled by underneath them, brown and green. A storm swirled over
-the Indian Ocean, its white clouds replaced a moment later by the
-brighter, sharper white of ice and snow on the Himalayas.
+Africa rolled by underneath them, brown and green.
+A storm swirled over the Indian Ocean,
+its white clouds replaced a few moments later
+by the sharp white of ice and snow on the Himalayas.
 
-Madica frowned. "Hang on a second. Africa is west of the Himalayas. Why
-aren't we flying straight north?"
+Madica frowned.
+"Hang on a second.
+Africa is west of the Himalayas.
+Why aren't we flying straight north?"
 
-The cat flipped an ear. "Oh, ninjas *never* go straight—far too
-obvious. Also, we're not headed *quite* for the North Pole, exactly."
+The cat flicked an ear.
+"Oh, ninjas *never* go straight—far too obvious.
+Also,
+we're not headed *quite* for the North Pole,
+exactly."
 
-"Not—wait, I thought we were going to Santa Claws' factory?"
+"Not—wait,
+I thought we were going to Santa Claws' factory?"
 
-"Exactly. But the *real* factory isn't *actually* at the pole—that
-one is a dummy to confuse you primates. The *real* factory is on a
-secret island in the Arctic Ocean. Quite carefully guarded," it added
-with satisfaction. "Lasers, missiles, combat elfs… It shall be
-*quite* a challenge."
+"We are.
+But the real factory isn't actually at the pole.
+That one is just a dummy to confuse you primates.
+The *real* factory is on a secret island in the Arctic Ocean.
+Quite carefully guarded," it added with satisfaction.
+"Lasers, missiles, combat elfs…
+It shall be *quite* a challenge."
 
-"Glad *one* of us is happy," Madica muttered under her breath.
+"Glad *one* of us is happy,"
+Madica muttered under her breath.
 
-The day turned to night below them as they put the Earth's shoulder
-between themselves and the sun. A handful of cities gleamed on the great
-plain of Asia below them like jewels scattered by a careless princess,
+The day turned to night below them
+as they put the Earth's shoulder between themselves and the sun.
+A handful of cities gleamed on the great plain of Asia
+like jewels scattered by a careless princess,
 then were gone.
 
-The cat stirred and stretched. "Ow," Madica complained. "My legs have
-gone to sleep."
+The cat stirred and stretched.
+"Ow," Madica complained.
+"My legs have gone to sleep."
 
-"Best to wake them now," the cat said, putting its paws back on her
-arms. "This bit coming up is rather dangerous, don't you know. Our
-changes of survival are actually very low."
+"Best to wake them,
+I should think,"
+the cat said,
+putting its paws back on her arms.
+"This next bit is rather dangerous.
+Our chances of survival are actually very low."
 
-Madica goggled at it. "Are you *purring*?"
+Madica goggled at it.
+"Are you *purring*?"
 
-The cat flattened its ears. "No harm in enjoying one's work," it
-replied a bit defensively.
+The cat flattened its ears.
+"No harm in enjoying one's work,"
+it replied a bit defensively.
 
-Suddenly the atmosphere was a faint haze around them, then thin
-streamers whistling off the edge of the saucer, not whistling but
-roaring, and Madica felt the cat pressing down on her, heavier and
-heavier with each breath, but breathing was hard because her chest was
-heavy too, and the roaring was too loud for her to hear anything else,
-too loud for her to think about anything except the delicate tugs and
-digs of the cat's claws on her arms as she struggled to keep the saucer
-upright, plunging belly-first into the sky below her because somehow she
-knew that if the saucer flipped or tumbled it would be the end of them,
-the end of Laurellen and Ike and the little dinosaur whose name she had
-never learned, the end of the whole world because the asteroid was up
-there somewhere, hurtling toward the Earth just like they were but a
-billion times larger, and she couldn't do it, she couldn't keep the
-controls steady, they were going to crash, there was nothing she could
-do to stop it they were going to crash and she'd never see her mom and
-dad again and she hadn't even said goodbye.
+Suddenly the atmosphere was a faint haze around them,
+then thin streamers whistling off the edge of the saucer,
+not whistling but roaring,
+and Madica felt the cat pressing down on her,
+heavier and heavier with each breath,
+but breathing was hard because her chest was heavy too,
+and the roaring was too loud for her to hear anything else,
+too loud for her to think about anything
+except the delicate tugs and digs of the cat's claws on her arms.
+She struggled to keep the saucer upright
+as it plunged belly-first into the sky below her
+because somehow she knew that
+if the saucer flipped or tumbled it would be the end of them,
+the end of Laurellen and Ike and the little dinosaur
+whose name she realized she had never learned,
+and maybe the end of the whole world
+because there was an asteroid up there somewhere
+hurtling toward the Earth just like they were
+but a billion times larger.
+She couldn't do it—she couldn't keep the controls steady.
+They were going to crash.
+There was nothing she could do to stop it
+they were going to crash
+and she'd never see her mom and dad again
+and she hadn't even said goodbye.
 
-And then it was over. The roaring stopped. The weight lifted from her
-chest. The saucer stopped fighting her and flew straight and true.
+And then it was over.
+The weight lifted from her chest
+as the roaring stopped
+and the saucer stopped fighting her
+and instead flew straight and true.
 
-Madica whooped. "We made it!"
+Madica whooped.
+"We made it!"
 
-"Mmph." The cat shifted in her lap. "*That* was the easy part.
-Matters should get *rather* more interesting now." Without no more
-warning than that, it sank its claws into her right arm.
+"Mmph."
+The cat shifted in her lap.
+"*That* was the easy part.
+Matters should get *rather* more interesting now."
+With no more warning than that
+it sank its claws into her right arm.
 
-Madica's flinch flipped the saucer upside down just as a beam of red
-light lanced through the sky where they had been. "What was that?" she
-squawked.
+Madica's flinch flipped the saucer upside down
+just as a beam of red light lanced through the sky
+where they had been.
+"What was that?" she squawked.
 
-"Laser," the cat muttered. "Now please don't interrupt. I need…
-to concentrate…" Its tail bristled. "There!" It flexed its claws
-again. The saucer swerved left then right around two more ruby beams,
-then flipped on its edge, as if it was rolling through the air instead
-of flying, and shot between a pair of parallel beams.
+"A laser, of course" the cat muttered.
+"Now please don't interrupt.
+I need to concentrate."
+Its tail bristled.
+"There!"
+It clawed her again.
+The saucer swerved left-right-left around two more ruby beams,
+then flipped on its edge
+as if it was rolling through the air instead of flying
+to shoot between a pair of parallel beams.
 
-The cat relaxed and pulled in its claws. Using just the weight of its
-paws, it pushed Madica's hands down gently. The saucer dipped toward
-the ground.
+The cat relaxed,
+retracted its claws,
+and pushed Madica's hands down gently using just the weight of its paws.
+The saucer dipped toward the ground.
 
-"Is—it is over?" Madica asked hesitantly. Her heart was pounding,
-and she was trying really hard not to be sick—not in the tiny cockpit
-of the saucer, and especially not all over the cat.
+"Is—it is over?"
+Madica asked.
+Her heart was pounding,
+and she was trying really hard not to throw up—not
+in the tiny cockpit of the saucer,
+and especially not all over the cat.
 
-"Mmph," the cat grunted again. "*That* was actually the easy part.
-Matters should get *quite a bit* more interesting now. Here's my
-plan…"
+"Mmph," the cat grunted again.
+"*That* was actually another easy part.
+Matters should get *quite a bit* more interesting now.
+Here's my plan…"
 
-The saucer landed a few minutes later on a patch of snow no different
-from any other next to a stony hill capped with a single stunted pine
-tree. *Click!* The dome on top of the saucer opened. *Tikka*, *tikka*,
-*tikka*… It ratcheted back jerkily to reveal a small fairy in a puffy
-winter jacket that had a thick fur collar around its neck. She stood up
-a little unsteadily, clambered out of the saucer, and hopped onto the
-snow.
+The saucer landed a few minutes later
+on a patch of snow no different from any other
+near a stony hill capped with a single stunted pine tree.
+*Click!*
+The dome on top of the saucer opened.
+*Tikka*, *tikka*, *tikka*
+It ratcheted back jerkily
+to reveal a small fairy in a puffy winter jacket
+with a thick fur collar.
+She stood up a little unsteadily,
+clambered out of the saucer,
+and hopped onto the snow.
 
-For a moment Madica just stood there, her eyes closed. "What's
-wrong?" the 'collar' around her neck hissed.
+For a moment Madica just stood there with her eyes closed.
+"What's wrong?"
+the 'collar' around her neck hissed.
 
-"Nothing." She had never really appreciated solid ground before, she
-realized, not nearly as much as she should. Or just plain being alive.
-It was really quite remarkable, being alive… She took a deep breath
-and started walking up the hill.
+"Nothing."
+She had never really appreciated solid ground before,
+she realized,
+not nearly as much as she should.
+Or just plain being alive.
+It was really quite remarkable, being alive…
+She took a deep breath and started walking up the hill.
 
-She only got three steps before a stern voice commanded, "Halt!"
+Madica only got three steps before a stern voice commanded,
+"Halt!"
+She froze.
+"Whart's the parswud?"
+the voice demanded.
 
-She froze. "Whart's the parswud?" the voice demanded.
+"Excuse me?"
+Madica said.
 
-"Excuse me?" she said.
+"Whart's the parswud?
+Ye cairn't gae arp yen hill withart th' parswud!"
 
-"Whart's the parswud? Ye cairn't gae arp yen hill withart th'
-parswud!"
+"I'm sorry,
+I don't understand what you're saying."
 
-"I'm sorry, I don't understand what you're saying."
+A second voice chimed in.
+"He's asking you for the password, dear."
 
-A second voice chimed in. "He's asking you for the password, dear."
+"'S whart I sith," the first voice muttered.
+"Clar's th' day,
+I sith,
+whart's the parswud."
 
-"'S whart I sith," the first voice muttered. "Clar's th' day, I
-sith, whart's the parswud."
+"Yes, dear, clear as day,
+except maybe she's a bit hard of hearing.
+Is that right, dear?
+Are you a bit hard of hearing?"
 
-"Yes, dear, clear as day, except maybe she's a bit hard of hearing. Is
-that right, dear? Are you a bit hard of hearing?"
-
-Madica wasn't, but she could certainly hear the warning in the second
-speaker's voice. "Um, yes," she agreed. "Quite a bit, actually.
+Madica wasn't,
+but she could certainly hear the warning in the second speaker's voice.
+"Um, yes," she agreed.
+"Quite a bit, actually.
 Sorry about that."
 
-"Ar, nar thart's fer shame," the first voice said. "Bart ye still
-need th' parswud if ye want arp yen hill. Or we blarst ye fer
-smithereens."
+"Ar, nar thart's fer shame," the first voice said.
+"Bart ye still need th' parswud if ye want arp yen hill.
+Or we blarst ye fer smithereens."
 
-"Oh, no blasting today, dear," the second voice said firmly. "It's
-Tuesday today, and we take prisoners on Tuesdays, remember?"
+"Oh, no blasting today, dear,"
+the second voice said firmly.
+"It's Tuesday today,
+and we take prisoners on Tuesdays,
+remember?"
 
-"'Salways a flarpin' take prisoners day, seems like," the first
-speaker grumbled. "Aright. Harnds oop. Wa're takin' ye prisoner."
-And with that, two figures half Madica's height popped up out of the
-snow just a stone's throw away.
+"'Salways a flarpin' take prisoners day, seems like,"
+the first speaker grumbled.
+"Aright.
+Harnds oop.
+Wa're takin' ye prisoner."
+And with that,
+two figures half Madica's height popped up out of the snow
+just a stone's throw away.
 
-Madica gasped. Her captors' ragged red coats and tasselled hats
-couldn't hide their rust-stained steel bodies, and electric red eyes
-gleamed in their cheery painted faces. She had been captured by elfs!
+Madica gasped
+at the electric red eyes gleaming in cheery painted faces.
+Her captors' ragged red coats and tasselled hats
+couldn't hide their rust-stained steel bodies.
+She had been captured by elfs!
 
 </section>
 
