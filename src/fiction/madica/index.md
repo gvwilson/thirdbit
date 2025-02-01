@@ -1091,72 +1091,108 @@ There, in the open gate, sat a familiar black cat.
 
 ## Ninjas!
 
-"He-hello?" she said uncertainly. "Did you just speak to me?"
+"He-hello?" Madica said uncertainly.
+"Did you just speak to me?"
 
-"No," said the voice. A second black cat landed in the snow beside
-her, its paws crunching softly in the snow. "*I* spoke with you. It's
-my job, you see, speaking with primates. Fairies, gorillas, gibbons…
-I can even speak a bit of lemur," it added with a hint of pride.
+"No," said the voice.
+A second black cat landed in the snow beside her,
+its paws crunching softly in the snow.
+"*I* spoke with you.
+It's my job, you see, speaking with primates.
+Fairies, gorillas, gibbons…
+I can even speak a bit of lemur,"
+it added with a hint of pride.
 
-"That's nice," Madica said weakly. "I didn't know *any* cats could
-talk."
+"That's nice," Madica said weakly.
+"I didn't know *any* cats could talk."
 
-"Oh, all of us can. We just choose not to, most of us, especially where
-primates are concerned. 'Thumbs make trouble', we say." It sighed.
-"But unfortunately, thumbs are precisely what we need at the present
-moment. Whole hands, as a matter of fact, if we're to rescue your
-friends."
+"Oh, we all *can*.
+We just choose not to,
+especially when primates are around.
+'Thumbs make trouble', we say."
+It sighed.
+"Unfortunately,
+thumbs are precisely what we need at the present moment.
+Whole hands,
+in fact,
+if we're to rescue your friends."
 
-Madica's heart leaped. "Rescue? Are you going to rescue Laurellen?"
+Madica's heart leaped.
+"Rescue?
+Are you going to rescue Laurellen?
+And Ike?"
+she added belatedly.
 
-The cat cleared its throat. "Not as such, no. *You* are going to rescue
-your friends. *We* are going to—" It stopped itself, then resumed.
-"We are going to rescue the pilot of this wee saucer so that we can
-save the world from an asteroid that's about to prang it rather hard."
+The cat cleared its throat.
+"Not as such, no.
+*You* are going to rescue your friends.
+*We* are going to rescue the pilot of this wee saucer
+so that we can save the world from the asteroid
+that's about to prang it rather hard."
 
-"The little dinosaur? You're going to rescue the little dinosaur?"
+"The snarkasaurus?
+You're going to rescue the snarkasaurus?"
 
-"Yes, the—the little dinosaur," it said quickly. "But the controls
-require thumbs, don't you see, so we find ourselves in need of a
-primate." It stretched, padded over to the snowbox, and jumped onto the
-invisible saucer so that it appeared to be sitting suspended in the air.
-After a moment it looked over its shoulder and said, "Well?."
+"Yes, the, er, snarkasaurus," it said quickly.
+"But the controls require thumbs,
+you see,
+so we find ourselves in need of a primate."
+It stretched,
+padded over to the snowbox,
+and jumped onto the invisible saucer
+so that it appeared to be sitting suspended in the air.
+After a moment it looked over its shoulder and said,
+"Well?."
 
-"But… but I don't know how to fly," Madica said weakly.
+"But—I don't know how to fly,"
+Madica said weakly.
 
-"That's quite all right—I do. You just need to hold the controls.
+"That's quite all right—I do.
+You just need to hold the controls.
 Now, come along, spit spot."
 
-"But… but…"
+"But—"
 
-"Unless you don't care whether your friends are rescued or not," the
-cat purred.
+"Unless you don't care whether your friends are rescued or not,"
+the cat purred.
 
-"Of course I care! But aren't there, I don't know, aren't there
-people who take care of this kind of thing?"
+"Of course I care!
+But aren't there,
+I don't know,
+aren't there people who take care of this kind of thing?"
 
-The cat's tail bristled slightly. "There are *ninjas* who take care of
-this kind of thing," it said sharply. "The Number Six Feline Ninja
-Danger Squad, in fact."
+The cat's tail bristled slightly.
+"There are *cats* who take care of this kind of thing," it said sharply.
+"The Number Six Feline Ninja Danger Squad, in fact."
 
-Madica laughed. She didn't mean to, it just burst out.
-"You're—you're ninjas? Where did you learn to be ninjas?"
+Madica laughed.
+She didn't mean to,
+it just burst out.
+"You're—you're a ninja?
+Where did you learn to be a ninja?"
 
-The cat's ears flattened again, but this time they went all the way
-down. "In ninja school, of course. Where did you learn be rude, in rude
-school? Now, are we saving the world today or not?"
+The cat's ears flattened.
+"In ninja school, of course.
+Where did you learn be rude, in rude school?
+Now, are we saving the world today or not?"
 
-It was a tight fit. It was a *very* tight fit. It was so tight that it
-took Madica three tries to wriggle her legs into the cramped space where
-the dinosaur had sat. The fact that she couldn't see the space because
-the saucer was still invisible didn't help. Neither did the fact that
-the other three cats had hopped up on the saucer as well and were
-watching her with unblinking green eyes.
+It was a tight fit,
+so tight that
+it took Madica three tries to wriggle her legs into the cramped space
+where the snarkasaurus had sat.
+The fact that she couldn't see what she was trying to do
+because the saucer was still invisible
+didn't help.
+Neither did the fact that
+the other three ninja cats hopped up on the saucer
+to watch her with unblinking green eyes.
 
-But finally she managed to wedge herself in, even if her right foot was
-tucked in behind her left knee, and her shoulders were in her ears.
-"Good show," the cat said. It touched noses with one of the other
-cats, then hopped into Madica's lap.
+But finally she managed to wedge herself in,
+even if her right foot was tucked in behind her left knee
+and her shoulders were in her ears.
+"Good show," the cat said.
+It touched noses with one of the other cats,
+then hopped into Madica's lap.
 
 "What happens now?" Madica asked.
 
@@ -1164,55 +1200,78 @@ cats, then hopped into Madica's lap.
 
 "What?"
 
-"You pull… up… your… sleeves," the cat repeated patiently.
+"You pull… up… your… sleeves,"
+the cat repeated patiently.
 "To the elbow, if you don't mind."
 
-"Why do you want me to—oh, never mind." Grunting and grimacing, she
-managed to get the sleeves of her puffy winter jacket up to her elbows.
-"Now wha-aaah! Ouch! What are you doing!? Let go of me!"
+"Why do you want me to—oh, never mind."
+Grunting and grimacing,
+she managed to get the sleeves of her puffy winter jacket up to her elbows.
+"Now wha-aaah!
+Ouch!
+What are you doing!?
+Let go of me!"
 
-As soon as Madica's sleeves were out of its way, the cat had put its
-paws on her wrists and extended its claws just enough to dig into her
-skin without breaking it. "And now like this," the cat said calmly.
-Its claws dug into Madica's right wrist just a little more, and without
-thinking she tried to jerk her arm away.
+As soon as Madica's sleeves were out of its way,
+the cat had put its paws on her wrists
+and extended its claws just enough to dig into her skin without breaking it.
+Without thinking she tried to jerk her arm away.
 
-"More smoothly, if you please," the cat ordered. "Like a leaf on the
-wind. Again." It tugged on her left arm. This time Madica managed to
-move it instead of jerking it.
+"More smoothly, please," the cat ordered.
+"Like a leaf on the wind. Again."
+Its claws dug into her left arm.
+This time Madica managed to move her arm instead of jerking away.
 
-"And again." Tug, push, tug, push… Madica had to grit her teeth a
-couple of times before she got the hang of it, but the hang of it she
-eventually got.
+"And again."
+Dig, push, dig, push…
+Madica winced each time she felt the cat's claws,
+but eventually got the hang of moving under their direction.
 
-"Well done," the cat said approvingly. "That was actually rather
-good, for a primate. Now…" One claw pricked her, making her turn her
-arm and reach forward. She felt her hand bump into a button.
+"Well done," the cat said approvingly.
+"That was actually rather good for a primate.
+Now,
+let's try this,
+shall we?"
+A claw pricked her,
+making her turn her arm and reach forward.
+She felt her hand bump into a button.
 
-*Tikka tikka tikka…* The dome on the saucer ratcheted into place and
-closed with a loud *click!*
+*Tikka tikka tikka…*
+The dome on the saucer ratcheted into place
+and closed with a loud *click!*
 
-"And now…" the cat muttered. Both paws tugged, bringing Madica's
-hands together on what felt like a bicycle's handlebars. She grabbed
-onto it instinctively, and suddenly the saucer wasn't invisible any
-longer. She could see what she was sitting in! She could see—
+"And now…" the cat muttered.
+Both paws tugged,
+bringing Madica's hands together
+on something that felt like a bicycle's handlebars.
+She grabbed hold instinctively,
+and suddenly the saucer wasn't invisible any longer.
+She could see what she was sitting in!
+She could see—
 
-"What is *that*?" she asked, looking up at the picture taped to the
-inside of the dome. But she already knew the answer.
+"What is *that*?" she asked,
+looking up at the picture taped to the inside of the dome.
 
-"An asteroid," the cat said calmly. "*The* asteroid, as it happens."
-It looked like a big gray potato covered with pockmarks. As she stared
-at it, she realized it was moving slowly against the stars behind it.
-"It will reach us some time tomorrow, if we don't do something about
-it, and it will be a jolly poor show all around when it does."
+"An asteroid," the cat said calmly.
+"*The* asteroid, as it happens."
+It looked like a big gray potato covered with pockmarks.
+As she stared at it,
+she realized it was moving slowly against the stars behind it.
+"It will hit us tomorrow morning if we don't do something about it,
+and it will be a jolly poor show all around when it does."
 
-Madica gulped. "I don't know if I can do this," she said.
+Madica gulped.
+"I don't know if I can do this,"
+she said.
 
-"I don't know if you can either," the cat said. "But we ninjas have
-been trained to do the best we can with the materials available.
-Heeyah!" It dug its claws into her arms. She squeezed the handlebars,
-and with a whoosh that pushed her down into her seat, the saucer shot
-into the air.
+"I don't know if you can either,"
+the cat said.
+"But we ninjas have been trained to do the best we can with the materials available.
+Heeyah!"
+It dug its claws into her arms.
+She squeezed the handlebars.
+With a whoosh that pushed her down into her seat,
+the saucer shot into the air.
 
 </section>
 
