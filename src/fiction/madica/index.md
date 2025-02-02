@@ -1545,333 +1545,439 @@ She had been captured by elfs!
 
 <section markdown="1">
 
-## Deskbots and Tankbots!
+## Put Up Your Paws!
 
-Madica's heart skipped a beat. Every fairy child knew how Santa Claws
-made elfs. It was why so many of them lay sleepless at night, listening
-for the sound of him squirming down the chimney with his sack in his
-hand to steal them away and put their brains in jars and then—
+Madica's heart skipped a beat.
+Every fairy child knew how Santa Claws made elfs.
+It was why so many of them lay sleepless at night,
+listening for the sound of him squirming down the chimney,
+sack in hand,
+to steal them away and put their brains in jars and—
 
-"Do ye nae oonderstand wot harnds are?" The first voice belonged to
-the elf on Madica's left, the one whose face was painted like a sad
-clown. "Or is it 'oop' that has ye carnfused?"
+"Do ye nae oonderstand wot harnds are?"
+The first voice belonged to the elf on Madica's left,
+the one whose face was painted like a sad clown.
+"Or is it 'oop' that has ye carnfused?"
 
-"Oh. Sorry." Madica raised her hands gingerly. "Is this better?"
+"Oh. Sorry."
+Madica raised her hands gingerly.
+"Is this better?"
 
-"Mooch." And after a nudge from its companion, the elf grudgingly
-added, "Tharnk ye."
+"Mooch."
+After a nudge from its companion,
+the elf grudgingly added,
+"Tharnk ye."
 
-"Yes, thank you," the other elf added sweetly. It had whiskers on its
-cheeks, which would have looked sweet if it didn't also have a pair of
-gleaming tusks stained with something Madica sincerely hoped was just
-rust. "Now, *do* you know the password?"
+"Yes, thank you,"
+the other elf said sweetly.
+It had patchy white whiskers glued to its cheeks,
+which would have looked sweet
+if it didn't also have a pair of gleaming tusks
+stained with something Madica sincerely hoped was rust.
+"Now, *do* you know the password?"
 
-"I… Sorry, no, I don't," Madica confessed.
+"I… Sorry, no, I don't,"
+Madica confessed.
 
-"Yippee! It's blarstin' time!" Clown Face burrowed into the snow and
-pulled out a bazooka as big as he was.
+"Yippee! It's blarstin' time!"
+Clown Face plunged his arms into the snow
+and pulled out a bazooka as big as he was.
 
-"Tell them 'presents'," the cat's voice hissed in her ear. "The
-password is 'presents'."
+"Tell them 'presents'," the cat's voice hissed in her ear.
+"The password is 'presents'."
 
-"How do you know?" Madica whispered back out of the corner of her
-mouth.
+"How do you know?"
+Madica whispered back out of the corner of her mouth.
 
-"It's *always* presents," the cat hissed back. "Hasn't changed in
-*forever*."
+"I'm a ninja, remember?" the cat hissed back.
+"Now, quickly!"
 
-"Presents!" Madica shouted. "The password! It's 'presents'!"
+"Presents!" Madica shouted.
+"The password! It's 'presents'!"
 
-Clown Face froze at the word. "Socks!" it cursed, dropping the bazooka
-into the snow and kicking it in frustration. "I *never* get to blast
-*anything*! Socks socks *socks*!"
+Clown Face froze at the word.
+"Socks!" it cursed,
+his accent suddenly gone.
+"I *never* get to blast *anything*!
+Socks socks *socks*!"
+He dropped the bazooka into the snow and kicked it in frustration.
 
-His final kick must have hit the trigger, because with a sudden
-*phwoosh!* the bazooka went off. The missile spiralled up the hill,
-trailing sparks and smoke behind it, until *blam!* It exploded in
-mid-air.
+His final kick must have hit the trigger,
+because with a *phwoosh!* the bazooka fired.
+The missile spiralled up the hill,
+trailing sparks and smoke behind it.
+*Blam!*
+It exploded in mid-air.
+Aa moment later the air sparkled and fizzed,
+rippling with rainbow colors.
 
-Or not. Because a moment later, the air sparkled and fizzed, rippling
-with rainbow colors, and—
+"Oh…" Madica breathed.
+There,
+right in front of her and no longer invisible,
+was Santa's actual factory.
+It was bigger than any building Madica had ever seen:
+ten copies of her school stacked on top of one another
+would still not have reached its steeply-slanted roof.
+Turrets and towers,
+windows of all shapes and sizes,
+and—
 
-"Oh…" Madica breathed. There, right in front of her, no longer
-invisible, was Santa's secret factory. It was bigger than any building
-Madica had ever seen—she could have stacked ten copies of her school
-on top of one another and still not reached its steeply-slanted roof.
-Turrets and towers, windows of all shapes and sizes, and—
-
-A chill ran up her spine. A giant flying saucer was moored against the
-side of the factory, bobbing gently in the Arctic breeze. She recognized
-its scarred silver underbelly. It was the saucer that had taken
-Laurellen. ("And Ike," her conscience added a moment later.)
+A chill ran up her spine.
+A giant flying saucer was moored against the side of the factory,
+bobbing gently in the Arctic breeze.
+She recognized its scarred silver underbelly.
+It was the saucer that had taken Laurellen.
+("And Ike," her conscience added a moment later.)
 
 "The poor reindeer simply couldn't carry the load any longer,"
-Whiskers said, following Madica's gaze to the enormous round gray disk.
-She (Madica decided it was definitely a 'she') looked at the other elf
-and sighed in a way that suggested that if she had eyebrows, she would
-be raising them.
+Whiskers said,
+following Madica's gaze to the enormous round gray disk.
+She (Madica decided the elf was definitely a 'she')
+looked at the other elf
+and sighed in a way that suggested that if she had eyebrows,
+she would be raising them.
 
-"It wasn't *my* fault," Clown Face muttered defensively, not meeting
-his companion's eyes. "If she had just said the password when we
-asked…"
+"It wasn't *my* fault,"
+Clown Face muttered defensively,
+forgetting his accent once again.
+"Nothing would have happened
+if she had just said the password when we asked."
 
-"Well, let's hope Himself sees it that way," Whiskers replied. "Now,
-if you'll come along, dear. Password or not, *he* will be wanting to
-see you."
+"Well, let's hope Himself sees it that way,"
+Whiskers replied.
+"Now, if you'll come along, dear.
+Password or not, *he* will be wanting to see you."
 
-Madica gulped. "'He'?" But she knew the answer before Whiskers said
-it.
+Madica gulped.
+"'He'?"
 
-"Yes, dear. Mr. Secretary." Whiskers glanced at Clown Face. "Perhaps
-it would be best if you stayed here and waited for the repair crew?"
+"Yes, dear. Mr. Secretary."
+Whiskers glanced at Clown Face.
+"Perhaps it would be best if you stayed here and waited for the repair crew?"
 
-"Stupid bazooka," Clown Face muttered again, scuffing the snow with
-the toe of his boot.
+"Stupid bazooka,"
+Clown Face muttered again,
+scuffing the snow with the toe of his boot.
 
-"And perhaps we could put a bit more effort into staying in
-character?" Whiskers added with just a hint of steel in her voice.
+"And perhaps we could put a bit more effort into staying in character?"
+Whiskers added with just a hint of steel in her voice.
 
-Clown Face's shoulders slumped. "Starpid barzooka," he repeated.
+Clown Face's shoulders slumped.
+"Starpid barzooka," he repeated.
 
-"Thank you. This way, dear." With the elf's steely hand on her elbow,
+"Thank you. This way, dear."
+With the elf's steely hand on her elbow,
 Madica trudged toward a small gate that swung open as they neared.
 
-The inside of the factory was whiter than the snow outside. Everything
-had been scrubbed, polished, and scrubbed again: the square tiles on the
-floor, the paint on the walls, even the cobwebs and skeletons.
+The inside of the factory was whiter than the snow outside.
+Everything had been scrubbed, polished, and scrubbed again:
+the square tiles on the floor,
+the paint on the walls—even the cobwebs and skeletons were spotless.
 
-"They're not real, you know," Whiskers said, gesturing at a grinning
-pile of bones as they passed it. "Himself felt a castle ought to have a
-dungeon, but the tundra just turns to mud when you dig into it, so He
-decided that the ground floor would be the dungeon and—whoops, watch
-your step, dear." Cold metal fingers tugged Madica aside as a pair of
-stainless steel rats scuttled across the floor, the windup keys on their
-backs going 'tick, tick, tick' in time with their steps.
+"They're not real, you know,"
+Whiskers said,
+gesturing at a grinning pile of bones as they passed it.
+"Himself felt a castle ought to have a dungeon,
+but the tundra just turns to mud when you dig into it,
+so He decided that the ground floor would be the dungeon and—whoops,
+watch your step, dear."
+Cold metal fingers tugged Madica aside
+as a pair of stainless steel rats scuttled across the floor,
+the windup keys on their backs going *tick*, *tick*, *tick*
+in time with their steps.
 
 "It's… It's quite well done," Madica said weakly.
 
-"Thank you, dear, that's so kind of you to say. But I'm sure it
-isn't nearly as dank as the ones the humans keep you in."
+"Thank you, dear, that's so kind of you to say."
 
-Madica blinked. She was about to say, "The humans don't keep us in
-dungeons—they don't even know we exist," when the cat's claws dug
-ever so lightly into her skin.
+The polished white hallway led to an escalator
+whose steps seemed to be carved out of ice.
+It took them to a room bigger than Madica's whole house.
+Round frosted lights dangled in clusters from its ceiling
+like glowing white cherries.
+On the far side was a desk twice Madica's height,
+and at the desk sat—
 
-The polished white hallway led to an escalator whose steps seemed to be
-carved out of ice. It took them to a room bigger than Madica's whole
-house. Round frosted lights dangled in clusters from its ceiling like
-glowing white cherries. On the far side was a desk twice Madica's
-height, and at the desk sat—
+Madica swallowed a gasp.
+The elf wasn't *sitting* at the desk:
+it *was* the desk.
+Beneath its beaky face and four long arms,
+a squat body merged with the desk's cast-iron top.
+Every few seconds a little bell went *ding!*
+and a sheet of paper popped up like toast out of a toaster.
+The deskbot glanced at it,
+muttered,
+"Naughty,"
+scribbled something on it in bright red ink,
+and fed it into a different slot.
 
-Madica put her hand to her mouth. The elf wasn't *sitting* at the
-desk—it *was* the desk. Beneath its beaky face and four long arms, a
-squat body merged with the desk's cast-iron top. Every few seconds a
-little bell went *ding!* and a sheet of paper popped up like toast out
-of a toaster. The deskbot glanced at it, muttered, "Naughty,"
-scribbled something on it in bright red ink, and fed it into a different
-slot.
+"Yes?"
+the deskbot snapped without looking up as Madica and her captor neared.
+"How can I help you?"
+The way it said 'help' made it clear that it wanted to do anything but.
 
-"Yes?" the deskbot snapped without looking up as Madica and her captor
-neared. "How can I help you?" From the way it said 'help', Madica
-was pretty sure it wanted to do anything but.
+Whiskers cleared her throat.
+"Number one six four, Mr. Secretary, sir, with a prisoner for Himself."
 
-Whiskers cleared her throat. "Number one six four, Mr. Secretary, sir,
-with a prisoner for Himself."
-
-"Himself is busy," it said in a creaky, gravelly voice. "Busy, busy,
-busy, *quite* busy thank you, no time for details like this."
+"Himself is busy,"
+the deskbot said in a creaky, gravelly voice.
+"Busy, busy,
+*quite* busy thank you,
+no time for details like this."
 
 "But—"
 
-"I said, Himself is *busy*, thank you." The deskbot's arms hadn't
-stopped—hadn't even slowed—as it spoke. *Ding!* mutter scribble,
-over and over. "Put her in the fitting room with the others."
+"I said, Himself is *busy*, thank you."
+The deskbot's arms hadn't even slowed as it spoke.
+*Ding!* mutter scribble,
+over and over.
+"Put her in the fitting room with the others."
 
-"Yes, Mr. Secretary." Whiskers tugged at Madica's arm. "Come
-along," she whispered loudly. "He's very busy - we mustn't take up
-too much of his time."
+"Yes, Mr. Secretary."
+Whiskers tugged at Madica's arm.
+"Come along," she whispered loudly.
+"We mustn't take up too much of his time."
 
-Madica shook off the elf's hand. "No. I'm not going anywhere until I
-get some answers. Where are my friends? And why did you take them?"
+Madica shook off the elf's hand.
+"I'm not going anywhere until I get some answers.
+Where are my friends?
+And why did you take them?"
 
-"This isn't the Answers department," the deskbot snapped. *Ding!*
-scribble. "Answers is down the main hall, third on your right, up the
-stairs, across the bridge, third on your left, past the furnace, second
-elevator, ninth floor."
+"This isn't the Answers department,"
+the deskbot snapped.
+*Ding!* scribble.
+"Answers is down the main hall,
+third on your right,
+up the stairs,
+across the bridge,
+third on your left,
+past the furnace,
+second elevator,
+ninth floor."
 
-"Well then, I'll go there!" Madica retorted, crossing her arms.
+"Well then, I'll go there!" Madica retorted,
+crossing her arms.
 
-"Certainly." *Ding!* mutter scribble. "But I doubt it's open right
-now."
+"If you wish."
+*Ding!* mutter scribble.
+"But it isn't open right now."
 
 "Well, when *does* it open?"
 
-The deskbot finally looked up at her. Madica caught her breath. Little
-streaks of rust ran down its beak like the tracks of ancient tears.
-Above them, its eyes glowed red with malice. "The Answers Department is
-*never* open. Now you, take her to the fitting room and—wait! What's
-that?" It pointed at the collar of Madica's coat with one hand. The
-other three continued their mad *ding!* scribble rhythm.
+The deskbot finally looked up at her,
+and this time Madica actually did gasp.
+Little streaks of rust ran down its beak like the tracks of ancient tears.
+Above them, its eyes glowed red with malice.
+"The Answers Department is *never* open.
+Now you, take her to the fitting room and—wait!
+What's that?"
+It pointed at the collar of Madica's coat with one hand
+while the other three continued their mad *ding!* scribble rhythm.
 
-"What's what?" Madica asked innocently, her heart suddenly pounding.
+"What's what?" Madica asked innocently
+as her heart skipped a beat.
 
-The deskbot slapped a big red button in the center of its desk. *Blarnk!
-Blarnk! Blarnk! Blarnk!* An alarm start squawking like the world's
-angriest seagull.
+The deskbot slapped a big red button in the center of its desk.
+*Blarnk! Blarnk! Blarnk! Blarnk!*
+An alarm start squawking like the world's angriest seagull.
 
-The tip of the deskbot's finger flipped up. A tiny light at its end
-glowed exactly the same red as the lasers that had tried to shoot down
-the saucer just a few minutes before. "Put up your paws!"
+The tip of the deskbot's finger flipped up.
+A tiny light at its end glowed exactly the same red as
+the lasers that had tried to shoot down the saucer just a few minutes before.
+"Put up your paws!"
 
-"What?" Madica raised her hands. "I don't have paws!"
+"What?" Madica raised her hands.
+"I don't have paws!"
 
-"I'm not talking to you," the deskbot snapped. "Very clever,
-*ninja*, sneaking in here disguised as a collar."
+"I'm not talking to you," the deskbot snapped.
+"Very clever, *ninja*, sneaking in here disguised as a collar."
 
-"Ninja!?" Whiskers gasped. "Oh my!" Her voice was lost in the *stomp
-stomp stomp* of two dozen elfs pouring out of secret doors that had just
-opened in the walls all around them. *Their* lasers were much bigger
-than fingers. In fact, they seemed bigger than some of the elfs
-themselves, especially the ones pointed at Madica.
+"Ninja!?" Whiskers gasped.
+"Oh my!" Her voice was lost in the *stomp stomp stomp*
+of two dozen elfs pouring out of secret doors
+that had just opened in the walls all around them.
+*Their* lasers were much bigger than fingers.
+In fact,
+the ones pointed at Madica seemed bigger than the elfs holding them.
 
-"I'm going to count to three," the deskbot hissed. "And if you
-aren't on the floor by then with your paws in the air, we will turn you
-into toast! One…"
+"I'm going to count to three," the deskbot hissed.
+"One…"
 
-"Wait!" Madica burst out. "What about me?"
+"Wait!" Madica burst out.
+"What about me?"
 
 "What *about* you? Two!"
 
-Madica grabbed the zipper of her coat, pulled it down, shrugged her arms
-out of the coat, and threw it into the air. At precisely the same
-moment, the deskbot barked, "Three!" Two dozen red lasers sizzled. The
-coat and its collar burst into flame.
+Madica grabbed her zipper,
+pulled it down,
+shrugged off her coat,
+and threw it into the air.
+At precisely the same moment the deskbot barked, "Three!"
+Two dozen lasers sizzled.
+The coat and its collar burst into flame.
 
-Madica coughed at the stink of burnt hair and melting plastic. "That
-was my *coat*!" she spluttered.
+Madica coughed at the stink of burnt hair and melting plastic.
+"That was my *coat*!" she spluttered.
 
-"It… it appears that it *was* just a coat, Mr. Secretary," Whiskers
-ventured.
+"Oh dear.
+It appears that it actually *was* just a coat, Mr. Secretary,"
+Whiskers ventured.
 
-The deskbot hissed with disappointment. "Perhaps. But better safe than
-sorry. You! Take care of this."
+The deskbot hissed with disappointment.
+"Perhaps.
+But better safe than sorry.
+You!
+Take care of this."
 
-"Yes sir!" One of the elf guards stomped forward on thick metal legs.
+"Yes sir!"
+One of the elf guards stomped forward on thick metal legs.
 It pointed its left arm at the smoldering remains of Madica's jacket.
-With a whir and a gurgle, wet white foam sprayed onto the flames.
+With a whir and a gurgle,
+wet white foam sprayed onto the flames.
 
-"Now, take her to the fitting room," the deskbot ordered. "Double
-escort, just in case."
+"Now, take her to the fitting room," the deskbot ordered.
+"Double escort, just in case."
 
-"But what about my coat?" Madica demanded. She wrapped her arms around
-herself, already starting to shiver. "My mom and dad gave me that!"
+"But what about my *coat*?" Madica demanded.
+She wrapped her arms around herself,
+already starting to shiver.
+"My mom and dad gave me that!"
 
-"You could file a replacement form," Whiskers suggested
-sympathetically. Then her eyes widened and her hand flew to her face.
+"You could file a replacement form,"
+Whiskers suggested sympathetically.
+Then her eyes widened and her hand flew to her face.
 "Oh dear."
 
-At the sound of the word 'form', the deskbot had looked up again. The
-malice that Madica had seen in its eyes moment earlier was nothing
-compared to the glare of utter hatred it turned on the cringing elf
-beside her now. "Did you just say that?" it hissed. "Did you just
-tell her to *file* a *form*?"
+At the word 'form' the deskbot had looked up again.
+The malice that Madica had seen in its eyes a moment earlier
+was nothing compared to the glare of utter hatred
+it turned on the cringing elf beside her now.
+"Did you just tell her to *file* a *form*?"
+it hissed.
 
 "I'm sorry, Mr. Secretary, I—"
 
-"Do you know how many forms we already have? How many *I* already
-have!?" Its voice had risen to a shout. "Look at them! Look at them
-all!" Even as it spoke, its arms were dancing, *ding!* scribble,
-*ding!* scribble, on and on without end.
+"Do you know how many forms we already have?
+How many *I* already have!?"
+Its voice had risen to a shout.
+"Look at them!
+Look at them all!"
+Even as it spoke, its arms were dancing,
+*ding!* scribble,
+*ding!* scribble,
+on and on without end.
 
-"Guards!" the deskbot bellowed. "Take them *both* to the fitting
-room! Double escort and double quick! Give the fairy the usual, and turn
-*this* one into a photocopier!"
+"Guards!" the deskbot barked.
+"Take them *both* to the fitting room!
+Double escort and double quick!
+Give the fairy the usual,
+and turn this one into a photocopier!"
 
-"Oh no…" Whiskers moaned, "Not that. Please, Mr. Secretary, I
-didn't mean—"
+"Oh no…" Whiskers moaned.
+"Not that.
+Please, Mr. Secretary, I didn't mean—"
 
-An unyielding metal hand closed around Madica's arm. Another clamped
-itself on Whiskers's shoulder. "Sorry 'bout this," the guard holding
-the elf muttered, "But orders are orders." And with just enough of a
-shove to let her know that resistance would be futile, Madica was
-marched away beside the whimpering, whiskered elf.
-
-</section>
-
-<section markdown="1">
-
-## Imprisoned!
-
-The rest of Santa's castle—at least, the bits that Madica got to see
-in the next few minutes—looked a lot more like a run-down factory than
-the gleaming marble entrance. The walls were gray bricks streaked with
-rust. The lights overhead flickered in time with the thunking and
-clanking of heavy machinery behind the walls.
-
-One corridor led to another, which in turn led to a flight of stairs
-that went up and up until Madica was panting for breath. The whiskered
-elf trudged along miserably beside her, never once glancing left or
-right.
-
-Madica stopped at the top of the stairs. "I need to rest for a
-moment," she puffed.
-
-"No resting!" the guard beside her said curtly, shoving her forward.
-
-"Oh, be a dear, let her rest," Whiskers said. "She's not an elf yet,
-you know. She can't keep up with the likes of us 'til she's been to
-the—the fitting room." Her sentence finished in a sniffle.
-
-"Wh-What's the f-fitting room?" Madica asked, shivering. She had been
-warm enough while she was walking, but as soon as she stopped, the
-arctic cold of the factory had seeped through her school sweater.
-
-"No talking!" the guard ordered. It shoved her again, less gently than
-before. "Let's get moving."
-
-Another corridor, another flight of stairs, turn left, turn right…
-Madica gave up trying to keep track of the way they had come—she just
-couldn't keep it all straight in her head. And she was so cold now that
-her teeth were chattering. Tired as she was, she didn't dare ask to
-stop again—she might never be able to get going again.
-
-But then they turned a corner and opened a door that look no different
-from any other and it was warm, beautifully warm, warm like being
-snuggled under a blanket in bed early in the morning before her parents
-knew she was awake. "Aaah…" she sighed, not caring when the guards
-pushed her forward again or that her nose had started to run as all the
-drips that had frozen in it began to thaw.
-
-She turned to the whiskered elf to say, "Doesn't this feel
-wonderful?" but two of the guards were already marching her away.
-"Wait!" Madica said. "Where are you going?"
-
-"She's for the fitting room, isn't she?" the guard beside Madica
-said gruffly. "Mr. Secretary's orders and all."
-
-"What—what's going to happen to her?"
-
-The guard shook his head. "Best worry what's going to happen to you.
-Now come along, we're almost there." His shove was gentler this time.
-
-The warm corridor ended in a heavy-looking door with broad metal straps
-riveted across it. A small porthole lay in its center. One guard stood
-beside Madica while the other flipped open the porthole's cover,
-squinted through it, then snicked the porthole back into place and
-produced a large key.
-
-*Click!* *Clang!* The guard unlocked the door and pulled it open. Madica
-took one hesitant step inside and—
-
-"Laurellen!" Madica rushed forward and fell into a hug with her best
-friend in the whole world. Behind her, the door closed with a menacing
-*click*.
+An unyielding metal hand closed around Madica's arm.
+Another clamped itself on Whiskers's shoulder.
+"Sorry 'bout this," the guard holding the elf muttered,
+"But orders are orders."
+And with just enough of a shove to let her know that resistance would be futile,
+Madica was marched away behind the whimpering, whiskered elf.
 
 </section>
 
 <section markdown="1">
 
 ## ELF!
+
+The rest of Santa's castle—at least,
+the bits that Madica got to see in the next few minutes—looked
+a lot more like a run-down factory than the gleaming marble entrance.
+The walls were gray bricks streaked with rust.
+The lights overhead flickered in time with
+the thunking and clanking of heavy machinery behind the walls.
+
+The first corridor led to another,
+which in turn led to a flight of stairs
+that went up and up until Madica was panting for breath.
+The whiskered elf trudged along miserably beside her,
+never once glancing left or right.
+
+Madica stopped at the top of the stairs.
+"I need to rest for a moment," she puffed.
+
+"No resting!" the guard beside her said curtly,
+shoving her forward.
+
+"Oh, be a dear and give her a moment," Whiskers said.
+"She's not an elf yet, you know.
+She can't keep up with the likes of us
+'til she's been to the—the fitting room."
+Her sentence finished in a sniffle.
+
+"Wh-What's the f-fitting room?" Madica asked, shivering.
+She had been warm enough while she was walking,
+but as soon as she stopped
+the Arctic cold of the factory seeped through her school sweater.
+
+"No talking!" the guard ordered.
+It shoved her again, less gently than before.
+"Now get moving."
+
+Another corridor,
+another flight of stairs,
+turn left, turn right…
+Madica gave up trying to keep track of the way they had come.
+And she was so cold now that her teeth were chattering.
+Tired as she was,
+she didn't dare ask for another rest:
+she was afraid she might never be able to get going.
+
+But then they turned a corner
+and opened a door that look no different from any other
+and it was warm,
+beautifully warm
+like being under a blanket in bed early in the morning
+before her parents knew she was awake.
+"Aaah…" she sighed,
+not caring when the guards pushed her forward again
+or that her nose had started to run
+as all the drips frozen in it began to thaw.
+
+She turned to the whiskered elf to say,
+"Doesn't this feel wonderful?"
+but two of the guards were already marching her away.
+"Wait!" Madica said. "Where are you taking her?"
+
+"She's for a refit, isn't she?"
+the guard beside Madica said gruffly.
+"Mr. Secretary's orders and all."
+
+"What's going to happen to her?"
+
+The guard shook his head.
+"Best worry what's going to happen to you.
+Now come along, we're almost there."
+Its shove was gentler this time,
+or perhaps Madica just imagined that.
+
+The warm corridor ended in
+a heavy-looking door with broad metal straps riveted across it
+and a small porthole in its center.
+One guard stood beside Madica
+while the other flipped open the porthole's cover,
+squinted through it,
+and then snicked the porthole back into place.
+
+*Click!* *Clang!*
+The guard unlocked the door and pulled it open.
+Madica took one hesitant step inside and—
+
+"Laurellen!"
+Madica rushed forward and fell into a hug with her best friend.
+Behind her, the door closed with a menacing *click*.
+
+---
 
 The next few seconds were a noisy mix of, "Are you all right?" and,
 "I was so worried!" and, "How did you get here?" that quickly turned
