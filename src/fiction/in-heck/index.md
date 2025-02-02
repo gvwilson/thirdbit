@@ -872,7 +872,7 @@ Come along, Gumption Goat, 'private' doesn't include you."
 
 Kangaroos and older sisters are both naturally stubborn.
 Put the two together,
-and you have someone who can wait out a tiger.
+and you have someone who can outwait a tiger.
 After a few moments the corner of Special Blazes' mouth quirked up.
 "Miz Room,
 I want you to know that I would trust Bee Six Vee with my life.
@@ -1071,7 +1071,7 @@ it was just a place—just a dozen structures ranging in size
 from a garden shed to something half the size of the Roos' house
 arranged in a circle around a black charging post.
 
-Docker was using a heavy brush to clean the muck out of Crusher's treads when he arrived.
+Dockety was using a heavy brush to clean the muck out of Crusher's treads when he arrived.
 "It says you are better at this than any bot,"
 Dockety told Gumption.
 "Even better than this one."
