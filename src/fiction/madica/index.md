@@ -1977,162 +1977,205 @@ Madica took one hesitant step inside and—
 Madica rushed forward and fell into a hug with her best friend.
 Behind her, the door closed with a menacing *click*.
 
----
+The next few seconds were a noisy mix of "Are you all right?",
+"I was so worried!", and, "How did you get here?"
+It quickly turned into "The cat is a *ninja*!?" and,
+"Wait a second—you were kidnapped by *dinosaurs*!?"
 
-The next few seconds were a noisy mix of, "Are you all right?" and,
-"I was so worried!" and, "How did you get here?" that quickly turned
-into, "The cat is a *ninja*!?" and, "Wait a second—you were
-kidnapped by *dinosaurs*!?"
+"You first," Laurellen said,
+wiping tears from her cheek.
 
-"You go first," Laurellen said, wiping tears from her cheek. Madica
-wiped hers away too, then quickly explained what had happened since her
-friend had been taken from the school playground.
+Madica wiped hers away too,
+then quickly explained what had happened
+since her friend had been taken from the school playground.
 
-By the time she was done, Laurellen was staring at her dumbfounded. "So
-what happened to the cat?"
+By the time she was done
+Laurellen was staring at her dumbfounded.
+"So what happened to the cat?"
 
-"Ssh!" Madica glanced around. "They might be listening." She leaned
-closer to Laurellen to whisper. "The cat's going to sneak in while I
-distract the elfs."
+"Ssh!" Madica glanced around.
+"They might be listening."
+She lowered her voice.
+"The cat is going to sneak in while I distract the elfs."
 
 "How are you going to do that?" Laurellen whispered back.
 
-Madica hesitated. How *was* she going to do that? The ninja cat hadn't
-explained that part. She looked at Laurellen, who looked away,
-embarrassed, as Madica suddenly realized that maybe all the cat had
-wanted was a pair of hands to fly the saucer.
+Madica hesitated.
+How *was* she going to do that?
+The ninja cat hadn't explained that part.
 
-"Anyway," Laurellen said hurriedly, "Guess what I found out? It
-isn't Santa Claws who's been kidnapping fairies all these years. It's
-been the dinosaurs all along! Just like Snarky, but evil. That's what I
-call the snarkasaurus," she added as Madica opened her mouth to ask.
-"They're working for Santa Claws—or maybe he's working for them, I
-haven't figured that bit out yet. But after the flying saucer zapped
-us, we woke up here. At first—" She had to stop for a moment to get
-control of her voice. "At first we thought we were still at school, but
-everyone was gone, and the door was locked, and nobody came when we
-banged on it. I was pretty scared."
+"Anyway," Laurellen said to fill the awkward silence,
+"After the flying saucer zapped us,
+we woke up here.
+At first—"
+She stopped for a moment to get control of her voice.
+"At first we thought we in the basement at school or something,
+but the door was locked and nobody came when we banged on it.
+I was pretty scared."
 
-"I bet I would have been even *more* scared," Madica said loyally.
-"So where *is* the—Snarky? And where's Ike?"
+"I bet I would have been even *more* scared,"
+Madica said.
+"So where *is*, um, Snarky?
+And Ike?"
 
-Laurellen sat on the fold-down cot by the wall. "They took him," she
-said in a small voice. "An elf dressed up like a doctor came in and
-poked and prodded us, and I thought that was going to be it, but then
-they saw his flumpy wing and…" Once again she had to fight tears.
-"And then they took him away."
+Laurellen sat on the fold-up cot by the wall
+that was the room's only furniture.
+"They took him," she said in a small voice.
+"An elf dressed up like a doctor came in and poked and prodded us,
+and I thought that was going to be it,
+but then they saw his wing they…"
+Once again she had to stop for a moment.
+"They took him away."
 
-Madica sat down beside her friend. "And what about the dinosaur?"
+Madica sat down beside her friend.
+"And what about the snarkasaurus?"
 
-Laurellen shrugged. "I don't know. Ike and I were fighting over your
-backpack when they zapped us—he said you gave it to him, but I didn't
-believe him, and then we woke up and it wasn't here. I don't know what
-happened to it. Or to Ike."
+Laurellen shrugged.
+"I don't know.
+Ike and I were fighting over your backpack when we were zapped—he said
+you gave it to him,
+but I didn't believe him,
+and then we woke up and it wasn't here.
+I don't know what happened to it.
+Or to Ike."
 
-The girls' unhappy silence was interrupted a minute later by the *tramp
-tramp tramp* of heavy feet in the corridor. The marching feet stopped in
-front of the door. A key clanged in the lock, and the door swung open as
-the girls leaped to their feet.
+The girls' unhappy silence was interrupted a minute later
+by the *tramp tramp tramp* of boots in the corridor.
+The marching feet stopped in front of the door.
+A key rattled in the lock,
+and the girls leaped to their feet as the door swung open.
 
-The elfs in the corridor were the strangest Madica had seen yet. One
-balanced on a pogo stick instead of legs, another had a TV screen
-switching from channel to channel where its chest should have been, and
-a third looked like a jet that had grown legs.
+The elfs in the corridor were the strangest Madica had seen yet.
+One balanced on a pogo stick instead of legs,
+another had a TV screen switching from channel to channel
+where its chest should have been,
+and a third looked like a jet that had grown legs.
 
-The elfbot with the screen in its chest pushed the one that looked like
-a jet into the room. "We'll be back for the rest of you later," it
-said. The terror it clearly meant to inspire was spoiled a moment later
-when it tried to high-five the one with a pogo stick for legs and sent
-it toppling backward into the crowd behind it. *Slam! Click!* went the
-door.
+The elf with the screen in its chest
+pushed the one that looked like a jet into the room.
+"We'll be back for the rest of you later,"
+it said.
+The terror it clearly meant to inspire was spoiled
+when it high-fived the elf with a pogo stick for legs
+and sent it toppling backward.
+*Slam! Click!* went the door.
 
-The jetbot took a step forward. "Stop right there!" Madica ordered as
-she and Laurellen backed against the wall.
+"Stop right there!"
+Madica ordered as the jetbot took a step forward.
 
-The jetbot raised its armwings. "Hey! Wait! It's me!"
+The jetbot raised its armwings.
+"Hey! Wait! It's me!"
 
 "Me who?" the girls asked in unison.
 
-"It's *me*! Ike!" The jetbot revved its engines. "They enhanced me!
-Do you like it? I think it's cool!"
+"It's *me*! Ike!"
+The jetbot revved its engines.
+"They enhanced me!
+Do you like it?
+I think it's cool!"
 
-Madica's hand flew to her mouth. Beside her, Laurellen dropped the
-pillow she had snatched up off the cot. It the floor with an unnoticed
-thump.
+Madica gasped.
+Beside her,
+Laurellen dropped the pillow she had snatched up off the cot.
+It hit the floor with an unnoticed thump.
 
-The jetbot revved its engines again. "Do you like it?" he asked again.
-It was a real question this time, and when she heard the uncertainty in
-the jetbot's voice, Madica knew it was really Ike.
+The jetbot revved its engines again.
+"Do you like it?" he asked again,
+a note of uncertainty in his voice.
 
 "You're—they—Ike, what *happened*? What did they *do* to you?"
 
-"They enhanced me," he said. "That's what 'ELF' stands for:
-Enhanced Life Form. It's an acronym—you take the first letter from
-each word, and—"
+"They enhanced me," he said.
+"That's what 'ELF' stands for:
+Enhanced Life Form.
+It's an acronym—you take the first letter from each word and—"
 
 "I know what an acronym is!" Madica snapped.
 
-"Ssh." Laurellen put her hand on Madica's shoulder and squeezed.
+"Ssh."
+Laurellen put her hand on Madica's shoulder and squeezed.
 "Ike, did it—did they hurt you?"
 
-"No!" he exclaimed, excitement back in his voice. "They took me to
-this room, kind of like a factory but more like a doctor's office, and
-there were all sorts of books with pictures of other ELFs, and I got to
-use this really cool computer program to design what I wanted to be,
-and, and—do you like it?" He spun in a circle, waggling the flaps on
-his wings. "And the best part is, I can fly! I can really fly!"
+"No!" he exclaimed, excitement back in his voice.
+"They took me to this room,
+kind of like a factory but more like a doctor's office,
+and there were all sorts of books with pictures of other ELFs,
+and I got to use this really cool computer program to design what I wanted to be,
+and, and—do you like it?"
+He spun in a circle,
+waggling the flaps on his wings.
+"And the best part is, I can fly!
+I can really fly!"
 
-Madica felt Laurellen's fingers dig into her shoulder. "Oh, Ike…"
-her friend whispered. Every other boy in their grade had their wings
-come in before Ike's. When his finally sprouted, and one of them turned
-out to be flumpy, Madica had teased him just like everyone else at
-school—everyone except Laurellen. One afternoon, when the two of them
-had been walking home after school, Madica had made another joke. She
-couldn't remember exactly what she'd said, but she would never forget
-what Laurellen had done. She had stopped dead on the sidewalk and said,
-in the same quiet voice Madica's mom saved for special occasions, "You
-take that back."
+Madica felt fingers dig into her shoulder.
+"Oh, Ike…" Laurellen whispered.
+Every other boy in their grade had their wings come in before Ike's.
+When his finally sprouted and one of them turned out to be flumpy,
+Madica had teased him
+just like everyone else at school—everyone except Laurellen.
+One afternoon,
+when the two of them had been walking home after school,
+Madica had made another joke.
+She couldn't remember exactly what she'd said,
+but she would never forget what Laurellen had done.
+She had stopped dead on the sidewalk and said,
+in the same quiet voice Madica's mom saved for special occasions,
+"You take that back."
 
-"What?" Madica had asked. "I was just—"
+"What?" Madica had asked.
+"I was just—"
 
-"You take that back, or you can find someone else to be your best
-friend, because I'm not going to be best friends with a bully."
-Ashamed, and a little bit frightened by the steel in her friend's
-voice, Madica had apologized for her joke. They had gone back to
-Laurellen's house and played Squids and Ladders as if nothing had
-happened, but she'd never teased Ike about his wing again. In the days
-that followed, other kids had stopped too, at least where Laurellen
-could hear.
+"You take that back,
+or you can find someone else to be your best friend,
+because I'm not going to be best friends with a bully."
+Ashamed,
+and a little bit frightened by the steel in her friend's voice,
+Madica had apologized for her joke.
+They had gone back to Laurellen's house
+and played Squids and Ladders as if nothing had happened,
+but she'd never teased Ike about his wing again.
+In the days that followed,
+other kids had stopped teasing him too,
+at least where Laurellen could hear.
 
-All that passed through Madica's mind in an instant, followed
-immediately by, *he can fly?* "You can fly?" she asked.
+All that passed through Madica's mind in an instant,
+followed immediately by,
+"You can fly?"
 
-Ike nodded vigorously. "Yeah!" He hesitated. "At least, I think so. I
-don't know. Maybe. I haven't tried yet. I was just about to, and then
-all the alarms went off because somebody was attacking us and nobody was
-allowed outside in case it was humans. It's just like at home—we're
-not supposed to let the humans know we're here."
+Ike nodded vigorously.
+"Yeah!"
+He hesitated.
+"At least I think so.
+I don't know.
+Maybe.
+I haven't tried yet.
+I was just about to,
+but then all the alarms went off because somebody was attacking us
+and nobody was allowed outside in case it was humans.
+It's just like at home—we're not supposed to let the humans know we're here."
 
-"That attack—was it about half an hour ago?" Madica asked.
+"That attack—was it about half an hour ago?"
+Madica asked.
 
-Ike's wings clanked as he shrugged. "I guess."
-
-"Ah." *That was probably me,* Madica added in her head.
-
-Ike brightened again. "But anyway, I'm supposed to give you this." He
-opened a small hatch where his tummy would have been if he still had one
+Ike's wings clanked as he shrugged.
+"I guess.
+Then he brightened again.
+"But anyway, I'm supposed to give you this."
+He opened a small hatch where his tummy would have been if he still had one
 and took out something that looked like a fat magazine.
 
 "What is it?" Laurellen asked.
 
 "It's all the different enhancements you can get," he explained.
-"You can't always get exactly the ones you want, but they'll do their
-best."
+"You can't always get exactly the ones you want,
+but they'll do their best."
 
-"Enhancements?" Laurellen and Madica looked at each other. "What do
-you mean, enhancements?"
+"Enhancements?"
+Laurellen and Madica looked at each other.
+"What do you mean, enhancements?"
 
-"Enhancements!" Ike repeated impatiently. "Like my wings and stuff.
+"Enhancements!" Ike repeated impatiently.
+"Like my wings and stuff.
 They're going to turn you into ELFs too."
 
 </section>
