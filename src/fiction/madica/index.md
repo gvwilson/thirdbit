@@ -2184,163 +2184,206 @@ They're going to turn you into ELFs too."
 
 ## Betrayed!
 
-The next few minutes were a confused babble of, "But I don't want to
-be enhanced!" and, "Of course you do—you can get radar and lasers
-and all *kinds* of things!" that only ended when Laurellen said, "But
-what about going home?"
+The next few minutes were a confused babble of,
+"But I don't want to be enhanced!"
+and, "Of course you do—you can get radar and lasers and all *kinds* of things!"
+that only ended when Laurellen said,
+"But what about going home?"
 
-Ike and Madica stopped talking then. "If we get enhanced, will the
-other ELFs let us go home?" she asked. "Or do we have to stay here
-forever?"
+Ike and Madica stopped bickering.
+"If we get enhanced, will the other ELFs let us go home?" Laurellen asked.
+"Or do we have to stay here forever?"
 
-"I think we have to stay here," Ike said, scuffing the floor with his
-landing gear. "So we don't tell anybody about, you know, the secret
-factory and everything."
+"I think we have to stay here," Ike said,
+scuffing the floor with his landing gear.
+"So we don't tell anybody about, you know, the secret factory and everything."
 
-Madica crossed her arms. "But I don't *want* to stay here! And anyway,
-we have to save the world, or there won't be any 'here' to stay in."
-Afer which, of course, she had to explain why the world needed saving.
+Madica crossed her arms.
+"But I don't *want* to stay here!
+And anyway,
+we have to save the world or there won't be any 'here' to stay in."
+After which, of course, she had to explain why the world needed saving.
 
-"That's just like in the books I was reading!" Ike said excitedly
-when Madica and Laurellen were done.
+"That's just like in the books I was reading!"
+Ike exclaimed when Madica and Laurellen were done.
 
-"Yeah, it's wonderful, isn't it?" Madica replied sarcastically, then
-added, "What?" when Laurellen elbowed her in the ribs.
+"Yeah, it's wonderful, isn't it?" Madica replied sarcastically,
+then added, "What?" when Laurellen elbowed her in the ribs.
 
-"What we need to *do*," Laurellen said, slowly and clearly, "Is *work
-together* to get out of here and warn people about the asteroid.
+"What we need to *do*," Laurellen said,
+slowly and clearly,
+"Is *work together* to get out of here and warn people about the asteroid.
 Right?"
 
-Madica nodded sharply. "I guess," Ike said reluctantly.
+Madica nodded.
+"I guess," Ike said reluctantly.
 
 "Thank you. Now, how will we—"
 
-"I know!" Ike put up a wing, just as if he was answering a question in
-class. "I know how to get us out! At least, I think so. I don't know.
-Maybe."
+"I know!"
+Ike put up a wing,
+just as if he was answering a question in class.
+"I know how to get us out!
+At least, I think so. I don't know. Maybe."
 
-He quickly explained his plan. When Madica rolled her eyes, Laurellen
-asked her if she had a better one. When she admitted that she didn't,
-Laurellen said, "Well, I think it's a really good plan, so let's give
-it a try." After which Madica had to roll her eyes again, because Ike
-looked so pleased at Laurellen's praise.
+He quickly explained his plan.
+When Madica rolled her eyes,
+Laurellen asked her if she had a better one.
+When she admitted that she didn't,
+Laurellen said,
+"Well, I think it's a really good plan, so let's give it a try."
+After which Madica had to roll her eyes again,
+because Ike looked so pleased at Laurellen's praise.
 
-*Bang! Bang! Bang!* Ike's knock on the cell door was so loud that
-Madica had to cover her ears. "Guards!" Ike shouted. "I think
-they're ready!"
+*Bang! Bang! Bang!*
+Ike knocked on the cell door.
+"Guards!" he shouted.
+"I think they're ready!"
 
-A moment later, a key clanged in the lock once again and the door swung
-open. The ELF with a pogo stick instead of legs hopped into the room
+A moment later a key clanged in the lock
+and the door swung open.
+The ELF with a pogo stick instead of legs hopped into the room
 while the one with the screen in its chest stayed in the corridor.
 "Report!" the pogo ELF ordered.
 
-Ike snapped a salute, then said, "Ow, that hurt," and rubbed the welt
-his wing had made on his forehead. "Um, sorry. That hurt, sir! Anyway,
-I think they're ready for enhancement, sir." He gestured at the two
-girls, who were sitting side by side on the cell's cot flipping through
-the magazine Ike had given them.
+Ike snapped a salute, then said, "Ow, that hurt,"
+and rubbed the welt his wing had made on his forehead.
+"Anyway, I think they're ready for enhancement."
+He gestured at the two girls
+sitting side by side on the cell's cot
+flipping through the magazine Ike had given them.
 
-"Is that so?" the pogo ELF asked suspiciously.
+"Really?" the pogo ELF asked suspiciously.
 
-"Oh yes, definitely," Madica said, marking her place in the magazine
-with her finger and trying to look as sincere as she possibly could.
-"Some of this enhancements are wonderful."
+"Oh, definitely," Madica said,
+marking her place in the magazine with her finger
+and trying to look as sincere as she possibly could.
+"Some of these enhancements are wonderful."
 
-"Definitely," Laurellen agreed. "We can't wait to see what they look
-like for real."
+"Absolutely," Laurellen agreed.
+"We can't wait to see what they look like for real."
 
-"Hm…" The pogo ELF rubbed his chin. "This wouldn't all be some
-kind of plot to try to escape, would it?"
+"Hm…"
+The pogo ELF rubbed his chin.
+"This wouldn't all be some kind of plot to try to escape,
+would it?"
 
-"Escape? Why would we want to escape when we could have—could
-have—"
+"Escape?
+Why would we want to escape when we could have—could have—"
 
-"—could have a built-in microwave oven so that we could warm up
-snacks for our friends any time, anywhere?" Laurellen finished, pulling
-the magazine out of Madica's hands and holding it up for the pogo ELF
-to see.
+"—could have a built-in microwave oven
+to warm up snacks for our friends any time, anywhere?"
+Laurellen finished,
+pulling the magazine out of Madica's hands
+and holding it up for the pogo ELF to see.
 
-His face lit up. "I was looking at that one too!" he exclaimed.
+His face lit up.
+"I was looking at that one too!" he exclaimed.
 "It'd be great when I'm out snowboarding!"
 
-"That's just what I said," Ike chipped in. "But there are so many
-choices, they're having a hard time deciding, so I said they could go
-and have a look. If that's all right," he added hastily.
+"That's just what I said," Ike chipped in.
+"But there are so many choices they're having a hard time deciding,
+so I said they could go and have a look.
+If that's all right,"
+he added hastily.
 
-The pogo ELF glanced at its partner. *Why not?* flashed across the
-screen in the other ELF's chest. "Sure, why not?" the pogo ELF said.
-It stepped aside and waved the girls out of the cell. "Right this
-way."
+The pogo ELF glanced at its partner.
+*Why not?* flashed across the screen in the other ELF's chest.
+"Sure, why not?" the pogo ELF said.
+He stepped aside and waved the girls out of the cell.
+"Right this way."
 
-Somehow Madica had forgotten how cold the factory was. Within moments
-she was shivering again.
+Madica had forgotten how cold the factory was.
+Within moments she was shivering again.
 
 "Did they take away your coat?" Laurellen asked.
 
 "N-N-Not exactly," Madica chattered.
 
-"Here." Laurellen shrugged hers off and wrapped it around Madica's
-shoulders. "We'll take turns."
+"Here."
+Laurellen shrugged hers off and wrapped it around Madica's shoulders.
+"We'll take turns."
 
-The two ELF guards led them through hallway after hallway, up one flight
-of stairs and down another, until finally they came to a set of doors
-three times taller than they were. "This is the place," Ike said
-excitedly.
+The ELF guards led them through hallway after hallway,
+up one flight of stairs and down another,
+until finally they came to a set of doors three times taller than they were.
+"This is it!" Ike said.
 
-"Wonderful!" Madica said as enthusiastically as she could. "I can't
-wait to try out all the different things they could enhance us with."
+"I can't wait!" Madica said as enthusiastically as she could.
 
-"Me too!" Laurellen agreed brightly. "Can we go inside and look?"
-Because that had been Ike's plan—they would say they were going to
-try out some enhancements for flying or turning invisible or whatever
-seemed most likely to help them escape, then use them to get out of the
-factory.
+"Me neither!" Laurellen agreed brightly.
+"Can we go inside and look?"
+Because that had been Ike's plan—they would say that
+they wanted to try out some enhancements for flying or turning invisible
+or whatever seemed most likely to help them escape,
+then use them to get out of the factory.
 
-At least, they *thought* that was Ike's plan, until he cleared his
-throat and said, "Actually, they don't keep any of the equipment here.
-You just look at it on a screen, and they bring it up once you've made
-your choices."
+At least,
+they *thought* that was Ike's plan
+until he cleared his throat and said,
+"Actually, they don't keep any of the equipment here.
+You just look at it on a screen,
+and they bring it up once you've made your choices."
 
-"What!?" The two girls rounded on him. "But you said—"
+"What!?" The girls rounded on him.
+"But you said—"
 
-"I know." He shuffled his landing gear awkwardly. "I shouldn't have
-fibbed. But you can't escape—there's nowhere to escape *to*—and
-anyway, you might have been hurt, and listen, you're going to like
-being enhanced, really." He revved his engines. "I mean, who wouldn't
-want to be able to fly like a jet or, or, or be a submarine or turn
-invisible or—"
+"I know."
+He shuffled his landing gear awkwardly.
+"I shouldn't have fibbed.
+But you can't escape—there's nowhere to escape *to*—and anyway,
+you might have been hurt,
+and listen,
+you're going to like being enhanced,
+really."
+He revved his engines.
+"I mean,
+who wouldn't want to be able to fly like a jet or,
+or,
+or be a submarine or—"
 
-"Ike, how *could* you?" The hurt in Laurellen's voice was as cold as
-the air around them. "You said you'd help!"
+"Ike, how *could* you?"
+The hurt in Laurellen's voice was as cold as the air around them.
+"You said you'd help!"
 
-"I *am* helping," Ike protested. "I'm just—I'm just not helping
-like you thought I would."
+"I *am* helping," Ike protested.
+"I'm just—I'm just not helping like you thought I would."
 
-"Aw, don't be mad at him," the pogo ELF said sympathetically.
-"That's just the brain thingy talking, that is."
+"Aw, don't be mad at him,"
+the pogo ELF said sympathetically.
+"That's just his brain thingy talking, that is."
 
-"The what?" Madica asked.
+"His what?" Madica asked.
 
-"The brain thingy. They put a thingy in your brain when they enhance
-you so you'll do what you're told, an' he was told to get you down
-here without making a fuss. Isn't that right, kid?"
+"His brain thingy.
+They put a thingy in your brain when they enhance you
+so that you'll do what you're told,
+an' he was told to get you down here without making a fuss.
+Isn't that right, kid?"
 
-"It's a chip," Ike explained. "They'll give you one too, so you
-won't miss home at all, I promise."
+"It's a chip," Ike explained.
+"They'll give you one too, so I promise you won't miss home at all."
 
-Whatever anyone might have said next was cut off by a sudden wail from
-inside the enhancement room. "Mummy! Daddy!" The doors swung open. A
-heavy, slow-moving ELF wheeled out a cart. On it lay the whiskered ELF
-who had captured Madica outside.
+Whatever anyone might have said next was cut off by
+a sudden wail from inside the enhancement room.
+"Mummy! Daddy!"
+The doors swung open.
+A heavy, slow-moving ELF wheeled out a cart.
+On it lay the whiskered ELF who had captured Madica.
 
-Or more precisely, on it lay her head, and next to it, the disassembled
-pieces of her body. "Mummy…" the head whimpered. "Daddy… Where
-are you? Help me, please…"
+Or more precisely,
+on it lay her head,
+and next to it,
+the disassembled pieces of her body.
+"Mummy…" the head whimpered.
+"Daddy… Where are you?
+Help me, please…"
 
-"And if you make Mr. Secretary mad," the pogo ELF added, "They take
-you apart, and take the brain chip out, and then you miss home more than
-you can possibly imagine." And with that, he pushed the two girls
-forward into the room.
+"And if you make Mr. Secretary mad," the pogo ELF added,
+"They take you apart and take the brain chip out.
+Then you miss home more than you can possibly imagine."
+And with that,
+he pushed the two girls into the room.
 
 </section>
 
