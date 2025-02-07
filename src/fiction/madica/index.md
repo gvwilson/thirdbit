@@ -2391,153 +2391,189 @@ he pushed the two girls into the room.
 
 ## Santasaurus Rex!
 
-The fitting room was larger than it first seemed. Tables, shelves,
-racks, cupboards, and stacks of boxes made it a maze, so that no matter
-which way the girls and their three guards turned, the walls never
-seemed to get get any closer.
+The fitting room was larger than it first seemed.
+Tables, shelves, racks, cupboards, and stacks of boxes made a maze
+for the girls and their three guards.
 
-And it was definitely *three* guards now, at least in Madica's mind.
-Ike kept chattering brightly about how cool it would be to have this
-searchlight mounted on your head, or how practical snowshoe feet would
-be, but Madica just glared at him.
+And it was definitely *three* guards now in Madica's mind.
+Ike kept chattering brightly about
+how cool it would be to have a searchlight mounted on your head,
+or how practical snowshoe feet would be,
+but Madica just glared at him.
 
-And Laurellen—well, Laurellen looked like someone had just scribbled
-ink all over her favorite book on purpose. Madica took her friend's
-hand and squeezed it. Laurellen smiled weakly at her, but didn't say
-anything.
+And Laurellen—Laurellen looked like
+someone had just scribbled ink all over her favorite book on purpose.
+Madica took her friend's hand and squeezed it.
+Laurellen smiled weakly at her but didn't say anything.
 
-"And this," Ike said proudly, "This is the best… thing… ever!"
-They had reached a table covered in propellors, jet engines, booster
-rockets, and something that looked like the lid of a very complicated
-garbage can that hummed slightly and seemed to be floating. "This is
-where they brought me. Look!" He held up a wing. "We could be twins!"
+Finally they reached a table covered in propellors,
+jet engines,
+booster rockets,
+and something that looked like the lid of a very complicated garbage can
+that hummed slightly and seemed to be floating.
+"And this," Ike said proudly, "This is the best… thing… ever!
+Look!"
+He held up a wing.
+"We could be twins!"
 
-"We don't want to be twins with you," Madica said bitterly. "*We*
-just want to go home."
+"We don't want to be twins with you,"
+Madica said bitterly.
+"*We* want to go home."
 
-Crestfallen, Ike put the wing back on the table. "I understand," he
-mumbled. "But once they enhance you, you'll—"
+Crestfallen, Ike put the wing back on the table.
+"I guess," he mumbled.
+"But once they enhance you, you'll—"
 
-"We don't want to be enhanced! Don't you get it? We want to stop the
-asteroid from smashing the whole planet and then go home!"
+"We don't want to be enhanced!
+Don't you get it?
+We want to stop the asteroid and then go home!"
 
-"Mind there, no need to shout," the pogo ELF said, as "Rude! Rude!"
-flashed on the other ELF's chest. "Now, do you want to be a flyer like
-your friend here, or would you rather something else?"
+"Mind there, no need to shout," the pogo ELF said,
+as "Rude! Rude!" flashed on the other ELF's chest.
+"Now,
+do you want wings like your friend here or would you rather something else?"
 
-Madica was about to start shouting for real when a familiar voice
-whispered in her ear, "Be a dear and tell them you want the saucer
-thingy—the floaty one."
+Madica was about to start shouting for real
+when a familiar voice whispered in her ear,
+"Be a dear and tell them you want the saucer thingy—the floaty one."
 
-She froze. "Go on," the cat whispered. "Before they decide you should
-be a stove or the like. You'd not enjoy that, I wager."
+She froze.
+"Go on," the cat whispered.
+"Before they decide you should be a stove or the like.
+You'd not enjoy that, I wager."
 
-Madica cleared her throat. "What about that one?" she asked, pointing
-at the humming hubcap.
+Madica cleared her throat.
+"What about that one?" she asked,
+pointing at the humming hubcap.
 
-"The saucer motivator? That's a great choice!" Ike enthused. "I
-almost picked that one too, but—"
+"The saucer motivator? That's a great choice!" Ike enthused.
+"I almost picked that one too, but—"
 
-"Is there another one for Laurellen?" Madica interrupted, speaking
-directly to the pogo ELF as if Ike wasn't there. "So that we can be
-twins with *each other*?"
+"Is there another one for Laurellen?" Madica interrupted,
+speaking directly to the pogo ELF as if Ike wasn't there.
+"So that we can be twins with *each other*?"
 
-The pogo ELF glanced at the screen ELF, which and started rummaging
-about. "Why not? There should be another—ah, there you are." The
-screen ELF held up hubcap, then switched it on and let it go. It floated
-in the air, bobbing slightly, until the screen ELF nudged it over to
-Laurellen.
+The pogo ELF glanced at the screen ELF,
+which started rummaging about.
+"Why not? There should be another—ah, there you are."
+The screen ELF held up hubcap,
+then switched it on and let it go.
+It floated in the air,
+bobbing slightly,
+until the screen ELF nudged it over to Laurellen.
 
-"Good enough?" the pogo ELF asked. "Right, then, let's go see if
-Himself is free."
+"Good enough?" the pogo ELF asked.
+"Right, then, let's go see if Himself is free."
 
-"That's the best part," Ike whispered loudly to Laurellen. "You get
-to meet *him*."
+"This is the best part," Ike whispered loudly to Laurellen.
+"You get to meet *him*."
 
-"Him who?" Laurellen asked, ignoring Madica's "we're not talking to
-him" scowl.
+"Him who?" Laurellen asked,
+ignoring Madica's "we're not talking to him" scowl.
 
-"*Him.*" Ike fluttered his wing flaps. "Himself. *Santa Claws*."
+"*Him.*" Ike fluttered his wing flaps.
+"Himself. *Santa Claws*."
 
-The screen ELF opened the door. "Move along, move along, we haven't
-got all day," flashed impatiently on its chest.
+The screen ELF opened the door.
+"Move along, move along, we haven't got all day,"
+flashed impatiently on its chest.
 
-As Madica reached for the first saucer motivator, a whisker tickled her
-cheek. "Stay close together," the cat whispered in Madica's ear. She
-turned her head ever so slightly, trying to catch a glimpse of it out of
-the corner of her eye, but all she could see was the pile of gears and
-pulleys on the table behind her. She nodded once.
+As Madica reached for the first saucer motivator,
+a whisker tickled her cheek.
+"Stay close together," the cat whispered in Madica's ear.
+She turned her head ever so slightly,
+trying to catch a glimpse of it,
+but all she could see was the pile of gears and pulleys on the table behind her.
 
-"Come on," she said to Laurellen, putting her arm through her
-friend's. "Everything's going to be all right."
+"Come on," Madica told Laurellen,
+putting her arm through her friend's.
+"Everything's going to be all right."
 
-The corridor was even colder than it had been before, so cold that
-Madica and Laurellen tried sharing Laurellen's coat. It didn't work:
-try as they would, they couldn't get it closed in front and still walk,
-so they had to take turns once again. Their breath steamed in the frigid
-arctic air as they followed the pogo ELF through hallway after hallway,
-up one flight of stairs and down another.
+The corridor was even colder than it had been before,
+so cold that Madica and Laurellen tried sharing Laurellen's coat.
+It didn't work:
+try as they would,
+they couldn't get it closed in front and still walk,
+so they took turns once again.
+Their breath steamed as they followed the pogo ELF through the tiled white hallways,
+up one scuffed flight of stairs and down another.
 
-Getting the saucer motivators up and down the stairs was a puzzle at
-first: for all their pushing and tugging, they couldn't get the silver
-disks to move up or down, just sideways. Ike offered to help, but backed
-away when Madica snapped, "We're okay, thank you very much." That's
-when the pogo ELF hopped back and showed them the buttons in the center
-of the motivators. Push the bottom one, and the motivator rose. Push the
-top one, and it sank.
+Getting the saucer motivators up and down the stairs was a puzzle at first.
+For all their pushing and tugging,
+they couldn't get the silver disks to move up or down,
+just sideways.
+Ike offered to help,
+but backed away when Madica snapped,
+"We're okay, thank you very much."
+That's when the pogo ELF hopped back
+and showed them the buttons in the center of the motivators
+that made it rise and sink.
 
-After that, there was just the tramp, tramp, tramp of their feet, the
-boing… boing… of the pogo ELF, and the occasional sniffle from
-Ike, who might well have been the only jet in history with a runny nose.
+After that there was just the tramp, tramp, tramp of their feet,
+the boing… boing… of the pogo ELF,
+and the occasional sniffle from Ike,
+who might well have been the only jet in history with a runny nose.
 
-After what seemed like ages, but was probably only ten or fifteen
-miserable, freezing minutes, they turned a corner and found themselves
+A few miserable, freezing minutes later
+they turned a corner and found themselves
 at the top of an escalator whose steps seemed to be carved out of ice.
-Down they went, pushing the motivators' buttons every few seconds to
-bring them along, into a room bigger than Madica's whole house. Round
-frosted lights dangled in clusters from its ceiling like glowing white
-cherries.
+Down they went,
+pushing the motivators' buttons every few seconds to bring them along,
+into a room bigger than Madica's whole house.
+Round frosted lights dangled in clusters from its ceiling like glowing white cherries.
 
-Madica gulped. There, on the far side, was a desk twice her height—a
-desk with a squat body spliced into its cast-iron top. Four long arms
-pulled sheets of paper out the slots in the desk's top every time a
-little bell went *ding!* A beaky face scowled at them, muttered
-"Naughty," scribbled something on them, and fed them into other slots.
+Madica gulped.
+There in front of them was a desk twice her height—a desk with
+a squat body spliced into its cast-iron top
+Four long arms pulled sheets of paper out of the slots in the desk's top
+every time a little bell went *ding!*
+A beaky face scowled at each one,
+muttered "Naughty,"
+scribbled something on it,
+and fed it into other slots.
 
-But then she looked more closely and realized that this deskbot wasn't
-exactly the same as the one she'd seen earlier. Its beak was a
-different shape, and the streaks of rust running down it were thicker.
-Its arms squeaked a bit as they moved, too, and it actually looked up
-when the pogo ELF cleared its throat.
+But no,
+this deskbot wasn't exactly the same as the one she had seen earlier.
+Its beak was a different shape
+the streaks of rust running down it were thicker,
+and its arms squeaked a bit as they moved.
 
-"Volunteers for enhancement to be reviewed by Himself," it announced
-importantly.
+It actually looked up when the pogo ELF cleared its throat.
+"Volunteers for enhancement to be reviewed by Himself,"
+the ELF announced importantly.
 
 The deskbot turned its glowing red eyes on Madica and Laurellen.
-"Hmph." One arm pulled a lever sticking out of the floor beside its
-desk while the other three continued their yanking and scribbling.
+"Hmph."
+One arm pulled a lever sticking out of the floor beside its desk
+while the other three continued their yanking and scribbling.
 
-The double doors behind it swung open slowly and silently. "Go on,"
-Ike whispered, "Go ahead!"
+The double doors behind it swung open slowly and silently.
+"Go on!" Ike whispered loudly. "Go ahead!"
 
-Madica took a deep breath and let it out. This time it was Laurellen who
-took her hand to squeeze. "It's going to b-b-be all right,
-r-r-remember?"
+Madica took a deep breath and let it out.
+This time it was Laurellen who took her hand to squeeze.
+"It's going to be all right, remember?"
 
-Madica nodded. Together, pushing their saucer motivators ahead of them,
+Madica nodded.
+Together,
+pushing their saucer motivators ahead of them,
 she and Laurellen walked into the room.
 
 And stopped.
 
-And looked up—*way* up—at a rusty steel head that ten people could
-have sat on side by side, and rusty steel teeth as long as Madica's
-legs, and arms that weren't ridiculously little at all, not up close on
-a body built like a hungry missile on two piston legs. It was him. It
-was Santa Claws, the one and only santasaurus rex, standing beneath a
-glass ceiling the size of a football field.
+And looked up—*way* up—at
+a rusty steel head that three people could have sat on side by side,
+and rusty steel teeth as long as Madica's legs,
+and arms that weren't ridiculously little at all,
+not when seen up close
+on a body built like a hungry missile on two piston legs.
+It was him.
+It was Santa Claws,
+the one and only santasaurus rex,
+standing beneath a glass ceiling the size of a football field.
 
-He lowered his head slightly, turning it from side to side to look at
-them with each of his glowing red eyes in turn. "Mm…" he rumbled.
+He lowered his head slightly to look at them with his glowing red eyes.
+"Mm…" he rumbled.
 "Are you my lunch?"
 
 </section>
