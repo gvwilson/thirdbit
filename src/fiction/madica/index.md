@@ -2582,118 +2582,138 @@ He lowered his head slightly to look at them with his glowing red eyes.
 
 ## Lunch!
 
-"No, sir," rasped a voice from behind the two girls. "They aren't
-your lunch. We're not having lunch today."
+"No, sir," rasped a voice behind the two girls.
+"They aren't your lunch.
+We're not having lunch today."
 
-"Ah." The glowing red light in Santa's eyes dimmed. "Pity. I
-haven't had lunch in… in quite a while."
+"Ah."
+Santa's glowing red eyes dimmed.
+"Pity. I haven't had lunch in quite a while."
 
-"That's right, sir." The voice sounded like metal scraping on stone.
+"That's right, sir."
+The voice sounded like metal scraping on stone.
 "You don't eat lunch any more."
 
-"Ah. Pity. I think I rather enjoyed it." Santa's eyes went dark. His
-body sagged slightly, as if the tension had gone out of whatever wires
-and cables were holding it together. Madica let out the breath she
-hadn't realized she was holding and was finally able to turn and see
-who had been speaking.
+"Pity," Santa Claws repeated.
+"I think I rather enjoyed it."
+His eyes went dark and his body sagged slightly,
+as if the tension had gone out of
+whatever wires and cables held it together.
 
-It was the deskbot. It had rubber casters at the end of each of its four
-straight legs, and had rolled silently into the room behind them. Ike
-stood beside it, bouncing up and down with excitement.
+Madica let out the breath she hadn't realized she was holding
+and turned to see who had been speaking.
+It was the deskbot.
+It had rubber casters at the end of each of its legs,
+and had rolled silently into the room behind them.
 
-"Wasn't he great?" he burbled. "I mean, wow, Santa Claws—*the*
-Santa Claws. And he talked to you and everything!"
+Ike stood beside it,
+bouncing up and down.
+"Wasn't he great?" he burbled.
+"I mean, wow, Santa Claws—*the* Santa Claws.
+And he talked to you and everything!"
 
-"Talk to us? He wanted to *eat* us!" Madica said hotly. "And don't
-say, yeah, but he didn't, or I'll—I'll—"
+"Talk to us? He wanted to *eat* us!" Madica said hotly.
+"And don't say, yeah, but he didn't, or I'll—I'll—"
 
-"This interview is over," the deskbot announced flatly. It spun around
-and started rolling back to its post outside the door. "You will be
-taken for enhancement now."
+"This interview is over," the deskbot announced flatly.
+It spun around and started rolling back to its post outside the door.
+"You will be taken for enhancement now."
 
-"And if I—if *we* say no?" Madica asked, crossing her arms.
+Madica crossed her arms.
+"And if I—if *we* say no?"
 
-The deskbot never had a chance to answer. With a blood-curdling yowl,
+The deskbot never had a chance to answer.
+With a blood-curdling yowl,
 the ninja cat finally made its move.
 
-Later, Madica would wonder where it had been hiding, and how a black
-cat, ninja or not, could possibly hide in a white corridor. Right then,
-all she could do was duck as the cat leaped over the screen ELF, rolled
-under the pogo ELF just as it was at the top of its endless bouncing,
-jumped up and ran *across* the top of the deskbot, dodging its arms with
-a graceful backflip, and landed on one of the saucer motivators. The
-motivator flew forward under the impact, right into Madica's middle.
+Madica would wonder later where it had been hiding.
+Right then all she could do was duck as the cat leaped over the screen ELF
+and rolled under the pogo ELF,
+jumped up and ran *across* the deskbot,
+and landed on one of the saucer motivators.
+The motivator flew forward under the impact,
+right into Madica's middle.
 
-"Oof!" she grunted. Before she could straighten up, the cat reached
-down under the motivator and hit the 'up' switch.
+"Oof!" she grunted,
+falling onto it just in time for the cat to hit the 'up' switch.
 
-The motivator shot into the air with Madica and the cat on top of it. At
-the last possible moment, the cat pounced—right onto Madica's bum.
-"Ow!" she exclaimed as its claws dug in. Off-balance, the motivator
-flipped onto its side. Madica flew off and landed right on Santa Claws'
-head.
+The motivator shot into the air with Madica and the cat on top of it.
+At the last possible moment,
+the cat pounced—right onto Madica's bum.
+"Ow!" she exclaimed as its claws dug in.
+Off-balance,
+the motivator flipped onto its side.
+Madica flew right onto Santa Claws' head.
 
-The cat landed beside her and snagged her arm before she could slide
-off. "Right," it said. "Now we need one of the blighter's eyes."
+The cat landed beside her
+and snagged her arm before she could slide off.
+"Good show," it said.
+"Now we need one of the blighter's eyes."
 
-"What? What?" Madica's heart was pounding. "What were you
-*thinking*? I could have been killed!?"
+"What!?" Madica's heart pounded in her chest.
+"What were you *thinking*?
+I could have been killed!?"
 
-"I was thinking you wanted to help save the world," the cat snapped.
-"Now, if you don't mind, could you please unscrew one of its eyes
-before the guards—oh dear." The cat pounced again, this time onto
-Madica's head to push it down an instant before a ruby beam lanced
-through the air.
+"I was *thinking* you wanted to save the world," the cat snapped.
+"Now if you don't mind,
+could you please unscrew one of its eyes before the guards—oh dear."
+The cat pounced onto Madica's head,
+push it down just as a ruby beam lanced through the air.
 
-"Blast," the cat cursed. "I was afraid of that." Down below, the
-deskbot had taken a laser pistol out of one of its drawers and was
-lining up a second shot. "You get the eye—I'll try to draw their
-fire. Oh, and best hurry—you don't want to be up here when Himself
-wakes up."
+"Blast," the cat cursed. "I was afraid of that."
+Down below,
+the deskbot had taken a laser pistol out of one of its drawers
+and was lining up a second shot.
+"You get the eye—I'll try to draw their fire.
+Oh, and best hurry—you don't want to be up here when Himself wakes up."
 
-*Bzzzzap!* The air above Madica's head suddenly smelled like a hot
-frying pan. "Wakes up!? Why don't *you* get the eye!?"
+*Bzzzzap!*
+The air above Madica's head suddenly smelled like a hot frying pan.
+"Wakes up!? Why don't *you* get the eye!?"
 
-"No thumbs, remember?" The cat bunched its hindquarters and leaped
-into the air as if to catch the next ruby-red beam that sizzled above
-it. It twisted as it landed and bounded back along the dino-bot's rusty
-metal spine.
+"No thumbs, remember?"
+The cat bunched its hindquarters and leaped into the air
+as if to catch the next ruby-red laser beam.
+It twisted as it landed and bounded back along the dino-bot's rusty metal spine.
 
-With her heart in her throat, Madica slid her hand along Santa Claws's
-head and down to its eye. She tried twisting it, first one way and then
-the other. When nothing happened, she edged over to get some leverage
-and pulled.
+With her heart in her throat,
+Madica slid her hand along Santa Claws's head and down to its eye.
+She twisted it one way and then the other.
+When nothing happened,
+she edged over to get some leverage and pulled.
 
-*Pop!* Trembling, she pulled her hand back up, waiting for a shout from
-the ELFs below or for the bright, final light of a laser beam. But the
-deskbot was still shooting at the cat, who was practically dancing along
-Santa's tail to keep its attention.
+*Pop!*
 
-*Now what do I do?* Madica thought wearily. She was pretty sure she knew
-what would happen if she held up the eye and shouted, "I have it!" She
-peeked over the side of the dinosaur's enormous head. Laurellen and Ike
-were still below, along with six—no, seven—no, eight—ELFs of
-varying shapes, sizes, and armaments. Two of them even seemed to be
-taking a third apart in order to build what she really, really hoped
-wasn't a rocket launcher.
+*Now what do I do?* Madica thought frantically.
+Holding up the eye and shouting,
+"I have it!"
+didn't seem like a good idea,
+so she peeked over the side of the dinosaur's enormous head.
+Laurellen and Ike were still below,
+along with six—no, seven—no, eight—ELFs of varying shapes, sizes, and armaments.
+Two of them even seemed to be taking a third apart
+in order to build what she really, really hoped wasn't a rocket launcher.
 
-Luckily (although that might not actually be the best word), Santa Claws
-chose that moment to wake up. With a scraping grind and a gust of
-oil-stained breath, it opened its mouth in a yawn that Madica's entire
-class could have taken a one-way ride in. She yelped as it stretched its
-neck and took a couple of tentative, half-awake steps.
+Luckily (although that might not actually be the best word),
+Santa Claws chose that moment to wake up.
+With a scraping grind and a gust of oil-stained breath,
+it opened its mouth in a yawn as big as a bathtub.
 
-Madica bit her lip to stop herself from shrieking as Santa Claws bent
-down and tilted its head to look at the ELFs with its remaining eye.
-"Are you my lunch?" it rumbled?
+She yelped as it stretched its neck and took a couple of tentative steps,
+then bit her lip to stop herself from shrieking
+as Santa Claws bent down and tilted its head
+to look at the ELFs with its remaining eye.
+"Are you my lunch?" it rumbled.
 
-Somehow the ninja cat was back just in time to answer. "Oh yes," it
-said right into Santa's ear. "Yes *sir*! They are indeed your lunch.
-Bon appetit!" And as the world's only, and therefore hungriest,
-santasaurus rex leaned foward to gobble up the closest ELF, the cat dug
-its claws into Madica's arm and threw itself to the side. With a yelp
-and a tumble, she rolled clumsily past the rusty metal ear, slid down
-Santa's next, and landed splat on the floor on her backside.
+Somehow the ninja cat was back just in time to answer.
+"Absolutely!" it said right into Santa's ear.
+"They are indeed your lunch. Bon appetit!"
+As the world's only,
+and therefore hungriest,
+santasaurus rex leaned foward to gobble up the closest ELF,
+the cat dug its claws into Madica's arm and threw itself to the side.
+With a yelp and a tumble,
+she slid clumsily down Santa's back and landed on the floor.
 
 </section>
 
