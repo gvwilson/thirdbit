@@ -2721,128 +2721,162 @@ she slid clumsily down Santa's back and landed on the floor.
 
 ## Glue!
 
-The next few moments were a symphony of yelling and clanking. Some of
-the ELFs ran for the door. Others started shooting at Santa Claws, who
-roared at the sting of their laser beams.
+The next few moments were a symphony of yelling and clanking.
+Some of the ELFs ran for the door
+while others started shooting at Santa Claws,
+who roared as the laser beams pricked its metal hide.
 
-Madica scrambled to her feet a moment before she would have been stepped
-on by a clawed metal leg. She looked around wildly. Where was Laurellen?
-Where was her friend? Where had she—
+Madica scrambled to her feet
+a moment before she would have been stepped on by a clawed metal leg.
+She looked around frantically.
+Where was Laurellen?
 
-There! The deskbot had grabbed one of her arms and was pulling her with
-it as it rolled backward toward the door. Ike had grabbed her other arm
-and was trying to pull her free, but his landing gear couldn't get a
-grip on the floor, so he was being dragged along with her.
+There!
+The deskbot had grabbed one of her friend's arms
+and was pulling her by it as it rolled backward toward the door.
+Ike was trying to pull her free,
+but his landing gear kept slipping on the floor.
 
-"Laurellen!" Madica shouted. Santa Claws was swinging his enormous
-head back and forth, trying to focus his remaining eye on an ELF long
-enough to catch it. The floor shook with every step it took. How was she
-going to get past it? And what we should do then?
+"Laurellen!" Madica shouted.
+Santa Claws was swinging his enormous head back and forth,
+trying to focus his remaining eye on an ELF long enough to catch it.
+The floor shook with every step it took.
+She couldn't get past it!
 
-Suddenly the cat was beside her again. "Excellent work," it panted.
-For the first time since Madica had met it, its fur wasn't perfectly
-groomed. "Now, let's see if we can—"
+Suddenly the cat was beside her again.
+"Excellent work," it panted.
+For the first time since Madica had met it,
+its fur wasn't perfectly groomed.
+"Now, let's see if we can—"
 
-"I'm not doing *anything* until we rescue Laurellen!" Madica snapped.
+"Not without Laurellen!"
+Madica snapped.
 
-The cat huffed. "I was *going* to say, let's see if we can collect
-your friends and get out of here, shall we? Because I do think we've
-overstayed our welcome. But mind you don't lose that—we'll need it
-later."
+The cat huffed.
+"I was *going* to say,
+let's see if we can collect your friend and get out of here,
+because I do think we've rather overstayed our welcome.
+But mind you don't lose that,"
+it added,
+nodding at the electric eye in Madica's hand.
+"We'll need it later."
 
-It took Madica a moment to realize that the cat was talking about the
-dinosaur's eye. "Fine," she said curtly, stuffing it into her pocket.
+Madica stuffed the eye into her pocket.
 "Now what?"
 
-"Now you follow me." And off it went again, zigzagging through the
-dinosaur's legs, tripping one ELF and bounding up to plant all four
-feet on the chest of another to leap over a third. Madica didn't do any
-of that—she just ran straight for Laurellen.
+"Now you follow me."
+And off it went again,
+zigzagging between the dinosaur's legs,
+tripping one ELF
+and bounding up to plant all four feet on the chest of another to leap over a third.
+Madica didn't do any of that—she just ran straight for Laurellen.
 
-*Chomp!* Ten steps behind her, the ELF that the cat had tripped wasn't
-quick enough getting to its feet. *Bzzzzap!* The one it had leaped over
-fired its laser into the air. The cat wove between the legs of two other
-ELFs and launched itself at the deskbot.
+*Chomp!*
+Ten steps behind her,
+the ELF that the cat had tripped wasn't quick enough to escape Santa Claws.
+*Bzzzzap!*
+The one it had leaped over fired its laser into the air.
+The cat wove between the legs of two other ELFs and launched itself at the deskbot.
 
-But the deskbot had been waiting for it. That was all Madica could
-think, afterward, when she had time to think. The deskbot had been
-firing its laser at Santa Claws like all the other ELFs. It wasn't
-pointed anywhere near the cat, but at the very last moment, one of its
-other arms reached into another drawer and pulled out *another* laser
+But the deskbot had been waiting for the cat's attack.
+It had been firing its laser at Santa Claws like all the other ELFs.
+As the cat leaped into the air it reached into another drawer,
+pulled out another laser,
 and fired.
 
-The cat twisted mid-air in a desperate attempt to avoid the shot, but it
-couldn't, not completely. With a flash and a sizzle, the red beam
-sliced the cat's tail clean off its body. The cat yowled in pain and
-rage. One kick knocked the second laser out of the deskbot's hand.
-Another, and the first laser was tumbling through the air as well. A
-well-aimed swipe of one front paw, and Laurellen stumbled away leaving
-stray shreds of her jacket in the deskbot's clutches.
+The cat twisted mid-air in a desperate attempt to avoid the shot,
+but the red beam flashed.
+With a sizzle it sliced the cat's tail clean off its body.
 
-The deskbot spun and raced away on its silent wheels with the remaining
-ELFs behind it and the rampaging santasaurus behind them. Madica rushed
-over to give Laurellen a quick hug, then turned to the cat. It was
-sitting on the floor, staring at the smoldering end of its lost tail.
-"Are—are you OK?" Madica asked.
+The cat yowled with fury.
+One kick knocked the second laser out of the deskbot's hand.
+Another kick sent the first laser tumbling through the air as well.
+With a final swipe of its paw
+and Laurellen stumbled free
+leaving stray shreds of her jacket in the deskbot's clutches.
+
+The deskbot spun and sped away
+with the remaining ELFs behind it and the rampaging santasaurus behind them.
+Madica darted across the room to give Laurellen a quick hug,
+then turned to the cat.
+It was sitting on the floor,
+staring at the smoldering end of its lost tail.
+"Are you OK?" Madica asked.
 
 There was a long pause before the cat blinked and shook its head.
-"There are always losses," it said quietly. It blinked again and
-looked up at Madica. "Do you still have the eye?"
+"There are always losses," it said quietly.
+It blinked again and looked up at Madica.
+"Do you still have the eye?"
 
-"Right here." She held it out.
+"Right here."
+She pulled it out of her pocket.
 
-"Is that… Gosh, is that *Santa's* eye?" Ike hadn't fled with the
-other ELFs. Instead, he was standing next to Laurellen—or rather, sort
-of next to her, but not quite close enough to be 'next' to her.
+"Is that… Gosh, is that *Santa's* eye?"
+Ike hadn't fled with the other ELFs.
+Instead,
+he was standing next to Laurellen looking afraid and bewildered.
 
-Madica ignored him. "What do we do now?"
+Madica ignored him.
+"What do we do now?"
 
-The cat heaved a sigh. "Save the world, I suppose." With a lightning
-swipe of its paw, it batted its tail away across the floor. "And to do
-that, we'll need—"
+The cat heaved a sigh.
+"Save the world, I suppose."
+With a swipe of its paw,
+it batted its tail away across the floor.
+"And to do that, we'll need—"
 
-Whatever the cat was going to say was cut off by the loud *hrrrnk!
-hrrrnk!* of an alarm. Red lights began flashing on the walls around them
-and out in the corridor. "I see they've finally noticed that Himself
-is on the loose," the cat said loudly. "We'd best get moving before
-they—"
+Whatever the cat was going to say was cut off by the loud *hrrrnk! hrrrnk!* of an alarm.
+Red lights began flashing on the walls around them and out in the corridor.
+"I see they've finally noticed that Himself is on the loose," the cat said.
+"We'd best get moving before they close the—"
 
-*Clang!* Madica jumped and shrieked as a pair of enormous metal doors
-slid sideways out of the wall and slammed together, blocking their exit.
-As they did so, hatches opened in the walls and transparent goo started
-gushing into the room.
+*Clang!*
+Madica jumped and shrieked as
+a pair of enormous metal doors slid sideways out of the wall and slammed together,
+blocking their exit.
+A moment later hatches opened in the walls
+and transparent goo started gushing into the room.
 
-"Now what!?" Laurellen asked.
+"Blast."
+The cat twitched the stub of its tail in annoyance.
+"It's emergency glue.
+We thought they'd gotten rid of that."
 
-"Blast." The stub of the cat's tail twitched. "It's emergency glue.
-We thought they'd taken that out."
+"And the doors?" Madica demanded.
+"The big thick steel doors that we can't get through?"
 
-"And the doors?" Madica demanded. "The big thick steel doors that we
-can't get through?"
+"They must be new."
+The cat looked up at the two saucer motivators
+stuck against the glass ceiling high above their heads.
+"Pity we didn't hang onto those."
 
-"They must be new." The cat looked up at the two saucer motivators
-stuck against the glass ceiling high above their heads. "Pity we
-didn't hang onto those."
+Madica's shoulders slumped.
+"So there's no way out?
+We've lost?"
 
-Madica slumped. "So this is it? There's no way out? We've lost? The
-world is going to be destroyed, and we can't stop it?"
+Ike cleared his throat.
+"I—I can help. I think. Maybe."
+He shifted uncomfortably as Laurellen, Madica, and the cat turned their eyes on him.
+"I've got almost a full tank of fuel,
+so I could fly up their and maybe get those saucer things
+and bring them down here
+so you could at least get away from the glue
+and then maybe you'd want to be enhanced after all and stay here?"
+He looked at Laurellen as he spoke,
+his voice pleading.
 
-Ike cleared his throat. "I—I can help. I think." He shifted
-uncomfortably as Laurellen, Madica, and the cat turned their eyes on
-him. "I—I've got almost a full tank of fuel, so I could fly up their
-and maybe get those saucer things and bring them down here so you could
-at least get away from the glue and then maybe you'd want to be
-enhanced after all and stay here?" He was looking straight at Laurellen
-by the time he finished, his voice full of pleading.
+Laurellen put her hand on Ike's wing.
+"I can't stay," she said gently.
+"There won't be a world to stay *in* if the asteroid hits, and I…"
+She stopped to swallow.
+"I want to be with my parents when that happens.
+Don't you want to be with yours?
+Don't you want to go home?"
 
-Laurellen stepped forward and put her hand on Ike's wing. "I can't
-stay," she said gently. "There won't be a world to stay *in* if the
-asteroid hits, and I…" She stopped to swallow. "I want to be with
-my parents when that happens. Don't you want to be with yours? Don't
-you want to go home?"
-
-Ike slumped. "This *is* my home now." Then he straightened. "But
-I'll help you go back to yours if you want."
+Ike pulled his wing away.
+"This is my home now."
+Then he straightened.
+"But I'll help you go back to yours if you want."
 
 </section>
 
