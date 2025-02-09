@@ -2884,143 +2884,181 @@ Then he straightened.
 
 ## Escape!
 
-It turned out that jets weren't very good at climbing stairs. Ike's
-wings kept banging against the handrail, so he had to turn sideways, but
-his landing gear didn't move from side to side, so every step was an
-awkward dance of tipping, tilting, and more-or-less falling up the next
-stair.
+It turned out that jets weren't very good at climbing stairs.
+Ike had to turn sideways so that his wings wouldn't bang against the handrail,
+but his landing gear didn't move from side to side,
+so every step was an awkward dance of tipping,
+tilting,
+and more-or-less falling up the next stair.
 
-Every tenth step, when he paused to catch his breath, he offered to fly
-to the top and wait for them. The cat overruled him each time with
-mounting impatience. "We don't know how much fuel you have," it
-finally snapped. "And it would be rather awkward to run out at the
-wrong moment."
+Every tenth step he paused to catch his breath
+and offer to fly to the top and wait for them.
+The cat overruled him each time with mounting impatience.
+"We don't know how much fuel you have,"
+it finally snapped.
+"And it would be rather awkward to run out at the wrong moment."
 
-They finally reached the upper walkway. Madica could feel the icy breeze
-coming through the holes the saucer motivators had made in the glass
-roof. Ice already rimed the glass where it curved down to meet the wall.
-She wrote a big 'M' in it with her fingertip and sighed.
+They finally reached the upper walkway.
+A frozen wind gusted through the holes the saucer motivators had knocked in the glass roof.
+Ice already rimed the glass where it met the wall.
+Madica wrote an 'M' in it with her fingertip and sighed.
 
-Ike was lighter than he looked. Even so, once he lay down on the floor
-it was a struggle to lift his tail section to point at the glass. Madica
-braced herself against one of his wings. Laurellen braced herself
-against the other. The cat licked his paw and used it to smooth down the
-fur on his ears. "Ready?" it asked.
+Ike was lighter than he looked.
+Even so,
+once he lay down on the floor
+it was a struggle to lift his tail section to point at the glass.
+Madica and Laurellen each braced against one of his wings.
+The cat licked his paw and used it to smooth down the fur on his ears.
+"Ready?" it asked.
 
 "Ready," the two fairies said.
 
 "I guess so," Ike added in a muffled voice.
 
-"Right, then. Fire it up!" the cat ordered.
+"Right, then," the cat ordered.
+"One, two, *three*!"
 
-Ike fired his jet. A cone of flame splashed against the metal bars
-holding the windows in place, orange around the edges and blue within.
-It only took a few moments for them to turn dull red. As they
-brightened, glowing in the heat of the jet, an alarm started ringing
-below.
+Ike ignited his jet.
+A cone of flame splashed against the metal bars holding the windows in place,
+orange around the edges and blue within.
+It only took a few moments for the bars to turn dull red.
+As they brightened,
+glowing in the heat of the jet,
+an alarm started ringing below.
 
-"What's that?" Ike shouted over the roar of his own jet.
+"What's that?"
+Ike shouted over the roar of his own jet.
 
-"Not for worry!" the cat shouted back. "They're just finally getting
-around to opening the door."
+"Bad news for us, I imagine," the cat shouted back.
+"Not to rush you, but if you could speed things along?"
 
-Ike turned up his jet. "I… can't… hold… him…" Madica
-grunted, pushing back against the jet's thrust with all her might. She
-glanced at Laurellen. Her friend's eyes were closed, and her jaw
-clenched.
+Ike turned up his jet.
+"I… can't… hold… him…" Madica grunted,
+pushing back against the thrust with all her might.
+She glanced at Laurellen.
+Her friend's eyes were closed and her jaw clenched.
 
-Suddenly Madica felt her feet slip. "Ike!" she shrieked. "Turn it
-down!"
+Suddenly Madica's feet slipped.
+"Ike!" she shrieked.
+"Turn it down!"
 
-"No!" The cat's tail whipped from side to side. "Just more one
-minute!"
+"No!"
+The cat's tail whipped from side to side.
+"Just more one minute!"
 
-Madica's feet slipped again. The bars were sagging, and the glass
-behind them dripping down like ice cream on a warm day, but she
-couldn't… hold… on…
+Madica's feet slipped again.
+The bars were sagging,
+and the glass between them was dripping down like ice cream on a warm day,
+but she couldn't… hold… on…
 
-*Clang!* The metal bars fell to the floor. *Crash!* The half-melted
-window fell from its frame and shattered against the floor.
+*Clang!*
+The metal bars fell to the floor.
+*Crash!*
+The half-melted window fell from its frame and shattered against the floor.
 
-Freezing arctic air gusted in. "Help!" Ike squawked. "I can't get
-up!" The girls wrestled him back to his feet.
+Freezing Arctic air gusted in.
+"Help!" Ike squawked.
+"I can't get up!"
+The girls wrestled him back onto his landing gear.
 
-Below them, the enormous door finally opened with a sound like the
-world's biggest boot being pulled out of the world's biggest mud
-puddle. Madica looked over the railing. The glue that had filled the
-room to second-story height was slowly flowing out the door. A pair of
-helicopter ELFs were circling above it, shining bright spotlights into
-the glue. *They're looking for us,* she realized.
+Below them,
+the enormous door finally opened
+with a sound like the world's biggest boot being pulled out of the world's biggest mud puddle.
+Madica looked over the railing.
+The glue that had filled the room to second-story height was oozing out the door.
+A pair of helicopter ELFs circled above it,
+shining bright spotlights into the translucent goop.
 
 "They think we're in the glue," Laurellen whispered to her loudly.
 
-"Best be gone before they realize their mistake," the cat whispered
-back, making them both jump. It nodded at Ike. "Come on."
+"Best be gone before they realize their mistake,"
+the cat whispered back,
+making them both jump.
+It nodded at Ike.
+"Come on."
 
-Madica and Laurellen helped Ike tilt himself forward. "Whoa…" he
-gasped. Madica stuck her head out the window to look as well, then
-wished she hadn't. Ike was right: they were at least a dozen floors up,
-looking out over a narrow valley edged with jagged rocks and icefalls.
+Madica and Laurellen helped Ike tilt forward.
+"Whoa…" he gasped.
+Madica stuck her head out the window to look as well,
+immediately wishing she hadn't.
+"Whoa" was right:
+they were at least a dozen floors up,
+looking out over a narrow valley filled with jagged rocks and icefalls.
 
-"Are you sure this is a good idea?" she asked the cat. Before it could
-answer, a red laser beam went *bzzzzap!* above their heads. The
-helicopter ELFs had found them!
+"Are you sure this is a good idea?" she asked the cat.
+Before it could answer,
+a red laser beam went *bzzzzap!* above their heads.
+The helicopter ELFs had spotted them!
 
-"I think it's a *splendid* idea," the cat said firmly. "Now go!"
-With one bound, it leaped up onto Ike's back. Laurellen got on behind
-him, leaning forward to hold onto the front edges of his wings as if
-they were the handlebars on a racing bike. Madica sat behind her with
-her arms tight around her best friend's waist.
+"I think it's a *splendid* idea," the cat said firmly.
+"Now go!"
+It leaped up onto Ike's back with a single bound.
+Laurellen got on behind it,
+leaning forward to hold the front edges of Ike's wings
+as if they were the handlebars on a racing bike.
+Madica sat behind her,
+arms tight around her friend's waist.
 
-Ike's whole body rumbled as his jets ignited. "Hang on!" he shouted.
+Ike's whole body rumbled as his jets ignited.
+"Hang on!" he shouted.
 They jerked forward—then stopped short.
 
-"My legs are caught!" he yelled. "I can't get them over the window
-sill!"
+"My legs!" he yelled.
+"I can't get them over the window sill!"
 
 "Lean forward!" the cat ordered. "Now!"
 
 "We're already leaning!" Madica yelled back.
 
-*Bzzzzap!* Another laser beam sliced through the air right by Madica's
-ear, leaving a smoldering round hole in the wall. She screamed in terror
-and rolled off Ike's back.
+*Bzzzzap!*
+Another laser beam sliced through the air right by Madica's ear,
+making a smoldering round hole in the wall.
+She screamed and rolled off Ike's back.
 
-"Hang on!" she shouted. She braced her shoulder under Ike's tail and
-straightened her legs. Ike's landing-gear legs caught on the sill
-again, but then he tilted forward and started sliding and Madica
-shrieked, "Wait for me!" and somehow Laurellen grabbed her hand and
-dragged her with them as they fell forward into the freezing air.
+"Hang on!" Madica shouted.
+She braced her shoulder under Ike's tail and straightened her legs.
+Ike's landing-gear legs caught on the sill again,
+but then he tilted forward and started sliding.
+Madica shrieked, "Wait for me!"
+as somehow Laurellen grabbed her hand
+and dragged her with them
+as they fell forward into the freezing air.
 
-Ike and girls all screamed in terror as they fell straight down toward
-the valley floor. "Your jets! Your jets!" the cat yowled. Ike's jets
-roared to life. He levelled off just in time, blowing snow to either
-side as he shot along the valley floor dodging the laser blasts that
-chased them from the castle above.
+Ike and girls all screamed together as they fell straight down toward the valley floor.
+"Your jets! Use your jets!" the cat yowled.
+Ike's jets roared to life.
+He levelled off just in time,
+blowing snow to either side as he shot along the valley floor
+dodging the laser blasts from the castle above.
 
-"Help!" Madica was still dangling from Laurellen's hand. "I can't
-hold on!"
+"Help!"
+Madica was still dangling from Laurellen's hand.
+"I can't hold on!"
 
-The cat twisted and jumped, landing on Ike's wing. "What are you
-doing!?" he shouted, even as the extra weight flipped him over. Madica
-thumped against Ike's belly and slid around into place as he finished
-his barrel roll. She wrapped her arms around Laurellen's waist again
-and pressed her face against her friend's back, eyes squeezed shut, as
-Ike whooped and rocketed up into the sky.
+The cat twisted and jumped, landing on Ike's wing.
+"What are you doing!?" Ike shouted as the extra weight flipped him over.
+Madica thumped against Ike's belly and slid around into place
+as he finished his barrel roll.
+She wrapped her arms around Laurellen's waist again
+and pressed her face against her friend's back,
+eyes squeezed shut,
+as Ike whooped and whooshed up into the sky.
 
-Madica had thought nothing could scare her more than being shot at while
-piloting a stolen flying saucer. She had been *sure* nothing could scare
-her more than having lasers fired at her by angry ELFs, or being on the
-back of a hungry santasaurus. She was wrong. Hanging onto her best
-friend on the back of a jet was *much* more frightening, particularly
-when the jet kept shouting things like, "Woo hoo! This is great! What
-do I do now?"
+Madica had thought nothing could scare her more
+than being shot at while piloting a stolen flying saucer.
+She had been *sure* nothing could scare her more
+than having lasers fired at her by angry ELFs,
+or being on the back of a hungry santasaurus.
+She was wrong.
+Hanging onto her best friend on the back of a jet was *much* more frightening,
+particularly when the jet kept shouting things like,
+"Woo hoo! This is great! What do I do now?"
 
-"How would I know!?" Laurellen shouted back. "Just keep flying!"
+"How would I know?" Laurellen shouted back.
+"Just keep flying!"
 
-"Turn back to the castle!" the cat commanded. It had slid back to
-nestle in Laurellen's lap. Madica could feel its fur tickling her
-fingers before they went numb from the cold.
+"Turn back to the castle!" the cat commanded,
+sliding back to nestle in Laurellen's lap.
 
 "What?" Ike shouted.
 
@@ -3028,75 +3066,93 @@ fingers before they went numb from the cold.
 
 "Are you crazy!? They'll blow us up!"
 
-Madica felt the cat sigh. "Uh oh," she thought. She knew what was
-coming. Sure enough, it reached out and dug its claws into his wings.
+Madica felt the cat tense.
+*Uh oh,* she thought.
+Sure enough,
+it dug its claws into Ike's wings.
 Ike yelped and changed course.
 
 They raced back over the tundra, chasing their own misshapen shadow.
 "There it is!" Laurellen shouted. "Wait! Where'd it go?"
 
-Madica craned her neck to look over her friend's shoulder. For a moment
-there was nothing but snow, but then there was the same sparkling
-rainbow fizz she had seen when the ELF who had captured her had fired
-its bazooka and the castle was back, the enormous saucer floating over
-it like a giant's hat.
+Madica craned her neck to look over her friend's shoulder.
+For a moment she saw nothing but snow,
+but then there was the sparkling rainbow fizz she had seen
+when the ELF who had captured her had fired its bazooka
+and the castle was back,
+the enormous saucer floating over it like a giant's hat.
 
-"Blast! They've repaired the invisibilator! We have to reach it before
-it's fully operational! Go faster!" The cat dug its claws into Ike
-once again.
+"Faster! Go faster!"
+The cat dug its claws into Ike's wings once again.
 
-"I'm trying!" he shouted back frantically. "But I feel—I feel feel
-kind of… dizzy…"
+"I'm trying!"
+he shouted back.
+"But I feel—I feel feel kind of… dizzy…"
 
-With no more warning than than, his tail jets went *putt!* Their twin
-flames vanished, and for a moment, all Madica could hear was the wind
-rushing past her ears as Ike dipped toward the ground that suddenly
-seemed a very long way below them.
+With no more warning than that
+his tail jets went *putt!*
+and their twin flames vanished.
+For a moment all Madica could hear was the wind rushing past her ears
+as Ike dipped toward the frozen ground below them.
 
-"Ike! Wake up! Wake up!" Laurellen smacked his fuselage. "Ike,
-please, we need you!"
+"Ike! Wake up! Wake up!"
+Laurellen smacked his fuselage.
+"Ike, please, we need you!"
 
 "Huh? Wha? Wha's happ'ing?"
 
-"Ike, please." Laurellen leaned forward and whispered something in his
-ear. Madica suddenly felt out of place, the same way she did when she
-came into the kitchen and her mother and father were in the middle of
-kissing each other.
+"Ike, please."
+Laurellen leaned forward and whispered something in his ear.
+Madica suddenly felt out of place,
+the same way she did when she came into the kitchen
+and her mother and father were kissing each other.
 
-To her relief, Laurellen only patted him and sat back up. "Come on,"
-she said. "You can do it. I *know* you can do it."
+"Come on," Laurellen begged.
+"You can do it.
+I *know* you can do it."
 
-*Putt!* *Putt!* *Fwoom!* Ike's jets came back to life. They levelled
-off again.
+*Putt!* *Putt!* *Fwoom!*
+Ike's jets came back to life.
+They levelled off again.
 
-"Almost out of fuel!" the cat said, still stretched out across Ike's
-back. "We *must* get to the super saucer before it disappears!"
+"Almost out of fuel!" the cat said.
+"We *must* get to the saucer before it invisibilates!"
 
-"What?" "The saucer?" "Are you *crazy*?" Madica, Laurellen, and
-Ike all spoke at once.
+"What?" "The saucer?" "Are you *crazy*?"
+Madica, Laurellen, and Ike said,
+speaking over each other.
 
-"The saucer," the cat commanded firmly. "It's the only one in the
-world big enough stop the asteroid. We take it, we save the world, and
-then we come back and have a *very* firm discussion with these ELFs
-about what is and isn't a suitable birthday present for Santa."
+"It's the only one in the world big enough stop the asteroid,"
+the cat said firmly.
+"We take it,
+we save the world,
+and then we come back and have a *very* firm discussion with these ELFs
+about what is and isn't a suitable birthday present for Santa Claws."
 
-Before Madica could ask what birthdays had to do with anything, Ike
-gasped, "I'm running out again—for real this time!"
+Before Madica could ask what birthdays had to do with anything,
+Ike gasped,
+"I'm running out of fuel for real this time!"
 
-"Just a few more seconds!" Laurellen begged. She leaned forward again,
-hugging him. Madica leaned forward too, her face against her best
-friend's back, as they rocketed toward the giant saucer. She closed her
-eyes, too afraid to look, then took a deep breath and changed her mind.
+"Just a few more seconds!" Laurellen urged.
+She leaned forward again to hug him.
+Madica leaned forward too,
+her face against her best friend's back
+as they rocketed toward the giant saucer.
+She closed her eyes,
+too afraid to look,
+then forced them open.
 She *wasn't* too afraid to look—she just wasn't, not ever again.
 
-A dozen rectangular hatches lay flush against the saucer's side, each
-large enough to swallow Madica's house. As Ike shot toward it, the one
-in front of them started to open. Slowly, slowly, much too slowly…
+A dozen rectangular hatches lay flush against the saucer's side,
+each large enough to swallow Madica's house.
+As Ike's engine sputtered,
+the one in front of them started to open—slowly, slowly, much too slowly…
 
-"We're going to crash!" Ike shouted, and despite her new-found
-courage, Madica *did* close her eyes. A moment later they flew straight
-into the side of the saucer, burst into flames, and were never heard
-from again.
+"We're going to crash!" Ike shouted.
+Despite her new-found courage Madica *did* close her eyes.
+A moment later they flew straight into the side of the saucer,
+burst into flames,
+and were never heard from again.
 
 </section>
 
