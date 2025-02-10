@@ -314,6 +314,7 @@ INSERT INTO person VALUES('ta.thuan','Ta','Thuan','M',79,'thuan.ta@utoronto.ca')
 INSERT INTO person VALUES('tapal.sana','Tapal','Sana','F',4,'sanatapal@gmail.com');
 INSERT INTO person VALUES('taylor.jonathan','Taylor','Jonathan','M',3,'jonathan.taylor@utoronto.ca');
 INSERT INTO person VALUES('thibault.miles','Thibault','Miles','M',44,'miles.thibault@utoronto.ca');
+INSERT INTO person VALUES('tinkwonyuen.cassandra','Cassandra','Tin Kwon Yuen','F',38,'cassandratin13@gmail.com');
 INSERT INTO person VALUES('tonon.kevin','Tonon','Kevin','M',3,'nobigb@gmail.com');
 INSERT INTO person VALUES('toor.sukhmeet','Toor','Sukhmeet','M',45,'toorsukhmeet@gmail.com');
 INSERT INTO person VALUES('tseng.jacob','Tseng','Jacob','M',46,'tsengic@rogers.com');
