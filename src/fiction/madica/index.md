@@ -3160,145 +3160,192 @@ and were never heard from again.
 
 ## Brains!
 
-At least, that's what Madica *expected* would happen, but at the last
-second Ike rolled onto his side and put on one final burst of speed.
-They shot through the opening hatch with half a sandwich of fresh air on
-either side of them, bounced off the deck inside with a *clang!*, then
-skidded to a halt.
+At least that's what Madica *thought* would happen,
+but at the last second Ike rolled onto his side
+and put on a final burst of speed.
+They shot through the hatch,
+bounced off the deck inside with a *clang!*,
+then skidded to a halt.
 
-*Putt! Putt! Ffssss…* Ike's jet's fizzled out for the last time.
-The two girls on his back clung to him and each other, waiting for their
-heads and stomachs to stop spinning. The cat, on the other hand, jumped
-onto the deck and began washing itself.
+*Putt! Putt! Ffssss…*
+Ike's jet's sputtered for the last time.
+The two girls on his back clung to him and each other,
+waiting for their heads and stomachs to stop spinning
+as the cat jumped onto the deck and began to groom itself nonchalantly.
 
-"Th-thank you," Laurellen eventually said in a trembling voice. She
-patted Ike's side and clambered off. Madica slid to the gray metal deck
-beside her. "Thank you, Ike."
+"Thank you," Laurellen eventually said, her voice shaky.
+She patted Ike's side and clambered off.
+Madica slid to the gray metal deck beside her.
+"Thank you, Ike."
 
-"'Sokay," he yawned. "I' jus' gonna… take a… *snore*"
+"'Sokay," he yawned.
+"I' jus' gonna… take a… *snore*"
 
-"Now come with me," the cat ordered. "We still have a world to
-save."
+The cat gave its paw one final lick.
+"Right," it said briskly.
+"Come along,
+we still have a world to save."
 
-"I'm not going anywhere." Laurellen crossed her arms. "I'm staying
-here to look after Ike."
+"I'm not going anywhere."
+Laurellen crossed her arms.
+"I'm staying here to look after Ike."
 
-The stub of the cat's tail twitched. "There will be rather little to
-look after if the world ends."
+The stub of the cat's tail twitched.
+"There will be rather little to look after if the world ends."
 
-"I said, I'm staying," Laurellen repeated.
+"I told you, I'm staying," Laurellen repeated.
 
-The cat glanced at Madica, who crossed her arms in imitation of her
-friend (and to stop herself shivering). "Me too."
+The cat glanced at Madica,
+who crossed her arms in imitation of her friend
+(and to stop herself shivering).
+"Me too."
 
-The cat blinked. "Jolly good. The world has to end some time, I
-suppose. Might as well be today as tomorrow." Calmly, it resumed
-washing itself.
+The cat blinked.
+"Jolly good.
+The world has to end some time, I suppose.
+Might as well be today as tomorrow."
+Calmly, it resumed grooming itself.
 
-Laurellen sighed and nudged Madica. "Go ahead, we'll be okay."
+Laurellen sighed and nudged Madica.
+"Go ahead, we'll be okay."
 
-"Are you sure?" Madica asked, secretly wishing that her friend had
-asked if *she* would be okay too.
+"Are you sure?" Madica asked,
+secretly wishing that her friend had asked if *she* would be okay too.
 
-"I'm sure." She gave Madica a quick hug. "You go save the world for
-us. We'll be right here."
+"I'm sure."
+She gave Madica a quick hug.
+"You go save the world for us.
+We'll be right here."
 
-The landing bay had only one door. It was three times as wide as a
-regular door, and twice as high, but it swung open at Madica's touch as
-easily as if it had been made of feathers instead of double-thick steel.
-The white-painted corridor on the other side curved away gently in both
-directions. "148-G" was stencilled in yellow opposite them.
+The landing bay had only one door.
+It was twice as high as a regular door and three times as wide,
+but it swung open at Madica's touch
+as lightly as if it had been made of feathers instead of double-thick steel.
+The white-painted corridor on the other side curved away gently in both directions.
+"148-G" was stencilled in yellow opposite them.
 
-"Which way do we go?" Madica whispered.
+"Which way do we go?"
+Madica whispered.
 
-The cat sniffed the air, then nodded to their right. "There. Come
-along." It trotted away so quickly that Madica had to jog to keep up.
+The cat sniffed the air, then nodded to their right.
+"That way. Come along."
+It trotted away so quickly that Madica had to jog to keep up.
 
-148-F, 148-E, … The cat halted in front of 148-A. Beside it, on the
-inner wall of the corridor, was a regular-sized one with a porthole at
-head height. The cat leaped onto its handle, balancing on one rear paw
-with its tail and other rear leg stretched out for balance so that it
-could peer through the glass.
+148-F, 148-E, …
+The cat halted in front of 148-A.
+A porthole sat at head height in a regular-sized door
+on the inner wall of the corridor beside the letters.
+The cat leaped onto the door's handle handle
+and peered through the porthole glass.
 
-"Right," it said in a satisfied voice, hopping back down to the deck.
+"Right," it said in a satisfied voice,
+hopping back down to the deck.
 "Open it up, there's a good girl."
 
-"Is that what we're for? Opening doors?" Madica asked, joking.
+"Is that what we're for? Opening doors?"
+Madica asked, joking.
 
-The cat blinked. "Yes, of course. It's the reason cats domesticated
-primates in the first place."
+The cat blinked.
+"Of course.
+It's why cats domesticated primates in the first place."
 
-Madica opened her mouth, sighed, and closed it again. "I'm *not*
-domesticated," she muttered under her breath, opening the door.
+Madica opened her mouth,
+sighed,
+and closed it again.
+"I'm *not* domesticated," she muttered under her breath,
+opening the door.
 
-The stairs went up and up—one hundred, two hundred, so many that
-Madica lost track and started counting landings instead. Each one had a
-door on either side, and on each door hung a small green sign:
-"Greenland (all)", "Azores (infants)", "Tierra del Fuego
-(overflow)", "Istanbul (southern suburbs)". She stopped once or twice
-to look through the small windows set in the doors, but all she could
-see were empty shelves stretching into the distance.
+The corrugated metal stairs on the other side went up and up.
+One hundred steps, two hundred—Madica quickly lost track.
+Each small landing had a door on either side and a small green sign:
+"Greenland (all)",
+"Azores (infants)",
+"Tierra del Fuego (overflow)",
+"Istanbul (southern suburbs)".
+She stopped once or twice to look through the small windows set in the doors,
+but all she could see were rows of empty shelves.
 
-She was panting by the time they reached the final landing. "At
-least… I'm not… cold… any more…" she gasped.
+She was panting by the final landing.
+"At least… I'm not… cold… any more…" she gasped.
 
-"Ssh," the cat hissed. Instead of a door on each side, this landing
-had only one right in front of them—and it was ajar. Quiet voices
-muttered behind it too quietly for Madica to make out the words.
+"Sh," the cat hissed.
+Instead of a door on each side,
+this landing had only one—and it was ajar.
+Quiet voices behind it muttered too quietly for Madica to make out words.
 
 "What is it?" she whispered.
 
-"The bridge. The brains of the saucer. There are certain to be guards.
-And almost certain death. Let's go!" The cat slipped through the door
-on silent feet.
+"The bridge.
+The brains of the saucer.
+There are certain to be guards.
+And almost certain death.
+Let's go!"
+The cat slipped through the door on silent feet.
 
-Madica waited for the sound of laser blasts, crashing metal, and yowling
-ninja cat. When none came, she eased the door open a bit wider and
-peered around it.
+Madica waited for the sound of laser blasts,
+crashing metal,
+and feline yowling.
+When none of those happened,
+she eased the door open a bit wider and peered around it.
 
-The room inside was round, with a domed ceiling, and as big as her
-entire house. A single empty chair, twice the size of the one her dad
-sat in at home when he was reading his cookbooks, sat on a pedestal in
-its center. Around it were control panels covered in dials, levers, and
-blinking lights. And on top of them—
+The room inside was round with a domed ceiling,
+and as big as her house.
+In its center was a single empty chair,
+twice the size of the one her dad sat in to read his favorite cookbooks.
+Around it were control panels covered in dials, levers, and blinking lights.
+And on top of them—
 
-Madica gulped. A square glass case sat on top of each control panel. And
-inside each case was a head. There were goats and pterodactyls, gorillas
-and pandas, something that she *hoped* was a squid, and a few she was
-going to pretend she had never seen, because otherwise she might have
-nightmares.
+Madica gulped.
+A square glass case sat on top of each control panel.
+Inside each case was a head.
+There were goats and pterodactyls, gorillas and pandas,
+and something that she *hoped* was a squid.
 
-Then she realized that their eyes were open. Each head was watching the
-control panel it was perched on and muttering quiet instructions.
-"Reduce plasma flow to engine three by five percent." "Resume repair
-on air coolant duct." "Transfer four shelving units from 247-C to
-247-B."
+And their eyes were open.
+Each head was watching the control panel it was perched on
+and muttering quiet instructions.
 
-The cat was sitting in front of the big chair, its back to Madica. She
-tiptoed up beside it. "What—what *are* they?" she asked.
+"Reduce plasma flow to engine three by five percent."
 
-"The brains of the saucer," the cat replied shortly. "I did say that,
-didn't I?"
+"Resume repair on air coolant duct."
 
-"I didn't think you meant it *literally*," Madica muttered, but the
-cat wasn't paying attention.
+"Transfer four shelving units from 247-C to 247-B."
 
-Instead, it was sniffing at the air. "This room smells like it's been
-empty for some time." The cat sniffed again. "Except for this chair.
-Something here smells familiar, like… like warm talc. And old
-coffee."
+The cat was sitting in front of the big chair with its back to Madica.
+She tiptoed up beside it.
+"What *are* they?" she asked.
 
-Madica was going to make a joke—a rude one—about the kind of person
-(or cat) who had smelled enough chair seats that one of them could smell
-familiar, but instead she gasped and pointed. "That's my backpack!"
-Because it was, hanging over the back of the chair. Without thinking,
+"The brains of the saucer," the cat replied shortly.
+"I did say that, didn't I?"
+
+"I didn't think you meant it *literally*,"
+Madica protested,
+but the cat wasn't paying attention.
+
+Instead, it was sniffing at the air.
+"This room smells like it's been empty for some time."
+The cat sniffed again.
+"Except for this chair.
+Something here smells familiar, like… like warm talc.
+And old coffee."
+
+Madica was going to make a joke—a rude one—about the kind of person (or cat)
+who had smelled enough chair seats that one of them could smell familiar,
+but instead she gasped and pointed.
+"That's my backpack!"
+Because it was,
+hanging over the back of the chair.
+Without thinking
 she took two steps forward and grabbed it.
 
-The heads instantly stopped muttering. *Uh oh*, Madica thought weakly.
+The heads instantly stopped muttering.
+*Uh oh*, Madica thought weakly.
 
-*Hiss!* *Kerchunk!* Hatches popped open in the base of each control
-panel. A hundred headless robot bodies stepped out, raised their arms,
-and began slow-marching forward as the muttering resumed:
+*Hiss!* *Kerchunk!*
+A hatch popped open in the base of each control panel.
+A dozen headless robot bodies stepped out,
+raised their arms,
+and began slow-marching forward as the muttering resumed.
 "Braaaains… fresh braaaains…"
 
 </section>
