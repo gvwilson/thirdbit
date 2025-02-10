@@ -622,6 +622,8 @@ INSERT INTO person VALUES('wong.veronica','Wong','Veronica','F',3,'vev.wong@gmai
 INSERT INTO person VALUES('spaans.kyle','Spaans','Kyle','M',214,'kspaans@uwaterloo.ca');
 INSERT INTO person VALUES('lawson.lance','Lawson','Lance','M',215,'lance.b.lawson@gmail.com');
 INSERT INTO person VALUES('dursi.jonatan','Dursi','Jonathan','M',216,'ljdursi@scinet.utoronto.ca');
+INSERT INTO person VALUES('susanto.daelenia','Susanto','Daelenia','F',78,'daelenia98@gmail.com');
+INSERT INTO person VALUES('seong.rachel','Seong','Rachel','F',85,'sungeunchae@gmail.com');
 
 CREATE TABLE country(
        iso text not null,
