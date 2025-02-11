@@ -3354,160 +3354,207 @@ and began slow-marching forward as the muttering resumed.
 
 ## Sixteen Orange Kneecap!
 
-The cat shot her a sour look. "I'm sorry," she said defensively. "I
-just—" *I just thought the little dinosaur might still be in it,* she
-finished in her head, but of course it wasn't.
+The cat shot her a sour look.
+"I'm sorry," she said defensively.
+"I just—" *I just thought the little dinosaur might still be in it,*
+she finished in her head,
+but of course it wasn't.
 
-"Braaaains…" A pair of robot hands brushed against the hem of her
-jacket. She yelped and jumped up onto the chair.
+"Braaaains…"
+Metal hands brushed against the hem of her jacket.
+She yelped and jumped onto the chair.
 
-"No! Follow me!" the cat ordered. It had jumped onto the nearest
-control panel and was running along it toward the door, leaping over the
-glass cases one by one.
+"No! Follow me!" the cat ordered.
+It sprang onto the nearest control panel and dashed toward the door,
+leaping over the glass cases one by one.
 
-Madica slipped her arms through the straps of her backpack, took a deep
-breath, and threw herself at the nearest control panel. "Ooph!" She
-scrambled to her feet and stepped gingerly over the nearest glass case,
-over a second, over a third—
+Madica slid her arms through the straps of her backpack,
+took a deep breath,
+and clambered on top of the nearest control panel.
+"Ooph!"
+She scrambled to her feet and stepped gingerly over one glass case,
+over a second,
+a third—
 
-Her back foot bumped the case. The headless zombie robots immediately
-halted, turned toward her, and resumed their slow march.
+Her back foot bumped the case.
+The headless zombie robots immediately halted,
+turned toward her,
+and resumed their slow march.
 
-"Sorry!" she whispered loudly to the cat, who was perched impatiently
-on the control panel nearest the door.
+"Sorry!" she whispered loudly to the cat,
+who was perched impatiently on the control panel nearest the door.
 
 "Take all time you want," it said evenly.
 
-But Madica wasn't paying attention. Instead, she was staring wide-eyed
-at the next glass case she had to step over. "That's… Look!"
-There, inside it, was a tiny dinosaur head—a snarkasaurus head!
+But Madica wasn't paying attention.
+Instead,
+she was staring wide-eyed at the next glass case.
+Inside it was a tiny dinosaur head.
+It was the snarkasaurus!
 
-The case made a quiet little *click!* as Madica lifted it off the
-control panel. The dinosaur head instantly stopped muttering. It
-blinked, then blinked again and yawned widely. "What—where am I?" it
-asked. "Did someone deactivate me? Shwobblebob, did you deactivate me
-again? You *know* that's not nice!"
+The case made a quiet *click!*
+as Madica lifted it off the control panel.
+The snarkasaurus head stopped muttering,
+blinked twice,
+and then yawned widely.
+"What—where am I?" it asked.
+"Did someone deactivate me?
+Shwobblebob,
+did you deactivate me again?
+You *know* that's not nice!"
 
 With three great leaps the cat bounded back to Madica and the dinosaur.
 "What is the primary launch code for this saucer?" it demanded.
 
-"Why should I tell *you*?" the dinosaur head asked.
+"Why should I tell *you*?" the snarkasaurus head asked.
 
-"Hey!" Madica said sharply. "We're here to rescue you! So be nice!"
-Which hadn't been true until Madica said it, but now that she had, she
-realized she wasn't going to leave the little dinosaur behind.
+"Hey!" Madica said sharply.
+"We're here to rescue you! So be nice!"
+Which hadn't been true until Madica said it,
+but now that she had,
+she realized she wasn't going to leave the little dinosaur behind.
 
 "Braaaains… fresh braaaains…" the heads around them moaned.
 
-"Looks like *you* need rescue more than *me*," the dinosaur head said.
-It sighed theatrically. "Fine. Let me look it up." It closed its eyes.
-"Searching… searching… Would you like some music while I'm
-looking for it? We have a wide variety of classical and popular tunes in
-our database."
+"Looks like *you* need rescue more than *me*," the snarkasaurus head said.
+It sighed theatrically.
+"Fine. Let me look up the code."
+It closed its eyes.
+"Searching… searching…
+Would you like some music while I'm looking for it?
+We have a wide variety of classical and popular tunes in our database."
 
 "No!" Madica and the cat said simultaneously.
 
-"Fine," the dinosaur sighed again. "The primary command code is…
-um… sixteen orange kneecap and then touch your nose with your
-finger."
+"Fine," the dinosaur said petulantly.
+"The primary command code is…
+um…
+sixteen orange kneecap and then touch your nose with your finger."
 
-"It's *what?*" Madica spluttered.
+"I *what?*" Madica spluttered.
 
-"It's for security," the dinosaur head said, opening its eyes again.
-"We *can't* touch our noses when our heads are in cases, and cats
-don't have fingers."
+"It's for security," the snarkasaurus said, opening its eyes again.
+"We *can't* touch our noses when our heads are in cases,
+and cats don't have fingers."
 
-"Explain later!" the cat said, racing back to the big chair. "Right
-now, Miss Primate, if you're not *too* busy, could you please join me
-so we can get on with saving the world?"
+"Explain later!" the cat said, racing back to the big chair.
+"Right now,
+Miss Primate,
+if you're not *too* busy,
+could you please join me so we can get on with saving the world?"
 
-Madica looked at the sea of arms all around her, then took a deep breath
-and high-stepped along the top of the control panel. She was almost at
-the panel closest to the big chair when her foot caught against one of
-the panels.
+Madica looked at the zombie robots around her,
+then took a deep breath and high-stepped along the top of the control panel.
+She was almost at the panel closest to the big chair
+when her foot snagged on one of the panels.
 
-"Help!" she shrieked, but by some miracle she fell forward instead of
-sideways and landed with an *ooph!* on the panel. A headless rhinoceros
-reared up and tried to grab her with its front legs, but she snatched
-her arm away, pulled herself to her feet, sprinted the last few steps,
+"Help!" she shrieked,
+but by some miracle she fell forward instead of sideways
+and landed with an *ooph!* on the panel.
+A headless rhinoceros reared up and tried to grab her with its front legs,
+but she snatched her arm away,
+pulled herself to her feet,
 and leaped across to the chair.
 
-"These buttons, if you please, one, two, three," the cat ordered,
-pointing with its paw. Sure enough, Madica saw the buttons were labelled
-"16", "orange", and "kneecap". Others had "brightly",
-"spleen", "blandish", and even stranger words written on them.
+"These buttons, if you please.
+One, two, three,"
+the cat ordered,
+pointing with its paw.
+Sure enough, Madica saw the buttons were labelled "16", "orange", and "kneecap".
+Others had "brightly", "spleen", "blandish",
+and even stranger words written on them.
 
 "Do I push them?" she asked.
 
-"No, you *lick* them," the cat snapped, then batted Madica's ear with
-its paw as she leaned forward to stick out her tongue. "That was
-sarcasm, you silly biped! Yes, push them with your finger, that's a
-good girl! Then touch your nose with the same finger. But whatever you
-do, *don't* touch the big red button. That puts the saucer on manual
-control, and you're a long way from being ready to fly a ship this
-size."
+"No, you *lick* them," the cat snapped,
+then batted Madica's ear with its paw
+as she leaned forward to stick out her tongue.
+"That was sarcasm, you silly biped!
+Yes, push them with your finger,
+that's a good girl.
+Then touch your nose with the same finger.
+But whatever you do, *don't* touch the big red button.
+That puts the saucer on manual control,
+and you're a long way from being ready to fly a ship this size."
 
-"Gotcha," Madica said. Sixteen… orange… kneecap… As she
-pushed each button it changed color from shining white to deep, pulsing
-red. She swallowed, took a deep breath, and touched the tip of her nose.
+"All right," Madica said.
+Sixteen… orange… kneecap…
+Each button changed from shining white to deep, pulsing red
+as she pushed it.
+She swallowed, took a deep breath, and touched the tip of her nose.
 
 The moans of, "Braaaains… fresh braaaains…" instantly stopped.
 The zombie robots lowered their arms and stood at attention.
 
-Madica slumped in the chair. All of a sudden she felt woozy. How long
-had it been since she'd eaten? Or gone to the bathroom? *I really need
-to go to the bathroom,* she suddenly realized. For some reason, it was
-the funniest thought she'd ever had, and the foul look from the cat
-when she started giggling only made it funnier.
+Madica slumped in the chair,
+suddenly woozy.
+How long had it been since she had last eaten?
+Or gone to the bathroom?
+*I really need to go to the bathroom,* she realized.
+For some reason
+it was the funniest thought she'd ever had,
+and the foul look from the cat when she started giggling
+only made it funnier.
 
-"There!" the dinosaur's head called from where Madica had left it.
+"There!" the snarkasaurus called from behind her.
 "That's my body over there! Put me back together!"
 
-Madica nodded and pulled herself together. The headless zombie robots
-were still standing at attention, so she slid her feet onto the floor
-and stood up. She could feel a faint vibration, but the robots still
-didn't move. "Is it safe?" she whispered loudly.
+Madica swallowed her giggles and nodded.
+The headless zombie robots were still standing motionless,
+so she slid her feet onto the floor and stood up.
+"Is it safe?" she whispered loudly,
+feeling a faint thrumming vibration in the floor.
 
 "Yes, of course it's safe," the dinosaur head said impatiently.
 
 "But still almost certain death," the cat added.
 
-"Well yes, aside from that, it's perfectly safe. Now hurry up—I want
-to be back in one piece *this* year, thank you."
+"Well yes, aside from that, it's perfectly safe.
+Now hurry up—I want to be back in one piece *this* year, thank you."
 
-Madica picked her way through the motionless crowd, doing her best not
-to touch any of them (particularly not the one that looked like a cross
-between a squid and a porcupine with a bit of bulldozer thrown in). The
-vibration in the floor grew stronger with each step, until the robots'
-bodies were jiggling slightly.
+Madica picked her way through the motionless robots,
+careful not to touch any of them
+(particularly not the one that looked like a cross between a squid and a porcupine
+with a bit of bulldozer thrown in).
+The vibration in the floor grew stronger with each step,
+until the robots' bodies were jiggling slightly.
 
-"What's doing that?" she finally asked.
+"What's doing that?" she asked.
 
-"Turbulence," the dinosaur head replied. "It'll stop once we're out
-of the atmosphere."
+"Turbulence," the snarkasaurus replied.
+"It will stop once we're out of the atmosphere."
 
 "Out of the—what?"
 
-"Once we're in outer space. Where there's no air?" She heard rather
-than saw the dinosaur roll its eyes.
+"Once we're in outer space.
+Where there's no air?"
+She practically heard the snarkasaurus roll its eyes.
 
-"Oh. Right. Outer space. Of course." Madica turned the head in her
-hands and set it gently on the dinosaur's body. *Click!*
+"Oh. Right. Outer space. Of course."
+Madica turned the head in her hands
+and set it gently on the dinosaur's body.
+*Click!*
 
-The dinosaur blinked, then threw up its arms. "Woo hoo!" It did a
-little dance. "I'm me again!"
+The snarkasaurus blinked, then threw up its arms.
+"Woo hoo!"
+It did a little dance.
+"I'm me again!"
 
-Madica grinned, but only for an instant, because without warning the
-lights in the control room turned red and an alarm started blaring,
+Madica grinned,
+but only for an instant.
+Without warning the lights in the control room turned red
+and an alarm started blaring,
 "Brrrrmp! Brrrrmp! Brrrrmp!"
 
-"Warning," said a creaky, gravelly voice that seemed to come from
-everywhere at once. "Re-assembled robot detected on control level. All
-units, respond and deactive with extreme prejudice."
+"Warning," said a creaky, gravelly voice
+that seemed to come from everywhere at once.
+"Re-assembled robot detected on control level.
+All units, respond and deactive with extreme prejudice."
 
-All around Madica and the snarkasaurus, a hundred zombie robots raised
-their arms. "Braaaains… fresh braaaains…" they moaned, turning
-as one toward the pair.
+All around Madica and the snarkasaurus,
+zombie robots raised their arms.
+"Braaaains… fresh braaaains…" they moaned,
+turning as one toward the pair.
 
 </section>
 
