@@ -3562,126 +3562,163 @@ turning as one toward the pair.
 
 ## Outer Space!
 
-"Don't let them get me!" the snarkasaurus squeaked, leaping into
-Madica's arms.
+"Don't let them get me!" the snarkasaurus squeaked,
+leaping into Madica's arms.
 
-Madica whipped around, hoping to jump back up onto the control panels,
-but there were too many zombies in her way. "Help us!" she yelled to
-the cat.
+Madica whirled around,
+hoping to jump back onto the control panels,
+but there were too many zombies in her way.
+"Help!" she yelled to the cat
+as the snarkasaurus clung to her.
 
-It was already on its way. It hurtled over the zombies nearest it, spun
-in the air, and kicked the headless gorilla nearest Madica as it came
-down. The zombie tumbled across the room, but as the cat spun around for
-another kick, a stork-zombie stuck out a skinny leg. "Heeyah!" The cat
-back-flipped over the leg onto the back of a giant tortoise. Arms,
-tentacles, and at least one goopy green pseudopod reached out to grab
-it—
+The cat was already on its way.
+It hurtled over the zombies nearest it,
+spun in the air,
+and kicked the headless gorilla nearest Madica.
+The zombie tumbled across the room,
+but as the cat spun around for another kick,
+a stork-zombie stuck out a skinny leg.
+The cat back-flipped onto the back of a giant tortoise.
+Arms, tentacles, and at least one goopy green pseudopod reached out to grab it—
 
-—and suddenly Madica was falling. No, not falling, *floating*, except
-her stomach was definitely convinced she was on the biggest drop of the
-biggest roller coaster ride in the world.
+—and suddenly Madica was falling.
+No, not falling, *floating*,
+except her stomach was definitely convinced that
+she was on the biggest drop of the biggest roller coaster ride in the world.
 
-"We made it! We're in space!" The dinosaur pushed off from the floor
-and soared toward the ceiling. "Yippee!"
+"We made it! We're in space!"
+The snarkasaurus wriggled out of Madica's arms and soared toward the ceiling.
+"Yippee!"
 
-Madica tried to follow him, but she'd floated just high enough that her
-feet couldn't reach the floor any more. She kicked with her feet as
-though she was swimming, but all it did was set her spinning slowly.
+Madica tried to follow it,
+but she had floated just high enough that
+her feet couldn't reach the floor.
+She kicked her legs as though she was swimming,
+but all that did was set her rotating.
 
-Then, without warning, two small paws pushed against the seat of her
-pants, sending her up beside the snarkasaurus. "Whoa!" she squawked.
-Beneath her (if "beneath" actually meant anything) she saw the cat
-rebound from her bum to bounce off floor and follow her.
+"Whoa!" she squawked
+as two small paws pushed against the seat of her pants,
+sending her up beside the snarkasaurus. 
+Beneath her (if "beneath" actually meant anything)
+the cat rebounded from her bum
+and bounced off floor to follow her.
 
-Before she could thank it, the recorded voice said, "Warning!
-Re-assembled robot still at large on control level. Organic life forms
-detected on control level. Deactive all intruders immediately."
-Instantly, the zombie robots below them began grasping each other's
-hands, paws, and tentacles to pull themselves together.
+"Warning!" the recorded voice said.
+"Re-assembled robot still at large on control level.
+Organic life forms detected on control level.
+Deactive all intruders immediately."
+Instantly,
+the zombie robots began grasping each other's hands, paws, and tentacles
+to pull themselves together.
 
-"Aim for the door!" the cat ordered, but it was already too late: half
-a dozen of the zombies had already blocked it.
+"Aim for the door!" the cat ordered,
+but it was too late:
+half a dozen of the zombies had already blocked it.
 
-"Is this really the best rescue you can do?" the snarkasaurus
-spluttered. "I was better off with my head in a box!"
+"Is this really the best rescue you can do?"
+the snarkasaurus spluttered.
+"I was better off with my head in a box!"
 
-"Do you want me to put you back?" Madica demanded.
+"Do you want me to put you back?"
+Madica demanded.
 
-"They'll put us *both* back if they catch us! And not up here either.
-They'll put us in crates in the cargo holds, and we'll spend all our
-time just *wishing* our heads were in *glass* cases! Oh, why did I ever
-run away?" And to Madica's complete surprise, the snarkasaurus started
-crying.
+"They'll put us *both* back if they catch us!
+And not up here either.
+They'll put us in crates in the cargo holds,
+and we'll *wish* our heads were in glass cases!
+Oh, why did I ever run away?"
+And to Madica's surprise,
+the snarkasaurus started to cry.
 
-The cat snagged Madica's jacket with a claw and pulled itself onto her
-shoulder. "Is there another way out?" she asked desperately.
+The cat snagged Madica's jacket with a claw and pulled itself onto her shoulder.
+"Is there another way out?" she asked desperately.
 
 "Not in one piece," the cat rumbled.
 
-Madica swallowed a sudden lump in her throat. "Of course not," she
-said. Beneath her, the zombie robots were turning themselves into a
-giant living net. Hands held ankles, claws held paws, tentacles wrapped
-around each other, and as each zombie added itself, they got closer and
-closer to the fairy, the cat, and the sniffling dinosaur floating near
-the ceiling.
+Madica swallowed the lump in her throat.
+"Of course not," she said.
+Beneath her,
+the zombie robots were forming a giant living net.
+Hands held ankles,
+claws held paws,
+and tentacles wrapped around each other.
+As each zombie added itself to the net
+they got closer and closer to the fairy,
+the cat,
+and the sniffling dinosaur floating near the ceiling.
 
-*I guess this is how it ends,* Madica thought emptily, as a crocodile
-stretched out and tried to grab her ankle in its jaws. She tucked her
-feet up underneath her, as though she were at home on the couch reading
-with a book in her lap with her mom on one side and her dad on the
-other. She sniffled, just once, as the crocodile's jaws snapped again,
-closer this time.
+*I guess this is how it ends,* Madica thought
+as a crocodile stretched out and tried to grab her ankle in its jaws.
+She tucked her feet beneath her,
+as though she were at home on the couch
+with a book in her lap and her parents on either side of her,
+and sniffled—just once—as the crocodile snapped again her again.
 
-*Crash!* The door burst open, flinging half a dozen zombie robots in all
-directions as Ike roared into the room, both jets blazing. "Hey!" he
-shouted. "Does anybody need a lift?"
+*Crash!*
+The door burst open,
+flinging half a dozen zombie robots in all directions
+as Ike roared into the room,
+his jets blazing.
+"Hey!" he shouted.
+"Does anybody need a lift?"
 
-"Warning," the recorded voice said. "Unauthorized flying vehicle
-detected in control level. Apprehend and—"
+"Warning," the recorded voice said.
+"Unauthorized flying vehicle detected in control level.
+Apprehend and—"
 
-"Oh, shut up!" Madica said, grinning from ear to ear. Ike fired one
-engine and then the other to shake himself from side to side, batting
-the now-helpless zombies off to the sides of the room. She stretched out
-an arm to catch hold of his wing.
+"Up here!" Madica shouted over it.
+Ike fired one engine and then the other to shake himself from side to side,
+batting the zombie robots to the sides of the room.
 
-"What are you doing?" the dinosaur squawked. "That's an *ELF*!"
+Madica stretched out an arm to catch hold of his wing.
+"What are you doing?" the dinosaur squawked.
+"That's an *ELF*!"
 
-"That's my *friend*," Madica replied. She grabbed Ike's wing with
-one hand and pulled the snarkasaurus toward him with the other. The cat
-bunched itself against her chest and dove as gracefully as a swallow for
-Ike's tailfin.
+"That's my *friend*," Madica replied.
+She grabbed Ike's wing with one hand
+and pulled the snarkasaurus toward him with the other.
+The cat bunched itself against her chest and dove at Ike's tailfin.
 
-"All aboard?" Ike sang.
+"All aboard?" Ike called.
 
-"Go!" the cat ordered. Ike fired both his engines and shot through the
-door.
+"Go!" the cat ordered.
+Ike fired both his engines and shot through the door.
 
-"Look out!" Madica tightened her arms around him as they shot toward
-the far wall, but Ike tilted and dove down the stairwell, laughing.
+"Look out!"
+Madica tightened her arms around him
+as they rocketed toward the far wall.
 
-"Don't worry!" he said over his shoulder (or what would have been his
-shoulder if his arms weren't wings). "I think I've got this whole
-flying thing pretty much figured—whoops!" His underbelly scraped
-against a stair. "Sorry!"
+Ike tilted and dove down the stairwell.
+"Don't worry!" he said over his shoulder
+(or what would have been his shoulder if his arms weren't wings).
+"I think I've got this flying thing pretty much—whoops!"
+His underbelly scraped against a stair.
+"Sorry!"
 
-It only took them a few seconds to reach the corridor at the bottom of
-the stairs. "I got them!" Ike called out, lowering his flaps and
-cutting his jets.
+They reached the corridor at the bottom of the stairs a heartbeat later.
+"I got them!" Ike called out,
+lowering his flaps and cutting his jets.
 
 "Madica!"
 
-"Laurellen!" The two friends threw themselves into each others arms,
+"Laurellen!"
+The two friends threw themselves into each others arms,
 tumbling over and over in the zero gravity and not caring a bit.
 
 "I was so worried," Laurellen said when she finally let go.
 
-"Me too." Madica wiped her eyes. "I really thought we were done for.
-There were all these robots with their heads off, and—"
+"Me too."
+Madica wiped her eyes.
+"I really thought we were done for.
+There were all these robots with their heads cut off, and—"
 
-And whatever else she might have said was cut off by an even louder
-alarm going, "BRRRRMP! BRRRRMP! BRRRRMP!" and a recorded voice saying,
-"Warning—collision alert. Warning—collision imminent. Total
-destruction of this space craft in five… four…"
+Whatever else she might have said
+was cut off by a new alarm going,
+"BRRRRMP! BRRRRMP! BRRRRMP!"
+and another recorded voice saying,
+"Warning—collision alert.
+Warning—collision imminent.
+Total destruction of this space craft in five… four…"
 
 </section>
 
