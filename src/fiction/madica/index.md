@@ -4564,117 +4564,140 @@ they began to moan.
 
 <section markdown="1">
 
-## Free!
+## "This Is My Saucer Now!"
 
-*It's not fair!* Madica thought. She had just saved the world. She was
-apparently doomed to spend eternity floating through space, and now
-there were *these* guys again. And the poor cat—who knew *what* Mr.
-Poudell was going to do to it? He was probably going going to take its
-head off and—
+*It's not fair!* Madica thought.
+She had just saved the world,
+but now she was apparently doomed to spend eternity floating through space
+with *these* guys.
+And the poor cat—who knew *what* Mr. Poudell was doing to it?
+He was probably going going to take its head off and—
 
-Madica sat up. The heads! When she had put the snarkasaurus's head back
-on, it had woken up! She jumped out of the chair, ran over to the
-nearest glass case, and knocked it off the control panel. It cracked
-when it hit the floor, but she didn't care—she was already lifting
-the pygmy elephant's head off its pedestal.
+Madica sat up.
+The heads!
+When she had put the snarkasaurus's head back on, it had woken up!
+She jumped out of the chair,
+ran over to the nearest glass case,
+and knocked it off the control panel.
+It cracked on the floor,
+but she didn't care:
+she was already lifting the pygmy elephant's head off its pedestal.
 
-Where where where where—there! The zombies were still getting to their
-feet, but she had to move fast. "Excuse me," she said, stepping around
-one and tripping another (some kind of velociraptor that she *didn't*
-want chasing her, thank you very much). She set the elephant's head on
-its body and twisted it to the side until she heard a *click!*
+Where where where where—there!
+The zombies were still getting to their feet,
+so she had to move fast.
+"Excuse me," she said,
+stepping around one and tripping another
+(some kind of velociraptor that she *didn't* want chasing her, thank you very much).
+She set the elephant's head on its body
+and twisted it to the side until she heard a *click!*
 
-The elephant stopped moaning and blinked. "Oh, thank goodness," it
-said. It twisted around and scratched its back with its trunk. "I've
-been waiting *forever* to get at that itch. Thank you—thank you so
-much." It held out its trunk for Madica to shake.
+The elephant stopped moaning and blinked.
+"Oh, thank goodness," it said.
+It twisted around and scratched its back with its trunk.
+"I've been waiting *forever* to get at that itch.
+Thank you—thank you so much."
+It held out its trunk for Madica to shake.
 
-"You're welcome," she said, giving the trunk a squeeze. "But please,
-help me—we don't have much time."
+"You're welcome," she said, giving the trunk a squeeze.
+"But please—we don't have much time."
 
-At first they were two. Then four, then eight, as each newly reassembled
-zombie woke up and joined their team. Those that didn't have hands or
-trunks or tentacles helped by spotting bodies and knocking over zombies
-that were still trying to reach Madica. Only the bat didn't join in.
-"I'm nocturnal, and it's definitely daytime," it squeaked
-defensively before finding a quiet spot of the ceiling to hang from.
+Two became four became eight
+as each newly reassembled zombie woke up and joined their team.
+Those that didn't have hands or trunks or tentacles helped
+by pointing out bodies
+and knocking over zombies that were still trying to reach Madica.
+Only the bat didn't join in.
+"I'm nocturnal, and it's definitely daytime,"
+it squeaked defensively
+before finding a quiet spot of the ceiling to hang from.
 
-Forty-eight heads later, the moaning finally stopped. "Right!" said
-the elephant, who had appointed herself Madica's second-in-command.
+Forty-eight heads later, the moaning finally stopped.
+"Right!" said the elephant,
+who had appointed herself Madica's second-in-command.
 "Now what?"
 
-"Now it'sss time for sssupper…" hissed the velociraptor, eyeing
-the goat next to it. It bleated and ducked behind the gorilla, which
-huffed warningly at the skinny dinosaur.
+"Now it'sss time for sssupper…" hissed the velociraptor,
+eyeing the goat next to it.
+It bleated and ducked behind the gorilla,
+which huffed warningly at the skinny dinosaur.
 
-"Stop that!" Madica said sharply. "We have bigger problems right now
-than dinner. This saucer is headed into outer space, and if we don't
-turn it around, we'll never get home."
+"Stop that!" Madica said sharply.
+"We have bigger problems right now than dinner.
+This saucer is headed into outer space.
+If we don't turn it around, we'll never get home."
 
-"Home?" snorted the panda. "What home? Humans bulldozed my home fifty
-years ago to make a highway."
+"Home?" snorted the panda.
+"What home? Humans bulldozed my home fifty years ago to make a highway."
 
-"Yeah." "Mine too." "They cut down my tree!" the other creatures
-chorused.
+"Yeah." "Mine too." "They cut down my tree!"
+other creatures chorused.
 
-"My ssspecies is exsstinct," the raptor hissed. "I'm the lassst of
-my kind. What home is there for me?"
+"My ssspecies is exsstinct," the raptor hissed.
+"I'm the lassst of my kind.
+What home is there for me?"
 
-"A good one!" Madica said. "One with green grass and snow and, and a
-blue sky instead of a ceiling and fresh air. Don't you want to breathe
-fresh air again?"
+"A good one!" Madica said.
+"One with snow and, and a blue sky instead of a ceiling and fresh air.
+Don't you want to breathe fresh air again?"
 
-An awkward silence followed. "We don't actually breathe," the
-elephant said. "Being robots and all."
+An awkward silence followed.
+"We don't actually breathe," the elephant said.
+"Being robots and all."
 
-"All right, forget the breathing. What about the sky? What about, what
-about splashing yourself in a river? Or chasing butterflies?" That last
-was for the raptor, which still had its eye on the nervous goat.
+"All right, forget the breathing.
+What about the sky?
+Or,
+I don't know,
+climbing trees?
+Or chasing butterflies"
 
-"I miss climbing trees," the gorilla admitted.
+"I do miss trees," the gorilla admitted.
 
-"And coral reefs—I always enjoyed exploring coral reefs," the squid
-burbled.
+"And coral reefs—I always enjoyed exploring coral reefs,"
+the squid burbled.
 
-Everyone looked at the raptor. "All right," it said grudgingly. "I
-like chasssing butterfliesss."
+Everyone looked at the raptor.
+"All right," it said grudgingly.
+"I like chasssing butterfliesss."
 
-"Great! Now, how do we take control of the saucer?" Madica held up the
-broken handlebars.
+"Great! Now, how do we take control of the saucer?"
+Madica held up the broken handlebars.
 
-The assembled creatures groaned. "Well, *that'sss* helpful," the
-raptor muttered just loudly enough to be heard.
+The assembled creatures groaned.
+"Well, *that'sss* helpful,"
+the raptor muttered just loudly enough to be heard.
 
-"Come on," Madica snapped. "Some of you have been flying this saucer
-for ages! There has to be another way."
+"Come on," Madica snapped.
+"Some of you have been flying this saucer for ages!
+There has to be another way."
 
-The gorilla frowned. "If you could connect a brain directly to the main
-computer…"
+The gorilla frowned.
+"If you could connect a brain directly to the main computer…"
 
-"…it could repolarize the anti-gravity drive," the elephant
-finished, nodding. "That would pull us back toward the Earth instead of
-pushing us away."
+"…it could repolarize the anti-gravity drive,"
+the elephant finished, nodding.
+"That would pull us back toward the Earth instead of pushing us away."
 
-"But it hasss to be a fresh brain," the raptor hissed. "The computer
-will have been programmed to ignore all of ours as a sssafety measure."
+"But it hasss to be a fresh brain," the raptor hissed.
+"The computer will have been programmed to ignore ours as a sssafety measure."
 
-There were murmurs of agreement. All faces turned to Madica. She gulped.
+There were murmurs of agreement.
+All faces turned to Madica. She gulped.
 "A fresh brain—you mean, like mine?"
 
 "It's the only way," the elephant said.
 
-Madica closed her eyes for a moment. The snow castle she and Laurellen
-had been building seemed a long way away. She wondered what her mom and
-dad were doing. Probably looking for her, she decided. Probably worried
-sick after what had happened to Ike and Laurellen.
+Madica closed her eyes.
+The snow castle she and Laurellen had been building seemed a long way away.
+She wondered what her mom and dad were doing.
+Probably looking for her, she decided.
+Probably worried sick after what had happened to Ike and Laurellen.
 
-"All right," she said, opening her eyes. "Let's go be pirates."
+"All right," she said, opening her eyes.
+"Fresh brains it is."
 
-</section>
-
-<section markdown="1">
-
-## "This Is My Saucer Now!"
+<!-- here -->
 
 The raptor turned out to be very good at picking locks. "It'sss all in
 the clawsss," it said proudly as the panel that Mr. Poudell had
