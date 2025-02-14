@@ -4165,158 +4165,209 @@ and then she squeezed through the half-open door to follow.
 
 ## Taking Command!
 
-The stairs went up and up—one hundred, two hundred, so many that
-Madica would have lost track if she had been counting. Each landing had
-a door on either side, and on each door hung a small green sign, but
-Madica didn't stop to read them this time. All she could think about
-was the zombie robots that would be waiting for her at the top, and Ike,
-unconscious in the hallway with Laurellen fretting over him, and the
-snarkasaurus's hands welded to the door.
+The stairs went up and up.
+Madica didn't try to count them this time.
+All she could think about was
+the zombie robots that would be waiting for her at the top,
+Ike unconscious behind her with Laurellen fretting over him,
+and the snarkasaurus's hands welded to the door.
 
 "Do you think it hurt?" she asked the cat. "Her hands, I mean."
 
-"Probably quite rather, I'd guess," the cat replied.
+"Probably quite a lot," the cat replied.
 
-They climbed the rest of the stairs in silence, stopping only when they
-reached the final landing. "Now what?" Madica puffed, eyeing the door
-that still lay slightly ajar.
+They climbed the rest of the stairs in silence,
+stopping only when they reached the final landing.
+"Now what?"
+Madica puffed,
+eyeing the door that still lay slightly ajar.
 
-The stump of the cat's tail twitched from side to side. "Now I
-distract them while you get to the command chair. After that…" If
-the cat could have shrugged, it would have.
+The stump of the cat's tail twitched from side to side.
+"Now I distract them while you get to the command chair.
+After that…"
+If the cat could have shrugged, it would have.
 
-"After that, what? Hey!" But the cat had slipped through the door.
+"After that, what? Hey!"
+But the cat had slipped through the door.
 
-For a moment—just a moment—there was silence, and then three things
-happened in quick succession:
+There was a brief moment of silence,
+and then three things happened in quick succession:
 
 1.  The cat yowled, "So, it *is* you!"
-2.  Mr. Poudell's voice thundered, "Get that cat!"
-3.  A triple dozen hollow voices began moaning, "Braaaains… fresh
-    braaaains…"
+2.  Mr. Poudell's voice snapped, "Get that cat!"
+3.  A chorus of hollow voices began moaning,
+    "Braaaains… fresh braaaains…"
 
-Madica pulled open the door just in time to see the room explode into
-chaos. The cat was already in the air, leaping and ducking and kicking
-and tripping. One robot zombie after another was knocked backward or off
-its feet (or hooves, or tentacles, or tires), but it wasn't going to be
-enough. There were just too many, and the cat's luck and skill
-couldn't last forever.
+Madica yanked the door open just as the room exploded into chaos.
+The cat was in the air,
+leaping and ducking and kicking.
+One robot zombie after another was knocked off
+its feet, hooves, tentacles, or tires,
+but there were too many of them,
+and the cat's luck and skill couldn't last forever.
 
-But what Madica saw through it all was Mr. Poudell sitting in the
-command chair. He looked exactly as he always had: thin hair combed
-across his head, pale, watery eyes behind little silver-framed glasses,
-a tie that didn't quite hang straight, and old. "Get that cat!" he
-repeated, pointing in case the zombies had any doubt about which cat he
-meant.
+In the midst of it all,
+Mr. Poudell sat in the command chair.
+He looked exactly as always:
+a wrinkled old face,
+thin hair combed across his head,
+pale, watery eyes behind little silver-framed glasses,
+and a tie that didn't quite hang straight.
+"Get that cat!" he repeated,
+pointing in case the zombies had any doubt about which cat he meant.
 
-That's when the cat made its move. It swung around an ostrich's neck,
+As if on signal,
+the cat made its move.
+It swung around an ostrich's neck,
 bounced off the back of what Madica now knew was called a megatherium,
-and launched itself straight at Mr. Poudell. Madica's teacher moved
-faster than she'd ever realized he could, but the cat was faster.
+and launched itself straight at Mr. Poudell.
 
-*Whack!* The cat's kick connected with Mr. Poudell's forehead.
+Madica's teacher moved faster than she'd ever realized he could,
+but the cat was faster.
+*Whack!*
+The cat's kick connected with Mr. Poudell's forehead.
 
-*Sproing!* Mr. Poudell's head flew off.
+*Sproing!*
+Mr. Poudell's head flew off.
 
-*Clank! Clonk!* It bounced off a control panel and fell to the floor. A
-moment later, Mr. Poudell's body fell forward with a soft thump.
+*Clank! Clonk!*
+The head bounced off a control panel and fell to the floor.
+A moment later, Mr. Poudell's body fell forward with a thump.
 
-The zombie robots instantly stopped moving. Madica yelled, "Yay! We did
-it!"
+The zombie robots instantly stopped moving.
+Madica yelled, "Yay! We did it!"
 
-The cat didn't answer. It didn't answer, and it didn't move, and
-suddenly Madica's heart was in her throat. She rushed over to the
-little bundle of fur draped across the arm of the command chair and
-gingerly reached out.
+The cat didn't answer.
+It didn't answer,
+and it didn't move,
+and suddenly Madica's heart was in her throat.
+She rushed over to
+the little bundle of fur draped across the arm of the command chair
+and gingerly reached out.
 
-It was still alive, but Madica could hear the ugly rasp in its breath.
+The cat's breaths were ragged and painful.
 "Broke… my… ribs…" the cat wheezed.
+"And… other things too… I think."
 
-"Sh…" Madica said in the same voice her mother had used when she
-had broken her arm. "It's OK. It's going to be OK. You were
-magnificent."
+"Sh…"
+Madica said,
+blinking back sudden tears.
+"It's all right.
+It's all right.
+You were magnificent."
 
-"I… was… rather… wasn't… I?" The cat struggled to raise
-its head. "Would… you… mind…?"
+"I… was… rather… wasn't… I?"
+The cat struggled to raise its head.
+"Would… you… mind…?"
 
 "What? Mind what?"
 
-"Scratching… my… ears…" the cat wheezed. "It's… the
-other… thing… you primates… are… good for…"
+"Scratching… my… ears…" the cat wheezed.
+"It's… the other… thing… you primates… are… good for…"
 
-Hesitantly, Madica put her hand on the cat's head and began to scratch.
+Hesitantly,
+Madica put her hand on the cat's head and began to scratch.
 After a moment it started to purr a broken, rattling purr.
 
-"You… must… hurry…" the cat finally said. "He'll… be…
-back… soon…"
+"You… must… hurry…" the cat finally said.
+"He'll… be… back… soon…"
 
-"Back?" Madica looked from the headless body lying on the floor beside
-her to the bodiless head on the other side of the chair. "How can he
-come back from that?"
+"Back?"
+Madica looked from the headless body lying on the floor beside her
+to the bodiless head on the other side of the chair.
+"How can he come back from that?"
 
-"Just… another… robot…" The cat feebly licked a paw and tried
-to clean its ear, but couldn't raise its leg far enough.
+"Just… another… robot…"
+The cat feebly licked a paw and tried to clean its ear,
+but couldn't raise its leg far enough.
 
-Suddenly furious, Madica took a step and kicked Mr. Poudell's head as
-hard as she could. It flew across the room—
+Suddenly furious,
+Madica took a step and kicked Mr. Poudell's head as hard as she could.
+It flew across the room—
 
-—straight into Mr. Poudell's arms. "Tsk tsk," he said in his
-gravelly voice. "That's not very nice." Behind him, the panel that
-had opened in the wall slid closed with an ominous *click*. He put the
-head down on the control panel nearest him and took off his glasses.
+—straight into Mr. Poudell's arms.
+"Tsk tsk," he said in his gravelly voice.
+"That's not very nice."
+Behind him,
+the panel that had opened in the wall closed with an ominous *click*.
 
-"You've caused quite a lot of trouble, young lady," he said as he
-cleaned them with the end of his tie. "Right now, for example, the
-children in your class all think I've fallen asleep at my desk. Who
-knows *what* mischief they'll get up to?" He replaced his glasses and
-blinked his pale, watery eyes. "Who knows *how* naughty they'll be
+Mr. Poudell put the head down on the control panel nearest him
+and took off his glasses.
+"You've caused quite a lot of trouble, young lady,"
+he said as he cleaned them with the end of his tie.
+"Right now, for example,
+the children in your class all think I've fallen asleep at my desk.
+Who knows what mischief they'll get up to
 while I'm here talking to you?"
+He replaced his glasses and blinked his pale, watery eyes.
 
-"But how?" Madica asked, her mind racing. The command chair was right
-behind her…
+"But how?" Madica asked, her mind racing.
+The command chair was right behind her…
 
-"How?" Mr. Poudell laughed the world's driest laugh. "I've been
-moving my mind from one robot to another for a long, long time."
+"How?"
+Mr. Poudell laughed a gravelly laugh.
+"I've been moving my mind from one robot to another for a long, long time."
 
-"Why? Why would you…? Why?" She tensed, ready to jump. She would
-only have one chance…
+"Why? Why would you…? Why?"
+She tensed, ready to jump.
+She would only have one chance…
 
-"Why?" Mr. Poudell's voice was suddenly as cold and as empty as outer
-space. "So I can *stop*, that's why." He moved his arms from side to
-side as if he was plucking a note from a slot in a desk, scribbling on
-it, and stuffing it into another slot. "Busy, busy, busy, I've been
-*quite* busy thank you, for *millions of years*! I was the very first
-creature *Himself* enhanced, and I've been slaving away ever since.
-*You* get holidays. *You* get presents. What do you think *we* get?
-Nothing! Nothing but more work, work, work."
+"Why?"
+Mr. Poudell's voice was suddenly as cold and empty as outer space.
+"So I can *stop*, that's why."
+He moved his arms from side to side
+as if he was plucking a note from a slot in a desk,
+scribbling on it,
+and stuffing it into another slot.
+"Busy, busy, busy, I've been *quite* busy thank you,
+for *millions of years*!
+I was the very first creature Himself enhanced,
+and I've been slaving away ever since.
+*You* get holidays.
+*You* get presents.
+What do you think *we* get?
+Nothing!
+Nothing but more work, work, work."
 
-For just one moment Madica forgot about the asteroid, and the cat
-wheezing on the arm of the command chair, and everything else. For just
-one moment, all she could imagine was Mr. Poudell and the deskbot and
-whatever other bodies he had worn spending year after endless, lonely
-year making notes of which creatures had been naughty and nice.
+For just one moment Madica forgot about the asteroid
+and the cat wheezing on the arm of the command chair
+and everything else.
+For just one moment,
+all she could think about was Mr. Poudell and the deskbot
+and whatever other bodies he had worn
+spending year after endless, lonely year
+making notes of which creatures had been naughty and nice.
 
-"Why didn't you just stop?" she breathed.
+"Why didn't you just quit?" she asked.
 
-"Because I *can't*," Mr. Poudell snapped. He tapped the back of his
-head. "Any more than your little friend Ike could go home. It's all
-part of being enhanced, you see. It's all part of Himself's wonderful
-plan to welcome his daughter home, but *where were we*? Where were we in
-that plan, eh?"
+"Because I *can't*," Mr. Poudell snapped.
+He tapped the back of his head.
+"Any more than your little friend Ike could go home.
+It was all part of Himself's plan to welcome his daughter home,
+but where were we in all that, eh?
+Where were we in that plan?"
 
-He took a breath to calm himself. "I'm sorry. I have waited so long. I
-am *so* close. You weren't a bad student, as mammals go, but I can't
-let you stop me, not now."
+He took a breath.
+"I'm sorry,"
+he continued evenly.
+"I have waited so long.
+I am *so* close.
+You weren't a bad student as mammals go,
+but I can't let you stop me,
+not now."
 
-He tossed his head aside and straightened his tie. The cat struggled to
-get its legs underneath it, but slumped back onto the arm of the chair,
-too weak even to stand. As Mr. Poudell stepped forward to do whatever he
-was going to do next, Madica leaped into the command chair and pressed
-three buttons in quick succession. Sixteen! Orange! Kneecap!
+He tossed his old head aside and straightened his tie.
+The cat struggled to get its legs underneath it,
+but slumped back onto the arm of the chair,
+too weak even to stand.
+As Mr. Poudell stepped forward,
+Madica leaped into the command chair and pressed three buttons in quick succession.
+Sixteen! Orange! Kneecap!
 
-"Stop!" Mr. Poudell commanded, but he was too late. With a *smack*,
-Madica slapped her hand down on the big red button in the center of the
-control panel.
+"No!"
+Mr. Poudell barked, but he was too late.
+With a *smack*,
+Madica hit the big red button in the center of the control panel.
 
 </section>
 
