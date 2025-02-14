@@ -3726,146 +3726,172 @@ Total destruction of this space craft in five… four…"
 
 ## Once Upon a Time…
 
-Down was suddenly down again. Madica and Laurellen hit the floor with a
-thump and a double "ow!" The cat, of course, landed on its feet,
-though the snarkasaurus was under them, and Ike under that.
+Down suddenly became down again.
+Madica and Laurellen hit the floor with a thump and a double "ow!"
+The cat, of course, landed on its feet,
+though it did so on top of Ike and the snarkasaurus.
 
-"Three…" the recorded voice continued. Madica and Laurellen hugged
-each other again.
+"Three…" the recorded voice continued.
+Madica and Laurellen hugged each other tigheter.
 
 "Twoooo…" The recording stretched the count out.
 
-The cat began licking its flank. "Oh, not to worry," it said in
-response to Madica's half-astonished, half-peeved look. "That 'total
-destruction' thing—it's just to get everyone's attention. We
-probably have several whole minutes before we crash."
+The cat began grooming itself nonchalantly.
+"Oh, not to worry," it said in response to Madica's look.
+"That 'total destruction' thing is just to get everyone's attention.
+We probably have several minutes before we crash."
 
-Madica scrambled to her feet and helped Laurellen up. "Well, at least
-we'll have plenty of time for an ear rub," she said sarcastically.
+"I don't *want* to crash,"
+Ike said,
+getting to his feet (or more accurately, landing gear)
+and taking Laurellen's hand.
 
-The cat froze for a moment, then resumed its cleaning. "I'm sure I
-have no idea what you're talking about," it said primly.
+"Well, I do," the snarkasaurus said.
+"Anything would be better than going back in a box
+for another sixty five million years."
+It returned Madica's look defiantly.
+"What? It would be."
 
-"I don't *want* to crash." Ike had somehow gotten to his feet (or
-more accurately, landing gear). To Madica's astonishment, he and
-Laurellen were holding hands (or more accurately, hand and wing).
+The cat sighed.
+"I suppose this is as good a time as any to explain what's going on.
+Once upon a time…"
 
-"Well, I do," the snarkasaurus said. "Anything would be better than
-going back in a box for another sixty five million years." It returned
-Madica's look defiantly. "What? It would be."
+> Once upon a time, the dinosaurs had a king named Santa Claws.
+> He wanted his daughter's turning-ten birthday to be
+> the best ever in all of history,
+> so he had his scientists and engineers make
+> an entire herd of tiny robot dinosaur toys for her,
+> and then nudge an asteroid out of its orbit
+> to make the greatest fireworks display anyone had ever seen.
+>
+> But somebody miscalculated.
+> by the time the dinosaurs realized the asteroid was going to be
+> a little bit more than just a fireworks show—
 
-The cat sighed. "I suppose this might be as good a time as any to
-explain what's going on." And quickly it explained:
+"Nobody miscalculated," the snarkasaurus interrupted.
+"It was sabotage.
+It must have been.
+Dinosaurs *never* make mistakes with math."
 
-> Once upon a time, the dinosaurs had a king named Santa Claws. He
-> wanted his daughter's turning-ten birthday to be the best ever in all
-> of history, so he had his scientists and engineers make an entire herd
-> of tiny robot dinosaur toys for her, and then nudge an asteroid out of
-> its orbit to make the greatest fireworks display anyone had ever seen.
-> But somebody miscalculated, and by the time the dinosaurs realized the
-> asteroid was going to be a little bit more than just a fireworks
-> show—
+"Would you like to tell the rest of the story?" the cat asked,
+flattening its ears ever so slightly.
+"No? Very well…"
 
-"Nobody miscalculated," the snarkasaurus interrupted. "It was
-sabotage. It must have been. Dinosaurs *never* make mistakes with
-math."
+> By the time the dinosaurs realized that
+> *the asteroid was going to be a problem*,
+> it was too late to stop it.
+> They knew it would be a long time until the Earth was livable again,
+> so they put their brains into the toys they had made
+> and sent them all to another asteroid,
+> one that would come back to Earth after ten thousand years.
+> Except they miscalculated again:
+> that asteroid didn't come back for sixty five million years,
+> by which time—
 
-"Would you like to tell the rest of the story?" the cat asked. "No?
-Very well…"
+"There you go again with the 'miscalculate',"
+the snarkasaurus grumbled.
 
-> So by the time the dinosaurs realized that *the asteroid was going to
-> be a problem*, it was too late to stop it. They knew it would be a
-> long, long time until the Earth was livable again, so they put their
-> brains into the toys they had made and sent them all to another
-> asteroid, one that would come back to Earth after ten thousand years.
-> Except they miscalculated again: that asteroid didn't come back for
-> sixty five million years, by which time—
+> —*by which time* the Earth was filled with all sorts of new creatures
+> and one last dinosaur.
+> You see, when he found out what had happened,
+> Santa Claws insisted on staying behind to help clean up the planet.
+> He had his scientists put his brain into a robot body
+> so that it would last until the asteroid returned,
+> and he kept one of their great flying saucers
+> so that he could go out and meet it when the time came,
+> but he didn't count on the asteroid being gone for so long.
+> As the millenia went by—
 
-"There you go again with the 'miscalculate'," the snarkasaurus
-grumbled.
+("A millenia is a thousand years," Ike whispered to Laurellen.
+"I know," she said, but squeezed his wing.)
 
-> —by which time the Earth was filled with all sorts of new creatures,
-> and one last dinosaur. You see, when he found out what had happened,
-> Santa Claws insisted on staying behind to help clean up the planet. He
-> had his scientists put his brain into a robot body so that it would
-> last until the asteroid returned, and he kept one of their great
-> flying saucers so that he could go out and meet it when the time came,
-> but he didn't count on the asteroid being gone for so long. As the
-> millenia went by—
+> —Santa Claws got lonelier and lonelier
+> and started to forget what he was supposed to be doing and why.
+> He kept tidying things up as best he could,
+> but by the time there were creatures brains big enough to understand
+> what presents were once,
+> he was so desperate for company that
+> he started making them little gifts instead of just eating them.
+> He still ate some of them sometimes,
+> of course—he wouldn't have been much of a dinosaur if he didn't—but
+> he made little birdhouses for the birds,
+> and cozy little sweaters to keep the mammals warm during ice ages,
+> and little floating toys for baby whales to play with.
+> And when his body started to rust so badly that
+> he couldn't make toys himself,
+> he began enhancing other creatures to help him.
 
-("A millenia is a thousand years," Ike whispered to Laurellen. "I
-know," she said, but squeezed his wing.)
+"Not just fairies?" Madica asked,
+thinking of the zombies she had seen in the control room.
 
-> —Santa Claws got lonelier and lonelier and started to forget what he
-> was supposed to be doing and why. He kept tidying things up as best he
-> could, but by the time there were creatures brains big enough to
-> understand what presents were once again, he was so desperate for
-> company that he started making them little gifts instead of just
-> eating them. He still ate some of them sometimes, of course—he
-> wouldn't have been much of a dinosaur if he didn't—but he made
-> little birdhouses for the birds, and cozy little sweaters to keep the
-> mammals warm during ice ages, and little floating toys for baby whales
-> to play with. And when his body started to rust so badly that he
-> couldn't make toys himself, he began enhancing other creatures to
-> help him.
+The cat shook its head.
+"All kinds of creatures, but fairies enhanced the best.
+Except for cats, of course,
+but he found cats awfully hard to catch,
+especially after we started training each other to be ninjas."
 
-"Not just fairies?" Madica asked, thinking of all the zombies she had
-seen in the control room.
+Laurellen shook her head as if to shake her thoughts into order.
+"So you're a—a toy?"
+she asked the snarkasaurus.
 
-The cat shook its head. "All kinds of creatures, but fairies enhanced
-the best. Except for cats, of course, but he found cats awfully hard to
-catch, especially after we started training each other to be ninjas."
+"No!
+I'm a *dinosuar*.
+I'm just *in* a toy."
+It glared at the cat.
+"And dad's scientists *didn't* miscalculate.
+Dinosaurs *never* make mistakes with math."
 
-Laurellen shook her head as if to shake her thoughts into order. "So
-you're a… a toy?" she asked the snarkasaurus.
+"Wait a second—*dad's* scientists?
+You're—you're Santa Claws' daughter?
+It was *your* birthday that started all of this?"
 
-"Nooo… Weren't you listening? I'm a *dinosuar*. I'm just *in* a
-toy." It glared at the cat. "And dad's scientists *didn't*
-miscalculate. Dinosaurs *never* make mistakes with math."
-
-"Wait a second—*dad's* scientists? You're—you're Santa Claws'
-daughter? It was supposed to be *your* birthday that started all of
-this?"
-
-The snarkasaurus shrugged. "It wasn't *my* fault."
+The snarkasaurus shrugged.
+"It wasn't *my* fault."
 
 "So how did you wind up back on Earth?" Madica asked.
 
-The snarkasaurus shrugged again. "Everyone on the asteroid had to wake
-up for one day every thousand years to check the machinery and do the
-dusting—even me. And after sixty five million years, I'd had, like, a
-zillion turns, and—"
+The snarkasaurus shrugged again.
+"Everyone on the asteroid had to take turns waking up every thousand years
+to check the machinery and do the dusting—even me.
+And after sixty five million years, I'd had, like, a zillion turns, and—"
 
 "One hundred and seventy eight, to be exact," the cat corrected.
 
-The snarkasaurus glared at the cat again. "Whatever. My point is,
-that's a lot of dusting, and I knew we were getting close to home, and
-so I thought, hey, someone should check it out and see what it looks
-like these days, so I borrowed a saucer, and—"
+The snarkasaurus glared at the cat again.
+"My point is, that's a lot of dusting,
+and I knew we were getting close to home,
+and so I thought someone should check it out
+and see what it looks like these days,
+so I borrowed a saucer,
+and—"
 
 "*Stole* a saucer," the cat corrected.
 
-The snarkasaurus harrumphed and crossed her arms. After a moment of
-awkward silence, Laurellen cleared her throat.
+The snarkasaurus harrumphed and crossed her arms.
+After a moment of awkward silence,
+Laurellen cleared her throat.
 
 "So you *got in* a saucer, and flew down, and…?"
 
-"And that automatically woke up some of the other dinosaurs, who
-decided they just *had* to give chase, and then of course Santa's
-long-range sensors picked them up, and, well, you know the rest," the
-cat finished.
+"And that automatically woke up some of the other dinosaurs,
+who decided it wasn't fair for our friend here to skip her turn,
+and, well, you know the rest,"
+the cat finished.
 
-"But—but what did your dad say when he saw you?" Madica asked. "Why
-didn't Santa Claws—"
+"But—but what did your dad say when he saw you?" Madica asked.
+"Why didn't Santa Claws—"
 
-"Because they wouldn't let me see him!" the snarkasaurus snapped. And
-then, to everyone's astonishment, she sniffled. "They wouldn't let me
-see him," she repeated. "After so long… As soon as they realized
-who I was, they took my brain out and put me on this saucer like I was,
+"Because they wouldn't let me see him!" the snarkasaurus snapped.
+To everyone's astonishment, she sniffled.
+"They wouldn't let me see him," she repeated.
+"After so long…
+As soon as they realized who I was,
+they took my brain out and put me on this saucer like I was,
 like I was *nobody*."
 
-At which point the gravelly recorded voice said, "Oh, we didn't think
-you were nobody. Far from it."
+At which point the gravelly recorded voice said,
+"Oh, we didn't think you were nobody.
+Far from it."
 
 </section>
 
@@ -3873,218 +3899,265 @@ you were nobody. Far from it."
 
 ## What Are *You* Doing Here?
 
-They all froze: the two fairies, the ELF, the sniffling snarkasaurus,
-and the regrettably less than fully-tailed cat. They all froze, but the
-voice carried on. "We knew *exactly* who you were, and if anything was
-going to wake Himself up, it would be seeing you. And we couldn't have
-that, could we? Not when we were so close to being free."
+They all froze:
+the cat,
+the two fairies,
+the ELF,
+and the sniffling snarkasaurus
+The voice carried on.
+"We knew *exactly* who you were,
+and if anything was going to wake Himself up,
+it would be seeing you.
+And we couldn't have that, could we?
+Not when we were so close to being free."
 
-"Who's 'we'?" the snarkasaurus asked angrily. "What do you mean
-'free'?" the cat asked at the same time. But it was Laurellen's
-question that made Madica's eyes go wide.
+"Who's 'we'?" the snarkasaurus asked angrily.
+
+"What do you mean 'free'?" the cat asked at the same time.
+But it was Laurellen's question that made Madica's eyes go wide.
 
 "Mr. Poudell?" Laurellen said. "What are *you* doing here?"
 
-And suddenly Madica recognized the voice, and remembered who it was that
-smelled like warm talc and old coffee. From the way the cat's fur
-bristled, she could tell she wasn't the only one.
+Suddenly Madica recognized the scratchy voice,
+and remembered who smelled like warm talc and old coffee.
+From the way the cat's fur bristled,
+she could tell it did too.
 
-"I could ask you the same question," the now-familiar voice replied.
-"It *is* a school day, you know—you *should* be in human studies
-class right now."
+"I could ask you the same question," the voice replied.
+"It *is* a school day, you know—you should be in human studies class right now."
 
-"I rather think this is a wee bit more important, don't you?" the cat
-drawled. Batting Madica's leg to get her attention, it pointed at its
-eyes, then at the walls and ceiling. Madica turned her palms up to
-signal 'what?'
+"I rather think this is a wee bit more important, don't you?"
+the cat drawled.
+Batting Madica's leg to get her attention,
+it pointed at its eyes,
+then at the walls and ceiling.
+Madica turned her palms up to signal 'what?'
 
-The cat sighed impatiently, but before it could try again, Mr.
-Poudell's voice said, "I agree. Oh, believe me, after twenty million
-years of filling in forms to keep track of whether *this* giant sloth
-has been nice or *that* smilodon has been naughty, I—"
+The cat sighed impatiently.
+Before it could try again,
+Mr. Poudell's voice said,
+"I completely agree.
+After twenty million years of filling in forms
+to keep track of whether *this* giant sloth has been nice
+or *that* smilodon has been naughty, I—"
 
 "What's a smilodon?" Ike interrupted.
 
-"It was what passed for a predator once the mammals took over," the
-snarkasaurus sniffed. "Kind of like a big cat with teeth that stuck out
-of its jaw."
+"It was what passed for a predator once the mammals took over,"
+the snarkasaurus sniffed.
+"Kind of like a big cat with teeth that stuck out of its jaw."
 
-"Oh, you mean a saber-toothed tiger!" Ike nodded vigorously, which
-made his windshield flap up and down. "I read about them! But the
-correct name for a giant sloth is 'megatherium'. It was in the same
-book. There was this picture of them fighting, and—"
+"Oh, you mean a saber-toothed tiger!"
+Ike nodded vigorously,
+which made his windshield flap up and down.
+"I read about them!
+And a giant sloth is a megatherium.
+It was in the same book.
+There was this picture of them fighting, and—"
 
-"Do you mind!?" Mr. Poudell's thundered. "This is my first proper
-super-villain speech, and you have quite gone and spoiled it, thank you
-very much."
+"Do you mind?" Mr. Poudell's voice thundered.
+"This is my first proper super-villain speech,
+and you have quite gone and spoiled it!"
 
-"Sorry, Mr. Poudell," the three children said in unison.
+"Sorry, Mr. Poudell," the children said in unison.
 
-"Quite right," the cat said soothingly, all the while gesturing
-frantically at the walls and ceiling.
+"Please, carry on," the cat said,
+all the while gesturing frantically at the walls and ceiling.
 
-"What?" Madica hissed. "I don't know what you're trying to tell
-me."
+"What?" Madica hissed.
+"I don't know what you're trying to tell me."
 
-"He's trying to tell you that I don't have any cameras in the
-hallways," Mr. Poudell said smugly. "Which means you could, oh, I
-don't know, sneak away while your ninja friend tries to distract me
-with witty banter. But you see, that's not going to work."
+"It's trying to tell you that I don't have any cameras in the hallways,"
+Mr. Poudell's voice said smugly.
+"Which means you could, oh, I don't know,
+sneak away while your ninja friend tries to distract me with witty banter.
+But that's not going to work."
 
-"And why is that?" the cat asked, after shooting one last exasperated
-look at Madica.
+"Why not?" the cat asked,
+shooting one last exasperated look at Madica.
 
-Mr. Poudell didn't answer. He didn't need to. From up ahead, they
-suddenly heard the shuffle of slow feet and voices moaning,
-"Braaaains… fresh braaaains…" A moment later the terrifying
-sound came from the other direction as well.
+Mr. Poudell didn't answer.
+Instead,
+from up ahead,
+voices began to moan,
+"Braaaains… fresh braaaains…"
+A moment later the terrifying sound came from behind them as well.
 
-"Have fun with your new friends," Mr. Poudell's voice gloated. "Now
-if you'll excuse me, I have a planet to obliterate."
+"Have fun with your new friends," Mr. Poudell's voice gloated.
+"Now if you'll excuse me, I have a planet to obliterate."
 
-"Oh no! We're trapped!" the snarkasaurus whimpered, sitting down
-suddenly on the floor and putting her head in her paws. "They're going
-to put me back in a box and—"
+"Oh no!" the snarkasaurus whimpered,
+sitting down suddenly on the floor and putting her head in her paws.
+"They're going to put me back in a box and—"
 
-"Oh, *do* be quiet, thank you?" the cat snapped. It tilted its head to
-one side, then pointed forward. "That way. Quickly now."
+"Oh, *do* give it a moment, will you?" the cat snapped.
+It cocked its head for a moment, then pointed forward.
+"That way. Quickly now."
 
-"But what about the zombies?" Madica protested. The voices had given
-her goosebumps, and the thought of being grabbed at by all those hands
-again…
+"But what about the zombies?" Madica protested.
+The thought of being grabbed at by all those hands again…
 
-"You can wait here for the other lot if you like," the cat said over
-its shoulder.
+"You can wait here for the other lot if you like,"
+the cat said over its shoulder.
 
-Ike and Laurellen looked at Madica. She gave an exaggerated shrug,
-rolling her eyes and waving her hands in circles, just her dad did when
-she asked a silly question. It drew a small smile from her friend, who
-tapped Ike on the wing. "Come on." The two followed the cat up the
-corridor.
+Ike and Laurellen looked at Madica.
+She gave an exaggerated shrug and rolled her eyes,
+just like her dad did when she asked him a silly question.
+It drew a small smile from Laurellen,
+who squeezed Ike's wing.
+"Come on."
+The two followed the cat up the corridor.
 
-Madica took two steps to go with them, hesitated, and crouched down
-instead. "Hey," she said softly to the snarkasaurus. "Are you coming
-with us?"
+Madica hesitated and then crouched down.
+"Hey," she said softly to the snarkasaurus.
+"Are you coming?"
 
-"What's the point?" the snarkasaurus sniffled. "Stay, go…
-They'll put my body back in a box and put my brain in a jar and I'll
-*never* get to play or have friends or *anything*. It's not fair."
+"What's the point?" the snarkasaurus sniffled.
+"Stay, go…
+They'll put my body back in a box
+and put my brain in a jar
+and I'll *never* get to play or have friends or *anything*.
+It's not fair."
 
-"No it's not," Madica agreed. "That's why we're not going to let
-them." She held out her hand. The snarkasaurus sniffled again, then let
-Madica pull her to her feet.
+"No it's not," Madica agreed.
+"That's why we're not going to let it happen."
+She held out her hand.
+The snarkasaurus sniffled again,
+then let Madica pull her up.
 
-They had to run to catch up with Ike and Laurellen. The cat was nowhere
-to be seen, but the zombies' slow moans grew louder and louder as they
-raced along the corridor.
+They had to run to catch up with the others.
+Every moment the zombies' moans grew louder.
 
 And louder.
 
 And *louder*.
 
-At every step, Madica expected to plow headlong into a pack of robot
-zombies. Instead, the corridor just went on and on, curving gently
-around on itself until—
+At every step,
+Madica expected to plow into them.
+Instead, the corridor just went on and on,
+curving gently around on itself until—
 
-"S-stop!" Ike wheezed, letting go of Laurellen's hand and flopping
-down on the floor. "I c-can't keep… keep…"
+"S-stop!" Ike wheezed,
+letting go of Laurellen's hand and flopping down on the floor.
+"I c-can't keep… keep…"
 
-"But Ike—we *have* to keep running!" Laurellen protested, grabbing
-one of his wings and tried to pull him back onto his landing gear. "The
-zombies are—"
+"But Ike—we *have* to keep running!" Laurellen protested,
+trying to pull him back onto his landing gear.
+"The zombies are—"
 
-"Wait," Madica said. She pointed at the door beside them. "We're
-right back where we started!"
+"Wait!" Madica said.
+She pointed at the door beside them.
+"We're right back where we started!"
 
-Sure enough, the number on the door was 148-A. They had run in a circle
-all the way around the inside of the flying saucer!
+Sure enough, the number on the door was 148-A.
+They had run in a circle all the way around the flying saucer!
 
-Madica and Laurellen looked at each other. "It's just a recording!"
-they said in unison.
+Madica and Laurellen looked at each other.
+"It's just a recording!" they said in unison.
 
-"To drive us away from the control room, no doubt. Fiendish!" The cat
-pointed at the door. "Get that open, now!"
+"To drive us away from the control room, no doubt. Fiendish!"
+The cat pointed at the door.
+"Get that open, now!"
 
-But the door was locked. First Madica, then Laurellen, then the
-snarkasaurus rattled it, but it would not open. "If only I still had my
-tail," the cat sighed. "I can unlock almost anything with that…"
+But it was locked.
+No matter how hard they rattled it,
+it would not open.
+"If only I still had my tail," the cat sighed.
+"I can unlock almost anything with it."
 
 "With your tail?" Madica asked.
 
-The cat nodded sorrowfully. "It was part of the training for this
-mission. I was actually quite proud when I finally mastered it."
+The cat nodded sorrowfully.
+"It was part of the training for this mission.
+I was actually quite proud when I finally mastered the technique."
 
-Ike groaned and stood up. "I've still got a bit of fuel left," he
-said. "Maybe I can cut through."
+Ike groaned and stood up.
+"I've got a bit of fuel left.
+Maybe I can cut through."
 
-"No!" Laurellen stepped between him and the door. "You can't use up
-all your fuel! You'll—you'll—"
+"No!" Laurellen stepped between him and the door.
+"You can't use up all your fuel!
+You'll—you'll—"
 
-"I'll just go to sleep," he said. For the first time, Madica heard
-the same gentleness in his voice that had been in Laurellen's. "That
-won't be so bad. Not if you're here. Now come on—I don't think I
-can do this by myself."
+"I'll just go to sleep," he said.
+Madica heard the same gentleness in his voice that had been in Laurellen's.
+"That won't be so bad,
+not if you're here.
+Now come on—I don't think I can do this by myself."
 
-He was right. It took all of them, including the cat, to prop him
-against the door upside down with his jet pointed right at the lock.
+He was right.
+It took all of them to prop him upside down against the door
+with his jet pointed at the lock.
 "Ready?" he asked in a muffled voice.
 
 "Be careful," Laurellen said anxiously.
 
-Ike chuckled. "Sure. Like that's been working for us. Here goes!"
+Ike chuckled.
+"Sure. Like that's been working for us. Here goes!"
 
-His jet sputtered, then caught, then flared. A hot white flame splashed
-against the door and spilled upward like an upside-down waterfall of
-fire. The metal turned red, then orange, then—
+His jet sputtered, then flared.
+White flame splashed against the door
+and spilled upward like an upside-down waterfall of fire.
+The metal turned red, then orange, then—
 
-*Pffft.* Without warning, Ike's jet just stopped. "Keep going!" the
-cat commanded. "You're almost there!" But Ike didn't answer.
+*Pffft.*
+Without warning, Ike's jet just stopped.
+"Keep going!" the cat commanded.
+"You're almost there!"
+But Ike didn't answer.
 
-"Ike!" Laurellen let go of the wing she'd been holding and knelt down
-beside him. "Oh, Ike, wake up! Please, wake up!" But he didn't.
+"Ike!"
+Laurellen let go of the wing she'd been holding and knelt down beside him.
+"Oh, Ike, wake up! Please, wake up!"
+But he didn't.
 
-"Rats! Darn! Fooey!" The frustration in the cat's voice was almost as
-fiery as the glowing red patch on the door. "We were so close! So
-close!"
+"Rats! Darn! Fooey!"
+The frustration in the cat's voice was almost as fiery as
+the glowing red patch on the door.
+"We were so close!"
 
-And that's when the snarkasaurus ran up the length of Ike's body and
-pressed both hands against the hot metal.
+And that's when the snarkasaurus ran up the length of Ike's body
+and pressed both of her hands against the glowing red metal door.
 
-"What are you *doing*?" Madica exclaimed. She let go of Ike's other
-wing and reached out to pull the snarkasaurus away.
+"What are you *doing*?" Madica exclaimed.
 
-"No!" she said. "Wait! I can almost—look, it's working!" And sure
-enough, her fingers were slowly, slowly, tearing their way through the
-hot metal of the door as if it was a sheet of rubber.
+"Wait!" the snarkasaurus said.
+"I can almost—look, it's working!"
+Sure enough, her fingers were slowly tearing open the door
+as if it was a sheet of rubber.
 
-But the metal was cooling and hardening as she did so. She grunted with
-the strain. Madica took a quick step forward and braced her shoulder
-underneath the little dinosaur's rear end.
+But the metal was cooling and hardening as she did so.
+She grunted with the strain.
 
-*Clink!* With that little sound, the metal tore away leaving a hole just
-big enough for a cat to scramble through. And that's what the cat
-did—up Madica's back, a bound to the snarkasaurus's head, and
-through the hole.
+*Ting!*
+With that little sound,
+the metal tore open just enough for the cat to scramble through.
 
-The lock clicked a moment later. Madica and Laurellen shifted Ike out of
-the way so that the door could open. "You can let go now," Madica said
-to the snarkasaurus, who hadn't moved.
+The lock clicked a moment later.
+Madica and Laurellen shifted Ike out of the way
+so that the door could open.
+"You can let go now," Madica said to the snarkasaurus.
 
-"Actually, I can't," the dinosaur said. "My hands are kind of welded
-here."
+"Actually, I can't," the dinosaur said.
+"My hands are kind of welded here."
 
-"We'll come back for you," the cat said. "I promise. Now come on,
-you two, we still have a planet to save."
+"We'll come back for you," the cat said.
+"I promise.
+Now come on,
+you two,
+we still have a planet to save."
 
 "I'm not leaving Ike," Laurellen said.
 
-The cat rolled its eyes. "Again? Very well—just the two of us then.
-Come along!"
+The cat rolled its eyes.
+"Again? Very well—just the two of us then.
+Tally ho!"
 
-It scampered up the stairs. Madica and Laurellen exchanged looks that
-were equal parts "be careful" and "don't worry—I'll be OK" and
-"how are we *ever* going to tell our parents about this?" and then she
-squeezed through the half-open door to follow.
+It scampered up the stairs.
+Madica and Laurellen exchanged looks that were equal parts "be careful"
+and "don't worry—I'll be OK"
+and "how are we *ever* going to tell our parents about this?"
+and then she squeezed through the half-open door to follow.
 
 </section>
 
