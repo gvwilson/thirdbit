@@ -100,7 +100,7 @@ A faint breeze brushed across her tail.
 She ran to the kitchen.
 The back door was open.
 She was sure she had closed it after bringing in the laundry that afternoon.
-Sindy must have snuck out the back way to follow her parents into the village.
+Sindy must have snuck out the back way to follow her parents into town.
 
 "You little monster," Maddy said under her breath.
 She crossed the back garden in four long strides
@@ -139,7 +139,7 @@ He dropped like a sack of potatoes.
 "Papa!"
 Maddy's scream was lost in the sound of Mayor Lupus howling.
 Pikes and axes in their paws,
-the village militia poured into the square.
+the town's militia poured into the square.
 
 A bolo whipped over Maddy
 and tangled around the head of the bot that had struck her father.
@@ -155,7 +155,7 @@ forcing the militia to fall back as the bots made their escape.
 
 Everyone told Maddy afterward that it wasn't her fault.
 The ox and the goat who had been on guard duty that night had vanished,
-no doubt the first to be taken as the bots snuck up on the village.
+no doubt the first to be taken as the bots snuck up on the town.
 Three others had been thrown into the hauler with Maddy's father.
 It would all have happened even if she hadn't fallen asleep,
 even if she hadn't let Sindy wander off.
@@ -172,7 +172,7 @@ but it didn't make any difference.
 
 *Two years later…*
 
-Maddy was trying to sketch the willow tree in the village square
+Maddy was trying to sketch the willow tree in the town square
 when Gumption showed up with a couple of books under his arm.
 She hadn't exactly snuck out of the house,
 but she hadn't told her mama she was leaving either.
@@ -223,7 +223,7 @@ to keep people safe from roving bandits and rogue bots.
 More houses had sprouted as time passed,
 smaller ones built for comfort rather than defense.
 One of these belonged to Special Leaf,
-the only tortoise within a hundred kays and the village's oldest resident by far.
+the only tortoise within a hundred kays and the town's oldest resident by far.
 
 Maddy would never forget
 the first time her mother and father took her to the Special's house.
@@ -256,7 +256,7 @@ to take a jar of home-made jam as a thank-you,
 sat down on his porch and lost herself in the first one
 
 Gumption had started visiting Special Leaf by a few months later.
-His family hadn't brought him—the village goats weren't bookish people.
+His family hadn't brought him—the town's goats weren't bookish people.
 At first Maddy had resented him intruding
 into her magical world of stories and long-ago science.
 But they started talking one day about the relative merits of mysteries versus adventures
@@ -316,7 +316,7 @@ brushed off the books and precious sheets of paper,
 and tucked them back into her bag.
 "Come on, you."
 
-The trio walked back to the village square without speaking.
+The trio walked back to the town square without speaking.
 A few grownups nodded or said hello as they passed.
 Maddy nodded back,
 but was too busy being annoyed to do any more than that.
@@ -337,7 +337,7 @@ and it wasn't fair of Sindy to—
 "Hey," Gumption said, elbowing her.
 Maddy blinked.
 They had passed through the houses on the other side of the main square
-and reached the village's other square,
+and reached the town's other square,
 the one that courting couples didn't sit in this one on warm summer evenings.
 An ageless black glass pillar stood in its center,
 half again the height of anyone Maddy knew
@@ -449,7 +449,7 @@ Are you headed home?
 It's been a while since I saw your mother,
 and I could use the walk."
 
-The Roo family's house stood on the very edge of the village,
+The Roo family's house stood on the very edge of town,
 neatly painted a pale orange that made it look warm on even the coldest days.
 The ground floor had been built by a rhino
 who had dreamed of opening a tavern in Rusty Bridge,
@@ -526,7 +526,7 @@ Now,
 where *is* that rosehip tea…"
 
 The sun was low on the horizon
-as Maddy and Gumption walked slowly back toward the village.
+as Maddy and Gumption walked slowly back toward town.
 By unspoken agreement they left the main road
 and took the path that ran down by the river.
 It was the longer route,
@@ -1043,7 +1043,7 @@ she always joked,
 baring her wolf teeth just a little as she smiled.
 
 An old bell hung on an enormous curlicue hook on the mayor's veranda.
-Generations of village children had whispered to one another that
+Generations of the town's children had whispered to one another that
 it was made from the plating of a scavenger bot
 that had lurked beneath Rusty Bridge when there still was a bridge.
 They stopped believing the story when they got older,
@@ -1392,7 +1392,7 @@ as the huge hauler bot batted away a clump of flying earth and rumbled forward o
 "Arrooo! Arrooo!"
 Wolf howls sent shivers up Maddy's fur.
 In mismatched helmets and salvaged armor,
-the village militia charged around the corner to hit the bots from behind.
+the town militia charged around the corner to hit the bots from behind.
 Some carried weighted axes meant for hacking through metal joints.
 Others had long pikes with hooks and spikes on their ends
 to tangle in bots' limbs and gears.
@@ -1408,14 +1408,14 @@ its mechanical arms twitching.
 "Woo hoo!" Gumption shouted as Mama Roo tried to drag him away.
 "You show 'em, mayor!"
 But even as he said it
-the other bots flung canisters of dizzysmoke at the villagers.
+the other bots flung canisters of dizzysmoke at the townspeople.
 One hit an ox square in the chest,
 knocking him off his feet.
 Dark smoke spewed into the air.
 
 Suddenly Sindy screamed.
 Maddy whirled around.
-Two bots had circled around the village and come in behind them!
+Two bots had circled around town and come in behind them!
 "Get away!" the younger roo shrieked as the nearest one reached for her.
 
 "Duck!" Mayor Lupus shouted.
@@ -1476,7 +1476,7 @@ Bursts of purple electricity struck two of the militia.
 
 As they toppled over,
 the big bot rumbled away into the darkness with its prisoners
-leaving chaos in the village square behind it.
+leaving chaos in the town square behind it.
 Half of the militia lay on the ground,
 dazed by dizzysmoke or shocked by the crab bot's final blast.
 Special Leaf was still gesturing feebly,
@@ -1663,7 +1663,7 @@ The cross-hatched treadmarks were fresh.
 Maddy shivered.
 The last of the day's warmth was gone,
 and the forest around them looked more ominous with each darkening moment.
-They were a long way from the village
+They were a long way from town
 and no one would know where to look for them.
 She opened her mouth to say,
 "Maybe we should go back,"
@@ -1836,7 +1836,7 @@ As the stars came out they passed under a line of ruined arches
 that stretched from one horizon to the other.
 A half-sunken metal sphere as big as a house was next,
 and then a tangle of concrete and bent bars
-that the villagers just called "the thing".
+that the townspeople just called "the thing".
 Maddy had heard about all of them from travelers
 and by eavesdropping on the militia patrols
 that the mayor occasionally sent up the highway
@@ -3818,7 +3818,7 @@ An empty stretch of highway…
 A forest clearing that somehow looked familiar…
 Something too dark to make out…
 And there in the last one,
-the smaller village square,
+the smaller town square,
 the one with the Makers' black glass pillar in it.
 
 As she watched open-mouthed the scenes shifted slightly,
@@ -3852,7 +3852,7 @@ You know the stories."
 
 "I will go."
 The hidden camera scanned left to reveal Special Leaf
-and a handful of the village militia.
+and a handful of the town militia.
 Bluster and Bravo were there too.
 *At least someone made it home,*
 Maddy thought sourly.
@@ -3877,7 +3877,7 @@ and Lasercase—that was Lasercase.
 
 As the camera panned to follow them she saw
 the half-sunken metal sphere she and Dockety had passed.
-They were heading back to the village,
+They were heading back to town,
 she realized.
 The bots were about to attack Rusty Bridge again!
 
@@ -4562,7 +4562,7 @@ and then pulling her into a hug.
 
 *Sshhzorp… Bzzt… Bzzat-at-at.*
 Dockety's speakers crackled.
-The villagers around them jump as they realized the bot was still operational.
+The townspeople around them jumped as they realized the bot was still operational.
 
 One of the bears raised her ax.
 "No! Wait, don't!"
@@ -5163,7 +5163,7 @@ still accelerating.
 but the autopilot ignored her.
 They passed the arches and the sphere,
 zoomed over something like a rusty metal flower
-as big across as the village square was wide,
+as big across as the town square was wide,
 and dropped like a stone.
 
 Maddy screamed.
@@ -5202,8 +5202,7 @@ She looked up.
 There—two dots, approaching fast.
 She sprinted for the nearest clump of weeds and threw herself into it.
 
-The drones that had dropped dizzysmoke canisters on the village
-arrived moments later.
+The drones that had dropped dizzysmoke canisters arrived moments later.
 They slowed,
 pivoted,
 and descended through the opening in the ground.
@@ -5603,7 +5602,7 @@ trying to topple it over.
 Beside them a pair of maintenance bots
 tried to trap a nimble little ladder bot between them
 while the ladder bot tried to pry off their regulators.
-The flying bots that had dropped dizzysmoke on the village zipped and buzzed angrily overhead,
+The flying bots that had dropped dizzysmoke zipped and buzzed angrily overhead,
 each trying to get above the other so it could grab hold of its opponent's wings.
 A dozen other fights clanged and scraped around them.
 The free bots were fighting bravely,
