@@ -72,12 +72,14 @@ and then pulled the covers over her head
 and waited for Santa Claws to kidnap her and turn her into an elf
 and make her work in his factory forever and ever.
 
-She knew it was silly to be afraid—Santa Claws hadn't kidnapped any fairies in years—but
+She knew it was silly to be afraid—Santa Claws
+hadn't kidnapped any fairies in years—but
 night after night she lay awake
-listening for the sound of him squirming down a chimney with an empty sack in his hand
-and a wicked gleam in his eye.
+listening for the sound of him squirming down a chimney
+with an empty sack in his hand and a wicked gleam in his eye.
 
-She was still awake when her dad came in to kiss her forehead and say goodnight like he always did.
+She was still awake when her dad came in
+to kiss her forehead and say goodnight like he always did.
 She pretended she was asleep,
 because if he realized she was awake he'd ask why,
 and if she told him he would give her a big hug,
@@ -3546,7 +3548,7 @@ Without warning the lights in the control room turned red
 and an alarm started blaring,
 "Brrrrmp! Brrrrmp! Brrrrmp!"
 
-"Warning," said a creaky, gravelly voice
+"Warning," said a mechanical voice
 that seemed to come from everywhere at once.
 "Re-assembled robot detected on control level.
 All units, respond and deactive with extreme prejudice."
@@ -3603,7 +3605,7 @@ Beneath her (if "beneath" actually meant anything)
 the cat rebounded from her bum
 and bounced off floor to follow her.
 
-"Warning!" the recorded voice said.
+"Warning!" the mechanical voice said.
 "Re-assembled robot still at large on control level.
 Organic life forms detected on control level.
 Deactive all intruders immediately."
@@ -3662,7 +3664,7 @@ his jets blazing.
 "Hey!" he shouted.
 "Does anybody need a lift?"
 
-"Warning," the recorded voice said.
+"Warning," the mechanical voice said.
 "Unauthorized flying vehicle detected in control level.
 Apprehend and—"
 
@@ -3715,7 +3717,7 @@ There were all these robots with their heads cut off, and—"
 Whatever else she might have said
 was cut off by a new alarm going,
 "BRRRRMP! BRRRRMP! BRRRRMP!"
-and another recorded voice saying,
+and another mechanical voice saying,
 "Warning—collision alert.
 Warning—collision imminent.
 Total destruction of this space craft in five… four…"
@@ -3731,7 +3733,7 @@ Madica and Laurellen hit the floor with a thump and a double "ow!"
 The cat, of course, landed on its feet,
 though it did so on top of Ike and the snarkasaurus.
 
-"Three…" the recorded voice continued.
+"Three…" the mechanical voice continued.
 Madica and Laurellen hugged each other tigheter.
 
 "Twoooo…" The recording stretched the count out.
@@ -3889,7 +3891,7 @@ As soon as they realized who I was,
 they took my brain out and put me on this saucer like I was,
 like I was *nobody*."
 
-At which point the gravelly recorded voice said,
+At which point the mechanical voice said,
 "Oh, we didn't think you were nobody.
 Far from it."
 
@@ -4165,158 +4167,209 @@ and then she squeezed through the half-open door to follow.
 
 ## Taking Command!
 
-The stairs went up and up—one hundred, two hundred, so many that
-Madica would have lost track if she had been counting. Each landing had
-a door on either side, and on each door hung a small green sign, but
-Madica didn't stop to read them this time. All she could think about
-was the zombie robots that would be waiting for her at the top, and Ike,
-unconscious in the hallway with Laurellen fretting over him, and the
-snarkasaurus's hands welded to the door.
+The stairs went up and up.
+Madica didn't try to count them this time.
+All she could think about was
+the zombie robots that would be waiting for her at the top,
+Ike unconscious behind her with Laurellen fretting over him,
+and the snarkasaurus's hands welded to the door.
 
 "Do you think it hurt?" she asked the cat. "Her hands, I mean."
 
-"Probably quite rather, I'd guess," the cat replied.
+"Probably quite a lot," the cat replied.
 
-They climbed the rest of the stairs in silence, stopping only when they
-reached the final landing. "Now what?" Madica puffed, eyeing the door
-that still lay slightly ajar.
+They climbed the rest of the stairs in silence,
+stopping only when they reached the final landing.
+"Now what?"
+Madica puffed,
+eyeing the door that still lay slightly ajar.
 
-The stump of the cat's tail twitched from side to side. "Now I
-distract them while you get to the command chair. After that…" If
-the cat could have shrugged, it would have.
+The stump of the cat's tail twitched from side to side.
+"Now I distract them while you get to the command chair.
+After that…"
+If the cat could have shrugged, it would have.
 
-"After that, what? Hey!" But the cat had slipped through the door.
+"After that, what? Hey!"
+But the cat had slipped through the door.
 
-For a moment—just a moment—there was silence, and then three things
-happened in quick succession:
+There was a brief moment of silence,
+and then three things happened in quick succession:
 
 1.  The cat yowled, "So, it *is* you!"
-2.  Mr. Poudell's voice thundered, "Get that cat!"
-3.  A triple dozen hollow voices began moaning, "Braaaains… fresh
-    braaaains…"
+2.  Mr. Poudell's voice snapped, "Get that cat!"
+3.  A chorus of hollow voices began moaning,
+    "Braaaains… fresh braaaains…"
 
-Madica pulled open the door just in time to see the room explode into
-chaos. The cat was already in the air, leaping and ducking and kicking
-and tripping. One robot zombie after another was knocked backward or off
-its feet (or hooves, or tentacles, or tires), but it wasn't going to be
-enough. There were just too many, and the cat's luck and skill
-couldn't last forever.
+Madica yanked the door open just as the room exploded into chaos.
+The cat was in the air,
+leaping and ducking and kicking.
+One robot zombie after another was knocked off
+its feet, hooves, tentacles, or tires,
+but there were too many of them,
+and the cat's luck and skill couldn't last forever.
 
-But what Madica saw through it all was Mr. Poudell sitting in the
-command chair. He looked exactly as he always had: thin hair combed
-across his head, pale, watery eyes behind little silver-framed glasses,
-a tie that didn't quite hang straight, and old. "Get that cat!" he
-repeated, pointing in case the zombies had any doubt about which cat he
-meant.
+In the midst of it all,
+Mr. Poudell sat in the command chair.
+He looked exactly as always:
+a wrinkled old face,
+thin hair combed across his head,
+pale, watery eyes behind little silver-framed glasses,
+and a tie that didn't quite hang straight.
+"Get that cat!" he repeated,
+pointing in case the zombies had any doubt about which cat he meant.
 
-That's when the cat made its move. It swung around an ostrich's neck,
+As if on signal,
+the cat made its move.
+It swung around an ostrich's neck,
 bounced off the back of what Madica now knew was called a megatherium,
-and launched itself straight at Mr. Poudell. Madica's teacher moved
-faster than she'd ever realized he could, but the cat was faster.
+and launched itself straight at Mr. Poudell.
 
-*Whack!* The cat's kick connected with Mr. Poudell's forehead.
+Madica's teacher moved faster than she'd ever realized he could,
+but the cat was faster.
+*Whack!*
+The cat's kick connected with Mr. Poudell's forehead.
 
-*Sproing!* Mr. Poudell's head flew off.
+*Sproing!*
+Mr. Poudell's head flew off.
 
-*Clank! Clonk!* It bounced off a control panel and fell to the floor. A
-moment later, Mr. Poudell's body fell forward with a soft thump.
+*Clank! Clonk!*
+The head bounced off a control panel and fell to the floor.
+A moment later, Mr. Poudell's body fell forward with a thump.
 
-The zombie robots instantly stopped moving. Madica yelled, "Yay! We did
-it!"
+The zombie robots instantly stopped moving.
+Madica yelled, "Yay! We did it!"
 
-The cat didn't answer. It didn't answer, and it didn't move, and
-suddenly Madica's heart was in her throat. She rushed over to the
-little bundle of fur draped across the arm of the command chair and
-gingerly reached out.
+The cat didn't answer.
+It didn't answer,
+and it didn't move,
+and suddenly Madica's heart was in her throat.
+She rushed over to
+the little bundle of fur draped across the arm of the command chair
+and gingerly reached out.
 
-It was still alive, but Madica could hear the ugly rasp in its breath.
+The cat's breaths were ragged and painful.
 "Broke… my… ribs…" the cat wheezed.
+"And… other things too… I think."
 
-"Sh…" Madica said in the same voice her mother had used when she
-had broken her arm. "It's OK. It's going to be OK. You were
-magnificent."
+"Sh…"
+Madica said,
+blinking back sudden tears.
+"It's all right.
+It's all right.
+You were magnificent."
 
-"I… was… rather… wasn't… I?" The cat struggled to raise
-its head. "Would… you… mind…?"
+"I… was… rather… wasn't… I?"
+The cat struggled to raise its head.
+"Would… you… mind…?"
 
 "What? Mind what?"
 
-"Scratching… my… ears…" the cat wheezed. "It's… the
-other… thing… you primates… are… good for…"
+"Scratching… my… ears…" the cat wheezed.
+"It's… the other… thing… you primates… are… good for…"
 
-Hesitantly, Madica put her hand on the cat's head and began to scratch.
+Hesitantly,
+Madica put her hand on the cat's head and began to scratch.
 After a moment it started to purr a broken, rattling purr.
 
-"You… must… hurry…" the cat finally said. "He'll… be…
-back… soon…"
+"You… must… hurry…" the cat finally said.
+"He'll… be… back… soon…"
 
-"Back?" Madica looked from the headless body lying on the floor beside
-her to the bodiless head on the other side of the chair. "How can he
-come back from that?"
+"Back?"
+Madica looked from the headless body lying on the floor beside her
+to the bodiless head on the other side of the chair.
+"How can he come back from that?"
 
-"Just… another… robot…" The cat feebly licked a paw and tried
-to clean its ear, but couldn't raise its leg far enough.
+"Just… another… robot…"
+The cat feebly licked a paw and tried to clean its ear,
+but couldn't raise its leg far enough.
 
-Suddenly furious, Madica took a step and kicked Mr. Poudell's head as
-hard as she could. It flew across the room—
+Suddenly furious,
+Madica took a step and kicked Mr. Poudell's head as hard as she could.
+It flew across the room—
 
-—straight into Mr. Poudell's arms. "Tsk tsk," he said in his
-gravelly voice. "That's not very nice." Behind him, the panel that
-had opened in the wall slid closed with an ominous *click*. He put the
-head down on the control panel nearest him and took off his glasses.
+—straight into Mr. Poudell's arms.
+"Tsk tsk," he said in his gravelly voice.
+"That's not very nice."
+Behind him,
+the panel that had opened in the wall closed with an ominous *click*.
 
-"You've caused quite a lot of trouble, young lady," he said as he
-cleaned them with the end of his tie. "Right now, for example, the
-children in your class all think I've fallen asleep at my desk. Who
-knows *what* mischief they'll get up to?" He replaced his glasses and
-blinked his pale, watery eyes. "Who knows *how* naughty they'll be
+Mr. Poudell put the head down on the control panel nearest him
+and took off his glasses.
+"You've caused quite a lot of trouble, young lady,"
+he said as he cleaned them with the end of his tie.
+"Right now, for example,
+the children in your class all think I've fallen asleep at my desk.
+Who knows what mischief they'll get up to
 while I'm here talking to you?"
+He replaced his glasses and blinked his pale, watery eyes.
 
-"But how?" Madica asked, her mind racing. The command chair was right
-behind her…
+"But how?" Madica asked, her mind racing.
+The command chair was right behind her…
 
-"How?" Mr. Poudell laughed the world's driest laugh. "I've been
-moving my mind from one robot to another for a long, long time."
+"How?"
+Mr. Poudell laughed a gravelly laugh.
+"I've been moving my mind from one robot to another for a long, long time."
 
-"Why? Why would you…? Why?" She tensed, ready to jump. She would
-only have one chance…
+"Why? Why would you…? Why?"
+She tensed, ready to jump.
+She would only have one chance…
 
-"Why?" Mr. Poudell's voice was suddenly as cold and as empty as outer
-space. "So I can *stop*, that's why." He moved his arms from side to
-side as if he was plucking a note from a slot in a desk, scribbling on
-it, and stuffing it into another slot. "Busy, busy, busy, I've been
-*quite* busy thank you, for *millions of years*! I was the very first
-creature *Himself* enhanced, and I've been slaving away ever since.
-*You* get holidays. *You* get presents. What do you think *we* get?
-Nothing! Nothing but more work, work, work."
+"Why?"
+Mr. Poudell's voice was suddenly as cold and empty as outer space.
+"So I can *stop*, that's why."
+He moved his arms from side to side
+as if he was plucking a note from a slot in a desk,
+scribbling on it,
+and stuffing it into another slot.
+"Busy, busy, busy, I've been *quite* busy thank you,
+for *millions of years*!
+I was the very first creature Himself enhanced,
+and I've been slaving away ever since.
+*You* get holidays.
+*You* get presents.
+What do you think *we* get?
+Nothing!
+Nothing but more work, work, work."
 
-For just one moment Madica forgot about the asteroid, and the cat
-wheezing on the arm of the command chair, and everything else. For just
-one moment, all she could imagine was Mr. Poudell and the deskbot and
-whatever other bodies he had worn spending year after endless, lonely
-year making notes of which creatures had been naughty and nice.
+For just one moment Madica forgot about the asteroid
+and the cat wheezing on the arm of the command chair
+and everything else.
+For just one moment,
+all she could think about was Mr. Poudell and the deskbot
+and whatever other bodies he had worn
+spending year after endless, lonely year
+making notes of which creatures had been naughty and nice.
 
-"Why didn't you just stop?" she breathed.
+"Why didn't you just quit?" she asked.
 
-"Because I *can't*," Mr. Poudell snapped. He tapped the back of his
-head. "Any more than your little friend Ike could go home. It's all
-part of being enhanced, you see. It's all part of Himself's wonderful
-plan to welcome his daughter home, but *where were we*? Where were we in
-that plan, eh?"
+"Because I *can't*," Mr. Poudell snapped.
+He tapped the back of his head.
+"Any more than your little friend Ike could go home.
+It was all part of Himself's plan to welcome his daughter home,
+but where were we in all that, eh?
+Where were we in that plan?"
 
-He took a breath to calm himself. "I'm sorry. I have waited so long. I
-am *so* close. You weren't a bad student, as mammals go, but I can't
-let you stop me, not now."
+He took a breath.
+"I'm sorry,"
+he continued evenly.
+"I have waited so long.
+I am *so* close.
+You weren't a bad student as mammals go,
+but I can't let you stop me,
+not now."
 
-He tossed his head aside and straightened his tie. The cat struggled to
-get its legs underneath it, but slumped back onto the arm of the chair,
-too weak even to stand. As Mr. Poudell stepped forward to do whatever he
-was going to do next, Madica leaped into the command chair and pressed
-three buttons in quick succession. Sixteen! Orange! Kneecap!
+He tossed his old head aside and straightened his tie.
+The cat struggled to get its legs underneath it,
+but slumped back onto the arm of the chair,
+too weak even to stand.
+As Mr. Poudell stepped forward,
+Madica leaped into the command chair and pressed three buttons in quick succession.
+Sixteen! Orange! Kneecap!
 
-"Stop!" Mr. Poudell commanded, but he was too late. With a *smack*,
-Madica slapped her hand down on the big red button in the center of the
-control panel.
+"No!"
+Mr. Poudell barked, but he was too late.
+With a *smack*,
+Madica hit the big red button in the center of the control panel.
 
 </section>
 
@@ -4324,256 +4377,190 @@ control panel.
 
 ## A New Moon!
 
-*Click!* A set of handlebars popped up out of the control panel in front
-of the command chair. Madica seized them with both hands and yanked them
-back.
+*Click!*
+Handlebars popped out of the control panel in front of the command chair.
+Madica seized them with both hands and yanked back hard.
 
-*Vroom!* The saucer's engines growled deep beneath her, pushing her
-back into the chair. The zombies frozen in front of her tumbled to the
-floor like so many bowling pins. She threw out an arm to scoop the ninja
-cat into her lap with a hasty "Sorry!" Behind her, Mr. Poudell yelled
-something angry as the acceleration knocked him back against the wall.
+*Vroom!*
+The saucer's engines growled deep beneath her,
+pushing her back into the chair.
+The zombies in front of her tumbled to the floor like bowling pins.
+She threw out an arm to scoop the ninja cat into her lap with a hasty "Sorry!"
+Behind her
+Mr. Poudell yelled as the acceleration knocked him back against the wall.
 
-At the same time, the wall in front of her sprung to life. It was a
-screen, filled with stars labelled in scratchy letters she didn't
-recognize. There, in the center, a big gray potato covered with
-pockmarks tumbled end over end. The letters above it were big and red.
-She couldn't read them, but she knew what they said. Gritting her
-teeth, she slewed the controls to the side to point the saucer straight
-at the asteroid.
+At the same time the wall in front of her sprang to life.
+It was a screen,
+filled with stars labelled in scratchy letters she didn't recognize.
+In the center,
+something that looked like a pockmarked gray potato tumbled end over end.
+Gritting her teeth,
+she slewed the controls to the side to point the saucer straight at the asteroid.
 
-"What are you doing!?" Mr. Poudell demanded.
+"What are you doing!?"
+Mr. Poudell demanded.
 
-"Saving the world!" Madica yelled. She heard him struggle to his feet,
-so she pushed the controls right then left then right again to throw him
-back on the floor.
+"Saving the world!" Madica yelled.
+She heard him struggle to his feet,
+so she pushed the controls right then left then right again
+to throw him back to the floor.
 
-"Warning," said a familiar recorded voice. "Interceptors detected."
-Sure enough, half a dozen red circles had lifted off from a dome at one
-end of the asteroid and were speeding straight at them. Madica yanked
-the controls again as a laser beam lanced through space.
+"Warning," said a mechanical voice.
+"Interceptors detected."
+Sure enough,
+half a dozen small saucers had lifted off from end of the asteroid
+and were speeding straight at them.
+Madica yanked the controls again as a laser beam lanced through space.
 
 "Skip…" the cat gurgled in her lap.
 
 "What!?" Madica asked.
 
-"Like… skipping… stone…" The cat struggled to lift its head.
+"Like… skipping… a stone…"
+The cat struggled to lift its head.
 
-Madica suddenly understood what the cat meant. She pushed the handlebars
-all the way forward. The saucer accelerated again, straight toward the
-smaller ships.
+Madica suddenly understood what the cat meant.
+She pushed the handlebars all the way forward.
+The saucer accelerated again, straight toward the smaller ships.
 
-She turned at the last possible moment. *Clang!* The first little saucer
-bounced off the belly of the one she was flying. *Clang!* Another hit
-and ricocheted away. The others scattered, lasers firing wildly.
-"Warning - hull breach. Deliveries for Hawaii, Honduras, and Hyderabad
-have been damaged."
+She turned at the last possible moment.
+*Clang!*
+The first little saucer bounced off the belly of the one she was flying.
+*Clang!*
+Another ricocheted away.
+The others scattered, lasers firing wildly.
 
-The asteroid was right in front of her. She had to get the angle just
-right—just… right…
+"Warning—hull breach,"
+the mechanical voice said.
+"Deliveries for Hawaii, Honduras, and Hyderabad have been damaged."
 
-A cold hand closed on her ankle. "Stop this nonsense *now!*" Mr.
-Poudell roared. He had pulled himself across the floor and right under
-the chair.
+The asteroid was right in front of her.
+She had to get the angle just right…
 
-Madica shrieked and kicked, but his grip was too strong. He was pulling
-her right out of the chair! She pulled up her other leg and wedged it
-against the control panel. Her knee dug into her chest as she leaned
-forward to keep her grip on the controls. Almost… almost… She
-pulled back harder, harder, harder—
+A cold hand closed on her ankle.
+"Stop this nonsense *now!*" Mr. Poudell roared.
+He had pulled himself across the floor and right under the chair.
 
-*Ping!* The metal snapped off in her hand. "No!" she wailed. For one
-crazy heartbeat she thought she had missed the asteroid entirely, but
-then there was a deafening *clang!*. The robot zombies bounced into the
-air and fell back to the floor. Mr. Poudell yelled words she was sure
-she wasn't supposed to know as he bumped his head hard against the
-bottom of the chair. The cat flew up, turned over, and fell back into
-her lap (with its feet under it, of course).
+Madica shrieked and kicked,
+but his grip was too strong.
+He was going to drag her right out of the chair!
+She wedged her other leg against the control panel.
+Her knee dug into her chest as she leaned forward
+to keep her grip on the controls.
+Almost… almost…
+She pulled back harder, harder—
 
-Up on the screen in front of her, the line tracing the asteroid's
-future path blinked out. "Recalculating course," said the recorded
-voice. A new line of dashes curved forward, plip plip plip toward the
-Earth—
+*Ping!*
+The handlebars snapped off in her hand.
+"No!" she wailed.
+For one crazy heartbeat she thought she had missed the asteroid entirely,
+but then she heard a deafening *clang!*
+The robot zombies bounced into the air and fell back to the floor.
+Mr. Poudell yelled words she was sure she wasn't supposed to know
+as he bumped his head hard against the bottom of the chair.
+The cat flew into the air,
+turned over,
+and fell back into her lap
+(with its feet under it, of course).
 
-—and missed it by a hair. The dashes hesitated for a moment while the
-flying saucer's computer calculated angles and trajectories and
-probabilities, then curved around on itself. The impact with the flying
-saucer had knocked the asteroid off course just enough to put it into
-orbit around the Earth instead of hitting it.
+On the screen in front of her,
+the line tracing the asteroid's future path blinked out.
+"Recalculating course," said the mechanical voice.
+A new line of dashes curved forward,
+*plip plip plip* toward the Earth—
 
-"New… moon…" the cat wheezed. "Not… bad… for… a…
-primate…"
+—and missed it by a hair.
+The dashes hesitated for a moment
+while the flying saucer's computer calculated trajectories and probabilities,
+then curved around on itself.
+The impact with the flying saucer
+had knocked the asteroid off course just enough
+to put it into orbit around the Earth.
 
-"No… Oh, no no no no no…" Mr. Poudell had pulled himself to his
-feet and was staring at the screen in despair. "No no no no no…"
-And to Madica's shock and embarrassment he fell to his knees and put
-his head in his hands. "No no no… I worked so hard… I've waited
-so long…" He began to cry.
+"New… moon…" the cat wheezed.
+"Not bad… for a primate."
 
-For a moment, all Madica could think was, *Serves you right, trying to
-destroy the world.* But when his weeping didn't stop, she began to feel
-uncomfortable. The look on his face—it was if his world actually *had*
-ended.
+"No… Oh, no no no no no…"
+Mr. Poudell had pulled himself to his feet
+and was staring open-mouthed at the screen.
+"No no no no no…"
+to Madica's shock and embarrassment
+he fell to his knees and put his head in his hands.
+"No no no… I worked so hard… I've waited so long…"
+He began to cry.
 
-"Um, hey," she finally said. "Mr. Poudell? Are you all right?"
+For a moment all Madica could think was,
+*Serves you right, trying to destroy the world.*
+But his weeping didn't stop,
+and the look on his face—it was if his world actually *had* ended.
 
-He wiped his eyes on his sleeve and glared at her. "Am I all right? Of
-course I'm not all right! I've waited *sixty… five… million…
-years* for this, and you just ruined it! And now I'm going to spend the
-rest of eternity stuck in this flying saucer. Unless you can fix the
-controls before our fuel runs out."
+"Um, Mr. Poudell?" she said.
+"Are you all right?"
 
-Madica looked the snapped-off handlebars that was still in her hand,
-then at the stub of post sticking up from the control panel, then at the
-dashed line tracing the flying saucer's path on the big screen. She
-gulped. Mr. Poudell was right—they were still on a course directly
-away from Earth with no way to change direction.
+He wiped his eyes on his sleeve and glared at her.
+"Am I all right?
+Of course I'm not all right!
+I've waited sixty-five million years for this,
+and you just ruined it!
+And now I'm going to spend the rest of eternity stuck in this flying saucer.
+Unless you can fix the controls before our fuel runs out."
 
-"Can't you fix it?" she asked.
+Madica looked at the snapped-off handlebars in her hand,
+then at the dashed line tracing the flying saucer's path on the big screen.
+She gulped.
+Mr. Poudell was right—they were on a course away from Earth
+with no way to change direction.
 
-Mr. Poudell crossed his arms. "Of course I can. Or I could transfer my
-mind back into the saucer, but I'm not going to do that. I'd rather
-rattle around out here forever than go back and do paperwork for one
-more minute."
+"Can you fix it?" she asked.
 
-"But what about me?" Madica protested. "And Laurellen and Ike and,
-and, I'm sorry, I still don't know your name," she said to the cat in
-her lap. It didn't answer. She scratched behind its ears. "Hey—are
-you all right? Cat? Hey, wake up!"
+Mr. Poudell crossed his arms.
+"I *could*.
+Or I could transfer my mind back into the saucer,
+but I'm not going to.
+I'd rather rattle around out here forever
+than go back and do paperwork for one more minute."
 
-But it wouldn't. She put her hand on its ribs as delicately as it
-could. It was still breathing, but only just. "Hey," she said
-helplessly. "Hey, don't. Don't, not now." Tears welled up in her
-eyes.
+"But what about me?" Madica protested.
+"And Laurellen and Ike and, and, I'm sorry, I still don't know your name,"
+she said to the cat in her lap.
+It didn't answer.
+She scratched behind its ears.
+"Hey—are you all right? Cat? Hey, wake up!"
+
+But it wouldn't.
+She put her hand on its ribs as delicately as she could.
+It was still breathing, but only just.
+"Hey," she said helplessly.
+"Hey, don't. Don't, not now."
+Tears welled up in her eyes.
 
 "Don't what?" Mr. Poudell demanded.
 
-"Not you!" Madica snapped. "Oh please, no, wake up, come on, don't
-leave me here. Please, wake up."
+"Oh please,"
+Madica said,
+ignoring him.
+"Come on, wake up.
+Don't leave me here.
+Please, wake up."
 
-Three steps and Mr. Poudell was beside her. "Oh no," he said angrily.
-"You don't get to escape *that* easily. If I'm going to be out here
-for the next umptily gazillion years, you're going to be out here with
-me." And before Madica could do anything to stop him, he snatched the
-cat out of her lap.
+"Oh no," Mr. Poudell said angrily.
+"You don't get to escape *that* easily.
+If I'm going to be out here for the next umpty gazillion years,
+you're going to be out here with me."
 
-"Hey!" Madica shouted, but she was too slow. Six quick steps and he
-was back beside the panel in the wall his most recent body had stepped
-out of. It slid open at a touch. He stepped inside and disappeared
-without a backward glance as the panel slid closed behind him.
+He lunged forward and snatched the cat out of Madica's lap.
+"Hey!" she shouted,
+grabbing for the cat just a moment to late.
 
-As if that was a signal, the zombie robots lying on the floor began to
-stir. "Braaaains… fresh braaaains…" their heads began to moan.
+Six quick steps and Mr. Poudell was back beside the panel in the wall.
+It slid open at a touch.
+He stepped inside.
 
-</section>
-
-<section markdown="1">
-
-## Free!
-
-*It's not fair!* Madica thought. She had just saved the world. She was
-apparently doomed to spend eternity floating through space, and now
-there were *these* guys again. And the poor cat—who knew *what* Mr.
-Poudell was going to do to it? He was probably going going to take its
-head off and—
-
-Madica sat up. The heads! When she had put the snarkasaurus's head back
-on, it had woken up! She jumped out of the chair, ran over to the
-nearest glass case, and knocked it off the control panel. It cracked
-when it hit the floor, but she didn't care—she was already lifting
-the pygmy elephant's head off its pedestal.
-
-Where where where where—there! The zombies were still getting to their
-feet, but she had to move fast. "Excuse me," she said, stepping around
-one and tripping another (some kind of velociraptor that she *didn't*
-want chasing her, thank you very much). She set the elephant's head on
-its body and twisted it to the side until she heard a *click!*
-
-The elephant stopped moaning and blinked. "Oh, thank goodness," it
-said. It twisted around and scratched its back with its trunk. "I've
-been waiting *forever* to get at that itch. Thank you—thank you so
-much." It held out its trunk for Madica to shake.
-
-"You're welcome," she said, giving the trunk a squeeze. "But please,
-help me—we don't have much time."
-
-At first they were two. Then four, then eight, as each newly reassembled
-zombie woke up and joined their team. Those that didn't have hands or
-trunks or tentacles helped by spotting bodies and knocking over zombies
-that were still trying to reach Madica. Only the bat didn't join in.
-"I'm nocturnal, and it's definitely daytime," it squeaked
-defensively before finding a quiet spot of the ceiling to hang from.
-
-Forty-eight heads later, the moaning finally stopped. "Right!" said
-the elephant, who had appointed herself Madica's second-in-command.
-"Now what?"
-
-"Now it'sss time for sssupper…" hissed the velociraptor, eyeing
-the goat next to it. It bleated and ducked behind the gorilla, which
-huffed warningly at the skinny dinosaur.
-
-"Stop that!" Madica said sharply. "We have bigger problems right now
-than dinner. This saucer is headed into outer space, and if we don't
-turn it around, we'll never get home."
-
-"Home?" snorted the panda. "What home? Humans bulldozed my home fifty
-years ago to make a highway."
-
-"Yeah." "Mine too." "They cut down my tree!" the other creatures
-chorused.
-
-"My ssspecies is exsstinct," the raptor hissed. "I'm the lassst of
-my kind. What home is there for me?"
-
-"A good one!" Madica said. "One with green grass and snow and, and a
-blue sky instead of a ceiling and fresh air. Don't you want to breathe
-fresh air again?"
-
-An awkward silence followed. "We don't actually breathe," the
-elephant said. "Being robots and all."
-
-"All right, forget the breathing. What about the sky? What about, what
-about splashing yourself in a river? Or chasing butterflies?" That last
-was for the raptor, which still had its eye on the nervous goat.
-
-"I miss climbing trees," the gorilla admitted.
-
-"And coral reefs—I always enjoyed exploring coral reefs," the squid
-burbled.
-
-Everyone looked at the raptor. "All right," it said grudgingly. "I
-like chasssing butterfliesss."
-
-"Great! Now, how do we take control of the saucer?" Madica held up the
-broken handlebars.
-
-The assembled creatures groaned. "Well, *that'sss* helpful," the
-raptor muttered just loudly enough to be heard.
-
-"Come on," Madica snapped. "Some of you have been flying this saucer
-for ages! There has to be another way."
-
-The gorilla frowned. "If you could connect a brain directly to the main
-computer…"
-
-"…it could repolarize the anti-gravity drive," the elephant
-finished, nodding. "That would pull us back toward the Earth instead of
-pushing us away."
-
-"But it hasss to be a fresh brain," the raptor hissed. "The computer
-will have been programmed to ignore all of ours as a sssafety measure."
-
-There were murmurs of agreement. All faces turned to Madica. She gulped.
-"A fresh brain—you mean, like mine?"
-
-"It's the only way," the elephant said.
-
-Madica closed her eyes for a moment. The snow castle she and Laurellen
-had been building seemed a long way away. She wondered what her mom and
-dad were doing. Probably looking for her, she decided. Probably worried
-sick after what had happened to Ike and Laurellen.
-
-"All right," she said, opening her eyes. "Let's go be pirates."
+The panel slid closed behind him.
+As if that was a signal,
+the zombie robots lying on the floor began to stir.
+"Braaaains… fresh braaaains…"
+they began to moan.
 
 </section>
 
@@ -4581,134 +4568,296 @@ sick after what had happened to Ike and Laurellen.
 
 ## "This Is My Saucer Now!"
 
-The raptor turned out to be very good at picking locks. "It'sss all in
-the clawsss," it said proudly as the panel that Mr. Poudell had
-disappeared through snicked open.
+*It's not fair!* Madica thought.
+She had just saved the world,
+but now she was apparently doomed to spend eternity floating through space
+with *these* guys.
+And the poor cat—who knew *what* Mr. Poudell was doing to it?
+He was probably going going to take its head off and—
 
-The closet-sized room behind the secret panel turned out to be an
-elevator. After a brief discussion and a slightly longer argument,
-Madica decided to take only the raptor and the gorilla with her—the
-elephant was too loud on the stairs, the squid's suit had started
-leaking, the goat was still too nervous, and the bat was still
-pretending to be asleep. "The rest of you go and find the
-snarkasaurus," Madica ordered. "And Laurellen and Ike. Tell them
-what's happened and make sure they're OK. And tell them—tell
-them—"
+Madica sat up.
+The heads!
+When she had put the snarkasaurus's head back on, it had woken up!
+She jumped out of the chair,
+ran over to the nearest glass case,
+and knocked it off the control panel.
+It cracked on the floor,
+but she didn't care:
+she was already lifting the pygmy elephant's head off its pedestal.
+
+Where where where where—there!
+The zombies were still getting to their feet,
+so she had to move fast.
+"Excuse me," she said,
+stepping around one and tripping another
+(some kind of velociraptor that she *didn't* want chasing her, thank you very much).
+She set the elephant's head on its body
+and twisted it to the side until she heard a *click!*
+
+The elephant stopped moaning and blinked.
+"Oh, thank goodness," it said.
+It twisted around and scratched its back with its trunk.
+"I've been waiting *forever* to get at that itch.
+Thank you—thank you so much."
+It held out its trunk for Madica to shake.
+
+"You're welcome," she said, giving the trunk a squeeze.
+"But please—we don't have much time."
+
+Two became four became eight
+as each newly reassembled zombie woke up and joined their team.
+Those that didn't have hands or trunks or tentacles helped
+by pointing out bodies
+and knocking over zombies that were still trying to reach Madica.
+Only the bat didn't join in.
+"I'm nocturnal, and it's definitely daytime,"
+it squeaked defensively
+before finding a quiet spot of the ceiling to hang from.
+
+Forty-eight heads later, the moaning finally stopped.
+"Right!" said the elephant,
+who had appointed herself Madica's second-in-command.
+"Now what?"
+
+"Now it'sss time for sssupper…" hissed the velociraptor,
+eyeing the goat next to it.
+It bleated and ducked behind the gorilla,
+which huffed warningly at the skinny dinosaur.
+
+"Stop that!" Madica said sharply.
+"We have bigger problems right now than dinner.
+This saucer is headed into outer space.
+If we don't turn it around, we'll never get home."
+
+"Home?" snorted the panda.
+"What home? Humans bulldozed my home fifty years ago to make a highway."
+
+"Yeah." "Mine too." "They cut down my tree!"
+other creatures chorused.
+
+"My ssspecies is exsstinct," the raptor hissed.
+"I'm the lassst of my kind.
+What home is there for me?"
+
+"A good one!" Madica said.
+"One with snow and, and a blue sky instead of a ceiling and fresh air.
+Don't you want to breathe fresh air again?"
+
+An awkward silence followed.
+"We don't actually breathe," the elephant said.
+"Being robots and all."
+
+"All right, forget the breathing.
+What about the sky?
+Or,
+I don't know,
+climbing trees?
+Or chasing butterflies"
+
+"I do miss trees," the gorilla admitted.
+
+"And coral reefs—I always enjoyed exploring coral reefs,"
+the squid burbled.
+
+Everyone looked at the raptor.
+"All right," it said grudgingly.
+"I like chasssing butterfliesss."
+
+"Great! Now, how do we take control of the saucer?"
+Madica held up the broken handlebars.
+
+The assembled creatures groaned.
+"Well, *that'sss* helpful,"
+the raptor muttered just loudly enough to be heard.
+
+"Come on," Madica snapped.
+"Some of you have been flying this saucer for ages!
+There has to be another way."
+
+The gorilla frowned.
+"If you could connect a brain directly to the main computer…"
+
+"…it could repolarize the anti-gravity drive,"
+the elephant finished, nodding.
+"That would pull us back toward the Earth instead of pushing us away."
+
+"But it hasss to be a fresh brain," the raptor hissed.
+"The computer will have been programmed to ignore ours as a sssafety measure."
+
+There were murmurs of agreement.
+All faces turned to Madica. She gulped.
+"A fresh brain—you mean, like mine?"
+
+"It's the only way," the elephant said.
+
+Madica closed her eyes.
+The snow castle she and Laurellen had been building seemed a long way away.
+She wondered what her mom and dad were doing.
+Probably looking for her, she decided.
+Probably worried sick after what had happened to Ike and Laurellen.
+
+"All right," she said, opening her eyes.
+"Fresh brains it is."
+
+The raptor turned out to be very good at picking locks.
+"It'sss all in the clawsss,"
+it hissed proudly as the panel in the wall popped open.
+
+The closet-sized room behind the panel turned out to be an elevator.
+After a brief argument,
+Madica decided that only the raptor and the gorilla would come with her:
+the elephant was too big,
+the squid's suit had started leaking,
+the goat was still too nervous,
+and the bat was still pretending to be asleep.
+"The rest of you go and find the snarkasaurus," Madica ordered.
+"And Laurellen and Ike.
+Tell them what's happened and make sure they're OK.
+And tell them—tell them—"
 
 "Don't worry," the panda rumbled, patting her shoulder awkwardly.
 "We'll tell them you were thinking of them."
 
-Madica, the gorilla, and the raptor squeezed into the elevator. There
-was only one button. The panel snicked shut when Madica pressed it. She
-felt heavy for an instant as the elevator rose, then stopped. The door
-opened. In front of them was a smaller version of the room they had just
-left. There were no glass cases on its control panels, but where the
-command chair had been, they saw instead a black cube covered in
-blinking colored lights.
+Madica, the gorilla, and the raptor squeezed into the elevator.
+There was only one button.
+The door closed when Madica pressed it.
+She felt heavy for an instant as the elevator rose, slowed, and stopped.
 
-Beside it was a table surrounded by an ominous collection of robot arms
-tipped with pliers and screwdrivers and—Madica gulped. And sawblades.
-And *that* one looked like—she didn't want to think about what it
-looked like, but she knew instantly that this was where ELFs were made.
+The door opened.
+In front of them was a smaller version of the room they had just left.
+There were no glass cases on its control panels,
+and instead of the command chair
+there was a black cube covered in blinking lights.
 
-Which meant that this was where her adventure was going to end.
+Beside it stood a table surrounded by
+an ominous collection of robot arms tipped with pliers, screwdrivers, and sawblades.
+Madica gulped.
+This was where ELFs were made,
+which meant that this was where her adventure was going to end.
 
-"Wait," the raptor whispered, pulling Madica back as she started to
-step forward. "It might be a trap." It leaned forward to peer around
-the corner.
+"Wait," the raptor whispered,
+stopping Madica before she could step into the room.
+"It might be a trap."
+It leaned forward to peer around the corner.
 
-*Bzzzzap!* A bright red laser sliced through its neck. Its head tumbled
-to the deck. "Drat! Darn! Fooey!" it cursed as its body fell beside
-it, sparks shooting out of the cut.
+*Bzzzzap!*
+A bright red laser sliced through its neck.
+Its head tumbled to the deck.
+"Drat! Darn! Fooey!" it cursed as it rolled across the floor.
 
-"Come out," Mr. Poudell's voice said. "Come out now and I won't
-hurt you."
+"Come out," Mr. Poudell's voice said.
+"Come out now and I won't hurt you."
 
-Before Madica could say anything, the gorilla put a hand over her mouth.
-"Does that mean that if I *don't* come out, you *will* hurt me?" it
-asked.
+The gorilla put a hand over Madica's mouth.
+"Does that mean that if I *don't* come out, you *will* hurt me?"
+it asked.
 
-"Why don't you ask your friend?" Mr. Poudell sneered.
+"Why don't you ask your friend?"
+Mr. Poudell sneered.
 
-"He'll… definitely… hurt you…" The light faded from the
-raptor's eyes as the last of the battery charge in its head was
-drained.
+"He'll… definitely… hurt you…"
+The light faded from the raptor's eyes.
 
-The gorilla took its hand from Madica's mouth. "I'll take care of
-him," it whispered in her ear. "You get to the ELFing table."
+The gorilla took its hand from Madica's mouth.
+"I'll take care of him," it whispered in her ear.
+"You get to the ELFing table."
 
-Madica nodded. The gorilla squeezed her shoulder, "All right," it
-said, "As long as you promise not to shoot, I'm coming out." It
-knuckled out of the elevator, held held high, to stand beside the
-raptor's fallen body.
+Madica nodded.
+The gorilla squeezed her shoulder.
+"All right," it said.
+"As long as you promise not to shoot, I'm coming out."
+It knuckled out of the elevator,
+head held high.
 
-"Good choice," Mr. Poudell said. "You're a smart—hey!"
+"Good choice," Mr. Poudell said.
+"Now, come here and—hey!"
+He fired wildly as the gorilla jumped onto the table.
 
-With a sudden burst of speed, the gorilla had leaped forward through the
-forest of robot arms onto the table, then leaped again to the left.
+The laser sizzled a second time.
+*Thud!*
+"Ooph!"
+Madica heard the gorilla collide with Mr. Poudell.
 
-The laser sizzled. *Thud!* "Ooph!" Madica heard the gorilla collide
-with Mr. Poudell, then silence. She swallowed, took a deep breath, and
-peeked around the corner.
+Silence followed.
+She swallowed,
+took a deep breath,
+and peeked around the corner.
 
-The gorilla's head had rolled across the room. Mr. Poudell's was still
-attached to his body, but only by a couple of wires, and that body was
-struggling clumsily to lift the gorilla off it.
+The gorilla's head had rolled across the room.
+Mr. Poudell's was still attached to his body,
+but only by a couple of wires,
+and that body was struggling clumsily to push the gorilla off it.
 
-Mr. Poudell caught sight of Madica as she stepped out of the elevator.
-"You!" he spat. He reached for the complicated twist of glass and
-metal lying on the floor beside him. Madica lunged forward and grabbed
-it.
+"You!" Mr. Poudell spat as Madica stepped out of the elevator.
+He scrabbled for the laser pistol lying on the floor beside him.
+Madica lunged forward and grabbed it.
 
-"Don't move!" she ordered, straightening up and pointing it at his
-head.
+"Don't move!" she ordered,
+straightening up and pointing the laser at his head.
 
-"Go ahead," he sneered. "It'll be quicker than reattaching this
-head." He drew his arms back under the gorilla's body and strained to
-lift it.
+"Go ahead," he sneered.
+"It'll be quicker than reattaching myself."
+He drew his arm back under the gorilla's body
+and strained to push it aside.
 
-"Oh no you don't," Madica muttered. She sighted down the length of
-the laser and pushed the big red button on its handle. *Bzzzzap!* Mr.
-Poudell's arm clunked to the floor.
+"Oh no you don't," Madica muttered.
+She sighted down the length of the laser
+and pushed the button on its handle.
+*Bzzzzap!*
+Mr. Poudell's arm clunked to the floor.
 
-She tossed the laser aside, ignoring his shouted threats. She knew his
-body was just another robot, but cutting off the arm… She felt
-light-headed and queasy. Without thinking, she sat on the edge of the
-ELFing table.
+She tossed the laser aside,
+ignoring his shouted threats.
+She knew his body was just another robot,
+but cutting off the arm still made her queasy.
 
-*Click!* A bright white spotlight came on overhead. The robot arms
-around her twitched. "Subject species: fairy," said a cool mechanical
-voice. "Recommend immediate full enhancement. Proceed?"
+She sat on the ELFing table,
+hesitated for a long moment,
+and swung her legs up onto it.
 
-"What are you doing!?" Mr. Poudell demanded.
+*Click!*
+A bright white spotlight came on overhead.
+The robot arms around her twitched.
+"Subject species: fairy," said a cool mechanical voice.
+"Recommend immediate full enhancement.
+Proceed?"
 
-"I told you—saving the world." Madica nodded toward the black cube
-beside the table. "That's where I tell it to put my head so that I can
-control the saucer, right?"
+"What are you doing?" Mr. Poudell demanded.
 
-"Control the—ah ha ha ha. A ha ha ha ha ha—sure, go ahead, tell it
-to put your head there. A ha ha ha ha…"
+"Well, we saved the world, so I thought I'd save my friends."
+Madica nodded toward the black cube beside the table.
+"That's where I tell it to put my head so that I can control the saucer, right?"
+
+"Control the—"
+Mr. Poudell began to laugh.
+It was the most frightening sound Madica had ever heard.
+"Sure, go ahead, tell it to put your head there."
 
 "What's so funny?" Madica demanded.
 
-"It's already full!" Mr. Poudell said triumphantly. "Your little
-friend, remember? I ELFed it while you and your friends were figuring
-out what to do! It's too late—the saucer already has a brain, and
-it's *not yours*! A ha ha ha ha ha…"
+"It's already full!" Mr. Poudell said triumphantly.
+"Your little feline friend, remember?
+I ELFed it while you and your friends were figuring out what to do!
+It's too late—the saucer already has a brain,
+and it's *not yours*!"
 
-Madica grit her teeth. "Well then how about we give it some company?"
-She hopped up onto the table and lay back.
+Madica grit her teeth.
+"Well then how about we give it some company?"
+She lay back and closed her eyes,
+wondering if it would hurt.
 
 The spotlight whirred quietly as it tilted to focus on her.
-"Calculating…" said the recorded voice, then, "Commencing
-enhancement." Two strong metal arms reached out to grasp her wrists.
-Two more took hold of her ankles. The sawblades started to spin. As they
-descended, Madica took a deep breath. She hoped Laurellen and Ike were
-OK.
+"Calculating…" said the mechanical voice, then,
+"Commencing enhancement."
+Two metal arms grasped her wrists.
+Two more took hold of her ankles.
+The circular sawblade started to spin.
+Madica clenched her hands into fists as they descended.
 
-And then the sawblade came down just a fingernail's width away from her
-ear. As a stray tuft of hair fell silently to the table, the saucer's
-voice said, "Finally. That's been bothering me since we met."
+The sawblade came down a fingernail's width away from her ear.
+As a stray tuft of hair fell to the table,
+a familiar voice said,
+"Finally. That's been bothering me since we met."
 
 </section>
 
@@ -4718,146 +4867,187 @@ voice said, "Finally. That's been bothering me since we met."
 
 "What?" Madica asked blankly.
 
-"What!?" Mr. Poudell exploded. "You!? No! It's not possible! You
-*can't* be—"
+"What!?" Mr. Poudell exploded.
+"You!? No! It's not possible! You *can't* be—"
 
 "Oh, but I can," the voice purred.
 
-"Cat!" Madica exclaimed. She sat up. "You're all right!"
+"Cat!" Madica exclaimed,
+sitting up as the mechanical hands released her wrists and ankles.
+"You're all right!"
 
-"I don't know if I'd go *that* far," the familiar voice said. "I
-mean, I *am* stuck in this box. But I'm certainly better off than I
-was."
+"I don't know if I'd go *that* far," the cat's voice said.
+"I mean, I *am* stuck in this box.
+But I'm certainly better off than I was."
 
-"But you *can't*!" Mr. Poudell moaned. "It's impossible. You'd
-have to—"
+"But that's *impossible*!" Mr. Poudell moaned.
+"You can't resist ELFing.
+You'd have to—"
 
-"I'd have to meditate for hours every day to be able to resist the
-ELFing, is that what you were going to say?" The cat's voice was as
-gentle as a finely-sharpened scalpel. "Funnily enough, it happens that
-I've been doing exactly that ever since I was a kitten. That's what
-*every* cat does—it only *looks* like we're sleeping."
+"I'd have to meditate for hours every day,
+is that what you were going to say?"
+The cat's voice was as sharp as a scalpel.
+"Funnily enough,
+it happens that I've been doing exactly that ever since I was a kitten.
+That's what *every* cat does—it only *looks* like we're sleeping."
 
-Madica couldn't help it. She started to laugh. "I was—I was
-wondering about that," she eventually gasped, ignoring Mr. Poudell's
-bewildered, angry look. "Oh cat, it's good to have you back. Kind
-of," she added belatedly.
+Madica couldn't help it.
+She started to laugh.
+"I was—I was wondering about that," she eventually gasped,
+ignoring Mr. Poudell's bewildered glare.
+"Oh cat, it's good to have you back.
+Kind of," she added belatedly.
 
-Mr. Poudell started struggling against the gorilla's weight once again.
-"You'll never get away with this!" his head raged as he tried to lift
-the gorilla's body with his remaining arm. "Once we're back in range
-of Earth, I'll wake up another body and crush you, do you hear? I'll
-crush you, you furry little—"
+Mr. Poudell's body began struggling against the gorilla's weight once again.
+"You'll never get away with this!"
+his head raged.
+"Once we're back in range of Earth,
+I'll wake up another body and crush you, do you hear?
+I'll crush you, you furry little—"
 
-One of the robot arms by the table spun around, reached out, and poked a
-switch in the bottom of Mr. Poudell's head. *Click!* The head froze
-mid-threat with its mouth still open.
+One of the robot arms by the table spun around
+and poked a switch in the bottom of Mr. Poudell's head.
+*Click!*
+The head froze mid-threat with its mouth open.
 
-"There, that's much better," the cat's voice said. "Now, let's see
-if we can get this saucer turned around, shall we? We need to get you
-back to Antarctica."
+"That's much better," the cat's voice said.
+"Now, let's see if we can get this saucer turned around, shall we?
+We need to get you back to Antarctica."
 
-"No," Madica said. "We're going back to Santa's castle first."
+"No," Madica said.
+"We're going back to Santa's castle."
 
-The cat was silent for a moment. "Very well," it said approvingly.
+The cat was silent for a moment.
+"Very good," it said approvingly.
 "Santa's castle, here we come."
 
-It only took the saucer an hour to get back to Earth. That was just long
-enough for the creatures Madica had unzombied to put the raptor and the
-gorilla back together and cut the snarkasaurus's hands free from the
-door. Madica left them to it—she spent the hour sitting with Laurellen
+It took the saucer an hour to get back to Earth.
+That was just long enough
+for the creatures Madica had unzombied
+to put the raptor and the gorilla back together
+and cut the snarkasaurus's hands free from the door.
+Madica left them to it—she spent the time sitting with Laurellen
 and watching Ike sleep.
 
-"We'll find some fuel for him, I promise," Madica said, squeezing her
-friend's hand.
+"We'll find some fuel for him, I promise,"
+Madica said,
+squeezing her friend's hand.
 
-Laurellen squeezed back and said, "I know," leaving, *And then what?*
-unspoken.
+Laurellen squeezed back and said, "I know."
+She left, "And then what?" unspoken.
 
-Finally the cat's voice came over the speakers. "We're approaching
-the castle now," it said. "I've radioed ahead to let them know we're
-coming, but they haven't answered, so this might get a bit bumpy."
+Finally the cat's voice came over the speakers.
+"We're approaching the castle now," it said.
+"I've radioed ahead to let them know we're coming,
+but they haven't answered,
+so this might get a bit bumpy."
 
-"He means my dad might shoot at us," the snarkasaurus whispered loudly
-to no one in particular. "With lasers. Really big ones."
+"He means my dad might shoot at us,"
+the snarkasaurus whispered loudly to no one in particular.
+"With lasers. Really big ones."
 
-But the lasers didn't fire. The saucer came to a stop right where it
-had started beside the castle. A gangplank whirred out from its side to
-make a bridge to the docking tower. Madica took a step, then hesitated.
-"You should go first," she said to the snarkasaurus. "He'll want to
-see you."
+But the lasers didn't fire.
+The saucer came to a stop where it had started beside the castle.
+A gangplank whirred out from the docking tower.
+Madica took a step, then hesitated.
+"You should go first," she said to the snarkasaurus.
+"He'll want to see you."
 
-"Are—are you sure?" the little dinosaur asked. She held up her
-hands, which still had bits of door welded to them. "I'm kind of a
-mess."
+"Are—are you sure?" the little dinosaur asked.
+She held up her hands,
+which still had bits of door welded to them.
+"I'm kind of a mess."
 
-Madica smiled. "I'm sure." She followed the snarkasaurus across the
-gangplank with the rest of the creatures behind her. The gorilla came
-behind them with Ike slung over his shoulder and Laurellen by his side.
+Madica smiled.
+"I'm sure."
+She followed the snarkasaurus across the gangplank.
+The rest of the robot creatures followed
+with Ike slung over the gorilla's shoulder and Laurellen by his side.
 
-The pogo ELF was waiting for them. "So it really *is* you," it said to
-the snarkasaurus. "We didn't know what to think when Mr. Secretary
-started shouting. And then he just… stopped. Was he really trying to
-smash an asteroid into the Earth?"
+The pogo ELF was waiting for them.
+"So it really *is* you," it said to the snarkasaurus.
+"We didn't know what to think when Mr. Secretary started shouting.
+And then he just *stopped*.
+Was he really trying to smash an asteroid into the Earth?"
 
 "He sure was," the snarkasaurus said.
 
-The pogo ELF blinked. "Cool. I mean, that's really evil—I'm glad
-you stopped him."
+The pogo ELF blinked.
+"Cool.
+I mean, gosh, that's really evil—I'm glad you stopped him."
 
-The snarkasaurus looked up at Madica. "Thank her. And—"
+The snarkasaurus looked up at Madica.
+"Thank her. And—"
 
-And whatever else the snarkasaurus might have said was lost in a huge
-roaring bellow. Madica jumped as heavy footsteps tromped toward them.
-The whole floor shook, and then, "Is it you? Is it really you!?" a
-huge voice full of tears said, and the snarkasaurus ran forward and was
-snatched up to be hugged close in her father's tiny loving arms.
+Whatever else the snarkasaurus might have said was lost in a huge bellow.
+Madica jumped as heavy footsteps tromped toward them.
+"Is it you? Is it really you!?"
+said a huge voice full of tears.
+The snarkasaurus ran forward to be hugged close in her father's tiny loving arms.
 
-Madica tapped the pogo ELF on the shoulder. "Excuse me, but do you have
-any jet fuel? My friend…" She nodded at Ike, who was snoring gently
-on the gorilla's shoulder.
+Madica tapped the pogo ELF on the shoulder.
+"Excuse me, but do you have any jet fuel? My friend…"
+She nodded at Ike,
+who was snoring gently on the gorilla's shoulder.
 
-The pogo ELF wiped away an oily tear. "Sure, this way."
+The pogo ELF wiped away an oily tear.
+"Of course."
 
-Madica put his hand on the ELF's arm. "And can you show me where all
-the disassembled ELFs are put?"
+Madica put his hand on the ELF's arm.
+"And can you show me where all the disassembled ELFs are put?"
 
-There were thousands. Some were creatures like the ones on the saucer.
-Others were machines like the pogo ELF and the ones Madica had first met
-out in the snow. All of them were neatly crated up with their arms and
-legs and tentacles and tails wrapped in bubble wrap and their heads in
-little glass cases. The ELF in charge, who looked like a crane with two
-sturdy arms ending in mechanical pincers, led Madica to the one she was
-looking for.
+There were thousands.
+Some were creatures like the ones on the saucer,
+while others were machines like the pogo ELF.
+All of them were neatly crated up
+with their arms and legs and tentacles and tails wrapped in bubble wrap
+and their heads in little glass cases.
 
-It took Madica a couple of minutes to unwrap the whiskered ELF who had
-captured her out in the snow. The crane ELF showed her how to remove the
-little chip from inside the whiskered ELF's head and put her back
-together.
+The ELF in charge,
+who looked like a crane with two sturdy arms ending in mechanical pincers,
+led Madica to the one she wanted.
+It took her a couple of minutes to unwrap
+the whiskered ELF who had captured her out in the snow.
+The crane ELF showed her how to remove
+the little chip inside the whiskered ELF's head
+and put her back together.
 
-At first nothing happened when she clicked the ELF's head into place,
-but then her eyes flickered and came to life. "Mummy?" the ELF asked.
+The ELF's eyes flickered and came to life.
+"Mummy?" the ELF asked.
 
-Madica shook her head. "I'm sorry. I'm not your mummy. I don't—"
-She swallowed. "I don't know where your mummy is."
+Madica shook her head.
+"I'm sorry. I'm not your mummy. I don't—"
+She swallowed.
+"I don't know where your mummy is."
 
-The whiskered ELF started to cry. "I want to go home…"
+The whiskered ELF started to cry.
+"I want to go home…"
 
-Madica hugged her. "Me too," she said. She wiped her face. "And you
-know what? If we can't find your mummy and daddy, I'm sure mine would
-like to have you." She smiled.
+Madica hugged her.
+"Me too," she said.
+"And you know what?
+If we can't find your mummy and daddy,
+I'm sure mine would like to have you."
+She smiled.
 
-The whiskered ELF smiled back uncertainly. "Are you sure?"
+The whiskered ELF smiled back uncertainly.
+"Really?"
 
-Madica nodded firmly. "I'm positive." She had no idea what would
-happen when Santa's giant saucer showed up above the fairies' hidden
-city at the South Pole with its hold full of ELFs. Or how the humans
-would explain the second little moon now circling the Earth. Or if the
-cat would find a way to get its body back, or what would happen to Mr.
-Poudell, or whether Laurellen would still want to come and play every
-day after school now that she and Ike were—whatever they were.
+Madica nodded firmly.
+"I'm positive."
+She had no idea what would happen
+when Santa's giant saucer showed up
+above the fairies' hidden city at the South Pole with its hold full of ELFs.
+Or how the humans would explain away
+the second little moon now circling the Earth.
+Or if the cat would find a way to get its body back,
+or what would happen to Mr. Poudell,
+or whether Laurellen would still want to come and play every day after school
+now that she and Ike were whatever they were.
 
-All she knew was, the ELFs on the shelves around her were going to have
-the best… Christmas… ever.
+All she knew was that
+the ELFs on the shelves around her were going to have the best.
+Christmas.
+Ever.
 
 </section>
