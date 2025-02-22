@@ -1014,7 +1014,7 @@ into a tangle of masonry chunks and twisted foam steel beams.
 A rough-looking woman in a green and yellow vest
 was standing in front of its single door
 arguing loudly with two men in dark blue Marine uniforms.
-"An' *I* said I'll open it when my captain tells me to!"
+"An' *I* said I'll open it when Captain Kerse tells me to!"
 she said hotly,
 uncrossing muscular arms thick with tattoos.
 
@@ -1047,7 +1047,7 @@ glaring at the Marine sergeant,
 the crowd,
 and everything else in sight for good measure.
 
-"Joey, cap'n," the first woman growled.
+"Joey, Cap'n Kerse," the first woman growled.
 "Just 'splainin' t' these lot that there ain't nothin' here needs corra look-in."
 
 "With respect, citizen," the sergeant said,
@@ -1073,7 +1073,7 @@ One sailor hefted a gaff hook.
 Another wrapped a length of chain around her hand
 as the twin or clone beside her rolled her head from side to side to loosen it.
 "Well this ain't Bharati,"
-the *Taroona*'s captain said to the sergeant.
+Captain Kerse said to the sergeant.
 "Contract says we're to mind everythin' we hauled down from Taz
 'til Halley core tells us otherways,
 so whatever happened here is on us t' fix."
@@ -1124,7 +1124,7 @@ and stooped to pick up its two identical twins.
 Without warning its buzzing stopped
 and it fell from the sky like a rock.
 
-"Oy, that weren't us!" the *Taroona*'s captain protested,
+"Oy, that weren't us!" Captain Kerse protested,
 but it was too late.
 As the drone clattered on the cobblestones,
 the sergeant blew his whistle.
@@ -3838,7 +3838,7 @@ the governor said crisply.
 "Yes sir?"
 
 The governor waved at Iffy and her foster parents.
-"Take the Kwans back to their ship.
+"Take them to their ship.
 You can resupply while you wait for us to decide what to do with you,"
 he continued as Uncle Jack opened his mouth to protest.
 "Mister Wales, you'll be our guest here.
@@ -4796,7 +4796,7 @@ Iffy let out a shaky breath and worked her tongue in her mouth.
 
 Aunt Naggie laughed shakily.
 "Yeah, but there's medicine in it.
-Benício—the fella you met today—he's been gettin' it for me.
+Ignacio—the fella you met today—he's been gettin' it for me.
 For you, I mean.
 Sendin' it to me along by Mrs. Sandhu."
 
@@ -6554,7 +6554,7 @@ She would have been a clone herself.
 She might not have known the story herself.
 And anyway, it didn't work---not until you came along."
 
-"Raniere used t' work in the hospital in Puerto Toro," Aunt Naggie cut in.
+"Ignacio used t' work in the hospital in Puerto Toro," Aunt Naggie cut in.
 "He helped make you an' your mothers.
 When he heard about---about the accident an' you bein' the only one rescued,
 he came down an' found me an' told me that there'd been a glitch when they were makin' you.
@@ -8954,7 +8954,7 @@ and her olders were stuffing her into her ecosuit.
 *"It's too late," Second said sadly.
 "It's always been too late, love."*
 
-*Benício nodded and patted one of the raccoons in his lap.
+*Ignacio nodded and patted one of the raccoons in his lap.
 "You can't fix the world, Iffy.
 Nobody can."*
 
@@ -9052,7 +9052,7 @@ so the real problem would be how camouflaged he was.
 
 "Hi."
 Iffy jumped and whirled around
-just as Benício straightened up and brushed dirt off his hands.
+just as Ignacio straightened up and brushed dirt off his hands.
 
 "Sorry,"
 he said.
@@ -9064,7 +9064,7 @@ but she was grinning.
 *This one's handsome,*
 a faint voice thought somewhere in the back of her head.
 
-Benício's mouth quirked up.
+Ignacio's mouth quirked up.
 "Your First said almost exactly th' same thing when I first met her,
 'cept she was pointin' a gun at me."
 His grin vanished.
@@ -9096,13 +9096,13 @@ excep the smell was wrong
 and Aunt Naggie wasn't going to knock on her door
 and tell her there was tea.
 
-Iffy's back was aching by the time Benício pulled over
+Iffy's back was aching by the time Ignacio pulled over
 and passed her a couple of cold samosas and a bottle of water.
 They sat in the cab and ate their meager meals.
 "This have any o' th' medicine you been puttin' in th' curry?"
 Iffy asked around a mouthful of pastry, potatoes, and mushrooms.
 
-Benício nodded.
+Ignacio nodded.
 
 "An' did you really know my olders?"
 
@@ -9150,7 +9150,7 @@ then stopped.
 
 "I'm sorry,
 but it's not my place t' say."
-Benício swallowed the last of his samosa
+Ignacio swallowed the last of his samosa
 and wiped his hands on the cardboard box.
 "We should get goin'."
 
@@ -9164,7 +9164,7 @@ Johnson Wales had called the *Landrieu*.
 Thinking of Wales made her wonder again if Aunt Naggie was aright
 and if Honesty would ever be derself again.
 
-She jerked upright when Benício elbowed her.
+She jerked upright when Ignacio elbowed her.
 "Cargo drone," he said,
 pointing through the glass at a streamlined black airship
 as it emerged from the clouds stacked like plates high above them.
@@ -9182,11 +9182,11 @@ One, two, three—the smaller haulers that had been following the big one
 roared up out of a roadside gulley ahead of them,
 spraying gravel with their tires.
 
-"Hang on!" Benício ordered,
+"Hang on!" Ignacio ordered,
 gunning the engine.
 
 The lead hauler swerved.
-Iffy yelped as Benício spun the steering yoke again.
+Iffy yelped as Ignacio spun the steering yoke again.
 *Bang!*
 The hoverjeep knocked one of the smaller haulers flying.
 
@@ -9197,13 +9197,13 @@ Two more streaks
 and the ambush was over as quickly as it had started.
 
 "What th' hell?" "Was that you?"
-Iffy and Benício said on top of each other.
+Iffy and Ignacio said on top of each other.
 
 "Me?"
 Iffy protested incredulously.
 "I didn' do this!"
 
-"That was an affin' railgun!" Benício shouted.
+"That was an affin' railgun!" Ignacio shouted.
 He pointed at the cargo drone banking overhead.
 "That thing's got a *railgun*!"
 
@@ -9221,14 +9221,14 @@ the voice said,
 its inhuman phrasing making its sultry tone far more frightening
 than the harsh buzzing of a villainous bot in a sim.
 
-Benício swallowed hard.
+Ignacio swallowed hard.
 "We're aright.
 Who th' hell are you?"
 
 "Confirm cargo Kwan comma Ang du-du-du-duplicate undamanged."
 
-Iffy and Benício stared at each other.
-"Undamaged," Benício said curtly.
+Iffy and Ignacio stared at each other.
+"Undamaged," Ignacio said curtly.
 "Are you in the airship?
 *Are* you the airship?"
 
@@ -9242,7 +9242,7 @@ Imperative confirm immediate departure
 confirm alternative route."
 
 "Confirmed,"
-Benício said after a moment's hesitation.
+Ignacio said after a moment's hesitation.
 "And thank you."
 
 He closed his eyes and bowed his head.
@@ -9256,7 +9256,7 @@ whose name she would never know.
 Iffy said quietly when he finished.
 
 "Well it wasn't done for me,"
-Benício said shortly.
+Ignacio said shortly.
 He was afraid,
 Iffy realized,
 but that didn't make it better.
@@ -9265,7 +9265,7 @@ They drove on,
 faster than before.
 Iffy watched the time the voice had given them tick away on the dashboard.
 With sixteen minutes remaining
-Benício slowed and turned onto something too faint to be called a track.
+Ignacio slowed and turned onto something too faint to be called a track.
 Iffy put one hand on the roof of the cab to brace herself
 as the hoverjeep bounced over sharp-edged rocks the size of her head.
 
@@ -9278,7 +9278,7 @@ Water splashed up onto the hood of the truck
 as they followed the stream for two and a half precious minutes.
 
 "Aright,"
-Benício said.
+Ignacio said.
 "I can't slow down much,
 but when I do,
 you jump.
@@ -9300,12 +9300,12 @@ She let go of the seatbelt strap and tried to run
 but stumbled and went to one knee.
 Pain bit her leg as stone hit bone.
 She struggled clumsily back to her feet
-as Benício ran back toward her,
+as Ignacio ran back toward her,
 taking her arm and hurrying her back the way they had come
 as the hoverjeep drove itself away.
 
 Four minutes remaining.
-Benício stopped next to a stand of willows no different from the others
+Ignacio stopped next to a stand of willows no different from the others
 except for a twist of faded yellow survey tape around one stem.
 He pressed his hand against a boulder by the stream's edge,
 counted under his breath,
@@ -9319,7 +9319,7 @@ gripping Iffy's forearm as she twisted around
 and felt backward to find the first rung with her boot.
 
 Down she went, ten rungs, fifteen, twenty.
-Benício followed,
+Ignacio followed,
 his boots sometimes scraping on a rung just as her hand let go of it.
 "That's far enough," he said.
 The hatch closed above them,
@@ -9347,7 +9347,7 @@ Whatever it was,
 it didn't come again.
 All she could hear was her breathing
 and the occasional faint rustle
-as Benício shifted his weight above her.
+as Ignacio shifted his weight above her.
 
 A few minutes later he said,
 "Aright, mind your eyes."
@@ -9357,14 +9357,14 @@ and she had to bite down hard to stop herself from whimpering
 each time she put weight on her injured knee,
 but after another fifty rungs they reached the bottom of the shaft.
 
-She limped out of Benício's way and leaned against a rounded wall
+She limped out of Ignacio's way and leaned against a rounded wall
 as he pressed a panel.
 Soft white lights came on overhead to reveal a domed roof,
 four cots,
 shelves stacked with sealed storage containers,
 and something that she hoped was a toilet stall.
 
-Benício pulled off his coat,
+Ignacio pulled off his coat,
 sat on the nearest cot,
 and began to unlace his boots.
 "Make y'self comfortable,"
@@ -9378,12 +9378,12 @@ so that one of them could always keep an eye on the sensors
 that warned them if anyone was near on the surface.
 That happened twice the first day
 and once again faintly on the second.
-Each time Benício held a finger to his lips and dimmed the lights
+Each time Ignacio held a finger to his lips and dimmed the lights
 until the display went green again,
 then kept them in twilight silence for another hour just in case.
 
 In between watches they played hive and santorini
-or Benício did yoga
+or Ignacio did yoga
 while Iffy studied the specs for reclamation machines
 she found on an old app someone had left in the toilet stall.
 It had a few decade-old sims as well,
@@ -9399,7 +9399,7 @@ but the governor was grateful for the cooperation of
 the Federated Republics of Brazil
 in the investigation.
 "I wish I knew,"
-Benício said when Iffy asked if he thought Aunt Naggie was aright.
+Ignacio said when Iffy asked if he thought Aunt Naggie was aright.
 
 The news from beyond the sea was even harder to decipher.
 *Something* was happening,
@@ -9415,7 +9415,7 @@ Half of getting along with people on board a small ship
 or when fleeing through the wilderness
 is knowing when to turn your back
 to give people a pretense of privacy.
-As Benício slept,
+As Ignacio slept,
 Iffy turned her back and stripped off her clothes.
 Closing the door of the toilet stall behind her,
 she sat on its fold-down seat
@@ -9524,7 +9524,7 @@ and pressed her forehead against the mirror.
 
 As the days stretched toward a week
 Iffy spent more and more time in her cot with her eyes closed.
-"Just thinkin'," she told Benício.
+"Just thinkin'," she told Ignacio.
 He didn't ask, "About what?"
 which told her that he suspected she wasn't just daydreaming.
 
@@ -9550,7 +9550,7 @@ she had to relax and direct her attention at something else—anything else—un
 a timid, fragile wireframe solidified enough for her to examine.
 
 "Aright,"
-Benício finally said,
+Ignacio finally said,
 straightening up after yet another series of yoga poses.
 "Let's tidy up an' get outta here."
 
@@ -9562,7 +9562,7 @@ straightening up after yet another series of yoga poses.
 
 Fifteen minutes later they opened the hatch
 and climbed out into air that smelled of cold running water and wildflowers.
-Benício resealed the entrance behind them and patted it fondly.
+Ignacio resealed the entrance behind them and patted it fondly.
 "I hope I never see you again."
 Shrugging one strap of a small rucksack over his shoulder,
 he began to pick his way up the slope.
@@ -9572,7 +9572,7 @@ squinting against the bright summer sun.
 She thought they would head toward the road,
 but instead they angled away from,
 cross-country straight toward the looming bulk of the distant massif.
-Iffy wondered why Benício wasn't worried about being spotted by drones,
+Iffy wondered why Ignacio wasn't worried about being spotted by drones,
 but if he wasn't going to volunteer the information,
 she wasn't going to ask.
 Besides,
@@ -9584,16 +9584,16 @@ while the spongy beds of carbon-capture moss made her calves ache.
 She had a headache too—when she turned down the polarization in her goggles
 to see where she was putting her feet,
 the sunlight dazzled her,
-and one big gulp of water from the bottle in Benício's pack every half hour
+and one big gulp of water from the bottle in Ignacio's pack every half hour
 wasn't enough to stave off dehydration.
 
-The shelter was hours behind them when Benício finally called a halt.
+The shelter was hours behind them when Ignacio finally called a halt.
 Dinner was a dense brick of soy, fat, and sugar with no describable flavor.
-Iffy chewed it slowly while Benício refilled their water bottle
+Iffy chewed it slowly while Ignacio refilled their water bottle
 from a damp trickle too small to be called a stream
 and set it aside to purify.
 Their chameleon tents were barely bigger than Iffy's sleeping bag on the *Guinevere*.
-Benício waved her off as he set up their springy lightweight frames
+Ignacio waved her off as he set up their springy lightweight frames
 and then spread thin conducting wires around them
 to disperse their body heat.
 They would still be visible in infrared,
@@ -9612,7 +9612,7 @@ She missed its smell and the sound of Aunt Naggie in the galley
 and her picture book
 and she was tired of things happening to her.
 
-When Benício wriggled out of his tent a few hours later
+When Ignacio wriggled out of his tent a few hours later
 Iffy was already sitting cross-legged in front of hers
 throwing pebbles one by one at a boulder.
 He stretched and twisted to crack his back,
@@ -9626,7 +9626,7 @@ quiet but firm.
 *Plink.*
 A pebble bounced off the boulder.
 
-Benício let his breath out in a long whoosh.
+Ignacio let his breath out in a long whoosh.
 "I know cross-country ain't your thing,"
 he started.
 
@@ -9649,7 +9649,7 @@ An' I'm done bein' treated like a kid.
 You said my First wasn't like anybody else.
 How about you pretend you're talkin' to her right now instead o' me?"
 
-Benício's jaw set.
+Ignacio's jaw set.
 "Iffy, we don't have time for this.
 You just gotta trust me a little while longer."
 
@@ -9686,7 +9686,7 @@ Pause.
 *Plink.*
 "So you're a soldier?" Iffy asked.
 
-Benício shook his head.
+Ignacio shook his head.
 "Nope, never.
 It's from the war, or maybe before.
 It means if you can't walk I'll carry you,
@@ -9699,7 +9699,7 @@ and clambering awkwardly to her feet.
 Her legs hated her and she hated them back.
 "But there better be tea wherever we're goin'."
 
-"I promise," Benício said.
+"I promise," Ignacio said.
 "I promise, tea an' a whole lot more.
 Now let's get packed up—we got a lot o' walkin' to do today,
 an' it's mostly uphill."
@@ -9718,7 +9718,7 @@ and too close to the ground for Iffy to identify.
 That didn't mean the land was empty.
 Once a small brown-and-white hare bounded away from and disappeared into a burrow.
 There were shrews too,
-and once a few desiccated brown beads that Benício said were lynx scat.
+and once a few desiccated brown beads that Ignacio said were lynx scat.
 Transplanting the animals' ancestor from the other pole
 and nurturing an ecosystem that could sustain itself
 had taken a generation.
@@ -9728,7 +9728,7 @@ the fragile patches of life scattered across the continent
 grew a little bit larger.
 
 "The hardest part is soil,"
-Benício told her,
+Ignacio told her,
 seeming no more tired after hours of walking
 than he had been when they set out.
 "Folk think it's just rock,
@@ -9745,7 +9745,7 @@ Danger came without warning.
 One moment she was plodding up yet another gravelly slope.
 The next she was flat against the ground
 with her arms pinned to her sides
-and Benício hissing,
+and Ignacio hissing,
 "Quiet! Stay quiet!" in her ear.
 He waited a heartbeat for her to nod
 before rolling away and wriggling out of his knapsack.
@@ -9753,7 +9753,7 @@ before rolling away and wriggling out of his knapsack.
 "Get under," he said,
 pulling out one of the tents and shaking it open.
 Iffy pulled it over herself like a blanket.
-She heard rather than saw the rustle of Benício doing the same beside her.
+She heard rather than saw the rustle of Ignacio doing the same beside her.
 
 Silence,
 and then a faint hum that grew steadily louder.
@@ -9761,7 +9761,7 @@ She held her breath as the noise peaked and softened.
 Metal clicked softly on metal in the silence that followed.
 She heard the faint *shing shing shing*
 of a large-gauge pipe being screwed together.
-What was Benício making?
+What was Ignacio making?
 
 The hum grew louder again.
 "Don't move," he whispered urgently.
@@ -9769,7 +9769,7 @@ His tent rustled as he threw it aside.
 
 *Crack!*
 She jumped at the sound of a shot.
-Benício swore and fired again.
+Ignacio swore and fired again.
 
 "Come on!"
 He yanked the tent off her and pulled her to her feet.
@@ -9805,7 +9805,7 @@ but bodies don't work the same way in real life
 as they do in sims.
 She could run twenty strides or thirty,
 but then her legs simply wouldn't obey her.
-At first Benício urged her on.
+At first Ignacio urged her on.
 After the third time she stopped and bent over,
 hands on her knees and panting,
 he double-checked his rifle
@@ -9818,7 +9818,7 @@ when they saw the ocean boil around the *Rushin Doll*
 and knew there was nothing they could do to save themselves?
 
 She didn't notice the rumbling above the sound of her own breath
-until Benício caught her arm
+until Ignacio caught her arm
 "Get up there," he ordered,
 pointing at a house-sized pile of boulders too tidy to be natural.
 She nodded and stumbled toward them.
@@ -9837,10 +9837,10 @@ She clambered up the pile,
 half-crawling in places,
 as the rumbling grew louder.
 
-Benício whooped.
+Ignacio whooped.
 She twisted to look over her shoulder
 just in time to see the herd of musk ox crest the ridge behind them,
-shoulder to shoulder and galloping straight at Benício.
+shoulder to shoulder and galloping straight at Ignacio.
 
 She expected him to run.
 Why wasn't he running?
@@ -9856,21 +9856,21 @@ all facing inward,
 horned heads low and sweat steam rising from their backs.
 
 She held her breath as one of the musk ox stepped forward
-in front of Benício and pawed the ground.
+in front of Ignacio and pawed the ground.
 Sunlight reflected off a collar around its neck—no,
 not a collar,
 a rider!
 A small bot like a four-legged spider
 nestled in the fur on the ox's meaty shoulders.
 
-Benício slowly lowered his hand
+Ignacio slowly lowered his hand
 set his rifle on the ground,
 and knelt,
 head bowed.
 The ox snorted and stepped daintily closer to him.
 
 "Saints," Iffy breathed as it nuzzled the Ecologist.
-She half-expected the bot on its back to crawl onto Benício's head
+She half-expected the bot on its back to crawl onto Ignacio's head
 and drill into his skull to take over his body
 like something from a horror sim.
 Instead,
@@ -9880,7 +9880,7 @@ and grumbled,
 shifting its weight from hoof to hoof
 while its rider and the Ecologist conversed.
 
-Benício stood and beckoned to Iffy.
+Ignacio stood and beckoned to Iffy.
 "Come on down.
 She wants t' see what all th' fuss is about."
 
@@ -9894,7 +9894,7 @@ and the judge had already decided her guilt.
 The musk ox turned her head to fix one eye on Iffy.
 The small bot perched on her back beckoned her her forward
 with a skinny crab-claw manipulator.
-She glanced at Benício.
+She glanced at Ignacio.
 "'Saright," he said soothingly.
 "She just wants a look."
 
@@ -9913,7 +9913,7 @@ With no more signal than that,
 the musk ox turned and walked away.
 
 As the herd followed in two and threes,
-Benício picked up his rifle.
+Ignacio picked up his rifle.
 Iffy waited for him to say something,
 but he just stood there
 looking at the receding herd.
@@ -9921,7 +9921,7 @@ looking at the receding herd.
 "Friends o' yours?" she asked,
 trying and failing to sound light.
 
-Benício shook his head.
+Ignacio shook his head.
 There were tear tracks on his cheeks.
 "That was their spotter I shot down.
 Once I get you where we're goin',
@@ -9996,7 +9996,7 @@ fifteen minutes to eat and give each other a minute or two of privacy.
 before they left the shelter.)
 Two more hours of walking,
 a long fifteen minutes to catch their breath,
-and one final, shorter hike before Benício called a halt.
+and one final, shorter hike before Ignacio called a halt.
 
 They didn't set up their tents.
 Instead,
@@ -10019,7 +10019,7 @@ grumbled to each other,
 and began to amble away.
 Iffy felt exposed,
 as if a passing ship had caught her sunning herself in a t-shirt on the deck of the *Guinevere*.
-Benício just shrugged when she asked about drones.
+Ignacio just shrugged when she asked about drones.
 "I think they're all busy watchin' each other right now.
 An' anyway,
 there's not much we can do about it."
@@ -10036,7 +10036,7 @@ He paused as they neared the top of yet another ridge.
 not in person,
 but—why?"
 
-Benício grinned.
+Ignacio grinned.
 "Come on.
 I got somethin' t' show you."
 
@@ -10050,7 +10050,7 @@ as they made their way down into a bowl-shaped valley.
 Iffy pointed at something small and orange exploring a purple flower.
 "Another one o' your bot friends?"
 
-Benício crouched down,
+Ignacio crouched down,
 setting his rifle on the ground beside him.
 "That ain't a bot.
 That's a bee."
@@ -10069,7 +10069,7 @@ Come on, I'll show you."
 
 It took half an hour to reach the stream
 that snaked along the bottom of the valley.
-Benício talked the whole way.
+Ignacio talked the whole way.
 The land was rebounding as the ice retreated.
 That meant thousands of microquakes every year,
 which fractured the rock,
@@ -10097,7 +10097,7 @@ which made him grin even more broadly.
 *«haste»*
 
 Iffy stumbled as the thought appeared fully-formed in her head.
-"What's wrong?" Benício asked,
+"What's wrong?" Ignacio asked,
 but she was too busy fighting a sudden wave of nausea to answer.
 
 *«haste»*
@@ -10117,7 +10117,7 @@ but the trip tightened.
 "Iffy! Iffy! Affin' hell, what have you done?"
 Something *clicked* beside her.
 She swallowed again and opened her eyes
-to see Benício pointing his rifle at two, no, three crab-like bots
+to see Ignacio pointing his rifle at two, no, three crab-like bots
 whose arms ended in multitools and manipulators instead of claws
 but were no less frightening for that.
 
@@ -10135,7 +10135,7 @@ As quickly as it had come
 the pressure in her head was gone.
 She wiped her nose and checked her glove for blood—there wasn't any—then
 stepped aside to let the bots scuttle up the path
-the way she and Benício had come.
+the way she and Ignacio had come.
 
 "I'm sorry,"
 she said dully.
@@ -10148,7 +10148,7 @@ Their destination was a scattering of greenhouses
 hidden in half a hectare of dark pines.
 Iffy slowed as they approached the trees.
 "Aint' never been in a forest before,"
-she confessed when Benício looked at her quizzically.
+she confessed when Ignacio looked at her quizzically.
 
 He nodded and held out his hand.
 She hesitated a moment,
@@ -10177,7 +10177,7 @@ stood together in the middle
 as if they had wandered into the wrong party
 and weren't quite sure if it would be polite to leave.
 
-Benício paused for a moment before a hand-painted picture of Saint Yanina
+Ignacio paused for a moment before a hand-painted picture of Saint Yanina
 hanging by the cots
 to say a brief prayer under his breath,
 then shrugged off his pack and unzipped his coat.
@@ -10191,7 +10191,7 @@ and bounced up and down to test it,
 but didn't take off her coat or boots.
 "What kind o' work?"
 
-"Saints' work," Benício said.
+"Saints' work," Ignacio said.
 "Been a month since anyone was here, maybe more.
 There's trees 'n' all to re-pot,
 a couple o' composters to turn over,
@@ -10209,12 +10209,12 @@ but checkin' pipes sounds like my kind o' thing."
 There were carrots,
 real carrots for Iffy to pull out of a raised bed and rinse off.
 There were onions too,
-and something Benício called "basil" that Iffy thought she could learn to like
+and something Ignacio called "basil" that Iffy thought she could learn to like
 if given a chance.
 The ginger was long past fresh,
 but the noodles were exactly the same as the ones the Sandhus sold.
 
-Benício shook his head when Iffy asked about curry powder.
+Ignacio shook his head when Iffy asked about curry powder.
 "Might be some around somewhere,
 but it won't have any o' your medicine in it."
 He stirred the noodles and vegetables in the battered steel wok
@@ -10223,7 +10223,7 @@ sniffed,
 and pronounced good enough for camp cooking.
 
 Iffy cradled her tea.
-Benício had plucked mint leaves and put them in the pot to steep
+Ignacio had plucked mint leaves and put them in the pot to steep
 as if it was the most natural thing in the world,
 and the result almost tasted too good to drink.
 "I don't think th' machines are gonna give me that long,"
@@ -10254,7 +10254,7 @@ and flip through her picture book and go to sleep on her own mattress.
 
 Her eyelids were just starting to lose their battle with gravity
 when an alarm began to bleat.
-Benício was on his feet and in his jacket
+Ignacio was on his feet and in his jacket
 before she finished sitting up.
 "Somethin's comin'," he said,
 frowning at the app in his hand.
@@ -10266,7 +10266,7 @@ struggling to lace her boots
 with fingers that felt like they were made of tofu.
 
 The Ecologist didn't answer.
-"Benício?"
+"Ignacio?"
 she asked,
 then jumped as he swore explosively.
 
@@ -10281,7 +10281,7 @@ but we gotta go."
 Iffy asked,
 pulling on her coat.
 
-Benício locked eyes with her.
+Ignacio locked eyes with her.
 "Anywhere but here.
 They ain't never come into th' valley before,
 but—Iffy,
@@ -10301,7 +10301,7 @@ Aunt Naggie had insisted she learn how to ride, "Just in case."
 She was pretty sure her foster mother's "in case"
 hadn't included this situation,
 but there was no time to think about that,
-no time to think about whether Benício had a plan
+no time to think about whether Ignacio had a plan
 because even downhill on the world's best highway
 there was no way they could move as fast as the Marines.
 
@@ -10315,7 +10315,7 @@ and nearly but never actually sent her tumbling
 onto gravel that looked a lot sharper from the seak of the bike
 than it had when she was walking on it.
 
-Benício skidded to a stop as they reached the top of a ridge
+Ignacio skidded to a stop as they reached the top of a ridge
 and swung around to look back into the valley.
 Iffy stopped beside him,
 lungs heaving.
@@ -10338,7 +10338,7 @@ The app flashed.
 The images froze as whatever had been transmitting went offline,
 perhaps forever.
 "Santa Yanina, Santa Pao, forgive our crimes and arrogance,"
-Benício whispered.
+Ignacio whispered.
 
 And then Iffy heard it,
 the thrumming roar of a hovercraft moving fast over rough ground.
@@ -10346,7 +10346,7 @@ There!
 East of them,
 blurred but visible as its camouflage struggled to match the ground beneath it.
 "Who th' hell is that?"
-Benício demanded.
+Ignacio demanded.
 
 Iffy stared at him.
 "How th' hell would I know?
@@ -10354,7 +10354,7 @@ But they brought a friend."
 She pointed at a dot in the sky
 flying parallel to the hovercraft's course.
 
-Benício thrust the app into her hands and unslung his rifle.
+Ignacio thrust the app into her hands and unslung his rifle.
 "Get back on your bike," he ordered.
 "There's a shelter about thirty klicks further on—the app's got a map an' a pass code.
 You hole up there an' someone will come find you."
@@ -10402,7 +10402,7 @@ and how many had gone dark.
 At twelve and twelve the remaining Marines began to fall back.
 The green dots kept pace but let them go.
 
-"How bad is it?" Benício asked,
+"How bad is it?" Ignacio asked,
 his eyes still on the approaching hovercraft.
 
 Iffy swallowed.
@@ -10420,7 +10420,7 @@ And one—
 "One o' the greenhouses got hit," she said.
 "Looks like a tree came down on it."
 
-Benício let out a long breath.
+Ignacio let out a long breath.
 "Praise the saints.
 That coulda been a lot worse."
 
@@ -10430,7 +10430,7 @@ A crab bot climbed onto his chest and—
 She bent over and threw up.
 *Please let none o' them be Honesty,* she thought desperately.
 
-"Y'aright?" Benício asked as she straightened up.
+"Y'aright?" Ignacio asked as she straightened up.
 
 "No!
 No, I'm not affin' aright!"
@@ -10460,13 +10460,13 @@ and if the bumps and potholes on the climb up the ridge had been frightening,
 going over them downhill at three times the speed was terrifying.
 There wasn't time to be scared, though,
 or to think about how quickly the Marines were closing in on them.
-There was just staying upright as she followed Benício around the next turn
+There was just staying upright as she followed Ignacio around the next turn
 and trying not to go head-first over her handlebars
 each time her front tire hit a rock.
 
 Flat ground,
 or at least flatter.
-She struggled to change gears as Benício pulled ahead,
+She struggled to change gears as Ignacio pulled ahead,
 her hands clumsied by her gloves.
 The hovercraft was a roaring blur in the distance,
 still too far away to help.
@@ -10492,7 +10492,7 @@ Her knee—her shoulder—it was like someone was using one of Mister Mishra's d
 
 She kicked free of the bike with her uninjured leg
 and cried out as she tried and failed to stand.
-Benício braked,
+Ignacio braked,
 fishtailed,
 and raced back to her.
 "I'm sorry, I'm sorry," she repeated
@@ -10509,7 +10509,7 @@ This is gonna get a bit noisy."
 He raised his rifle and took aim.
 
 Iffy felt an explosion through the outcrop.
-"Affin' hell," Benício swore,
+"Affin' hell," Ignacio swore,
 ducking his head.
 "That was their drone."
 
@@ -10518,7 +10518,7 @@ The amplified voice echoed off the rock.
 "Surrender yourselves immediately!
 We cannot ensure your safety if you do not comply!"
 
-Benício caught Iffy's eye and grinned.
+Ignacio caught Iffy's eye and grinned.
 "I always thought they sounded pretty stupid when they talked like that."
 And then he twisted a button on his cuff
 to make the camouflage on his jacket jerk and swirl through not-quite random patterns
@@ -10527,7 +10527,7 @@ twisted around and up onto one knee,
 and began firing.
 He got off two shots before an impact in his chest sent him tumbling backward down the slope.
 
-"Benício!" Iffy screamed.
+"Ignacio!" Iffy screamed.
 The Ecologist slid downhill another meter and came to a rest,
 his legs splayed awkwardly and the rifle still in his hands.
 
@@ -10539,16 +10539,16 @@ the steps stretched apart unnaturally by the exoskeletons' long strides.
 
 Iffy got her legs underneath her,
 biting back a whimper as pain lanced through her knee again.
-She had to help Benício.
+She had to help Ignacio.
 She had to run,
 but there was nowhere to go
 and she'd be lucky if she could walk.
 
 *Crack! Crack! Crack!*
-Benício's rifle jumped a little with each shot.
+Ignacio's rifle jumped a little with each shot.
 Iffy heard an indistinct shout of surprise—inducted or not,
 the Marines were human enough to swear.
-Benício rolled sideways back into the lee of the outcrop
+Ignacio rolled sideways back into the lee of the outcrop
 as shots peppered the ground where he'd been lying.
 
 "Stay there!" he snapped as Iffy started to rise.
@@ -10563,7 +10563,7 @@ The Marine sounded more disappointed than angry.
 For your own safety,
 we urge you to surrender."
 
-Benício looked at Iffy.
+Ignacio looked at Iffy.
 "Any ideas?"
 
 She forced a smile that she hoped looked as confident as his grin.
@@ -10579,7 +10579,7 @@ each the size of a pebble,
 ended their existence in brief bursts of plasma.
 Feedback shrieked as the micromotors in a dozen exoskeletons overloaded and fused solid.
 
-Benício pulled Iffy to her feet.
+Ignacio pulled Iffy to her feet.
 "Come on!"
 
 One hand clutching his collar,
@@ -10595,7 +10595,7 @@ The voice behind them was no longer amplified.
 
 Cold air washed over Iffy as the hovercraft settled onto the ground.
 Two sentry bots dropped from its steeply-angled side
-and raced past her and Benício
+and raced past her and Ignacio
 to stand guard between them and the fallen Marines.
 
 A hatch opened on the hovercraft's leading edge just as they reached it.
@@ -10607,7 +10607,7 @@ but then he removed his helmet.
 Johnson Wales said conversationally.
 "Isn't this a fine mess?"
 
-Benício put a cautioning hand on Iffy's shoulder.
+Ignacio put a cautioning hand on Iffy's shoulder.
 "Appreciate you helpin' out with th' Marines an' all,
 but we're fine t' make our own way along by th' coast."
 
@@ -10629,11 +10629,11 @@ you and Iffy can come aboard of your own accord or not as you choose,
 but you *are* coming with me."
 
 One—two—three more sentry bots blurred out of invisibility
-in front of Iffy and Benício.
+in front of Iffy and Ignacio.
 Mechanical feet scuffed on gravel behind her
 as the two she had seen moved closer.
 
-Benício puffed out his cheeks and exhaled slowly.
+Ignacio puffed out his cheeks and exhaled slowly.
 "You know I can't do that," he said.
 
 Wales raised his hand.
@@ -10642,7 +10642,7 @@ I have no desire at all to pick a fight with the Shepherds.
 Whatever secrets or access codes you have will remain yours and yours alone."
 
 "Yeah."
-Benício sighed.
+Ignacio sighed.
 "I wish I believed you,
 but your record ain't exactly positive,
 an' you bein' out here,
@@ -10667,13 +10667,13 @@ Clench the hand like *this*,
 hold it *there*,
 and—
 
-As Benício raised his hand Wales shouted, "Wait!"
+As Ignacio raised his hand Wales shouted, "Wait!"
 Iffy tackled the Ecologist,
 grabbing his arm and knocking him clumsily to the ground.
 The EMP that was supposed to scramble his brain
 sent feedback shrieking through the sentry bots' motors instead.
 
-Benício scrambled back onto his feet.
+Ignacio scrambled back onto his feet.
 "No! No, Iffy, whattaya done?"
 
 "Affin' hell!" she swore,
@@ -10691,7 +10691,7 @@ you can do it yourself!"
 
 There were Marines on board the hovercraft,
 all apparently imprinted with the same taciturn personality.
-Two of them flanked Benício
+Two of them flanked Ignacio
 as he disappeared stone-faced into the belly of the hovercraft
 while Wales explained to Iffy
 that the Ecologist would be fine.
@@ -10707,7 +10707,7 @@ well,
 the Shepherds had undoubtedly changed their access codes already,
 and their network of shelters and greenhouses weren't actually as secret as they thought.
 
-Iffy expected to be locked in a cell next to Benício.
+Iffy expected to be locked in a cell next to Ignacio.
 Instead,
 a Marine ushered her up steeply-laddered steps to the hovercraft's cockpit.
 "Have a seat," Wales said,
@@ -10806,7 +10806,7 @@ would have pumped fuel at hypersonic speeds
 in orbital booster rockets
 if history had unfolded just a little bit differently.
 The hull plating was angled to deflect the energy of ballistic attacks
-and threaded with microfilaments not unlike those in Benício's skull
+and threaded with microfilaments not unlike those in Ignacio's skull
 to handle electronic ones.
 Ventilation tubes,
 triple-redundant optical wiring,
@@ -10863,7 +10863,7 @@ I assume."
 
 She shrugged.
 "Not much else t' do,
-'less you're aright with me talkin' to Benício for a bit."
+'less you're aright with me talkin' to Ignacio for a bit."
 
 "I'm afraid that's out of the question for now,"
 Wales said regretfully.
@@ -11039,7 +11039,7 @@ Two minutes later she stood in front of another cabin door
 and pressed her sticky hand against the contact place beside it.
 
 "Affin' heck, girl, what happened t' you?"
-Benício asked as he stood.
+Ignacio asked as he stood.
 
 "You should see the other guy," she said
 grinning woozily.
@@ -11055,7 +11055,7 @@ She jerked her chin toward the stern.
 Someone was banging against one of the doors they passed.
 They were shouting, too.
 Iffy thought it was funny but didn't have enough energy to laugh.
-At some point Benício had put his arm around her to help her stay upright.
+At some point Ignacio had put his arm around her to help her stay upright.
 He had picked up a fire extinguisher as well,
 a compact red cylinder with a silver handle
 whose basic design hadn't changed in centuries.
@@ -11068,7 +11068,7 @@ Anyone who wanted to find them could just follow the trail of drops and streaks 
 "…straps…"
 
 "*Está bem*, I got it,"
-Benício said soothingly.
+Ignacio said soothingly.
 He turned her around and lowered her onto the molded plastic seat,
 then buckled the harness across her chest
 and pulled a bulky pair of goggles down over her eyes and nose.
@@ -11151,17 +11151,17 @@ Her nosebleed had stopped,
 but she was still lightheaded.
 She clambered awkwardly up the boulder
 and shielded her eyes with her hand.
-There—Benício's chair had just landed a few hundred meters away.
+There—Ignacio's chair had just landed a few hundred meters away.
 Wales had undoubtedly retaken control of the hovercraft,
 only to discover that all three coolant pumps had burned out
 and would need to be replaced
 before it could move again.
 That meant his Marines would be putting on their exoskeletons,
-which meant she and Benício only had a few minutes before they arrived.
+which meant she and Ignacio only had a few minutes before they arrived.
 
 "Hey!"
 She waved both arms.
-Benício waved back and started toward her.
+Ignacio waved back and started toward her.
 Iffy slipped off the boulder,
 made her way back to the chair,
 and got to work.
@@ -11176,7 +11176,7 @@ because she had to tighten the spigot valve on the seat's tiny fuel line all the
 before prying out the fist-sized tank of peroxide
 or she and her escape were going to be very short-lived.
 
-Benício's boots crunched on the snow.
+Ignacio's boots crunched on the snow.
 "What're you—oh no.
 No no no,
 you can't be serious."
@@ -11188,7 +11188,7 @@ an' then get the straps off th' chair.
 We're gonna have t' double up."
 
 Another minute, another minute—there.
-Benício handed her the ends of the parawing's tether lines.
+Ignacio handed her the ends of the parawing's tether lines.
 She clipped them onto the harness and handed it back to him.
 "I can't carry you, so you gotta carry me," she said,
 cutting off his protests.
@@ -11198,14 +11198,14 @@ It wasn't much,
 but it would have to do.
 "Ready?" she asked.
 
-Benício shook his head.
+Ignacio shook his head.
 "Nope."
 He bent over like a sprinter and started to run.
 
 Iffy waited for the lines to go nearly taut before shouting,
 "Now!"
 and yanking the edge of the parawing up as hard as she could.
-The makeshift motor strapped to Benício's back shrieked into life,
+The makeshift motor strapped to Ignacio's back shrieked into life,
 kicking him forward.
 For an instant Iffy thought it wasn't going to work,
 but the core she had pulled out of the chair wasn't smart enough to wonder
@@ -11214,7 +11214,7 @@ It just knew its wing was out of position.
 Tiny motors whirred,
 frantically adjusting the parawing's shape
 so that it cut the air at just the right angle
-to lift Benício into the air.
+to lift Ignacio into the air.
 
 He whooped,
 his feet still pedalling as they left the ground.
@@ -11225,13 +11225,13 @@ She counted seconds under her breath.
 The snow was slowing them down, but not much.
 
 "Over here!" she shouted,
-waving as Benício banked in a wide, clumsy turn.
+waving as Ignacio banked in a wide, clumsy turn.
 One moment he was over *there*
 and the next he was coming straight at her,
 wide-eyed and shouting something she couldn't hear.
 She took a deep breath and spread her arms wide.
 
-Benício hit her with a thump that cracked her spine.
+Ignacio hit her with a thump that cracked her spine.
 His hands scrabbled for purchase on her parka,
 but the fabric was too slippery,
 it was designed to shed water and he couldn't get a grip
@@ -11246,7 +11246,7 @@ pushing them higher.
 hoping that whatever faraway machine she had made her bargain with was listening.
 
 "So what now?"
-Benício had to shout to be heard over the wind in their ears.
+Ignacio had to shout to be heard over the wind in their ears.
 
 "There's a place up ahead,"
 Iffy shouted back.
@@ -11269,7 +11269,7 @@ she swore she would find a way to fly again.
 
 After one last lift from a thermal rising off a stretch of exposed rock
 they began a long, slow descent.
-"Get ready!" Benício shouted.
+"Get ready!" Ignacio shouted.
 Iffy grabbed the strap with one numb hand and let go with the other
 so that she was half beside and half behind him.
 The parawing's little motors whined in protest as they reshaped it
@@ -11278,9 +11278,9 @@ Ten seconds…
 Five…
 As her boots grazed the snow she tried to run,
 but her toe caught on a crust of ice.
-She let go of Benício and sprawled face-forward.
+She let go of Ignacio and sprawled face-forward.
 
-"Well," Benício said a moment later
+"Well," Ignacio said a moment later
 as the parawing carried the harness away.
 "Can't wait to tell Nagatha about *that*."
 
@@ -11291,10 +11291,10 @@ we gotta keep movin'."
 
 Two snack bars and several mouthfuls of lukewarm water later,
 they reached the nearest of the enormous machines.
-Benício put a reverent hand on its tread.
+Ignacio put a reverent hand on its tread.
 
 they reached an outcropping of rock too regular to be natural.
-Benício ran his hands over the pipe shafts drilled into its laser-cut top.
+Ignacio ran his hands over the pipe shafts drilled into its laser-cut top.
 "Old weather station?" he hazarded.
 "Looks like it was salvaged a long time gone."
 
@@ -11302,7 +11302,7 @@ Benício ran his hands over the pipe shafts drilled into its laser-cut top.
 Iffy pointed at the shadow on the horizon.
 "You know what that is?"
 
-Benício laughed.
+Ignacio laughed.
 "Girl,
 I have no idea where I am right now.
 You could tell me that was the Andes an' I'd believe you."
@@ -11322,12 +11322,12 @@ a rifle connected to a flimsy jumpsuit,
 and a medical kit.
 The center of the floor was taken up by a circular hatch.
 
-She grinned at Benício.
+She grinned at Ignacio.
 "Welcome to my secret lair."
 
 Whatever he might have said in reply was cut off by a low rumble.
 She whirled around and froze as a white-furred head lifted off the snow three strides away.
-"*Mãe do mundo*," Benício breathed
+"*Mãe do mundo*," Ignacio breathed
 as the polar bear rosed to its feet.
 For a heart-stopping moment Iffy *knew* that this was where and how her story would end,
 but then she saw the familiar silver sheen of tech beneath the bear's fur.
@@ -11336,7 +11336,7 @@ but then she saw the familiar silver sheen of tech beneath the bear's fur.
 
 "It says trouble's comin'," Iffy relayed.
 
-"No kidding," Benício muttered.
+"No kidding," Ignacio muttered.
 "Don't suppose it's offerin' to help with that?"
 
 As if on cue a second bear and then a third ambled around the outcropping.
@@ -11354,7 +11354,7 @@ Iffy jerked her chin at the hatch.
 "It wants us to get movin'."
 
 "Aright."
-Benício stepped into the small chamber,
+Ignacio stepped into the small chamber,
 bent down,
 grabbed the handwheel,
 and yelped,
@@ -11372,7 +11372,7 @@ bumping into each other like ice floes.
 She shook her head to clear it.
 
 "I think it wants me on my own,"
-she told Benício.
+she told Ignacio.
 Without waiting for his reply she bent over and grabbed the handwheel herself.
 When nothing happened she pulled it,
 gently at first and then harder.
@@ -11381,7 +11381,7 @@ Once, twice, three times—click.
 She lifted the hatch.
 
 "Secret lair, eh?"
-Benício said,
+Ignacio said,
 looking over her shoulder at the laddered shaft descending into the mountain.
 
 She shrugged.
@@ -11403,14 +11403,14 @@ and then he turned to the bears and said,
 
 Iffy watched the foursome head downhill,
 wondering if it was just an accident that the two accelerated bears
-kept themselves between their unmodified partner and Benício.
+kept themselves between their unmodified partner and Ignacio.
 The Marines' infrared would spot them immediately,
 but even as she had the thought,
 schematics and false-color visualizations flashed through her head.
 The accelerated bears' tech would dampen and modify their heat signatures
 long enough for them to look like half a dozen arctic rabbits
 fleeing from the unmodified bear,
-while Benício's jumpsuit would—
+while Ignacio's jumpsuit would—
 
 She shook her head.
 It didn't matter.
