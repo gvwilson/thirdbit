@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: What We Mean by Software Design</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../projects/">projects</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>What We Mean by Software Design</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/02/17/theres-nothin-to-know/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-03-08" class="post-date">2025-03-08</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Suppose you are building a static site generator that turns a bunch of Markdown files into HTML pages.
+The Markdown files include links to external sites;
+to ensure these are consistent between pages,
+you have decided to do the following:</p>
+<ol>
+<li>
+<p>All links to external sites are written as <code>[text][some_key]</code>.</p>
+</li>
+<li>
+<p>The keys and their associated URLs are stored in a YAML file like this:
+    <div class="highlight"><pre><span></span><code>- key: first
+  url: https://first.site
+- key: second
+  url: https://second.site
+</code></pre></div></p>
+</li>
+<li>
+<p>The static site generator reads the YAML file and converts the content to a block of text
+    like the one shown below,
+    then appends that text to each Markdown file in memory before translating to HTML:
+    <div class="highlight"><pre><span></span><code>[first]: https://first.site
+[second]: https://second.site
+</code></pre></div></p>
+</li>
+</ol>
+<p>Now comes the hard part.
+Your static site generator includes a linting tool that checks for common mistakes,
+such as improperly-nested headings or undefined bibliography references.
+You want to check that every link reference corresponds to an entry in the YAML file
+and that everyone entry in the YAML file is used at least once.
+Your first attempt uses a regular expression to find patterns of the form <code>[some][url]</code> in the Markdown,
+then does the obvious two-sided check with the URLs.
+However,
+your Markdown files also include snippets of Python code;
+these may contain chained subscripts like <code>grid[x][y]</code>,
+which cause your linter to produce spurious error reports.
+What should you do?</p>
+<ol>
+<li>
+<p>Implement some sort of &ldquo;known problem&rdquo; list to suppress the spurious error messages.</p>
+</li>
+<li>
+<p>Use regular expressions to erase code chunks from your Markdown files before searching for link references.</p>
+</li>
+<li>
+<p>Wait until the Markdown has been converted to HTML,
+    then walk the DOM tree and check all the text that isn&rsquo;t in code chunks.</p>
+</li>
+</ol>
+<p>Solution #1 requires users to do extra work (and re-work as their content changes),
+so let&rsquo;s set it aside.
+It&rsquo;s easier to implement a first version of Solution #2 than of Solution #3,
+but Solution #2 turns out to be surprisingly tricky to get right:
+Markdown allows for indented code blocks,
+and inline code sections might be marked with <code>&lt;code&gt;…&lt;/code&gt;</code> rather than with single backticks.</p>
+<p>I&rsquo;m sure there are other solutions,
+some of which may be better than the ones I&rsquo;ve outlined,
+but the point of this post is that when I say &ldquo;software design&rdquo;,
+what I mean is &ldquo;answers to questions like these and the justifications behind them&rdquo;.
+I wish there were more worked examples that discussed the pros and cons of possible solutions—I feel like
+I still have a lot to learn.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+</footer>
+  </body>
+</html>
