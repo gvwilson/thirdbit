@@ -220,6 +220,8 @@ INSERT INTO location VALUES(213, 'CA', 'Jonquiere,  QC', 48.416667, -71.25);
 INSERT INTO location VALUES(214, 'CA', 'New Liskeard,  Ontaro', 47.5131, -79.6774);
 INSERT INTO location VALUES(215, 'CA', 'Cambridge,  Ontario', 43.3873, -80.3213);
 INSERT INTO location VALUES(216, 'CA', 'Halifax,  Nova Scotia', 44.6489, -63.5753);
+INSERT INTO location VALUES(217, 'KR', 'Suwon', 37.29111, 127.00889);
+INSERT INTO location VALUES(218, 'AM', 'Yerevan', 40.769627, 44.673665);
 
 CREATE TABLE termorder(
        name text not null,
@@ -626,6 +628,10 @@ INSERT INTO person VALUES('dursi.jonatan', 'Dursi', 'Jonathan', 'M', 216, 'ljdur
 INSERT INTO person VALUES('susanto.daelenia', 'Susanto', 'Daelenia', 'F', 78, 'daelenia98@gmail.com');
 INSERT INTO person VALUES('seong.rachel', 'Seong', 'Rachel', 'F', 85, 'sungeunchae@gmail.com');
 INSERT INTO person VALUES('wang.evence', 'Wang', 'Evence', 'M', 7, 'shjp20070426@gmail.com');
+INSERT INTO person VALUES('tin.cassandra', 'Tin', 'Cassandra', 'F', 38, 'cassandratin13@gmail.com');
+INSERT INTO person VALUEs('kim.amy', 'Kim', 'Amy', 'F', 217, 'aaamykm001@gmail.com');
+INSERT INTO person VALUES('barsamyan.david', 'David', 'Barsamyan', 'M', 218, 'davitbarsamyan@gmail.com');
+INSERT INTO person VALUES('buciu.lorena', 'Lorena', 'Buciu', 'F', 40, 'lorena_buciu@hotmail.com');
 
 CREATE TABLE country(
        iso text not null,
