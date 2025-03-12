@@ -27,9 +27,9 @@
 - Hediyeh (antagonist): female, also 16, born and raised in Medef.
   - Enjoys other people's hurt the way some people enjoy the taste of ripe cheese.
   - Knows that Eimin has a crush on her, but dismisses him (both because he's *nif* and because she's mean).
-- Suresh (antagonist): male, 20, a traveling magician with a love of books.
+- Suresh (antagonist): female, 20, a traveling magician with a love of books.
   - Initially friendly to both Eimin and Hediyeh, but alienates Eimin by growing closer to Hediyeh.
-  - Turns out that he wants to sacrifice (his affection for) Hediyeh to increase his power.
+  - Turns out that she wants to sacrifice (her affection for) Hediyeh to increase her power.
 - Razi: a *nif* of Eimin's mother's age who visits Medef two or three times a year.
   - He is one of Lady Kembe's "hands in the world" (does the practical things she can't).
   - Becomes Eimin's teacher, but we later discover that he is training Eimin to be part of the Other Hand.
@@ -48,37 +48,60 @@
 
 ## Minor Characters
 
-- Jephel (male, teenager): placid *nif* a couple of years older than Eimin who is apprenticed to Medef's butcher.
+- Jephel (male, teenager): placid *nif* a couple of years older than Eimin who is apprenticed to Kirash.
   - Already accepts himself in a way that Eimin both despises and envies (foil for Eimin).
+- Kirash and Yassen (male and female, *nif* and not, adult): twins
+  - Kirash is the village butcher.
+  - Drinks more than he should (never came to terms with being *nif*).
+  - Yassen has never married: looks after him.
 - Mureya (female, teenager): one of Hediyeh's circle who is in a budding relationship with Jephel.
   - Story arc: breaking free from Hediyeh.
 - Grappa Uzman (male, elderly): brusque old Aphsi who keeps goats.
 - Lady Kembe (female): magician in Ossisswe (mentioned but never encountered).
+- Dudir: caravaneer (male, middle-aged).
+- Smoky: Dudir's Gifted camel.
+- Gugun (female): Suresh's master (dies at the start of the story).
 
 ## Ideas
 
 - Magicians must trade parts of themselves for power.
   - Eimin makes a bitter comment about getting nothing in exchange for being *nif*.
-  - Razi replies that most people in the world don't either.
+  - Razi chides him: most people in the world don't either.
 - The Pilots could trade parts of other people.
   - People have been trying to regain that power since their fall.
   - Foreshadows the big reveal in a later book: humans are magic fuel, and the Pilots' Disputation was about the morality of that.
-- Medef has a waterstone.
-  - Some villages in the Karaband rely on oases.
-  - But there are a handful of waterstones that simply produce water endlessly (or teleport it from somewhere else - no-one knows).
-  - The Aphsi can *drome* that there's a spirit of some sort in the waterstone powering it.
-  - Someone tried to steal Qudef's waterstone several hundred years ago - it didn't go well for them.
 - Suresh does stage magic as well as the real thing.
   - "I'm an entertainer."
   - Has the social ease that Eimin craves.
+- Gugun and Suresh are on a quest to change history.
+  - Un-kill Gugun's daughter (accidentally killed experimenting with the ring on Suresh's watch).
+  - The spirit in the ring is lying about being able to do that.
 - Suresh lies to Eimin about magicians creating *nif* for the Other Hand.
   - Eimin's realization that his mother wouldn't do that to him is his character turning point.
   - As is his realization that Razi would…
-- Suresh believes the waterstone will let him trade Hediyeh's life to gain power.
-  - People can drome that Suresh is going to betray her, but they think that means he's going to move on.
-  - Hediyeh is already practicing being forlorn with her girlfriends…
+- People can drome that Suresh is going to betray Hediyeh, but they think that means she's going to move on.
+  - Hediyeh enjoys practicing being forlorn.
+- Kirash is a warning to Jephel.
 
 ## Outline
 
-1. Opening
-2. The Gargoyles
+- Chapter 1: Opening
+  - Eimin's backstory and the start of his relationship with Razi.
+- Chapter 2: The Caravan
+  - Dudir and Smoky arrive to say that their caravan has been ambushed by the lion, her bandits, and the gargoyles.
+    - Drove off some of the goats with the caravan.
+    - And stole some dried fruit and cotton.
+    - One of the travellers is badly injured: they need a guide across the glass.
+  - Razi and Eimin are part of the rescue team.
+    - Not Kirash: hangover.
+    - And not Jephel: too stout.
+    - Others include Grappa Uzman (the Aphsi can *drome* lost animals).
+  - Cut across a narrow strait in the Sea of Glass (introduces it).
+  - By the time they get there Gugun has died of her injuries.
+    - Suresh seems dazed (realize later she is newly-possessed).
+- Chapter 3: That Evening
+  - Caravan setting up.
+  - Interaction with Hediyeh: attraction to Suresh, Eimin's jealousy, Jephel's phlegmatic response.
+  - Mureya *dromes* that Suresh has guilty thoughts about Hediyeh, which makes Eimin uncomfortable (but not surprised).
+- Chapter 4: The Gargoyle Hunt
+  - The lion hunts them as they're hunting the gargoyles, which is how Razi is injured.
