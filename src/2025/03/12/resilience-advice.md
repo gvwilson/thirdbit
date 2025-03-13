@@ -19,14 +19,12 @@ Until there are,
 here are my thoughts on what you can do:
 
 1.  Accept that the threat is both real and random.
-    -   Nobody at the Climate Research Unit thought they were might be a target until [Climategate][climategate] happened.
-        -   Ask Anthony Fauci how safe he feels these days…
-        -   …or anyone involved in reproductive health care for women in the US.
-    -   There's a continuum of risk, but everyone in science in the US is now at risk.
+    -   There's a continuum of risk, but everyone scientist in the US is now a potential target.
+        -   As with censorship, the turmoil is the point: hurt a few to frighten the rest into acquiescence.
     -   And the damage might spread:
         Canada's previous Conservative prime minister [muzzled scientists][harper-muzzle],
         and the current Conservative leader will undoubtedly go further if he wins the upcoming election.
-    -   As with censorship, the turmoil is the point: hurt a few to frighten the rest into acquiescence.
+    -   Remember, nobody at the Climate Research Unit thought they were might be a target until [Climategate][climategate] happened.
 1.  Threat models (taken from [this paper][plos] with modifications):
     -   Casual threat ("drive by"): opportunistic but not determined (but see "institutional threat" below).
     -   Intimate threat: a life partner (not a big one for this conversation).
