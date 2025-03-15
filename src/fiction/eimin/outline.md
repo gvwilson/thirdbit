@@ -1,25 +1,14 @@
 # Eimin
 
-- *Eimin* is a YA fantasy novel about a teenage boy trying to find his place in the world.
-  - Most people in his village (Medef) are Aphsi (empaths): they can *drome* the feelings of others.
+- *Eimin* is a YA fantasy novella about a teenage boy trying to find his place in the world.
+  - 32,000 words / 20 chapters.
+- Most people in Eimin's village (Medef) are Aphsi (empaths): they can *drome* the feelings of others.
   - But Eimin is *nif* (the equivalent of deaf), which makes him feel socially awkward.
     - Almost all *nif* are male.
   - Being *nif* is a metaphor for deafness, but also for being on the spectrum and feeling that you don't understand people.
   - The story should appeal to bookish kids who feel that they never quite fit in.
 - The story is told in the first person from Eimin's point of view.
   - Occasional asides give the impression that he is actually telling the story to the reader.
-
-- Problem: need action to sustain the story between the opening and the climax.
-  - Something that foreshadows Suresh's betrayal.
-  - Something involving the lion bandit and the gargoyles.
-- Caravan is attacked on its way to Medef.
-  - Lion and her bandits growing more desperate because of increasing drought (foreshadow bigger theme).
-  - Eimin and Razi leads the caravan across the narrow strait in the Sea of Glass.
-    - This is where they have to drive off the gargoyles (?).
-- Three-part structure
-  - Rescuing the caravan.
-  - Suresh in Medef.
-  - Eimin's crisis and the resolution.
 
 ## Major Characters
 
@@ -62,23 +51,35 @@
 - Smoky: Dudir's Gifted camel.
 - Gugun (female): Suresh's master (dies at the start of the story).
 
-## Ideas
+## More About the Setting
 
+- Medef was a minor port on an inlet in Lake Karaband before the Disputation.
+  - Lake Karaband became the Sea of Glass.
+  - Ships, fish, etc. trapped in the glass, bits above the surface eroded away.
+  - Glass itself is now cloudy, but here and there things can still be seen.
+  - Cracks in the glass filled with windblown dirt and a few hardy plants.
+- The Pilots' Palace (really just a small summer house).
+  - Everything built to a larger-than-human scale.
+  - Home to ghosts: nobody sleeps near it (or goes near it at all unless they're desperate or brave).
+  - Voices tempting people inside…
+- The ghost in Suresh's ring guides him to what he thinks is treasure.
+  - Actually a human magician wanting to be released after being trapped for a thousand years.
 - Magicians must trade parts of themselves for power.
   - Eimin makes a bitter comment about getting nothing in exchange for being *nif*.
   - Razi chides him: most people in the world don't either.
 - The Pilots could trade parts of other people.
   - People have been trying to regain that power since their fall.
-  - Foreshadows the big reveal in a later book: humans are magic fuel, and the Pilots' Disputation was about the morality of that.
+  - Foreshadows the big reveal in a later book: humans are magic fuel
+    - The Pilots' Disputation was about the morality of that.
 - Suresh does stage magic as well as the real thing.
   - "I'm an entertainer."
   - Has the social ease that Eimin craves.
-- Gugun and Suresh are on a quest to change history.
-  - Un-kill Gugun's daughter (accidentally killed experimenting with the ring on Suresh's watch).
-  - The spirit in the ring is lying about being able to do that.
+- Gugun and Suresh were on a quest to change history.
+  - The want to save Gugun's daughter (accidentally killed experimenting with the ring on Suresh's watch).
+  - The ghost in the ring is lying about being able to do that.
 - Suresh lies to Eimin about magicians creating *nif* for the Other Hand.
   - Eimin's realization that his mother wouldn't do that to him is his character turning point.
-  - As is his realization that Razi would…
+  - As is his realization that Razi would.
 - People can drome that Suresh is going to betray Hediyeh, but they think that means she's going to move on.
   - Hediyeh enjoys practicing being forlorn.
 - Kirash is a warning to Jephel.
@@ -101,7 +102,29 @@
     - Suresh seems dazed (realize later she is newly-possessed).
 - Chapter 3: That Evening
   - Caravan setting up.
-  - Interaction with Hediyeh: attraction to Suresh, Eimin's jealousy, Jephel's phlegmatic response.
+  - Interaction with Hediyeh: her attraction to Suresh, Eimin's jealousy, Jephel's phlegmatic response.
   - Mureya *dromes* that Suresh has guilty thoughts about Hediyeh, which makes Eimin uncomfortable (but not surprised).
 - Chapter 4: The Gargoyle Hunt
   - The lion hunts them as they're hunting the gargoyles, which is how Razi is injured.
+  - Eimin has a conversation with her during a standoff (foreshadows reconciliation in the finale)
+- Chapter 5
+- Chapter 6
+- Chapter 7
+- Chapter 8
+- Chapter 9
+- Chapter 10
+- Chapter 11
+- Chapter 12
+- Chapter 13
+- Chapter 14
+- Chapter 15
+- Chapter 16
+- Chapter 17
+- Chapter 18
+- Chapter 19
+- Chapter 20: After
+  - Eimin talked to his mother: not the listener's business what they said.
+  - Grappa Uzman and the lion negotiating (she picks a name).
+  - Hediyeh angry (and a little afraid) at the disinterest she now *dromes* in Eimin.
+  - Eimin reluctantly agrees to go train with Razi.
+  - Story ends with Razi holding two white pawns.
