@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Using a Database</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Using a Database</h1>
+<h2>Overview</h2>
+<figure id="db-concept-map">
+<img alt="concept map of database interaction in Python" src="db_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#db-schema">database schema</a>, <a href="../glossary.html#factory-function">factory function</a>, <a href="../glossary.html#multithreading">multithreading</a>, <a href="../glossary.html#orm">object-relational mapper (ORM)</a>, <a href="../glossary.html#query-builder">query builder</a></p>
+<h2>Outline</h2>
+<h3>Direct SQL</h3>
+<ul>
+<li>Use <a href="https://www.sqlite.org/">SQLite</a> database in <code>./data/lab.db</code> instead of CSV file</li>
+<li>Install <code>_dict_factory</code> <a href="../glossary.html#factory-function">factory function</a>
+    to get results as list of dictionaries instead of list of tuples</li>
+<li>And use a flag to convert types like dates and times (used later)</li>
+<li><a href="./models_sql.py.html"><code>models_sql.py</code></a> implements model part of model-view-controller (MVC)<ul>
+<li>One function for each question we might ask of our data</li>
+<li>Use SQL directly instead of an <a href="../glossary.html#orm">object-relational mapper</a>
+    like <a href="https://www.sqlalchemy.org/">SQLAlchemy</a>, <a href="https://sqlmodel.tiangolo.com/">SQLModel</a>, or <a href="https://ponyorm.org/">Pony</a></li>
+<li>ORMs can be hard to debug and don't perfectly insulate programs from changes to <a href="../glossary.html#db-schema">schema</a></li>
+</ul>
+</li>
+</ul>
+<pre class="language-py"><code class="language-py" data-file="models_sql.py">"""Get data from database."""
+
+import os
+import sqlite3
+
+import util
+
+
+ENV_VAR = "DATA"
+
+
+class ModelException(Exception):
+    """Problems with queries."""
+
+    def __init__(self, msg):
+        self._msg = msg
+
+    def __str__(self):
+        return self._msg
+
+
+def connect():
+    """Connect to database."""
+    path = os.getenv(ENV_VAR)
+    if not path:
+        raise ModelException(f"Environment variable {ENV_VAR} not set")
+    connection = sqlite3.connect(path, detect_types=sqlite3.PARSE_DECLTYPES)
+    connection.row_factory = util.dict_factory
+    return connection
+
+
+def all_staff():
+    """Get all staff."""
+    query = """
+    select * from staff
+    """
+    try:
+        connection = connect()
+        cursor = connection.execute(query)
+        return cursor.fetchall()
+    except sqlite3.DatabaseError as exc:
+        raise ModelException(str(exc))
+
+
+def column(name):
+    """Get a single column of staff."""
+    query = f"""
+    select {name} from staff
+    """
+    try:
+        connection = connect()
+        cursor = connection.execute(query)
+        return [r[name] for r in cursor.fetchall()]
+    except sqlite3.DatabaseError as exc:
+        raise ModelException(str(exc))
+
+
+def row(staff_id):
+    """Get a single row of staff."""
+    query = """
+    select * from staff where staff_id=?
+    """
+    try:
+        connection = connect()
+        cursor = connection.execute(query, (staff_id,))
+        result = cursor.fetchall()
+        if len(result) == 0:
+            raise ModelException(f"no rows match {staff_id}")
+        elif len(result) &gt; 1:
+            raise ModelException(f"multiple rows match {staff_id}")
+        return result[0]
+    except sqlite3.DatabaseError as exc:
+        raise ModelException(str(exc))
+</code></pre>
+<ul>
+<li>Re-create connection each time model is accessed<ul>
+<li>Creating it once and attaching to the <a href="https://flask.palletsprojects.com/">Flask</a> app fails because of <a href="../glossary.html#multithreading">multithreading</a></li>
+</ul>
+</li>
+<li>Catch SQLite exceptions and raise our own so that our server only has to catch one thing</li>
+<li>Add some more error handling</li>
+</ul>
+<h3>Query Builder</h3>
+<ul>
+<li>Security problem: we're inserting a user-defined name into a query<ul>
+<li>Can't parameterize query on column name</li>
+<li>Opens us up to SQL injection attack</li>
+</ul>
+</li>
+<li>And embedded SQL isn't actually that easy to read</li>
+<li>Use the <a href="https://pypika.readthedocs.io/">PyPika</a> <a href="../glossary.html#query-builder">query builder</a></li>
+<li><a href="./pika_demo.py.html"><code>pika_demo.py</code></a> is a proof of concept</li>
+</ul>
+<pre class="language-py"><code class="language-py" data-file="pika_demo.py">from pypika import Query, Table
+import sqlite3
+import sys
+
+import util
+
+connection = sqlite3.connect(sys.argv[1], detect_types=sqlite3.PARSE_DECLTYPES)
+connection.row_factory = util.dict_factory
+
+staff = Table("staff")
+q = Query.from_(staff).select("staff_id", "personal", "family")
+print(str(q))
+cursor = connection.execute(str(q))
+for row in cursor.fetchall():
+    print(row)
+</code></pre>
+<ul>
+<li><a href="./models_pika.py.html"><code>models_pika.py</code></a> is shorter and more readable than the SQL version</li>
+</ul>
+<pre class="language-py"><code class="language-py" data-file="models_pika.py">"""Get data from database."""
+
+import os
+from pypika import Query, Table
+import sqlite3
+
+import util
+
+
+ENV_VAR = "DATA"
+STAFF_COLUMNS = ["staff_id", "personal", "family"]
+
+
+class ModelException(Exception):
+    """Problems with queries."""
+
+    def __init__(self, msg):
+        self._msg = msg
+
+    def __str__(self):
+        return self._msg
+
+
+def connect():
+    """Connect to database."""
+    path = os.getenv(ENV_VAR)
+    if not path:
+        raise ModelException(f"Environment variable {ENV_VAR} not set")
+    connection = sqlite3.connect(path, detect_types=sqlite3.PARSE_DECLTYPES)
+    connection.row_factory = util.dict_factory
+    return connection
+
+
+def all_staff():
+    """Get all staff."""
+    staff = Table("staff")
+    query = Query.from_(staff).select(*STAFF_COLUMNS)
+    try:
+        connection = connect()
+        cursor = connection.execute(str(query))
+        return cursor.fetchall()
+    except sqlite3.DatabaseError as exc:
+        raise ModelException(str(exc))
+
+
+def column(name):
+    """Get a single column of staff."""
+    if name not in STAFF_COLUMNS:
+        raise ModelException(f"Column '{name}' does not exist")
+
+    staff = Table("staff")
+    query = Query.from_(staff).select(name)
+    try:
+        connection = connect()
+        cursor = connection.execute(str(query))
+        return [r[name] for r in cursor.fetchall()]
+    except sqlite3.DatabaseError as exc:
+        raise ModelException(str(exc))
+
+
+def row(staff_id):
+    """Get a single row of staff."""
+    staff = Table("staff")
+    query = Query.from_(staff) \
+                 .select(*STAFF_COLUMNS) \
+                 .where(staff.staff_id == staff_id)
+    try:
+        connection = connect()
+        cursor = connection.execute(str(query))
+        result = cursor.fetchall()
+        if len(result) == 0:
+            raise ModelException(f"no rows match {staff_id}")
+        elif len(result) &gt; 1:
+            raise ModelException(f"multiple rows match {staff_id}")
+        return result[0]
+    except sqlite3.DatabaseError as exc:
+        raise ModelException(str(exc))
+</code></pre>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

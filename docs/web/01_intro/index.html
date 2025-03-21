@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Introduction</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Introduction</h1>
+<p id="terms">Terms defined: <a href="../glossary.html#virtual-env">virtual environment</a></p>
+<ul>
+<li>Sooner or later you're going to want to share your findings</li>
+<li>And learning how the web works is fun</li>
+<li>Use modern Python and JavaScript tools<ul>
+<li>Yes, you're going to have to learn some JavaScript…</li>
+<li>…but it's not as bad as you've been told</li>
+</ul>
+</li>
+<li>All of these materials can be freely re-used under
+    the <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC</a> License (prose)
+    and <a href="https://opensource.org/license/MIT">MIT License</a> (software)</li>
+</ul>
+<h2>Setup</h2>
+<ul>
+<li>Install <a href="https://github.com/astral-sh/uv">uv</a> for managing Python packages and <a href="../glossary.html#virtual-env">virtual environments</a> and then run:<ul>
+<li><code>uv venv</code> in the root directory of this project to create a virtual environment in <code>./.venv</code></li>
+<li><code>source .venv/bin/activate</code> to activate that virtual environment</li>
+<li><code>uv pip install -r pyproject.toml</code> to install requirements</li>
+</ul>
+</li>
+<li>To regenerate the sample data, run <code>make datasets</code> to:<ul>
+<li>install the default parameters for <code>snailz</code> in <code>./params</code>, and</li>
+<li>regenerate the sample data in <code>./data</code></li>
+<li>We use <a href="https://www.gnu.org/software/make/">Make</a> to run tasks because every other option proved to be more complicated</li>
+</ul>
+</li>
+<li>Project uses <a href="https://pypi.org/project/mccole/">McCole</a> to generate and check HTML<ul>
+<li>Run <code>make render</code> to regenerate the HTML in <code>./docs</code> from the Markdown files</li>
+<li>Run <code>make lint</code> at any time to check the state of the project</li>
+</ul>
+</li>
+</ul>
+<h2>The Data</h2>
+<p><a href="https://gvwilson.github.io/snailz/">snailz</a> creates synthetic data for a study of mutant snails in the Pacific Northwest.</p>
+<ul>
+<li>One or more <em>surveys</em> are conducted at one or more <em>sites</em>.</li>
+<li>Each survey collects <em>genomes</em> and <em>sizes</em> of snails.</li>
+<li>A <em>grid</em> at each site is marked out to show the presence or absence of pollution.</li>
+<li><em>Staff</em> perform <em>assays</em> of the snails' genetic material.</li>
+<li>Each assay plate has a <em>design</em> showing the material applied and <em>readings</em> showing the measured response.</li>
+<li>Plates may be <em>invalidated</em> after the fact if a staff member believes it is contaminated.</li>
+</ul>
+<h2>Acknowledgments</h2>
+<ul>
+<li>Grateful to co-authors of <a href="../bibliography.html#Gans2020">Gans2020</a></li>
+<li>And to everyone who gave feedback on <a href="../bibliography.html#Wilson2022">Wilson2022</a> and <a href="../bibliography.html#Wilson2024">Wilson2024</a></li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

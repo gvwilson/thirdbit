@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Using Forms</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Using Forms</h1>
+<h2>Overview</h2>
+<figure id="forms-concept-map">
+<img alt="concept map of HTML forms" src="forms_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#form">form</a></p>
+<h2>Outline</h2>
+<ul>
+<li>Remove everything except display of a table of all staff</li>
+<li>Add a <a href="../glossary.html#form">form</a> for adding new people<ul>
+<li>Copy the database before running</li>
+</ul>
+</li>
+<li><a href="./explore_insert.py.html"><code>explore_insert.py</code></a>: experiment with insertion<ul>
+<li>Select largest staff ID, add one, insert: race condition</li>
+<li>Better to build a subquery that does this</li>
+</ul>
+</li>
+<li>Add <code>add_staff</code> function to <a href="./models.py.html"><code>models.py</code></a><ul>
+<li>Must have <code>commit</code> in <code>models.add_staff</code></li>
+<li>Really should check values…</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

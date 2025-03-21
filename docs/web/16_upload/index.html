@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Uploading Files</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Uploading Files</h1>
+
+<h2>Outline</h2>
+<ul>
+<li>Show how to upload files using <a href="https://htmx.org/">htmx</a></li>
+<li>File uploads require:<ol>
+<li>HTML form with attribute <code>enctype="multipart/form-data"</code> to encode file data</li>
+<li>Server endpoint</li>
+<li>File storage</li>
+<li>Response handling to give user feedback.</li>
+</ol>
+</li>
+<li>htmx attributes used:<ul>
+<li><code>hx-encoding="multipart/form-data"</code> to encode file data</li>
+<li><code>hx-post="/upload"</code> specifies upload endpoint</li>
+<li><code>hx-target="#file-list"</code> specifies where to display the response</li>
+<li><code>hx-swap="beforeend"</code> specifies how to insert response (append)</li>
+</ul>
+</li>
+<li><a href="./server.py`"><code>server.py</code></a><ul>
+<li>Secures filenames to prevent path traversal attacks</li>
+<li>Limits maximum file size</li>
+<li>Provides endpoints for uploading, listing, and deleting files</li>
+<li>Serve static files from <code>../static</code> as before</li>
+</ul>
+</li>
+<li>Things we <em>should</em> do:<ul>
+<li>Validate file types and content</li>
+<li>Virus/malware scanning</li>
+<li>Authentication and authorization for upload permissions</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

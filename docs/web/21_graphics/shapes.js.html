@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>21_graphics/shapes.js</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>21_graphics/shapes.js</h1>
+<pre><code>// Create an SVG drawing
+const drawing = SVG().addTo('#drawing').size(300, 200);
+
+// Create a square
+drawing.rect(50, 50).move(10, 10).fill('#1e90ff');
+
+// Create a circle
+drawing.circle(50).move(100, 10).fill('#ff6347');
+
+// Create a line
+drawing.line(10, 100, 290, 100).stroke({ width: 2, color: '#2ecc71' });
+
+// Add text
+drawing.text('example').move(120, 150).font({ size: 24, family: 'Arial' });
+</code></pre>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

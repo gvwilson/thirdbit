@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Templated Plate Editor</title>
+    <script src="../static/alpine.js" defer></script>
+    <link rel="stylesheet" href="../static/page.css">
+  </head>
+  <body>
+    <h1>Simple Templated Plate Editor</h1>
+    <div class="row" x-data="{
+      treatments: ['CQZ-1718', 'CQA-986', 'CQA-940', '', ],
+      current: '',
+      data: {
+        A1: '',B1: '',C1: '',D1: '',A2: '',B2: '',C2: '',D2: '',A3: '',B3: '',C3: '',D3: '',A4: '',B4: '',C4: '',D4: '',}
+    }">
+      <div id="controls" class="col-2 shaded">
+        <h2>Controls</h2>
+          <label><input type="radio" name="current" value="CQZ-1718" x-model="current"> CQZ-1718</label>
+          <br/>
+          <label><input type="radio" name="current" value="CQA-986" x-model="current"> CQA-986</label>
+          <br/>
+          <label><input type="radio" name="current" value="CQA-940" x-model="current"> CQA-940</label>
+          <br/>
+          <label><input type="radio" name="current" value="" x-model="current"> </label>
+          </div>
+      <div class="col-10">
+        <h2 class="center">Plate</h2>
+        <table id="plate">
+          <tr>
+            <th></th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            </tr>
+          <tr>
+              <th>1</th>
+                <td id="A1" x-text="data['A1']" x-on:click="data['A1'] = current"></td>
+                <td id="B1" x-text="data['B1']" x-on:click="data['B1'] = current"></td>
+                <td id="C1" x-text="data['C1']" x-on:click="data['C1'] = current"></td>
+                <td id="D1" x-text="data['D1']" x-on:click="data['D1'] = current"></td>
+            </tr>
+          <tr>
+              <th>2</th>
+                <td id="A2" x-text="data['A2']" x-on:click="data['A2'] = current"></td>
+                <td id="B2" x-text="data['B2']" x-on:click="data['B2'] = current"></td>
+                <td id="C2" x-text="data['C2']" x-on:click="data['C2'] = current"></td>
+                <td id="D2" x-text="data['D2']" x-on:click="data['D2'] = current"></td>
+            </tr>
+          <tr>
+              <th>3</th>
+                <td id="A3" x-text="data['A3']" x-on:click="data['A3'] = current"></td>
+                <td id="B3" x-text="data['B3']" x-on:click="data['B3'] = current"></td>
+                <td id="C3" x-text="data['C3']" x-on:click="data['C3'] = current"></td>
+                <td id="D3" x-text="data['D3']" x-on:click="data['D3'] = current"></td>
+            </tr>
+          <tr>
+              <th>4</th>
+                <td id="A4" x-text="data['A4']" x-on:click="data['A4'] = current"></td>
+                <td id="B4" x-text="data['B4']" x-on:click="data['B4'] = current"></td>
+                <td id="C4" x-text="data['C4']" x-on:click="data['C4'] = current"></td>
+                <td id="D4" x-text="data['D4']" x-on:click="data['D4'] = current"></td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </body>
+</html>

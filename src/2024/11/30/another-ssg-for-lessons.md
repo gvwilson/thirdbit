@@ -82,7 +82,7 @@ not a fully-equipped machine shop.
 [ark]: https://www.dmulholl.com/docs/ark/main/
 [html5validator]: https://pypi.org/project/html5validator/
 [jinja]: https://jinja.palletsprojects.com/
-[mccole]: https://github.com/lessonomicon/mccole
+[mccole]: https://github.com/gvwilson/mccole
 [ruff]: https://docs.astral.sh/ruff/
 [sdxpy]: @root/sdxpy/
 [shortcodes]: https://github.com/dmulholl/shortcodes

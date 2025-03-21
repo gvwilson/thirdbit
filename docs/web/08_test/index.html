@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Testing the Server</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Testing the Server</h1>
+<h2>Overview</h2>
+<figure id="test-concept-map">
+<img alt="concept map of testing a server" src="test_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#fixture">fixture</a>, <a href="../glossary.html#heartbeat">heartbeat</a>, <a href="../glossary.html#test-client">test client</a></p>
+<h2>Outline</h2>
+<ul>
+<li>Add a <a href="../glossary.html#heartbeat">heartbeat</a> to <a href="./server.py.html"><code>server.py</code></a></li>
+<li>Wrap the <a href="https://flask.palletsprojects.com/">Flask</a> application with a <a href="../glossary.html#test-client">test client</a>
+    that provides an interface like <a href="https://www.python-httpx.org/">httpx</a></li>
+<li>Run <code>pytest test_heartbeat.py</code> to run tests in <a href="./test_heartbeat.py.html"><code>test_heartbeat.py</code></a></li>
+<li>Rewrite using <a href="https://docs.pytest.org/">pytest</a> <a href="../glossary.html#fixture">fixtures</a> in <a href="./test_fixtures.py.html"><code>test_fixtures.py</code></a><ul>
+<li>Don't duplicate the expected value, since it might change</li>
+</ul>
+</li>
+<li>Patch database connection function in <a href="./test_db.py.html"><code>test_db.py</code></a> instead of creating a fixture</li>
+<li>Use the two approaches together in <a href="./test_combined.py.html"><code>test_combined.py</code></a></li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

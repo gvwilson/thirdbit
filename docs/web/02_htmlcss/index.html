@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTML and CSS</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>HTML and CSS</h1>
+<h2>Overview</h2>
+<figure id="htmlcss-concept-map">
+<img alt="concept map of HTML and CSS" src="htmlcss_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#attribute">attribute</a>, <a href="../glossary.html#css">Cascading Style Sheets (CSS)</a>, <a href="../glossary.html#css-class">CSS class</a>, <a href="../glossary.html#css-variable">CSS variable</a>, <a href="../glossary.html#element">element (in HTML)</a>, <a href="../glossary.html#escape-sequence">escape sequence</a>, <a href="../glossary.html#external-style-sheet">external style sheet</a>, <a href="../glossary.html#html">HyperText Markup Language (HTML)</a>, <a href="../glossary.html#pseudo-element">pseudo-element</a>, <a href="../glossary.html#root-element">root element</a>, <a href="../glossary.html#tag">tag</a></p>
+<h2>Introduction</h2>
+<ul>
+<li><a href="../glossary.html#html">HyperText Markup Language</a> (HTML) is the standard way to represent documents on the web</li>
+<li><a href="../glossary.html#css">Cascading Style Sheets</a> (CSS) is the standard way to style them</li>
+<li>Both are more complicated than they should have been but we need to understand a bit of both</li>
+</ul>
+<h2>HTML</h2>
+<ul>
+<li>HTML document contains <a href="../glossary.html#element">elements</a> and text</li>
+<li>Elements are shown using <a href="../glossary.html#tag">tags</a><ul>
+<li>Opening tag <code>&lt;tagname&gt;</code> shows where the element begins</li>
+<li>Closing tag <code>&lt;/tagname&gt;</code> shows where it ends</li>
+</ul>
+</li>
+<li>Elements must form a tree, i.e., must be strictly nested<ul>
+<li><code>&lt;X&gt;…&lt;Y&gt;…&lt;/Y&gt;&lt;/X&gt;</code> is legal</li>
+<li><code>&lt;X&gt;…&lt;Y&gt;…&lt;/X&gt;&lt;/Y&gt;</code> is not</li>
+</ul>
+</li>
+<li>And every document should have a single <a href="../glossary.html#root-element">root element</a> that encloses everything else</li>
+<li>Since <code>&lt;</code> and <code>&gt;</code> are used to show where tags start and end,
+    must use <a href="../glossary.html#escape-sequence">escape sequences</a> to represent them<ul>
+<li>Written <code>&amp;name;</code></li>
+</ul>
+</li>
+</ul>
+<div class="table" data-caption="Table 1: HTML Escape Characters" data-tbl="escape_characters.tbl" id="htmlcss-escape-characters"></div>
+<ul>
+<li>Well-formed HTML page has:<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code> as the first line</li>
+<li>An <code>html</code> element enclosing everything else</li>
+<li>A single <code>head</code> element with metadata</li>
+<li>A single <code>body</code> element with content</li>
+</ul>
+</li>
+<li>Indentation doesn't matter to the browser (but make source more readable to people)</li>
+<li>Use <code>&lt;!--</code> and <code>--&gt;</code> to start and end comments (which cannot be nested)</li>
+</ul>
+<div class="table" data-caption="Table 2: HTML Tags" data-tbl="html_tags.tbl" id="htmlcss-html-tags"></div>
+<ul>
+<li>Customize elements with <code>name="value"</code> <a href="../glossary.html#attribute">attributes</a></li>
+</ul>
+<pre><code>&lt;h1 align="center"&gt;A Centered Heading&lt;/h1&gt;
+</code></pre>
+<ul>
+<li>Use <code>href</code> attribute of <code>a</code> element to link to:<ul>
+<li>Another page with a full URL such as <code>https://example.com/page.html</code></li>
+<li>A page relative to the current one such as <code>./examples/page.html</code></li>
+<li>Another element in this page by ID such as <code>#main-title</code></li>
+</ul>
+</li>
+</ul>
+<h2>UTF-8 Encoding</h2>
+<ul>
+<li>UTF-8 encoding (Simplified):<ul>
+<li>Think of UTF-8 as a universal language for computers to understand and display text</li>
+<li>It can handle almost any character from any language in the world, including emojis</li>
+<li>When you use UTF-8, you don't have to worry about your text looking weird on different devices or websites</li>
+</ul>
+</li>
+<li>Specifying UTF-8 in HTML:<ul>
+<li>To ensure proper rendering of special characters, place this in the head of the HTML document</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;meta charset="utf-8"&gt;
+</code></pre>
+<ul>
+<li>HTML Entities vs. Direct Unicode Characters:<ul>
+<li>HTML entities like <code>&amp;copy;</code> are useful for ensuring compatibility across different encodings and older systems</li>
+<li>With UTF-8 encoding (and the proper meta tag), you can directly use Unicode characters like © in your HTML</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;p&gt;&amp;copy; 2024&lt;/p&gt;
+&lt;!-- is equivalent to --&gt;
+&lt;p&gt;© 2024&lt;/p&gt;
+</code></pre>
+<ul>
+<li>Both will render the same in a browser, but the direct Unicode character is more readable in the source code.</li>
+</ul>
+<h2>CSS</h2>
+<ul>
+<li><code>&lt;h1 align="center" color="red"&gt;…&lt;/h1&gt;</code> is frowned on these days<ul>
+<li>Hard to keep styling consistent</li>
+</ul>
+</li>
+<li>Give elements <a href="../glossary.html#css-class">classes</a> and defines styles for classes</li>
+<li><a href="./styled_page.html"><code>styled_page.html</code></a> uses an <a href="../glossary.html#external-style-sheet">external style sheet</a>
+<a href="./styled_page.css.html"><code>styled_page.css</code></a><ul>
+<li>Which can be shared by many pages</li>
+</ul>
+</li>
+<li>Can define <a href="../glossary.html#css-variable">CSS variables</a> or style things directly</li>
+</ul>
+<pre class="language-css"><code class="language-css" data-file="styled_page.css">:root {
+    --extra-space: 5px;
+    --page-width: 40em;
+}
+
+body {
+    font-family: sans-serif;
+    max-width: var(--page-width);
+    border: 1px solid gray;
+    margin: var(--extra-space);
+    padding: var(--extra-space);
+}
+
+h1.title {
+    text-align: center;
+}
+
+span.keyword {
+    font-weight: bold;
+}
+</code></pre>
+<ul>
+<li>Simple rule like the one for <code>body</code> has the name of the tag and some properties in curly braces</li>
+<li>More complex rule has <code>tag.class</code> and properties<ul>
+<li>Can also use <code>tag#identifier</code> to select a specific element with an <code>id</code> property</li>
+<li>Or <code>.class</code> or <code>#identifier</code></li>
+</ul>
+</li>
+<li>The <code>:root</code> <a href="../glossary.html#pseudo-element">pseudo-element</a> lets us define global variables<ul>
+<li>Names must begin with two dashes <code>--</code></li>
+<li>Refer to their values using <code>var(name)</code></li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

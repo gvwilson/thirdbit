@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Using HTMX</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Using HTMX</h1>
+<h2>Overview</h2>
+<figure id="htmx-concept-map">
+<img alt="concept map of HTMX" src="htmx_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#spread-arguments">spread arguments</a></p>
+<h2>Outline</h2>
+<ul>
+<li>Go back to the models, views, and server from <a href="../09_view/index.html">Serving HTML</a><ul>
+<li>Strip out row and column views</li>
+<li>Add a button for each row</li>
+<li>Styling is ugly, so add a handler for static files in <a href="./server.py.html"><code>server.py</code></a> as well</li>
+</ul>
+</li>
+<li>Add an empty <code>div</code> with ID <code>experiments</code></li>
+<li>Add <code>htmx.js</code> to head of page to use <a href="https://htmx.org/">htmx</a></li>
+<li>Modify buttons to use it<ul>
+<li><code>hx-get</code>: get from URL</li>
+<li><code>hx-trigger</code>: event that triggers action</li>
+<li><code>hx-target</code>: ID of page element to modify in place</li>
+<li><code>hx-swap</code>: replace inner HTML (as opposed to the entire element with <code>outerHTML</code>)</li>
+</ul>
+</li>
+<li><a href="https://htmx.org/">htmx</a> searches document for properties starting <code>hx-</code> and adds appropriate callbacks</li>
+</ul>
+<pre><code>&lt;button hx-get="/exp/{row.staff_id}" hx-trigger="click" hx-target="#experiments" hx-swap="innerHTML"&gt;
+  x
+&lt;/button&gt;
+</code></pre>
+<ul>
+<li>Running it now produces 404 error</li>
+<li>So implement <code>/exp/id</code> in server, models, and views<ul>
+<li><code>experiments</code> function in <code>models.py</code> uses an inner join</li>
+<li>Add <code>*args</code> to <code>handle_format</code> to <a href="../glossary.html#spread-arguments">spread arguments</a> for convenience</li>
+</ul>
+</li>
+<li>More common for server to return JSON that a JavaScript library in the browser translates into HTML</li>
+<li>But that approach leads to large (slow) libraries in the browser<ul>
+<li>Unfair to people using mobile, on slow connections, etc.</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

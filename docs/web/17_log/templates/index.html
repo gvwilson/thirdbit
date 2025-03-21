@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload with Structured Logging</title>
+    <link rel="stylesheet" href="/static/page.css" type="text/css">
+    <script src="/static/htmx.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>File Upload with Structured Logging</h1>
+      
+      <div>
+        <h2>Upload a File</h2>
+        <form 
+          hx-encoding="multipart/form-data"
+          hx-post="/upload"
+          hx-target="#file-list"
+          hx-swap="beforeend">
+          
+          <p>
+            <input type="file" name="file" required>
+            <button type="submit">Upload</button>
+          </p>
+          
+          <div id="error-message" style="color: red; display: none;"></div>
+        </form>
+      </div>
+      
+      <section>
+        <h2>Uploaded Files</h2>
+        <div id="file-list">
+          {% for filename in files %}
+          {% include 'file_item.html' %}
+          {% endfor %}
+        </div>
+      </section>
+      
+      <section class="logs-section">
+        <h2>Activity Logs</h2>
+        <button hx-get="/logs" hx-target="#logs-container" hx-swap="innerHTML">
+          View Logs
+        </button>
+        <div id="logs-container">
+          <!-- Logs will be displayed here -->
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

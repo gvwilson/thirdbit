@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>21_graphics/bar_chart.js</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>21_graphics/bar_chart.js</h1>
+<pre><code>const BAR_COLOR = '#3498db';
+
+function createBarChart(home, data, width, height, margin) {
+    // Create SVG drawing
+    const draw = SVG().addTo(home).size(width, height);
+
+    // Calculate chart dimensions
+    const chartWidth = width - 2 * margin;
+    const chartHeight = height - 2 * margin;
+
+    // Get keys and values from the data
+    const keys = Object.keys(data);
+    const values = Object.values(data);
+
+    // Calculate the maximum value for scaling
+    const maxValue = Math.max(...values);
+
+    // Calculate bar width and spacing
+    const barWidth = chartWidth / keys.length * 0.8;
+    const barSpacing = chartWidth / keys.length * 0.2;
+
+    // Draw bars and labels
+    keys.forEach((key, index) =&gt; {
+    const barHeight = chartHeight * data[key] / maxValue;
+    const x = margin + index * (barWidth + barSpacing);
+    const y = height - margin - barHeight;
+
+    // Draw bar
+    draw.rect(barWidth, barHeight)
+        .move(x, y)
+        .fill(BAR_COLOR);
+
+    // Draw label above bar
+    draw.text(data[key].toFixed())
+        .move(x + barWidth / 2, y - 20)
+        .font({ size: 12, anchor: 'middle' });
+
+    // Draw axis label
+    draw.text(key)
+        .move(x + barWidth / 2, height - margin)
+        .font({ size: 12, anchor: 'start' })
+        .transform({ rotate: 45, origin: 'top left' });
+    });
+}
+</code></pre>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

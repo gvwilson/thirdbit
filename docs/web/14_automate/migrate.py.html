@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>14_automate/migrate.py</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>14_automate/migrate.py</h1>
+<p>```
+"""Database migration."""</p>
+<p>import argparse
+from pathlib import Path
+import re
+import sqlite3
+import sys</p>
+<p>PATTERNS = {
+    "bwd": re.compile(r"^(\d+)<em>bwd</em>(.+)"),
+    "check": re.compile(r"^(\d+)<em>check</em>(.+)"),
+    "fwd": re.compile(r"^(\d+)<em>fwd</em>(.+)"),
+}</p>
+<p>def handle_check_file(connection, migration_file, direction, opt):
+    """Handle the check file for a given migration."""
+    check_filename = migration_file.with_name(
+        migration_file.name.replace(f"<em>{direction}</em>", "<em>check</em>", 1)
+    )
+    if check_filename.exists():
+        check_migration(connection, check_filename, opt.verbose)
+    elif not opt.skip_missing_checks:
+        print(f"Warning: Check file {check_filename} not found. Aborting.")
+        sys.exit(1)
+    else:
+        print(f"Warning: Check file {check_filename} not found. Skipping.")</p>
+<p>def main():
+    """Main driver."""
+    opt = parse_args()
+    connection = sqlite3.connect(opt.db)
+    if opt.forward:
+        direction = "fwd"
+    elif opt.backward:
+        direction = "bwd"
+    else:
+        assert False, "Unknown direction"
+    migrations = get_migrations(opt.migrations, direction, opt.limit)</p>
+<pre><code># Validate all check files before starting migrations
+if not validate_check_files(migrations, direction, opt):
+    print("Aborting due to missing check files.")
+    sys.exit(1)
+
+for filename in migrations if opt.forward else reversed(migrations):
+    if opt.backward:
+        handle_check_file(connection, filename, direction, opt)
+
+    migrate(connection, filename, opt.verbose)
+
+    if opt.forward:
+        handle_check_file(connection, filename, direction, opt)
+</code></pre>
+<p>def get_migrations(dirpath, direction, limit):
+    """Find migration files."""
+    pat = PATTERNS[direction]
+    result = []
+    for filepath in sorted(Path(dirpath).glob("*.sql")):
+        m = pat.match(str(filepath.name))
+        if not m:
+            continue
+        if limit and (m.group(1) &gt; limit):
+            continue
+        result.append(filepath)
+    return result</p>
+<p>def migrate(connection, filename, verbose):
+    """Apply migration."""
+    if verbose:
+        print(f"migrating {filename}")
+    connection.executescript(filename.read_text())</p>
+<p>def check_migration(connection, filename, verbose):
+    """Perform check migration."""
+    if verbose:
+        print(f"checking {filename}")
+    try:
+        connection.executescript(filename.read_text())
+    except sqlite3.Error as e:
+        print(f"Check failed for {filename}: {e}")
+        sys.exit(1)</p>
+<p>def parse_args():
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--backward", action="store_true", help="migrate backward")
+    parser.add_argument("--db", required=True, help="database file")
+    parser.add_argument("--forward", action="store_true", help="migrate forward")
+    parser.add_argument("--migrations", type=str, required=True, help="migrations directory")
+    parser.add_argument("--limit", type=str, help="how far to go or where to start regression")
+    parser.add_argument("--verbose", action="store_true", help="report progress")
+    parser.add_argument("--skip-missing-checks", action="store_true", help="skip missing check files instead of aborting")
+    opt = parser.parse_args()</p>
+<pre><code>if (opt.backward + opt.forward) != 1:
+    print("Must specify exactly one of --forward or --backward")
+    sys.exit(1)
+
+
+return opt
+</code></pre>
+<p>def validate_check_files(migrations, direction, opt):
+    """Validate that all required check files exist before starting migrations."""
+    all_checks_exist = True
+    for migration_file in migrations:
+        check_filename = migration_file.with_name(
+            migration_file.name.replace(f"<em>{direction}</em>", "<em>check</em>", 1)
+        )
+        if not check_filename.exists():
+            if opt.skip_missing_checks:
+                print(f"Warning: Check file {check_filename} not found. Will be skipped during migration.")
+            else:
+                print(f"Error: Check file {check_filename} not found.")
+                all_checks_exist = False
+    return all_checks_exist or opt.skip_missing_checks</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    main()```</p>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Emphasis in Multiple Steps </title>
+    <script>
+      function emphasize () {
+	  const headings = document.getElementsByTagName("h2");
+	  for (const node of headings) {
+	      const temp = document.createElement("em");
+	      temp.appendChild(document.createTextNode("¡"));
+	      for (const child of node.childNodes) {
+		  console.log(`moving child`);
+		  node.removeChild(child);
+		  temp.appendChild(child);
+	      }
+	      temp.appendChild(document.createTextNode("!"));
+	      node.appendChild(temp);
+	  }
+      }
+    </script>
+  </head>
+  <body onload="emphasize()">
+    <h1>Add Emphasis in Multiple Steps </h1>
+    <h2>First</h2>
+    <p>some text</p>
+    <h2>Second</h2>
+    <p>some text</p>
+    <h2>Third</h2>
+    <p>some text</p>
+  </body>
+</html>

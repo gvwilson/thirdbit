@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>An Hour of JavaScript</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>An Hour of JavaScript</h1>
+<blockquote>
+<p>JavaScript is the only language that I'm aware of
+that people feel they don't need to learn
+before they start using it.</p>
+<p>— Douglas Crockford</p>
+</blockquote>
+<p id="terms">Terms defined: <a href="../glossary.html#arrow-notation">arrow notation</a>, <a href="../glossary.html#async-operation">asynchronous operation</a>, <a href="../glossary.html#dotted-notation">dotted notation</a>, <a href="../glossary.html#promise">promise</a>, <a href="../glossary.html#string-interpolation">string interpolation</a>, <a href="../glossary.html#truthiness">truthiness</a></p>
+<ul>
+<li>Install <a href="https://deno.com/">deno</a> for command-line JavaScript</li>
+</ul>
+<h2>Variables, Types, and Control Flow</h2>
+<pre class="language-js"><code class="language-js" data-file="console_log.js">console.log('hello, world');
+</code></pre>
+<ul>
+<li>Run program as <code>deno run program.js</code></li>
+<li><code>console</code> is a built-in module</li>
+<li>Use the same <a href="../glossary.html#dotted-notation">dotted notation</a> as Python</li>
+<li>Trailing semi-colon is no longer required but commonly used</li>
+</ul>
+<pre class="language-js"><code class="language-js" data-file="loop_if_truthiness.js">const values = [0, 1, '', 'text', undefined, null, [], [2, 3]];
+for (const val of values) {
+    const type = typeof val;
+    if (val) {
+        console.log(`val '${val}' of type ${type} seems true`);
+    } else {
+        console.log(`val '${val}' of type ${type} seems false`);
+    }
+}
+</code></pre>
+<ul>
+<li><code>const</code> defines a constant<ul>
+<li>The array contents aren't constant: the reference is</li>
+</ul>
+</li>
+<li><code>for…in</code> iterates over the indices of an array<ul>
+<li>Not recommended for arrays, and can also include inherited properties</li>
+</ul>
+</li>
+<li>Use <code>for…of</code> to iterate directly over the values of an array.</li>
+<li>To loop over both the indices and values of an array, use <code>forEach</code> or <code>entries()</code> with <code>for…of</code></li>
+<li>Parentheses are required</li>
+<li><code>typeof</code> is an operator not a function, and returns a string</li>
+<li><code>if</code> / <code>else if</code> / <code>else</code> work as expected</li>
+<li>Use back-quotes and <code>${…}</code> for <a href="../glossary.html#string-interpolation">string interpolation</a></li>
+<li>JavaScript considers an empty array to be <a href="../glossary.html#truthiness">truthy</a></li>
+<li>Always use <code>===</code> (triple equals) and <code>!==</code> for equality</li>
+<li>Otherwise JavaScript does some strange type conversions</li>
+</ul>
+<h2>Objects</h2>
+<pre class="language-js"><code class="language-js" data-file="object_access.js">const person = {
+    'staff_id': 31,
+    'personal': 'Loan',
+    'family': 'Nguyen'
+};
+console.log(`personal: ${person.personal}`);
+console.log(`family: ${person['family']}`);
+</code></pre>
+<ul>
+<li>JavaScript objects are (kind of) like Python dictionaries</li>
+<li>Create so many of these that keys don't have to be quoted</li>
+</ul>
+<pre class="language-js"><code class="language-js" data-file="object_unquoted.js">const person = {
+    staff_id: 31,
+    personal: 'Loan',
+    family: 'Nguyen'
+};
+console.log(`personal: ${person.personal}`);
+</code></pre>
+<ul>
+<li>Can use variables' names and values to construct objects</li>
+</ul>
+<pre class="language-js"><code class="language-js" data-file="object_variables_as_fields.js">const staff_id = 31;
+const personal = 'Loan';
+const family = 'Nguyen';
+const person = {staff_id, personal, family};
+console.log(`person: ${JSON.stringify(person)}`);
+</code></pre>
+<ul>
+<li><code>JSON</code> is another built-in module</li>
+<li>Its <code>stringify</code> function does what its name suggests</li>
+<li>Without this, <code>person</code> is displayed as <code>[Object object]</code></li>
+</ul>
+<h2>Functions</h2>
+<pre class="language-js"><code class="language-js" data-file="function_def_and_call.js">function limits (values) {
+  if (!values.length) {
+    return [undefined, undefined];
+  }
+  let low = values[0];
+  let high = values[0];
+  for (let v of values) {
+    if (v &lt; low) {
+        low = v;
+    }
+    if (v &gt; high) {
+        high = v;
+    }
+  }
+  return [low, high]
+}
+
+const result = limits([1, -3, 2, 7]);
+console.log(result);
+</code></pre>
+<ul>
+<li><code>let</code> introduces a variable</li>
+<li>The older <code>var</code> is still sometimes used</li>
+<li>Functions take parameters, create a scope, etc.</li>
+</ul>
+<pre class="language-js"><code class="language-js" data-file="arrow_function.js">const largest = (left, right) =&gt; {
+    if (left &lt; right) {
+        return left;
+    } else {
+        return right;
+    }
+}
+
+console.log(`largest(3, 5) is ${largest(3, 5)}`);
+</code></pre>
+<ul>
+<li>A function is just another kind of object</li>
+<li>Can define using <a href="../glossary.html#arrow-notation">arrow notation</a> and then assign to a variable</li>
+<li>Handy in a language that uses lots of little functions</li>
+</ul>
+<pre class="language-js"><code class="language-js" data-file="higher_order_func.js">const values = [1, -3, 5, -7];
+
+const is_positive = values.map(v =&gt; v &gt;= 0);
+console.log(`is_positive: ${is_positive}`);
+
+const keep_positive = values.filter(v =&gt; v &gt;= 0);
+console.log(`keep_positive: ${keep_positive}`);
+
+const print_positive = values.forEach(v =&gt; {
+    if (v &gt;= 0) {
+        console.log(v);
+    }
+});
+</code></pre>
+<h2>Asynchronous Operations</h2>
+<pre class="language-js"><code class="language-js" data-file="promises.js">const middle = Deno.readTextFile('middle.txt');
+console.log(`middle is ${middle}`);
+middle.then(value =&gt; {
+    console.log(`middle.then is ${value}`);
+});
+</code></pre>
+<ul>
+<li>A <a href="../glossary.html#promise">promise</a> represents a delayed operation</li>
+<li>Use <code>.then</code> method to tell JavaScript what to do when a value becomes available<ul>
+<li>Use this a lot in web programming so that the browser won't freeze up</li>
+</ul>
+</li>
+</ul>
+<pre class="language-js"><code class="language-js" data-file="await.js">const value = await Deno.readTextFile('left.txt');
+console.log(`left value is ${value}`);
+</code></pre>
+<ul>
+<li><code>await</code> makes <a href="../glossary.html#async-operation">asynchronous operations</a> more readable</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

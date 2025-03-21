@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Show Headings on Load</title>
+    <script>
+      function show () {
+	  const headings = document.getElementsByTagName("h2");
+	  console.log(`headings length ${headings.length}`);
+	  for (const node of headings) {
+	      console.log(`heading is ${node.innerHTML}`);
+	  }
+      }
+    </script>
+  </head>
+  <body onload="show()">
+    <h1>Show Headings on Load</h1>
+    <h2>First</h2>
+    <p>some text</p>
+    <h2>Second</h2>
+    <p>some text</p>
+    <h2>Third</h2>
+    <p>some text</p>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Staff and Experiments</title>
+    <link href="/static/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link rel="stylesheet" href="/static/page.css">
+    <script src="/static/htmx.js"></script>
+  </head>
+  <body>
+    <h1>Staff and Experiments</h1>
+    <table>
+      <thead>
+	<tr>
+	  <th>view</th>
+	  <th>staff ID</th>
+	  <th>personal name</th>
+	  <th>family name</th>
+	</tr>
+      </thead>
+      <tbody>
+	{% for row in data %}
+	<tr>
+	  <td>
+	    <button hx-get="/exp/{{row.staff_id}}" hx-trigger="click" hx-target="#experiments" hx-swap="innerHTML">
+	      x
+	    </button>
+	  </td>
+	  <td>{{row.staff_id}}</td>
+	  <td>{{row.personal}}</td>
+	  <td>{{row.family}}</td>
+	</tr>
+	{% endfor %}
+      </tbody>
+    </table>
+    <div id="experiments"></div>
+  </body>
+</html>

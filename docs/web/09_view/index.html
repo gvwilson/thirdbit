@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Serving HTML</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Serving HTML</h1>
+<h2>Overview</h2>
+<figure id="view-concept-map">
+<img alt="concept map of views in MVC" src="view_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#static-file">static file</a></p>
+<h2>Outline</h2>
+<ul>
+<li>Introduce the view part of MVC and use <a href="https://jinja.palletsprojects.com/">Jinja</a> templates<ul>
+<li>Alternative <a href="https://htpy.dev/">htpy</a> is more amenable to debugging but harder to read</li>
+</ul>
+</li>
+<li>Add exceptions to <a href="./util.py.html"><code>util.py</code></a><ul>
+<li>Common parent for all application exceptions to make catching easier</li>
+</ul>
+</li>
+<li>Load templates from filesystem in <a href="./views.py.html"><code>views.py</code></a><ul>
+<li>Allow caller to override default HTML template for <code>all_staff</code> for later use</li>
+</ul>
+</li>
+<li>Pass in data as named argument</li>
+<li>Use the sample template for single-row and multi-row views</li>
+<li>No changes to <a href="./models.py.html"><code>models.py</code></a></li>
+<li>A note on sub-directories:<ul>
+<li>Most servers will not load things whose paths start with <code>../</code> for security reasons</li>
+<li>Run <a href="./server_paths.py.html"><code>server_paths.py</code></a> and go to <code>/dotdot</code> to see the effect</li>
+<li>So assets need to be in directories below the server's root directory</li>
+<li>But <code>../static/image.png</code> works because <a href="https://flask.palletsprojects.com/">Flask</a> removes the leading <code>../</code></li>
+</ul>
+</li>
+<li>The right way to do this is to configure a directory for <a href="../glossary.html#static-file">static files</a><ul>
+<li><a href="./server_static_paths.py.html"><code>server_static_paths.py</code></a></li>
+<li><code>Flask("server", static_folder=Path("../img").absolute(), static_url_path="/static")</code></li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

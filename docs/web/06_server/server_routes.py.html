@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>06_server/server_routes.py</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>06_server/server_routes.py</h1>
+<pre><code>"""Configure multiple routes."""
+
+from flask import Flask, jsonify
+from flask_cors import CORS
+import polars as pl
+
+import util
+
+
+# [keep]
+def create_app():
+    """Build application and configure routes."""
+    app = Flask("routes")
+    CORS(app)
+
+    @app.get("/")
+    def root():
+        return util.as_html()
+
+    @app.get("/col/&lt;name&gt;")
+    def column(name):
+        data = util.as_dataframe()
+        return jsonify(list(data[name]))
+
+    @app.get("/row/&lt;staff_id&gt;")
+    def row(staff_id):
+        staff_id = int(staff_id)
+        data = util.as_dataframe()
+        row = data.filter(pl.col("staff_id") == staff_id).row(0, named=True)
+        return jsonify(row)
+
+    return app
+# [/keep]
+</code></pre>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

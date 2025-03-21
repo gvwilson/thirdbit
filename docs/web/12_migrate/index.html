@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Database Migration</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Database Migration</h1>
+<h2>Overview</h2>
+<figure id="migrate-concept-map">
+<img alt="concept map of database migration" src="migrate_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#db-migration">database migration</a></p>
+<h2>Outline</h2>
+<ul>
+<li>A <a href="../glossary.html#db-migration">database migration</a> is a change to the structure of a database<ul>
+<li>Versus a change to its contents</li>
+</ul>
+</li>
+<li>Use tools like <a href="https://sqitch.org/">sqitch</a> to manage these</li>
+<li>Each change has three parts<ul>
+<li>Forward: make the desired change</li>
+<li>Check: make sure it happened</li>
+<li>Backward: undo it (after checking that it was done)</li>
+</ul>
+</li>
+<li><a href="./migrate.py.html"><code>migrate.py</code></a> looks for files with structured names<ul>
+<li>Forward: <code>NN_fwd_mnemonic.sql</code> (<code>NN</code> is sequence number, <code>mnemonic</code> is long meaningful name)</li>
+<li>Check: <code>NN_check_mnemonic.sql</code></li>
+<li>Backward: <code>NN_bwd_mnemonic.sql</code></li>
+</ul>
+</li>
+<li>Example<ul>
+<li><a href="../migrations/01_fwd_add_roles_permissions.sql.html"><code>../migrations/01_fwd_add_roles_permissions.sql</code></a></li>
+<li><a href="../migrations/01_check_add_roles_permissions.sql.html"><code>../migrations/01_check_add_roles_permissions.sql</code></a></li>
+<li><a href="../migrations/01_bwd_add_roles_permissions.sql.html"><code>../migrations/01_bwd_add_roles_permissions.sql</code></a></li>
+</ul>
+</li>
+<li>Keep these files in version control</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

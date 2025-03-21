@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contributing</title>
+<link href="./static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="./static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="./">Home</a>
+</div>
+<div class="col-10 right">
+<a href="./license.html">License</a>
+	  ·
+	  <a href="./bibliography.html">Bibliography</a>
+	  ·
+	  <a href="./glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Contributing</h1>
+<p>Contributions are very welcome;
+please contact us <a href="mailto:gvwilson@third-bit.com">by email</a> or by filing an issue in <a href="https://github.com/gvwilson/webonomicon">our repository</a>.
+All contributors must abide by our <a href="./code_of_conduct.html">Code of Conduct</a>.</p>
+<h2>Setup and Operation</h2>
+<ul>
+<li>Install <a href="https://github.com/astral-sh/uv">uv</a></li>
+<li>Create a virtual environment by running <code>uv venv</code> in the root directory</li>
+<li>Activate it by running <code>source .venv/bin/activate</code> in your shell</li>
+<li>Install dependencies by running <code>uv pip install -r pyproject.toml</code></li>
+<li>This project uses <a href="https://pypi.org/project/mccole/">McCole</a> to generate HTML and check the project's structure</li>
+<li>Run <code>make</code> on its own to see a list of common commands</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>make task</th>
+<th>effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clean</td>
+<td>clean up</td>
+</tr>
+<tr>
+<td>commands</td>
+<td>show available commands (default)</td>
+</tr>
+<tr>
+<td>datasets</td>
+<td>re-create snailz parameters and datasets</td>
+</tr>
+<tr>
+<td>lint</td>
+<td>check code and project</td>
+</tr>
+<tr>
+<td>render</td>
+<td>convert to HTML</td>
+</tr>
+<tr>
+<td>serve</td>
+<td>serve generated HTML</td>
+</tr>
+<tr>
+<td>stats</td>
+<td>basic site statistics</td>
+</tr>
+</tbody>
+</table>
+<h2>Structure</h2>
+<ul>
+<li>Lessons are in <code>nn_slug</code> directories<ul>
+<li><code>nn</code> is two-digit sequence number</li>
+<li><code>slug</code> is short mnemonic</li>
+</ul>
+</li>
+<li>Each lesson must have:<ul>
+<li><code>index.md</code>: lesson content</li>
+<li><code>Makefile</code>: re-run tasks<ul>
+<li>Should <code>include ../common.mk</code> to get common tasks</li>
+</ul>
+</li>
+<li>Symbolic links <code>data</code>, <code>migrations</code>, and <code>static</code>
+    to the <code>./data</code>, <code>./migrations</code>, and <code>./static</code> directories in the project root</li>
+<li>Lessons may have a <code>slides.md</code> file containing slides</li>
+<li>Diagrams should be SVG files created with <a href="https://www.drawio.com/">draw.io</a></li>
+</ul>
+</li>
+<li><code>bibliography.md</code> has the bibliography as a definition list<ul>
+<li>Citation keys have IDs for linking</li>
+<li>Use an inline HTML link <code>b:key</code> in files to create links</li>
+</ul>
+</li>
+<li><code>glossary.md</code> has the glossary as definition list<ul>
+<li>Reference keys have IDs for linking</li>
+<li>Use an inline HTML link <code>g:key</code> in files to create links</li>
+</ul>
+</li>
+<li>The <code>static</code> directory contains static files<ul>
+<li><code>page.css</code>: CSS for website pages</li>
+<li><code>slides.css</code> and <code>slides.js</code>: simple HTML slides</li>
+<li>Other CSS and JavaScript files used in lessons</li>
+</ul>
+</li>
+<li>The <code>templates</code> directory contains <a href="https://jinja.palletsprojects.com/">Jinja</a> templates used to generate HTML<ul>
+<li><code>page.html</code>: template for website pages</li>
+<li><code>slides.html</code>: template for simple HTML slides</li>
+</ul>
+</li>
+</ul>
+<h2>Labels</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>change</td>
+<td>something different</td>
+<td>#FBCA04</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>new feature</td>
+<td>#B60205</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>something broken</td>
+<td>#5319E7</td>
+</tr>
+<tr>
+<td>good first issue</td>
+<td>newcomers are always welcome</td>
+<td>#D4C5F9</td>
+</tr>
+<tr>
+<td>talk</td>
+<td>question or discussion</td>
+<td>#0E8A16</td>
+</tr>
+<tr>
+<td>task</td>
+<td>one-off task</td>
+<td>#1D76DB</td>
+</tr>
+</tbody>
+</table>
+<p>Please use <a href="https://www.conventionalcommits.org/">Conventional Commits</a> style for pull requests
+by using <code>change:</code>, <code>feature:</code>, <code>fix:</code>, or <code>task:</code> as the first word
+in the title of the commit message.
+You may also use <code>publish:</code> if the PR just rebuilds the HTML version of the lesson.</p>
+<h2>FAQ</h2>
+<dl>
+<dt>Do you need any help?</dt>
+<dd>Yes—please see the issues in <a href="https://github.com/gvwilson/webonomicon">our repository</a>.</dd>
+<dt>What sort of feedback would be useful?</dt>
+<dd>Everything is welcome,
+from pointing out mistakes in the code to suggestions for better explanations.</dd>
+<dt>Can I add a new section?</dt>
+<dd>Absolutely, but please <a href="mailto:gvwilson@third-bit.com">reach out</a> before doing so.</dd>
+<dt>Why is this material free to read?</dt>
+<dd>Because if we all give a little, we all get a lot.</dd>
+</dl>
+<h2><a id="contributors">Contributors</a></h2>
+<ul>
+<li>
+<p><a href="https://ikasten.io/"><em>Juanan Pereira</em></a> is a lecturer in Computer Science
+    at the University of the Basque Country (UPV/EHU), where he researches and tries 
+    to integrate open source software, software engineering, and LLMs in education.</p>
+</li>
+<li>
+<p><a href="https://third-bit.com/"><em>Greg Wilson</em></a> is a programmer, author, and educator based in Toronto.
+    He was the co-founder and first Executive Director of Software Carpentry
+    and received ACM SIGSOFT's Influential Educator Award in 2020.</p>
+</li>
+</ul>
+</main>
+<footer>
+<a href="./">The Webonomicon</a>
+      copyright © 2024
+      <a href="./contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

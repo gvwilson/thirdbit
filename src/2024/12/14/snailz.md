@@ -41,10 +41,10 @@ and all the code is open source.
   <figcaption>Snailz data generation workflow</figcaption>
 </figure>
 
-[rsdx]: https://lessonomicon.github.io/rsdx/
+[rsdx]: https://gvwilson.github.io/rsdx/
 [rse]: https://en.wikipedia.org/wiki/Research_software_engineering
 [sdxjs]: @root/sdxjs/
 [sdxpy]: @root/sdxpy/
 [snailz-package]: https://pypi.org/project/snailz/
-[snailz-site]: https://lessonomicon.github.io/snailz/
+[snailz-site]: https://gvwilson.github.io/snailz/
 [synthetic]: https://en.wikipedia.org/wiki/Synthetic_data

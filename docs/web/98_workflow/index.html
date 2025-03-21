@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Designing a Workflow</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1 class="fixme">Designing a Workflow</h1>
+
+<h2>Examples</h2>
+<ul>
+<li>X is conducting a survey<ul>
+<li>Site must be selected from pre-approved list (stored in database)</li>
+<li>Snail samples must be collected at predetermined grid points (hm… where are these?)</li>
+<li>GPS coordinates must be recorded for each sample (when are these checked and how do we tell if they're valid?)</li>
+<li>Each sample must have a unique identifier (does the collector generate this or does the system?)</li>
+<li>Snail size must be measured and recorded accurately (what are reasonable bounds for error checking?)</li>
+<li>Genetic material must be extracted and properly stored (how do we know?)</li>
+<li>Pollution levels must be measured at each grid point (as above…)</li>
+<li>All data must be recorded digitally in the field (realistically no way to enforce scientific honesty)</li>
+</ul>
+</li>
+<li>To implement survey data collection<ul>
+<li>Create a <code>conduct_survey</code> page with a multi-step form</li>
+<li>Use GPS integration to automatically record coordinates</li>
+<li>Implement barcode scanning for sample identification</li>
+<li>Ensure offline functionality for field use</li>
+<li>Implement data validation before submission</li>
+</ul>
+</li>
+<li>To implement survey data upload<ul>
+<li>Create an <code>upload_survey</code> page for batch data upload</li>
+<li>Check for data completeness and format consistency</li>
+<li>Validate sample IDs against existing database entries</li>
+<li>Ensure no duplicate entries are created</li>
+<li>Use transaction to ensure all-or-nothing data insertion</li>
+<li>Generate summary report after successful upload</li>
+</ul>
+</li>
+<li>To implement survey data quality control<ul>
+<li>Add a <code>review_survey</code> page for supervisors</li>
+<li>Allow flagging of suspicious data points</li>
+<li>Implement a comment system for discussing data issues</li>
+<li>Require supervisor approval before data is marked as verified</li>
+<li>Log all changes and approvals for audit purposes</li>
+</ul>
+</li>
+<li>X is generating reports and visualizations<ul>
+<li>User must have access to the data they want to report on</li>
+<li>Data must be filtered according to user-selected criteria (e.g., date range, site, pollution level)</li>
+<li>Reports should include summary statistics, graphs, and tables</li>
+<li>User must select export format (PDF, CSV, Excel)</li>
+<li>Data visualizations must be interactive and responsive</li>
+<li>Only authorized users can provide feedback on reports</li>
+</ul>
+</li>
+<li>To implement report and visualization creation<ul>
+<li>Add a <code>create_report</code> page with data selection options</li>
+<li>Must handle user authentication and authorization checks</li>
+<li>Allow users to apply filters (e.g., date range, site, pollution level)</li>
+<li>Use a JavaScript library like Plotly for interactive visuals</li>
+<li>Implement responsive design for all visualizations</li>
+<li>Store user feedback in the database</li>
+</ul>
+</li>
+</ul>
+<h2>In Detail</h2>
+<ul>
+<li>Design plates for an experiment<ul>
+<li>Sample must not already be claimed by an existing experiment</li>
+<li>Plates must parse correctly</li>
+<li>Plates cannot be duplicates</li>
+<li>One or more people must be associated with experiment</li>
+<li>Does the uploader have to be one of those people?</li>
+</ul>
+</li>
+<li>Invalidate a plate<ul>
+<li>Person must have privileges</li>
+<li>A second person with privileges must OK the invalidation</li>
+<li>An example of work in progress</li>
+</ul>
+</li>
+<li>To implement experiment creation<ul>
+<li>Add a <code>create_experiment</code> page with a form</li>
+<li>Must handle multiple file upload</li>
+<li>And check multiple people (no duplicates)</li>
+<li>No schema changes required</li>
+</ul>
+</li>
+<li>To implement plate invalidation<ul>
+<li>Add a <code>confirmed_by</code> column to <code>invalidated</code>?</li>
+<li>But what if we decide two confirmations are needed? Or three?</li>
+<li>Would need a join table like <code>performed</code></li>
+<li>Save that complexity until the day…</li>
+<li>For now just used <code>confirmed_by</code><ul>
+<li>Display confirmations with NULL as "awaiting"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

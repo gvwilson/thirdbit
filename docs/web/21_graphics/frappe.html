@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bar Chart</title>
+    <script src="./static/frappe-charts.js"></script>
+    <script>
+      function drawTheChart () {
+	  const data = {
+              '2023-11-01': 4,
+	      '2023-11-02': 7,
+	      '2023-11-03': 9,
+	      '2023-11-04': 10,
+	      '2023-11-05': 30,
+	      '2023-11-06': 19,
+	      '2023-11-07': 35,
+	      '2023-11-08': 39,
+	      '2023-11-09': 44,
+	      '2023-11-10': 54
+	  };
+          const labels = Object.keys(data);
+          const values = Object.values(data);
+
+          const chart = new frappe.Chart("#drawing", {
+              title: "Experiments per Day",
+              data: {
+                    labels: labels,
+                    datasets: [{
+                        name: "Value",
+                        values: values
+                    }]
+              },
+              type: 'bar',
+              height: 450,
+              colors: ['#7cd6fd']
+        });
+    }
+    </script>
+    <style>
+      #drawing {
+	  max-width: 600px;
+      }
+    </style>
+  </head>
+  <body onload="drawTheChart()">
+    <div id="drawing"></div>
+  </body>
+</html>

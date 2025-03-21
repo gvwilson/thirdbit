@@ -276,13 +276,13 @@ but life is full of surprises.
 [plotly-join]: @root/2024/04/29/new-job-at-plotly/
 [psf-results]: @root/2024/07/01/psf-board-nomination/
 [rr]: https://www.rainbowrailroad.org/
-[rsdx]: https://lessonomicon.github.io/rsdx/
+[rsdx]: https://gvwilson.github.io/rsdx/
 [scipy2024]: https://www.scipy2024.scipy.org/
 [sdxpy]: @root/sdxpy/
 [snailz]: @root/2024/12/14/snailz/
-[sql-tutorial]: https://lessonomicon.github.io/querynomicon/
+[sql-tutorial]: https://third-bit.com/sql/
 [t3]: @root/t3/
 [unscripted]: https://pod.link/1602572955/episode/7de37354dfa00eb3308e523467f410aa
 [unwritten]: @root/ideas/not-on-the-shelves/2024/
-[webonomicon]: https://lessonomicon.github.io/webonomicon/
+[webonomicon]: https://third-bit.com/web/
 [wish-list]: @root/2024/10/20/wish-list/

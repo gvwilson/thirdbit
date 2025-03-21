@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Internationalization</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Internationalization</h1>
+<p id="terms">Terms defined: <a href="../glossary.html#i18n">Internationalization (i18n)</a>, <a href="../glossary.html#l10n">Localization (l10n)</a></p>
+<ul>
+<li><a href="../glossary.html#i18n">Internationalization</a> (often abbreviated "i18n" because of the number of letters)
+    is the preparation of software for multilingual support</li>
+<li><a href="../glossary.html#l10n">Localization</a> (often abbreviated "l10n") is the process of making internationalized software accessible
+    to people using various languages and symbologies</li>
+<li>A lot of software is built on top of <a href="https://en.wikipedia.org/wiki/Gettext">gettext</a></li>
+<li>We will build our own to show how it works</li>
+<li><a href="./test_translation.py.html"><code>test_translation.py</code></a>:<ul>
+<li>Register a function with <a href="https://jinja.palletsprojects.com/">Jinja2</a> so that we can call it inside our template</li>
+<li>Define a translation table</li>
+<li>Use an object that creates a translation function that captures the language</li>
+<li>Call the translation function <code>_()</code> to save typing</li>
+</ul>
+</li>
+<li><a href="./util.py.html"><code>util.py</code></a> loads a translation table based on (yet another) environment variable</li>
+<li><a href="./views.py.html"><code>views.py</code></a> uses the request's <code>accept_languages</code> property to look up the user's desired language code</li>
+<li><a href="./server.py.html"><code>server.py</code></a> passes <code>request.accept_languages</code> to view functions</li>
+<li><a href="./request_lang.py.html"><code>request_lang.py</code></a> gets a resource with an explicit <code>Accept-Language</code> header<ul>
+<li>Can/should use unit tests from <a href="../08_test/index.html">Testing the Server</a>
+    and <a href="../14_automate/index.html">Testing in the Browser</a></li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

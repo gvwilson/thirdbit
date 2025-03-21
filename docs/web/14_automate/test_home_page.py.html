@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>14_automate/test_home_page.py</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>14_automate/test_home_page.py</h1>
+<pre><code>import pytest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+
+LOCAL_URL = "http://localhost:5000/"
+
+
+@pytest.fixture
+def driver():
+    browser = webdriver.Firefox()
+    yield browser
+    browser.close()
+
+
+def test_home_page_title(driver):
+    driver.get(LOCAL_URL)
+    heading = driver.find_element(By.CSS_SELECTOR, "h1")
+    assert heading.text == "Staff and Experiments"
+
+
+def test_home_page_initially_no_experiments(driver):
+    driver.get(LOCAL_URL)
+    div = driver.find_element(By.ID, "experiments")
+    assert len(div.find_elements(By.CSS_SELECTOR, "*")) == 0
+</code></pre>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

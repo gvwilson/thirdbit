@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>23_sessions/util.py</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>23_sessions/util.py</h1>
+<p>```
+"""Utilities."""</p>
+<p>from hashlib import blake2b
+import os
+import secrets</p>
+<p>DIGEST_SIZE = 16</p>
+<p>HTTP_200_OK = 200
+HTTP_400_BAD_REQUEST = 400
+HTTP_403_NOT_AUTHORIZED = 403
+HTTP_500_INTERNAL = 500</p>
+<p>NUM_RANDOM_BITS = 30
+SECRET_VAR = "SECRET"</p>
+<p>class AppException(Exception):
+    """Root of exception hierarchy."""</p>
+<pre><code>def __init__(self, msg):
+    self._msg = msg
+
+def __str__(self):
+    return self._msg
+</code></pre>
+<p>class ModelException(AppException):
+    pass</p>
+<p>class SecurityException(AppException):
+    pass</p>
+<p>class ViewException(AppException):
+    pass</p>
+<p>def dict_factory(cursor, row):
+    """Convert row to dictionary."""
+    fields = [column[0] for column in cursor.description]
+    return {key: value for key, value in zip(fields, row)}</p>
+<p>def encrypt_password(secret, plain):
+    """Encrypt a password."""
+    combined = f"{secret}:{plain}"
+    h = blake2b(bytes(combined, "utf-8"), digest_size=DIGEST_SIZE)
+    return h.hexdigest()</p>
+<p>def get_secret():
+    """Get the secret value from an environment variable."""
+    secret = os.getenv(SECRET_VAR, None)
+    if secret is None:
+        raise SecurityException(f"secret not set: use {SECRET_VAR} environment variable")
+    return secret</p>
+<p>def make_secret():
+    """Make a secret value."""
+    return str(secrets.randbits(NUM_RANDOM_BITS))```</p>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

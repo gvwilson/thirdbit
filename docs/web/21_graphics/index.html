@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dynamic Graphics</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1 class="fixme">Dynamic Graphics</h1>
+<h2>Overview</h2>
+<figure id="graphics-concept-map">
+<img alt="concept map of graphics and charts in browser" src="graphics_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#svg">Scalable Vector Graphics (SVG)</a>, <a href="../glossary.html#vector-graphics">vector graphics</a></p>
+<h2>Outline</h2>
+<ul>
+<li><a href="../glossary.html#svg">SVG</a> is a widely-used <a href="../glossary.html#vector-graphics">vector graphics</a> format<ul>
+<li>Represent lines, circles, etc. in a notation like HTML</li>
+<li>Also represent transformations (move, rescale, etc.)</li>
+</ul>
+</li>
+<li><a href="./shapes.html"><code>shapes.html</code></a> and <a href="./shapes.js.html"><code>shapes.js</code></a><ul>
+<li>Create an SVG object and insert into the page</li>
+<li>Ask that object to create other shapes</li>
+<li>Move them into position and change their properties</li>
+</ul>
+</li>
+<li><a href="./colors.js.html"><code>colors.js</code></a> changes the color of a square dynamically<ul>
+<li>Note the use of <code>window.addEventListener</code></li>
+</ul>
+</li>
+<li><a href="./bar_chart.html"><code>bar_chart.html</code></a>: create a bar chart with fixed values<ul>
+<li>A lot of calculations, many of which would have to be re-done if the X-axis labels weren't rotated</li>
+</ul>
+</li>
+<li>Use <a href="https://frappe.io/charts/docs">Frappe Charts</a><ul>
+<li>Not as popular as <a href="https://www.chartjs.org/">Chart.js</a>, but it uses SVG</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

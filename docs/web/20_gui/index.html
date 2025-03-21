@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Graphical User Interface</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>A Graphical User Interface</h1>
+<h2>Overview</h2>
+<figure id="gui-concept-map">
+<img alt="concept map of GUI in browser" src="gui_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#flexbox">flexbox layout</a>, <a href="../glossary.html#radio-button">radio button</a></p>
+<h2>Outline</h2>
+<ul>
+<li>Use <a href="https://alpinejs.dev/">Alpine</a> to make a graphical editor for plate layouts<ul>
+<li>What treatment is applied to each cell</li>
+<li>Personal details</li>
+</ul>
+</li>
+<li>Use CSS <a href="../glossary.html#flexbox">flexbox</a> layout to create two-column page</li>
+<li><a href="./handwritten.html"><code>handwritten.html</code></a> creates everything manually</li>
+<li>Shared data stored in <code>x-data</code> attribute of enclosing <code>div</code> (the row)<ul>
+<li><code>treatments</code> is available treatments (including emptry string for "none")</li>
+<li><code>current</code> is currently-selected treatment</li>
+<li><code>data</code> is the plate data keyed by row/column identifier</li>
+</ul>
+</li>
+<li>Selectors are <a href="../glossary.html#radio-button">radio buttons</a><ul>
+<li>Share the same name to make them a group (only one can be selected at a time)</li>
+<li>Value is self-explanatory</li>
+<li><code>x-model</code> property tells <a href="https://alpinejs.dev/">Alpine</a> what to assign the value to</li>
+<li>Writing these by hand was annoying</li>
+</ul>
+</li>
+<li>Plate is a table<ul>
+<li>Each cell's <code>x-text</code> property tells <a href="https://alpinejs.dev/">Alpine</a> where to get data to display</li>
+<li><code>x-on:click</code> is the action to take when the cell is clicked</li>
+</ul>
+</li>
+<li>Note: do <em>not</em> change cell values directly<ul>
+<li>MVC: controller updates the model, view reflects the model</li>
+</ul>
+</li>
+<li>Templating<ul>
+<li>Template in <a href="./templates/design_simple.html"><code>templates/design_simple.html</code></a></li>
+<li>For now, use <a href="./render.py.html"><code>render.py</code></a> to test it out</li>
+<li>Templated version is 51 lines instead of 72, but will automatically expand as we go to larger plates</li>
+</ul>
+</li>
+<li>Now add dosages in <a href="./templates/design_dosages.html"><code>templates/design_dosages.html</code></a><ul>
+<li>Invariant: (no treatment and no dosage) or (some treatment and some dosage)</li>
+<li>I.e., cannot have a treatment with no dosage, and cannot have a dosage if no treatment selected</li>
+<li>Initialize to "no treatment" (empty string) and "no dosage" (also empty string)<ul>
+<li>But no radio button for "no dosage" case</li>
+</ul>
+</li>
+<li>When a treatment is first selected, the dosage is set to the minimum dosage</li>
+<li>Use <code>$watch</code> to watch for changes to the <code>current_treatment</code> and <code>current_dosage</code> variables</li>
+<li>Update the other state elements accordingly</li>
+<li>Again, the controller updates the model, the view displays its current state</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

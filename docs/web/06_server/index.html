@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Server</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>A Server</h1>
+<h2>Overview</h2>
+<figure id="server-concept-map">
+<img alt="concept map of Flask server" src="server_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#dataframe">dataframe</a>, <a href="../glossary.html#env-var">environment variable</a>, <a href="../glossary.html#query-parameter">query parameter</a>, <a href="../glossary.html#route">route (in server)</a>, <a href="../glossary.html#url-fragment">URL fragment</a></p>
+<h2>Outline</h2>
+<ul>
+<li><a href="./server_hello.py.html"><code>server_hello.py</code></a>: return HTML</li>
+</ul>
+<pre class="language-py"><code class="language-py" data-file="server_hello.py">"""Hello server."""
+
+from flask import Flask
+
+HELLO = """\
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"""
+
+
+app = Flask("hello")
+
+
+@app.route("/")
+def root():
+    return HELLO
+</code></pre>
+<ul>
+<li>Go to http://127.0.0.1:5000 to view (5000 being <a href="https://flask.palletsprojects.com/">Flask</a>'s default port)<ul>
+<li>Or use <a href="./fetch.py.html"><code>fetch.py</code></a> to fetch and display data</li>
+</ul>
+</li>
+</ul>
+<pre class="language-py"><code class="language-py" data-file="fetch.py">"""Fetch HTML from URL and display."""
+
+import argparse
+import httpx
+
+
+HOST = "127.0.0.1"
+PORT = 5000
+RESOURCE = "/"
+
+
+def main():
+    """Main driver."""
+    opt = parse_args()
+    url = f"http://{opt.host}:{opt.port}{opt.resource}"
+    response = httpx.get(url)
+    print(response.status_code)
+    print(response.text)
+
+
+def parse_args():
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--host", type=str, default=HOST, help="server address")
+    parser.add_argument("--port", type=int, default=PORT, help="server port")
+    parser.add_argument("--resource", type=str, default=RESOURCE, help="resource path")
+    return parser.parse_args()
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+<ul>
+<li><a href="./server_func.py.html"><code>server_func.py</code></a> creates the application and configures <a href="../glossary.html#route">routes</a> in a function<ul>
+<li>Get path to staff CSV from <code>DATA</code> <a href="../glossary.html#env-var">environment variable</a></li>
+<li>Read and convert to HTML with <a href="https://pypi.org/project/prettytable/">PrettyTable</a></li>
+</ul>
+</li>
+</ul>
+<pre class="language-py"><code class="language-py" data-file="server_func.py:keep">def create_app():
+    """Build application and configure routes."""
+    app = Flask("func")
+    CORS(app)
+
+    @app.get("/")
+    def root():
+        """Display home page as HTML."""
+        return util.as_html()
+
+    return app
+</code></pre>
+<ul>
+<li><a href="./server_routes.py.html"><code>server_routes.py</code></a> configures several routes<ul>
+<li>Use <a href="../glossary.html#query-parameter">query parameters</a> or <a href="../glossary.html#url-fragment">URL fragments</a>
+    to select individual row or column</li>
+<li>Use <a href="https://pola.rs/">Polars</a> to get a <a href="../glossary.html#dataframe">dataframe</a> and <a href="https://flask.palletsprojects.com/">Flask</a> to convert to JSON</li>
+</ul>
+</li>
+</ul>
+<pre class="language-py"><code class="language-py" data-file="server_routes.py:keep">def create_app():
+    """Build application and configure routes."""
+    app = Flask("routes")
+    CORS(app)
+
+    @app.get("/")
+    def root():
+        return util.as_html()
+
+    @app.get("/col/&lt;name&gt;")
+    def column(name):
+        data = util.as_dataframe()
+        return jsonify(list(data[name]))
+
+    @app.get("/row/&lt;staff_id&gt;")
+    def row(staff_id):
+        staff_id = int(staff_id)
+        data = util.as_dataframe()
+        row = data.filter(pl.col("staff_id") == staff_id).row(0, named=True)
+        return jsonify(row)
+
+    return app
+</code></pre>
+<ul>
+<li>Some endpoints return HTML, some return JSON<ul>
+<li>No endpoint should return both</li>
+</ul>
+</li>
+<li><a href="./server_err.py.html"><code>server_err.py</code></a> handles errors<ul>
+<li>Check row and column and raise exception if not there</li>
+<li>Rely on <a href="https://flask.palletsprojects.com/">Flask</a> to handle nonexistent routes</li>
+</ul>
+</li>
+</ul>
+<pre class="language-py"><code class="language-py" data-file="server_err.py:keep">def create_app():
+    """Build application and configure routes."""
+    app = Flask("err")
+    CORS(app)
+
+    @app.get("/")
+    def root():
+        return util.as_html()
+
+    @app.get("/col/&lt;name&gt;")
+    def column(name):
+        try:
+            data = util.as_dataframe()
+            return jsonify(list(data[name]))
+        except Exception as exc:
+            abort(util.HTTP_400_BAD_REQUEST, str(exc))
+
+    @app.get("/row/&lt;staff_id&gt;")
+    def row(staff_id):
+        try:
+            staff_id = int(staff_id)
+            data = util.as_dataframe()
+            row = data.filter(pl.col("staff_id") == staff_id).row(0, named=True)
+            return jsonify(row)
+        except Exception as exc:
+            abort(util.HTTP_400_BAD_REQUEST, str(exc))
+
+    return app
+</code></pre>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

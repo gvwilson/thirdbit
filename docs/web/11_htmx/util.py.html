@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>11_htmx/util.py</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>11_htmx/util.py</h1>
+<pre><code>"""Utilities."""
+
+HTTP_200_OK = 200
+HTTP_400_BAD_REQUEST = 400
+HTTP_500_INTERNAL = 500
+
+
+class AppException(Exception):
+    """Root of exception hierarchy."""
+
+    def __init__(self, msg):
+        self._msg = msg
+
+    def __str__(self):
+        return self._msg
+
+
+class ModelException(AppException):
+    pass
+
+
+class ViewException(AppException):
+    pass
+
+
+def dict_factory(cursor, row):
+    """Convert row to dictionary."""
+    fields = [column[0] for column in cursor.description]
+    return {key: value for key, value in zip(fields, row)}
+</code></pre>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

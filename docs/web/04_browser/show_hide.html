@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Show and Hide</title>
+    <script>
+      var visible = true;
+      function toggle () {
+	  if (visible) {
+	      visible = false;
+	      for (const node of document.querySelectorAll("p.hideable")) {
+		  node.setAttribute("hidden", "");
+	      }
+	      document.querySelector("#control").innerHTML = "show";
+	  } else {
+	      visible = true;
+	      for (const node of document.querySelectorAll("p.hideable")) {
+		  node.removeAttribute("hidden");
+	      }
+	      document.querySelector("#control").innerHTML = "hide";
+	  }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Show and Hide</h1>
+    <p><button id="control" type="button" onclick="toggle()">hide</button></p>
+    <h2>First</h2>
+    <p class="hideable">some text</p>
+    <h2>Second</h2>
+    <p class="hideable">some text</p>
+    <h2>Third</h2>
+    <p class="hideable">some text</p>
+  </body>
+</html>

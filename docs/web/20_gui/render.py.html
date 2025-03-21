@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>20_gui/render.py</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>20_gui/render.py</h1>
+<pre><code>"""Render the plate designer from a template."""
+
+import argparse
+from jinja2 import Environment, FileSystemLoader
+
+
+DOSAGES = ["5μL", "10μL", "20μL", "50μL"]
+TREATMENTS = ["CQZ-1718", "CQA-986", "CQA-940", ""]
+
+
+Env = Environment(
+    loader=FileSystemLoader("."),
+)
+
+
+def main():
+    """Main driver."""
+    opt = parse_args()
+    data = {
+        "cols": "ABCD",
+        "rows": "1234",
+        "treatments": TREATMENTS,
+        "dosages": DOSAGES,
+    }
+    template = Env.get_template(opt.template)
+    print(template.render(**data))
+
+
+def parse_args():
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--template", type=str, required=True, help="SQL template")
+    return parser.parse_args()
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

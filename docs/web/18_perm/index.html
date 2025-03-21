@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Permissions</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Permissions</h1>
+<h2>Overview</h2>
+<figure id="perm-concept-map">
+<img alt="concept map of permissions" src="perm_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#actor">actor</a>, <a href="../glossary.html#permission">permission</a>, <a href="../glossary.html#role">role</a></p>
+<h2>Outline</h2>
+<ul>
+<li>Everyone can read everything<ul>
+<li>Databases like <a href="https://www.postgresql.org/">PostgreSQL</a> implement fine-grained permissions on tables and even rows</li>
+<li>But we need to do it ourself for <a href="https://www.sqlite.org/">SQLite</a></li>
+<li>Note that if someone has access to the <code>.db</code> file, we have no protection</li>
+</ul>
+</li>
+<li>If we're going to add create, update, and delete, we should add <em>permissions</em><ul>
+<li>The ability to perform an operation on a thing</li>
+</ul>
+</li>
+<li>Standard approach:<ul>
+<li>An <a href="../glossary.html#actor">actor</a> (person or similar) has zero or more <a href="../glossary.html#role">roles</a></li>
+<li>Each role is a set of <a href="../glossary.html#permission">permissions</a></li>
+<li>E.g., <em>reader</em> role has <em>read</em> permission for all tables</li>
+</ul>
+</li>
+<li>Represent permissions with two tables in the database<ul>
+<li>Worry about authentication later</li>
+</ul>
+</li>
+<li>Add two new tables<ul>
+<li><code>role</code> is a many-to-many join table</li>
+<li><code>permission</code> defines what roles mean (with wildcard for "all tables")</li>
+<li>Put these in a temporary copy of the database for now</li>
+</ul>
+</li>
+<li>Could write a <code>require</code> function to check permission before doing database query<ul>
+<li>But what if someone modifies the database between our check and the main query?</li>
+</ul>
+</li>
+<li>Use <code>join</code> to only select rows where permission is available<ul>
+<li>But this means we can't distinguish "no data" from "no permission"</li>
+</ul>
+</li>
+<li><a href="./explore_permissions.py.html"><code>explore_permissions.py</code></a> explores ways to do what we want with <a href="https://pypika.readthedocs.io/">PyPika</a><ul>
+<li>Turns out that <code>join</code> must have <code>on</code></li>
+<li>Since we want everything, use <code>x == x</code></li>
+</ul>
+</li>
+<li>Having explored ideas in the small, we can implement in the large<ul>
+<li><a href="./test_json.py.html"><code>test_json.py</code></a> uses a custom <a href="https://pypika.readthedocs.io/">PyPika</a> function to call SQLite's <code>json_group_array</code></li>
+<li>Name the JSON field <code>something__json</code></li>
+<li>Modify <code>dict_factory</code> to unpack and rename</li>
+</ul>
+</li>
+<li>Go back to <a href="./test_permissions.py.html"><code>test_permissions.py</code></a> and add tests using this<ul>
+<li>Hard to understand without building it up in steps, but it works</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

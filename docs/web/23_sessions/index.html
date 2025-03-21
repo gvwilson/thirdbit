@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sessions</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Sessions</h1>
+<h2>Overview</h2>
+<figure id="sessions-concept-map">
+<img alt="concept map of sessions with JWT" src="sessions_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#xss">cross-site scripting (XSS)</a></p>
+<h2>Outline</h2>
+<ul>
+<li>Sessions are forgotten when the server restarts<ul>
+<li>But cookie persists, which is confusing</li>
+</ul>
+</li>
+<li><a href="./server_sessions.py.html"><code>server_sessions.py</code></a> stores  session ID in database<ul>
+<li>When the user logs in, create a new session and store the session ID as a cookie</li>
+<li>When the user makes a request, check if the session ID in the cookie matches the session ID in the database</li>
+<li>Create a <code>sessions</code> table in the database to store session IDs and corresponding user IDs</li>
+<li>Add <code>create_session</code>, <code>get_session</code>, and <code>delete_session</code> to <a href="./models.py.html"><code>models.py</code></a></li>
+</ul>
+</li>
+<li>JSON Web Tokens <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> are an alternative to session-based authentication<ul>
+<li>Lightweight JSON-based authentication mechanism</li>
+<li>Encode and sign user claims as JSON</li>
+<li>Client stores the resulting token and returns it with subsequent requests</li>
+<li>Use <a href="https://jwt.io">jwt.io</a> to generate, decode, and verify tokens</li>
+</ul>
+</li>
+<li>JWT-based authentication implemented in <a href="./server_secure_jwt.py.html"><code>server_secure_jwt.py</code></a><ul>
+<li>Uses <code>pyjwt</code> library</li>
+<li>Generates a token upon successful login, storing staff ID and expiration time</li>
+<li>Token <em>should</em> be set as an HTTP-only cookie for security</li>
+<li>When a cookie is marked this way,
+    JavaScript can no longer access the cookie using <code>document.cookie</code></li>
+<li>Prevents <a href="../glossary.html#xss">cross-site scripting</a> (XSS) attacks)</li>
+</ul>
+</li>
+<li>Protected routes (like <code>/exp/&lt;staff_id&gt;</code>) verify the JWT before granting access<ul>
+<li>Provides stateless authentication, improving scalability<ul>
+<li>JWTs are stateless, meaning the server doesn't need to store session information</li>
+<li>This reduces server memory usage and makes scaling easier</li>
+</ul>
+</li>
+<li>Handles token expiration and invalid tokens</li>
+<li>Uses environment variables for JWT secret</li>
+<li>Once authenticated, you will see the cookie value</li>
+<li>Check it in <a href="https://jwt.io">jwt.io</a></li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

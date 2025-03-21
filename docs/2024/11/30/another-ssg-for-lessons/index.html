@@ -58,13 +58,13 @@
     
   </div>
 </div>
-<!-- content --><p>I built a very simple static site generator (SSG) called <a href="https://github.com/lessonomicon/mccole">McCole</a>
+<!-- content --><p>I built a very simple static site generator (SSG) called <a href="https://github.com/gvwilson/mccole">McCole</a>
 to support the lessons I mentioned in <a href="../../../../2024/11/24/unfinished-projects/">my previous post</a>.
 I could have stuck with <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a>
 (which I use to build this site and books like <a href="../../../../sdxpy/"><em>Software Design in Python</em></a>),
 but writing my own helped me figure out what I actually need,
 and might someday serve as the basis for a tutorial of some sort.
-In no particular order, <a href="https://github.com/lessonomicon/mccole">McCole</a>&rsquo;s features are:</p>
+In no particular order, <a href="https://github.com/gvwilson/mccole">McCole</a>&rsquo;s features are:</p>
 <ol>
 <li>Read configuration from the project&rsquo;s <code>pyproject.toml</code> file.</li>
 <li>Convert all the Markdown files in or below the project&rsquo;s root directory to HTML
@@ -86,12 +86,12 @@ In no particular order, <a href="https://github.com/lessonomicon/mccole">McCole<
     These special links <em>don&rsquo;t</em> work when files are viewed on GitHub,
     but it&rsquo;s a lot less typing that the alternative.
     (I use the <a href="https://github.com/dmulholl/shortcodes">shortcodes</a> package to do this with <a href="https://www.dmulholl.com/docs/ark/main/">Ark</a> sites,
-    but after a bit of experimentation I decided to special-case these links in <a href="https://github.com/lessonomicon/mccole">McCole</a>.)</li>
+    but after a bit of experimentation I decided to special-case these links in <a href="https://github.com/gvwilson/mccole">McCole</a>.)</li>
 <li>Similarly,
-    <a href="https://github.com/lessonomicon/mccole">McCole</a> rewrites <code>[term](g:key)</code> to <code>[term](@root/glossary.html#key)</code>
+    <a href="https://github.com/gvwilson/mccole">McCole</a> rewrites <code>[term](g:key)</code> to <code>[term](@root/glossary.html#key)</code>
     so that authors can easily insert glossary references.</li>
 <li>If a page contains any glossary references,
-    <a href="https://github.com/lessonomicon/mccole">McCole</a> creates a list of defined terms at the top of the page.
+    <a href="https://github.com/gvwilson/mccole">McCole</a> creates a list of defined terms at the top of the page.
     (In my experience,
     this is the most useful way to tell a would-be instructor what the lesson is actually about.)</li>
 <li>I tried using shortcodes to format figures consistently,
@@ -105,15 +105,15 @@ In no particular order, <a href="https://github.com/lessonomicon/mccole">McCole<
     I often want to include just one function or a couple of methods rather than an entire source file.
     My previous SSG had a couple of hundred lines of code
     to pull sections out of source files in various ways;
-    <a href="https://github.com/lessonomicon/mccole">McCole</a> just checks that the text in the Markdown file
+    <a href="https://github.com/gvwilson/mccole">McCole</a> just checks that the text in the Markdown file
     is contained in the source file.</li>
-<li><a href="https://github.com/lessonomicon/mccole">McCole</a> defines a class for each inclusion like <code>language-py</code> or <code>language-sql</code>
+<li><a href="https://github.com/gvwilson/mccole">McCole</a> defines a class for each inclusion like <code>language-py</code> or <code>language-sql</code>
     so that inclusions from different languages can be styled differently.
     I haven&rsquo;t included syntax highlighting,
     partly because I want to keep this SSG simple
     but also because the highlighting rules I choose probably <em>won&rsquo;t</em> match what learners see
     in their editor or IDE.</li>
-<li><a href="https://github.com/lessonomicon/mccole">McCole</a> includes a tool for linting sites,
+<li><a href="https://github.com/gvwilson/mccole">McCole</a> includes a tool for linting sites,
     i.e.,
     for checking that links resolve,
     glossary entries are mentioned somewhere,
@@ -121,11 +121,11 @@ In no particular order, <a href="https://github.com/lessonomicon/mccole">McCole<
     It turned out to be a lot simpler to check for problems
     than to generate correct content automatically,
     at least for small lessons.
-    <a href="https://github.com/lessonomicon/mccole">McCole</a> also uses <a href="https://pypi.org/project/html5validator/">html5validator</a>
+    <a href="https://github.com/gvwilson/mccole">McCole</a> also uses <a href="https://pypi.org/project/html5validator/">html5validator</a>
     to check the formatting of the HTML pages it generates;
     specific lessons use tools like <a href="https://docs.astral.sh/ruff/">ruff</a> to check source code as well.</li>
 </ol>
-<p>So what <em>doesn&rsquo;t</em> <a href="https://github.com/lessonomicon/mccole">McCole</a> include that a full-featured lesson SSG would?
+<p>So what <em>doesn&rsquo;t</em> <a href="https://github.com/gvwilson/mccole">McCole</a> include that a full-featured lesson SSG would?
 The most important thing is probably some sort of support for exercises:
 styling them,
 numbering them,
@@ -133,7 +133,7 @@ keeping track of solutions,
 and so on.
 I could also add CSS styling for various kinds of callouts,
 but I&rsquo;m not trying to reproduce something like <a href="https://carpentries.github.io/workbench/">the Carpentries Workbench</a>:
-<a href="https://github.com/lessonomicon/mccole">McCole</a> is a multi-bit screwdriver,
+<a href="https://github.com/gvwilson/mccole">McCole</a> is a multi-bit screwdriver,
 not a fully-equipped machine shop.</p><!-- /content -->
 
     </main>

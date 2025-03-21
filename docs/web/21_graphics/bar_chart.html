@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bar Chart</title>
+    <script src="./static/svg.js"></script>
+    <script src="./bar_chart.js"></script>
+    <script>
+      function drawTheChart () {
+	  const data = {
+              '2023-11-01': 4,
+	      '2023-11-02': 7,
+	      '2023-11-03': 9,
+	      '2023-11-04': 10,
+	      '2023-11-05': 30,
+	      '2023-11-06': 19,
+	      '2023-11-07': 35,
+	      '2023-11-08': 39,
+	      '2023-11-09': 44,
+	      '2023-11-10': 54
+	  };
+	  createBarChart('#drawing', data, 600, 500, 50);
+      }
+    </script>
+  </head>
+  <body onload="drawTheChart()">
+    <div id="drawing"></div>
+  </body>
+</html>

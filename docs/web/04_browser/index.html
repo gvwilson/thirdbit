@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JavaScript in the Browser</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>JavaScript in the Browser</h1>
+<h2>Overview</h2>
+<figure id="browser-concept-map">
+<img alt="concept map of JavaScript in the browser" src="browser_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#css-selector">CSS selector</a>, <a href="../glossary.html#dom">Document Object Model (DOM)</a>, <a href="../glossary.html#event-handler">event handler</a>, <a href="../glossary.html#js-async">JavaScript `async` keyword</a>, <a href="../glossary.html#js-await">JavaScript `await` keyword</a>, <a href="../glossary.html#rgb">red-green-blue (RGB) color</a></p>
+<h2>Outline</h2>
+<ul>
+<li>JavaScript was created to make web pages interactive<ul>
+<li>Load into page (several ways)</li>
+<li>Trigger execution (also several ways)</li>
+<li>Manipulate <a href="../glossary.html#dom">Document Object Model</a> (DOM)</li>
+</ul>
+</li>
+<li><a href="./log_on_load.html"><code>log_on_load.html</code></a><ul>
+<li>Put code directly in <code>&lt;script&gt;</code> tag in head of page</li>
+<li>Executed as the page loads</li>
+<li>View output in console tab in browser's developer tools</li>
+<li>But this is not reliable<ul>
+<li>Code may run while browser is still converting HTML to DOM (or loading other assets)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="./show_headings.html"><code>show_headings.html</code></a> finds things in the DOM<ul>
+<li><code>document</code> refers to the content of the page</li>
+<li><code>getElementsByTagName</code> finds nodes match a <a href="../glossary.html#css-selector">CSS selector</a></li>
+</ul>
+</li>
+<li>But it doesn't show anything<ul>
+<li>Code may run etc.</li>
+</ul>
+</li>
+<li><a href="./show_headings_onload.html"><code>show_headings_onload.html</code></a> is a better approach<ul>
+<li>Define a function</li>
+<li>Use the <code>onload</code> attribute of <code>body</code> to run it when the body has fully loaded</li>
+</ul>
+</li>
+<li><a href="./emphasize_headings.html"><code>emphasize_headings.html</code></a> modifies the DOM<ul>
+<li>JavaScript changes in-memory representation of page</li>
+<li>Browser decides what to re-draw and when</li>
+</ul>
+</li>
+<li><a href="./emphasize_multistep.html"><code>emphasize_multistep.html</code></a> does the same thing by explicitly manufacturing new nodes</li>
+<li><a href="./button_click.html"><code>button_click.html</code></a> adds a button with an <a href="../glossary.html#event-handler">event handler</a><ul>
+<li>Browser standards define lots of different events you can listen to</li>
+<li>You provide the function, you browser calls it when something happens</li>
+</ul>
+</li>
+<li><a href="./emphasize_click.html"><code>emphasize_click.html</code></a></li>
+<li><a href="./show_hide.html"><code>show_hide.html</code></a> controls visibility of elements<ul>
+<li>But now we have to manage state</li>
+</ul>
+</li>
+<li><a href="./async_fetch.html"><code>async_fetch.html</code></a> introduces two new ideas<ul>
+<li>Put the code in <a href="./async_fetch.js.html"><code>async_fetch.js</code></a></li>
+<li>Use <a href="../glossary.html#js-async"><code>async</code></a> and <a href="../glossary.html#js-await"><code>await</code></a> keywords to wait for things</li>
+<li><a href="./server.py.html"><code>server.py</code></a> returns <a href="../glossary.html#rgb">RGB</a> color components</li>
+<li>Use <code>style</code> property rather than <code>setAttribute</code> because style can have many sub-properties</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

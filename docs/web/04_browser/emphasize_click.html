@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Emphasize When Heading Clicked</title>
+    <script>
+      function emphasize (event) {
+	  const node = event.target;
+	  node.innerHTML = `<em>¡${node.innerHTML}!</em>`;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Emphasize When Heading Clicked</h1>
+    <h2 onclick="emphasize(event)">First</h2>
+    <p>some text</p>
+    <h2 onclick="emphasize(event)">Second</h2>
+    <p>some text</p>
+    <h2 onclick="emphasize(event)">Third</h2>
+    <p>some text</p>
+  </body>
+</html>

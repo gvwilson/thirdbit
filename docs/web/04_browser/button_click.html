@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Emphasize When Button Clicked</title>
+    <script>
+      function emphasize () {
+	  const headings = document.getElementsByTagName("h2");
+	  for (const node of headings) {
+	      node.innerHTML = `<em>¡${node.innerHTML}!</em>`
+	  }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Emphasize When Button Clicked</h1>
+    <p><button type="button" onclick="emphasize()">add emphasis</button></p>
+    <h2>First</h2>
+    <p>some text</p>
+    <h2>Second</h2>
+    <p>some text</p>
+    <h2>Third</h2>
+    <p>some text</p>
+  </body>
+</html>

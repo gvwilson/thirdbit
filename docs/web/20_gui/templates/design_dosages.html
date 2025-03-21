@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Templated Plate Editor with Dosages</title>
+    <script src="../static/alpine.js" defer></script>
+    <link rel="stylesheet" href="../static/page.css">
+  </head>
+  <body>
+    <h1>Templated Plate Editor with Dosages</h1>
+    <div
+      class="row"
+      x-init="$watch('current_treatment, current_dosage', () => {
+        if (current_treatment === '') {
+          current_dosage = '';
+        } else if (current_dosage === '') {
+          current_dosage = dosages[0];
+        }
+        if ((current_treatment === '') && (current_dosage) === '') {
+          current_fill = '';
+        } else {
+          current_fill = `${current_treatment} / ${current_dosage}`;
+        }
+      })"
+      x-data="{
+        treatments: [{% for t in treatments %}'{{t}}', {% endfor %}],
+        dosages: [{% for d in dosages %}'{{d}}', {% endfor %}],
+        current_treatment: '',
+        current_dosage: '',
+        current_fill: '',
+        data: {
+          {% for r in rows %}
+            {%- for c in cols -%}
+            {{ c }}{{ r }}: '', 
+            {%- endfor -%}
+          {% endfor -%}
+        }
+      }"
+    >
+      <div id="controls" class="col-2 shaded">
+        <h2>Controls</h2>
+        <h3>Treatments</h3>
+        {%- for t in treatments %}
+          <label><input type="radio" name="current_treatment" value="{{ t }}" x-model="current_treatment"> {{ t }}</label>
+          {% if not loop.last %}<br/>{% endif -%}
+        {%- endfor -%}
+        <h3>Dosages</h3>
+        {%- for d in dosages %}
+          <label><input type="radio" name="current_dosage" value="{{ d }}" x-model="current_dosage"> {{ d }}</label>
+          {% if not loop.last %}<br/>{% endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="col-10">
+        <h2 class="center">Plate</h2>
+        <table id="plate">
+          <tr>
+            <th></th>
+            {% for c in cols -%}
+              <th>{{ c }}</th>
+            {% endfor -%}
+          </tr>
+          {% for r in rows -%}
+            <tr>
+              <th>{{ r }}</th>
+              {%- for c in cols %}
+                <td
+                  id="{{ c }}{{ r }}"
+                  x-text="data['{{ c }}{{ r }}']"
+                  @click="data['{{ c }}{{ r }}'] = current_fill"
+                ></td>
+              {%- endfor %}
+            </tr>
+          {% endfor -%}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

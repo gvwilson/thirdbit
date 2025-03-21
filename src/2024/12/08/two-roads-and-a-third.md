@@ -55,5 +55,5 @@ I miss being able to grab a coffee with my co-workers once or twice a week…
 [late-night-thoughts]: https://www.youtube.com/watch?v=7xR50ty5DZ0
 [marimo]: https://marimo.io/
 [nwit]: https://neverworkintheory.org/
-[querynomicon]: https://lessonomicon.github.io/querynomicon/
+[querynomicon]: https://third-bit.com/sql/
 [terraform]: https://www.terraform.io/

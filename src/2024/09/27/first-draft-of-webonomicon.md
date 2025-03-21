@@ -96,9 +96,9 @@ issues in [the repo][repo] are the best way to reach us.
 [prettytable]: https://pypi.org/project/prettytable/
 [pypika]: https://pypika.readthedocs.io/
 [pytest]: https://docs.pytest.org/
-[repo]: https://github.com/lessonomicon/webonomicon
+[repo]: https://github.com/gvwilson/webonomicon
 [selenium]: https://pypi.org/project/selenium/
-[snailz]: https://github.com/lessonomicon/snailz
+[snailz]: https://github.com/gvwilson/snailz
 [sqlite]: https://www.sqlite.org/
 [svgjs]: https://svgjs.dev/
-[webonomicon]: https://lessonomicon.github.io/webonomicon/
+[webonomicon]: https://third-bit.com/web/

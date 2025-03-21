@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Encryption</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Encryption</h1>
+<h2>Overview</h2>
+<figure id="crypt-concept-map">
+<img alt="concept map of password encryption" src="crypt_concept_map.svg"/>
+<figcaption>Figure 1: Concept Map</figcaption>
+</figure>
+<p id="terms">Terms defined: <a href="../glossary.html#ciphertext">ciphertext</a>, <a href="../glossary.html#hashing">hashing</a>, <a href="../glossary.html#plaintext">plaintext</a>, <a href="../glossary.html#salt">salt</a>, <a href="../glossary.html#secret">secret</a>, <a href="../glossary.html#session">session</a></p>
+<h2>Outline</h2>
+<ul>
+<li>Never store passwords as <a href="../glossary.html#plaintext">plaintext</a></li>
+<li>Create a migration to encrypt them and save <a href="../glossary.html#ciphertext">ciphertext</a><ul>
+<li>Generate a <a href="../glossary.html#secret">secret</a> in <a href="./generate_encryption.py.html"><code>generate_encryption.py</code></a></li>
+<li><code>make_secret</code> in <a href="./util.py.html"><code>util.py</code></a> uses Python's <a href="https://docs.python.org/3/library/secrets.html">secrets</a> module</li>
+<li>Save in a file that never goes in version control (or anywhere else)</li>
+<li>Then encrypt passwords using <code>blake2b</code> from <a href="https://docs.python.org/3/library/hashlib.html">hashlib</a></li>
+</ul>
+</li>
+<li><a href="../glossary.html#hashing">Hash</a> the combination of the secret and their password<ul>
+<li>The secret is a <a href="../glossary.html#salt">salt</a></li>
+</ul>
+</li>
+<li>When someone logs in:<ul>
+<li>Check that the encrypted version of the secret plus their password matches the stored value</li>
+<li>Create a random number as a cookie</li>
+<li>Store that and their ID in a dictionary of <a href="../glossary.html#session">sessions</a></li>
+</ul>
+</li>
+<li>When someone requests access to experimental data:<ul>
+<li>If their cookie is in the sessions, use their staff ID</li>
+<li>Otherwise reject as unauthorized</li>
+</ul>
+</li>
+<li>Still insecure<ul>
+<li>We are getting their password over an unencrypted channel</li>
+<li>The cookie is being passed back and forth over the same channel</li>
+<li>Look at certificates in <a href="../99_cert/index.html">an appendix</a></li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>

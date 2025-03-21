@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Templated Plate Editor</title>
+    <script src="../static/alpine.js" defer></script>
+    <link rel="stylesheet" href="../static/page.css">
+  </head>
+  <body>
+    <h1>Simple Templated Plate Editor</h1>
+    <div class="row" x-data="{
+      treatments: [{% for t in treatments %}'{{t}}', {% endfor %}],
+      current: '',
+      data: {
+        {% for r in rows %}
+          {%- for c in cols -%}
+	    {{ c }}{{ r }}: '', 
+          {%- endfor -%}
+        {% endfor -%}
+      }
+    }">
+      <div id="controls" class="col-2 shaded">
+        <h2>Controls</h2>
+        {%- for t in treatments %}
+          <label><input type="radio" name="current" value="{{ t }}" x-model="current"> {{ t }}</label>
+          {% if not loop.last %}<br/>{% endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="col-10">
+        <h2 class="center">Plate</h2>
+        <table id="plate">
+          <tr>
+            <th></th>
+            {% for c in cols -%}
+              <th>{{ c }}</th>
+            {% endfor -%}
+          </tr>
+          {% for r in rows -%}
+            <tr>
+              <th>{{ r }}</th>
+              {%- for c in cols %}
+                <td id="{{ c }}{{ r }}" x-text="data['{{ c }}{{ r }}']" x-on:click="data['{{ c }}{{ r }}'] = current"></td>
+              {%- endfor %}
+            </tr>
+          {% endfor -%}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

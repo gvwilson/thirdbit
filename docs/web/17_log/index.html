@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logging and Auditing</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<div class="row">
+<div class="col-2 left">
+<a href="../">Home</a>
+</div>
+<div class="col-10 right">
+<a href="../license.html">License</a>
+	  ·
+	  <a href="../bibliography.html">Bibliography</a>
+	  ·
+	  <a href="../glossary.html">Glossary</a>
+</div>
+</div>
+</nav>
+<main>
+<h1>Logging and Auditing</h1>
+
+<ul>
+<li>Add structured logging using <a href="https://www.structlog.org/"><code>structlog</code></a></li>
+<li>Old-fashioned logging generates human-readable text:</li>
+</ul>
+<pre><code>2025-03-13 14:30:21 INFO: File 'example.txt' uploaded successfully
+</code></pre>
+<ul>
+<li>Structured logging writes data objects:</li>
+</ul>
+<pre><code class="language-json">{
+  "timestamp": "2025-03-13T14:30:21.123Z",
+  "level": "info",
+  "event": "file_uploaded",
+  "filename": "example.txt",
+  "file_size_bytes": 12345,
+  "content_type": "text/plain",
+  "ip_address": "192.168.1.1",
+  "user_agent": "Mozilla/5.0"
+}
+</code></pre>
+<ul>
+<li>Benefits:<ul>
+<li>Logs can be easily queried and analyzed by code (no fancy regular expressions)</li>
+<li>Every log event has the same fields</li>
+<li>More metadata can be included with each event</li>
+<li>Log entries can be rendered in different formats</li>
+</ul>
+</li>
+<li>Modify <a href="./server.py.html"><code>server.py</code></a><ul>
+<li>Logger configuration: set up <code>structlog</code> with appropriate processors</li>
+<li>Context binding: add context data to loggers</li>
+<li>Event-based logging: use specific event names rather than free-form messages</li>
+<li>Exception handling: capture structured exception information</li>
+<li>Standard fields: include common fields like timestamps</li>
+</ul>
+</li>
+<li>Specific enhancements<ul>
+<li>Log all file operations (upload, delete, listing)</li>
+<li>Add request metadata (IP address, user agent)</li>
+<li>Include ile metadata (size, content type)</li>
+<li>Provide detailed error information</li>
+<li>Create a log viewer page</li>
+</ul>
+</li>
+<li>Best practices<ul>
+<li>Log specific events rather than messages</li>
+<li>Use field names consistently</li>
+<li>Add relevant metadata to each log entry (e.g., timestamps)</li>
+<li>Never log sensitive data like passwords, tokens, or personal information</li>
+<li>Match log levels to the significance of events</li>
+</ul>
+</li>
+<li>Something we shouldn't have done<ul>
+<li>Store all log messages in a global variable called <code>LOG</code> to display in the viewer page</li>
+</ul>
+</li>
+<li>In a production application we would:<ul>
+<li>Configure <code>structlog</code> to output to a logging service or aggregator rather than just printing to the console</li>
+<li>Store logs in a database or dedicated log storage system rather than in memory</li>
+<li>Implement log rotation and retention policies</li>
+</ul>
+</li>
+<li>We create a new bound logger in each request handler rather than reusing a global bound logger because:<ul>
+<li>Each HTTP request has unique context data (IP address, user agent, etc.) that should be captured in logs.
+    Creating a fresh bound logger ensures each request gets its own context.</li>
+<li>Flask handles multiple requests concurrently,
+    and reusing a global bound logger could lead to context data from one request leaking into logs for another request.
+(We actually run this example in single-threaded mode so that it's safe to append things to the <code>LOGS</code> variable,
+but as noted above,
+that's a bad practice.)</li>
+</ul>
+</li>
+<li>We use Flask's <code>before_request</code> handler to automatically log all incoming requests<ul>
+<li>This ensures consistent handling and formatting of log events</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">@app.before_request
+def log_request():
+    """Log all incoming requests."""
+    if not request.path.startswith('/static'):
+        logger.info("request", 
+                  method=request.method,
+                  path=request.path,
+                  ip=request.remote_addr,
+                  user_agent=request.headers.get('User-Agent'))
+</code></pre>
+</main>
+<footer>
+<a href="../">The Webonomicon</a>
+      copyright © 2024
+      <a href="../contributing.html#contributors">the authors</a>
+</footer>
+</body>
+</html>
