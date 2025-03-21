@@ -24,7 +24,7 @@ here are my thoughts on what you can do:
     -   And the damage might spread:
         Canada's previous Conservative prime minister [muzzled scientists][harper-muzzle],
         and the current Conservative leader will undoubtedly go further if he wins the upcoming election.
-    -   Remember, nobody at the Climate Research Unit thought they were might be a target until [Climategate][climategate] happened.
+    -   Remember, nobody at the Climate Research Unit thought they might be a target until [Climategate][climategate] happened.
 1.  Threat models (taken from [this paper][plos] with modifications):
     -   Casual threat ("drive by"): opportunistic but not determined (but see "institutional threat" below).
     -   Intimate threat: a life partner (not a big one for this conversation).
