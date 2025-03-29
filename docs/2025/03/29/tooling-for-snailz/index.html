@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Tooling for Snailz</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../projects/">projects</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Tooling for Snailz</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/03/15/poem/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-03-29" class="post-date">2025-03-29</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>I built <a href="https://github.com/gvwilson/snailz">a synthetic data generator</a> last year to use in a &ldquo;software design for data scientists&rdquo; tutorial
+that I never finished writing.
+Over the last week I rewrote it as a way of exploring some new tools:</p>
+<ul>
+<li>
+<p>The command-line interface to <a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview">Claude</a>.
+    I&rsquo;m disgusted by the amorality of the AI industry,
+    but am now convinced that the coding tools are here to stay:
+    writing tests and refactoring code with Claude&rsquo;s help was <em>much</em> faster than doing it by hand.</p>
+</li>
+<li>
+<p><a href="https://docs.astral.sh/uv/"><code>uv</code></a> for managing the packages and virtual environment and for running commands.
+    It&rsquo;s the first time I&rsquo;ve used it as itself rather than running <code>uv pip whatever</code>;
+    never going back.</p>
+</li>
+<li>
+<p><a href="https://docs.astral.sh/ruff/"><code>ruff</code></a> and <a href="https://pypi.org/project/pyright/"><code>pyright</code></a> for checking the code.
+    <code>ruff</code> is a joy,
+    but checking type annotations with <code>pyright</code> cost me a couple of hours.
+    It&rsquo;s not the tool&rsquo;s fault, though:
+    figuring out how to annotate the last 5% of the code led to me writing my first <a href="https://peps.python.org/pep-0544/">protocol</a>
+    and then throwing up my hands and replacing it with <code>Any</code>.</p>
+</li>
+<li>
+<p><a href="https://docs.pydantic.dev/"><code>pydantic</code></a> for storing and validating records,
+    including the data that <code>snailz</code> generates and the parameters used in generation.
+    I started with <a href="https://docs.python.org/3/library/dataclasses.html"><code>dataclasses</code></a>,
+    but switched as soon as I found myself<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> adding methods that <code>pydantic</code> already had.</p>
+</li>
+<li>
+<p><a href="https://pydoit.org/"><code>doit</code></a> to run commands instead of <a href="https://www.gnu.org/software/make/">Make</a>.
+    I&rsquo;m more comfortable with the latter,
+    but I recognize that writing Makefiles is a dying art.</p>
+</li>
+<li>
+<p><a href="https://www.mkdocs.org/"><code>mkdocs</code></a> for documentation instead of <a href="https://www.sphinx-doc.org/">Sphinx</a> or <a href="https://pdoc.dev/"><code>pdoc</code></a><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.
+    I find <code>mkdocs</code> easier to work with than Sphinx,
+    and <code>pdoc</code> doesn&rsquo;t support &ldquo;extra&rdquo; Markdown pages as well as <code>mkdocs</code>.
+    (If the folks at <a href="https://astral.sh/">Astral</a> are looking for new product ideas,
+    a better documentation generator would have at least one paying customer the day it launched…)</p>
+</li>
+<li>
+<p><a href="https://docs.pytest.org/"><code>pytest</code></a>, <a href="https://pypi.org/project/pyfakefs/"><code>pyfakefs</code></a>, and <a href="https://faker.readthedocs.io/"><code>faker</code></a> for testing
+    and <a href="https://click.palletsprojects.com/"><code>click</code></a> for building the command-line interface instead of <a href="https://docs.python.org/3/library/argparse.html"><code>argparse</code></a>.</p>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Well, myself and Claude…&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Please don&rsquo;t ever use <code>pdoc3</code>: someone who picks a swastika as a project logo and then argues that it&rsquo;s just a cultural symbol doesn&rsquo;t deserve your downloads.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+</footer>
+  </body>
+</html>

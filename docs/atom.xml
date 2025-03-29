@@ -3,12 +3,76 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-03-15T00:00:00Z</updated>
+ <updated>2025-03-29T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Tooling for Snailz</title>
+   <link href="https://third-bit.com/2025/03/29/tooling-for-snailz/"/>
+   <updated>2025-03-29T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/03/29/tooling-for-snailz/</id>
+   <content type="html">&lt;p&gt;I built &lt;a href=&#34;https://github.com/gvwilson/snailz&#34;&gt;a synthetic data generator&lt;/a&gt; last year to use in a &amp;ldquo;software design for data scientists&amp;rdquo; tutorial
+that I never finished writing.
+Over the last week I rewrote it as a way of exploring some new tools:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The command-line interface to &lt;a href=&#34;https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview&#34;&gt;Claude&lt;/a&gt;.
+    I&amp;rsquo;m disgusted by the amorality of the AI industry,
+    but am now convinced that the coding tools are here to stay:
+    writing tests and refactoring code with Claude&amp;rsquo;s help was &lt;em&gt;much&lt;/em&gt; faster than doing it by hand.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;&lt;code&gt;uv&lt;/code&gt;&lt;/a&gt; for managing the packages and virtual environment and for running commands.
+    It&amp;rsquo;s the first time I&amp;rsquo;ve used it as itself rather than running &lt;code&gt;uv pip whatever&lt;/code&gt;;
+    never going back.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.astral.sh/ruff/&#34;&gt;&lt;code&gt;ruff&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://pypi.org/project/pyright/&#34;&gt;&lt;code&gt;pyright&lt;/code&gt;&lt;/a&gt; for checking the code.
+    &lt;code&gt;ruff&lt;/code&gt; is a joy,
+    but checking type annotations with &lt;code&gt;pyright&lt;/code&gt; cost me a couple of hours.
+    It&amp;rsquo;s not the tool&amp;rsquo;s fault, though:
+    figuring out how to annotate the last 5% of the code led to me writing my first &lt;a href=&#34;https://peps.python.org/pep-0544/&#34;&gt;protocol&lt;/a&gt;
+    and then throwing up my hands and replacing it with &lt;code&gt;Any&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.pydantic.dev/&#34;&gt;&lt;code&gt;pydantic&lt;/code&gt;&lt;/a&gt; for storing and validating records,
+    including the data that &lt;code&gt;snailz&lt;/code&gt; generates and the parameters used in generation.
+    I started with &lt;a href=&#34;https://docs.python.org/3/library/dataclasses.html&#34;&gt;&lt;code&gt;dataclasses&lt;/code&gt;&lt;/a&gt;,
+    but switched as soon as I found myself&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; adding methods that &lt;code&gt;pydantic&lt;/code&gt; already had.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://pydoit.org/&#34;&gt;&lt;code&gt;doit&lt;/code&gt;&lt;/a&gt; to run commands instead of &lt;a href=&#34;https://www.gnu.org/software/make/&#34;&gt;Make&lt;/a&gt;.
+    I&amp;rsquo;m more comfortable with the latter,
+    but I recognize that writing Makefiles is a dying art.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.mkdocs.org/&#34;&gt;&lt;code&gt;mkdocs&lt;/code&gt;&lt;/a&gt; for documentation instead of &lt;a href=&#34;https://www.sphinx-doc.org/&#34;&gt;Sphinx&lt;/a&gt; or &lt;a href=&#34;https://pdoc.dev/&#34;&gt;&lt;code&gt;pdoc&lt;/code&gt;&lt;/a&gt;&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.
+    I find &lt;code&gt;mkdocs&lt;/code&gt; easier to work with than Sphinx,
+    and &lt;code&gt;pdoc&lt;/code&gt; doesn&amp;rsquo;t support &amp;ldquo;extra&amp;rdquo; Markdown pages as well as &lt;code&gt;mkdocs&lt;/code&gt;.
+    (If the folks at &lt;a href=&#34;https://astral.sh/&#34;&gt;Astral&lt;/a&gt; are looking for new product ideas,
+    a better documentation generator would have at least one paying customer the day it launched…)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.pytest.org/&#34;&gt;&lt;code&gt;pytest&lt;/code&gt;&lt;/a&gt;, &lt;a href=&#34;https://pypi.org/project/pyfakefs/&#34;&gt;&lt;code&gt;pyfakefs&lt;/code&gt;&lt;/a&gt;, and &lt;a href=&#34;https://faker.readthedocs.io/&#34;&gt;&lt;code&gt;faker&lt;/code&gt;&lt;/a&gt; for testing
+    and &lt;a href=&#34;https://click.palletsprojects.com/&#34;&gt;&lt;code&gt;click&lt;/code&gt;&lt;/a&gt; for building the command-line interface instead of &lt;a href=&#34;https://docs.python.org/3/library/argparse.html&#34;&gt;&lt;code&gt;argparse&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnote&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Well, myself and Claude…&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Please don&amp;rsquo;t ever use &lt;code&gt;pdoc3&lt;/code&gt;: someone who picks a swastika as a project logo and then argues that it&amp;rsquo;s just a cultural symbol doesn&amp;rsquo;t deserve your downloads.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;#fnref:2&#34; title=&#34;Jump back to footnote 2 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>A Poem</title>
@@ -1848,20 +1912,6 @@ but even if that doesn&amp;rsquo;t happen,
 I&amp;rsquo;m glad to be able to cross one book off my &lt;a href=&#34;https://third-bit.com/ideas/not-on-the-shelves/2024/&#34;&gt;unwritten list&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;center&#34;&gt;
   &lt;img src=&#34;https://third-bit.com/files/2024/troubleshooting-java.jpg&#34; alt=&#34;cover of &#39;Troubleshooting Java&#39;&#34; width=&#34;25%&#34;&gt;
-&lt;/div&gt;</content>
- </entry>
- 
- <entry>
-   <title>Jimmy Carter</title>
-   <link href="https://third-bit.com/2024/12/29/jimmy-carter/"/>
-   <updated>2024-12-29T00:00:00Z</updated>
-   <id>https://third-bit.com/2024/12/29/jimmy-carter/</id>
-   <content type="html">&lt;div class=&#34;center&#34;&gt;
-  &lt;p&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2024/jimmy-carter.webp&#34; alt=&#34;Jimmy Carter&#34; width=&#34;50%&#34;&gt;
-    &lt;br&gt;
-    1924 - 2024
-  &lt;/p&gt;
 &lt;/div&gt;</content>
  </entry>
  
