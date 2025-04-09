@@ -1,15 +1,21 @@
-{% for keypair in snippets.keys() | batch(2, "") %}
-  <div class="row">
-  {% for key in keypair %}
-    <div class="col col-6">
-      {% if key %}
-      <div class="card" id="{{key}}">
-        {{snippets[key]}}
+{% if snippets %}
+  {% for keypair in snippets.keys() | batch(2, "") %}
+    <div class="row">
+    {% for key in keypair %}
+      <div class="col col-6">
+        {% if key %}
+        <div class="card" id="{{key}}">
+          {{snippets[key]}}
+        </div>
+        {% else %}
+        &nbsp;
+        {% endif %}
       </div>
-      {% else %}
-      &nbsp;
-      {% endif %}
+    {% endfor %}
     </div>
   {% endfor %}
+{% else %}
+  <div class="center">
+    <p>Currently no projects.</p>
   </div>
-{% endfor %}
+{% endif %}

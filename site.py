@@ -20,11 +20,9 @@ now = datetime.now().isoformat()
 
 projects = {
     "ongoing": [
-        "browsercast",
-        "marimo-h5p",
-        "execution-order",
     ],
     "programming": [
+        "execution-order",
         "narwhals",
         "markdown-dom",
         "dragnet",
