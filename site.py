@@ -20,6 +20,8 @@ now = datetime.now().isoformat()
 
 projects = {
     "ongoing": [
+        "browsercast",
+        "marimo-h5p",
     ],
     "programming": [
         "execution-order",
