@@ -97,12 +97,42 @@ Here's what I think you should do:
     And please ask your professional or scientific association to grow a spine
     and do something more than issue a press release.
 
+Later: see also [A Dollar a Minute][dollar] and this partial list of places to run to:
+
+-   Communication
+    -   <https://github.com/element-hq> + <https://matrix.org/>
+    -   <https://mattermost.com/solutions/use-cases/self-sovereign-collaboration/>
+    -   <https://www.rocket.chat/ >
+    -   <https://p2p.mirotalk.com/>
+-   Wiki
+    -   <https://www.bookstackapp.com/>
+    -   <https://js.wiki/>
+-   Project management
+    -   <https://www.openproject.org/>
+    -   <https://community.taiga.io/t/taiga-30min-setup/170>
+    -   <https://github.com/wekan/wekan>
+    -   <https://leantime.io/all-about-open-source-project-management/>
+-   Git
+    -   <https://github.com/go-gitea/gitea>
+    -   <https://codeberg.org/forgejo/forgejo/>
+    -   <https://code.onedev.io/onedev/server>
+-   Password manager
+    -   <https://github.com/dani-garcia/vaultwarden>
+-   Docs
+    -   <https://www.onlyoffice.com/>
+    -   <https://www.collaboraonline.com/collabora-online/>
+    -   <https://www.zoho.com/pt-br/workplace/?src=zGlobalRelatedProducts>
+    -   <https://github.com/nextcloud/server>
+    -   <https://github.com/owncloud/core>
+    -   <https://hedgedoc.org/>
+
 [^1]: There is no legal or technical reason why the US government couldn't turn off access to GitHub (or Zoom, or Google Cloud) for people outside the US, or (more plausibly) put tariffs on their use. I'll be doing another post about that scenario soon.
 
 [^2]: I really wish [BioTorrents][biotorrents] had caught on. I bet a lot of other people do now too.
 
 [biotorrents]: https://doi.org/10.1371/journal.pone.0010071
 [data-rescue]: https://www.datarescueproject.org/
+[dollar]: @root/2025/04/18/a-dollar-a-minute/
 [littauer]: https://www.burntfen.com/
 [signal]: https://signal.org/
 [sync]: https://www.sync.com/
