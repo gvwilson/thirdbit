@@ -83,6 +83,61 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/04/18/a-dollar-a-minute/">
+      A Dollar a Minute
+    </a>
+  </h2>
+  <p><time datetime="2025-04-18" class="post-date">2025-04-18</time></p>
+  <p>Yesterday I wrote about <a href="../2025/04/17/when-the-fire-comes/">making contingency plans for research projects</a>
+in case the Trump administration&rsquo;s attack on science reaches you.
+Today&rsquo;s topic is an even scarier scenario:
+taxes on online services.
+As far as I can tell,
+there is no legal or technical obstacle to the American government mandating a dollar-a-minute tax
+on video conferencing
+for people outside the United States.
+The machinery needed to charge people is already in place—Zoom,
+Google Meet, and Microsoft Teams all offer paid plans—and
+a quick check of IP addresses would correctly geolocate 99% of users.
+(Yes,
+you fool this using a VPN,
+but only a handful of individuals would,
+and companies aren&rsquo;t going to flout the law that way.)</p>
+<p>If you want to hit businesses and middle-class voters in Canada, the EU, and elsewhere,
+and raise a few billion dollars at the same time,
+why <em>wouldn&rsquo;t</em> you do this?
+Why wouldn&rsquo;t you tell Google that it has to start charging foreigners a penny for each email
+or ten cents a week for each kilobyte&rsquo;s worth of docs?
+Because people would just migrate to other services?
+Please:
+most of those other services are also US-based,
+and if you&rsquo;ve ever done a large service migration,
+you&rsquo;ll realize how much pain the word &ldquo;just&rdquo; is painting over.</p>
+<p>So here&rsquo;s the scenario that actually keeps me up at night.
+It&rsquo;s July 2025.
+The US economy is in a nosedive because of tariffs,
+so Trump needs money <em>now</em>.
+Musk feels exposed:
+the savings he promised DOGE would deliver haven&rsquo;t materialized,
+so he needs something to fend off the MAGA sharks who now smell blood in the water.
+&ldquo;Why should American companies be allowed to help foreigners compete with us <em>for free</em>?&rdquo;
+he asks.
+Slack, GitHub, Airtable:
+everything business has gotten hooked on because it was free suddenly isn&rsquo;t.
+Move your data to another provider?
+Sure,
+here are the federally-mandated rates for exporting your data in bulk.
+Go ahead,
+sit down for a moment if you need too…</p>
+<p>The odds of this actually happening are low.
+The odds of someone breaking into my house are also low,
+but I still have insurance because that&rsquo;s what sensible grownups do.
+We can all now see the river rising;
+it will be our own fault if we drown when the flood comes.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/04/17/when-the-fire-comes/">
       When the Fire Comes
     </a>
@@ -564,76 +619,6 @@ I would be very grateful if you could <a href="mailto:gvwilson@third-bit.com">sh
 (or better yet, a checklist of what you&rsquo;ve done that other people could do).
 I&rsquo;m not looking for &ldquo;we could X&rdquo;, &ldquo;you should Y&rdquo;, or &ldquo;maybe it&rsquo;s time to think about Z&rdquo;,
 but rather a list of what you&rsquo;ve done and what you&rsquo;re doing.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/03/08/what-we-mean-by-software-design/">
-      What We Mean by Software Design
-    </a>
-  </h2>
-  <p><time datetime="2025-03-08" class="post-date">2025-03-08</time></p>
-  <p>Suppose you are building a static site generator that turns a bunch of Markdown files into HTML pages.
-The Markdown files include links to external sites;
-to ensure these are consistent between pages,
-you have decided to do the following:</p>
-<ol>
-<li>
-<p>All links to external sites are written as <code>[text][some_key]</code>.</p>
-</li>
-<li>
-<p>The keys and their associated URLs are stored in a YAML file like this:
-    <div class="highlight"><pre><span></span><code>- key: first
-  url: https://first.site
-- key: second
-  url: https://second.site
-</code></pre></div></p>
-</li>
-<li>
-<p>The static site generator reads the YAML file and converts the content to a block of text
-    like the one shown below,
-    then appends that text to each Markdown file in memory before translating to HTML:
-    <div class="highlight"><pre><span></span><code>[first]: https://first.site
-[second]: https://second.site
-</code></pre></div></p>
-</li>
-</ol>
-<p>Now comes the hard part.
-Your static site generator includes a linting tool that checks for common mistakes,
-such as improperly-nested headings or undefined bibliography references.
-You want to check that every link reference corresponds to an entry in the YAML file
-and that everyone entry in the YAML file is used at least once.
-Your first attempt uses a regular expression to find patterns of the form <code>[some][url]</code> in the Markdown,
-then does the obvious two-sided check with the URLs.
-However,
-your Markdown files also include snippets of Python code;
-these may contain chained subscripts like <code>grid[x][y]</code>,
-which cause your linter to produce spurious error reports.
-What should you do?</p>
-<ol>
-<li>
-<p>Implement some sort of &ldquo;known problem&rdquo; list to suppress the spurious error messages.</p>
-</li>
-<li>
-<p>Use regular expressions to erase code chunks from your Markdown files before searching for link references.</p>
-</li>
-<li>
-<p>Wait until the Markdown has been converted to HTML,
-    then walk the DOM tree and check all the text that isn&rsquo;t in code chunks.</p>
-</li>
-</ol>
-<p>Solution #1 requires users to do extra work (and re-work as their content changes),
-so let&rsquo;s set it aside.
-It&rsquo;s easier to implement a first version of Solution #2 than of Solution #3,
-but Solution #2 turns out to be surprisingly tricky to get right:
-Markdown allows for indented code blocks,
-and inline code sections might be marked with <code>&lt;code&gt;…&lt;/code&gt;</code> rather than with single backticks.</p>
-<p>I&rsquo;m sure there are other solutions,
-some of which may be better than the ones I&rsquo;ve outlined,
-but the point of this post is that when I say &ldquo;software design&rdquo;,
-what I mean is &ldquo;answers to questions like these and the justifications behind them&rdquo;.
-I wish there were more worked examples that discussed the pros and cons of possible solutions—I feel like
-I still have a lot to learn.</p>
 </article>
 
 
