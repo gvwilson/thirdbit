@@ -83,6 +83,114 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/04/20/a-testing-question/">
+      A Testing Question
+    </a>
+  </h2>
+  <p><time datetime="2025-04-20" class="post-date">2025-04-20</time></p>
+  <p>I have been thinking some more about how to teach testing to scientists who are learning how to program,
+and I&rsquo;m hoping one of my readers will have suggestions.
+The bit of Python below creates a square NxN grid and then fills it using a random orthogonal walk.
+Each time the walker visits a cell, the cell&rsquo;s count is incremented;
+filling stops when the walker reaches the boundary (i.e., absorbing boundary conditions).</p>
+<p>How can I test this?
+The easy bits are:</p>
+<ol>
+<li>
+<p>Generate a few hundred grids and make sure the boundary cells are all zero.</p>
+</li>
+<li>
+<p>Compare the sum of the grid values with the number of moves made by the walker (they should be equal).</p>
+</li>
+<li>
+<p>Patch the random choice function to force a series of moves (e.g., always up) and then check the resulting grid.</p>
+</li>
+</ol>
+<p>However, these tests are necessary but not sufficient.
+If my choice of moves was biased in some direction,
+for example,
+none of these tests would reveal that.
+If I generate enough grids and look at the distribution of values,
+it should approximate a 2D Gaussian,
+but I&rsquo;d have to generate a <em>lot</em> of grids to get close,
+and it&rsquo;s difficult to specify what &ldquo;close&rdquo; actually means.
+Is 20% relative error after 1000 grids good enough?
+That test will pass for some random number generation seeds and fail for others;
+I could tweak the seed until the test passes,
+but that feels as grubby as <a href="https://en.wikipedia.org/wiki/Data_dredging">p-hacking</a>.
+If you have suggestions,
+please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Store a grid of numbers.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct empty grid.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Grid size must be positive not </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get grid element.&quot;&quot;&quot;</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set grid element.&quot;&quot;&quot;</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert to string.&quot;&quot;&quot;</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+        <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">cmdline_args</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse command-line arguments.&quot;&quot;&quot;</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--seed&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;RNG seed&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--size&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;grid size&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">fill_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fill in a grid.&quot;&quot;&quot;</span>
+
+    <span class="n">moves</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+    <span class="n">center</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">size_1</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">center</span><span class="p">,</span> <span class="n">center</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">size_1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">size_1</span><span class="p">):</span>
+        <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">moves</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">num</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">cmdline_args</span><span class="p">()</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">fill_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</code></pre></div>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/04/18/a-dollar-a-minute/">
       A Dollar a Minute
     </a>
@@ -577,89 +685,6 @@ it was horrible
 both sad
 and yet dull
 </code></pre></div>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/03/12/resilience-advice/">
-      Resilience Advice
-    </a>
-  </h2>
-  <p><time datetime="2025-03-12" class="post-date">2025-03-12</time></p>
-  <p>I wish we didn&rsquo;t have to talk about this,
-but given the Trump administration&rsquo;s brutal assault on science
-and its equally brutal bullying of scientists,
-we need to start making plans.
-What happens if they come for you, your research, and your data?
-What happens if Nadella doesn&rsquo;t kiss ass hard enough or fast enough
-and Musk gets a judge to restrict access to GitHub?
-(It wouldn&rsquo;t be hard:
-find a repository with some DEI-related content or copyrighted material and say,
-&ldquo;Turn it off until everything can be reviewed.&rdquo;)</p>
-<p>I wish there were more training programs like <a href="https://www.fordfoundation.org/work/learning/learning-reflections/keeping-those-on-the-front-lines-of-change-safe-five-years-of-the-ford-foundation-grantee-safety-program/">this one</a>.
-Until there are,
-here are my thoughts on what you can do:</p>
-<ol>
-<li>Accept that the threat is both real and random.<ul>
-<li>There&rsquo;s a continuum of risk, but everyone scientist in the US is now a potential target.<ul>
-<li>As with censorship, the turmoil is the point: hurt a few to frighten the rest into acquiescence.</li>
-</ul>
-</li>
-<li>And the damage might spread:
-    Canada&rsquo;s previous Conservative prime minister <a href="https://www.cbc.ca/news/health/second-opinion-scientists-muzzled-1.4588913">muzzled scientists</a>,
-    and the current Conservative leader will undoubtedly go further if he wins the upcoming election.</li>
-<li>Remember, nobody at the Climate Research Unit thought they might be a target until <a href="https://en.wikipedia.org/wiki/Climatic_Research_Unit_email_controversy">Climategate</a> happened.</li>
-</ul>
-</li>
-<li>Threat models (taken from <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008563">this paper</a> with modifications):<ul>
-<li>Casual threat (&ldquo;drive by&rdquo;): opportunistic but not determined (but see &ldquo;institutional threat&rdquo; below).</li>
-<li>Intimate threat: a life partner (not a big one for this conversation).</li>
-<li>Insider threat: &ldquo;inside the fortress&rdquo; (i.e., the departmental sys admin is a DOGE appointee or MAGA sympathizer).</li>
-<li>Institutional threat: the rules change and now you&rsquo;re a target: this was loony tunes two months ago and is now our reality.</li>
-</ul>
-</li>
-<li>Recognize that getting people to adopt secure habits is as hard as getting people to practice safe sex was in the 1980s.<ul>
-<li>&ldquo;Security theatre&rdquo; on the part of institutions is a big part of the problem.</li>
-<li>&ldquo;We will send your performance review as a Word document&rdquo; practically trains people to be unsafe.</li>
-<li>Programmers have made security needlessly painful.<ul>
-<li><a href="https://dl.acm.org/doi/10.5555/1251421.1251435">&ldquo;Why Johnny Can&rsquo;t Encrypt&rdquo;</a> was published a quarter of a century ago and nothing has gotten easier.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Immediate actions (in order):<ol>
-<li>Don&rsquo;t open that attachment, install that software, or click on that link without checking.<ul>
-<li>Or talk to the &ldquo;journalist&rdquo; who just cold-called you without verifying their credentials.</li>
-</ul>
-</li>
-<li>Put open licenses on everything you can, make sure colleagues have copies, and <a href="https://sciop.net/datasets/">copy their data and code</a> return.<ul>
-<li>This isn&rsquo;t just about human threats: talk to anyone who lost work because of Hurricane Katrina.</li>
-</ul>
-</li>
-<li>Use a password manager (I recommend <a href="https://1password.com/">1Password</a>),
-    two-factor authentication,
-    and <a href="https://signal.org/">Signal</a> (it&rsquo;s the only trustworthy messaging app out there).</li>
-<li>Identify services you could migrate to,
-    e.g., <a href="https://www.sync.com/">Sync</a> (hosted in Canada) and <a href="https://whereby.com/">Whereby</a> (in Norway) instead of Dropbox and Zoom (US).</li>
-<li>Ask (require) IT to make &ldquo;what if&rdquo; plans <em>and test them out</em>.<ul>
-<li>E.g., make nightly backups of your GitHub issues (which aren&rsquo;t stored in the Git repositories),
-your Slack conversations,
-and everything in your Google Drive.</li>
-</ul>
-</li>
-<li>Lobby your professional association to put policies and plans in place <em>and enforce them</em>.<ul>
-<li>The Royal Society&rsquo;s decision not to expel Musk was as shortsighted as it was cowardly.</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<p>And now a request:
-if you are taking steps like these right now,
-I would be very grateful if you could <a href="mailto:gvwilson@third-bit.com">share your experience</a>
-(or better yet, a checklist of what you&rsquo;ve done that other people could do).
-I&rsquo;m not looking for &ldquo;we could X&rdquo;, &ldquo;you should Y&rdquo;, or &ldquo;maybe it&rsquo;s time to think about Z&rdquo;,
-but rather a list of what you&rsquo;ve done and what you&rsquo;re doing.</p>
 </article>
 
 
