@@ -86,6 +86,7 @@ I could tweak the seed until the test passes,
 but that feels as grubby as <a href="https://en.wikipedia.org/wiki/Data_dredging">p-hacking</a>.
 If you have suggestions,
 please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
+<h2>The Code</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">import</span> <span class="nn">csv</span>
 <span class="kn">import</span> <span class="nn">io</span>
@@ -130,7 +131,7 @@ please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
 <span class="k">def</span> <span class="nf">fill_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fill in a grid.&quot;&quot;&quot;</span>
 
-    <span class="n">moves</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+    <span class="n">moves</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
     <span class="n">center</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span>
     <span class="n">size_1</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">center</span><span class="p">,</span> <span class="n">center</span>
@@ -152,7 +153,92 @@ please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
     <span class="n">grid</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
     <span class="n">fill_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-</code></pre></div><!-- /content -->
+</code></pre></div>
+<h2>The Reveal</h2>
+<p>Did you notice the bug?
+<code>[0, -1]</code> is repeated in the list of available moves;
+the last entry should be <code>[0, 1]</code>.
+This was an actual typo in an early draft of this function,
+and none of my tests spotted it:</p>
+<ol>
+<li>
+<p>The boundary cells of all grids are still zero.</p>
+</li>
+<li>
+<p>The sum of the grid&rsquo;s values is still the number of moves.</p>
+</li>
+<li>
+<p>Patching the random choice function to force a series of moves
+    <em>fixes the underlying bug</em>.</p>
+</li>
+</ol>
+<p>If I had used <code>random.choice(list(range(len(moves))))</code> to choose an index into <code>moves</code>
+and then used that move,
+the final test might have revealed the problem,
+but none of my statistical tests detected it,
+and that scares me.</p>
+<h2>Another Example</h2>
+<p>Another way to fill a grid is called <a href="https://en.wikipedia.org/wiki/Invasion_percolation">invasion percolation</a>.
+In pseudo-Python, it works like this—or rather,
+this code <em>almost</em> does the right thing:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">invasion_percolation</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
+    <span class="c1"># Create grid of random numbers</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
+
+    <span class="c1"># Mark the central cell</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">MARKED</span>
+
+    <span class="c1"># Repeat until the marked region hits the boundary</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">find_next_cell</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+        <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">MARKED</span>
+
+<span class="c1"># Find the next cell to fill</span>
+<span class="k">def</span> <span class="nf">find_next_cell</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+    <span class="c1"># Set min_val to Infinity to ensure first cell qualifies</span>
+    <span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span><span class="p">,</span> <span class="n">min_val</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Infinity</span>
+
+    <span class="c1"># Check all cells</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+            <span class="c1"># Already filled</span>
+            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="n">MARKED</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="c1"># Not adjacent to a marked cell</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">adjacent</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="c1"># We have seen a lower value</span>
+            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">min_val</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="c1"># A new winner</span>
+            <span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span><span class="p">,</span> <span class="n">min_val</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
+
+    <span class="c1"># Report results</span>
+    <span class="k">return</span> <span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span>
+</code></pre></div>
+<p>Did you spot the problem?
+I didn&rsquo;t:
+I used a variation of this code for more than a year before realizing that
+it is biased toward the (0, 0) corner of the grid.
+To see why,
+imagine that the entire &ldquo;random&rdquo; grid is filled with the value 1.
+The first cell that the double loop finds
+that&rsquo;s adjacent to the already-filled region
+will always be to the lower left of the filled region,
+because that will always be the first time the double loop encounters the value 1.
+Replacing the 1&rsquo;s with random number in the range 0…depth doesn&rsquo;t fix this flaw;
+it just makes it harder to spot.</p>
+<p>The solution in this case is to find all the cells
+that are adjacent to the already-filled region
+<em>and</em> which are tied for lowest value,
+then choose one of those at random.
+My question is,
+what test(s) could I plausibly have written before I realized my mistake
+that would have told me my implementation had introduced an unwanted bias?</p><!-- /content -->
 
     </main>
     <footer>
