@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Lazy Loading a Data Package</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../projects/">projects</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Lazy Loading a Data Package</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/04/20/a-testing-question/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-04-21" class="post-date">2025-04-21</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p><em>Later: see the bottom of this post for a much less frightening solution.</em></p>
+<p>R has the notion of a &ldquo;data package&rdquo;,
+which looks and feels like a code package
+except its primary purpose is to provide a dataset.
+One of the key features of such packages is that the data isn&rsquo;t loaded into memory
+unless and until it&rsquo;s needed,
+which is known as <em>lazy loading</em>.
+The code below shows my attempt to do this in Python;
+I&rsquo;d <a href="mailto:gvwilson@third-bit.com">be grateful</a> for pointers to prior art
+and advice on how to simplify it.</p>
+<h2>Desired Outcome</h2>
+<p>Importing the package does <em>not</em> load the data.
+Instead,
+each dataset in the package is loaded into memory the first time it is referenced.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">example</span>                <span class="c1"># data not loaded</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">machines</span><span class="p">)</span>       <span class="c1"># &#39;machines&#39; data loaded here</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">persons</span><span class="p">)</span>        <span class="c1"># &#39;persons&#39; data loaded here</span>
+</code></pre></div>
+<h2>What the Package Author Writes</h2>
+<p>The programmer who wants to provide the data package must:</p>
+<ol>
+<li>
+<p>define a class derived from <code>BaseDatasetLoader</code>
+    with a zero-argument method for each dataset;</p>
+</li>
+<li>
+<p>mark those methods as <a href="https://docs.python.org/3/library/functools.html#functools.cached_property">cached properties</a>;</p>
+</li>
+<li>
+<p>call their classes&rsquo; <code>install</code> method with their module&rsquo;s name as an argument;
+    and</p>
+</li>
+<li>
+<p>put their data files in a directory called <code>data</code> in the top level of their project.</p>
+</li>
+</ol>
+<p>For example,
+the package <code>example</code> that provides persons and machines would be structured like this:</p>
+<div class="highlight"><pre><span></span><code>.
+├── data
+│   ├── machines.csv
+│   └── persons.csv
+├── example
+│   └── __init__.py
+└── pyproject.toml
+</code></pre></div>
+<p>Here&rsquo;s the code in <code>__init__.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cached_property</span>
+<span class="kn">from</span> <span class="nn">datapkg.package</span> <span class="kn">import</span> <span class="n">BaseDatasetLoader</span>
+
+<span class="k">class</span> <span class="nc">_Loader</span><span class="p">(</span><span class="n">BaseDatasetLoader</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Example dataset loader.&quot;&quot;&quot;</span>
+
+    <span class="nd">@cached_property</span>
+    <span class="k">def</span> <span class="nf">machines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_csv</span><span class="p">(</span><span class="s2">&quot;machines.csv&quot;</span><span class="p">)</span>
+
+    <span class="nd">@cached_property</span>
+    <span class="k">def</span> <span class="nf">persons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_csv</span><span class="p">(</span><span class="s2">&quot;persons.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set up lazy loading - automatically discovers cached properties</span>
+<span class="n">_Loader</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</code></pre></div>
+<p>I&rsquo;d like to find a way to automate the installation step
+so that programmers only have to define the class,
+but I haven&rsquo;t figured out a way yet.</p>
+<h2>Behind the Curtain</h2>
+<p>The <code>datapkg</code> library defines three things,
+two of which programmers (hopefully) won&rsquo;t need to know about.
+The thing they <em>do</em> need to be aware of is
+the base class from which their data loader classes are derived.
+For demo purposes,
+<code>BaseDatasetLoader</code> assumes (i.e., requires) that data lives in a <code>data</code> directory
+beside the package source code directory
+and that there is a cached property in the user-defined class derived from <code>BaseDatasetLoader</code>
+corresponding to each of the datasets:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BaseDatasetLoader</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for dataset loaders.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Where datasets are located.</span>
+    <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">discover_cached_properties</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Discover all cached_property attributes in this class (i.e., datasets).&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">name</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmembers</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">))</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">cached_property</span><span class="p">)</span>
+        <span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">package_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set up lazy loading for a data package.&quot;&quot;&quot;</span>
+
+        <span class="n">loader_instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="n">exported_names</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">discover_cached_properties</span><span class="p">()</span>
+        <span class="n">create_lazy_package</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="n">loader_instance</span><span class="p">,</span> <span class="n">exported_names</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load data from a CSV file.&quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">BaseDatasetLoader</span><span class="o">.</span><span class="n">DATA_DIR</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">stream</span><span class="p">)]</span>
+</code></pre></div>
+<p><code>BaseDatasetLoader</code> relies on <code>create_lazy_package</code>,
+which looks up a module and replaces it with a lazy-loading module,
+copying over the attributes of the original model along the way
+and then exporting all the module&rsquo;s names:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_lazy_package</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="n">loader</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set up lazy loading for a data package.&quot;&quot;&quot;</span>
+
+    <span class="n">original_module</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">package_name</span><span class="p">]</span>
+    <span class="n">lazy_module</span> <span class="o">=</span> <span class="n">LazyModule</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="n">loader</span><span class="p">)</span>
+    <span class="n">lazy_module</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">original_module</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">package_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">lazy_module</span>
+    <span class="n">lazy_module</span><span class="o">.</span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">names</span>
+</code></pre></div>
+<p>Finally,
+<code>LazyModule</code> intercepts attempts to get the module&rsquo;s attributes
+and defers them to the user-defined class derived from <code>BaseDatasetLoader</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">LazyModule</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">ModuleType</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A module that lazily loads datasets when attributes are accessed.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">loader</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a lazy module.&quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span> <span class="o">=</span> <span class="n">loader</span>
+
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get an attribute from the loader when not found in the module.&quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_loader</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Module &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; has no attribute &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+</code></pre></div>
+<h2>Building the Package</h2>
+<p>Life&rsquo;s not complete these days without a <code>pyproject.toml</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">project</span><span class="p">]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;example&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;An example data package&quot;</span>
+<span class="n">dependencies</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">requires</span><span class="o">-</span><span class="n">python</span> <span class="o">=</span> <span class="s2">&quot;&gt;=3.11&quot;</span>
+
+<span class="p">[</span><span class="n">build</span><span class="o">-</span><span class="n">system</span><span class="p">]</span>
+<span class="n">requires</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hatchling&quot;</span><span class="p">]</span>
+<span class="n">build</span><span class="o">-</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;hatchling.build&quot;</span>
+
+<span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">hatch</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="n">wheel</span><span class="p">]</span>
+<span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;datapkg&quot;</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">hatch</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">force</span><span class="o">-</span><span class="n">include</span><span class="p">]</span>
+<span class="s2">&quot;data&quot;</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
+</code></pre></div>
+<p>The trick is that last line,
+which forces the build system to include the contents of the <code>data</code> directory in the package.
+(And yes, both uses of the word <code>data</code> in that line must be quoted:
+it&rsquo;s TOML&rsquo;s way of defining a key-value table.
+I miss my <code>package.json</code> files every day…)</p>
+<h2>The Simpler Version</h2>
+<p>The solution described above is very complex,
+and it would be unreasonable to expect most data scientists to debug subtle mistakes.
+If we are willing to use:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datapkg</span> <span class="kn">import</span> <span class="n">datapkg</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datapkg</span><span class="o">.</span><span class="n">machines</span><span class="p">)</span>
+</code></pre></div>
+<p>then the <code>pyproject.toml</code> file stays as it is and the Python becomes:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cached_property</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">resources</span>
+
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
+
+<span class="k">class</span> <span class="nc">_loader</span><span class="p">:</span>
+
+    <span class="nd">@cached_property</span>
+    <span class="k">def</span> <span class="nf">machines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_load_csv</span><span class="p">(</span><span class="s2">&quot;machines.csv&quot;</span><span class="p">)</span>
+
+    <span class="nd">@cached_property</span>
+    <span class="k">def</span> <span class="nf">persons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_load_csv</span><span class="p">(</span><span class="s2">&quot;persons.csv&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_load_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load data from a CSV file.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;loading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">stream</span><span class="p">)]</span>
+
+<span class="n">datapkg</span> <span class="o">=</span> <span class="n">_loader</span><span class="p">()</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;datapkg&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h2>The Even Simpler Version</h2>
+<p>Nat Knight suggested an even simpler approach:
+use <a href="https://peps.python.org/pep-0562/">a module-level <code>__getattr__</code> function</a>.
+I didn&rsquo;t even know these existed,
+but they make the code <em>much</em> easier to understand:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">resources</span>
+
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
+<span class="n">AVAILABLE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;machines&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;machines.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;cached&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+    <span class="s2">&quot;persons&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;persons.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;cached&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">AVAILABLE</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> does not have </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="n">AVAILABLE</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cached&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cached&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_load_csv</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cached&quot;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_load_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">stream</span><span class="p">)]</span>
+</code></pre></div>
+<p>Thanks, Nat—this is what I&rsquo;m going with.
+But also:
+damn,
+I remember when Python was a small enough language that I actually understood it…</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+
+  <p class="disclaimer">
+    By reading this page you agree,
+    on behalf of your employer,
+    to release me from all obligations and waivers arising from any and all non-negotiated agreements,
+    licenses, terms-of-service, shrinkwrap, clickwrap, browsewrap, confidentiality, non-disclosure,
+    non-compete and acceptable use policies that I have entered into with your employer,
+    its partners, licensors, agents, and assigns,
+    in perpetuity,
+    and without prejudice to my ongoing rights and privileges.
+  </p>
+</footer>
+  </body>
+</html>
