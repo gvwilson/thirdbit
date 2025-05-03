@@ -39,7 +39,7 @@ how to use those methods themselves,
 and how to tell good science from splackulent crap
 like the "ghost engineers" screed that got so much attention in late 2024.
 I realize data science no longer makes university administrators salivate the way it did a few years ago,
-but if You call the course "Data Science for Software Engineers"
+but if you call the course "Data Science for Software Engineers"
 you're bound to get a few takers.
 
 [icse2025]: https://conf.researchr.org/home/icse-2025

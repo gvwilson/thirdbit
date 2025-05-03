@@ -5216,12 +5216,9 @@ His reply came back so quickly that she wondered if he'd started typing before s
 
 And then a moment later:
 
-- *i'm sorry i kept goin' off on you about usin' da's gear
-
-- *it's aright. tell 'im i said hi?
-
+- *i'm sorry i kept goin' off on you about usin' da's gear*
+- *it's aright. tell 'im i said hi?*
 - *willya. stay safe*
-
 - *you too*
 
 Unable to bear the thought of being in her cabin after that,
