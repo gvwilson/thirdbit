@@ -7,7 +7,9 @@
 -   Themes:
     -   We can't change the past: all we can do is fight for a better future.
     -   We don't have to be who other people think we're supposed to be.
--   Aim for 90,000 words (15-18 chapters of 5000-6000 words each)
+-   Aim for 90,000 words (15 chapters of 6000 words each)
+-   Should there be a backgrounder/interlude at the end of every chapter
+    so that the few I really want don't seem weird?
 
 ## Background
 
@@ -70,7 +72,7 @@
 -   Aunt Naggie (ally): Iffy's foster mother aboard the *Guinevere* (and its legal owner).
     -   Character arc: comes to value her own happiness rather than sacrificing it for Iffy's sake.
     -   Has stayed in an unhappy marriage with Uncle Jack for Iffy's sake.
-    -   Having a (mostly platonic but very passionate) affair with Ignacio.
+    -   Having a (mostly platonic but very passionate) affair with Edson.
 -   Uncle Jack (minor antagonist): Iffy's foster father aboard the *Guinevere*.
     -   Character arc: gets what's coming to him.
     -   Full of big plans that come to nought, and resents the world for his lack of success.
@@ -80,7 +82,7 @@
         -   Willing to sacrifice everything and everyone to change the past.
     -   Modified for colonizing Mars (genetic tweaks and embedded tech) but never got into space.
     -   Much older than he first seems, with three toolboxes full of wonders.
--   Ignacio the Ecologist (ally): a "wise fool".
+-   Edson the Ecologist (ally): a "wise fool".
     -   Character arc: finally chooses a life with Aunt Naggie over his guilt-inspired duty.
     -   Feels guilty about not protecting Iffy's clone parents years ago.
     -   Tracked down Aunt Naggie in order to get medicine to Iffy, then fell in love.
@@ -126,7 +128,7 @@
 
 ### Chapter 1: the meeting (day 1)
 
--   What this chapter does:
+-   Goals:
     -   Introduce Iffy, Aunt Naggie, Uncle Jack, Mister Mishra, Jeep, the Sandhus, and Johnson Wales.
     -   Worldbuilding: Iffy's backstory and family situation, history of Halley, imprinting, and political situation.
     -   Introduce elements used later: Iffy's medicine, her story book, and her odd talent.
@@ -155,8 +157,8 @@
 
 ### Chapter 2: the journey begins (day 1 continued)
 
--   What this chapter does:
-    -   Action scenes to excite the reader.
+-   Goals:
+    -   Action to excite the reader.
     -   Introduce augmented animals from the backayonder.
     -   Start the protagonist on her journey.
 -   Iffy returns to the *Guinevere* to find that Uncle Jack has made a mess of the repair she had been working on.
@@ -182,8 +184,8 @@
 
 ### Chapter 3: raising the stakes (days 1-5)
 
--   What this chapter does:
-    -   Action scenes to excite the reader (with some tragedy to raise the stakes).
+-   Goals:
+    -   Action to excite the reader (with some tragedy to raise the stakes).
     -   Raise the stakes: puts the protagonist on the edge of a war.
     -   Shows that there is more to Johnson Wales than first appeared.
     -   Builds the bond between Wales and Iffy but foreshadows his betrayal of her later on.
@@ -191,7 +193,7 @@
     -   Describe moments rather than details and give some backstory about the *Guinevere* and life at sea.
     -   Show Iffy and Wales getting to know each other.
     -   Iffy messages Honesty occasionally but realizes that Honesty doesn't like chatting that way.
--   Wales spots a cloaked ship chasing them, which kicks off the action sequence.
+-   Wales spots a cloaked ship chasing them, which kicks off the action.
     -   Wales assembles a small drone from his toolbox to get a closer look.
     -   The ship turns out to be the *Taroona*.
 -   They can't outrun it, so Wales triggers a sea boil using his drone as a bomb.
@@ -201,8 +203,8 @@
 
 ### Chapter 4: caught up in politics (days 5-7)
 
--   What this chapter does:
-    -   Another action sequence.
+-   Goals:
+    -   More action.
     -   Introduces the governor and the maguffin (the Niobium base at Mount Tyree).
     -   Shows off Iffy's talent (and the price she pays for using it).
     -   Interlude gives background on the rise and nature of AI.
@@ -231,10 +233,10 @@
 
 ### Chapter 5: love (days 7-8)
 
--   What this chapter does:
+-   Goals:
     -   Keeps Jeep in the story.
     -   Introduces Honesty and der relationship with Iffy.
-    -   Introduces Ignacio and his relationship with Aunt Naggie.
+    -   Introduces Edson and his relationship with Aunt Naggie.
     -   Fills in some of Iffy's backstory (the medicine).
 -   Iffy and family return to the *Guinevere*.
     -   She exchanges messages with Jeep (shows that they're still in touch even if their friendship is fragile).
@@ -249,19 +251,19 @@
     -   Honesty reveals that der call-up notice has come and that de is being inducted that night.
 -   Iffy returns to the market.
     -   Sees someone selling modified raccoon kits and feels wistful (foreshadowing).
-    -   Sees Aunt Naggie kiss Ignacio.
+    -   Sees Aunt Naggie kiss Edson.
     -   Interrupts them as the Marines start a raid on the market looking for a Zillion saboteur.
-    -   After they escape and split up, Iffy asks Aunt Naggie if Ignacio is someone special.
+    -   After they escape and split up, Iffy asks Aunt Naggie if Edson is someone special.
     -   Aunt Naggie says "yes" but dodges further questions.
 -   Iffy and Honesty swap messages about Honesty's induction.
     -   FIXME: why aren't they doing this earlier in the story?
 -   Iffy has a machine-dream nightmare.
     -   Aunt Naggie wakes her up and gives her medicine.
-    -   Backstory on her relationship with Ignacio, who showed up to deliver it when Iffy was young.
+    -   Backstory on her relationship with Edson, who showed up to deliver it when Iffy was young.
 
 ### Chapter 6: civil war (day 8-9)
 
--   What this chapter does:
+-   Goals:
     -   Brings AI into the Iffy's life.
     -   Puts Iffy's relationship with Honesty at risk.
     -   Starts the civil war between the governors.
@@ -305,84 +307,127 @@
 
 ### Chapter 7: escape (day 9)
 
--   What this chapter does:
-    -   Action sequence.
-    -   Start to build Ignacio as a character.
-    -   Get the protagonist on the run.
--   Iffy is taken to the induction center and held in a cell.
-    -   FIXME: recover this material from old versions.
--   Escapes with the help of the AI and Ignacio.
-    -   People are injured, which horrifies her.
+-   Goals:
+    -   More action.
+    -   Build Edson as a character.
+    -   Foreshadow Iffy's eventual induction.
+-   Iffy is taken to the induction center.
+-   Escapes with the help of the AI, Edson, and some raccoons.
+    -   People are injured in the process, which horrifies her.
+-   Get to the harbor through the fighting.
+    -   Aunt Naggie ditches Uncle Jack (callback to Wales knocking him out earlier).
+-   Iffy messages Jeep to try to find out what's going on.
+    -   Everyone in Halley thinks that GS Rothera had GS Paddington killed.
+    -   Aussies are on their way.
+-   The strange antenna sends the torpedo drones away so that they can get out of the harbor.
+    -   Other ships are fleeing as well as the Zillions launch a full-scale invasion.
+    -   Word comes through that GS Rothera is dead.
 
-### HERE
+### Chapter 8: pursuit (day 10)
 
--   Dr. Johel disables Governor Rothera.
-    -   Has been preparing for this day for a long time.
-    -   When asked if she is working with Halley, she sneers, "That dithering idiot?"
--   Escape to the harbor with Dr. Johel and a handful of Marines loyal to her, including Honesty.
-    -   See fighting in the street: the horror of war.
-    -   Aunt Naggie finally ditches Uncle Jack (callback to Wales knocking him out earlier).
-    -   The strange antenna sends the torpedo drones away so that they can get out of the harbor.
--   Pursued by Marines in the *Bengal*.
-    -   "If we are unable to retrieve you, our orders are to ensure your loss at sea."
--   Action sequence: Honesty is injured but Iffy and Wales save her.
--   Attack climaxes with drones from the *Bengal* swarming over the *Guinevere* to get the AI satellites to fire.
+-   Goals:
+    -   More action.
+    -   Get the characters back to Halley.
+    -   Iffy starts to take action instead of being acted on.
+-   Pursued by Wales and Dr. Johel on the *Bengal*.
+    -   Wales apologizes but says he had to turn her over to GS Rothera: no other way to keep Iffy safe.
+-   The *Bengal* and *Guinevere* are pursued by a smaller, faster craft (the *KS-117*).
+    -   Captain Kerse: "Dunno what you are, but if Australia can't have you, nobody can."
+    -   Killing Wales is just sugar in his tea.
+-   Action sequence as the *KS-117* and *Bengal* catch up with the *Guinevere*.
+    -   *Bengal* destroys the *KS-117*.
+    -   But drones sent by Kerse swarm over the *Bengal* to get the satellites to fire on it.
+    -   Iffy steers the *Guinevere* into danger to help.
+    -   Wales, Johel, and a handful of Marines escape to the *Guinevere*.
+    -   Honesty is injured but Iffy and Wales save her.
 
-### Chapter 8 (day ?? / ?? / 52,800)
+### Chapter 9: the puppet master (day 11-14)
 
--   What this chapter does:
-    -   Finish the battle.
-    -   Get them back to Halley.
-    -   Reveal that Governor Bharati staged the fire and his own death and took Governor Halley's place years ago.
-    -   Reveal that Dr. Johel has been working for him to find a way to counter the AIs.
-    -   And that Wales has been working with them too: betrays Iffy.
+-   Goals:
+    -   Introduce GS Paddington.
+    -   Move the action back to Halley.
+    -   Wales' betrayal.
+-   Tension aboard the *Guinevere*.
+    -   Only Iffy and Aunt Naggie can sail the ship (biometrics).
+    -   Wales and the Marines on deck, Dr. Johel in the cabin, Aunt Naggie sleeping in the pilot house.
+    -   Honesty sleeping in Iffy's room as she heals.
+    -   Iffy dragged into arguments between AIs every time she sleeps.
+-   Listening to the news on the way, not knowing what is true and what isn't.
+    -   Zillions in Rothera.
+    -   Aussies in Halley.
+    -   Nobody knows what's going on in Paddington South.
+-   *Guinevere* returns to Halley.
+    -   Iffy reconnects with Jeep, realizes that he has feelings for her.
+    -   Honesty wakes up: imprinting is starting to break.
+-   Iffy, Wales, and Johel are taken to see GS Halley.
+    -   Big reveal: it's actually GS Paddington, who has master-minded the whole thing.
+    -   Dr. Johel has been working for him all along.
+    -   The real GS Halley has already been disposed of.
+-   Governor Stern (only surviving copy) is negotiating his exit with the Aussies.
+    -   While they're distracted by the Zillions, he will get control of Mount Tyree.
+    -   "We *will* change things" he promises (foreshadowing the big reveal at the end).
+-   Wales gives up Iffy when Dr. Johel says, "You can have the next one, I promise."
 
-### Chapter 9 (day ?? / ?? / 59,400)
+### Chapter 10: changeling (day 15-25)
 
--   What this chapter does:
-    -   Introduces Sandrine Kibbens and gives her backstory.
-    -   Shows Iffy starting to take control of her life.
+-   Goals:
+    -   Introduce Sandrine Kibbens and give her backstory.
+    -   Show Iffy taking control of her life.
 -   Sandrine Kibbens wakes in a hospital bed.
     -   She has been imprinted on Iffy in an attempt to master her abilities.
-    -   Governor Bharati: "Unfortunately, a little bit of torture will be necessary…"
+    -   Governor Stern: "Unfortunately, a little bit of torture will be necessary…"
 -   Sandrine hears Iffy's voice in her head between sessions.
     -   Tells Sandrine how the rest of her life went after the recording was made.
     -   And that Sandrine became a good person despite everything.
-    -   Persuades her that the governor is the bad guy.
+    -   Persuades her that Governor Stern is the bad guy.
 -   "Sandrine" appears to master Iffy's talent.
     -   Builds small bots to demonstrate what she's capable of.
-    -   One of which escapes with a message for Jeep.
+    -   Realizes that she is in the ruins of Bharati.
+    -   One of her bots escapes with a message.
 
-### Chapter 10 (day ?? / ?? / 59,400)
+### Chapter 11: another escape (day 25)
 
--   What this chapter does:
-    -   Iffy/Sandrine escapes from Halley with help from Jeep
-    -   Connects with Ignacio.
--   Parting scene with Jeep.
-    -   Iffy asks Jeep to look after Honesty, finally realizes he has feelings for her.
+-   Goals:
+    -   Iffy/Sandrine escapes.
+    -   Connects with Edson.
+-   Iffy/Sandrine escape with the help of cyborg raccoons.
+-   Iffy cuts a deal with AI to allow her to fly (briefly).
+    -   Sandrine knows how to pilot.
+    -   Iffy: whatever else happens, whatever she has to do, she wants to show this to Honesty.
+    -   And, she realizes, to Jeep, but she files that thought away for the time being.
+-   Get to the road and meet Edson.
+-   Iffy says goodbye to Sandrine, who makes her promise to end the imprinting.
 
-### Chapter 11 (day ?? / ?? / 66,000)
+### Chapter 12: the new world (day 26-30)
 
--   What this chapter does:
-    -   Journey through the backayonder hidden in a herd of musk ox shows the new world emerging: something worth keeping.
-    -   Develop Ignacio's character.
-    -   See Iffy negotiating with the AI, who believe something unknowable will happen if she reaches the Niobium base.
+-   Goals:
+    -   Show the new world emerging the backayonder: something worth keeping.
+    -   Develop Edson's character.
+    -   AI reveal that something unknowable will happen if Iffy reaches Niobium base.
+-   Travel with Edson.
+    -   Meet the musk oxen.
+    -   Hiding in underground bunkers.
+-   Make it to the oasis.
+-   Marines under Governor Stern's control arrive.
+-   After a fight, they are captured.
+    -   Iffy stops Edson from brainwiping himself for Aunt Naggie's sake.
+-   Taken to the governor's vehicle (originally built for terraforming).
+    -   Governor Stern is increasingly strung out.
 
-### Chapter 12 (day ?? / ?? / 72,600)
+### Chapter 13 (day ?? / ?? / 72,600)
 
--   What this chapter does:
-    -   FIXME
+-   Goals: FIXME
 
-### Chapter 13 (day ?? / ?? / 79,200)
+### Chapter 14 (day ?? / ?? / 79,200)
 
--   What this chapter does:
+-   Goals:
     -   Enter the Niobium base.
     -   Reveal Johel and Wales' plan to alter the past and that Iffy's real "first" was his colleague Jing-mei Yuen.
     -   Dr. Johel's death.
 
-### Chapter N (day ??)
+### Chapter 15 (day ??)
 
--   What this chapter does:
+-   Goals:
     -   Iffy decides not to alter the past.
     -   Wales has a redemptive change of heart and sacrifices himself.
     -   GS Paddington's (well deserved).
@@ -396,4 +441,4 @@
 -   Find out that Uncle Jack got rid of Iffy's pet raccoon.
 -   Need to re-use Jeep.
 -   What does the picture book mean?
--   Why aren't Ignacio and Iffy recaptured immediately by the governor's forces?
+-   Why aren't Edson and Iffy recaptured immediately by the governor's forces?
