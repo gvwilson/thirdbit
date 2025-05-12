@@ -99,10 +99,6 @@
 -   Governor Stern Halley (minor antagonist): the second member of the triumvirate (never seen directly).
     -   Wants Antarctica to become a full state in the Common Republic of Australia.
     -   His assassination (supposedly by GS Rothera) triggers war between Aussies and Zillions.
--   Governor Stern Paddington (antagonist): the third member of the triumvirate.
-    -   Responsible for the Bharati fire and the death of GS Bharati.
-    -   Doesn't really care about Antarctica: wants what's in the Niobium base to win the war with the AIs.
-    -   Believes the Ecologists are AI dupes.
 -   Honesty (ally): youngest of three clones in Rothera, non-binary, and Iffy's love interest.
     -   Represents everything Iffy wants (a normal loving family).
     -   Is called up for military service and imprinted with Sandrine Kibbens,
@@ -344,8 +340,8 @@
 ### Chapter 9: the puppet master (day 11-14)
 
 -   Goals:
-    -   Introduce GS Paddington.
     -   Move the action back to Halley.
+    -   Reveal the main villain.
     -   Wales' betrayal.
 -   Tension aboard the *Guinevere*.
     -   Only Iffy and Aunt Naggie can sail the ship (biometrics).
@@ -357,15 +353,14 @@
     -   Aussies in Halley.
     -   Nobody knows what's going on in Paddington South.
 -   *Guinevere* returns to Halley.
-    -   Iffy reconnects with Jeep, realizes that he has feelings for her.
-    -   Honesty wakes up: imprinting is starting to break.
+    -   Jeep is waiting on the dock.
+    -   Iffy realizes that he has feelings for her.
+    -   Honesty wakes up: her imprinting is starting to break down.
 -   Iffy, Wales, and Johel are taken to see GS Halley.
-    -   Big reveal: it's actually GS Paddington, who has master-minded the whole thing.
-    -   Dr. Johel has been working for him all along.
-    -   The real GS Halley has already been disposed of.
--   Governor Stern (only surviving copy) is negotiating his exit with the Aussies.
-    -   While they're distracted by the Zillions, he will get control of Mount Tyree.
-    -   "We *will* change things" he promises (foreshadowing the big reveal at the end).
+    -   Big reveal: he is under Dr. Johel's control (which she reveals by switching him off).
+-   She has been playing the governors (and the Aussies and Zillions) against each other to buy time.
+    -   She wants control of Mount Tyree in order to win the war against the AI.
+    -   "We *will* change things" she promises (foreshadowing the big twist at the end).
 -   Wales gives up Iffy when Dr. Johel says, "You can have the next one, I promise."
 
 ### Chapter 10: changeling (day 15-25)
@@ -375,15 +370,17 @@
     -   Show Iffy taking control of her life.
 -   Sandrine Kibbens wakes in a hospital bed.
     -   She has been imprinted on Iffy in an attempt to master her abilities.
-    -   Governor Stern: "Unfortunately, a little bit of torture will be necessary…"
+    -   Dr. Johel: "Unfortunately, a little bit of torture will be necessary…"
 -   Sandrine hears Iffy's voice in her head between sessions.
     -   Tells Sandrine how the rest of her life went after the recording was made.
     -   And that Sandrine became a good person despite everything.
-    -   Persuades her that Governor Stern is the bad guy.
+    -   Persuades her that Dr. Johel is the villain.
 -   "Sandrine" appears to master Iffy's talent.
     -   Builds small bots to demonstrate what she's capable of.
-    -   Realizes that she is in the ruins of Bharati.
-    -   One of her bots escapes with a message.
+    -   Realizes that she is in the ruins of Bharati rather than in Halley.
+    -   Sandrine: "That'll make things easier" (meaning "less risk of collateral damage")
+    -   Iffy gets a message out via the AIs.
+    -   AI reveal that something unknowable will happen if Iffy reaches Niobium base.
 
 ### Chapter 11: another escape (day 25)
 
@@ -395,50 +392,81 @@
     -   Sandrine knows how to pilot.
     -   Iffy: whatever else happens, whatever she has to do, she wants to show this to Honesty.
     -   And, she realizes, to Jeep, but she files that thought away for the time being.
--   Get to the road and meet Edson.
+-   Gets to the road and waits.
 -   Iffy says goodbye to Sandrine, who makes her promise to end the imprinting.
+-   Edson shows up with a herd of musk oxen.
 
 ### Chapter 12: the new world (day 26-30)
 
 -   Goals:
-    -   Show the new world emerging the backayonder: something worth keeping.
-    -   Develop Edson's character.
-    -   AI reveal that something unknowable will happen if Iffy reaches Niobium base.
+    -   Show the new world emerging the backayonder (something worth keeping).
 -   Travel with Edson.
-    -   Meet the musk oxen.
     -   Hiding in underground bunkers.
--   Make it to the oasis.
--   Marines under Governor Stern's control arrive.
--   After a fight, they are captured.
-    -   Iffy stops Edson from brainwiping himself for Aunt Naggie's sake.
--   Taken to the governor's vehicle (originally built for terraforming).
-    -   Governor Stern is increasingly strung out.
+    -   Following the news about escalating conflict between Aussies and Zillions.
+-   Arrive at the forest oasis.
+-   Marines under Dr. Johel's control track them down.
+-   Iffy and Edson are caught while trying to flee.
+    -   Iffy stops Edson from brainwiping himself.
+-   Taken aboard Dr. Johel's landship.
+    -   Governor Stern Halley is there, still under Dr. Johel's control but fighting it.
+    -   Wales is there but uncommunicative.
+    -   Dr. Johel appears increasingly strung out.
 
-### Chapter 13 (day ?? / ?? / 72,600)
-
--   Goals: FIXME
-
-### Chapter 14 (day ?? / ?? / 79,200)
+### Chapter 13: the last lap (day 31-32)
 
 -   Goals:
-    -   Enter the Niobium base.
-    -   Reveal Johel and Wales' plan to alter the past and that Iffy's real "first" was his colleague Jing-mei Yuen.
-    -   Dr. Johel's death.
+    -   Reach the Niobium base.
+    -   Reveal that Iffy's real "first" was Wales' colleague and lover Jing-mei Yuen.
+    -   And that while Dr. Johel is hoping to defeat the AIs, Wales wants to change the past.
+-   Landship grinds across the tundra, leaving devastation in its wake.
+    -   Contrast with Edson's respectful relationship with the land.
+    -   Governor Stern seems to find things amusing (foreshadowing).
+-   Reach the foot of Mount Tyree.
+    -   Search for the entrance to the underground base.
+    -   Ambushed by animals summoned by Edson.
+    -   And by Aussies led by Captain Kerse (summoned by Governor Stern with Edson's help).
+-   Confusing multi-way fight in which Governor Stern and Captain Kerse both die.
+-   Iffy finds her way underground.
 
-### Chapter 15 (day ??)
+### Chapter 14: the labyrinth (day 33)
+
+-   Goals:
+    -   Set up the finale.
+-   Iffy makes her way through the tunnels under Mount Tyree.
+-   Meets and befriends robot guards left behind years ago.
+-   Finds the main lab.
+    -   Pictures still on the walls show a young Wales and a version of herself.
+    -   Strange equipment hints at time travel experiments.
+-   And then Dr. Johel and Wales show up.
+
+### Chapter 15: climax (day 33)
 
 -   Goals:
     -   Iffy decides not to alter the past.
     -   Wales has a redemptive change of heart and sacrifices himself.
-    -   GS Paddington's (well deserved).
+    -   Dr. Johel's death.
     -   Iffy becomes ambassador between AI and humanity.
-    -   End with Iffy messaging Jeep and Honesty: "we'll figure it out".
+-   Wales explains that their real goal was to alter the past.
+    -   Dr. Johel is as surprised as Iffy.
+    -   Argue about whether it's even possible.
+    -   AI in Iffy's head: "It is, and we cannot see past this moment."
+-   Iffy's tweaks weren't designed to talk to AI: they are to allow her to communicate to Hell in the past.
+    -   Wales: "Tell the world."
+    -   Iffy (speaking of her picture book): "They already knew!"
+-   Dr. Johel: "This is ridiculous. Just shut down the AI."
+    -   AI in Iffy's head: "Yes, but with us, the herd." (referring to the musk oxen and other wildlife)
+-   Dr. Johel brings up pictures of Honesty and Jeep talking in Halley and threatens them.
+-   Wales turns on Johel to stop her getting her way.
+    -   Johel dies.
+    -   Wales is fatally injured.
+    -   Pleads with Iffy to go through with the message.
+    -   Iffy: "No. I'm gonna start where I am, use what I have, and change what I can."
+    -   Wales' last words: "Sorry, Jinny, I tried"
 
-## FIXME
+### Epilog (day 34)
 
--   Why don't the AI help or hinder more?
--   Why doesn't Iffy message Honesty earlier?
--   Find out that Uncle Jack got rid of Iffy's pet raccoon.
--   Need to re-use Jeep.
--   What does the picture book mean?
--   Why aren't Edson and Iffy recaptured immediately by the governor's forces?
+-   Goals:
+    -   Wrap things up.
+-   Iffy emerges from the tunnels.
+-   Edson is there waiting for her.
+-   She messages Jeep and Honesty: "We'll figure it out".
