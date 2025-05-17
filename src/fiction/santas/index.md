@@ -31,10 +31,8 @@ fiction: true
 >
 > You probably think this is a Christmas story because of the santas,
 > but it's not:
-> it's about right and wrong and figuring out who you are
-> and how when one door opens another closes and vice versa.
-> There are many footnotes and explosions but only one kiss.
-> Oh,
+> it's about right and wrong and figuring out who you are.
+> There are many footnotes and explosions but only one kiss,
 > and if you need someone to hold your hand during the scary bits
 > you're out of luck.
 > I'm just a book, and we don't have hands.
@@ -46,10 +44,9 @@ fiction: true
 ## We Meet Our Protagonist
 
 Once upon a time,
-in a world halfway between yours and mine,
-lived a young santa named Finner.
-He came from a long line of santas:
-his mother had boxed and wrapped her first wind-up singing wombat
+a young santa named Finner lived in a world halfway between yours and mine.
+He came from a long line of santas and elves:
+his mother had built her first wind-up wombat
 when she was not much bigger than a wombat herself,
 while his father started helping with deliveries
 as soon as he was reliably out of diapers.[^reliably]
@@ -57,7 +54,7 @@ as soon as he was reliably out of diapers.[^reliably]
 [^reliably]: There's a story behind that word "reliably", but it's best told some other time.
 
 Everyone could tell that Finner was a santa the moment he was born:
-people said his tiny little beard was the cutest thing they'd ever seen.
+his tiny little beard was the cutest they'd ever seen.
 And as he grew up,
 he loved santafying—at least, he tried to.
 After all,
@@ -68,67 +65,56 @@ a small voice in Finner's head said, "Me.
 I don't enjoy this.
 Or rather, I do, but it's not enough."
 
-What he *did* enjoy,
-at least for a while,
-was going into the workshop and helping the family's elves.
+What he *did* enjoy was going into the workshop and helping his mother.
 The smell of solder,
 the *shick shick* of freshly-sharpened scissors,
-the feeling of the two halves of a dovetail joint fitting perfectly together—they
-felt right in a way that clambering up the icy concrete side of an apartment building
-never did.
+and the feeling of a dovetail joint fitting perfectly together
+felt right in a way that
+clambering up the icy concrete side of an apartment building never did.
 
 His parents tolerated it at first.
 "Good for him to know how things are made,"
 they told each other.
-After a while, though,
+After a while,
+though,
 they began hinting that maybe he should being ho-ho-ho'ing in the attic
 rather than sewing or gluing.
 And a while after that,
 Finner could tell that the hints were about to become
 a number three talk from his father,[^number-three-talk]
-so he put the tools he had borrowed from the elves back in their boxes
-and pretended he couldn't hear their hammering any longer.
+so he put the tools he had borrowed from his mother back in their boxes
+and pretended his dreams weren't filled with sanding and polishing.
 
 [^number-three-talk]: Direct eye contact, patient but serious voice, lots of awkward pauses on both sides, every other sentence starting, "Your mother and I think…"
 
-And so Finner became more restless every day.
+Finner became more restless every day.
 His mother suggested running up and down three flights of stairs over and over
-to burn off the energy,
+to burn off some energy,
 but it only made him sweaty.
 He tried sitting cross-legged on the floor with his eyes closed
-and humming softly to himself like
-the monks of Lotse Nuffin,[^lotse-nuffin]
+and humming softly to himself like the monks of Lotse Nuffin,[^lotse-nuffin]
 but all he got was a cold bum.
 
-[^lotse-nuffin]: The monks were his father's favorite clients. They wanted nothing, so every year that's exactly what he took them, and they were always grateful.
+[^lotse-nuffin]: The monks were his father's favorite clients. They wanted nothing, so every year that's what he took them, and they were always grateful.
 
-He tried to talk to his friends about it
-without actually explaining the problem,
-but that didn't go well.
-Finner's parents weren't the only santas in town.
-There were others nearby—aunts and uncles
-and second cousins twice removed
-and even a few who'd married into the trade
-and done quite well for themselves
-despite what Finner's great-grandmother
-never actually said out loud at family gatherings.[^loudly]
+There were other santas and elves in town he could have tried talking to:
+aunts and uncles,
+second cousins twice removed,
+and a few who'd married into the trade.
 But they were all related to him somehow,
-and none of the other children Finner went to school with or played hide and seek with
-really understood the problem.
-Santas didn't *make* things—they *delivered* them.
+which would have made the conversation awkward,
+and as far as he knew they all believed what everyone else did:
+elves made and santas delivered.
 That's how it was,
 that's how it had always been,
-and as far as everyone was concerned,
-that was how it was always going to be.
-
-[^loudly]: She was a hundred and twenty two years old, and could not say things so loudly that no one else could hear themselves think.
+and that was how it was always going to be.
 
 For a while he wondered if he was just lazy,
-which was a synonym for "sinful" where he lived,
+which was basically a synonym for "sinful",
 so he tried a few experiments.
 Working twice as hard made him even sweatier than running up and down stairs.
 Working half as hard made his father ask if he was sick and his mother mutter about teenagers.
-Neither made the yearning in his chest for *something* go away.
+Neither made the yearning in his chest go away.
 It grew and grew until finally,
 desperately,
 he realized there was only one thing left for him to do.
@@ -145,23 +131,21 @@ and then delivered a baby on the way home.[^deliver-baby]
 Everyone was a little bit afraid of her,
 except for the unfortunate few who had felt the full force of her disapproving glare:
 they were a *lot* afraid.
-But if you had a problem—a *real* problem,
-not just a lost sock or a broken heart[^broken-heart]—you could
-always knock on her door.
+But everyone also knew that she and her wife Shady Ann had fought long and hard
+to get santas the right to marry other santas
+and elves the right to marry other elves.
+There was a statue in the town square of Gran-Granna Tumbly and Shady Ann holding hands at their wedding,
+and Finner thought that if anyone would know what to do,
+she would.
 
-[^broken-heart]: Gran-Granna Tumbly did once make an exception for someone whose heart was broken because they had lost a very special sock and there was a very real chance of the world ending as a result, but that story is also best told some other time.
-
-Finner waited until Tuesday afternoon before going to see her.
-The postman delivered[^postal-delivery]
-her weekly order of chocolate on Tuesday just before lunch,
-and Finner hoped that would put her in a good mood.
-"Or at least a less grumpy one," he thought
-as he trudged through the damp, clumpy snow that had fallen overnight.
+He waited until Tuesday afternoon before going to see her.
+He knew the postman delivered her weekly order of chocolate on Tuesdays,
+and hoped that would put her in a good mood.
+"Or at least a less grumpy one,"
+he thought as he trudged through the damp, clumpy snow that had fallen overnight.
 The last time he had seen her had been the family gathering at Long Night the year before.
-Finner's uncle had accidentally served Gran-Granna a cup of camomile tea,
+Finner's uncle had accidentally served Gran-Granna camomile tea instead of double-dark coffee,
 and had squirmed for an hour as she drank it one slow, withering sip at a time.
-
-[^postal-delivery]: In the postal sense of the word.
 
 The Tumbly house looked exactly like those on either side of it:
 a front door with an evergreen wreath on it,
@@ -169,41 +153,39 @@ a large curtained window to one side,
 and a pair of smaller windows with matching curtains on the floor above.
 The downstairs window had a warm, welcoming glow,
 and even from the street Finner could smell curry and freshly-baked bread.
-The only remarkable thing was a statue of a cat sitting on an round pedestal
+The only notable thing was a statue of a cat sitting on an round pedestal
 in the middle of the front yard,
-its stone eyes fixed on a snow-filled bird bath.[^remarkable-yard]
+its stone eyes fixed on a snow-filled bird bath.[^notable-yard]
 
-[^remarkable-yard]: The houses on either side had a miniature Ferris wheel and a model locomotive in their front yards, though, so to be fair, the statue wasn't *that* remarkable.
+[^notable-yard]: The houses on either side had a miniature Ferris wheel and a model locomotive in their front yards, though, so the statue wasn't really *that* notable.
 
-Finner took a deep breath, walked up to the door, and knocked.
+Finner took a deep breath and knocked on the door.
 When nothing happened he knocked again.
-"Well that was a bust," he said aloud,
+"So much for that," he said aloud,
 secretly relieved.
 
-"She just nipped out to get some broccoli," a voice rumbled behind him.
+"She just nipped out to get some broccoli,"
+a voice rumbled behind him.
 "If you don't mind waiting a moment…?"
 
 Finner turned around slowly.
 The stone cat had turned its head toward him,
-but was clearly still keeping one eye on the empty bird bath.
+but was still keeping one eye on the empty bird bath.
 "I—sure," he said lamely,
 then added, "Thank you,"
 because a stone statue of a cat is still in some sense a cat,
 and one of the first lessons a santa is taught is
-to always be polite to cats.[^polite-to-cats]
+to always be polite to cats.
 
-[^polite-to-cats]: And watchmakers, but that's also—you know what? If it really is a story for another time, then from now on we'll just not mention it.
-
-"Of course," the cat rumbled.
-It turned its head back toward the bird bath,
+"You're welcome," the cat rumbled,
 and together they waited in silence.
 
 They didn't have to wait long.
-A tricycle taxi rolled up in front of the house and wheezed to a gentle stop.
+A tricycle taxi rolled to a gentle stop in front of the house.
 The taxi pedaller climbed out of his seat,
 stretched until his spine went *pop!*,
-nodded at Finner (or possibly the cat),
-and then opened the cab door and helped Gran-Granna Tumbly down.
+nodded at Finner (or more likely the cat),
+then opened the cab door and helped Gran-Granna Tumbly down.
 Pocketing the half-coins she handed him,
 he climbed back onto his seat and pedalled away.
 
@@ -213,17 +195,17 @@ and Gran-Granna was neither.
 hurrying back down the short walk to the gate.
 
 Gran-Granna Tumbly looked at the broccoli in her hand and snorted.
-"I think I can manage, thank you," she said.
+"I think I can manage," she said.
 "Did you catch anything?"
 
-"Uh…" Finner started, confused.
+"Uh…" Finner started, confused by the question.
 
 "No," the cat statue rumbled.
 "But I remain hopeful."
 
 "Hmph."
 Finner stepped out of the way as Gran-Granna Tumbly walked briskly up the path,
-the tip of her cane stabbing through the snow on every second step.
+the tip of her cane stabbing the snow on every second step.
 "Well, since you're here, you might as well come in."
 
 "Yes'm," Finner said obediently.
