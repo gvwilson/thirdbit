@@ -109,7 +109,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Is referred to as "a *very* alpha female"
 -   Bluster and Bravo Gruff (minor antagonists): twin goats, cousins of Gumption, and the town bullies
     -   They serve as minor antagonists to Gumption
--   Miz Tumbly (minor antagonist): a donkey schoolteacher who wants to be mayor and is prejudiced against bots
+-   Miz Nabbles (minor antagonist): a donkey schoolteacher who wants to be mayor and is prejudiced against bots
 -   Dockety (ally): Dockety-One Forty-Bee is the unofficial leader of the bots that have settled near Rusty Bridge
     -   It takes its responsibilities as leader very seriously (mirrors Maddy's elder sibling syndrome)
     -   Character arc: accepts that being a leader is not the same as re-creating Consensus
@@ -137,3 +137,24 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   It wants to bring the Makers back immediately
     -   Character arc: sacrifices itself to awaken the Makers
         -   We feel sorry for it even though it's a villain (Gollum)
+
+## Plot
+
+### Chapter 1: Mail (Maddy's PoV / day 1)
+
+-   Goals:
+    -   Introduce protagonists and minor characters in Rusty Bridge
+    -   Show the tension between Maddy's ambitions and her sense of responsibility
+    -   Hint at Gumption's PTSD and self-doubt, and at their complicated feelings for each other
+    -   Show the tension between the bots and the villagers
+-   Open with Maddy waiting for mail
+    -   Show her sketching (and her hopes for it)
+    -   Conversation with Mayor Lupus and Miz Nabbles shows anti-bot prejudice among some villagers
+-   Gumption arrives
+    -   Conversation between him and Maddy shows their relationship
+    -   And hints at Sindy's training with Special Leaf
+-   Maddy gets a letter, but Dockety arrives with Bluster and Bravo in tow before she can open it
+    -   Dockety's version: they were caught stealing
+    -   Their version (obviously a lie): they were gathering evidence that the bots are arming themselves
+    -   Dockety confirms that the bots have weapons
+-   Just as Dockety is about to leave, the Operators show up

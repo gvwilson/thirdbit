@@ -54,7 +54,7 @@ The apple orchard was draining properly for the first time in forever,
 and there wasn't a dull pair of scissors in town.
 
 "Still, owing a bot favors makes me uncomfortable,"
-Miz Tumbly sighed loudly,
+Miz Nabbles sighed loudly,
 shaking her graying mane.
 
 Mayor Lupus tipped the dregs of her tea into a planter.
@@ -64,7 +64,7 @@ she said conversationally.
 She rapped her gnarlywood cane against her mechanical leg.
 "Fightin' bots is a lot easier when you have a few on your side."
 
-Miz Tumbly's whiskers twitched slightly at the rebuke.
+Miz Nabbles's whiskers twitched slightly at the rebuke.
 She had put herself forward for election the year before,
 but had garnered even fewer votes than the mayor's previous challenger.
 "A lot of folks think it's time for a change,"
@@ -142,7 +142,7 @@ Its companion Crusher brought up the rear on heavy treads,
 and in between—
 
 "Are those boys *tied up*?"
-Miz Tumbly gasped,
+Miz Nabbles gasped,
 her ears folding down in shock.
 
 "Quiet down," Mayor Lupus said sharply.
@@ -207,7 +207,7 @@ The bot's lenses rotated back and forth again.
 we will use it only for defensive purposes."
 
 "Says *you*,"
-Miz Tumbly said just loudly enough to be heard.
+Miz Nabbles said just loudly enough to be heard.
 
 Mayor Lupus scowled.
 "Would have been neighborly to let us know you had that."
@@ -252,13 +252,13 @@ Maddy demanded hotly.
 
 "I didn't say that!"
 Gumption protested.
-"But Miz Tumbly was by for tea yesterday,
+"But Miz Nabbles was by for tea yesterday,
 and she and my ma and pa were all sayin'
 we don't really know much about them.
 I like havin' 'em here,"
 he added hastily,
 anticipating Maddy's outrage.
-"But she said—Miz Tumbly, I mean—that they call us 'breathers'."
+"But she said—Miz Nabbles, I mean—that they call us 'breathers'."
 
 "Well, we call 'em a lot worse than that,"
 Maddy snapped.
@@ -641,12 +641,12 @@ at the sharp pain in his side as he pulled himself up into the tree.
 
 ## School (Maddy)
 
-"Sorry, Miz Tumbly,"
+"Sorry, Miz Nabbles,"
 Maddy said the next morning.
 She and Sindy had gotten to school
 just as Rusty Bridge's other children were finishing
 a ragged rendition of the Plea to the Makers.
-Miz Tumbly scolded them more sternly than usual
+Miz Nabbles scolded them more sternly than usual
 as they slipped into their usual seats.
 
 The reason quickly became apparent.
@@ -660,7 +660,7 @@ Hands strained to reach even higher
 as an excited murmur rippled through the room.
 
 "Well,"
-Miz Tumbly said indulgently,
+Miz Nabbles said indulgently,
 "If you all promise to be *very good*,
 we have a special treat today.
 Everybody find a partner.
@@ -692,7 +692,7 @@ Bluster and Bravo shouldered their way through the other children
 to stand front and center.
 
 "I missed you in class today,"
-Miz Tumbly said curtly.
+Miz Nabbles said curtly.
 
 "Doin' chores,"
 Bluster lied without looking at her.
@@ -776,7 +776,7 @@ Nobody had to prompt the children to applaud this time.
 "Woo hoo!" Bluster whooped.
 "That was *amazing*!"
 
-Miz Tumbly stepped forward.
+Miz Nabbles stepped forward.
 "All right, um, thank you,
 thank you very much for, um, for that demonstration" she said.
 "Now how about we all line up and go *back into the classroom*
@@ -801,7 +801,7 @@ Gumption put his hand on Maddy's arm and squeezed to stop her from replying.
 The children settled into their seats.
 Special Blazes stood at the front of the class
 with his hands clasped behind his back.
-"Now, who has questions?" Miz Tumbly asked.
+"Now, who has questions?" Miz Nabbles asked.
 
 Hands shot into the air.
 How old had Special Blazes been when he became a Operator?
@@ -811,7 +811,7 @@ There wasn't one in Rusty Bridge?
 Well, they'd have to fix that, wouldn't they?
 
 Could they see his tech?
-Special Blazes looked at Miz Tumbly and tapped his chest.
+Special Blazes looked at Miz Nabbles and tapped his chest.
 When she nodded,
 he pulled up his shirt.
 The children ooh'ed and aah'ed at the glassy lozenge strapped to his chest.
@@ -820,7 +820,7 @@ The children ooh'ed and aah'ed at the glassy lozenge strapped to his chest.
 
 Had he ever killed anyone?
 "Bluster!"
-Miz Tumbly scolded.
+Miz Nabbles scolded.
 
 "No, no, it's a fair question," Special Blazes said.
 "And unfortunately, the answer is 'yes'.
@@ -848,7 +848,7 @@ His stern gaze swept the classroom.
 Any bot that respects that has nothing to fear from me or any other Operator."
 
 There were more questions,
-but finally Miz Tumbly said,
+but finally Miz Nabbles said,
 "All right, everyone,
 that's all the time we have today."
 Twenty-two children minus one groaned.
@@ -866,7 +866,7 @@ Special Blazes turned to the teacher.
 I'd like a word with her in private."
 
 "Oh—um, of course."
-Miz Tumbly glanced sidelong at Maddy.
+Miz Nabbles glanced sidelong at Maddy.
 "I'll be right outside.
 Come along, Gumption Goat, 'private' doesn't include you."
 
@@ -891,11 +891,11 @@ Then he sighed.
 Miz Roo,
 I know they're your friends,
 and I know what you and this town owe them.
-But from what Miz Tumbly tells me,
+But from what Miz Nabbles tells me,
 there's more of them every day out at that camp of theirs,
 and—"
 
-"Miz Tumbly?"
+"Miz Nabbles?"
 Maddy interrupted incredulously.
 "That's who you been listening to?
 Special,
@@ -925,7 +925,7 @@ he added with a non-apologetic shrug.
 
 "They've done nothing wrong!
 They've *helped* people!
-It's folk like Miz Tumbly that are the problem!"
+It's folk like Miz Nabbles that are the problem!"
 
 She half-hoped Gumption would shush her
 so she could let out some of her anger.
@@ -937,7 +937,7 @@ Maddy grumbled.
 Just as she reached into her satchel for her sketchbook,
 a ball of flame shot into the sky.
 
-Miz Tumbly shrieked,
+Miz Nabbles shrieked,
 and so did some of the children.
 Others when, "Whoa!"
 and one even started to clap.
@@ -985,7 +985,7 @@ You didn't do anything wrong."
 Maddy said in a tone that put fireballs to shame.
 
 "But Special Blazes said I had to!
-And Miz Tumbly said it too."
+And Miz Nabbles said it too."
 She leaned into her mother and sniffled.
 "I have to go to and be tested
 and they're going to find out about,"
@@ -1287,7 +1287,7 @@ Gumption wriggled out from under her
 and peered between the boxes that hid them.
 "I can't see anything,"
 he whispered.
-"Oh wait, there's Mama Tumbly an' a couple of other folk.
+"Oh wait, there's Miz Nabbles an' a couple of other folk.
 An' there's your ma."
 He glanced at Maddy.
 "She looks pretty upset."
