@@ -10,119 +10,150 @@ fiction: true
 
 ## Chapter 1
 
-Once upon a time, a young puppet named Still lived in a city full of
-everyday wonders. This is the story of the worst thing that ever
-happened to her.
+Once upon a time, a young puppet named Still lived in a city full of everyday wonders.
+This is the story of the worst thing that ever happened to her.
 
-Still wore black and white and eight shades of green, and had a happy,
-smiling face. She went to school every day to study reading, juggling,
-arithmetic, and history. At recess and lunch, she and her friends chased
-each other around the playground, pretending to be lions. When they grew
-bored with that, they played swing-ball, or Thieves and Gargoyles. If
-they were in a very wicked mood, and the teachers weren't looking, they
-tied little bits of string to each other's arms and legs, then
-staggered around as if someone else was making them move. "Help me,
-help me," they cried, until whoever was pretending to be Key the Cutter
-set them all free.
+Still had a smiling face and wore black and white and eight shades of green.
+She went to school every day to study reading, juggling, arithmetic, and history.
+At recess and lunch,
+she and her friends chased each other around the playground pretending to be lions.
+When they grew bored with that they played swing-ball or Thieves and Gargoyles.
+If they were in a very wicked mood,
+and the teachers weren't looking,
+they tied little bits of string to each other's arms and legs,
+then staggered around as if someone else was making them move.
+"Help me, help me," they cried
+until whoever was pretending to be Key the Cutter set them all free.
 
-Still liked her school and her friends, but what she liked most was her
-violin. It was carved out of heartwood, just like her, and had been
-polished until it was a deep, liquid brown. She loved to play everything
-from jingly little children's songs to slow, sad waltzes that sounded
-like the river at night. She never went anywhere without it---she even
-took it to bed with her, and slept with it in her arms.
+Still liked her school and her friends,
+but what she liked most was her violin.
+It was carved out of heartwood and had been polished until it was a deep, liquid brown,
+just like her.
+She loved to play everything from jingly little children's songs
+to slow, sad waltzes that sounded like the river at night.
+She never went anywhere without it—she even slept with it in her arms.
 
-The two puppets who had made Still were named Elbow and Ramble. One day,
+The two puppets who had made Still were named Elbow and Ramble.
+One day,
 Elbow brought a great big box full of old papers home from his shop.
-"The mayor found these in the basement of City Hall," he told Ramble
-and Still. "And she wants *me* to fold them up so that they can be put
-away properly. It's going to be a nasty job. See?" He lifted one of
-the pieces of paper gingerly out of the box and held it up for them to
-see. It was yellow around the edges, and crackly-stiff from having been
-damp and then dried out. "Never mind straight creases---if I make even
-the slightest mistake, the paper might tear!"
+"The mayor found these in the basement of City Hall,"
+he told Ramble and Still.
+"And she wants *me* to fold them up so that they can be put away properly.
+It's going to be a nasty job. See?"
+He lifted a brittle piece of paper gingerly out of the box and held it up.
+It was yellow around the edges and crackly-stiff from having been damp and then dried out.
+"Never mind straight creases—if I make even the slightest mistake, the paper might tear!"
 
 "Well then, I suppose we'd better stay out of your way for a while,"
-Ramble said. She kissed his cheek. "I should grind some lemon peel and
-amber for my paints. Still, why don't you clean up your room? It's
-such a mess."
+Ramble said,
+kissing his cheek.
+"I should grind some lemon peel and amber for my paints.
+Still, why don't you clean up your room?
+It's such a mess."
 
-"All right," Still said. She had her school books spread out on the
-kitchen table, and was drawing little wind-up tarantulas on the back of
-her arithmetic homework.
+"All right," Still said.
+Her school books were spread out on the kitchen table
+and she was drawing little wind-up tarantulas on the back of her arithmetic homework.
 
-Ramble waited a moment. Her daughter kept drawing. "Still?" she asked
-again.
+Ramble waited a moment.
+Her daughter kept drawing.
+"Still?" she asked again.
 
-"All *right*," Still said crossly. Up the stairs she went, *clomp
-clomp clomp*, thinking dark thoughts about the unfairness of parents and
-how if they meant 'right now' they ought to *say* 'right now'.
+"All *right*," Still said crossly.
+Up the stairs she went, *clomp clomp clomp*,
+thinking dark thoughts about the unfairness of parents
+and how if they meant 'right now' they ought to *say* 'right now'.
 
-Still's room *was* a mess. There were socks on her bookshelves, books
-sleeping in piles on her desk, and pencil shavings spilling out of her
-drawers. A small paper boat looked down on it all from atop her dresser.
-Elbow had made it when she ran away from home on her fifth birthday. On
-one side were the words, "Have you seen our daughter? Please tell her
-we love her very much." On the other was a drawing of Still with her
-violin. Still had come home on her own before the boat was launched, so
-Elbow had given it to her as a present. "Just in case we ever try to
-varnish you on your birthday again," he had said solemnly.
+Still's room *was* a mess.
+There were socks on her bookshelves,
+books sleeping in piles on her desk,
+and pencil shavings spilling out of her drawers.
+A small paper boat looked down on it all from atop her dresser.
+Elbow had made it when Still ran away from home on her fifth birthday.
+On one side were the words,
+"Have you seen our daughter? Please tell her we love her very much."
+On the other was a drawing of Still with her violin.
+Still had come home on her own before the boat was launched,
+so Elbow had given it to her as a present.
+"Just in case we ever try to varnish you on your birthday again,"
+he had said solemnly.
 
-Still stared forlornly at her room. *I don't even know where to start,*
-she thought, so she sat down on her bed to puzzle it out. To help her
-think, she tucked her violin under her chin and began to play.
+Still stared forlornly at her room.
+*I don't even know where to start,* she thought,
+so she sat down on her bed to puzzle it out.
+To help her think,
+she tucked her violin under her chin and began to play.
 
-"Still," Ramble called a moment later. "Are you cleaning your room?"
+"Still," Ramble called a moment later.
+"Are you cleaning your room?"
 
-"Ye-ess," Still called back. She put her violin aside and stood
-up---then sat back down again. She couldn't put her books away until
-she moved her socks, but she couldn't put *them* away until she tidied
-up the pencil shavings, and she couldn't do *that* until she moved her
-books… Her hand strayed to her violin as she thought. She couldn't
-do *that* until she did *that*, but she couldn't do *that* until she
-did *that*. *Da di-di-di dah, da di-di-di dah.*
+"Ye-ess," Still called back,
+putting her violin aside.
+She stood up,
+then sat back down again to think.
+She couldn't put her books away until she moved her socks,
+but she couldn't put *them* away until she tidied up the pencil shavings,
+and she couldn't do *that* until she moved her books…
+Her hand strayed to her violin as she thought.
+She couldn't do *that* until she did *that*,
+but she couldn't do *that* until she did *that*.
+*Da di-di-di dah, da di-di-di dah.*
 
-"Still!" Ramble said loudly. Still snatched her hand away from her
-violin. She had been plucking the little tune on the strings without
-even realizing that she was doing it. And now Ramble was standing in the
-bedroom doorway, her shoe going *tap tap tap* on the floor. "Elbow
-needs to concentrate. If you want to play your violin, why don't you go
-outside and do it? You know how much the birds like to listen to you."
+"Still!" Ramble said loudly.
+Still jumped.
+She had been plucking the little tune on the strings
+without even realizing that she was doing it.
+And now Ramble was standing in the bedroom doorway,
+her shoe going *tap tap tap* on the floor.
+"Elbow needs to concentrate.
+If you want to play your violin,
+why don't you go outside and do it?
+You know how much the birds like listening to you."
 
-"Can I go to Mister Leaf's?" Still asked. "He told me last week that
-he thought I was ready for some special lessons." She held her breath.
+"Can I go to Mister Leaf's?" Still asked eagerly.
+"He told me last week that he thought I was ready for some special lessons."
+She held her breath.
 Music lessons were *much* more fun than cleaning her room.
 
-"Special lessons?" Ramble asked. "He didn't say anything to me about
-special lessons the last time I spoke to him. Did he say how much they
-were?"
+"Special lessons?" Ramble asked.
+"He didn't say anything to me about that.
+Did he tell you how much they are?"
 
-"I don't think they cost anything," Still said. "I think it's
-because my recital is just three weeks away. Can I? Please?"
+"I don't think they cost anything," Still said.
+"But my recital is just three weeks away.
+Can I? Please?"
 
-Ramble's shoe went *tap tap tap* while she thought. "All right. But
-you go straight to Mister Leaf's, and come straight home. And you still
-have to clean up your room before you go to bed tonight."
+Ramble's shoe went *tap tap tap* while she thought.
+"All right.
+But you go straight to Mister Leaf's, and come straight home.
+And you still have to clean up your room before you go to bed tonight."
 
-"I will!" Still promised. She gave Ramble a hug, then raced down the
-stairs, *clatter clatter clatter*. The front door went *bang!* behind
-her.
+"I will!" Still promised.
+She gave Ramble a hug,
+then raced down the stairs,
+*clatter clatter clatter*.
+The front door went *bang!* behind her.
 
-Still skipped along the cobblestone streets, playing little tunes as she
-went. Just as she'd promised, she went straight to Mister Leaf's
-house---except for a detour to walk heel-to-toe around the lip of a
-fountain pool, and a brief stop to wave at a passenger balloon that was
-taking off for the moon.
+Still skipped along the cobblestone streets,
+playing little tunes as she went.
+Just as she had promised,
+she went straight to Mister Leaf's house—except for
+a detour to walk heel-to-toe around the lip of a fountain pool
+and a brief stop to wave at a passenger balloon that was taking off for the moon.
 
-Mister Leaf's house stood across from a little square of park full of
-trees and benches. Just as Still reached it, a drop of rain hit the
-cobblestones beside her. *Plop!* Another drop landed beside it, then
-another, and another. "Oh, mildew," Still said crossly. She didn't
-mind the rain, but Ramble would fuss about her warping if she got wet.
-She looked up at the fat, gray clouds, then ran *tik tik tik* across the
-cobblestones to ring Mister Leaf's doorbell.
+Mister Leaf's house stood across from a little park full of trees and benches.
+Just as Still reached it,
+a drop of rain hit the cobblestones beside her.
+*Plop!*
+Another drop landed beside it, then another, and another.
+"Oh, mildew," Still said crossly.
+She didn't mind the rain,
+but Ramble would fuss about her warping if she got wet.
+She looked up at the fat, gray clouds,
+then ran *tik tik tik* across the cobblestones to ring Mister Leaf's bell.
 
-The door opened a moment later. A deep, warm voice said, "Why, what a
+The door opened a moment later.
+A deep, warm voice said, "Why, what a
 pleasant surprise! Please, please, come in."
 
 </section>
@@ -162,15 +193,15 @@ violin under her chin. The rain was darkening the red bricks of the
 houses across the street. "Shall I start with scales?" she asked.
 
 "Of course," Mister Leaf said. The piano bench creaked as he sat down.
-"You should always start with a few scales. But not too fast---the most
+"You should always start with a few scales. But not too fast—the most
 important thing is to hear your own music as you play it. Oh, and don't
-worry so much about getting your fingers in the right places---they know
+worry so much about getting your fingers in the right places—they know
 what to do. Now, one, two, three, four…"
 
 Still played a G scale, then a B scale, and then a D flat scale (which
 is almost the hardest scale there is). Mister Leaf nodded his head and
 patted the piano bench with his hand to help her keep time. Every once
-in a while he said, "Good, good," or, "Slow down---try to smooth the
+in a while he said, "Good, good," or, "Slow down—try to smooth the
 notes into each other a little bit more."
 
 "Very nice," he said when she finished. "Now, how about a song?
@@ -191,11 +222,11 @@ try?"
 
 "Try what?" Still asked.
 
-"Your violin---may I try it? It makes such a beautiful sound."
+"Your violin—may I try it? It makes such a beautiful sound."
 
 "Oh. Oh my." All of a sudden Still felt like her clockwork was
 whirring at double speed inside her. "I've never let anyone else play
-my violin before," she said. "I---I don't know if I should."
+my violin before," she said. "I—I don't know if I should."
 
 "Oh, well, it's not important," Mister Leaf said. Even as he said it,
 though, the glitter faded from his eyes. Still opened her mouth to say,
@@ -233,7 +264,7 @@ He nodded. "Good. I'll see you in a couple of days."
 The rain had stopped while Still was playing, although a few dark clouds
 still nuzzled each other over her head. Still's thoughts went round and
 round as she slowly walked home. She could play that exercise almost
-perfectly---it was stupid to flub it like that. And… She shivered.
+perfectly—it was stupid to flub it like that. And… She shivered.
 She had never even really *thought* about someone else playing her
 violin before.
 
@@ -257,7 +288,7 @@ such a good teacher… He was even giving her extra lessons. She turned
 around impulsively and hurried back to his house.
 
 *Knock knock knock.* As soon as Mister Leaf opened the door, Still
-blurted, "I---please, can I try that exercise again? I think I can do
+blurted, "I—please, can I try that exercise again? I think I can do
 it properly this time."
 
 "Oh, splendid," Mister Leaf said warmly. "I'm sure you can. Go on,
@@ -270,7 +301,7 @@ folded. "Start whenever you're ready," he said softly.
 Still nodded and tucked her violin under her chin. *Please please please
 do it right,* she thought. She brought her arm up and started to play.
 
-This time, the notes were perfect---each in its proper place, light but
+This time, the notes were perfect—each in its proper place, light but
 confident, without a single skip or slip. When she finished, Mister Leaf
 straightened up and clapped his hands. "That was beautiful," he said.
 "Perfect, every note. Well done."
@@ -280,7 +311,7 @@ straightened up and clapped his hands. "That was beautiful," he said.
 Mister Leaf's eyes glittered. "Try what?" he asked.
 
 *Tick tick tick tick tick* chattered Still's clockwork. "Would you
-like to play my violin? I---I don't think I'd mind."
+like to play my violin? I—I don't think I'd mind."
 
 "Are you sure?" Mister Leaf asked.
 
@@ -336,12 +367,12 @@ sure it can be fixed."
 
 "Oh, you mustn't tell them anything," Mister Leaf said hastily.
 "Why, if they found that you'd let this happen,
-they'd---they'd---why, they'd put strings on you, that's what
+they'd—they'd—why, they'd put strings on you, that's what
 they'd do! They'd screw little eyehooks into your elbows and knees,
 and run black silk strings through them. They'd never let you move your
 own arms and legs, just to make sure you couldn't ever do anything like
 this again. Do you want that? No, I didn't think so. Now look, the rain
-has stopped---I think it's time for you to go home."
+has stopped—I think it's time for you to go home."
 
 </section>
 
@@ -350,7 +381,7 @@ has stopped---I think it's time for you to go home."
 ## Chapter 3
 
 Afterward, Still could never remember how she had found her way
-home. All she could think about was her violin---her poor, wounded
+home. All she could think about was her violin—her poor, wounded
 violin.
 
 Her joints ached with the damp and the cold as she stumbled through the
@@ -360,9 +391,9 @@ of the ugly dent that marred the finish of her left cheek. He lifted her
 head gently. "Oh, Still, what happened?"
 
 "What?" She brought her hand up to her cheek. Her fingers probed the
-dent gingerly. "I---I fell." she said vaguely. Had she fallen? She
-couldn't remember. "But look." She held up her violin. "It---
-it---"
+dent gingerly. "I—I fell." she said vaguely. Had she fallen? She
+couldn't remember. "But look." She held up her violin. "It—
+it—"
 
 Elbow dropped the old menu he'd been folding and hugged his daughter.
 "Sh, sh, sh," he said, rocking her gently, trying to keep his voice
@@ -377,7 +408,7 @@ as good as new."
 
 "Why, it'll even make you look more grown-up," Elbow said. "Just
 like the dimples in my cheeks. I wasn't carved with them, you know. I
-got this one when I fell out of a tree, and this one when---"
+got this one when I fell out of a tree, and this one when—"
 
 "But what about my violin?" Still interrupted. She had three thick
 blankets wrapped around her, but she still felt cold. Even with a big
@@ -393,7 +424,7 @@ you'll feel better in the morning."
 
 So Still went upstairs, put on her pajamas, and lay down in bed. Moments
 slipped by, one after another, but didn't stick. Her mind didn't think
-about--- about--- about anything, just as her hand wouldn't have
+about— about— about anything, just as her hand wouldn't have
 touched a hot stove.
 
 Morning came. Still's window grew brighter as the sun climbed toward
@@ -417,7 +448,7 @@ feel dizzy at all?" he asked. She shook her head again.
 
 The doctor straightened up. "Well, as far as I can tell, she's as
 sound as the day she was made," he said to Ramble. "Her clockwork
-seems fine---no scraping or odd jingles that I can hear. That dent in
+seems fine—no scraping or odd jingles that I can hear. That dent in
 her cheek, now, that's going to leave a mark, but it's not really very
 serious. I'm sure you can mend it as well as I could."
 
@@ -438,15 +469,15 @@ far-off land. Sometimes her fingers twitched, as if she was playing the
 violin, but she never mentioned it, or wondered where it had gone.
 
 Each morning, she looked at a stranger in the mirror. That dented
-face---that wasn't her, was it? "You mustn't tell," she warned her
+face—that wasn't her, was it? "You mustn't tell," she warned her
 reflection. "They'll put strings on you if you do." She never thought
-about *what* she mustn't tell---that thought was already buried, down
+about *what* she mustn't tell—that thought was already buried, down
 deep where it couldn't hurt her, deeper than any pirate treasure.
 
 But once, in the afternoon, when the light was pearly-gray, she
 remembered the little paper boat that she had found in the gutter, with
 "Have you seen our son?" written on it. She wondered what had happened
-to it---had it snagged on another bunch of twigs further down the
+to it—had it snagged on another bunch of twigs further down the
 stream? Or had it found its way to one of the canals that ran through
 the city? The thought floated away as quietly as the little boat had,
 and didn't return.
@@ -474,7 +505,7 @@ father asked a moment later. "What do you think?"
 Her violin lay inside on a bed of straw. Brand-new strings glistened
 silver-bright along its neck, and its body had been sanded down smooth
 and re-varnished. There was only a faint, shallow groove to show
-where---where---
+where—where—
 
 "What do you think?" her father asked again. "Good as new?"
 
@@ -486,7 +517,7 @@ get to school in time for juggling."
 "All right," Still said dully. She stood up and walked toward the
 front door.
 
-"Wait---aren't you going to take your books?" Elbow asked.
+"Wait—aren't you going to take your books?" Elbow asked.
 
 Still stopped. "Oh. I forgot." She went back into the kitchen, dumped
 her books and unfinished homework in her bag, and turned to leave again.
@@ -502,8 +533,8 @@ Still trudged along the cobblestones. The sky was a clear autumn blue.
 Little clockwork birds chirped in the trees. The puppets passing by
 chattered to one another as if nothing had happened. She ran her thumb
 back and forth over the faint groove in the top of the violin that was
-the only sign of--- of--- She stopped for moment to let the dizziness
-pass. What was she doing? Oh, yes---school. She was going to school.
+the only sign of— of— She stopped for moment to let the dizziness
+pass. What was she doing? Oh, yes—school. She was going to school.
 
 *Plang… plang…* The principal stood by the door with a serious
 look on her face, tugging on the bell cord. "Come along, come along,"
@@ -527,7 +558,7 @@ isn't it? Thought so. Enjoy your class."
 "Thank you, ma'am." Still trudged up the gray limestone steps and
 into school.
 
-Juggling---what can you say about a room full of young puppets
+Juggling—what can you say about a room full of young puppets
 practicing juggling? The air was full of beanbags and Indian clubs, and
 the *thump* and *bump* of things hitting the floor. The teacher was so
 plump that his stuffing threatened to burst out at his wrists and
@@ -535,12 +566,12 @@ ankles, but his hands were quick, and his tongue was quicker. "You
 there! Lantern! It's over, over, under, over, under, not over, under,
 under, over, under! Try starting with your left! Follow, Follow, Follow,
 what *are* you doing? We're doing Cross-Eyed Weaver today, not Flock of
-Ducks! And Still, could you---oh. Never mind."
+Ducks! And Still, could you—oh. Never mind."
 
 A few of the children glanced over at Still curiously when the teacher
 cut himself off and turned his perpetual disappointment on someone else.
 She stood in her usual place near the wall. Beanbags, three big knives
-(with dulled edges, of course---they wouldn't be juggling real knives
+(with dulled edges, of course—they wouldn't be juggling real knives
 until next year), and a pair of clubs lay on the table beside her.
 Instead of juggling, though, she just tossed a beanbag from hand to
 hand. Up it went, exactly as high as her eyes, then down on the other
@@ -622,7 +653,7 @@ doing in reading. "I have to go," she said in a rush. As she hurried
 away, she heard Pirouette say, "See? I *told* you so!"
 
 There was a place in the schoolyard where generations of young puppets
-had gone to be left alone. It wasn't an official place---there were no
+had gone to be left alone. It wasn't an official place—there were no
 lines around it, and there was no sign. I just happened to be right
 beneath the staff room window. You couldn't play loud games there, or
 make jokes about the teachers, or swear, but you couldn't be bullied or
@@ -648,7 +679,7 @@ part yet." He didn't bother her again.
 The twenty-fifth gathered her books together slowly, then walked out
 with her head down. Her teacher watched her go. *It's none of my
 business*, he told himself. *Children bump and scrap themselves all the
-time---it's just part of growing up.*
+time—it's just part of growing up.*
 
 Still's footsteps echoed around her as she walked toward the door. They
 were almost as loud as the thought that had been echoing in her head all
@@ -666,7 +697,7 @@ wanted them and kept going straight.
 ## Chapter 4
 
 Still walked and walked. She paid no attention to where she was
-going---she just let her own weight carry her downhill.
+going—she just let her own weight carry her downhill.
 
 The streets grew narrower as she walked, then dirtier. Gaps appeared
 between the cobblestones. Little tendrils of fog filled the air around
@@ -686,7 +717,7 @@ looked cheap as well. If they weren't new, they were carefully mended,
 or ragged at the cuffs. No-one looked straight at her, or said hello.
 
 Finally Still found herself facing a blank brick wall at the end of an
-alley. It was dark. She was tired and hungry---too tired and hungry to
+alley. It was dark. She was tired and hungry—too tired and hungry to
 walk another step. An old banana crate lined with newspapers lay in the
 corner. She climbed into it, curled herself around her violin, and fell
 straight into a deep, dreamless sleep.
@@ -706,11 +737,11 @@ the fog, but it was a battle the sun was used to losing. Still ached.
 Her wood felt damp all the way through. She stood with a groan. Her arms
 and legs felt like they had warped overnight. What she really needed was
 a hot mug of machine oil to warm up her clockwork. A mug of machine oil,
-and---
+and—
 
 She patted her pockets. They were as empty as the box she had slept in.
 She didn't have any candy, not a single gumdrop. She shook her head.
-The first thing was to find some oil---she could worry about how to pay
+The first thing was to find some oil—she could worry about how to pay
 for it later.
 
 Still tucked her violin under her arm and set off. She couldn't
@@ -737,14 +768,14 @@ seemed to be headed in the same direction, so she followed along.
 
 She crossed an old stone bridge over a canal. A block later, she found
 herself on the edge of a market square. It was the size of a city block,
-and filled with carts and stalls and sound. And puppets---so many
+and filled with carts and stalls and sound. And puppets—so many
 puppets.
 
 Someone bumped into her from behind. "'Scuse me," he muttered, not
 slowing down. She stepped out of the way and let the world flow past her
 until her clockwork stopped racing.
 
-Hunger drove her to move again a few minutes later---hunger, and the
+Hunger drove her to move again a few minutes later—hunger, and the
 smell of hot oil somewhere nearby. Hesitantly, still hugging her violin
 tight to her chest, she stepped into the crowd and set off to find the
 source of the aroma.
@@ -774,7 +805,7 @@ was she supposed to follow the bend, then turn right further along?
 
 She stopped in front of a balloon seller who had just finished the last
 of her morning grease. "Excuse me," Still said once again, "But I'm
-looking for Kettle's, or Wing's. Can you please tell me---"
+looking for Kettle's, or Wing's. Can you please tell me—"
 
 "Down there," the balloon seller said, pointing with her spoon.
 
@@ -797,7 +828,7 @@ Kettle's was shorter, so Still went there.
 Kettle herself was short and round. "What will you have, dearie?" she
 asked.
 
-"Just some oil, please," Still said. "Only---I don't have any candy.
+"Just some oil, please," Still said. "Only—I don't have any candy.
 Not with me."
 
 Kettle shook her head. "Sorry." She looked past Still to the gangly
@@ -860,7 +891,7 @@ anything to read, um, I'm just down that way."
 "I'll remember," she promised.
 
 She spent the morning wandering through the market. It wasn't as large
-as it seemed---the fog just made it impossible to see everything at
+as it seemed—the fog just made it impossible to see everything at
 once. She hung onto the cup from Wing's even after the last of the oil
 was gone. When the noon bell rang, she sat on the lip of a dry fountain
 on the market's edge and tore the cup apart so that she could lick the
@@ -928,7 +959,7 @@ just *had* to find something to eat.
 
 She walked back through the market. Surely somebody must have thrown out
 a few scraps of stuffing, or a jar of oil that was only half-empty. But
-no luck---people were closing up shutters, taking down awnings, rolling
+no luck—people were closing up shutters, taking down awnings, rolling
 up carpets, and putting boxes and barrels away, but nobody was throwing
 anything away. All she found was a battered cardboard cup by a stall
 that advertised cheap second-hand gyroscopes, but there was nothing in
@@ -977,7 +1008,7 @@ The city bell rang the half-hour twice while she crouched there,
 shivering in the fog. She was almost ready to give up when the door
 opened. A barrel-shaped puppet in a dirty white apron came out with a
 cardboard box in his arms. He set it on top of the nearest garbage can,
-pulled the lid off the second, and---
+pulled the lid off the second, and—
 
 "What?" he shouted back through the door in answer to a question Still
 hadn't heard. He listened for a second, then muttered, "Splinters,"
@@ -1029,10 +1060,10 @@ She woke with a start. "Ew!" she exclaimed, scrambling to her feet.
 Something cold and hard fell off her leg with a soft *thud* and a
 cold-hearted giggle. "Tee hee," it went, and from around her she heard
 some more small voices answer, "Tee hee, tee hee." She gasped. Glass
-rats! And not just one this time---a whole scurry of them.
+rats! And not just one this time—a whole scurry of them.
 
 She looked around wildly, her head still fuzzy with sleep. She had no
-idea how many there were---their transparent bodies were hard enough to
+idea how many there were—their transparent bodies were hard enough to
 see in the daytime, much less in the middle of the night. Should she run
 for it? Would they chase her? How fast could glass rats run?
 
@@ -1082,7 +1113,7 @@ drainpipe.
 Once on the ground, she rubbed the grit out of her eyes with the back of
 her hand. She had to get some candy, but how? The only place she could
 think of was the market, but she didn't have anything to sell. She felt
-so alone. She just wanted to go---to go---
+so alone. She just wanted to go—to go—
 
 The fog suddenly seemed to thicken. Her thoughts darted away from
 wherever it had been about to go like a fly escaping a hungry frog.
@@ -1114,7 +1145,7 @@ any candy, just some oil or something."
 assistant?" His nod turned into a regretful shake. "Well, thank you
 for asking, but there's hardly enough business here to keep me fed, to
 tell you the truth. There just aren't many proper windows left any
-more---everybody's putting in disposable ones instead. Sorry."
+more—everybody's putting in disposable ones instead. Sorry."
 
 "Well, thanks anyway," Still said. The window cleaner smiled at her
 again, then bent back over his work.
@@ -1148,7 +1179,7 @@ Plenty of places here would give you good licorice for something like
 that."
 
 "But it's not for sale," Still said quickly. She took a step
-backwards. "It's not---I couldn't."
+backwards. "It's not—I couldn't."
 
 "Ease up, ease up," the carpeteer said. He patted the air with his
 hands. "If it's not for sale, it's not for sale, is it? Just a
@@ -1156,7 +1187,7 @@ thought, that was." He lowered his hands and cocked his head to one
 side. "Wouldn't be, um, borrowed, would it? Without the original
 owner's knowledge?"
 
-"No, no, it's mine," Still said. "I really should go now, I---"
+"No, no, it's mine," Still said. "I really should go now, I—"
 
 "Well, if it's yours, you must know how to play it." The carpeteer
 took a step toward her, smiling like a crocodile. "And there's plenty
@@ -1296,7 +1327,7 @@ reveal a plain wooden cover stamped with the words "Spring Leaves
 (April) Series 175".
 
 "One seventy five?" the square-faced puppet gasped. "But
-that's---err, that could be quite nice, actually. Quite nice. I mean,
+that's—err, that could be quite nice, actually. Quite nice. I mean,
 to a collector. Not much value to anyone else."
 
 "I guessed not," Attic agreed. "Go ahead, take a look. I think the
@@ -1346,13 +1377,13 @@ invisible ink or exploding pages."
 "Ah, um, yes." The innocent, teasing tone he had used with the
 square-faced puppet had vanished. Instead, he seemed to be blushing out
 loud. "Well. I do some real books too. Histories, novels, um,
-fishing---do you like fishing? No, me neither, but some of the books are
+fishing—do you like fishing? No, me neither, but some of the books are
 just splendid."
 
 Still smiled. "I'm not actually looking for any books right now," she
 said. "I just wanted to give you this." She handed him the half-empty
 cup of oil. "I think it's gone cold. And I spilled some when
-your---when the book---"
+your—when the book—"
 
 "Oh, that's all right, that's fine," Attic said hastily. He took the
 cup of oil from her and slurped it. "I don't like it as hot as most,
@@ -1395,16 +1426,16 @@ needing something to read."
 
 "Oh!" Still was outraged, and the fact that neither Attic nor the
 roller skater seemed to mind the library closing just made her angrier.
-Libraries were---they were special, that's what they were. They were
+Libraries were—they were special, that's what they were. They were
 cool, quiet places where you could sit and read stories about faraway
 places, without anything bad happening. She pulled back from that
-thought as if it had singed her. She didn't want to think---she
-*couldn't* think---about bad things happening.
+thought as if it had singed her. She didn't want to think—she
+*couldn't* think—about bad things happening.
 
 "So do you always give people bad news?" she asked the roller skater.
 
 "Every chance I get," the roller skater confirmed. "The worse the
-better---pays more. But it's just for now. I'm saving up. Going to the
+better—pays more. But it's just for now. I'm saving up. Going to the
 moon."
 
 Still saw Attic roll his eyes and shake his head. She smiled at the
@@ -1455,7 +1486,7 @@ She hopped up onto its stage and turned around. The conductor would have
 stood here, with the band behind him. He would have bowed to the
 audience before turning and tapping his baton on the podium. They would
 all have dressed in black and white, or perhaps in bright parade
-uniforms. Blue and orange uniforms, perhaps, with polka-dot hats, and---
+uniforms. Blue and orange uniforms, perhaps, with polka-dot hats, and—
 
 Still suddenly felt dizzy. She mustn't think about, about whatever she
 had just been thinking about. She shook her head to clear it and hopped
@@ -1499,7 +1530,7 @@ away.
 Crest-of-the-Wave braked beside her. "Problem?" he asked. His friends
 stopped a few feet away.
 
-"It's all right," Still lied. "He---he wanted my violin."
+"It's all right," Still lied. "He—he wanted my violin."
 
 "So what did you tell him?"
 
@@ -1513,10 +1544,10 @@ want to play with it." He twirled around. "Anyway, I made up a new
 stunt today. Want to see it?"
 
 "Um, sure." Still shook her head. Where could she keep her violin? Not
-in the market---someone would be sure to find it. Could she hide it on
+in the market—someone would be sure to find it. Could she hide it on
 the rooftop where she had slept the night before? It didn't look like
 anyone else ever went there. She could wrap it up in newspapers, and
-tuck it under the eaves, or behind the gargoyle. Yes, that was it---she
+tuck it under the eaves, or behind the gargoyle. Yes, that was it—she
 would put it behind the gargoyle. That's what they were for, wasn't
 it? Guarding things?
 
@@ -1549,7 +1580,7 @@ whatever else was on sale that day.
 
 Her wanderings always ended at Attic's. The gangly puppet smiled every
 time he saw her, even on days when the fog was wet and warping. They
-chatted about nothing in particular while he opened up his stall---had
+chatted about nothing in particular while he opened up his stall—had
 he seen the pink feather boa that the window cleaner was wearing? Had
 she heard that Kettle might be leaving the market to become a ship's
 cook? And always, did he have any new books? About Key the Cutter?
@@ -1581,7 +1612,7 @@ case grease. I would have worn out completely and fallen to pieces if I
 hadn't escaped."
 
 "And how *did* you escape?" Still's off-handed tone made Attic
-uneasy. Surely she couldn't be telling the truth---not in this day and
+uneasy. Surely she couldn't be telling the truth—not in this day and
 age. But she didn't sound like she was joking…
 
 "Oh, that's a secret. What if they captured me again, and they'd
@@ -1599,7 +1630,7 @@ seen you with it since. Did you sell it?"
 Just then the city bells rang mid-day. Still closed the book with a
 snap, leaped to her feet, and handed it back to Attic. "Thanks," she
 said. "See you tomorrow." He opened his mouth to say, "Sure, any
-time," or maybe, "I'm sorry for asking---I didn't know it would
+time," or maybe, "I'm sorry for asking—I didn't know it would
 upset you," but she was already ten paces away.
 
 Attic never asked her about her past again, or about the violin. A lot
@@ -1618,7 +1649,7 @@ left arm out, palm up, elbow bent, as if she was cradling something
 precious. Right elbow up, wrist loose, and slowly, very slowly, in
 complete silence, she began her silent performance.
 
-Passing puppets always stopped to watch her---always. Some professed to
+Passing puppets always stopped to watch her—always. Some professed to
 be shocked. "Shameful!" they sniffed, although they kept watching.
 Others felt a melancholy ache that reminded them of long-lost friends.
 Still's silence left room for everyone to hear their own hearts. More
@@ -1664,7 +1695,7 @@ luck and wear him out at the same time. He was always quiet and
 withdrawn the next day, but always had candy in his pocket then too.
 
 When the city bells rang for nightfall, Still bought a final cup of oil
-to drink on her walk home. No, not home---she never let herself use that
+to drink on her walk home. No, not home—she never let herself use that
 word. It was just where she slept, and where she kept her violin. Her
 steps always quickened as she got closer to the drainpipe. Climbing it
 now seemed as natural as going up a flight of stairs. She took her
@@ -1676,7 +1707,7 @@ arms.
 Most of the puppets who frequented the market lived in the old stone
 apartment buildings by the canal. Every so often, though, others from
 the sunny heart of the City ventured down into the fog to visit. The
-nice ones came to buy old, broken-down things to mend---chairs with
+nice ones came to buy old, broken-down things to mend—chairs with
 wobbly legs, flutes that were missing a few notes, or picture frames
 that didn't hang straight. Some were collectors, like the
 serious-looking puppet who came to Attic's stall every week to ask
@@ -1725,7 +1756,7 @@ fists. She opened her eyes and spun around.
 No-one was there. She slowly relaxed. *Well, that was silly, wasn't
 it?* she scolded herself as she walked back to the mouth of the alley.
 *Frightening yourself like that over nothing. Why, the next think you
-know, you'll be jumping every time you hear*--- "Aah!" she squeaked.
+know, you'll be jumping every time you hear*— "Aah!" she squeaked.
 
 "Arp! Radda rrrr… Numble." The ancient puppet she had seen on her
 very first day was standing at the corner, his baby carriage beside him.
@@ -1746,7 +1777,7 @@ Still stared at him blankly, not understanding. Then she saw the little
 folded paper boat dangling from the bottom of the balloon string. Her
 clockwork skipped a tick. She reached for it slowly, already knowing
 what it was. Sure enough, written on the side were the words, "Have you
-seen---" She snatched her hand away. *You mustn't tell… They'll
+seen—" She snatched her hand away. *You mustn't tell… They'll
 put strings on you.*
 
 "It's not mine!" she snapped, stumbling back. "It's not for me!
@@ -1795,7 +1826,7 @@ to carry it off anyway. I got it away from them, but then I couldn't
 reach the newspaper to wrap it up again, so I thought I'd best hold
 onto it." He turned it over gently. "It's very beautiful."
 
-"May I---may I have it back?" Still asked. She trembled, too afraid to
+"May I—may I have it back?" Still asked. She trembled, too afraid to
 feel amazed.
 
 "Of course," the gargoyle said. He held it out to her. Still snatched
@@ -1803,7 +1834,7 @@ it from his hands and hugged it close.
 
 "Is it all right?" the gargoyle asked.
 
-Still nodded. She didn't even have to look at it to know---she would
+Still nodded. She didn't even have to look at it to know—she would
 have been able to tell the instant she touched it if it had been
 scratched or cracked. It was all right.
 
@@ -1815,7 +1846,7 @@ gumdrops, but…" She trailed off as the gargoyle shook its head.
 to hear you play. It's been a long time since I heard any music."
 
 "I don't play it any more," Still said. "Not really. But if you'd
-like to come down to the market some day, I---I sort of play there.
+like to come down to the market some day, I—I sort of play there.
 People seem to like it."
 
 The gargoyle shook his head again. "I wish I could."
@@ -1831,7 +1862,7 @@ reached for the sky with both arms. Still gasped. His top half was
 alive, but his bottom half was part of the building!
 
 "You see?" he asked. "That's why I'm called a 'guard
-goyle'---I'm always on guard."
+goyle'—I'm always on guard."
 
 "On guard for what?"
 
@@ -1839,7 +1870,7 @@ The gargoyle shrugged. "Not much, actually. The shops around here all
 closed a long time ago. Now only the fog and I are left."
 
 Still suddenly felt sorry for the stony creature. Stuck up on the roof,
-year in, year out, with no-one to talk to---it must be horrible.
+year in, year out, with no-one to talk to—it must be horrible.
 
 "But I don't mind," the gargoyle said, almost as if he had read her
 mind. "The birds bring me news of what's happening in the world, and
@@ -1889,7 +1920,7 @@ stall.
 counter to fish out the book she had started reading the previous
 morning.
 
-"A blanket? Well, the best place would probably be---Look out!"
+"A blanket? Well, the best place would probably be—Look out!"
 
 Attic grabbed her arm and pulled her halfway up onto the counter. Still
 yelped, twisting so that she wouldn't crush her violin. Hard rubber
@@ -1902,7 +1933,7 @@ matching scarf wrapped around his neck. He twirled on his skates, so
 that the ends of the scarf lifted up like the wings of a gaudy bird.
 
 "How about being a little more careful?" Attic demanded angrily.
-"It's getting icy---you could slip and really hurt someone."
+"It's getting icy—you could slip and really hurt someone."
 
 Crest-of-the-Wave just spun around again, then fished three dark twists
 of licorice out of his pocket and held them up triumphantly.
@@ -1923,7 +1954,7 @@ behind Still.
 
 "Very same." Crest-of-the-Wave winked at Still. "Smart, he is. You
 coming to watch us skate this afternoon? Learned a new trick. Like this,
-step step slide, and around, and---"
+step step slide, and around, and—"
 
 "Well, that's surprising. Have you seen this morning's papers yet?"
 Attic interrupted loudly. He tapped Still on the shoulder and handed her
@@ -2041,7 +2072,7 @@ shopping. Need some new clothes."
 
 "Oh." Still didn't think much of the twins. Sometimes they changed
 their faces twice or three times a day. They made Crest-of-the-Wave look
-like---well, like Attic. "Where are you going shopping?"
+like—well, like Attic. "Where are you going shopping?"
 
 Crest-of-the-Wave stood, waggling his head from side to side to get a
 kink out. "It's a secret. You can come with us, if you want."
@@ -2055,7 +2086,7 @@ tomorrow." He skated away without saying goodbye.
 The gray sky was somehow even grayer after Crest-of-the-Wave left. Still
 let her feet carry her back to her usual sleeping place. She had just
 crossed the bridge over the canal when she heard wheels squeaking in the
-fog on her left. She knew that sound---it was the faceless old
+fog on her left. She knew that sound—it was the faceless old
 mumbler's baby carriage. She hurried along, frightened by the thought
 of his blank features, and by the possibility that he might be bringing
 her another paper boat.
@@ -2150,19 +2181,19 @@ twins were. They had painted themselves fierce animal faces that
 morning, with sharp teeth and narrow eyes, and whiskers abristle under
 their noses. They sauntered over when Still arrived.
 
-"So, we hear you're---"
+"So, we hear you're—"
 
-"---coming shopping with us." They sniffed in unison. "You'll need
-a---"
+"—coming shopping with us." They sniffed in unison. "You'll need
+a—"
 
-"---better face than that."
+"—better face than that."
 
 "I don't think there's anything wrong with my face," Still said
 primly.
 
-"Oh, well, we'll see---"
+"Oh, well, we'll see—"
 
-"---what Crest has to say about that."
+"—what Crest has to say about that."
 
 "Crest-of-the-*Wave*," said a sharp voice. Still jumped.
 Crest-of-the-Wave had rolled up beside them on silent wheels. He scowled
@@ -2188,19 +2219,19 @@ thrown it at them. "Of course," Crest-of-the-Wave said. "Tonight.
 To-night. Here." He skated away, his freshly oiled wheels making no
 more noise than a python slithering through tall grass.
 
-The twins looked at Still sourly. "See you---"
+The twins looked at Still sourly. "See you—"
 
-"---tonight," they said sarcastically.
+"—tonight," they said sarcastically.
 
 Still stood up. "I guess so." She walked back through the market with
 her hands in her pockets and her head down. All the stalls in the market
 closed up at nightfall. The brooms even came through to check. And the
-big department stores in the city---
+big department stores in the city—
 
 Her mind ducked that thought as easily and as automatically as a soldier
 ducking a snowball. The Still who mimed in the market on the foggy side
 of town didn't know anything about department stores. How could she?
-*She* had never been in one. That was some other Still, from before---
+*She* had never been in one. That was some other Still, from before—
 
 Her mind ducked again. She shook her head. What had she been thinking?
 Something about tonight? Oh yes, she was supposed to meet
@@ -2239,7 +2270,7 @@ Everybody liked the idea, of course, but then they discovered that
 no-one could agree on what Key looked like."
 
 "What do you mean?" Still shook her head. "Everybody knows what she
-looks like. There must be a dozen pictures of her in--- in---" She
+looks like. There must be a dozen pictures of her in— in—" She
 almost said "my school," but her mind veered away. "In the books
 I've been reading."
 
@@ -2265,7 +2296,7 @@ could be anyone!"
 
 "A bicycle repair man."
 
-"The balloon seller---or his parrot!"
+"The balloon seller—or his parrot!"
 
 "A lamplighter."
 
@@ -2313,7 +2344,7 @@ eyebrow.
 "Stop, stop," she said. "Let me see what you've done." She picked
 up the little mirror that lay on the paint tray.
 
-The thicker eyebrows made her look older, and more knowing, but---
+The thicker eyebrows made her look older, and more knowing, but—
 "Eww." She tilted it from side to side in front of her. "They don't
 even match. Here, give me that." She plucked the brush out of his hand,
 dabbed it in the paint, and evened up the eyebrows. There, that was
@@ -2324,7 +2355,7 @@ a bit.
 
 Then she hesitated. What about the scar on her face? She hardly thought
 about it any more, but there it was. She could paint over it, or
-highlight it, or---no, she would just leave it alone.
+highlight it, or—no, she would just leave it alone.
 
 "There," she said. "All done. How do I look?"
 
@@ -2343,7 +2374,7 @@ turned around. "Where are we going?" she asked.
 "Not far." Crest-of-the-Wave suddenly flattened himself against a
 wall. Still pressed herself against the brick beside him.
 
-"What's---"
+"What's—"
 
 "Sst!" he hissed. She scowled. *Don't shush me,* she thought. Then
 she heard footsteps, and voices.
@@ -2362,34 +2393,34 @@ squeezed between two buildings, and came out near the canal. Still
 slowed, afraid of what might be waiting for her there, but no little
 paper boats bobbed up and down on the dark water. She shook her head.
 Why should she be afraid? Those little paper boats were looking for
-Still---they'd never recognize *her*, not with her cunning little smile
+Still—they'd never recognize *her*, not with her cunning little smile
 and knowing eyes.
 
 The twins were waiting in the shadows beside a stolid rectangular
-warehouse. "We were hoping---"
+warehouse. "We were hoping—"
 
-"---you'd change your mind," they whispered to Crest-of-the-Wave.
+"—you'd change your mind," they whispered to Crest-of-the-Wave.
 Still glared at them. They smirked back.
 
 Crest-of-the-Wave pointed his thumb at the warehouse. "All clear?"
 
-The twins nodded. "Next set of brooms won't be by---"
+The twins nodded. "Next set of brooms won't be by—"
 
-"---for at least an hour. Everything is---"
+"—for at least an hour. Everything is—"
 
-"---upstairs."
+"—upstairs."
 
 Still grabbed Crest-of-the-Wave's arm. "Wait a second," she hissed.
 "What's going on? This isn't a store. I thought we were going
 shopping?"
 
-The twins smirked again. "We don't shop---"
+The twins smirked again. "We don't shop—"
 
-"---in stores. It's too---"
+"—in stores. It's too—"
 
-"---crowded. Besides, you get better deals if you go---"
+"—crowded. Besides, you get better deals if you go—"
 
-"---straight to the warehouse." They hitched their thumbs over their
+"—straight to the warehouse." They hitched their thumbs over their
 shoulders to point at the building behind them.
 
 "You mean you're going to break in?" Still gasped. Then she giggled.
@@ -2397,13 +2428,13 @@ shoulders to point at the building behind them.
 
 "Really," Crest-of-the-Wave nodded, shaking off her arm.
 
-"But what about---what about the police? Or gargoyles?"
+"But what about—what about the police? Or gargoyles?"
 
-The twins rolled their eyes. "There's no such thing---"
+The twins rolled their eyes. "There's no such thing—"
 
-"---as gargoyles. That's just a story---"
+"—as gargoyles. That's just a story—"
 
-"---to frighten children."
+"—to frighten children."
 
 "Less talk, more action," Crest-of-the-Wave said brusquely. The twins
 saluted, still smirking.
@@ -2422,9 +2453,9 @@ She circled it cautiously. Its head was gone, and its wings had been
 worn away to stubs. She touched its shoulder sadly, wondering if it had
 known her gargoyle, or had ever watched over a sleeping puppet.
 
-The twins broke her daydream. "Hey, would you mind---"
+The twins broke her daydream. "Hey, would you mind—"
 
-"---being useful over here?" They were wrestling a heavy plank up onto
+"—being useful over here?" They were wrestling a heavy plank up onto
 a crate to make a ramp. Beside them, Crest-of-the-Wave was knotting a
 length of twine around his waist.
 
@@ -2432,11 +2463,11 @@ length of twine around his waist.
 "Finger here."
 
 Still held the knot in place while Crest-of-the-Wave made another.
-"Don't know why---"
+"Don't know why—"
 
-"---you even brought her. It's not like---"
+"—you even brought her. It's not like—"
 
-"---she's being useful," the twins grumbled.
+"—she's being useful," the twins grumbled.
 
 "She wanted to go shopping," Crest-of-the-Wave said in a tone that
 didn't encourage any more questions. He gave Still a steady look.
@@ -2466,11 +2497,11 @@ braked hard and fell forward with a muffled *ooph!*
 Still rushed to the edge of the roof. "Are you all right?" she hissed
 as he picked himself up.
 
-The twins pulled her back. "Shh! No noise. Never know---"
+The twins pulled her back. "Shh! No noise. Never know—"
 
-"---who's listening. Now, give us---"
+"—who's listening. Now, give us—"
 
-"---that." They took the twine and knotted it to one end of a heavier
+"—that." They took the twine and knotted it to one end of a heavier
 rope. One of them waved to Crest-of-the-Wave. He waved back, a little
 stiffly, then pulled the rope across.
 
@@ -2482,7 +2513,7 @@ to know.
 
 A minute and a crowbar later, they were inside the warehouse. Giggles
 welled up in Still's throat. They were really going to do it! They were
-really going to---no, *she* was really going to rob the warehouse!
+really going to—no, *she* was really going to rob the warehouse!
 
 "Take whatever you want," Crest-of-the-Wave whispered in her ear. She
 nodded. He smelled of fresh paint, and polish, and hot oil from his
@@ -2502,7 +2533,7 @@ which fabrics were cheap and scratchy, and which were rich and warm. She
 hummed a little waltz as she picked out a double armload of winter
 wardrobe for herself. *And a hat to say thank you to Crest-of-the-Wave,*
 she thought. *And a new waistcoat for Attic.* She hesitated, then pouted
-and put it back. He was so boring---he'd probably never wear it anyway.
+and put it back. He was so boring—he'd probably never wear it anyway.
 
 Crest-of-the-Wave and the twins filled the small sacks they had brought
 with them with small, rich items: gloves with pearl beads, embroidered
@@ -2514,9 +2545,9 @@ toward the door.
 tonight." She pouted, but didn't protest when he took her arm and
 turned her in the right direction.
 
-The front door was locked. "Can't see---"
+The front door was locked. "Can't see—"
 
-"---any brooms," the twins whispered.
+"—any brooms," the twins whispered.
 
 Crest-of-the-Wave nodded. "You go first. See you at Swim's."
 
@@ -2544,7 +2575,7 @@ but by the time she reached the derelict building behind the warehouse,
 he was gone.
 
 Panic welled up in Still like a cold geyser. *Phweet! Phweet!* She heard
-more police whistles behind her. And shouting---those were the twins'
+more police whistles behind her. And shouting—those were the twins'
 voices!
 
 "Oh, now what?" she whispered frantically. She suddenly remembered the
@@ -2574,7 +2605,7 @@ he growled. "She could warp out here in this cold."
 went down to the docks."
 
 Still listened as they walked away. All of a sudden she was crying. And
-it was cold---how could she not have noticed how cold it was?
+it was cold—how could she not have noticed how cold it was?
 
 She waited until her tears stopped, then pulled herself to her feet.
 Which way was home? She shook her head to clear it. The fog had closed
@@ -2616,7 +2647,7 @@ the day."
 "You may need more than turpentine," the gargoyle said, still not
 looking at her. He held out a small blanket-wrapped bundle. "Here."
 
-Still's clockwork skipped a tick. "What---what's wrong?" She jerked
+Still's clockwork skipped a tick. "What—what's wrong?" She jerked
 to her feet and snatched her violin away from the gargoyle. Her hands
 trembled as she unwrapped it.
 
@@ -2692,7 +2723,7 @@ scrubbed and scrubbed, ignoring the icy trickles that ran down her neck
 and under her collar. Suddenly she snorted. It was as bad as going
 camping. No, it was actually *worse*, because at least she got a hot
 breakfast when she was camping. She could pull her clothes on while she
-was still in her sleeping bag, then wriggle out, and---
+was still in her sleeping bag, then wriggle out, and—
 
 "No!" She scrambled to her feet, snatching up her violin. "Get away
 from me!" A small paper boat bobbed up and down in the water just an
@@ -2702,13 +2733,13 @@ arm's length from her. She grabbed a loose piece of stone.
 could. *Splash!* The little boat disappeared without a trace.
 
 Still shivered, hugging her violin to her chest. What had she been
-doing? Her face---that was right, she was cleaning her face. She buried
+doing? Her face—that was right, she was cleaning her face. She buried
 it in the blanket, too weary to cry, and toweled it as hard as she
 dared. When she pulled the blanket away, it was muddy with smears of
 paint.
 
 "Key's knees, what happened to you?" Attic exclaimed a few minutes
-later. Still almost laughed---it was the feeblest attempt at swearing
+later. Still almost laughed—it was the feeblest attempt at swearing
 she had heard since she first came to the market.
 
 She set her precious bundle down on the counter of his stall. "I'm all
@@ -2720,7 +2751,7 @@ back at Still's face. She lowered her eyes, ashamed. "Are you really
 all right?" he asked.
 
 Still nodded. She could feel hot tears trying to leak out of her eyes,
-but she blinked them back. "I just---do you know anyone who could fix
+but she blinked them back. "I just—do you know anyone who could fix
 it?"
 
 Attic hesitated. "I might. Hang on a tick-tock." He hastily closed the
@@ -2771,7 +2802,7 @@ customer."
 
 Attic sighed. "I'm sorry," he said to Still. "I shouldn't have
 brought you here. There's another place I know, up by the bootmaker's.
-Maybe they'll---"
+Maybe they'll—"
 
 "Oh no you don't." The old puppet put down his screwdriver and turned
 around to glare at Attic. "They're thieves, they are. Wouldn't send a
@@ -2807,8 +2838,8 @@ play over it. "When did this happen?"
 
 Hurdle glanced at her, then raised an eyebrow at Attic.
 
-"What? No!" Attic exclaimed, scandalized. "I didn't--- I
-wouldn't---"
+"What? No!" Attic exclaimed, scandalized. "I didn't— I
+wouldn't—"
 
 "Didn't think so," Hurdle grunted. "Not with your nose stuck in
 those splintering books of yours all day." He clucked. "Bit of a mess,
@@ -2840,7 +2871,7 @@ Splintering books of yours…"
 
 Attic glared at his grandfather. "I will *not* let her give you that
 much candy for a simple job like this. It's indecent, it's unfair, and
-I---"
+I—"
 
 "Attic, Attic, it's all right. It's all right. I can pay." Still
 twisted her blanket in her hands. "Not all at once, maybe, but if I
@@ -2864,7 +2895,7 @@ between Hurdle and his grandson. "All right, fifteen," Hurdle
 grumbled. "Including a cleaning. But that's fifteen licorice, not
 fifteen gumdrops, and I'll have candy in hand, understood?"
 
-"Grumps, she doesn't have fifteen licorice. You heard her---she
+"Grumps, she doesn't have fifteen licorice. You heard her—she
 doesn't even have fifteen gumdrops, not without a month of skipping
 breakfast. Just once, just this once, can you give someone a ride-on?"
 
@@ -2894,7 +2925,7 @@ took it wordlessly, and folded it around the violin as snugly as she
 ever had.
 
 "I hope you know what you're doing," Attic said to her a few moments
-later, out on the street. "I mean, fifteen licorice---that's a *lot*
+later, out on the street. "I mean, fifteen licorice—that's a *lot*
 of candy. You're not going to sell a leg or something, are you?"
 
 "No." Still sighed. "But if someone offered me some turpentine and a
@@ -2916,7 +2947,7 @@ They walked along in silence for a few moments. "So how come you wound
 up selling books?" she finally asked.
 
 Attic sighed. "I didn't 'wind up' doing anything. I started reading
-after my parents---after the fire, I mean. I loved it." He shrugged and
+after my parents—after the fire, I mean. I loved it." He shrugged and
 pushed his glasses up his nose with one finger. "I still do. Every book
 is a whole world of its own, did you know that? I used to think that
 everything anyone had ever known was in a book somewhere, if only I
@@ -2933,7 +2964,7 @@ foolish, are you?"
 
 "I wasn't planning to," Still lied brightly. The bundle of clothes
 she had thrown away the night before must be worth at least fifteen
-licorice---maybe even the twenty that Hurdle had originally asked for.
+licorice—maybe even the twenty that Hurdle had originally asked for.
 She was sure Crest-of-the-Wave would know where to sell them, if he
 wasn't already in jail. They just *had* to still be there…
 
@@ -3009,7 +3040,7 @@ pulled herself up and peeked in through the window.
 
 Her bundle lay an arm's length below her. She pulled herself up further
 and reached down. Just more than an arm's length, then. She wriggled
-forward, reached down, and---
+forward, reached down, and—
 
 "Whoops!" she yelped. She landed head first, but the bundle broke her
 fall. Feeling foolish, she rolled over and stood up.
@@ -3060,7 +3091,7 @@ market for long to learn that name. His joints were rusty, and a couple
 of his fingers were missing, but he was as tough and as mean as a puppet
 could be. Some of the roller skaters said that even the brooms were
 afraid of him. And some of the stories they told: "He plays with
-matches. And his fingers? They weren't broken off---they *burned* off.
+matches. And his fingers? They weren't broken off—they *burned* off.
 He burned them off himself!" If Crest-of-the-Wave had promised
 something to Swim, and couldn't deliver… Still shuddered. Her day
 was getting worse by the minute.
@@ -3077,7 +3108,7 @@ today?"
 The roller skater glanced up at her. "Maybe," he grunted, pulling one
 lace tight. "Why do you ask?"
 
-"I---I just need to talk to him."
+"I—I just need to talk to him."
 
 The roller skater glanced up again, his laces still taut across his
 fingers. He looked Still up and down like a carpenter eyeing a fresh
@@ -3102,7 +3133,7 @@ wondered. *What kind of customers? Who on earth would come to
 Crest-of-the-Wave to get bad news?*
 
 The old bandstand was four blocks from the market. As Still approached
-it, she heard a strange sound. There it was again---something was
+it, she heard a strange sound. There it was again—something was
 squawking up ahead. She couldn't imagine what it was, but it sounded
 awful. She tiptoed the last half block and pressed herself against the
 side of the bandstand shell, just in time to hear a petulant voice say,
@@ -3145,12 +3176,12 @@ it up to her lips and blew a note. *Honk.*
 
 "Oh! It tickles!" she laughed. Her eyes glinted. Still squeezed her
 eyes shut. She clutched her head in her hands. This was how
-Crest-of-the-Wave got his candy. He--- he--- She turned and ran.
+Crest-of-the-Wave got his candy. He— he— She turned and ran.
 
 She didn't stop running until she got to the drainpipe. Part of her
 wanted there to be glass rats waiting for her, or the faceless old
 puppet, or something. Something she could throw stones at, something she
-could hit---something she could hate. She climbed the drainpipe to the
+could hit—something she could hate. She climbed the drainpipe to the
 roof, ready to splinter her fists against the gargoyle.
 
 As soon as he looked at her, though, her anger blew away like a puff of
@@ -3167,7 +3198,7 @@ anything?" he asked softly in return.
 ## Chapter 11
 
 Still went straight to Hurdle's shop the next morning. She didn't
-stop at Attic's stall---she didn't think she could face him. Face him,
+stop at Attic's stall—she didn't think she could face him. Face him,
 or ignore the longing in his eyes whenever he looked at her. Not any
 more. Oh, why did life have to be so tangled? She just wanted each day
 to erase the one before.
@@ -3223,7 +3254,7 @@ about the, um, the shows you put on."
 "Oh, did you?" He wasn't going to ask her to play it, was he? Oh,
 please, not that.
 
-"Mm hm." He sighed. "And I think---I think as long as you're doing
+"Mm hm." He sighed. "And I think—I think as long as you're doing
 that, it'd be a good idea if you weren't hanging around his stall as
 much as you have been. You understand? Like I said, he's not half as
 smart as he thinks he is, and I'd hate to see him hurt."
@@ -3320,7 +3351,7 @@ suddenly to touch the dent on Still's face. She jerked her head back.
 keeps you from playing your violin, even though you look at it every
 morning the way a squeaky puppet looks at oil."
 
-"But---but I wouldn't know where to start," Still said once again.
+"But—but I wouldn't know where to start," Still said once again.
 "And I don't even think I want to."
 
 They spoke no more that night.
@@ -3334,10 +3365,10 @@ week. Another couple of gumdrops and some sugar sprinkles in change, and
 she'd be able to get him a scarf long enough to cover his knees.
 
 But gumdrops were harder to come by in the market now that winter had
-arrived. If she wanted to earn that kind of candy---for herself, or for
-the gargoyle's present---she would have to start playing higher up in
+arrived. If she wanted to earn that kind of candy—for herself, or for
+the gargoyle's present—she would have to start playing higher up in
 the City. Up where the puppets' shoes matched and their stitching was
-done with silk thread. Up where---where--- She shook her head so hard
+done with silk thread. Up where—where— She shook her head so hard
 that the thought fell out and rolled away. She hadn't seen a single
 paper boat since she got her violin back from Hurdle's. The trick, she
 had finally realized, was not just to not think about certain things,
@@ -3382,7 +3413,7 @@ smile painted on his face.
 
 The younger puppets all had instruments tucked under their arms: flutes,
 trumpets, glockenspiels, and midget tubas. Still recognized some of them
-from---from---
+from—from—
 
 "You're all playing quite nicely," the older puppet said warmly.
 "Especially you, Mustard." He put his hand on the puppet's shoulder
@@ -3390,7 +3421,7 @@ and gave her a friendly squeeze. "I think you're just about ready for
 some special lessons."
 
 "Thank you, Mister Leaf," the young puppet said, "But I don't know
-if my parents can--- I mean---"
+if my parents can— I mean—"
 
 "Don't worry about that," the older puppet said. "I'm sure we can
 find a way."
@@ -3425,7 +3456,7 @@ never move your own arms and legs again?"
 "I'd do it anyway. If you let something bad happen, that's almost the
 same as doing it yourself." The gargoyle shrugged once again. "But you
 have to remember, I'm not a puppet, I'm a gargoyle. Maybe the last
-gargoyle left in Key's City. If I---"
+gargoyle left in Key's City. If I—"
 
 "Key…" Still whispered. The whirling thoughts in her head fell into
 place, *clunk clunk clunk,* like the pieces in a jigsaw puzzle.
@@ -3451,8 +3482,8 @@ eyes. "All right," he said. He held her violin out to her. "Follow
 this. Follow this, wherever it leads. That's all I can tell you"
 
 Still took the heartwood violin in her hands. Her thumb could feel the
-faint groove left by--- by--- She shook her head angrily. She had just
-managed to get all her thoughts to fit together---she was *not* going to
+faint groove left by— by— She shook her head angrily. She had just
+managed to get all her thoughts to fit together—she was *not* going to
 shake them up again, not when something so important needed to be done.
 
 "But how can I follow a violin?" Still asked. "It can't float
@@ -3488,7 +3519,7 @@ Two stories below her, her violin bobbed gently up and down in the cold,
 dark water of the canal. Even as Still watched, the current began to
 sweep it away.
 
-Still gulped. She *could* jump. After all, she *was* made of wood---she
+Still gulped. She *could* jump. After all, she *was* made of wood—she
 would float too. But how would she get back up? There were no ladders on
 the side of the canal, no docks or stairways that she could see. And it
 was getting dark…
@@ -3506,7 +3537,7 @@ wall as she clattered down it.
 The steps led to a narrow footpath running along the canal's edge.
 There was ice here too, and frozen slime, and some of the stones were
 loose. And it was dark even darker here than it had been up on the
-street---so dark that she wondered if the tiny patch of stillness in the
+street—so dark that she wondered if the tiny patch of stillness in the
 middle of the canal was really her violin, or just her imagination.
 
 Still heard a echoing, gurgling sound up ahead. *Now what?* she
@@ -3516,7 +3547,7 @@ iron grill. "Oh, no," Still moaned as the current swept her violin
 between its bars.
 
 She ran the last few steps, heedless of the ice. The bars were too close
-together---she could reach through, but couldn't squeeze past them. And
+together—she could reach through, but couldn't squeeze past them. And
 her violin was disappearing into the darkness!
 
 Still looked around wildly. There wasn't a gate. There wasn't an alarm
@@ -3543,7 +3574,7 @@ the stone. *Whoosh!* She shot up through the water like a clown fired
 out of a circus cannon.
 
 "Pfaaah!" she spluttered as her head broke through the surface. She
-looked around wildly. There was the iron grill---and there was the sky,
+looked around wildly. There was the iron grill—and there was the sky,
 on the other side of it! She'd done it! The current had swept her
 beneath the grill! She was in the tunnel.
 
@@ -3557,7 +3588,7 @@ current had taken it.
 
 "Oh, what should I do?" she fretted. "What should I do?"
 
-As if in answer, someone---or something---giggled softly behind her. She
+As if in answer, someone—or something—giggled softly behind her. She
 whirled around. "Who's there?" she called out. No-one answered.
 
 "Hello?" she said loudly. "Can you help me? Please?"
@@ -3607,7 +3638,7 @@ squeaked. "We can tell. Rats can *always* tell when someone's lying.
 Now, perhaps if you give us your arms and legs, we'll let the rest of
 you go."
 
-"All right!" she said. "All right, I lied. I'm looking for---I'm
+"All right!" she said. "All right, I lied. I'm looking for—I'm
 looking for my violin. It fell in the water, and I have to get it
 back."
 
@@ -3616,7 +3647,7 @@ not the truth, still not the truth," the little ratty voice said with
 glee.
 
 "All right! All right!" Still shouted. "I'm not looking for Key.
-I'm not really looking for my violin! I'm looking for--- I'm--- I've
+I'm not really looking for my violin! I'm looking for— I'm— I've
 lost myself! That's why I'm here! I put myself somewhere, but now I
 can't remember where that was, and I'm trying to find me again. Now,
 if you want to eat me, then come and eat me and get it over with!"
@@ -3633,21 +3664,21 @@ weak to walk, too weak to even stand. Drops of oil welled up in her eyes
 and ran down her cheeks. She fell down in a heap and put her head on her
 arm in despair.
 
-She had no idea how long she lay there---minutes? Hours? Her next
+She had no idea how long she lay there—minutes? Hours? Her next
 thought came when she realized that something white was bobbing up and
 down in the water in front of her. She blinked. It was still there. She
 blinked again, then reached out for it.
 
 It was a tiny boat made out of neatly-folded white paper. Neatly-folded
-paper---now what did that remind her of? She shook her head. Something
-was written on the side of it. She couldn't read it---the light was too
+paper—now what did that remind her of? She shook her head. Something
+was written on the side of it. She couldn't read it—the light was too
 faint. She sat up wearily and held it close to the nearest patch of
 fungus.
 
 Someone had painted a picture of a puppet on the side of the boat.
 Written underneath it were the words, "Have you seen our daughter?"
 Still peered at the picture. The puppet looked familiar somehow. She was
-wearing black and white---
+wearing black and white—
 
 "And eight shades of green," Still whispered, there in the darkness.
 The paper boat fluttered like a bird trying to escape from someone's
@@ -3681,7 +3712,7 @@ She pulled the boats from the water one after another. They spilled out
 of her arms and onto the walkway, but she didn't care. She was sobbing,
 but she didn't care, because she knew what she was going to find.
 
-And there it was---her violin. The current that had carried the boats to
+And there it was—her violin. The current that had carried the boats to
 this little backwater had brought her violin as well. She picked it up
 gently and hugged it close.
 
@@ -3749,9 +3780,9 @@ straight at Still. Still looked straight back at her.
 a mighty strangeness to me, it is."
 
 "This poor thing was one of my students," Mister Leaf said. "She had
-an accident---look, you can see the mark on her cheek. She ran away from
+an accident—look, you can see the mark on her cheek. She ran away from
 home several months ago. Her parents have been very, very worried. I'm
-sure that---"
+sure that—"
 
 But no-one ever got to find out what Mister Leaf was sure of. The young
 puppet at his side shook off his hand and walked slowly down the steps.
@@ -3764,7 +3795,7 @@ silence as well.
 Someone gasped. Someone said, "Oh my." Mister Leaf went, "Tsk tsk,"
 and walked down the steps himself. "That won't help anything," he
 said to his student sternly. "Why, you'll just encourage her. She
-needs---"
+needs—"
 
 But no-one ever got to find out what Mister Leaf thought Still needed.
 One of the puppets in the crowd stepped forward. "I remember," she
@@ -3793,7 +3824,7 @@ parents close. "But I will be."
 
 It took Still a while to tell her story. When she was done, the police
 took Mister Leaf away. "Strings are too good for him!" Elbow said
-harshly as the three of them walked home. "After what he did---your
+harshly as the three of them walked home. "After what he did—your
 violin, that poor girl's flute, that woman's trumpet… Chains are
 what they ought to put on him!"
 

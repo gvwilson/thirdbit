@@ -83,6 +83,56 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/05/18/two-thirds-of-a-language/">
+      Two Thirds of a Language
+    </a>
+  </h2>
+  <p><time datetime="2025-05-18" class="post-date">2025-05-18</time></p>
+  <p>Inspired in part by posts online about this year&rsquo;s PyCon,
+I started to wonder how much of the language I actually use.
+To answer the question,
+I counted how many different types of nodes are provided by <a href="https://docs.python.org/3/library/ast.html">Python&rsquo;s <code>ast</code> module</a>
+and how many of those show up in the code I wrote for
+<a href="../sdxpy/"><em>Software Design by Example</em></a>.
+The answer appears to be 60%,
+i.e.,
+I use a bit less than two-thirds of what Python 3.12 offers.
+Other measures would give other answers—for example,
+I expect that I use much, much less than 60% of Python&rsquo;s standard library—but still,
+it&rsquo;s kind of interesting.</p>
+<p>I hope everyone&rsquo;s having fun in Pittsburgh…</p>
+<p><strong>The Code</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">ast_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ast</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">ast</span><span class="p">)}</span>
+<span class="n">available</span> <span class="o">=</span> <span class="p">{</span><span class="n">val</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">ast_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)}</span>
+
+<span class="n">used</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+        <span class="n">used</span> <span class="o">|=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">)}</span>
+    <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;available: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">available</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;used: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">used</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;percentage: </span><span class="si">{</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">used</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">available</span><span class="p">))</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">unused</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">available</span> <span class="o">-</span> <span class="n">used</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">unused</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>The Output</strong></p>
+<div class="highlight"><pre><span></span><code>available: 136
+used: 81
+percentage: 59.6
+</code></pre></div>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/05/16/appearance-on-sustain-oss/">
       Appearance on SustainOSS Podcast
     </a>
@@ -846,102 +896,6 @@ I&rsquo;d <a href="mailto:gvwilson@third-bit.com">like to hear it</a>.</p>
 </li>
 </ol>
 </div>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/04/12/research-threat-models/">
-      Research Threat Models
-    </a>
-  </h2>
-  <p><time datetime="2025-04-12" class="post-date">2025-04-12</time></p>
-  <p><a href="https://www.burntfen.com/">Richard Littauer</a> and others are writing some guidance
-for researchers who want their code to outlast their present job.
-Their motivation is at least partly the unprecedented attacks on science by the Trump administration;
-to help,
-I&rsquo;ve written the threat models shown below.
-I&rsquo;d be very grateful for <a href="mailto:gvwilson@third-bit.com">feedback</a>.</p>
-<p>When making plans, it&rsquo;s useful to know what you&rsquo;re planning <em>for</em>.
-Being explicit about <strong>threat models</strong> helps you prioritize,
-build consensus with colleagues,
-and check whether you&rsquo;ve forgotten something important.</p>
-<ol>
-<li>
-<p><strong>Individual threats</strong> are those that affect one or a few members of your team,
-    such as a foreign student having their visa revoked without notice
-    or needing to take extended medical leave.
-    The most common way to prepare for this is to require everyone to document their work thoroughly,
-    but that rarely works in practice:</p>
-<ol>
-<li>The hours spent writing those descriptions are hours <em>not</em> spent doing research,
-    so people will always short the former to focus on the latter.</li>
-<li>People invariably fail to write down the &ldquo;obvious&rdquo; parts of their work
-    that are anything but obvious to the next person.
-In practice,
-&ldquo;automate what you can and create checklists for what you can&rsquo;t&rdquo; seems to be a better approach,
-particularly if you check those checklists by having someone else try to use them
-while their authors are still available to take notes and update them.</li>
-</ol>
-</li>
-<li>
-<p><strong>Leadership threats</strong> are individual threats that affect the project&rsquo;s leader,
-    such as being targeted by elected officials for pointing out the holes in
-    the pseudoscientific conspiracy theories they are parroting.
-    One way to prepare is to have a designated successor
-    (who can also stand in for you if you ever want to take a holiday);
-    another is to talk with peers about who will inherit what if your project is shut down.</p>
-</li>
-<li>
-<p><strong>Institutional threats</strong> are those that affect large groups at once,
-    such as your university or professional association being blacklisted by government funding agencies.
-    These scenarios are equivalents of major storms or forest fires
-    in which so many people are affected at the same time that the rest of the community can&rsquo;t absorb them.
-    Regional and national governments handle disasters like these
-    by having evacuation plans to get victims to safe(r) places,
-    and corollary plans for putting beds in high school gyms and flying in food and emergency medical personnel
-    to help people when they arrive.
-    The equivalents in research are
-    to lobby governments to change visa rules for scientific refugees
-    and to set aside contingency funding to attract and support them.</p>
-</li>
-</ol>
-<p>One important thing about these threat models is their timescales:</p>
-<ul>
-<li>
-<p>If you start making a checklist for publishing your team&rsquo;s datasets today,
-    you will be able to test it out (and see its benefits) in a week or two.</p>
-</li>
-<li>
-<p>If you want universities and regional or national governments to be ready to absorb and support
-    an influx of smart, hard-working people
-    despite the nationalist jingoism of populist politicians,
-    you need to think in terms of many months.</p>
-</li>
-<li>
-<p>Finally,
-    if you want professional societies to take something vaguely resembling principled positions,
-    look at how long it is taking them to adopt open access
-    (which is much, much less contentious)
-    and settle in for a years-long fight.</p>
-</li>
-</ul>
-<p>Thinking about this stuff is scary,
-in part because most researchers have no personal experience with community organizing or disaster preparedness.
-Tessera Strategies are running a <a href="https://tesserastrategies.org/projects/">book club</a> to help people learn about the former;
-the application deadline for participation in the first round has passed,
-but please keep an eye on <a href="https://tesserastrategies.org/blog/">their blog</a> for future offerings.</p>
-<p>As for disaster preparedness,
-almost everything you&rsquo;ll find online starts from a place of individualized Hobbesian despair,
-i.e.,
-assumes that there&rsquo;s nothing you can do to <em>prevent</em> disaster
-and that it will be you against the world if and when one strikes.
-Professionals know that both assumptions are wrong:
-there are <a href="https://www.royalroads.ca/programs/master-arts-disaster-and-emergency-management">entire graduate programs</a> devoted to creating, analyzing, and executing plans for disasters,
-and a great deal of research proving that most people work together for the greater good
-when the worst finally happens.
-Most of what I&rsquo;m familiar with deals with natural disasters and their physical or economic aftermath;
-again,
-I&rsquo;d <a href="mailto:gvwilson@third-bit.com">be grateful for pointers</a> to prior art that focuses on recovery for research.</p>
 </article>
 
 

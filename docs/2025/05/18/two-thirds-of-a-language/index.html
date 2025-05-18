@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Two Thirds of a Language</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../projects/">projects</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Two Thirds of a Language</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/05/16/appearance-on-sustain-oss/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-05-18" class="post-date">2025-05-18</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Inspired in part by posts online about this year&rsquo;s PyCon,
+I started to wonder how much of the language I actually use.
+To answer the question,
+I counted how many different types of nodes are provided by <a href="https://docs.python.org/3/library/ast.html">Python&rsquo;s <code>ast</code> module</a>
+and how many of those show up in the code I wrote for
+<a href="../../../../sdxpy/"><em>Software Design by Example</em></a>.
+The answer appears to be 60%,
+i.e.,
+I use a bit less than two-thirds of what Python 3.12 offers.
+Other measures would give other answers—for example,
+I expect that I use much, much less than 60% of Python&rsquo;s standard library—but still,
+it&rsquo;s kind of interesting.</p>
+<p>I hope everyone&rsquo;s having fun in Pittsburgh…</p>
+<p><strong>The Code</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">ast_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ast</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">ast</span><span class="p">)}</span>
+<span class="n">available</span> <span class="o">=</span> <span class="p">{</span><span class="n">val</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">ast_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)}</span>
+
+<span class="n">used</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+        <span class="n">used</span> <span class="o">|=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">)}</span>
+    <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;available: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">available</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;used: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">used</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;percentage: </span><span class="si">{</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">used</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">available</span><span class="p">))</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">unused</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">available</span> <span class="o">-</span> <span class="n">used</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">unused</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>The Output</strong></p>
+<div class="highlight"><pre><span></span><code>available: 136
+used: 81
+percentage: 59.6
+</code></pre></div><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+</footer>
+  </body>
+</html>

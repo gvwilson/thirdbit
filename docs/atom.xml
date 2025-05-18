@@ -3,12 +3,60 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-05-16T00:00:00Z</updated>
+ <updated>2025-05-18T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Two Thirds of a Language</title>
+   <link href="https://third-bit.com/2025/05/18/two-thirds-of-a-language/"/>
+   <updated>2025-05-18T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/05/18/two-thirds-of-a-language/</id>
+   <content type="html">&lt;p&gt;Inspired in part by posts online about this year&amp;rsquo;s PyCon,
+I started to wonder how much of the language I actually use.
+To answer the question,
+I counted how many different types of nodes are provided by &lt;a href=&#34;https://docs.python.org/3/library/ast.html&#34;&gt;Python&amp;rsquo;s &lt;code&gt;ast&lt;/code&gt; module&lt;/a&gt;
+and how many of those show up in the code I wrote for
+&lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example&lt;/em&gt;&lt;/a&gt;.
+The answer appears to be 60%,
+i.e.,
+I use a bit less than two-thirds of what Python 3.12 offers.
+Other measures would give other answers—for example,
+I expect that I use much, much less than 60% of Python&amp;rsquo;s standard library—but still,
+it&amp;rsquo;s kind of interesting.&lt;/p&gt;
+&lt;p&gt;I hope everyone&amp;rsquo;s having fun in Pittsburgh…&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Code&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;ast&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pathlib&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Path&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sys&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;ast_dict&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;getattr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ast&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;dir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ast&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)}&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;available&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;val&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ast_dict&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;isinstance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;startswith&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;_&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)}&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;used&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;filename&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:]:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;tree&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ast&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filename&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;read_text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;used&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;node&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;node&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ast&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;walk&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;SyntaxError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt;
+
+&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;available: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;available&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;used: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;used&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;percentage: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;used&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;available&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.1f&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;unused&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;vm&#34;&gt;__name__&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;available&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;used&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sorted&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;unused&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;The Output&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;available: 136
+used: 81
+percentage: 59.6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Appearance on SustainOSS Podcast</title>
@@ -1468,186 +1516,6 @@ to the &lt;a href=&#34;https://pairprogramming.ed.ac.uk/winter-school-25/&#34;&g
 I hope you enjoy it;
 many thanks to the organizers for having us,
 and to Yanina for putting up with me.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Grades</title>
-   <link href="https://third-bit.com/2025/01/10/grades/"/>
-   <updated>2025-01-10T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/01/10/grades/</id>
-   <content type="html">&lt;p&gt;Many organizations make the mistake of focusing on outputs rather than on outcomes
-[&lt;a href=&#34;https://isbnsearch.org/isbn/9781491973790&#34;&gt;Perri2018&lt;/a&gt;].
-In software companies,
-this usually takes the form of measuring progress by the number of features added to a product
-rather than by whether changes to the product are actually making people&amp;rsquo;s lives easier.
-The equivalent mistake in a project course is to focus on writing lots of code
-instead of on what the grading scheme will actually reward,
-so once you have &lt;a href=&#34;https://third-bit.com2025/01/07/forming-teams/&#34;&gt;formed a team&lt;/a&gt; and figured out &lt;a href=&#34;https://third-bit.com2025/01/08/division-of-labor/&#34;&gt;who&amp;rsquo;s doing what&lt;/a&gt;,
-it&amp;rsquo;s time to figure out how the work will be assessed.&lt;/p&gt;
-&lt;p&gt;Courses with names like &amp;ldquo;Senior Thesis Project&amp;rdquo; or &amp;ldquo;Computer Science Capstone&amp;rdquo;
-generally share three characteristics [&lt;a href=&#34;https://isbnsearch.org/isbn/9781852333577&#34;&gt;Fincher2001&lt;/a&gt;,&lt;a href=&#34;https://leanpub.com/teachingteamcollaboration&#34;&gt;Scharlau2023&lt;/a&gt;]:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Learning how to work in a team is an explicit goal
-    (versus courses in which
-    you work in a team but are not taught how to do so).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Your grade depends on how you work as well as what you build.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;You are supposed to work as if you were trying to meet the needs of a real customer.
-    You might start with a blank sheet of paper
-    or have to fix and extend an existing application,
-    but you and your team are responsible for some or all of
-    requirements analysis,
-    design,
-    implementation,
-    testing,
-    documentation,
-    packaging,
-    deployment,
-    handoff,
-    and review.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;callout&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Move along&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;One goal of project courses is to move learners from left to right in
-the learning model shown below.
-The instructor&amp;rsquo;s job is to mentor rather than to lecture;
-most of the learning will take place in the team or on your own.
-Putting it another way,
-a project course is where your school starts treating you like a competent practitioner
-rather than like a novice.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://third-bit.com/files/2025/four-models-of-instruction.svg&#34; alt=&#34;four models of instruction&#34;&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Your grade in a project course is typically based on:&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;The software you produce.&lt;/dt&gt;
-&lt;dd&gt;Does it build and run?
-Does it meet the customer&amp;rsquo;s requirements (or the instructor&amp;rsquo;s specifications if you don&amp;rsquo;t have a real customer)?
-Is the source code readable?
-Is the program efficient?
-(Using an exponential algorithm instead of one that runs in linear time certainly &lt;em&gt;ought&lt;/em&gt; to cost you marks…)&lt;/dd&gt;
-&lt;dt&gt;The process you followed.&lt;/dt&gt;
-&lt;dd&gt;Some instructors insist you use a traditional analyze-design-code-test methodology.
-Others structure the course around short sprints (typically a couple of weeks long)
-during which you refactor the application,
-extend it,
-test your changes,
-and deploy the new version.&lt;/dd&gt;
-&lt;dt&gt;A final report.&lt;/dt&gt;
-&lt;dd&gt;This may be a handoff report
-(i.e., documentation to help whoever inherits the software from you get up to speed),
-a summary of your experiences,
-or some combination thereof.&lt;/dd&gt;
-&lt;dt&gt;A final exam.&lt;/dt&gt;
-&lt;dd&gt;This may focus on the theoretical side of the course
-(&amp;ldquo;Describe the four main functions of Quality Assurance…&amp;rdquo;)
-but smart instructors will include some questions to test your understanding of the project
-in order to determine who actually did the work and who was just along for the ride.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;div class=&#34;callout&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Give me good news—lie if you have to&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;As pointed out previously,
-&lt;a href=&#34;https://third-bit.com2025/01/03/time-management/&#34;&gt;time management&lt;/a&gt; is harder for students than for professionals in industry
-because students typically have four or five bosses who don&amp;rsquo;t coordinate deadlines with each other.
-Asking students to follow a particular process like waterfall or agile
-is therefore functionally equivalent to asking them to lie:
-they simply aren&amp;rsquo;t going to be able to spend a couple of hours every day on this project
-&lt;em&gt;and&lt;/em&gt; meet their other commitments.
-A fair grading scheme should take that into account.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Here are some of the things that students might be required to produce:&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;Requirements analysis&lt;/dt&gt;
-&lt;dd&gt;What the problem is, who the stakeholders are (i.e., who wants the problem
-solved), and what their needs are.&lt;/dd&gt;
-&lt;dt&gt;Design&lt;/dt&gt;
-&lt;dd&gt;What the user interface should look like, how data will flow through the
-system, what its major modules will be, and how they&amp;rsquo;ll interact.&lt;/dd&gt;
-&lt;dt&gt;Application code&lt;/dt&gt;
-&lt;dd&gt;The software that will be delivered to the end user.  This is inextricably
-entangled with:&lt;/dd&gt;
-&lt;dt&gt;Test code&lt;/dt&gt;
-&lt;dd&gt;Coding and testing should not be separate activities: doing them
-concurrently greatly improves your project&amp;rsquo;s chances of success.&lt;/dd&gt;
-&lt;dt&gt;Documentation&lt;/dt&gt;
-&lt;dd&gt;Human-readable explanations of the software&amp;rsquo;s structure and use.  The first
-is intended for whoever inherits the software from you; the second, for its
-users.  It is almost always a mistake to try to combine the two or to write
-them as if they were going to be read by the same people.&lt;/dd&gt;
-&lt;dt&gt;Packaging&lt;/dt&gt;
-&lt;dd&gt;A program is a piece of software that runs for you on your machine.  A
-product is a piece of software that will run for anyone on &lt;em&gt;their&lt;/em&gt; machine.
-Products take longer to build than programs: the packaging needed to let
-someone else download, install, configure, and run the program has often not
-been covered in software engineering courses, but good instructors will
-insist that you create it.&lt;/dd&gt;
-&lt;dt&gt;Deployment&lt;/dt&gt;
-&lt;dd&gt;These days the project&amp;rsquo;s aim might not be to create something that can be
-downloaded and installed.  Instead, its aim might be to create a web site or
-web service or make something else directly available to users.  Like
-packaging, deployment can be a major development issue in its own right, and
-the effort required to do it is almost always underestimated.&lt;/dd&gt;
-&lt;dt&gt;Handoff&lt;/dt&gt;
-&lt;dd&gt;If you don&amp;rsquo;t put effort into passing the project on to whoever comes after
-you, your hard work will almost certainly count for nought.  While it isn&amp;rsquo;t
-usual for undergraduate projects to be handed on from one term to another,
-some courses require teams to swap code mid-term.  If this happens,
-instructors may grade you on how complete and up-to-date your wiki pages,
-bug database, and build scripts are at the time of handoff.&lt;/dd&gt;
-&lt;dt&gt;Review&lt;/dt&gt;
-&lt;dd&gt;The only way to get better at something is to reflect on how you&amp;rsquo;ve done and
-what you could have done better.  Every project should therefore end with a
-postmortem in which team members talk about what went right and what went
-wrong.  As mentioned earlier, this may then be the subject of the final
-report.&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;p&gt;It&amp;rsquo;s a long list,
-and in my experience it isn&amp;rsquo;t practical to try to grade all of these,
-since you wind up with things being worth just a few percent of the overall result.
-In the past,
-students have found something more granular works better:&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;Warmup exercise (0%)&lt;/dt&gt;
-&lt;dd&gt;The warmup exercise takes up the first week; its purpose is to give students a
-chance to familiarize themselves with the problem domain, tools, and
-software they&amp;rsquo;ll be using for the rest of the term, and to propose a grading
-scheme for the rest of their work. This exercise isn&amp;rsquo;t graded in itself,
-but lays the foundation for everything that is.&lt;/dd&gt;
-&lt;dt&gt;Code (20%)&lt;/dt&gt;
-&lt;dd&gt;Yes, that&amp;rsquo;s right: the code is only worth 20% of the final grade, even
-though it&amp;rsquo;s where students spend the bulk of their time.  I do this because
-(1) if you don&amp;rsquo;t know how to program you shouldn&amp;rsquo;t be in this course and (2)
-if you don&amp;rsquo;t create some code you can&amp;rsquo;t test, do a demo, or write your final
-report.&lt;/dd&gt;
-&lt;dt&gt;Testing (20%)&lt;/dt&gt;
-&lt;dd&gt;Testing is just as important as coding, so it&amp;rsquo;s given the same weight.
-Note, though, that only automated tests count: if I can&amp;rsquo;t check the project
-out of version control and re-run the tests (possibly after editing a
-configuration file) then as far as I&amp;rsquo;m concerned, the code hasn&amp;rsquo;t been
-tested.&lt;/dd&gt;
-&lt;dt&gt;Demos (20%)&lt;/dt&gt;
-&lt;dd&gt;I used to require students to prepare a 20-minute lecture on a topic of
-their choosing and deliver it to their coursemates or a junior class.  It
-was a valuable experience, but it ate up a lot of time, so I switched to
-having students do 10-minute demos instead.  I usually give students two
-shots at this: one after which their peers give them feedback, and a second
-that&amp;rsquo;s actually graded.  This is valuable practice for job interviews and a
-good reality check on how much progress has actually been made.&lt;/dd&gt;
-&lt;dt&gt;Teamwork (20%)&lt;/dt&gt;
-&lt;dd&gt;Everyone starts with 10 out of 10; marks come off if you always do your work
-at the last moment, check in code that breaks the build, or are
-disrespectful.&lt;/dd&gt;
-&lt;dt&gt;Final state of project (20%)&lt;/dt&gt;
-&lt;dd&gt;Most of my projects carry forward from term to term and team to team, so I
-award one fifth of the overall mark based on the state each team leaves the
-project in.  Does everything build?  Have issues been filed for all known
-bug?  Does the README explain how to install the code, and do those
-instructions actually work?&lt;/dd&gt;
-&lt;/dl&gt;</content>
  </entry>
  
 </feed>

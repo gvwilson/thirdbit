@@ -29,7 +29,7 @@
     -   Neither Consensus nor the few people who know the truth about the Makers want the Makers to return
 -   Notable places
     -   Rusty Bridge: a town of about a thousand people
-        -   After the events of *Maddy Roo*, a small bot encampment is taking shape nearby
+    -   Botsville: a small bot encampment taking shape near Rusty Bridge
     -   Heck: a bot "city"
         -   The story reveals that it was the base from which the Makers' ark was launched
         -   Consensus bots are still running experiments there in automated laboratories because their programming tells them to
@@ -114,7 +114,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   It takes its responsibilities as leader very seriously (mirrors Maddy's elder sibling syndrome)
     -   Character arc: accepts that being a leader is not the same as re-creating Consensus
 -   Crusher (minor ally): a large hauler bot and Dockety's partner
--   Able the mailbox (incidental): happy-go-lucky
+-   Able the mailbot (incidental): happy-go-lucky
     -   It is destroyed in battle (minor tragedy to the story, foreshadows Special Leaf's death)
 -   Special Blazes (antagonist): a tiger whose tech allows him to create and control fire
     -   He leads a group of Operators to Rusty Bridge after Sindy's powers are revealed
@@ -153,8 +153,42 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Gumption arrives
     -   Conversation between him and Maddy shows their relationship
     -   And hints at Sindy's training with Special Leaf
+-   Able arrives with mail
+    -   Mention that he hitched himself to the cross-country stage for most of the journey
+    -   And that a few others got off and are coming into town behind him (foreshadow arrival of Operators)
 -   Maddy gets a letter, but Dockety arrives with Bluster and Bravo in tow before she can open it
     -   Dockety's version: they were caught stealing
     -   Their version (obviously a lie): they were gathering evidence that the bots are arming themselves
     -   Dockety confirms that the bots have weapons
--   Just as Dockety is about to leave, the Operators show up
+-   Just as Dockety is about to leave, Bravo and Bluster come back
+    -   Claim the bots are picking a fight with some strangers
+
+### Chapter 2: The Operators (Gumption's PoV / day 1)
+
+-   Goals:
+    -   Get readers used to alternating points of view
+    -   Introduce the Operators (who turn out to be antagonists)
+    -   Introduce Sindy's special powers
+    -   Hint at Special Leaf's back story
+    -   Show Gumption's inner turmoil and burgeoning relationship with the bots
+-   Mayor sends Maddy to get Special Leaf
+-   Gumption follows the mayor around the corner and see a standoff between the Operators and Dockety
+    -   Mayor orders everyone to stand down
+    -   Special Blazes introduces himself and Thoughtful (they're newspaper-famous)
+    -   Show Bee Six Vee's second-class status
+-   Special Leaf shows up
+    -   Leaf acts fuddled
+    -   Special Blazes clearly knows (about) him
+-   Mayor takes the Operators back to the mayor's house
+-   Special Leaf, Gumption, and Maddy go back to Leaf's
+    -   Sindy is reading, having finished her lessons
+    -   Leaf is excited that she has awakened another piece of old tech that shows pictures of what someone is thinking
+    -   FIXME: use this tech later
+-   Maddy opens her letter
+    -   Her drawing is going to be published by the newspaper
+    -   Gumption is happy for her, but that's one step closer to her leaving him behind
+-   Sneaks out of the house to visit Dockety in Botsville that night
+    -   Reveal that Gumption warned Dockety of Bluster and Bravo's plan
+    -   And that Dockety has proof that Papa Roo is alive
+-   Gumption suggests asking the Operators to help free Papa Roo
+    -   Dockety is opposed: distrusts the Operators
