@@ -173,7 +173,7 @@ The stone cat had turned its head toward him,
 but was still keeping one eye on the empty bird bath.
 "I—sure," he said lamely,
 then added, "Thank you,"
-because a stone statue of a cat is still in some sense a cat,
+because a statue of a cat is still in some sense a cat,
 and one of the first lessons a santa is taught is
 to always be polite to cats.
 
@@ -215,20 +215,20 @@ and into the rest of his life.
 </section>
 <section markdown="1">
 
-## A Door Opens
+## Guests Arrive
 
 Finner had never actually been in Gran-Granna's house before,
 but he'd heard stories.
 A richly-patterned carpet in the hall that looked like it might once have been able to fly: check.
-A set of coathooks with gargoyle faces: check.[^gargoyles]
+A set of coathooks with gargoyle faces: check.
 A sitting room filled with a riot of greenery
 and a mis-matched pair of overstuffed chairs: check.
 Crossed harpoons over the fireplace and dozens of framed pictures
 of children, grandchildren, great-grandchildren,
 neighbors, friends, enemies,[^enemies-dates]
 and the grateful, if somewhat perplexed, crew of a submarine: check.
-
-[^gargoyles]: Which were actually just pieces of wood carved to look like gargoyle faces. It wouldn't be necessary to clarify this for most people.
+A photograph of two middle-aged women in red-and-white coats holding hands
+that Finner realized must have been the inspiration for the statue of Gran-Granna Tumbly and her wife: check.
 
 [^enemies-dates]: Some of which had dates and locations written on them in neat, smug lettering.
 
@@ -236,17 +236,18 @@ And there was a teapot—*the* teapot,
 the one people spoke about in hushed voices.
 It didn't look special,
 but it was never empty and its contents were never cold.
-Bitter, sometimes,
-if that's what guests needed,
+Bitter,
+sometimes,
+if that's what was needed,
 but never cold.
 
 Finner waited for Gran-Granna to settle into a chair
-before seating himself nervously on the edge of the other one.
+before sitting nervously on the edge of the other one.
 She spooned a bit of sugar into a green-and-white teacup,
 glanced at him,
 added a bit more,
 and then poured slowly and carefully.
-"You'll want to let that cool down a bit," she advised,
+"You'll want to let that cool a bit," she advised,
 filling the second cup for herself
 and sitting back with it cradled in her hands.
 
@@ -262,9 +263,7 @@ and, "What should I do with my life?" seemed awfully—
 
 The silence that followed was broken only by
 the ticking of the burl clock in the kitchen.
-"Doesn't it?" Finner asked,
-because it felt like the kind of statement
-that wanted to be invited to take off its coat and sit for a while.
+"Doesn't it?" Finner asked.
 
 "Not so far as I can tell,"
 Gran-Granna sighed.
@@ -286,7 +285,7 @@ Finner ventured.
 And they were pretty down in the mouth about it,
 let me tell you.
 The world needs doctors and airship pilots and what-not,
-but when when you've been told your whole life that you're destined for something else,
+but when you've been told your whole life that you're destined for something else,
 well,
 it's hard to change direction."
 
@@ -300,15 +299,8 @@ they were singing six shows a week with not an empty seat in the house."
 She sipped her tea.
 "The way I look at it,
 they *did* become a santa.
-They're giving people the gift of music night after night
+They're delivering the gift of music night after night,
 and that's no small thing."
-
-She sighed.
-"But they don't see it that way,
-and I don't know if they ever will.
-Doesn't matter how hard people applaud
-or how many times they're called back for encores—deep in their heart,
-they'll always think of themself as 'not at santa'."
 
 "Which brings us to you," she continued,
 bright eyes fixed on Finner,
@@ -319,7 +311,7 @@ and wished he could be almost anywhere else in the world.[^geography-volcanoes]
 
 "M-me?" Finner stammered.
 
-"Yes, y-you," Gran-Granna said impatiently.
+"Yes, you," Gran-Granna said impatiently.
 "Your folks have been worried about you for a while now.
 Oh, I know, you didn't think anyone had noticed,
 but you've been mopey and anxious
@@ -345,23 +337,34 @@ it'll still smell a bit like whoever it really belongs to."
 "Hmph,"
 Gran-Granna Tumbly snorted.
 "Fancy words like that,
-maybe you ought to think about becoming a writer."
+maybe you ought to think about delivering stories.
+There are such,"
+she went on.
+"Places where people don't hold much by material possessions,
+there are santas who memorize stories and poems
+to tell to folks on their birthdays and whenever."
 
-"Maybe," Finner mumbled.[^stories-and-poems]
+Finner turned his teacup around in his hands again.
+"Do they write the stories too?"
 
-[^stories-and-poems]: He'd written stories and poems for school. Doing it made volcanoes seem attractive.
+Gran-Granna Tumbly shook her head firmly.
+"No, of course not.
+That's making, and making is elves' work."
+She caught his eyes with hers,
+which were as clear as a deep mountain lake and only half a degree warmer.
 
-*THUMP!* He jumped as something heavy hit the floor in the room overhead.
+*THUMP!*
+He jumped as something heavy hit the floor in the room overhead.
 "What was that?"
 
 Gran-Granna picked up her cane and struggled to her feet.
-"Dearie me, look at the time," she said curtly.
+"Dearie me, look at the time," she said briskly.
 "I'm sure your folks will be wondering where you are.
-You best be—"
+You'd best be—"
 
 *THUMP!* "Ow, get off me!" a female voice said peevishly.
 
-Finner reached for his great-grandmother.
+Finner looked at the ceiling.
 "I think someone's up there," he whispered loudly.
 
 Gran-Granna rolled her eyes.
@@ -383,18 +386,24 @@ Heavy boots thumped on carpeted steps
 as the biggest, beardiest santa Finner had ever seen came downstairs
 and wrapped his arms around Gran-Granna Tumbly
 in a number three hug.[^number-three-hug]
-To Finner's complete surprise the santa started crying.
+To Finner's complete surprise the barded santa started crying.
 
 [^number-three-hug]: Both arms, full wrap, strong squeeze for two or three heartbeats depending on how bad things are.
 
-"Oh Vidancia," he blubbered.
-"It's awful.
-It's *awful*."
+"Oh Vidancia," he sniffled.
+"It all went wrong.
+It all went *wrong*."
 
 Gran-Granna Tumbly wriggled out of the beard and the hug.
-"Let me guess—did your llamas eat your favorite hat again?"
+"Get ahold of yourself,"
+she ordered.
+"What went wrong?"
+Finner did a double take.
+Was that an ax strapped to the first santa's back?
+A really big ax that looked like it was designed for chopping off heads
+rather than for turning logs into kindling?
 
-"The llamas are gone,"
+"We were ambushed,"
 said a second santa
 who had come silently down the stairs behind the first one.
 She was no taller than Finner,
@@ -402,19 +411,14 @@ but lean where the first santa was brawny,
 and her uniform—Finner did a double take.
 Her hood and sack were red and white,
 but the rest was changing color to match the carpet on the stairs.
-And—was that an ax strapped to the first santa's back?
-A really big ax that looked like it was designed for chopping off heads
-rather than for turning logs into kindling?
 
-"What do you mean 'gone'?" Gran-Granna demanded,
-pulling a handkerchief out of her sleeve and handing it to the big santa
-in a way that clearly meant,
-"Stop sniffling and get ahold of yourself."
+Gran-Granna Tumbly pulled a handkerchief out of her sleeve
+and thrust it into the big santa's hand.
+"By whom?
+And what happened to your target?"
 
-"I mean they are gone.
-No longer in their proper surroundings.
-Ex-located.
-Completely, utterly, elsewhere."
+"I don't know who they were.
+But the target got away."
 The second santa sat down heavily on the stairs.
 
 "You're hurt," Gran-Granna said accusingly.
@@ -427,36 +431,30 @@ One of my presents went off a little early,"
 she added with a wicked grin.
 
 The burly santa wiped his eyes on a sleeve that Finner could have used as a sleeping bag.
-"The elves were helpin' me load up the stagecoach for a delivery,
-just like they always do,
-an' then *blam!*"
+"We were all set to make the grab, and then *bam*!"
 He smacked a meaty fist into an equally meaty palm.
 "There they were,
 all over us.
-I tried to fight 'em off, Vidancia, I swear."
+I tried to fight 'em, Vidancia, I swear."
 His lower lip trembled.
 
-"I know you did," Gran-Granna said gently.
-"What about your elves?"
+Gran-Granna tumbly pursed her lips.
+"That's twice now,"
+she said to the second santa,
+who nodded and then winced
+before turning her gaze on Finner.
 
-"Out through the emergency chimney,"
-the second santa said.
-She shifted and winced.
-"They're safe.
-At least,
-as safe as anyone right now."
-
-She turned her gaze on Finner.
 Something very much like a mild electric shock ran down his spine
 as her dark eyes locked with his.
 "And who's this?" she asked.
 
-Before anyone could answer there was another pair of *thumps* upstairs.
-"Well," a somewhat disappointed voice buzzed a moment later.
+Before anyone could answer there was another pair of thumps upstairs.
+"Well," a voice buzzed a moment later.
 "It's not exactly a palace, is it?"
 
-The burly santa growled and reached for his ax.
-The one on the stairs struggled to her feet.
+The burly santa growled and pulled his ax off his back
+with a complicated shrug.
+The santa on the stairs struggled to her feet.
 "They're here," she spat.
 
 "So it appears,"
