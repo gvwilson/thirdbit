@@ -331,7 +331,7 @@ An old couple had woken early
 to scrape tweaked barnacles off long strips of plastic they had hung from the pier months before.
 Hundreds of little shells glittered with tiny particles of metal they had filtered out of the water.
 Ground down and incinerated,
-they would yield a few grams of copper or manganese
+they would yield a few grams of lanthanum or indium
 that could keep some old piece of tech limping along for another season.
 
 One of the women straightened and raised a hand in greeting as Iffy went by.
@@ -722,14 +722,14 @@ Pleased to meet you too."
 ## Chapter 2
 
 Iffy ran all the way back to the pier,
-dodging around the people and occasional bots going about their chores
+dodging around the people and bots going about their chores
 in Halley's narrow cobblestone streets.
-A pair of accelerated raccoons gabbled at her
+A pair of tweaked raccoons gabbled at her
 from atop a rack of insulating moss someone had set out to dry in the sun,
 the tech in the back of their heads glinting silver in the sun.
 Iffy ignored them all and kept running.
 
-The barnacle farmers were still bent over their work when she reached the pier.
+The barnacle farmers were still bent over their work when she reached the harbor.
 She stopped and put her hands on her knees to catch her breath.
 "How's yer haul?" she panted.
 
@@ -751,7 +751,7 @@ He was trying to mend the backstay cable that had snapped a few days ago.
 It was a fiddly job at the best of times,
 and if he had a hangover…
 
-The scowl on his face turned stormy as he caught sight of her.
+The scowl on his face darkened as she came up the gangplank.
 "Where th' hole you been, girl?" he demanded,
 waving the wrench at her.
 "There's work needs done!
@@ -788,7 +788,7 @@ before thrusting it back at her.
 
 "I just asked her to pick up a couple o' things,"
 Aunt Naggie said,
-sticking her head up through an open hatch
+sticking her head up through the galley hatch
 like a turtle cautiously checking that the world outside its shell was safe.
 "Did they have eggs?"
 
@@ -806,11 +806,11 @@ I was going t' make noodles."
 and then she couldn't hold back any longer.
 "But auntie,
 there was a man at Sandhu's,
-a mechanic come down to work in th' machine shop,
+a mechanic come down to work in the machine shop,
 'cept he was on the *Taroona* and they stole his gear
-so he was askin' after a place t' stay,
-an' we got to talkin',
-an' he said that if he could get his tools back an' find work an all,
+so he was askin' after a place to stay,
+and we got to talkin',
+and he said that if he could get his tools back and find work an all,
 he might be lookin' for an apprentice."
 
 "An apprentice?" Aunt Naggie echoed.
@@ -821,7 +821,7 @@ It's about time he got out and did somethin'."
 "He said he'd look to take me!"
 The two Mrs. Sandhus had listened with bemusement
 as her conversation with Mister Wales—"call me Johnson, please"—leaped from de-ionizers
-to different ways to micro-weld cracks in core cases
+to different ways to micro-weld cracks in cryogenic core cases
 to the mended reciprocating rod Iffy took out of her coat to show him.
 It wasn't until Big Mrs. Sandhu had cleared her throat
 and pointedly suggested that the conversation continue
@@ -836,16 +836,15 @@ for lookin' after you all this time."
 
 Something froze inside Iffy.
 "Aright," she said coldly,
-knocking his arm away.
-"How 'bout you an' me go ask the *Ginny* to pull up the accounts
+shrugging off his arm.
+"How 'bout you and me go ask the *Ginny* to pull up the accounts
 so I can see just how much that is,
-and I'll tell you how much you owe me
-for keeping her afloat when you're too wrung out to do it yourself,
-an' then we'll see who owes who what!"
+and I'll tell you how much you owe me for keeping her afloat,
+and then we'll see who owes who what!"
 
 "What we'll see is how well you swim!"
 Uncle Jack roared,
-raising the heavy wrench he was holding like a club.
+raising the heavy wrench he was holding.
 
 "No!"
 Aunt Naggie yanked Iffy back and stepped in front of her irate husband.
@@ -867,24 +866,23 @@ a silent warning not to say anything.
 
 Uncle Jack stalked off,
 muttering under his breath.
-"You come below and help me with th' noodles,"
+"You come below and help me with the noodles,"
 Aunt Naggie said,
 shooing Iffy toward the open hatch.
 "That'll give him time to calm down."
 
 "Yes auntie," Iffy said,
 her voice only slightly shaky.
-Uncle Jack had never actually hit her—as simple-minded as the *Guinevere*'s core was,
-it would still instantly report that to the Marines
-who served as Halley's police.
+Uncle Jack had never hit her—as simple-minded as the *Guinevere*'s core was,
+it would still instantly report that
+to the Marines who served as Halley's police.
 But with each passing season,
-as the *Guinevere* slowly fell apart beneath them despite Iffy's hard work,
+as the *Guinevere* slowly fell apart beneath them despite Iffy's best efforts,
 his if-only stories about big deals that were just over the horizon
 had turned into angry tirades and sullen silences.
 Iffy didn't know where she would go,
 and she couldn't bear the thought of leaving Aunt Naggie to face him alone,
-but she knew that one day soon she was going to walk down the gangplank
-and never come back.
+but one day soon she was going to walk down the gangplank and never come back.
 
 One day—but not today.
 
@@ -898,14 +896,12 @@ while a pot of desalinated water came to the boil.
 A handful of diced mushrooms and a splash of soy sauce joined the onions,
 filling the air with a rich aroma that tightened the knot in Iffy's stomach.
 
-The knot turned into an ache as Aunt Naggie added some of her precious spices.
+The knot sharpened as Aunt Naggie added some of her precious spices.
 "Is that Mrs. Sandhu's curry?" Iffy asked,
 turning a pair of chopsticks over and over in her hands.
 
 "Mm hm."
-Aunt Naggie fished the little jar out of her apron,
-sprinkled a little into the simmering mixture,
-then tucked the jar at the back of her spice shelf.
+Aunt Naggie tucked the little jar back into her apron.
 "I save it for special occasions."
 She dropped a thick handful of noodles into the pot,
 glanced at her foster daughter,
@@ -915,7 +911,7 @@ Iffy put the chopstick back on the table.
 "What's so special 'bout today?" she grumbled.
 
 Aunt Naggie smiled without looking up from her cooking.
-"Any time I cook for just th' two of us is special,"
+"Any time I cook for just the two of us is special,"
 she said,
 knocking bits of onion off her spatula into the frying pan.
 "But best we don't mention that to Jack, aright?"
@@ -923,7 +919,7 @@ knocking bits of onion off her spatula into the frying pan.
 "Sure," Iffy said,
 feeling a knot in her chest to match the one in her stomach.
 She stood up and hugged Aunt Naggie from behind.
-"You know I won't leave you, aye?"
+"You know I love you, aye?"
 
 Her foster mother's shoulders slumped slightly.
 She moved the frying pan off the induction loop
@@ -934,7 +930,7 @@ she used to sing songs to at bedtime.
 kissing Iffy's shaved head.
 "But when your chance comes, you take it, aright?"
 She squeezed Iffy.
-"Now, scootch over."
+"Now, gimme some room."
 
 A few minutes later Iffy sat down on deck
 with her back against the wheelhouse door
@@ -942,7 +938,7 @@ and a steaming bowl of noodles in her lap.
 She bowed her head and said a brief prayer for the olders she could barely remember,
 then began scooping food into her mouth.
 Not even the sound of her uncle grumbling belowdecks
-could spoil the spicy sweet taste in her mouth
+could spoil the spicy sweetness in her mouth
 or the feeling of her belly slowly relaxing.
 
 When the noodles were gone
@@ -994,30 +990,30 @@ It was the new machine shop!
 A siren wailed.
 Others joined it.
 She heard Uncle Jack bellow,
-"What'n hole you done now, girl?"
+"What you done now, girl?"
 but she was already racing down the gangplank.
 
 By the time she reached the machine shop
 a small crowd had gathered on the paved turnaround in front of it.
-Something like panic rose in her throat
+Panic rose in her throat
 when she saw that the explosion hadn't been in the building itself
 but in the squat blockhouse beside it
 where the industrial printer was sitting in quarantine.
 
 One corner of the blockhouse had collapsed
-into a tangle of masonry chunks and twisted foam steel beams.
+in a tangle of masonry chunks and twisted foam steel beams.
 A rough-looking woman in a green and yellow vest
 was standing in front of its single door
 arguing loudly with two men in dark blue Marine uniforms.
 "An' *I* said I'll open it when Captain Kerse tells me to!"
 she said hotly,
-uncrossing muscular arms thick with tattoos.
+uncrossing muscular arms covered in silvery tattoos.
 
 Two more Marines pushed through the crowd,
 a sidekick drone whining faintly over their heads.
 One of them pointed at the sergeant's stripes on his sleeve.
 "Do you see these, citizen?" he demanded.
-"These indicate that I have authority to direct action
+"These indicate that I have authority to take action
 as I think most consistent with regulations regarding general public safety.
 We will therefore proceed to inspect this site regardless of your wishes."
 
@@ -1026,8 +1022,7 @@ The woman's lip curled.
 "Well that means nought to me,
 mate,
 so you an' your brainmush friends can—oy!"
-She stepped sideways to block one of the Marines
-as he moved toward the door.
+She stepped sideways to block another Marine as he moved toward the door.
 
 "Clear away! Clear away, all o' you!"
 The crowded parted hastily at the shouted order.
@@ -1040,9 +1035,9 @@ The shaven-headed woman leading the new arrivals put her hands on her hips.
 "Y'arra, Bags?" she asked,
 glaring at the Marine sergeant,
 the crowd,
-and everything else in sight for good measure.
+and everything else in sight just in case.
 
-"Joey, Cap'n Kerse," the first woman growled.
+"Joey, Cap'n," the first woman growled.
 "Just 'splainin' t' these lot that there ain't nothin' here needs corra look-in."
 
 "With respect, citizen," the sergeant said,
@@ -1066,7 +1061,7 @@ The *Taroona*'s crew ignored the mutters of "Too right" and "Just let 'em look"
 from the crowd.
 One sailor hefted a gaff hook.
 Another wrapped a length of chain around her hand
-as the twin or clone beside her rolled her head from side to side to loosen it.
+as the twin or clone beside her rolled her head from side to side to loosen her neck.
 "Well this ain't Bharati,"
 Captain Kerse said to the sergeant.
 "Contract says we're to mind everythin' we hauled down from Taz
@@ -1087,7 +1082,7 @@ her words aimed at Halley's core and the watching governors.
 
 "I agree your analysis is likely," the sergeant said.
 "But I still insist on inspecting this site directly."
-In one choreographed motion,
+Moving as one,
 he and the three Marines beside him
 drew their shock sticks from the holsters on their hips.
 
@@ -1101,9 +1096,9 @@ The last time they were in Rothera
 he had come back to the *Guinevere* bruised and bloodied
 and uncharacteristically quiet about what had happened.
 As the Marines' uniform jackets hardened into armor,
-she turned to find somewhere safer to be.
+she turned to find somewhere safer to be
+and bumped right into Johnson Wales.
 
-And bumped right into Johnson Wales.
 "'Scuse me," she muttered before she realized who he was.
 
 "No worries," he said pleasantly.
@@ -1115,7 +1110,8 @@ and stooped to pick up its two identical twins.
 
 "What—?" Iffy started to ask.
 
-"Ssh!" Wales cut her off and looked up at the drone circling overhead.
+"Ssh!"
+Wales cut her off and looked up at the drone circling overhead.
 Without warning its buzzing stopped
 and it fell from the sky like a rock.
 
@@ -1123,9 +1119,8 @@ and it fell from the sky like a rock.
 but it was too late.
 As the drone clattered on the cobblestones,
 the sergeant blew his whistle.
-Moving as one,
-the squad charged the sailors.
 
+The Marines charged the sailors.
 A shock stick sizzled and cracked.
 Someone shouted an obscenity,
 and suddenly people were running past Iffy
@@ -1142,11 +1137,11 @@ Where th' hole d'you think you're goin'?"
 A rangy man in a yellow-and-green vest with a half-star tattooed on his face
 shoved a couple of people out of his way and grabbed Iffy by the arm.
 
-And there it was in her head,
+Suddenly there was a picture in her head
 like a wireframe of a machine labelled with angles and velocities.
-Without thinking she spun around,
+She spun around,
 swinging the case in a sharp arc.
-Its rising edge hit the *Taroona* crewman beneath his knee with a crack.
+Its rising edge hit the *Taroona* crewman beneath his knee with an audible crack.
 
 "Aargh! Shaddin' hack, ya wheezy—"
 The case in Wales' right hand thudded against the sailor's head.
@@ -1161,14 +1156,15 @@ or tried to,
 but the case was heavy and awkward
 and the women chasing her were half again her height
 and could knock people aside instead of going around them
-or pushing in between them and what had just happened?
+or pushing in between them.
+What had just happened?
 How could she have seen what she needed to do like that?
 
 Just as one of the sailors yelled, "Gotcha!"
 a dirty gray shape darted out from behind a barrel.
 The sailor tripped over the raccoon and fell to the cobblestones
 with a surprised curse.
-The sailor behind her skidded to a halt on the cobblestones,
+The sailor behind her skidded to a halt,
 only to be sent staggering as the third one plowed into her from behind.
 
 "Get off me!"
@@ -1179,14 +1175,15 @@ growing and hissing at the sailors.
 "Come on!"
 Wales pulled Iffy away.
 
-For a few moments all Iffy could do was try not to stumble and fall.
-Just when she couldn't hold onto the case any longer
+For the next few moments it was all Iffy could do to stay on her feet.
+Just when she thought she couldn't hold onto the case any longer
 Wales pulled her into a side alley.
 A few drops of sweat glistened on his forehead.
-"Are you all right?" he panted.
+"Are you all right?" he asked,
+breathing heavily.
 
 Iffy dropped the case on the ground and doubled over to catch her breath.
-"No, I'm not aright," she wheezed.
+"No, I'm not aright!" she wheezed.
 "I just about got my chomper clocked back there!
 And what's this?"
 She kicked the case with the toe of her boot.
@@ -1203,40 +1200,41 @@ The Marines have called for reinforcements—we should be somewhere else when th
 Wales led her out the other end of the alley
 onto a narrow street lined with two-story houses made of laser-cut stones.
 Sparkling blue-green moss traced their mortared joints.
-It was strangely quiet after the commotion on the street—the only sounds were the gulls,
-the faint hum of a heavy drone passing nearby,
+It was strangely quiet after the commotion on the street.
+The only sounds were the gulls,
+the faint hum of a heavy drone passing overhead,
 and their boots on the cobblestones.
 
 Iffy struggled to keep up with Wales
 as he strode confidently toward the center of town.
-The sailors and townsfolk she knew ranged from lean to stringy—cold weather
-and the sparse Antarctic diet didn't give bodies much chance to put on weight.
+The sailors and townsfolk she knew ranged from lean to stringy:
+cold weather and the sparse Antarctic diet didn't give bodies much chance to put on weight.
 Wales' broad shoulders made him look boxy by comparison,
 and the cases he was carrying seemed much smaller in his hands than in hers.
 
-"Hang up a jif," Iffy finally said.
-Wales stopped as she set her load down on the ground and caught her breath.
+"Hang a jif," Iffy finally said.
+Wales stopped as she set her load down on the ground to catch her breath.
 Between the Marines' inducted fighting skills,
 their drones,
 and their armor,
 the *Taroona*'s sailors would have had about as much chance
 as a snowball in Aunt Naggie's frying pan.
 "Sometimes folk fight just so they can tell themselves they did,"
-Aunt Naggie had explained after one of Uncle Jack's misadventures.
-"Sometimes tryin' is the only kind of winnin' you can hope for."
+Aunt Naggie had explained with a shrug
+after one of Uncle Jack's misadventures.
 
 She jumped and squawked as a raccoon poked its head up out of a drain near her feet.
 The tech under its fur sparkled briefly as it gabbled at Wales.
 
 "What's it sayin'?" Iffy whispered loudly,
 unconsciously backing up a step.
-Halley tolerated a handful of accelerated animals for the jobs they could do,
+Halley tolerated a handful of tweaked animals for the jobs they could do,
 but there were too many stories of them being driven mad by malware left over from the war
 for anyone to ever be truly comfortable around them.
 
-Wales didn't seem bothered in the least.
+Wales didn't seem bothered.
 "Thank you, my friend."
-He pulled something that looked like a little gray waffle out of his pocket.
+He pulled something that looked like a gray ceramic waffle out of his pocket.
 "Here. This is for you."
 
 The raccoon stood on its back feet and plucked the object from Wales' hand.
@@ -1247,13 +1245,13 @@ the last time the *Guinevere* was in dock.
 
 A blueprint materialized in her head.
 The heat exchanger belonged in the housing around a quantum relay
-of the kind creatures like the raccoon would use to communicate with each other.
-With that came the realization that the creatures were infiltrators
-designed to worm their way through pipes and narrow spaces without being detected.
+of the kind that collectives of tweaked animals used to communicate with each other.
+With that came the knowledge that the raccoons had been designed during the war
+to worm their way through pipes and narrow spaces without being detected.
 The tech in the raccoon's back was made of scraps recycled many times over,
-but the original design was still there beneath the patchwork.
+but the original design was still clear beneath the patchwork.
 
-Her vision disappeared
+The vision faded
 as the raccoon tucked the heat exchanger into a pouch strapped to its belly.
 It gabbled again before disappearing back into the drain.
 
@@ -1267,22 +1265,20 @@ sounding fond and sad at the same time.
 
 "Uh huh,"
 Iffy said without moving.
-"Must be pretty affin' special for it to take a chance on bein' scrapped
-for blowin' stuff up like that."
+"Must be pretty affin' special for it to chance bein' scragged for blowin' stuff up."
 
 When Wales didn't answer she prodded the case next to her with her boot again.
-"That *was* you, wasn't it? The 'splosion back there?"
+"That *was* you and them, wasn't it? The 'splosion back there?"
 
 Wales blinked.
 "Why on earth would you think that was me?"
 
 Iffy rolled her eyes.
-"Cuz they upped your gear an' then the blockhouse blew up
-an' then the bot that takes care o' the town's sewers an' all
-just happens t' be a friend o' yours
+"Cuz they naffled your gear an' then the blockhouse just happens to blow up
+an' then the critters that takes care o' the town's sewers an' all
+just happen to be friends o' yours
 an' now you got your stuff back?
 I ain't *stupid*," she finished disgustedly.
-Why did grownups always think kids were stupid?
 
 "No you're not," Wales agreed thoughtfully.
 He nodded at the case next to her feet.
@@ -1293,18 +1289,17 @@ and raised an eyebrow.
 
 Wales smiled briefly.
 "Sorry.
-Arra joey t' carry at down s'far we go long?"
+Arra joey t' carry at down s'far as we go along?"
 
 Iffy made a face.
 "That was *terrible*," she judged witheringly.
-"And sure, but only if I get t'see what's in it."
+"And sure, but only if I get to see what's in it."
 
 Wales chuckled.
-"Fair enough. Come on."
+"Fair enough."
 He glanced up as one last drone zipped past overhead.
 Lights sparkled briefly in the rectangle set into his temple,
-making Iffy wonder how honestly the drones were reporting the scene
-to Halley's central core.
+making Iffy wonder exactly what the drones were reporting to Halley's central core.
 
 They picked up their loads and walked side by side
 past the Sandhus' grocery
@@ -1312,11 +1307,11 @@ to the café where Wales had rented an upstairs room.
 The owner glanced from Wales to Iffy to the cases
 but said nothing more than, "Tea?"
 
-They sat at the café's single stone-topped table
+They sat at one of the café's stone-topped tables
 and sipped the strong, minty brew from mis-matched ceramic mugs
 the size of Iffy's doubled fists.
 Wales sighed contentedly,
-then set his mug aside,
+then set his drink aside,
 lifted the case Iffy had been carrying onto the table,
 and opened it.
 
@@ -1333,7 +1328,7 @@ from whatever spare parts Wales had been able to find.
 Iffy felt more comfortable with these,
 since pretty much everything in Halley was built the same way.
 
-"An' what about those?" she asked eagerly,
+"What about those?" she asked eagerly,
 pointing at a nested set of asymmetric gears
 as Wales carefully repacked everything.
 
@@ -1366,14 +1361,14 @@ and Uncle Jack would be furious.
 Tell me more about this ship of yours…"
 
 Wales locked his toolboxes in his room before they left
-and put a small toy bear with bright blue eyes on the shelf above them.
+and put a small toy bear on the shelf above them.
 "To keep an eye on things,"
 he said,
 tapping the tech in his temple.
 Iffy nodded—smart toys were an everyday thing,
 even for someone who had grown up as poor as she had.
 She didn't know what the orange-and-red globe of Mars next to the bear was for,
-but she suspected it would do more than just watch if someone broke in.
+but she suspected it would do more than just spin if someone broke in.
 
 A pair of bulky gray drones hovered over the harbor
 as Iffy and Wales walked down to the pier.
@@ -1384,14 +1379,14 @@ One zap from them and you'll have a headache for a week.
 The nozzles behind them probably spray strangle foam."
 
 "Why are they just watchin'?" Iffy asked.
-"Why don't th' Marines just haul everyone in for th' governors to sort out?"
+"Why don't the Marines just haul everyone in for the governors to sort out?"
 
 Wales sighed.
 "Politics.
 Even if they *did* blow up the quarantine building,
 the *Taroona* and the rest of the Australian fleet
 are the only thing stopping the Brazilians from walking in here.
-Odds are the captain and her crew will out by morning,"
+I expect the captain and her crew will be out by morning,"
 he continued,
 speaking to himself as much as to the frowning tween beside him.
 "Which is another reason I need to talk to your uncle."
@@ -1408,11 +1403,11 @@ Ten minutes later Uncle Jack shouted,
 We're a jelly dredger,
 not a ferryboat!
 You wanna hitch up along Rothera,
-get yourself three piers over an' buy a ticket."
+get yourself three piers over and buy a ticket."
 
 Wales' polite expression didn't waver.
 "I understand it's not your usual line of work,"
-he said smoothly
+he said soothingly
 when the *Guinevere*'s bleary-eyed captain paused for breath.
 "And if no is your final answer,
 I'll respect that and take my business elsewhere.
@@ -1426,7 +1421,7 @@ and from his squint and the smell on his breath
 Iffy guessed that she'd find at least one empty bottle in the recycling
 if she bothered to go and look.
 "Lemme guess—you can sing.
-Or no—you can do magic tricks an' turn jellyfish into gold."
+Or no—you can do magic tricks and turn jellyfish into gold."
 
 "Almost," Wales nodded.
 "Except it isn't magic, and the gold will be all yours."
@@ -1434,17 +1429,16 @@ He tapped the tech in his temple.
 "This is a satellite uplink.
 A *fully functional* satellite uplink,"
 he continued as Uncle Jack opened his mouth.
-"Which means I can spot patches of sea boil with half an hour to spare.
-Maybe a full hour, if a satellite is in the right positions.
+"Which means I can spot patches of sea boil with half an hour to spare—maybe more.
 And *that* means—"
 
-Uncle Jack said a word that sent Aunt Naggie's hands flying to her mouth.
+Uncle Jack said a word that sent Aunt Naggie's hand flying to her mouth.
 "Ain't no such thing,"
 the *Guinevere*'s captain sneered.
 "Not since the war—everyone knows that.
-The sats are all 'crypted an' th' keys are long gone."
+The sats are all encrypted and the keys are long gone."
 
-"They are indeed encrypted," Wales nodded.
+"They are indeed encrypted," Wales agreed.
 "But as for the keys…"
 He closed his eyes.
 "Your beacon is GUIN40782, is that right?"
@@ -1453,11 +1447,11 @@ He nodded to himself without waiting for an answer.
 You spent most of it over the Berkner Rise."
 
 "So what?" Uncle Jack contemptuously.
-"Everyone 'round here dredges th' Berk."
+"Everyone 'round here dredges the Berk."
 
 "Some with more luck than others," Wales observed coolly.
 "Take the *Whitstable*, for example.
-The jellyfish they brought back came up in a boil
+The jellyfish they dredged came up in a boil
 just twenty kay northeast of you.
 If you'd known it was happening,
 they could have been yours."
@@ -1472,7 +1466,7 @@ Her crew had been celebrating their good fortune in Halley's shops and bars ever
 Uncle Jack scratched his cheek through his uncombed beard.
 Iffy could practically hear him resenting the other ship's good luck.
 "You're shaddin' me," he growled.
-"There's no way you could know somethin' like that 'fore it happened."
+"There's no way you could know somethin' like that before it happened."
 
 Wales didn't answer.
 Instead,
@@ -1484,11 +1478,11 @@ He paused.
 "Profile looks like grain,
 but they have something heavier for ballast.
 Smuggling in machinery to swap for coal, most likely."
-He pivoted twenty degrees like a weathervane.
+He swung his arm twenty degrees like a weathervane.
 "The *Peacock*, the *Reculver*, and the *Watney Breach* are dredging together.
 They're not going to find much—the sea bottom there
 might as well be concrete."
-He pivoted again.
+He swung his arm again.
 "And there's a Brazilian catamaran out that way,
 three hundred kay and bearing northwest."
 He smiled slightly.
@@ -1501,13 +1495,12 @@ he said in a voice that left no room for doubt or disagreement.
 And I need to get to Rothera.
 The only question is, will that be your good fortune or someone else's?"
 
-Uncle Jack hefted his gaff hook.
 "Jack," Aunt Naggie began.
 
-"Quiet," he snapped, greed and mistrust warring on his face.
+"Quiet," her husband snapped, greed and mistrust warring on his face.
 "We keep whatever we haul," he finally said.
-"An' th' moment we tie up,
-you're off an' I never heard o' you."
+"And the moment we tie up,
+you're off and I never heard o' you."
 
 "Fair enough," Wales agreed.
 He stuck out his hand.
@@ -1515,7 +1508,7 @@ He stuck out his hand.
 Iffy held her breath.
 Uncle Jack scowled a moment longer,
 then grabbed it and gave it a single perfunctory shake.
-"I'm guessin' you'll want t' be off right away," he said sourly.
+"I'm guessin' you'll want to be off right away," he said sourly.
 
 Wales nodded.
 "Just as soon as I collect my—"
@@ -1530,7 +1523,7 @@ drawing himself up to his full height.
 
 "Someone is breaking into my room."
 Wales said curtly.
-"Warm up the engines and get ready to cast off.
+"Get ready to cast off.
 I'll be back in ten minutes."
 
 "We'll cast off when *I* say!"
@@ -1552,23 +1545,23 @@ Uncle Jack turned the black plastic rectangle over in his hands suspiciously.
 
 "Sixty *thousand*?"
 Uncle Jack pressed his thumb on the corner of the money.
-His eyes widened at the blinking figures it displayed,
-then narrowed again as he looked Wales up and down.
+His eyes narrowed at the blinking figures it displayed.
 "You must wanna get outta here pretty badly,"
-he mused.
+he mused,
+looking Wales up and down as if measuring him for a funeral suit.
 
 "It's no use to me if I can't spend it,"
 Wales said crisply.
 "Do we still have a deal?"
 
-Uncle Jack pocketed the card and grunted something unintelligible.
+Uncle Jack grunted and pocketed the card.
 "Thank you," Wales said. "I'll be quick."
 He turned to go, then stopped himself and tapped his temple again.
 "Just so you know, this is still switched on.
 So if you try to call the Marines, I'll know."
 
 Uncle Jack spat over the taffrail.
-"Ain't nobody here calls th' Blues," he growled.
+"Ain't nobody here calls the Blues," he growled.
 
 "And none of your business associates either, please,"
 Wales added coolly.
@@ -1579,9 +1572,7 @@ Wales strode down the gangplank before Uncle Jack could reply,
 lengthening his stride into a jog
 that carried him along the pier and into town.
 "That one's trouble," Uncle Jack said flatly.
-He leaned his elbows on the taffrail,
-cleared his throat,
-and spat again into the water below.
+He leaned his elbows on the taffrail and spat again into the water below.
 There were more lines on his face than there used to be,
 Iffy noticed,
 and the three-day fuzz on his shaved scalp
@@ -1590,7 +1581,7 @@ had crept further and further away from his forehead.
 Uncle Jack noticed her looking at him.
 "Well, get movin'!" he barked,
 straightening up.
-"You too, woman," he added to Aunt Naggie.
+"You too," he added to Aunt Naggie.
 "I want us away from whatever's chasin' him soon as he's back."
 He strode away,
 muttering to himself.
@@ -1615,7 +1606,7 @@ stern and worried at the same time.
 After a moment she took her hand away,
 but her expression didn't change.
 "There's no fever.
-How about you start gettin' us ready an' I'll make somethin' quick to eat?"
+How about you start gettin' us ready and I'll make somethin' quick to eat?"
 
 "Tea'd be nice," Iffy said gratefully.
 
@@ -1649,7 +1640,7 @@ She scrambled up the ladder that connected the engine room to the deck.
 Aunt Naggie coiled the last stayline and shoved it into a canvas bag,
 then shoved the bag into a bench locker and dogged the seat-lid shut.
 "That's all for me too."
-She handed Iffy half a sandwich—scrambled egg with more of Mrs. Sandhu's spice mix—and
+She handed Iffy half a sandwich—scrambled egg with more of Mrs. Sandhu's curry—and
 waited for her foster daughter to wolf it down
 before thumping the cabin wall with her fist.
 "Good when you are," she shouted,
@@ -1703,7 +1694,7 @@ Then she gasped.
 "You're bleeding!"
 
 "Still?"
-Wales pulled a rag out of his pocket and dabbed at a cut on his wrist.
+Wales pulled a rag out of his pocket and dabbed at a cut on his cheek.
 "So I am."
 He put the rag back in his pocket and limped toward the *Guinevere*.
 
@@ -1712,7 +1703,7 @@ Iffy puffed as she fell into step beside him.
 "Was someone really tryin' t' break into your room?
 Were they along from the *Taroona*?
 Did you get punched up?
-An' what's wrong with your leg?"
+And what's wrong with your leg?"
 
 "Oh, everything was mostly sorted out by the time I got there,"
 Wales said vaguely.
@@ -1820,11 +1811,11 @@ and then all Iffy could hear was a rushing sound
 as the ship fell away beneath her into a pit of churning foam.*
 
 She woke up drenched in sweat.
-She kicked her way out of her sleeping back,
+She kicked her way out of her sleeping bag,
 rolled over,
 and buried her face in her mattress.
 When her tears finally ran dry she wiped her nose angrily on her sleeve,
-rolled over on her back,
+rolled onto her back,
 and fumbled on the floor beside her for her water bottle
 before remembering that she hadn't refilled it.
 "Idiot," she muttered,
@@ -4414,7 +4405,7 @@ mixed with the wet steamy warmth from rice cookers,
 the salty tang of seaweed soup,
 and the heavy mug of people who spent most of their lives wrapped in warm clothing.
 
-Iffy paused in front of a stall selling accelerated raccoons with startling blue eyes.
+Iffy paused in front of a stall selling tweaked raccoons with startling blue eyes.
 "They make great pets. Or snacks!" the man said,
 hastily adding, "Just kidding! Just kidding!"
 when Iffy scowled at him.
@@ -11335,7 +11326,7 @@ As if on cue a second bear and then a third ambled around the outcropping.
 One of them stopped next to the first.
 The other took a tentative step forward,
 only to hesitate and withdraw when the first bear growled at it.
-It wasn't accelerated like the other two,
+It wasn't tweaked like the other two,
 Iffy realized.
 It was just several hundred kilograms of predator
 looking at something edible and defenseless.
@@ -11394,12 +11385,12 @@ and then he turned to the bears and said,
 "Aright, let's get goin'."
 
 Iffy watched the foursome head downhill,
-wondering if it was just an accident that the two accelerated bears
+wondering if it was just an accident that the two tweaked bears
 kept themselves between their unmodified partner and Edson.
 The Marines' infrared would spot them immediately,
 but even as she had the thought,
 schematics and false-color visualizations flashed through her head.
-The accelerated bears' tech would dampen and modify their heat signatures
+The tweaked bears' tech would dampen and modify their heat signatures
 long enough for them to look like half a dozen arctic rabbits
 fleeing from the unmodified bear,
 while Edson's jumpsuit would—
