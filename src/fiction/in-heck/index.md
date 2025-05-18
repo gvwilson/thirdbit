@@ -874,7 +874,7 @@ Kangaroos and older sisters are both naturally stubborn.
 Put the two together,
 and you have someone who can outwait a tiger.
 After a few moments the corner of Special Blazes' mouth quirked up.
-"Miz Room,
+"Miz Roo,
 I want you to know that I would trust Bee Six Vee with my life.
 I have in fact done so many times."
 

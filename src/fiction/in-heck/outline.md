@@ -192,3 +192,21 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   And that Dockety has proof that Papa Roo is alive
 -   Gumption suggests asking the Operators to help free Papa Roo
     -   Dockety is opposed: distrusts the Operators
+
+### Chapter 3: School (Maddy's PoV / day 2)
+
+-   Goals:
+    -   Get Sindy in trouble (inciting incident for everything that follows)
+    -   Reveal a bit of Special Blazes' zealotry
+-   Maddy and Sindy arrive late at the town's one-room school
+-   Special Blazes and Thoughtful have come to talk to the students
+    -   Most students are excited (including Gumption)
+    -   Maddy is determined not to be (which causes friction with Gumption)
+    -   She points out that their bot isn't with them
+-   Demonstration of fighting skills shows Blazes' tech and Gumption's martial arts
+-   Blazes speaks to Maddy afterward
+    -   He is about increased activity in Heck since her adventure: it's why they've come to Rusty Bridge
+    -   Wants her to spy on Dockety
+    -   Drops a few hints about Special Leaf
+-   Gumption intercepts Maddy on her way out (he was hiding in the rafters)
+-   Their conversation is cut short by Sindy accidentally triggering Blazes' fireball tech
