@@ -162,217 +162,260 @@ pleasant surprise! Please, please, come in."
 
 ## Chapter 2
 
-Mister Leaf wore blue and orange and a round, flat-topped polka-dot
-hat. He had black curls painted on his forehead and a big smile painted
-on his face. His eyes were made of tiger-orange topaz. They were so
-friendly that they sometimes seemed to shine.
+Mister Leaf wore blue and orange and a round, flat-topped polka-dot hat.
+He had black curls painted on his forehead and a big smile painted on his face.
+His eyes were made of tiger-orange topaz.
+They were so bright that they sometimes seemed to shine with a light of their own,
+particularly when he was looking at some of his students.
 
-He stepped out of the way and waved her in. "To what do I owe this
-unexpected pleasure?" he asked.
+He stepped out of the way and waved her in.
+"To what do I owe this unexpected pleasure?" he asked.
 
-"My father brought some work home," Still told him as they went
-upstairs to the music room. "He says it's really important, and my
-mother told me I was making too much noise, so I was hoping I could get
-one of the special lessons you were talking about. I mean, if you have
-time," she added hastily, suddenly feeling a bit guilty about showing
-up out of the blue.
+"My father brought some work home,"
+Still told him as they went upstairs to the music room.
+"He says it's really important,
+and my mother told me I was making too much noise,
+so I was hoping I could get one of the special lessons you were talking about.
+I mean, if you have time," she added hastily,
+suddenly feeling a bit guilty about showing up out of the blue.
 
-"Of course I have time," Mister Leaf said, his voice as warm as a
-cello. "A good teacher always has time for a good student. But look,
-your violin is wet. You should dry it off so that the finish isn't
-ruined." He took a red-checked tea towel off the top of the piano and
-handed it to her.
+"Of course I have time," Mister Leaf said,
+his voice as warm as a cello.
+"A good teacher always has time for a good student.
+But look, your violin is wet.
+You should dry it off so that the finish isn't ruined."
+He took a red-checked tea towel off the top of the piano and handed it to her.
 
-Still brushed a few drops of water off her violin, then handed the towel
-back to Mister Leaf. As she did so, their fingers touched with a faint
-*click*.
+Still brushed a few drops of water off her violin,
+then handed the towel back to Mister Leaf.
+As she did so their fingers touched with a faint *click*.
 
-Still felt as though someone had suddenly painted a warm blush on her
-cheeks. She turned to the window to hide her confusion, tucking her
-violin under her chin. The rain was darkening the red bricks of the
-houses across the street. "Shall I start with scales?" she asked.
+Still felt as though someone had suddenly painted a warm blush on her cheeks.
+She turned to the window to hide her confusion,
+tucking her violin under her chin.
+The rain was darkening the red bricks of the houses across the street.
+"Shall I start with scales?" she asked.
 
-"Of course," Mister Leaf said. The piano bench creaked as he sat down.
-"You should always start with a few scales. But not too fast—the most
-important thing is to hear your own music as you play it. Oh, and don't
-worry so much about getting your fingers in the right places—they know
-what to do. Now, one, two, three, four…"
+"Of course," Mister Leaf said.
+The piano bench creaked as he sat down.
+"You should *always* start with a few scales.
+But not too fast—the most important thing is to hear your own music as you play it.
+Oh, and don't worry so much about getting your fingers in the right places—they know what to do.
+Now, one, two, three, four…"
 
-Still played a G scale, then a B scale, and then a D flat scale (which
-is almost the hardest scale there is). Mister Leaf nodded his head and
-patted the piano bench with his hand to help her keep time. Every once
-in a while he said, "Good, good," or, "Slow down—try to smooth the
-notes into each other a little bit more."
+Still played a G scale, then a B scale, and then a D flat scale
+(which is almost the hardest scale there is).
+Mister Leaf nodded his head and patted the piano bench with his hand to help her keep time.
+Every once in a while he said, "Good, good," or,
+"Slow down—try to smooth the notes into each other a little bit more."
 
-"Very nice," he said when she finished. "Now, how about a song?
+"Very nice," he said when she finished.
+"Now, how about a song?
 Something melodic, I think."
 
-"All right." She laid her bow across the strings of her violin and
-drew it down slowly. The sound was like a mint-covered chocolate: sweet
-and thick on the outside, but as crisp as mountain air inside. She
-closed her eyes and played a slow, sad waltz.
+"All right."
+She laid her bow across the strings of her violin and drew it down slowly.
+The sound was like a mint-covered chocolate:
+sweet and thick on the outside but as crisp as mountain air inside.
+She closed her eyes and played a slow, sad waltz.
 
-She didn't open her eyes until she was done. Even then, she waited a
-moment, until the last melancholy note had faded from her mind. Then,
+She didn't open her eyes until she was done.
+Even then, she waited a moment, until the last melancholy note had faded from her mind.
+Then,
 "Oh!" she gasped.
 
-Mister Leaf was standing just inches away from her. His eyes glittered
-orange-yellow. "Ahhh…" he sighed. "That was… exquisite. May I
-try?"
+Mister Leaf was standing just inches away from her.
+His eyes glittered orange-yellow.
+"Ahhh…" he sighed.
+"That was… exquisite. May I try?"
 
-"Try what?" Still asked.
+"Try what?" Still asked uncertainly.
 
 "Your violin—may I try it? It makes such a beautiful sound."
 
-"Oh. Oh my." All of a sudden Still felt like her clockwork was
-whirring at double speed inside her. "I've never let anyone else play
-my violin before," she said. "I—I don't know if I should."
+"Oh. Oh my."
+All of a sudden Still felt like her clockwork was whirring at double speed inside her.
+"I've never let anyone else play my violin before," she said.
+"I—I don't know if I should."
 
-"Oh, well, it's not important," Mister Leaf said. Even as he said it,
-though, the glitter faded from his eyes. Still opened her mouth to say,
-"It's all right, I don't mind," but it was too late. Mister Leaf had
-already turned around and gone back to his piano bench.
+"Oh, well, it's not important," Mister Leaf said,
+the glitter fading from his eyes.
+Still opened her mouth to say,
+"It's all right, I don't mind," but it was too late.
+Mister Leaf had already turned around and gone back to his piano bench.
 
-"Now," he said briskly, "Let's try that fingering exercise we
-started last week. Low to high, then a trill, then high to low, and hold
-the bottom note. Remember? Yes? Good. One… two… one two three
-four."
+"Now," he said briskly,
+"Let's try that fingering exercise we started last week.
+Low to high, then a trill, then high to low, and hold the bottom note.
+Remember? Yes? Good. One… two… one two three four."
 
-Still had been practicing the exercise all week, but now her hands
-seemed to have forgotten everything they'd learned. Her fingers fell in
-the wrong places when she went for the high notes. Her bow even bounced
-off the strings a couple of times.
+Still had been practicing the exercise all week,
+but now her hands seemed to have forgotten everything they'd learned.
+Her fingers fell in the wrong places when she went for the high notes.
+Her bow even bounced off the strings a couple of times.
 
-By the time she finished, she felt like she had another blush painted on
-her cheeks, a blush of embarrassment. "Hm, well," Mister Leaf said.
+By the time she finished she felt like she had another blush painted on her cheeks,
+a blush of embarrassment.
+"Hm, well," Mister Leaf said.
 "That one will need a bit more work, won't it?"
 
 "Yes, Mister Leaf," Still said meekly.
 
-He nodded. "I'm sure you'll get on top of it. Now, when's our next
-lesson, tomorrow? Yes? All right, I want you to work on nothing but that
-exercise from now until then. No waltzes, no bird songs, nothing but
-that exercise. I know it doesn't sound like a lot of fun," he
-continued, raising one hand to cut her off, "But you have to do it if
-you want your playing to mature. Nice little tunes are fine for nice
-little children, but you want to be more than that, don't you?"
+He nodded.
+"I'm sure you'll get on top of it. Now, when's our next lesson, tomorrow?
+The day after?
+All right, I want you to work on nothing but that exercise from now until then.
+No waltzes, no bird songs, nothing but that exercise.
+I know it doesn't sound like a lot of fun,"
+he continued,
+raising one hand to cut her off even though she hadn't been about to say anything.
+"But you have to do it if you want your playing to mature.
+Nice little tunes are fine for nice little children,
+but you want to be more than that,
+don't you?"
 
 "Yes, Mister Leaf," Still repeated.
 
 He nodded. "Good. I'll see you in a couple of days."
 
-The rain had stopped while Still was playing, although a few dark clouds
-still nuzzled each other over her head. Still's thoughts went round and
-round as she slowly walked home. She could play that exercise almost
-perfectly—it was stupid to flub it like that. And… She shivered.
-She had never even really *thought* about someone else playing her
-violin before.
+The rain had stopped while Still was playing,
+although a few dark clouds still nuzzled each other over her head.
+Still's thoughts went round and round as she slowly walked home.
+She could play that exercise almost perfectly—it was stupid to flub it like that.
+And… She shivered.
+She had never even really *thought* about someone else playing her violin before.
 
-She was about to cross the street when she noticed a bedraggled paper
-boat caught up against some sticks and leaves in the gutter at her feet.
-Normally she would have just walked by, but for some reason she felt a
-pang of sympathy for it.
+She was about to cross the street
+when she noticed a bedraggled paper boat caught up against some sticks and leaves in the gutter at her feet.
+Normally she would have just walked by,
+but for some reason she felt a pang of sympathy for it.
 
-She bent down to pick it up. "Have you seen our son?" was written on
-its side. She turned the boat over and looked. A drawing of a young
-puppet, about Still's age, looked back at her. She turned the boat over
-again, pinching the creases with her thumb and finger to straighten them
-out.
+She bent down to pick it up.
+"Have you seen our son?" was written on its side.
+She turned the boat over and looked.
+A drawing of a puppet about Still's age looked back at her.
+She turned the boat over again,
+pinching the creases with her thumb and finger to straighten them out.
 
-"I'm sorry, I haven't," she said softly as she set it back down in
-the gutter. "But I hope you find him." The boat bobbed up and down as
-it drifted away.
+"I'm sorry, I haven't," she said softly
+as she set it back down in the gutter.
+"But I hope you find him."
+The boat bobbed up and down as it drifted away.
 
-Still felt a sudden pang of guilt as she watched it go. Mister Leaf was
-such a good teacher… He was even giving her extra lessons. She turned
-around impulsively and hurried back to his house.
+Still felt a sudden pang of guilt.
+Mister Leaf was such a good teacher…
+He was even giving her extra lessons.
+She turned around impulsively and hurried back to his house.
 
-*Knock knock knock.* As soon as Mister Leaf opened the door, Still
-blurted, "I—please, can I try that exercise again? I think I can do
-it properly this time."
+*Knock knock knock.*
+As soon as Mister Leaf opened the door,
+Still blurted,
+"I—please, can I try that exercise again?
+I think I can do it properly this time."
 
-"Oh, splendid," Mister Leaf said warmly. "I'm sure you can. Go on,
-go upstairs."
+"Oh, splendid," Mister Leaf said warmly.
+"I'm sure you can. Go on, go upstairs."
 
-Still went up into the music room and waited for Mister Leaf to sit down
-at the piano. Instead, he leaned against the doorway with his arms
-folded. "Start whenever you're ready," he said softly.
+Still went up into the music room and waited for Mister Leaf to sit down at the piano.
+Instead, he leaned against the doorway with his arms folded.
+"Start whenever you're ready," he said.
 
-Still nodded and tucked her violin under her chin. *Please please please
-do it right,* she thought. She brought her arm up and started to play.
+Still nodded and tucked her violin under her chin.
+*Please please please do it right,* she thought.
+She brought her arm up and started to play.
 
-This time, the notes were perfect—each in its proper place, light but
-confident, without a single skip or slip. When she finished, Mister Leaf
-straightened up and clapped his hands. "That was beautiful," he said.
+This time the notes were perfect—each in its proper place,
+light but confident,
+without a single skip or slip.
+When she finished,
+Mister Leaf straightened up and clapped his hands.
+"That was beautiful," he said.
 "Perfect, every note. Well done."
 
 "Thank you," Still said. "Would you… would you like to try it?"
 
 Mister Leaf's eyes glittered. "Try what?" he asked.
 
-*Tick tick tick tick tick* chattered Still's clockwork. "Would you
-like to play my violin? I—I don't think I'd mind."
+*Tick tick tick tick tick* chattered Still's clockwork.
+"Would you like to play my violin? I—I don't think I'd mind."
 
 "Are you sure?" Mister Leaf asked.
 
-*No,* said Still's heart, but, "Yes," said her mouth. "Yes, I'm
-sure." She held her violin out to him.
+*No,* said Still's heart, but, "Yes," said her mouth.
+"Yes, I'm sure."
+She held her violin out to him.
 
-Mister Leaf took the violin in one hand, and the bow in the other. He
-gazed at the violin for a moment as if it was the most precious thing in
-the world. "It's perfect," he whispered. "The varnish… the
-polish… It's perfect."
+Mister Leaf took the violin in one hand, and the bow in the other.
+He gazed at the violin for a moment as if it was the most precious thing in the world.
+"It's perfect," he whispered.
+"The tone… the varnish… It's perfect."
 
-Suddenly he tucked the violin under his chin. He thrust the bow across
-the strings. *HRING!* He drew the bow down again, *HWAH-HWING!*
+Suddenly he tucked the violin under his chin.
+He thrust the bow across the strings.
+*HRING!* He drew the bow down again, *HWAH-HWING!*
 
-"Wait, stop!" Still said. "You mustn't play so hard!" But Mister
-Leaf wasn't listening. He began to fiddle furiously, faster and faster,
-faster than Still had ever seen anyone play. The bow flew back and forth
-across the strings. The violin sang, then howled, then shrieked as he
-played high notes and low notes, chords and pizzicatos and trills that
-ran from one end of the scale to the other.
+"Wait, stop!" Still said. "You mustn't play so hard!"
+But Mister Leaf wasn't listening.
+He began to fiddle furiously,
+faster and faster,
+faster than Still had ever seen anyone play.
+The bow flew back and forth across the strings.
+The violin sang,
+then howled,
+then shrieked as he played high notes and low notes,
+chords and pizzicatos and trills that ran from one end of the scale to the other.
 
-"No, wait, stop! Stop! Oh please, stop!" Still cried, but Mister Leaf
-played on. Still grabbed his arm and tried to pull the violin away from
-him, but he was too strong. Faster and faster he played, until suddenly
-the strings went *PLINK! PLINK! PLINK!* He had cut right through them!
+"No, wait, stop! Stop! Oh please, stop!" Still cried,
+but Mister Leaf played on.
+Still grabbed his arm and tried to pull the violin away from him,
+but he was too strong.
+Faster and faster he played
+until suddenly the strings went *PLINK! PLINK! PLINK!*
+He had cut right through them!
 
-But even then Mister Leaf didn't stop. Before Still's horrified eyes,
-a gray wisp of smoke started to rise from the body of the violin. He was
-playing so fast that the violin was catching on fire!
+But even then Mister Leaf didn't stop.
+Before Still's horrified eyes, a gray wisp of smoke started to rise from the body of the violin.
+He was playing so fast that the violin was smoldering!
 
-It must have been the smell of smoke that made him stop, because there
-is nothing that puppets fear more than fire. He scraped the bow across
-the violin one last time, then let his arm drop.
+It must have been the smell of smoke that made him stop,
+because there is nothing that puppets fear more than fire.
+He scraped the bow across the violin one last time,
+then let his arm drop.
 
-To Still's horror, he began to chuckle. The chuckle turned into a
-laugh, and the laugh got bigger and bigger. "Ah hoo hoo hoo hoo," he
-chortled. "Ah hee hee hee. Oh, th-th-that was fun! That was *fun!*"
+To Still's horror, he began to chuckle.
+The chuckle turned into a laugh, and the laugh got bigger and bigger.
+"Ah hoo hoo hoo hoo," he chortled.
+"Ah hee hee hee. Oh, th-th-that was fun! That was *fun!*"
 
-As he laughed, Still began to cry. "What have you done?" she wept.
+As he laughed, Still began to cry.
+"What have you done?" she wept.
 "What have you done to my violin?"
 
-Mister Leaf's laughter subsided. He blinked at the violin. "Oh my,"
-he said softly, "Whatever have we here?" The bow had scorched a
-shallow brown groove into the violin's cheek.
+Mister Leaf's laughter stopped abruptly.
+"Oh my," he said,
+"Whatever have we here?"
+The bow had scorched a shallow brown groove into the violin's cheek.
 
-Still snatched it from his arms. "You broke it," she sobbed, hugging
-the violin to her chest.
+Still snatched it from his arms.
+"You ruined it," she sobbed,
+hugging the violin to her chest.
 
-"Sh, sh," Mister Leaf said. "It's not that bad, not really. I'm
-sure it can be fixed."
+"Sh, sh," Mister Leaf said.
+"It's not that bad, not really. I'm sure it can be fixed."
 
-"But what will I tell Ramble?" she wailed. "And Elbow?"
+"But what will I tell Ramble?" she wailed.
+"And Elbow?"
 
 "Oh, you mustn't tell them anything," Mister Leaf said hastily.
 "Why, if they found that you'd let this happen,
-they'd—they'd—why, they'd put strings on you, that's what
-they'd do! They'd screw little eyehooks into your elbows and knees,
-and run black silk strings through them. They'd never let you move your
-own arms and legs, just to make sure you couldn't ever do anything like
-this again. Do you want that? No, I didn't think so. Now look, the rain
-has stopped—I think it's time for you to go home."
+they'd—they'd—why, they'd put strings on you, that's what they'd do!
+They'd screw little eyehooks into your elbows and knees
+and run black silk strings through them.
+They'd never let you move on your own again,
+just to make sure you couldn't ever do anything like this.
+Do you want that?
+No, I didn't think so.
+Now look, the rain has stopped—I think it's time for you to go home."
 
 </section>
 
