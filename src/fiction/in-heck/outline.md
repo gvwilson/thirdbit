@@ -29,7 +29,7 @@
     -   Neither Consensus nor the few people who know the truth about the Makers want the Makers to return
 -   Notable places
     -   Rusty Bridge: a town of about a thousand people
-    -   Botsville: a small bot encampment taking shape near Rusty Bridge
+    -   Bots' End: a small bot encampment taking shape near Rusty Bridge
     -   Heck: a bot "city"
         -   The story reveals that it was the base from which the Makers' ark was launched
         -   Consensus bots are still running experiments there in automated laboratories because their programming tells them to
@@ -155,7 +155,8 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   And hints at Sindy's training with Special Leaf
 -   Able arrives with mail
     -   Mention that he hitched himself to the cross-country stage for most of the journey
-    -   And that a few others got off and are coming into town behind him (foreshadow arrival of Operators)
+    -   That a few others got off and are coming into town behind him (foreshadow arrival of Operators)
+    -   And that the stage will be back in a couple of days for the return trip (foreshadow stowing away in Chapter 4)
 -   Maddy gets a letter, but Dockety arrives with Bluster and Bravo in tow before she can open it
     -   Dockety's version: they were caught stealing
     -   Their version (obviously a lie): they were gathering evidence that the bots are arming themselves
@@ -187,7 +188,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Maddy opens her letter
     -   Her drawing is going to be published by the newspaper
     -   Gumption is happy for her, but that's one step closer to her leaving him behind
--   Sneaks out of the house to visit Dockety in Botsville that night
+-   Sneaks out of the house to visit Dockety in Bots' End that night
     -   Reveal that Gumption warned Dockety of Bluster and Bravo's plan
     -   And that Dockety has proof that Papa Roo is alive
 -   Gumption suggests asking the Operators to help free Papa Roo
@@ -210,3 +211,50 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Drops a few hints about Special Leaf
 -   Gumption intercepts Maddy on her way out (he was hiding in the rafters)
 -   Their conversation is cut short by Sindy accidentally triggering Blazes' fireball tech
+
+### Chapter 4: Departure (Gumption's PoV / day 2-3)
+
+-   Goals:
+    -   Get the protagonists on the road
+    -   Build the relationship between Gumption and Maddy
+    -   And the relationship between Gumption and Dockety
+    -   Show Gumption's resourcefulness (quiet competence)
+-   Chapter opens with Gumption observing tearful family discussion at the Roo house
+    -   Sindy didn't mean to show her powers
+    -   Now she has to be taken for testing in Sandy Bend (Operators' rules and the mayor agrees)
+    -   Stage will be back this evening, Sindy is to be on it tomorrow morning
+-   Gumption visits Bots' End again
+    -   Helps clean Crusher
+    -   Talks to Dockety, who suggests Gumption enrol in mechanics' school in Sandy Bend
+    -   See Gumption's self-doubt
+    -   But the suggestion gives him an idea
+    -   Gets some gear from Dockety (unspecified, but will become clear later)
+-   Maddy leaves Sindy a note
+-   He and Maddy sneak into the barn
+    -   She and Gumption stow away with the mail
+    -   Conversation in the dark
+
+### Chapter 5: Rolling (Maddy's PoV / day 3)
+
+-   Goals:
+    -   Get the protagonists into danger
+    -   First hints that the Operators are not what they seem
+-   Maddy and Gumption wake to the sound of anguish
+    -   Mama Roo doesn't want Sindy to go
+    -   Sindy wants her sister
+    -   Thoughtful rewriting her letter (flirting with Miz Nabbles)
+-   Passengers:
+    -   The stage itself (simple-minded hauler: comment on how no one knows how to make or repair bots' brains any more)
+    -   Special Blazes, Thoughtful, and Bee Six Vee
+    -   Able (a bit nervous about the stage being so crowded)
+    -   Special Leaf and Sindy
+    -   Dockety
+    -   The stowaways
+-   Half a day to get to the Observatory
+    -   The Mire on one side
+    -   Dry concrete plain on the other (former launch site, but nobody remembers that)
+    -   And Heck in the distance (still and foreboding)
+-   Maddy and Gumption are discovered
+    -   Clear that Blazes knew they were there all along
+    -   Using them as an excuse to send Dockety (and Able) back
+-   Argument interrupted by flying attack
