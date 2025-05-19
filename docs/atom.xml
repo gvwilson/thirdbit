@@ -3,12 +3,47 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-05-18T00:00:00Z</updated>
+ <updated>2025-05-19T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Some Testing Answers</title>
+   <link href="https://third-bit.com/2025/05/19/some-testing-answers/"/>
+   <updated>2025-05-19T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/05/19/some-testing-answers/</id>
+   <content type="html">&lt;p&gt;A month ago I &lt;a href=&#34;https://third-bit.com/2025/04/20/a-testing-question/&#34;&gt;asked for advice&lt;/a&gt; on testing a little piece of Python
+that fills a grid using a random walk.
+&lt;a href=&#34;https://stochasticsolutions.com/&#34;&gt;Nick Radcliffe&lt;/a&gt;,
+a former colleague who is writing a book on test-driven data analysis,
+suggested that one way to test the code is to put move generation in a function of its own,
+call that function a few hundred times,
+and check that the results are evenly distributed
+(e.g., each of the four moves appears 20-30% of the time).
+If not,
+double the number of moves generated,
+check again,
+and repeat until either the distribution converges
+or you decide that it&amp;rsquo;s not going to.
+This approach ensures that tests run quickly most of the time,
+and it did indeed catch a bug when I moved from 4-way steps to 8-way (i.e., allowed diagonal moves).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://nathanfurnal.xyz/&#34;&gt;Nathan Furnal&lt;/a&gt; suggested a similar approach.
+If we generate 30 moves,
+the probability of never seeing one of the four possible moves is less than 0.02%.
+If we increase the number of moves to 100 (which only takes 61 microseconds on my five-year-old laptop)
+the odds of not seeing one of the moves drop to one in 10&lt;sup&gt;13&lt;/sup&gt;.
+If we&amp;rsquo;re running the tests 1000 times a day,
+we can expect one false positive every ten million years or so.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve added both tests to my test suite,
+but would appreciate suggestions for others.
+Testing in the face of randomness is more common and more important in (data) science
+than in commercial software development;
+as more and more applications incorporate small household spirits (i.e., genAI),
+we&amp;rsquo;re going to have to figure out how to do this well.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Two Thirds of a Language</title>
@@ -1504,18 +1539,6 @@ It also saves companies money:
 the company has to compensate people for unused vacation days if the person is laid off,
 but not if there&amp;rsquo;s no target.&lt;/dd&gt;
 &lt;/dl&gt;</content>
- </entry>
- 
- <entry>
-   <title>Edinburgh Winter Talk</title>
-   <link href="https://third-bit.com/2025/01/11/edinburgh-winter-talk/"/>
-   <updated>2025-01-11T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/01/11/edinburgh-winter-talk/</id>
-   <content type="html">&lt;p&gt;A recording of the talk &lt;a href=&#34;https://yabellini.netlify.app/&#34;&gt;Yanina Bellini Saibene&lt;/a&gt; and I gave
-to the &lt;a href=&#34;https://pairprogramming.ed.ac.uk/winter-school-25/&#34;&gt;Edinburgh Winter School&lt;/a&gt; on January 8 is &lt;a href=&#34;https://media.ed.ac.uk/playlist/dedicated/1_d3p67t1h/1_4ap0766n&#34;&gt;now online&lt;/a&gt;.
-I hope you enjoy it;
-many thanks to the organizers for having us,
-and to Yanina for putting up with me.&lt;/p&gt;</content>
  </entry>
  
 </feed>
