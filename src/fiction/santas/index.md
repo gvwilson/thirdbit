@@ -213,6 +213,7 @@ With one last glance at the motionless cat he followed her through the door
 and into the rest of his life.
 
 </section>
+
 <section markdown="1">
 
 ## Guests Arrive
@@ -472,7 +473,7 @@ and then everything went a little bit nuts.
 
 <section markdown="1">
 
-## A Moderate Amount of Mayhem
+## Mayhem and a Pyramid
 
 The second santa pulled a grenade out of her sack,
 drew the pin with her teeth,
@@ -480,24 +481,24 @@ and chucked it overhand up the stairs.
 "Bang," she said calmly.
 Sure enough,
 a second later there was a loud *crack!*
-Bilious green foam began expanding into the stairs.
+and bilious green foam began expanding in the stairwell.
 
 "That won't hold them for long,"
 Gran-Granna Tumbly said,
-twisting at the waist until her spine made a noise
-made a *crack* of its own that was only slightly quieter than the grenade's.
+twisting at the waist until her spine made a *crack*
+that was only slightly quieter than the grenade's.
 
 "We can take 'em!" the big santa bellowed,
-hefting his totally intimidating ax,
-which was in fact larger than Finner.
+hefting his really quite large ax.
 
 "No we can't," Gran-Granna snapped.
 A UPOF[^upof]
 crashed through a window upstairs
 and landed in the front yard with a wet *thud*.
-Boots and broken glass clattered on the porch roof.
+Boots and broken glass clattered on the porch roof,
+and moments later there were more thuds in the yard.
 
-[^upof]: Unidentified Piece of Furniture. It's like a flying saucer, except it's rectangular (usually), doesn't fly (unless it's thrown very hard), and (probably) isn't of alien origin.
+[^upof]: Unidentified Piece of Furniture. It's like a flying saucer, except it's (usually) rectangular, doesn't fly (unless it's thrown very hard), and (normally) isn't of alien origin.
 
 "That window *does* open," Gran-Granna Tumbly muttered.
 Sparkles ran down the rapier in her hand.
@@ -505,80 +506,70 @@ Sparkles ran down the rapier in her hand.
 "Is that a *magic* sword?" Finner breathed.
 
 "Not magic enough," their great-grandmother snapped.
-"You two! Chimney! Now! And you."
-She pointed at Finner.
-"You go with them and you do exactly what they say, understand?"
+"You two! Get him out of here and keep him safe."
+She jabbed a finger at Finner.
+"And you—you go with them and you do exactly what they say, understand?"
 
 "Go where?" Finner didn't have a chance to ask,
-because at precisely that moment something roared in the front yard.
-It was the kind of sound that bypasses the ears
+because at precisely that moment something roared in the front yard,
+making the kind of sound that bypasses the ears
 and goes directly to the bit in the back of the brain
 that evolved to keep a million generations of ancestors
 out of the stomachs of large predators.
 
-"What—" someone in the front yard started to say but never managed to finish.
+"What—" a voice in the front yard started but never managed to finish.
 Someone else simply screamed, briefly.
 A sound like a dozen empty cans being crunched together
 was followed by a moment of stunned silence,
 and then the shooting started.
 
-The burly santa yanked Finner under the shelter of his enormous ax.
+The burly santa yanked Finner behind the blade of his enormous ax.
 Bullets ricocheted off it to make lethal little holes in the pictures on the walls.
-The other santa dove across the room to take shelter beside Finner.
+The other santa dove across the room to take shelter beside them.
 Punctured in a dozen places,
 the green foam in the stairs made a wet, farty noise
 and began to deflate.
 
-"Get to the chimney!" Gran-Granna Tumbly shouted.
+"Get! Out! Of! Here!" Gran-Granna Tumbly shouted.
 Her sword flashed back and forth,
 knocking bullets away from them.[^teapot-bullets]
 
 [^teapot-bullets]: Or possibly from her teapot. Finner wondered about that later.
 
-The big santa picked him up like a sack of laundry
-and took two enormous strides across the room
-and something *twisted*,
-Finner didn't see exactly what or how,
-but suddenly Gran-Granna's fireplace was gone,
+Suddenly Gran-Granna's fireplace was gone,
 or rather it was still there but it was also a doorway,
-like one of those puzzle pictures that looks like two different things at once,
-and then everything stretched around them
+like one of those puzzle pictures that looks like two different things at once.
+The big santa picked Finner up like a sack of laundry
+and crossed the room with two enormous strides.
+Something twisted and everything stretched around them
 or possibly they did the stretching
-and they were somewhere else.
+and just like that they were somewhere else.
 
 It was bright.
-In fact,
-it was daytime,
-when a moment ago it had been dark and evening.
-And there was sand—lots of sand.
-And—
-
-"That looks like a pyramid,"
-a small part of Finner's brain[^brain-pyramid]
-told the rest of him.
-
-[^brain-pyramid]: Not the part that evolved to keep him out of predators—pyramids weren't really its concern.
+Very bright,
+where before it had been the cozy indoor gloom of an elderly person's living room.
+And there was sand, comma, lots of.
+*And that looks like a pyramid,*
+a small part of Finner's brain noticed,
+a pyramid with half a dozen cat statues like the one in gran-granna's yard
+crouched in front of it.
 
 The second santa got to her feet and brushed sand off her uniform,
-which had already started to turn a dusty beige.
+which was already turning a dusty beige.
 "Where are we?" she asked.
 
-It took Finner a moment to realize she was asking him.
+It took Finner a moment to realize she was speaking to him.
 "I don't know," he said helplessly.
-It was hot, he realized.
-Much too hot for the winter coat he was wearing.
+It was hot,
+much too hot for the winter coat he was wearing.
 And where was Gran-Granna?
 
 The santa stared at him.
-Her eyes widened.
-"He doesn't know," she said to the big santa.
-
-"That's what I said," Finner was about to reply,
-but before he could,
-a voice behind him moaned,
+"What do you mean—" she started,
+only to be interrupted by a voice moaning,
 "Greeeetinnngs…"
 
-He spun around and found himself face-to-face with—he wasn't quite sure what.
+Finner spun around and found himself face-to-face with—he wasn't quite sure what.
 It was tall and withered
 and wrapped in tattered bandages
 made from the rags of what might once have been a santa's uniform.
@@ -600,21 +591,21 @@ for my pets."
 At the word "treats",
 one of the giant cat statues at the base of the pyramid
 turned its head and blinked,
-which made the "stay out of predators" part of Finner's brain go, "Ding ding ding!"
+which made the "stay out of predators" part of Finner's brain go *ding ding ding!*
 
 "Tea?" the burly santa asked,
 clearly never having had this particular response to his friend-or-foe question before.
 
-"She always…
+"Miz Tumbly…
+always…
 brings tea.
-And treats.
 And sometimes…
 a magazine?"
 the mummy santa finished hopefully.
 
 "No magazines, I'm afraid, and no tea either,"
 the lean santa said,
-her uniform a perfect match for the sand around them.
+her uniform now a perfect match for the sand.
 "We had to leave Sensei Tumbly's in rather a hurry."
 
 "Ssss…"
@@ -626,7 +617,7 @@ refuge?"
 
 The lean santa elbowed her burly companion's ribs to stop him from speaking.
 "As is our right," she said.
-"A cookie, a glass of milk, and the use of your chimney."
+"A cookie, a glass of milk, and the use of your wherever."
 
 "Heh.
 Heh.
@@ -640,18 +631,18 @@ a long…
 time."
 The giant stone cat behind it stepped down from its pedestal.
 Finner gulped as three more joined it.
-Some seemed to be missing minor parts like ears or tails,
-but that didn't do anything to quiet the *ding ding ding!* in his brain.
+Some were missing bits of ear or tail,
+but the one that yawned seemed to have all of its very sharp teeth.
 "So tell me…
 why I…
 should say yes?"
 
 The lean santa reached into her sack.
 For a heartbeat Finner thought she was going to throw another foam grenade,
-but instead she pulled out a complicated piece of clockwork
-that had probably been breathtaking before
-the explosion that had clearly bent some of the gears
-and left scorch marks on others.
+but instead she pulled out a head.
+A toy head,
+Finner noticed with relief,
+with dents and scuffs and a scorch mark on one cheek.
 
 The mummy hissed again.
 "You bring…
@@ -667,37 +658,22 @@ and the cats around it growled.
 and anyway,
 I didn't manage to salvage a battery."
 She jerked her chin at the santa with the ax.
-"They found a way through his chimney.
-And took his llamas."
+"They ambushed us when we were out on a mission for the sensei."
 
-"*And* smashed my stagecoach,"
-the big santa added.
-"'Least I got my elves away safe."
+"Followed us back somehow,"
+the big santa added grimly.
+"Probably makin' a mess of the place right now."
 
 The lean santa shook her head.
-"Safe for now,
-but if we don't figure out where they're coming from
-or how they're using the chimneys,
-they're going to take away everything we care about."
+"Sensei will be all right."
 She was exhausted,
 Finner realized,
 but trying hard not to show it.
 
-The mummy hissed sympathetically.
-"I know…
-how…
-you feel…
-child."
-It looked past her at the dry sand surrounding them.
-"This was…
-green…
-once…
-But that…
-was long ago…"
-
 One of the stone cats yowled softly.
-The mummy straightened.
-"Yes…
+The mummy huffed.
+"Let us…
+hope so.
 I will…
 grant you…
 refuge.
