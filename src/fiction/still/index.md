@@ -423,315 +423,401 @@ Now look, the rain has stopped—I think it's time for you to go home."
 
 ## Chapter 3
 
-Afterward, Still could never remember how she had found her way
-home. All she could think about was her violin—her poor, wounded
-violin.
+Afterward,
+Still could never remember how she had found her way home.
+All she could think about was her violin—her poor, wounded violin.
 
-Her joints ached with the damp and the cold as she stumbled through the
-front door, straight into Elbow's arms. "Still! Still, what's wrong?
-What happened?" he said, alarmed. His eyes widened as he caught sight
-of the ugly dent that marred the finish of her left cheek. He lifted her
-head gently. "Oh, Still, what happened?"
+Her joints ached with the damp and cold as she stumbled through the front door,
+straight into Elbow's arms.
+"Still! What's wrong?" he said, alarmed.
+His eyes widened as he caught sight of the ugly dent that marred the finish of her left cheek.
+He lifted her head.
+"Oh, Still, what happened?"
 
-"What?" She brought her hand up to her cheek. Her fingers probed the
-dent gingerly. "I—I fell." she said vaguely. Had she fallen? She
-couldn't remember. "But look." She held up her violin. "It—
-it—"
+"What?" She brought her hand up to her cheek.
+Her fingers probed the dent gingerly.
+"I—I fell." she said vaguely.
+Had she?
+She couldn't remember.
+"But look." She held up her violin. "It— it—"
 
 Elbow dropped the old menu he'd been folding and hugged his daughter.
-"Sh, sh, sh," he said, rocking her gently, trying to keep his voice
-steady. "Come in here where it's warm. Ramble! Ramble! Come quick!"
+"Sh, sh, sh," he said, rocking her gently, trying to keep his voice steady.
+"Come in here where it's warm. Ramble! Ramble! Come quick!"
 
-The two puppets sat their daughter down at the kitchen table and gave
-her a cup of warm linseed oil. "Here, let me see that," Ramble said
-gently. She took Still's chin in her hand and turned her head from side
-to side to look at the dent in her cheek. "Oh, it's not so bad," she
-said after a moment. "A bit of putty, and some sanding, and you'll be
-as good as new."
+The two puppets sat their daughter down at the kitchen table
+and gave her a cup of warm linseed oil.
+"Here, let me see that," Ramble said gently.
+She took Still's chin in her hand and turned her head from side to side
+to look at the dent in her cheek.
+"Oh, it's not so bad," she said after a moment.
+"A bit of putty and some sanding and you'll be as good as new."
 
-"Why, it'll even make you look more grown-up," Elbow said. "Just
-like the dimples in my cheeks. I wasn't carved with them, you know. I
-got this one when I fell out of a tree, and this one when—"
+"Why, it'll even make you look more grown-up," Elbow said.
+"Just like the dimples in my cheeks.
+I wasn't carved with them, you know.
+I got this one when I fell out of a tree, and this one when—"
 
-"But what about my violin?" Still interrupted. She had three thick
-blankets wrapped around her, but she still felt cold. Even with a big
-gloop of honey, the linseed oil tasted like something that someone had
-cleaned out of a crankshaft and then left to grow sludgy. Still didn't
-notice. All she could think about was the black scorch mark on her
-violin.
+"But what about my violin?" Still interrupted.
+She had three thick blankets wrapped around her, but she still felt cold.
+Even with a big gloop of honey,
+the linseed oil tasted like someone had cleaned out a crankshaft
+and then left it to grow sludgy.
+Still didn't notice.
+All she could think about was the black scorch mark on her violin.
 
 "We'll take it to the shop tomorrow and get it mended, I promise,"
-her mother said gently. She took the violin from her daughter's stiff
-hands and laid it aside. "Now, why don't we put you to bed? I'm sure
-you'll feel better in the morning."
+her mother said gently.
+She took the violin from her daughter's stiff hands and laid it aside.
+"Now, why don't we put you to bed?
+I'm sure you'll feel better in the morning."
 
-So Still went upstairs, put on her pajamas, and lay down in bed. Moments
-slipped by, one after another, but didn't stick. Her mind didn't think
-about— about— about anything, just as her hand wouldn't have
-touched a hot stove.
+So Still went upstairs, put on her pajamas, and lay down in bed.
+Moments slipped by, one after another, but didn't stick.
+Her mind didn't think about—about anything,
+just as her hand wouldn't have touched a hot stove.
 
-Morning came. Still's window grew brighter as the sun climbed toward
-noon. Her mother and father looked in on her a couple of times, but
-Still kept her eyes closed and pretended to be asleep. She felt like she
-was floating on a broad dark river, just letting it carry her wherever
-it wanted to.
+Morning came.
+Still's window grew brighter as the sun climbed toward noon.
+Her mother and father looked in on her a couple of times,
+but Still kept her eyes closed and pretended to be asleep.
+She felt like she was floating on a broad dark river,
+just letting it carry her wherever it wanted to.
 
-The school bell was ringing "lunch is over, lunch is over" in the
-distance when the doctor arrived. He had narrow shoulders and a beaky
-nose, and wore wire-rimmed glasses without any glass in them. "Yes,
-yes, yes," he said absently, "Let's see what we have here, hm? Let's
-just see what we have…" He put his stethoscope on Still's tummy and
-chest to listen to her clockwork go *tick, tock, tick, tock*. Then he
-sighted along her arms and legs, one by one, to see if the rain had
-warped them.
+The school bell was ringing "lunch is over, lunch is over" in the distance
+by the time the doctor arrived.
+He had narrow shoulders and a beaky nose,
+and wore wire-rimmed glasses without any glass in them.
+"Yes, yes, yes," he said absently,
+"Let's see what we have here, hm?
+Let's just see what we have…"
+He put his stethoscope on Still's tummy and chest
+to listen to her clockwork go *tick, tock, tick, tock*.
+Then he sighted along her arms and legs,
+one by one,
+to see if the rain had warped them.
 
-The last thing he checked was the dent in her cheek. "Does it hurt?"
-he asked, poking it with his finger. Still shook her head. "And do you
-feel dizzy at all?" he asked. She shook her head again.
+The last thing he checked was the dent in her cheek.
+"Does it hurt?" he asked, poking it with his finger.
+Still shook her head.
+"And do you feel dizzy at all?" he asked.
+She shook her head again.
 
-The doctor straightened up. "Well, as far as I can tell, she's as
-sound as the day she was made," he said to Ramble. "Her clockwork
-seems fine—no scraping or odd jingles that I can hear. That dent in
-her cheek, now, that's going to leave a mark, but it's not really very
-serious. I'm sure you can mend it as well as I could."
+The doctor straightened up.
+"Well, as far as I can tell, she's as sound as the day she was made," he said to Ramble.
+"Her clockwork seems fine—no scraping or odd jingles that I can hear.
+That dent in her cheek, now, that's going to leave a mark,
+but it's not really very serious.
+I'm sure you can mend it as well as I could."
 
 "Then what is it?" Ramble asked. "What's wrong?"
 
-The puppet doctor smiled and patted her shoulder. "Oh, I suppose
-something is just jumbled up a bit. It happens with girls her age. I'm
-sure it will sort itself out if she rests for a day or two." And with
-that, the doctor gave them his bill and saw himself out.
+The doctor smiled and patted her shoulder.
+"Oh, I suppose something is just jumbled up a bit.
+It happens with girls her age.
+I'm sure it will sort itself out if she rests for a day or two."
+And with that,
+the doctor gave them his bill and saw himself out.
 
 So Still got to stay home from school that day, and the day after that.
 Each morning she lay in bed until her mother or father came to get her.
-She brushed her teeth and oiled her joints and got dressed, then went
-down to the couch and sat under the blankets, staring out the window.
-Bright red streetcars went past every few minutes, and occasionally a
-solemn silver balloon floated by in the distance, on its way to some
-far-off land. Sometimes her fingers twitched, as if she was playing the
-violin, but she never mentioned it, or wondered where it had gone.
+She brushed her teeth and oiled her joints and got dressed,
+then went down to the couch and sat under the blankets,
+staring out the window.
+Bright red streetcars went past every few minutes,
+and occasionally a solemn silver balloon floated by in the distance
+on its way to some far-off land.
+Sometimes her fingers twitched,
+as if she was playing the violin,
+but she never mentioned it or wondered where it had gone.
 
-Each morning, she looked at a stranger in the mirror. That dented
-face—that wasn't her, was it? "You mustn't tell," she warned her
-reflection. "They'll put strings on you if you do." She never thought
-about *what* she mustn't tell—that thought was already buried, down
-deep where it couldn't hurt her, deeper than any pirate treasure.
+Each morning she looked at a stranger in the mirror.
+That dented face—that wasn't her, was it?
+"You mustn't tell," she warned her reflection.
+"They'll put strings on you if you do."
+She never thought about *what* she mustn't tell—that thought was already buried,
+deeper than any pirate treasure,
+down where it couldn't hurt her.
 
-But once, in the afternoon, when the light was pearly-gray, she
-remembered the little paper boat that she had found in the gutter, with
-"Have you seen our son?" written on it. She wondered what had happened
-to it—had it snagged on another bunch of twigs further down the
-stream? Or had it found its way to one of the canals that ran through
-the city? The thought floated away as quietly as the little boat had,
+But once, in the afternoon, when the light was pearly-gray,
+she remembered the little paper boat that she had found in the gutter
+with "Have you seen our son?" written on it.
+She wondered if it had snagged on another bunch of twigs further down the stream,
+or found its way to one of the canals that ran through the city?
+The thought floated away as quietly as the little boat had,
 and didn't return.
 
-On the third day, her father came into her room with a big smile painted
-on his face. "If you'd like to get up and get dressed, there's
-something waiting for you downstairs," he said.
+On the third day,
+her father came into her room with a big smile painted on his face.
+"If you'd like to get up and get dressed, there's something waiting for you downstairs,"
+he said.
 
-"All right," Still said. A moment went by. She didn't move.
+"All right," Still said.
+A moment went by.
+She didn't move.
 
-"Oh, come on, daffodil," Elbow said. "It'll cheer you up, I
-promise!"
+"Oh, come on, daffodil," Elbow said.
+"It'll cheer you up, I promise!"
 
-"All right," Still said again. Being cheered up didn't feel any more
-important than school or eating.
+"All right," Still said again.
+Being cheered up didn't feel any more important than school or eating.
 
-She made her way downstairs. A big box wrapped in brightly colored paper
-was waiting for her on the kitchen table. The folds in the paper were so
-clever that her father eventually had to show her how to get it off
-without tearing it.
+She made her way downstairs.
+A big box wrapped in brightly colored paper was waiting for her on the kitchen table.
+The folds in the paper were so clever that
+her father eventually had to show her how to get it off without tearing it.
 
-She set the paper aside and took the lid off the box. "Well?" her
-father asked a moment later. "What do you think?"
+She set the paper aside and took the lid off the box.
+"Well?" her father asked a moment later.
+"What do you think?"
 
-Her violin lay inside on a bed of straw. Brand-new strings glistened
-silver-bright along its neck, and its body had been sanded down smooth
-and re-varnished. There was only a faint, shallow groove to show
-where—where—
+Her violin lay inside on a bed of straw.
+Brand-new strings glistened silver-bright along its neck,
+and its body had been sanded down smooth and re-varnished.
+There was only a faint, shallow groove to show where—where—
 
-"What do you think?" her father asked again. "Good as new?"
+"What do you think?" her father asked again.
+"Good as new?"
 
 "I guess so," Still said. "Thank you."
 
-"Splendid!" Elbow said jovially. "Now, if you hurry, you can still
-get to school in time for juggling."
+"Splendid!" Elbow said jovially.
+"Now, if you hurry, you can still get to school in time for juggling."
 
-"All right," Still said dully. She stood up and walked toward the
-front door.
+"All right," Still said dully.
+She stood up and walked toward the front door.
 
-"Wait—aren't you going to take your books?" Elbow asked.
+"Wait—aren't you going to take your books?"
+Elbow asked.
 
-Still stopped. "Oh. I forgot." She went back into the kitchen, dumped
-her books and unfinished homework in her bag, and turned to leave again.
+Still stopped.
+"Oh. I forgot."
+She went back into the kitchen,
+dumped her books and unfinished homework in her bag,
+and turned to leave again.
 
-Just before she got to the door, Ramble spoke up for the first time that
-morning. "Aren't you going to take your violin?"
+Just before she got to the door,
+Ramble spoke up for the first time that morning.
+"Aren't you going to take your violin?"
 
-Still stopped, then said, very softly, "I guess so." She returned to
-the kitchen one more time, took her violin out of its box, and walked
-out onto the street.
+Still stopped, then said, very softly, "I guess so."
+She returned to the kitchen one more time,
+took her violin out of its box,
+and walked out onto the street.
 
-Still trudged along the cobblestones. The sky was a clear autumn blue.
-Little clockwork birds chirped in the trees. The puppets passing by
-chattered to one another as if nothing had happened. She ran her thumb
-back and forth over the faint groove in the top of the violin that was
-the only sign of— of— She stopped for moment to let the dizziness
-pass. What was she doing? Oh, yes—school. She was going to school.
+Still trudged along the cobblestones.
+The sky was a clear autumn blue.
+Little clockwork birds chirped in the trees.
+The puppets passing by chattered to one another as if nothing had happened.
+She ran her thumb back and forth over the faint groove in the top of the violin
+that was the only sign of— of—
+She stopped for moment to let the dizziness pass.
+What was she doing?
+Oh, yes—school.
+She was going to school.
 
-*Plang… plang…* The principal stood by the door with a serious
-look on her face, tugging on the bell cord. "Come along, come along,"
-she said. "There are lessons wanting learned." The students groaned
-and gossiped as they filed past her.
+*Plang… plang…*
+The principal stood by the door with a serious look on her face,
+tugging on the bell cord.
+"Come along, come along," she said.
+"There are lessons wanting learned."
+The students groaned and gossiped as they filed past her.
 
-Still was the last one in line. "Good morning, Still," the principal
-said. "Hope you're feeling better."
+Still was the last one in line.
+"Good morning," the principal said.
+"I hope you're feeling better."
 
 "Yes, ma'am," Still said quietly.
 
-The principal squinted at Still's face. "Hm. Nasty one, that. No
-splintering, I hope?"
+The principal squinted at Still's face.
+"Hm. Nasty one, that. No splintering, I hope?"
 
-"No, ma'am," Still said, just as quietly, running her finger back and
-forth along the groove in her violin.
+"No, ma'am," Still said,
+just as quietly,
+running her finger back and forth along the groove in her violin.
 
-The principal nodded. "Glad to hear it. Juggling for you this morning,
-isn't it? Thought so. Enjoy your class."
+The principal nodded.
+"Glad to hear it.
+Juggling for you this morning, isn't it?
+Thought so.
+Enjoy your class."
 
-"Thank you, ma'am." Still trudged up the gray limestone steps and
-into school.
+"Thank you, ma'am."
+Still trudged up the gray limestone steps and into school.
 
-Juggling—what can you say about a room full of young puppets
-practicing juggling? The air was full of beanbags and Indian clubs, and
-the *thump* and *bump* of things hitting the floor. The teacher was so
-plump that his stuffing threatened to burst out at his wrists and
-ankles, but his hands were quick, and his tongue was quicker. "You
-there! Lantern! It's over, over, under, over, under, not over, under,
-under, over, under! Try starting with your left! Follow, Follow, Follow,
-what *are* you doing? We're doing Cross-Eyed Weaver today, not Flock of
-Ducks! And Still, could you—oh. Never mind."
+Juggling—what can you say about a room full of young puppets practicing juggling?
+The air was full of beanbags and Indian clubs
+and the *thump* and *bump* of things hitting the floor.
+The teacher was so plump that
+his stuffing threatened to burst out at his wrists and ankles,
+but his hands were quick
+and his tongue was quicker.
+"You there! Lantern!
+It's over, over, under, over, under, not over, under, under, over, under!
+Try starting with your left!
+Follow, Follow, Follow, what *are* you doing?
+We're doing Cross-Eyed Weaver today, not Flock of Ducks!
+And Still, could you—oh.
+Never mind."
 
-A few of the children glanced over at Still curiously when the teacher
-cut himself off and turned his perpetual disappointment on someone else.
-She stood in her usual place near the wall. Beanbags, three big knives
-(with dulled edges, of course—they wouldn't be juggling real knives
-until next year), and a pair of clubs lay on the table beside her.
-Instead of juggling, though, she just tossed a beanbag from hand to
-hand. Up it went, exactly as high as her eyes, then down on the other
-side. Up… and down… Up… and down… If anyone else had done
-that, the teacher would have roared like a volcano. Instead, he almost
-seemed embarrassed.
+A few of the children glanced over at Still curiously when the teacher cut himself off
+and turned his perpetual disappointment on someone else.
+She stood in her usual place near the wall.
+Beanbags, three big knives
+(with dulled edges, of course—they wouldn't be juggling real knives until next year),
+and a pair of clubs lay on the table beside her.
+Instead of juggling, though, she just tossed a beanbag from hand to hand.
+Up it went, exactly as high as her eyes, then down on the other side.
+Up… and down… Up… and down…
+If anyone else had done that, the teacher would have roared like a volcano.
+Instead, he almost seemed embarrassed.
 
-*Plang… plang…* The bell rang. "Everything back where it belongs
-before you go!" the teacher bellowed. Still put her beanbag back on the
-table, then picked up her books and violin. She jumped slightly when the
-teacher spoke.
+*Plang… plang…* the bell rang.
+"Everything back where it belongs before you go!" the teacher bellowed.
+Still put her beanbag back on the table,
+then picked up her books and violin.
+She jumped slightly when the teacher spoke.
 
-"Those were, um, yes, those were good tosses," he said. "Nice and
-even. Just the right height." He patted her shoulder awkwardly. "See
-if you can do that with a full set tomorrow, all right?"
+"Those were, um, yes, those were good tosses," he said.
+"Nice and even. Just the right height."
+He patted her shoulder awkwardly.
+"See if you can do that with a full set tomorrow, all right?"
 
-"Yes, sir," Still said quietly. He patted her shoulder again, then
-bent over with a creak to pick up a dropped club as she stepped out into
-the corridor.
+"Yes, sir," Still said quietly.
+He patted her shoulder again,
+then bent over with a creak to pick up a dropped club as she stepped out into the corridor.
 
-Flurry and Pirouette were waiting for her with their books clutched in
-their arms. "What was *that* all about?" "Are you still sick?" they
-asked simultaneously.
+Flurry and Pirouette were waiting for her with their books clutched in their arms.
+"What was *that* all about?"
+"Are you still sick?"
+they asked simultaneously.
 
-Still shook her head. "I'm fine," she lied. Without even thinking
-about it, she had turned her violin around so that the groove was hidden
-against her chest.
+Still shook her head.
+"I'm fine," she lied.
+Without even thinking about it,
+she had turned her violin around so that the groove was hidden against her chest.
 
-They stared at the dent on her face. "Ow, what did you *do?*" asked
-Flurry.
+They stared at the dent on her face.
+"Ow, what did you *do?*" asked Flurry.
 
 "Are you going to putty it?" asked Pirouette.
 
-Still shook her head again. "I don't remember. My mother said I could
-put putty on it if I wanted to, or leave it like this. It's up to me."
+Still shook her head again.
+"I don't remember.
+My mother said I could put putty on it if I wanted to, or leave it like this.
+It's up to me."
 
-Flurry blinked. "What do you mean, you don't remember?"
+Flurry blinked.
+"What do you mean, you don't remember?"
 
-Pirouette pouted. "Oh, my mother would *never* let me leave something
-like that."
+Pirouette pouted.
+"Oh, my mother would *never* let me leave something like that."
 
-But Still was already walking away to her next class. Her friends looked
-at her retreating back in astonishment. The Pirouette grabbed Flurry's
-arm, pulled her close, and whispered in her ear. Flurry's eyes went
-wide. She started to giggle.
+But Still was already walking away to her next class.
+Her friends looked at her retreating back in astonishment.
+The Pirouette grabbed Flurry's arm, pulled her close, and whispered in her ear.
+Flurry's eyes went wide.
+She started to giggle.
 
-History was next. They had apparently finished the Age of Slavery, and
-were starting on the life of Key the Cutter. She was the first puppet to
-walk free, the only one who ever cut her own strings. She had been the
-city's first mayor, but one day she simply vanished. Some puppets
-thought it meant the world was going to end, but it carried on, day by
-day, and Key slowly became a legend.
+History was next.
+They had finished the Age of Slavery while she was away
+and were starting on the life of Key the Cutter.
+She was the first puppet to walk free,
+the only one who ever cut her own strings.
+She had been the city's first mayor,
+but one day she simply vanished.
+Some puppets thought it meant the world was going to end,
+but it carried on,
+day by day,
+and Key slowly became a legend.
 
 Everyone knew all that, but apparently they had to study it anyway.
-Still opened her book, then flipped through the pages without hearing a
-word that the teacher was saying.
+Still opened her book,
+then flipped through the pages without hearing a word that the teacher was saying.
 
-*Plang… plang…* and it was noon. The corridors were instantly full
-of young puppets laughing, chattering, grumbling, and arguing. Flurry
-and Pirouette ambushed her at her locker. "So are you going to tell us
-what *really* happened?" Pirouette asked slyly.
+*Plang… plang…* and it was noon.
+The corridors were instantly full of young puppets laughing, chattering, grumbling, and arguing.
+Flurry and Pirouette ambushed her at her locker.
+"So are you going to tell us what *really* happened?"
+Pirouette asked slyly.
 
-Still looked at her friend's feet. "I don't remember," she said. "I
-think I fell down. When it was raining."
+Still looked at her friend's feet.
+"I don't remember," she said.
+"I think I fell down. When it was raining."
 
-Still glanced up. For just a moment, something more than just a mis-step
-on a wet day showed in her eyes. Flurry would have stopped right there,
-but Pirouette was already talking. "*I* think that you've got a
-*boyfriend*," she teased. "I think *that's* why you're being so
-dreamy. *You* probably just did that to make yourself look more
-*interesting*. I wish *my* parents would let me get dents." The pout on
-her face had never seemed more fitting.
+Still glanced up.
+For just a moment, something more than just a mis-step on a wet day showed in her eyes.
+Flurry would have stopped right there,
+but Pirouette was already talking.
+"*I* think that you've got a *boyfriend*," she teased.
+"I think *that's* why you're being so dreamy.
+*You* probably just did that to make yourself look more *interesting*.
+I wish *my* parents would let me get dents."
+The pout on her face had never seemed more fitting.
 
-Still's hand tightened on the neck of her violin. She realized with a
-shock that she was just a heart-tick away from smashing it over her
-friend's head! She trembled for a moment, then fumbled her history
-books into her locker and pulled out her abacus and the novel they were
-doing in reading. "I have to go," she said in a rush. As she hurried
-away, she heard Pirouette say, "See? I *told* you so!"
+Still's hand tightened on the neck of her violin.
+She realized with a shock that
+she was just a heart-tick away from smashing it over her friend's head!
+She trembled for a moment,
+then fumbled her history books into her locker
+and pulled out her abacus and the novel they were doing in reading.
+"I have to go," she said in a rush.
+As she hurried away, she heard Pirouette say, "See? I *told* you so!"
 
-There was a place in the schoolyard where generations of young puppets
-had gone to be left alone. It wasn't an official place—there were no
-lines around it, and there was no sign. I just happened to be right
-beneath the staff room window. You couldn't play loud games there, or
-make jokes about the teachers, or swear, but you couldn't be bullied or
-teased either. There were even a few old crates to sit on, left there by
-some long-forgotten teacher who remembered what it was like to need a
-place like that.
+There was a place in the schoolyard
+where generations of young puppets had gone to be left alone.
+It wasn't an official place:
+there were no lines around it, and there was no sign.
+It just happened to be right beneath the staff room window.
+You couldn't play loud games there,
+or make jokes about the teachers,
+or swear,
+but you couldn't be bullied or teased either.
+There were even a few old crates to sit on,
+left there by some long-forgotten teacher
+who remembered what it was like to need a place like that.
 
-Still sat down on one of them, laid her violin in her lap, and opened
-her novel on top of it. The sun was so bright that it hurt to look
-straight at the book's pages, but she flipped through them anyway. She
-heard voices, and balls being bounced, and a murmur of conversation
-through the window above her, but it all slipped over her, like a stream
-running over a rock.
+Still sat down on one of them,
+laid her violin in her lap,
+and opened her novel on top of it.
+The sun was so bright that
+it hurt to look straight at the book's pages,
+but she flipped through them anyway.
+She heard voices,
+and balls being bounced,
+and a murmur of conversation through the window above her,
+but it all slipped over her like a stream running over a rock.
 
-The hour passed. The bell rang. Still closed her eyes until the sunspots
-stopped dancing in front of them, then went back into the school. Her
-friends whispered to her during arithmetic, but Still clacked the balls
-of her abacus back and forth to drown them out. When the teacher asked
-her a question in reading, she said, "I'm sorry, I haven't read that
-part yet." He didn't bother her again.
+The hour passed.
+The bell rang.
+Still closed her eyes until the sunspots stopped dancing in front of them,
+then went back into the school.
+Her friends whispered to her during arithmetic,
+but Still clacked the balls of her abacus back and forth to drown them out.
+When the teacher asked her a question in reading she said,
+"I'm sorry, I haven't read that part yet."
+He didn't bother her again.
 
-*Plang… plang…* Two dozen students made a dash for their lockers.
-The twenty-fifth gathered her books together slowly, then walked out
-with her head down. Her teacher watched her go. *It's none of my
-business*, he told himself. *Children bump and scrap themselves all the
-time—it's just part of growing up.*
+*Plang… plang…*
+Two dozen students made a dash for their lockers.
+The twenty-fifth gathered her books together slowly,
+then walked out with her head down.
+Her teacher watched her go.
+*It's none of my business*, he told himself.
+*Children bump and scrap themselves all the time—it's just part of growing up.*
 
-Still's footsteps echoed around her as she walked toward the door. They
-were almost as loud as the thought that had been echoing in her head all
-day. "They'll put strings on you… They'll put strings on you…"
+Still's footsteps echoed around her as she walked toward the door.
+They were almost as loud as the thought that had been echoing in her head all day.
+"They'll put strings on you… They'll put strings on you…"
 
-Out the door, down the steps, across the yard to the street… Still
-had come this way a thousand times. But that afternoon, she didn't turn
-left for home. Instead, she set her books on the sidewalk for anyone who
-wanted them and kept going straight.
+Out the door,
+down the steps,
+across the yard to the street…
+Still had come this way a thousand times.
+But that afternoon,
+she didn't turn left for home.
+Instead,
+she set her books on the sidewalk for anyone who wanted them and kept going straight.
 
 </section>
 
