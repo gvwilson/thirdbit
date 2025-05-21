@@ -825,404 +825,518 @@ she set her books on the sidewalk for anyone who wanted them and kept going stra
 
 ## Chapter 4
 
-Still walked and walked. She paid no attention to where she was
-going—she just let her own weight carry her downhill.
+Still walked and walked.
+She paid no attention where—she just let her own weight carry her downhill.
 
-The streets grew narrower as she walked, then dirtier. Gaps appeared
-between the cobblestones. Little tendrils of fog filled the air around
-her. They thickened steadily, until Still could barely see from one side
-of the street to the other.
+The streets grew narrower, then dirtier.
+Gaps appeared between the cobblestones.
+Little tendrils of fog filled the air around her.
+As the fog thickened the paint on the shop signs grew more garish,
+then faded and peeled.
+The steps in front of the houses became worn by hard use.
+Their little paper flower gardens shrank and then vanished,
+to be replaced by plots of dirt
+filled with thrown-away paper cups and unlucky lottery tickets.
 
-As the fog thickened, the buildings around her changed. The paint on the
-shop signs grew more garish, then faded and peeled. The steps in front
-of the houses became worn by hard use. The little paper flower gardens
-in front of the houses shrank, then vanished, to be replaced by plots of
-dirt filled with thrown-away paper cups and unlucky lottery tickets.
+The puppets around her changed as well.
+Their faces became cracked and worn.
+Some had so little paint left that it was impossible to tell who they were
+or how they might feel.
+If their clothes looked new, they looked cheap as well.
+If they weren't new they were carefully mended or ragged at the cuffs.
+No-one looked straight at her or said hello.
 
-The puppets around her changed as well. Their faces became cracked and
-worn. Some had so little paint left that it was impossible to tell who
-they were, or how they might feel. If their clothes looked new, they
-looked cheap as well. If they weren't new, they were carefully mended,
-or ragged at the cuffs. No-one looked straight at her, or said hello.
+Finally Still found herself facing a blank brick wall at the end of an alley.
+The sky had gone dark.
+She was too tired and hungry to walk another step.
+An old banana crate lined with newspapers lay in the corner,
+so she climbed into it,
+curled herself around her violin,
+and fell straight into a deep, dreamless sleep.
 
-Finally Still found herself facing a blank brick wall at the end of an
-alley. It was dark. She was tired and hungry—too tired and hungry to
-walk another step. An old banana crate lined with newspapers lay in the
-corner. She climbed into it, curled herself around her violin, and fell
-straight into a deep, dreamless sleep.
-
-She woke with a start in the middle of the night. Something cold and
-hard had scampered across her leg. She hugged her knees to her chest.
-"Tee hee," the something giggled. She shivered. She had never seen a
-glass rat, but had heard whispered stories at sleepovers. What they
-wanted more than anything was oil to stop them squeaking, and if the
-only place to get it was from a puppet, well, that was why they had
-diamond teeth. Still had shivered with fright.
+She woke with a start in the middle of the night.
+Something cold and hard had scampered across her leg.
+She hugged her knees to her chest.
+"Tee hee," the something giggled.
+She shivered.
+She had never seen a glass rat, but had heard whispered stories at sleepovers.
+What they wanted more than anything was oil to stop them squeaking,
+and if the only place to get it was from a puppet,
+well,
+that was why they had diamond teeth.
 
 It took her a long time to get back to sleep.
 
-She woke up hungry the next morning. The sun was trying to break through
-the fog, but it was a battle the sun was used to losing. Still ached.
-Her wood felt damp all the way through. She stood with a groan. Her arms
-and legs felt like they had warped overnight. What she really needed was
-a hot mug of machine oil to warm up her clockwork. A mug of machine oil,
-and—
+She woke up hungry the next morning.
+The sun was trying to break through the fog,
+but it was a battle the sun was used to losing.
+Her whole body ached,
+and her wood felt damp all the way through.
+She stood with a groan.
+Her arms and legs felt like they had warped overnight.
+What she really needed was a hot mug of machine oil to warm up her clockwork.
+A mug of machine oil and—
 
-She patted her pockets. They were as empty as the box she had slept in.
-She didn't have any candy, not a single gumdrop. She shook her head.
-The first thing was to find some oil—she could worry about how to pay
-for it later.
+She patted her pockets.
+They were as empty as the box she had slept in.
+She didn't have any candy, not a single gumdrop.
+She shook her head.
+The first thing was to find some oil—she could worry about how to pay for it later.
 
-Still tucked her violin under her arm and set off. She couldn't
-remember the twists and turns that had brought her to the alley, so she
-turned or went straight at whim. Nothing moved around her. The breeze
-that stirred the fog wasn't strong enough to disturb the trash on the
-street. There were no other puppets to be seen.
+Still tucked her violin under her arm and set off.
+She couldn't remember the twists and roundabouts that had brought her to the alley,
+so she turned or went straight at whim.
+Nothing moved around her.
+The breeze that stirred the fog
+wasn't strong enough to disturb the trash on the street.
+There were no other puppets to be seen.
 
-Not, that is, until she turned a corner and nearly bumped into an
-ancient puppet wearing a raincoat. "Arp!" he snapped. "Radda rrrr…
-Numble." He shook his head from side to side and pushed his
-squeaky-wheeled baby carriage past her. It was piled high with boxes,
-bottles, and bags, all of them stuffed full to the brim with the
-tattered remains of burst balloons.
+Not, that is, until she turned a corner
+and nearly bumped into an ancient puppet wearing a raincoat.
+"Arp!" he snapped. "Radda rrrr… Numble."
+He shook his head from side to side
+and pushed his squeaky-wheeled baby carriage past her.
+It was piled high with boxes, bottles, and bags,
+all of them stuffed full to the brim with the tattered remains of burst balloons.
 
-"Excuse me," Still said weakly. The old puppet snorted and rattled
-away. Still shivered. His face had been worn almost smooth by repeated
-sanding and painting, and the wiring that held his jaw on was almost
-rusted through. She *really* needed that cup of oil now…
+"Excuse me," Still said weakly.
+The old puppet snorted and rattled away.
+Still shivered.
+His face had been worn almost smooth by repeated sanding and painting,
+and the wiring that held his jaw on was mostly rust.
+She *really* needed that cup of oil now…
 
-Still walked a little more quickly after that. Soon there were other
-puppets on the street, tidy or tattered or a mix of both. They all
-seemed to be headed in the same direction, so she followed along.
+Still picked up her pace.
+Soon other puppets were on the street, tidy or tattered or a mix of both.
+They all seemed to be headed in the same direction, so she followed along.
 
-She crossed an old stone bridge over a canal. A block later, she found
-herself on the edge of a market square. It was the size of a city block,
-and filled with carts and stalls and sound. And puppets—so many
-puppets.
+She crossed an old stone bridge over a canal.
+A block later, she found herself on the edge of a market square.
+It was the size of a city block and filled with carts and stalls and sound.
+And puppets—so many puppets.
 
-Someone bumped into her from behind. "'Scuse me," he muttered, not
-slowing down. She stepped out of the way and let the world flow past her
-until her clockwork stopped racing.
+Someone bumped into her from behind.
+"'Scuse me," he muttered without slowing down.
+She stepped out of the way and let the world flow past her
+until her clockwork slowed back to normal.
 
-Hunger drove her to move again a few minutes later—hunger, and the
-smell of hot oil somewhere nearby. Hesitantly, still hugging her violin
-tight to her chest, she stepped into the crowd and set off to find the
-source of the aroma.
+Hunger drove her to move again a few minutes later—hunger,
+and the smell of hot oil somewhere nearby.
+Hugging her violin to her chest,
+she shouldered her way into the crowd.
 
-Puppets jostled her on every side as she wandered back and forth across
-the wet cobblestones. Carpets and coat racks, watch straps and joint
-wire, gloves, hats, glow-in-the-dark paint for your face or your home,
-peacock feathers and dishtowels and junk, junk, junk, but not a single
-scrap to eat or drink. Oh, she could *see* people drinking their morning
-oil, or wolfing down stuffing with forks or chopsticks, but where were
-they *selling* it?
+Puppets jostled her on every side
+as she wandered back and forth across the wet cobblestones.
+Carpets and coat racks,
+watch straps and joint wire,
+gloves,
+hats,
+glow-in-the-dark paint for your face or your home,
+peacock feathers and dishtowels and junk, junk, junk,
+but not a single scrap to eat or drink.
+Oh, she could *see* people drinking their morning oil
+or wolfing down stuffing with forks or chopsticks,
+but where were they *selling* it?
 
-Finally she couldn't take it any longer. "Excuse me," she said to a
-burly stool maker in knee-high boots and an apron, "But can you please
-tell me where you got that?" He was slurping thick, dark oil from a
-dented pewter mug.
+Finally she couldn't take it any longer.
+"Excuse me," she said to a burly stool maker in knee-high boots and an apron,
+who was slurping thick, dark oil from a dented pewter mug,
+"But can you please tell me where you got that?"
 
-"What, this? Down that way, second left, right, right again where the
-eggery used to be. Kettle's is there, and Wing's. Neither's worse
-than the other." He slurped another mouthful of oil from his mug, then
-set it down on his workbench, picked up his hammer, and whacked another
-peg into the stool he was working on.
+"What, this?
+Down that way, second left, right, right again where the eggery used to be.
+Kettle's is there, and Wing's.
+Neither's worse than the other."
+He slurped another mouthful of oil from his mug,
+then set it down on his bench and picked up his hammer.
 
-Still walked the way he had pointed. She took the second left, but was
-immediately lost. Did this bend to the right count as a right turn? Or
-was she supposed to follow the bend, then turn right further along?
+Still walked the way he had pointed and took the second left,
+but was lost almost immediately,
+so she stopped in front of a balloon seller
+who had just finished the last of her morning grease.
+"Excuse me," Still said once again,
+"But I'm looking for Kettle's, or Wing's.
+Can you please tell me—"
 
-She stopped in front of a balloon seller who had just finished the last
-of her morning grease. "Excuse me," Still said once again, "But I'm
-looking for Kettle's, or Wing's. Can you please tell me—"
+"Down there," the balloon seller said,
+pointing with her spoon
+before scraping the last of her breakfast out of its little cardboard carton
+and tossing the carton into the air.
+A parrot who had been perched on the roof of her stall swooped down
+and caught it before it hit the ground.
+As Still walked away,
+it was happily tearing the carton to shreds with its porcelain beak.
 
-"Down there," the balloon seller said, pointing with her spoon.
+Still didn't need the balloon seller's directions any more
+after her first dozen steps.
+The smell of hot oil and grease was so strong
+that it was like a whirlpool pulling her in.
 
-"Do I have to turn left or right?" Still asked.
+Kettle's was a little shack with a counter and awning.
+Wing's was a pushcart mounted on two fat-tired bicycle wheels.
+The lineup in front of Kettle's was shorter, so Still went there.
 
-The balloon seller shook her head, scraping the last of her breakfast
-out of its little cardboard carton. She tossed the carton into the air.
-A parrot who had been perched on the roof of her stall swooped down and
-caught it before it hit the ground. As Still walked away, it was happily
-tearing the carton to shreds with its porcelain beak.
+Kettle herself was short and round.
+"What will you have, dearie?" she asked.
 
-Still didn't need the balloon seller's directions any more after her
-first dozen steps. The smell of hot oil and grease was so strong, it was
-like a whirlpool pulling her in.
-
-Kettle's was a little shack with a counter and awning. Wing's was a
-pushcart mounted on two fat-tired bicycle wheels. The lineup in front of
-Kettle's was shorter, so Still went there.
-
-Kettle herself was short and round. "What will you have, dearie?" she
-asked.
-
-"Just some oil, please," Still said. "Only—I don't have any candy.
+"Just some oil, please," Still said.
+"Only—I don't have any candy.
 Not with me."
 
-Kettle shook her head. "Sorry." She looked past Still to the gangly
-puppet standing behind her. "What about you?"
+Kettle shook her head.
+"Sorry."
+She looked past Still to the gangly puppet standing behind her.
+"What about you?"
 
-Still hesitated, then stepped out of the way. The gangly puppet put two
-gumdrops down on the counter. "Double oil, double grease." He glanced
-sidelong at Still, then looked back at Kettle. Kettle shrugged as if to
-say, it's none of my business. The gangly puppet shrugged back.
+Still hesitated, then stepped out of the way.
+The gangly puppet pushed his glasses up his nose
+and put two gumdrops down on the counter.
+"Double oil, double grease."
+He glanced sidelong at Still, then looked back at Kettle.
+Kettle shrugged as if to say, it's none of my business.
+The gangly puppet shrugged back.
 
-The sight of the thick lumps of grease floating in the gangly puppet's
-oil made Still feel weak. She hurried over to the line in front of
-Wing's. He was no taller than Kettle, but skinny where she had been
-round, and had little dragons etched on his forearms. "Just some oil,"
-Still told him. *Fssshhhhh…* It streamed out of the tap as he pumped
-the handle. She took the cup from him and gulped down a scalding
-mouthful. It nearly stripped the varnish off her lips, but it felt so
-good sliding down her throat and into her clockwork.
+The sight of the thick lumps of grease floating in the gangly puppet's oil
+made Still feel weak.
+She hurried over to the line in front of Wing's.
+He was no taller than Kettle,
+but skinny where she had been round and had little dragons etched on his forearms.
+"Just some oil,"
+Still told him.
+*Fssshhhhh…*
+It streamed out of the tap as he pumped the handle.
+She took the cup from him and gulped down a scalding mouthful.
+It nearly stripped the varnish off her lips,
+but it felt so good sliding down her throat and into her clockwork.
 
-"Two gumdrop," Wing said.
+"Two gumdrops," Wing said.
 
 Still nodded. "I'll just go get it," she said.
 
-Wing's arm shot out as quick as the balloon seller's parrot. "Two
-gumdrop," he insisted, his hand on her collar. "No free ride."
+Wing's arm shot out as quick as the balloon seller's parrot.
+"Two gumdrops," he insisted, his hand on her collar.
+"No free ride."
 
-"I said, I'll go get it," she insisted, trying to sound annoyed, but
-only managing to sound frightened. She tried to shake off his hand, but
-his grip was like a vice.
+"I said, I'll go get it," she insisted,
+trying to sound annoyed,
+but only managing to sound frightened.
+She tried to shake off his hand,
+but his grip was like a vice.
 
-"Oh, there you are!" The gangly puppet from Kettle's appeared beside
-her as if by magic. "Honestly, if your head wasn't screwed on… Ah,
-here we go." He fished two lint-covered purple gumdrops out of his
-pockets and handed them to Wing. "Good enough?"
+"Oh, there you are!"
+The gangly puppet from Kettle's appeared beside her.
+"Honestly, if your head wasn't screwed on… Ah, here we go."
+He fished two lint-covered purple gumdrops out of his pockets and handed them to Wing.
+"Good enough?"
 
 "Hmph," Wing snorted, but he took the gumdrops.
 
-"Thank you," Still said. "I really did just forget to…" Her voice
-trailed off. She felt like she was going to start crying.
+"Thank you," Still said.
+"I really did just forget to…"
+Her voice trailed off.
+She felt like she was going to start crying.
 
-"That's all right," the gangly puppet said easily. "It was found
-candy anyway. Must have fallen out of someone's pocket last night. Why,
-I practically tripped over them this morning. Could have been a very
-nasty spill. Vicious things, gumdrops, really. Probably best to have
-gotten rid of them, what?"
+"That's all right," the gangly puppet said easily.
+"It was found candy anyway.
+Must have fallen out of someone's pocket last night.
+Why, I practically tripped over them this morning.
+Could have been a very nasty spill.
+Vicious things, gumdrops, really.
+Probably best to have gotten rid of them, what?"
 
-Still smiled weakly. "Probably," she nodded.
+Still smiled weakly.
+"Probably," she nodded.
 
-"I'm Attic, by the way," the other puppet said, adjusting his
-glasses. "I, um, books. I'm a bookseller. Down that way. And you
-are…?"
+"I'm Attic, by the way," the other puppet said,
+adjusting his glasses.
+"I, um, books.
+I'm a bookseller.
+Down that way.
+And you are…?"
 
-"Thank you, Attic," Still said. She sipped at her oil. It tasted like
-it had been lying in the bottom of a rusty old can for a month, but it
-was delicious nonetheless.
+"I'm very grateful for breakfast," Still said.
+She sipped at her oil.
+It tasted like it had been lying in the bottom of a rusty old can for a month,
+but it was delicious nonetheless.
 
-Attic blinked. "Yes, well, um, you're welcome. And if you need
-anything to read, um, I'm just down that way."
+Attic blinked.
+"Yes, well, um, you're welcome.
+And if you need anything to read, um, I'm just down that way."
 
 "I'll remember," she promised.
 
-She spent the morning wandering through the market. It wasn't as large
-as it seemed—the fog just made it impossible to see everything at
-once. She hung onto the cup from Wing's even after the last of the oil
-was gone. When the noon bell rang, she sat on the lip of a dry fountain
-on the market's edge and tore the cup apart so that she could lick the
-cardboard.
+She spent the morning wandering through the market.
+It wasn't as large as it seemed—the fog just made it
+impossible to see everything at once.
+She hung onto the cup from Wing's even after the last of the oil was gone.
+When the noon bell rang,
+she sat on the lip of a dry fountain on the market's edge and tore the cup apart
+so that she could lick the cardboard.
 
-The market was quieter in the afternoon than in the morning. Still moved
-to the steps in front of a bricked-up bakery door across from the dry
-fountain and tried not to think about how hungry she was. Her gears
-ground painfully against one another inside her chest. It was all she
-could do to keep her eyes open…
+The market quietened down in the afternoon.
+Still moved to the steps in front of a bricked-up bakery door
+across from the dry fountain
+and tried not to think about how hungry she was.
+Her gears ground painfully against one another inside her chest.
+It was all she could do to keep her eyes open…
 
-She woke with a start. Someone was shaking her. Where was she? She
-blinked and squinted up at the puppet in front of her. He let go of her
-shoulder and stepped back.
+She woke with a start.
+Someone was shaking her.
+Where was she?
+She blinked and squinted up at the puppet in front of her.
+He let go of her shoulder and stepped back.
 
-"I said, are you all right?" he repeated. He had broad shoulders and a
-cocky smile, and was wearing a gold and green uniform and roller skates.
+"I said, are you all right?" he repeated.
+He had broad shoulders and a cocky smile,
+and was wearing a gold and green uniform and roller skates.
 "You look like you've been into a bad can of paint."
 
-"What? No, I'm fine," Still said. "I'm just tired."
+"What? No, I'm fine," Still said.
+"I'm just tired."
 
-"Oh really? Huh." He twirled around on his skates. "Are you new
-here?"
+"Oh really? Huh."
+He twirled around on his skates.
+"Are you new here?"
 
-Still nodded, hugging her violin to her chest. She wondered if somehow
-some sand had gotten into her gears. It certainly felt like it.
+Still nodded, hugging her violin to her chest.
+She wondered if somehow some sand had gotten into her gears.
+It certainly felt like it.
 
-"Yeah, figured." The other puppet picked both feet up and put them
-back down crossed-over, *bang!*, then did it again to straighten them
-out. "Anyway, case you don't know, brooms do a sweep at sundown. Pick
-up the trash." He did another quick twirl. "You're sitting here,
-they'll pick you up too. Mail you back wherever you came from, most
-likely."
+"Yeah, figured."
+The other puppet did a little jump and put his feet down crossed-over, *bang!*,
+then did it again to straighten them out.
+"Anyway, case you don't know, the brooms do a sweep at sundown to pick up the trash."
+He did another quick twirl.
+"If you're still here, they'll pick you up too.
+Mail you back wherever you came from, most likely."
 
-"What? I'm sorry, I don't understand." Still shook her head.
+"What? I'm sorry, I don't understand."
+Still shook her head.
 
-The roller skater sighed theatrically. "The police. They come around
-when everyone's closing up. I'm just thinking, maybe you want to be
-'just tired' somewhere else when they do."
+The roller skater sighed theatrically.
+"The police. They come around when everyone's closing up.
+I'm just thinking, maybe you want to be 'just tired' somewhere else when they do."
 
-Still nodded miserably and struggled to her feet. She realized that she
-still had the remains of the cardboard cup in her hand. She looked
-around for a trash bin.
+Still nodded miserably and struggled to her feet.
+She realized that she still had the remains of the cardboard cup in her hand.
+She looked around for a trash bin.
 
-The other puppet's grin grew wider. "Just chuck it," he said.
+The other puppet's grin grew wider.
+"Just chuck it," he said.
 "No-one'll notice."
 
 Still hesitated a second, then dropped the cup beside the stairs.
 "Thanks for telling me," she said, wiping her hand on her pants.
 
-The roller-skater bowed. "Anything for a pretty girl," he said. He
-winked, then twirled around.
+The roller-skater bowed.
+"Anything for a pretty girl," he said.
+He winked, then twirled around.
 
-"Wait!" Still said. The puppet looked back at her over his shoulder.
-"I don't suppose… I could borrow a couple of gumdrops? For some
-oil?"
+"Wait!" Still said.
+The puppet looked back at her over his shoulder.
+"I don't suppose I could borrow a couple of gumdrops?
+For some oil?"
 
-The roller-skater shrugged apologetically. "Sorry. Flat empty. Have a
-job tomorrow, though. Try me then?" He winked again and skated away
-without waiting for an answer.
+The roller-skater shrugged apologetically.
+"Sorry.
+Flat empty.
+Have a job tomorrow, though.
+Try me then?"
+He winked again and skated away without waiting for an answer.
 
-"Sure," Still said quietly, bitterly, despairingly. "Tomorrow. Oh,
-I'm so *hungry*." She could practically *hear* her gears grinding. She
-just *had* to find something to eat.
+"Sure," Still said quietly, bitterly, despairingly.
+"Tomorrow. Oh, I'm so *hungry*."
+She could practically *hear* her gears grinding.
+She just *had* to find something to eat.
 
-She walked back through the market. Surely somebody must have thrown out
-a few scraps of stuffing, or a jar of oil that was only half-empty. But
-no luck—people were closing up shutters, taking down awnings, rolling
-up carpets, and putting boxes and barrels away, but nobody was throwing
-anything away. All she found was a battered cardboard cup by a stall
-that advertised cheap second-hand gyroscopes, but there was nothing in
-it but a stale wisp of lint.
+She wandered back through the market.
+Surely somebody must have thrown out a few scraps of stuffing
+or a jar of oil that was only half-empty.
+But no luck—people were closing up shutters,
+taking down awnings,
+rolling up carpets,
+and stowing boxes and barrels,
+but nobody was throwing anything away.
+All she found was a battered cardboard cup
+by a stall that advertised cheap second-hand gyroscopes,
+but there was nothing in it but a stale wisp of lint.
 
-The sun was almost down. The market was almost empty, and she still
-hadn't found anything to eat or drink. Without quite thinking about it,
-she had wandered back toward Kettle's and Wing's. Their shutters were
-closed, and locked with padlocks the size of Still's hand. The smell of
-hot oil that hung in the air was driving Still crazy. There had to be a
-loose board, or a way to pry the shutters apart…
+Evening was falling.
+The market was almost empty,
+and she still hadn't found anything to eat.
+Without quite thinking about it she had wandered back toward Kettle's and Wing's.
+Their shutters were closed
+and locked with padlocks the size of Still's hand.
+The smell of hot oil that hung in the air was driving Still crazy.
+There had to be a loose board or a way to pry the shutters apart…
 
-She looked around wildly for a stick to use as a crowbar. Then she
-froze. Police! Just as the roller skater had said. Three puppets in blue
-uniforms, walking slowly through the market, nodding at stragglers,
-rattling locks and rattling to make sure they were secure.
+She looked around wildly for a stick to use as a crowbar.
+Then she froze.
+Police!
+Just as the roller skater had said.
+Three puppets in blue uniforms were walking slowly through the market,
+nodding at stragglers and rattling locks to make sure they were secure.
 
-Still ducked around behind Kettle's stall. "They'll put strings on
-you if they find out!" said the voice in her head. "They'll screw
-little eyehooks into your elbows and knees, and run black silk strings
-through them, and they'll never let you move your own arms and legs
-again."
+Still ducked around behind Kettle's stall.
+"They'll put strings on you if they find out!" a voice said in her head.
+"They'll screw little eyehooks into your elbows and knees
+and run black silk strings through them
+and they'll never let you move your own arms and legs again."
 
-She wanted to run, but instead she just walked very, very fast, head
-down, violin clutched to her chest, straight out of the market. "You
-can't see me," she whispered. "I'm not here."
+She wanted to run,
+but instead she just walked very, very fast,
+head down,
+violin clutched to her chest,
+straight out of the market.
+"You can't see me," she whispered. "I'm not here."
 
-She didn't slow down until she was half a dozen blocks away. Most of
-the streetlights overhead had burned out. The few that were left were
-barely strong enough to cut through the fog. Little feet splashed
-through the gutter beside the street, and slow wings went *flap, flap,
-flap* over her head. She shivered. This was no place to spend the night.
+She didn't slow down until she was half a dozen blocks away.
+Most of the streetlights overhead had burned out.
+Little feet splashed through the gutter beside the street,
+and slow wings flapped over her head.
+She shivered.
+This was no place to spend the night.
 She ought to go somewhere warmer, somewhere with light.
 
-She kept walking until she spotted a little diner. Puppets of all shapes
-and sizes sat on stools at its single long counter, sipping hot oil or
-picking at grease, talking about the day's deals or reading newspapers.
+She pushed on until she spotted a little diner.
+Puppets of all shapes and sizes sat on stools at its single long counter,
+sipping hot oil,
+picking at plates of grease,
+and reading newspapers.
 
-Still tiptoed down the alley beside the diner. Two big gray garbage cans
-stood like tired sentries near its back door. She hesitated. It
-*smelled*. But then her gears ground again, even louder than before. She
-walked down to the other end of the alley and hid behind a stack of
-crates.
+Still tiptoed to the alley beside the diner.
+Two big gray garbage cans stood like tired sentries near its back door.
+She hesitated.
+It *smelled*.
+But then her gears ground again, even louder than before.
+She slipped down into the alley and hid behind a stack of crates.
 
 The city bell rang the half-hour twice while she crouched there,
-shivering in the fog. She was almost ready to give up when the door
-opened. A barrel-shaped puppet in a dirty white apron came out with a
-cardboard box in his arms. He set it on top of the nearest garbage can,
-pulled the lid off the second, and—
+shivering in the fog.
+She was almost ready to give up when the door opened.
+A barrel-shaped puppet in a dirty white apron came out with a cardboard box in his arms.
+He set it on top of the nearest garbage can, pulled the lid off the second, and—
 
-"What?" he shouted back through the door in answer to a question Still
-hadn't heard. He listened for a second, then muttered, "Splinters,"
+"What?"
+he shouted back through the door in answer to a question Still hadn't heard.
+He listened for a second,
+then muttered, "Splinters,"
 and went back inside.
 
-Still darted forward. Sure enough, the box was full of empty tins. She
-put her violin in beside them and hurried away with the box in her arms.
+Still darted forward.
+Sure enough, the box was full of empty tins.
+She put her violin in beside them and hurried away with the box in her arms.
 
-A few minutes later she was sitting on some worn stone steps a block
-away, patiently wiping the last few drops of oil out of the last can
-with her finger. It wasn't much, and some of it had gone sludgy, but it
-stopped her gears from grinding. "And it wasn't really stealing," she
-told herself. "They were throwing it out anyway."
+A few minutes later she sat on some worn stone steps a block away,
+patiently wiping the last few drops of oil out of the last can with her finger.
+It wasn't much,
+and some of it had gone sludgy,
+but at least it stopped her gears from grinding.
+"And it wasn't really stealing," she told herself.
+"They were throwing it out anyway."
 
-She sat back, exhausted. A stray gust of wind blew a brief hole in the
-fog. Still looked up at the moon floating silver and black in the night
-sky. Everything was lighter there, she remembered, even as her eyelids
-grew heavy. You could pick someone up with one hand, and throw a shoe
-all the way to the horizon. She was so tired…
+She leaned back, exhausted.
+A stray gust of wind blew a brief hole in the fog.
+Still looked up at the moon floating silver and black in the night sky.
+Everything was lighter there,
+she remembered,
+even as her eyelids grew heavy.
+You could pick someone up with one hand and throw a shoe all the way to the horizon.
+She was so tired…
 
-The city bell rang midnight. Still sat up with a start and shook her
-head to clear it. She couldn't fall asleep, not here out in the open.
-She would be safer on the other side of the canal, where there were
-fewer passers-by.
+The city bell rang midnight.
+Still sat up with a start and shook her head to clear it.
+She couldn't fall asleep,
+not here out in the open.
+She would be safer on the other side of the canal where there were fewer passers-by.
 
-The streets were empty now, and silent except for the lonely *ting,
-ting* of a streetcar bell in the distance. She turned right onto the old
-stone bridge that arched over the canal. Halfway across it she slowed,
-then stopped. Was someone watching her?
+The streets were empty now,
+and silent except for the lonely *ting, ting* of a streetcar bell in the distance.
+She turned right onto the old stone bridge that arched over the canal.
+Halfway across it she slowed, then stopped.
+Was someone watching her?
 
-She leaned against the bridge's wrought iron railing and glanced left,
-then right. Nothing. No-one was there. She sagged slightly, then shook
-her head. It was just her imagination.
+She leaned against the bridge's wrought iron railing and glanced left, then right.
+No-one was there.
+It was just her imagination.
 
-Then she saw it. A little white paper boat was bobbing up and down in
-the water below her. The current carried it slowly toward the bridge.
-Still stumbled back from the railing, hugging her violin to her chest.
-She squeezed her eyes shut for a moment, then turned and ran the rest of
-the way across the bridge.
+Then she saw it.
+A little white paper boat bobbed up and down in the water below her.
+The current carried it slowly toward the bridge.
+Still stumbled back from the railing,
+hugging her violin to her chest.
+She squeezed her eyes shut for a moment,
+then turned and ran the rest of the way across the bridge.
 
-She walked through one lonely street after another, trying to find the
-crate she had slept in the night before, but he fog had grown thicker
-again. Each corner looked like the next. She finally spotted an old
-mailbox that she had walked past that morning. *Close enough,* she
-thought wearily. Ten steps into the nearest alley, sat down with her
-back against the wall and was asleep in an instant.
+She walked through one lonely street after another,
+trying to find the crate she had slept in the night before,
+but the fog had grown thicker again.
+Each corner looked like the next.
+She finally spotted the old mailbox from that morning.
+*Close enough,* she thought wearily.
+Ten steps into the nearest alley,
+sat down with her back against the wall and was asleep in an instant.
 
-She woke with a start. "Ew!" she exclaimed, scrambling to her feet.
-Something cold and hard fell off her leg with a soft *thud* and a
-cold-hearted giggle. "Tee hee," it went, and from around her she heard
-some more small voices answer, "Tee hee, tee hee." She gasped. Glass
-rats! And not just one this time—a whole scurry of them.
+She woke with a start.
+"Ew!" she exclaimed, scrambling to her feet.
+Something cold and hard fell off her leg with a soft *thud* and a cold-hearted giggle.
+"Tee hee," it went,
+and from around her she heard some more small voices answer, "Tee hee, tee hee."
+She gasped.
+Glass rats!
+And not just one this time—a whole scurry of them.
 
-She looked around wildly, her head still fuzzy with sleep. She had no
-idea how many there were—their transparent bodies were hard enough to
-see in the daytime, much less in the middle of the night. Should she run
-for it? Would they chase her? How fast could glass rats run?
+She looked around wildly,
+her head still fuzzy.
+She had no idea how many there were—their transparent bodies
+were hard enough to see in the daytime,
+much less in the middle of the night.
+Should she run for it?
+Would they chase her?
+How fast could glass rats run?
 
-Small feet scampered across the ground in front of her. She backed up.
-"Ow!" Her shoulder hit a drainpipe that run up the wall to her right.
-A drainpipe! She grabbed it with one hand and tugged. It seemed strong
-enough. But what about her violin? How could she hold it and climb the
-drainpipe at the same time?
+Small feet scampered across the ground in front of her.
+She backed up.
+"Ow!"
+Her shoulder hit a drainpipe that run up the wall to her right.
+A drainpipe!
+She grabbed it with one hand and tugged.
+It seemed strong enough.
+But what about her violin?
+How could she hold it and climb the drainpipe at the same time?
 
-She untied her belt and pulled it out of her pants, then slipped the end
-around the violin's waist, under its strings. Over her shoulder it
-went, so that the violin was strapped to her back. She grabbed the
-drainpipe with both hands and started to climb.
+She untied her belt and pulled it out of her pants,
+then slipped the end around the violin's waist.
+Over her shoulder it went,
+so that the violin was strapped to her back.
+She grabbed the drainpipe with both hands and started to climb.
 
-The pipe creaked under her weight, but held. A chorus of cold,
-disappointed little voices went "Awww," beneath her. One story, two,
-three… When her knuckles bumped into a storm gutter, she grabbed it
-and pulled herself onto the building's roof.
+The pipe creaked under her weight, but held.
+A chorus of cold, disappointed little voices went "Awww," beneath her.
+One story,
+two,
+three…
+Her knuckles bumped into a storm gutter.
+She grabbed it and pulled herself onto the building's roof.
 
-And nearly jumped off again. A heavy gray figure loomed in the darkness
-just a few feet away from her. It had a small, beaky head, long arms,
-and wings folded up against its back. It was a gargoyle!
+And nearly jumped off again.
+A heavy gray figure loomed in the darkness just a few feet away from her.
+It had a small, beaky head, long arms, and wings folded up against its back.
+It was a gargoyle!
 
-It was just an old gargoyle, weathered and worn. She laughed weakly,
-then untied her belt and hugged her violin. She was safe, at least for
-now. Nothing was going to chew her to bits and drink her oil. No-one was
-going to put strings on her. She was safe. She was safe…
+It was just an old gargoyle, weathered and worn.
+She laughed weakly,
+then untied her belt and hugged her violin.
+She was safe,
+at least for now.
+Nothing was going to chew her to bits and drink her oil.
+No-one was going to put strings on her.
+She was safe.
+She was safe…
 
-With her back against a chimney, watched over by the moon, the fog, and
-an old gargoyle, Still went back to sleep.
+With her back against a chimney,
+watched over by the moon, the fog, and the old gargoyle,
+Still went back to sleep.
 
 </section>
 

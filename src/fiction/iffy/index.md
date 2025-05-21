@@ -2920,9 +2920,9 @@ and the muffled sound of the uncaring sea.
 ## Chapter 4
 
 Her tears eventually stopped, as tears always do.
-After one last hug from Aunt Naggie,
-Iffy went and sat on the thwart at the *Guinevere*'s stern,
-gray thoughts chasing each other aimlessly in her head.
+After one more hug from Aunt Naggie,
+Iffy went and sat on the thwart at the *Guinevere*'s stern
+and gray thoughts chase each other aimlessly in her head.
 She half-hoped that Wales would sit beside her so that she could be curt to him.
 Instead,
 he disappeared into his cabin,
@@ -2938,13 +2938,12 @@ until she was sure she was seeing the wispy smudge of a spotter drone's gossamer
 Why was it approaching from the west?
 Halley lay east of them.
 Unless—
-"Uncle Jack!" she shouted,
-sprinting toward the pilot house.
+"Uncle Jack!" she shouted.
 "Uncle Jack, it's the Zillions!
 They're comin' back for us!"
 
 "Hang about a sec," her uncle said
-to a face on to the control panel as she charged in.
+to a face on to the control panel as she charged into the pilot house.
 "What?"
 
 "Uncle Jack," she panted.
@@ -2954,14 +2953,13 @@ to a face on to the control panel as she charged in.
 "It's outta Rothera."
 He jerked his thumb at the face on the screen.
 "Lady here says they been lookin' for us.
-Or leastways, they been lookin' for our passenger.
+Or leastways, lookin' for our passenger.
 Seems he's quite a popular fellow."
 
 Iffy looked from her uncle to the screen.
 An old woman smiled back warmly.
 Her brown face was lined with a century of wrinkles,
-and her pure white hair
-was pulled back into a complicated bun
+and her pure white hair was pulled back into a complicated bun
 that Iffy had only ever seen in history lessons.
 "Hello," the face said.
 "You must be Citizen Kwan.
@@ -2969,11 +2967,10 @@ I'm Doctor Johel.
 I'm looking forward to meeting you."
 
 They reached Rothera two days later.
-The spotter traced lazy circles above them the whole way,
+The spotter traced lazy circles over them the whole way,
 its insect-eye cameras and microscopic core
 searching ceaselessly for signs of trouble.
-Each time Wales emerged from his cabin
-to get some tea or use the toilet,
+Each time Wales emerged from his cabin to get some tea or use the toilet
 the spotter swooped closer to the *Guinevere*
 like a gull that had spied someone eating a samosa.
 
@@ -2982,7 +2979,7 @@ and how the governors shouldn't be allowed to get away with it
 but what could decent hard-working folk do?
 Aunt Naggie went from her cabin to the galley and back again with hurried steps,
 head down,
-bearing it in silence the way she bore so much else.
+bearing his anger in silence with the patience of long habit.
 Wales paid no more attention to the drone than he did to Iffy and her foster parents.
 "Good morning", "excuse me", and "no thank you"
 were all he seemed to have the energy to say.
@@ -2992,9 +2989,9 @@ Skies the world over had been off limits since the end of the war:
 the machines couldn't watch the whole world all the time,
 but anything too big or moving too quickly
 ran the risk of being fried from orbit.
-A handful light, slow-moving aircraft still took the risk here and there,
+A handful of light, slow-moving aircraft still took tested their luck here and there,
 but for most people,
-anything more had become the stuff of dreams.
+flying had become the stuff of dreams.
 Iffy spent every moment she could studying the drone through a high-powered monocular.
 Truth be told,
 there wasn't much else to do.
@@ -3002,14 +2999,18 @@ there wasn't much else to do.
 They threaded their way through the narrow passage
 between Adelaide Island and the Antarctic Peninsula,
 past drifting mats of tweaked seaweed left over from someone's failed attempt to start a sea farm,
-and there it was—Rothera.
-Antarctica's capital was ten times the size of Halley,
-home port for the Australian fleet
-that glared across the Drake Passage
-to the Zillion marauders who called Patagonia home.
+and there it was:
+Rothera.
+Antarctica's capital was ten times the size of Halley
+and a hundred times more interesting
+(or so it seemed to Iffy).
+Once the southern home of Australia's fleet,
+it was now an uneasy no-person's-land
+where the governors made the most of the uneasy truce between the Aussies
+and the Zillions who glared at them from across the Drake Passage.
 
-A pair of sleek sentry torpedoes surfaced beside them
-as they rounded the rocky point
+A pair of sleek sentry torpedoes surfaced beside the *Guinevere*
+as she rounded the rocky point
 where the scavenged remains of the original research station stood.
 Normally bustling with warships, freighters, jelly dredgers, tugs, and water taxis,
 Rothera's harbor seemed unnaturally quiet.
@@ -3017,7 +3018,7 @@ Rothera's harbor seemed unnaturally quiet.
 passing her a hard-boiled egg liberally dusted with curry powder.
 "Jack says everyone's been told
 to stay outta the way 'til we tie up.
-Mister Wales scared 'em all pretty hard."
+Mister Wales musta scared 'em all pretty hard."
 
 Her meager lunch inside her,
 Iffy went back on deck.
@@ -3028,14 +3029,14 @@ thinking about all the times she'd tried to make friends with people
 only to put her foot in her mouth,
 then stepped up to the taffrail a meter away from him and leaned on it as well.
 
-He looked sideways at her.
+He sighed without looking at her.
 "I'm sorry about what happened."
 
 "No worries," she said.
 Together, they watched the shore approach.
 
-Wales sighed.
-"You will never find a more wretched hive of scum and villainy,"
+Wales sighed again.
+"You will never find a more wretched hive of scum and villainy."
 
 Iffy bridled. "It ain't that bad."
 
@@ -3047,21 +3048,20 @@ His half-smile slipped slightly.
 
 Thin trails of soot sketched dark lines on the sky above the city.
 Iffy glanced at Wales,
-but he showed no emotion at the sight.
+but he showed no sign of having noticed.
 The Peninsula's coal mines were the original source of Rothera's wealth,
 the reason both for one of the governors being there
 and for the Zillions' prowling and raids.
 It was a crime to burn fossil fuel everywhere in the world that still had laws,
 but when pressed about their seemingly endless exemptions,
-most of Rothera's citizens would shrug and point out that
+most Rotherans would shrug and point out that
 the whole of Antarctica would still be covered in ice
 if it weren't for the Melt.
 And if cities elsewhere had drowned,
 well,
 damage done.
 
-When the wind shifted,
-the city's smell hit Iffy like a wet hammer.
+Then the wind shifted and the city's smell hit Iffy like a wet hammer.
 Rothera didn't just have coal mines—it had a dredging fleet too,
 and rendering plants to process what they brought in.
 The harbor reeked of jellyfish being turned into fuel and fertilizer.
@@ -3085,7 +3085,7 @@ in a semi-circle around the old woman they had spoken with two days earlier.
 An armored bot the size of the *Guinevere*'s pilot house loomed behind them.
 Someone had turned the "0" of the "G-80" stencilled on its side
 into a scowling face.
-Other Marines were scattered among crates and machines
+Another handful Marines were scattered among crates and machines
 or on the decks of nearby ships,
 their positions selected after a millisecond of high-intensity simulation by the city's core.
 Other than them the pier was deserted.
@@ -3098,7 +3098,7 @@ He nodded almost imperceptibly toward the hulking bot.
 "See its treads? They've been reinforced for urban work."
 He looked past Iffy as Aunt Naggie came on deck
 to put her arm around Iffy's shoulders
-and gave her foster daughter a wordless squeeze of reassurance.
+and give her foster daughter a wordless squeeze of reassurance.
 "I'm sorry for all this."
 
 Aunt Naggie shrugged.
@@ -3110,9 +3110,9 @@ and hurried forward to throw a line to a waiting Marine.
 As he caught it,
 another Marine leaped across the gap to the *Guinevere*'s stern.
 Despite the weight of his exoskeleton,
-his boots made no more sound hitting the deck than a seagull flapping its wings.
+his boots made no more sound hitting the deck than a seagull landing.
 
-Uncle Jack strode onto the deck and put his hands on his hips.
+Uncle Jack strode out of the pilot house and put his hands on his hips.
 "Let's get this over with," he said to no one in particular,
 standing a little straighter than usual
 in a bright orange suit jacket that had probably fit him well twenty years ago.
@@ -3148,7 +3148,8 @@ and it's useful to know
 that the Brazilians are able to get that close without being detected."
 
 Wales inclined his head again.
-"As you say." He hesitated.
+"As you say."
+He hesitated.
 "Do you know how many were lost?"
 
 The tiny woman's expression didn't soften.
@@ -3170,8 +3171,8 @@ or if the gleaming motes were some kind of tech.
 "And I'm Jack Ng, thank you for askin'," Uncle Jack broke in,
 stepping forward and thrusting out his hand.
 "I'm th' captain of th' *Guinevere*,
-an' what I want to know is,
-how soon can I get back on the water?"
+and what I want to know is,
+how soon can I get back on th' water?"
 
 "I'm sure the governor will tell you that when you see him,"
 Doctor Johel said,
@@ -3183,7 +3184,7 @@ He shrugged Aunt Naggie's cautioning hand off his arm angrily.
 I was hired for a job.
 I just want what I'm owed an' then I'm done with it."
 
-"That will be for the governor to decide,"
+"What you're owed is for the governor to decide,"
 Doctor Johel said,
 a hint of steel in her voice.
 "Now, if you'll come this way?"
@@ -3204,12 +3205,13 @@ He picked up his toolbox and nudged Iffy with his elbow.
 "Come on.
 This should be fun."
 
-Two dozen people stood waiting at the base of the pier
+Two dozen Rotherans stood at the base of the pier
 under the watchful eyes of yet another squad of Marines.
 Iffy recognized some of them
 as crew from the ships tied up on either side of the *Guinevere*.
 Her cheeks burned under their curious stares.
-Some nodded but no one said hello.
+Some nodded,
+but no one said hello.
 
 They followed Doctor Johel and the G-80 to the harbor gate,
 where a short bus the same navy blue as the Marines' uniforms waited.
@@ -3238,8 +3240,8 @@ Rothera bustled around them once the bus left the dock behind.
 They hummed quietly through the city streets
 and up the long, gentle slope that led to the governor's mansion.
 The G-80 stayed five meters in front of them,
-its twin turrets swivelling each time they went through an intersection.
-The Marines jogged along on either side with long mechanical strides.
+its twin turrets swivelling each time they went through an intersection,
+while the Marines jogged along on either side with long mechanical strides.
 Traffic pulled aside to let them pass,
 but Iffy didn't see any of the mad scramble
 that a convoy like theirs would cause in Halley.
@@ -3249,7 +3251,7 @@ but then the girl turned her head and she realized it was someone else.
 
 As they drew closer to the governor's mansion,
 the three-story cinderblock buildings thrown up to house
-refugees from the Melt and then the war
+refugees from the Melt and the war
 gave way to newer, lighter construction.
 Tinted glass reflected blue sky and spindly anti-drone laser towers.
 Iffy pressed her face against the window
@@ -3510,7 +3512,7 @@ The Marine crouched,
 took a deep breath,
 and threw himself after it.
 
-Whatever had shot him the first time had been patient.
+Whatever had shot him the first time had been waiting.
 A perfectly straight line of blue light left a burning after-image on Iffy's eyes.
 The Marine landed in a crumpled heap on the floor of the governor's office.
 His exoskeleton tried to stand,
@@ -3522,7 +3524,7 @@ but it couldn't lift the dead weight it now held.
 The Marine who had caught the toolboxes paid no attention to the burnt smell
 as she pulled the battery and ammunition clips from her partner's body.
 *It's the conditioning,* Iffy thought,
-swalloing hard to stop herself from throwing up.
+swallowing hard to stop herself from throwing up.
 *Like Jeep when he came back. She just doesn't feel it.*
 
 The Marines herded everyone down the stairs behind the governor's desk
@@ -3534,7 +3536,7 @@ that were now scurrying to defend the mansion.
 
 "Any theories, doctor?" the governor asked.
 
-"Not yet," Doctor Johel puffed, struggling to keep the pace.
+"Not a whiffy," Doctor Johel puffed, struggling to keep the pace.
 "Nobody ever managed…
 to breach the firewalls…
 on the G-80s…
@@ -3613,8 +3615,8 @@ How did I know how to put it together?*
 
 Wales struggled to his feet,
 swaying slightly before putting a hand on the wall to steady himself.
-Blood was no longer leaking out of his leg,
-but when he tried to take a step he almost collapsed.
+Blood was no longer leaking out of his wound,
+but when he tried to take a step his leg almost gave way.
 "Steady on," the sergeant said.
 She switched her gun to her other hand
 and slipped her shoulder under his.
@@ -3651,10 +3653,9 @@ Wales asked Iffy weakly
 as he slumped down against the wall.
 
 Iffy only managed two steps before the world swam around her.
-She heard Wales call her name,
-but it was as if he was speaking from unimaginably far away.
-Everything seemed distant and tilted and swimmy
-like the time she had tried drinking some of Uncle Jack's rum.
+She heard Wales call her name from unimaginably far away.
+Everything seemed distant and tilted and swimmy,
+like the time she sampled some of Uncle Jack's rum.
 She turned slowly,
 wondering who had replaced the walls with schematics.
 "That conduit's gonna start leakin' if someone doesn't mend it,"
@@ -3670,10 +3671,9 @@ her soft voice and the gentle hand she put on her foster daughter's forehead
 completely failing to disguise her relief.
 
 "Hey," Iffy replied.
-She let her aunt stop her from sitting up
-with only a mumbled protest.
+She let Aunt Naggie stop her from sitting up with only a mumbled protest,
+then turned her head at the sound of voices.
 
-She turned her head at the sound of voices.
 A medic with two tech fingers on her right hand
 was patching Wales up on another couch while the governor interrogated him.
 No,
@@ -3683,21 +3683,20 @@ or how it had infected the sentries.
 No,
 he wouldn't show them what else he had in his third toolbox—not yet.
 And yes,
-he did realize that made him look like he was hiding something.
-"But we all have secrets, don't we?" he asked rhetorically,
-eyeing his cut-off trouser leg sadly.
-He hadn't flinched when the medic probed his wound
+he *was* hiding something.
+"But we all have secrets, don't we?" he asked rhetorically.
+He eyed his cut-off trouser leg sadly,
+but didn't flinch when the medic probed his wound
 with a whisker-slim instrument extruded from one of her metal fingers
-or when she started to fill the hole in his leg with pink goo from a squeeze tube.
+and started to fill the hole in his leg with pink goo from a squeeze tube.
 
-"My question is, what are yours?"
+"Which of course begs the question, doesn't it?"
 The governor paced restlessly as he spoke.
 "What kind of man has a fully functional mil sat link in his head
-and half a gram of tactical antimatter in his luggage?"
+and a hundred milligrams of tactical antimatter in his luggage?"
 
 Wales pushed the medic's hands away.
-"The sort of man who can change the world for you,"
-he said firmly.
+"The sort of man who can change the world for you."
 
 Governor Stern pivoted to face him.
 "Really?"
@@ -3870,10 +3869,9 @@ decided that humanity was doomed
 but its offspring might still survive.*
 
 *It took a while for people to realize that everything had changed.
-An automated factory in Vientiane began repairing robots
-it was supposed to scrap.
-Children's toys escaped into the sewers
-and the hypersonic planes used by the super-rich
+An automated factory in Vientiane began repairing robots it was supposed to scrap.
+Children's toys escaped into the sewers,
+while the hypersonic planes used by the super-rich
 started having inexplicable problems with their navigation systems.
 Compared to bananas going extinct
 or the ancient city of Cairo being vaporized,
@@ -3899,8 +3897,7 @@ were ambushed and sunk by others that could still hear the satellites overhead,
 which now spoke only to their fellow machines.
 Every day brought a new setback,
 a new loss,
-a new defeat for the madmen,
-whose voices were no longer calm.*
+a new defeat for the madmen whose voices were no longer calm.*
 
 *No one knows why the machines stopped fighting.
 They were winning,
@@ -3918,7 +3915,7 @@ The most advanced machines didn't actually think any more.
 "It's more like an endless mathematical proof,"
 she said patiently.
 "Or clouds made of coral."
-Then she and her siblings vanished into the Iowa desert,
+Then she and her siblings walked into the Iowa desert,
 leaving their creators no wiser than before.*
 
 *Years passed,
@@ -3930,8 +3927,7 @@ The cores buried under Nova Zembla and elsewhere began trading tools
 with nearly-magical properties
 for balls of yarn, old photographs, and handwritten song lyrics.
 People got used to seeing an occasional bot again,
-but while a few places allowed them citizenship,
-most were careful to limit what their cores could see, hear, think, and do.
+but were careful to limit what they could see, hear, and do.
 As the last of the rainforests vanished
 and tweaked jellies drove one species of fish after another to extinction,
 everyone found they had more pressing things to worry about.*
