@@ -1344,462 +1344,600 @@ Still went back to sleep.
 
 ## Chapter 5
 
-She woke up hungry and cold the next morning. The sun had already
-risen, though the ever-present fog was still thick enough to blur the
-world's edges. Her need for oil was like a hard lump in her clockwork.
+She woke up hungry and cold the next morning.
+The sun had already risen,
+though the ever-present fog was still thick enough to blur the world's edges.
+Her need for oil was like a hard lump in her clockwork.
+
 She groaned at the creaking and cracking of her joints as she stood up.
+The gargoyle still brooded over the street below.
+She patted it for luck,
+then strapped her violin onto her back and climbed down the drainpipe.
 
-The gargoyle still brooded over the street below. She patted it for
-luck, then strapped her violin onto her back again and climbed down the
-drainpipe.
+Once on the ground,
+she rubbed the grit out of her eyes with the back of her hand.
+She had to get some candy, but how?
+The only place she could think of was the market, but she didn't have anything to sell.
+She felt so alone.
+She just wanted to go—to go—
 
-Once on the ground, she rubbed the grit out of her eyes with the back of
-her hand. She had to get some candy, but how? The only place she could
-think of was the market, but she didn't have anything to sell. She felt
-so alone. She just wanted to go—to go—
-
-The fog suddenly seemed to thicken. Her thoughts darted away from
-wherever it had been about to go like a fly escaping a hungry frog.
+The fog suddenly seemed to thicken.
+Her thoughts darted away from wherever it had been about to go like a fly escaping a hungry frog.
 "They'll put strings on you," she whispered.
 
-Still trudged wearily across the old stone bridge and through the city
-streets to the market. It was already bustling with watchmakers, sawdust
-grinders, and even an old window cleaner. She watched him for a few
-minutes as he carefully wiped the smudges off the rectangle of glass in
-his lap. When he paused for a moment's rest, she edged a little closer,
-so that her shadow fell across him.
+Still trudged wearily across the old stone bridge to the market.
+It was already bustling with watchmakers, sawdust grinders, and even an old window cleaner.
+She watched him for a few minutes
+as he carefully wiped the smudges off the rectangle of glass in his lap.
+When he paused for a moment's rest,
+she edged a little closer so that her shadow fell across him.
 
-The window cleaner looked up at her and smiled. "Yes, miss, can I help
-you?" Deep gouges, old enough to have been weathered smooth, ran down
-one cheek. The eye on that side was just a blank jade marble.
+The window cleaner looked up at her and smiled.
+"Can I help you?"
+Deep gouges, old enough to have been weathered smooth, ran down one cheek.
+The eye on that side was just a blank jade marble.
 
-"I was, um, I was actually wondering if I could help you," Still said
-hesitantly. She pointed at the window resting across his knees. "With
-that."
+"I was, um, I was actually wondering if I could help you," Still ventured.
+She pointed at the window resting across his knees.
+"With that."
 
-"With this?" the window cleaner asked, puzzled, tapping the window
-*tick tick* with the tip of his finger.
+"With this?" the window cleaner asked,
+puzzled,
+tapping the window *tick tick* with the tip of his finger.
 
-"Or with those ones." Still pointed at the half-dozen windows stacked
-neatly in the rear of his stall. "You wouldn't even have to give me
-any candy, just some oil or something."
+"Or with those ones."
+Still pointed at the half-dozen windows stacked neatly in the rear of his stall.
+"You wouldn't even have to give me any candy, just some oil or something."
 
-"Oooh." The window cleaner nodded. "You mean, do I want an
-assistant?" His nod turned into a regretful shake. "Well, thank you
-for asking, but there's hardly enough business here to keep me fed, to
-tell you the truth. There just aren't many proper windows left any
-more—everybody's putting in disposable ones instead. Sorry."
+"Oooh." The window cleaner nodded.
+"You mean, do I want an assistant?"
+His nod turned into a regretful shake.
+"Well, thank you for asking,
+but there's hardly enough business here to keep me fed,
+to tell you the truth.
+There just aren't many proper windows left any more—everybody's putting in disposable ones instead.
+Sorry."
 
-"Well, thanks anyway," Still said. The window cleaner smiled at her
-again, then bent back over his work.
+"Oh. Thanks anyway," Still said.
+The window cleaner smiled at her again, then bent back over his work.
 
-Still stopped at a carpeteer's stall next. The burly puppet who ran it
-just laughed at her. "A slip of a thing like you?" he asked. "How'd
-you ever lift a full roll? Or even a half roll, eh? Here, grab a handful
-of this." He rolled up his sleeve and offered Still his arm. "Go on,"
-he grinned.
+Still stopped at a carpeteer's stall next.
+The burly puppet who ran it just laughed at her.
+"A slip of a thing like you?" he asked.
+"How'd you ever lift a full roll?
+Or even a half roll, eh?
+Here, grab a handful of this."
+He rolled up his sleeve and offered Still his arm.
+"Go on," he grinned.
 
-She reached out hesitantly and squeezed his upper arm. "Pure teak, that
-is," the carpeteer said proudly. "And cast iron hinges, all through.
-None of your brass or aluminum in me. Here, watch." He bent down to
-take hold of a roll of carpet half against as tall as Still, and as
-thick around as he was himself.
+She reached out hesitantly and squeezed his upper arm.
+"Pure teak, that is," the carpeteer said proudly.
+"And cast iron hinges, all through.
+None of your brass or aluminum in me.
+Here, watch."
+He bent down to take hold of a roll of carpet half again as tall as Still
+and as thick around as he was himself.
 
-"See?" he grunted, heaving it up onto his shoulder. "Six flights of
-stairs I can do with this, not stop once." He dropped the frayed red
-and gold carpet back onto the canvas sheet in front of his stall with a
-*thump* and wiped his hands on his smock. "Now, when you can lift half
-that, for half as long, you come back and see me, all right?"
+"See?" he grunted, heaving it up onto his shoulder.
+"Six flights of stairs I can do with this, not stop once."
+He dropped the frayed red and gold carpet back onto the canvas sheet in front of his stall with a *thump*
+and wiped his hands on his smock.
+"When you can lift half that,
+for half as long,
+you come back and see me,
+all right?"
 
-Still nodded and turned to go. "But hold up," the carpeteer said.
-"What about that? It has to be worth something, hasn't it?" He
-pointed at her violin.
+Still nodded and turned to go.
+"But hold up," the carpeteer said.
+"What about that? It has to be worth something, hasn't it?"
+He pointed at her violin.
 
 "What do you mean?" Still asked.
 
-The burly carpeteer shrugged. "Well, it looks practically brand new.
-Plenty of places here would give you good licorice for something like
-that."
+The burly carpeteer shrugged.
+"Well, it looks practically brand new.
+Plenty of places here would give you good licorice for something like that."
 
-"But it's not for sale," Still said quickly. She took a step
-backwards. "It's not—I couldn't."
+"But it's not for sale," Still said quickly.
+She took a step backwards.
+"It's not—I couldn't."
 
-"Ease up, ease up," the carpeteer said. He patted the air with his
-hands. "If it's not for sale, it's not for sale, is it? Just a
-thought, that was." He lowered his hands and cocked his head to one
-side. "Wouldn't be, um, borrowed, would it? Without the original
-owner's knowledge?"
+"Ease up, ease up," the carpeteer said.
+He patted the air with his hands.
+"If it's not for sale, it's not for sale, is it?
+Just a thought, that was."
+He lowered his hands and cocked his head to one side.
+"Wouldn't be, um, borrowed, would it?
+Without the original owner's knowledge?"
 
-"No, no, it's mine," Still said. "I really should go now, I—"
+"No, no, it's mine," Still said.
+"I really should go now, I—"
 
-"Well, if it's yours, you must know how to play it." The carpeteer
-took a step toward her, smiling like a crocodile. "And there's plenty
-of folk around here who like good music. Mm hm, plenty of folk who think
-a good tune is worth a bit of candy."
+The carpeteer took a step toward her, smiling like a crocodile.
+"Well, if it's yours, you must know how to play it.
+And there's plenty of folk around here who think a good tune is worth a bit of candy."
 
-"I really have to go," Still whispered. She turned and stumbled away,
+"I really have to go," Still whispered.
+She turned and stumbled away,
 hugging her violin close.
 
-"Silly girl!" the carpeteer said loudly to her retreating back. "If
-you won't sell it, and you won't play it, what good is it to you? Or
-anyone else?" He shook his head, then picked up his cutting shears and
-went back to work.
+"Silly girl!" the carpeteer said loudly to her retreating back.
+"If you won't sell it, and you won't play it, what good is it to you?
+Or anyone else?"
+He shook his head,
+then picked up his cutting shears and went back to work.
 
-An hour later, Still sat down on the edge of the dry fountain and buried
-her face in her hands. She had tried Kettle's ("Hardly room enough in
-here for me."), a tailor's ("Gracious, an apprentice? Oh, I don't
-really think so."), and the balloon seller she had spoken to the day
-before ("No license? Then you shouldn't even ask, should you?"). She
-had even helped a rickety old fortune teller in a red-and-white checked
-shirt set up her table and chairs, only to have her snap, "I'm not a
-charity, you know!" when Still asked if she might have any oil to
-spare.
+An hour later
+Still sat down on the edge of the dry fountain and buried her face in her hands.
+She had tried Kettle's
+("Hardly room enough in here for me."),
+a tailor's ("Gracious, an apprentice? Oh, I don't really think so."),
+and the balloon seller she had spoken to the day before
+("No license? Then you shouldn't even ask, should you?").
+She had even helped a rickety old fortune teller in a red-and-white checked shirt
+set up her table and chairs,
+only to have her snap,
+"I'm not a charity, you know!"
+when Still asked if she might have any oil to spare.
 
-The balloon seller suggested she play her violin as well. The look on
-Still's face must have made her feel a bit guilty, so she said, "Look,
-everybody loves music. You must love music, too, or you wouldn't have
-such a beautiful fiddle, right? So pick a corner and play!"
+The balloon seller suggested she play her violin as well.
+The look on Still's face must have made her feel a bit guilty,
+so she said,
+"Look, everybody loves music.
+You must love music, too, or you wouldn't have such a beautiful fiddle, right?
+So pick a corner and play!"
 
-But she couldn't. She just couldn't. She didn't want to think about
-playing, and she didn't even want to think about *why* she didn't want
-to think about playing. It was like a jack-in-the-box in her mind. If
-she opened the lid, something would jump out and scare her.
+But she couldn't.
+She just couldn't.
+She didn't want to think about playing,
+and she didn't even want to think about *why* she didn't want to think about playing.
+It was like a jack-in-the-box in her mind.
+If she opened the lid, something would jump out and scare her.
 
-And so she found herself on the edge of the fountain with her face in
-her hands and her gears dry-grinding inside her. The morning breeze had
-turned blustery. Withered paper leaves and old bits of cellophane
-waltzed across the cobblestones, fell still for a moment, then picked
-themselves up and resumed their tired dance. A sheet of newspaper sailed
-majestically across the open square in front of her. It collided with
-the fountain next to her feet with a gentle crunch.
+And so she found herself on the edge of the fountain
+with her face in her hands and her gears dry-grinding inside her.
+The morning breeze had turned blustery.
+Withered paper leaves and old bits of cellophane waltzed across the cobblestones,
+fell still for a moment,
+then picked themselves up and resumed their tired dance.
+A sheet of newspaper sailed majestically across the open square in front of her
+and collided with the fountain next to her feet.
 
-Still picked it up and smoothed it out on her legs. There were pictures
-of the new city that was being built on the moon, and a story about a
-child who had disappeared after school the day before. She didn't read
-either. Instead, she folded the newspaper to make a box with crisp
-creases, and set it on the cobblestones in front of her. The wind tried
-to pick it up again, but Still weighted down its corners with pebbles.
+Still picked it up and smoothed it out on her legs.
+There were pictures of the new city that was being built on the moon,
+and a story about a child who had disappeared the day before
+instead of coming home after school.
+She didn't read either.
+Instead, she folded the newspaper to make a box with crisp creases
+and set it on the cobblestones in front of her.
+The wind tried to pick it up again,
+but Still weighted down its corners with pebbles.
 
 Still gently laid her violin on the cobblestones beside the paper box.
-She stood up slowly. The wind felt like cold water on the dent on her
-cheek. Slowly, very slowly, she ducked her head down, as if she had a
-violin on her shoulder. Slowly, ever so slowly, she raised her arm as if
-she held a bow.
+She stood up slowly.
+The wind felt like cold water on the dent on her cheek.
+Slowly, very slowly, she ducked her head down as if she had a violin on her shoulder.
+Slowly, ever so slowly,
+she raised her arm as if she held a bow.
 
-And began to play, with nothing but air in her hands. A few puppets
-stopped to watch, and then a few more. They stared at the strange sight
-of a young, beautifully-painted puppet playing a violin that wasn't
-there. Still didn't make a sound, but the puppets around her would have
-sworn that they felt something sad and wild wash through their gears. It
-made one puppet think of black butterflies fluttering among poppies. It
-made another think of a hawk circling patiently over a snowy field in
-winter, just waiting for the rabbit's clockwork to run down. Some
-puppets thought of where they'd come from, and others of where they'd
-always wanted to go. Some thought of the last time they had seen a close
-friend, and others of their first balloon ride as a child. Still's
-silence let everyone hear something different, and made everyone shiver.
+And began to play, with nothing but air in her hands.
+A few puppets stopped to watch, and then a few more.
+They stared at the strange sight of a young, beautifully-painted puppet playing a violin that wasn't there.
+Still didn't make a sound,
+but the puppets around her would have sworn that they felt something sad and wild wash through their gears.
+It made one puppet think of black butterflies fluttering among poppies.
+It made another think of a hawk circling patiently over a snowy field in winter,
+just waiting for the rabbit's clockwork to run down.
+Some puppets thought of where they'd come from,
+and others of where they'd always wanted to go.
+Some thought of the last time they had seen a close friend,
+and others of their first balloon ride as a child.
+Still's silence let everyone hear something different,
+and made everyone shiver.
 
-When Still stopped, the puppets around her sighed. A peg-legged soldier
-pulled a green gumdrop from his pocket, picked off some of the lint, and
-tossed it into Still's paper box. A handful of others followed it,
-*plop plop plop*. Still bowed gracefully, then picked up her takings and
-stuffed them into her pockets. She was shaking, and the scar on her face
-ached, but at last she had some candy. She picked up her violin and went
-to get some oil.
+When Still stopped, the puppets around her sighed.
+A peg-legged soldier pulled a green gumdrop from his pocket,
+picked off some of the lint,
+and tossed it into Still's paper box.
+A handful of others followed it, *plop plop plop*.
+Still bowed gracefully,
+then picked up her takings and stuffed them into her pockets.
+She was shaking,
+and the scar on her face ached,
+but at last she had some candy.
+She picked up her violin and went to get some oil.
 
-"Two cups," Still said. "And may I please have some grease as well?"
-Wing glowered at her suspiciously. Still plunked her gumdrops down on
-the top of his little pushcart defiantly.
+"Two cups," Still said.
+"And may I please have some grease as well?"
 
-The skinny puppet picked them up and squeezed them. "Hm. Real," he
-grunted. The dragon etched on his forearm seemed to wink at Still. The
-candy disappeared into his apron. He handed Still two steaming mugs of
-murky oil and a little squeeze tube of grease.
+Wing glowered at her suspiciously.
+Still plunked her gumdrops down on the top of his pushcart defiantly.
+The skinny puppet picked them up and squeezed them.
+"Hm. Real," he grunted.
+The dragon etched on his forearm seemed to wink at Still.
+The candy disappeared into his apron.
+He handed Still two steaming mugs of murky oil and a little squeeze tube of grease.
 
-"Thank you," Still said. "And do you know where a bookseller named
-Attic is?"
+"Thank you," Still said.
+"And do you know where a bookseller named Attic is?"
 
 "Other side, over there," Wing said, pointing past Still's shoulder.
 
-She thanked him again and set off through the market, sipping her oil as
-she walked. She almost felt bubbly, though the dent on her face still
-ached. Her shoulders ached, too, from playing empty air, but she didn't
-want to think about that, not now, not when the oil was warming her
-insides, and the sun was brightening the fog to pearl-gray. It seemed
-lighter than it had been before she played. She wondered why that was,
+She thanked him again and set off through the market,
+sipping her oil as she walked.
+She almost felt bubbly,
+though the dent on her face still ached.
+She didn't want to think about that, though,
+not when the oil was warming her insides and the sun was brightening the fog to pearl-gray.
+It seemed lighter than it had been before she played.
+She wondered why that was,
 then let the thought slip from her mind.
 
-Still had finished the first cup of oil by the time she found Attic's
-stall, and the second had gone tepid. He had his glasses in his hand,
-and was poking another puppet in the chest with them to emphasize his
-points. The other puppet, whose face was almost perfectly rectangular,
-was laughing. As Still watched, Attic's poking slowed, then stopped,
+Still had finished the first cup of oil by the time she found Attic's stall,
+and the second had gone tepid.
+He had his glasses in his hand,
+and was poking another puppet in the chest with them to emphasize his points.
+The other puppet,
+whose face was almost perfectly rectangular,
+was laughing.
+
+Attic's poking slowed,
+then stopped,
 and he started to laugh too.
-
 "All right, all right, it wasn't very bright of me not to check,"
-Attic said. "But please don't do it again, all right? She was madder
-than a ruffled duck when she opened it the next morning and all the
-pages were blank. If I hadn't given her a folio of pressed leaves for
-her grandchildren, she would have set the brooms on me!"
+Attic said.
+"But please don't do it again, all right?
+She was madder than a ruffled duck when she opened it the next morning
+and all the pages were blank.
+If I hadn't given her a folio of pressed leaves for her grandchildren,
+she would have set the brooms on me!"
 
-"Oh, Attic, come on," the other puppet said. "A folio of leaves? When
-has something like that ever graced your shelves?"
+"Oh, Attic, come on," the other puppet said.
+"A folio of leaves?
+When has something like that ever graced your shelves?"
 
-"I actually had two," the gangly bookseller admitted. He glanced
-around to see if anyone was listening. His eyes widened slightly when he
-saw Still, but she just waved a hand as if to say, "Don't mind me."
+"I actually had two," the gangly bookseller admitted.
+He glanced around to see if anyone was listening.
+His eyes widened slightly when he saw Still,
+but she just waved a hand as if to say, "Don't mind me."
 
-Attic turned back to the other puppet. "Two," he repeated
-confidentially, putting his arm around the other puppet's shoulders.
-"Mint condition. The leaves had never even been put on trees. I still
-have the other one, if you're interested." He took his arm away and
-shrugged. "It's not as if *I'll* ever have a customer for it. Don't
-have that sort coming here."
+Attic turned back to the other puppet.
+"Two," he repeated confidentially,
+putting his arm around the other puppet's shoulders.
+"Mint condition.
+The leaves had never even been put on trees.
+I still have the other one, if you're interested."
+He took his arm away and shrugged.
+"It's not as if *I'll* ever have a customer for it.
+Don't have that sort coming here."
 
-The square-faced puppet looked up at the sky. "I might know somebody
-who'd be interested in something like that," he admitted. "Of course,
-I'd have to see it first, make sure it's everything you say it is."
+The square-faced puppet looked up at the sky.
+"I might know somebody who'd be interested in something like that," he admitted.
+"Of course,
+I'd have to see it first,
+make sure it's everything you say it is."
 
-"Oh, of course, of course," Attic reassured him. "I have it right
-here. Hang on a tick-tock." He turned and ran a finger along the
-shelves behind his stall.
+"Oh, of course, of course," Attic reassured him.
+"I have it right here.
+Hang on a tick-tock."
+He turned and ran a finger along the shelves behind his stall.
 
-"Ah, here we are," he said. He pulled out a bundle wrapped in a tea
-towel and set it down on the counter. He unfolded the tea towel to
-reveal a plain wooden cover stamped with the words "Spring Leaves
-(April) Series 175".
+"Ah, here we are," he said.
+He pulled out a bundle wrapped in a tea towel and set it down on the counter.
+He unfolded the tea towel to reveal a plain wooden cover stamped with the words
+"Spring Leaves (April) Series 175".
 
-"One seventy five?" the square-faced puppet gasped. "But
-that's—err, that could be quite nice, actually. Quite nice. I mean,
-to a collector. Not much value to anyone else."
+"One seventy five?" the square-faced puppet gasped.
+"But that's—err, that could be quite nice, actually.
+Quite nice.
+I mean, to a collector.
+Not much value to anyone else."
 
-"I guessed not," Attic agreed. "Go ahead, take a look. I think the
-first page is the nicest, but of course I'm no expert."
+"I guessed not," Attic agreed.
+"Go ahead, take a look.
+I think the first page is the nicest,
+but of course I'm no expert."
 
 The square-headed puppet nodded and wiped his hands on his trousers.
-Still edged closer. Some collectors paid pure sugar for a single unused
-leaf. A whole folio of leaves that had never been out in the wind and
-the rain, well, she could understand why the square-faced puppet was so
-excited. Surely Attic must know what something like this was worth?
+Still edged closer.
+Some collectors paid pure sugar for a single unused leaf.
+A whole folio of leaves that had never been out in the wind and the rain,
+well,
+she could understand why the square-faced puppet was so excited.
+Surely Attic must know what something like this was worth?
 
-The square-faced puppet put his hands on the cover of the folio. He
-brushed his fingers across the title, then leaned over it slightly and
-opened the cover.
+The square-faced puppet put his hands on the cover of the folio.
+He brushed his fingers across the title,
+then leaned over it slightly and opened the cover.
 
-*PAFF!* The flash powder pressed between the pages was as bright as
-lightning. The square-faced puppet leaped back with a yelp. Still
-shrieked and jumped too, spilling some of the oil in her cup, and nearly
-dropping her violin.
+*PAFF!*
+The flash powder pressed between the pages was as bright as lightning.
+The square-faced puppet leaped back with a yelp.
+Still shrieked and jumped too,
+spilling some of the oil in her cup and nearly dropping her violin.
 
-Attic started to laugh. "Not very… *bright*… of me, was it?" he
-gasped. He had to lean against the side of his stall to stop from
-falling in a heap, he was laughing so hard. "Not checking for
-re-invisible ink, I mean? Not… very… *bright*…"
+Attic started to laugh.
+"Not very… *bright*… of me, was it?" he gasped.
+He was laughing so hard that
+he had to lean against the side of his stall to stop from falling in a heap.
+"Not checking for re-invisible ink, I mean? Not… very… *bright*…"
 
 The square-faced puppet growled at him, then started to laugh as well.
-"All right, all right," he finally said. He stuck out his hand and
-pulled Attic (who hadn't been able to keep himself from slumping down
-onto the cobblestones) back to his feet. "So what did it *really* cost
-you? I'm good for it, you know."
+"All right, all right," he finally said.
+He stuck out his hand and pulled Attic
+(who hadn't been able to keep himself from slumping down onto the cobblestones)
+back to his feet.
+"So what did it *really* cost you?
+I'm good for it, you know."
 
-"I know, I know," Attic said. He clapped the other puppet on the
-shoulder. "She traded it for a picture book biography of Key, some
-corners folded, small crayon scribble inside the back cover. Fair
-deal?"
+"I know, I know," Attic said.
+He clapped the other puppet on the shoulder.
+"She traded it for a picture book biography of Key,
+some corners folded,
+small crayon scribble inside the back cover.
+Fair deal?"
 
-"Fair deal," the other puppet agreed. They shook hands solemnly.
+"Fair deal," the other puppet agreed.
+They shook hands solemnly.
 Chuckling once more, the other puppet turned and left.
 
-Attic put his glasses back on and turned to Still. "Sorry for making
-you wait," he said. "Just some unfinished business. What can I do for
-you?"
+Attic put his glasses back on and turned to Still.
+"Sorry for making you wait," he said.
+"Just some unfinished business.
+What can I do for you?"
 
-"I don't know," Still replied. "I'm not sure whether I want
-invisible ink or exploding pages."
+"I don't know," Still replied.
+"I'm not sure whether I want invisible ink or exploding pages."
 
-"Ah, um, yes." The innocent, teasing tone he had used with the
-square-faced puppet had vanished. Instead, he seemed to be blushing out
-loud. "Well. I do some real books too. Histories, novels, um,
-fishing—do you like fishing? No, me neither, but some of the books are
-just splendid."
+"Ah, um, yes."
+The teasing tone he had used with the square-faced puppet vanished.
+Instead, he seemed to be blushing out loud.
+"Well. I do some real books too.
+Histories, novels, um, fishing—do you like fishing?
+No, me neither, but some of the books are just splendid."
 
-Still smiled. "I'm not actually looking for any books right now," she
-said. "I just wanted to give you this." She handed him the half-empty
-cup of oil. "I think it's gone cold. And I spilled some when
-your—when the book—"
+Still smiled.
+"I'm not actually looking for any books right now," she said.
+"I just wanted to give you this."
+She handed him the half-empty cup of oil.
+"I think it's gone cold.
+And I spilled some when your—when the book—"
 
-"Oh, that's all right, that's fine," Attic said hastily. He took the
-cup of oil from her and slurped it. "I don't like it as hot as most,
-and, um, well, a big lunch would just make me sleepy. This is just
-right. Thank you. But you didn't have to do this, you know. It really
-was found candy."
+"Oh, that's all right, that's fine," Attic said hastily.
+He took the cup of oil from her and slurped it.
+"I don't like it as hot as most, and, um, well, a big lunch would just make me sleepy.
+This is just right.
+Thank you.
+But you didn't have to do this, you know.
+It really was found candy."
 
 "That's all right," Still said.
 
-There was an awkward pause. Still was just about to say, "Well, goodbye
-then," when a voice behind her said, "Gangway! Whoops! Oh hey, it's
-you!"
+There was an awkward pause.
+Still was just about to say, "Well, goodbye then,"
+when a voice behind her said,
+"Gangway! Whoops! Oh hey, it's you!"
 
-The roller skater from the day before did a tight turn and stopped in
-front of her. His gold-and-green uniform almost seemed to glow next to
-the worn paint on Attic's stall. "You got some oil. Great. Sorry about
-yesterday. I was flat, flat, flat. Not any more, though. Look at this."
-He pulled half of a licorice whip out of his pocket. "Sweet stuff,
-eh?" He twirled around. "Buy you lunch, if you want." He winked at
-Still. She smiled back.
+The roller skater from the day before did a tight turn and stopped in front of her.
+His gold-and-green uniform almost seemed to glow next to the worn paint on Attic's stall.
+"You got some oil. Great. Sorry about yesterday. I was flat, flat, flat. Not any more, though. Look at this."
+He pulled half of a licorice whip out of his pocket.
+"Sweet stuff, eh?"
+He twirled around.
+"Buy you lunch, if you want."
+He winked at Still.
+She smiled back.
 
-"Oh dear," Attic said loudly. He crossed his arms and leaned against
-the side of his stall. "What happened, did a balloon crash?"
+"Oh dear," Attic said loudly.
+He crossed his arms and leaned against the side of his stall.
+"What happened, did a balloon crash?"
 
-"Oh, hi, Attic," the roller skater said. "Didn't see you. Must have
-been dazzled." He winked at Still again. "So what do you say?"
+"Oh, hi, Attic," the roller skater said.
+"Didn't see you. Must have been dazzled."
+He winked at Still again.
+"So what do you say?"
 
-"No, really, I'm curious." Attic straightened up, but didn't uncross
-his arms. "What happened?"
+"No, really, I'm curious."
+Attic straightened up, but didn't uncross his arms.
+"What happened?"
 
-The roller skater waved a hand. "They're closing a library uptown. One
-of the old ones. I had to tell the patrons."
+The roller skater waved a hand.
+"They're closing a library uptown.
+One of the old ones.
+I had to tell the patrons."
 
-"Closing a library?" Still gasped. "Why, that's horrible! They
-shouldn't do that!"
+"Closing a library?" Still gasped.
+"Why, that's horrible!
+They shouldn't do that!"
 
-"Oh, I don't know." Attic pushed his glasses up his nose. "It's
-good for business, all those old books to buy. And all those people
-needing something to read."
+"Oh, I don't know."
+Attic pushed his glasses up his nose.
+"It's good for business, all those old books to buy.
+And all those people needing something to read."
 
-"Oh!" Still was outraged, and the fact that neither Attic nor the
-roller skater seemed to mind the library closing just made her angrier.
-Libraries were—they were special, that's what they were. They were
-cool, quiet places where you could sit and read stories about faraway
-places, without anything bad happening. She pulled back from that
-thought as if it had singed her. She didn't want to think—she
-*couldn't* think—about bad things happening.
+"Oh!"
+Still was outraged,
+and the fact that neither Attic nor the roller skater seemed to mind the library closing just made her angrier.
+Libraries were—they were special, that's what they were.
+They were cool, quiet places
+where you could sit and read stories about faraway places without anything bad happening.
+She pulled back from that thought as if it had singed her.
+She didn't want to think—she *couldn't* think—about bad things happening.
 
 "So do you always give people bad news?" she asked the roller skater.
 
-"Every chance I get," the roller skater confirmed. "The worse the
-better—pays more. But it's just for now. I'm saving up. Going to the
-moon."
+"Every chance I get," the roller skater confirmed.
+"The worse the better—pays more.
+But it's just for now.
+I'm saving up.
+Going to the moon."
 
-Still saw Attic roll his eyes and shake his head. She smiled at the
-roller skater. "Really?" she asked.
+Still saw Attic roll his eyes and shake his head.
+She smiled at the roller skater.
+"Really?" she asked.
 
-"Absolutely," he said confidently. "Bound to be bad news up there,
-just like here. Or whatever. Maybe even run the mail. They'll have
-mail. I bet I'd be the fastest mail runner on the moon." He rose up on
-the front wheels of his skates and balanced there, grinning. "It's all
-the skating," he confided. "Keeps my joints limber. Not like standing
-around all day in a stall. Do you skate?"
+"Absolutely," he said confidently.
+"Bound to be bad news up there, just like here.
+Or whatever.
+Maybe even run the mail.
+They'll have mail.
+I bet I'd be the fastest mail runner on the moon."
+He rose up on the front wheels of his skates and balanced there, grinning.
+"It's all the skating," he confided.
+"Keeps my joints limber.
+Not like standing around all day in a stall.
+Do you skate?"
 
 "I've never tried," Still confessed.
 
-"No? Easy as slipping on ice. Bunch of us stunt up by the fountain.
-Where you were yesterday. Come by some time. Be happy to teach you." He
-whirled around again and was off.
+"No?
+Easy as slipping on ice.
+Bunch of us stunt up by the fountain.
+Where you were yesterday.
+Come by some time.
+Be happy to teach you."
+He whirled around again and was off.
 
-Still turned back to Attic. "Well, he's quite a character," she said.
+Still turned back to Attic.
+"Well, he's quite a character," she said.
 
-"Quite," he agreed sourly. "Crest-of-the-Wave, he calls himself now.
-Used to be just plain old Crest, but I guess that's not a grand enough
-name for someone with such a nice jacket."
+"Quite," he agreed sourly.
+"Crest-of-the-Wave, he calls himself now.
+Used to be just plain old Crest,
+but I guess that's not a grand enough name for someone with such a nice jacket.
 
-"I guess," Still said. "Anyway, thanks again for the oil yesterday."
+"I guess," Still said.
+"Anyway, thanks again for the oil yesterday."
 
-"You're welcome. Stop by again some time if you like." Attic watched
-Still as she walked away, then sighed and went back to his books.
+"You're welcome.
+Stop by again some time if you like."
+Attic watched Still walk away,
+then sighed and went back to his books.
 
-Still spent the next few hours exploring the market and the narrow
-streets around it. She watched two bickering puppets dismantle a
-staircase and load it on a cart. Ten minutes later and two blocks away,
-she almost tripped over a raggedy puppet who had fallen asleep studying
-a position laid out on a chess board. Laundry lines hung criss-cross in
-alleys; children traded marbles for glow-in-the-dark rings, which they
-then traded back for more marbles. Everything was run down and dirty,
+Still spent the next few hours exploring the market and the narrow streets around it.
+She watched two bickering puppets dismantle a staircase and load it on a cart.
+Ten minutes later and two blocks away,
+she almost tripped over a raggedy puppet who had fallen asleep studying a position laid out on a chess board.
+Laundry lines hung criss-cross in alleys;
+children traded marbles for glow-in-the-dark rings,
+which they then traded back for more marbles.
+Everything was run down and dirty,
 yet full of life.
 
-She wandered past the dry fountain a couple of times, hoping to see
-Crest-of-the-Wave. Some other roller skaters were there, but not him.
-The second time, she took a left turn instead of a right and found
-herself on an unfamiliar street. It opened onto a parade square, in the
-middle of which stood an old band shell. There were holes in its curved
-roof, and rubbish piled in its corners, but Still felt herself drawn to
-it.
+She wandered past the dry fountain a couple of times,
+hoping to see Crest-of-the-Wave.
+Some other roller skaters were there, but not him.
+The second time,
+she took a left turn instead of a right and found herself on an unfamiliar street.
+It opened onto a parade square,
+in the middle of which stood an old band shell
+with holes in its curved roof and rubbish piled in its corners,
+but Still felt herself drawn to it.
 
-She hopped up onto its stage and turned around. The conductor would have
-stood here, with the band behind him. He would have bowed to the
-audience before turning and tapping his baton on the podium. They would
-all have dressed in black and white, or perhaps in bright parade
-uniforms. Blue and orange uniforms, perhaps, with polka-dot hats, and—
+She hopped up onto its stage and turned around.
+The conductor would have stood here,
+with the band behind him.
+He would have bowed to the audience before turning and tapping his baton on the podium.
+They would all have dressed in black and white,
+or perhaps in bright parade uniforms.
+Blue and orange uniforms, perhaps, with polka-dot hats, and—
 
-Still suddenly felt dizzy. She mustn't think about, about whatever she
-had just been thinking about. She shook her head to clear it and hopped
-down from the stage.
+Still suddenly felt dizzy.
+She mustn't think about—about whatever she had just been about to think about.
+She shook her head and hopped down from the stage.
 
-"Hey! Fancy meeting you here!" She whirled around. It was the
-carpeteer. He was standing by the band shell wall, his burly arms
-crossed, an unpleasant leer on his face.
+"Hey! Fancy meeting you here!"
+She whirled around.
+It was the carpeteer.
+He was standing by the band shell wall,
+his burly arms crossed and an unpleasant leer on his face.
 
 "Hi," she said uncertainly. "I was just…"
 
-"Looking for a place to play?" He straightened up and uncrossed his
-arms. "I heard you were playing this afternoon. I'm sorry I missed
-it."
+"Looking for a place to play?"
+he asked.
+"I heard you were playing this afternoon.
+I'm sorry I missed it."
 
-"I wasn't playing." Still hesitated. "Not really."
+"I wasn't playing." Still hesitated.
+"Not really."
 
-"Mm, yes, that's what I heard. Seems a real shame, a fiddle as nice as
-that one just lying around. Probably be best all around if you gave it
-to someone who'd actually play it, don't you think?" The carpeteer
-straightened up and uncrossed his arms. "Like me, for instance. I'd
-play it every day."
+"Mm, yes, I heard that too.
+Seems a real shame,
+a fiddle as nice as that one just lying around.
+Probably be best all around if you gave it to someone who'd actually play it, don't you think?"
+The carpeteer uncrossed his arms.
+"Like me, for instance.
+I'd play it every day."
 
-"I really should be going," Still whispered. She turned to go, but the
-carpeteer caught her arm before she took her second step.
+"I really should be going," Still whispered.
+She turned to go,
+but the carpeteer caught her arm before she took her second step.
 
-"I'll pay you for it." His voice was low and urgent. "I've got half
-a licorice in my pocket right now. You can have that."
+"I'll pay you for it."
+His voice was low and urgent.
+"I've got half a licorice in my pocket right now.
+You can have that."
 
-"Please…" Still tried to shake off his arm, but he was too strong.
-She looked around wildly. There! Over there!
+"Please…"
+Still tried to shake off his arm, but he was too strong.
+She looked around wildly.
 
+There! Over there!
 "Crest!" she shouted. "Crest-of-the-Wave!"
 
-The carpeteer glanced across the square. "Mold!" he cursed.
+The carpeteer glanced across the square.
+"Mold!" he cursed.
 Crest-of-the-Wave and two other roller skaters were racing toward them.
-He let go of Still's arm. "You just think about it," he said.
-"That's all I'm asking. It's a fair deal." He turned and hurried
-away.
+He let go of Still's arm.
+"You just think about it," he said.
+"That's all I'm asking.
+It's a fair deal."
+He turned and hurried away.
 
-Crest-of-the-Wave braked beside her. "Problem?" he asked. His friends
-stopped a few feet away.
+Crest-of-the-Wave braked beside her.
+"Problem?" he asked.
+His friends stopped a few feet away.
 
-"It's all right," Still lied. "He—he wanted my violin."
+"It's all right," Still lied.
+"He—he wanted my violin."
 
 "So what did you tell him?"
 
-"Oh!" Still's jaw dropped. She shook her head. "I said no. I
-couldn't. I *wouldn't*."
+"Oh!" Still's jaw dropped.
+She shook her head.
+"I said no. I couldn't. I *wouldn't*."
 
-"'Course not," Crest-of-the-Wave said, sounding shocked. One of the
-other roller skaters snorted. Crest-of-the-Wave shot him a scowl.
-"You'd better keep that somewhere safe. He's not the only one who'll
-want to play with it." He twirled around. "Anyway, I made up a new
-stunt today. Want to see it?"
+"'Course not," Crest-of-the-Wave said, sounding shocked.
+One of the other roller skaters snorted.
+Crest-of-the-Wave shot him a scowl.
+"You'd better keep that somewhere safe.
+He's not the only one who'll want to play with it."
+He twirled around.
+"Anyway, I made up a new stunt today.
+Want to see it?"
 
-"Um, sure." Still shook her head. Where could she keep her violin? Not
-in the market—someone would be sure to find it. Could she hide it on
-the rooftop where she had slept the night before? It didn't look like
-anyone else ever went there. She could wrap it up in newspapers, and
-tuck it under the eaves, or behind the gargoyle. Yes, that was it—she
-would put it behind the gargoyle. That's what they were for, wasn't
-it? Guarding things?
+"Um, sure."
+Where could she keep her violin?
+Not in the market—someone would be sure to find it.
+Could she hide it on the rooftop where she had slept the night before?
+It didn't look like anyone else ever went there.
+She could wrap it up in newspapers
+and tuck it under the eaves, or behind the gargoyle.
+Yes, that was it—she would put it behind the gargoyle.
+That's what they were for, wasn't it?
+Guarding things?
 
 "Well, come on." Crest-of-the-Wave hopped sideways impatiently.
-"Boards are set up on the fountain. Have to do it there."
+"Boards are set up on the fountain.
+Have to do it there."
 
-"Oh. Um, all right." Still smiled. She still felt shaken, but for some
-reason, the thought of the gargoyle watching over her violin made her
-feel better. "Sure. Let's go have a look at this trick of yours."
+"Oh. Um, all right."
+Still smiled.
+She still felt shaken,
+but for some reason the thought of the gargoyle watching over her violin made her feel better.
+"Sure.
+Let's go have a look at this trick of yours."
 
 </section>
 
