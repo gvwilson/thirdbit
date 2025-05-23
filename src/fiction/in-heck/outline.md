@@ -258,3 +258,45 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Clear that Blazes knew they were there all along
     -   Using them as an excuse to send Dockety (and Able) back
 -   Argument interrupted by flying attack
+
+### Chapter 6: Taken (Gumption's PoV / day 3)
+
+-   Goals:
+    -   Split up the protagonists
+    -   Confirm the Operators' duplicity
+-   The party is attacked by a flock of well-made flying bots
+    -   Most of the party take shelter by the coach
+    -   Dockety calms the simple bot
+-   Blazes and Thoughtful fire at the attacker but mostly miss
+    -   Special Leaf comments on this
+-   Then another wave of bots attack on the ground
+    -   These ones are patchwork and fight in earnest
+    -   Shoot down some of the flying bots
+    -   And shoot at the party, who retreat from the coach to take shelter in the trees
+    -   Blazes and Thoughtful's aim suddenly gets better
+-   A stray shot starts a brush fire
+    -   Gumption and Dockety work with Special Leaf to prevent it spreading while the fight continues
+    -   Bee Six Vee wades into the fight, revealing that it is a modified battle bot
+-   The flying attackers retreat and the ground forces are beaten off
+    -   Thoughtful to Blazes: "What now?"
+-   And then Maddy is carried off by a patchwork flying bot
+
+### Chapter 7: A Familiar Voice (Maddy's PoV / day 3)
+
+-   Goals:
+    -   Re-introduce Patient in Darkness
+    -   Reveal the Operators' dark plan
+    -   Get Maddy's solo adventure going
+-   Flying bot takes Maddy to an observation tower in the Mire
+-   Meets Patient again
+    -   Bot has given itself legs instead of wheels and cable vines as camouflage
+    -   Maddy experiences a moment of trauma when she recognizes it
+-   Patient explains why Sindy is important
+    -   Throwback specials can control everything, including the equipment that will waken the Makers
+    -   Central and the Operators have worked for centuries to prevent this
+    -   But Patient wants the Makers to return
+    -   So it wants to rescue Sindy from the Operators for its own purposes
+    -   But can't risk getting too close to Central for fear of being assimilated
+-   Offers Maddy a discombobulator that hides her from bots
+    -   Not invisible but unnoticeable
+-   She uses it to escape from the tower into the Mire
