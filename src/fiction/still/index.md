@@ -1945,251 +1945,329 @@ Let's go have a look at this trick of yours."
 
 ## Chapter 6
 
-Leaving her violin behind was harder than she had expected. The
-first day, she turned around three blocks from the alley, climbed back
-up, and unwrapped it, just to make sure it was safe. By the end of the
-week, though, she could almost convince herself that her heart didn't
-skip a tick each time she went away.
+Leaving her violin behind was harder than she had expected.
+The first day she turned around three blocks from the alley,
+climbed back up,
+and unwrapped it just to make sure it was safe.
+By the end of the week,
+though,
+she could almost convince herself that her heart didn't skip a tick
+each time she went away.
 
-Her days quickly fell into a pattern. She woke, stretched, wrapped her
-violin in the newspapers she had slept on the night before, and hid it
-under the eaves behind the old gargoyle. That done, she climbed down the
-drainpipe, walked to the market, and bought a cup of hot oil with the
-last of the previous day's gumdrops. As it warmed her, she wandered
-around to look at the fans, bootlaces, second-hand screwdrivers, and
-whatever else was on sale that day.
+Her days quickly fell into a pattern.
+She woke, stretched, wrapped her violin in the newspapers she had slept on the night before,
+and hid it under the eaves behind the old gargoyle.
+That done,
+she climbed down the drainpipe,
+walked to the market,
+and bought a cup of hot oil with the last of the previous day's gumdrops.
+As it warmed her,
+she wandered around to look at the fans, bootlaces, second-hand screwdrivers,
+and whatever else was for sale that day.
 
-Her wanderings always ended at Attic's. The gangly puppet smiled every
-time he saw her, even on days when the fog was wet and warping. They
-chatted about nothing in particular while he opened up his stall—had
-he seen the pink feather boa that the window cleaner was wearing? Had
-she heard that Kettle might be leaving the market to become a ship's
-cook? And always, did he have any new books? About Key the Cutter?
+Her wanderings always ended at Attic's.
+The gangly puppet smiled every time he saw her,
+even on days when the fog was wet and warping.
+They chatted about nothing in particular
+while he opened up his stall—had he seen the pink feather boa that the window cleaner was wearing?
+Had she heard that Kettle might be leaving the market to become a ship's cook?
+And always, did he have any new books about Key the Cutter?
 
-Still read everything she could find about Key. If asked, she would have
-said it was because Key was a hero, and ought to be an inspiration to
-everyone. In truth, she read and read because she wanted to figure out
-*how* Key had cut her own strings, just in case she ever needed to do it
-herself. The little voice in her head was quiet, but she remembered it
-saying, "They'll put strings on you if they find out." The words
-frightened her so much that she never let herself go past them to ask
-why. It was as if her whole life up until her first night in the alley
-was a book that she left on the shelf, unopened and unread.
+Still read everything she could find about Key.
+If asked,
+she would have said it was because Key was a hero
+and ought to be an inspiration to everyone.
+In truth,
+she read and read because she wanted to figure out *how* Key had cut her own strings,
+just in case she ever needed to do it herself.
+The little voice in her head was quiet,
+but she remembered it saying,
+"They'll put strings on you if they find out."
+The words frightened her so much that she never let herself go past them to ask why.
+It was as if her whole life before her first night in the alley
+was a book that she left on the shelf,
+unopened and unread.
 
-Attic always smiled when she asked for books about Key, even though he
-wondered, and worried, at her obsession. He had tried a couple of times
-to find out where she was from. "Oh, from all over," she said lightly.
-"But that was a long time ago. A band of pirates kidnapped me when I
-was very young."
+Attic always smiled when she asked for books about Key,
+even though he wondered and worried at her obsession.
+He had tried a couple of times to find out where she was from.
+"Oh, from all over," she said lightly.
+"But that was a long time ago.
+A band of pirates kidnapped me when I was very young."
 
-"And did they sell you to a pride of lions, so that you could scratch
-them under their chins when they weren't hunting?" Attic asked,
+"And did they sell you to a pride of lions,
+so that you could scratch them under their chins when they weren't hunting?"
+Attic asked,
 amused.
 
-"No, of course not," Still said severely. "That's just a children's
-story. *These* pirates were real. They put me to work in a glue mine. I
-had to dig and dig, every single day. All I ever got to eat was crank
-case grease. I would have worn out completely and fallen to pieces if I
-hadn't escaped."
+"No, of course not," Still said severely.
+"That's just a children's story.
+*These* pirates were real.
+They put me to work in a glue mine.
+I had to dig and dig, every single day.
+All I ever got to eat was crank case grease.
+I would have worn out completely and fallen to pieces if I hadn't escaped."
 
-"And how *did* you escape?" Still's off-handed tone made Attic
-uneasy. Surely she couldn't be telling the truth—not in this day and
-age. But she didn't sound like she was joking…
+"And how *did* you escape?"
+Still's off-handed tone made Attic uneasy.
+Surely she couldn't be telling the truth—not in this day and age.
+But she didn't sound like she was joking…
 
-"Oh, that's a secret. What if they captured me again, and they'd
-found out how I got away the first time? Then I really would be stuck
-there."
+"Oh, that's a secret.
+What if they captured me again, and they'd found out how I got away the first time?
+Then I really would be stuck there."
 
-"Hm." Attic nodded slowly. "And what about your violin?"
+"Hm." Attic nodded slowly.
+"And what about your violin?"
 
-Still turned a page in the book she was looking at. "What do you
-mean?" she asked neutrally.
+Still turned a page in the book she was looking at.
+"What do you mean?" she asked neutrally.
 
-"The violin you had that first day at Kettle's and Wing's. I haven't
-seen you with it since. Did you sell it?"
+"The violin you had that first day at Kettle's and Wing's.
+I haven't seen you with it since.
+Did you sell it?"
 
-Just then the city bells rang mid-day. Still closed the book with a
-snap, leaped to her feet, and handed it back to Attic. "Thanks," she
-said. "See you tomorrow." He opened his mouth to say, "Sure, any
-time," or maybe, "I'm sorry for asking—I didn't know it would
-upset you," but she was already ten paces away.
+Just then the city bells rang mid-day.
+Still closed the book with a snap and leaped to her feet.
+"Thanks," she said, handing it back to Attic.
+"See you tomorrow."
+He opened his mouth to say, "Sure, any time,"
+or maybe, "I'm sorry for asking—I didn't know it would upset you,"
+but she was already ten paces away.
 
-Attic never asked her about her past again, or about the violin. A lot
-of people in the market didn't like to talk about where they'd come
-from, or how they'd wound up selling cracked mugs or mending old songs
-to make a living. Attic drummed his fingers on the counter of his stall.
-Truth was, he didn't much like thinking about how he'd come to be
-there either…
+Attic never asked her about her past again,
+or about the violin.
+A lot of people in the market didn't like to talk about where they'd come from
+or how they'd wound up selling cracked mugs or mending old songs to make a living.
+Attic drummed his fingers on the counter of his stall.
+Truth was,
+he didn't much like thinking about how he'd come to be there either…
 
-By the time the city bells rang noon, the market was always filled with
-puppets of all shapes and sizes. Still went to her usual place in front
-of the dry fountain, folding up a stray sheet of newspaper to make a
-little box. After setting it at her feet, she closed her eyes and bowed
-her head. Slowly, very slowly, she brought her arms up into position:
-left arm out, palm up, elbow bent, as if she was cradling something
-precious. Right elbow up, wrist loose, and slowly, very slowly, in
-complete silence, she began her silent performance.
+By the time the city bells rang noon,
+the market was filled with puppets of all shapes and sizes.
+Still went to her usual place in front of the dry fountain
+and folded a sheet of newspaper to make a little box.
+Setting it at her feet,
+she closed her eyes and bowed her head.
+Slowly, very slowly, she brought her arms up into position:
+left arm out, palm up, elbow bent, as if she was cradling something precious.
+Right elbow up, wrist loose, and slowly, very slowly, in complete silence,
+she began her performance.
 
-Passing puppets always stopped to watch her—always. Some professed to
-be shocked. "Shameful!" they sniffed, although they kept watching.
+Passing puppets always stopped to watch her.
+Some professed to be shocked.
+"Shameful!" they sniffed,
+although they kept watching.
 Others felt a melancholy ache that reminded them of long-lost friends.
-Still's silence left room for everyone to hear their own hearts. More
-than one puppet shed oily tears while listening.
+Still's silence left room for everyone to hear their own hearts.
+More than one puppet shed oily tears while listening.
 
-The dent in Still's cheek always ached by the time she finished, but
-there were always a few gumdrops in her cup as well. She never bowed or
-said thank you. She just picked up her earnings and bought herself some
-lunch.
+The dent in Still's cheek always ached by the time she finished,
+but there were always a few gumdrops in her newspaper box as well.
+She never bowed or said thank you.
+She just picked up her earnings and bought herself lunch.
 
-Still didn't go back to Attic's in the afternoon. By the time she was
-finished her mid-day cup of oil, roller skaters had always gathered in
-the square around the dry fountain. Some looked as if they had been
-lying in a basement for weeks. Others, like Crest-of-the-Wave, seemed to
-spend every sugar sprinkle they had on clothes. They looked like giant
-hummingbirds, darting here and there, calling to each other, every color
-of the rainbow and a few the rainbow wouldn't have recognized.
+Still didn't go back to Attic's in the afternoon.
+By the time she finished her mid-day cup of oil,
+roller skaters had gathered in the square around the dry fountain.
+Some looked as if they had been lying in a basement for weeks.
+Others,
+like Crest-of-the-Wave,
+seemed to spend every sugar sprinkle they had on clothes.
+They darted here and there like giant hummingbirds,
+calling to each other,
+every color of the rainbow and a few the rainbow wouldn't have recognized.
 
-Still never skated with them, and Crest-of-the-Wave never mentioned his
-offer to teach her. She just sat on the lip of the fountain, or on the
-steps across from it, happy to make idle conversation with whoever
-passed by, and just as happy if no-one paid her any attention at all.
-Crest-of-the-Wave flirted shamelessly with other puppets, but Still
-didn't mind, because it meant that she didn't have to take him
-seriously when he winked at her, or talked about what they'd do when
-she came to visit him on the moon.
+Still never skated with them,
+and Crest-of-the-Wave never mentioned his offer to teach her.
+She just sat on the lip of the fountain or on the steps across from it,
+happy to make idle conversation with whoever passed by
+and just as happy if no-one paid her any attention at all.
+Crest-of-the-Wave flirted shamelessly with other puppets,
+but Still didn't mind,
+because it meant that she didn't have to take him seriously when he winked at her
+or talked about what they'd do when she came to visit him on the moon.
 
-She didn't mind the roller skaters' bad language, either, or the cruel
-jokes about passers-by. What did bother her was how some of them painted
-and re-painted their faces. One day a puppet would have a stern frown;
-the next, his face would be wide-eyed with amazement, or weeping with
-laughter. It wasn't thoughtful or meticulous. They just bought the
-gaudiest paints they could afford, and made themselves look happy, or
-sad, or brave, or cunning, without any thought for tomorrow.
+She didn't mind the roller skaters' bad language or their cruel jokes about passers-by.
+What did bother her was how some of them painted and re-painted their faces.
+One day a puppet would have a stern frown;
+the next,
+his face would be wide-eyed with amazement or weeping with laughter.
+It wasn't thoughtful or meticulous.
+They just bought the gaudiest paints they could afford
+and made themselves look happy or sad or brave or cunning
+without any thought for tomorrow.
 
-Even Crest-of-the-Wave did it sometimes. Whenever several days went by
-without a job, he spent his last few gumdrops on some paint (or, if he
-had spent them already, borrowed some paint from one of the other roller
-skaters). His faces were always ferocious, like a wild animal's. No-one
-could do stunts like the ones he did when his face was like that. He
-twisted like an eel, and jumped like a gazelle. It seemed to bring him
-luck and wear him out at the same time. He was always quiet and
-withdrawn the next day, but always had candy in his pocket then too.
+Even Crest-of-the-Wave did it sometimes.
+Whenever several days went by without a job
+he spent his last few gumdrops on some paint
+(or, if he had spent them already, borrowed some from one of the other skaters).
+His faces were always ferocious,
+like a wild animal's.
+No-one could do stunts like the ones he did when his face was like that.
+He twisted like an eel and jumped like a gazelle.
+It seemed to bring him luck and wear him out at the same time.
+He was always quiet and withdrawn the next day,
+but always had candy in his pocket then too.
 
-When the city bells rang for nightfall, Still bought a final cup of oil
-to drink on her walk home. No, not home—she never let herself use that
-word. It was just where she slept, and where she kept her violin. Her
-steps always quickened as she got closer to the drainpipe. Climbing it
-now seemed as natural as going up a flight of stairs. She took her
-violin out of its hiding place, turned it over to make sure it hadn't
-been scratched or warped, then made herself a bed out of the newspapers
-she had gathered on the way and lay down to sleep with it cradled in her
-arms.
+When the city bells rang for nightfall,
+Still bought a final cup of oil to drink on her walk home.
+No, not home—she never let herself use that word.
+It was just where she slept and kept her violin.
+Her steps always quickened as she got closer to the drainpipe.
+Climbing it now seemed as natural as going up a flight of stairs.
+She took her violin out of its hiding place,
+turned it over to make sure it hadn't been scratched or warped,
+then made herself a bed out of the newspapers she had gathered on the way
+and lay down to sleep with it cradled in her arms.
 
-Most of the puppets who frequented the market lived in the old stone
-apartment buildings by the canal. Every so often, though, others from
-the sunny heart of the City ventured down into the fog to visit. The
-nice ones came to buy old, broken-down things to mend—chairs with
-wobbly legs, flutes that were missing a few notes, or picture frames
-that didn't hang straight. Some were collectors, like the
-serious-looking puppet who came to Attic's stall every week to ask
-about books on masks. Others were redecorating, or trying to fill up
-their basements, or just wanted a change of scenery.
+Most of the puppets who frequented the market
+lived in the old stone apartment buildings by the canal.
+Every so often,
+though,
+others from the sunny heart of the City ventured down into the fog to visit.
+The nice ones came to buy old, broken-down things to mend:
+chairs with wobbly legs,
+flutes that were missing a few notes,
+or picture frames that didn't hang straight.
+Some were collectors,
+like the serious-looking puppet who came to Attic's stall every week to ask about books on masks.
+Others were redecorating or trying to fill up their basements,
+or just wanted a change of scenery.
 
-The others, who weren't so nice, came for the smell of the fog. They
-walked around the market in groups, staring at everyone and making snide
-remarks to one another. Some of them made jokes about Still's silent
-performances, but even they still left candy in her box: gumdrops,
-licorice, and once even a small, hard piece of chocolate. One or two of
-them asked her to come back and play for them in private. Still looked
-at their bright, shiny eyes and shook her head.
+The others,
+who weren't so nice,
+came for the smell of the fog.
+They walked around the market in groups,
+staring at everyone and making snide remarks to one another.
+Some of them made jokes about Still's silent performances,
+but even they still left candy in her box:
+gumdrops,
+licorice,
+and once even a small, hard piece of chocolate.
+One or two of them asked her to come back and play for them in private.
+Still looked at their bright, shiny eyes and shook her head.
 
-Still didn't like these sunny-side visitors, and avoided them if she
-could. *What are they doing here?* she thought angrily. *They don't
-belong here.* But no-one else seemed to mind, so she just buried her
-nose in whatever book Attic had lent her, or watched the roller skaters,
+Still avoided these sunny-side visitors when she could.
+*What are they doing here?* she thought angrily.
+*They don't belong here.*
+But no-one else seemed to mind,
+so she just buried her nose in whatever book Attic had lent her or watched the roller skaters,
 laughing at their jokes while seething inside.
 
-And once, just once, she saw a puppet whose clothes were blue and
-orange. He had black curls under his polka-dot hat, and a warm smile on
-his face. He was with a crowd of other puppets, all of them polished to
-look brand new. As she watched, he laughed at the cans of fish scales
-that one tired old puppet was trying to sell. "Ah hoo hoo hoo hoo…
+And once,
+just once,
+she saw a puppet whose clothes were blue and orange.
+He had black curls under his polka-dot hat and a warm smile on his face.
+He was with a crowd of other puppets,
+all of them polished to look brand new.
+As she watched,
+he laughed at the cans of fish scales that one tired old puppet was trying to sell.
+"Ah hoo hoo hoo hoo…
 Ah hee hee hee…"
 
-Still hid behind a pile of old socks until he was gone. When she finally
-ventured out, she played her silent music faster and more furiously than
-she ever had before. Her arm practically whirred as it flew back and
-forth. No-one gave her any candy that day. Even a few of the puppets who
-worked in the market muttered about her under their breath.
+Still hid behind a pile of old socks until he was gone.
+When she finally ventured out,
+she played her silent music faster and more furiously than she ever had before.
+Her arm practically whirred as it flew back and forth.
+No-one gave her any candy that day.
+Even a few of the puppets who worked in the market muttered about her under their breath.
 
-She was halfway back to her roof that night when the back of her neck
-suddenly prickled as if she was being watched. She quickened her pace,
-listening for steps behind her, but heard none. She sped up again until
-she was almost running. The prickling feeling grew stronger.
+She was halfway back to her roof that night
+when the back of her neck prickled as if she was being watched.
+She quickened her pace,
+listening for steps behind her,
+but heard none.
+She sped up again until she was almost running.
 
-Suddenly there was a wall in front of her. She must have taken a wrong
-turn into a blind alley. Still looked around wildly. There were no
-drainpipes, no windows, nothing to do but turn around. She closed her
-eyes and counted to three, willing her clockwork to slow down, just a
-little, just a little, not realizing that she had balled her hands into
-fists. She opened her eyes and spun around.
+The prickling feeling grew stronger.
+Suddenly there was a wall in front of her.
+She must have taken a wrong turn into a blind alley.
 
-No-one was there. She slowly relaxed. *Well, that was silly, wasn't
-it?* she scolded herself as she walked back to the mouth of the alley.
-*Frightening yourself like that over nothing. Why, the next think you
-know, you'll be jumping every time you hear*— "Aah!" she squeaked.
+Still looked around wildly.
+There were no drainpipes,
+no windows,
+nothing to do but turn around.
+She closed her eyes and counted to three,
+willing her clockwork to slow down,
+not realizing that she had balled her hands into fists.
+She opened her eyes and spun around.
 
-"Arp! Radda rrrr… Numble." The ancient puppet she had seen on her
-very first day was standing at the corner, his baby carriage beside him.
-In his hand he held a length of string, atop which floated a small
-purple balloon.
+No-one was there.
+She slowly relaxed.
+*Well, that was silly, wasn't it?*
+she scolded herself as she walked back to the mouth of the alley.
+*Frightening yourself like that over nothing.
+Why, the next think you know, you'll be jumping every time you hear*—
+"Aah!" she squeaked.
 
-"Rrrr…" he tried again. "Rrrr… Right. Frrr… frrr… found
-this. Trrr… trees. In the trees. It's yerrr… yours." He held it
-out to her.
+"Arp! Radda rrrr… Numble."
+The ancient puppet she had seen on her very first day was standing at the corner,
+his baby carriage beside him.
+In his hand he held a length of string,
+atop which floated a small purple balloon.
 
-"Um, I don't think so," Still said cautiously. "I didn't buy any
-balloons today."
+"Rrrr…" he tried again.
+"Rrrr… Right. Frrr… frrr… found this. Trrr… trees. In the trees. It's yerrr… yours."
+He held it out to her.
 
-The ancient puppet shook his head. "Nrrrt… the balloon. The
-brrrr… brrrr… boat."
+"Um, I don't think so," Still said cautiously.
+"I didn't buy any balloons today."
 
-Still stared at him blankly, not understanding. Then she saw the little
-folded paper boat dangling from the bottom of the balloon string. Her
-clockwork skipped a tick. She reached for it slowly, already knowing
-what it was. Sure enough, written on the side were the words, "Have you
-seen—" She snatched her hand away. *You mustn't tell… They'll
-put strings on you.*
+The ancient puppet shook his head.
+"Nrrrt… the balloon. The brrrr… brrrr… boat."
 
-"It's not mine!" she snapped, stumbling back. "It's not for me!
-Leave me alone!" She ran, heedless of where she was going, until
-finally she had to stop and lean against a building to cry. The fog was
-so thick that she could barely see the cobblestones beneath her feet.
-She waited for it to clear a little, then wearily continued on her way.
+Still stared at him blankly, not understanding.
+Then she saw the little folded paper boat dangling from the bottom of the balloon string.
+Her clockwork skipped a tick.
+She reached for it slowly,
+already knowing what it was.
+Sure enough, written on the side were the words,
+"Have you seen—"
+She snatched her hand away.
 
-So the days passed, each colder than the one before, until one morning
-Still woke to find a faint dusting of frost on the rooftop around her.
-She wrapped her violin in an extra layer of newspaper, hid it in its
-usual place, and climbed down the drainpipe. She walked the long way
-around to the market, just so that she could see how it made the city
-look. *I'll need to get a coat*, she thought. It was her first thought
-about the future in a long, long time.
+*You mustn't tell… They'll put strings on you.*
 
-She played twice that afternoon, but only a few puppets went past, and
-only one tossed a gumdrop into her box. The frost was gone by the time
-the sun set, but a few early flakes of snow fluttered in the air as she
-trudged back to her rooftop. She climbed the drainpipe (it seemed as
-natural now as walking up a flight of stairs), dropped her newspapers,
+"It's not mine!" she snapped, stumbling back.
+"It's not for me! Leave me alone!"
+She ran,
+heedless of where she was going,
+until finally she had to stop and lean against a building to cry.
+The fog was so thick that she could barely see the cobblestones beneath her feet.
+She wiped her face and then continued wearily on her way.
+
+So the days passed,
+each colder than the one before,
+until one morning Still woke to find a faint dusting of frost on the rooftop around her.
+She wrapped her violin in an extra layer of newspaper,
+hid it in its usual place,
+and climbed down the drainpipe.
+She walked the long way around to the market
+so that she could see how the frost made the city look.
+*I'll need to get a coat*, she thought.
+It was her first thought about the future in a long, long time.
+
+She played twice that afternoon,
+but only a few puppets went past,
+and only one tossed a gumdrop into her box.
+The frost was gone by the time the sun set,
+but a few early flakes of snow fluttered in the air as she trudged back to her rooftop.
+She climbed the drainpipe,
+dropped her newspapers,
 and reached in under the eaves behind the gargoyle for her violin.
 
 It was gone.
 
-She felt around. The violin wasn't there. She looked around wildly,
-panic rising in her throat. The dent on her cheek seemed to throb. Where
-was it? What had happened to it?
+She felt around.
+The violin wasn't there.
+She looked around wildly,
+panic rising in her throat.
+The dent on her cheek seemed to throb.
+Where was it?
+What had happened to it?
 
-Still was just about to scream or cry when a grating voice above her
-said, "Is this what you're looking for?"
+Still was just about to scream or cry when a grating voice above her said,
+"Is this what you're looking for?"
 
 </section>
 
