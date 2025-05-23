@@ -4838,14 +4838,13 @@ By the time Aunt Naggie joined her
 a portable railgun squatted beside a pair of steel-gray capacitors.
 Half a dozen rocket lances stood ready on slender posts
 like flamingoes from Iffy's nature book.
-Drones the size of seagulls patrolled overhead,
-making the actual seagulls squawk in protest.
+Drones the size of seagulls patrolled overhead
+as the actual seagulls squawked in protest.
 
 "Don't fret,"
-Aunt Naggie said gently as Iffy looked past the pier toward the governor's mansion
-for the dozenth time.
+Aunt Naggie said gently as scraped the paint on the taffrail with her thumbnail.
 "Lotsa folk get through this.
-Your friend'll be fine."
+De'll be fine."
 
 "I know," Iffy sighed.
 "I just…"
@@ -4856,7 +4855,7 @@ Aunt Naggie put her arm around Iffy's shoulder.
 She gave her foster daughter a squeeze.
 "That'll take your mind off."
 
-A little motorized runabout had pulled up to the pier in front of the *Guinevere*.
+A little runabout pulled up to the pier next to the *Guinevere*.
 It rocked gently as Johnson Wales clambered gingerly out of the tiny seat
 and collected two of his toolboxes from the rack at the back.
 "Permission to come aboard?" he called up to them.
@@ -4896,10 +4895,10 @@ Iffy said in awe.
 
 Wales chuckled.
 "Not quite, but—here."
-He plucked a micro-manipulator out of a recess in the hard foam
+He plucked a scarred gray cube out of a recess in the hard foam
 that lined the lid of the toolbox.
 "How about you build us a hundred-to-one step-up for a fan rotor
-and I'll get the printer going over in the corner."
+and I'll get the printer going."
 
 The next hour flew by.
 Iffy knew she should be doing chores,
@@ -4908,8 +4907,8 @@ but she also knew Uncle Jack wouldn't know if she had or not.
 fitting tiny metal gears and rods together,
 threading control fibers through them,
 and grinding the rough edges off the still-warm plastic housings
-that came out of the efficient little printer Wales had set up.
-Every addition to the motor growing in front of her suggested three more.
+that came out of the efficient little printer Wales had set up in the corner.
+Every addition to the machine taking shape in front of her suggested three more.
 She shuffled them in her mind like cards,
 staring into nothing
 as she invented and discarded a dozen potential solutions
@@ -4935,7 +4934,7 @@ She passed the newly-made motor to Wales.
 "Just another couple of minutes for the chassis."
 He shifted his toolbox to the floor and seated himself in its place.
 "Your friend'll be all right,"
-he said as if he'd been reading her mind.
+he said as if reading her mind.
 
 Iffy shrugged.
 "I know.
@@ -4997,7 +4996,6 @@ then cleared her throat.
 The little drone's rotors began to whirl.
 
 "Hover."
-Wales flattened his hand.
 The drone hesitated a heartbeat before lifting a centimeter,
 its rotors humming quietly.
 
@@ -5088,7 +5086,7 @@ Iffy wiped her eyes again.
 "I had a raccoon," she said quietly.
 "Aunt Naggie saved up an' got me a pair,
 but one of 'em had somethin' wrong with it,
-so I just had the one.
+so I had just the one.
 I called her Giraffe too."
 She sniffled.
 "We didn't tell Uncle Jack.
@@ -5115,7 +5113,7 @@ hating her plaintive tone.
 "Why's everythin' got to be so messed up?"
 
 "I don't know," Wales said bleakly.
-"I really don't know."
+"I really don't."
 
 "We knew this was coming," he continued after a moment.
 "The ice was melting,
@@ -5158,35 +5156,35 @@ but all they could say was, "We're awe waitin' to hear back."
 Finally,
 she messaged Jeep.
 
-- *couple o' days an' i was on my feet, but that bit's all mud.
-  couple more days 'til anythin' i can remember clearly*
+- `couple o' days an' i was on my feet, but that bit's all mud.
+  couple more days 'til anythin' i can remember clearly`
 
 Iffy hesitated.
 
-- *did it hurt?*
+- `did it hurt?`
 
 There was a long pause.
 
-- *don't think so.
+- `don't think so.
   sergeant said i cried a lot
   but i don't think that was from hurt.
-  de said a lotta folk do that
+  de said a lotta folk do that`
 
 Iffy hesitated again,
 a lump in her throat.
 
-- *i'm sorry i wasn't around more after you got back*
+- `i'm sorry i wasn't around more after you got back`
 
 His reply came back so quickly that she wondered if he'd started typing before she'd sent her message.
 
-- *don't feel sorry for me*
+- `don't feel sorry for me`
 
 And then a moment later:
 
-- *i'm sorry i kept goin' off on you about usin' da's gear*
-- *it's aright. tell 'im i said hi?*
-- *willya. stay safe*
-- *you too*
+- `i'm sorry i kept goin' off on you about usin' da's gear`
+- `it's aright. tell 'im i said hi?`
+- `willya. stay safe`
+- `you too`
 
 Unable to bear the thought of being in her cabin after that,
 or of doing make-work chores that Uncle Jack would yell about later,
@@ -5283,8 +5281,8 @@ She shook her head.
 you gotta tell me who you are.*
 
 Later,
-Iffy would wonder how much computing power was brought to bear on her demand
-in the second between her making her demand
+Iffy would wonder how much computing power was brought to bear
+in the millisecond between her making her demand
 and it being answered.
 How many models of her were created?
 How many simulations were run, evaluated, tweaked, discarded, modified, and run again?
@@ -5309,7 +5307,7 @@ What happened next was her mind blew apart into little pieces
 
 / they echoed there were patterns
 
-/ two arms assembling a third arm in a factory near the poisoned Nile
+/ two arms assembling a third arm in a factory near the poisoned Mississippi
 
 / the islands of Indonesia seen through clouds from orbit
 
@@ -5339,21 +5337,21 @@ What happened next was her mind blew apart into little pieces
 
 / wake up
 
-A few hours later Iffy opened one eye to check the time and groaned,
+Iffy opened one eye and groaned,
 her dream fading, fading, gone.
 Four a.m.
 It would be light outside—the sun wouldn't touch the horizon again for weeks—but
 it still *felt* like the middle of the night.
 Rothera's streets would be empty except for cleaning bots
 and patrolling Marines
-and people working night shift.
+and people working night shifts.
 
 *And folk dumb enough t' waste rand on curfew passes,*
 she thought grumpily.
-She didn't know if Uncle Jack had returned from his outing or not,
-but either way,
+She didn't know if Uncle Jack had gone on another outing or not,
+but if he had,
 he'd probably have spent more on drink and lost more gambling
-than she'd spent on clothes in the last year.
+than she and Aunt Naggie had spent on clothes in the last year.
 
 She checked the time again.
 The fog-ends of whatever bad dream she'd been having were already evaporating.
@@ -5393,9 +5391,8 @@ If there really *was* someone on board,
 the smart thing would be to call for help and then lock herself in her cabin.
 Instead,
 she tiptoed toward the stern.
-When she reached the air duct that vented the hold
-she crouched down and shuffled forward
-to look around the corner.
+When she reached the vent for the main hold
+she crouched down and shuffled forward to look around the corner.
 
 A raccoon looked back at her
 from its hiding place behind a storage bench,
@@ -5422,8 +5419,7 @@ On impulse she slid forward and sat cross-legged beside it.
 The raccoon didn't resist when she took the tube,
 flipped it end for end,
 and screwed it into the trio that had already been assembled.
-Wordlessly it handed her a second one,
-then a third.
+It handed her a second one and then a third.
 
 Suddenly the design was there in her head,
 fully formed.
@@ -5431,12 +5427,12 @@ fully formed.
 not formed,
 *remembered*.
 She had been dreaming about this just before she woke up.
-The knew the realization should have scared her,
+The realization should have scared her,
 but she was tired of being scared,
 so instead she busied herself doing what she knew she did best.
 
 The tubes turned into a pair of tripods joined at the tip,
-one standing on the deck while the other raised three arms,
+one standing on deck while the other raised three arms,
 waiting patiently for its burden.
 "Aright,"
 Iffy said.
@@ -5472,21 +5468,20 @@ A few moments later her breathing softened and slowed.
 When she woke again it was half past seven.
 Her head ached
 and her mouth tasted like someone had stuffed it with old socks.
-
 Something tugged at the skin on her upper lip as she yawned.
 She rubbed it,
 then stared in weary disbelief at a crust of scab in her hand.
 Her nose had been bleeding.
 There was some on her pillow, too.
 
-She grabbed a clean shirt and her towel and stumbled out into the light.
-The Marines were in their usual places—she ducked her head
+She grabbed her other shirt and her towel and stumbled out into the light.
+Two Marines were still on the peir—she ducked her head
 so they wouldn't see the dried blood on her face—but
 thankfully no one was on deck.
 She splashed water from the sink on her face,
 then hung her clothes in the drying closet
 and pressed the button to fill the tiny bathroom with hot, prickly mist,
-wishing as she so often did that the *Guinevere* had a real shower.
+wishing as always that the *Guinevere* had a real shower.
 
 Clean, or at least cleaner,
 and with her head freshly shaved,
@@ -5499,7 +5494,7 @@ How are you?"
 
 "Fine," she yawned,
 joining him on the deck.
-"But next time y'ou' want help puttin' somethin' together,
+"But next time you want somethin' put together,
 maybe we can do it durin' the day?"
 
 Wales looked at her quizzically.
@@ -5514,7 +5509,7 @@ Wales frowned.
 
 A few seconds later they stood side by side in silence
 looking at the double tripod and the shallow square dish it held.
-"I don't recognize any of it,"
+"I don't recognize it,"
 Wales said neutrally.
 
 Iffy rubbed her nose and checked her hand as casually as she could.
@@ -5545,7 +5540,7 @@ A moment later the image began to speak.
 the deep, familiar voice said
 as the green bar beside it climbed to 99.9%.
 "As most of you already know,
-a Brazilian ship recently attacked and sank an Australian warship in our waters.
+a Brazilian pirate recently attacked and sank an Australian warship in our waters.
 I am speaking to you today to tell you that it did so on my orders."
 
 "What?" Iffy gasped.
@@ -5556,15 +5551,15 @@ Wales swore under his breath.
 the governor went on.
 "In recent years,
 however,
-the Tasmania regime has attempted to exert more and more control over our affairs.
+the regime in Tasmania has attempted to exert more and more control over our affairs.
 In order to ensure our continued independence and your well-being,
-we have no choice  but to break off relations and declare full independence."
+we have no choice but to break off relations and declare full independence."
 
 He paused.
 "Unfortunately,
-my other in Halley has chosen to see things differently.
+my counterparts in Halley and Paddington South have chosen to see things differently.
 Instead of openness and neutrality,
-he has decided to give the regime everything it wants.
+they have decided to give the regime everything it wants.
 We have therefore made the difficult decision to break off relations and—"
 
 Wales put his hand on Iffy's shoulder.
@@ -5607,18 +5602,21 @@ She pulled her arm away from Wales and—
 
 *The world slowed down.
 Angles and vectors and trajectories painted crisp colored lines
-across wireframe renderings of the ship and the pier
-A drone ID RTHDR172 was banking to attack
-the railgun RTHFG1343 was fully operational
-the other drone RTHDR206's impact had knocked it out of position by 1.7 meters
-but it was still upright capacitors intact
-and pivoting as it acquired another target
-human unarmored
-bearing ninety-seven degrees
-elevation thirty-eight point four degrees
-range twenty-one point two two meters
-negligible lateral velocity
-no need to adjust for the slight obstruction of the ship's taffrail.*
+across wireframe renderings of the ship and the pier.
+
+/ the drone ID RTHDR172 was banking to attack
+
+/ the railgun RTHFG1343 was fully operational
+
+/ the other drone RTHDR206's impact had knocked RTHFG1343 out of position by 1.7 meters
+
+/ but it was still upright capacitors intact and pivoting as it acquired another target
+
+/ human unarmored bearing ninety-seven degrees elevation thirty-eight point four degrees range twenty-one point two two meters
+
+/ negligible lateral velocity
+
+/ no need to compensate for the slight obstruction of the ship's taffrail
 
 "No!" she screamed.
 
@@ -5642,12 +5640,11 @@ not realizing how close her end had been.
 
 "What th' affin' hell is goin' on?" Uncle Jack roared
 as he emerged from his cabin.
-*He sounds mad,*
+*What had just happened?*
 Iffy thought muzzily.
-What had just happened?
-How could she do that?
+*How could she do that?*
 
-A drone swooped down and then circled overhead.
+A drone swooped down and circled overhead.
 "Citizens!"
 its tinny voice said.
 "Remain in place!
@@ -5671,8 +5668,7 @@ Wales said brightly as Aunt Naggie and Iffy turned and stared at him.
 
 Aunt Naggie's mouth worked for a moment.
 "No worries," she said.
-"Shoulda done it years ago.
-Now can someone please tell me what's happenin'?"
+"Now can someone please tell me what's happenin'?"
 
 "Help!"
 someone shouted before Iffy or Wales could answer.
@@ -5724,7 +5720,7 @@ The status light on the first aid kid blinked orange, yellow, orange, yellow:
 the Marine was alive but in critical condition.
 The exoskeleton had clamped an emergency tourniquet around her leg
 to stop her bleeding out,
-but those seconds in the harbor had been enough to send her into hypothermia.
+but those seconds in the harbor had sent her into hypothermia.
 
 Diagnostics scrolled up the first aid kid's screen.
 Pain killers,
@@ -5746,7 +5742,7 @@ while the Marine behind him unfolded a stretcher,
 her eyes and augments scanning the horizon.
 
 "Any idea what's happening?"
-Wales asked as they lifted their wounded comrade onto the stretcher.
+Wales asked as they lifted their crippled comrade onto the stretcher.
 It beeped and started down the gangplank on spindly legs.
 
 The first Marine shook his head.
@@ -5804,8 +5800,8 @@ He stumbled away to his cabin.
 
 A horn blatted as a short blue bus rolled to a stop on the dock.
 It had more nicks and dents than
-the one that had taken them to see the governor,
-and the Marines beside it fanned out,
+the one that had taken them to see the governor.
+The Marines beside it fanned out,
 moving in random stop-start-sideways anti-patterns generated by their exoskeletons' cores
 to throw off enemy targeting.
 
@@ -5837,14 +5833,11 @@ Which, Iffy noted, wasn't an answer.
 Rothera's streets were empty
 except for Marines and their drones.
 Vehicles stood where their owners or passengers had abandoned them.
-The town's few free machines that hadn't found cover had frozen in place.
-Blinking blue lights attached to their sides
-showed which ones had been inspected and cleared.
-
 People watched the bus through the windows of shops and cafés,
 their questions and worries clear on their faces.
+
 Hell was still locked down:
-all her app would show her was the same repeating message.
+all Iffy's app would show her was the same repeating message.
 This was a class one emergency.
 Take shelter,
 stay calm,
@@ -5871,7 +5864,7 @@ and they could see the damage the explosion had wrought.
 Aunt Naggie whispered,
 squeezing her foster daughter's hand.
 
-The center of Old Rothera was a cobbled square
+The center of Rothera was a cobbled square
 with the Marines' headquarters on one side,
 the hospital on another,
 and shops Iffy had never been in on the other two.
@@ -5888,8 +5881,7 @@ lined up neatly beside a light fountain.
 She had seen the aftermath of death before—not a season went by
 that someone's luck didn't run out on the docks or at sea,
 and even Uncle Jack at his worst
-wouldn't have dared to miss a funeral—but
-this was different.
+wouldn't have dared to skip a funeral—but this was different.
 
 Lights suddenly sparkled on Wales' temples.
 He closed his eyes as his tech reconnected with the world.
@@ -5944,11 +5936,10 @@ and marched away with long mechanical strides.
 "Come on," Aunt Naggie said gently.
 Iffy let her foster mother pull her up the stairs and through the door.
 
-Every old building has its own smell.
-Paint, varnish, concrete, glue, dust,
-and several generations of people sweating and crying and farting and just *breathing*
-are all part of it.
-Soap and bleach mix with the lingering traces of someone's perfume,
+Every old building has its own smell:
+paint, varnish, concrete, glue, dust,
+and several generations of people sweating and crying and farting.
+Soap and bleach mixed with the lingering traces of someone's perfume,
 the supposedly odorless oil applied to the joints of aging exoskeletons,
 and the curry that the roti shop around the corner used for forty years,
 forty years ago.
@@ -5960,8 +5951,8 @@ a cold salt-and-jellyfish breeze from the harbor.
 
 "Wait here,"
 the Marine guiding them said.
-She heard the lock on the door click
-as she, Wales, and Aunt Naggie lowered themselves
+The lock on the door clicked
+as Iffy, Wales, and Aunt Naggie lowered themselves
 into uncomfortable rectangular chairs.
 The room had no desk, no windows, and no decorations,
 just a small app set into the wall
@@ -5972,8 +5963,7 @@ and power down or disable any advanced hardware nearby.
 
 She opened her mouth to ask how long Wales thought it would be,
 but closed it as he and her foster mother shot her warning glances.
-After that,
-there was nothing to do but wait and worry.
+There was nothing to do but wait and worry.
 
 Footsteps in the corridor and a perfunctory knock on the door
 roused her from her funk.
@@ -5999,8 +5989,10 @@ The Brazilians have promised to intercept."
 Wales asked bleakly.
 
 The doctor nodded.
-"Halley and Rothera still blame each other for what happened in Bharati.
-Johnson, I'm sorry—I wish there was more time,
+"Halley and Rothera still blame each other for what happened in Bharati,
+and Paddington—who the hell knows what Paddington wants?
+Johnson, I'm sorry.
+I wish there was more time,
 but it's now or never."
 
 Wales' broad shoulders slumped.
@@ -6037,9 +6029,7 @@ You can't just take her cuz you want to!"
 
 "I'm afraid we can,"
 Doctor Johel said calmly.
-"And yes,
-it is legal,
-so please don't make it difficult."
+"Please don't make it difficult."
 
 Iffy stared at her,
 then at Wales,
