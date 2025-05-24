@@ -7106,3 +7106,794 @@ what was designed to bring life to other worlds
 nurtures it at home instead.*
 
 </section>
+
+<section>
+
+## Chapter 8
+
+They slept in their sleeve tents in the lee of the boulders.
+The herd was waiting for them when they woke.
+Edson grinned at the look on Iffy's face.
+"Two of us goin' cross-country is too zing easy to spot,"
+he said.
+"In with all them,
+we're just two more musk ox goin' about their business."
+
+They followed the herd toward the foothills of the massif.
+The animals snorted and farted and grumbled around them,
+strong white teeth nipping the summer growth.
+Iffy didn't see any bots on their backs.
+In return,
+the musk ox barely seemed to notice them,
+though two or three were always as close to her
+as a cow would be to a half-grown calf.
+
+Two hours of walking,
+fifteen minutes of rest.
+Two hours,
+fifteen minutes to eat and give each other a minute or two of privacy.
+Two more hours of walking,
+a long fifteen minutes to catch their breath,
+and one final, shorter hike before Edson called a halt.
+
+They didn't set up their tents this time.
+Instead,
+they bundled themselves in their sleeping bags
+and lay down head-to-toe
+on the flattest patch of ground they could find.
+The musk ox settled down beside them in clumps,
+shoulder-to-shoulder for warmth.
+Iffy fell asleep with their thick, wet smell in her nostrils.
+
+The next day began the same way,
+but soon the ground began to rise and rise again.
+Their boots crunched on gravel
+as the tundra gave way to bare rock exposed by retreating ice a century ago
+but not yet colonized by anything bigger than lichen
+or a stubborn clump of cottongrass.
+
+They finally reached a slope so steep that the musk ox paused,
+grumbled to each other,
+and began to amble away.
+Iffy felt exposed,
+as if a passing ship had caught her sunning herself in a t-shirt on the deck of the *Guinevere*.
+Edson just shrugged when she asked about drones.
+"I think they're all busy watchin' each other right now.
+An' anyway,
+there's not much we can do about it."
+But he did assemble his rifle and sling it over his shoulder,
+and even when he was pointing out the painted initials of some long ago survey,
+he kept one eye on the sky.
+
+He paused as they neared the top of yet another ridge.
+"You ever see th' geothermal plant inland from Halley?" he asked.
+
+"'Course," Iffy puffed.
+"I mean,
+not in person,
+but—why?"
+
+Edson grinned.
+"I got somethin' t' show you."
+
+There was a trail on the other side of the ridge,
+an actual trail with cutbacks and slab steps in its steepest parts.
+There was life, too:
+green-gray patches of moss,
+then lupins and saxifrage and other hardy plants Edson didn't bother to name
+as they made their way down into a bowl-shaped valley.
+
+Iffy pointed at something small and orange exploring a purple flower.
+"Another one o' your bot friends?"
+
+Edson crouched down and set his rifle on the ground beside him.
+"That ain't a bot.
+That's a bee."
+
+"Right," Iffy snorted.
+"An' I'm a giraffe."
+
+The Ecologist stretched out his hand,
+then hesitated and withdrew it.
+"It's real,"
+he said reverently.
+"Tweaked ten ways from sundown,
+an' we still gotta feed 'em through the winter,
+but there's a couple o' dozen colonies here now.
+Come on."
+
+It took half an hour to reach the stream
+that snaked along the bottom of the valley.
+Edson talked the whole way.
+The land was rebounding as the ice retreated.
+That meant thousands of microquakes every year,
+which fractured the rock,
+which made it easier to put in pipes for geothermal power
+or drill holes for hot springs.
+The result was only a couple of degrees warmer than the land around it,
+but that was enough to make it an oasis.
+
+The Ecologist was as happy as a gull in garbage.
+Look—that rock was actually a bot recharging itself from a power outlet hidden in a wall of granite.
+And there—he took her arm to stop her from stepping on leaf.
+"Just wait," he said.
+Sure enough,
+a moment later it scuttled across the path
+and disappeared into a patch of white-tufted heather.
+"Ants,"
+he said proudly.
+"Took a couple o' tweaks to get 'em to hibernate properly,
+but they seem pretty happy now."
+
+"So do you,"
+Iffy said,
+which made him grin even more broadly.
+
+*«commence»*
+
+Iffy stumbled as the thought appeared fully-formed in her head.
+"What's wrong?" Edson asked,
+but she was too busy fighting nausea to answer.
+
+*«exchange of value / binding agreement / commence»*
+
+*I can't yet,*
+she shot back,
+squeezing her eyes shut and swallowing hard to stop herself from throwing up.
+*I don't have any tools or, or anything!
+I don't even know where I am!*
+
+*«78.1742° south / 85.1728° west / binding agreement / commence»*
+
+"I *can't*!" she said angrily.
+Someone took her arm.
+She tried to pull away,
+but the trip tightened.
+
+"Iffy! Iffy! Affin' hell, what have you done?"
+Something *clicked* beside her.
+She swallowed again and opened her eyes
+to see Edson pointing his rifle at two, no, three crab-like bots
+whose arms ended in multitools and manipulators instead of claws
+and were all the more frightening for that.
+
+"Machines 'r tryin' to talk to me again,"
+she mumbled.
+
+"Aright, well, you tell 'em we'll give 'em a shout back as soon as we can,"
+he said levelly,
+his aim shifting from one bot to the next.
+"Oh,
+an' remind 'em this place is s'posed to be off limits.
+There's agreements an' such."
+
+As quickly as it had come
+the pressure in her head was gone.
+She wiped her nose,
+checked her glove for blood,
+then stepped aside to let the bots scuttle up the path
+the way she and Edson had come.
+
+"I'm sorry,"
+she said dully.
+
+The Ecologist slung his rifle over his shoulder once again.
+"Nothin' for you to be sorry for.
+Come on,
+it's not much further."
+
+Their destination was a scattering of greenhouses
+not quite hidden in half a hectare of narrow pines.
+Iffy slowed as they approached the trees.
+"Aint' never been in a forest before,"
+she confessed when Edson looked at her quizzically.
+
+He nodded and held out his hand.
+She hesitated a moment,
+then took it.
+Somehow it didn't feel foolish.
+
+"They all have names,"
+he said quietly as they made their way to the nearest greenhouse.
+"Folk that helped make this place or stopped other folk tearin' 'em all down."
+
+"Are there any for my olders?"
+she asked after a few steps.
+
+He shook his head.
+"Not here,
+but if you want to plant some,
+we'd be proud to have 'em."
+He squeezed her hand before letting it go.
+
+The greenhouse had double walls and an airlock door.
+Inside was dry and warm.
+Row upon row of shelves held square pots of heather,
+moss,
+and pine seedlings,
+all connected to sensors and watering pipes.
+A dozen cots, a kitchen, and an incongruous blue toilet stall
+stood together in the middle
+as if they had wandered into the wrong party
+and weren't quite sure if it would be polite to leave.
+
+Edson shrugged off his pack
+and paused for a moment before a hand-painted picture of Saint Yanina
+to say a brief prayer under his breath,
+then unzipped his coat.
+"Make yourself comfortable,"
+he said,
+pulling his feet out of his boots with a happy sigh.
+"We can start work in th' mornin'."
+
+Iffy sat on the nearest cot
+and bounced up and down to test it,
+but didn't take off her coat or boots.
+"What kind o' work?"
+
+"Saints' work," Edson said.
+"Been a month since anyone was here, maybe more.
+There's trees 'n' all to re-pot,
+a couple o' composters to turn over,
+pipes to check—th' bots could do it all,
+but that would be the easy road,
+and the easy road leads to an empty world."
+He looked away as if suddenly aware of the fervor in his voice
+and embarrassed by it.
+
+Iffy scrunched her toes inside her boots,
+then bent over to unlace them.
+"Dunno anythin' about pots or compost,
+but checkin' pipes sounds like my kind o' thing."
+
+There were carrots,
+real carrots for Iffy to pull out of a raised bed and rinse off.
+There were onions too,
+and something Edson called "basil" that Iffy thought she could learn to like
+if given a chance.
+The ginger was long past fresh,
+but the noodles were exactly the same as the ones the Sandhus sold.
+
+Edson shook his head when Iffy asked about curry powder.
+"Whatever we got won't have any o' your medicine in it.
+Nearest place for that's gonna be Halley,
+an' even by bike that's three weeks away, maybe more."
+He stirred the noodles and vegetables in the battered steel wok
+he had fished out of a cupboard beneath one of the raised beds,
+sniffed,
+and pronounced good enough for camp cooking.
+
+Iffy cradled her mint tea.
+Edson had plucked leaves off a plant and put them in the pot to steep
+as if it was the most natural thing in the world,
+and the result almost tasted too good to drink.
+"I don't think th' machines are gonna give me that long,"
+she said quietly.
+
+He nodded soberly.
+"Yeah,
+well,
+how about we eat first an' figure the rest out later?
+Here."
+He scoop-poured a bowl of noodles for her and a second for himself.
+"Mind the little red bits.
+Not sure what they are,
+but they'll blow your head off."
+
+Iffy lay in her cot and stared up at the sky
+after they cleaned up and turned in.
+Even the tallest pines hadn't grown enough to reach the peak of the greenhouse's roof,
+but the blue bowl above her was hazed by fog
+where the warm, moist air rising from the valley
+met the cold of the outside world.
+It took her a moment to realize that the ticklish feeling on her temples was tears.
+She was in a forest—an actual *forest*—but she missed the sea.
+The hell with what the machines wanted
+or the governors and their politics.
+She just wanted to see Aunt Naggie and Honesty again,
+and Jeep and everyone else in Halley,
+and flip through her picture book and go to sleep on her own mattress.
+
+Her eyelids were just starting to lose their battle with gravity
+when an alarm began to bleat.
+Edson was on his feet and in his jacket
+before she finished sitting up.
+"Somethin's comin'," he said,
+frowning at the app in his hand.
+"Del that—there's a whole bunch o' somethin's coming."
+
+"More o' those crab bots?"
+Iffy asked,
+struggling to lace her boots
+with fingers that felt like they were made of tofu.
+
+The Ecologist didn't answer.
+"Edson?"
+she asked,
+then jumped as he swore explosively.
+
+"Marines.
+Couple o' dozen,
+headin' straight for us."
+He swore again.
+"Th' herd's gonna try t' slow 'em down,
+but we gotta go."
+
+"Go where?"
+Iffy asked,
+pulling on her coat.
+
+Edson locked eyes with her.
+"Anywhere but here.
+They ain't never come into th' valley before,
+but—Iffy,
+this is sacred ground.
+You unnerstand?
+I gotta choose between this place an' you—"
+
+Iffy held his gaze.
+"You do what you gotta do,"
+she said,
+hoping she sounded braver than she felt.
+"We can sort out th' compost 'n' all that some other time."
+
+Two minutes later she was on a bicycle
+pedalling hard and breathing harder.
+Aunt Naggie had insisted she learn how to ride, "Just in case."
+She was pretty sure her foster mother's "in case"
+hadn't included fleeing from Marines in the backayonder,
+but there was no time to think about that,
+no time to think about whether Edson had a plan
+because even downhill on the world's best highway
+there was no way they could move as fast as what was coming for them.
+
+Up, down, up again—the forest dropped out of sight
+as the track climbed the valley's eastern wall.
+There was no sign of pursuit,
+just her breathing and the burning in her legs
+and a heart-stopping moment of panic
+each time the bike hit a pothole or a particularly large rock
+and nearly but never actually sent her tumbling onto sharp gravel.
+
+Edson skidded to a stop as they reached the top of the ridge
+and swung around to look back.
+Iffy stopped beside him,
+lungs heaving.
+"Wha— wha's happenin'?"
+she gasped as he pulled his app out of his coat.
+
+He stared at it, stricken.
+"They're killin' 'em.
+Affin' griefers, they're killin' the herd!"
+
+Iffy craned her neck.
+Images tumbled past each other on the app.
+A musk ox on its side,
+eyes open and lifeless.
+Another charging a Marine,
+only to have its target step aside at the last moment
+and snap a kick that broke the ox's leg.
+
+The app flashed.
+The images froze as whatever had been transmitting went offline,
+perhaps forever.
+"Mother Yanina, Mother Pao, forgive our crimes and arrogance,"
+Edson whispered.
+
+And then Iffy heard it,
+the thrumming roar of a hovercraft moving fast over rough ground.
+There!
+East of them,
+blurred but visible as its camouflage struggled to match the ground beneath it.
+"Who th' hell is that?"
+Edson demanded.
+
+"Dunno, but they brought a friend."
+Iffy pointed at a dot in the sky
+flying parallel to the hovercraft's course.
+
+Edson thrust the app into her hands and unslung his rifle.
+"Get goin'," he ordered.
+"There's a shelter about thirty klicks further on—the app's got a map an' a pass code.
+You hole up there 'til someone comes t' get you."
+
+"Are you cracked?" Iffy shot back.
+"I can't outrun a bunch o' Marines!
+And I *surely* can't outrun that thing."
+
+He adjusted the sight on his rifle.
+"You won't have to,"
+he said without looking at her.
+"Like I told you,
+this is sacred ground.
+The governors 'n' all haven't stayed away all this time 'cuz we asked nicely."
+
+The app vibrated in Iffy's hand.
+"What's it say?"
+the Ecologist asked.
+
+Navy blue dots moved across a map in pairs and threes,
+each cluster surrounded by a scattering of green dots.
+"The Marines are in the valley.
+They're almost at the greenhouses."
+
+A red dot appeared on the map,
+blinked,
+expanded into a circle that swallowed three of the blue dots.
+A second later Iffy heard a sharp *crack!* and a roll of thunder.
+As the circle faded away,
+two of the blue dots blinked and went out.
+
+More red dots bloomed on the map
+as one geothermal drill hole after another hit critical pressure and exploded.
+"Saints and their mercies," Iffy whispered.
+
+The distant thunder became a steady rumble.
+The green dots swarmed the remaining blue dots.
+Gunfire rattled and whined in the distance,
+but the ballistic shots and EMP pulses that snuffed out the green dots in waves
+weren't enough to turn the tide.
+
+Nineteen and five… Sixteen and eight… Fourteen and ten…
+The numbers in the corner of the map showed how many blue dots remained
+and how many had gone dark.
+At twelve and twelve the remaining Marines began to fall back.
+The green dots kept pace but let them go.
+
+"How bad is it?" Edson asked,
+his eyes still on the approaching hovercraft.
+
+Iffy swallowed.
+The battle had taken less than thirty seconds.
+"Half o' them are down.
+The others are pullin' out."
+
+"I don't mean the affin' Marines," he snapped.
+"How bad's the *damage*?"
+
+She tapped the app to bring up a dozen tiled camera views.
+Steam jetted out of the ground in some.
+Others showed shattered rock and fallen trees.
+And one—
+"One o' the greenhouses got hit," she said.
+"Looks like a tree came down on it."
+
+Edson let out a long breath.
+"Praise the saints.
+That coulda been a lot worse."
+
+Iffy stared at the video tile that showed a lifeless Marine not much older than her,
+his exoskeleton twitching as it tried and failed to get him on his feet.
+A crab bot climbed onto his chest and—
+She bent over and threw up.
+*Please let none o' them be Honesty,* she thought desperately.
+
+"Y'aright?" Edson asked as she straightened up.
+
+"No!
+No, I'm not affin' aright!"
+She spat the last of the sour vomit out of her mouth.
+"There's folk *dead* back there!"
+
+He didn't answer.
+"Don't that bother you?" she demanded,
+anger making her voice shake.
+
+"'Course it does,"
+he said brusquely.
+"I grieve for every death that comes before its time.
+I grieve for them as were made into soldiers against their wishes,
+an' for the trees that were a hundred years in growin'
+an' coulda lived a thousand more if we hadn't cut 'em down,
+an' for every single thing we've torn up or burned down or poisoned or starved,
+but right now there ain't time to think about any o' that
+because those Marines ain't quit,
+they're just comin' round th' long way,
+an' we still got this other lot t' worry about."
+
+"Wait!"
+Iffy grabbed Edson's shoulder as he took aim at the approaching drone.
+"I got an idea."
+
+She closed her eyes.
+*Can you hear me?*
+Nothing answered.
+
+*Please, I'm in trouble.
+You don't gotta do anythin' 'cept hook me up.
+I can take it from there.*
+
+And just like that she was on board the drone.
+No, she *was* the drone.
+She would try to describe it later,
+but no human language had words to convey
+the sensation of knowing your position and heading with absolute accuracy
+or the feeling of wind pushing against ailerons.
+She could see everything above, below, and around her,
+and every motion was somehow *there* in her attention.
+
+"I got it,"
+she said.
+Her lips and tongue felt clumsy.
+"I got th' drone."
+
+Edson hesitated before lowering his rifle
+and slinging it over his shoulder.
+"Aright.
+You gonna drop it on 'em?"
+
+"No."
+Her arms wanted to straighten themselves.
+Her feet, too—they wanted her to stand on the tips of her toes
+so that they could angle themselves to send her this way and that.
+"I'm gonna tell 'em we gone back the way we came.
+That is,
+if you got some other way for us to go?"
+
+Moments later they were on their bikes
+skidding down the ridge as the hovercraft raced toward Rothera.
+The cold air stung Iffy's cheeks,
+and if the bumps and potholes on the climb up the ridge had been frightening,
+going over them downhill at three times the speed was terrifying.
+There wasn't time to be scared, though,
+or to think about how long the Marines would follow the drone before realizing they'd been duped.
+There was just staying upright as she followed Edson around the next turn
+and trying not to go head-first over her handlebars
+each time her front tire hit a rock.
+
+Flat ground,
+or at least flatter.
+She struggled to change gears as Edson pulled ahead,
+her hands clumsied by her gloves,
+and then the bike went one way and she want another
+and she was falling
+just for a heartbeat
+everything happened so fast
+her knee hit the ground
+pain shot up her spine
+she put out her arm
+but she was still falling
+her hand hit the ground
+pain again like a grenade going off in her shoulder.
+
+The bike clattered on the ground,
+trapping her leg.
+She lay there for a moment in shock,
+then cried out as she struggled to get up.
+Her knee—her shoulder—it was like someone was using one of Mister Mishra's drills on her.
+
+She kicked free of the bike with her uninjured leg
+and cried out as she tried and failed to stand.
+Edson braked,
+fishtailed,
+and raced back to her.
+"I'm sorry, I'm sorry," she repeated
+as he leapt off his bike and helped her up.
+
+"Sh, sh, sh."
+He helped her sit in the shelter of a lichened outcrop of granite.
+"Ya did great.
+Ya did great.
+Nagatha would be proud o' you.
+Now,
+keep yer head down.
+This is gonna get a bit noisy."
+He raised his rifle and took aim.
+
+HERE
+
+Iffy felt an explosion through the outcrop.
+"Affin' hell," Edson swore,
+ducking his head.
+"That was their drone."
+
+A rock two meters away jumped and splintered.
+Edson pulled his app out of his coat and swore again.
+"They've jammed up all th' sensors,
+but there's a satellite comin' up overhead.
+We just gotta hang on 'til then."
+
+"Citizens!"
+The amplified voice echoed off the rock.
+"Surrender yourselves immediately!
+We cannot ensure your safety if you do not comply!"
+
+Edson caught Iffy's eye and grinned.
+"I always thought they sounded pretty stupid when they talked like that."
+And then he twisted a button on his cuff
+to make the camouflage on his jacket jerk and swirl through not-quite random patterns
+designed to confuse the Marines' targeting algorithms,
+twisted around and up onto one knee,
+and began firing.
+He got off two shots before an impact in his chest sent him tumbling backward down the slope.
+
+"Edson!" Iffy screamed.
+The Ecologist slid downhill another meter and came to a rest,
+his legs splayed awkwardly and the rifle still in his hands.
+
+"Citizen!
+Remain where you are!
+Medical assistance will be provided shortly!"
+Boots crunched on gravel uphill,
+the steps stretched apart unnaturally by the exoskeletons' long strides.
+
+Iffy got her legs underneath her,
+biting back a whimper as pain lanced through her knee again.
+She had to help Edson.
+She had to run,
+but there was nowhere to go
+and she'd be lucky if she could walk.
+
+*Crack! Crack! Crack!*
+Edson's rifle jumped a little with each shot.
+Iffy heard an indistinct shout of surprise—inducted or not,
+the Marines were human enough to swear.
+Edson rolled sideways back into the lee of the outcrop
+as shots peppered the ground where he'd been lying.
+
+"Stay there!" he snapped as Iffy started to rise.
+He tossed his rifle aside,
+its ammunition spent,
+and scuttled uphill and sat beside her,
+his back against the outcrop.
+
+"Citizens!"
+The Marine sounded more disappointed than angry.
+"Such action will only worsen the charges against you.
+For your own safety,
+we urge you to surrender."
+
+Edson looked at Iffy.
+"Any ideas?"
+
+She forced a smile that she hoped looked as confident as his grin.
+"Reset this sim an' start over?"
+As he started to laugh,
+a thought appeared in her head.
+
+*«assistance»*
+
+One moment the sky was blue.
+The next,
+it was slashed by a pair of brilliant laser-straight lines
+as the hypersonic harpoons fired by the hovercraft tore the air apart.
+The missiles burst over Iffy's head before she had time to flinch.
+Dozens of EMP grenades,
+each the size of a pebble,
+ended their existence in brief bursts of plasma.
+Feedback shrieked as the micromotors in a dozen exoskeletons overloaded and fused solid.
+
+Edson pulled Iffy to her feet.
+"Come on!"
+
+One hand clutching his collar,
+the other swinging wildly for balance,
+she limp-walked down the gravel slope toward the oncoming hovercraft.
+It had turned off its camouflage,
+and as it gunned its engines to brake itself
+she realized that it was taller than she was
+and as long and broad as the *Guinevere*.
+
+"Citizens! Stop!"
+The voice behind them was no longer amplified.
+"You don't know what you are doing!"
+
+Cold air washed over Iffy as the hovercraft settled onto the ground.
+Two sentry bots dropped from its steeply-angled side
+and raced past her and Edson
+to stand guard between them and the fallen Marines.
+
+A hatch opened on the hovercraft's leading edge just as they reached it.
+Something bulbous poked out.
+Iffy thought it was another bot,
+but then he removed his helmet.
+
+"Well,"
+said the governor conversationally.
+"Isn't this a fine mess?"
+
+"Halley?"
+Edson demanded incredulously.
+
+Even from ten meters away Iffy felt the temperature drop.
+"Paddington South, actually," he corrected
+in the same clipped accent that the Marines used.
+"Although I suspect that's rather a matter for debate right now,
+to tell you the truth.
+All I'm sure I've governor of is this craft and a few odds and ends like it."
+He patted the hovercraft's hull as if it was an old dog asleep at his feet.
+
+"And you must be Citizen Kwan,"
+he continued,
+shifting his gaze.
+"You've caused quite a ruckus, young citizen.
+My others' schemes are completely upside down—thank you for that—and
+the machines are in some sort of tizzy
+and you seem to be the center of all of it.
+I'm sure it will give us plenty to talk about on our way."
+
+Edson put a cautioning hand on Iffy's shoulder.
+"Appreciate you helpin' out with th' Marines an' all,
+but we're fine t' make our own way along by th' coast."
+
+"Mm."
+The governor nodded as if agreeing.
+"How far do you think you'll get, exactly?
+And how much of your precious herd will die along the way?
+How many trees will burn, Ecologist,
+and how much difference do you think any of it will make?"
+
+"You sure talk pretty,"
+Iffy said in the silence that followed.
+
+The governor chuckled.
+"Well, I *have* had a lot of practice.
+But I'm afraid we can't dawdle any further.
+Citizen Corrales,
+you and Citizen Kwan can come aboard of your own accord or not as you choose,
+but you *are* coming with me."
+
+One—two—three more sentry bots blurred out of invisibility
+in front of Iffy and Edson.
+Mechanical feet scuffed on gravel behind her
+as the two she had seen moved closer.
+
+Edson puffed out his cheeks and exhaled slowly.
+"You know I can't do that," he said.
+
+The governor put his hand on his chest.
+"You have my solemn pledge that you will not be interfered with.
+I have no desire at all to pick a fight with the Shepherds.
+Whatever secrets or access codes you have will remain yours and yours alone."
+
+"Yeah."
+Edson sighed.
+"I wish I believed you,
+but your record ain't exactly positive,
+an' you just havin' been kicked outta your home,
+well,
+that's gotta make you a little desperate."
+
+He turned to Iffy and wrapped his arms around her in a fierce hug.
+"I'm sorry,"
+he whispered in her ear.
+"I'm so sorry.
+I know I said I'd carry you,
+but I can't let 'im have what's in my head.
+Tell Nagatha I was thinkin' of her, aright?"
+
+He stepped back and made a fist.
+Without warning,
+a schematic flashed into Iffy's mind.
+Wires and a tiny battery embedded in his hand
+that would look prosthetic to a casual scan.
+A matching mesh of micro-fine filaments under his skull.
+Clench the hand like *this*,
+hold it *there*,
+and—
+
+As Edson raised his hand the governor shouted, "Wait!"
+Iffy tackled the Ecologist,
+grabbing his arm and knocking him clumsily to the ground.
+The EMP that was supposed to scramble his brain
+sent feedback shrieking through the sentry bots' motors instead.
+
+Edson scrambled back onto his feet.
+"No! No, Iffy, whattaya done?"
+
+"Affin' hell!" she swore,
+trying, failing, and trying again to stand
+despite the spike of pain in her knee.
+"You made me a promise an' I'm holdin' you to it.
+If you want someone to tell Aunt Naggie that you went an' got simple,
+you can do it yourself!"
+
+She glared at him.
+The sentry bots and the downed Marines and the hovercraft and the governor
+and the miracle in the valley behind them
+might as well have been a world away.
+"I lost my others.
+I lost Honesty.
+I ain't losin' you."
+
+</section>
