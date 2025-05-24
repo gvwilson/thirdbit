@@ -2278,236 +2278,284 @@ Still was just about to scream or cry when a grating voice above her said,
 Still was so startled that she almost fell backward off the roof.
 The gargoyle had spoken!
 
-"A couple of crows found it," the gargoyle said. His voice sounded
-like two bricks being scraped against each other. "And you know what
-they're like. They weren't quite sure what it was, but they were going
-to carry it off anyway. I got it away from them, but then I couldn't
-reach the newspaper to wrap it up again, so I thought I'd best hold
-onto it." He turned it over gently. "It's very beautiful."
+"A couple of crows found it," the gargoyle said.
+His voice sounded like two bricks being scraped against each other.
+"They weren't quite sure what it was,
+but they were going to carry it off anyway.
+I got it away from them,
+but then I couldn't reach the newspaper to wrap it up again,
+so I thought I'd best hold onto it."
+He turned it over gently.
+"It's very beautiful."
 
-"May I—may I have it back?" Still asked. She trembled, too afraid to
-feel amazed.
+"May I—may I have it back?" Still asked,
+trembling.
 
-"Of course," the gargoyle said. He held it out to her. Still snatched
-it from his hands and hugged it close.
+"Of course," the gargoyle said.
+He held it out to her.
+Still snatched it from his hands and hugged it close.
 
 "Is it all right?" the gargoyle asked.
 
-Still nodded. She didn't even have to look at it to know—she would
-have been able to tell the instant she touched it if it had been
-scratched or cracked. It was all right.
+Still nodded.
+She didn't even have to look at it to know—she would have been able to tell the instant she touched
+it if it had been scratched or cracked.
 
-It was all right… She relaxed, just slightly. "Thank you for
-rescuing it," she said. "I, um, I don't have much, just a couple of
-gumdrops, but…" She trailed off as the gargoyle shook its head.
+She relaxed, if only a little.
+"Thank you for rescuing it," she said.
+"I, um, I don't have much, just a couple of gumdrops, but…"
+She trailed off as the gargoyle shook its head.
 
-"I don't have much use for gumdrops," he said gently. "But I'd love
-to hear you play. It's been a long time since I heard any music."
+"I don't have much use for gumdrops," he said gently.
+"But I'd love to hear you play.
+It's been a long time since I heard any music."
 
-"I don't play it any more," Still said. "Not really. But if you'd
-like to come down to the market some day, I—I sort of play there.
+"I don't play it any more," Still said.
+"Not really.
+But if you'd like to come down to the market some day, I—I sort of play there.
 People seem to like it."
 
-The gargoyle shook his head again. "I wish I could."
+The gargoyle shook his head again.
+"I wish I could."
 
-"Oh, come on," Still said bravely. Her violin was all right. She could
-be brave. "I think the building would be safe for one day without you
-here."
+"Oh, come on," Still said bravely.
+Her violin was all right.
+She could be brave.
+"I think the building would be safe for one day without you here."
 
-The gargoyle's voice scraped, *skrrk skrrk skrrk*. It took Still a
-moment to realize that he was laughing. "No," he finally said. "I
-can't come down because I *can't*. Look!" He spread his wings and
-reached for the sky with both arms. Still gasped. His top half was
-alive, but his bottom half was part of the building!
+The gargoyle's voice scraped, *skrrk skrrk skrrk*.
+It took Still a moment to realize that he was laughing.
+"No," he finally said.
+"I can't come down because I *can't*. Look!"
+He spread his wings and reached for the sky with both arms.
+Still gasped.
+His top half was alive, but his bottom half was part of the building!
 
-"You see?" he asked. "That's why I'm called a 'guard
-goyle'—I'm always on guard."
+"You see?" he asked.
+"That's why I'm called a 'guard goyle'—I'm always on guard."
 
 "On guard for what?"
 
-The gargoyle shrugged. "Not much, actually. The shops around here all
-closed a long time ago. Now only the fog and I are left."
+The gargoyle shrugged.
+"Not much any more.
+The shops around here all closed a long time ago.
+Now only the fog and I are left."
 
-Still suddenly felt sorry for the stony creature. Stuck up on the roof,
-year in, year out, with no-one to talk to—it must be horrible.
+Still suddenly felt sorry for the stony creature.
+Stuck up on the roof, year in, year out, with no-one to talk to—it must be horrible.
 
-"But I don't mind," the gargoyle said, almost as if he had read her
-mind. "The birds bring me news of what's happening in the world, and
-the wind brings me newspapers to tell me what the birds don't know. And
-every winter I get to see whether icicles ever grow the same way twice.
-They don't, you know. At least, they never have."
+"But I don't mind," the gargoyle said,
+almost as if he had read her mind.
+"The birds bring me news of what's happening in the world,
+and the wind brings me newspapers to tell me what the birds don't know.
+And every winter I get to see whether icicles ever grow the same way twice.
+They don't, you know.
+At least, they never have."
 
-"So they're like snowflakes," Still said. "Each one is different."
+"So they're like snowflakes," Still said.
+"Each one is different."
 
-The gargoyle blinked. "Really? I never knew that."
+The gargoyle blinked.
+"Really? I never knew that."
 
-Still laughed. "Oh, come on. Everybody knows that!"
+Still laughed.
+"Oh, come on. Everybody knows that!"
 
-The gargoyle shook his head solemnly. "Not me." He held out his hand
-for a moment, then brought it close to his eyes. "So you're one of a
-kind, are you?" he asked lightly.
+The gargoyle shook his head solemnly.
+"Not me."
+He held out his hand for a moment, then brought it close to his eyes.
+"So you're one of a kind, are you?" he asked softly.
 
-Still laughed, thinking he was joking, but then he blew gently on his
-palm. A single white flake danced away into the night.
+Still laughed, thinking he was joking, but then he blew gently on his palm.
+A single white flake danced away into the night.
 
-She watched it lose itself in the darkness. "I should go," she said.
+She watched it lose itself in the darkness.
+"I should go," she said.
 "I need to find somewhere to sleep tonight."
 
-"I don't mind you sleeping here," the gargoyle replied. When Still
-didn't answer, he continued, "You'd be safer than you would most
-places."
+"I don't mind you sleeping here," the gargoyle replied.
+When Still didn't answer, he continued,
+"You'd be safer than you would most places."
 
 "Are you sure?" Still asked.
 
-The gargoyle nodded, smiling a little shyly. "Yes, I'm sure. It's
-nice having something worthwhile to guard again after all these years."
+The gargoyle nodded, smiling a little shyly.
+"Yes, I'm sure.
+It's nice having something worthwhile to guard after all these years."
 
-Still slept with her violin in her arms that night, as she did every
-night. The gargoyle watched over her, as he had every night since she
-first climbed onto the roof. The moon rose and set. A handful of stars
-twinkled through the ever-present fog until morning came again.
+Still slept with her violin in her arms as she did every night.
+The gargoyle watched over her,
+as he had every night since she first climbed onto the roof.
+The moon rose and set.
+A handful of stars twinkled through the ever-present fog until morning came again.
 
-Still took her violin to the market that morning. "I need to find a
-blanket to wrap it in," she told the gargoyle brightly. "In case it
-snows again." She couldn't meet the gargoyle's eyes as she spoke. All
-he said was, "Keep it safe."
+Still took her violin to the market in the morning.
+"I need to find a blanket to wrap it in," she told the gargoyle brightly.
+"In case it snows again."
+She couldn't meet the gargoyle's eyes as she spoke.
+All he said was, "Keep it safe."
 
-"Oh, so you do still have it," Attic exclaimed when she arrived at his
-stall.
+"Oh, so you do still have it,"
+Attic exclaimed when she arrived at his stall.
 
-"Yes, I do. I need to find a blanket for it." Still leaned over his
-counter to fish out the book she had started reading the previous
-morning.
+"Yes, I do. I need to find a blanket for it."
+Still leaned over his counter to fish out the book she had started reading the previous morning.
 
 "A blanket? Well, the best place would probably be—Look out!"
 
-Attic grabbed her arm and pulled her halfway up onto the counter. Still
-yelped, twisting so that she wouldn't crush her violin. Hard rubber
-wheels screeched behind her. A familiar voice said, "No problem. No
-problem. Easy stop."
+Attic grabbed her arm and pulled her halfway up onto the counter.
+Still yelped, twisting so that she wouldn't crush her violin.
+Hard rubber wheels screeched behind her.
+A familiar voice said,
+"No problem. No problem. Easy stop."
 
-Still shook off Attic's arm and turned around. It was
-Crest-of-the-Wave, of course, in his green-and-gold uniform, with a
-matching scarf wrapped around his neck. He twirled on his skates, so
-that the ends of the scarf lifted up like the wings of a gaudy bird.
+Still shook off Attic's arm and turned around.
+It was Crest-of-the-Wave, of course,
+in his green-and-gold uniform with a matching scarf wrapped around his neck.
+He twirled on his skates
+so that the ends of the scarf lifted up like the wings of a gaudy bird.
 
 "How about being a little more careful?" Attic demanded angrily.
 "It's getting icy—you could slip and really hurt someone."
 
-Crest-of-the-Wave just spun around again, then fished three dark twists
-of licorice out of his pocket and held them up triumphantly.
+Crest-of-the-Wave just spun around again,
+then fished three dark twists of licorice out of his pocket and held them up triumphantly.
 
 "Wow," Still said. "Big job?"
 
-Crest-of-the-Wave nodded vigorously. "Biggest. Cargo balloon crashed
-last night. Everything lost. Oil, songs, boots, everything. Had to tell
-the shipper. Bankrupt, probably."
+Crest-of-the-Wave nodded vigorously.
+"Biggest. Cargo balloon crashed last night.
+Everything lost.
+Oil, songs, boots, everything.
+Had to tell the shipper.
+Bankrupt, probably."
 
-"I guess your lucky face paint came through again." Still pointed.
+"I guess your lucky face paint came through again."
+Still pointed.
 "You still have some on your cheek."
 
-"Whoops." Crest-of-the-Wave wiped it away with the end of his scarf.
+"Whoops."
+Crest-of-the-Wave wiped it away with the end of his scarf.
 
-"Balloon crash… Do you mean the *Wandersome*?" Attic asked from
-behind Still.
+"Balloon crash… Do you mean the *Wandersome*?"
+Attic asked from behind Still.
 
-"Very same." Crest-of-the-Wave winked at Still. "Smart, he is. You
-coming to watch us skate this afternoon? Learned a new trick. Like this,
-step step slide, and around, and—"
+"Very same."
+Crest-of-the-Wave winked at Still.
+"Smart, he is.
+You coming to watch us skate this afternoon?
+Learned a new trick.
+Like this, step step slide, and around, and—"
 
-"Well, that's surprising. Have you seen this morning's papers yet?"
-Attic interrupted loudly. He tapped Still on the shoulder and handed her
-a freshly-baked newspaper. "Right there," he said, pointing to a small
-box at the bottom of the page.
+"Well, that's surprising.
+Have you seen this morning's papers yet?"
+Attic interrupted loudly.
+He tapped Still on the shoulder and handed her a freshly-baked newspaper.
+"Right there," he said,
+pointing to a small box at the bottom of the page.
 
-"Correction," Still read aloud. "We reported yesterday that the
-*Wandersome*, en route hither with full cargo, had been lost. She had in
-fact only sustained some minor damage setting down for repairs. We
-regret any inconvenience or distress our error may have caused…"
-Still trailed off. She looked up at Crest-of-the-Wave.
+"Correction," Still read aloud.
+"We reported yesterday that the *Wandersome*, en route hither with full cargo, had been lost.
+She had in fact only sustained some minor damage setting down for repairs.
+We regret any inconvenience or distress our error may have caused…"
+Still trailed off.
+She looked up at Crest-of-the-Wave.
 
 The roller-skating puppet didn't seem bothered by the news at all.
-"Must have been some other balloon," he said brightly. "Or they sent
-me before they knew."
+"Must have been some other balloon," he said brightly.
+"Or they sent me before they knew."
 
-"Or maybe it's just the paint talking," Attic muttered. He dropped an
-armload of books onto the counter with a thud.
+"Or maybe it's just the paint talking," Attic muttered.
+He dropped an armload of books onto the counter with a thud.
 
-"Come with me next time, then." Crest-of-the-Wave rolled a little
-closer to Attic's stall. He put his elbows on the counter and winked at
-Still. "Do you good. Get some fresh air. Meet some new people. Have
-some fun, if you want."
+"Come with me next time, then."
+Crest-of-the-Wave rolled a little closer to Attic's stall.
+He put his elbows on the counter and winked at Still.
+"Do you good.
+Get some fresh air.
+Meet some new people.
+Have some fun, if you want."
 
-"What I *want* is for you to run over someone else's customers. Now,
-could you move your arms, please? I'm trying to get these sorted."
-Attic dropped another armload of books onto the counter with an even
-louder thud. Crest-of-the-Wave straightened up, raising his hands in
-mock apology.
+"What I *want* is for you to run over someone else's customers.
+Now, could you move your arms, please?
+I'm trying to get these sorted."
+Attic dropped another armload of books onto the counter with an even louder thud.
+Crest-of-the-Wave straightened up,
+raising his hands in mock apology.
 
-"Oh, Attic, don't be so rude." Still put her book down on top of the
-pile on the counter with a much smaller thud. "I wasn't even really in
-his way."
+"Oh, Attic, don't be so rude,"
+Still said.
+"I wasn't even really in his way."
 
-"No problem, no problem." Crest-of-the-Wave wrapped his scarf around
-his neck. "Want to go practice that new trick anyway. Where there's
-lots of space, so I don't run anyone over. See you this afternoon." He
-did a quick double spin and shot off like a brightly colored bird.
+"No problem, no problem."
+Crest-of-the-Wave wrapped his scarf around his neck.
+"Want to go practice that new trick anyway.
+Where there's lots of space, so I don't run anyone over.
+See you this afternoon."
+He did a quick double spin and shot off like a brightly colored bird.
 
 "Good riddance," Attic muttered, glaring.
 
 Still punched him in the shoulder, just a little too hard to be playful.
-"That was really rude. He wouldn't have run me over. Why do you have
-to be such a dull pair of scissors, anyway?"
+"That was really rude.
+He wouldn't have run me over.
+Why do you have to be such a dull pair of scissors, anyway?"
 
-"Maybe I just need to meet some new people," he replied sourly. "Or
-get some fresh air."
+"Maybe I just need to meet some new people," he replied sourly.
+"Or get some fresh air."
 
-"Well, maybe you do." All of a sudden Still felt restless and fed up.
-"Anyway, I'm going to go and look for a blanket. I'll see you
-tomorrow." She tucked her violin under her arm and turned to go.
+"Well, maybe you do."
+All of a sudden Still felt restless and fed up.
+"Anyway, I'm going to go and look for a blanket.
+I'll see you tomorrow."
+She tucked her violin under her arm and turned to go.
 
 "Have fun roller skating," Attic said to her back.
 
 "I will," she said over her shoulder.
 
-Still looked in five stalls before finding a red flannel blanket that
-felt soft enough. She asked the stall keeper to hold onto it, just for a
-day or two, so that she could get enough candy together to buy it.
-"Here, take it," he said. "Give me what you've got when you've got
-it."
+Still looked in five stalls before finding a red flannel blanket that felt soft enough.
+She asked the stall keeper to hold onto it,
+just for a day or two,
+so that she could get enough candy together to buy it.
+"Here, take it," he said.
+"Give me what you've got when you've got it."
 
-Still felt a catch in her throat. The market vendors only gave credit to
-their own. She thanked him, then wrapped her violin up carefully and
-went off to perform.
+Still felt a catch in her throat.
+The market vendors only gave credit to their own.
+She thanked him,
+then wrapped her violin up carefully and went off to perform.
 
-The market was busy despite the cold. She set her red-wrapped violin
-down carefully on the cobblestones at her feet with a little folded
-paper box in front of it. She raised her arms, closed her eyes, and
-waited for silence to blow through her like wind through leaves. She
-played slowly, thoughtfully, thinking about Attic and Crest-of-the-Wave.
-She liked them both a lot, but she didn't want to become tangled up in
-anyone else's strings…
+The market was busy despite the cold.
+She set her red-wrapped violin down carefully on the cobblestones at her feet
+with a little folded paper box in front of it.
+She raised her arms,
+closed her eyes,
+and waited for silence to blow through her like wind through leaves.
+She played slowly, thoughtfully, thinking about Attic and Crest-of-the-Wave.
+She liked them both, but she didn't want to become tangled up in anyone else's strings…
 
-She was so wrapped up in her playing that didn't even hear the noon
-bell ring. When she opened her eyes, there was enough candy in her box
-to pay for the blanket, and dinner, and dinner the next day, too. It was
-the most candy she had ever earned in a single day.
+She was so wrapped up in her playing that she didn't even hear the noon bell ring.
+When she opened her eyes,
+there was enough candy in her box to pay for the blanket, and dinner, and dinner the next day, too.
+It was the most she had ever earned in a single day.
 
-The stall keeper was surprised to see her back so soon, and even more
-surprised when she gave him one more gumdrop than they had agreed. He
-told her she could be his customer any time she wanted. She laughed,
-then walked through the market to the fountain where the roller skaters
-gathered.
+The stall keeper was surprised to see her back so soon,
+and even more surprised when she gave him one more gumdrop than they had agreed.
+He told her she could be his customer any time she wanted.
+She laughed, then walked through the market to the fountain where the roller skaters gathered.
 
-Crest-of-the-Wave was sitting on the lip of the fountain. "What's the
-matter?" Still asked. "I thought you had a new trick to practice."
+Crest-of-the-Wave was sitting on the lip of the fountain.
+"What's the matter?" Still asked.
+"I thought you had a new trick to practice."
 
-Crest-of-the-Wave nodded. "Tired. Takes the gears right out of you
-sometimes."
+Crest-of-the-Wave nodded.
+"Tired. Takes the gears right out of you sometimes."
 
-Still nodded sympathetically. He did look tired, just as he always did
-after a successful job. "I'm sorry about Attic. I don't know why he
-was being so rude."
+Still nodded sympathetically.
+He did look tired, just as he always did after a successful job.
+"I'm sorry about Attic.
+I don't know why he was being so rude."
 
 Crest-of-the-Wave looked straight at her. "No?"
 
@@ -2515,99 +2563,115 @@ Still shifted uncomfortably and looked away. "No, I don't."
 
 "Oh." Crest-of-the-Wave shrugged. "Guess I don't either then."
 
-They sat in silence for a few moments, watching the roller skaters do
-their tricks. Crest-of-the-Wave eventually stirred. "See you
-tomorrow?"
+They sat in silence for a few moments,
+watching the roller skaters do their tricks.
+Crest-of-the-Wave eventually stirred. "See you tomorrow?"
 
 "Where are you going?" Still asked.
 
-Crest-of-the-Wave shrugged. "Sleep. Busy night tomorrow. Need to be
-rested."
+Crest-of-the-Wave shrugged.
+"Sleep. Busy night tomorrow. Need to be rested."
 
 "More bad news to deliver?"
 
-Crest-of-the-Wave shook his head. "Nope. Twins and I are going
-shopping. Need some new clothes."
+Crest-of-the-Wave shook his head.
+"Nope. Twins and I are going shopping. Need some new clothes."
 
-"Oh." Still didn't think much of the twins. Sometimes they changed
-their faces twice or three times a day. They made Crest-of-the-Wave look
-like—well, like Attic. "Where are you going shopping?"
+"Oh."
+Still didn't think much of the twins.
+Sometimes they changed their faces twice or three times a day.
+They made Crest-of-the-Wave look like—well, like Attic.
+"Where are you going shopping?"
 
-Crest-of-the-Wave stood, waggling his head from side to side to get a
-kink out. "It's a secret. You can come with us, if you want."
+Crest-of-the-Wave stood,
+waggling his head from side to side to get a kink out.
+"It's a secret. You can come with us, if you want."
 
-Still fingered the gumdrops in her pocket. "I don't really have enough
-candy for clothes."
+Still fingered the gumdrops in her pocket.
+"I don't really have enough candy for clothes."
 
-Crest-of-the-Wave rolled his eyes. "Won't need it. Anyway, see you
-tomorrow." He skated away without saying goodbye.
+Crest-of-the-Wave rolled his eyes.
+"Won't need it. Anyway, see you tomorrow."
+He skated away without saying goodbye.
 
-The gray sky was somehow even grayer after Crest-of-the-Wave left. Still
-let her feet carry her back to her usual sleeping place. She had just
-crossed the bridge over the canal when she heard wheels squeaking in the
-fog on her left. She knew that sound—it was the faceless old
-mumbler's baby carriage. She hurried along, frightened by the thought
-of his blank features, and by the possibility that he might be bringing
-her another paper boat.
+The gray sky was somehow even grayer after Crest-of-the-Wave left.
+Still let her feet carry her back to her usual sleeping place.
+She had just crossed the bridge over the canal when she heard wheels squeaking in the fog on her left.
+She knew that sound—it was the faceless old mumbler's baby carriage.
+She hurried along,
+frightened by the thought of his blank features,
+and by the possibility that he might be bringing her another paper boat.
 
-When she reached the drainpipe, she tied the corners of the blanket
-together to make a little sack. Slinging it around her neck, she climbed
-hand over hand to the roof. "Hello," she said brightly to the
-gargoyle.
+When she reached the drainpipe
+she tied the corners of the blanket together to make a little sack.
+Slinging it around her neck,
+she climbed hand over hand to the roof.
+"Hello," she said to the gargoyle.
 
 "Hello," he replied. "I wasn't sure you would come back."
 
-"Of course I was going to." She undid the knot that held the blanket
-around her neck and held it up. "I found a blanket. See? That ought to
-do, don't you think?"
+"Of course I was going to."
+She undid the knot holding the blanket around her neck and held it up.
+"I found a blanket.
+See? That ought to do, don't you think?"
 
 "It looks just right to me," the gargoyle agreed.
 
-Just then they heard rusty wheels go *squeak squeak* down below. "Oh,
-he gives me the shivers," Still said.
+Just then they heard rusty wheels go *squeak squeak* down below.
+"Oh, he gives me the shivers," Still said.
 
-"You mean Nickel?" The gargoyle shook his head. "It's sad. He used
-to grow balloons, years ago. Had a greenhouse full of them, all shapes
-and colors."
+"You mean Nickel?" The gargoyle shook his head.
+"It's sad. He used to grow balloons, years ago.
+Had a greenhouse full of them, all shapes and colors."
 
 Still rewrapped her violin. "What happened?"
 
-The gargoyle sighed. "He had a friend, another balloon grower named
-Pencil. She wanted to get him something special for his birthday, so she
-went down into the old sewer tunnels under the city to see if she could
-find him a transparent balloon."
+The gargoyle sighed.
+"He had a friend, another balloon grower named Pencil.
+She wanted to get him something special for his birthday,
+so she went down into the old sewer tunnels under the city
+to see if she could find him a transparent balloon."
 
 "A *transparent* balloon? I didn't know there was such a thing."
 
-The gargoyle nodded. "They're very rare. They only grow underground,
-where there's never any light. But she didn't find her balloon.
+The gargoyle nodded.
+"They're very rare.
+They only grow underground, where there's never any light.
+But she didn't find her balloon.
 Something else found her instead."
 
-"Glass rats," Still whispered. Glass rats, with little voices going
-*tee hee, tee hee*.
+"Glass rats," Still whispered.
+Glass rats, with little voices going *tee hee, tee hee*.
 
-The gargoyle nodded again. "All that was left was a few pieces of
-gnawed clockwork. Nickel, well, it was just too much for him. The next
-day, he painted a great big smile on his face. When that didn't make
-him feel any better, he had another one done, even bigger. Pretty soon
-he was getting a new face done every single day, and then…"
+The gargoyle nodded again.
+"All that was left was a few pieces of gnawed clockwork.
+Nickel, well, it was just too much for him.
+The next day, he painted a great big smile on his face.
+When that didn't make him feel any better, he had another one done, even bigger.
+Pretty soon he was getting a new face done every single day, and then…"
 
 "And then?"
 
-The gargoyle rustled his stony wings. "And then he bought a chisel and
-tried *carving* himself a smile. When even *that* didn't work, he
-sanded it off and tried again. And again, and again." The gargoyle
-shrugged. "By the time he was done, there was so little left of him
-that even *he* didn't know who he was."
+The gargoyle rustled his stony wings.
+"And then he bought a chisel and tried *carving* himself a smile.
+When even *that* didn't work, he sanded it off and tried again.
+And again, and again."
+The gargoyle shrugged.
+"By the time he was done,
+there was so little left of him that even *he* didn't know who he was."
 
-Oily tears welled up in Still's eyes. "That's so sad," she
-whispered.
+Oily tears welled up in Still's eyes.
+"That's the saddest thing I've ever heard," she whispered.
 
-The gargoyle nodded. "Yes, it is."
+The gargoyle looked at her for a long moment.
+"Let's hope that's always true,"
+he finally said.
 
-Still looked up. Were there more stars out tonight than usual? Or was
-the fog just a little thinner? She stretched out at the gargoyle's feet
-with her violin in her arms. "Good night," she said softly.
+Still looked away, then up.
+Were there more stars out tonight than usual?
+Or was the fog just a little thinner?
+She stretched out at the gargoyle's feet with her violin in her arms.
+"Good night," she said softly.
 
 "Good night," he replied, but she was already asleep.
 
