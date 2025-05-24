@@ -311,7 +311,7 @@
 -   Get to the harbor through the fighting.
     -   Aunt Naggie ditches Uncle Jack (callback to Wales knocking him out earlier).
 -   Iffy messages Jeep to try to find out what's going on.
-    -   Everyone in Halley thinks that GS Rothera had GS Paddington killed.
+    -   Everyone in Halley thinks that GS Paddington had GS Halley killed.
     -   Aussies are on their way.
 -   The strange antenna sends the torpedo drones away so that they can get out of the harbor.
     -   Other ships are fleeing as well as the Zillions launch a full-scale invasion.

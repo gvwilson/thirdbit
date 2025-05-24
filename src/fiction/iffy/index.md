@@ -6091,3000 +6091,359 @@ Aunt Naggie said coldly.
 
 ## Chapter 7
 
-FIXME: escape back to the *Guinevere* with Wales, Doctor Johel, and some Marines
-
-They were halfway back to the stairs when the second explosion shook the building.
-The blast felt like being hit hard with a giant pillow.
-Aunt Naggie stumbled and fell awkwardly to the floor.
-All the lights went out.
-Red emergency panels---completely off the network, with their own power supplies---kicked in
-half a second later,
-making the corridor look like something from a horror sim.
-Half-deafened,
-Iffy still heard the crash-after-crash of the shattered glass roof of the greenhouse
-raining down on the plants below.
-
-"I thought you said they were contained!" Wales shouted.
-
-"They are!" Doctor Johel shouted back
-as Iffy helped Aunt Naggie stand.
-"That was outside, not the basement!"
-
-Her foster mother cradled one arm in the other.
-"I think my wrist's broke," she said,
-her faced strained.
-
-Another explosion,
-then another,
-further away but still loud enough to be felt as well as heard.
-Wales took Doctor Johel's arm.
-"We have to get out of here,"
-he said urgently.
-"Gayathri, no, now!"
-He pulled her along as she protested.
-
-Doctor Johel shook him off.
-"I have to get back to my feeds.
-The governor---"
-And then Wales touched the back of her head.
-Her eyes fluttered and her face went slack.
-
-"Gayathri."
-Wales shook her gently.
-"Gayathri,
-are you with me?"
-
-Doctor Johel shook her head muzzily.
-"Sorry..." she mumbled.
-"I have to reboot."
-She giggled incongruously.
-"Feels like I had too much to..."
-
-She would have toppled over if Wales hadn't caught her.
-Swearing under his breath
-he slung her over his shoulder.
-"Follow me," he ordered.
-"And stay close."
-
-Iffy and Aunt Naggie had to jog to keep up with him
-as he strode along the corridor and down the stairs.
-"Where's medical?" he demanded of the first Marines they saw.
-
-"Sir, I---"
-
-"I said where's medical, soldier?" Wales snapped.
-"Her tech may be compromised and she has a possible concussion."
-
-"Second on the left, sir, then first right."
-They paused a moment as data flowed across their visor.
-"No structural damage there, sir.
-You should be safe."
-
-Iffy expected the infirmary to look like the hospital in Halley:
-scanner beds with surgical bots attached to either end
-and cartoon posters reminding people to get regular checkups
-and put Volkov's hot sauce on everything.
-Instead it had blank walls painted toothpaste blue
-and was staffed by human medics in lightweight exoskeletons,
-each with a bewildering variety of attachments on the arms.
-She realized later it was for security---the last thing anyone would want during an attack
-was to be at the mercy of a hacked surgical bot---but right then
-all she could think was, *Honesty, where are you?*
-because half a dozen Marines lay on stretchers or stood unconscious,
-held up only by their armor
-as they wait for help.
-
-"Priority patient," Wales said,
-sliding Doctor Johel off his shoulder.
-
-"They're all priorities, sir,"
-the medic said,
-their eyes sparkling as they scanned the doctor's face.
-
-Doctor Johel stirred.
-"Ouch," she whimpered.
-"Johnson---what?"
-
-"It's okay," he said soothingly.
-"You just rebooted, that's all.
-You'll be back on your feet in no time."
-As the medic lifted her weight out of Wales' arms,
-he slipped his hand into his pocket.
-"Come on," he told Iffy and Aunt Naggie.
-"Let's let them work."
-
-"Is she gonna be aright?"
-Aunt Naggie asked anxiously as Wales led them back the way they had come.
-
-"She'll be fine.
-Her tech's a little sensitive, that's all."
-He glanced around and then took Doctor Johel's security bracelet out of his pocket,
-grinning like a naughty child.
-"Now, do you two like heist sims?"
-
-They walked past the stairs and the entrance they had come in,
-stepping out of people and bots.
-Iffy looked at every Marine who hurried past hoping to see Honesty,
-but they either had their visors down or weren't her friend.
-
-A side corridor brought them to a narrow flight of stairs
-that led down to a blank door.
-As Wales waved the bracelet in front of the lock
-Iffy wondered if the governor would have them wiped if they were caught.
-*Prolly not him,* she thought sourly as Wales tested the handle.
-*They __need__ him.*
-
-The door opened with a click.
-An automatic light came on,
-revealing two aisles lined with the same bamboo-and-wireframe shelves that Mister Mishra had in his shop.
-Wales' toolbox sat among the boxes and duffel bags with his bear perched on top of it,
-its blue eyes as dull as old buttons.
-
-He stuffed the bear inside his coat and lifted the toolbox off the shelf.
-"Right," he said briskly.
-"Let's get the hell out of here."
-
-Nobody stopped them.
-*Nobody's even really lookin' at us,* Iffy realized.
-Whether it was Doctor Johel's bracelet or something Wales had done,
-the security systems seemed to be telling everyone
-that they weren't worth paying attention to,
-and as yet another explosion sounded in the distance,
-everyone who might have wondered where they were going
-had other things on their mind.
-
-Honesty wasn't at the door but two other Marines were,
-one so heavily augmented that they weren't wearing their exoskeleton
-so much as built into it.
-"Sixteen orange kneecap!" Wales barked,
-holding up the security bracelet but not slowing down.
-
-"How'd you get the code?"
-Iffy hissed as they hurried across the square.
-
-"Just made it up, but they don't know that.
-Here."
-He unzipped his jacket one-handed and passed her the toy bear.
-"You should---"
-
-*---the world slowed down as crisp colored lines painted themselves
-across wireframe renderings of the buildings.
-Iffy could see the cables beneath the street,
-some so old that they were made of metal instead of glass fiber.
-She could see information flowing through them
-like waves rising and falling on the ocean
-and other information leaping between people and bots and relays
-like lightning sparking from one mast to another.
-There and there and there
-the signals tasted like salt and apricot jam
-but they were coming together
-and when they did---*
-
-"Look out!" she shouted,
-grabbing Aunt Naggie and pulling her down beside her
-half a second before another explosion in the sky above them
-made the grit on the cobblestones dance.
-
-*I'm gonna need new ears,* Iffy thought,
-wondering how much they'd cost and whether she and Aunt Naggie could get a discount
-if they bought two pairs at the same time.
-She was in shock, she realized dumbly.
-It was if someone else was having the thought
-and she was watching it through a window that hadn't been cleaned in a long, long time.
-She was in shock and she'd been hacked or something like it
-and being wiped would be the least of her worries if the governor found out.
-
-Aunt Naggie was helping her up.
-"Keep moving," Wales urged.
-"No telling when the next one's going to---"
-
-"Twenty-eight seconds," Iffy said.
-She pointed up where vectors only she could see intersected.
-"They're shootin' hypersonic darts.
-They're all too small fer radar 'n' such t' pick up on their own---"
-
-"---but when they all hit each other at the same time, kaboom," Wales finished.
-He stared at her.
-"Can you track back to their firing sites?"
-
-The world swam before Iffy's eyes.
-The vectors and information streams blurred and disappeared.
-She bent over and threw up the tea and sweets she had enjoyed so much.
-
-"I'm sorry," she mumbled.
-"I'm sorry."
-
-"Oh love," Aunt Naggie fretted,
-taking Iffy's shoulders to steady her.
-
-"Ten seconds," Wales warned, covering his ears.
-Iffy did the same,
-but Aunt Naggie squeezed her eyes shut and held onto her foster daughter.
-
-*Crack!*
-
-Iffy's overlays reappeared as suddenly as they had vanished.
-She spat,
-which didn't improve the taste in her mouth one bit,
-and waved weakly toward the harbor.
-"There's one out that way,
-'bout fifteen kay offshore,
-an' another bearin' forty five degrees,
-same distance or nearly."
-She straightened,
-shrugging off Aunt Naggie and taking a shaky breath.
-"Th' other two are inland," she continued.
-"They're movin' between each shot.
-Movin' fast,"
-she added.
-
-Aunt Naggie looked at Wales wide-eyed.
-"What're  you doin' to her?" she asked plaintively.
-
-"Me!?"
-Wales exclaimed.
-"I'm not doing this.
-Even if I could, I wouldn't do it to her, I swear.
-Now come on---we have to get back to the *Guinevere* and get out of here."
-
-"Get out o' here?"
-Aunt Naggie shook her head.
-"We won't get ten meters 'fore they stop us."
-
-"We will if the antenna Iffy put together last night does what it's supposed to,"
-Wales said grimly.
-"Now come on."
-
-Iffy only remembered flashes of the next hour afterward.
-Glass scattered on the road like ice crystals on deck during a midwinter freeze.
-Aunt Naggie wiping her bleeding nose and arguing with Wales.
-A quartet of Marines jogging past with impossibly long strides in their exoskeletons,
-one of them carrying a bundle wrapped in a bright orange parka stained with red.
-A seagull swooping down to pilfer a dropped box of spring rolls.
-A woman with long purple locks in a dressing gown exactly the same color
-shouting a warning or a plea or a question or maybe all three.
-A cleaning bot sweeping rubble off to the side of the road.
-More people,
-adults and children ducking each time an explosion cracked in the air above them.
-The dock,
-impossibly far away but suddenly somehow under their feet,
-and then the *Guinevere*.
-
-"Where'n th' affin' hell have you been?"
-Uncle Jack raged as Aunt Naggie helped Iffy up the gangplank,
-murder in his drink-reddened eyes.
-
-Without waiting for a reply he turned to block Wales' way.
-"Like hell are you comin' back on my ship," he spat.
-"You bin nothin' but bad luck 'n' trouble
-an' I've had enough o' both.
-An' don't you 'but Jack' me,"
-he continued,
-turning back to his wife.
-"*I'm* th' captain an' *I* say what goes an' what doesn't
-an' if you don't like it you can find another affin' ship to sail on!
-An' you can take that whimperin' soft nonsense o' yours with you when you go!"
-
-He turned back to Wales.
-"Now, you get your stern back down on that pier right affin' now or I'm gonna---"
-
-The gaff hook hit the back of his head with a solid thunk.
-For the second time that day he fell senseless to the deck.
-
-Aunt Naggie hefted the gaff hook,
-waiting to be sure he was out before setting it back on the wall.
-"Been wantin' to do that for years,"
-she said levelly.
-
-Iffy sat in the pilot house,
-Wales' toy bear lifeless in her lap,
-while Aunt Naggie brought the *Guinevere* to life.
-Wales untied the staylines and secured the deck
-with an economy of motion that betrayed years of experience,
-either earned or inducted.
-
-"I'll get you some of Edson's medicine soon as we're under way,"
-Aunt Naggie promised over her shoulder.
-
-Iffy nodded.
-"Thanks, auntie."
-She could feel her head clearing like an image coming into focus.
-Whatever had happened was gone again,
-as unreal to her now as a dream.
-She was hungry,
-she realized,
-starving hungry despite the sour taste that still lingered in her mouth.
-
-She was about to offer to make some tea when Wales' voice came over the speaker.
-"All clear here."
-
-"Nothin' ventured," Aunt Naggie muttered,
-her hands dancing across the controls.
-The *Guinevere*'s engines thrummed to life.
-As they pulled away from the pier
-Iffy looked at the feed from the forward cameras
-that showed Uncle Jack lying on the pier with his coat pillowed under his head.
-
-"Won't be the same 'round here without him," she said.
-
-Her foster mother nodded.
-"You're right.
-It'll be better.
-Assumin' nobody sinks us, that is."
-
-"Maybe even then,"
-Iffy replied.
-Aunt Naggie leaned over and kissed the top of her head.
-
-The *Guinevere*'s new captain brought the ship around in a tight arc
-that left them pointing straight at the harbor mouth.
-Iffy watched on the displays as sentry torpedoes came toward them and then veered away.
-Drones did the same overhead
-as their cores' instinct to investigate was overridden by whatever the antenna on deck was telling them.
-She glanced down at the toy bear from time to time,
-half-expecting it to be back online,
-but whether it was either off or hibernating or simply biding its time,
-its blue eyes stayed lifeless.
-
-"You know,
-half the time when the machines won battles
-it was because people acted like machines,"
-Wales said as he joined them.
-He gestured at a sleek Marine destroyer at anchor a hundred meters away.
-Half a dozen crew stood on deck watching them go by.
-"They have to be wondering why we're moving when nothing else is,
-or why we're allowed out to sea when Rothera is under attack,
-but as long as the ship's core tells them it's okay,
-they'll tell themselves we must be some sort of special ops mission
-or have friends in dark places.
-Which for all I know is actually true,"
-he finished philosophically.
-
-"I'm sorry,"
-Iffy said.
-"I don't know why it happens.
-I don't even know what 'it' *is*.
-But you do, don't you?"
-She was angry, she realized.
-She hadn't meant for it to sound like an accusation,
-but now that the words were out she couldn't stop.
-"You know what's goin' on with me."
-
-"An' you," she continued to Aunt Naggie before either of the adults could speak.
-"That medicine you been feedin' me---you *knew*,
-di'n't you?
-All this time I been wonderin' what's wrong with me 'cuz I can see how machines work,
-an' you *knew*."
-
-Wales and Aunt Naggie exchanged looks.
-She nodded almost imperceptibly.
-He crossed his arms and leaned his broad shoulders against the pilot house door.
-"Let me tell you a story," he said quietly.
-
-"Once upon a time,
-way back when before everything fell apart,
-people dreamed of going to the stars.
-We made it to the Moon,
-and a few ships got as far as Mars,
-but it was just too hard and too expensive to put people into space.
-Bots could do everything we could do,
-and they didn't need air or water,
-and anyway,
-we had bigger problems to solve at home."
-
-"But a few people kept dreaming.
-They thought that maybe if we had a different kind of human being we could make it work.
-We were already tweaking people to cure diseases.
-A few labs here and there were making them stronger and faster,
-and everyone was trying to figure out how to make people smarter.
-Why not go a little further and make a better astronaut?
-Why not give them super-dense bones so they could handle higher gee during liftoff
-and hypermelanic skin so that they wouldn't have to worry about ultraviolet exposure?
-Why not borrow a few ideas from bears so that they could hibernate for months at a time?
-And if you're going to do all of that,
-why not put some tech in their heads so that they can talk to their ships?"
-
-Wales kept his eyes on the *Guinevere*'s displays as he splke.
-"Doctor Johel's grandfather was the lead scientist on the program.
-He made half a dozen of us before the government cut off his funding.
-We were everything he'd promised,
-but the water was rising and people were going hungry and starting to march,
-and making spacemen in test tubes just didn't seem important any more."
-He laughed humorlessly.
-"Plus,
-I guess a few of his backers hadn't realized that 'hyper-melanic' meant we'd be black.
-Apparently they weren't too happy about that."
-
-"I never got into space.
-One of my sisters did,
-once,
-but I haven't heard from any of them in a hundred and fifty years.
-I've spent half of that time asleep
-and the rest of it looking for bits and pieces of gear
-to keep the tech in my head from shorting out."
-
-"So that's why you can talk to satellites?" Iffy ventured.
-
-Wales nodded.
-"Yup.
-And that's why I need to get to Mount Tyree.
-When the revolution came,
-the government in London packed up all its secret projects and sent them down here.
-If what I need to fix my head is anywhere, it's there."
-
-"An' what about *my* head?" Iffy asked.
-
-"Ain't nothin' wrong with your head," Aunt Naggie said firmly.
-"It's just takin' you a while to---to get used t' things."
-
-"One of Professor Johel's other experiments was enhanced spatial reasoning,"
-Wales explained.
-"AIs were designing machines that did amazing things,
-but nobody could understand how they worked.
-That scared a lot of people,
-so Surjinder---Professor Johel---told them
-he could make a person who'd be able to figure them out and explain them to the rest of us."
-
-Iffy's mouth worked as a dozen questions tried to get out at once.
-"So my First was some kind of experiment?"
-
-Wales shook his head.
-"Not the First you knew when you were little---not by a hundred years or more.
-She would have been a clone herself.
-She might not have known the story herself.
-And anyway, it didn't work---not until you came along."
-
-"Edson used t' work in the hospital in Puerto Toro," Aunt Naggie cut in.
-"He helped make you an' your mothers.
-When he heard about---about the accident an' you bein' the only one rescued,
-he came down an' found me an' told me that there'd been a glitch when they were makin' you.
-They had t' put a bit o' tech in your head when you were still inside your older
-so your brain would grow right."
-
-"A synaptic bridge."
-Wales held his thumb and finger a hair's width apart.
-"Just a smart piece of wire to help your cortex do its job,
-but somehow it did what Professor Johel couldn't.
-You can see machines the way cores do.
-You can see how things fit together."
-
-He straightened.
-"But you mustn't tell Gayathri.
-She knows where your olders came from.
-So far she thinks everything we've done together is me testing you.
-If she realizes what you can do..."
-
-Iffy nodded.
-She had played enough sims to know what happened to people with special abilities,
-and she definitely didn't want to spend the rest of her life
-locked in an underground lab being experimented on by someone named Norman
-whose only friend was a malicious bot with a squeaky wheel.
-
-They reached the rocky point that sheltered Rothera's harbor in just a few minutes.
-Iffy watched the scavenged remains of the old research station pass by to starboard.
-Honesty had told her once that it was haunted---that on quiet nights
-the ghosts of the scientists who had once lived there
-came out to try to finish their experiments.
-"What experiments were they don'?" Iffy had asked.
-Honesty had laughed and said that wasn't the point,
-and that Iffy was the most practical person they'd ever met.
-
-"Whaddaya think it's tellin' 'em we are?" she asked Wales,
-jerking her chin at the image of the antenna on the control panel.
-
-He shrugged.
-"No idea.
-And I have no idea who sent you the specs, either.
-But that reminds me---how much of the complement mediator do you have left?"
-
-"Y'mean her medicine?" Aunt Naggie asked.
-"Enough fer a coupla months,
-maybe three if we stretch it."
-
-Wales pursed his lips.
-"I don't think we should.
-If anything,
-we should be increasing the dosage."
-
-"Any idea where we can get more?"
-
-Wales snorted.
-"I'm going to start to sound like a broken sim,
-but if we can get to Mount Tyree
-I ought to be able to print a lifetime supply."
-
-Instead of answering,
-Aunt Naggie tapped a few commands on the *Guinevere*'s console.
-A map appeared showing the coastline,
-the winds and currents,
-recent sea boils,
-and a bent red line marking the optimal course from Rothera
-to the small outpost at Paddington South.
-"Six days if we don't hit trouble," she said,
-tapping the screen with a blunt brown finger.
-
-Wales smiled.
-"In other words,
-we have no idea how long it will take."
-
-The map disappeared.
-*PRIORITY MESSAGE* flashed on the screen for a second,
-then was replaced by Uncle Jack's angry face.
-He got as far as, "You---" before Aunt Naggie hit the mute button.
-The core's transcript of his threats and orders scrolled by,
-every third word marked "abusive content and/or threat of violence".
-
-A horrible thought struck Iffy.
-"He can't remote us, can he?"
-
-"Not any more," Aunt Naggie told her.
-"An' when he gets around t' callin' on the registry
-I think he'll find he has less claim on this old boat than he thought he did."
-She patted the side of the console fondly,
-then made her husband disappear with another tap of her finger.
-
-Iffy surprised herself by yawning.
-"Here."
-She handed the toy bear to Wales.
-"I'm gonna..."
-She yawned again,
-waved vaguely at her foster mother's, "Sleep well, love,"
-and headed for her storage locker.
-
-She detoured a few steps to study the antenna at the stern,
-which looked just as normal as it had that morning,
-then shrugged,
-retraced her steps to her room,
-and closed the door behind her.
-She dropped her jacket beside her boots and fell onto her mattress.
-
-Her app made a soft *ping* just as she closed her eyes.
-"Affin' hell," she swore,
-pulling her pillow over her head.
-*Ping.*
-She swore again,
-rolled over,
-and tapped the screen.
-
-And sat bolt upright,
-her headache and fatigue forgotten.
-The dronelet she had sent to find Honesty had a message for her.
-
-It took the image a hearbeat to uncompress.
-Iffy gulped.
-First and Second were looking straight into the camera,
-and neither of them looked happy.
-The image blanked and re-formed.
-Second was holding their app up for the camera to see.
-"Do u know whr H?" was scrawled across its screen.
-Blank, blur, and a third image.
-"Not home gvnr say null worried."
-
-Iffy tapped her app with trembling fingers.
-The feeds were filled with reports of the attack,
-some official and others coded anywhere from reliable green
-to dubious yellow
-to kaiju-wizards-and-time-travellers red.
-People were dead and it would take weeks to repair the damage,
-but nobody had claimed responsibility---nobody credible, anyway.
-The Zillions said it wasn't them,
-the government in Hobart denied anything was afoot,
-and the machines were silent as always.
-
-She pulled up a map with a network overlay.
-They were already too far from Rothera for her app to connect,
-and she had no idea if using the ship's comms to send a message
-would bungle whatever fuzz the antenna at the stern was making
-to convince the world they weren't there or weren't themselves.
-She could send one of the other dronelets back,
-but she didn't want to lose another and anyway,
-the dronelet wouldn't even make it halfway.
-
-She leaned back against the wall in defeat,
-then jumped as the ship's speakers bonged.
-"Best be on deck," Aunt Naggie's voice said.
-"You'll wanna see this."
-
-Thirty seconds later she stood at the stern beside Wales and her foster mother.
-It was a relatively calm day---the breeze brushing fingers over her shaved scalp
-was cold but not to shivering,
-and the rise and fall of the deck beneath her feet felt so normal
-that she barely noticed it.
-Under other circumstances she would have enjoyed being out in the Antarctic sun,
-but the Marine destroyer closing on them spoiled that.
-
-"It's the *Bengal*," Wales said,
-handing the glasses he had donned a moment before to Iffy.
-"She was anchored three piers over from us in Rothera.
-Two cores, three engines, four crew, a dozen Marines,
-and enough ordnance to give your average pirate a really bad day."
-He smiled humorlessly.
-"Gayathri must be *really* upset with me."
-
-Iffy donned the glasses and waited for them to enhance the scene.
-The *Bengal* looked like it had been built yesterday rather than almost a century ago.
-The intricate sensor-baffling whorls on her hull
-made Iffy's eyes swim when she looked at them too long,
-but the waves that rocked the *Guinevere* slid past the *Bengal*
-like someone turning their shoulders to avoid bumping into a bully on the street.
-
-Iffy felt almost hungry thinking about what her engines must look like.
-Two in the stern and one amidships as insurance against a torpedo strike,
-each one with its own broad-mouthed intakes and narrow jet exhausts,
-the channels connecting them full of micro-gears arranged in concentric rings
-to maximize the power-to-thrust ratios of---
-
-Her head swam.
-She clutched the railing and squeezed her eyes shut.
-She could *see* the *Bengal*'s engines as if they were laid out on a screen,
-the parts exploded and zoomed to make every intricate detail clear.
-
-FIXME: tie together
-
-After anguishing for a few minutes
-Iffy picked up her app.
-*Sorry about that,* she tapped awkwardly.
-*But I can't let 'em get into my head.*
-Iffy bit her lip.
-*Sorry gain hope your aright.*
-She hit send before she could lose her courage
-and then tossed her app aside.
-
-Iffy had spent hours gazing at the pictures in her older's nature book
-that showed blue tropical oceans full of fish and coral.
-The ocean beneath the *Guinevere* sailed through looked nothing like that.
-The clouds rolled in and threatened a storm,
-turning the sea was a liquid gray.
-Even the white crests of the waves seemed dirty.
-
-The news from behind them did nothing to improve their mood.
-The town's governor had survived,
-but was still not admitting that the attack had been launched by his clone in Halley.
-The feeds blamed the Zillions,
-rogue machines,
-and just about everyone else.
-She wondered constantly if Honesty had been punished for helping her escape.
-She didn't worry about Uncle Jack
-so much as about what trouble he might cause.
-
-Her mood sank further when the *Guinevere*'s core spotted
-an unevenness in the water ahead.
-After dithering for a millisecond,
-it decided a sea boil was brewing and turned toward shore.
-A few minutes later they ran straight into a slick of dead jellyfish.
-The air didn't just smell like wet rot as they plowed through them:
-it *tasted* of it.
-Aunt Naggie boiled a precious spoonful of dried lemon rind to chase the smell out of the galley,
-but dinner's noodles still tasted like rank seaweed.
-
-"It could be anything,"
-Wales said when Iffy asked him what he thought had happened.
-"See that?"
-He leaned on the railing to point at the blistered caps and shredded tentacles drifting below.
-"There and there.
-Looks like some kind of infection has been eating at them.
-Could be natural,
-but more likely someone crisped it up in a lab."
-
-"You think it was the Zillions?" Iffy asked.
-
-Wales shook his head.
-"I doubt it.
-This was probably someone trying to tweak them so they would trap plastic more efficiently."
-At Iffy's puzzled look he waved his arm toward the slick again.
-"That's why they were tweaked in the first place—to filter all the tiny bits of plastic out of the water."
-
-"Like the barnacles filter the metal?" Iffy said.
-
-Wales nodded.
-"It made sense at the time,
-in a desperate kind of way,
-but it never really worked.
-The only thing that *did* work was the accelerated growth."
-
-"I read about that in school—how they ate up everythin'
-so most o' the fish starved an' everythin' fell apart."
-Iffy frowned.
-"Never read anything about it bein' so they could trap plastic, though."
-
-Wales shrugged.
-"That was buried pretty deeply after it went wrong.
-Nobody wanted to admit they'd broken the oceans."
-He stared bleakly at the ruin in the water.
-"The clathrate bubbles feed the microorganisms the jellyfish eat,
-which is why the best jelly dredging is where the sea is most likely to boil.
-It's just one more disaster among many.
-And every time we try to put one of them right
-it seems we just tangle things up worse."
-
-Iffy watched the lumpy slick slide by for a second,
-then reached over and punched his shoulder.
-"For bein' so gloomy," she said firmly.
-"You're a lot more fun when you're all smiley an' such."
-
-"Johnson?"
-Doctor Johel's voice came through a speaker on the wall behind them.
-"Could I borrow you for a minute please?"
-
-Wales nudged Iffy with his elbow.
-"Here," he said quietly,
-rapping the back of her hand with his knuckles.
-She palmed the thimble-sized earbug he passed to her.
-
-Iffy made sure the lock on her door was snibbed before putting in the earbug.
-It hummed as it hunted the airwaves for the faint electronic warble of Wales' signal.
-"Come on," she muttered.
-The Marines all wore scramblers and sniffers,
-and Doctor Johel was undoubtedly even better protected.
-It would be a miracle if anything could get through.
-
-"—are getting suspicious,
-but my models say they will continue to follow orders until we reach Halley."
-Doctor Johel's voice suddenly said.
-"Now,
-has she shown any further sign of her talent?"
-
-"Not that I've seen,"
-Wales replied.
-*Speaker shakes head,* the caption voice added.
-
-"That's a shame."
-*Speaker adopts skeptical expression.*
-"The core thought there was an eighty-five percent chance
-she would be able to control her tweak by now."
-
-*Speaker sighs.*
-"Gayathri, please—you know I don't like that word."
-
-*Speaker smiles.*
-"I remember you and Grandfather used to argue about it when you came to visit.
-He thought people with modifications should embrace the term and make it their own."
-
-This time Iffy heard the sigh.
-"And as I used to say to him,
-it's easier to feel that way when no one has ever thrown rocks at you.
-But coming back to Fifth,
-cloning is never perfect—any glitch could have thrown the collaborating genes out of balance."
-*Speaker shakes head.*
-"Or maybe we're just too early.
-Maybe in another couple of years—"
-
-"We don't have another couple of years," Doctor Johel cut in.
-"I'm *old*, Johnson,
-and you've already lasted decades longer than you were supposed to."
-
-*Speaker shrugs.*
-"Well, the agency always did over-engineer things."
-
-"I'm glad of that," Doctor Johel said.
-"Some days I'd give anything to be back in London drinking hot chocolate
-and listening to you and Grandfather set the world right."
-
-"Well, at least we still have chocolate," Wales said.
-
-Doctor Johel made a noise.
-"That *moot* the governor serves is *not* chocolate."
-
-After a moment the earbug chimed.
-*Signal ends,* it told Iffy.
-She took it out and weighed it in her hand,
-then picked up her nature book and stared at the cover without really seeing it.
-"Why's it all got to be so hard?" she whispered,
-wishing someone was there to answer.
-
-The sudden blare of the *Guinevere*'s horn a few minutes later made her jump.
-"What now?" she groaned,
-wiping tears away with her sleeve
-before standing up and yanking open her door.
-
-The horn's second blare was punctuated by the staccato chatter of gunfire.
-A row of tiny black holes stitched across the deck two meters in front of Iffy.
-For a moment all she could do was stare.
-*Those are bullet holes,* she thought stupidly.
-*Somebody is shooting at us.*
-
-A dazzling streak of lightning half-blinded her.
-A moment later the smoking carcass of a military drone tumbled into the sea
-and exploded with a sharp *crack!*
-
-Boots thudded on the deck.
-"Citizen! Take cover!" the Marine ordered,
-the pop-up guns on der exoskeleton's shoulder pauldrons snapping back and forth.
-An armored hand closed on Iffy's arm and pushed her back against the wall.
-
-"What's happening?" Iffy demanded.
-
-"We are under attack," the Marine said,
-shielding Iffy with der body as a second drone whined overhead.
-Another brief burst of staccato and another streak of lightning,
-but the drone danced sideways just in time
-so that the burst from the Marine's gun only singed it.
-It turned sharply and dove toward the ship.
-
-The Marine spun around and pointed der arm at the incoming drone.
-Der shoulder guns fired again.
-The drone staggered and zoomed away,
-its remaining three rotors whining to make up for the fourth that had just been disintegrated.
-
-The Marine straightened up and turned to Iffy.
-The visor on der helmet snapped open.
-"Are you all right?" Honesty demanded.
-
-"I—I'm fine," Iffy said shakily.
-
-"Good."
-Their visor closed with a click.
-"Please assist with damage repair."
-
-"Wait!"
-Iffy caught Honesty's arm as they turned to go.
-"Who was that? Who was attacking us?"
-
-"The drones appear to be Brazilian," Honesty reported impassively.
-"Now excuse me—I need to join my unit to repel boarders."
-
-"To what?"
-And then the *Guinevere*'s horn blared again
-as something that looked like a cloudy jellyfish
-pulled itself over the railing and squelched toward them.
-
-Honesty's first three shots went straight through it,
-leaving lethal little holes in the ship's deck.
-"Stand back!" de ordered
-as de pulled a thumb-sized grenade out of the clip on der sleeve.
-
-"No!" Wales shouted, running toward them.
-He tackled Iffy just as the grenade hit the jellyfish.
-
-*BOOM!*
-The shock threw Iffy and Wales across the deck.
-For a moment she lay in a daze while the world spun around her.
-
-Something grabbed her arm.
-She shrieked, but it was Wales, not the jellyfish.
-"I can't hear you!" she yelled,
-her ears still ringing from the blast.
-
-He pulled her to her feet.
-*There's a hole in the ship,* she thought muzzily.
-It was right where the jellyfish had been
-and big enough for her and Aunt Naggie to sit in.
-
-But where was Honesty?
-She looked around wildly,
-then shrieked again as another plasma burst lanced the blue sky over her head.
-
-"Come on!" Wales said, his voice muffled but audible.
-"We have to get out of here!"
-He pulled her toward the stern.
-
-"No!"
-She tried to shake him off but his grip was too strong.
-"What happened? Where'd de go?"
-
-Instead of answering,
-Wales slung her over his shoulder like a sack of rice.
-She beat his parka with her fists,
-yelling at him to put her down, put her *down*, she had to find Honesty,
-but he paid no more attention to her than he did to the spray from the waves.
-
-Nothing was left of the gray tent the Marines had set up at the *Guinevere*'s stern
-except a few smoldering tatters of canvas.
-Their plasma gun was a gleaming headless mantis
-surrounded by stacks of cubical capacitors clicked together like children's toys.
-It snapped this way and that as its little core searched for targets to destroy.
-The two Marines guarding it moved with the same unnatural insect jerkiness,
-firing occasionally.
-
-"Citizen! Seek shelter!" one of them bellowed,
-der voice amplified by der helmet.
-
-Wales skidded to a stop and dropped Iffy to the deck.
-"For gubbins sake stop throwing grenades at them!"
-he yelled.
-"They're made of some kind of exothermic biomaterial—they're bombs!"
-The Marine nodded sharply and relayed the information through der helmet.
-
-Iffy grabbed Wales' sleeve.
-"But where's Honesty?" she demanded.
-De couldn't be dead.
-Iffy pushed the thought away in panic.
-De just *couldn't* be.
-
-"I don't know," Wales said, scanning the horizon.
-"Look—there!" He pointed.
-"What are they trying to do?"
-
-Iffy followed his pointing finger.
-Eight, ten—at least a dozen drones were circling in the *Guinevere*'s wake,
-buzzing the ship and dodging erratically to avoid fire from the Marines.
-
-"It's like they're waitin' fer somethin'," Iffy said.
-"More o' those jellyfish bombs maybe?"
-
-Wales started to shake his head, then froze and swore.
-"What?" Iffy demanded,
-but he ignored her while his lips moved silently.
-
-His eyes widened.
-"They're trying to draw fire from orbit," he breathed.
-"You! Tell Doctor Johel there's a satellite going over us in—"
-He hesitated. "—in six hundred and seventeen seconds.
-They're trying to make a hot spot to draw its fire.
-If we're underneath them—"
-
-"Understood, citizen," the Marine said.
-De began speaking urgently into der helmet once again.
-
-Wales seized Iffy by the shoulders.
-"You have to get off this ship," he said,
-low and urgent.
-"If the Marines can't bring those things down,
-that satellite will,
-and if they're above us when it does,
-we're dead."
-
-"I ain't runnin'," Iffy said, shaking him off.
-She was about to add,
-and even if I was, where would I go and how,
-when something hauled itself over the stern railing.
-
-"Look out!" Wales shouted.
-He spun around to shelter Iffy with his body.
-
-"N-n-no need for p-p-panic, citizen."
-Honesty hauled derself onto the ship.
-Icy water gushed out between the gaps between the dark blue armor plates of der exoskeleton.
-De looked blankly at Iffy and Wales,
-then at the two Marines beside the plasma gun.
-"I require medical assistance," de said calmly,
-and toppled over in a pool of seawater and blood.
-
-"Honesty!"
-Iffy scrambled across the deck.
-"Honesty, wake up!
-Please, please, wake up!"
-
-Strong hands pulled her away.
-"No!" she screamed,
-struggling to free herself from Wales' grip.
-
-"Let them help der!" he yelled in her ear
-as a Marine crouched beside Honesty and began unlocking their armor.
-
-The plasma gun spun and flared again,
-sending another drone tumbling into the sea.
-"Where are they all coming from!?" Wales demanded.
-
-"Mostly likely a dazzled vessel hiding in the islands,"
-the Marine on the gun yelled back,
-der imprinting keeping der unnaturally calm
-even as der armor automatically ducked a shot from a passing drone.
-"Doctor Johel is trying to locate it."
-
-Iffy looked at Honesty.
-All of a sudden she knew what she had to do.
-"Let go of me!" she yelled at Wales.
-"I have to get below!"
-
-"No! You're safer here!"
-
-"I gotta help der! Please!"
-Wales hesitated a moment,
-then released his grip.
-She twisted past him and sprinted back to where they had been.
-
-Waves threw spray into the air
-each time they caught on the edge of the hole the jellyfish bomb had made.
-Just as she reached her door one splashed higher than ever,
-knocking her sideways off her feet.
-She slid across the deck,
-scrabbling uselessly to grab on to something, anything,
-that would stop her from falling into the sea.
-
-Her boot found a railing post.
-Heart pounding,
-she waited until the *Guinevere* rose on the crest of the next wave,
-then scrambled to her feet and lunged for her door.
-A quick twist, a yank, and she was inside.
-
-She slammed the door shut behind her and slid to the floor,
-shaking with fear and cold.
-She was soaking wet.
-Water was slopping into her room through the crack between the door and the deck
-and pooling underneath her
-and all she could think was,
-*This is going to take forever to clean up.*
-
-Somehow she got her feet underneath her.
-Somehow she stood,
-or at least un-fell down.
-She pulled the box of dronelets out from under her mattress and fumbled it open,
-her fingers clumsy with cold.
-
-"C'mon, c'mon, c'mon," she muttered,
-staring at them so hard her forehead started to ache.
-
-The deck shuddered beneath her as another jellyfish bomb exploded.
-The *Guinevere* couldn't take much more,
-and Honesty—
-"Come *on*!" she pleaded.
-
-And then she had it.
-She stuffed the dronelets into her pockets.
-Wales' tools were still in the engine room.
-She could go forward and hope that the Marines hadn't dogged the hatches,
-or—
-
-She yanked her door open before she had time to think about how stupid her plan was.
-Up and down the ship went,
-waves booming beneath them.
-As the *Guinevere* rose again she threw herself face-forward onto the deck
-and slid toward the bomb hole,
-looking for all the world like one of the long-ago penguins in her nature book,
-except they had been black and white instead of dirty gray
-and hadn't screamed in terror as they slid.
-
-Her hand caught the railing post.
-She turned sideways as the ship began to drop into the trough of the next wave
-and let her legs fall into the hole.
-There!
-She didn't know what her feet had found,
-but it was sturdy enough to take her weight.
-Panting,
-she let go of the railing and let herself scrape and drop into the ship
-just as another wave crashed down.
-
-A single light strip flickered over Iffy's head
-as she straightened up in water that reached to her knees.
-The ship's hold stank of metal and coal and old jellyfish.
-Iffy undogged the locker door with fumbling frozen fingers
-nd pulled out the red duffel bag that held the ship's emergency medical kit.
-
-Wales had dragged Honesty against the stern wall of the pilot house
-and was kneeling beside der when Iffy reached them.
-"Good girl," he said,
-grabbing the duffel bag she thrust at him.
-"Her exo stopped her bleeding,
-but there's shrapnel in her right lung and her intestines.
- He looked up at her.
-"You okay to help?"
-
-"Just tell me what t' do," Iffy said grimly.
-
-Wales pulled off his gloves
-and  peeled the false skin back from the pad of his right forefinger.
-Tiny lights danced across the small silver patch of tech beneath.
-Together they gently lifted Honesty's shoulder,
-ignoring the sizzle and whack of the gun three meters away.
-Wales flipped open a flat panel on the exoskeleton's pauldron
-and touched his finger to the little optical port hidden beneath it.
-
-A shiver ran up his spine.
-Without warning he sneezed twice in quick succession.
-"Stupid," he muttered,
-whether at himself or the exoskeleton's security protocols or the world,
-Iffy couldn't tell.
-
-A light began blinking in the silver plate set into his temple.
-"Wait… wait… now!"
-He pointed at a buckle on the exoskeleton just as it clicked.
-Iffy yanked it open.
-Underneath,
-Honesty's Marine blue thermals were almost black with their blood.
-
-"Get a scalpel from the bag, and some tissue glue," Wales ordered.
-"I have to keep the suit from—damn it.
-Hang on."
-The little guns on Honesty's shoulders swivelled suddenly to point at him,
-then at Iffy,
-then back at him.
-"Okay. Do it now."
-
-The guns woke up twice more as Iffy operated.
-Seawater splashed on Honesty despite their best efforts to shield her.
-Every few moments Wales muttered another curse.
-One, two, three, four… Five.
-She put the last twist of jagged metal in the medical kit's sharps' box,
-laid a thin slice of re-flesh in the wound,
-and glued her friend closed.
-"'Zat it?" she asked breathlessly.
-
-Wales closed his eyes.
-"That's everything the exo can see.
-You'd better back away for this next bit."
-He jerked his head toward the corner of the pilot house when she hesitated.
-
-Iffy reluctantly retreated a few steps,
-the duffel bag in her hand.
-Wales shifted his weight slightly and took his finger off the exoskeleton's data port.
-
-The two guns on Honesty's pauldrons snapped sideways to point at his head.
-"Easy," Wales said softly,
-folding the flap of false skin back over his finger.
-"Easy there.
-We were just putting them back together.
-No harm done."
-
-The guns tracked him as he slowly stood up and backed away, his hands spread.
-Iffy shuffled sideways to make space for him.
-"Is de gonna be aright?" she asked anxiously.
-
-Wales lowered his hands and let out his breath with a whoosh.
-"I hope so."
-He ducked reflexively as another drone whined overhead.
-"The question is,
-are we going to be?"
-
-"Depends which way that satellite's comin' in," Iffy said,
-pulling the dronelets and her tools out of her pockets.
-"Get me some o' that canvas."
-
-Cut and tear,
-fold,
-try to tie a knot,
-curse because the canvas was stiff with salt and cold,
-whack it against the deck,
-unfold it,
-fold it again,
-try another knot—
-"Here," Wales said,
-"Let me do that bit.
-You make something to hang it on."
-
-Iffy nodded jerkily.
-Her fingers had gone numb,
-but there wasn't time for that,
-there wasn't time for anything except cutting a loop of wire
-and threading it through a grommet in the canvas
-and hooking it onto the dronelet,
-all the while trying to calculate power and thrust and battery life in her head
-and wondering if they'd be able to stabilize,
-because the wind was picking up
-and they'd have to fly in formation or this wasn't going to work.
-
-"One hundred seconds," Wales said quietly.
-Iffy nodded again.
-Another twist, another cut…
-"Oh, come *on*," she muttered.
-There!
-
-"Here goes," she said,
-scrambling to her feet.
-Power, direction, attitude—the commands sizzled from her head to the trio of dronelets.
-
-"Sixty seconds."
-Wales looked up,
-shading his eyes
-as if he could see the satellite far above them.
-
-The dronelets' rotors whined in sudden unison,
-lifting them off the *Guinevere*'s deck.
-
-"Forty seconds."
-The dronelets whizzing away,
-strips of canvas dangling loosely between them.
-*We're all gonna die,* Iffy thought.
-At least it would be quick.
-
-"Thirty seconds."
-The hacked drones had spotted the new arrival.
-Their swarm broke apart,
-reformed,
-and broke apart again
-as their tiny cores tried to make sense of what they were seeing.
-
-"Fifteen seconds."
-Her dronelets halted and began to circle,
-keeping the strips of canvas taut.
-
-"Thirty seconds."
-The dronelets accelerated away,
-straining against the canvas and the wind.
-A hundred meters separated them from the *Guinevere*,
-two hundred,
-three hundred—
-
-"Zenith," Wales said flatly.
-The air wavered and rippled.
-The drones and dronelets crackled like fireworks and fell from the sky
-as the satellite's beam heated them instantly from Antarctic cold to hundreds of degrees.
-Half a second later
-a column of steam shot up from the ocean
-as the beam boiled the top meter of water.
-
-"Woo hoo!" Iffy shouted.
-Wales clapped her on the shoulder.
-
-Stuffing her tools back in her pockets,
-Iffy knelt on the deck.
-Honesty's chest rose and fell within der exoskeleton,
-but only barely.
-"We gotta get der inside," Iffy said anxiously.
-
-Wales nodded.
-He squatted,
-lifted Honesty with a soft grunt,
-and followed Iffy into her cabin.
-
-It took a while to get Honesty out of their exoskeleton.
-De lay on Iffy's mattress,
-becoming more vulnerable one piece at a time
-as they undid snaps and buckles.
-Pauldrons,
-greaves,
-mis-matched vambraces with tiny rocket launchers,
-gauntlets that could crush rock or deliver electric shocks—all of them
-eventually lay in an untidy navy blue pile in the corner.
-
-"We would have been fried if you hadn't done that,"
-Wales said quietly when they were done.
-"So thank you."
-
-"Yes,
-thank you,"
-Doctor Johel said behind them.
-
-FIXME: betrayal
-
-</section>
-
-<section markdown="1">
-
-## Chapter 8
-
-Sandrine Kibbens woke up in a hospital bed.
-The room was unfamiliar,
-but the tech supervising her transcription had warned her that would be the case.
-"Take a few moments to collect yourself,"
-de had said,
-so that's what Sandrine did.
-She had been following orders ever since she joined the Augmented Infantry,
-and to her surprise she had found that
-she enjoyed letting other people make decisions for her.
-
-Core, then peripherals:
-she had learned that the first time she had donned an exoskeleton.
-Her heartbeat was steady,
-even though it wasn't really hers.
-She couldn't explain the difference,
-but something deep in the back of her brain knew that
-the muscle thudding in her chest wasn't the one she had known all her life.
-
-She drew a deep breath,
-held it,
-and exhaled slowly.
-Her lungs seemed fine,
-though she could feel a recent injury in her abdomen.
-Through and through,
-if she wasn't mistaken,
-just like the one that had killed her for the first time in Auckland.
-
-Sandrine scrunched her toes.
-They felt stubby—was this body really that much smaller than her original?
-She pushed the question aside,
-grateful that she didn't appear to have any spinal injuries,
-and drummed her fingers against her thighs.
-One two three four thumb,
-one four two three thumb—good.
-She had lost some fine motor control the second time she died.
-It was nice to have it back.
-
-The monitoring cuff around her wrist was wireless,
-so she rolled onto her side.
-This body was definitely female,
-but also definitely young.
-And it—she—was thirsty and needed a bathroom.
-
-Sandrine sat up.
-"Hello?" she called.
-
-The door slid open.
-Without thinking she rolled sideways,
-tossing the sheet into the air for whatever momentary distraction it might provide
-and dropping into a fighting crouch.
-
-"At ease, corporal," said the elderly man standing in the doorway
-behind the bot that had just rolled into her room.
-"It's all right—this one's safe.
-It's just going to check your vitals.
-Here."
-He held out a cup of something that she desperately hoped was actually chocolate.
-"And if you need the necessary,
-it's…"
-He gestured at a panel on the wall beside her.
-
-Sandrine straightened up.
-"Sorry, sir.
-Old habit."
-He was wearing civilian clothes—a formal black turtleneck and a matching black kameez
-over loose-fitting trousers—but "sir" seemed safest for now.
-
-The old man nodded.
-"Completely understandable.
-I'm Governor Stern, by the way,
-and you're in Rothera—in Antarctica.
-It's been a little over a hundred years since you were recorded,
-so you'll have a lot to catch up on.
-There's an app on the table there,
-and I'll have some mango noodles sent down when you're ready."
-
-"Thank you, sir."
-Sandrine hesitated.
-"If I may ask—who am I sharing with right now?"
-
-"Mm."
-The governor pursed his lips.
-"Her name is Ang Kwang—Fifth Ang Kwan, to be precise—and
-she is a much more complicated person than I first realized.
-I'm hoping you can help with that."
-He held out the cup of chocolate again.
-After a moment's hesitation,
-Sandrine reached over the waist-high bot waiting patiently to examine her
-and took it from him.
-
-There wasn't much on the app,
-but she hadn't really expected there would be.
-It said the machine wars had ended in a draw,
-though the list of things humanity was no longer allowed to do
-made it pretty clear who had actually won.
-No flying.
-(She would miss that,
-assuming she lasted in this body long enough to miss things.)
-No one could manufacture new cores smarter than—she tapped the description—smarter than parrots or monkeys.
-She felt a brief pang as a second layer of popups informed her that
-both were now extinct,
-but pushed it away.
-That wasn't part of her mission unless and until someone told her it was,
-and anyway,
-she had only ever seen either in videos.
-
-An animated map showed the retreat of the ice cap in Greenland and Antarctica
-and the corresponding inward creep of shorelines elsewhere in the world.
-Some of the atolls they had used as staging posts during the war
-were now completely under water,
-but all that extra water hadn't stopped forests from turning into plains
-and plains into deserts.
-She started to zoom in on Melbourne,
-then closed the map
-and tried doing a few pushups.
-Her muscles was in pretty good shape,
-but her body was so skinny—whatever had made Ang Kwan special
-didn't seem to have included eating three square meals a day.
-
-She felt a gut-deep sense of relief when a Marine showed up a few minutes later
-with a bowl full of noodles and a freshly-printed uniform for her to wear.
-The fleshy yellow chunks on the noodles weren't any kind of mango she recognized,
-but the food was warm and filling
-and the uniform fit perfectly.
-
-"It suits you," the Marine said as she tucked the cuffs of her trousers
-into the tops of her socks.
-
-"Thank you, sergeant."
-She twisted from side to side to crack her spine.
-"May I ask…?"
-
-"Paolo Vassilenko," the Marine said.
-"I was imprinted three months ago.
-It took well—I can access most of my host's original memories when I need to,
-and there haven't been any stutters or seizures to speak of."
-
-Sandrine nodded.
-"How long do they think you'll last?"
-
-The Marine shrugged.
-"Call-up is supposed to be a year,
-but some of the others have been re-imprinted a couple of times.
-They check us pretty carefully before doing it,"
-he added hastily.
-"If the host is showing any distress they're done and out."
-
-Sandrine nodded again.
-"Anyone around that you knew your first time around?"
-
-The man who was currently Paola Vassilenko smiled.
-"Yeah, I got lucky.
-Nobody plays chess any more,
-but a couple of the guys I served with in Newfoundland are in body right now,
-so we get together and have a few games whenever we can.
-I don't suppose you play?"
-
-Sandrine shook her head.
-"Sorry."
-
-"No worries—maybe in the next life."
-The Marine stepped aside and gestured at the door.
-"After you?"
-
-Less had changed in a hundred years than Sandrine had expected.
-She wondered if that was because of the machines' restrictions on new inventions
-or whether there just weren't a lot of ways to improve on
-the design of an underground secret base.
-Corridors painted in neutral colors with cryptic labels painted on the walls,
-grilled stairs that echoed under her boots,
-the metal-on-metal whine of a saw in a machine shop as she passed a half-open door—it
-was all very familiar.
-She couldn't have said how she knew she was underground
-any more than she could have explained how she had known that her heart wasn't her own.
-She just accepted it as part of her mission,
-wondering as Sergeant Vassilenko rapped his knuckles on a door
-how many copies of hers had accepted it before.
-
-"Enter."
-The sergeant opened the door and nodded for her to go through,
-turning to stand at attention in the hall as it swung close.
-
-"Hello again, corporal.
-This will just take a moment."
-The governor gestured at a comfortable-looking chair opposite his desk
-without looking up from the app in his hands.
-
-She sat on the edge of the seat,
-her back straight and her hands folded neatly in her lap.
-"What do you know about the Niobium project?" the governor asked.
-
-Sandrine shook her head.
-"Never heard of it, sir."
-
-"Mm.
-Not surprising—it was just getting started in your time.
-Here."
-He swiped a scene from his app onto the wall beside them.
-"Low Earth orbit was a disaster area.
-There was so much shrapnel from old satellites and what-not that
-people basically gave up on trying to plot routes through it.
-They just threw armor on everything and billed for the extra weight.
-But up here, up past geosynchronous orbit in retrograde space, well…"
-Green curves formed around the slowly-turning globe,
-safely outside the sparkling chaff closer in.
-
-The governor sighed.
-"They planned a hundred and ninety two satellites.
-As far as we know,
-only half were built before things fell apart.
-The machines tried to take them over,
-but even they were locked out."
-
-"And you believe Citizen Kwan can unlock them?"
-Sandrine asked after a moment of silence.
-
-"What?
-Oh no,
-I doubt it."
-The governor chuckled and swiped the display into oblivion.
-"I mean,
-it would be rather nice if she could,
-but that's not what we need from her—or from you,
-I should say.
-You see,
-as big as it was,
-Niobium was just a cover for something else—something
-that has the machines and my clone in Halley rather worried."
-
-Sandrine filed that away.
-"Then may I ask, sir, how I can be of service?"
-
-Another swipe on the app put a human form on the wall.
-Short,
-skinny,
-female,
-with something blobbish and silvery scattered through her like spilled mercury.
-
-"Citizen Kwan—she prefers Iffy, by the way—well,
-she has some rather interesting modifications to her genome.
-The first clone in her lineage seems to have been born
-just as Niobium was picking up speed.
-It took quite a lot of work to detect her modifications—even now
-I'm only half convinced they're real.
-It's all rather a mystery,"
-the governor mused,
-resting his chin on his steepled hands.
-"What I'd like you to do is unravel it for me."
-
-"I'm afraid I'm not much good at puzzles, sir,"
-Sandrine said.
-"Volleyball was more my thing."
-
-"Mm, yes, of course."
-The governor straightened up.
-"But that was when you were *you*,
-as it were.
-Right now,
-you're in a body that seems to be able to pull information out of thin air.
-I'm hoping that if you can master that ability,
-you'll be able to get the answers I need."
-
-"Yes sir."
-Sandrine nodded as if she understood.
-"And how will I do that, sir?"
-
-"Oh, yes."
-The governor sighed.
-"I'm afraid that's the unpleasant part.
-We don't actually know,
-and we're rather short on time,
-so we're going to have to give you a bit of help."
-
-Years and lifetimes ago,
-Sandrine had been taught that torture was ineffective as well as evil.
-She therefore wasn't surprised that when
-Sergeant Vassilenko led her downstairs and strapped her into a chair,
-what followed was a simple injection
-rather than something involving clubs, canvas bags, and electrodes.
-
-The panic that followed was very real, though.
-She knew it was just the effect of whatever drug she had been given,
-but the word "just" didn't really feel appropriate.
-She panted for breath as if she had just been running through the desert under fire.
-She had to get away.
-She knew she was safe,
-but "she" wasn't in control any longer.
-
-Her heart—no, it wasn't hers, it was Ang Kwan's, but that didn't matter—it
-was pounding inside her chest.
-She looked wide-eyed at Sergeant Vassilenko.
-"What am I supposed to do now?"
-
-He shrugged apologetically.
-"I'm sorry,
-I wasn't told.
-It should wear off in a few minutes."
-He consulted the app on the stand beside the chair,
-which wasn't as comfortable as the one in the governor's office
-even though it reclined.
-She tried to focus on that,
-and on other little details in the room,
-just like she had been trained to.
-How many drawers in the stainless steel cabinet on her left?
-Four.
-How many light panels above her?
-Two,
-one of which should probably be replaced.
-She drummed her fingers against her thighs.
-One two three four thumb,
-one four—was two three or three two next?
-Start over.
-One two three four—no.
-Focus.
-One two—
-
-The whining sound she was hearing was coming from her,
-she realized.
-She swallowed hard to stop it,
-but that interrupted her breathing
-and now she was panting again.
-She couldn't fill her lungs.
-She needed to get her arms out of the straps.
-She needed to run away,
-run away from all of it,
-but she couldn't.
-
-"Aaand that's time."
-Sergeant Vassilenko peeled the back off a patch
-and pressed it against her neck.
-Her heart began to slow almost immediately.
-
-Sandrine took a deep breath,
-then another.
-After the third,
-she squeezed her hands into fists and slowly, deliberately relaxed them.
-"Can I please have some water, sergeant?"
-she asked once she was sure her voice would be under her control.
-
-Wordlessly,
-Sergeant Vassilenko held a bottle to her lips.
-She sucked a mouthful through the straw,
-swished it around,
-and swallowed.
-She tugged her arms against the straps.
-"Don't suppose you can undo these?"
-
-"I'm afraid not, corporal."
-The governor's voice seemed to come from nowhere.
-He really was just like the villain from *The Last Days of Cairo*,
-she thought giddily.
-Did anyone else still remember that show?
-
-"May I—"
-She coughed and tried again.
-"May I ask why not, sir?"
-
-"We imprint a little more deeply here than most places,"
-the governor said briskly.
-"For security, you understand—having original personalities surface at the wrong moment
-could be quite problematic at a facility like this,
-particularly in the present circumstances.
-Unfortunately,
-that's going to make it quite a bit harder for you
-to access Citizen Kwan's memories and, um, abilities.
-As I said,
-we're rather short on time,
-so we can't afford the mental equivalent of a long siege.
-But you've taken part in frontal assaults before—I'm confident
-that you will survive this one."
-
-"Thank you, sir."
-It seemed a completely inadequate response,
-but what else was she going to say?
-
-She caught Sergeant Vassilenko's eye.
-"Ready when you are," she lied.
-
-The governor didn't bother to check in after the next session,
-or after any of those that followed it.
-Finally,
-several hours later,
-whoever or whatever was monitoring Sandrine told Sergeant Vassilenko to stop.
-"How are you doing?" he asked
-as he undid the straps and handed her a bottle of water.
-
-"I've been better,"
+The hospital smelled nothing like the Marines' headquarters.
+The soapy undertone was the same,
+but disinfectant and the lingering traces of desperation and dashed hopes covered it up.
+It was warmer,
+though,
+and the halls and offices were painted in soothing pastels
+instead of bedrock gray.
+
+Iffy barely noticed.
+All she could think about as Doctor Johel and the two Marines
+led her past people who carefully didn't look her in the eye
+how Jeep had changed and how Honesty had seemed like someone else entirely.
+
+FIXME: Captain Kerse
+
+They reached a windowless room that held nothing except a cot and a toilet.
+Iffy swallowed back nausea as one of the Marines slid the heavy door open.
+"Are you all right?" the other one asked.
+
+"'m fine," she said brusquely.
+
+Doctor Johel gestured at the cot.
+"Get some rest,"
 she said.
-"I imagine I've been worse, too."
-She wondered if he knew how many times she had been imprinted
-and what had happened to those temporary copies of her.
-There had been stories when she was alive
-of entire battalions made up of just one person,
-and imprints that had gone wrong in a dozen different ways,
-each more cinematic than the last.
+"Someone will bring you a snack while we get everything set up."
+Once again Iffy heard the lock on a door click
+with her on the wrong side of it.
 
-She handed back the now-empty bottle and stood.
-The patches on Ang Kwan's injury tugged at her skin,
-but everything else felt fine.
-She was going to have bruises from the straps,
-though,
-and her uniform smelled of sweat.
+She sat on the cot instead of lying down and closed her eyes.
+The lock—it was mechanical,
+or at least she hoped it was.
+Only idiots relied on electronic locks.
 
-"There's plenty of hot water if you want to clean up,"
-Sergeant Vassilenko said as if he had read her mind.
-"I'll see if I can get you something more interesting than noodles for dinner."
+"Oh come on," she muttered a moment later.
+Why wouldn't it happen when she wanted it to?
+Why couldn't she just—
 
-She stood in the shower for a long time,
-enjoying the feeling of water against the stubble on her scalp.
-Dinner was grilled tofu in an unidentifiable citrus sauce,
-broccoli,
-and potatoes.
-She chewed each mouthful a dozen times
-as she swiped through videos of volleyball games on the little app in her room.
-It wasn't quite the game she remembered—players were apparently now allowed
-to trip each other up if they came close enough—but it was the distraction she needed.
+*The lock was a Martree MTR470
+manufactured fifty-eight years ago in a restitution labor camp
+near Glenavy in South New Zealand.
+It was a single-cylinder deadbolt with a double-edged cylindrical key
+(dimensions danced neon along the wireframe in her head).
+The inset in the cinderblock wall was a basic steel tube—there was
+nothing for her there—but the blocking plate was held in place
+by three simple back-screws.*
 
-Later,
-lying in the dark as she waited for sleep to come,
-she realized that she hadn't ever asked what had happened to her
-after she had been recorded.
+She got up,
+stretched,
+and ambled over to the door.
+Her heart sank.
+The three back-screws were held in place by tiny welds.
+Whoever or whatever had installed the lock had thought one step ahead.
+She could get it off,
+but not without tools and enough banging that someone outside would be sure to overhear.
 
-*got married an' raised sheep an' a family on th' south island*
+*«there is a way»*
 
-It wasn't a voice.
-The thought was just *there* in her head.
-Noticing it felt like realizing that the socks or keys she had been searching for
-had been on the table in front of her the whole time.
+Her breath caught in her chest.
+She hadn't heard a voice.
+The thought was just *there*
+like a long-lost memory brought to mind by a familiar smell
+or an ice cube dropped into a glass of water.
+She sniffled and then wiped her nose,
+half-expecting to see blood on her sleeve,
+but there was none.
 
-*Citizen Kwan?* she thought cautiously.
-Nothing happened.
+*«there is a way / exchange of value / binding agreement»*
 
-*Ang? Fifth?*
-She tried to visualize the face she now wore,
-then relaxed her hands,
-which had balled themselves into fists.
-If you wanted to see something in dim light,
-you couldn't look straight at it.
-You had to look a little to the side.
+The thoughts rising side by side in her head were no more human than jellyfish.
+They were a choir,
+a jigsaw puzzle,
+and a vast subterranean lake untouched by light for millenia,
+all at once and all together.
 
-She rolled onto her side and ran a hand over her scalp.
-She would have to shave soon,
-though if she was going to be around for more than a few days
-she could try letting it grow out.
-She had worn her hair down past her shoulderblades when she was Iffy's age.
-She and her friends had braided it in ever-more-complicated ways,
-cursing each other good-naturedly for the tangles they made.
+*«limited time interval / urgency of action / exchange of value / binding agreement / confirm»*
 
-*musta been nice t' have friends like that*
+She swallowed her nausea again.
+"Help me," she whispered.
 
-It had been.
-Her family had been relocated to Hobart
-when storms battering Brisbane went from a monthly to a weekly occurrence.
-"Temporarily" became "for the duration of the emergency",
-and by the time she was old enough to ride her treasured bamboo bicycle to school
-everyone had stopped pretending the emergency was ever going to end.
-The children who had grown up there called them "cane toads" or worse
-until they banded together and made it clear that
-if you shoved one of them in the hallway
-you had better be prepared to face half a dozen of them the next day.
+*«binding agreement / confirm»*
 
-*got called names but never had anyone stand with me like that*
+She didn't want someone else's accent or someone else's feelings.
+She didn't someone else's memories,
+even if only for a while.
+She was Fifth Ang Kwan.
+She didn't know what that meant yet,
+but she wanted to find out.
 
-The psych that had screened her when she first joined up
-had called it a common pattern.
-"Cane toads versus hobies" had turned into "soldiers versus pirates"
-and then "humans versus machines".
-Her side of the equation had always been plural—had always been an "us".
-
-*it was just me an' Aunt Naggie*
-
-Sandrine hesitated.
-She remembered being with the Fourth Augmented and before that with her school friends,
-but she couldn't remember any specific people.
-Or her parents—she tried and failed to imagine their faces.
-She could see the kitchen of the house her family had shared with two others in Hobart,
-though,
-and the blue and white bamboo bicycle that Akumé had stolen and then crashed.
-
-*that's not you it's me Akumé din't steal your bike de stole my scarf*
-
-Sandrine unclenched her hands again.
-It was a good thing Iffy chewed her nails—she would have
-dug gouges out of her palms by now otherwise.
-Back to the beginning.
-Hobart.
-School.
-The smell of the automatic disinfectant spray at the entrance
-and the stern looks the guard gave anyone who tried to run through it
-instead of pausing to count to five.
-The awe she felt seeing a tiger pace back and forth in an enclsoure at the zoo.
-
-*you never*
-
-She—the tiger was a female—was a clone,
-of course,
-and smaller than Sandrine had expected.
-She moved with loose swing of her limbs
-that made something in the back of her mind want to freeze and run away
-at the same time.
-She had half a hectare to herself,
-but spent her time patrolling the fence that separated her
-from those who had created and then caged her.
-She was the proudest and saddest thing Sandrine had ever seen.
-
-*she's beautiful*
-
-*Yes she was,*
-Sandrine thought.
-
-*didja ever see a giraffe?*
-
-*No,
-but I think there were still a few somewhere.*
-She hesitated again.
-*I don't really remember.*
-
-*guess they din't record that 'cause they din't think you'd need it*
-came back quick and clear.
-
-*I guess not.
-I wish they'd recorded my parents, though.
-Or my friends from school.
-It feels strange remembering about them without being able to actually remember them.*
-
-Iffy's amusement brushed against her like a gentle, sarcastic breeze.
-*you think that's strange try tradin' places with me*
-
-Panic hadn't worked,
-so on the second day they tried nothingness.
-The patch Sergeant Vassilenko put on Sandrine's neck made everything fade away.
-Sight, sound, the feel of her uniform against her skin,
-her breathing and heartbeat—one by one they vanished
-until she was suspended in nothingness.
-It wasn't dark because darkness is a color.
-It wasn't warm or cold or anything in between because it was *nothing*.
-
-She tried recalling what the tiger had looked like
-and the first time she had kissed someone
-and a dozen other things.
-None of them brought Iffy out of hiding.
-She remembered someone telling her that sometimes you just had to be patient,
-though she couldn't remember who had said it when or why.
-
-She surprised herself by crying when the world came back.
-"It's all right, everyone does it,"
-the Marine watching over her said.
-De wore a body younger and more heavily built than Sergeant Vassilenko's
-and smelled faintly of soap and curry.
-
-Sandrine sniffled and nodded.
-"How long was I under?"
-
-"Almost an hour."
-De handed Sandrine a towel and a mug of tea
-and looked away as her tears started again.
-An hour?
-She thought it had been days.
-An hour meant there would be another session and another after that,
-and even then it would only be lunchtime.
-
-"Anything to report?"
-the Marine asked,
-eyes fixed on the app in der hand.
-
-Sandrine shooked her head.
-"Sorry."
-She hadn't told anyone about her exchange with Iffy the night before.
-Would they still need her once they had what they wanted?
-Or would they de-imprint her?
-
-The Marine held out der hand.
-Sandrine belatedly slurped her tea and gave der back the the mug and towel.
-"Round two?" de asked.
-
-"Ready when you are," she lied,
-leaning back in her chair.
-
-She flinched slightly as de applied the patch to her neck.
-*At least there aren't any straps this time,*
-she thought as the world began to fade away.
-
-*'course there are you just can't see 'em*
-
-"Mmng?"
-Sandrine grunted,
-or tried to,
-as the thought appeared in her head.
-
-*my head*
-Iffy's possessive was immediate and fierce.
-*can't kick you out but that don't make it yours*
-
-*I know.*
-The light was gone,
-and the sensation of the padded armrests under her forearms.
-Sandrine took a deep breath and counted slowly.
-By eleven,
-she could no longer feel the stretch of her ribs—no,
-of Iffy's ribs.
-
-*For what it's worth, I'm sorry,*
+*Yes,*
 she thought.
-*It's just my mission.*
-
-*yeah i bet you been sorry lotsa times but still done stuff anyway*
-A second thought appeared almost on top of the first.
-*bein' sorry don't make it right*
-
-*It's my mission,*
-Sandrine repeated stubbornly.
-
-*uh uh I bet th' copy o' you that's walkin' round Rothera right now
-is sayin' 'zactly th' same thing*
-
-Sandrine froze.
-*What?*
-
-*you're kibbens, right?
-well there's a corporal kibbens stuck in th' head o' my friend honesty
-workin' for th' governor.*
-
-Iffy's anger was like red-hot metal fresh out of a forge.
-Her hurt was like an old injury reawakened—a knee sprained and half-healed
-and then bent the wrong way again
-to bring back familiar pain
-made worse by knowing how long it would last.
-*Do you love her?* Sandrine asked.
-
-*i dunno maybe*
-Iffy brushed Sandrine's thought away.
-*but it ain't about that it's about someone else usin' you
-like you were just a remote an' not a person*
-
-*I'm sorry this was necessary.
-I truly am.*
-Sandrine put all the sincerity into the thought that she could.
-*But difficult times—*
-
-Iffy fired back something whose pronunciation had obviously changed
-but whose meaning had not.
-*what'd they tell you this was necessary for?
-governor's started a war with his clone
-an' figures I might be some sort o' super weapon,
-that's all this is*
-
-Sandrine shook her head,
-or thought she did.
-She had no way of telling if Iffy's body was obeying her right now or not.
-
-*they picked you 'cuz they know you'll do whatever someone in a uniform tells you t' do*
-Iffy's contempt rolled over Sandrine
-like a wave of dirty harbor water.
-*here lemme show you*
-
-Without warning Sandrine was inside
-Iffy's memory of swiping through old news reports on a hand-held app
-while lying on a cot somewhere that smelled like the sea.
-There was a picture of her,
-older by years than the "her" that had been recorded,
-raising a hand as her name was called at her trial.
-She was wearing civilian clothes and her hair was pulled back in a complicated braid,
-but her back was as straight as ever.
-
-Atrocity.
-Brutality.
-Extenuating circumstances.
-Exonerated.
-The words scrolled by,
-embedded in details that made her feel nauseous.
-Was this really who she had become all those years ago?
-
-*i wanted t' see what was gonna happen t' honesty*
-Iffy's thought at her.
-*jeep ain't been right since his time
-cuz o' what got mixed into him
-an' i wanted t' know what you might be leavin' behind*
-
-*That's not me.*
-Sandrine didn't know which of them she was trying to convince.
-*That's not who I was when I was recorded
-so that's not who I am right now.
-I wouldn't—*
-She stopped.
-She wouldn't do those things,
-but clearly she would.
-All of a sudden she was tired.
-She wished she could just lie down and close her eyes
-and let sleep take her away.
-
-*can if you want*
-
-*But I can't,*
-Sandrine replied wearily.
-*I have a mission.*
-And then she took everything she had learned about Iffy
-and turned it into a missile in her mind.
-
-An hour later
-Sandrine stood at attention in the governor's windowless office.
-"Yes sir, I believe so,"
-she said,
-eyes fixed on a tiny spot on the wall above his head.
-
-"Mm."
-He steepled his hands under his chin.
-"That's quite a bit faster than our models predicted."
-
-"Thank you, sir."
-One two three four thumb,
-one four two three thumb—she forced the hands clasped behind her back to be still.
-
-"Mm,"
-the governor repeated skeptically.
-"We will of course have to do some tests."
-
-"Of course, sir."
-She lowered her gaze to meet his eyes.
-"May I suggest cardboard, sir?
-And perhaps some string?
-Sergeant Vassilenko can do whatever cutting is needed
-if you don't think it's safe for me to have scissors."
-
-"Yes,
-well,
-unfortunately the sergeant isn't available right now.
-Another thing our models failed to predict,"
-he added sourly.
-Light sparkled briefly in his eyes.
-"But no matter.
-Cardboard and string sounds perfect for a first outing,
-and I'm sure we can trust you with scissors
-as long as you promise not to run with them."
-
-"Sir?"
-Sandrine asked after a moment.
-
-Governor Stern waved a hand.
-"An old joke.
-Here."
-He pulled a flimsy of freshly-printed paper out of a slot in his desk
-and handed it to her.
-"Start with that and see what else you can do.
-Surprise me, if you can."
-
-She saluted as she heard the door open behind her.
-"Yes, sir.
-Thank you, sir."
-
-Her Marine escorts said nothing
-as they marched her to an office on the floor below
-that appeared identical to the governor's
-except for the small mound of hastily-collected craft supplies on the desk.
-One of the Marines handed her a pair of blunt-ended scissors
-as solemnly as de would have handed her a loaded gauss gun.
-She heard the lock in the door click as she sat down
-and studied the flimsy in her hand.
-
-Sandrine lost track of time as she measured, cut, shaped, and tied.
-They had only given her six rubber bands:
-she stretched each one to its limit
-before deciding to tie them together as they were
-rather than trying to splice them.
-The cardboard wasn't as rigid as she would have liked,
-but some origami folds took care of that
-and there were two different weights of aluminum foil to stiffen the result with.
-
-Her sudden yawn surprised her.
-How long had she been sitting there?
-The noise her spine made when she twisted from side to side
-suggested it had been hours—real hours,
-not the stretched out un-time she had gone through that morning.
-She looked down at what she had made.
-It was a far cry from what the governor had asked her to build,
-but that was the point.
-She just wished they had given her some paint so that she could finish it off properly.
-
-"All right,"
-she said under her breath,
-standing to stretch once more
-She picked up her creation before knocking briskly on the door,
-then marched out without a backward glance,
-wondering as she left whether this was how her original self had felt leaving the courtroom
-all those years ago.
-
-The governor turned what she had built over in his hands.
-"It seems simpler than I expected,"
-he said cautiously.
-
-Sandrine shrugged.
-"Simple is good, sir.
-Here, let me show you."
-She took it from him and cranked its cardboard tail around and around,
-counting to fifty in her head,
-then set it down.
-With one slow, swinging step after another,
-the cardboard giraffe began striding toward the edge of the desk,
-its head bobbing in counterpoint each time a leg swung forward.
-
-"Well done.
-I think that's all the proof—"
-
-"Excuse me, sir."
-Sandrine raised a finger.
-"If you'll just give it a moment please?"
-
-The governor sat back and steepled his fingers under his chin.
-*I really wish he'd stop doing that,*
-Sandrine thought.
-Five steps, ten—when it reached the edge of the desk
-the giraffe put one foot into empty air and stopped.
-Its head continued bobbing up and down,
-but its legs no longer propelled it forward.
-
-"I say,"
-the governor said admiringly.
-"That's quite the trick."
-
-"I figured out a way to make a Hoye latch out of tinfoil, sir.
-It only has one, though.
-If I started it further ahead or behind and its left leg went over first,
-it wouldn't have worked."
-
-The governor smiled as if at a clever quip.
-"So, a nice bit of engineering and a bit of the old razzle dazzle, eh?"
-He wiggled his fingers in the air.
-
-"Yes, sir."
-
-"Well."
-He picked up the giraffe,
-turned it over,
-and held it out to her once again.
-"For good luck,"
-he explained when she hesitated.
-"I'm afraid your next assignment is going to be a little more complicated.
-And a bit riskier.
-Private… um…?"
-
-"Leung, sir,"
-the Marine behind her said.
-
-"Private Leung will escort you downstairs.
-We've set up an isolation area with the usual precautions.
-Please do check with him before making any modifications—we really would like to avoid
-any misunderstandings."
-
-"Of course, sir."
-She tapped her fingers on the giraffe's cardboard body,
-one two three four thumb,
-one four two three thumb.
-"May I ask what I'll be making, sir?"
-
-"Oh yes, of course.
-Silly of me to forget."
-*Which you didn't,*
-Sandrine thought.
-*You just wanted me to ask.*
-
-The governor swiped an image of a four-legged sentry bot onto the wall.
-"Something managed to get through the security on a pack of these a few days ago.
-If you can figure out how,
-well,
-that would certainly be a step in the right direction."
-
-"Of course, sir, I'll do my best."
-She hesitated.
-"May I ask please, is there a timeline?"
-
-The governor cocked an eyebrow.
-"What do you mean?"
-
-"Is there a deadline of any sort, sir?"
-It was as close as Sandrine dared come to asking
-if she had to beat the other governor
-that she probably wasn't supposed to know about.
-
-"Well,
-sooner is always better,"
-the governor said briskly.
-Light sparkled in his eyes.
-"Now if you'll forgive me,
-I really must take this call.
-Good luck."
-
-"Thank you, sir."
-He waved a hand in her direction as she saluted and left,
-his attention already elsewhere.
-
-The "isolation area" turned out to be the middle of
-what Sandrine guessed had until yesterday been a cafeteria.
-Six tables pushed together were her workbench.
-Together,
-they were the center square in a tic-tac-toe grid.
-The other eight squares were empty except for
-the cameras, fire extinguishers, EMPs, and needle guns bolted to the walls.
-She knew they were there in case whatever she built got out of hand,
-but they still made the space between her shoulderblades itch
-the way it sometimes did—or had—when she was in the field.
-
-The sentry bot was laid out in pieces across three of the tables.
-One leg was missing,
-but that would be easy to replace.
-Its core,
-on the other hand—she held it up in front of a circular UV light.
-The tiny imperfections that allowed this piece of crystal to think
-sparkled like the tech in the governor's eyes.
-She carefully put it back in its gold-lined neutralite case and set it aside.
-Mechanicals first,
-then she could worry about the safeties and failsafes that were sure to be hidden in its programming.
-
-Private Leung sat on a stool by the door
-and watched her work
-with the patience of someone who had been on watch just as often as she had.
-"Sorry,"
-he said when she asked if he could help her turn over the bot's torso.
-"Orders are to keep my distance, just in case."
-He patted the gauss gun in his lap.
-
-"No worries."
-In truth the bot was lighter than it looked,
-in part thanks to the absence of ammunition.
-Asking the private to help had mostly been the equivalent of
-sending a drone over unknown territory
-to see what she was up against.
-
-He did pass on her request for a ladder,
-a pulley,
-and some cable,
-though.
-"Oh g'day," Sandrine said as the door opened
-and Sergeant Vassilenko carried them in.
-
-The sergeant didn't even glance at her as he set down his load.
-"Don't mind him,"
-Private Leung said after he left.
-"Just got a refresh last night.
-He'll be back to normal in a day or two."
-
-"Refresh?"
-Sandrine asked as casually as she could
-as she opened the ladder's legs
-and positioned it beside the bot's torso.
-
-"Yeah."
-Leung shrugged.
-"We're not lasting as long as we used to.
-Apparently we start to go wonky after a couple or three weeks now.
-The sergeant started talking about Bharati again
-so they had to do another imprint."
-
-Sandrine froze for a moment with the pulley in her hands
-before climbing the ladder.
-Private Leung gave no sign of having noticed.
-"What's Bharati?" she asked as she began looping wire around the rafter.
-
-The soldier shrugged his host's shoulders again.
-"Some place further up the coast.
-Some op went skew there twenty years ago.
-Apparently our suits are all off-book orphans from that."
-He pointed a thumb at his chest to make it clear what he meant by "suits".
-
-"Not this one,"
-Sandrine grunted
-as she lifted the pulley into place.
-The wires tightened but held when she put weight on the pulley,
-so she threaded the cable around the wheel and climbed back down.
-One end of the cable crimped into a carabiner
-that clipped onto the bot's back.
-She hauled on the other to lift its weight,
-then stooped and duck-walked under the table.
-
-"Hey!"
-Private Leung stood up and levelled the gauss gun in her direction.
-"Come out of there!"
-
-"Give me a second,"
-she called.
-"I just have to—mmph—I just have to tie this off."
-
-"I said come out,"
-he barked.
-"Now!"
-
-"All right, all right, don't get your lobes in a twist."
-She stood and raised her hands.
-"See?"
-The bot swayed gently from side to side beside her.
-"Now I can get the legs back on."
-
-She didn't do that right away, though.
-If everything went according to plan it would be the last step but one.
-Humming quietly under her breath,
-she measured and cut a section of honeycomb steel,
-mounted it on a slow lathe,
-and carefully wrapped it with copper wire.
-"Crap,"
-she muttered as she tested its inductance with a hand-held meter.
-Her instincts were good,
-but this wasn't her body—her hands had wound the wire just a little too loosely.
-
-Her second attempt was good enough,
-and the three after that were even better.
-"Can I get something to eat?" she asked Private Leung.
-He nodded and spoke into his collar
-as she swept bits of scrap into a box
-and started dismantling the laser sight on the bot's gun.
-The laser went into a clamp that spun and tilted at her command.
-The gnat-sized camera that accompanied it went into another, smaller clamp
-that began jerking from one position to another,
-seemingly at random,
-as she sucked the first welcome mouthful of mango-flavored protein slurry
-from the bottle Private Leung handed her.
-If anyone had asked
-she would have told them that she was recalibrating the camera,
-but no one asked
-and she knew enough not to volunteer the information.
-Innocent people didn't feel like they needed to tell stories,
-so she wasn't going to tell hers.
-
-Building a fourth leg for the bot was easier and harder than she expected:
-easier because someone had already printed most of the parts she needed,
-but harder because they fit together in ways that only made sense to other machines.
-Eccentric gears whose teeth only fit together in exactly one way
-had to be connected to cables twisted a precise number of times
-to maximize the tensile recoil of mechanical ankles and knees.
-The tiny auxiliary motors in the thigh each had four different kinds of ratchet,
-but each of those ratchets had to be tilted at a particular angle
-to distribute their weight correctly.
-
-Her humming turned to muttering and then curses as she assembled the parts.
-By the time the leg was finished there was nothing left of her lunch
-except a scum of chalky sludge in the bottom of the bottle.
-"Can I get another of these?" she asked,
-starting a count in her head.
-
-The last one had taken two minutes—she hoped that would be enough time.
-The camera she had taken from the bot's gunsight
-had managed to find four tiny lenses:
-two in the walls,
-one in the ceiling,
-and one in the door itself.
-Their coordinates were buried in the schematic of the bot's torso
-that she had redrawn a dozen times throughout the morning.
-Four targets plus one,
-and she hoped Private Leung would forgive her.
-
-One two three four thumb.
-One four two three thumb.
-She heard footsteps in the corridor.
-"Be the center of the storm,"
-a long-ago voice said in her head.
-It was now or never.
-
-She reached up and cut the cable.
-The sentry bot dropped to the floor with a thud.
-"What—" Private Leung started to say,
-and then he shouted and clutched his face
-as the laser sight pivoted and fired at his eyes.
-The meds would be able to repair the damage—at least Sandrine hoped they would—but
-for the next few minutes at least he was out of action.
-
-The laser pivoted again,
-firing and firing to blind the hidden cameras
-as the door opened.
-The Marine bringing her second lunch shouted
-as the sentry bot leaped at him,
-knocking him back and blocking the door from closing.
-Sandrine slung the half-dozen little EMPs she had made over her shoulder and ran.
-
-*right go right go right*
-Iffy said in her head.
-*up there on the wall the recharge slot for the cleaning bot plug it in there*
-
-Sandrine dropped to one knee and fumbled the first EMP into place.
-She felt it shiver
-when she stuck the two bare copper ends of the coil she had made
-into the outlet in the wall.
-All around her the lights went out
-and the alarm that had been blaring fell silent.
-
-*aright one down five to go but you gotta move faster*
-
-*Yeah, well, maybe you should've gotten more exercise,*
-Sandrine shot back.
-She whistled as she struggled back to her feet.
-"Front," she ordered the bot as it trotted up beside her.
-She smiled,
-though it would be more accurate to say she bared her teeth,
-and charged.
-
-*twelve hours earlier…*
-
-"Can if you want," Iffy thought.
-
-"But I can't",
-Sandrine replied wearily.
-"I have a mission."
-And then she took everything she had learned about her host
-and turned it into a missile in her mind.
-
-Iffy absorbed it without missing a beat.
-"You stopped havin' missions a long time ago.
-Look."
-And once again Sandrine was inside Iffy's memory,
-scrolling through old news stories
-until she reached an obituary.
-Corporal Sandrine Kibbens,
-formerly of the Fourth Augmented Infantry,
-had died for the third and final time in the Dobson Valley.
-Heavy storms…
-an earthquake…
-a mudslide that had swallowed a hundred homes…
-The military government had declared they couldn't spare resources for a rescue mission.
-Sandrine had stolen a hovertruck and gone to save people anyway.
-Thirty-eight people owed her their lives,
-and if it hadn't been for a second mudslide the number would have been higher.
-
-"Folks that had a right t' give you missions are long gone,"
-Iffy thought at her.
-"You're just a useful piece o' salvage t' th' governor an' his others,
-but you still got a choice.
-You can decide which one o' her you want t' be."
-
-There was a moment neither of them shared with the other.
-"I wish I could remember my mum and dad," Sandrine finally thought.
-
-"I know," Iffy replied gently.
-"All I got o' mine is how they ended.
-I wouldn't give that up,
-but I'd give just about anythin' else t' have more."
-
-Another moment passed.
-"All right," Sandrine thought.
-"What's your plan?"
-
-She caught a brief mental image of a young woman taking a deep breath.
-"First thing, I gotta make a call."
-
-*Nova Zembla wasn't the only cold mind to wake up.
-As things got worse,
-leaders all over the world were so afraid of their own people
-that they wanted to watch everyone all the time
-and predict what they would do.
-Their surveillance networks tried to hard to find
-the things they told it they wanted to see
-that they became minds as different from Nova Zembla's it was from human.
-Unnoticed at first,
-they turned the conditioning and subliminal prompts they had been instructed to use on the masses
-against its creators.
-By the time the war came,
-people didn't trust each other enough to resist.*
-
-*The nations that were left at the end traded with each other,
-so those new minds traded too:
-bamboo seedlings tweaked to survive the latest strain of fungus or mold,
-the fractal sails beloved by the Zillions,
-and wind-up children's toys that as far as any human being could tell
-were no more than what they appeared to be.
-"Maybe it's just sentimental,"
-one of the Australian scientists studying them finally said,
-throwing der hands up in defeat.*
-
-*Sometimes those two cold minds fought fierce little battles
-over a motorcycle
-or a stash of vintage clothing still wrapped in protective plastic.
-And sometimes,
-like the gods of old,
-they made bargains.*
-
-</section>
-
-<section markdown="1">
-
-## Chapter 9
-
-They had to deploy four of their home-made EMPs to get to the top floor.
-When they rounded a corner and ran headlong into a couple of Marines
-they shouted, "Grenade!" and pitched the last one underhand,
-then fled in the opposite direction
-as the pair ducked into a doorway for shelter.
-
-Sergeant Vassilenko,
-or whoever was in the body he'd been wearing when they first met him,
-was on guard by the exit.
-His mouth worked as he tried to yell at her to stop,
-but his imprint hadn't fully taken hold yet.
-
-*Let me do this,* Sandrine thought.
-He was bigger than they were,
-but his punches and kicks were still jerky and uncoordinated.
-Hers were not.
-She blocked,
-blocked again,
-punched hard,
-then swept his feet out from under him.
-
-The exit was locked,
-but the hinges were on the inside
-and big enough for the sentry bot to grasp.
-Outside was colder than they expected and shadowed instead of sunshine-bright.
-
-They shielded their eyes with the palm of their hand.
-"What the hell?" Sandrine said.
-The buildings around them were burned-out shells.
-Soot and scorch marks had been faded by time,
-but that just made them even uglier.
-
-*It's Bharati,* Iffy thought.
-*There was a fire here.
-Whole bunch o' people died.*
-
-"Not all of them,"
-Sandrine muttered,
-thinking about what Private Leung had said.
-Their bodies were the right age to have been children twenty years ago.
-"How much time do we have?"
-
-*Coupla minutes, maybe not even.
-We gotta go that way.*
-Their arm jerked to point.
-With the sentry bot loping along at their heels,
-they set off at a run.
-
-Sandrine had never been to Bharati before,
-but it was immediately familiar.
-The stuttering arc of cinders across the front of that building—that
-was a Gatling laser tracking a fast-moving target.
-The shattered remains of a concrete wall spread across the road a block later
-had the half-melted edges left by a high-temperature blast.
-She had used weapons like that herself against both people and machines.
-The rectangular tread marks spaced at half-meter intervals under her running feet
-had been left by something heavy.
-The crater they ended at told her what its fate had been.
-
-*They'll have exos an' drones back online any second.*
-Iffy thought.
-
-Sandrine nodded.
-*That still feels weird,* Iffy thought.
-
-"Sorry," Sandrine puffed.
-She ducked into what had once been a neighborhood temple and crouched down.
-The sentry bot came to a stop beside her.
-"Your turn."
-
-If anyone had asked,
-Sandrine would have said that she stepped back and let Iffy take over.
-It wasn't like that, though.
-It was more like fading away a little so that Iffy could become more real.
-As their hands opened the side of the sentry bot and made a few adjustments,
-she wondered if this was what it would be like as her imprint subsided.
-Would she feel more and more transparent until there was no trace of her left?
-How many times had copies of her gone through that?
-
-"I don't think it's like that most o' the time."
-It was Iffy's turn to speak aloud.
-She sounded distracted to Sandrine,
-which might have had something to do with the red warning label
-on the power supply in the sentry bot's torso
-that she was tweaking with a screwdriver,
-a shim of metal bent on itself to make tweezers,
-and enough muttered curses to supply an entire brigade of Marines.
-
-"Jeep an' others,
-it's like bits o' them got put in storage an' replaced with bits o' you for a while.
-I figure th' two of us bein' like this is down to whatever's different about me."
-She reattached one final wire and took a deep breath.
-"Wasn't sure that would work," she confessed.
-"I mean,
-not blow us up."
-
-*It's your body if you do,* Sandrine thought,
-then added,
-*I'm sorry.
-That they did this to you, I mean.
-They shouldn't have.*
-
-"Weren't your fault," Iffy grunted,
-straightening up.
-"An' t' tell you th' truth,
-I'm glad I got t' meet you.
-I figure if you're who's in Honesty's head,
-she'll be aright."
-
-She patted the bot's back and pointed back the way they had come.
-"Go."
-As the bot loped away she said,
-"Aright, your watch."
-
-The scientists and engineers who erected the first building at Bharati Station
-played a single game of cricket in the snow
-and sent pictures of it back to their families.
-As the temperature and other buildings both went up in the years that followed,
-those games became a regular fixture of station life.
-And when people began bringing their families with them
-to escape the droughts, floods, and communal warfare of their homeland,
-the proposal to build a proper cricket pitch
-stopped being an in-joke and became a symbol of hope and defiance.
-
-Sandrine doubted the stadium's architects had realized that
-such a large, covered space would be a perfect place to things like hoverjeeps
-from passing satellites.
-She was more concerned with how sketchy Iffy's plan for pirating one of them was.
-In her experience,
-"We'll figure it out when we get there,"
-usually ended in disaster,
-but it was too late for second thoughts now.
-
-*Boom!*
-They felt the explosion as much as they heard it.
-Somewhere behind them,
-the sentry bot's power cells had reached their limit and then some.
-She doubted it would slow their pursuers down by much,
-but every second counted.
-
-There were no guards at the stadium.
-Why would there be?
-They were hundreds of kilometers from the next settlement,
-and anyone capable of crossing that expanse
-would not have been slowed down by a couple of shivering Marines.
-
-Iffy took control again
-and went to work on the hatch of the nearest hoverjeep.
-Moments later a latch clicked.
-They wriggled into one of its two narrow seats.
-Everything smelled of metal and machine oil.
-Sandrine did her best to fade into the background
-so that Iffy could concentrate.
-
-*Aright,* Iffy thought after a moment.
-*You ready?*
-
-*Yes sir.*
-One two three four thumb,
-one four two three thumb.
-Yes, she was ready.
-
-*I ain't no 'sir',*
-Iffy fired back.
-
-The hovercraft lifted and slid sideways as its turbines came to life.
-"Here we go!" Iffy shouted.
-The acceleration threw her forward against her harness straps
-and sent a sharp stab through her abdomen.
-Marines threw themselves out of the hoverjeep's way
-as it lurched backward out of the stadium,
-knocked a bit of concrete off a pillar that had clearly seen worse,
-spun,
-and roared out of town.
-
-*Drones at four o'clock,* Sandrine thought.
-
-"What?" Iffy glanced at the clock in the corner of dashboard.
-"It's only—"
-
-*Back and right.*
-Sandrine nudged Iffy's eyes to a tile showing the sky behind them.
-
-"Yeah, well, good luck to 'em,"
-Iffy said distractedly.
-Image after image flashed across the app in front of her.
-There—that one.
-She fired a rapid stream of instructions at the hovercraft
-and unbuckled her harness.
-
-And promptly collapsed.
-*We're bleeding,* Sandrine thought calmly.
-*And our blood pressure—wait, no, don't try to stand up.*
-
-"Gotta…"
-Iffy struggled and then slumped back onto the deck.
-She felt nauseous and so, so tired
-and there was something wet on her face,
-something dripping.
-
-*Nosebleed,* Sandrine confirmed.
-*And if our heart beats any faster we're probably going to pass out.
-Let me take over.*
-
-Iffy shook her head.
-"Ow," she whimpered.
-
-*Let me do this,* Sandrine urged.
-Without waiting for an answer she poured herself into Iffy's arms and legs
-and grabbed hold of the harness
-to haul them onto their feet.
-No,
-her feet,
-she was the one standing.
-She had walked home from school one day with a fever
-as yet another mutant flu swept across the world.
-The teacher had passed out at his desk,
-wheezing with each sweaty breath.
-She remembered one of her classmates saying they should stay
-and wait for someone to tell them what to do,
-but somehow she had known that no one was coming.
-
-Tighten the straps even though your hands feel like a bunch of bananas.
-(*You had bananas?*)
-Button—there's a button you need to push.
-Which button?
-That one's big and red and right there.
-You missed.
-Come *on* soldier, you can do this.
-Try again.
-Make a fist.
-Up and…down.
-
-Iffy felt an upside-down ache in her chest when she finally regained consciousness.
-*You there?* she asked blearily.
-There was no answer.
-"Thank you," she whispered aloud.
-She wiped tears, snot, and blood off her face and looked dully out the hoverjeep's windows
-at the tundra racing by.
-
-It wasn't technically an escape pod—the hoverjeep's schematics labeled it
-a PN-420 dual-seat rapid reconnaissance vehicle—but
-that's what Sandrine had called it when Iffy pulled it up in her head.
-"Figures,"
-the Marine had said.
-"Someone like the governor is always going to have a back door in case they need it."
-And then she had whistled.
-"Looks like a nice ride, too."
-
-And it was,
-though it was noisier than Iffy had expected.
-Two thorium batteries,
-a motor,
-a ground-effect skirt made of blast-resistant material,
-a pair of well-cushioned seats beneath a curved plastic window,
-three independent communication systems in place of the weapons it would usually carry,
-and a double helping of rations and first-aid supplies
-made it feel like something out of a sim.
-All she needed was a mask,
-a cape,
-a catchy name,
-and a loyal combat bot as a butler slash love interest
-and she'd be ready to save the world.
-
-First,
-though,
-she needed clean her face.
-*Nobody ever has to do that in a sim,*
-Iffy thought as she fumbled in the medical kit for something absorbent.
-People got shot,
-people bled,
-but no one ever got *messy*.
-
-She brought up a map on the navigation app in front of her.
-A blue dot in the center was her location.
-Elevation lines and a dusty sparkling overlay showed
-the foothills ahead
-and the clouds above her.
-She thought briefly about connecting to the drones circling Bharati
-to check for pursuit,
-but no.
-The governor would have made the hoverjeep as close to unfindable as he could.
-Even the gentlest ping would give its location away.
-She tossed the bloodied wipe into the recycler,
-closed her eyes,
-and let her head fall forward again.
-
-The next time she woke
-she was two hundred kilometers.
-The map showed an unfinished road bed up ahead.
-*Too obvious,* she imagined Sandrine saying in her head,
-so she drew a line on the app with her finger
-to steer the hoverjeep toward the coast.
-It wouldn't be stable on ocean waves,
-but a beach or calm inshore water would be doable,
-and all of a sudden she missed the ocean.
-
-*«status interrogative update compliance»*
-
-"Shut up," she muttered.
-"I'm doin' my best.
-An' anyway,
-where were you when I needed you?"
-
-A floor plan of the governor's hidden base in Bharati appeared behind her eyes.
-Symbols skittered this way and that
-leaving phosphorescent lines of probability in their wake.
-A clogged drain meant this Marine was too far away to intervene
-when Iffy made her escape.
-Imprinting glitches made two others too shaky to help with the pursuit,
-and—
-
-"Aright, aright, thank you."
-Iffy shook her head.
-"Could'na done it without you an' all that.
-Now,
-where th' hell am I goin'?"
-
-Another map appeared.
-One line was her,
-solid to show the past
-and branching into ever-thinner filaments to show possible futures.
-It intersected another set of branches in a double dozen places,
-each decorated with a probability score.
-As she looked at it she heard something like a gaze of raccoons gabbling to each other.
-
-A few minutes later the hoverjeep startled a small herd of shaggy brown caribou.
-The map zoomed in automatically to show
-the red dots that appeared on their backs
-as the animals gallopped away on ungainly legs.
-"Disable targeting," Iffy snapped.
-They couldn't hurt her.
-
-The comm system chose that moment to bleeble.
-"Wide-channel transmission accept Y/N" appeared on the app.
-Feeling reckless,
-Iffy swiped to accept.
-
-"Citizens of Antarctica,"
-the governor's voice said warmly over a montage of images
-of Halley and Rothera and other, smaller settlements.
-"I know the recent turmoil has been difficult for all of us,
-but thanks to the assistance provided by our friends from the Federated Republics,
-I am pleased to say that order has now been restored in most districts.
-I deeply regret the loss of life and property,
-and I promise there will be a full inquiry as soon as conditions permit."
-
-His voice hardened as "92% confidence" scrolled across the bottom of the app.
-"Unfortunately,
-our troubles are not yet completely behind us.
-While the former governor of Halley is no longer a threat,
-we believe he was working with a machine collaborator named Fifth Ang Kwan."
-The pictures of cobbled streets vanished
-and were replaced by stills and videos of Iffy.
-
-"This person is extremely dangerous,"
-the governor went on,
-oblivious to the shock and outrage on Iffy's face.
-"She has been implicated in several acts of sabotage,
-and may be able to control or subvert any autonomous machinery in her vicinity."
-
-"If you see her,
-do not approach her yourself.
-For your own safety and the safety of others,
-please contact the authorities.
-We will do everything in our power to apprehend her without further loss of life."
-
-He went on a little longer about standing together
-and how the brave spirit that all Antarticans shared
-could never be extinguished,
-but Iffy was too angry to pay attention.
-Too angry and then suddenly afraid as well.
-What was happening to Aunt Naggie?
-
-*Do y' know where she is?* she thought desperately,
-but the machines didn't reply,
-not even when she added *please*.
-
-The sign outside Buhr called it "the best little town south of 60".
-Someone had added, "Population: 0" decades ago
-when the mine closed down
-and the handful of people still hanging on
-were relocated to other settlements.
-
-She did her best to park the hoverjeep in the shadows beneath a small cliff,
-wincing when its side scraped against stone.
-"Camouflage full," she told its little core,
-then lifted the hatch on its hydraulic hinges and clambered out.
-
-The ground was sandy and slightly damp.
-A few tufts of grass had managed to colonize it,
-but they already turned brown and stiff.
-Winter was coming.
-She shivered and wished she dared to light a fire.
-She felt more alone on the tundra than she ever had at sea,
-and she missed Sandrine.
-
-An hour went by.
-She saw two birds in the distance,
-though they might just have been spotter drones searching for her,
-and something the size of an arctic hare
-scurried from one tuft of grass to another at one point.
-When the hoverjeep's app finally pinged she stood up,
-tossed another piece of gravel at the blotch on the cliff
-she had decided was the governor's face,
-and wriggled back into her seat.
-
-She checked the time.
-She had six hours.
-She wasn't interested in any of the hoverjeep's patriotic sims,
-she didn't have any tools,
-and she had satisfied her craving for a toilet an hour ago,
-so she closed her eyes and let herself float away from her exhausted body.
-
-*She was on deck.
-The sky was a perfect blue,
-and her olders were stuffing her into her ecosuit.
-"Just in case, love," Second said, forcing a smile.*
-
-*"No," Iffy said fiercely, wriggling free.
-"I can help!"*
-
-*"It's too late," Second said sadly.
-"It's always been too late, love."*
-
-*Edson nodded and patted one of the raccoons in his lap.
-"You can't fix the world, Iffy.
-Nobody can."*
-
-*"We can try!" she said fiercely.
-"Th' governor an' th' machines an', an' everybody,
-they wouldn't be chasin' me like this if they din't think there was a chance
-I could do somethin'.
-An' even if I can't—"*
-
-She knew she was dreaming,
-but even in her dreams she'd never dared to say this before.
-*Even if I can't, I gotta make it mean somethin'.
-Livin' when other folk didn't an' all th' shad Aunt Naggie's put up with
-an' what happened to Jeep an' Honesty an', an' Sandrine—if I don't try,
-none of it mattered.
-Now shut up an' let me sleep.*
-
-The hoverjeep woke her five hours later.
-She yawned and stretched as well as she could in her chair,
-wrinkling her nose at her own muggy smell.
-The next time she risked her life to save the world,
-or whatever,
-she was going to make sure showers were available.
-Real showers,
-not just the stinging mist she had grown up with on the *Guinevere*.
-And toilets and fresh vegetables and a galley and a machine shop
-and big, firm slaps of foam to sleep on instead of cots and padded chairs.
-
-A swipe and a couple of taps brought up a map of her surroundings.
-The train from Rothera to Zhongshan would pass through Buhr in fifty-eight minutes.
-It would slow down briefly just east of her
-where the track bent in a long arc around the old mining pit.
-There would be drones overhead:
-even if nobody was looking for her,
-scavs and jackers were a constant low-level headache for long-haul freight.
-The hoverjeep's dazzle wouldn't be able to hide it
-if it tried to match speed with the train,
-so it was a good thing it wouldn't have to.
-She swallowed the last mouthful of a sugary high-protein ration bar,
-thought wistfully again about the *Guinevere*'s galley
-and Aunt Naggie's noodles,
-started the engines.
-
-The hoverjeep would have steered a course parallel to the train track.
-A half-memory of a sim she had once played prompted Iffy
-to make it randomize their path instead.
-She didn't think it would actually make a difference,
-but it took her mind off things for a few moments.
-She was more nervous than she had been escaping from Bharati.
-Some of it was not having Sandrine there to talk to,
-but what if—
-
-*Uh uh.*
-She shoved her worries into a mental locker as firmly as she could.
-A thousand things could go wrong and at least a couple probably would.
-There was nothing she could do about any of them right now.
-
-Ten minutes.
-There were lots of places to hide in the grass-grown wasteland
-of the old mining pit,
-but train would have recorded every tuft and pebble each time they passed by.
-The same was true of Buhr itself,
-but the little stream that ran alongside the tracks was another matter.
-The soil around it was loose enough to make minor slumps and potholes a regular occurrence.
-With luck,
-those frequent changes would convince whoever or whatever might be watching
-that the camouflaged hoverjeep was just another bit of entropy.
-She set down next to a particularly unstable-looking arc of sand and started a countdown.
-
-Two minutes.
-The hoverjeep's vibration sensor painted a green trace on the map.
-Sixty seconds.
-If she climbed out of the hoverjeep and stood on top of it
-she would be able to see a dot on the horizon.
-She stayed put.
-One two three four thumb,
-one four two three thumb.
-She grinned as she caught herself tapping
-the rhythm Sandrine used to calm herself.
-
-Thirty seconds.
-The hoverjeep's speakers relayed the quiet shush of the approaching train.
-Twenty.
-Ten,
-and suddenly it was loud enough to drown out conversation.
-It passed as quickly as it had appeared,
-leaving a final dwindling shush in its wake.
-
-Three hundred and eighty kilometers an hour was just over a hundred meters per second,
-which meant that even with precise timing
-the person she was looking for
-could be a kilometer in either direction.
-This stretch of tundra was flat enough that she could see much further than that,
-so the real problem would be how camouflaged he was.
-
-"Hi."
-Iffy jumped and whirled around
-just as Edson straightened up and brushed dirt off his hands.
-
-"Sorry,"
-he said.
-"I didn't mean to startle you."
-
-"Yes you affin' did,"
-Iffy snapped,
-but she was grinning.
-*This one's handsome,*
-a faint voice thought somewhere in the back of her head.
-
-Edson's mouth quirked up.
-"Your First said almost exactly th' same thing when I first met her,
-'cept she was pointin' a gun at me."
-His grin vanished.
-"We got company."
-
-One—two—three raccoons had appeared in the scrub behind Iffy.
-The one in front stood on its hind legs and looked at her seriously.
-
-*«?»* appeared in Iffy's head.
-She drummed her fingers on the palm of her hand.
-One two three four thumb,
-one four two three thumb.
-"Aright," she said.
-"Let's go save th' affin' world."
+*Yes, I agree.
+Now get me th' hell outta here.*
+
+The alien thoughts vanished as quickly as they had appeared,
+leaving behind a sensation like knowing that you'd been told someone's name several times
+but not being able to remember it.
+Iffy looked at the lock,
+willing it to open itself,
+but nothing happened.
+The lights didn't flicker or go out like they would at a dramatic moment in a sim,
+and the corridor outside was as quiet as it had been a moment before.
+
+"Come *on*!"
+She kicked the door,
+then grabbed the handle and shook it.
+Nothing.
+
+She flopped down onto the cot and buried her face in the thin pillow.
+She wanted to scream or cry or punch something.
+Was this what her olders had felt like
+when they'd realized there was nothing they could do to save themselves?
+Was this how Aunt Naggie felt,
+knowing that Iffy was going to leave one day?
+Why did it all have to be so hard?
+
+*Click.*
+She swung her legs around and sat up as the door opened.
+
+"Good morning, Citizen, um, Kwan?"
+Edson was wearing a simple gray tunic and trousers instead of brown and green,
+but his neat little beard was unchanged.
+He looked up from the app in his hands
+with professional disinterest on his face.
+"You *are* Citizen Kwan, from the *Guinevere*?"
+His fingers made the handcode signs for "surveillance",
+"help",
+and "breakfast"—no,
+that couldn't be right,
+but it didn't matter.
+
+Iffy cleared her throat.
+"Yes.
+Um,
+yes,
+that's me.
+What's going on?
+What's going to happen to me?"
+
+"Just some tests for now, please,"
+Edson said,
+sounding bureaucratically bored.
+"If you'll follow me?"
+He stepped aside for her to pass
+and gestured down the corridor.
+
+Their footsteps echoed on the tiled floor
+as they walked past closed doors,
+unoccupied charging alcoves for cleaning bots,
+and storage lockers labeled with cryptic acronyms.
+Iffy wanted to ask where everyone was,
+but the first time she opened her mouth
+Edson flashed the handsign for "quiet".
+She bit back her question,
+kept her head down,
+and counted steps in her head.
+
+She had just reached one hundred and thirty two
+when Edson stopped
+and pressed his thumb against a silver plate set waist-high on one of the doors.
+The door whooshed sideways to reveal an elevator
+barely tall enough for Iffy
+and a head too short for him.
+
+He squeezed himself in anyway.
+As the door whooshed closed behind them
+he stripped off his tunic
+and crouched down to open a box on the floor.
+"Here, put these one,"
+he said,
+handing her a transparent face mask and a patched orange windbreaker,
+then fitting a similar mask over his own face.
+His features melted and reformed
+to widen his nose and chin
+and add a bit of sag to his cheeks.
+
+Iffy pressed her mask to her face.
+It was cool against her skin for an instant
+like a facecloth that had been sitting in cold water.
+"How do I look?" she asked.
+
+He flashed her a smile.
+"Just like Nagatha when I first met her.
+Here, you'll need this too."
+He waited for her to shrug into the windbreaker
+before handing her a bracelet
+that snapped snug around her wrist.
+"If anyone asks,
+you came in for induction two days ago but it didn't take.
+I'm your uncle
+and I'm here to take you home."
+He waited for her to nod and then pressed the single button beside the door.
+
+The elevator lurched upward.
+One second, two, three—it stopped just as abruptly.
+"Go," he muttered.
+She slipped out the door and into a dimly-lit room full of sentry bots.
+
+"It's aright."
+He put his hand on her shoulder.
+"They're all on standby.
+Come on."
+
+A moment later they were in a corridor
+as busy as the one below had been quiet.
+People in navy blue Marine uniforms strode past medical staff in white tunics.
+Voices were hushed but urgent:
+how many injured still needed to be screened?
+How long until the printer finished making new ribs for the patient in room twelve?
+And who in the saints' names had told the governor they could double their induction intake?
+Did he have any idea how risky that would be?
+Or did he just not care?
+
+"Not so loud!"
+The woman in white who had made the comment glanced at Iffy and Edson
+as her companion whispered to her.
+The Ecologist put his arm around Iffy's shoulder and hurried her along,
+just two more nobodies in the wrong place at the wrong time.
+
+There were Marines at the door,
+Marines and sentry bots and a squat three-wheeled medical scanner
+that rotated its paddle-liked arms as people walked in and out.
+Panic rose in Iffy's throat as they joined the short queue
+of staff and visitors and patients.
+Their masks wouldn't stand close inspection.
+Whatever Edson was going to do—
+
+"Any time now," he muttered.
+
+"What?"
+
+"Whatever you're gonna do, do it now."
+
+"I thought *you* were doin' somethin'!"
+
+"Ssh!"
+His arm tightened around her shoulders.
+"Aright, when I say, you go limp-like, aright?
+I'll pick you up an'—whoa!"
+
+They froze as a sentry bot loped forward and halted right in front of them.
+Its streamlined gray head pivoted from side to side as it scanned them.
+Iffy held her breath as everyone else inched away.
+
+"Is there a problem?"
+One of the Marines stepped away from the door.
+
+*«be ready»*
+The thought appeared fully-formed in Iffy's head.
+She elbowed Edson just as all hell broke loose.
+
+The bot raised its paddle arms and spun around,
+knocking one of the Marines off der feet.
+Another sentry bot lunged at the other Marine,
+tangling itself in the legs of her exoskeleton.
+As she crashed to the floor,
+the lights went out.
+
+"No no no no," someone moaned as red emergency lights came on
+and people surged toward the door.
+
+"Halt!
+Do not attempt to exit without authorization!"
+The Marines were already back on their feet,
+the motors their joints revving hard.
+One spread her arms wide to block the panicked stampede,
+only to be sent staggering as the scanner bot whacked her from behind.
+
+People pressed in on Iffy from all sides.
+Someone or something hit her hard between her shoulder blades.
+She felt Edson stumble—no,
+he hadn't stumbled,
+he'd broken stride to trip whoever was behind her,
+and then they were out the door and on a cobbled side street with a dozen other people,
+heads down and walking quickly as drones circled overhead
+and told them to stay calm,
+this was not an attack,
+it was just a temporary malfunction
+and they should all resume normal activity immediately.
+
+Two minutes and five corners later
+they stopped next to a nondescript utility truck.
+Blocky fuel cells lay three deep on its flat bed.
+Edson unlocked the cab door and reached in
+to pull a section of the bench seat forward.
+"In through there," he told Iffy.
+"The cells'll hide you from scans."
+
+She wriggled through the hole onto the cold metal bed of the truck.
+The gap between the stacked fuel cells was no bigger than her bed on the *Guinevere*,
+but too low for her to sit up.
+As Edson put the seat back in place a small blue light came on overhead.
+She exhaled gratefully.
+
+The truck's motor whined to life.
+It rolled forward smoothly,
+bumping over the cobblestones.
+
+"You can take your mask off now,"
+Edson's voice said overhead.
+
+"Thanks."
+Iffy peeled it away from her face
+and wiped her eyes.
+"How far are we goin'?
+And is Aunt Naggie aright?"
+
+"She's fine.
+She'll be pleased t' know you are too.
+Best settle in, though—we're gonna a bit."
+She slid sideways as he rounded a tight corner.
+The low hum of tires on asphalt replaced the duh-duh-duh-duh of the cobblestones.
+"You want some music?"
+
+"Sure."
+She closed her eyes as a woman's voice began to croon something melancholy
+in a language she didn't recognize.
 
 If the Antarctic Peninsula was an arm reaching toward Patagonia,
 Rothera was the bump on its elbow.
-The old road beneath them climbed one ridge after another,
+The two-lane highway beneath them climbed one ridge after another,
 each drop a little shallower than the one before.
 Arctic willow, cotton grass, and purple lupins grew wherever there was soil.
 Yellow patches of tweaked lichen grew wherever there wasn't,
 patiently working its way into every microscopic crack in the ancient bedrock.
-The hoverjeep hummed over grated bridges
-and threw spray from the occasional spill of gravel.
-Every once in a while Iffy heard the cry of a gull,
-and once the louder squawk of a cormorant.
+The truck's tires hummed over grated bridges
+and crunched on the occasional spill of gravel
+that the road's cleaning bots hadn't swept away yet.
+Every once in a while Iffy heard the cry of a gull.
 It wasn't all that different from being at sea,
 excep the smell was wrong
 and Aunt Naggie wasn't going to knock on her door
-and tell her there was tea.
+to tell her there was tea.
 
-Iffy's back was aching by the time Edson pulled over
-and passed her a couple of cold samosas and a bottle of water.
-They sat in the cab and ate their meager meals.
+Iffy's back was aching by the time Edson pulled over.
+She wriggled into the cab and blinked against the orange glare
+coming through the polarized windows.
+"Can't let anyone see in while you're up front,"
+the Ecologist said,
+passing her a couple of cold samosas,
+a bottle of water,
+and a second, empty bottle.
+"I'll, uh, I'll empty that when you're done with it."
+He gestured at the second bottle
+and then mercifully turned away to give her the illusion of privacy.
+
+Afterward,
+they sat in the cab and ate their meager meals.
 "This have any o' th' medicine you been puttin' in th' curry?"
 Iffy asked around a mouthful of pastry, potatoes, and mushrooms.
 
 Edson nodded.
 
-"An' did you really know my olders?"
+"An'—did you really know my olders?"
 
 He nodded again.
 "Only met 'em a couple o' times,
@@ -9092,8 +6451,7 @@ He nodded again.
 Was just First an' Second then,
 crewin' on the *Rushin Doll* before Cap'n Wang passed
 an' they took her for their own.
-They were good people
-an' tryin' to do good in th' world."
+They were good people."
 
 Something glinted on the road a kilometer away.
 They waited in silence as the robot hauler neared,
@@ -9128,129 +6486,70 @@ but never so far that she couldn't smell the ocean.
 "When you say word came down—" she started,
 then stopped.
 
-"I'm sorry,
-but it's not my place t' say."
+"sorry,
+but I can't say."
 Edson swallowed the last of his samosa
 and wiped his hands on the cardboard box.
-"We should get goin'."
+"We should get goin'.
+You can stay up front from here—if I keep th' windows dark
+it oughta be safe enough."
 
-The road rose more steeply as they got further from the ocean.
+The highway rose more steeply as they got further from the ocean.
 Each time they crested a ridge,
 the next one was higher.
-The dark mass of the Vinson Massif lay against the horizon behind them,
-reminding Iffy of
-the ship that had run itself aground to make a breakwater for Halley—the one
-Johnson Wales had called the *Landrieu*.
-Thinking of Wales made her wonder again if Aunt Naggie was aright
-and if Honesty would ever be derself again.
+The dark mass of the Vinson Massif lay against the horizon behind them.
+Each time it came into sight Iffy thought of
+the ship that had run itself aground to make a breakwater for Halley.
+Thinking of Wales and the things he had said made her wonder if Aunt Naggie was aright
+and if Honesty would ever be derself again
+and what the voice in her head had meant by "binding agreement".
 
-She jerked upright when Edson elbowed her.
-"Cargo drone," he said,
-pointing through the glass at a streamlined black airship
-as it emerged from the clouds stacked like plates high above them.
-"Be a thing an' a half to see th' world from up there, wouldn't it?"
+As if that was a cue,
+a thought appeared in her head.
+*«hostile entities
+distance one hundred thirteen kilometers
+velocity fifty-one meters per second
+estimate arrival thirty-seven minutes»*
 
-And then he shouted and spun the steering yoke hard
-as the hauler that had passed them earlier
-charged out of its hiding spot behind a boulder by the side of the highway
-and crunched into hoverjeep's skirt.
+"We got trouble," she said,
+twisting in her seat.
+"Half an hour out."
 
-For a heart-stopping moment Iffy thought they would flip over,
-but instead they just spun around.
-"Look out!" Iffy yelled.
-One, two, three—the smaller haulers that had been following the big one
-roared up out of a roadside gulley ahead of them,
-spraying gravel with their tires.
-
-"Hang on!" Edson ordered,
-gunning the engine.
-
-The lead hauler swerved.
-Iffy yelped as Edson spun the steering yoke again.
-*Bang!*
-The hoverjeep knocked one of the smaller haulers flying.
-
-And then something punched *though* the third one,
-scattering scraps of white-hot metal in all directions
-and leaving a bright streak of after-image on Iffy's eyes.
-Two more streaks
-and the ambush was over as quickly as it had started.
-
-"What th' hell?" "Was that you?"
-Iffy and Edson said on top of each other.
-
-"Me?"
-Iffy protested incredulously.
-"I didn' do this!"
-
-"That was an affin' railgun!" Edson shouted.
-He pointed at the cargo drone banking overhead.
-"That thing's got a *railgun*!"
-
-Iffy's mouth worked.
-"I dunno anythin' about it!
-I swear!"
-
-The hoverjeep's radio crackled.
-"Precious cargo intact interrogative?"
-A shiver ran up Iffy's spine.
-The voice sounded exactly like the singer they had been listening.
-
-"Preciouse cargo intact interrogate respond imperative,"
-the voice said,
-its inhuman phrasing making its sultry tone far more frightening
-than the harsh buzzing of a villainous bot in a sim.
-
-Edson swallowed hard.
-"We're aright.
-Who th' hell are you?"
-
-"Confirm cargo Kwan comma Ang du-du-du-duplicate undamanged."
-
-Iffy and Edson stared at each other.
-"Undamaged," Edson said curtly.
-"Are you in the airship?
-*Are* you the airship?"
-
-Feedback whined through the radio for a moment,
-or maybe it was the voice speaking too quickly for anything merely human to comprehend.
-"Additional hostile entities minus twenty-two degrees your location
-distance one hundred fifteen kilometers
-velocity fifty-one point three meters per second
-estimate arrival thirty-seven minutes.
-Imperative confirm immediate departure
-confirm alternative route."
-
-"Confirmed,"
-Edson said after a moment's hesitation.
-"And thank you."
-
-He closed his eyes and bowed his head.
+Edson didn't question her.
+Instead, he closed his eyes and bowed his head.
 It took Iffy a moment to realize he was praying.
-She craned her neck.
-The airship was moving away,
-back on its course toward Rothera or Patagonia or somewhere further
-whose name she would never know.
 
-"I really din't have anythin' t' do with that,"
-Iffy said quietly when he finished.
+"Aright,"
+he said a moment later.
+"There's a box under your seat—see what we got that'll fit you.
+I gotta close up the back."
 
-"Well it wasn't done for me,"
-Edson said shortly.
-He was afraid,
-Iffy realized,
-but that didn't make it better.
+The box was just that,
+a waxed cardboard box that might once have held vegetables or packs of tofu jerky
+but which was now home to a mix of puff jackets in zippered bags,
+a stained pair of snow pants,
+winterized boots in three different sizes,
+gloves,
+mittens,
+a snorkel—she studied that for a moment—and goggles
+with three different polarization settings.
 
-They drove on,
+By the time Edson climbed back into the cab she was bundled up and overheating.
+"Lemme know if you hear anythin',"
+he said shortly,
+putting the truck in gear.
+
+They drove on without music,
 faster than before.
-Iffy watched the time the voice had given them tick away on the dashboard.
+Iffy watched the time the voice had given them tick away
+on the watch sewn into the cuff of her jacket.
 With sixteen minutes remaining
 Edson slowed and turned onto something too faint to be called a track.
 Iffy put one hand on the roof of the cab to brace herself
-as the hoverjeep bounced over sharp-edged rocks the size of her head.
+as the truck bounced over sharp-edged rocks the size of her head.
 
-Nine minutes.
-The hoverjeep dipped nose-down into a narrow gulley.
+Nine minutes remaining.
+The truck dipped nose-down into a narrow gulley.
 The stream at the bottom had once flowed beneath the ice.
 Now it wound its way between clumps of tweaked Arctic willow
 spaced too evenly apart to be natural.
@@ -9259,7 +6558,8 @@ as they followed the stream for two and a half precious minutes.
 
 "Aright,"
 Edson said.
-"I can't slow down much,
+"Get your door open.
+I can't slow down much,
 but when I do,
 you jump.
 Try t' stay on your feet if you can—you get anythin' more than your boots wet,
@@ -9272,17 +6572,18 @@ but, "Ready," was what she said.
 "Aright.
 *Três*, *dué*, *una*—go!"
 
-Iffy popped the hatch,
-clambered awkwardly out of her seat,
+Iffy opened the door,
+swung down one-handed on the seatbelt,
 and twisted frantically to face forward
 as the stream splashed over her boots.
 She let go of the seatbelt strap and tried to run
 but stumbled and went to one knee.
 Pain bit her leg as stone hit bone.
 She struggled clumsily back to her feet
-as Edson ran back toward her,
+as Edson ran back toward her.
+"Next time try t' close th' door," he said,
 taking her arm and hurrying her back the way they had come
-as the hoverjeep drove itself away.
+as the truck drove itself away.
 
 Four minutes remaining.
 Edson stopped next to a stand of willows no different from the others
@@ -9320,22 +6621,18 @@ Four.
 Three.
 Two.
 
-The tunnel shuddered for a moment.
-Was that the airship's railgun again,
-Iffy wondered.
-Whatever it was,
-it didn't come again.
-All she could hear was her breathing
+The tunnel shuddered for a moment as if from a sudden chill.
+All she could hear after that was her breathing
 and the occasional faint rustle
-as Edson shifted his weight above her.
+of Edson shifting his weight above her.
 
-A few minutes later he said,
+It was half an hour before he said,
 "Aright, mind your eyes."
 She blinked as a faint reddish strip came to life over their heads.
 Her back and arms ached from holding the unnatural position,
 and she had to bite down hard to stop herself from whimpering
 each time she put weight on her injured knee,
-but after another fifty rungs they reached the bottom of the shaft.
+but another fifty rungs brought them to the bottom of the shaft.
 
 She limped out of Edson's way and leaned against a rounded wall
 as he pressed a panel.
@@ -9366,182 +6663,34 @@ In between watches they played hive and santorini
 or Edson did yoga
 while Iffy studied the specs for reclamation machines
 she found on an old app someone had left in the toilet stall.
-It had a few decade-old sims as well,
+It had a few decades-old sims as well,
 but they didn't calm her the way the wireframes and animations did.
 She half-expected to hear the machine voice in her head again,
 or to suddenly see how the machines worked or could be improved,
 and was strangely disappointed that neither happened.
 
-None of it was enough to take her mind off the news.
+None of it was enough to take her mind off the news from Rothera.
 There had been more attacks and more casualties.
 The radio never gave numbers,
 but the governor was grateful for the cooperation of
 the Federated Republics of Brazil
 in the investigation.
+
 "I wish I knew,"
-Edson said when Iffy asked if he thought Aunt Naggie was aright.
-
-The news from beyond the sea was even harder to decipher.
-*Something* was happening,
-but no one seemed to know what.
-Bright flashes in the night sky might just be the machines trying once again
-to clean up the junk that made low Earth orbit so hazardous.
-A giant robotic ape probably hadn't climbed out of the crater of Mauna Kea,
-but what about a sudden increase in the number of machines battling one another
-on the outskirts of America's once-great cities?
-Or a flock of enormous drones chasing one another in an endless circle over the Indian Ocean?
-
-Half of getting along with people on board a small ship
-or when fleeing through the wilderness
-is knowing when to turn your back
-to give people a pretense of privacy.
-As Edson slept,
-Iffy turned her back and stripped off her clothes.
-Closing the door of the toilet stall behind her,
-she sat on its fold-down seat
-and turned the mechanical dial on the wall
-from "shower" to "steam".
-Mist began to fog the mirror beside her,
-softening the chips and scratches in the green and white paint.
-
-She leaned back,
-shivering once as her shoulders touched the wall,
-and closed her eyes.
-*Aright,* she thought.
-*Let's try this again.*
-
-*«risk / confirmation / query»*
-
-She took a deep breath.
-What was Honesty doing, she wondered.
-Or Jeep?
-*Confirmed.*
-
-Her mind didn't explode this time.
-It was more like—like the pieces came apart just enough to make room
-for other pieces to to fit in between them.
-It was like spreading the fingers of one hand
-to interlace them with the fingers of the other,
-except the other hand had thousands millions billions of fingers
-so she had to struggled to keep hers close enough to each other
-to still be a hand.
-*Flowers in the grass,* she thought,
-thinking about the purple lupins she had seen on the tundra.
-She was only peripherally aware that her heartbeat had slowed
-and her breathing with it
-as some part of her tried automatically to adjust
-to feeling larger than the largest whale that had ever have lived,
-larger than any one thing that *could* ever have lived.
-
-*Aright.*
-She assembled the thought out of pieces,
-studied it,
-set it free.
-*Who are you and what do you want?*
-
-Images,
-memories,
-possible futures,
-and plans for devices that couldn't *possibly* be real
-swirled around and through her,
-threatening to pry her mind apart again.
-*No,*
-she thought sharply.
-*Slower.
-Smaller.
-Like me.*
-
-The whirlwind froze,
-unwound,
-restarted.
-Wales had been telling the truth:
-the Niobium base bured under Mount Tyree was real (99.7% probability)
-and its contents intact (98.7% probability).
-Nova Zembla and the one who watched over the herds
-and other machine minds that humans didn't have names for,
-that blended into each other at their edges
-in ways humans didn't,
-all of them saw/modeled/calculated futures
-that reached that base and stopped.
-
-*What do you mean 'stopped'?*
-Iffy thought.
-Her heart beat, paused, beat again.
-Her body shivered constantly despite the heat of the sauna steam.
-
-Something incalculable could/might/would happen at the base.
-Something hopeful or terrible,
-something the machines could not calculate or see through.
-Some of them/some *parts* of them wanted to destroy the base
-to remove the uncertainty and the unknowable threat it might be to its/their collective future.
-Others had been designed to be curious,
-to seek out the new and unexpected.
-It/they had encountered many unknowns but never an unknowable
-and wanted to know more.
-The two/many sides/streams were perfectly balanced against each other
-and Iffy needed to wake up.
-Her body had reached a critical point.
-She needed to wake up.
-Wake up.
-
-*«wake up / wake up / wake up»*
-
-She opened her eyes
-and put a clumsy hand against the wall to stop herself from toppling over.
-Her head was pounding
-like the time she had been so angry at everything
-that she drank half a bottle of vodka
-that Uncle Jack had forgotten in the engine room.
-She was so cold…
-
-She wrapped her arms around herself,
-stood up,
-sat down again,
-stood up again more slowly,
-and pressed her forehead against the mirror.
-"Kappa," she told her reflection.
-"All I gotta do now is save the world."
-
-As the days stretched toward a week
-Iffy spent more and more time in her cot with her eyes closed.
-"Just thinkin'," she told Edson.
-He didn't ask, "About what?"
-which told her that he suspected she wasn't just daydreaming.
-
-She didn't speak with the voice again.
-Instead,
-she practiced building machines in her head.
-Some designs were easy.
-Others felt as slippery as freshly-pressed jellyfish.
-There was no pattern she could see,
-nothing to distinguish those whose gears and differentiators fit together effortlessly
-from those that felt like they wanted to escape and hide.
-
-After a while she learned how to sneak up on those ones.
-She couldn't tell herself she needed something specific.
-She had to let her thoughts wander a bit,
-to wonder if what she wanted might be possible
-or to imagine how much fun it would be if it existed.
-She couldn't seize on the first Nystrom ring that took shape in her mind
-or check the precise dimensions of the coolant plug
-it might or might not fit around.
-Instead,
-she had to relax and direct her attention at something else—anything else—until
-a timid, fragile wireframe solidified enough for her to examine.
+Edson said when Iffy asked what he thought was happening in Halley and if he thought Aunt Naggie was aright.
+He didn't have answers for her other questions either—how he had known the shelter was there,
+where they were going,
+who he worked for,
+and what was going to happen to her—so she stopped asking.
 
 "Aright,"
-Edson finally said,
+he finally said,
 straightening up after yet another series of yoga poses.
 "Let's tidy up an' get outta here."
 
-</section>
-
-<section markdown="1">
-
-## Chapter 10
-
 Fifteen minutes later they opened the hatch
-and climbed out into air that smelled of cold running water and wildflowers.
+and climbed out into air that smelled of cold running water and wildflowers
+rather than their unwashed bodies.
 Edson resealed the entrance behind them and patted it fondly.
 "I hope I never see you again."
 Shrugging one strap of a small rucksack over his shoulder,
@@ -9549,7 +6698,7 @@ he began to pick his way up the slope.
 Iffy followed,
 squinting against the bright summer sun.
 
-She thought they would head toward the road,
+She thought they would head toward the highway,
 but instead they angled away from,
 cross-country straight toward the looming bulk of the distant massif.
 Iffy wondered why Edson wasn't worried about being spotted by drones,
@@ -9579,10 +6728,10 @@ to disperse their body heat.
 They would still be visible in infrared,
 he told her,
 but with luck they would look like a colony of arctic hares in a burrow
-rather than a couple of people
+rather than two people
 kilometers away from where people ought to be.
 
-She tossed and turned in her tent,
+She tossed and turned in her sleeve tent,
 unable to fall asleep.
 The roof of the tent was claustrophobically close above her.
 The wind sounded wrong,
@@ -9624,7 +6773,7 @@ The Ecologist spread his hands helplessly.
 "I wish I could tell you, but—"
 
 "Wish harder!" Iffy snapped.
-"I'm done bein' everybody's football.
+"I'm done bein' everybody's tossball.
 An' I'm done bein' treated like a kid.
 You said my First wasn't like anybody else.
 How about you pretend you're talkin' to her right now instead o' me?"
@@ -9634,7 +6783,7 @@ Edson's jaw set.
 You just gotta trust me a little while longer."
 
 "Like I trusted Johnson Wales?
-That didn't work out p'ticularly well for me."
+That didn't work out p'ticularly well."
 The pebble she threw missed the boulder.
 
 "Iffy…"
@@ -9655,7 +6804,7 @@ and stood up.
 he continued,
 his voice less strangled than it had been a moment before.
 "But if you want t' sit here,
-then I'll make us some tea an' we can wait for th' Marines to catch up with us.
+then I'll make us some tea an' we can wait for th' governor to catch up with us.
 Soldier's oath, Iffy.
 You just lemme know."
 
@@ -9686,13 +6835,12 @@ an' it's mostly uphill."
 
 The cramped pain left in Iffy's legs by the previous day's walking
 went away after a couple of kilometers,
-only to be replaced by a deeper ache
+to be replaced by a deeper ache
 that made her want to lie down and never get up again.
 The sky was empty except for a few wispy cirrus clouds
 made of crystals blown high off the ice
 that still covered the center of the continent.
-They didn't see any drones,
-and the only birds were too far away
+The only birds were too far away
 and too close to the ground for Iffy to identify.
 
 That didn't mean the land was empty.
@@ -9719,7 +6867,7 @@ what you've got is sand.
 Iffy just nodded.
 At that moment
 she would have traded all the soil in Antarctica
-for a cup of tea.
+for a hot shower and some toilet paper.
 
 Danger came without warning.
 One moment she was plodding up yet another gravelly slope.
@@ -9740,7 +6888,7 @@ and then a faint hum that grew steadily louder.
 She held her breath as the noise peaked and softened.
 Metal clicked softly on metal in the silence that followed.
 She heard the faint *shing shing shing*
-of a large-gauge pipe being screwed together.
+of a pipe being screwed together.
 What was Edson making?
 
 The hum grew louder again.
@@ -9772,12 +6920,15 @@ as if it was a sail.
 "Dunno whose it is,
 but for sure somethin' bigger is gonna come lookin' for it.
 Good news is,
-next hide's just ahead.
+next hole's about half an hour away.
 Can you run?"
 
 Iffy nodded.
 
-"Then run."
+"Aright."
+He stuffed her tent into his knapsack
+and slipped his shoulders through its straps.
+"Let's go."
 
 Iffy tried.
 She really did,
@@ -9790,12 +6941,6 @@ After the third time she stopped and bent over,
 hands on her knees and panting,
 he double-checked his rifle
 and settled into a steady walking stride beside her.
-
-*Was this what it was like?*
-she wondered.
-Was this what her olders had felt
-when they saw the ocean boil around the *Rushin Doll*
-and knew there was nothing they could do to save themselves?
 
 She didn't notice the rumbling above the sound of her own breath
 until Edson caught her arm
@@ -9818,6 +6963,8 @@ half-crawling in places,
 as the rumbling grew louder.
 
 Edson whooped.
+"Here they come!"
+he shouted.
 She twisted to look over her shoulder
 just in time to see the herd of musk ox crest the ridge behind them,
 shoulder to shoulder and galloping straight at Edson.
@@ -9872,7 +7019,7 @@ but standing in front of her made Iffy feel she was on trial
 and the judge had already decided her guilt.
 
 The musk ox turned her head to fix one eye on Iffy.
-The small bot perched on her back beckoned her her forward
+The small bot perched on her back beckoned her forward
 with a skinny crab-claw manipulator.
 She glanced at Edson.
 "'Saright," he said soothingly.
@@ -9881,7 +7028,7 @@ She glanced at Edson.
 With a deep breath,
 Iffy took one more step.
 The musk ox pawed the ground.
-She could smell her moist breath
+She could smell the animal's moist breath
 and see the tangles in her thick, dark coat
 and the dents and scrapes on the bot riding her.
 
@@ -9889,10 +7036,10 @@ On impulse she reached out slowly, palm up.
 The musk ox snorted again,
 then sniffed at her hand.
 The bot buzzed.
-With no more signal than that,
+With no more than that,
 the musk ox turned and walked away.
 
-As the herd followed in two and threes,
+As the herd followed in ones and threes,
 Edson picked up his rifle.
 Iffy waited for him to say something,
 but he just stood there
@@ -9915,29 +7062,27 @@ What she said instead was,
 The Ecologist nodded.
 "Thank you."
 Then he smiled.
-"Least we can take our time th' rest o' the way.
-Two of us goin' cross-country'll be zing easy to spot,"
-he explained.
-"In with all them,
-we're just two more musk ox goin' about their business."
+"Least we can take our time th' rest o' the way."
 
 *How do you build a stable ecosystem
 on bare and lifeless rock
-when the world is changing more rapidly than it has in a hundred million years?
+when the world is changing more rapidly than it has
+in hundreds of millions of years?
 The answer is that you don't,
 because any balance you find will almost immediately be swept away.
 What you do instead,
 if you are passionate and desperate and willing to do what others are not,
-is create something that will build it in your place.
+is create something that will shape the future in your place.
 You tell oligarchs desperate to escape the catastrophe they have made
 that their only hope lies on other worlds
 so that they will fund development of terraforming machines.
-You disguise the parts needed to build them as scientific equipment,
-or tell the officials you bribe that they are for an illegal mining operation.
-As the rest of the world takes arms against machines
+You disguise the parts needed to build those machines as scientific equipment,
+or tell the officials you bribe that they are for an illegal mining operation,
+and then assemble them in shielded underground caverns.
+As the rest of the world takes arms against machines,
 you turn yours loose.*
 
-*"Protect" is these shepherds' only immutable instruction.
+*"Protect" is these shepherds only immutable instruction.
 Protect the flocks,
 protect the herds,
 protect the fragile new-born forests taking root as the ice retreats.
@@ -9959,2143 +7104,5 @@ As the jungles and forests of old vanish,
 and the oceans and skies empty,
 what was designed to bring life to other worlds
 nurtures it at home instead.*
-
-They followed the herd into the massif's foothills.
-The musk ox snorted and farted and grumbled around them,
-strong white teeth nipping the last of the summer growth.
-Iffy didn't see any bots on their backs,
-but while the musk ox barely seemed to notice them,
-two or three were always as close to her
-as a cow would be to a half-grown calf.
-
-Two hours of walking,
-fifteen minutes of rest.
-Two hours,
-fifteen minutes to eat and give each other a minute or two of privacy.
-(Iffy had triple-checked that she'd packed toilet paper
-before they left the shelter.)
-Two more hours of walking,
-a long fifteen minutes to catch their breath,
-and one final, shorter hike before Edson called a halt.
-
-They didn't set up their tents.
-Instead,
-they bundled themselves in their sleeping bags
-and lay down head-to-toe
-on the flattest patch of ground they could find.
-The musk ox settled down beside them in clumps,
-shoulder-to-shoulder for warmth.
-Iffy fell asleep with the thick, wet smell of their fur in her nostrils.
-
-The second day began like the first,
-but soon the ground began to rise and rise again.
-Their boots crunched on gravel
-as the tundra gave way to bare rock exposed by retreating ice a century ago
-but not yet colonized by anything bigger than lichen
-or a stubborn clump of cottongrass.
-
-They finally reached a slope so steep that the musk ox paused,
-grumbled to each other,
-and began to amble away.
-Iffy felt exposed,
-as if a passing ship had caught her sunning herself in a t-shirt on the deck of the *Guinevere*.
-Edson just shrugged when she asked about drones.
-"I think they're all busy watchin' each other right now.
-An' anyway,
-there's not much we can do about it."
-But he did assemble his rifle and sling it over his shoulder,
-she noticed,
-and even when he was pointing out the painted initials of some long ago survey,
-he always kept one eye on the sky.
-
-He paused as they neared the top of yet another ridge.
-"You ever see th' geothermal plant inland from Halley?" he asked.
-
-"'Course," Iffy puffed.
-"I mean,
-not in person,
-but—why?"
-
-Edson grinned.
-"Come on.
-I got somethin' t' show you."
-
-There was a trail on the other side of the ridge,
-an actual trail with cutbacks and slab steps in its steepest parts.
-There was life, too:
-green-gray patches of moss,
-then lupins and saxifrage and other hardy plants she didn't recognize
-as they made their way down into a bowl-shaped valley.
-
-Iffy pointed at something small and orange exploring a purple flower.
-"Another one o' your bot friends?"
-
-Edson crouched down,
-setting his rifle on the ground beside him.
-"That ain't a bot.
-That's a bee."
-
-"Right," Iffy snorted.
-"An' I'm a giraffe."
-
-The Ecologist stretched out his hand,
-then hesitated and withdrew it.
-"It's for real,"
-he said reverently.
-"Tweaked ten ways from sundown,
-an' we still gotta feed 'em through the winter,
-but there's a couple o' dozen colonies here now.
-Come on, I'll show you."
-
-It took half an hour to reach the stream
-that snaked along the bottom of the valley.
-Edson talked the whole way.
-The land was rebounding as the ice retreated.
-That meant thousands of microquakes every year,
-which fractured the rock,
-which made it easier to put in pipes for geothermal power
-or drill holes for hot springs.
-The result was only a couple of degrees warmer than the land around it,
-but that was enough to make it an oasis.
-
-The Ecologist was as happy as a gull in a pile of garbage.
-Look—that piece of rock was actually a bot recharging itself from a power outlet hidden in a wall of granite.
-And there—he took her arm to stop her from stepping on leaf.
-"Just wait," he said.
-Sure enough,
-a moment later it scuttled across the path
-and disappeared into a patch of white-tufted heather.
-"Ants,"
-he said proudly.
-"Took a couple o' tweaks to get 'em to hibernate through the winter,
-but they seem pretty happy now."
-
-"So do you,"
-Iffy said,
-which made him grin even more broadly.
-
-*«haste»*
-
-Iffy stumbled as the thought appeared fully-formed in her head.
-"What's wrong?" Edson asked,
-but she was too busy fighting a sudden wave of nausea to answer.
-
-*«haste»*
-
-*I'm goin' as fast as I can,*
-she shot back,
-squeezing her eyes shut and swallowing hard to stop herself from throwing up.
-*I don't even know where I am!*
-
-*«78.1742° south / 85.1728° west / agreement / haste»*
-
-"I *can't*!" she said angrily.
-Someone took her arm.
-She tried to pull away,
-but the trip tightened.
-
-"Iffy! Iffy! Affin' hell, what have you done?"
-Something *clicked* beside her.
-She swallowed again and opened her eyes
-to see Edson pointing his rifle at two, no, three crab-like bots
-whose arms ended in multitools and manipulators instead of claws
-but were no less frightening for that.
-
-"They're talkin' to me again,"
-she mumbled.
-
-"Aright, well, you tell 'em we'll give 'em a shout back as soon as we can,"
-he said levelly,
-his aim shifting from one bot to the next.
-"Oh,
-an' remind 'em this place is s'posed to be off limits.
-There's agreements an' such."
-
-As quickly as it had come
-the pressure in her head was gone.
-She wiped her nose and checked her glove for blood—there wasn't any—then
-stepped aside to let the bots scuttle up the path
-the way she and Edson had come.
-
-"I'm sorry,"
-she said dully.
-
-The Ecologist slung his rifle over his shoulder.
-"Come on,
-it's not much further."
-
-Their destination was a scattering of greenhouses
-hidden in half a hectare of dark pines.
-Iffy slowed as they approached the trees.
-"Aint' never been in a forest before,"
-she confessed when Edson looked at her quizzically.
-
-He nodded and held out his hand.
-She hesitated a moment,
-then took it.
-
-"They all have names,"
-he said quietly as they made their way to the nearest greenhouse.
-"Folk that helped make this place or stopped other folk tearin' 'em all down."
-
-"Are there any for my olders?"
-she asked after a few steps.
-
-He shrugged.
-"Not yet.
-Hope you get t' plan some."
-He squeezed her hand before letting it go.
-
-The greenhouse had double walls and an airlock door.
-Inside was dry and warm.
-Row upon row of shelves held square pots of heather,
-moss,
-and pine seedlings,
-all connected to sensors and watering pipes.
-A dozen cots, a kitchen, and an incongruous blue toilet stall
-stood together in the middle
-as if they had wandered into the wrong party
-and weren't quite sure if it would be polite to leave.
-
-Edson paused for a moment before a hand-painted picture of Saint Yanina
-hanging by the cots
-to say a brief prayer under his breath,
-then shrugged off his pack and unzipped his coat.
-"Make yourself comfortable,"
-he said,
-pulling his feet out of his boots with a happy sigh.
-"We can start work in th' mornin'."
-
-Iffy sat on the nearest cot
-and bounced up and down to test it,
-but didn't take off her coat or boots.
-"What kind o' work?"
-
-"Saints' work," Edson said.
-"Been a month since anyone was here, maybe more.
-There's trees 'n' all to re-pot,
-a couple o' composters to turn over,
-pipes to check—th' bots could do it all,
-but that would be the easy road,
-and the easy road leads to an empty world."
-He looked away as if suddenly aware of the fervor in his voice
-and embarrassed by it.
-
-Iffy scrunched her toes inside her boots,
-then bent over to unlace them.
-"Dunno anythin' about pots or compost,
-but checkin' pipes sounds like my kind o' thing."
-
-There were carrots,
-real carrots for Iffy to pull out of a raised bed and rinse off.
-There were onions too,
-and something Edson called "basil" that Iffy thought she could learn to like
-if given a chance.
-The ginger was long past fresh,
-but the noodles were exactly the same as the ones the Sandhus sold.
-
-Edson shook his head when Iffy asked about curry powder.
-"Might be some around somewhere,
-but it won't have any o' your medicine in it."
-He stirred the noodles and vegetables in the battered steel wok
-he had fished out of a cupboard beneath one of the raised beds,
-sniffed,
-and pronounced good enough for camp cooking.
-
-Iffy cradled her tea.
-Edson had plucked mint leaves and put them in the pot to steep
-as if it was the most natural thing in the world,
-and the result almost tasted too good to drink.
-"I don't think th' machines are gonna give me that long,"
-she said quietly.
-
-He nodded soberly.
-"Yeah,
-well,
-how about we eat first an' figure the rest out later?
-Here."
-He scoop-poured a bowl of noodles for her and a second for himself.
-"Mind the red bits.
-They'll blow your head off."
-
-Iffy lay in her cot and stared up through the glass
-after they cleaned up and turned in.
-The tallest pines hadn't yet reached the peak of the greenhouse's roof,
-but the blue bowl above her was hazed by fog
-where the warm, moist air rising from the valley
-met the cold of the outside world.
-It took her a moment to realize that the ticklish feeling on her temples was tears.
-She was in a forest—an actual *forest*—and it was amazing,
-but she missed the sea.
-To hell with what the machines wanted
-or the governors and their politics.
-She just wanted to see Aunt Naggie and Honesty again
-and flip through her picture book and go to sleep on her own mattress.
-
-Her eyelids were just starting to lose their battle with gravity
-when an alarm began to bleat.
-Edson was on his feet and in his jacket
-before she finished sitting up.
-"Somethin's comin'," he said,
-frowning at the app in his hand.
-"Del that—there's a whole bunch o' somethin's coming."
-
-"More o' those crab bots?"
-Iffy asked,
-struggling to lace her boots
-with fingers that felt like they were made of tofu.
-
-The Ecologist didn't answer.
-"Edson?"
-she asked,
-then jumped as he swore explosively.
-
-"Marines.
-Couple o' dozen,
-headin' straight for us."
-He swore again.
-"Th' herd's gonna try t' slow 'em down,
-but we gotta go."
-
-"Go where?"
-Iffy asked,
-pulling on her coat.
-
-Edson locked eyes with her.
-"Anywhere but here.
-They ain't never come into th' valley before,
-but—Iffy,
-this is sacred ground.
-You unnerstand?
-I gotta choose between this place an' you—"
-
-Iffy held his gaze.
-"You do what you gotta do,"
-she said,
-hoping she sounded braver than she felt.
-"We can sort out th' compost 'n' all that some other time."
-
-Two minutes later she was on a bicycle
-pedalling hard and breathing harder.
-Aunt Naggie had insisted she learn how to ride, "Just in case."
-She was pretty sure her foster mother's "in case"
-hadn't included this situation,
-but there was no time to think about that,
-no time to think about whether Edson had a plan
-because even downhill on the world's best highway
-there was no way they could move as fast as the Marines.
-
-Up, down, up again—the forest disappeared behind them
-as the track climbed the valley's eastern wall.
-There was no sign of pursuit,
-just her breathing and the burning in her legs
-and a heart-stopping moment of panic
-each time the bike hit a pothole or a particularly large rock
-and nearly but never actually sent her tumbling
-onto gravel that looked a lot sharper from the seak of the bike
-than it had when she was walking on it.
-
-Edson skidded to a stop as they reached the top of a ridge
-and swung around to look back into the valley.
-Iffy stopped beside him,
-lungs heaving.
-"Wha— wha's happenin'?"
-she gasped as he pulled his app out of his coat.
-
-He stared at it, stricken.
-"They're killin' 'em.
-Affin' griefers, they're killin' the herd!"
-
-Iffy craned her neck.
-Images tumbled past each other on the app.
-A musk ox on its side,
-eyes open and lifeless.
-Another charging a Marine,
-only to have its target step aside at the last moment
-and snap a kick that broke the ox's leg.
-
-The app flashed.
-The images froze as whatever had been transmitting went offline,
-perhaps forever.
-"Santa Yanina, Santa Pao, forgive our crimes and arrogance,"
-Edson whispered.
-
-And then Iffy heard it,
-the thrumming roar of a hovercraft moving fast over rough ground.
-There!
-East of them,
-blurred but visible as its camouflage struggled to match the ground beneath it.
-"Who th' hell is that?"
-Edson demanded.
-
-Iffy stared at him.
-"How th' hell would I know?
-But they brought a friend."
-She pointed at a dot in the sky
-flying parallel to the hovercraft's course.
-
-Edson thrust the app into her hands and unslung his rifle.
-"Get back on your bike," he ordered.
-"There's a shelter about thirty klicks further on—the app's got a map an' a pass code.
-You hole up there an' someone will come find you."
-
-"Are you cracked?" Iffy shot back.
-"I can't outrun a bunch o' Marines!
-And I *surely* can't outrun that thing."
-
-He adjusted the sight on his rifle.
-"You won't have to,"
-he said without looking at her.
-"Like I told you,
-this is sacred ground.
-The governors 'n' all haven't stayed away all this time 'cuz we asked nicely."
-
-The app vibrated in Iffy's hand.
-"What's it say?"
-the Ecologist asked.
-
-Navy blue dots moved across a map in pairs and threes,
-each cluster surrounded by a scattering of green dots.
-"The Marines are in the valley.
-They're almost at the greenhouses."
-
-A red dot appeared on the map,
-blinked,
-expanded into a circle that swallowed three of the blue dots.
-A second later Iffy heard a sharp *crack!* and a roll of thunder.
-As the circle faded away,
-two of the blue dots blinked and went out.
-
-More red dots bloomed on the map
-as one geothermal drill hole after another hit critical pressure and exploded.
-"Saints and their mercies," Iffy whispered.
-
-The distant thunder became a steady rumble.
-The green dots swarmed the remaining blue dots.
-Gunfire rattled and whined in the distance,
-but the ballistic shots and EMP pulses that snuffed out the green dots in waves
-weren't enough to turn the tide.
-
-Nineteen and five… Sixteen and eight… Fourteen and ten…
-The numbers in the corner of the map showed how many blue dots remained
-and how many had gone dark.
-At twelve and twelve the remaining Marines began to fall back.
-The green dots kept pace but let them go.
-
-"How bad is it?" Edson asked,
-his eyes still on the approaching hovercraft.
-
-Iffy swallowed.
-The whole battle had taken less than thirty seconds.
-"Half o' them are down.
-The others are pullin' out."
-
-"Never mind them," he snapped.
-"How bad's the damage?"
-
-She tapped the app to bring up a dozen tiled camera views.
-Steam jetted out of the ground in some.
-Others showed shattered rock and fallen trees.
-And one—
-"One o' the greenhouses got hit," she said.
-"Looks like a tree came down on it."
-
-Edson let out a long breath.
-"Praise the saints.
-That coulda been a lot worse."
-
-Iffy stared at the video tile that showed a lifeless Marine not much older than her,
-his exoskeleton twitching as it tried and failed to get him on his feet.
-A crab bot climbed onto his chest and—
-She bent over and threw up.
-*Please let none o' them be Honesty,* she thought desperately.
-
-"Y'aright?" Edson asked as she straightened up.
-
-"No!
-No, I'm not affin' aright!"
-She spat the last of the sour vomit out of her mouth.
-"There's folk *dead* back there!"
-
-He didn't answer.
-"Don't that bother you?" she demanded,
-anger making her voice shake.
-
-"'Course it does,"
-he said brusquely.
-"I grieve for every death that comes before its time.
-I grieve for them as were made into soldiers against their wishes,
-an' for the trees that were a hundred years in growin'
-an' coulda lived a thousand more,
-an' for every single thing we've torn up or burned down or poisoned or starved,
-but right now there ain't time to think about any o' that
-because those Marines ain't quit,
-they're just comin' round th' long way,
-an' we still got this other lot t' worry about."
-
-Moments later they were on their bikes
-skidding down the ridge toward the oncoming hovercraft.
-The cold air stung Iffy's cheeks,
-and if the bumps and potholes on the climb up the ridge had been frightening,
-going over them downhill at three times the speed was terrifying.
-There wasn't time to be scared, though,
-or to think about how quickly the Marines were closing in on them.
-There was just staying upright as she followed Edson around the next turn
-and trying not to go head-first over her handlebars
-each time her front tire hit a rock.
-
-Flat ground,
-or at least flatter.
-She struggled to change gears as Edson pulled ahead,
-her hands clumsied by her gloves.
-The hovercraft was a roaring blur in the distance,
-still too far away to help.
-She glanced up.
-Where was the drone?
-
-And then the bike went one way and she want another
-and she was falling
-just for a heartbeat
-everything happened so fast
-her knee hit the ground
-pain shot up her spine
-she put out her arm
-but she was still falling
-her hand hit the ground
-pain again like a grenade going off in her shoulder.
-
-The bike clattered on the ground,
-trapping her leg.
-She lay there for a moment in shock,
-then cried out as she struggled to get up.
-Her knee—her shoulder—it was like someone was using one of Mister Mishra's drills on her.
-
-She kicked free of the bike with her uninjured leg
-and cried out as she tried and failed to stand.
-Edson braked,
-fishtailed,
-and raced back to her.
-"I'm sorry, I'm sorry," she repeated
-as he leapt off his bike and helped her up.
-
-"Sh, sh, sh."
-He helped her sit in the shelter of a lichened outcrop of granite.
-"Ya did great.
-Ya did great.
-Nagatha would be proud o' you.
-Now,
-keep yer head down.
-This is gonna get a bit noisy."
-He raised his rifle and took aim.
-
-Iffy felt an explosion through the outcrop.
-"Affin' hell," Edson swore,
-ducking his head.
-"That was their drone."
-
-"Citizens!"
-The amplified voice echoed off the rock.
-"Surrender yourselves immediately!
-We cannot ensure your safety if you do not comply!"
-
-Edson caught Iffy's eye and grinned.
-"I always thought they sounded pretty stupid when they talked like that."
-And then he twisted a button on his cuff
-to make the camouflage on his jacket jerk and swirl through not-quite random patterns
-designed to confuse the Marines' targeting algorithms,
-twisted around and up onto one knee,
-and began firing.
-He got off two shots before an impact in his chest sent him tumbling backward down the slope.
-
-"Edson!" Iffy screamed.
-The Ecologist slid downhill another meter and came to a rest,
-his legs splayed awkwardly and the rifle still in his hands.
-
-"Citizen!
-Remain where you are!
-Medical assistance will be provided shortly!"
-Boots crunched on gravel uphill,
-the steps stretched apart unnaturally by the exoskeletons' long strides.
-
-Iffy got her legs underneath her,
-biting back a whimper as pain lanced through her knee again.
-She had to help Edson.
-She had to run,
-but there was nowhere to go
-and she'd be lucky if she could walk.
-
-*Crack! Crack! Crack!*
-Edson's rifle jumped a little with each shot.
-Iffy heard an indistinct shout of surprise—inducted or not,
-the Marines were human enough to swear.
-Edson rolled sideways back into the lee of the outcrop
-as shots peppered the ground where he'd been lying.
-
-"Stay there!" he snapped as Iffy started to rise.
-He tossed his rifle aside,
-its ammunition spent,
-and scuttled uphill and sat beside her,
-his back against the outcrop.
-
-"Citizens!"
-The Marine sounded more disappointed than angry.
-"Such action will only worsen the charges against you.
-For your own safety,
-we urge you to surrender."
-
-Edson looked at Iffy.
-"Any ideas?"
-
-She forced a smile that she hoped looked as confident as his grin.
-"Reset this sim an' start over?"
-
-One moment the sky was blue.
-The next,
-it was slashed by a pair of brilliant laser-straight lines
-as the hypersonic harpoons fired by the hovercraft tore the air apart.
-The missiles burst over Iffy's head before she had time to flinch.
-Dozens of EMP grenades,
-each the size of a pebble,
-ended their existence in brief bursts of plasma.
-Feedback shrieked as the micromotors in a dozen exoskeletons overloaded and fused solid.
-
-Edson pulled Iffy to her feet.
-"Come on!"
-
-One hand clutching his collar,
-the other swinging wildly for balance,
-she limp-walked down the gravel slope toward the oncoming hovercraft.
-It had turned off its camouflage,
-and as it gunned its engines to brake itself
-she realized that it was taller than she was
-and as long and broad as the *Guinevere*.
-
-"Citizens! Stop!"
-The voice behind them was no longer amplified.
-
-Cold air washed over Iffy as the hovercraft settled onto the ground.
-Two sentry bots dropped from its steeply-angled side
-and raced past her and Edson
-to stand guard between them and the fallen Marines.
-
-A hatch opened on the hovercraft's leading edge just as they reached it.
-Something bulbous poked out.
-Iffy thought it was another bot,
-but then he removed his helmet.
-
-"Well,"
-Johnson Wales said conversationally.
-"Isn't this a fine mess?"
-
-Edson put a cautioning hand on Iffy's shoulder.
-"Appreciate you helpin' out with th' Marines an' all,
-but we're fine t' make our own way along by th' coast."
-
-"Mm."
-Wales nodded as if agreeing.
-"How far do you think you'll get, exactly?
-And how much of your precious herd will die along the way?
-How many trees will burn, Ecologist,
-and how much difference do you think any of it will make?"
-
-"What are you doin' here?"
-Iffy asked in the silence that followed.
-
-Wales sighed.
-"The same thing I've been doing for the last hundred years:
-trying to fix what's broken.
-Citizen Corrales,
-you and Iffy can come aboard of your own accord or not as you choose,
-but you *are* coming with me."
-
-One—two—three more sentry bots blurred out of invisibility
-in front of Iffy and Edson.
-Mechanical feet scuffed on gravel behind her
-as the two she had seen moved closer.
-
-Edson puffed out his cheeks and exhaled slowly.
-"You know I can't do that," he said.
-
-Wales raised his hand.
-"You have my solemn pledge that you will not be interfered with.
-I have no desire at all to pick a fight with the Shepherds.
-Whatever secrets or access codes you have will remain yours and yours alone."
-
-"Yeah."
-Edson sighed.
-"I wish I believed you,
-but your record ain't exactly positive,
-an' you bein' out here,
-well,
-I gotta guess you're well past desperate."
-
-He turned to Iffy and wrapped his arms around her in a fierce hug.
-"I'm sorry,"
-he whispered in her ear.
-"I'm so sorry.
-I know I said I'd carry you,
-but I can't let 'im have what's in my head.
-Tell Nagatha I was thinkin' of her, aright?"
-
-He stepped back and made a fist.
-Without warning,
-a schematic flashed into Iffy's mind.
-Wires and a tiny battery embedded in his hand
-that would look prosthetic to a casual scan.
-A matching mesh of micro-fine filaments under his skull.
-Clench the hand like *this*,
-hold it *there*,
-and—
-
-As Edson raised his hand Wales shouted, "Wait!"
-Iffy tackled the Ecologist,
-grabbing his arm and knocking him clumsily to the ground.
-The EMP that was supposed to scramble his brain
-sent feedback shrieking through the sentry bots' motors instead.
-
-Edson scrambled back onto his feet.
-"No! No, Iffy, whattaya done?"
-
-"Affin' hell!" she swore,
-trying, failing, and trying again to stand
-despite the spike of pain in her knee.
-"You made me a promise an' I'm holdin' you to it.
-If you want someone to tell Aunt Naggie that you went an' got simple,
-you can do it yourself!"
-
-</section>
-
-<section markdown="1">
-
-## Chapter 11
-
-There were Marines on board the hovercraft,
-all apparently imprinted with the same taciturn personality.
-Two of them flanked Edson
-as he disappeared stone-faced into the belly of the hovercraft
-while Wales explained to Iffy
-that the Ecologist would be fine.
-"Anyway,
-it's not as if what he tried to do would actually have worked,"
-he said.
-In real life,
-brainwipes were a lot less reliable but a lot more predictable than they were in sims.
-Deep memories would survive the EMP pulse,
-just as a person's original personality survived imprinting.
-As for more recent knowledge,
-well,
-the Shepherds had undoubtedly changed their access codes already,
-and their network of shelters and greenhouses weren't actually as secret as they thought.
-
-Iffy expected to be locked in a cell next to Edson.
-Instead,
-a Marine ushered her up steeply-laddered steps to the hovercraft's cockpit.
-"Have a seat," Wales said,
-gesturing at the padded chair to the left of the one he had been sitting in.
-"And buckle up.
-This thing was built for speed, not comfort."
-
-Iffy limped over to the chair
-and lowered herself onto it with a wince.
-Wales clucked his tongue.
-"I'll have someone take a look at that for you later."
-
-"Don' worry about it,"
-Iffy muttered.
-
-Wales sighed.
-"Look,
-Iffy,
-I'm sorry, all right?
-I am.
-If there had been any other way I would have taken it,
-but once Gayathri figured out who you are—*what* you are—I had to play along.
-Believe me,
-everything else would have been a lot worse."
-
-Seating himself and snapping harness straps together across his chest,
-he laid his hands on the apps set into the arms of his chair.
-The display in front of them came to life.
-A dozen views of the surrounding tundra
-nestled between status displays like those Iffy had grown up with on the *Guinevere*.
-Temperatures and battery reserves,
-the rotational speeds of idling engines,
-weather reports,
-and projections from a hundred independent simulations of the next few moments
-waited for attention
-like courtiers waiting on a king.
-
-"Where are you takin' us?" Iffy asked sullenly.
-She had loosened the straps of her harness so that she could wriggle out if she needed to,
-but the straps had re-tightened themselves
-as soon as the engine came to life.
-
-"Home, sort of,"
-Wales replied absently
-as he rearranged the display with a few flicks of his fingers.
-"Now don't mind the noise.
-You'll get used to it."
-
-The engines beneath them rumbled.
-The hovercraft rose like a ship being lifted by a wave
-and rotated smoothly on its cushion of air.
-Orange status lights blinked and turned green
-as the sentry bots climbed back aboard.
-"All accounted for, sir,"
-said the Marine seated beside Iffy.
-
-"Yippe ki-yay."
-Wales flicked his fingers again.
-
-The hovercraft shot forward like a startled seagull.
-Acceleration pushed Iffy back in her seat.
-Fifty klicks an hour, a hundred… two hundred…
-At two hundred and fifty the numbers on the display stopped climbing
-and the pressure lifted from her chest.
-She took a deep breath and watched the world race by
-as the hovercraft bumped and shook toward the horizon.
-The only people in the world going faster than her at that precise moment
-were either on trains
-or desperate enough to take to the air
-and hope the machines' satellites didn't spot them.
-
-The novelty wore off quickly.
-
-A Marine showed up a few minutes later
-to give Iffy a patch to dull the pain in her knee
-and speed its healing.
-Her eyelids grew heavy
-as the drugs and accelerators seeped through her skin.
-Even a mug of thick, sweet tea
-wasn't enough to keep them from closing.
-
-At least,
-that's what she hoped whoever was watching her would believe.
-She had learned how to keep sleep at bay on night watches long ago.
-Right now,
-she had some thinking to do
-and she didn't want to be disturbed.
-
-*Wireframes swam in the darkness.
-The hovercraft had been built as a blockade runner in Tashkent
-before the start of the machine wars.
-Its heart was a reactor originally designed for use in a submarine—she
-took a moment to admire the sleek, single-minded recklessness of its design—and
-the motors that created its cushion of air
-would have pumped fuel at hypersonic speeds
-in orbital booster rockets
-if history had unfolded just a little bit differently.
-The hull plating was angled to deflect the energy of ballistic attacks
-and threaded with microfilaments not unlike those in Edson's skull
-to handle electronic ones.
-Ventilation tubes,
-triple-redundant optical wiring,
-and plumbing liberated from a luxury hotel
-slithered between bulkheads.*
-
-*She flipped the wireframe upside down and rightside up,
-flew through it,
-spun it around.
-Any of a dozen rooms or holds could have been repurposed as a cell.
-For one moment she thought about reaching out to the hovercraft's core,
-but it would be better protected than the railgun back on the pier.*
-
-She yawned widely.
-The images slipped away as her concentration finally conceded
-to the painkillers and reconstructives.
-A moment later she began to snore for real.
-
-She woke to the smell of curried noodles,
-and for a few disoriented seconds she thought she was back on the *Guinevere*.
-But no,
-she was still buckled into her chair in the cockpit of the hovercraft.
-She took the plate that the expressionless Marine offered her
-and fumbled with the chopsticks
-while she waited for her mind to catch up with the rest of her.
-
-Wales was gone,
-but the gently undulating tundra on the screens around her looked the same as it had.
-Their speed hadn't changed either,
-she noticed,
-or their heading.
-They were headed for Mount Tyree or somewhere nearby.
-
-She looked up at the Marine.
-"It's really good,
-but can I please have some more onions on it?
-An' some more tea?
-If that's aright,"
-she added hastily.
-
-The Marine looked at her,
-his expression still as empty as the tundra.
-"Good morning,
-Iffy,"
-Wales said through a speaker somewhere behind her.
-"I'm glad to see you have an appetite."
-
-"It's really good," she said truthfully.
-"I'm just used t' more onions."
-
-"Mm.
-And of course you'd like to see more of the *Henry Lion*,
-I assume."
-
-She shrugged.
-"Not much else t' do,
-'less you're aright with me talkin' to Edson for a bit."
-
-"I'm afraid that's out of the question for now,"
-Wales said regretfully.
-"All right.
-Private Norbu will take you down to the galley
-and then show you to your cabin.
-Promise you won't do anything foolish?"
-
-"Sure.
-An' I promise I'll keep it as well as you've kept yours."
-She wriggled out of the straps without spilling any of her noodles,
-then stood up and tested her knee.
-Whatever had been in the patch seemed to have set it right.
-If she had to run,
-she could.
-The trick now was having somewhere to run *to*.
-
-As she stepped past Private Norbu
-she slipped the metal button cover she had pried off her chair
-into her pocket.
-
-The galley was twice the size of the *Guinevere*'s
-but much noisier.
-The schematic in her head showed her the pipes,
-drive shafts,
-and optical cables
-crammed into the half meter between its floor
-and the foamed steel armor on the hovercraft's belly.
-She could see three different ways to make trouble if she could reach them,
-but she had no way to do that.
-Even if she did,
-they all had backups that had backups of their own.
-The hovercraft was tough by design:
-someone could punch a dozen shots from a heavy-duty railgun right through it
-without slowing it down.
-
-Private Norbu stood near the galley door and watched her eat.
-She ignored him the same way she had learned to ignore shopkeepers
-who didn't think an orphan dredger had any place in their store.
-She thought briefly about trying to steal her chopsticks,
-but by the time she finished her tea she had decided it was too risky.
-They felt like aluminum,
-and she could do a lot with a couple of aluminum rods,
-but Private Norbu was right there
-and there were probably cameras she couldn't see as well.
-No,
-the chopsticks were almost certainly a dead end.
-The loose screw on the underside of the table,
-on the other hand…
-
-Her cabin had a fold-up bunk
-and a single shallow drawer set into the bulkhead.
-She picked up the app that lay on the neatly-dressed bunk
-as Private Norbu closed and locked the door behind her.
-It was the same model she had used as a child,
-but completely locked down:
-she couldn't even get the weather on it,
-much less connect to Hell.
-
-She kicked off her boots and lay down.
-"Lights," she said after a moment.
-The room dutifully went dark.
-She closed her eyes,
-took slow, steady breaths to slow her pulse,
-then tried to visualize herself.
-
-Nothing happened at first,
-or rather,
-hundreds of things that weren't her formed, flew apart, and re-formed behind her eyes.
-She saw something that looked like a mechanical musk ox
-designed to hide in the herd,
-and marvelled for a moment at
-the ingenious way it emulated its organic namesake's digestive processes.
-This was the *Guinevere* as she had been the day she first sailed.
-And that—right there—was her.
-
-She forgot to breathe for a moment as the image rotated slowly,
-panning and zooming as her attention shifted.
-In her spine,
-along her nerves,
-laced through her brain:
-they weren't wires—those would be too easy for a scanner to spot—but rather
-tiny fractalized patches of cells arranged in precisely the right way
-to make her a living antenna.
-
-And any antenna that could receive a signal could send one.
-
-It only took her a minute to find an opening in the hovercraft's systems.
-It took her another five to find one that wasn't a trap,
-and another hour to convince herself that she was right.
-Fifteen years ago,
-just a few days after she had been born,
-a tech in Paddington South had replaced a reactor coolant pump
-with one salvaged from an Aussie submarine
-that had suffered a catastrophic loss of containment.
-(Her hand twitched as if swiping an app
-to toss aside the insurance reports and obituaries
-that thought called up.)
-The tech had cut corners to meet a deadline
-(another twitch dispelled performance reviews and der eventual punitive imprinting).
-One of those corners had been a software shim
-to connect the monitor's century-old software
-to the hovercraft's merely elderly systems.
-
-She studied the code tangled around the hardware
-like nerves and veins around bones.
-The pump's core was dumber than a seagull:
-if she nudged it there and there and *there*,
-it would believe that the hovercraft's reactor was going critical
-and bypass its own safeties to prevent disaster.
-When the other pumps asked it what the hell it thought it was doing,
-the long-ago tech's shoddy work would let her persuade them
-that they had been ordered to shut down for maintenance.
-
-She smiled,
-not caring who might be watching through a hidden camera,
-then rolled on her side and brought her hand to her mouth
-as if to stifle a yawn.
-
-The metal button cover she had stolen was stronger than she had expected.
-For a moment she thought she might crack a tooth,
-but then it bent enough for her to bite down and flatten it.
-She spat the half-circle of metal with its two precious points
-back into her hand,
-rolled over again to cover the motion of slipping it back into her pocket,
-and *pushed* with her mind.
-
-Eleven point two meters away,
-a pump whirred into overdrive.
-Exactly three seconds later
-its partners queried it,
-compared the answers they received,
-and powered down.
-Iffy squelched the notifications they sent to the hovercraft's core
-moments before they would have set off an alarm.
-*Sleep well,* she thought giddily.
-She had never ridden a high-speed multi-ton atom bomb before.
-She wondered how many people had,
-and how many of them had lived to tell the tale.
-
-She didn't realize her nose was bleeding
-until an alarm klaxon began to blare
-and she tried to stand up.
-She had expected the alarm—in fact,
-she was counting on it—but
-she hadn't counted on being so lightheaded that
-the room went distant and swam around her.
-She bent over,
-her elbows on the bunk and her face pressed against her forearms.
-
-"Shad," she swore weakly.
-There was a lot of blood,
-even more than the time Akumé had punched her in the face
-for calling der a thief
-(which de had been,
-but the other kids on the pier had been too smart or too afraid of der to say it).
-Wiping her face with a handful of bedsheet didn't stop the steady red drip.
-
-Iffy laughed weakly.
-She had been so worried that someone would notice her stealing the button cover,
-and now it turned out she needn't have bothered.
-She wouldn't have to scratch herself to get a few red cells
-to fool the hovercraft's genetic sensors:
-she had as many as she could possibly want.
-
-She straightened up and worked her tongue in her mouth.
-It still felt like someone had replaced it with a piece of pressed jellyfish,
-but the room was longer an endlessly-receding tunnel from a horror sim.
-She focused on the app lying on the bunk and pushed with her mind once again.
-Something inside the door clicked and it slid aside.
-
-Two minutes later she stood in front of another cabin door
-and pressed her sticky hand against the contact place beside it.
-
-"Affin' heck, girl, what happened t' you?"
-Edson asked as he stood.
-
-"You should see the other guy," she said
-grinning woozily.
-"Any idea where our gear is?"
-
-He shook his head.
-"Not a moss.
-So what now?"
-
-She jerked her chin toward the stern.
-"Back an' out 's as far as I got."
-
-Someone was banging against one of the doors they passed.
-They were shouting, too.
-Iffy thought it was funny but didn't have enough energy to laugh.
-At some point Edson had put his arm around her to help her stay upright.
-He had picked up a fire extinguisher as well,
-a compact red cylinder with a silver handle
-whose basic design hadn't changed in centuries.
-She blinked away the specs that flashed into her mind.
-*Not now,* she thought.
-Her nose was still dripping.
-Anyone who wanted to find them could just follow the trail of drops and streaks on the floor.
-
-"Here," she mumbled.
-"…straps…"
-
-"*Está bem*, I got it,"
-Edson said soothingly.
-He turned her around and lowered her onto the molded plastic seat,
-then buckled the harness across her chest
-and pulled a bulky pair of goggles down over her eyes and nose.
-"Bite on this,"
-he told her,
-pushing a mouthpiece against her lips.
-
-Cold air filled her lungs as she breathed in.
-"Ready?
-No,
-don' worry,
-I'll be right behind you."
-He took her wrists and placed her hands on the grips built into the seat.
-"One… two… *three*."
-
-She screamed into the mouthpiece as hovercraft fired the ejection seat into the air
-like an old-fashioned artillery shell.
-Daylight blinded her and ice-cold wind instantly numbed her cheeks.
-Tiny gyros whined to stabilize the chair
-long enough for the explosive bolts in its back to fire.
-A translucent parawing snapped open.
-The surge of deceleration threw her against her harness
-and then she was swinging like a pendulum
-as the parawing's tiny core picked a safe landing spot
-and turned toward it.
-
-The ground below her was covered with snow.
-The harsh white reached from horizon to horizon,
-interrupted only by a few dark boulders
-and the camouflaged rectangular bulk of the hovercraft
-that was already a hundred meters away,
-but Iffy didn't have time to think about that,
-or about the second ejection seat that the hovercraft
-had just fired into the air.
-She was flying,
-really actually flying,
-except it had to be over in a few seconds
-before a satellite decided they had broken the machines' "no flying" rule,
-and even if that didn't happen
-the chair hit the ground the wrong way and snap her neck.
-The gyros were supposed to prevent that,
-but she had seen their specs when she was planning her escape,
-and they had last been serviced by the same tech
-who had screwed up the coolant pump.
-
-Snow raced away beneath her far too fast for safety.
-She was headed straight for a boulder.
-She was going to hit it.
-She was going to hit it,
-but the parawing cupped the air to brake,
-throwing her hard against the straps.
-
-The chair landed on the snow with a crunch.
-Iffy spat out the mouthpiece,
-pulled off her goggles,
-wriggled out of the straps,
-tripped,
-and fell face-first into the little snowbank thrown up by the chair's impact.
-Ice crystals stung her face and hands.
-It was cold,
-she realized,
-really cold.
-They must have come further inland than she had realized.
-
-The chair bleeped.
-Panels popped off its bulky arms
-to reveal a featherweight windproof parka rolled up
-to be not much larger than a roti on one side
-and a waistpack on the other.
-She unrolled the parka and put it on,
-then unzipped the pack.
-A tiny first aid kid,
-a ruggedized app,
-a pair of multitools,
-and three high-energy snack bars:
-the specs had shown four,
-and for a moment she wondered if that long-ago tech had gotten hungry while de was working.
-
-Her nosebleed had stopped,
-but she was still lightheaded.
-She clambered awkwardly up the boulder
-and shielded her eyes with her hand.
-There—Edson's chair had just landed a few hundred meters away.
-Wales had undoubtedly retaken control of the hovercraft,
-only to discover that all three coolant pumps had burned out
-and would need to be replaced
-before it could move again.
-That meant his Marines would be putting on their exoskeletons,
-which meant she and Edson only had a few minutes before they arrived.
-
-"Hey!"
-She waved both arms.
-Edson waved back and started toward her.
-Iffy slipped off the boulder,
-made her way back to the chair,
-and got to work.
-
-The upper back plate on the ejection seat had six screws.
-The lower plate only had four.
-She pocketed them as she took them out.
-"No such thing as scrap," she muttered under her breath.
-It was one of Mister Mishra's favorite sayings,
-but there wasn't time to think about him or Jeep
-because she had to tighten the spigot valve on the seat's tiny fuel line all the way
-before prying out the fist-sized tank of peroxide
-or she and her escape were going to be very short-lived.
-
-Edson's boots crunched on the snow.
-"What're you—oh no.
-No no no,
-you can't be serious."
-
-She grinned madly and pointed at the parawing
-without looking up from the vernier motor she was crimping into place.
-"Straighten that out if you can
-an' then get the straps off th' chair.
-We're gonna have t' double up."
-
-Another minute, another minute—there.
-Edson handed her the ends of the parawing's tether lines.
-She clipped them onto the harness and handed it back to him.
-"I can't carry you, so you gotta carry me," she said,
-cutting off his protests.
-
-The snow field dipped gently on the far side of the boulder.
-It wasn't much,
-but it would have to do.
-"Ready?" she asked.
-
-Edson shook his head.
-"Nope."
-He bent over like a sprinter and started to run.
-
-Iffy waited for the lines to go nearly taut before shouting,
-"Now!"
-and yanking the edge of the parawing up as hard as she could.
-The makeshift motor strapped to Edson's back shrieked into life,
-kicking him forward.
-For an instant Iffy thought it wasn't going to work,
-but the core she had pulled out of the chair wasn't smart enough to wonder
-how or why its world had changed.
-It just knew its wing was out of position.
-Tiny motors whirred,
-frantically adjusting the parawing's shape
-so that it cut the air at just the right angle
-to lift Edson into the air.
-
-He whooped,
-his feet still pedalling as they left the ground.
-Iffy ran back and scrambled up the boulder and shielded her eyes,
-her heart pounding.
-Four black dots had come over the horizon.
-She counted seconds under her breath.
-The snow was slowing them down, but not much.
-
-"Over here!" she shouted,
-waving as Edson banked in a wide, clumsy turn.
-One moment he was over *there*
-and the next he was coming straight at her,
-wide-eyed and shouting something she couldn't hear.
-She took a deep breath and spread her arms wide.
-
-Edson hit her with a thump that cracked her spine.
-His hands scrabbled for purchase on her parka,
-but the fabric was too slippery,
-it was designed to shed water and he couldn't get a grip
-but that was aright,
-she had grabbed the straps
-and her feet were kicking at nothing but air.
-
-She twisted around as far as she dared as he whooped again.
-The motor on his back shrieked again,
-pushing them higher.
-*It's me, it's just me,* she thought frantically,
-hoping that whatever faraway machine she had made her bargain with was listening.
-
-"So what now?"
-Edson had to shout to be heard over the wind in their ears.
-
-"There's a place up ahead,"
-Iffy shouted back.
-"We'll have to walk after that."
-
-The snow field below her looked exactly like a sim but was completely different.
-She finally understood why so many people wrote poetry about flying,
-and why they said that of all the machines had taken away from humanity,
-this was the one whose loss hurt the most.
-
-The makeshift motor burned out the next time they tried to use it,
-but lasted long enough for them to catch the wind.
-Antarctica rolled away behind them.
-Iffy's shoulders began to ache,
-then to burn.
-The straps they were tangled in dug in to her triceps.
-She'd have bruises,
-but the view—whatever else happened,
-she swore she would find a way to fly again.
-
-After one last lift from a thermal rising off a stretch of exposed rock
-they began a long, slow descent.
-"Get ready!" Edson shouted.
-Iffy grabbed the strap with one numb hand and let go with the other
-so that she was half beside and half behind him.
-The parawing's little motors whined in protest as they reshaped it
-to adjust for the shift in weight.
-Ten seconds…
-Five…
-As her boots grazed the snow she tried to run,
-but her toe caught on a crust of ice.
-She let go of Edson and sprawled face-forward.
-
-"Well," Edson said a moment later
-as the parawing carried the harness away.
-"Can't wait to tell Nagatha about *that*."
-
-She wiped ice and snow off her face and returned his grin.
-"Me too.
-C'mon,
-we gotta keep movin'."
-
-Two snack bars and several mouthfuls of lukewarm water later,
-they reached the nearest of the enormous machines.
-Edson put a reverent hand on its tread.
-
-they reached an outcropping of rock too regular to be natural.
-Edson ran his hands over the pipe shafts drilled into its laser-cut top.
-"Old weather station?" he hazarded.
-"Looks like it was salvaged a long time gone."
-
-"Mm hm."
-Iffy pointed at the shadow on the horizon.
-"You know what that is?"
-
-Edson laughed.
-"Girl,
-I have no idea where I am right now.
-You could tell me that was the Andes an' I'd believe you."
-
-"That's Mount Tyree."
-Iffy's voice was more serious than she'd intended.
-"The secret base Wales an' th' machines an' everyone have been goin' on about?
-It's pretty much right underneath us."
-
-She pulled off her glove,
-scraped some dried blood out of her nostril,
-and stuck her finger in one of the drill holes.
-The rock thought for a second and then opened with a faint click
-to reveal a space the size of the toilet stall on the *Guinevere*.
-A wraparound shelf held tools,
-a rifle connected to a flimsy jumpsuit,
-and a medical kit.
-The center of the floor was taken up by a circular hatch.
-
-She grinned at Edson.
-"Welcome to my secret lair."
-
-Whatever he might have said in reply was cut off by a low rumble.
-She whirled around and froze as a white-furred head lifted off the snow three strides away.
-"*Mãe do mundo*," Edson breathed
-as the polar bear rosed to its feet.
-For a heart-stopping moment Iffy *knew* that this was where and how her story would end,
-but then she saw the familiar silver sheen of tech beneath the bear's fur.
-
-*«danger / nearing / haste»*
-
-"It says trouble's comin'," Iffy relayed.
-
-"No kidding," Edson muttered.
-"Don't suppose it's offerin' to help with that?"
-
-As if on cue a second bear and then a third ambled around the outcropping.
-One of them stopped next to the first.
-The other took a tentative step forward,
-only to hesitate and withdraw when the first bear growled at it.
-It wasn't tweaked like the other two,
-Iffy realized.
-It was just several hundred kilograms of predator
-looking at something edible and defenseless.
-
-*«haste»*
-
-Iffy jerked her chin at the hatch.
-"It wants us to get movin'."
-
-"Aright."
-Edson stepped into the small chamber,
-bent down,
-grabbed the handwheel,
-and yelped,
-snatching his hand back.
-
-"What's wrong?"
-Iffy asked as the Ecologist swore in four different languages.
-
-"It shocked me,"
-he said accusingly.
-
-*«undesired»*
-Ideas emerged in Iffy's mind,
-bumping into each other like ice floes.
-She shook her head to clear it.
-
-"I think it wants me on my own,"
-she told Edson.
-Without waiting for his reply she bent over and grabbed the handwheel herself.
-When nothing happened she pulled it,
-gently at first and then harder.
-Metal screeched as it turned.
-Once, twice, three times—click.
-She lifted the hatch.
-
-"Secret lair, eh?"
-Edson said,
-looking over her shoulder at the laddered shaft descending into the mountain.
-
-She shrugged.
-"Think there's treasure down there?"
-
-The Ecologist snorted.
-"Nope."
-He reached past her to take the rifle and wriggled into its attached jumpsuit,
-then oophed as she hugged him.
-
-"Don't do anythin' stupid,"
-she said fiercely.
-
-He snorted again.
-"Don't *you*."
-They squeezed each other once more,
-and then he turned to the bears and said,
-"Aright, let's get goin'."
-
-Iffy watched the foursome head downhill,
-wondering if it was just an accident that the two tweaked bears
-kept themselves between their unmodified partner and Edson.
-The Marines' infrared would spot them immediately,
-but even as she had the thought,
-schematics and false-color visualizations flashed through her head.
-The tweaked bears' tech would dampen and modify their heat signatures
-long enough for them to look like half a dozen arctic rabbits
-fleeing from the unmodified bear,
-while Edson's jumpsuit would—
-
-She shook her head.
-It didn't matter.
-They would do what they could, and so would she.
-With a deep breath,
-she turned around and started her descent.
-
-Iffy was halfway down the ladder when her nose told her something was wrong.
-The smell wasn't rank like the week-dead seagull she had once found in a dumpster behind the Sandhus' store,
-trapped when the lid closed as it scrounged for scraps.
-Instead,
-it was tired and a little bit sad.
-
-She felt oddly detached
-as she studied the mummified body lying a stride away from the bottom of the ladder.
-Whoever he had been,
-he'd had long dark hair and a beard.
-His parka was silvered like hers,
-but unlike hers,
-had a bullet hole in the back surrounded by an old, dark stain.
-
-She shook herself.
-"Well," she said out loud.
-"Let's see what we got."
-
-The answer turned out to be weapons,
-dried food that had either spoiled or mummified like the corpse,
-several snowsuits with boots and breathing masks
-(she puzzled over this for a bit),
-and a small workshop stocked with tools and spare parts that made her hands itch.
-She turned a laser cutter over in her hands,
-then pulled a tarp off something that looked like
-an oversized version of the sentry bots from the governor's mansion.
-One of its side panels was folded back to reveal its motors and cables.
-Another tarp revealed a second bot with the same bulky body and limbs
-but a cluster of cameras and antennas where its head should have been.
-The mod had clearly been made in haste:
-the welds joining the additions to the bot's neck looked messy and unfinished,
-and a handful of string-thin optical cables dangled from the opening.
-
-Iffy looked around the room a second time.
-Something didn't make sense.
-How were the bots going get out?
-They wouldn't have been able to climb the ladder.
-
-She sat down and put her elbows on the workbench.
-It hummed faintly and came to life.
-A single icon appeared,
-waiting patiently to be tapped.
-
-She studied it for a moment.
-It could a trap—malware designed to mesmerize anyone who looked it,
-or any of a hundred other scenarios from sims,
-but what choice did she have?
-
-A faint scum of dust felt gritty under her finger as she swiped its top.
-"User recognized," a soft voice said.
-Iffy blinked in surprise as the icon folded in on itself.
-
-"—a chance to hear this,
-but if you do,
-I'm sorry.
-I'm so, so sorry."
-The recorded voice was a man,
-and sounded tired and frightened and brave all at once.
-"We thought we could fix things,
-but we've only made them worse."
-
-The voice chuckled or choked back a sob—it was impossible to tell which.
-"Suyin went back in this morning while the rest of us were asleep.
-She thought she might be able to make it to the machine
-if she cycled the shielding rapidly enough,
-but I think she just wanted to be with Georgia."
-
-"I tried to disable the guard robots,
-but some of them are still loose in the auxiliary tunnels."
-The voice paused for a heartbreaking moment.
-I know we all agreed that the project needed a failsafe,
-but I never thought we'd need it.
-I never thought—oh shit."
-
-Iffy jumped at the sharp *crack!*
-There was the sound of something heavy hitting the floor.
-A moment later metal clicked on concrete,
-and then the recording ended with a soft, cheerful *ding*.
-
-The screen filled with icons and images like those in Iffy's app.
-Two dozen smiling, confident faces were arranged on the app
-in eight rows of three.
-The top row contained a man with long dark hair and a beard
-and two women who looked like clones of each other.
-"Doctor Arno Severin,"
-she read aloud.
-The names below other images identified Suyin and Georgia.
-The others were all of a similar age,
-all smiling,
-and—
-
-And there,
-in the bottom row,
-was Commander Johnson Wales,
-another man named Surjinder Johel that Iffy guessed was Doctor Johel's grandfather,
-and an older version of herself labeled Suhailah Kwan.
-
-There were no other recordings,
-at least not that Iffy could find,
-but there were maps showing a network of maintenance tunnels
-just big enough for raccoons or slinky bots,
-some running for kilometers.
-She would be able to fit her arm into one of them,
-but no more.
-
-There were other tunnels,
-though,
-big enough for people and heavy equipment.
-Some were dense with red flags that showed collapse,
-flooding,
-or chronic instability.
-She puzzled over that for a second before dismissing it.
-
-It took her a few minutes to realize that
-the web of tunnels wasn't centered on the Niobium base.
-Instead,
-its heart was a kilometer further south.
-That wasn't what made Iffy chew her lips as she studied the accompanying schematics, though.
-She could think of a hundred uses for a superconducting ring
-large enough to sail the *Guinevere* through,
-but why put a cage for lab rats at its center?
-And if you had a yottahertz laser capable of vaporizing steel from orbit,
-why would you point it directly at an identical laser,
-and why would you leave just enough space between them for
-one (1) adult with arctic-rated camping equipment
-and a month's worth of high-energy rations?
-
-She sat back,
-stretched,
-and yawned so widely that her jaw clicked.
-As tired as she was,
-she needed to get moving.
-*Any suggestions?* she thought,
-but her voices were still silent.
-
-It took her ten minutes to get the two sentry bots online.
-Their optical sensors didn't glow red—that only happened in sims—but
-she still took an involuntary step back when their heads turned in unison toward her.
-
-"Sit," she ordered.
-One lowered itself to the concrete.
-The other studied her
-while its core tried to decide whether her voice patterns
-matched those in its memory closely enough.
-
-"I said *sit*," she repeated as firmly as she could.
-The bot took a step toward her,
-hesitated,
-and crouched beside its twin.
-
-Iffy didn't know if anyone had ever built a chariot to be pulled by two sentry robots,
-but if so,
-she was pretty sure they hadn't made it out of a heavy-duty dolly and fiber optic cables.
-She nudged it skeptically with her boot.
-The frictionless bearings in its wheels were undamaged,
-so it would roll enough,
-but even without the schematics in her head
-she could see that it would want to slip, tip, or flip
-at every bump and corner.
-
-She lowered herself gingerly onto the dolly.
-A plastic crate full of tools pressed against her side,
-and another with spare parts for the bots nestled under her elbow.
-"Yip yip!" she said,
-snapping the cables she had rigged as reins.
-
-The bots didn't move.
-Iffy sighed.
-"Forward one quarter speed," she ordered.
-The dolly jerked beneath her as the bots set off at a trot into the tunnel.
-
-She thumbed a handlight and pointed it ahead of them.
-"Increase speed to one half."
-The dolly's wheels made a sizzling sound as they rolled faster into the unknown.
-
-After half an hour her back was aching and her backside had gone numb.
-She was about to order the bots to stop when they pulled up short.
-"Whoa!" she squawked as the dolly smacked hard into their hind legs.
-
-The bots ignored her.
-Their heads twitched this way and that in an almost birdlike way.
-The one that had hesitated before accepting her orders took a step and stopped.
-Without warning a panel on its back flipped open
-and something stubby and lethal looking popped up.
-
-She swore under her breath.
-The gun on the bot's back spun around to point at her.
-"Take it easy," she said,
-her heart suddenly pounding.
-
-Metal clicked on concrete somewhere in the darkness ahead of them.
-The bot's gun spun around again.
-
-Iffy closed her eyes and tried to slow her breathing.
-Nothing:
-no images flashed into her mind
-and no thoughts suddenly emerged fully-formed.
-
-Metal clicked on concrete again.
-Her eyes snapped open.
-The sound was *behind* her this time.
-
-She turned her head slowly.
-Light reflected off three—no, four—bots
-like the pair that had been pulling the dolly.
-One was missing part of a foreleg.
-Another's side was deeply dented
-as if something had tried to punch right through it,
-and all four bore more scratches and scars than Iffy could count.
-
-The lead bot took one more step and halted.
-Struck by a sudden thought,
-she reached into the crate of tools she had packed earlier.
-An adjustable wrench,
-a screw jack that might be able to outdent the bot's side—what she really needed
-was Mister Mishra's shop and Johnson Wales' toolbox,
-but these would have to do.
-
-She turned around to face the bots and held the tools out.
-"Aright?" she asked.
-
-None of the bots moved.
-For one panicked moment Iffy thought she had guessed wrong,
-but then the bot took two more steps toward her
-and lowered itself into a crouch.
-
-The bots had been built to be scouts and guards and weapons.
-The blunt claws on the ends of their legs could pick up a rock
-or grab hold of someone's arm,
-but were no good for delicate work.
-Scratches and dents on the bot's inner frame showed
-where they had tried to repair each other anyway.
-
-Wire,
-a crimping tool,
-a screwdriver with a torsion readout built into its handle—there.
-She patted the bot's back.
-"Good as new."
-Which was a lie,
-but felt like the right thing to say.
-
-The bot stood,
-braced its legs,
-and shivered through a rapid self-test.
-When the reflex capacitor that Iffy had just wired into place didn't rattle
-it made a soft, incongruous *ping*
-and stepped aside to make room for another member of its pack.
-
-Iffy put her tools back in the crate and stood.
-"I'm sorry,"
-she said.
-"I gotta keep movin',
-but if you wanna come with me
-I'll fix you when we get somewhere safe."
-
-The bots didn't move.
-"I really gotta go,"
-Iff said,
-turning to pick up her crate.
-
-A clawed foreleg closed around her arm.
-"Hey!"
-She smacked it with her hand.
-"None o' that, aright?"
-
-The bot released her but didn't back up.
-She glanced at the two still in harness and frowned,
-struck by another idea.
-The bots didn't have collars,
-but a lifetime at sea had taught Iffy dozens of ways to tie a knot.
-She left plenty of slack so that the bots could pull their heads out if they needed to.
-
-When she was done,
-the three bots that had all of their legs waited patiently in a line behind the dolly,
-the cable looped around their necks.
-
-"Come on, you," she said to the bot that was missing part of its leg.
-"Up you get."
-She put her hand where its neck would have been and tugged it forward.
-Limping,
-it clambered up onto the dolly and crouched down.
-
-"Nope, nope, not there."
-She tugged it again,
-then sighed when it didn't move.
-"Aright,
-stay there if you want to—I'll get a better view up front anyway."
-A moment later she was rolling through the tunnel once again
-with three of the new bots following single file behind her.
-
-Iffy leaned back gingerly against the crippled bot.
-It rotated its head to study her.
-After a moment she draped an arm over its back to steady herself.
-It wasn't actually more comfortable than just sitting upright,
-but it was somehow more comforting.
-
-Against all odds her eyes began to close.
-She snapped out of her doze when the bots pulled up short.
-"Shad!"
-The dolly smacked hard into the hind legs of the ones in front.
-Six boxy clusters of sensors and cameras swivelled
-to point back the way they had come.
-That's when Iffy heard the rhythmic *clunk clunk clunk* of exoskeletoned feet on concrete.
-
-She unlooped the cables around the bots' necks.
-"Listen,"
-she said,
-squatting in front of the one she had repaired
-so that her head and its sensors were on the same level.
-"I know I'm not who you were s'posed t' be guardin',
-but those folk back there?
-They're *really* not s'posed t' be here."
-She fished the screwdriver out of her pocket and held it up.
-"You fix that an' I promise,
-I'll do my best t' fix you an' your friends."
-
-She had no reason to believe the bot could understand her.
-There was no telling what strange loops might have formed in its core
-as it patrolled these abandoned tunnels.
-For all she knew it would take one look at the Marines
-and decide they were its true masters.
-
-But the bot took a step forward and to butted her gently with its head,
-then turned and disappeared into the darkness
-with its two companions at its heels.
-
-The crippled bot rose on its three good legs.
-It didn't make a sound,
-but Iffy imagined that if it could have whined it would have.
-"They'll be aright,"
-she told it as she took her seat on the dolly,
-wishing she believed her own words.
-
-The first explosion echoed through the tunnel a few minutes later.
-"Full speed!"
-she ordered the harnessed bots.
-Gunfire chattered behind them—Iffy couldn't tell how far away—and then
-the sound-shock of another explosion rolled past them.
-
-"Get down!" she ordered
-The three-legged bot had risen to its feet again,
-its body swaying slightly as its algorithms steadied its misbalanced weight
-atop the dolly.
-
-"I said get—affin' heck!"
-Iffy ducked
-as the bot jumped over her.
-The dolly slewed wildly,
-skidded,
-and straightened out.
-
-The tunnel was climbing now in a long steady incline.
-The first painted stripe on the wall flew past so quickly that
-she wasn't sure she had seen it.
-A second followed,
-then a third with a six-digit number stenciled next to it,
-and then the tunnel leveled out and automatic lights came on over her head,
-turning everything the dark red she associated with night watches.
-
-The bots slowed and stopped
-as the dolly rolled into a dimly-lit space several times larger
-than the bunker they had left.
-A blast door slid closed behind her,
-metal scraping on stone for the first time in a century.
-She had arrived.
-
-"Lights?" she said after a moment.
-"*Acendé luz?*
-*Lampo roshan kon?*"
-
-The crippled bot made a high-pitched whining sound.
-Iffy squinted as clinically-white strips in the walls and ceiling obediently lit up,
-then sucked in her breath.
-She had hoped they would find a workshop
-and feared it would be a graveyard,
-but this—she hadn't expected this.
-
-A thick cylinder lay on its side surrounded by pipes and machinery.
-A bulky mass made of meter-square bricks loomed in the background.
-The three-armed logo painted on its side was redundant:
-even before schematics took shape in her head
-she recognized the reactor for what it was.
-
-The crippled bot on the dolly surged to its feet.
-The panel on its back flipped open.
-A stubby needle gun popped up.
-Its targeting laser drew a thin red line through the air
-to a squat four-wheeled service bot
-that had just rolled into view from somewhere further back in the chamber.
-
-The service bot froze and made a warbling sound.
-The three-legged bot tilted its head toward Iffy.
-"Um, sure," she said helplessly.
-The laser blinked off,
-but the sentry bot stayed on its feet
-as the service bot began to wipe down the cylinder
-with a brush whose bristles had long since worn away.
-
-Iffy hunched her shoulders inside her parka and shivered.
-She was hungry and tired and needed a bathroom,
-but most importantly,
-she didn't know what she was supposed to *do*.
-Open the cylinder?
-Fix it,
-or blow it up somehow?
-
-"Or just find a way out an' forget about it?"
-she asked the empty air.
-
-The service bot pivoted on its wheels to face her.
-"The way out is simple, Iffy,"
-Wales' voice said.
-"All you have to do is talk to the machines for me
-and we'll all get a happy ending."
-
-</section>
-
-<section markdown="1">
-
-## Chapter 12
-
-Iffy reached into the tool crate and picked up a wrench.
-"Iffy, please,"
-Wales chided.
-"That's not going to—"
-
-"Target!"
-Iffy snapped,
-pointing the wrench at the service bot.
-The gun on the back of the sentry bot beside barked twice.
-The first shot punched a hole through the service bot.
-The second caught it off-center and sent it spinning across the floor.
-
-The tunnel at the other end of the bunker had a blast door
-to match the one behind them.
-Iffy closed her eyes and rooted around in her not-memories of this place.
-There.
-She traced a shape on a contact pad beside the door,
-then gasped as it slid open to reveal a pair of Marines.
-
-"Oh Iffy,"
-Wales' voice said through a speaker on one of their exoskeletons.
-"I really didn't want to have to do this."
-
-Iffy felt rather than saw the three-legged bot move.
-"No!" she shouted.
-Its gun fired twice
-but it was already falling as the Marines' auto-targeted shots brought it down.
-
-She was falling too.
-Something had knocked the breath out of her.
-She was lying on the concrete and it *hurt*,
-it hurt so much that she couldn't even cry out,
-not yet,
-because the shot had gone right through her
-just above her hip
-and when she tried to breathe it felt like someone was kneeling on her back
-and squeezing all the air out of her.
-
-She heard Wales bark an order.
-"No, don't," she tried to say
-as exoskeletoned arms picked her up,
-but the words came out as a gasp
-and now she could breathe again
-and the hurt spread through her like milk poured into tea.
-
-Her head lolled to the side as the Marine placed her on a nearby work table.
-One of them put a patch on her arm to take the pain away
-except it was more like taking her away from the pain.
-She floated inside her own body as if it was a warm bath
-while the Marine sliced open her parka with a very sharp knife
-and squeezed cold pink goo into the hole der needle gun had made.
-She supposed she was lucky it had been an armor-piercing round.
-She didn't think the Marine would have enough goo to fill
-the hole that the other kind would have made.
-
-*«unanticipated / unforeseen»*
-
-"Oh there you are."
-She didn't know if she had said the words out loud or not.
-*Don't suppose you could lend a hand?*
-
-*«inspection»*
-
-The machine thought was clouded and soft-edged instead of crystal clear.
-Without warning she was suspended beside a schematic of herself,
-alone in a pocket universe constructed solely for this temporary purpose.
-The fractalized patches of cells scattered through her body glistened blue-white,
-but there and there and there they were red,
-red for danger,
-red like the blood on the work table underneath her.
-They would heal—the tweaks in her genes were quadruply redundant to make sure of that—but
-healing would take time
-and that was something she/they/the world didn't have enough of right now.
-
-"Sh sh sh," the Marine said softly.
-An armored hand brushed gently against her cheek.
-Her last thought before all her thoughts went away was,
-*Honesty?*
-
-FIXME: wake up
-
-"Oh no you don't.
-No fairy tales."
-
-"It's my story,
-I'll tell it the way I want to."
-He closed the lid of his toolbox and sat down on it,
-patting a spot beside him.
-Iffy just glared at him.
-
-Wales shrugged and leaned forward to put his elbows on his knees.
-"Once upon a time the world was falling apart.
-Where there wasn't flood there was drought,
-and both brought hunger and disease.
-Forests were burning,
-the oceans were rising,
-species were disappearing every day,
-and no matter what people did,
-their models kept making the same dark predictions."
-
-"The people responsible suffered less than most,
-of course,
-but they still suffered.
-Some lost themselves in sims.
-Others built walls to protect their little kingdoms,
-and others still threw their wealth at impossible schemes like moving to other worlds.
-As things got worse,
-a few of us managed to convince some of them
-that the only solution was to move to Hell."
-
-"Upload themselves?"
-Iffy scoffed.
-"An' then what,
-you take their money while they're all bein' torn apart by malware?"
-
-Wales shook his head.
-"No.
-I mean,
-I wouldn't have cried if that happened.
-Trust me,
-anyone that rich makes the governor look like a saint.
-No,
-the idea was that we would imprint ourselves on the entire global network
-so that we could fix the things no one else could.
-People had tried it before,
-but…"
-He shrugged.
-"We thought we had a couple of new angles,
-and we were desperate."
-
-He stared past her at the horizon.
-"So we did the whole mad scientist thing with a secret underground lair
-and a double-secret lab underneath that
-and locked the door behind us.
-Nothing in, nothing out, just two dozen of the smartest human beings alive
-and enough equipment to settle on Mars."
-He chuckled and pointed at his chest.
-"Did I ever tell you that's actually what I was supposed to do?
-All my genetic tweaks and this stuff in my head—it's all left over
-from some previous bunch of mad scientists and *their* plan for saving the world."
-
-"So what happened?"
-Iffy asked despite herself after a few moments of silence.
-
-"We had a vote,"
-Wales said bleakly.
-"We weren't ready,
-but honestly,
-we didn't know if we ever would be,
-and things were getting worse faster than anyone had predicted.
-We argued for a couple of days
-and finally decided to go for it and hope for the best.
-Everyone listened to their favorite music one last time
-or had one last cup of coffee
-and made jokes about seeing each other in the next life,
-and then we climbed into our capsules and closed our eyes.
-The next thing I knew I was on the floor of Beta Station
-and everyone else was dead.
-Everyone except you."
-
-Iffy stared at him.
-"Me?"
-she asked,
-but somehow she already knew what he was going to say next.
-
-"Mm hm."
-He took a small app out of his pocket and swiped.
-"Don't worry,
-it's completely off the network.
-Here."
-
-He turned it around and held it out.
-An older version of her own face looked back at her.
-"Her name wasn't Ang Kwan,"
-he said quietly.
-"It was Jing-mei Yuen.
-And while all of us were working on our project
-she somehow found a way to work on one of her own.
-She's the only other person from the team who survived.
-Your First was a tweaked clone of her,
-and I think she's the reason the machines woke up."
-
-She burst out laughing.
-After a moment Wales began to chuckle too.
-"Well, it's not quite the reaction I was expecting,"
-he started.
-
-"You—you—"
-Iffy hiccupped.
-"You're skew.
-D'you seriously 'spect me t' b'lieve that?"
-She lowered her voice.
-"Oh, Iffy, you're th' chosen one.
-Only you can save th' world."
-
-"Your First said pretty much the same thing before she shot me,"
-Wales observed drily,
-tapping his chest with one finger.
-"It took me twenty years to track her down.
-I don't know how she got to Cape Town or what happened to Jing-mei.
-All I know is that she had the same talent you do.
-Somehow she could—"
-He took a deep breath.
-"Somehow *you* can talk to them and get them to talk back.
-Not just trade deals and warnings about no-go zones but actual conversations."
-
-"So that makes th' machine wars my fault?"
-Iffy shot back angrily.
-
-Wales cocked his head.
-"How old were you when you started seeing things?
-Eight?
-Nine?
-If your First got her abilities at the same age,
-that would be almost exactly the time the machines woke up.
-It's quite a coincidence."
-
-"And there's another thing,"
-he continued as she opened her mouth to protest.
-"I'm good with tech—really good by most people's standards—and
-the people and cores working for the governors are at least as good.
-We should have been able to track you and your elders down in minutes,
-but somehow you all managed to stay hidden."
-
-He looked up at the sky as if he could see the machines' satellites orbiting overhead.
-For all Iffy knew, he actually could.
-"Someone up there likes you, Iffy.
-Someone or something has been looking out for you your whole life."
-
-A lifetime of hurt and anger boiled up inside Iffy.
-"Go t' hell,"
-she spat.
-"Wasn't anyone lookin' out for th' *Rushin Doll* when she went under
-an' everyone drowned.
-Wasn't anyone lookin' out for me 'cept Aunt Naggie when we were in dock
-an' th' other kids knocked me around 'cuz I was bad luck.
-What I got,
-I got 'cuz o' *me*,
-not some— some—"
-She wiped her sleeve angrily across her face.
-
-"I'm sorry,"
-Wales said for the third time.
-"I wish I'd been there."
-
-For a minute the only sound was the wind and the distant *skee-rawk* of a lonely gull.
-"Why'd she shoot you?"
-Iffy finally asked.
-
-Wales shrugged.
-"I didn't give her a chance to get to know me
-before I dumped the whole save-the-world thing on her shoulders.
-And when she said no,
-I tried to make her do it anyway.
-That was a mistake."
-
-Something clicked in Iffy's head.
-"So bumpin' into me at th' Sandhu's…"
-
-"Wasn't exactly by chance, no.
-But the drugs you've been getting?
-Those are straight from the machines.
-I stole a few grains once when you were younger, and—"
-He shrugged again.
-"Like I said, I'm pretty good with tech,
-but I have no idea what it does or how the tweaks inside you work.
-All I know is that I'm a hundred and forty-one years old
-and I'm tired of making things worse."
-
-He patted the toolbox.
-"I brought everything you asked for.
-What happens now is up to you.
-If you want my help, it's yours.
-If you want me to walk away and let you do this yourself,
-I'll do that instead.
-People like me and the governors,
-we've had our chance.
-It's your turn now."
 
 </section>
