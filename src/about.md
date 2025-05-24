@@ -98,7 +98,7 @@ CV (<a href="@root/cv/gvwilson.pdf">PDF</a>, <a href="@root/cv/">HTML</a>)
 [psf]: https://www.python.org/psf-landing/
 [queens]: http://www.queensu.ca
 [rangle]: http://rangle.io
-[rse-py]: https://merely-useful.tech/py-rse/
+[rse-py]: @root/py-rse/
 [rstudio-trainers]: http://education.rstudio.com/trainers
 [sdxjs]: @root/sdxjs/
 [sdxpy]: @root/sdxpy/
