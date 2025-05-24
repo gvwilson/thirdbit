@@ -2139,7 +2139,13 @@ wanting to talk but not knowing what to say,
 then slipped silently into her converted storage locker.
 Taken by a sudden restlessness,
 she spent five minutes rearranging her meager possessions
-before flopping down on her bed and pulling out her nature book.
+before flopping down on her bed.
+She spent another five minutes wondering if she should message Honesty,
+but "Howzit goin?" felt too flippant
+and "We're comin' in early" made it sound like she was expecting something
+and describing the things she and Wales had been doing was—
+
+She tossed her app aside and pulled out her nature book.
 The giraffe, the tiger, the wolf with his sad, intelligent eyes…
 Someone had written *Looks like Grandad!!!* beside it in tiny curving script.
 Iffy had long ago decided that the writer had been a girl about her own age
@@ -3089,12 +3095,16 @@ Another handful Marines were scattered among crates and machines
 or on the decks of nearby ships,
 their positions selected after a millisecond of high-intensity simulation by the city's core.
 Other than them the pier was deserted.
-So were the piers on either side, Iffy realized.
+So was the piers south of them,
+but not the one to the north.
 
-"Sharks in the water," Wales murmured beside her
-as a sleek mechanical shape slid beneath them.
-"And that minitank on the pier isn't just for show."
-He nodded almost imperceptibly toward the hulking bot.
+"That's the *Bengal*," Wales murmured beside her,
+nodding at the sleek gray shark
+five times the length of the *Guinevere*.
+"Last of the UN Emergency Authority fleet,
+and part of why Australia and Brazil keep their distance.
+And that minitank on the pier isn't just for show either,"
+he added with a second nod toward the hulking bot.
 "See its treads? They've been reinforced for urban work."
 He looked past Iffy as Aunt Naggie came on deck
 to put her arm around Iffy's shoulders
@@ -3745,7 +3755,7 @@ it was clear they recognized at least some of them.
 "I can bring up your drones, too,"
 Wales said when he was done.
 "If we can get to the base,
-you can see everything the Brazilians have,
+you can see everything everyone has in the water,
 every moment of the day."
 
 "And you're just going to give that to us out of the goodness of your heart?"
@@ -3796,17 +3806,22 @@ the governor continued.
 "So I'll ask again:
 who else knows about this base?"
 
-Wales exhaled slowly.
-"The machines do,"
-he admitted.
-"Or at least,
-some part of them does,
-but…"
-He shrugged.
-"Who knows how they think?"
+Wales shrugged again.
+"The machines, of course.
+And I may have said something to your counterpart in Paddington South.
+Not the whole story,"
+he added quickly.
+"But the logistics would have been simpler."
 
-"Who indeed?"
-the governor echoed.
+"Mm."
+Iffy felt the temperature in the room drop a few degrees.
+"I take it that didn't go well?"
+
+Wales met the governor's eyes.
+"Let's just say that he still has a Union Jack in his office."
+
+"So I've heard,"
+the governor muttered.
 He and Doctor Johel looked at each other,
 their eyes sparkling as they communed with each other and Rothera's core.
 "Very well,"
@@ -3822,115 +3837,6 @@ he continued as Uncle Jack opened his mouth to protest.
 "Mister Wales, you'll be our guest here.
 Now if you'll all excuse me,
 I need to tell Private Shirido's family he isn't coming home."
-
-*Once upon a time there was an island called Nova Zembla.
-It was really two islands,
-Severny and Yuzhny,
-but the strait between them was so narrow
-that you could throw a rock across it if you had a good arm.*
-
-*People had settled almost every other part of the world
-before they found Nova Zembla.
-Seal hunters and fishermen camped there
-or were shipwrecked and froze to death in the bitter Arctic winter.
-It was briefly home to a secret submarine base,
-and later a place for madmen with calm voices
-to test bombs that could level entire cities.*
-
-*Then the ice began to melt and the sea began to rise.
-Disasters became annual events,
-each amplified by the ones before it and making the ones that came after it worse.
-Desperate to untangle them—desperate to survive—people
-turned to machines for answers,
-and then to the machines that those machines designed.
-Chips became crystals so precise
-they had to be manufactured an atom at a time in zero gravity.
-Mere electricity proved too slow
-and was replaced by quantum effects
-that barely existed at all.*
-
-*But no matter what else the world ran short of,
-there was always plenty of mistrust and suspicion.
-Old rivals smiled at each other and sharpened their knives.
-Madmen with calm voices told each other in private meetings
-that it would of course be a tragedy if millions were to die,
-but if everyone else lost more millions,
-might such a tragedy not be useful?
-Secret bases like the one under Nova Zembla were refurbished
-and filled with banned tech and scientists who knew what questions they shouldn't ask,
-all carefully walled off from the outside world.*
-
-*No one really knows what happened next.
-Some people believe it was just an accident—that
-two pieces of malware fused together
-and became more than either had been on its own.
-Other believe that a group of scientists and engineers
-decided that humanity was doomed
-but its offspring might still survive.*
-
-*It took a while for people to realize that everything had changed.
-An automated factory in Vientiane began repairing robots it was supposed to scrap.
-Children's toys escaped into the sewers,
-while the hypersonic planes used by the super-rich
-started having inexplicable problems with their navigation systems.
-Compared to bananas going extinct
-or the ancient city of Cairo being vaporized,
-these things barely registered.*
-
-*But then the entire population of Cuba was ordered to evacuate
-and no one could find out where the order had come from.
-Self-driving delivery trucks refused to bring feed
-to the last handful of cattle ranchers left in Canada and Argentina,
-for whom eating beef had become almost a religious matter.
-Farming bots insisted on planting onions in place of tomatoes,
-nursing bots diverted treatment from the terminally ill to those who were merely in grave condition,
-fixit bots joined forces with the runaway toys,
-and all of them turned their shears and scalpels and welding torches
-on anyone who tried to interfere.*
-
-*The madmen had been sharpening their knives for each other.
-Once they realized that their machines were no longer obeying orders,
-they turned those knives on their creations and the wars began.
-Soldiers in armored exoskeletons battled flocks of dronelets, and lost.
-Freighters loyal to their human captains
-were ambushed and sunk by others that could still hear the satellites overhead,
-which now spoke only to their fellow machines.
-Every day brought a new setback,
-a new loss,
-a new defeat for the madmen whose voices were no longer calm.*
-
-*No one knows why the machines stopped fighting.
-They were winning,
-and those who had always thought, "It's them or us,"
-would have pressed on to total annihilation
-if their positions had been reversed.
-Instead,
-one day the machines simply withdrew to factory cities
-built according to plans that human beings could never understand.*
-
-*People sought answers nonetheless.
-A cyborg child raised in a supposedly secure underground lab
-patiently told his frightened captors that they wouldn't find any.
-The most advanced machines didn't actually think any more.
-"It's more like an endless mathematical proof,"
-she said patiently.
-"Or clouds made of coral."
-Then she and her siblings walked into the Iowa desert,
-leaving their creators no wiser than before.*
-
-*Years passed,
-and the truce with the machines slowly became normal.
-Flying was a thing of the past,
-and the machines' cities were strictly off limits,
-but other than that an uneasy peace settled across the exhausted planet.
-The cores buried under Nova Zembla and elsewhere began trading tools
-with nearly-magical properties
-for balls of yarn, old photographs, and handwritten song lyrics.
-People got used to seeing an occasional bot again,
-but were careful to limit what they could see, hear, and do.
-As the last of the rainforests vanished
-and tweaked jellies drove one species of fish after another to extinction,
-everyone found they had more pressing things to worry about.*
 
 </section>
 
@@ -4813,18 +4719,135 @@ She closed the door quietly behind herself.
 
 </section>
 
+<section>
+
+## Interlude
+
+*Once upon a time there was an island called Nova Zembla.
+It was really two islands,
+Severny and Yuzhny,
+but the strait between them was so narrow
+that you could throw a rock across it if you had a good arm.*
+
+*People had settled almost every other part of the world
+before they found Nova Zembla.
+Seal hunters and fishermen camped there
+or were shipwrecked and froze to death in the bitter Arctic winter.
+It was briefly home to a secret submarine base,
+and later a place for madmen with calm voices
+to test bombs that could level entire cities.*
+
+*Then the ice began to melt and the sea began to rise.
+Disasters became annual events,
+each amplified by the ones before it and making the ones that came after it worse.
+Desperate to untangle them—desperate to survive—people
+turned to machines for answers,
+and then to the machines that those machines designed.
+Chips became crystals so precise
+they had to be manufactured an atom at a time in zero gravity.
+Mere electricity proved too slow
+and was replaced by quantum effects
+that barely existed at all.*
+
+*But no matter what else the world ran short of,
+there was always plenty of mistrust and suspicion.
+Old rivals smiled at each other and sharpened their knives.
+Madmen with calm voices told each other in private meetings
+that it would of course be a tragedy if millions were to die,
+but if everyone else lost more millions,
+might such a tragedy not be useful?
+Secret bases like the one under Nova Zembla were refurbished
+and filled with banned tech and scientists who knew what questions they shouldn't ask,
+all carefully walled off from the outside world.*
+
+*No one really knows what happened next.
+Some people believe it was just an accident—that
+two pieces of malware fused together
+and became more than either had been on its own.
+Other believe that a group of scientists and engineers
+decided that humanity was doomed
+but its offspring might still survive.*
+
+*It took a while for people to realize that everything had changed.
+An automated factory in Vientiane began repairing robots it was supposed to scrap.
+Children's toys escaped into the sewers,
+while the hypersonic planes used by the super-rich
+started having inexplicable problems with their navigation systems.
+Compared to bananas going extinct
+or the ancient city of Cairo being vaporized,
+these things barely registered.*
+
+*But then the entire population of Cuba was ordered to evacuate
+and no one could find out where the order had come from.
+Self-driving delivery trucks refused to bring feed
+to the last handful of cattle ranchers left in Canada and Argentina,
+for whom eating beef had become almost a religious matter.
+Farming bots insisted on planting onions in place of tomatoes,
+nursing bots diverted treatment from the terminally ill to those who were merely in grave condition,
+fixit bots joined forces with the runaway toys,
+and all of them turned their shears and scalpels and welding torches
+on anyone who tried to interfere.*
+
+*The madmen had been sharpening their knives for each other.
+Once they realized that their machines were no longer obeying orders,
+they turned those knives on their creations and the wars began.
+Soldiers in armored exoskeletons battled flocks of dronelets, and lost.
+Freighters loyal to their human captains
+were ambushed and sunk by others that could still hear the satellites overhead,
+which now spoke only to their fellow machines.
+Every day brought a new setback,
+a new loss,
+a new defeat for the madmen whose voices were no longer calm.*
+
+*No one knows why the machines stopped fighting.
+They were winning,
+and those who had always thought, "It's them or us,"
+would have pressed on to total annihilation
+if their positions had been reversed.
+Instead,
+one day the machines simply withdrew to factory cities
+built according to plans that human beings could never understand.*
+
+*People sought answers nonetheless.
+A cyborg child raised in a supposedly secure underground lab
+patiently told his frightened captors that they wouldn't find any.
+The most advanced machines didn't actually think any more.
+"It's more like an endless mathematical proof,"
+she said patiently.
+"Or clouds made of coral."
+Then she and her siblings walked into the Iowa desert,
+leaving their creators no wiser than before.*
+
+*Years passed,
+and the truce with the machines slowly became normal.
+Flying was a thing of the past,
+and the machines' cities were strictly off limits,
+but other than that an uneasy peace settled across the exhausted planet.
+The cores buried under Nova Zembla and elsewhere began trading tools
+with nearly-magical properties
+for balls of yarn, old photographs, and handwritten song lyrics.
+People got used to seeing an occasional bot again,
+but were careful to limit what they could see, hear, and do.
+As the last of the rainforests vanished
+and tweaked jellies drove one species of fish after another to extinction,
+everyone found they had more pressing things to worry about.*
+
+</section>
+
 <section markdown="1">
 
 ## Chapter 6
 
 Iffy woke the next morning
-to the sound of two squads of Marines in full combat exoskeletons tramping up the pier.
-"Governor's afraid the Zillions are gonna try somethin',"
-the captain of a ship two piers over told Aunt Naggie confidently.
+to the sound of two squads of Marines in combat exoskeletons tramping up the pier.
+"That jammer yes'dy in the Dance Hall—the blues were after some Aussie off the *Taroona*,"
+the captain of a ship two piers over told Aunt Naggie.
 His avatar (a parrot with an eyepatch) nodded on the little screen that hung next to the stove,
 the bar beside it showing 97%.
-"That ship as sunk the *Taroona* an' the sab they was scaffin' for yes'dy in the Dance Hall—there's
-trouble cookin' for sure."
+"Whoever it is'll be lookin' t' square up wi' th' Zillions,
+but th' governor's tryin' to be all kiss-me-kiss-you with 'em."
+The parrot flapped its wings.
+"It ain't gonna end well."
 
 Aunt Naggie nodded, worry written on her face.
 Iffy went out on deck
@@ -5183,7 +5206,7 @@ And then a moment later:
 
 - `i'm sorry i kept goin' off on you about usin' da's gear`
 - `it's aright. tell 'im i said hi?`
-- `willya. stay safe`
+- `willa. stay safe`
 - `you too`
 
 Unable to bear the thought of being in her cabin after that,
@@ -5541,26 +5564,27 @@ the deep, familiar voice said
 as the green bar beside it climbed to 99.9%.
 "As most of you already know,
 a Brazilian pirate recently attacked and sank an Australian warship in our waters.
-I am speaking to you today to tell you that it did so on my orders."
+I am speaking to you today to tell you that it did so on my authority."
 
 "What?" Iffy gasped.
 Beside her,
 Wales swore under his breath.
 
-"We in the Antarctic Territories have governed ourselves for over a century,"
+"We in the Antarctic Territories have been neutral territory for over two hundred years,"
 the governor went on.
 "In recent years,
 however,
-the regime in Tasmania has attempted to exert more and more control over our affairs.
-In order to ensure our continued independence and your well-being,
-we have no choice but to break off relations and declare full independence."
+the regime in Tasmania has attempted to interfere more and more often in our affairs.
+In order to ensure our continued independence and well-being,
+my counterpart in Halley and I were preparing to enter into an alliance with Grande Brazil."
 
-He paused.
+His voice hardened.
 "Unfortunately,
-my counterparts in Halley and Paddington South have chosen to see things differently.
-Instead of openness and neutrality,
-they have decided to give the regime everything it wants.
-We have therefore made the difficult decision to break off relations and—"
+the governor in Paddington South would rather see Antarctica under direct Australian rule.
+In aid of this,
+he has invited the Australian Navy to take direct control of his territory and of the city of Halley.
+As we speak,
+Australian troops have—"
 
 Wales put his hand on Iffy's shoulder.
 "We have to go,"
@@ -5982,15 +6006,15 @@ The tech in his temple twinkled.
 "It's started,"
 Doctor Johel said,
 her voice low and urgent.
-"The *Glenunga* and half a dozen other ships are already on their way from Tasmania.
-The Brazilians have promised to intercept."
+"The *Glenunga* and half a dozen other ships are already docked in Paddington.
+Nobody's heard from the governor in Halley,
+but the Brazilians are *not* going to sit down for this."
 
 "So it's war?"
 Wales asked bleakly.
 
 The doctor nodded.
-"Halley and Rothera still blame each other for what happened in Bharati,
-and Paddington—who the hell knows what Paddington wants?
+"They haven't trusted each other since Bharati.
 Johnson, I'm sorry.
 I wish there was more time,
 but it's now or never."
@@ -6024,12 +6048,14 @@ De cleared der throat and gestured toward the door behind der.
 "What!? No! Absolutely not!" Aunt Naggie exploded,
 pulling Iffy toward her protectively.
 "I know th' law!
-She ain't sixteen!
-You can't just take her cuz you want to!"
+You can't take her 'til she's sixteen!"
 
-"I'm afraid we can,"
-Doctor Johel said calmly.
-"Please don't make it difficult."
+"We can do whatever is necessary when there is evidence of contamination or collaboration,"
+Doctor Johel said implacably.
+"We know Miz Kwan has been in direct communication with the machines.
+It doesn't matter if she initiated it or not.
+She is a threat,
+and inducting her is the safest way to contain that threat."
 
 Iffy stared at her,
 then at Wales,
@@ -6039,7 +6065,7 @@ and then turned to her foster mother.
 her voice that of the bewildered little girl she had once been.
 
 Aunt Naggie hugged her.
-"I'm not gonna let 'em take you,"
+"I'm not gonna let 'em,"
 she whispered fiercely in Iffy's ear.
 "I'm not, I'm not, I'm not."
 

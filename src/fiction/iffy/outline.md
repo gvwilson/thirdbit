@@ -225,7 +225,6 @@
     -   Controlling it would give the governor the upper hand in his struggle with the Aussies and his clones.
     -   And give Wales access to medical technology he needs to survive.
     -   Governor agrees.
--   Interlude gives background on the rise of AI.
 
 ### Chapter 5: love (days 7-8)
 
@@ -252,7 +251,6 @@
     -   After they escape and split up, Iffy asks Aunt Naggie if Edson is someone special.
     -   Aunt Naggie says "yes" but dodges further questions.
 -   Iffy and Honesty swap messages about Honesty's induction.
-    -   FIXME: why aren't they doing this earlier in the story?
 -   Iffy has a machine-dream nightmare.
     -   Aunt Naggie wakes her up and gives her medicine.
     -   Backstory on her relationship with Edson, who showed up to deliver it when Iffy was young.
@@ -292,11 +290,6 @@
     -   Iffy, Aunt Naggie, and Wales are taken to Marine headquarters in the center of Rothera.
     -   Encounter Honesty, who has been imprinted with Corporal Sandrine Kibbens.
     -   De is on der first patrol and clearly has no feelings for Iffy after imprinting.
--   They bump into Captain Kerse of the *Taroona* on the way in to the governor's mansion.
-    -   "You and your friend aren't the only tweak freaks in these parts" (to Iffy, referring to Wales).
-    -   Survived in an ecosuit (Iffy has a flashback).
-    -   Kerse threatens Wales: wants revenge for her crew.
-    -   Is then led away to prison awaiting repatriation to Australia.
 -   GS Rothera knows that Iffy has been in touch with AI.
     -   She will be inducted as a safety precaution.
     -   And because he wants to use her ability in the fight with GS Halley.
@@ -308,6 +301,11 @@
     -   Build Edson as a character.
     -   Foreshadow Iffy's eventual induction.
 -   Iffy is taken to the induction center.
+-   They bump into Captain Kerse of the *Taroona* on the way in to the governor's mansion.
+    -   "You and your friend aren't the only tweak freaks in these parts" (to Iffy, referring to Wales).
+    -   Survived in an ecosuit (Iffy has a flashback).
+    -   Kerse threatens Wales: wants revenge for her crew.
+    -   Is then led away to prison awaiting repatriation to Australia.
 -   Escapes with the help of the AI, Edson, and some raccoons.
     -   People are injured in the process, which horrifies her.
 -   Get to the harbor through the fighting.
