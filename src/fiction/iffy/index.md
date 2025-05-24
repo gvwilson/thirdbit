@@ -7676,23 +7676,22 @@ He helped her sit in the shelter of a lichened outcrop of granite.
 Ya did great.
 Nagatha would be proud o' you.
 Now,
-keep yer head down.
-This is gonna get a bit noisy."
-He raised his rifle and took aim.
+keep yer head down."
+He started to rise.
 
-HERE
+Iffy grabbed his arm and pulled him back down.
+"How 'bout you keep yours down for a change?"
+She closed her eyes.
+The toy that she and Wales had built on the *Guinevere* had been beautiful.
+*I'm sorry,* she thought,
+even though she knew the drone's core was far too simple to be aware of itself.
 
-Iffy felt an explosion through the outcrop.
-"Affin' hell," Edson swore,
-ducking his head.
-"That was their drone."
+She opened her eyes again a few moments later and wiped her face with her sleeve.
+"I got two of 'em," she said.
+"That leaves four, plus the hovercraft."
 
-A rock two meters away jumped and splintered.
-Edson pulled his app out of his coat and swore again.
-"They've jammed up all th' sensors,
-but there's a satellite comin' up overhead.
-We just gotta hang on 'til then."
-
+Edson nodded,
+then jumped as a rock two meters away burst into splinters.
 "Citizens!"
 The amplified voice echoed off the rock.
 "Surrender yourselves immediately!
@@ -7739,8 +7738,7 @@ his back against the outcrop.
 
 "Citizens!"
 The Marine sounded more disappointed than angry.
-"Such action will only worsen the charges against you.
-For your own safety,
+"For your own safety,
 we urge you to surrender."
 
 Edson looked at Iffy.
@@ -7748,73 +7746,46 @@ Edson looked at Iffy.
 
 She forced a smile that she hoped looked as confident as his grin.
 "Reset this sim an' start over?"
-As he started to laugh,
-a thought appeared in her head.
 
-*«assistance»*
+Edson chuckled.
+He was still chuckling when the Marines edged cautiously around the rocks
+and hauled them to their feet.
 
-One moment the sky was blue.
-The next,
-it was slashed by a pair of brilliant laser-straight lines
-as the hypersonic harpoons fired by the hovercraft tore the air apart.
-The missiles burst over Iffy's head before she had time to flinch.
-Dozens of EMP grenades,
-each the size of a pebble,
-ended their existence in brief bursts of plasma.
-Feedback shrieked as the micromotors in a dozen exoskeletons overloaded and fused solid.
-
-Edson pulled Iffy to her feet.
-"Come on!"
-
-One hand clutching his collar,
-the other swinging wildly for balance,
-she limp-walked down the gravel slope toward the oncoming hovercraft.
-It had turned off its camouflage,
-and as it gunned its engines to brake itself
-she realized that it was taller than she was
-and as long and broad as the *Guinevere*.
-
-"Citizens! Stop!"
-The voice behind them was no longer amplified.
-"You don't know what you are doing!"
-
-Cold air washed over Iffy as the hovercraft settled onto the ground.
-Two sentry bots dropped from its steeply-angled side
-and raced past her and Edson
-to stand guard between them and the fallen Marines.
-
-A hatch opened on the hovercraft's leading edge just as they reached it.
+One Marine carried Iffy despite her protests.
+Another kept a metal-gloved hand on Edson's shoulder,
+while the third and fourth carried their bicycles down the slope to meet the hovercraft.
+A hatch opened on its leading edge just as they reached it.
 Something bulbous poked out.
 Iffy thought it was another bot,
 but then he removed his helmet.
 
 "Well,"
 said the governor conversationally.
-"Isn't this a fine mess?"
+"Fancy meeting you here."
 
 "Halley?"
 Edson demanded incredulously.
 
-Even from ten meters away Iffy felt the temperature drop.
-"Paddington South, actually," he corrected
+The governor shook his head.
+"Paddington South," he corrected
 in the same clipped accent that the Marines used.
 "Although I suspect that's rather a matter for debate right now,
 to tell you the truth.
-All I'm sure I've governor of is this craft and a few odds and ends like it."
+All I'm sure I'm governor of is this craft and a few odds and ends like it."
 He patted the hovercraft's hull as if it was an old dog asleep at his feet.
 
 "And you must be Citizen Kwan,"
 he continued,
-shifting his gaze.
+shifting his gaze as the Marine carrying Iffy set her down.
 "You've caused quite a ruckus, young citizen.
 My others' schemes are completely upside down—thank you for that—and
 the machines are in some sort of tizzy
 and you seem to be the center of all of it.
 I'm sure it will give us plenty to talk about on our way."
 
-Edson put a cautioning hand on Iffy's shoulder.
-"Appreciate you helpin' out with th' Marines an' all,
-but we're fine t' make our own way along by th' coast."
+Edson put a hand on Iffy's shoulder.
+"No offense,
+but we're fine t' make our own way."
 
 "Mm."
 The governor nodded as if agreeing.
@@ -7832,11 +7803,6 @@ But I'm afraid we can't dawdle any further.
 Citizen Corrales,
 you and Citizen Kwan can come aboard of your own accord or not as you choose,
 but you *are* coming with me."
-
-One—two—three more sentry bots blurred out of invisibility
-in front of Iffy and Edson.
-Mechanical feet scuffed on gravel behind her
-as the two she had seen moved closer.
 
 Edson puffed out his cheeks and exhaled slowly.
 "You know I can't do that," he said.
@@ -7872,11 +7838,11 @@ Clench the hand like *this*,
 hold it *there*,
 and—
 
-As Edson raised his hand the governor shouted, "Wait!"
+As Edson raised his hand and the governor shouted, "Wait!"
 Iffy tackled the Ecologist,
 grabbing his arm and knocking him clumsily to the ground.
 The EMP that was supposed to scramble his brain
-sent feedback shrieking through the sentry bots' motors instead.
+sent feedback shrieking through the motors in the Marines' exoskeletons instead.
 
 Edson scrambled back onto his feet.
 "No! No, Iffy, whattaya done?"
@@ -7887,13 +7853,5 @@ despite the spike of pain in her knee.
 "You made me a promise an' I'm holdin' you to it.
 If you want someone to tell Aunt Naggie that you went an' got simple,
 you can do it yourself!"
-
-She glared at him.
-The sentry bots and the downed Marines and the hovercraft and the governor
-and the miracle in the valley behind them
-might as well have been a world away.
-"I lost my others.
-I lost Honesty.
-I ain't losin' you."
 
 </section>
