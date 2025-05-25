@@ -437,7 +437,7 @@
     -   Strange equipment hints at time travel experiments.
 -   And then Dr. Johel and Wales show up.
 
-### Chapter 15: climax (day 33)
+### Chapter 15: the end of the world (day 33)
 
 -   Goals:
     -   Iffy decides not to alter the past.

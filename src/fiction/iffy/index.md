@@ -8,7 +8,7 @@ fiction: true
 
 <section markdown="1">
 
-## Chapter 1
+## Chapter 1: The Meeting
 
 Iffy had a bad dream that night.
 It was the same one she always had,
@@ -719,7 +719,7 @@ Pleased to meet you too."
 
 <section markdown="1">
 
-## Chapter 2
+## Chapter 2: The Journey Begins
 
 Iffy ran all the way back to the pier,
 dodging around the people and bots going about their chores
@@ -1827,7 +1827,7 @@ It took her a long time to fall asleep again.
 
 <section markdown="1">
 
-## Chapter 3
+## Chapter 3: Raising the Stakes
 
 It was four days to Rothera across the Weddell Sea.
 Once upon a time they could have driven across a solid sheet of ice.
@@ -2923,7 +2923,7 @@ and the muffled sound of the uncaring sea.
 
 <section markdown="1">
 
-## Chapter 4
+## Chapter 4: Politics
 
 Her tears eventually stopped, as tears always do.
 After one more hug from Aunt Naggie,
@@ -3842,7 +3842,7 @@ I need to tell Private Shirido's family he isn't coming home."
 
 <section markdown="1">
 
-## Chapter 5
+## Chapter 5: Love
 
 The Marines took them back to the pier
 with strict orders not to tell anyone what had happened.
@@ -4836,7 +4836,7 @@ everyone found they had more pressing things to worry about.*
 
 <section markdown="1">
 
-## Chapter 6
+## Chapter 6: Civil War
 
 Iffy woke the next morning
 to the sound of two squads of Marines in combat exoskeletons tramping up the pier.
@@ -6089,7 +6089,7 @@ Aunt Naggie said coldly.
 
 <section markdown="1">
 
-## Chapter 7
+## Chapter 7: Escape
 
 The hospital smelled nothing like the Marines' headquarters.
 The soapy undertone was the same,
@@ -6369,6 +6369,1173 @@ and told them to stay calm,
 this was not an attack,
 it was just a temporary malfunction
 and they should all resume normal activity immediately.
+
+FIXME: back to the harbor and away
+
+</section>
+
+<section>
+
+## Chapter 8: Pursuit
+
+FIXME
+
+</section>
+
+<section>
+
+## Chapter 9: The Puppet Master
+
+FIXME
+
+</section>
+
+<section>
+
+## Chapter 10: Changeling
+
+Sandrine Kibbens woke up in a hospital bed.
+The room was unfamiliar,
+but the tech supervising her transcription had warned her that would be the case.
+"Take a few moments to collect yourself,"
+de had said,
+so that's what Sandrine did.
+She had been following orders ever since she joined the Augmented Infantry,
+and to her surprise she had found that
+she enjoyed letting other people make decisions for her.
+
+Core, then peripherals:
+she had learned that the first time she had donned an exoskeleton.
+Her heartbeat was steady,
+even though it wasn't really hers.
+She couldn't explain the difference,
+but something deep in the back of her brain knew that
+the muscle thudding in her chest wasn't the one she had known all her life.
+
+She drew a deep breath,
+held it,
+and exhaled slowly.
+Her lungs seemed fine,
+though she could feel a recent injury in her abdomen.
+Through and through,
+if she wasn't mistaken,
+just like the one that had killed her for the first time in Auckland.
+FIXME: keep this?
+
+Sandrine scrunched her toes.
+They felt stubby—was this body really that much smaller than her original?
+She pushed the question aside,
+grateful that she didn't appear to have any spinal injuries,
+and drummed her fingers against her thighs.
+One two three four thumb,
+one four two three thumb—good.
+She had lost some fine motor control the second time she died.
+It was nice to have it back.
+
+The monitoring cuff around her wrist was wireless,
+so she rolled onto her side.
+This body was definitely female,
+but also definitely young.
+And it—she—was thirsty and needed a bathroom.
+
+Sandrine sat up.
+"Hello?" she called.
+
+The door slid open.
+Without thinking she rolled sideways,
+tossing the sheet into the air for whatever momentary distraction it might provide
+and dropping into a fighting crouch.
+
+"At ease, corporal," said the elderly woman standing in the doorway
+behind the bot that had just rolled into her room.
+"It's all right—this one's safe.
+It's just going to check your vitals.
+Here."
+She held out a cup of something that Sandrine desperately hoped was actually chocolate.
+"And if you need the necessary,
+it's…"
+She gestured at a panel on the wall beside her.
+
+Sandrine straightened up.
+"Sorry, ma'am.
+Old habit."
+She was wearing civilian clothes—a formal black turtleneck and a matching black kameez
+over loose-fitting trousers—but "ma'am" seemed safest for now.
+
+The old man nodded.
+"Completely understandable.
+And it's 'doctor', by the way,
+Doctor Johel,
+and you're in Bharati,
+in Antarctica.
+It's been a little over a hundred years since you were recorded,
+so you'll have a lot to catch up on.
+There's an app on the table there,
+and I'll have some mango noodles sent down when you're ready."
+
+"Thank you, sir."
+Sandrine hesitated.
+"If I may ask—who am I sharing with right now?"
+
+"Mm."
+The governor pursed her lips.
+"Her name is Ang Kwang—Fifth Ang Kwan, to be precise—and
+she is a much more complicated person than I first realized.
+I'm hoping you can help with that."
+She held out the cup of chocolate again.
+After a moment's hesitation,
+Sandrine reached over the waist-high bot waiting patiently to examine her
+and took it.
+
+There wasn't much on the app,
+but she hadn't really expected there would be.
+It said the machine wars had ended in a draw,
+though the list of things humanity was no longer allowed to do
+made it pretty clear who had actually won.
+No flying.
+(She would miss that,
+assuming she stayed in this body long enough to miss things.)
+No one could manufacture new cores smarter than parrots or monkeys any more.
+She felt a brief pang as a second layer of pop-ups informed her that
+both were now extinct,
+but pushed it away.
+That wasn't part of her mission unless and until someone told her it was,
+and anyway,
+she had only ever seen either in videos.
+
+An animated map showed the retreat of the ice cap in Greenland and Antarctica
+and the corresponding inward creep of shorelines elsewhere in the world.
+Some of the atolls they had used as staging posts during the war
+were now completely under water,
+but all that extra water hadn't stopped forests from turning into plains
+and plains into deserts.
+She started to zoom in on Hobart,
+then closed the map
+and tried doing a few pushups.
+Her muscles was in pretty good shape,
+but her body was so skinny—whatever had made Ang Kwan special
+didn't seem to have included eating three square meals a day.
+
+She felt a gut-deep sense of relief when a Marine showed up a few minutes later
+with a bowl full of noodles and a freshly-printed uniform for her to wear.
+The fleshy yellow chunks on the noodles weren't any kind of mango she recognized,
+but the food was warm and filling
+and the uniform fit perfectly.
+
+"It suits you," the Marine said as she tucked the cuffs of her trousers
+into the tops of her socks.
+
+"Thank you, sergeant."
+She twisted from side to side to crack her spine.
+"May I ask…?"
+
+"Paolo Vassilenko," the Marine said.
+"I was imprinted three months ago.
+It took well—I can access most of my host's original memories when I need to,
+and there haven't been any stutters or seizures to speak of."
+
+Sandrine nodded.
+"How long do they think you'll last?"
+
+The Marine shrugged.
+"Call-up is supposed to be a year,
+but some of the others have been re-imprinted a couple of times.
+They check us pretty carefully before doing it,"
+he added.
+"If the host is showing any distress they're done and out."
+
+Sandrine nodded again.
+"Anyone around that you knew your first time around?"
+
+The man who was currently Paola Vassilenko smiled.
+"Yeah, I got lucky.
+Nobody plays chess any more,
+but a couple of the guys I served with in Newfoundland are in body right now,
+so we get together and have a few games whenever we can.
+I don't suppose you play?"
+
+Sandrine shook her head.
+"Sorry."
+
+"No worries—maybe in the next life."
+The Marine stepped aside and gestured at the door.
+"After you?"
+
+Not much had changed in a hundred years.
+Sandrine wondered if that was because of the machines' restrictions on new inventions
+or whether there just weren't a lot of ways to improve on
+the design of a secret underground base.
+Corridors painted in neutral colors with cryptic labels on the walls,
+grilled stairs that echoed under her boots,
+the metal-on-metal whine of a saw in a machine shop as she passed a half-open door:
+it was all very familiar.
+She couldn't have said how she knew she was underground
+any more than she could have explained how she had known that her heart wasn't her own.
+She just accepted it as part of her mission,
+wondering as Sergeant Vassilenko rapped his knuckles on a door
+how many copies of hers had accepted it before.
+
+"Enter."
+The sergeant opened the door and nodded for her to go through,
+turning to stand at attention in the hall as it swung close.
+
+"Hello again, corporal.
+This will just take a moment."
+Doctor Johel gestured at a comfortable-looking chair opposite her desk
+without looking up from the app in her hands.
+
+Sandrine sat on the edge of the seat,
+her back straight and her hands folded neatly in her lap.
+"What do you know about the Niobium project?" Doctor Johel asked.
+
+Sandrine shook her head.
+"Never heard of it, ma'am."
+
+"Mm.
+Not surprising—it was just getting started in your time.
+Here."
+She swiped a scene from her app onto the wall beside them.
+"Low Earth orbit was a disaster area.
+There was so much shrapnel from old satellites and what-not that
+people basically gave up on trying to plot routes through it.
+They just threw armor on everything and billed for the extra weight.
+But up here, up past geosynchronous orbit in retrograde space, well…"
+Green curves formed around the slowly-turning globe,
+safely outside the sparkling chaff closer in.
+
+Doctor Johel sighed.
+"They planned a hundred and ninety two satellites.
+As far as we know,
+only half were launched before things fell apart.
+The machines tried to take them over,
+but even they were locked out."
+
+"And you believe Citizen Kwan can unlock them?"
+Sandrine asked after a moment of silence.
+
+"What?
+Oh no,
+I doubt it."
+Doctor Johel chuckled and swiped the display into oblivion.
+"I mean,
+it would be rather nice if she could,
+but that's not what we need from her—or from you,
+I should say.
+You see,
+as big as it was,
+Niobium was just a cover for something else—something
+that has the machines rather worried."
+
+Sandrine filed that away.
+"Then may I ask, ma'am, how I can be of service?"
+
+Another swipe on the app put a human form on the wall.
+Short,
+skinny,
+female,
+with something blobbish and silvery scattered through her like spilled mercury.
+
+"Citizen Kwan—she prefers Iffy, by the way—well,
+she has some rather interesting modifications to her genome.
+The first clone in her lineage seems to have been born
+just as Niobium was picking up speed.
+It took quite a lot of work to detect her modifications—even now
+I'm only half convinced they're real.
+It's all rather a mystery,"
+Doctor Johel mused,
+resting her chin on her steepled hands.
+"What I'd like you to do is unravel it for me."
+
+"I'm afraid I'm not much good at puzzles, ma'am,"
+Sandrine said.
+"Volleyball was more my thing."
+
+"Mm, yes, of course."
+Doctor Johel straightened up.
+"But that was when you were *you*,
+as it were.
+Right now,
+you're in a body that seems to be able to pull information out of thin air.
+I'm hoping that if you can master that ability,
+you'll be able to get the answers I need."
+
+"Yes, ma'am."
+Sandrine nodded as if she understood.
+"And how will I do that, ma'am?"
+
+"Oh, yes."
+Doctor Johel sighed.
+"I'm afraid that's the unpleasant part.
+We don't actually know,
+and we're rather short on time,
+so we're going to have to give you a bit of help."
+
+Years and lifetimes ago,
+Sandrine had been taught that torture was ineffective as well as evil.
+She therefore wasn't surprised that when
+Sergeant Vassilenko led her downstairs and strapped her into a chair,
+what followed was a simple injection
+rather than something involving clubs, canvas bags, and electrodes.
+
+The panic that followed was very real, though.
+She knew it was just the effect of whatever drug she had been given,
+but the word "just" didn't really feel appropriate.
+She panted for breath as if she had just been running through the desert under fire.
+She had to get away.
+She knew she was safe,
+but "she" wasn't in control any longer.
+
+Her heart—no, it wasn't hers, it was Ang Kwan's, but that didn't matter—it
+was pounding inside her chest.
+She looked wide-eyed at Sergeant Vassilenko.
+"What am I supposed to do now?"
+
+He shrugged apologetically.
+"I'm sorry,
+I wasn't told.
+It should wear off in a few minutes."
+He consulted the app on the stand beside the chair,
+which wasn't as comfortable as the one in the doctor's office
+even though it reclined.
+She tried to focus on that,
+and on other little details in the room,
+just like she had been trained to.
+How many drawers in the stainless steel cabinet on her left?
+Four.
+How many light panels above her?
+Two,
+one of which should probably be replaced.
+She drummed her fingers against her thighs.
+One two three four thumb,
+one four—was two three or three two next?
+Start over.
+One two three four—no.
+Focus.
+One two—
+
+The whining sound she was hearing was coming from her,
+she realized.
+She swallowed hard to stop it,
+but that interrupted her breathing
+and now she was panting again.
+She couldn't fill her lungs.
+She needed to get her arms out of the straps.
+She needed to run away,
+run away from all of it,
+but she couldn't.
+
+"Aaand that's time."
+Sergeant Vassilenko peeled the back off a patch
+and pressed it against her neck.
+Her heart began to slow almost immediately.
+
+Sandrine took a deep breath,
+then another.
+After the third,
+she squeezed her hands into fists and slowly, deliberately relaxed them.
+"Can I please have some water, sergeant?"
+she asked once she was sure her voice would be under her control.
+
+Wordlessly,
+Sergeant Vassilenko held a bottle to her lips.
+She sucked a mouthful through the straw,
+swished it around,
+and swallowed.
+She tugged her arms against the straps.
+"Don't suppose you can undo these?"
+
+"I'm afraid not, corporal."
+Doctor Johel's voice seemed to come from nowhere.
+She really was just like the villain from *The Last Days of Cairo*,
+Sandrine thought giddily.
+Did anyone else still remember that show?
+
+"May I—"
+She coughed and tried again.
+"May I ask why not, ma'am?"
+
+"We imprint a little more deeply here than most places,"
+Doctor Johel said briskly.
+"For security, you understand—having original personalities surface at the wrong moment
+could be quite problematic at a facility like this,
+particularly in the present circumstances.
+Unfortunately,
+that's going to make it quite a bit harder for you
+to access Citizen Kwan's memories and, um, abilities.
+As I said,
+we're rather short on time,
+so we can't afford the mental equivalent of a long siege.
+But you've taken part in frontal assaults before—I'm confident
+that you will survive this one."
+
+"Thank you, ma'am."
+It seemed a completely inadequate response,
+but what else was she going to say?
+
+She caught Sergeant Vassilenko's eye.
+"Ready when you are," she lied.
+
+Doctor Johel didn't bother to check in after the next session,
+or after any of those that followed it.
+Finally,
+several hours later,
+whoever or whatever was monitoring Sandrine told Sergeant Vassilenko to stop.
+"How are you doing?" he asked
+as he undid the straps and handed her a bottle of water.
+
+"I've been better,"
+she said.
+"I imagine I've been worse, too."
+She wondered if he knew how many times she had been imprinted
+and what had happened to those temporary copies of her.
+There had been stories when she was alive
+of entire battalions made up of just one person,
+and imprints that had gone wrong in a dozen different ways,
+each more cinematic than the last.
+
+She handed back the now-empty bottle and stood.
+The patches on Ang Kwan's injury tugged at her skin, FIXME: continuity
+but everything else felt fine.
+She was going to have bruises from the straps,
+though,
+and her uniform smelled of sweat.
+
+"There's plenty of hot water if you want to clean up,"
+Sergeant Vassilenko said.
+"I'll see if I can get you something more interesting than noodles for dinner."
+
+She stood in the shower for a long time,
+enjoying the feeling of water against the stubble on her scalp.
+Dinner was grilled tofu in an unidentifiable citrus sauce,
+broccoli,
+and potatoes.
+She chewed each mouthful a dozen times
+as she swiped through videos of volleyball games on the little app in her room.
+It wasn't quite the game she remembered—people apparently now played
+with two or even three balls at once—but it was the distraction she needed.
+
+Later,
+lying in the dark as she waited for sleep to come,
+she realized that she hadn't ever asked what had happened to her
+after she had been recorded.
+
+*got married an' raised sheep an' a family on th' south island*
+
+It wasn't a voice.
+The thought was just *there* in her head.
+Noticing it felt like realizing that the socks or keys she had been searching for
+had been on the table in front of her the whole time.
+
+*Citizen Kwan?* she thought cautiously.
+Nothing happened.
+
+*Ang? Fifth?*
+She tried to visualize the face she now wore,
+then relaxed her hands,
+which had balled themselves into fists.
+If you wanted to see something in dim light,
+you couldn't look straight at it.
+You had to look a little to the side.
+
+She rolled onto her side and ran a hand over her scalp.
+She would have to shave soon,
+though if she was going to be around for more than a few days
+she could try letting it grow out.
+She had worn her hair down past her shoulderblades when she was Iffy's age.
+She and her friends had braided it in ever-more-complicated ways,
+cursing each other good-naturedly for the tangles they made.
+
+*musta been nice t' have friends like that*
+
+It had been.
+Her family had been relocated to Hobart
+when storms battering Brisbane went from a monthly to a weekly occurrence.
+"Temporarily" became "for the duration of the emergency",
+and by the time she was old enough to ride her treasured bamboo bicycle to school
+everyone had stopped pretending the emergency was ever going to end.
+The children who had grown up there called them "cane toads" or worse
+until they banded together and made it clear that
+if you shoved one of them in the hallway
+you had better be prepared to face half a dozen of them the next day.
+
+*got called names but never had anyone stand with me like that*
+
+The psych that had screened her when she first joined up
+had called it a common pattern.
+"Cane toads versus hobies" had turned into "soldiers versus pirates"
+and then "humans versus machines".
+Her side of the equation had always been plural—had always been an "us".
+
+*it was just me an' Aunt Naggie 'til Jeep an' Honesty an' Edson came along*
+
+Sandrine hesitated.
+She remembered being with the Fourth Augmented and before that with her school friends,
+but she couldn't remember any specific people.
+Or her parents—she tried and failed to imagine their faces.
+She could see the kitchen of the house her family had shared with two others in Hobart,
+though,
+and the blue and white bamboo bicycle that Akumé had stolen and then crashed.
+
+*that's not you it's me Akumé din't steal your bike de stole my scarf*
+
+Sandrine unclenched her hands again.
+It was a good thing Iffy chewed her nails—she would have
+dug gouges out of her palms by now otherwise.
+Back to the beginning.
+Hobart.
+School.
+The smell of the automatic disinfectant spray at the entrance
+and the stern looks the guard gave anyone who tried to run through it
+instead of pausing to count to five.
+The awe she felt seeing a tiger pace back and forth in an enclsoure at the zoo.
+
+*you never*
+
+She—the tiger was a female—was a clone,
+of course,
+and smaller than Sandrine had expected.
+She moved with loose swing of her limbs
+that made something in the back of her mind want to freeze and run away
+at the same time.
+She had half a hectare to herself,
+but spent her time patrolling the fence that separated her
+from those who had created and then caged her.
+She was the proudest and saddest thing Sandrine had ever seen.
+
+*she's beautiful*
+
+*Yes she was,*
+Sandrine thought.
+
+*didja ever see a giraffe?*
+
+*No,
+but I think there were still a few somewhere.*
+She hesitated again.
+*I don't really remember.*
+
+*guess they din't record that 'cause they din't think you'd need it*
+came back quick and clear.
+
+*I guess not.
+I wish they'd recorded my parents, though.
+Or my friends from school.
+It feels strange remembering about them without being able to actually remember them.*
+
+Iffy's amusement brushed against her like a gentle, sarcastic breeze.
+*you think that's strange try tradin' places with me*
+
+Panic hadn't worked,
+so on the second day they tried nothingness.
+The patch Sergeant Vassilenko put on Sandrine's neck made everything fade away.
+Sight, sound, the feel of her uniform against her skin,
+her breathing and heartbeat—one by one they vanished
+until she was suspended in nothingness.
+It wasn't dark because darkness is a color.
+It wasn't warm or cold or anything in between because it was *nothing*.
+
+She tried recalling what the tiger had looked like
+and the first time she had kissed someone
+and a dozen other things.
+None of them brought Iffy out of hiding.
+She remembered someone telling her that sometimes you just had to be patient,
+though she couldn't remember who had said it when or why.
+
+She surprised herself by crying when the world came back.
+"It's all right, everyone does it,"
+the Marine watching over her said.
+De wore a body younger and more heavily built than Sergeant Vassilenko's
+and smelled faintly of soap and curry.
+
+Sandrine sniffled and nodded.
+"How long was I under?"
+
+"Almost an hour."
+De handed Sandrine a towel and a mug of tea
+and looked away as her tears started again.
+An hour?
+She thought it had been days.
+An hour meant there would be another session and another after that,
+and even then it would only be lunchtime.
+
+"Anything to report?"
+the Marine asked,
+eyes fixed on the app in der hand.
+
+Sandrine shooked her head.
+"Sorry."
+She hadn't told anyone about her exchange with Iffy the night before.
+Would they still need her once they had what they wanted?
+Or would they de-imprint her?
+
+The Marine held out der hand.
+Sandrine belatedly slurped her tea and gave der back the the mug and towel.
+"Round two?" de asked.
+
+"Ready when you are," she lied,
+leaning back in her chair.
+
+She flinched slightly as de applied the patch to her neck.
+*At least there aren't any straps this time,*
+she thought as the world began to fade away.
+
+*'course there are you just can't see 'em*
+
+"Mmng?"
+Sandrine grunted,
+or tried to,
+as the thought appeared in her head.
+
+*my head*
+Iffy's possessive was immediate and fierce.
+*can't kick you out but that don't make it yours*
+
+*I know.*
+The light was gone,
+and the sensation of the padded armrests under her forearms.
+Sandrine took a deep breath and counted slowly.
+By eleven,
+she could no longer feel the stretch of her ribs—no,
+of Iffy's ribs.
+
+*For what it's worth, I'm sorry,*
+she thought.
+*It's just my mission.*
+
+*yeah i bet you been sorry lotsa times but still done stuff anyway*
+A second thought appeared almost on top of the first.
+*bein' sorry don't make it right*
+
+*It's my mission,*
+Sandrine repeated stubbornly.
+
+*uh uh I bet th' other copy o' you that's walkin' round right now
+is sayin' 'zactly th' same thing*
+
+Sandrine froze.
+*What?*
+
+*you're kibbens, right?
+well there's a corporal kibbens stuck in th' head o' my friend honesty
+workin' for th' governor.*
+
+Iffy's anger was like red-hot metal fresh out of a forge.
+Her hurt was like an old injury reawakened—a knee sprained and half-healed
+and then bent the wrong way again
+to bring back familiar pain
+made worse by knowing how long it would last.
+*Do you love her?* Sandrine asked.
+
+*i dunno maybe*
+Iffy brushed Sandrine's thought away.
+*but it ain't about that it's about someone else usin' you
+like you were just a remote an' not a person*
+
+*I'm sorry this was necessary.
+I truly am.*
+Sandrine put all the sincerity into the thought that she could.
+*But difficult times—*
+
+Iffy fired back something whose pronunciation had obviously changed
+but whose meaning had not.
+*what'd she tell you this was necessary for?
+doctor got the governors fightin' each other over nothin'
+an' figures I might be some sort o' super weapon,
+that's all this is*
+
+Sandrine shook her head,
+or thought she did.
+She had no way of telling if Iffy's body was obeying her right now or not.
+
+*they picked you 'cuz they know you'll do whatever someone in a uniform tells you t' do*
+Iffy's contempt rolled over Sandrine
+like a wave of dirty harbor water.
+*here lemme show you*
+
+Without warning Sandrine was inside
+Iffy's memory of swiping through old news reports on a hand-held app
+while lying on a cot somewhere that smelled like the sea.
+There was a picture of her,
+older by years than the "her" that had been recorded,
+raising a hand as her name was called at her trial.
+She was wearing civilian clothes and her hair was pulled back in a complicated braid,
+but her back was as straight as ever.
+
+Atrocity.
+Brutality.
+Extenuating circumstances.
+Exonerated.
+The words scrolled by,
+embedded in details that made her feel nauseous.
+Was this really who she had become all those years ago?
+
+*i wanted t' see what was gonna happen t' honesty*
+Iffy's thought at her.
+*jeep ain't been right since his time
+cuz o' what got mixed into him
+an' i wanted t' know what you might be leavin' behind*
+
+*That's not me.*
+Sandrine didn't know which of them she was trying to convince.
+*That's not who I was when I was recorded
+so that's not who I am right now.
+I wouldn't—*
+She stopped.
+She wouldn't do those things,
+but clearly she would.
+All of a sudden she was tired.
+She wished she could just lie down and close her eyes
+and slip back into nothingness.
+
+*go ahead*
+
+*But I can't,*
+Sandrine replied wearily.
+*I have a mission.*
+And then she took everything she had learned about Iffy
+and turned it into a missile in her mind.
+
+An hour later
+Sandrine stood at attention in Doctor Johel's windowless office.
+"Yes ma'am, I believe so,"
+she said,
+eyes fixed on a tiny spot on the wall above the doctor's head.
+
+"Mm."
+She steepled her hands under her chin.
+"That's quite a bit faster than our models predicted."
+
+"Thank you, sir."
+One two three four thumb,
+one four two three thumb—she forced the hands clasped behind her back to be still.
+
+"Mm,"
+Doctor Johel repeated skeptically.
+"We will of course have to do some tests."
+
+"Of course, ma'am."
+Sandrine lowered her gaze to meet the doctor's eyes.
+"May I suggest cardboard, ma'am?
+And perhaps some string?
+Sergeant Vassilenko can do whatever cutting is needed
+if you don't think it's safe for me to have scissors."
+
+"Yes,
+well,
+unfortunately the sergeant isn't available right now.
+Another thing our models failed to predict,"
+she added sourly.
+Light sparkled briefly in her eyes.
+"But no matter.
+Cardboard and string sounds perfect for a first outing,
+and I'm sure we can trust you with scissors
+as long as you promise not to run with them."
+
+"Ma'am?"
+Sandrine asked after a moment.
+
+Doctor Johel waved a hand.
+"An old joke.
+Here."
+She pulled a flimsy of freshly-printed paper out of a slot in her desk
+and handed it to Sandrine.
+"Start with that and see what else you can do.
+Surprise me, if you can."
+
+She saluted as she heard the door open behind her.
+"Yes, ma'am.
+Thank you, ma'am."
+
+Her Marine escorts said nothing
+as they marched her to an office on the floor below
+that appeared identical to the governor's
+except for the small mound of hastily-collected craft supplies on the desk.
+One of the Marines handed her a pair of blunt-ended scissors
+as solemnly as de would have handed her a loaded gauss gun.
+She heard the lock in the door click as she sat down
+and studied the flimsy in her hand.
+
+Sandrine lost track of time as she measured, cut, shaped, and tied.
+They had only given her six rubber bands:
+she stretched each one to its limit
+before deciding to tie them together as they were
+rather than trying to splice them.
+The cardboard wasn't as rigid as she would have liked,
+but some origami folds took care of that
+and there were two different weights of aluminum foil to stiffen the result with.
+
+Her sudden yawn surprised her.
+How long had she been sitting there?
+The noise her spine made when she twisted from side to side
+suggested it had been hours—real hours,
+not the stretched out un-time she had gone through that morning.
+She looked down at what she had made.
+It was a far cry from what the governor had asked her to build,
+but that was the point.
+She just wished they had given her some paint so that she could finish it off properly.
+
+"All right,"
+she said under her breath,
+standing to stretch once more
+She picked up her creation before knocking briskly on the door,
+then marched out without a backward glance,
+wondering as she left whether this was how her original self had felt leaving the courtroom
+all those years ago.
+
+Doctor Johel turned what Sandrine had built over in her hands.
+"It seems simpler than I expected,"
+she said cautiously.
+
+Sandrine shrugged.
+"Simple is good, ma'am.
+Here, let me show you."
+She took it and cranked its cardboard tail around and around,
+counting to fifty in her head,
+then set it down.
+With one slow, swinging step after another,
+the cardboard giraffe began striding toward the edge of the desk,
+its head bobbing in counterpoint each time a leg swung forward.
+
+"Well done.
+I think that's all the proof—"
+
+"Excuse me, ma'am."
+Sandrine raised a finger.
+"If you'll just give it a moment?"
+
+Doctor Johel sat back and steepled her fingers under her chin.
+*I really wish she'd stop doing that,*
+Sandrine thought.
+Five steps, ten—when it reached the edge of the desk
+the giraffe put one foot into empty air and stopped.
+Its head continued bobbing up and down,
+but its legs no longer propelled it forward.
+
+"I say,"
+Doctor Johel said admiringly.
+"That's quite the trick."
+
+"I figured out a way to make a Hoye latch out of tinfoil, ma'am.
+It only has one, though.
+If I started it further ahead or behind and its left leg went over first,
+it wouldn't have worked."
+
+Doctor Johel smiled as if at a clever quip.
+"So, a nice bit of engineering and a bit of the old razzle dazzle, eh?"
+She wiggled her fingers in the air.
+
+"Yes, ma'am."
+
+"Well."
+Doctor Johel picked up the giraffe,
+turned it over,
+and held it out to Sandrine.
+"For good luck,"
+she explained when Sandrine hesitated.
+"I'm afraid your next assignment is going to be a little more complicated.
+And a bit riskier.
+Private… um…?"
+
+"Leung, sir,"
+the Marine behind her said.
+
+"Private Leung will escort you downstairs.
+We've set up an isolation area with the usual precautions.
+Please do check with him before making any modifications—we really would like to avoid
+any misunderstandings."
+
+"Of course, ma'am."
+She tapped her fingers on the giraffe's cardboard body,
+one two three four thumb,
+one four two three thumb.
+"May I ask what I'll be making, ma'am?"
+
+"Oh yes, of course.
+Silly of me to forget."
+*Which you didn't,*
+Sandrine thought.
+*You just wanted me to ask.*
+
+Doctor Johel swiped an image of a four-legged sentry bot onto the wall.
+"Something managed to get through the security on a pack of these a few days ago.
+If you can figure out how,
+well,
+that would certainly be a step in the right direction."
+
+"Of course, ma'am, I'll do my best."
+She hesitated.
+"May I ask, ma'am, is there a timeline?"
+
+Doctor Johel cocked an eyebrow.
+"What do you mean?"
+
+"Is there a deadline of any sort, ma'am?"
+It was as close as Sandrine dared come to asking
+how long she had before her imprinting faded.
+
+"Well,
+sooner is always better,"
+Doctor Johel said briskly.
+Light sparkled in her eyes.
+"Now if you'll forgive me,
+I really must take this call.
+Good luck."
+
+"Thank you, ma'am."
+Doctor Johel waved a hand in her direction,
+her attention already elsewhere.
+
+The "isolation area" turned out to be the middle of
+what Sandrine guessed had been a cafeteria until yesterday.
+Six tables pushed together were her workbench.
+The rest of the room was empty
+except for the cameras, fire extinguishers, EMPs, and needle guns bolted to the walls.
+She knew they were there in case whatever she built got out of hand,
+but they still made the space between her shoulderblades itch
+the way it had when she was in the field.
+
+The sentry bot was laid out in pieces across three of the tables.
+One leg was missing,
+but that would be easy to replace.
+Its core,
+on the other hand—she held it up in front of a circular UV light.
+The tiny imperfections that allowed this piece of crystal to think
+sparkled like the tech in Doctor Johel's eyes.
+She carefully put it back in its gold-lined neutralite case and set it aside.
+Mechanicals first,
+then she could worry about the safeties and failsafes that were sure to be hidden in its programming.
+
+Private Leung sat on a stool by the door
+with the patience of someone who had been on watch just as often as she had.
+"Sorry,"
+he said when she asked if he could help her turn over the bot's torso.
+"Orders are to keep my distance, just in case."
+He patted the gauss gun in his lap.
+
+"No worries."
+In truth the bot was lighter than it looked,
+in part thanks to the absence of ammunition.
+Asking the private to help had mostly been the equivalent of
+sending a drone over unknown territory
+to see what she was up against.
+
+He did pass on her request for a ladder,
+a pulley,
+and some cable,
+though.
+"Oh g'day," Sandrine said as the door opened
+and Sergeant Vassilenko carried them in.
+
+The sergeant didn't even glance at her as he set down his load.
+"Don't mind him,"
+Private Leung said after he left.
+"Just got a refresh last night.
+He'll be back to normal in a day or two."
+
+"Refresh?"
+Sandrine asked as casually as she could
+as she opened the ladder's legs
+and positioned it beside the bot's torso.
+
+"Yeah."
+Leung shrugged.
+"We're not lasting as long as we used to.
+Apparently we start to go wonky after a couple or three weeks now.
+The sergeant started talking about the fire again
+so they had to do another imprint."
+
+Sandrine froze for a moment with the pulley in her hands
+before climbing the ladder.
+Private Leung gave no sign of having noticed.
+"The fire?" she asked as she began looping wire around the rafter.
+
+The soldier shrugged his host's shoulders again.
+"Here in Bharati.
+Some op went skew twenty years ago.
+Apparently our suits are all off-book orphans from that."
+He pointed a thumb at his chest to make it clear what he meant by "suits".
+
+"Not this one,"
+Sandrine grunted
+as she lifted the pulley into place.
+The wires tightened but held when she put weight on the pulley,
+so she threaded the cable around the wheel and climbed back down.
+One end of the cable crimped into a carabiner
+that clipped onto the bot's back.
+She hauled on the other to lift its weight,
+then stooped and duck-walked under the table.
+
+"Hey!"
+Private Leung stood up and levelled the gauss gun in her direction.
+"Come out of there!"
+
+"Give me a second,"
+she called.
+"I just have to—mmph—I just have to tie this off."
+
+"I said come out,"
+he barked.
+"Now!"
+
+"All right, all right, don't get your lobes in a twist."
+She stood and raised her hands.
+"See?"
+The bot swayed gently from side to side beside her.
+"Now I can get the legs back on."
+
+She didn't do that right away, though.
+If everything went according to plan it would be the last step but one.
+Humming quietly under her breath,
+she measured and cut a section of honeycomb steel,
+mounted it on a slow lathe,
+and carefully wrapped it with copper wire.
+"Crap,"
+she muttered as she tested its inductance with a hand-held meter.
+Her instincts were good,
+but this wasn't her body—her hands had wound the wire just a little too loosely.
+
+Her second attempt was better,
+and the three after that were better still.
+"Can I get something to eat?" she asked Private Leung.
+He nodded and spoke into his collar
+as she swept bits of scrap into a box
+and started dismantling the laser sight on the bot's gun.
+The laser went into a clamp that spun and tilted at her command.
+The gnat-sized camera that accompanied it went into another, smaller clamp
+that began jerking from one position to another,
+seemingly at random,
+as she sucked the first welcome mouthful of mango-flavored protein slurry
+from the bottle Private Leung handed her.
+If anyone had asked
+she would have told them that she was recalibrating the camera,
+but no one asked
+and she knew enough not to volunteer the information.
+Innocent people didn't feel like they needed to tell stories.
+
+Building a fourth leg for the bot was easier and harder than she expected:
+easier because someone had already printed most of the parts she needed,
+but harder because they fit together in ways that only made sense to other machines.
+Eccentric gears whose teeth only fit together in exactly one way
+had to be connected to cables twisted a precise number of times
+to maximize the tensile recoil of mechanical ankles and knees.
+The tiny auxiliary motors in the thigh each had four different kinds of ratchet,
+but each of those ratchets had to be tilted at a particular angle
+to distribute their weight correctly.
+
+Her humming turned to muttering and then curses as she assembled the parts.
+By the time the leg was finished there was nothing left of her lunch
+except a scum of chalky sludge in the bottom of the bottle.
+"Can I get another of these?" she asked,
+starting a count in her head.
+
+The last one had taken two minutes—she hoped that would be enough time.
+The camera she had taken from the bot's gunsight
+had managed to find four tiny lenses:
+two in the walls,
+one in the ceiling,
+and one in the door itself.
+Their coordinates were buried in the schematic of the bot's torso
+that she had redrawn a dozen times throughout the morning.
+Four targets plus one,
+and she hoped Private Leung would forgive her.
+
+One two three four thumb.
+One four two three thumb.
+She heard footsteps in the corridor.
+"Be the center of the storm,"
+a long-ago voice said in her head.
+It was now or never.
+
+She reached up and cut the cable.
+The sentry bot dropped to the floor with a thud.
+"What—" Private Leung started to say,
+and then he shouted and clutched his face
+as the laser sight pivoted and fired at his eyes.
+The meds would be able to repair the damage—at least Sandrine hoped they would—but
+for the next few minutes at least he was out of action.
+
+The laser pivoted again,
+firing and firing to blind the hidden cameras
+as the door opened.
+The Marine bringing her second lunch shouted
+as the sentry bot leaped at him,
+knocking him back and blocking the door from closing.
+Sandrine slung the half-dozen little EMPs she had made over her shoulder and ran.
+
+*right go right go right*
+Iffy said in her head.
+*up there on the wall the recharge slot for the cleaning bot plug it in there*
+
+Sandrine dropped to one knee and fumbled the first EMP into place.
+She felt it shiver
+when she stuck the two bare copper ends of the coil she had made
+into the outlet in the wall.
+All around her the lights went out
+and the alarm that had been blaring fell silent.
+
+*aright one down five to go but you gotta move faster*
+
+*Yeah, well, maybe you should've gotten more exercise,*
+Sandrine shot back.
+She whistled as she struggled back to her feet.
+"Front," she ordered the bot as it trotted up beside her.
+She smiled,
+though it would be more accurate to say she bared her teeth,
+and charged.
+
+*twelve hours earlier…*
+
+*Go ahead,* Iffy thought.
+
+*But I can't,*
+Sandrine replied wearily.
+*I have a mission.*
+And then she took everything she had learned about her host
+and turned it into a missile in her mind.
+
+Iffy absorbed it without missing a beat.
+*You stopped havin' missions a long time ago.
+Look.*
+And once again Sandrine was inside Iffy's memory,
+scrolling through old news stories
+until she reached an obituary.
+Corporal Sandrine Kibbens,
+formerly of the Fourth Augmented Infantry,
+had died for the third and final time in the Dobson Valley.
+Heavy storms…
+an earthquake…
+a mudslide that had swallowed a hundred homes…
+The military government had declared they couldn't spare resources for a rescue mission.
+Sandrine had stolen a hovertruck and gone to save people anyway.
+Thirty-eight people owed her their lives,
+and if it hadn't been for a second mudslide the number would have been higher.
+
+*Folks that had a right t' give you missions are long gone,*
+Iffy thought at her.
+*You're just a useful piece o' salvage t' th' governor an' his others,
+but you still got a choice.
+You can decide which one o' her you want t' be.*
+
+There was a moment neither of them shared with the other.
+*I wish I could remember my mum and dad,* Sandrine finally thought.
+
+*I know,* Iffy replied gently.
+*All I got o' mine is how they ended.
+I wouldn't give that up,
+but I'd give just about anythin' else t' have more.*
+
+Another moment passed.
+*All right,* Sandrine thought.
+*What's your plan?*
+
+She caught a brief mental image of a young woman taking a deep breath.
+*First thing, I gotta make a call.*
+
+</section>
+
+<section>
+
+## Chapter 11: Another Escape
 
 Two minutes and five corners later
 they stopped next to a nondescript utility truck.
@@ -7064,6 +8231,12 @@ The Ecologist nodded.
 Then he smiled.
 "Least we can take our time th' rest o' the way."
 
+</section>
+
+<section>
+
+## Interlude
+
 *How do you build a stable ecosystem
 on bare and lifeless rock
 when the world is changing more rapidly than it has
@@ -7109,7 +8282,7 @@ nurtures it at home instead.*
 
 <section>
 
-## Chapter 8
+## Chapter 12: The New World
 
 They slept in their sleeve tents in the lee of the boulders.
 The herd was waiting for them when they woke.
@@ -7853,5 +9026,29 @@ despite the spike of pain in her knee.
 "You made me a promise an' I'm holdin' you to it.
 If you want someone to tell Aunt Naggie that you went an' got simple,
 you can do it yourself!"
+
+</section>
+
+<section>
+
+## Chapter 13: The Last Lap
+
+FIXME
+
+</section>
+
+<section>
+
+## Chapter 14: The Labyrinth
+
+FIXME
+
+</section>
+
+<section>
+
+## Chapter 15: The End of the World
+
+FIXME
 
 </section>
