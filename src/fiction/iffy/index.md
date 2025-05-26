@@ -4717,12 +4717,6 @@ Aunt Naggie smiled.
 I guess it runs in th' family."
 She closed the door quietly behind herself.
 
-</section>
-
-<section>
-
-## Interlude
-
 *Once upon a time there was an island called Nova Zembla.
 It was really two islands,
 Severny and Yuzhny,
@@ -8230,12 +8224,6 @@ The Ecologist nodded.
 "Thank you."
 Then he smiled.
 "Least we can take our time th' rest o' the way."
-
-</section>
-
-<section>
-
-## Interlude
 
 *How do you build a stable ecosystem
 on bare and lifeless rock
