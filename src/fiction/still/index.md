@@ -2681,308 +2681,379 @@ She stretched out at the gargoyle's feet with her violin in her arms.
 
 ## Chapter 8
 
-The next morning, Still went to Attic's as usual. Neither spoke of
-what had happened the day before. She picked out a book, then leaned up
-against his counter and flipped through it slowly. They didn't talk
-much, even though it was a slow day for business.
+Still went to Attic's the next morning as usual.
+Neither spoke of what had happened the day before.
+She picked out a book,
+then leaned up against his counter and flipped through it slowly.
+They didn't talk much,
+even though it was a slow day for business.
 
-It was a slow day by the fountain, too, as slow as the previous day had
-been busy. Most of the puppets walking by were regulars, who ignored her
-or nodded at her depending on their mood and manners. The few shoppers
-who had braved the cold were there for specific things, like embroidered
-bootlaces or a snow clock for their winter garden. They hurried past
-Still with their heads down and their scarves wrapped tightly around
-their necks.
+It was a slow day by the fountain, too,
+as slow as the previous day had been busy.
+Most of the puppets walking by were regulars,
+who ignored her or nodded at her depending on their mood and manners.
+The few shoppers who had braved the cold were there for specific things,
+like embroidered bootlaces
+or a snow clock for their winter garden.
+They hurried past Still with their heads down and their scarves wrapped tightly around their necks.
 
-She gave up as the mid-afternoon bell went *deng, dong, boong.* After
-buying her usual cup of oil from Kettle, she had just two worn gumdrops
-left in her pocket. *That's hardly enough for breakfast tomorrow,* she
-thought glumly. *Guess there'll be no new clothes for me.*
+She gave up as the afternoon bell went *deng, dong, boong.*
+After buying her usual cup of oil from Kettle,
+she had just two worn gumdrops left in her pocket.
+*That's hardly enough for breakfast tomorrow,*
+she thought glumly.
+*Guess there'll be no new clothes for me.*
 
-Crest-of-the-Wave wasn't at the fountain when she got there, but the
-twins were. They had painted themselves fierce animal faces that
-morning, with sharp teeth and narrow eyes, and whiskers abristle under
-their noses. They sauntered over when Still arrived.
+Crest-of-the-Wave wasn't at the fountain when she got there,
+but the twins were.
+They had painted themselves fierce animal faces that morning
+with sharp teeth,
+narrow eyes,
+and whiskers under their noses.
+They sauntered over when Still arrived.
 
 "So, we hear you're—"
 
-"—coming shopping with us." They sniffed in unison. "You'll need
-a—"
+"—coming shopping with us." They sniffed in unison.
+"You'll need a—"
 
 "—better face than that."
 
-"I don't think there's anything wrong with my face," Still said
-primly.
+"I don't think there's anything wrong with my face,"
+Still said primly.
 
 "Oh, well, we'll see—"
 
 "—what Crest has to say about that."
 
-"Crest-of-the-*Wave*," said a sharp voice. Still jumped.
-Crest-of-the-Wave had rolled up beside them on silent wheels. He scowled
-at the twins until they dropped their eyes and mumbled,
+"Crest-of-the-*Wave*," said a sharp voice.
+Still jumped.
+Crest-of-the-Wave had rolled up beside them on silent wheels.
+He scowled at the twins until they dropped their eyes and mumbled,
 "Crest-of-the-Wave."
 
 "Better." He nodded at Still.
 
-"Hello," she said hesitantly. She stared at his newest face. *He must
-have painted it last night*, she thought uneasily, remembering what the
-gargoyle had said about Nickel. It wasn't as garish as the twins'
-faces. Instead, he had added shadows on his cheeks and under his eyes,
-and narrowed his mouth, so that he looked like a wilder, wilier version
-of himself.
+"Hello," she said hesitantly.
+She stared at his newest face.
+*He must have painted it last night*, she thought uneasily,
+remembering what the gargoyle had said about Nickel.
+It wasn't garish like the twins' faces.
+Instead,
+he had added shadows on his cheeks and under his eyes,
+and narrowed his mouth so that he looked like a wilder, wilier version of himself.
 
-Crest-of-the-Wave nodded at her. "Have a couple of errands to run. See
-you back here tonight." It was an order, not a question.
+Crest-of-the-Wave nodded at her.
+"Have a couple of errands to run.
+See you back here tonight."
+It was an order, not a question.
 
-"Tonight?" Still shook her head. "I thought we were going shopping."
+"Tonight?" Still shook her head.
+"I thought we were going shopping."
 
-The twins smirked. If there'd been a rock handy, Still would have
-thrown it at them. "Of course," Crest-of-the-Wave said. "Tonight.
-To-night. Here." He skated away, his freshly oiled wheels making no
-more noise than a python slithering through tall grass.
+The twins smirked.
+If there'd been a rock handy, Still would have thrown it at them.
+"Of course," Crest-of-the-Wave said.
+"Tonight. Too-night. Here."
+He skated away,
+his freshly oiled wheels making no more noise than a python slithering through tall grass.
 
-The twins looked at Still sourly. "See you—"
+The twins looked at Still sourly.
+"See you—"
 
 "—tonight," they said sarcastically.
 
-Still stood up. "I guess so." She walked back through the market with
-her hands in her pockets and her head down. All the stalls in the market
-closed up at nightfall. The brooms even came through to check. And the
-big department stores in the city—
+Still stood up.
+"I guess so."
+She walked back through the market with her head down and her hands in her pockets.
+All the stalls in the market closed up at nightfall.
+The brooms even came through to check.
+And the big department stores in the city—
 
-Her mind ducked that thought as easily and as automatically as a soldier
-ducking a snowball. The Still who mimed in the market on the foggy side
-of town didn't know anything about department stores. How could she?
-*She* had never been in one. That was some other Still, from before—
+Her mind ducked that thought as easily and as automatically as a soldier ducking a snowball.
+The Still who mimed in the market on the foggy side of town
+didn't know anything about department stores.
+How could she?
+*She* had never been in one.
+That was some other Still, from before—
 
-Her mind ducked again. She shook her head. What had she been thinking?
-Something about tonight? Oh yes, she was supposed to meet
-Crest-of-the-Wave to go shopping. And the twins, too, with their wild
-faces. She shook her head. They were trouble, those two. You didn't
-need a spyglass to see that.
+Her mind ducked again.
+She shook her head.
+What had she been thinking?
+Something about tonight?
+Oh yes, she was supposed to meet Crest-of-the-Wave to go shopping.
+And the twins, too, with their wild faces.
+She shook her head.
+They were trouble, those two.
+You didn't need a spyglass to see that.
 
-She was so engrossed in cataloguing the twins' faults that she stumbled
-on a loose paving stone as she was crossing the canal. She glanced down
-at the water as she caught herself on its low stone wall. A little paper
-boat was just drifting into the bridge's shadow. The light dusting of
-snow on its sail made it look like a tiny triangular mountain peak.
-"No…" she moaned wearily. She pulled her eyes away and walked as
-quickly as she could the rest of the way home.
+She was so engrossed in cataloguing the twins' faults
+that she stumbled on a loose paving stone as she was crossing the canal.
+She glanced down at the water as she caught herself on its low stone wall.
+A little paper boat was just drifting into the bridge's shadow.
+The light dusting of snow on its sail made it look like a tiny triangular mountain peak.
+She pulled her eyes away and walked as quickly as she could the rest of the way home.
 
-"I'm sorry I'm back early," she said to the gargoyle as she pulled
-herself up onto the roof.
+"I'm sorry I'm back early,"
+she said to the gargoyle as she pulled herself up onto the roof.
 
-He handed her violin to her. "Why?"
+He handed her violin to her.
+"Why?"
 
-"Oh, there's hardly anybody in the market today, and Crest-of-the-Wave
-had some errands to run." She unfolded the blanket and ran her hand
-down the curve of the violin. The ticking in her chest slowed slightly.
+"Oh, there's hardly anybody in the market today,
+and Crest-of-the-Wave had some errands to run."
+She unfolded the blanket and ran her hand down the curve of the violin.
+The ticking in her chest slowed slightly.
 The dread slowly lifted from her shoulders.
 
-"No, I mean why are you sorry?" The gargoyle shifted slightly, his
-wings rustling. "I like having company." He cleared his throat. "Did
-I ever tell you the story of the statue they wanted to put up after Key
-left the city?"
+"No, I mean why are you sorry? I like having company."
+The gargoyle shifted slightly, his wings rustling.
+"Did I ever tell you the story of the statue they wanted to put up after Key left the city?"
 
-Still settled herself under the eaves. "No, I don't think so."
+Still settled herself under the eaves.
+"I don't think so."
 
-"Well, after all the crying and panic was over, and they had elected a
-new mayor, someone thought it would be a good idea to put up a statue.
-Everybody liked the idea, of course, but then they discovered that
-no-one could agree on what Key looked like."
+"Well, after all the crying and panic was over,
+and they had elected a new mayor,
+someone thought it would be a good idea to put up a statue.
+Everybody liked the idea, of course,
+but then they discovered that no-one could agree on what Key looked like."
 
-"What do you mean?" Still shook her head. "Everybody knows what she
-looks like. There must be a dozen pictures of her in— in—" She
-almost said "my school," but her mind veered away. "In the books
-I've been reading."
+"What do you mean?" Still shook her head.
+"Everybody knows what she looks like.
+There must be a dozen pictures of her in— in—"
+She almost said "my school," but her mind veered away.
+"In the books I've been reading."
 
-"Ah, but those all came afterward. A lot of people drew what they
-remembered, but all the pictures were different. They eventually chose
-one, but that was just because the mayor's husband had drawn it."
+"Those all came afterward.
+People drew what they remembered, but all the pictures were different.
+They eventually settled on one because the mayor's husband had drawn it."
 
 "Oh, you're making that up… Aren't you?"
 
-The gargoyle shook his head solemnly. "They never did build that
-statue. And now, there's no-one left who actually saw her with their
-own eyes, so I guess we'll never know."
+The gargoyle shook his head solemnly.
+"They never did build that statue.
+And now there's no-one left who actually saw her with their own eyes,
+so I guess we'll never know."
 
-"Or maybe she didn't really leave." Still rested her elbows on her
-knees. "Some of the books say that she's still here. She got tired of
-being a hero, and having to solve everybody's problems, and just wanted
-to be herself again." She laughed. "Maybe she works in the market. She
-could be anyone!"
+"Or maybe she didn't really leave."
+Still rested her elbows on her knees.
+"Some books say she's still here.
+She got tired of being a hero and having to solve everybody's problems,
+and just wanted to be herself again."
+She laughed.
+"Maybe she works in the market.
+She could be anyone!"
 
 "A window cleaner," the gargoyle suggested.
 
 "A tin smith."
 
-"A bicycle repair man."
+"A balloon seller."
 
-"The balloon seller—or his parrot!"
+"The balloon seller's parrot!"
 
 "A lamplighter."
 
 "A what?" Still asked.
 
-"A lamplighter," the gargoyle repeated. "One of the puppets who light
-the streetlamps at night, and then douse the candles in the morning."
+"A lamplighter," the gargoyle repeated.
+"One of the puppets who light the streetlamps at night
+and then douse the candles in the morning."
 
-"Oh, you're making that up," Still scolded. "There aren't any
-candles in streetlights."
+"Oh, you're making that up," Still scolded.
+"There aren't any candles in streetlights."
 
-"Oh." The gargoyle's wings rustled. "Well, there used to be. Do they
-use oil now instead? That seems an awful waste."
+"Oh." The gargoyle's wings rustled.
+"Well, there used to be.
+Do they use oil now instead?
+That seems an awful waste."
 
-"No, silly, they're electric." How could the gargoyle not know that?
-How old *was* he? "Well, I'd better be going. Crest-of-the-Wave is
-taking me shopping tonight." Still folded the blanket around her violin
-and handed it to him. "Can you…?"
+"No, silly, they're electric."
+How could the gargoyle not know that?
+How old *was* he?
+"Well, I'd better be going.
+Crest-of-the-Wave is taking me shopping tonight."
+Still folded the blanket around her violin and handed it to him.
+"Can you…?"
 
-"Of course," he said. He tucked it next to his pedestal.
+"Of course," he said.
+He tucked it next to his pedestal.
 
-A few moments later Still was back on the street. Her feet went *clop,
-clop, clop* as she walked back to the market. She was careful not to
-look down at the canal as she crossed the bridge.
+A few moments later Still was back on the street.
+She was careful not to look down at the canal as she crossed the bridge.
+Crest-of-the-Wave was waiting impatiently at the dry fountain.
 
-Crest-of-the-Wave was waiting impatiently at the dry fountain. "Hi,"
-Still said. "What about the twins? Did they decide not to come?"
+"Hi," Still said.
+"What about the twins? Did they decide not to come?"
 
-"Already at the yard," Crest-of-the-Wave told her. "Watching."
+"Already at the yard," Crest-of-the-Wave told her.
+"Watching."
 
-"Watching what?" she asked, then took a step back as Crest-of-the-Wave
-took a small tray of paints out of the bag he was carrying. "Um…"
+"Watching what?" she asked,
+then took a step back as Crest-of-the-Wave took a small tray of paints out of the bag he was carrying.
+"Um…"
 
-He beckoned her forward. "Only take a moment."
+He beckoned her forward.
+"Only take a moment."
 
-"I don't know if I should," Still said hesitantly. The shadows
-painted on Crest-of-the-Wave's face seemed to shift every time he
-turned his head.
+"I don't know if I should," Still said hesitantly.
+The shadows painted on Crest-of-the-Wave's face shifted every time he turned his head.
 
-"It helps with shopping," he told her brusquely. "Now stand still."
-He mushed the tip of the brush into a circle of black paint, then drew a
-heavy swipe over one of her eyebrows. Mush, swipe over the other
-eyebrow.
+"It helps with shopping," he told her brusquely.
+"Now stand still."
+He mushed the tip of the brush into a circle of black paint,
+then drew a heavy swipe over one of her eyebrows.
+Mush, swipe over the other eyebrow.
 
-"Stop, stop," she said. "Let me see what you've done." She picked
-up the little mirror that lay on the paint tray.
+"Stop, stop," she said.
+"Let me see what you've done."
+She picked up the little mirror that lay on the paint tray.
 
 The thicker eyebrows made her look older, and more knowing, but—
-"Eww." She tilted it from side to side in front of her. "They don't
-even match. Here, give me that." She plucked the brush out of his hand,
-dabbed it in the paint, and evened up the eyebrows. There, that was
-better. Now, what about her mouth? She added a line on each side, right
-at the corner… Good. And a beauty spot, of course. Right cheek or
-left? Left, she decided with a giggle. And maybe sharpen her nose, just
-a bit.
+"Eww."
+She tilted it from side to side in front of her.
+"They don't even match. Here, give me that."
+She took the brush,
+dabbed it in the paint,
+and evened up the eyebrows.
+There, that was better.
+Now, what about her mouth?
+She added a line on each side, right at the corner…
+Good.
+And a beauty spot, of course.
+Right cheek or left?
+Left, she decided with a giggle.
+And maybe sharpen her nose, just a bit.
 
-Then she hesitated. What about the scar on her face? She hardly thought
-about it any more, but there it was. She could paint over it, or
-highlight it, or—no, she would just leave it alone.
+Then she hesitated.
+What about the scar on her face?
+She could paint over it or highlight it, but no, she would just leave it alone.
 
-"There," she said. "All done. How do I look?"
+"There," she said a moment later.
+"How do I look?"
 
-"Ready," Crest-of-the-Wave growled. He tossed the mirror, the brush,
-and the paint tray back into his bag. "Come on."
+"Ready," Crest-of-the-Wave growled.
+He tossed the mirror, the brush, and the paint tray back into his bag.
+"Come on."
 
-Still practically danced along beside him. She felt wonderfully light on
-her feet. The wicked little grin she had given herself felt just right
-for tonight. *Right for tonight,* she repeated, pleased with the rhyme.
+Still practically danced along beside him.
+The wicked little grin she had given herself felt just right for tonight.
+*Right for tonight,* she repeated, pleased with the rhyme.
 *I'm such a sight, I'm right for tonight.*
 
-Still followed Crest-of-the-Wave through one back alley after another. A
-shortcut here, a hop over a fence there… soon she was completely
-turned around. "Where are we going?" she asked.
+Still followed Crest-of-the-Wave through one back alley after another.
+A shortcut here, a hop over a fence there:
+soon she was completely turned around.
+"Where are we going?" she asked.
 
-"Not far." Crest-of-the-Wave suddenly flattened himself against a
-wall. Still pressed herself against the brick beside him.
+"Not far."
+Crest-of-the-Wave flattened himself against a wall.
+Still pressed herself against the brick beside him.
 
 "What's—"
 
-"Sst!" he hissed. She scowled. *Don't shush me,* she thought. Then
-she heard footsteps, and voices.
+"Sst!" he hissed.
+She scowled.
+*Don't shush me,* she thought,
+but then she heard footsteps and voices.
 
-Two puppets in police uniforms strolled past the mouth of the alley that
-she and Crest-of-the-Wave were hiding in. Still closed her eyes. *Don't
-look, don't look, nothing to see,* she pleaded. Sure enough, the two
-brooms swept by on their rounds.
+Two puppets in police uniforms strolled past the mouth of the alley
+that she and Crest-of-the-Wave were hiding in.
+Still closed her eyes.
+*Don't look, don't look, nothing to see,* she pleaded.
+Sure enough, the brooms continued on their rounds.
 
-"Fifteen, sixteen…" Crest-of-the-Wave counted all the way to one
-hundred under his breath before peeking around the corner. He beckoned
-Still to follow him again.
+"Fifteen, sixteen…"
+Crest-of-the-Wave counted to one hundred under his breath before peeking around the corner,
+then beckoned Still to follow him again.
 
-They cut across the main street into another alley, hopped over a fence,
-squeezed between two buildings, and came out near the canal. Still
-slowed, afraid of what might be waiting for her there, but no little
-paper boats bobbed up and down on the dark water. She shook her head.
-Why should she be afraid? Those little paper boats were looking for
-Still—they'd never recognize *her*, not with her cunning little smile
-and knowing eyes.
+They cut across the main street into another alley,
+hopped over a fence,
+squeezed between two buildings,
+and came out near the canal.
+Still hesitated,
+but no little paper boats bobbed up and down on the dark water.
+She shook her head.
+Why should she be afraid?
+Those little paper boats were looking for Still.
+They'd never recognize *her*,
+not with her cunning little smile and knowing eyes.
 
-The twins were waiting in the shadows beside a stolid rectangular
-warehouse. "We were hoping—"
+The twins were waiting in the shadows beside a stolid rectangular warehouse.
+"We were hoping—"
 
 "—you'd change your mind," they whispered to Crest-of-the-Wave.
-Still glared at them. They smirked back.
+Still glared at them.
+They smirked back.
 
-Crest-of-the-Wave pointed his thumb at the warehouse. "All clear?"
+Crest-of-the-Wave pointed his thumb at the warehouse.
+"All clear?"
 
-The twins nodded. "Next set of brooms won't be by—"
+The twins nodded.
+"Next set of brooms won't be by—"
 
 "—for at least an hour. Everything is—"
 
 "—upstairs."
 
-Still grabbed Crest-of-the-Wave's arm. "Wait a second," she hissed.
-"What's going on? This isn't a store. I thought we were going
-shopping?"
+Still grabbed Crest-of-the-Wave's arm.
+"Wait a second," she hissed.
+"What's going on?
+This isn't a store.
+I thought we were going shopping?"
 
-The twins smirked again. "We don't shop—"
+The twins smirked again.
+"We don't shop—"
 
 "—in stores. It's too—"
 
 "—crowded. Besides, you get better deals if you go—"
 
-"—straight to the warehouse." They hitched their thumbs over their
-shoulders to point at the building behind them.
+"—straight to the warehouse."
+They hitched their thumbs over their shoulders at the building behind them.
 
-"You mean you're going to break in?" Still gasped. Then she giggled.
+"You mean you're going to break in?" Still gasped.
+Then she giggled.
 "Really?"
 
 "Really," Crest-of-the-Wave nodded, shaking off her arm.
 
-"But what about—what about the police? Or gargoyles?"
+"But what about the police? Or gargoyles?"
 
-The twins rolled their eyes. "There's no such thing—"
+The twins rolled their eyes.
+"There's no such thing—"
 
 "—as gargoyles. That's just a story—"
 
 "—to frighten children."
 
-"Less talk, more action," Crest-of-the-Wave said brusquely. The twins
-saluted, still smirking.
+"Less talk, more action," Crest-of-the-Wave said brusquely.
+The twins saluted, still smirking.
 
-Still felt giddy. They were going to rob the warehouse! And *she* was
-going to rob it with them!
+Still felt giddy.
+They were going to rob the warehouse!
+And *she* was going to rob it with them!
 
-The four puppets hurried to the rear of the building. A second one stood
-there, separated from the first by a narrow alley. Its windows had been
-smashed, and part of one wall had fallen away in some long-forgotten
-earthquake. Still followed the others inside and up six flights of
-stinking, slippery stairs.
+The four puppets hurried to the rear of the building.
+A second one stood there, separated from the first by a narrow alley.
+Its windows had been smashed, and part of one wall had fallen away in some long-forgotten earthquake.
+Still followed the others inside and up six flights of stinking, slippery stairs.
 
 There *was* a gargoyle on the roof after all, or what was left of one.
-She circled it cautiously. Its head was gone, and its wings had been
-worn away to stubs. She touched its shoulder sadly, wondering if it had
-known her gargoyle, or had ever watched over a sleeping puppet.
+She circled it cautiously.
+Its head was gone, and its wings had been worn away to stubs.
+She touched its shoulder sadly, wondering if it had known the one that she knew.
 
-The twins broke her daydream. "Hey, would you mind—"
+The twins broke her daydream.
+"Hey, would you mind—"
 
-"—being useful over here?" They were wrestling a heavy plank up onto
-a crate to make a ramp. Beside them, Crest-of-the-Wave was knotting a
-length of twine around his waist.
+"—being useful over here?"
+They were wrestling a heavy plank onto a crate to make a ramp.
+Beside them, Crest-of-the-Wave was knotting a length of twine around his waist.
 
-"Leave her be," he told the twins curtly. He beckoned Still over.
+"Leave her be," he told the twins curtly.
+He beckoned Still over.
 "Finger here."
 
 Still held the knot in place while Crest-of-the-Wave made another.
@@ -2992,154 +3063,172 @@ Still held the knot in place while Crest-of-the-Wave made another.
 
 "—she's being useful," the twins grumbled.
 
-"She wanted to go shopping," Crest-of-the-Wave said in a tone that
-didn't encourage any more questions. He gave Still a steady look.
+"She wanted to go shopping,"
+Crest-of-the-Wave said in a tone that didn't encourage any more questions.
+He gave Still a steady look.
 "Right?"
 
-"Absolutely," she purred. She *loved* how her new face made her feel.
+"Absolutely," she purred.
+She *loved* how her new face made her feel.
 "When do we start?"
 
 Crest-of-the-Wave glanced at the plank. "Ready?"
 
-The twins gave it one last shove to line it up, then nodded in unison.
-Crest-of-the-Wave handed Still the coiled end of the twine that was tied
-around his waist. "Just let it run," he told her. He skated to the
-other end of the roof before she could ask any questions.
+The twins gave it one last shove to line it up, then nodded.
+Crest-of-the-Wave handed Still the coiled end of the twine tied around his waist.
+"Just let it run," he told her.
+He skated to the other end of the roof before she could ask any questions
+and lowered himself into a starter's crouch,
+feet braced and fingertips resting on the roof,
+then tensed and shot forward.
 
-Crest-of-the-Wave set himself in a starter's crouch, feet braced and
-fingertips resting on the roof. He tensed like a lion getting ready to
-pounce, then shot forward. *Swoosh, swoosh, swoosh* went his skates, his
-springs and cables straining. He hit the plank in a crouch and launched
-himself into the air.
+*Swoosh, swoosh, swoosh* went his skates,
+his springs and cables straining
+as he raced up the plank and launched himself into the air.
 
-Still gasped. The twine flew off the coil in Crest-of-the-Wave's wake.
-For a long moment he seemed to hang in the air between the two
-buildings, then *thump!* He came down on the roof of the warehouse. He
-braked hard and fell forward with a muffled *ooph!*
+Still gasped.
+The twine flew off the coil in Crest-of-the-Wave's wake.
+For a moment he seemed to hang in the air between the two buildings.
+*Thump!*
+He came down on the roof of the warehouse and braked hard.
 
-Still rushed to the edge of the roof. "Are you all right?" she hissed
-as he picked himself up.
+Still rushed to the edge of the roof.
+"Are you all right?" she hissed.
 
-The twins pulled her back. "Shh! No noise. Never know—"
+The twins pulled her back.
+"Shh! No noise. Never know—"
 
 "—who's listening. Now, give us—"
 
-"—that." They took the twine and knotted it to one end of a heavier
-rope. One of them waved to Crest-of-the-Wave. He waved back, a little
-stiffly, then pulled the rope across.
+"—that."
+They took the twine and knotted it to one end of a heavier rope.
+One of them waved to Crest-of-the-Wave
+who began pulling the rope across to tie to the warehouse's chimey.
 
-Crest-of-the-Wave tied the rope to the warehouse's chimney. Still and
-the twins slithered across one at a time. As she dangled above the
-alley, Still wondered how often Crest-of-the-Wave had done this. She
-didn't ask, though. Even with her face painted, she didn't really want
-to know.
+Still and the twins slithered across one at a time.
+A minute and a crowbar later they were inside.
+Giggles welled up in Still's throat.
 
-A minute and a crowbar later, they were inside the warehouse. Giggles
-welled up in Still's throat. They were really going to do it! They were
-really going to—no, *she* was really going to rob the warehouse!
+"Take whatever you want," Crest-of-the-Wave whispered in her ear.
+She nodded.
+He smelled of fresh paint, polish, and hot oil from his skating.
+She wondered what she smelled like, and whether it made his head feel spinny.
 
-"Take whatever you want," Crest-of-the-Wave whispered in her ear. She
-nodded. He smelled of fresh paint, and polish, and hot oil from his
-skating. She wondered what she smelled like, and whether it made his
-head feel spinny.
+Shelves lined the walls
+with jackets, boots, hats, scarves, mittens, kilts, gloves, and more gloves piled on them.
+*I've never shopped by moonlight before*, Still thought.
+She couldn't see the goods' colors clearly,
+but she could tell by touch which fabrics were scratchy and which were rich and warm.
+She hummed a little waltz as she picked out a winter wardrobe for herself.
+*And a hat to say thank you to Crest-of-the-Wave,* she thought.
+*And a new waistcoat for Attic.*
+She hesitated, then pouted and put it back.
+He was so boring—he'd probably never wear it anyway.
 
-Shelves lined the walls. More shelves stood in the middle of the floor,
-with jackets, boots, hats, scarves, mittens, kilts, gloves, and more
-gloves piled on them neatly. Crest-of-the-Wave and the twins wandered
-among them, picking things up and tossing them away like princesses
-trying to decide what to wear to an afternoon tea party. Still really
-did giggle then, just once, and followed suit.
+Crest-of-the-Wave and the twins filled the sacks they had brought with them
+with small, expensive items:
+gloves with pearl beads,
+embroidered silk scarves,
+silver belt buckles,
+and fleece-lined underwear.
+"Out," Crest-of-the-Wave ordered as soon as his bag was full.
+The twins scooted toward the door.
 
-*I've never shopped by moonlight before*, Still thought. It wasn't
-strong enough to let her see colors clearly, but she could tell by touch
-which fabrics were cheap and scratchy, and which were rich and warm. She
-hummed a little waltz as she picked out a double armload of winter
-wardrobe for herself. *And a hat to say thank you to Crest-of-the-Wave,*
-she thought. *And a new waistcoat for Attic.* She hesitated, then pouted
-and put it back. He was so boring—he'd probably never wear it anyway.
-
-Crest-of-the-Wave and the twins filled the small sacks they had brought
-with them with small, rich items: gloves with pearl beads, embroidered
-silk scarves, silver belt buckles, and fleece-lined underwear. "Out,"
-Crest-of-the-Wave ordered as soon as his bag was full. The twins scooted
-toward the door.
-
-"You too," Crest-of-the-Wave told Still. "That's enough for
-tonight." She pouted, but didn't protest when he took her arm and
-turned her in the right direction.
+"You too," Crest-of-the-Wave told Still.
+"That's enough for tonight."
+She pouted,
+but didn't protest when he took her arm and turned her in the right direction.
 
 The front door was locked. "Can't see—"
 
 "—any brooms," the twins whispered.
 
-Crest-of-the-Wave nodded. "You go first. See you at Swim's."
+Crest-of-the-Wave nodded.
+"You go first.
+See you at Swim's."
 
-The lock clicked. The twins pushed the door open. Still winced as it
-squeaked. Crest-of-the-Wave took her arm again. "Stay with me."
+The lock clicked.
+The twins pushed the door open.
+Still winced as it squeaked.
+Crest-of-the-Wave took her arm again.
+"Stay with me."
 
-"All right." Still dumped her takings onto a thin blanket she had
-picked up as an afterthought, then tied its corners to make a bundle.
-She hugged it to her chest, barely able to stop herself from jumping up
-and down with glee.
+"All right."
+Still dumped her takings onto a thin blanket she had picked up as an afterthought
+and tied its corners to make a bundle.
+She hugged it to her chest,
+barely able to stop herself from jumping up and down with glee.
 
-"Go." The twins slipped out onto the street. Crest-of-the-Wave
-followed them, with Still right on his heels.
+"Go."
+The twins slipped out onto the street.
+Crest-of-the-Wave followed them with Still right on his heels.
 
-*Phweeet!* The police whistle cut the silence like scissors cutting
-paper. "You there!" a harsh voice shouted from the canal. "What are
-you doing?"
+*Phweeet!*
+The police whistle cut the silence like scissors cutting paper.
+"You there!" a harsh voice shouted from the canal.
+"What are you doing?"
 
-"Go!" Crest-of-the-Wave barked. The twins were already going. The
-policeman blew his whistle again.
+"Go!" Crest-of-the-Wave barked.
+The twins were already running.
+The policeman blew his whistle again.
 
-Crest-of-the-Wave shot past Still. "Wait!" she cried. "Wait for me!"
-He disappeared into the alley beside the warehouse. She ran after him,
+Crest-of-the-Wave shot past Still.
+"Wait for me!" she cried as he disappeared into the alley beside the warehouse.
+She ran after him,
 but by the time she reached the derelict building behind the warehouse,
 he was gone.
 
-Panic welled up in Still like a cold geyser. *Phweet! Phweet!* She heard
-more police whistles behind her. And shouting—those were the twins'
-voices!
+Panic welled up in Still.
+*Phweet! Phweet!*
+She heard more police whistles behind her.
+And shouting—those were the twins' voices!
 
-"Oh, now what?" she whispered frantically. She suddenly remembered the
-bundle in her arms. She threw it into the derelict building. Were there
-any newspapers around? Yes, over there, a few. She picked them up and
-ran to the other end of the alley. All she needed was a doorway…
+She threw the bundle in her arms into the derelict building.
+Were there any newspapers around?
+Yes, over there, a few.
+She picked them up and ran to the other end of the alley.
+All she needed was a doorway…
 
-A heavy boot nudged her side a minute later. "Wake up," a hard voice
-said. She opened bleary eyes and looked up at two scowling policemen.
+A heavy boot nudged her side a minute later.
+"Wake up," a hard voice said.
+She opened bleary eyes and looked up at a scowling policeman.
 
-"Go 'way," she mumbled. "Tryna sleep." Newspapers rustled as she
-turned over.
+"Go 'way," she mumbled.
+Newspapers rustled as she turned over.
 
-The boot nudged her again, not as gently. "Hey," the policeman said
-again. "Let me take a look at you."
+The boot nudged her again, not as gently.
+"Hey," the policeman said again.
+"Let me take a look at you."
 
-Still shook her head, then yelped as a strong hand grabbed her arm and
-turned her over. "Leggo," she mumbled.
+Still shook her head,
+then yelped as a strong hand grabbed her arm and turned her over.
+"Leggo," she mumbled.
 
-"Naw, it's not her," the other policeman said. "Look at her feet.
-The guy we're after was on skates."
+"It's not her," the other policeman said.
+"Look at her feet.
+The one we're after was on skates."
 
-The first policeman let go of her arm. "Ought to take her in anyway,"
-he growled. "She could warp out here in this cold."
+The first policeman let go of her arm.
+"Ought to take her in anyway," he muttered.
+"She could warp out here in this cold."
 
-"She'd just be back tomorrow," his partner said. "Come on. Maybe he
-went down to the docks."
+"She'd just be back tomorrow," his partner said.
+"Come on. He must have gone down to the docks."
 
-Still listened as they walked away. All of a sudden she was crying. And
-it was cold—how could she not have noticed how cold it was?
+Still listened as they walked away.
+All of a sudden she was crying.
+And cold—how could she not have noticed how cold it was?
 
-She waited until her tears stopped, then pulled herself to her feet.
-Which way was home? She shook her head to clear it. The fog had closed
-in again. If the canal was there, behind her, then… She stumbled down
-the street.
+She pulled herself to her feet and wiped her cheeks.
+The fog had closed in again.
+Which way was home?
+If the canal was there, behind her, then…
+She stumbled down the street.
 
-It turned out that she was only a dozen blocks away from the market. She
-almost started crying again when she saw the dry fountain where the
-roller skaters gathered. She stayed away from the stalls in case any
-police were on patrol, then let her feet take their usual route across
-the canal.
+It turned out that she was only a dozen blocks away from the market.
+She almost started crying again when she saw the dry fountain where the roller skaters gathered.
+She stayed away from the stalls in case any police were on patrol,
+then let her feet take their usual route across the canal.
 
 </section>
 
