@@ -27,15 +27,13 @@ fiction: true
   </div>
 </div>
 
-> **A Warning**
->
-> You probably think this is a Christmas story because of the santas,
-> but it's not:
-> it's about right and wrong and figuring out who you are.
-> There are many footnotes and explosions but only one kiss,
-> and if you need someone to hold your hand during the scary bits
-> you're out of luck.
-> I'm just a book, and we don't have hands.
+*You probably think this is a Christmas story because of the santas,
+but it's not:
+it's about right and wrong and figuring out who you are.
+There are many footnotes and explosions but only one kiss,
+and if you need someone to hold your hand during the scary bits
+you're out of luck.
+I'm just a book, and we don't have hands.*
 
 <ol id="toc"></ol>
 
@@ -705,11 +703,9 @@ We're trying to save the worlds."
 
 Zombies and mummies are similar in many ways—the shambling gait,
 the moaning,
-and of course the whole "undead" thing—but
-there are important differences.
+and of course the whole "undead" thing—but there are important differences.
 First,
-mummies are generally royalty,
-or the servants of royalty,
+mummies are generally (ex-)royalty,
 while zombies tend to have been idiots who went into the basement after dark
 despite the strange sounds they heard
 or didn't run fast enough when someone shouted,
@@ -722,15 +718,15 @@ packed in salt,
 and stored in canopic jars.
 "Which is…
 just a…
-fancy word…
+fancy name…
 for jars…
 that hold…
 someone's…
 squishy bits,"
 the mummy explained as they climbed the stairs
 to an entrance in the side of the pyramid
-that was actually quite large
-but seemed quite small compared to the pyramid.
+that seemed quite small compared to the pyramid
+but was actually quite large.
 
 Third,
 and perhaps most importantly,
@@ -756,8 +752,7 @@ the mummy added wistfully.
 Two stone cats sat on their haunches at the top of the steps.
 One blinked slowly as they entered the pyramid,
 but other than that they might truly have been statues.
-Inside was a corridor with sloping sides,
-wide enough for the four of them to walk side by side.
+The corridor inside was wide enough for the four of them to walk side by side.
 Torches guttered in sconces every few dozen strides,
 their light making the figures painted on the walls dance.[^walls-dance]
 
@@ -765,26 +760,20 @@ their light making the figures painted on the walls dance.[^walls-dance]
 
 The corridor turned into a ramp,
 which turned left and left again,
-each leg slightly shorter than the one before.
-Just as Finner realized they were climbing the inside of the pyramid
-they reached their destination.
+each leg slightly shorter than the one before as they climbed the inside of the pyramid
 "Voila,"
-the mummy rasped,
+the mummy rasped at the top,
 waving them forward proudly.
 
 To call the chamber they entered a "room" would have been like calling the pyramid "large".
 If Gran-Granna Tumbly's house had been tucked into one corner
-there would still have been plenty of room for a hockey rink and a river barge.
+there would still have been plenty of space for a hockey rink and a river barge.
 And while there wasn't actually a hockey rink,
 there *was* a barge,
 along with dozens of statues,
 a chariot,
 six life-sized wooden horses,
-a small catapult,
-and a workbench covered with tools,
-bits of wood,
-rolls of fabric,
-and a stack of magazines.
+and a small catapult.
 
 There was also something that looked suspiciously like Gran-Granna's living room.
 "Please…
@@ -799,18 +788,15 @@ but…"
 
 "Oh, it's amazing," the lean santa said
 when the mummy's pause stretched longer than usual.
-"And I *love* what you've done with the side tables."
+"And I *love* the side tables."
 
-"I…
-refinished those…
-myself,"
+"Thank you,"
 the mummy said proudly.
 "Here…
 let me…
 show you…
-the originals."
-It pulled a magazine out of the pile on the workbench
-and flipped through it,
+the original."
+It pulled a magazine out of the pile on the workbench and flipped through it,
 muttering under its lack of breath.
 "There!
 What do…
@@ -820,8 +806,7 @@ It thrust the magazine at the lean santa
 while the burly one plopped himself down on the nearest couch,
 which creaked slightly under his weight.
 Finner sat hesitantly on the other
-while the lean santa said appreciative things about stains and lacquers
-and agreed that of *course* you had to see it in the room
+as the lean santa agreed that of *course* you had to see it in the room
 to really appreciate it,
 particularly with such difficult lighting.
 
@@ -831,29 +816,24 @@ after trying and failing twice to screw up enough courage to speak.
 And,
 um,
 how I can get home?
-Because I'd like to do that.
-if that's all right,"
-he added apologetically.
+Because I'd like to,
+if that's all right."
 
-"You can't get there from here,"
+"Probably not a good idea right now,"
 the lean santa said,
 setting aside the filigree tea tray
 that the mummy had casually mentioned was an antique.[^antique-living]
-"Emergency chimneys are one-way.
-But I'm sure Sensei Tumbly is all right,"
+"I'm sure Sensei Tumbly is all right,"
 she added quickly.
-"She's a tough old bird."
+"But we should give her time to sort things out."
 
 [^antique-living]: By the standards of the living, anyway.
 
-"Tough as they come," the burly santa agreed, nodding.
-"Why, there was this time—"
-
-"Why do you keep calling her that?"
-Finner interrupted angrily.
-"And where *are* we?
-And would you *please* tell me what's going on,
-and who you are?"
+"Why do you keep calling her 'sensei'?"
+Finner asked,
+instantly annoyed at the whining tone in his voice.
+"And where are we,
+and who are you?"
 
 The three santas exchanged looks.
 The lean santa sighed.
@@ -863,17 +843,17 @@ This is Santa Greenwood, and…?"
 "Santa Hotep,"
 the mummy supplied.
 
-"And this is what, an alternate universe?"
+"And we're in an alternate universe, right?"
 Finner asked.
 "I'm not stupid," he added when Santa Hood raised an eyebrow.
 
-"It's one of them," she confirmed.
+"We are," she confirmed.
 "We're each the santa in our world.
 A lot only have one,"
-she explained before Finner could ask.
+she added as Finner opened his mouth.
 
 "That sounds kind of lonely,"
-was all Finner could think to say.
+he said.
 
 Santa Hood shrugged.
 "It works out.
@@ -921,11 +901,8 @@ This place looks *amazing*."
 Miz Tumbly…
 to thank…
 for that."
-The mummy took a faded magazine off a lovely lacquered bookshelf,
-its pages stiff with age.
-"She felt…
-sorry for me…
-And started…
+The mummy took a faded magazine off a lacquered bookshelf.
+"She started…
 bringing me…
 these.
 It was…
@@ -945,26 +922,87 @@ to have…
 company."
 
 "I'm sure Sensei Tumbly is fine,"
-Santa Hood said firmly.
-She stood and slung her sack over her shoulder with a wince.
-"But we should keep moving.
-Headquarters needs to know about the attack,
-and we have to find a way to get Findlay here home"
+Santa Hood said firmly,
+then winced.
+
+"Here, let me have a look at that,"
+Santa Greenwood said gruffly.
+
+Santa Hood nodded
+and pulled up her coat to reveal a purpling bruise the size of Finner's hand
+on her smooth, dark skin.
+
+Finner's mouth suddenly felt dry.
+"I, um… Is there a…? I mean, I, um, I could really use…" he stammered.
+
+"Of course…"
+Santa Hotep waved a bandaged arm.
+"Past…
+the barge."
+
+*Somewhere in the multiverse,
+someone has undoubtedly written an entire book about washroom facilities in ancient pyramids.
+I'm not that book,
+so let's just skip over the next few minutes.*
+
+Finner closed the door carefully behind him.
+He could hear the santas talking quietly in the distance,
+but seized by a sudden curiosity,
+he turned left instead of right.
+The horses tethered to the chariot were very life-like but just wood.
+The swords and shields on display were ever-so-slightly dusty but very clearly functional,
+and—
+
+He pulled up short.
+There,
+hidden behind a vertically-hung rug,
+stood a workbench.
+Carpenters' tools lay on it,
+some in wooden racks but others laid out for use
+next to a trio of unfinished stool legs.
+He sniffed the air.
+Yes:
+he could definitely smell fresh-cut wood.
+
+"Can I help you?"
+a voice rumbled behind him.
+
+Finner turned around slowly.
+The stone cat was missing one ear but seemed to have all of its teeth.
+Certainly lots of teeth.
+"I, um—I was just—"
+
+"Perhaps you should rejoin the others,"
+the cat said,
+its tone indicating that the "perhaps" was just politeness.
+
+"Um, sure, of course."
+Finner hesitated.
+"I didn't know Santa Hotep still had elves."
+
+"He doesn't,"
+the cat said.
+"Nobody has used any of this in many years."
+
+*Then why can I smell wood?*
+Finner wondered but didn't say
+as he let the rug fall back in place.
+
+"There you are,"
+Santa Greenwood said as he rejoined the others.
+"I was just saying we ought to get young Findlay home."
 
 "It's Finner, actually,"
 Finner corrected,
 or would have if an ear-splitting yowl hadn't interrupted them.
 
-Santa Greenwood surged to his feet,
-his ax in his hands,
-as Santa Hotep drew a circle with its fingertip on the mirror by its elbow.
+Santa Greenwood surged to his feet at the sound,
+his ax in his hands.
+Santa Hotep drew a circle with its fingertip on the mirror by its elbow.
 The mirror's surface rippled and reformed to show
 the steps leading up to the pyramid entrance,
 where the stone cats were fighting a quartet of hooded figures
-wielding swords and ray guns
-whose brilliant green beams left glassy scorches on the sand.[^glassy-scorches]
-
-[^glassy-scorches]: The ray guns, that is. Frankly, the swords were mostly for show.
+wielding swords and ray guns.
 
 "Impossible,"
 Santa Hotep wheezed angrily.
@@ -972,17 +1010,13 @@ Santa Hotep wheezed angrily.
 
 "They have,"
 Santa Hood snapped.
-"We need to get out of here *right now*."
+"We need to get out of here *now*."
 
 Santa Hotep nodded.
 "This way."
-It shambled off,
-moaning under its breath.[^not-actually-breathing]
-
-[^not-actually-breathing]: Even though it wasn't actually breathing.
 
 The chamber was even larger than Finner had realized.
-He froze as one of the statues turned its head.
+He froze as a statue of a hyena turned its head.
 "Automated defenses,"
 Santa Hood said without breaking stride.
 "Pretty standard in a place like this.
@@ -999,22 +1033,13 @@ it recited
 as it did a slow shuffling dance.
 The tiles beneath its feet went *click*.
 With the slightest of scraping sounds
-the enormous stone block in front of it pivoted
+the stone block in front of it pivoted
 to reveal another passage,
 smaller and narrower than the one they had climbed
 but lit by the same flickering torches.
 
-"After…
-you…"
-The mummy waved them ahead.
-Santa Greenwood squeezed through the opening,
-muttering under his breath.[^actually-breathing]
-Finner followed with Santa Hood on his heels.
-
-[^actually-breathing]: He *was* actually breathing—rather noisily, in fact.
-
 Up, up, up they went.
-The passage cut back on itself so often that Finner began to feel dizzy.
+The passage cut back on itself so many times that Finner lost count.
 He was just about to ask how much further it was
 when he rounded a final bend and was almost blinded by
 the bright blue square of empty sky in front of them.
@@ -1026,7 +1051,7 @@ and the dazzling green beam of a ray gun blast.
 He brought up his ax
 just in time for the next shot to bounce off its shiny blade.
 
-"Where's the chimney?" Santa Hood demanded as the mummy caught up with them.
+"Where's the wherever?" Santa Hood demanded as the mummy caught up with them.
 
 "Right…
 in front…
@@ -1035,10 +1060,28 @@ it wheezed.
 
 "I don't see anything!" Santa Greenwood shouted,
 deflecting another shot.
-And then he bellowed, "AAAAHHH!"
+
+"Give up! You have nowhere to run!"
+an amplified voice shouted from somewhere above them.
+
+"I beg your pardon?" Santa Hood shouted back.
+
+"I said—"
+
+"I'm sorry, but he's not home!"
+She looked at Finner and winked.
+"Would you like to leave a message?"
+
+"Just give us the wherever code to the building and we'll let you go,"
+the amplified voice shouted.
+"How does that sound?"
+
+"Why don't you come here and we'll talk about it?"
+Santa Greenwood bellowed.
+Then he said "AAAAHHH!" in a very loud voice
 because the mummy
 (who was much stronger than it looked)
-pushed all three of them out into the empty air
+pushed him, Santa Hood, and Finner out into the empty air
 where they fell screaming to their deaths.
 
 </section>
