@@ -6096,12 +6096,62 @@ instead of bedrock gray.
 Iffy barely noticed.
 All she could think about as Doctor Johel and the two Marines
 led her past people who carefully didn't look her in the eye
-how Jeep had changed and how Honesty had seemed like someone else entirely.
+was how induction had changed Jeep and Honesty.
 
-FIXME: Captain Kerse
+She jumped when someone bellowed,
+"I bloody well do *not* consent!"
+A moment later a door burst open a few steps ahead of her.
+One of the Marines stepped in front of her
+and the other took her arm
+as a roiling knot of arms, legs, and foul language spilled into the corridor.
 
-They reached a windowless room that held nothing except a cot and a toilet.
-Iffy swallowed back nausea as one of the Marines slid the heavy door open.
+A punch landed with a meaty smack.
+A second punch missed,
+and then Captain Kerse of the *Taroona* was face-down on the tiled floor,
+her arms pinned behind her by a beefy hospital guard.
+
+The look on the Aussie's face would have fried an egg.
+"You've no right!
+You've no affin' right,
+an' when Taz hears on this they'll strip you for parts!"
+
+"Your government… is being… informed," the guard grunted,
+shifting der weight to keep der charge pinned
+as the other guard zip-tied the captain's wrists together.
+"Now may we please… have your consent… to take a blood sample… for medical purposes?"
+
+Captain Kerse spent a few seconds telling the guard
+exactly what de could do with der request for consent.
+She stopped when she caught sight of Iffy.
+"You!
+I know you!
+You're with him!
+Where is he?
+Where is Johnson bloody Wales?"
+
+Without warning the captain twisted, rolled, and scissored her legs
+to trade places with the guard on top of her.
+The second guard had only a moment to say, "Don't—" before the captain was on her feet.
+Her well-aimed knee took away the rest of his sentence.
+
+As fast as she was,
+the Marines were faster.
+"No!" the one in front of Iffy barked,
+pointing a clenched fist at Captain Kerse.
+
+For a moment Iffy thought the Aussie was going to attack the Marine,
+but instead she turned her shaven head and spat on the tiles.
+"You tell *Mister* Wales I'm gonna find 'im,"
+Captain Kerse said.
+"You tell 'im 'e owes me f'r my crew.
+My whole affin' crew!"
+she raged as the guards took an arm each
+and frog-marched her back into examination room.
+"You tell 'im!"
+
+Iffy and the Marines reached the destination a few minutes later.
+Iffy swallowed back nausea as one of the Marines slid the heavy door open
+to reveal a windowless room that held nothing except a cot and a toilet.
 "Are you all right?" the other one asked.
 
 "'m fine," she said brusquely.
