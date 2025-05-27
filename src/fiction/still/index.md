@@ -3236,352 +3236,464 @@ then let her feet take their usual route across the canal.
 
 ## Chapter 9
 
-"Oh…" Still groaned. It was morning. She lay curled up in a
-ball on the roof. Her eyes felt gritty, and even through the fog, the
-sun seemed far too bright.
+"Oh…" Still groaned.
+Why was it morning?
+She lay curled up in a ball on the roof.
+Her eyes felt gritty,
+and even through the fog the sun seemed far too bright.
 
-She blinked again, rubbing her eyes. When she took her hand away from
-her face, it was smeared with the remains of the previous night's
-paint. "Wonderful," she muttered. She didn't want to think about what
-she looked like.
+She blinked again, rubbing her eyes.
+When she took her hand away from her face
+it was smeared with the remains of the previous night's paint.
+"Wonderful," she muttered.
+She didn't want to think about what she looked like.
 
-Still twisted around to put her back against the wall. "Good morning,"
-she yawned.
+Still twisted around to put her back against the wall.
+"Good morning," she yawned.
 
-The gargoyle nodded. "Good morning," he said, staring out over the
-rooftops across the alley.
+The gargoyle nodded.
+"Good morning," he said,
+staring out over the rooftops across the alley.
 
-Still shook her head. "What a night. I'm going to need some
-turpentine, aren't it?" She yawned again. "Some turpentine, and a
-nice, hot cup of oil, and then maybe I'll just sleep for the rest of
-the day."
+Still shook her head.
+"What a night. I'm going to need some turpentine, aren't it?"
+She yawned again.
+"Some turpentine, and a nice, hot cup of oil,
+and then maybe I'll just sleep for the rest of the day."
 
-"You may need more than turpentine," the gargoyle said, still not
-looking at her. He held out a small blanket-wrapped bundle. "Here."
+"You may need more than turpentine," the gargoyle said,
+still not looking at her.
+He held out a small blanket-wrapped bundle.
+"Here."
 
-Still's clockwork skipped a tick. "What—what's wrong?" She jerked
-to her feet and snatched her violin away from the gargoyle. Her hands
-trembled as she unwrapped it.
+Still's clockwork skipped a tick.
+"What—what's wrong?"
+She jerked to her feet and snatched her violin away from the gargoyle.
+Her hands trembled as she unwrapped it.
 
 A hand-sized patch of varnish on the top of the violin had yellowed.
 Still knew without touching it that it would feel coarse and brittle,
-like paper that had been soaked and dried. "What happened?" she
-whispered. "What did you do?"
+like paper that had been soaked and dried.
+"What happened?" she whispered.
+"What did you do?"
 
-"I didn't do anything," the gargoyle replied calmly. "When you
-didn't come back last night, I started wondering if you had left. But I
-knew you wouldn't go without your violin, so I undid the blanket to see
-whether you had put a brick in its place." He turned his head slowly.
-His eyes were as dark as ever, but hard instead of sad. "I would have
-told you last night, but I hardly recognized you when you came up the
-drainpipe."
+"I didn't do anything," the gargoyle replied calmly.
+"When you didn't come back last night, I started wondering if you had left.
+But I knew you wouldn't go without your violin,
+so I undid the blanket to see whether you had put a brick in its place."
+He turned his head slowly.
+His eyes were as dark as ever, but hard instead of sad.
+"I would have told you last night,
+but I hardly recognized you when you came up the drainpipe."
 
-Still brushed her hand over the belly of her violin. The varnish was
-still clear amber there, not flaky yellow. "I have to get this fixed."
-Her voice was calm, even though each tick of her clockwork felt like it
-might be her last. "I can't leave it like this. There must be somebody
-in the market who does varnishing."
+Still brushed her hand over the belly of her violin.
+The varnish was still clear amber there, not flaky yellow.
+"I have to get this fixed."
+Her voice was calm,
+even though each tick of her clockwork felt like it might be her last.
+"I can't leave it like this.
+There must be somebody in the market who does varnishing."
 
-"Well, if I were you, I'd clean up a bit before I went. That is, if I
-could go." He glanced up through the fog. "And I'd hurry. It's going
-to rain."
+"Well, if I were you, I'd clean up a bit before I went.
+That is, if I could go."
+He glanced up through the fog.
+"And I'd hurry.
+It's going to rain."
 
-Still nodded. She could feel it too. The previous day's snow was gone,
-but the air felt damp and heavy. "Warping weather," people called it,
+Still nodded.
+She could feel it too.
+The previous day's dusting of snow was gone, but the air felt damp and heavy.
+"Warping weather," people called it,
 the kind that made old puppets' joints swell up.
 
-She knotted the corners of the blanket together and slung the makeshift
-sack over her shoulder. She could wash her face in the canal, then use
-the blanket to dry herself.
+She knotted the corners of the blanket together
+and slung the makeshift sack over her shoulder.
+She could wash her face in the canal,
+then use the blanket to dry herself.
 
-The drainpipe was wet enough to be slippery. Still wondered how she had
-climbed it the night before. Stupid, stupid, stupid… What had she
-been thinking?
+The drainpipe was wet enough to be slippery.
+Still wondered how she had climbed it the night before.
+Stupid, stupid, stupid…
+What had she been thinking?
 
-Then she hesitated. Feeling awkward, she scrambled back up the drainpipe
-and poked her head above the edge of the roof. "Hey," she said. "Um,
-thanks. For looking after it, I mean."
+Then she stopped.
+Feeling awkward,
+she scrambled back up the drainpipe and poked her head above the edge of the roof.
+"Hey," she said.
+"Um, thanks. For looking after it, I mean."
 
 "You're welcome," the gargoyle replied.
 
 Still hesitated again. "I wouldn't just leave, you know."
 
-The gargoyle nodded. "I know. But sometimes things happen, and people
-don't always have a chance to say goodbye. Now, you'd better get
-going."
+The gargoyle shrugged.
+"Sometimes things happen,
+and people don't always have a chance to say goodbye.
+Now, you'd better get going."
 
-Still slid down the drainpipe. The cobblestones were already slick under
-her feet. They would turn icy overnight. She felt a sudden pang of
-regret for the bundle of clothes she had thrown away. She would need
-them soon.
+Still slid down the drainpipe.
+The cobblestones were already slick—they would turn icy overnight.
+She felt a sudden pang of regret for the bundle of clothes she had thrown away.
+She would need them soon.
 
-That made her think of Crest-of-the-Wave, and the twins. Had they
-escaped? Or had the police caught them? Would they tell the police about
-her? *The twins might,* she thought, *But not Crest-of-the-Wave.* At
-least, she hoped he wouldn't…
+That made her think of Crest-of-the-Wave and the twins.
+Had they escaped?
+Or had the police caught them?
+Would they tell the police about her?
+*The twins might,* she thought,
+*But not Crest-of-the-Wave.*
+At least, she hoped he wouldn't.
 
-Narrow stone steps ran down to the canal from the street beside the
-bridge. Still climbed over the rusty gate in front of them, more worried
-about scratching her violin in its blanket than herself. She picked her
-way down to the water, then knelt and looked down.
+Narrow stone steps ran down to the canal from the street beside the bridge.
+Still climbed over the rusty gate in front of them,
+more worried about scratching her violin than herself.
+She picked her way down to the water,
+then knelt and gasped at the face looking back at her.
 
-She gasped at the face looking back at her. "Oh no…" she whispered.
-The paint had run and smeared during the night. Her sly grin had turned
-bitter and cynical. And the little lines at the corners of her eyes
-didn't seem knowing any more, just worn.
+"Oh no…" she whispered.
+The paint had run and smeared during the night.
+Her sly grin had turned bitter and cynical.
+And the little lines at the corners of her eyes didn't seem knowing any more,
+just worn.
 
-She splashed handfuls of water on her face. It was bitterly cold. She
-scrubbed and scrubbed, ignoring the icy trickles that ran down her neck
-and under her collar. Suddenly she snorted. It was as bad as going
-camping. No, it was actually *worse*, because at least she got a hot
-breakfast when she was camping. She could pull her clothes on while she
-was still in her sleeping bag, then wriggle out, and—
+She splashed handfuls of bitterly cold water on her face.
+She scrubbed and scrubbed,
+ignoring the icy trickles that ran down her neck and under her collar.
+Suddenly she snorted.
+It was as bad as camping.
+No, it was *worse*,
+because at least she got a hot breakfast when she was camping.
+She could pull her clothes on while she was still in her sleeping bag,
+then wriggle out and—
 
-"No!" She scrambled to her feet, snatching up her violin. "Get away
-from me!" A small paper boat bobbed up and down in the water just an
-arm's length from her. She grabbed a loose piece of stone.
+"No!"
+She scrambled to her feet, snatching up her violin.
+"Get away from me!"
+A small paper boat bobbed up and down in the water just an arm's length from her.
 
-"Get *away* from me!" she shouted. She threw the stone as hard as she
-could. *Splash!* The little boat disappeared without a trace.
+She grabbed a loose piece of stone.
+"Get *away* from me!" she shouted,
+throwing the stone as hard as she could.
+*Splash!*
+The little boat disappeared without a trace.
 
-Still shivered, hugging her violin to her chest. What had she been
-doing? Her face—that was right, she was cleaning her face. She buried
-it in the blanket, too weary to cry, and toweled it as hard as she
-dared. When she pulled the blanket away, it was muddy with smears of
-paint.
+Still shivered, hugging her violin to her chest.
+What had she been doing?
+Her face—that was right, she was cleaning her face.
+She buried it in the blanket,
+too weary to cry,
+and toweled it as hard as she dared.
+When she pulled the blanket away it was muddy with smears of paint.
 
-"Key's knees, what happened to you?" Attic exclaimed a few minutes
-later. Still almost laughed—it was the feeblest attempt at swearing
-she had heard since she first came to the market.
+"Key's knees, what happened to you?"
+Attic exclaimed a few minutes later.
+Still almost laughed—it was the feeblest attempt at swearing she had heard
+since she first came to the market.
 
-She set her precious bundle down on the counter of his stall. "I'm all
-right. Really. I'll get the rest off later. But oh, Attic, look." She
-unwrapped the blanket. "Look what happened."
+She set her precious bundle down on the counter of his stall.
+"I'm all right. Really. I'll get the rest off later. But oh, Attic, look."
+She unwrapped the blanket.
+"Look what happened."
 
-Attic glanced at the discolored patch of varnish on the violin, then
-back at Still's face. She lowered her eyes, ashamed. "Are you really
-all right?" he asked.
+Attic glanced at the discolored patch of varnish on the violin,
+then back at Still's face.
+She lowered her eyes.
+"Are you really all right?" he asked.
 
-Still nodded. She could feel hot tears trying to leak out of her eyes,
-but she blinked them back. "I just—do you know anyone who could fix
-it?"
+Still nodded.
+She could feel hot tears trying to leak out of her eyes,
+but she blinked them back.
+"I just—do you know anyone who could fix it?"
 
-Attic hesitated. "I might. Hang on a tick-tock." He hastily closed the
-shutters on his stall. "Follow me."
+Attic hesitated.
+"I might. Hang on a tick-tock."
+He hastily closed the shutters on his stall.
+"Follow me."
 
-Attic led her to a small shop three blocks from the market. The faded
-sign above its grimy window told uncaring passers-by that Hurdle & Co.
-were open for business. Attic held the door open for her, then followed
-her in.
+Attic led her to a small shop three blocks from the market.
+The faded sign above its grimy window told uncaring passers-by
+that Hurdle & Co. were open for business.
+Attic held the door open for her, then followed her in.
 
 "Hello?" Attic said. "Grumps, are you here?"
 
-Still looked around the gloomy room. The shelves were bare, unless dust
-counted. Half of the numbers had fallen off the face of the clock on the
-far wall. A ghostly odor of smoke and turpentine hung in the air.
+Still looked around the gloomy room.
+The shelves were bare, unless dust counted.
+Half of the numbers had fallen off the face of the clock on the far wall.
+A ghostly odor of smoke and turpentine hung in the air.
 
-"Grumps?" Attic repeated. "Grumps, I have a customer for you."
+"Grumps?" Attic repeated.
+"Grumps, I have a customer for you."
 
-*Thump, thump, thump, thump, thump.* Still jumped, startled. The
-pounding had come from beneath her feet.
+*Thump, thump, thump.*
+Still jumped, startled.
+The pounding had come from beneath her feet.
 
-Attic bent over to lift the trap door in the floor just as it opened. It
-banged against his forehead. "Ow," he exclaimed.
+Attic bent over to lift the trap door in the floor just as it opened.
+It banged against his forehead.
+"Ow!"
 
-"Heh? What? Watch yourself." An elderly puppet with deep wrinkles
-etched in his face stumped up the narrow stairs with a large black tin
-cradled in his arms. He kicked the trap door closed with another bang.
+"Heh? What? Watch yourself."
+An elderly puppet with deep wrinkles etched in his face
+stumped up the narrow stairs with a large black tin cradled in his arms,
+kicking the trap door closed behind him.
 
-"Splintering things get heavier every year," he grunted, picking up
-his tin. "Ought to rig a pulley, save my legs."
+"Splintering things get heavier every year," he grunted.
+"Ought to rig a pulley, save my legs."
 
-"I'm fine, thank you," Attic said to the old puppet's back, rubbing
-his forehead. "It's just a scratch. How are you?"
+"I'm fine, thank you," Attic said to the old puppet's back,
+rubbing his forehead.
+"How are you?"
 
-The old puppet set the black tin down on the long, narrow workbench that
-stood against the far wall. "Of course, pulley would need a hook up
-there." He jerked a thumb up at the ceiling without looking. "Need a
-ladder to get it in, and where am I going to find a ladder? Or a hook,
-for that matter, or a pulley. Or rope." He picked up a screwdriver and
-started chipping at the congealed goo around the tin's lid. "Sad day,
-isn't it, when an honest craftsman can't afford a piece of rope to
-save his old legs."
+The old puppet set the black tin down on the workbench that stood against the far wall.
+"Of course, pulley would need a hook up there."
+He jerked a thumb up at the ceiling without looking.
+"Need a ladder to get it in, and where am I going to find a ladder?
+Or a hook, for that matter, or a pulley. Or rope."
+He picked up a screwdriver and started chipping at the congealed goo around the tin's lid.
+"Sad day,
+isn't it,
+when an honest craftsman can't afford a piece of rope to save his old legs."
 
-"Grumps… Grumps! Did you hear what I said? I brought you a
-customer."
+"Grumps! Did you hear what I said? I brought you a customer."
 
-*Chip, chip, chip.* "I heard you."
+*Chip, chip, chip.*
+"I heard you."
 
-Attic sighed. "I'm sorry," he said to Still. "I shouldn't have
-brought you here. There's another place I know, up by the bootmaker's.
+Attic sighed.
+"I'm sorry," he said to Still.
+"I shouldn't have brought you here.
+There's another place up by the bootmaker's.
 Maybe they'll—"
 
-"Oh no you don't." The old puppet put down his screwdriver and turned
-around to glare at Attic. "They're thieves, they are. Wouldn't send a
-glass rat to them, not even one I didn't like."
+"Oh no you don't."
+The old puppet put down his screwdriver and turned around to glare at Attic.
+"They're thieves, they are.
+Wouldn't send a glass rat to them, not even one I didn't like."
 
-Attic sighed again. He waved a hand at the old puppet. "Still, I'd
-like you to meet my grandfather, Hurdle. Grumps, this is Still. She
-needs your help."
+Attic sighed again.
+He waved a hand at the old puppet.
+"Still, I'd like you to meet my grandfather, Hurdle.
+Grumps, this is Still.
+She needs your help."
 
-The old puppet finally looked straight at Still. "Morning," he
-muttered, searching her face. Still lowered her eyes, ashamed of the
-dabs of paint still smeared on her forehead and cheeks.
+The old puppet finally looked straight at Still.
+"Morning," he said, searching her face.
+Still lowered her eyes, ashamed of the dabs of paint on her forehead and cheeks.
 
-"No, no, none of that." Hurdle stepped forward and took her chin in
-one strong hand. He tilted her head back to study the paint smears.
+"No, no, none of that."
+Hurdle stepped forward and took her chin in one strong hand,
+tilting it back to study the paint smears.
 
-"Hmph." He let go of her chin and glared at Attic. "Nothing to do
-with me, that kind of thing. So what are you really here for?"
+"Hmph."
+He let go of her chin and glared at Attic.
+"Nothing to do with me, that kind of thing.
+So what are you really here for?"
 
-Still unwrapped her violin wordlessly. "Hmm…" He reached out to
-take it. Still snatched it back.
+Still unwrapped her violin wordlessly.
+"Hmm…" He reached out to take it.
+Still snatched it back.
 
-"Easy, easy," Hurdle said, raising his hands in the gesture she had
-seen Attic use so often. "I won't hurt it. Or play it, either. Bit too
-old for making music anyway." He put out his hand. Still hesitated a
-moment longer, then thrust the violin at him.
+"Easy, easy," Hurdle said,
+raising his hands in the gesture she had seen Attic use so often.
+"I won't hurt it. Or play it, either. Bit too old for making music anyway."
+He put out his hand.
+Still hesitated a moment longer, then thrust the violin at him.
 
-Hurdle took it over to the window. "Hmm…" He held it up, letting
-the murky light that had fought its way through the grime on the window
-play over it. "When did this happen?"
+Hurdle took it over to the window.
+"Hmm…"
+He held it up
+to let the murky light that had fought its way through the grime on the window play over it.
+"When did this happen?"
 
-"Last night." Still swallowed. "I don't know exactly when."
+"Last night."
+Still swallowed.
+"I don't know exactly when."
 
 Hurdle glanced at her, then raised an eyebrow at Attic.
 
-"What? No!" Attic exclaimed, scandalized. "I didn't— I
-wouldn't—"
+"What? No!"
+Attic exclaimed, scandalized.
+"I didn't— I wouldn't—"
 
-"Didn't think so," Hurdle grunted. "Not with your nose stuck in
-those splintering books of yours all day." He clucked. "Bit of a mess,
-this. Just the one patch, but these top two layers, they're number
-eight silk, maybe even number ten. Scrape away the damage, put on a
-fresh coat or two, it'd never look right. Start flaking, too, if it got
-damp."
+"Didn't think so," Hurdle grunted.
+"Not with your nose stuck in those splintering books of yours all day."
+He clucked.
+"Bit of a mess, this.
+Just the one patch,
+but these top two layers,
+they want number eight silk,
+maybe even number ten.
+Scrape away the damage,
+put on a fresh coat or two, it'd never look right.
+Start flaking, too, if it got damp."
 
 Still sagged. "You mean you can't help?"
 
-Hurdle snorted. "Course I can help. Only an idiot would try to
-re-varnish this. Fellow up by the bootmaker's, for example. No, this
-just wants a good earth pack overnight. Put some soil on it, wrap it up
-tight, leave it sit. Varnish will be as good as new by tomorrow."
+Hurdle snorted.
+"Course I can help.
+Only an idiot would try to re-varnish this.
+Fellow up by the bootmaker's, for example.
+No,
+this just wants a good earth pack overnight.
+Put some soil on it,
+wrap it up tight,
+leave it sit.
+Varnish will be as good as new by tomorrow."
 
-Attic crossed his arms. "And how much will earthing it cost?"
+Attic crossed his arms.
+"And how much will earthing it cost?"
 
-Hurdle shrugged. "Twenty sweet. Twenty-five, maybe, if you want it
-cleaned up after."
+Hurdle shrugged.
+"Twenty sweet.
+Twenty-five, maybe, if you want it cleaned up after."
 
-"Twenty?" he yelped, scandalized. "That's more candy than you've
-seen for one job in your life, you old fraud. Fifteen, with the
-cleaning. And you know that's a fair price."
+"Twenty?" he yelped, scandalized.
+"That's more candy than you've seen for one job in your life, you old fraud.
+Fifteen, with the cleaning.
+And you know that's a fair price."
 
-It was Hurdle's turn to cross his arms. "How would you know? Hm?
+It was Hurdle's turn to cross his arms.
+"How would you know?
+Hm?
 Didn't remember enough of the trade to know it'd want an earth pack,
-did you? Probably didn't even recognize the varnish was silk, either.
+did you?
+Probably didn't even recognize the varnish was silk, either.
 Splintering books of yours…"
 
-Attic glared at his grandfather. "I will *not* let her give you that
-much candy for a simple job like this. It's indecent, it's unfair, and
-I—"
+Attic glared at his grandfather.
+"I will *not* let her give you that much candy for a simple job like this.
+It's indecent, it's unfair, and I—"
 
-"Attic, Attic, it's all right. It's all right. I can pay." Still
-twisted her blanket in her hands. "Not all at once, maybe, but if I
-skip breakfast for the next couple of weeks, I can save it up."
+"Attic, Attic, it's all right. It's all right. I can pay."
+Still twisted her blanket in her hands.
+"Not all at once, maybe, but I can save it up if I skip breakfast for the next couple of weeks."
 
-Attic looked at her blankly. "What kind of breakfasts are you eating?"
+Attic looked at her blankly.
+"What kind of breakfasts are you eating?"
 
-"Just oil, from Kettle's. Or Wing's, some days. It's two gumdrops a
-cup, so if I only get a half-cup, that's… All right, three weeks.
-Would three weeks be all right?" she asked Hurdle pleadingly.
+"Just oil, from Kettle's.
+Or Wing's, some days.
+It's two gumdrops a cup, so if I only get a half-cup, that's…
+All right, three weeks.
+Would three weeks be all right?"
+she asked Hurdle pleadingly.
 
-Grandfather and grandson exchanged glances. "Still," Attic said
-gently. "He means twenty licorice, not twenty gumdrops."
+Grandfather and grandson exchanged glances.
+"Still," Attic said gently.
+"He means twenty licorice, not twenty gumdrops."
 
-Still's clockwork stopped. "Oh." *I'd have to go without breakfast
-forever,* she thought dizzily.
+Still's clockwork stopped.
+"Oh."
+*I'd have to go without breakfast forever,* she thought dizzily.
 
-It might have been the look on her face, or the catch in her voice. Or
-maybe it was just another move in the never-ending chess game of wills
-between Hurdle and his grandson. "All right, fifteen," Hurdle
-grumbled. "Including a cleaning. But that's fifteen licorice, not
-fifteen gumdrops, and I'll have candy in hand, understood?"
+It might have been the look on her face, or the catch in her voice.
+Or maybe it was just another move in the never-ending chess game of wills
+between Hurdle and his grandson.
+"All right, fifteen," Hurdle grumbled.
+"Including a cleaning.
+But that's fifteen licorice,
+not fifteen gumdrops,
+and I'll have candy in hand,
+understood?"
 
-"Grumps, she doesn't have fifteen licorice. You heard her—she
-doesn't even have fifteen gumdrops, not without a month of skipping
-breakfast. Just once, just this once, can you give someone a ride-on?"
+"Grumps, she doesn't have fifteen licorice.
+You heard her—she doesn't even have fifteen gumdrops.
+Just once, just this once, can you give someone a ride-on?"
 
-"Gave you one," the old puppet said sourly. "Look what happened.
-Buying and selling other people's cast-offs, instead of working an
-honest trade."
+"Gave you one," the old puppet said sourly.
+"Look what happened.
+Buying and selling other people's cast-offs instead of working an honest trade."
 
-Attic threw up his hands. "I give up. I thought maybe this time…
-Never mind. Come on. We'll try the shop by the bootmaker's."
+Attic threw up his hands.
+"I give up.
+I thought maybe this time…
+Never mind.
+Come on.
+We'll try the shop by the bootmaker's."
 
-"No, wait." Still twisted the blanket around and around in her hands.
-"Are you sure you can fix it?" she asked Hurdle. "Fix it like new, I
-mean?"
+"No, wait."
+Still twisted the blanket around and around in her hands.
+"Are you sure you can fix it?" she asked Hurdle.
+"Fix it like new?"
 
-Hurdle nodded curtly. "Except for the scratch. That'd be it's own
-job. Not sure how much I could do about that anyway."
+Hurdle nodded curtly.
+"Except for the scratch. That'd be it's own job.
+Not sure how much I could do about that anyway."
 
-Still took a deep breath. "Then please, go ahead. I'll have the candy
-for you tomorrow."
+Still took a deep breath.
+"Please go ahead.
+I'll have the candy for you tomorrow."
 
-"What? How?" Attic exclaimed. "Still, you could play on the steps of
-City Hall, on Key's Day, and you wouldn't make half that."
+"What? How?" Attic exclaimed.
+"Still,
+you could play on the steps of City Hall on Key's Day
+and you wouldn't make half that."
 
-"I'll have it tomorrow," she repeated firmly. "All of it. I've got
-some stuff I can sell." She handed Hurdle the paint-stained blanket. He
-took it wordlessly, and folded it around the violin as snugly as she
-ever had.
+"I'll have it tomorrow," she repeated firmly.
+"All of it.
+I've got some stuff I can sell."
+She handed Hurdle the paint-stained blanket.
+He took it wordlessly
+and folded it around the violin as snugly as she ever had.
 
-"I hope you know what you're doing," Attic said to her a few moments
-later, out on the street. "I mean, fifteen licorice—that's a *lot*
-of candy. You're not going to sell a leg or something, are you?"
+"I hope you know what you're doing,"
+Attic said to her a few moments later when they were back on the street.
+"I mean, fifteen licorice—that's a *lot* of candy.
+You're not going to sell a leg or something, are you?"
 
-"No." Still sighed. "But if someone offered me some turpentine and a
-hot cup of oil, I might."
+"I might if someone offered me some turpentine and a hot cup of oil,"
+Still sighed.
 
-"Do you have any candy at all?" he asked. Still shook her head. Attic
-fished some gumdrops out of his pocket.
+"Do you have any candy at all?" he asked.
+Still shook her head.
+Attic fished some gumdrops out of his pocket.
 
-"Here," he said, handing them to her. "No, take it, please. The
-brooms will sweep you for sure if you try to play looking like that."
+"Here," he said, handing them to her.
+"No, please.
+The brooms will sweep you for sure if you try to play looking like that."
 
-"Attic, I can't. I can't." She shook her head. "You've already
-done so much for me."
+"Attic, I can't. I can't."
+She shook her head.
+"You've already done so much for me."
 
-"What, you mean Grumps?" Attic snorted. "Don't know how much of a
-favor that was. The old miser…"
+"What, you mean Grumps?" Attic snorted.
+"Don't know how much of a favor that was. The old miser…"
 
-They walked along in silence for a few moments. "So how come you wound
-up selling books?" she finally asked.
+They walked along in silence for a few moments.
+"So how did you wind up selling books?"
+she finally asked.
 
-Attic sighed. "I didn't 'wind up' doing anything. I started reading
-after my parents—after the fire, I mean. I loved it." He shrugged and
-pushed his glasses up his nose with one finger. "I still do. Every book
-is a whole world of its own, did you know that? I used to think that
-everything anyone had ever known was in a book somewhere, if only I
-could find it. And anything can happen in books. People can say whatever
-they want, do whatever they want… It just seemed like a better life
-than being bent over a dusty old bench with fumes in your nose every
-day."
+Attic sighed.
+"I didn't 'wind up' doing anything.
+I started reading after my parents—after the fire, I mean.
+I loved it."
+He shrugged and pushed his glasses up his nose with one finger.
+"I still do.
+Every book is a whole world of its own.
+I used to think that everything anyone had ever known was in a book somewhere,
+if only I could find it.
+And anything can happen in books.
+People can say whatever they want, do whatever they want…
+It just seemed like a better life than being bent over a dusty old bench every day
+with fumes in your nose."
 
-They stopped at the edge of the market. "Well, I'd better get cleaned
-up," Still said awkwardly. "Thank you, very much."
+They stopped at the edge of the market.
+"Well, I'd better get cleaned up," Still said awkwardly.
+"Thank you, very much."
 
-Attic looked at her doubtfully. "You're not going to do anything
-foolish, are you?"
+Attic looked at her doubtfully.
+"You're not going to do anything foolish, are you?"
 
-"I wasn't planning to," Still lied brightly. The bundle of clothes
-she had thrown away the night before must be worth at least fifteen
-licorice—maybe even the twenty that Hurdle had originally asked for.
-She was sure Crest-of-the-Wave would know where to sell them, if he
-wasn't already in jail. They just *had* to still be there…
+"I wasn't planning to," Still lied brightly.
+The bundle of clothes she had thrown away the night before
+must be worth at least fifteen licorice—maybe even the twenty that Hurdle had originally asked for.
+She was sure Crest-of-the-Wave would know where to sell them,
+if he wasn't already in jail.
+They just *had* to still be there…
 
-"Anyway, I really should get cleaned up. Thanks again." Still punched
-Attic gently on the arm, then turned and hurried away.
+"Anyway, I really should get cleaned up. Thanks again."
+Still punched Attic gently on the arm, then hurried away.
 
 </section>
 
