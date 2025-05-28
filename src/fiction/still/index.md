@@ -3977,314 +3977,372 @@ The gargoyle shook his weathered old head.
 
 ## Chapter 11
 
-Still went straight to Hurdle's shop the next morning. She didn't
-stop at Attic's stall—she didn't think she could face him. Face him,
-or ignore the longing in his eyes whenever he looked at her. Not any
-more. Oh, why did life have to be so tangled? She just wanted each day
-to erase the one before.
+Still went straight to Hurdle's shop the next morning.
+She didn't stop at Attic's stall:
+she didn't think she could ignore how he looked her any more.
+Why did life have to be so tangled?
+She just wanted each day to erase the one before.
 
-Of course, Hurdle's wasn't open when she got there. "Oh… come on,
-where are you?" she muttered, looking around as if the old puppet might
-have crept up behind her. She paced back and forth, then sat down on the
-shop's steps. Her gears needed some oil, but that could wait.
+Of course, Hurdle's wasn't open when she got there.
+"Oh come on, where are you?" she muttered,
+looking around as if the old puppet might have crept up behind her.
+She paced back and forth,
+then sat down on the shop's steps.
+Her gears needed some oil, but that could wait.
 
-*Crack!* The door hit her in the back. "Ow!" she exclaimed. She jumped
-to her feet.
+*Crack!* The door hit her in the back.
+"Ow!"
+She jumped to her feet.
 
-Hurdle peered at her suspiciously from behind the door. "Eh? What? Oh,
-it's you." He opened it all the way. "Thought it might be a bill
-collector. Splintering nuisances, they are. Well, come in. I think it's
-ready."
+Hurdle peered at her suspiciously from behind the door.
+"Eh? What? Oh, it's you.
+Thought it might be a bill collector.
+Splintering nuisances, they are.
+Well, come in.
+I think it's ready."
 
-The violin lay on a soft white square of flannel on the counter. Still
-rushed over to it, then hesitated. "Oh, go ahead," Hurdle said
-gruffly. "It's fine."
+The violin lay on a soft white square of flannel on the counter.
+Still rushed over to it, then hesitated.
+"Oh, go ahead," Hurdle said gruffly.
+"It's fine."
 
-Still picked it up gingerly and turned it over. The blemish was gone.
-Her violin looked as good as new. "Thank you," she whispered. A single
-drop of oil ran down her cheek.
+Still picked it up gingerly and turned it over.
+The blemish was gone.
+"Thank you," she whispered.
+A single drop of oil ran down her cheek.
 
-"Oh, it wasn't that hard. Pretty straightforward, really." Hurdle dug
-another square of flannel out of his apron. "Here."
+"Oh, it wasn't that hard."
+Hurdle dug another square of flannel out of his apron.
+"Here."
 
-"Thanks," she sniffled. She tried to hand it back to him, but he waved
-it away.
+"Thanks," she sniffled.
+She tried to hand it back to him, but he waved it away.
 
-"Never mind. Throw it in, part of the package. Call it a bonus. Eh? You
-tell that to Attic, mind. You tell him you got a bonus out of me." The
-old puppet snorted. "That'll set him back a pace, won't it?"
+"Never mind. Throw it in, part of the package. Call it a bonus. Eh?
+You tell that to Attic. You tell him you got a bonus out of me."
+The old puppet snorted.
+"That'll set him back a pace, won't it?"
 
-Still nodded, not really listening to his grumbles. "Oh, here," she
-said suddenly, remembering the licorice in her pocket. She laid the
-pieces of candy on his counter. "I hope that's all right."
+Still nodded.
+"Here," she said,
+taking the licorice out of her pocket and laying it on his counter.
+"I hope that's all right."
 
-"Hm." Hurdle crossed his arms. "That's a fair bit more than you had
-yesterday, isn't it? Mind me asking…?"
+"Hm.
+Hurdle crossed his arms. "That's a fair bit more than you had yesterday, isn't it?
+Mind me asking…?"
 
-Still couldn't meet his eyes. "Hm," the old puppet grunted again, his
-arms still crossed, his eyes still on her. "You know, he's not half as
-smart as he thinks he is. Not about things that matter."
+Still couldn't meet his eyes.
+"Hm," the old puppet grunted again.
+"Asked around about you last night after I put your violin down in the basement to cure.
+Heard about the shows you put on."
 
-Still nodded sadly. "I know."
+"Oh, did you?"
+He wasn't going to ask her to play it, was he?
+Oh, please, not that.
 
-Hurdle scratched his elbow absent-mindedly. "Asked around about you
-last night, after I put your violin down in the basement to cure. Heard
-about the, um, the shows you put on."
+"Mm hm.
+And I think that as long as you're doing that,
+it'd be a good idea if you weren't hanging around the boy as much as you have been.
+You understand?
+He's not half as smart as he thinks he is,
+not about things that actually matter,
+and I'd hate to see him hurt."
 
-"Oh, did you?" He wasn't going to ask her to play it, was he? Oh,
-please, not that.
+Still nodded again. "Me too."
+She hugged the violin to her chest and left.
 
-"Mm hm." He sighed. "And I think—I think as long as you're doing
-that, it'd be a good idea if you weren't hanging around his stall as
-much as you have been. You understand? Like I said, he's not half as
-smart as he thinks he is, and I'd hate to see him hurt."
+Winter closed in.
+She still saw Attic in the market every day,
+but she no longer spent whole mornings at his stall devouring one book after another.
+They were always polite when they spoke to each other,
+but a gulf had opened up between them that she didn't want to cross
+and he didn't know how to.
 
-Still nodded again. "Me too." She hugged the violin to her chest,
-turned, and left.
+She saw Crest-of-the-Wave occasionally, too.
+The first time,
+the day after she got her violin back,
+he whooshed past her on his skates with a "Hey there!" that made her jump.
+The day after that he rolled up beside her at Kettle's.
 
-And so the gargoyle became Still's only friend. She still saw Attic in
-the market, almost every day, but she no longer spent whole mornings at
-his stall devouring one book after another. They were always polite when
-they spoke to each other, but a gulf had opened up between them that he
-didn't know how to cross, and that she didn't want.
+"Two," he said, tossing a handful of gumdrops onto the counter.
+He winked at her.
+"Cold day."
 
-She saw Crest-of-the-Wave occasionally, too. The first time it happened,
-the day after she got her violin back, he whooshed past her on his
-skates with a "Hey there!" that made her jump. The day after that, he
-rolled up beside her at Kettle's.
+"Yes it is."
+She put two gumdrops of her own on the counter.
+"Just the usual, thanks."
 
-"Two," he said, tossing a handful of gumdrops onto the counter. He
-winked at her. "Cold day."
+"Hey, I've got it."
+Crest-of-the-Wave reached for her gumdrops,
+but Still put her own hand on top of them first.
 
-"Yes, it is." She put two gumdrops of her own on the counter. "Just
-the usual, thanks."
-
-"Hey, I've got it." Crest-of-the-Wave reached for her gumdrops, but
-Still put her own hand on top of them first.
-
-"Thanks, but I'll take care of it." She kept her hand there until
-Crest-of-the-Wave pulled his back.
+"Thanks, but I'll take care of it."
+She kept her hand there until Crest-of-the-Wave pulled his back.
 
 "So, d'you want one or two?" Kettle asked Crest-of-the-Wave.
 
-Crest-of-the-Wave drummed his fingers on the counter. "Stuff happens
-sometimes, you know," he said to Still levelly.
+Crest-of-the-Wave drummed his fingers on the counter.
+"Stuff happens sometimes, you know," he said to Still.
 
-"I know," she replied, just as levelly. "And people do things, and
-then other people find out about them, and have to make choices."
+"I know," she replied, just as levelly.
+"And people do things,
+and then other people find out about them,
+and have to make choices."
 
-Crest-of-the-Wave scooped up his gumdrops and tossed them one by one
-into a garbage can a few feet away. He skated away without another word.
-He didn't say hello to Still any more after that, and she saw no reason
-to say it to him.
+Crest-of-the-Wave scooped up his gumdrops
+and tossed them one by one into a garbage can a few feet away,
+then skated away without another word.
+He didn't say hello to Still any more after that,
+and she saw no reason to say it to him.
 
-And so only the gargoyle was left. As winter thickened around them, he
-told Still stories about what the streets had been like years ago, when
-all the lanterns were lit and puppets on stilts swished back and forth
-waving signs for different stores. He told her about hearing cheers the
-first time puppets had gone to the moon and back, and about the awful
-day when the city had awoken to discover that Key the Cutter was gone.
+And so only the gargoyle was left.
+As winter deepened around them
+he told Still stories about what the streets had been like years ago
+when all the lanterns were lit
+and puppets on stilts swished back and forth waving signs for different stores.
+He told her about hearing cheers the first time puppets had gone to the moon and back,
+and about the awful day
+when the city had awoken to discover that Key the Cutter was gone.
 
-"Don't you ever wish you could see the rest of the world?" she asked
-the gargoyle one evening. She sat beside him on the roof, kicking her
-feet gently against the icicles that hung down from the eaves. Every
-once in a while she kicked a little too hard, and an icicle fell to the
-street with a *tink*.
+"Don't you ever wish you could see the rest of the world?"
+she asked one evening.
+She sat beside him on the roof,
+kicking her feet gently against the icicles that hung down from the eaves.
+Every once in a while she kicked a little too hard
+and an icicle fell to the street with a *tink*.
 
-The gargoyle was quiet for so long that Still thought he had fallen
-asleep. But then he rustled its stony wings and sighed. "Don't you?"
+The gargoyle was quiet for so long that Still thought he had fallen asleep.
+But then he rustled its stony wings and sighed.
+"Don't you?"
 
-"Oh, I've already seen it," she said. "I grew up far, far away, in a
-village on the edge of the desert. When I was little, I was stolen by
-lions. They sold me to pirates, and *they* put me to work in the glue
-mines. It took me *years* to escape from them."
+"Oh, I've already seen it," she said.
+"I grew up far, far away, in a village on the edge of the desert.
+When I was little I was stolen by lions.
+They sold me to pirates,
+and *they* put me to work in the glue mines.
+It took me *years* to escape from them."
 
-"Mm hm. Do you think you'll ever escape from here?" the gargoyle
-asked.
+"Mm hm. Do you think you'll ever escape from here?"
+the gargoyle asked.
 
-Still opened her mouth, then closed it. "I don't know," she finally
-replied. "I wouldn't know where to start."
+Still opened her mouth, then closed it.
+"I don't know," she finally replied.
+"I wouldn't know where to start."
 
 "Well, what would Key have done?" the gargoyle said.
+"Key the Great,
+Key the Cutter,
+Key who was the first puppet to cut her strings and walk where she wanted to."
 
-"I don't know." Still repeated. She laughed. "If she'd wanted to
-escape from somewhere, she would probably just have picked the lock with
-a feather, un-knit her sweater, and climbed down the yarn."
+"I don't know," Still said.
+"Anyway, that was *ages* ago.
+She must be sawdust by now!"
 
-"I mean the real Key," the gargoyle said. "Key the Great, Key the
-Cutter, Key who was the first puppet to cut her strings and walk where
-she wanted to."
+The gargoyle shook his head.
+"I'm not so sure. I think that as long as there are puppets who need to escape,
+there'll be a Key to help them cut their strings."
 
-"I don't know," Still said, exasperated. "Anyway, that was *ages*
-ago. She must be sawdust by now!"
-
-The gargoyle shook his head. "I'm not so sure. I think that as long as
-there are puppets who need to escape, there'll be a Key to help them
-cut their strings."
-
-"But I don't have any strings," Still protested. She waved her arms.
+"But I don't have any strings," Still protested.
+She waved her arms.
 "See?"
 
-"Sometimes the strings are inside," the gargoyle said. He reached out
-suddenly to touch the dent on Still's face. She jerked her head back.
-"See?" the gargoyle said. "*Something* pulled you away. And something
-keeps you from playing your violin, even though you look at it every
-morning the way a squeaky puppet looks at oil."
+"Sometimes the strings are inside," the gargoyle said.
+He reached out to touch the dent on Still's face.
+She jerked her head back.
+
+"See?" the gargoyle said.
+"*Something* pulled you away.
+And something keeps you from playing your violin,
+even though you look at it every morning the way a squeaky puppet looks at oil."
 
 "But—but I wouldn't know where to start," Still said once again.
 "And I don't even think I want to."
 
 They spoke no more that night.
 
-The next morning, as Still trudged up to the market, she decided that
-she would get the gargoyle a scarf as a present. The midwinter eclipse
-was coming up, when families gave each other gifts (had she ever done
-that?). *He probably hasn't had a present in years,* she thought.
-*Maybe never.* She had saved half-a-dozen gumdrops over the course of a
-week. Another couple of gumdrops and some sugar sprinkles in change, and
-she'd be able to get him a scarf long enough to cover his knees.
+The next morning,
+as Still trudged up to the market,
+she decided that she would get the gargoyle a scarf as a present.
+The midwinter eclipse was coming up,
+when families gave each other gifts.
+(Had she ever done that? She pushed the question away.)
 
-But gumdrops were harder to come by in the market now that winter had
-arrived. If she wanted to earn that kind of candy—for herself, or for
-the gargoyle's present—she would have to start playing higher up in
-the City. Up where the puppets' shoes matched and their stitching was
-done with silk thread. Up where—where— She shook her head so hard
-that the thought fell out and rolled away. She hadn't seen a single
-paper boat since she got her violin back from Hurdle's. The trick, she
-had finally realized, was not just to not think about certain things,
-but to not think about not thinking about them, either.
+*He probably hasn't had a present in years,* she thought.
+*Maybe never.*
+She had saved half-a-dozen gumdrops over the course of a week.
+A couple more and she'd be able to get him a scarf long enough to cover his knees.
 
-It took Still more than an hour to make her way uphill into a nice part
-of the city. Her feet were tired by the time she found a tidy little
-street full of tidy little shops. The signs were all freshly painted in
-sensible colors, and puppets in clean new clothes were getting on and
-off bright red streetcars on the corner.
+But gumdrops were harder to come by in the market now that winter had arrived.
+If she wanted to earn that kind of candy
+she would have to start playing higher up in the city.
+Up where the puppets' shoes matched and their stitching was done with silk thread.
+Up where—where—
+She shook her head so hard that the thought fell out and rolled away.
+She hadn't seen a single paper boat since she got her violin back from Hurdle's.
+The trick,
+she had finally realized,
+was not just to not think about certain things,
+but to not think about not thinking about them,
+either.
 
-She found a newspaper on a bench that was so fresh, the ink still
-smelled faintly of cinnamon. She folded the comics page into a neat
-little box and set it at her feet, then bent her head and began to play.
-The fingers of her left hand fluttered in the air, sliding up and down
-on strings that weren't there. Her right arm was as graceful as the
-neck of a swan. Even though she wasn't making a sound, she was playing
-as beautifully as she ever had.
+It took Still an hour to make her way uphill into a nice part of the city.
+Her feet were tired by the time she found a tidy little street full of tidy little shops.
+The signs were all freshly painted in sensible colors,
+and puppets in clean new clothes were getting on and off bright red streetcars on the corner.
 
-Which is why she was so surprised when an old puppet with frizzy white
-hair sniffed, "I *never!* Out here in the street like that!" he said
-to the puppet walking beside him.
+She found a newspaper that was so fresh the ink still smelled faintly of cinnamon.
+Folding the comics page into a neat little box and setting it at her feet,
+she bent her head and began to play.
+The fingers of her left hand fluttered in the air,
+sliding up and down on strings that weren't there.
+Her right arm was as graceful as the neck of a swan.
+Even though she wasn't making a sound,
+she was playing as beautifully as she ever had.
 
-"It's shameful!" the puppet beside him agreed. She glared at Still.
+Which is why she was so surprised when an old puppet with frizzy white hair sniffed loudly.
+"I *never!* Out here in the street like that!"
+he said to the puppet beside him.
+
+"It's shameful!" the puppet beside him agreed.
+She glared at Still.
 The two marched away arm-in-arm.
 
-Still kept playing. Some of the other puppets passing by sniffed as
-well, but a few dropped sugar sprinkles into her box. Just before lunch
-time, a strawberry gumdrop *plonked* into the box. Still played on. As
-the shadows grew longer, the sugar sprinkles began to pile up. Finally,
-just as the shopkeepers were taking in their sandwich signs, a puppet
-wearing a turban and big black boots tossed her another gumdrop. She had
-enough to buy the gargoyle a scarf!
+Still kept playing.
+Some of the other puppets passing by sniffed as well,
+but a few dropped sugar sprinkles into her box.
+Just before noon a strawberry gumdrop *plonked* into the box.
+Still played on.
+As the shadows grew longer the sprinkles began to pile up.
+Finally,
+just as the shopkeepers were taking in their sandwich signs,
+a puppet wearing a turban and big black boots tossed her another gumdrop.
+She had enough to buy the gargoyle a scarf!
 
-Still scooped up her box and turned. And froze. And ducked into the
-doorway of the shop behind her. She pretended to study the microscopes
-and tweezers behind the window as the reflections of a handful of
-puppets went by. Most were as young as she was, but in their midst was
-an older puppet. His clothes were blue and orange, and he wore a
-polka-dot hat. He had black curls painted on his forehead, and a big
-smile painted on his face.
+Still scooped up her box and turned.
+And froze.
+And ducked into the doorway of the shop behind her.
+She pretended to study the microscopes and tweezers behind the window
+as the reflections of a handful of puppets went by.
+Most were as young as she was,
+but in their midst was an older one.
+His clothes were blue and orange,
+and he wore a polka-dot hat.
+He had black curls painted on his forehead,
+and a big smile painted on his face.
 
-The younger puppets all had instruments tucked under their arms: flutes,
-trumpets, glockenspiels, and midget tubas. Still recognized some of them
-from—from—
+The younger puppets all had instruments tucked under their arms:
+flutes, trumpets, glockenspiels, and midget tubas.
+Still recognized some of them from—from—
 
 "You're all playing quite nicely," the older puppet said warmly.
-"Especially you, Mustard." He put his hand on the puppet's shoulder
-and gave her a friendly squeeze. "I think you're just about ready for
-some special lessons."
+"Especially you, Mustard."
+He put his hand on the puppet's shoulder and gave her a friendly squeeze.
+"I think you're just about ready for some special lessons."
 
-"Thank you, Mister Leaf," the young puppet said, "But I don't know
-if my parents can— I mean—"
+"Thank you, Mister Leaf," the young puppet said,
+"But I don't know if my parents can afford— I mean—"
 
-"Don't worry about that," the older puppet said. "I'm sure we can
-find a way."
+"Don't worry about that," the older puppet said.
+"I'm sure we can find a way."
 
-The streetcar arrived with a rattle. The puppets boarded it. *Clang
-clang!* It rolled away. Still waited until she stopped shaking, then set
-off on her long walk back to the market, back to the fog.
+The streetcar arrived with a rattle.
+The puppets boarded it.
+*Clang clang!*
+It rolled away.
+Still waited until she stopped shaking,
+then set off back to the market and the fog.
 
-She was so quiet that evening that the gargoyle finally said, "Are you
-mad at me for what I said about strings?"
+She was so quiet that evening that the gargoyle finally said,
+"Are you mad at me for what I said about strings?"
 
-"What? Oh, no, I'm not mad." Still shook her head, rattling her
-thoughts around. When they came to rest, they were just as jumbled as
-they had been before. "I just heard something today…"
+"What? Oh, no, I'm not mad."
+Still shook her head, rattling her thoughts around.
+When they came to rest,
+they were just as jumbled as they had been before.
+"I just heard something today…"
 
 "Something bad?" the gargoyle asked.
 
-Still nodded. "Something worse than bad," she said. She hugged her
-legs and put her chin on her knees. "What would you do if you knew
-someone was going to do something like that?"
+Still nodded.
+"Something worse than bad," she said.
+She hugged her legs and put her chin on her knees.
+"What would you do if you knew someone was going to do something terrible?"
 
-The gargoyle shrugged his stony shoulders. "I'd whistle until the
-police came," he said. "Then I'd tell them everything I knew."
+The gargoyle shrugged his stony shoulders.
+"I'd whistle until the police came.
+Then I'd tell them everything I knew."
 
-Still raised her hand to her face. The edges of the dent in her cheek
-had worn smooth, as had the other nicks and scratches of the past few
-months. "But what if you knew that they'd put strings on you?" she
-whispered. "What if you knew they'd screw eyehooks into your elbows
-and knees, and run black silk strings through them, so that you could
-never move your own arms and legs again?"
+Still raised her hand to her face.
+The edges of the dent in her cheek had worn smooth,
+as had the other nicks and scratches of the past few months.
+"But what if you knew that they'd put strings on you?" she whispered.
+"What if you knew they'd screw eyehooks into your elbows and knees
+and run black silk strings through them so that you could never move your own arms and legs again?"
 
-"I'd do it anyway. If you let something bad happen, that's almost the
-same as doing it yourself." The gargoyle shrugged once again. "But you
-have to remember, I'm not a puppet, I'm a gargoyle. Maybe the last
-gargoyle left in Key's City. If I—"
+"I'd do it anyway.
+If you let something bad happen, that's almost the same as doing it yourself."
+The gargoyle shrugged once again.
+"But you have to remember, I'm not a puppet, I'm a gargoyle.
+Maybe the last gargoyle left in Key's City.
+If I—"
 
-"Key…" Still whispered. The whirling thoughts in her head fell into
-place, *clunk clunk clunk,* like the pieces in a jigsaw puzzle.
-"*She'd* know what to do!" She leapt to her feet. "And you said she
-was still here, didn't you? Do you know where she is?"
+"Key…" Still whispered.
+The whirling thoughts in her head fell into place like the pieces in a jigsaw puzzle.
+"*She'd* know what to do!"
+She leapt to her feet.
+"And you said she was still here, didn't you?
+Do you know where she is?"
 
-The gargoyle shook his head. "I didn't say that. And even if she were,
-I don't think she could help you."
+The gargoyle shook his head.
+"I didn't say that.
+And even if she were,
+I don't think she could help you.
+I think you have to cut your own strings this time."
 
-Still gasped. "She *is* still here, isn't she? Did she ask you not to
-tell? Is that it?"
+Still glared at him.
+"I'm so stupid.
+I thought you cared, but you just want to keep me here, don't you?
+You're afraid that if I find her I'll stay with her,
+and you'll be all alone again."
 
-"I don't think she could help you," the gargoyle repeated. "I think
-you have to cut your own strings this time."
+The gargoyle looked at her with the love and sadness of centuries in his eyes.
+"All right," he said.
+He held her violin out to her.
+"Follow this.
+Follow this, wherever it leads.
+That's all I can tell you"
 
-Still laughed angrily. "I'm so stupid. I thought you cared, but you
-just want to keep me here. That's it, isn't it? You're afraid that if
-I find her, I'll stay with her, and you'll be all alone again. That's
-why you won't tell me where she is."
+Still took the heartwood violin in her hands.
+Her thumb could feel the faint groove left by— by—
+She shook her head angrily.
+She had just managed to get all her thoughts to fit together.
+She was *not* going to shake them up again,
+not when something important needed to be done.
 
-The gargoyle looked at her with the love and sadness of centuries in his
-eyes. "All right," he said. He held her violin out to her. "Follow
-this. Follow this, wherever it leads. That's all I can tell you"
+"But how can I follow a violin?" Still asked.
+"It can't float through the air like a balloon or run like a clock.
+What am I supposed to do?"
 
-Still took the heartwood violin in her hands. Her thumb could feel the
-faint groove left by— by— She shook her head angrily. She had just
-managed to get all her thoughts to fit together—she was *not* going to
-shake them up again, not when something so important needed to be done.
+The gargoyle bowed his head but said nothing.
+Still begged and wheedled,
+she blustered and raged,
+but the gargoyle wouldn't say another word.
 
-"But how can I follow a violin?" Still asked. "It can't float
-through the air like a balloon, or run like a clock. What am I supposed
-to do?"
+"Fine!" Still finally blurted.
+"Be like that!
+I thought you were my friend,
+but you're really just a horrible old piece of stone.
+You don't care at all!"
+She slithered down the drainpipe with her violin in her arms.
+Little drops of oil welled up in her eyes as she ran through the street,
+heedless of where she was going.
 
-The gargoyle bowed his head, but said nothing. Still begged and
-wheedled, she blustered and raged, but the gargoyle wouldn't say
-another word.
-
-"Fine!" Still finally blurted. "Be like that! I thought you were my
-friend, but you're really just a horrible old piece of stone. You
-don't care at all!" She slithered down the drainpipe with her violin
-in her arms. Little drops of oil welled up in her eyes as she ran
-through the street, heedless of where she was going.
-
-She ran and ran past grimy walls and burned-out streetlights. Suddenly
-she slipped, skidded, and fell on a dirty patch of refrozen snow. Her
-violin flew from her hand and tumbled end over end through the air.
-"Noooo!" Still shrieked as it vanished over a low brick wall. She
-heard a faint *kersplash*.
+She ran and ran past grimy walls and burned-out streetlights.
+Suddenly she slipped, skidded, and fell on a dirty patch of refrozen snow.
+Her violin flew from her hand and tumbled end over end through the air.
+"Noooo!" Still shrieked as it vanished over a low brick wall.
+She heard a faint *kersplash*.
 
 </section>
 
