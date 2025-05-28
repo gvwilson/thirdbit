@@ -3245,8 +3245,7 @@ and even through the fog the sun seemed far too bright.
 She blinked again, rubbing her eyes.
 When she took her hand away from her face
 it was smeared with the remains of the previous night's paint.
-"Wonderful," she muttered.
-She didn't want to think about what she looked like.
+"Wonderful."
 
 Still twisted around to put her back against the wall.
 "Good morning," she yawned.
@@ -3256,7 +3255,7 @@ The gargoyle nodded.
 staring out over the rooftops across the alley.
 
 Still shook her head.
-"What a night. I'm going to need some turpentine, aren't it?"
+"What a night. I'm going to need some turpentine, aren't I?"
 She yawned again.
 "Some turpentine, and a nice, hot cup of oil,
 and then maybe I'll just sleep for the rest of the day."
@@ -3277,8 +3276,8 @@ like paper that had been soaked and dried.
 "What happened?" she whispered.
 "What did you do?"
 
-"I didn't do anything," the gargoyle replied calmly.
-"When you didn't come back last night, I started wondering if you had left.
+"I didn't do anything.
+When you didn't come back last night, I started wondering if you had left.
 But I knew you wouldn't go without your violin,
 so I undid the blanket to see whether you had put a brick in its place."
 He turned his head slowly.
@@ -3356,10 +3355,9 @@ Her sly grin had turned bitter and cynical.
 And the little lines at the corners of her eyes didn't seem knowing any more,
 just worn.
 
-She splashed handfuls of bitterly cold water on her face.
+Still splashed handfuls of bitterly cold water on her face.
 She scrubbed and scrubbed,
 ignoring the icy trickles that ran down her neck and under her collar.
-Suddenly she snorted.
 It was as bad as camping.
 No, it was *worse*,
 because at least she got a hot breakfast when she was camping.
@@ -3375,7 +3373,7 @@ She grabbed a loose piece of stone.
 "Get *away* from me!" she shouted,
 throwing the stone as hard as she could.
 *Splash!*
-The little boat disappeared without a trace.
+The little boat sunk without a trace.
 
 Still shivered, hugging her violin to her chest.
 What had she been doing?
@@ -3445,7 +3443,8 @@ kicking the trap door closed behind him.
 rubbing his forehead.
 "How are you?"
 
-The old puppet set the black tin down on the workbench that stood against the far wall.
+The old puppet set the black tin down
+on the battered workbench that stood against the far wall.
 "Of course, pulley would need a hook up there."
 He jerked a thumb up at the ceiling without looking.
 "Need a ladder to get it in, and where am I going to find a ladder?
@@ -3513,7 +3512,7 @@ Still swallowed.
 Hurdle glanced at her, then raised an eyebrow at Attic.
 
 "What? No!"
-Attic exclaimed, scandalized.
+Attic exclaimed.
 "I didn't— I wouldn't—"
 
 "Didn't think so," Hurdle grunted.
@@ -3701,219 +3700,276 @@ Still punched Attic gently on the arm, then hurried away.
 
 ## Chapter 10
 
-Still stole a small scrap of cloth from the throw-away pile behind a
-hat mender's stall, then walked around to the front and asked to borrow
-a mirror. The hat mender frowned at her skeptically. "I'll bring it
-right back," Still promised. "Please?" He shrugged and bent over his
-stitching again.
+Still stole a scrap of cloth from the throw-away pile behind a hat mender's stall,
+then walked around to the front and asked to borrow a mirror.
+The hat mender frowned at her.
+"I'll bring it right back," Still promised.
+"Please?"
+He shrugged and bent over his stitching again.
 
-"Right back" turned out to be two hours. That was how long it took
-Still to get the last smudges of paint off. By the time she was done,
-her face itched, and her head was throbbing. She really, really didn't
-feel like standing in the cold pretending to play, but her gears were
-desperate for oil. She handed the mirror back to the hat mender with her
-sweetest "thank you", then walked through the market to her usual
-spot.
+"Right back" turned out to be the two hours it took Still to get the last smudges of paint off.
+By the time she was done her face itched and her head was throbbing.
+She really, really didn't feel like standing in the cold pretending to play,
+but her gears were desperate for oil.
+She handed the mirror back to the hat mender with her sweetest "thank you",
+then walked through the market to her usual spot.
 
-Fold, fold, crease… fold, fold, crease… There. She set the little
-paper box down on the pavement, stretched, and shook her head in a vain
-attempt to clear it. She raised her arms just a bit too high, then
-relaxed and let them settle into position. Left arm slightly crooked,
-right arm bent at the elbow across her body… Slowly, softly, almost
-unable to contain the loss welling up inside her, she began to play.
+Fold, fold, crease… fold, fold, crease… There.
+She set the little paper box down on the pavement,
+stretched,
+and shook her head in a vain attempt to clear it.
+She raised her arms,
+then relaxed and let them settle into position.
+Left arm slightly crooked,
+right arm bent at the elbow across her body…
+Slowly, softly, almost unable to contain the loss welling up inside her, she began to play.
 
-But something wasn't right. She couldn't hear the silence. Judging
-from the way the puppets hurried past her, no-one else could either. She
-kept it up a few moments longer, then let her arms fall to her sides. It
-just wasn't right. She picked up her little paper box and scrunched it
-into a ball. Her head *really* hurt now.
+But something wasn't right.
+She couldn't hear the silence.
+Judging from the way the puppets hurried past her, no-one else could either.
+She kept it up a few moments longer,
+then let her arms fall to her sides,
+picked up her little paper box,
+and scrunched it into a ball.
+Her head *really* hurt now.
 
 "No free ride," Wing said firmly a few minutes later.
 
-"I know, I know. But I promise I'll pay you tomorrow. Please?" Still
-felt queasy with hunger and shame.
+"I know, I know. But I promise I'll pay you tomorrow. Please?"
+Still felt queasy with hunger and shame.
 
 Wing glared at her, arms crossed, then looked down at his forearm.
-"What you think?" he asked the dragon etched there. The little carving
-seemed to nod.
+"What you think?" he asked the dragon etched there.
+The little carving seemed to nod.
 
-"All right then, one cup." Wing poured the bubbling oil into a waxed
-paper cup and handed it over. "You drink slowly."
+"All right then, one cup."
+Wing poured the bubbling oil into a waxed paper cup and handed it over.
+"You drink slowly."
 
-Still nodded gratefully, but his warning was too late. She had already
-burned her lips.
+Still nodded gratefully, but his warning was too late.
+She had already burned her lips.
 
-It rained all morning. Still huddled in a doorway, dozing, until the
-bells rang noon. There was no point putting it off any longer.
+It rained all morning.
+Still huddled in a doorway, dozing until the bells rang noon.
+There was no point putting it off any longer.
 
-Finding the warehouse was easier than she had expected. It was just
-another tired old building by daylight, with rain-streaked bricks and
-grimy windows. Still was afraid there would be police on guard around
-it, after the robbery, but the only puppets she saw were wheeling
-trolleys to and fro, or leaning against lampposts drinking cold oil from
-dirty bottles.
+Finding the warehouse was easier than she had expected.
+In the daylight it was just another tired old building
+with rain-streaked bricks and grimy windows.
+Still was afraid there would be police guarding it after the robbery,
+but the only puppets she saw were wheeling trolleys to and fro
+or leaning against lampposts drinking cold oil from dirty bottles.
 
-She walked past the warehouse and around the block. She willed her legs
-to go slowly. *You're just walking,* she told herself sternly. *You're
-just another puppet on her way to somewhere.*
+She walked past the warehouse and around the block,
+willing her legs to go slowly.
+*You're just walking,* she told herself sternly.
+*You're just another nobody on her way to nowhere.*
 
-No-one pounced on her in the alley with a triumphant "Ah ha!" A
-glue-smeared net didn't drop on her, and there were no steel traps
-cunningly hidden in the trash. She glanced around one more time, then
-pulled herself up and peeked in through the window.
+No-one pounced on her in the alley with a triumphant "Ah ha!"
+A glue-smeared net didn't drop on her,
+and there were no steel traps cunningly hidden in the trash.
+She glanced around one more time,
+then pulled herself up and peeked in through the window.
 
-Her bundle lay an arm's length below her. She pulled herself up further
-and reached down. Just more than an arm's length, then. She wriggled
-forward, reached down, and—
+Her bundle lay an arm's length below her.
+She pulled herself up further and stretched,
+but the bundle was just out of reach.
+She wriggled forward a little further and—
 
-"Whoops!" she yelped. She landed head first, but the bundle broke her
-fall. Feeling foolish, she rolled over and stood up.
+"Whoops!"
+She landed on the bundle in a clumsy heap.
+Feeling foolish, she rolled over and stood up.
 
-"Tee hee." Still froze. Little feet scampered across the floor on the
-other side of the room. She didn't wait to hear any more. The bundle
-went through the window, and Still squirmed through after it.
+"Tee hee."
+Still froze.
+Little feet scampered across the floor on the other side of the room.
+She didn't wait to hear any more,
+but tossed the bundle through the window and squirmed through after it.
 
-Two minutes later, she was walking down the street with the bundle over
-her shoulder. Nobody paid her any attention, but every step felt heavy.
-*You're a thief,* a little voice in her head said insistently. *You
-stole these.*
+Two minutes later,
+she was walking down the street with the bundle over her shoulder.
+Nobody paid her any attention, but every step felt heavy.
+*You're a thief,* a little voice in her head said insistently.
+*You stole these.*
 
-"But I have to," she said aloud. "I have to get my violin fixed."
-And then she had to decide whether to tell the gargoyle, and what to do
-about Crest-of-the-Wave, and Attic, and winter was coming, and… She
-trudged through the thickening fog to the market.
+"But I have to," she said aloud.
+"I have to get my violin fixed."
+And then she had to decide whether to tell the gargoyle,
+and what to do about Crest-of-the-Wave,
+and Attic,
+and winter was coming,
+and…
+She trudged through the thickening fog to the market.
 
-She had thirteen pieces of licorice by nightfall, and a pocketful of
-gumdrops that might together be worth another piece. Some of the stall
-keepers had simply shaken their heads or said, "No, and please don't
-ask again," when she opened up her bundle. Others had given her a look,
-then picked one or two pieces out of her pile and haggled down the
-price. Each time, Still told herself that the *next* time, she would
-haggle back, but each time, she was too ashamed.
+She had thirteen pieces of licorice by nightfall,
+and a pocketful of gumdrops that might together be worth another piece.
+Some of the stall keepers had simply shaken their heads or said,
+"No, and please don't ask again," when she opened up her bundle.
+Others had given her a look,
+then picked one or two pieces out of her pile and haggled down the price.
+Each time it happened Still told herself that the *next* time she would haggle back,
+but each time,
+she was too ashamed.
 
-The glove mender was her last stop. "Not bad, not bad," she allowed,
-turning one petal-covered glove this way and that. "Don't suppose you
-could come by a few more pairs?"
+The glove mender was her last stop.
+"Not bad, not bad,"
+she allowed, turning one petal-covered glove this way and that.
+"Don't suppose you could come by a few more pairs?"
 
 "I don't think so," Still said weakly.
 
-"Mm." The glove mender tucked the gloves under her counter and glanced
-around. "Well, at least you had better luck than Crest. I hear he went
-home empty-handed last night."
+"Mm."
+The glove mender tucked the gloves under her counter and glanced around.
+"Well, at least you had better luck than Crest.
+I hear he went home empty-handed last night."
 
-Still's clockwork went *sproing*. "Have you seen him today?" she
-asked in a rush. "Is he all right?"
+Still's clockwork went *sproing*.
+"Have you seen him today?
+Is he all right?"
 
-The glove mender's eyebrows went up and down, *click clack*. "Not as
-such," she said off-handedly. "Did hear he'd promised Swim some
-merchandise. Not a puppet you want to disappoint, is Swim. Imagine your
-friend will be off trying to get some candy together to make it right."
+The glove mender's eyebrows went up and down, *click clack*.
+"Not as such," she said off-handedly.
+"Did hear he'd promised Swim some merchandise.
+Not a puppet you want to disappoint, is Swim.
+Imagine your friend will be off trying to get some candy together to make it right."
 She pushed half a licorice whip across the counter.
 
-Still pocketed it and hurried away. Swim! You didn't have to be in the
-market for long to learn that name. His joints were rusty, and a couple
-of his fingers were missing, but he was as tough and as mean as a puppet
-could be. Some of the roller skaters said that even the brooms were
-afraid of him. And some of the stories they told: "He plays with
-matches. And his fingers? They weren't broken off—they *burned* off.
-He burned them off himself!" If Crest-of-the-Wave had promised
-something to Swim, and couldn't deliver… Still shuddered. Her day
-was getting worse by the minute.
+Still pocketed it and hurried away.
+Swim!
+You didn't have to be in the market for long to learn that name.
+His joints were rusty and a couple of his fingers were missing,
+but he was as tough and as mean as a puppet could be.
+Some of the roller skaters said that even the brooms were afraid of him.
+And some of the stories they told:
+"He plays with matches.
+And his fingers?
+They weren't broken off—he burned them off himself!"
+If Crest-of-the-Wave had promised something to Swim and couldn't deliver…
+Still felt sick at the thought.
 
-The evening bells rang through the fog. The stall keepers began to take
-down their awnings and close their shutters. Still headed for the dry
-fountain, hoping that Crest-of-the-Wave would be there.
+The evening bells rang through the fog.
+The stall keepers began to take down their awnings and close their shutters.
+Still headed for the dry fountain,
+hoping that Crest-of-the-Wave would be there.
 
-He wasn't, but another roller skater was. He was sitting on a fire
-hydrant, tightening his laces. "Excuse me," Still said hesitantly.
-"I'm looking for Crest-of-the-Wave. Have you seen him? I mean,
-today?"
+He wasn't,
+but another roller skater was.
+He was sitting on a fire hydrant,
+tightening his laces.
+"Excuse me," Still said hesitantly.
+"I'm looking for Crest-of-the-Wave.
+Have you seen him today?"
 
-The roller skater glanced up at her. "Maybe," he grunted, pulling one
-lace tight. "Why do you ask?"
+The roller skater glanced up at her.
+"Maybe," he grunted, pulling a lace tight.
+"Why do you ask?"
 
 "I—I just need to talk to him."
 
-The roller skater glanced up again, his laces still taut across his
-fingers. He looked Still up and down like a carpenter eyeing a fresh
-plank. "Huh. Well, I don't think he'd want to be interrupted right
-now. He's, uh, working." He tugged his laces again, then crossed them
-over to start the knot.
+The roller skater looked Still up and down like a carpenter eyeing a fresh plank.
+"Huh.
+Well, I don't think he'd want to be interrupted right now.
+He's, uh, working."
+He tugged his laces again,
+then crossed them over to start the knot.
 
-"You don't understand," Still pleaded. "I have some candy for him."
+"You don't understand," Still pleaded.
+"I have some candy for him."
 
-The roller skater stared at Still in disbelief. "Really?"
+The roller skater stared at Still in disbelief.
+"Really?"
 
 "Yes, really," Still said defensively.
 
-The roller skater shook his head. "Well, I'll be… Always wondered
-why you kept hanging around." Suddenly he laughed. "That Crest…"
-He scrambled to his feet. "He's in the old bandstand. You might have
-to wait in line, though. I think he's already got a couple of
-customers."
+The roller skater shook his head.
+"Well, I'll be… Always wondered why you kept hanging around."
+He scrambled to his feet.
+"He's in the bandstand.
+You might have to wait in line, though.
+I think he's already got a couple of customers."
 
-"Thank you," Still said, already hurrying away. *Customers?* she
-wondered. *What kind of customers? Who on earth would come to
-Crest-of-the-Wave to get bad news?*
+"Thank you," Still said, already hurrying away.
+*Customers?* she wondered.
+*How many people can possibly have bad news to deliver?*
 
-The old bandstand was four blocks from the market. As Still approached
-it, she heard a strange sound. There it was again—something was
-squawking up ahead. She couldn't imagine what it was, but it sounded
-awful. She tiptoed the last half block and pressed herself against the
-side of the bandstand shell, just in time to hear a petulant voice say,
+The old bandstand was four blocks from the market.
+As Still approached it,
+she heard a strange sound.
+There it was again—something was squawking up ahead.
+She couldn't imagine what it was,
+but it sounded awful.
+She tiptoed the last half block and pressed herself against the side of the bandstand shell,
+just in time to hear a petulant voice say,
 "Come on, it's my turn now. It's my turn, I said!"
 
-"Oh, don't rush me, Tablecloth, you'll spoil it." The second speaker
-giggled. Still heard another honk.
+"Oh, don't rush me, Tablecloth, you'll spoil it."
+The second speaker giggled.
+Still heard another honk.
 
-"Keep it down, you two. Brooms hear us, we're all in it." That was
-Crest-of-the-Wave. His voice was as dull as lead.
+"Keep it down, you two. Brooms hear us, we're all in it."
+That was Crest-of-the-Wave.
+His voice was as dull as lead.
 
-She closed her eyes for a second, afraid of what she was about to see.
-*I could just go back to the roof,* she thought tiredly. She shook her
-head. She knew she was going to look. There was no point delaying. She
-peeked around the edge of the bandstand.
+She closed her eyes,
+suddenly afraid of what she was about to see.
+*I could just go back to the roof,* she thought tiredly.
+She shook her head.
+There was no point delaying:
+she knew she was going to look.
+She peeked around the edge of the bandstand.
 
-Crest-of-the-Wave was sitting on the conductor's podium with his back
-to her. Two older puppets stood in front of him. Both wore expensive,
-downtown, bought-and-paid-for clothes. And one of them, the one on the
-left, was holding a battered green-and-gold saxophone.
+Crest-of-the-Wave was sitting on the conductor's podium with his back to her.
+Two older puppets stood in front of him.
+Both wore expensive, downtown, bought-and-paid-for clothes,
+and one of them was holding a battered green-and-gold saxophone.
 
 The cup of oil Still had forced down at lunch welled up in her throat.
-The colors of the saxophone matched the colors in Crest-of-the-Wave's
-jacket perfectly. The puppet holding it squawked out a few more notes,
-then handed it to his friend. She held it awkwardly, suddenly unsure of
-what to do.
+The colors of the saxophone matched the colors in Crest-of-the-Wave's jacket perfectly.
+The puppet holding it squawked out a few more notes,
+then handed it to his friend,
+who held it awkwardly,
+suddenly unsure of what to do.
 
-"Go on," the first puppet urged her. "It's ever so much fun."
+"Go on," the first puppet urged her.
+"It's ever so much fun."
 
-"Just play quickly," Crest-of-the-Wave grumbled. He slipped down off
-the podium. "Time's almost up."
+"Just do it quickly," Crest-of-the-Wave grumbled.
+He slipped down off the podium.
+"Time's almost up."
 
-"Here," the first puppet said contemptuously. He tossed
-Crest-of-the-Wave a fat purple gumdrop. "Now be quiet."
-Crest-of-the-Wave caught the candy in mid-air, then leaned back against
-the podium.
+"Here," the first puppet said contemptuously,
+tossing Crest-of-the-Wave a purple gumdrop.
+Crest-of-the-Wave caught the candy in mid-air,
+then leaned back against the podium.
 
-"Oh, Crest," Still whispered. The puppet holding the saxophone brought
-it up to her lips and blew a note. *Honk.*
+"Oh, Crest," Still whispered.
+The puppet holding the saxophone brought it up to her lips and blew a note.
+*Honk.*
 
-"Oh! It tickles!" she laughed. Her eyes glinted. Still squeezed her
-eyes shut. She clutched her head in her hands. This was how
-Crest-of-the-Wave got his candy. He— he— She turned and ran.
+"Oh! It tickles!" she laughed.
+Her eyes glinted.
+Still squeezed her eyes shut.
+She clutched her head in her hands.
+This was how Crest-of-the-Wave got his candy.
+He— he— She turned and ran.
 
-She didn't stop running until she got to the drainpipe. Part of her
-wanted there to be glass rats waiting for her, or the faceless old
-puppet, or something. Something she could throw stones at, something she
-could hit—something she could hate. She climbed the drainpipe to the
-roof, ready to splinter her fists against the gargoyle.
+She didn't stop running until she got to the drainpipe.
+Part of her wanted there to be glass rats waiting for her,
+or the faceless old puppet,
+or *something*.
+Something she could throw stones at,
+something she could hit—something she could hate.
+She climbed the drainpipe to the roof,
+ready to splinter her fists against the gargoyle.
 
-As soon as he looked at her, though, her anger blew away like a puff of
-fog in a breeze. "How could he?" she sobbed. "How could he *do*
-that?"
+As soon as he looked at her,
+though,
+her anger blew away like a puff of fog in a breeze.
+"How could he?" she sobbed.
+"How could he *do* that?"
 
-The gargoyle shook his weathered old head. "How could anyone do
-anything?" he asked softly in return.
+The gargoyle shook his weathered old head.
+"How could anyone do anything?" he asked softly in return.
 
 </section>
 
