@@ -4350,209 +4350,251 @@ She heard a faint *kersplash*.
 
 ## Chapter 12
 
-Still scrambled to her feet. The wall was only a little taller than
-she was. She grabbed the top and pulled herself up onto it.
+Still scrambled to her feet and pulled herself up onto the wall.
+Two stories below,
+her violin bobbed gently up and down in the cold, dark water of the canal.
+Even as Still watched,
+the current began to sweep it away.
 
-Two stories below her, her violin bobbed gently up and down in the cold,
-dark water of the canal. Even as Still watched, the current began to
-sweep it away.
-
-Still gulped. She *could* jump. After all, she *was* made of wood—she
-would float too. But how would she get back up? There were no ladders on
-the side of the canal, no docks or stairways that she could see. And it
-was getting dark…
-
-She pulled her feet beneath her, then stood up shakily. The top of the
-wall was only half as wide as a sidewalk, and splashed here and there
-with treacherous patches of ice. She walked as quickly as she could,
+Still gulped.
+She would float if she jumped in—after all, she was made of wood too.
+But how would she get back up?
+She pulled her feet beneath her, then stood up shakily.
+The top of the wall was only half as wide as a sidewalk,
+and made treacherous here and there by patches of ice.
+She walked as quickly as she could,
 glancing down every few moments to keep her violin in sight.
 
-She was trying so hard not to lose sight of it, and not to slip on the
-ice, that she was almost on top of the stairway before she noticed it.
-It was so narrow that she had to turn sideways and keep her hands on the
-wall as she clattered down it.
+She was trying so hard not to lose sight of it,
+and not to slip,
+that she was almost on top of the stairway before she noticed it.
+It was so narrow that she had to turn sideways and keep her hands on the wall
+as she clattered down it.
 
-The steps led to a narrow footpath running along the canal's edge.
-There was ice here too, and frozen slime, and some of the stones were
-loose. And it was dark even darker here than it had been up on the
-street—so dark that she wondered if the tiny patch of stillness in the
-middle of the canal was really her violin, or just her imagination.
+The steps led to a footpath running along the canal's edge.
+There was ice here too, and frozen slime, and some of the stones were loose.
+And it was dark even darker here than it had been up on the street,
+so dark that she wondered if the tiny patch of stillness in the middle of the canal
+was really her violin or just her imagination.
 
-Still heard a echoing, gurgling sound up ahead. *Now what?* she
-wondered. The answer turned out to be a tunnel, a round-roofed tunnel
-big enough to swallow a coal barge. Its mouth was covered with a heavy
-iron grill. "Oh, no," Still moaned as the current swept her violin
-between its bars.
+Still heard an echoing, gurgling sound up ahead.
+*Now what?* she wondered,
+forcing panic back down into her chest.
+The answer turned out to be a round-roofed tunnel big enough to swallow a coal barge.
+Its mouth was covered with a heavy iron grill.
+"Oh, no," Still moaned as the current swept her violin between its bars.
 
-She ran the last few steps, heedless of the ice. The bars were too close
-together—she could reach through, but couldn't squeeze past them. And
-her violin was disappearing into the darkness!
+She ran the last few steps, heedless of the ice.
+The bars were too close together—she could reach through, but couldn't squeeze past them.
+There wasn't a gate.
+There wasn't any sign of a door or an alarm bell for her to ring.
+There was just a pale strip of sky above her,
+the blank walls of the canal,
+and the broken stones of the narrow path beneath her feet.
 
-Still looked around wildly. There wasn't a gate. There wasn't an alarm
-bell for her to ring, or any sign of a secret door. There was just a
-pale strip of sky above her, the blank walls of the canal, and the
-broken stones of the narrow path beneath her feet.
+Still felt the violin tug at her heart as it floated further and further away.
+If she lost it,
+she would lose everything that mattered.
+She bent down and picked up a loose paving stone,
+staggered to the edge of the canal,
+and jumped in.
 
-Still felt the violin tug at her heart as it floated further and further
-away. If she lost it, she would lose everything, everything that
-mattered. She bent down and picked up a loose paving stone, staggered to
-the edge of the canal, and jumped in.
+Without the stone, she would have bobbed back up like a cork.
+With it arms, she sank deeper and deeper into the cold, dark water.
+She squeezed her eyes shut so tightly that
+bright patterns of light swirled on the backs of her eyelids.
+The oil in her joints felt like it was freezing solid.
+She could end like this, she realized.
+She could be snagged on some thrown-away piece of machinery under the water
+and trapped down in the darkness until her clockwork rusted solid.
+No-one would ever find her.
+No-one would ever know.
 
-Without the stone, she would have bobbed back up like a cork. With it in
-her arms, she sank deeper and deeper into the cold, dark, dirty water.
-She squeezed her eyes shut so tightly that bright patterns of light
-swirled on the backs of her eyelids. The oil in her joints felt like it
-was freezing solid. She could end like this, she realized. She could be
-snagged on some thrown-away piece of machinery under the water, and
-trapped down in the darkness until her clockwork rusted solid. No-one
-would ever find her. No-one would ever know.
+Still hung on just a moment longer than she could bear,
+then let go of the stone.
+*Whoosh!*
+She shot up through the water like a clown fired out of a circus cannon.
 
-Still hung on just a moment longer than she could bear, then let go of
-the stone. *Whoosh!* She shot up through the water like a clown fired
-out of a circus cannon.
+"Pfaaah!" she spluttered as her head broke through the surface.
+She looked around wildly.
+There was the iron grill with the sky on the other side of it.
+She'd done it!
+She was in the tunnel.
 
-"Pfaaah!" she spluttered as her head broke through the surface. She
-looked around wildly. There was the iron grill—and there was the sky,
-on the other side of it! She'd done it! The current had swept her
-beneath the grill! She was in the tunnel.
+But now that same current was carrying her deeper beneath the city.
+Faint glowing patches of fungus began to appear on the roof.
+They looked like moonlit clouds, silver and misshapen.
+Still paddled forward until she spotted a side tunnel leading away from the one she was in.
+She hesitated.
+She couldn't see her violin any longer.
+There was no way to tell where the current had taken it.
 
-But now that same current was carrying deeper and deeper beneath the
-city. Faint glowing patches of fungus began to appear on the roof of the
-tunnel. They looked like moonlit clouds, silver and misshapen. Still
-paddled forward, but suddenly spotted a side tunnel leading away from
-the one she was in. She stopped and let herself float again. She
-couldn't see her violin any longer. There was no way to tell where the
-current had taken it.
+"Which way?" she fretted. "Which way should I go?"
 
-"Oh, what should I do?" she fretted. "What should I do?"
+As if in answer, something giggled softly behind her.
+She whirled around.
+"Who's there?"
+No-one answered.
 
-As if in answer, someone—or something—giggled softly behind her. She
-whirled around. "Who's there?" she called out. No-one answered.
+"Hello?" she said loudly.
+"Can you help me? Please?"
 
-"Hello?" she said loudly. "Can you help me? Please?"
+"Tee hee, tee hee."
+The giggles seemed to come from all around her.
+"She's lost… she's lost… tee hee…"
+Still whirled around again in the water, peering into the darkness.
+The fungus on the wall rippled slightly.
+Tiny feet scampered across stone.
 
-"Tee hee, tee hee." The giggles seemed to come from all around her.
-"She's lost… she's lost… tee hee…" Still whirled around
-again in the water, peering into the darkness. A patch of fungus on the
-wall rippled slightly. Tiny feet scampered across stone.
-
-Glass rats! Glass rats, with diamond teeth and sharp little appetites.
-Another patch of fungus rippled, then another. There must be dozens of
-them!
+Glass rats!
+Glass rats, with diamond teeth and sharp little appetites.
+Another patch of fungus rippled, then another.
+There must be dozens of them!
 
 "What do you want?" she cried out.
 
-"Why, oil, of course," one rat squeaked. "Slippery puppet oil, and
-crunchy puppet wood." The other rats giggled, "Tee hee, tee hee."
+"Why, oil, of course," one rat squeaked.
+"Slippery puppet oil, and crunchy puppet wood."
+The other rats giggled, "Tee hee, tee hee."
 
 "I'm afraid I d-d-don't have any w-w-wood or oil to g-g-give you,"
 Still said, her teeth chattering with cold and fear.
 
 "Well, if you won't *give* it to us, we'll just have to *take* it,"
-the little ratty voice squeaked.
+the ratty little voice squeaked.
 
 "But what if I won't let you?" Still asked.
 
-"Let us?" the rat squeaked. "Tee hee, tee hee! You don't need to let
-us. It's already ours! Everything that comes down here without a good
-reason is ours."
+"Let us?" the rat squeaked.
+"Tee hee!
+You don't need to let us.
+It's already ours!
+Everything that comes down here without a good reason is ours."
 
-"But I *have* a good reason!" Still said. "A very good reason!"
+"But I *have* a good reason!" Still said.
+"A very good reason!"
 
-The giggling stopped. "And what reason is that?" the rat squeaked.
+The giggling stopped.
+"And what might that be?" the rat squeaked.
 
-"I'm looking for something," Still said. "Something I lost.
+"I'm looking for something," Still said.
+"Something I lost.
 Something very important."
 
-"And what would that be?" the rat asked suspiciously.
+"And what might that be?"
+the rat repeated suspiciously.
 
-Still hesitated. If she told them about her violin, they might eat it!
-She thought she would rather be eaten herself. "I'm looking for Key,"
-Still said. "Key the Cutter. I have to warn her about something."
+Still hesitated.
+If she told them about her violin, they might eat it!
+She thought she would rather be eaten herself.
+"I'm looking for Key the Cutter.
+I have to warn her about something."
 
-There was a moment of silence, then the rats began giggling again in the
-darkness. "That's not why you're here," the little rat voice
-squeaked. "We can tell. Rats can *always* tell when someone's lying.
-Now, perhaps if you give us your arms and legs, we'll let the rest of
-you go."
+There was a moment of silence,
+then the rats began giggling again in the darkness.
+"That's not why you're here," the little rat voice squeaked.
+"We can tell.
+Rats can *always* tell when someone's lying.
+Now perhaps if you give us your arms and legs
+we'll let the rest of you go."
 
-"All right!" she said. "All right, I lied. I'm looking for—I'm
-looking for my violin. It fell in the water, and I have to get it
-back."
+"All right!" she said.
+"All right, I lied. I'm looking for—I'm looking for my violin.
+It fell in the water, and I have to get it back."
 
-There was a longer silence, but the rats started giggling again. "Still
-not the truth, still not the truth," the little ratty voice said with
-glee.
+There was a longer silence, but the rats started giggling again.
+"Still not the truth, still not the truth,"
+the little ratty voice said with glee.
 
-"All right! All right!" Still shouted. "I'm not looking for Key.
-I'm not really looking for my violin! I'm looking for— I'm— I've
-lost myself! That's why I'm here! I put myself somewhere, but now I
-can't remember where that was, and I'm trying to find me again. Now,
-if you want to eat me, then come and eat me and get it over with!"
+"All right! All right!" Still shouted.
+"I'm looking for— I— I've lost myself!
+I put myself somewhere,
+but I can't remember where that was,
+and I'm trying to find me again.
+So if you want to eat me
+then come and eat me and get it over with!"
 
-Silence filled the tunnel. It stretched and stretched until Still
-thought she would scream, and then the little voice said, "Rats, she
-figured it out." Little feet scampered away in the darkness.
+Silence filled the tunnel.
+It stretched and stretched until Still thought she would scream,
+and then the little voice said,
+"Rats, she figured it out."
+Little feet scampered away in the darkness.
 
-Still paddled over to the side of the tunnel and pulled herself up onto
-the walkway. Her mind was as numb as her hands and feet. She was safe
-from the rats, but her violin was gone. It could be anywhere in the maze
-of dark tunnels. All of a sudden she felt too weak to keep looking, too
-weak to walk, too weak to even stand. Drops of oil welled up in her eyes
-and ran down her cheeks. She fell down in a heap and put her head on her
-arm in despair.
+Still paddled over to the side of the tunnel
+and pulled herself onto the walkway.
+Her mind was as numb as her hands and feet.
+She was safe from the rats,
+but her violin could be anywhere in the maze of dark tunnels.
+All of a sudden she felt too weak to keep looking,
+to walk,
+even to stand.
+Drops of oil welled up in her eyes and ran down her cheeks.
+She fell down in a heap and put her head on her arm in despair.
 
-She had no idea how long she lay there—minutes? Hours? Her next
-thought came when she realized that something white was bobbing up and
-down in the water in front of her. She blinked. It was still there. She
-blinked again, then reached out for it.
+She had no idea how long she lay there—minutes? Hours?
+Her next thought came when she realized that
+something was bobbing up and down in the water in front of her.
+She blinked.
+It was still there,
+so reached out and picked it up.
 
-It was a tiny boat made out of neatly-folded white paper. Neatly-folded
-paper—now what did that remind her of? She shook her head. Something
-was written on the side of it. She couldn't read it—the light was too
-faint. She sat up wearily and held it close to the nearest patch of
-fungus.
+It was a tiny boat made out of neatly-folded white paper.
+Neatly-folded paper—now what did that remind her of?
+She shook her head.
+Something was written on its side,
+but the light was too faint for her to read it.
+She sat up wearily and held the boat up to the nearest patch of fungus.
 
 Someone had painted a picture of a puppet on the side of the boat.
 Written underneath it were the words, "Have you seen our daughter?"
-Still peered at the picture. The puppet looked familiar somehow. She was
-wearing black and white—
+Still peered at the picture.
+The puppet looked familiar somehow.
+She was wearing black and white—
 
-"And eight shades of green," Still whispered, there in the darkness.
-The paper boat fluttered like a bird trying to escape from someone's
-hand. Still realized that she was trembling. She knelt down and gently
-set the paper boat back in the water. "Go on," she whispered, pushing
-it out into the current with one finger. "You go ahead, and I'll
-follow you."
+"And eight shades of green," Still whispered.
+The paper boat fluttered like a bird trying to escape from someone's hand.
+Still realized she was trembling.
+She gently set it back in the water.
+"Go on," she whispered, pushing it out into the current with one finger.
+"You go ahead, and I'll follow you."
 
-The little boat turned around once and floated gently away. Still walked
-along beside it. Black and white, and eight shades of green… Eight
-shades of green… She *knew* that little puppet, she was sure of it.
+The little boat turned around once and floated gently away.
+Still walked along beside it.
+Black and white, and eight shades of green…
+She *knew* that little puppet, she was sure of it.
 But why was her picture painted on the side of a paper boat?
 
-When the boat reached the split in the tunnel, it took the right-hand
-branch. Still followed it. It turned left at the next branch and
-disappeared around a corner. Still slipped into the water, paddled to
-the other side, and climbed out again.
+When the boat reached the split in the tunnel
+it took the right-hand branch.
+Still followed it as it turned left at the next branch and disappeared around a corner.
+She slipped into the water,
+paddled to the other side,
+and climbed out again.
 
-She came around the corner, and stopped. A whole flotilla of little
-paper boats lay in the water in front of her, carried there and then
-abandoned by the current. She knelt down and picked one up. It had the
-same picture painted on its side. "Please help us find our daughter,"
-was written on this one. She picked up another. "If you see our
-daughter, please tell her that we love her," it said.
+She pulled up short when she came around the corner.
+A whole flotilla of little paper boats lay in the water in front of her,
+carried into the darkness and then abandoned by the current.
+She knelt down and picked one up.
+The same picture was painted on its side.
+"Please help us find our daughter,"
+was written on this one.
+She picked up another.
+"If you see our daughter, please tell her that we love her," she read.
 
-She picked up a third boat. "Still, please come home," she read aloud.
-Suddenly she hugged the little boat to her chest. "Elbow…" she
-whispered. "Ramble… Oh, where have I been?"
+She picked up a third boat.
+"Still, please come home," she read aloud.
+Suddenly she hugged the little boat to her chest.
+"Elbow…" she whispered.
+"Ramble… Oh, where have I been?"
 
-She pulled the boats from the water one after another. They spilled out
-of her arms and onto the walkway, but she didn't care. She was sobbing,
-but she didn't care, because she knew what she was going to find.
-
-And there it was—her violin. The current that had carried the boats to
-this little backwater had brought her violin as well. She picked it up
-gently and hugged it close.
+She pulled the boats from the water one after another.
+They spilled out of her arms and onto the walkway,
+but she didn't care.
+She was sobbing,
+but she didn't care,
+because there it was—her violin.
+The current that had carried the boats to this little backwater had brought her violin as well.
+She picked it up gently and hugged it close.
 
 </section>
 
