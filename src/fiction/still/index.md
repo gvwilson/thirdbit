@@ -4602,136 +4602,160 @@ She picked it up gently and hugged it close.
 
 ## Chapter 13
 
-Still walked out into the dawn with her violin in one hand, and a
-paper boat in the other. A bird chirruped in a tree, somewhere in the
-distance, then fell silent. It felt as if the whole world was waiting
-for a hidden orchestra to play the first note of a symphony that
-everyone knew, but no-one could remember.
+Still walked out into the dawn with her violin in one hand
+and a paper boat in the other.
+A bird chirruped somewhere in the distance, then fell silent.
+It felt as if the whole world was waiting
+for a hidden orchestra to play the first note of a symphony that everyone knew
+but no-one could remember.
 
-The streets around her were broad and clean. The houses were as tidy as
-Elbow's creases. Her fear lay in her belly like cold soup, but she kept
-walking. The streets began to fill with puppets on their way to work, or
-school, or just out to enjoy the crisp, cold day. A few stared at Still
-as she strode past them, but she paid them no attention. She knew that
-if she hesitated, even for a moment, her fear would turn into a
-whirlpool and suck her down.
+The streets around her were broad and clean.
+The houses were as tidy as Elbow's creases.
+Fear lay in her belly like cold soup,
+but she kept walking.
+The streets began to fill with puppets on their way to work or school,
+or just out to enjoy the crisp, cold day.
+A few stared at Still as she strode past them,
+but she paid them no attention.
+She knew that if she hesitated,
+even for a moment,
+her fear would turn into a whirlpool and suck her down.
 
-The park next to Mister Leaf's house was as tidy as she remembered. The
-steps leading up to its front door weren't worn at all, not like the
-ones in front of the buildings down in the fog by the market. The high,
-hesitant sound of a flute floated through the air from the second-story
-window.
+The park next to Mister Leaf's house was as tidy as she remembered.
+The steps leading up to its front door weren't worn
+like the ones in front of the buildings down in the fog by the market.
+The high,
+hesitant sound of a flute floated through the air from the second-story window.
 
-Still set the paper boat on the sidewalk in front of the steps, laid her
-violin down gently beside it, and bowed her head. Slowly, she raised her
-left arm, bent at the elbow. Slowly, so slowly, she tilted her head to
-one side, and brought her right arm up, the wrist and elbow loose, just
-as she had been taught. Slowly, silently, she began to play a slow, sad
-waltz.
+Still set the paper boat on the sidewalk in front of the steps,
+laid her violin down gently beside it,
+and bowed her head.
+Slowly, she raised her left arm, bent at the elbow.
+Slowly, ever so slowly,
+she tilted her head to one side and brought her right arm up,
+the wrist and elbow loose,
+just as she had been taught.
+Slowly, silently, she began to play a slow, sad waltz.
 
-The wind rustled the last few paper leaves on the trees around her. A
-squirrel with a squeaky tail scampered across a branch. A child's
-balloon blew by. All of them were louder than Still's music. It was as
-silent as deep snow, and it spread out in waves around her. First the
-puppets in the nearby houses heard it. They set down their gossip and
-their chores and stared at one another, listening to the quietness
-spreading around them. The streetcars fell silent, then the children in
-their playgrounds. Even the roustabouts working on the balloons overhead
-stopped their chatter and bluster.
+The wind rustled the last few paper leaves on the trees around her.
+A squirrel with a squeaky tail scampered across a branch.
+A child's balloon blew by.
+All of them were louder than Still's music.
+It was as silent as deep snow as it spread out in waves around her.
+First the puppets in the nearby houses heard it.
+They set down their gossip and their chores and stared at one another,
+listening to the quietness.
+The streetcars fell silent,
+then the children in their playgrounds.
+Even the roustabouts working on the balloons overhead stopped their cursing and bluster.
 
-Puppets began to gather around Still in ones and twos. "What is she
-doing?" they asked one another. "Why is she playing like that?" But
-no-one had an answer.
+Puppets gathered around Still in ones and twos.
+"What is she doing?" they asked one another.
+"Why is she playing like that?"
+But no-one had an answer.
 
-Finally a police puppet rode up on a shiny blue bicycle. He stood it on
-its kickstand, straightened his serious hat, and scowled. "What's
-going on here, then?" he asked. Still just kept playing.
+Finally a police puppet rode up on a shiny blue bicycle.
+He stood it on its kickstand, straightened his serious hat, and scowled.
+"What's going on here, then?" he asked.
+Still just kept playing.
 
-"Excuse me, miss, but I asked, what's going on here?" the police
-puppet repeated. He took a step toward her.
+"Excuse me, miss, but I asked, what's going on here?"
+the police puppet repeated.
+He took a step toward her.
 
-"Perhaps I can explain," a warm voice said. Still opened her eyes.
-Mister Leaf was standing on his front steps. His student was standing
-beside him, her flute in her hands, her eyes as big and as dark as the
-gargoyle's. Mister Leaf's hand was on her shoulder. She looked
-straight at Still. Still looked straight back at her.
+"Perhaps I can explain," a warm voice said.
+Still opened her eyes.
+Mister Leaf was standing on his front steps.
+His student was standing beside him,
+her flute in her hands,
+her eyes as big and as dark as the gargoyle's as she looked at Still.
+Mister Leaf's hand was on her shoulder.
 
-"Well, I'd be grateful if you would," the police puppet said. "It's
-a mighty strangeness to me, it is."
+"Well, I'd be grateful if you would," the police puppet said.
+"It's a mighty strangeness to me, it is."
 
-"This poor thing was one of my students," Mister Leaf said. "She had
-an accident—look, you can see the mark on her cheek. She ran away from
-home several months ago. Her parents have been very, very worried. I'm
-sure that—"
+"This poor thing was one of my students," Mister Leaf said.
+"She had an accident—look, you can see the mark on her cheek.
+She ran away from home several months ago.
+Her parents have been very, very worried.
+I'm sure that—"
 
-But no-one ever got to find out what Mister Leaf was sure of. The young
-puppet at his side shook off his hand and walked slowly down the steps.
-Still kept playing. The young puppet watched her for a moment longer,
-then set her flute down beside Still's violin. She tucked her elbows in
-at her sides, then raised her hands as if the flute was in them. She
-waited just a moment to catch Still's rhythm, then began to play
-silence as well.
+But no-one ever got to find out what Mister Leaf was sure of.
+The young puppet at his side shook off his hand and walked slowly down the steps.
+Still kept playing.
+The young puppet watched her for a moment longer,
+then set her flute down beside Still's violin.
+She tucked her elbows in at her sides,
+then raised her hands as if the flute was in them.
+After waiting just a moment to catch Still's rhythm,
+she began to play silence as well.
 
-Someone gasped. Someone said, "Oh my." Mister Leaf went, "Tsk tsk,"
-and walked down the steps himself. "That won't help anything," he
-said to his student sternly. "Why, you'll just encourage her. She
-needs—"
+Someone gasped.
+Someone said, "Oh my."
+Mister Leaf went, "Tsk tsk," and walked down the steps himself.
+"That won't help anything," he said to his student sternly.
+"Why, you'll just encourage her.
+She needs—"
 
 But no-one ever got to find out what Mister Leaf thought Still needed.
-One of the puppets in the crowd stepped forward. "I remember," she
-whispered. A single drop of oil ran down each of her cheeks. She
-sniffled and wiped them away, then raised a ghostly trumpet to her lips
-and began to play along as well.
+One of the puppets in the crowd stepped forward.
+"I remember," she whispered.
+A single drop of oil ran down each of her cheeks.
+She sniffled and wiped them away,
+then raised a ghostly trumpet to her lips.
 
-The silence was almost deafening. Together, the three puppets played
-Still's slow waltz, dum dah dah, dum dah dah, all the way to the end.
+The silence was almost deafening.
+Together, the three puppets played Still's slow waltz,
+dum dah dah,
+dum dah dah,
+all the way to the end.
 When they were done, Still lowered her arms.
 
-"I didn't fall," she whispered. The world was so quiet that everyone
-around her could hear her as clearly as her lips were right against
-their ears. "I didn't have an accident. I had *him*."
+"I didn't fall," she whispered.
+The world was so quiet that everyone around her could hear her
+as clearly as if her lips were pressed against their ears.
+"I didn't have an accident. I had *him*."
 
-And then the stillness was broken as Elbow and Ramble pushed their way
-through the crowd. "Still! Oh, Still!" They threw their arms around
-her.
+The stillness was broken as Elbow and Ramble pushed their way through the crowd.
+"Still! Oh, Still!"
+They threw their arms around her.
 
-"Oh, Still," Ramble finally said, relaxing her grip on her daughter
-just enough so that she could look at the nicks and scratches on
-Still's face. "You're all grown up now. Are you all right?"
+"Oh, Still,"
+Ramble finally said, relaxing her grip on her daughter
+just enough so that she could look at the nicks and scratches on Still's face.
+"You're all grown up now. Are you all right?"
 
-Finally, finally, Still began to cry. "No," she said, hugging her
-parents close. "But I will be."
+Finally, finally, Still began to cry.
+"No," she said, hugging her parents close.
+"But I will be."
 
-It took Still a while to tell her story. When she was done, the police
-took Mister Leaf away. "Strings are too good for him!" Elbow said
-harshly as the three of them walked home. "After what he did—your
-violin, that poor girl's flute, that woman's trumpet… Chains are
-what they ought to put on him!"
+It took Still a while to tell her story.
+When she was done,
+the police took Mister Leaf away.
+"Strings are too good for him!" Elbow said harshly
+as the three of them walked home.
+"After what he did—your violin, that poor girl's flute, that woman's trumpet…
+*Chains* are what they ought to put on him!"
 
 "Strings will be enough," Still said quietly.
 
-</section>
-
-<section markdown="1">
-
-## Chapter 14
-
-It was several days before she could slip away and go back to the
-market. Stuffed in her bag was the biggest, brightest orange scarf she
-had been able to find.
-
+It was several days before she could slip away and go back to the market
+with the biggest, brightest orange scarf she had been able to find stuffed in her bag.
 She took three wrong turns on her way to the gargoyle's warehouse.
-Finally, she spotted the familiar drainpipe. "Hello," she called out
-as she climbed it. "Are you awake? I've brought you a present."
+Finally, she spotted the familiar drainpipe.
+"Hello," she called out as she climbed it.
+"Are you awake? I've brought you a present."
 
-But when she reached the top of the drainpipe, all she found was a worn
-old statue with the remains of a fierce look carved on its face. She
-stared at it for a long moment, wondering if she had imagined their
-conversations, or whether he had finally decided that nothing here
-needed guarding any more.
+But when she reached the top of the drainpipe,
+all she found was a worn old statue with the remains of a fierce look carved on its face.
+She stared at it for a long moment,
+wondering if she had imagined their conversations
+or whether he had finally decided that nothing here needed guarding any more.
 
-She wrapped the scarf around its neck, climbed back down the drainpipe,
-and headed for the market. She had a feeling that Attic would like to
-share a hot cup of oil. And maybe, one day, to hear her play.
+She wrapped the scarf around its neck,
+climbed back down the drainpipe,
+and headed for the market.
+She had a feeling that Attic would like to share a hot cup of oil.
+And maybe, one day, to hear her play.
 
 </section>
