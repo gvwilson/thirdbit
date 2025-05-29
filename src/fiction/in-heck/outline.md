@@ -300,3 +300,90 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Offers Maddy a discombobulator that hides her from bots
     -   Not invisible but unnoticeable
 -   She uses it to escape from the tower into the Mire
+
+### Chapter 8: The Free Bots (Gumption's PoV / day 3)
+
+-   Goals:
+    -   Get Gumption's solo adventure going
+-   Repeat Maddy's abduction from Gumption's point of view
+-   Argument
+    -   Gumption wants to go after her
+    -   Blazes wants to deliver Sindy to Sandy Bend as planned
+    -   And points out that Leaf is injured
+    -   Dockety volunteers to go with Gumption
+    -   Thoughtful to Blazes: "It'll make things easier" (double meaning)
+-   Dockety takes Gumption to meet the free bots
+-   Dockety strikes a deal with them for help
+    -   Explains the risk of getting too close to Central itself
+
+### Chapter 9 (Maddy's PoV)
+
+-   Goals:
+    -   Maddy in the Mire
+-   Chapter ends with Maddy seeing the Operators taking Sindy (as a prisoner) to Heck
+
+### Chapter 10 (Gumption's PoV)
+
+-   Goals:
+
+### Chapter 11 (Maddy's PoV)
+
+-   Goals:
+    -   Maddy arrives in Heck with Mouse as a guide
+
+### Chapter 12 (Gumption's PoV)
+
+-   Goals:
+
+### Chapter 13 (Maddy's PoV)
+
+-   Goals:
+    -   Maddy finds her father and Sindy
+    -   Mouse involuntarily betrays Maddy to Central
+
+### Chapter 14 (Gumption's PoV)
+
+-   Goals:
+
+### Chapter 15 (Maddy's PoV)
+
+-   Goals:
+    -   Get Gumption and Maddy back together
+-   Chapter ends with Maddy reconnecting with Gumption
+
+### Chapter 16 (Gumption's PoV)
+
+-   Goals:
+-   Repeat the last scene of previous chapter from Gumption's PoV
+-   Gumption and Maddy compare the invisibilator with Gumption's robot suit (humorous moment)
+
+### Chapter 17 (Maddy's PoV)
+
+-   Goals:
+    -   Rescue Papa Roo and Sindy
+    -   Leaf's death
+    -   Patient reverse-assimilates Central
+
+### Chapter 18 (Gumption's PoV)
+
+-   Goals:
+    -   Patient death (echoes Leaf's)
+    -   Escape from Heck
+    -   Gumption and Maddy finally get together
+
+### Chapter 19: Epilog (both PoV)
+
+-   Goals:
+    -   Happy ending
+    -   Set up third book
+-   On the Roos' porch after Special Leaf's memorial service
+    -   Papa Roo is still fuzzy but getting better
+    -   Dockety and Crusher are adopting/upgrading Mouse
+    -   Gumption and Maddy are sitting together, holding hands
+-   Sindy says she feels a bit sorry for Patient
+-   Operators stop by on their way out of town
+    -   Mama Roo is scathing
+-   And then a star begins to descend from the sky
+-   Dockety: the Makers are returning
+
+*To be continued*
