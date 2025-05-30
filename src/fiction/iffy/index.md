@@ -3316,8 +3316,9 @@ they followed Doctor Johel through the mansion's doors.
 
 And then waited.
 Iffy wasn't sure what she had been expecting,
-but sitting on a comfortable couch with potted plants on either side
-while soft music played in the background wasn't it.
+but it wasn't sitting on a comfortable couch
+surrounded by bits and pieces of the continent's past in display cases
+while soft music played in the background.
 Uncle Jack kept his arms crossed and muttered to himself,
 glaring at Aunt Naggie when she ventured that the governor must be very busy,
 really,
@@ -3366,7 +3367,13 @@ for people that the government in far-off London didn't want at home
 but didn't want to turn into compost—at least, not yet.
 The largest picture was of a tattered Union Jack flying over London
 at the height of the machine wars.
-A smaller one beneath it showed what was left of the old country's drowned and abandoned capital.
+A smaller one beneath it showed what was left of the old country's drowned capital.
+
+Clear cases hung on the walls between the photographs,
+each holding an old notebook, diary, or surveyor's log,
+and each decorated with a neat handwritten label.
+The governors' passion for Antarctica's history was as famous as their love of fine food,
+though schoolchildren only had to suffer through sims of the former.
 
 A plain wooden desk stood near one wall
 with half a dozen simple wooden chairs in front of it.
@@ -4830,7 +4837,7 @@ everyone found they had more pressing things to worry about.*
 
 <section markdown="1">
 
-## Chapter 6: Civil War
+## Chapter 6: Betrayal
 
 Iffy woke the next morning
 to the sound of two squads of Marines in combat exoskeletons tramping up the pier.
@@ -6414,7 +6421,223 @@ this was not an attack,
 it was just a temporary malfunction
 and they should all resume normal activity immediately.
 
-FIXME: back to the harbor and away
+FIXME: reunion with Wales; back to the harbor; getting rid of Uncle Jack
+
+Iffy sat in the pilot house while Aunt Naggie brought the *Guinevere* to life.
+Wales untied the staylines and secured the deck
+with an economy of motion that betrayed years of experience.
+
+"I'll get you some of Edson's medicine soon as we're under way,"
+Aunt Naggie promised over her shoulder.
+
+Iffy nodded.
+"Thanks, auntie."
+She could feel her thoughts coming into focus like an image under a lens.
+Whatever had happened was gone again,
+as unreal to her now as a dream.
+She was hungry,
+she realized,
+starving hungry despite the sour taste that still lingered in her mouth.
+
+She was about to offer to make some tea when Wales' voice came over the speaker.
+"All clear here."
+
+"Nothin' ventured," Aunt Naggie muttered,
+her hands dancing across the controls.
+The *Guinevere*'s engines thrummed to life.
+As they pulled away from the pier
+Iffy looked at the feed from the cameras.
+
+"Won't be the same 'round here without him," she said
+as Uncle Jack stirred.
+
+Her foster mother nodded.
+"You're right.
+It'll be better.
+Assumin' nobody sinks us, that is."
+
+"Maybe even then,"
+Iffy replied.
+Aunt Naggie leaned over and kissed the top of her head.
+
+Wales brought the ship around in a tight arc
+that left them pointing straight at the harbor mouth.
+Iffy watched on the displays as drones and sentry torpedoes approached and then veered away,
+their cores' instinct to investigate overridden by whatever the antenna on deck was telling them.
+
+"You know,
+half the time when the machines won battles
+it was because people acted like machines,"
+Wales said,
+jerking his chin at the *Bengal*.
+Half a dozen crew stood on deck watching them go by.
+"They have to be wondering why we're moving when nothing else is,
+or why we're allowed out to sea when Rothera is under attack,
+but as long as the ship's core tells them it's okay,
+they'll tell themselves we must be some sort of special ops mission
+or have friends in dark places.
+Which for all I know is actually true,"
+he finished philosophically.
+
+"I'm sorry,"
+Iffy said.
+"I don't know why it happens.
+I don't even know what 'it' *is*.
+But you do, don't you?"
+She hadn't meant for it to sound like an accusation,
+but now that the words were out she couldn't stop.
+"You know what's goin' on with me."
+
+Wales crossed his arms and leaned his broad shoulders against the pilot house door.
+"Let me tell you a story," he said quietly.
+"Once upon a time,
+back before everything fell apart,
+people dreamed of going to the stars.
+We made it to the Moon,
+and a few ships got as far as Mars,
+but it was just too hard and too expensive to put people into space.
+Bots could do everything we could do,
+and they didn't need air or water,
+and anyway,
+we had bigger problems to solve at home."
+
+"But a few people kept dreaming.
+They thought that maybe if we had a different kind of human being we could make it work.
+We were already tweaking people to cure diseases.
+A few labs here and there were making them stronger and faster,
+and everyone was trying to figure out how to make people smarter.
+Why not go a little further and make a better astronaut?
+Why not give them super-dense bones so they could handle higher gee during liftoff
+and hypermelanic skin so that they wouldn't have to worry about ultraviolet exposure?
+Why not borrow a few ideas from bears so that they could hibernate for months at a time?
+And if you're going to do all of that,
+why not put some tech in their heads so that they can talk to their ships?"
+
+Wales kept his eyes on the *Guinevere*'s displays as he spoke.
+"Gayathri's grandfather was the lead scientist on the program.
+He made half a dozen of us before the government cut off his funding.
+We were everything he'd promised,
+but the water was rising and people were going hungry,
+and making spacemen in test tubes just didn't seem important any more."
+He laughed humorlessly.
+"Plus,
+I guess a few of his backers hadn't realized that hypermelanic meant we'd be black.
+Apparently they weren't too happy about that."
+
+"I never got into space.
+One of my sisters did,
+but—well, that didn't really work out."
+
+"So that's why you can talk to satellites?" Iffy ventured.
+
+Wales nodded.
+"And that's why I need to get to Mount Tyree.
+When the revolution came,
+the government in London packed up all its secret projects and sent us down here.
+If what I need to fix my head is anywhere, it's there."
+
+"An' what about what's in *my* head?"
+
+"One of Professor Johel's other ideas was enhanced spatial reasoning,"
+Wales explained.
+"Machines were designing amazing things,
+but nobody could understand how they worked.
+That scared a lot of people,
+so Surjinder—Professor Johel—told them
+he could make a person who'd be able to figure them out and explain them to the rest of us."
+
+Iffy's mouth worked as a dozen questions tried to get out at once.
+"So my First was some kind of *experiment*?"
+
+Wales shook his head.
+"Not the First you knew when you were little—she would have been a clone herself—but yes.
+It didn't work,
+though,
+not until you came along."
+
+"Edson used t' work in the hospital in Puerto Toro," Aunt Naggie cut in.
+"He helped make you an' your mothers.
+When he heard about the accident an' you bein' the only one rescued,
+he came down an' found me an' told me that there'd been a glitch when they were makin' you.
+They had t' put a bit o' tech in your head when you were still inside your older
+so your brain would grow right."
+
+"A synaptic bridge."
+Wales held his thumb and finger a hair's width apart.
+"Just a smart piece of wire to help your cortex do its job,
+but somehow it did what Professor Johel couldn't.
+You can see machines the way cores do.
+You can see how things fit together."
+
+He straightened.
+"But you mustn't tell Gayathri.
+She knows where your olders came from.
+So far she thinks everything we've done together is me testing you.
+If she realizes what you can do…"
+
+Iffy nodded.
+She had played enough sims to know what happened to people with special abilities,
+and she definitely didn't want to spend the rest of her life
+locked in an underground lab being experimented on by someone named Norman
+whose only friend was a malicious bot with a squeaky wheel.
+
+They reached the rocky point that sheltered Rothera's harbor in just a few minutes.
+Iffy watched the scavenged remains of the old research station pass by to starboard.
+Honesty had told her once that it was haunted—that on quiet nights
+the ghosts of the scientists who had once lived there
+came out to try to finish their experiments.
+"What were they experimentin' on?" Iffy had asked.
+Honesty had laughed and said that wasn't the point,
+and that Iffy was the most practical person they'd ever met.
+
+"Whaddaya think it's tellin' 'em we are?" she asked Wales,
+jerking her chin at the antenna.
+
+He shrugged.
+"No idea.
+But that reminds me—how much of the complement mediator do you have left?"
+
+"Y'mean her medicine?" Aunt Naggie asked.
+"Enough fer a coupla months,
+maybe three if we stretch it."
+
+Wales pursed his lips.
+"I don't think we should.
+If anything,
+we should be increasing the dosage."
+
+"Any idea where we can get more?"
+
+Wales snorted.
+"I'm going to start to sound like a broken sim,
+but if we can get to Mount Tyree
+I ought to be able to print a lifetime supply."
+
+Instead of answering,
+Aunt Naggie tapped a few commands on the *Guinevere*'s console.
+A map appeared showing the coastline,
+the winds and currents,
+recent sea boils,
+and a bent red line marking the course from Rothera back to Halley.
+"Six days if we don't hit trouble," she said,
+tapping the screen with a blunt brown finger.
+
+Wales smiled.
+"In other words,
+we have no idea how long it will take."
+
+Iffy surprised herself by yawning.
+"I'm gonna…"
+She yawned again,
+waved vaguely at her foster mother's, "Sleep well, love,"
+and headed for her storage locker.
+
+She detoured a few steps to study the antenna at the stern,
+which looked just as normal as it had that morning,
+then shrugged,
+retraced her steps to her room,
+and closed the door behind her.
+She dropped her jacket beside her boots and fell onto her mattress.
 
 </section>
 
