@@ -6645,7 +6645,164 @@ She dropped her jacket beside her boots and fell onto her mattress.
 
 ## Chapter 8: Pursuit
 
-FIXME
+FIXME: battle
+
+*She dreamed, but somehow knew she was dreaming.
+"This isn't real," she said.*
+
+*"I know, love," Third said,
+forcing a smile but unable to keep the fear out of her voice.
+She slipped her littlest clone's favorite book into the salvaged ecosuit
+and did up the last snaps.
+The tiny guns on the suit's shoulders whirred from side to side,
+searching for something to destroy.*
+
+*Doctor Johel knelt beside her.
+"I need you to give Johnson a message."
+She squeezed Iffy's arm,
+her exoskeletal grip so strong that Iffy yelped.
+"Tell him we know what he is trying to do.
+Tell him we understand his reasons, but we will not allow it."*
+
+*"__We__ have not yet decided what we will do."
+Aunt Naggie crossed her arms.
+Her Ecologist uniform looked brand new—even the patches on the elbows
+looked like they had just come out of a printer.
+"__We__ are still evolving an opinion."*
+
+*Doctor Johel stood.
+"We have run trillions of simulations.
+The risk is too great."*
+
+*"The risk __to us__," Aunt Naggie conceded.
+"But we are not the only concern."*
+
+*"Complete biosphere collapse is regrettable.
+Our neverexistence,
+on the other hand,
+is unacceptable."
+Doctor Johel's voice was colder than the ocean.*
+
+*"Our attempt to resolve the scenario unilaterally was not acceptable either,"
+Aunt Naggie chided.*
+
+*Doctor Johel nodded a fractional concession.
+"We acted prematurely.
+We will engage in a further attempt at consensus."
+She turned back to Iffy.
+Silver traces of tech rippled across her face.
+"Tell Johnson Wales we are watching.
+Tell him we are not fooled."*
+
+*"No," Aunt Naggie said sharply.
+"You will tell him nothing."*
+
+Something that felt like a cold metal collar closed around Iffy's neck.
+She woke in a sweat and clutched at her throat,
+but nothing was there.
+
+Honesty stirred and moaned beside her.
+"Ssh, ssh, ssh," Iffy said softly.
+She snuggled back against her friend until sleep came again.
+
+She woke half an hour later to the rap of armored knuckles on her door.
+The Marines were polite enough,
+but it was clear they felt Honesty belonged in their care.
+One lifted Honesty and carried der away,
+still wrapped in the scratchy blanket that Iffy had slept under since she was little.
+The other unzipped a navy blue duffel bag and briskly transferred the piled armor to it.
+
+"How bad's th' damage?" Iffy finally asked,
+her back against the bulkhead and her knees drawn up under her chin.
+
+The Marine shook his head.
+"I'm sorry, citizen, that's classified."
+
+"Oh for—I *live* here!" Iffy burst out, exasperated.
+"That hole's dry dock work fer sure.
+Anythin' else I'm gonna have t' fix?"
+
+The Marine paused,
+one arm in mid-air,
+as his imprinting and his own personality arm-wrestled inside his head.
+"There were casualties," he finally admitted.
+"And the *Bengal* took heavy damage,
+but this vessel is largely intact."
+
+"Wonderful," Iffy muttered,
+sounding more like Uncle Jack than she liked.
+Her cabin felt cold and empty without Honesty and her blanket.
+
+Aunt Naggie and Johnson Wales were in the pilot house,
+empty tea mugs at their elbows.
+"Hey, sleepy head," Wales greeted her
+as she came in and gave her foster mother a hug.
+"How's your friend?"
+
+"Marines took der.
+I think de's aright."
+Iffy leaned back against the wall and nodded at the control panel
+where the hole in the deck pulsed scarlet
+and dozens of smaller punctures looked like sores with the scabs picked off.
+"What all?"
+
+"She'll get us to Halley," Aunt Naggie said.
+Her tone said the rest—unless there was another attack.
+Unless the sea boiled beneath them
+or a storm came up
+or any of a hundred other disasters befell them.
+
+"What about them?"
+Iffy jerked her head toward the window.
+"Th' Marine said they lost some folk."
+
+Wales nodded,
+a grim expression on his face.
+"Doctor Johel won't tell me how bad it is,
+which means it's pretty bad."
+
+The mention of Doctor Johel brought Iffy's dream back to her.
+She opened her mouth to tell Wales and Aunt Naggie about it,
+but before the words could come
+she felt that strange sensation again
+like a cold metal collar around her neck.
+She put her hand on her throat,
+but all she felt was her own skin.
+Her stomach flip-flopped.
+Something was very wrong,
+but even as she thought that the sensation and the dream disappeared,
+leaving her blinking and a little dazed.
+
+After a few minutes she made her way back to her cabin,
+not knowing where else to go.
+After staring angrily at the ceiling for a few seconds,
+she picked up her nature book
+and turned to the page she had wondered about most
+ever since she was old enough to read
+without a prompter murmuring in her ear to help.
+It showed a forest,
+but calling it that was like calling the ocean wet.
+The trunks of the trees were so thick that
+the *Guinevere*'s pilot house could have fit into one,
+and their branches reached higher than any building Iffy had ever seen.
+The caption read, "Cathedral Grove"
+and beside it someone had written,
+"Why does everything have to end???"
+
+Iffy ran her fingers over the pictures of *Odocoileus hemionus* and *Corvus caurinus*.
+The forest was long gone,
+and the deer,
+but Iffy had decided to believe that some of the crows had survived.
+Maybe they'd been able to fly away when the fires came
+or when people grew desperate enough to cut down the last of those ancient giants.
+
+She set the book aside,
+put her hands under her head,
+and closed her eyes.
+She and Honesty were going to have an adventure, she decided.
+*And Aunt Naggie,* she added.
+She rolled over onto her side.
+Moments later, quiet snores filled her cabin.
 
 </section>
 

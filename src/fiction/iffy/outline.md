@@ -306,9 +306,10 @@
     -   Survived in an ecosuit (Iffy has a flashback).
     -   Kerse threatens Wales: wants revenge for her crew.
     -   Is then led away to prison awaiting repatriation to Australia.
--   Escapes with the help of the AI, Edson, and some raccoons.
+-   Escapes with the help of the AI, Edson, and Wales.
     -   People are injured in the process, which horrifies her.
--   Get to the harbor through the fighting.
+    -   Wales apologizes but says he had to turn her over to Johel: no other way to keep Iffy safe.
+-   Get to the harbor through the chaos.
     -   Aunt Naggie ditches Uncle Jack (callback to Wales knocking him out earlier).
 -   Iffy messages Jeep to try to find out what's going on.
     -   Everyone in Halley thinks that GS Paddington had GS Halley killed.
@@ -323,8 +324,7 @@
     -   More action.
     -   Get the characters back to Halley.
     -   Iffy starts to take action instead of being acted on.
--   Pursued by Wales and Dr. Johel on the *Bengal*.
-    -   Wales apologizes but says he had to turn her over to GS Rothera: no other way to keep Iffy safe.
+-   Pursued by. Johel on the *Bengal*.
 -   The *Bengal* and *Guinevere* are pursued by a smaller, faster craft (the *KS-117*).
     -   Captain Kerse: "Dunno what you are, but if Australia can't have you, nobody can."
     -   Killing Wales is just sugar in his tea.
