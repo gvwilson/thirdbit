@@ -1093,7 +1093,7 @@ where they fell screaming to their deaths.
 At least,
 that's what Finner expected would happen
 in the heart-stopping second before the universe
-did its "see it both ways" trick again
+did the "see it both ways" trick again
 and the desert was an ocean,
 a beautiful blue ocean with nice soft waves instead of nasty bone-breaking solid ground.
 
@@ -1106,37 +1106,36 @@ before he discovered the hard way that the water was very, very cold.
 
 He spluttered to the surface,
 thrashing his arms against the weight of his suddenly-sodden coat.
-It was heavy,
-and his boots felt like concrete blocks on his feet.
-"Help!" he spluttered.
+"Help!"
+His boots felt like concrete blocks on his feet.
 
 "Periwinkle!" Santa Greenwood roared.
 
 "I'm working on it!" Santa Hood shouted back.
-She pulled something bright orange out of her sack.
-With a sharp *pop!* and a hissing sound it began to inflate.
+She pulled something orange out of her sack.
+With a sharp *pop!* and a hiss it began to inflate.
 
 "Be careful with your stupid ax!" she yelled at Santa Greenwood
 as she tossed her sack into the little dinghy.
 
 "I'm bein' careful! And it ain't stupid!" the burly santa yelled back.
 A dozen powerful one-armed strokes
-and he dragged himself up onto the dinghy,
-nearly flipping it over in the process.
+and he dragged himself up out of the water,
+nearly flipping the dinghy over as he did so.
 
-Finner was too busy not drowning to really notice this, though.
+Finner was too busy not drowning to really notice this.
 He'd managed to kick off one boot[^one-boot]
 and was struggling to unbutton his coat
 when Santa Hood popped up beside him like an otter and said,
 "Easy, easy, let me do that."
 
-[^one-boot]: His mother always told him to do up his laces properly so he didn't trip and break his neck. It had never occurred to him to say, "But what if I fall into another universe and need to kick them off so I don't drown?"
+[^one-boot]: His mother always told him to do up his laces properly so he didn't trip and break his neck. It had never occurred to him to say, "But what if I fall into another universe and need to get them off so I don't drown?"
 
 Panting and kicking furiously to stay afloat,
 Finner squelched his panic long enough
 for Santa Hood's deft fingers to undo his buttons
-and hold his sleeves so that Finner could pull out his arms.
-The heavy blue coat floated away,
+and hold his sleeves so that Finner could pull his arms out of his coat.
+It floated away like a sad red jellyfish,
 taking with it a handkerchief,[^handkerchief]
 a folded piece of paper with a game of Hangman on it
 left over from a particularly boring writing class at school,
@@ -1145,7 +1144,7 @@ and a mostly uneaten piece of toffee.
 [^handkerchief]: Santas don't use kleenex. That's for wrapping presents.
 
 A few moments later Santa Hood boosted Finner into the dinghy
-and pulled herself over the gunwale as well.
+and slithered in after him.
 "Y'aright?"
 Santa Greenwood asked,
 wringing seawater out of his beard.
@@ -1154,7 +1153,7 @@ Finner noticed.
 
 Santa Hood nodded, shivering.
 "Lucky th-this isn't of those worlds
-where the ch-ch-chimney connects to a drowned city."
+where the wh-wh-wherever connects to a drowned city."
 
 "Heh.
 You remember Santa Kraken?"
@@ -1170,22 +1169,20 @@ Finner asked,
 hoping the answers would be "yes" and "I have a spare".
 
 But Santa Hood shook her head.
-"Used it a c-couple of chimneys ago."
+"Used it a c-couple of worlds ago."
 
-Santa Greenwood patted her shoulder awkwardly.
+Santa Greenwood patted her shoulder.
 "Well,
 at least we're okay for now."
 
-Right on cue,
+As if on cue,
 a triangular gray fin sliced through the water beside them.
 "Is there a Santa Shark?" Finner asked weakly,
 hoping the answers would be "yes" and "it's actually very friendly".
 
-Santa Hood shook her head.
-"I'm af-fraid so," she said grimly,
+"I'm af-fraid so," Santa Hood said grimly,
 her teeth still chattering.
-"But she takes everything she c-can
-and never g-gives *anything* back.
+"She takes everything she c-can and never g-gives *anything* back.
 Be c-careful with that!" she snapped
 as Santa Greenwood hefted his ax.
 
@@ -1199,8 +1196,8 @@ and then three things happened more or less simultaneously:[^simultaneously]
 2.  The edge of Santa Greenwood's ax brushed against the dinghy's rubber gunwale.
 
 3.  There was a sharp *crack!*
-    like someone snapping a piece of wood over their knee
-    and a cannonball whistled over their heads.
+    like someone snapping a piece of wood over their knee.
+    A moment later a cannonball whistled over their heads.
 
 "Look out!" Finner shouted instinctively as:
 
@@ -1208,16 +1205,14 @@ and then three things happened more or less simultaneously:[^simultaneously]
 
 2.  Air began feeping[^feeping] out of the dinghy;
 
-3.  A set of black sails crested the horizon.
+3.  A set of black sails appeared on the horizon.
     There was another *crack!*
-    and a second cannonball whistled overhead
-    to splash into the water nearby.
+    and a second cannonball splashed into the water nearby.
 
-[^feeping]: A word that other worlds would do well to borrow. Our world's contribution would be "phlegm", which it sounds exactly like the thing it describes.
+[^feeping]: A word that other worlds would do well to borrow. Our world's contribution would be "phlegm", which also it sounds exactly like the thing it describes.
 
 Santa Greenwood stood up,
-nearly causing the others to spill into the ocean
-as the dinghy rocked dangerously.
+nearly spilling the others into the ocean.
 "Come on, Periwinkle, gimme something!" he roared,
 hefting his ax again.
 "Chili grenades! Tangle muffins! Anything!"
@@ -1225,11 +1220,10 @@ hefting his ax again.
 "I'm out!" Santa Hood,
 her arm deeper in her sack than basic physics should have allowed.[^basic-physics]
 
-[^basic-physics]: Basic physics was actually quite uncomfortable about this, but nobody thought to ask it. Quantum physics would have just been, "Like, whatever."
+[^basic-physics]: This actually made basic physics quite uncomfortable, but nobody thought to ask it. Quantum physics would have just been, "Like, whatever."
 
-"Look!" Finner shouted
-as a wooden ship crested the horizon.
-It was painted the same menacing black as the sails.
+"Look!" Finner shouted.
+A wooden ship painted the same menacing black as the sails crested the horizon.
 There was an orange flash on her deck and another *crack!*.
 A third cannonball hit the water between the dinghy and the circling gray fins.
 
@@ -1240,9 +1234,8 @@ and was nearly pulled out himself.
 "Why don'tcha come here an' try that, eh?"
 
 A fourth *crack!*, another cannonball.
-The ship was close enough now that Finner could see
-crew in the rigging and on the deck
-shouting and waving.
+As the ship closed on them
+Finner could see crew shouting and waving in the rigging and on the deck.
 "Wait! They're not shooting at us!"
 Finner exclaimed.
 "They're shooting at the sharks!"
@@ -1255,22 +1248,22 @@ And then the smaller gray fin decided it was now or never
 and changed course and raced toward them.
 The shark the fin belonged to was a menacing dark bulk just below the surface.
 
-Finner could feel the dinghy softening beneath his bootless foot
+Finner felt the dinghy squelch beneath his bootless foot
 as Santa Greenwood tried to stand up again
 and Santa Hood ducked so as not to be beheaded by the ax
 he actually wasn't being very careful with.
-"Got it!" she said triumphantly.
-She pulled something out of her sack and threw it.
+"Got it!" she said triumphantly,
+pulling something out of her sack and throwing it.
 
 There was a loud bang.
 Sea water splattered all over them.
 Finner's eyes immediately began itching and streaming.
 "One last ch-chili bomb," Santa Hood said.
 
-"Ahoy!" a distant voice called as the two gray fins turned and fled.[^sharks-flee]
-"Might ye be in need of assistance there?"
+"Ahoy!" a voice called as the two gray fins turned and fled.[^sharks-flee]
+"Might ye be in need of assistance?"
 
-[^sharks-flee]: Or rather, decided *quite independently of their changed circumstances* that it was a good time to pursue other opportunities, because sharks *never* "flee".
+[^sharks-flee]: Or rather, decided quite independently of their changed circumstances that it was a good time to pursue other opportunities, because sharks never "flee".
 
 Santa Greenwood's face fell.
 "Oh, not him," he muttered.
@@ -1286,7 +1279,7 @@ the dinghy was left empty in the ship's wake.[^empty-dinghy]
 
 [^empty-dinghy]: The dinghy rather appreciated having some time to itself, what with the first few minutes of its inflated existence being so full of new experiences. Then it sank, which only goes to show—something.
 
-Finner clambered up the rope ladder and on to the deck.
+Finner clambered up the ladder and onto the deck.
 Given recent events,
 he was completely unsurprised to find himself face-to-face with another santa.
 But what a santa:
@@ -1294,7 +1287,7 @@ between the eyepatch,
 the skull earrings,
 the peg leg,
 the parrot (who had a peg leg of her own)
-and the very large and very sharp cutlass in his hands,
+and the very large, very sharp cutlass in his hands,
 *this* was the kind of santa other santas dreamed of being.
 
 "Well, ain't you the lucky ones?" the santa boomed,
@@ -1318,16 +1311,14 @@ in their hands.
 
 "This is Santa Hood,"
 Santa Greenwood said reluctantly.
-"And Figleaf—they're Miss Tumbly's."
+"And Figleaf—they're Vidancia's."
 
 "It's Finner," Finner corrected automatically.
 No-one noticed.
 
 The pause stretched awkwardly
 until Santa Greenwood sighed heavily and gestured at Captain Clausbeard.
-"And *this* is my dad."[^my-dad]
-
-[^my-dad]: What did the pirate say on his eightieth birthday? "Aye Matey!" Why do pirates love the opera? The arrrrias and the high c's. You're welcome.
+"And *this* is my dad."
 
 </section>
 
