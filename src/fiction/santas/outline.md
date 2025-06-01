@@ -118,12 +118,13 @@
 
 -   Chapter 5:
     life raft and sharks;
-    rescue by Clausbeard.
+    rescue by Clausbeard;
+    Clausbeard is taking supplies somewhere;
+    Greenwood makes a snide remark about him being a freighter captain now;
+    Clausbeard is about to explain but is stopped by the parrot.
 
 -   Chapter 6:
-    Clausbeard is taking supplies somewhere
-    (about to say it, stops when Hood glances at Finner and shakes her head);
-    Greenwood makes a snide remark about him being a freighter captain now)
+    Explain what flips are and that Sensei Tumbly is leading the opposition;
     back story about Clausbeard and Santa Greenwood's decision to lead a different life
     (foreshadowing Greenwood's later sympathy for Finner);
     Santa Hood turns the zap gun on Finner:
