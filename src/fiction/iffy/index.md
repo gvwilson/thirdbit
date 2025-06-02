@@ -6280,7 +6280,7 @@ that's me.
 What's going on?
 What's going to happen to me?"
 
-"Just some tests for now, please,"
+"Just some tests for now,"
 Edson said,
 sounding bureaucratically bored.
 "If you'll follow me?"
@@ -6298,8 +6298,7 @@ She bit back her question,
 kept her head down,
 and counted steps in her head.
 
-She had just reached one hundred and thirty two
-when Edson stopped
+At one hundred and thirty two Edson stopped
 and pressed his thumb against a silver plate set waist-high on one of the doors.
 The door whooshed sideways to reveal an elevator
 barely tall enough for Iffy
@@ -6372,7 +6371,7 @@ Whatever Edson was going to do—
 
 "What?"
 
-"Whatever you're gonna do, do it now."
+"Whatever your plan is, now's the time."
 
 "I thought *you* were doin' somethin'!"
 
@@ -6390,18 +6389,19 @@ One of the Marines stepped away from the door.
 
 *«be ready»*
 The thought appeared fully-formed in Iffy's head.
-She elbowed Edson just as all hell broke loose.
+She elbowed Edson a warning just as all hell broke loose.
 
-The bot raised its paddle arms and spun around,
-knocking one of the Marines off der feet.
-Another sentry bot lunged at the other Marine,
+The medical scanner raised its paddle arms and spun around,
+knocking one of the Marines off der feet
+as the sentry bot lunged at the other Marine,
 tangling itself in the legs of her exoskeleton.
 As she crashed to the floor,
 the lights went out.
 
-"No no no no," someone moaned as red emergency lights came on
-and people surged toward the door.
+"No no no no," someone moaned.
 
+Red emergency lights came on.
+People surged toward the door.
 "Halt!
 Do not attempt to exit without authorization!"
 The Marines were already back on their feet,
@@ -6421,7 +6421,109 @@ this was not an attack,
 it was just a temporary malfunction
 and they should all resume normal activity immediately.
 
-FIXME: reunion with Wales; back to the harbor; getting rid of Uncle Jack
+They turned a corner onto an empty street, then another.
+Ragged pieces of concrete lay on the cobblestones.
+Iffy glanced up.
+The corner of the building had been torn away by an explosion.
+She wondered if anyone had been hurt,
+then wondered why the idea didn't make her afraid or angry.
+It was just *there*,
+like the ideas that had popped into her head the night before
+when the machines were talking to her.
+
+"Here."
+Edson steered her into a narrow walkway between the damaged building and its neighbor.
+The battered green dumpster partially blocking it smelled faintly of old garbage.
+They squeezed around it to find a raccoon waiting for them.
+A raccoon,
+and Johnson Wales.
+
+Wales raised his hands.
+"Before you say anything, let me say I'm sorry.
+I didn't know Gayathri was going to—I didn't know."
+
+Iffy studied him for a moment,
+then turned her head and spat very deliberately on the wall.
+Wales closed his eyes,
+and for a moment all his years and disappointments lay on his face.
+"If I'd tried to stop her,
+she would have locked me up,
+and then I wouldn't have been able to help you.
+Iffy,
+I am sorry,
+but this was the only way."
+
+"Did you know he'd be here?"
+Iffy asked Edson.
+The Ecologist nodded.
+"An' you didn't think t' tell me?"
+
+The Ecologist shrugged.
+"Didn't get a chance.
+But if you don't his help…"
+With one smooth motion he took his hands out of his pockets,
+clicked together the two pieces of hardware they held,
+and pointed an ugly little gun at Wales.
+
+"Idjit!" the raccoon chirped.
+
+"Maybe,"
+Edson said evenly,
+not taking his eyes off Wales.
+"You being here certainly makes me wonder,
+but it ain't my call or yours either.
+Iffy?
+What do you want to do?"
+
+The moment stretched.
+A drone whined somewhere overhead on its way from somewhere to somewhere else.
+A klaxon hooted in the distance, then stopped.
+"We got no choice,"
+Iffy finally said.
+
+Edson waited a heartbeat,
+then snapped the gun apart and pocketed the pieces.
+"Aright.
+What's your plan?"
+
+Wales nodded at the raccoon.
+"Follow her."
+
+When she was younger,
+Iffy had briefly been addicted to a puzzle sim
+about a lonely prince who had built a palace full of hidden doors and secret passages.
+The next half hour felt like a grimy, grown-up replay of that
+as the raccoon led them to a side door whose rusty mechanical lock snapped with one good heave,
+through a room full of mannequin parts (at least, Iffy hoped that's what they were),
+across another narrow walkway that smelled like garlic and onions instead of like garbage,
+and finally into a basement whose small, high windows were gray with grime.
+They moved in fits and starts,
+waiting silently each time the raccoon froze and bristled at nothing Iffy could see or hear.
+The tech beneath its fur twinkled occasionally,
+and several times she caught a glimpse of other raccoons paralleling their path.
+
+"Here," the raccoon chirped
+before disappearing into a hole barely large enough for its shoulders.
+Wales looked around and seated himself onto a plastic packing crate.
+
+Iffy lowered herslef onto another one.
+"You know anythin' more about who's shootin' at who?" she asked,
+her eyes on the floor.
+
+Edson looked at Wales, who shrugged.
+"Best bet is the Australians finally told the governor in Paddington South to play or fold."
+
+"'Cause o' the *Taroona*?"
+Edson prompted.
+
+Wales shrugged again.
+"If it hadn't been that, it would have been something else.
+Their drought keeps getting worse—they have a lot of hungry people
+with nowhere to go but here.
+Brazil isn't ever going to agree to that,
+so this dance was bound to end sooner or later."
+
+FIXME: HERE
 
 Iffy sat in the pilot house while Aunt Naggie brought the *Guinevere* to life.
 Wales untied the staylines and secured the deck
