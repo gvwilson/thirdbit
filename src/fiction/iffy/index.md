@@ -6448,7 +6448,7 @@ Wales closed his eyes,
 and for a moment all his years and disappointments lay on his face.
 "If I'd tried to stop her,
 she would have locked me up,
-and then I wouldn't have been able to help you.
+and I wouldn't have been able to help you.
 Iffy,
 I am sorry,
 but this was the only way."
@@ -6502,8 +6502,7 @@ waiting silently each time the raccoon froze and bristled at nothing Iffy could 
 The tech beneath its fur twinkled occasionally,
 and several times she caught a glimpse of other raccoons paralleling their path.
 
-"Here," the raccoon chirped
-before disappearing into a hole barely large enough for its shoulders.
+"Here," the raccoon chirped.
 Wales looked around and seated himself onto a plastic packing crate.
 
 Iffy lowered herslef onto another one.
@@ -6523,25 +6522,170 @@ with nowhere to go but here.
 Brazil isn't ever going to agree to that,
 so this dance was bound to end sooner or later."
 
-FIXME: HERE
+"They din't all die,"
+Iffy blurted.
+"The captain o' the *Taroona*—I saw her in th' hospital.
+She said she was gonna come find you."
 
-Iffy sat in the pilot house while Aunt Naggie brought the *Guinevere* to life.
-Wales untied the staylines and secured the deck
-with an economy of motion that betrayed years of experience.
+Wales nodded slowly.
+"Then we'd better get going."
+The tech in his temples sparkled.
+An answering glitter danced beneath the raccoon's fur
+and then the creature disappeared through a hole barely wide enough for its shoulders.
 
-"I'll get you some of Edson's medicine soon as we're under way,"
+It took Wales, Edson, and a crowbar improvised out of a table leg
+to open the basement's battered metal door.
+It shrieked as it scraped across the concrete.
+Eight steps led up to a trap door whose hinges made almost as much sound as the door,
+but no one shouted or came to investigate.
+
+The little store they found themselves in reminded Iffy of the Sandhus' grocery,
+but had clearly been closed up for many years.
+The shelves were bare except for a handful of empty cardboard boxes.
+Canvas curtains hung over the windows,
+while unidentifiable scraps on the floor hinted at
+generations of raccoons using the forgotten space as a safe haven.
+
+"The bus will be here in two minutes,"
+Wales said curtly.
+"It'll slow down to take the corner.
+I'll get the door open.
+You need to be right behind me, okay?"
+
+Iffy looked at Edson, who nodded.
+"I'm impressed you could hack this all t'gether so quick," the Ecologist said.
+
+Wales grunted.
+"Set this up years ago—this and half a dozen other ways out.
+Gayathri probably knows about half of them.
+Let's see if she knows about this one."
+
+The seconds ticked by.
+Three, two, one:
+Wales yanked the shop door open and sprinted for the short blue bus rolling toward them.
+Iffy followed,
+squinting against the daylight as Wales leaped onto the bus's running board
+and forced its door open with his shoulder.
+
+"Come on!"
+He reached back to grab her hand and hauled her in.
+Edson's boots thumped on the running board a heartbeat later
+and then they were around the corner and accelerating.
+
+"Keep your head down," Wales ordered sharply,
+but Iffy had to look,
+she had to.
+Rothera wasn't home but she wasn't a stranger here either.
+She knew its streets almost as well as she knew Halley's.
+She had to look.
+
+The damage from the attack was scattered like splatters of paint.
+Two broken windows sulked on either side of one that was somehow unbroken.
+Water geysered in irregular spurts from a buried pipe amidst scorched and scattered cobblestones.
+Someone with two net bags of groceries walked as quickly as they could without running,
+head down and one shoulder brushing against the wall.
+Two Marines turned their heads as the bus passed—she ducked down for that—then
+went back to their patrol.
+They were both too tall to be Honesty,
+but Iffy watched them through the tinted window anyway
+until the bus turned a corner
+and started rolling down the long slope that led to the dock.
+
+"Now comes the hard part,"
+Wales said,
+speaking as much to himself as to Iffy and Edson.
+"There's eight drones over the harbor.
+They're used to the bus coming down this way,
+but they must be looking for us by now.
+As soon as we step outside…"
+He shook his head.
+
+Iffy took a deep breath.
+*Can you help us?* she thought.
+
+Silence.
+
+*«binding agreement / confirm»*
+
+*Yes.
+I already said yes.
+Just get out of here.*
+
+Silence again,
+just for a moment,
+then: *«confirmed»*
+The thought hung in her mind like an ice cube in a glass of water
+before turning inside out to become a wireframe of the strange antenna
+she had helped assemble on the *Guinevere*'s deck.
+
+"It's aright," she mumbled.
+"Th' drones won't be a problem."
+
+That turned out to be an understatement.
+As the bus slowed and stopped at the top of the pier,
+the drones above the harbor suddenly changed direction.
+Iffy heard their motors whine as they accelerated toward the featureless gray bulk of the *Bengal*.
+Someone shouted a question.
+The Marines on the pier beside the warship scattered,
+their weapons raised to track the drones circling over their heads.
+
+Edson grinned at Iffy,
+his smile slipping as she wiped her nosebleed on her sleeve.
+"Come on," he said quietly.
+"Nagatha's waitin'."
+
+They walked up the pier as if it was just another day,
+Edson and Iffy side by side with Wales two steps behind them.
+Iffy suddenly wondered what had happened to his toolboxes,
+but then they were at the gangplank
+and Aunt Naggie ran down to meet them
+and wrapped her foster daughter in a hug
+that said everything that mattered.
+
+"Thank you," Aunt Naggie sniffled to Edson over Iffy's head.
+
+The Ecologist touched her arm and nodded at Wales.
+"Couldn't o' done it without him."
+Aunt Naggie nodded,
+then pressed her cheek against the top of Iffy's head.
+
+Wales cleared his throat.
+"I'm sorry,
+but we have to keep moving."
+
+Uncle Jack was waiting on the deck with a gaff hook in his hands.
+"Get off my affin' ship," he growled as Wales reached the top of the gangplank.
+"An' who th' hell are you?" he added to Edson.
+
+"I am Edson da Silva Corrales, captain," the Ecologist replied.
+
+"I don't care.
+You get off my affin' ship too.
+And you!"
+He turned his glare on Iffy.
+"You got five minutes t' bag your stuff and clear out too.
+You been nothin' but trouble since the day I—"
+
+*Thump.*
+Iffy's jaw dropped at the same time as Uncle Jack.
+
+"Shoulda done that a long time ago,"
+Aunt Naggie said evenly,
+tossing the life preserver onto the deck beside her unconscious husband.
+
+Iffy sat in the pilot house while Aunt Naggie brought the *Guinevere* to life a few minutes later.
+Wales and Edson untied the staylines and secured the deck
+as efficiently as they had carried Uncle Jack down the gangplank to leave on the pier.
+"I'll get you somethin' to eat just as soon as we're under way,"
 Aunt Naggie promised over her shoulder.
 
 Iffy nodded.
 "Thanks, auntie."
-She could feel her thoughts coming into focus like an image under a lens.
-Whatever had happened was gone again,
-as unreal to her now as a dream.
 She was hungry,
 she realized,
-starving hungry despite the sour taste that still lingered in her mouth.
+starving hungry.
 
-She was about to offer to make some tea when Wales' voice came over the speaker.
+Wales' voice came over the speaker.
 "All clear here."
 
 "Nothin' ventured," Aunt Naggie muttered,
@@ -6560,9 +6704,8 @@ Assumin' nobody sinks us, that is."
 
 "Maybe even then,"
 Iffy replied.
-Aunt Naggie leaned over and kissed the top of her head.
-
-Wales brought the ship around in a tight arc
+Aunt Naggie leaned over and kissed the top of her head,
+then squeezed Edson's hand and brought the ship around in a tight arc
 that left them pointing straight at the harbor mouth.
 Iffy watched on the displays as drones and sentry torpedoes approached and then veered away,
 their cores' instinct to investigate overridden by whatever the antenna on deck was telling them.
@@ -6571,8 +6714,8 @@ their cores' instinct to investigate overridden by whatever the antenna on deck 
 half the time when the machines won battles
 it was because people acted like machines,"
 Wales said,
-jerking his chin at the *Bengal*.
-Half a dozen crew stood on deck watching them go by.
+jerking his chin at the *Bengal* as he joined them.
+Half a dozen crew on the warship's deck watched them go by.
 "They have to be wondering why we're moving when nothing else is,
 or why we're allowed out to sea when Rothera is under attack,
 but as long as the ship's core tells them it's okay,
@@ -6590,12 +6733,12 @@ She hadn't meant for it to sound like an accusation,
 but now that the words were out she couldn't stop.
 "You know what's goin' on with me."
 
-Wales crossed his arms and leaned his broad shoulders against the pilot house door.
-"Let me tell you a story," he said quietly.
+Wales crossed his arms and leaned his broad shoulders against the frame of the pilot house door.
 "Once upon a time,
 back before everything fell apart,
-people dreamed of going to the stars.
-We made it to the Moon,
+people dreamed of going to the stars,"
+he said quietly.
+"We made it to the Moon,
 and a few ships got as far as Mars,
 but it was just too hard and too expensive to put people into space.
 Bots could do everything we could do,
@@ -6672,10 +6815,9 @@ You can see machines the way cores do.
 You can see how things fit together."
 
 He straightened.
-"But you mustn't tell Gayathri.
-She knows where your olders came from.
-So far she thinks everything we've done together is me testing you.
-If she realizes what you can do…"
+"Gayathri knows where your olders came from.
+So far she thinks I'm still testing you.
+If she realizes you can already talk to the machines…"
 
 Iffy nodded.
 She had played enough sims to know what happened to people with special abilities,
@@ -6693,7 +6835,7 @@ Honesty had laughed and said that wasn't the point,
 and that Iffy was the most practical person they'd ever met.
 
 "Whaddaya think it's tellin' 'em we are?" she asked Wales,
-jerking her chin at the antenna.
+jerking her chin at the antenna on the *Guinevere*'s deck.
 
 He shrugged.
 "No idea.
@@ -6713,7 +6855,7 @@ we should be increasing the dosage."
 Wales snorted.
 "I'm going to start to sound like a broken sim,
 but if we can get to Mount Tyree
-I ought to be able to print a lifetime supply."
+I can print a lifetime supply."
 
 Instead of answering,
 Aunt Naggie tapped a few commands on the *Guinevere*'s console.
