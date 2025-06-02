@@ -1528,24 +1528,52 @@ Finner's hands put themselves up.[^hands-up]
 
 "Uh huh.
 And I suppose you want me to believe that
-you just *happened* to be in sensei's house when those elves attacked?"
+you just happened to be in sensei's house when the flips followed through the wherever?
+And again to Santa Hotep's pyramid?"
 
 Finner's mouth worked.
-"I didn't know they were going to attack!" he finally managed to get out.
-"I didn't know about, about chimneys to other worlds,
-I don't know why you call my gran-granna 'sensei'—I don't know anything
-about *any* of this!
+"I don't know anything about that!" he finally managed to get out.
+"I don't know why you call my gran-granna 'sensei',
+or any of this!
 I just want to go *home*."
 
-Santa Hood studied his face for a moment,
-then flipped the ray gun over and offered it to him.
-"Doesn't work unless you're an elf," she explained.
+Santa Hood pressed a button on the ray gun with her thumb.
+The ray gun hummed in response.
+"You're not going anywhere until I'm sure you're not a robot."
 
-"Then why were you pointing it at me!?"
+"A what?"
 
-The corner of Santa Hood's mouth quirked up.
-"Would you feel better about that if I *had* been able to shoot you with it?
-Here, take it."
+"Uh uh uh."
+Santa Hood gestured with the gun.
+Finner's hands shot back into the air.
+"Better.
+I said,
+prove to me that you're not a robot.
+Because you were gone an awfully long time at Santa Hotep's.
+They could have replaced you then."
+
+For a moment Finner just gaped at her.
+*You could check my pulse,* he thought,
+immediately squashing the idea
+back into the corner of his brain where he kept all the other troubling thoughts
+he had about women, comma, attractive.
+"I'm bleeding," he blurted.
+"I mean, just a bit, but I scraped my arm.
+I can…?"
+
+Santa Hood nodded permission.
+Arms still in the air,
+Finner pulled his right sleeve down to his elbow.
+"See?" he said hopefully.
+It wasn't actually much of a scratch,
+but it was red and yay,
+there was in fact a small streak on his skin.
+
+Santa Hood studied it a moment,
+then pressed the button the ray gun again.
+With a disappointed *mmrrrmmm*
+the end of the gun dimmed and blinked out.
+"Here, take it."
 She leaned forward to pass it to him and winced.
 
 Finner put it on the tiny desk he'd been sitting on.
@@ -1556,26 +1584,25 @@ Santa Hood shook her head.
 You don't learn to make the kinds of presents I make
 without getting a few bumps and bruises.
 Your gran-granna taught me that.
-That's why I call her 'sensei'," she added.
-"When all this trouble started
-she was one of the first santas to say we had to do more than just talk.
-She started teaching people how to fight."
+That's why I call her sensei," she added.
+"When all the trouble started with the flips
+she was one of the few people to say we had to do more than just talk."
 
 Finner would have said, "I don't believe it,"
 except he did.
 The stone cat in Gran-Granna's front yard,
-her magic sword—even without all of that,
-the idea that she had been some sort of soldier or ninja or whatever
-was perfectly in character.
-He still had questions,
-but what he said was,
+her magic sword:
+even without all of that,
+the idea was perfectly in character.
+
+A hundred questions about robots and replacements whirled in his head.
+What he asked instead was,
 "Can I get you anything for your ribs?"
 
 Santa Hood snorted, which made her wince again.
 "Some tea would be nice,
 but I think we'd both better stay down here for now.
-I'm going to try to get some sleep—wake me up
-if anything exciting happens?"
+Wake me up if anything exciting happens."
 
 A few moments later she was snoring gently beneath her pile of blankets.
 Finner put his head down on the little desk and tried to fall asleep as well,
@@ -1607,46 +1634,34 @@ like an unopened note for his parents from his writing teacher.[^writing-teacher
 
 "Right," Finner muttered under his breath.
 He picked up the ray run gingerly,
-holding it with just his thumb and one finger,
-and twisted it around to study it.
-There were no buttons that he could see,
-especially not one labeled "turn on for santas",
-but the porthole was still definitely glassless.
-Santa Hood must have been wrong about it only working for elves.
-
+holding it with just his thumb and one finger.
+The porthole was definitely glassless.
 He brightened slightly.
-Maybe it only worked for teenagers.
-Maybe instead of just being baggage[^baggage]
-he could actually help Santa Hood
+Maybe instead of just being baggage he could actually help Santa Hood
 (and Santa Greenwood too, of course).
 For a moment he saw himself standing beside them,
 blasting away with the ray gun while his new-found teammates tossed their grenades
 and waved their ax menacingly.
 Maybe he could even—
 
-[^baggage]: A term used only occasionally by Gran-Granna Tumbly that always provoked a mix of shock, dismay, and grudging admissions that yes, so-and-so *did* seem like the sort of person who would bring a store-bought sweater as a baby gift instead of something hand-made.
-
 *Crack!*
 *Crack!*
-The whole ship shuddered beneath his feet as the cannons above him fired.
+The ship shuddered beneath his feet as the cannons above him fired.
 Shouts rang on the deck outside the cabin.
 "Wuzza!?" Santa Hood grunted again, sitting up.
 "Wuz g'non?"
 
 "Stay here," Finner said firmly.
-He tucked the ray run into his trousers,
+He tucked the ray gun into his trousers,
 then imagined what would happen if it went off again
-and transferred it to his pocket.[^unfortunate-incident]
+and transferred it to his pocket.
 "I'll be right back," he promised
 as he pulled the cabin door open
 and stepped out into chaos.
 
-[^unfortunate-incident]: Which admittedly wouldn't be all that much safer if there was what his writing teacher would probably have referred to as "an unfortunate incident".
-
 Half a dozen sailors were firing rifles and crossbows into the air.
 Half a dozen others were reloading the ship's cannons
-as Captain Clausbeard and his parrot[^parrot-time]
-bellowed orders.
+as Captain Clausbeard and his parrot[^parrot-time] bellowed orders.
 In between them,
 Santa Greenbeard was hacking at an enormous black tentacle with his ax.
 No, not a tentacle—it was a metal cable as thick as Finner's arm,
@@ -1675,28 +1690,25 @@ and splashed into the ocean.
 
 Someone yelled,
 "Here they come, cap'n!"
-as half a dozen elves slid down the cable,
+as half a dozen elves and santas slid down the cable,
 letting go just as they reached the height of the mast.
 *Thump!* *Thump!* *Thump!*
 The first three hit the deck,
 tumbled head over heels,
 and rolled to their feet with swords in their hands.
 
-Finner only half-noticed the others catch themselves
-in the ship's rigging—he was too busy scrambling backward to get away
-from the swordfight that had erupted around him
-to do any more than that.
+Finner only half-noticed the other boarders jump into the ship's rigging:
+he was too busy scrambling backward to get away
+from the swordfight that had erupted around him.
 Steel rang against steel.
-Captain Clausbeard and his crew pressed hard against the elves,
-their blades flashing.
-For a moment it looked like the attack would be over as soon as it had begun,
-but more elves kept coming,
-and more after them.
+Captain Clausbeard and his crew pressed hard against the attackers.
+For a moment it looked like the fight would be over as quickly as it had begun,
+but more boarders were sliding down the cables.
 
 "Away wi' ye!" Santa Greenbeard bellowed.
 With one might swing of his ax
-he sent two of the elves flying over the gunwale.[^gunwale-sharks]
-His backswing snapped another elf's sword in half.
+he sent two elves flying over the gunwale.[^gunwale-sharks]
+His backswing snapped a santa's sword in half.
 He raised the ax over his head,
 took aim—
 
@@ -1711,21 +1723,21 @@ his hand reaching for the dart as his eyes unfocused.
 
 Finner spun around.
 A single elf dressed in black hung in the rigging of the foresail,
-a blowgun in its hand.
+a blowgun in der hand.
 The elf caught Finner's eye and grinned
-as it pulled another dart from the pouch on its belt
-and put it between its teeth.
-It raised the blowgun to its lips and took aim.
+as de pulled another dart from the pouch on der belt
+and put it between der teeth.
+De raised the blowgun to der lips and took aim.
 
 Afterward,
 Finner could never remember actually drawing the ray gun.
 It was just suddenly there in his hand.
 A single brilliant bolt of green punched a smoldering hole in the foresail
-just a few inches from the elf's head.
+an inch from the elf's head.
 "Bwah!?" the elf tried to say,
 then, "Uh oh."
-It glared accusingly at Finner,
-spat out the dart it had just swallowed,
+De glared accusingly at Finner,
+spat out the dart de had just swallowed,
 and sagged in the rigging like a straw doll
 hanging forgotten in a tired child's hand.
 
@@ -1733,12 +1745,11 @@ Finner didn't give himself time to think.
 He spun around and fired again and again.
 His shots went wild,
 but all of a sudden it was no longer
-just a battle between the elves and the pirates.
-It was a battle between the elves and the pirates and *him*,
-and the elves hadn't counted on that.
+just a battle between the pirates and the boarders,
+It was a battle between the elves and the pirates and *him*.
 
 "Their ship!
-Blast their blasted ship, boy!"
+Blast their blasted ship, you blasted idiot!"
 Captain Clausbeard shouted.
 Finner squinted,
 pointed the ray gun into the air,
