@@ -133,8 +133,6 @@
 -   Chapter 7:
     Finner convinces Hood he's real
     (thinks briefly about letting her check his heartbeat but that would be too embarrassing);
-    Finner accidentally discovers that he can use the zap gun that is only supposed to work for elves
-    (which chills him: is he a flip after all?);
     airship attacks (trying to intercept supplies / get the wherever code for The Building);
     Clausbeard orders one of the crew to radio for air support
     ("Hold 'em off 'til the flyers get here!");
