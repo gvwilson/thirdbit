@@ -6863,12 +6863,28 @@ A map appeared showing the coastline,
 the winds and currents,
 recent sea boils,
 and a bent red line marking the course from Rothera back to Halley.
-"Six days if we don't hit trouble," she said,
+"Four days if we don't hit trouble," she said,
 tapping the screen with a blunt brown finger.
 
 Wales smiled.
 "In other words,
 we have no idea how long it will take."
+
+The map disappeared.
+*PRIORITY MESSAGE* flashed on the screen,
+then was replaced by Uncle Jack's angry face.
+He got as far as, "You—" before Aunt Naggie hit the mute button.
+The core's transcript of his threats and orders scrolled by,
+every third word marked "abusive content and/or threat of violence".
+
+A horrible thought struck Iffy.
+"He can't remote us, can he?"
+
+"Not any more," Aunt Naggie told her.
+"An' when he gets around t' callin' th' registry
+I think he'll find he has less claim on this old boat than he thought."
+She patted the side of the console fondly,
+then made her husband disappear with another tap of her finger.
 
 Iffy surprised herself by yawning.
 "I'm gonna…"
@@ -6883,13 +6899,313 @@ retraced her steps to her room,
 and closed the door behind her.
 She dropped her jacket beside her boots and fell onto her mattress.
 
+Her app made a soft *ping* just as she closed her eyes.
+"Affin' hell," she swore,
+pulling her pillow over her head.
+*Ping.*
+She swore again,
+rolled over,
+tapped the screen,
+and sat bolt upright,
+her headache and fatigue forgotten.
+
+It took the image a hearbeat to uncompress.
+Iffy gulped.
+Honesty's First and Second were looking straight into the camera,
+both worried.
+Text appeared below them.
+`H with u?`
+
+`No` she tapped back.
+`Not in R now.`
+
+Moments ticked by until `b safe` appeared.
+
+`u 2`.
+Iffy sent the message and then swiped over to her feeds.
+Hell was filled with reports of the attack,
+coded anywhere from reliable green
+through dubious yellow
+to kaiju-and-time-travellers red.
+People were dead,
+it would take weeks to repair the damage,
+Rothera's harbor was closed until further notice—everything she didn't already know
+was immediately contradicted by something else.
+Had Australian troops occupied Paddington South?
+Were people fighting in the streets in Halley?
+Were machine-made zombies massing in the ruins of Bharati?
+Had Mount Erebus erupted again?
+
+She swiped it all away.
+Four days to Halley and who knew what.
+She closed her eyes and let herself slide away.
+
+FIXME: need to get Wales' toolboxes
+
 </section>
 
 <section>
 
 ## Chapter 8: Pursuit
 
-FIXME: battle
+FIXME: connect with the Bengal
+
+Suddenly she knew what to do,
+but she had to help Honesty first.
+She stuffed the dronelets into her pockets.
+Wales' tools were still in the engine room.
+She could go forward and hope that the Marines hadn't dogged the hatches, or—
+
+She yanked her door open before she had time to think about how stupid her plan was.
+Up and down the ship went,
+waves booming beneath them.
+As the *Guinevere* rose again she threw herself face-forward onto the deck
+and slid toward the bomb hole,
+looking for all the world like one of the long-ago penguins in her nature book,
+except they had been black and white instead of dirty gray
+and hadn't screamed in terror as they slid.
+
+Her hand caught the railing post.
+She turned sideways as the ship began to drop into the trough of the next wave
+and let her legs fall into the hole.
+There!
+She didn't know what her feet had found,
+but she hoped it was sturdy enough to take her weight.
+Panting,
+she let go of the railing and dropped into the ship
+just as another wave crashed down.
+
+A single light strip flickered over her head
+as she straightened up in water that reached to her knees.
+The ship's hold stank of metal and coal and old jellyfish.
+Iffy undogged the locker door with fumbling frozen fingers
+nd pulled out the red duffel bag that held the ship's emergency medical kit.
+
+Wales had dragged Honesty over against the stern wall of the pilot house
+and was kneeling beside der when Iffy reached them.
+"Good girl," he said,
+taking the bag she thrust at him.
+"Der exo stopped der bleeding,
+but there's shrapnel in der right lung and der intestines.
+ He looked up at her.
+"You okay to help?"
+
+"Just tell me what t' do," Iffy said grimly.
+
+Wales pulled off his gloves
+and peeled the false skin back from the pad of his right forefinger.
+Tiny lights danced across the small silver patch of tech beneath.
+Together they gently lifted Honesty's shoulder
+so that Wales could flip open a flat panel on the exoskeleton's pauldron
+and touched his finger to the little optical port beneath it.
+
+A shiver ran up his spine.
+Without warning he sneezed twice in quick succession.
+"Stupid," he muttered,
+whether at himself or the exoskeleton's security protocols or the world,
+Iffy couldn't tell.
+
+A light began blinking in the silver plate set into his temple.
+"Wait… wait… now!"
+He pointed at a buckle on the exoskeleton just as it clicked.
+Iffy yanked it open.
+Underneath,
+Honesty's Marine blue thermals were almost black with der blood.
+
+"Get a scalpel from the bag, and some tissue glue," Wales ordered.
+"I have to keep the suit from—damn it.
+Hang on."
+The little guns on Honesty's shoulders swivelled suddenly to point at him,
+then at Iffy,
+then back at him.
+"Okay. Do it now."
+
+The guns woke up twice more as Iffy operated.
+Seawater splashed on Honesty despite their best efforts to shield der.
+It splashed on them too,
+though Iffy barely noticed.
+Every few moments Wales muttered another curse
+as the exoskeleton's tiny core cycled tried yet another trick from its defensive repertoire.
+
+One, two, three, four… Five.
+She tossed the last twist of jagged metal over the side,
+laid a thin slice of re-flesh in the wound,
+and glued der friend closed.
+"'Zat it?" she asked breathlessly.
+
+Wales closed his eyes.
+"That's everything the exo can see.
+You'd better back away for this next bit."
+He jerked his head toward the corner of the pilot house when she hesitated.
+
+Iffy reluctantly retreated a few steps.
+Wales shifted his weight slightly and took his finger off the exoskeleton's data port.
+
+The guns on Honesty's pauldrons snapped sideways to point at his head.
+"Easy," Wales said softly,
+folding the flap of false skin back over his finger.
+"Easy there.
+We were just putting der back together."
+
+The guns tracked him as he slowly stood up and backed away, his hands spread.
+Iffy shuffled sideways to make space for him.
+"Is de gonna be aright?"
+
+Wales lowered his hands and let out his breath with a whoosh.
+"I hope so."
+He ducked reflexively as another drone whined overhead.
+"The question is,
+are we going to be?"
+
+"Depends which way that satellite's comin' in," Iffy said.
+She grabbed a scorched piece of canvas
+that had started the day as part of the tent covering the Marines' plasma gun.
+"Can you find me a couple more like this?"
+Without waiting for Wales to answer,
+she pulled the dronelets and her tools out of her pockets and set to work.
+
+Cut and tear,
+fold,
+try to tie a knot,
+curse because the canvas was stiff with salt and cold,
+whack it against the deck,
+unfold it,
+fold it again,
+try another knot—
+"Here," Wales said,
+"Let me do that bit.
+You make something to hang it on."
+
+Iffy nodded jerkily.
+Her fingers had gone numb,
+but there wasn't time for that,
+there wasn't time for anything except cutting a loop of wire
+and threading it through a grommet in the canvas
+and hooking it onto the dronelet,
+all the while trying to calculate power and thrust and battery life in her head
+and wondering if they'd be able to stabilize,
+because the wind was picking up
+and they'd have to fly in formation or this wasn't going to work.
+
+"Two hundred seconds," Wales said quietly.
+Iffy nodded again.
+Another twist, another cut…
+"Oh, come *on*," she muttered,
+trying to quell her panic as the wire cutter slipped in her hand.
+There!
+She took the last piece of canvas from Wales and attached it.
+
+"Here goes," she said,
+scrambling to her feet and pulling her app out of her pocket.
+Power, direction, attitude—the commands sizzled from her brain
+through her fingers
+into the app
+and from it to the trio of dronelets.
+"Oh no ya don't," she muttered as one started to rise.
+A hasty swipe on the app brought it back under control.
+
+"One hundred seconds."
+Wales looked up,
+shading his eyes,
+and for a moment Iffy wondered if
+his tech could possibly let him see the satellite against the cold glare of the sun.
+
+*Tap tap tap.*
+The dronelets' rotors whined in sudden unison,
+lifting them off the *Guinevere*'s deck.
+
+"Eighty seconds."
+One last tap sent the dronelets whizzing away.
+The strips of canvas she had attached to them dangled loosely between them.
+All Iffy could think was how ridiculous they looked and how ridiculous her plan was.
+
+"Sixty seconds."
+The hacked drones had spotted the new arrival.
+Their swarm broke apart,
+reformed,
+and broke apart again
+as their tiny cores tried to make sense of what they were seeing.
+
+"Forty-five seconds."
+The dronelets came to an abrupt halt a hundred meters away.
+Would they—yes!
+They began to circle,
+keeping the strips of canvas taut.
+
+"Thirty seconds."
+The dronelets accelerated away,
+straining against the canvas and the wind.
+A hundred and fifty meters separated them from the *Guinevere*.
+
+All at once the attacking drones reached a decision.
+Their tight swarm burst apart like a flock of started seagulls.
+"Fifteen seconds," Wales said,
+his voice rising as the drones opened fire.
+Canvas strips snapped and jerked as bullets punched holes through them.
+Iffy held her breath.
+If even one of the dronelets went down—
+
+"Zenith," Wales said flatly.
+The air wavered and rippled.
+The drones and dronelets crackled like fireworks and fell from the sky
+as the satellite's beam heated them instantly from Antarctic cold to hundreds of degrees.
+Half a second later
+a column of steam shot up from the ocean
+as the beam boiled the top meter of water.
+
+"Gotcha!" Iffy shouted.
+
+"Well done," Wales said,
+clapping her on the shoulder.
+
+Iffy ignored him.
+Stuffing her app and her tools back in her pockets,
+she knelt back down on the deck.
+Honesty's chest rose and fell within der exoskeleton,
+but only barely.
+"We gotta get der inside," Iffy said anxiously.
+
+Wales nodded.
+He squatted,
+lifted Honesty with a soft grunt,
+and followed Iffy into her cabin.
+
+It took a while to get Honesty out of der exoskeleton.
+De lay on the floor beside Iffy's mattress
+becoming more vulnerable one piece at a time
+as Iffy and Wales undid snaps and buckles.
+Pauldrons,
+greaves,
+mis-matched vambraces with tiny rocket launchers,
+gauntlets that could crush rock or deliver electric shocks—all of them
+eventually lay in an untidy navy blue pile in the corner.
+
+"I should go find Doctor Johel,"
+Wales said quietly after they shifted Honesty to the mattress.
+Der breathing was still shallow,
+and the re-flesh Iffy had poured into their wounds was still gooey,
+but de was alive.
+
+Iffy nodded.
+"Thank you."
+
+Wales shook his head.
+"Thank *you*.
+That trick with the drones—we'd be in pretty rough shape if you hadn't thought of that."
+He sighed.
+"The world really doesn't want us to get to Mount Tyree, does it?"
+
+"Coulda been worse," Iffy said quietly.
+She tucked the blanket in under Honesty and wiped her eyes on her sleeve.
+
+Wales closed the door behind him.
+Iffy heard a Marine bark a question.
+She didn't care.
+She shrugged out of her heavy coat and lay down beside her friend.
+"Please don't leave me," she whispered,
+putting her arm over Honesty.
+"I got all this stuff I wanna tell you,
+an' I can't do that if you go away."
 
 *She dreamed, but somehow knew she was dreaming.
 "This isn't real," she said.*
