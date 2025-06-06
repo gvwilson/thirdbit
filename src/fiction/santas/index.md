@@ -1799,7 +1799,7 @@ Half a dozen possible explanations raced through his mind,
 each less comforting than the last.
 
 He was about to call for help when the door near his feet slid open.
-An elf wearing a white coat and a matching white mask stepped into the room,
+A santa wearing a white coat and a matching white mask stepped into the room,
 exclaimed,
 "You're awake!"
 and fled.
@@ -1809,7 +1809,7 @@ and fled.
 I think I need to go to the bathroom."
 
 The door slid open again.
-The elf who entered this time was taller than the first one
+The elf who entered this time was taller than the santa
 and wore a blue uniform instead of a lab coat.
 The ray gun in her hand was a twin of the one Finner had fired,
 except hers had several tally marks scratched on the barrel
@@ -1826,8 +1826,8 @@ Please."
 
 The elf scowled a moment longer,
 then turned her head slightly.
-"Go ahead," she ordered without taking her eyes off Finner.
-She held the ray gun steady as the smaller elf unbuckled the straps holding Finner down.
+"Go ahead," she ordered the santa without taking her eyes off Finner.
+She held the ray gun steady as the santa nervously unbuckled the straps holding Finner down.
 
 He sat up and rubbed his wrists.
 The elf waggled her ray gun toward the door.
@@ -1858,12 +1858,12 @@ The two and a half minutes that Finner spent in the bathroom matter even less,
 so let's just skip ahead to the moment after he washed his hands.*
 
 Finner slid the door open.
-The elf hadn't moved,
+The elf hadn't shifted,
 and neither had her scowl,
 but her ray gun was holstered on her hip instead of in her hand.
 "Let's go," she ordered,
 nodding to show the way.
-"And no funny busi—damn, why do they always run?"
+"And remember, don't try anything—damn, why do they always run?"
 Because of course that's what Finner did.
 
 His boots thumped on the rubberized floor as he pelted down the corridor.
@@ -1923,14 +1923,13 @@ The elf he had run away from looked at him with just a touch of annoyance on her
 she suggested.
 
 Thirty seconds and three corners later,
-the corridor brought them to a ladder with eight rungs
-that had been polished silver in patches by hard use.
+the corridor brought them to a short ladder with rungs polished by hard use.
 Finner clambered up into the murmur and bustle of
 the bridge of a airship in flight.
 The front wall was made of hexagonal glass panels
 held together by thin strips of brass.
 The walls to either side were filled with instruments, controls, and relays.
-A pair of elves in blue uniforms paced back and forth beside them,
+Santas and elves in blue uniforms paced back and forth beside them,
 adjusting dials and jotting notes on clipboards.
 Another uniformed elf stood facing the enormous window
 with her hands clasped behind her back.
@@ -1945,7 +1944,7 @@ the elf behind Finner reported crisply.
 Alpha Two hesitated.
 "Ma'am—"
 
-"I'm sure it will be all right, Alpha Two,"
+"I'm sure it will be all right,"
 the captain said smoothly.
 "If he was going to explode, he would have done so by now."
 
@@ -1957,5 +1956,198 @@ then stopped in shock as the captain put her hand on the hilt of her cutlass
 and turned around.
 
 It was Gran-Granna Tumbly.
+
+</section>
+
+<section markdown="1">
+
+## Twins
+
+People sometimes say, "Their jaw dropped,"
+but that's not what actually happens.
+What *usually* happens is that your mouth opens and closes a few times
+because your brain knows you're supposed to say something like,
+"What are you doing here?"
+but can't find the right words (or even the wrong ones).
+It's as if something was stuck in the elevator doors of your mind
+and making it go *ding! ding! ding!* over and over again.
+
+The airship's captain waited patiently for Finner's doors to close.
+The bridge crew glanced at him occasionally but didn't interfere:
+keeping an airship flying is tricky even in the best of circumstances,
+and if Finner had been paying attention
+he would have heard quiet murmurs about damage control crews reporting in
+and steering vanes needing in-flight repairs.
+The skirmish with Captain Clausbeard's ship had only been
+the equivalent of two cats taking swipes at one another
+and then pretending each other didn't exist,
+but airships are fragile things.
+
+"Gran-Granna?" Finner finally managed.
+Even as he said it he belatedly realized that the elf wasn't his great-grandmother.
+They were too tall and didn't have nearly enough wrinkles on their face,[^wrinkles-face]
+though they *did* have an impressive scar on one cheek.
+Plus,
+even if the jingly bells on their hat were stuffed with yarn to muffle them,
+they were clearly an elf,
+not a santa.
+
+[^wrinkles-face]: Old people don't actually have more wrinkles than young ones. The real difference is that young people's skin hasn't had enough practice wrinkling to do it all the time. By the time you have smiled or frowned as often as someone like Gran-Granna Tumbly, your wrinkles are like a weight lifter's biceps. Some cultures regard strongly-defined wrinkles as a sign of virtue, and have specialized gyms where people wiggle their eyebrows to music or smirk over and over again while a personal trainer urges them on.
+
+"Captain Snood, actually," the elderly elf said in a clipped voice.
+"And you must be Finbar."
+
+"It's Finner,"
+Finner corrected automatically.
+
+"Finner," the captain repeated.
+"I'll keep that in mind.
+So what were you doing on board the *Dancing Marmot*
+and how did you come by this?"
+She pulled Santa Hood's ray gun out of one of the voluminous pockets of her overcoat.
+
+"Um."
+Finner cleared his throat.
+"If the *Dancing Marmot* is the ship I was just on,
+they rescued us from sharks because our rubber dinghy was sinking.
+And I got that from one of the santas I was with.
+I think she got it from one of the elves who was shooting at us
+when we were—um,
+well,
+there was this pyramid.
+I hope I didn't hurt anyone,"
+he added hurriedly,
+thinking of the glass that wasn't in the porthole of Santa Greenwood's old cabin any longer.
+
+"Number two stabilizer is back in action, captain,"
+an elf called out from a control panel to Finner's left.
+
+"Thank you, Alpha Nine,"
+the captain said without taking her eyes off Finner's face.
+"Have the crew start work on the vents next."
+
+"Aye aye, captain."
+
+Captain Snood studied Finner a moment longer.
+"Let me save us some time,"
+she said as he opened his mouth.
+"Tumbly is my sister.
+We're twins, actually,
+and our parents were so excited about having one of each
+that they pushed her to be as santa as a santa could be
+and me to be the perfect little elf.
+The problem was that we are very alike in temperament,
+so sitting in a workshop making trinkets and gew-gaws didn't really work out for me.
+I wanted *this*."
+Her gesture took in her cutlass, the bridge, the airship, and all the infinite worlds.
+
+"But—" Finner started.
+
+"The funny thing is,"
+Captain Snood continued over top of him,
+"Tum-tum enjoyed tinkering more than I did.
+She kept coming up with new ways to rig harnesses for reindeer and,
+well,
+I presume she still has that sword cane she made?
+Mm.
+Wouldn't ever admit it was elfing, though.
+Actually got quite shirty when I finally brought it up."
+This time her gesture was very clearly aimed at the scar on her cheek.
+
+"So—so you're a flip?"
+Finner asked.
+
+The captain looked at him with absolutely no expression.[^absolute-expression]
+"That's not a word we use on this ship," she said levelly.
+"Alpha Seven?"
+
+[^absolute-expression]: In the sense of "absolute zero".
+
+A nearby elf saluted.
+"Yes, captain."
+
+"Remove him from the bridge.
+Find someone from Beta watch who has annoyed me recently
+and tell them to keep him out of trouble."
+
+A few moments later Finner was back at the bottom of the ladder.
+"That way,"
+Alpha Seven told him, pointing.
+They had only gone three steps when an alarm began to blare
+and the overhead lights changed from orange to red.
+"All hands, all hands, battle stations!"
+a crackly voice ordered through unseen speakers.
+"Battery teams to firing stations!
+Fire suppression teams, suit up!
+This is not a drill!"
+
+"Look!" Finner shouted.
+Alpha Seven spun around.
+In the moment it took the elf to realize de had been tricked,
+Finner ran.
+
+*I'm getting pretty good at this,* he thought giddily
+as he half-slid, half-bounced around a corner.
+There!
+Door number one oh six, "Emerg Whvr".
+He twisted the handle,
+pulled it aside,
+stubbed his toe on the sill as he stepped through,
+and slid the door shut behind him.
+*Snick!*
+He hoped that was a lock.
+Even more,
+he hoped he wouldn't be here long enough to find out if it wasn't.
+
+The room was smaller than the one he'd woken up in.
+There was no furniture and no window,
+just a line drawing of an archway on one whitewashed wall
+with a pair of heavy brass dials beside it.
+Codes were stencilled on the wall beside it:
+"QCD 143.7 22.8",
+"NAR 96.0 533.5"…
+The last one was "OVB".
+The numbers had been crossed out
+and the words "We miss you Number Five" written in their place.
+
+"Hey!"
+A fist banged on the door.
+"Open up!
+Open up *now*!"
+
+"Just a miiinuuute,"
+Finner sang.
+The codes had to stand for places,
+and the numbers had to be how to set the dials to get to them,
+but how was he supposed to know where "QCD" or "NAR" were
+or whether they were safe to go to,
+because he was pretty sure "OVB" wasn't.
+
+"Last chance!" Alpha Seven bellowed.
+"Either you open this door or I zap it open!"
+
+Finner said a word he was pretty sure his parents thought he still didn't know.
+If he picked a world at random
+he could wind up on the moon without a spacesuit
+or sitting on an ice floe wondering if the cold or Santa Kraken
+would get to him first.
+
+His shoulders slumped.
+Better to be a prisoner than a meal.
+"All right, I give up," he said,
+or would have if a loud *boom!* hadn't shaken the airship
+hard enough to knock Finner right off his feet.
+The whole room—in fact, the whole airship—tilted to one side.
+
+As Finner fell forward
+his left hand hit one of the dials.
+The light above his head flashed,
+or maybe that just a side effect of him stretching in one impossible direction
+while the universe stretched around him in another.
+
+A moment later the lock sizzled and evaporated.
+Alpha Seven slid the door open,
+looked despondently at the empty room,
+and used exactly the same word Finner had used moments before.
 
 </section>

@@ -157,7 +157,6 @@
     Snood says that Hood always enjoyed the tinkering part of thieving but wouldn't admit elvish tendencies,
     which drove them apart;
     puzzled when Finner accuses her (and the flips) of replacing people with robots;
-    points to crewmembers who are obviously robots and says, "Who would be fooled?";
     conversation cut short when airship is attacked by biplanes;
     Finner escapes through the wherever to a random world.
 
