@@ -137,6 +137,10 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   It wants to bring the Makers back immediately
     -   Character arc: sacrifices itself to awaken the Makers
         -   We feel sorry for it even though it's a villain (Gollum)
+-   Mouse (ally): a small cleaning bot from the first book
+    -   Reappears as one of Patient's minions
+    -   Becomes an ally after Maddy rescues it
+    -   Later "adopted" by Dockety and Crusher
 
 ## Plot
 
@@ -319,8 +323,19 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 ### Chapter 9 (Maddy's PoV)
 
 -   Goals:
-    -   Maddy in the Mire
--   Chapter ends with Maddy seeing the Operators taking Sindy (as a prisoner) to Heck
+    -   Reveal the Operators' perfidy
+    -   Get Maddy on her way to Heck
+-   Maddy tries to find her way through the Mire back to the Makers' Road
+    -   Pursued and nearly captured by Patient's minions
+    -   Discovers that the discombobulator works, but only for a few minutes at a time
+-   Doubles back to the observation tower (as if playing hide and seek with Sindy and Gumption)
+    -   Inside, finds screens showing scenes from hundreds of hidden cameras (call back to first book)
+-   One of the screens shows the observatory
+    -   Thoughtful is worried about Leaf
+    -   Worried that it will get in the way of rendezvous and handover
+    -   Blazes: "Leaf made his choice a long time ago."
+-   Maddy realizes they're talking about handing Sindy over to Heck
+    -   Feels a touch on her ankle
 
 ### Chapter 10 (Gumption's PoV)
 
@@ -330,6 +345,16 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 
 -   Goals:
     -   Maddy arrives in Heck with Mouse as a guide
+-   The touch on Maddy's ankle is the little cleaning bot from the first book
+    -   She thanks it for helping her escape: can it help her again?
+    -   It wavers until she pries off its regulator despite its programmed resistance
+-   Leads her out of the observation tower to a camouflaged shed by the Makers' Road
+    -   Attaches itself to a cart
+    -   She hides in the back (call back to her stowing away earlier: she misses Gumption)
+-   Trip to Heck only takes a few hours
+    -   Ground dries out and vegetation disappears as they get closer
+    -   Heck looks more and more frightening
+    -   Until they go through a gate in a fence and see it is mostly in ruins
 
 ### Chapter 12 (Gumption's PoV)
 
