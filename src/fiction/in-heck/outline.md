@@ -309,6 +309,8 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 
 -   Goals:
     -   Get Gumption's solo adventure going
+    -   Show Dockety's leadership and willingness to sacrifice
+    -   Show that Bots' End isn't the only community of free bots
 -   Repeat Maddy's abduction from Gumption's point of view
 -   Argument
     -   Gumption wants to go after her
@@ -318,6 +320,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Thoughtful to Blazes: "It'll make things easier" (double meaning)
 -   Dockety takes Gumption to meet the free bots
 -   Dockety strikes a deal with them for help
+    -   Trades one of its optical sensors for their help
     -   Explains the risk of getting too close to Central itself
 
 ### Chapter 9 (Maddy's PoV)
@@ -340,6 +343,10 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 ### Chapter 10 (Gumption's PoV)
 
 -   Goals:
+    -   Prepare Gumption for Heck
+-   The free bots take Gumption and Dockety to the Tailor
+-   Gumption is fitted with "armor" to make bots believe he is a bot
+-   Chapter ends with the Tailor stopping Gumption's heart
 
 ### Chapter 11 (Maddy's PoV)
 
@@ -359,6 +366,16 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 ### Chapter 12 (Gumption's PoV)
 
 -   Goals:
+    -   Get Gumption and Dockety to Heck
+    -   Connect them with Patient
+    -   Explain the alliance between Central and the Operators
+-   Dockety carries Gumption to Heck
+-   Met by Patient when they arrive
+    -   It monitored their approach and hid them from Central
+    -   It is waiting for Sindy to arrive
+-   Proposes an alliance
+    -   After argument, Dockety persuades Gumption to accept it
+-   Patient then sets off an alarm so that Central will capture them
 
 ### Chapter 13 (Maddy's PoV)
 
