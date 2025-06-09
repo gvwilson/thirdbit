@@ -32,7 +32,7 @@
 -   Gran-Granna Tumbly (principal antagonist): traditionalist matriarch of Finner's family
     -   Character arc: doesn't have the courage to change (opposite of Finner)
     -   Her given name is Vidancia, but only Santa Greenwood calls her that
-    -   Tumbly and her wife were famous campaigners for same-role relationships
+    -   Tumbly and her wife Shady Ann were famous campaigners for same-role relationships
     - Wife disappeared years ago, presumed lost
     -   Tumbly is now part of a public campaign against the flips
     - Hood and Greenwood are part of the "dirty tricks" arm of this campaign
@@ -65,18 +65,17 @@
     -   Unlike most inmates, wasn't abducted: turned himself in
     -   Doesn't have the courage to escape with Finner: instead, reveals Finner's first escape plan
     -   Despite that, Finner tries to help him escape again
--   Subway Santa (part of Tumbly's back story): lives underground in a frozen post-apocalyptic world
-    -   Real name is Shady Ann
+-   Shady Ann (part of Tumbly's back story): lives underground in a frozen post-apocalyptic world
     -   Campaigned with Tumbly for same-role rights
     -   Returned to her world ("It's hell, but it's home, and people needed me")
     -   Had always made things, but started making more as her world grew more desperate
     -   Turns out Subway Santa is still alive, still making things
--   Roboclaus (part of Tumbly's back story): a robotic replica of Tumbly
-    -   Subway Santa made a robot replica of Tumbly to help make and deliver presents (and because she missed her wife)
+-   The Elfabot (part of Tumbly's back story): a robotic helper
+    -   Shady Ann made it to help make and deliver presents (and because she missed her wife)
     -   That tipped Tumbly into her hardline anti-flip position
-    -   Roboclaus makes forays into other worlds to get medicine, food, and what-not
+    -   The Elfabot makes forays into other worlds to get medicine, food, and what-not
 -   Santazilla: a giant *santasaurus rex*
-    -   Hunts for Subway Santa in the burned-out world
+    -   Hunts for Shady Ann in the burned-out world
 -   The Book
     -   Narrates the warning at the start
     -   The voice of the footnotes
@@ -163,32 +162,30 @@
 -   Chapter 10:
     Finner arrives in a frozen post-apocalyptic world;
     sees Santazilla in the distance;
-    rescued by RoboClaus;
-    RoboClaus takes him to meet Subway Santa;
-    Finner claims to be a flip trying to escape from Gran-Granna Tumbly;
-    agrees to learn how to make things (tells himself it's part of his cover story).
+    rescued by the Elfabot, who takes him to meet Shady Ann;
+    Shady Ann is learning how to make things (a flip);
+    the Elfabot reveals that the only wherever in this world is guarded by Santazilla.
 
 -   Chapter 11:
     Finner starts learning how to make things (including how locks work);
     notices a picture on the wall (same two santas from behind as on Tumbly's mantelpiece);
     discovers a workshop full of mannequin parts,
-    which he believes is proof that Subway Santa is making robots to replace people;
+    which he believes is proof that Shady Ann is making robots to replace people;
     Santazilla attacks.
 
 -   Chapter 12:
-    "rescued" by Santa Hood and Santa Greenwood,
-    who led Santazilla to Subway Santa's lair as a distraction
+    Finner is "rescued" by Santa Hood and Santa Greenwood,
+    who led Santazilla to Shady Ann's lair as a distraction
     (a decision that causes Finner angst, because he liked the workshop);
-    Hood and Greenwood reveal that they put a tracking device on Finner on Tumbly's orders
-    (they at least have the grace to appear uncomfortable about it);
-    is returned to Gran-Granna Tumbly,
+    Hood and Greenwood reveal that they put a tracking device on Finner on Tumbly's orders;
+    Finner is returned to Gran-Granna Tumbly,
     who now has uniformed guards for her safety;
     she accuses him of being a robot.
 
 -   Chapter 13:
     Finner loses his temper, which convinces Tumbly that he's real;
-    makes Hood uncomfortable talking about her twin sister;
-    recklessly makes a crack about having seen a photo like the one on Tumbly's mantelpiece recently;
+    tells them that the robot replacements are being made in the world they rescued him from;
+    makes a remark about having seen a photo like the one on Tumbly's mantelpiece recently;
     Finner goes home and tries to fit back in;
     Finner's parents catch him making things.
 
@@ -199,52 +196,52 @@
     meets Zubi;
     they become friends;
     they try to escape,
-    ut their escape turns out to be a trap (a test of whether they're actually trying to "get better");
+    but their escape turns out to be a trap (a test of whether they're actually trying to "get better");
     Finner is moved to a more secure part of The Building.
 
 -   Chapter 15:
     Finner's darkest moment (relentlessly cheerful attempts to "fix" him);
-    visit from Gran-Granna Tumbly, who believes she is helping him;
-    he tells her he has put the pieces together and knows that Subway Santa was her partner;
-    she delivers a table from Santa Hotep that includes a secret message.
+    realizes that The Building's staff are anti-flip zealots and are training a robot to replace him;
+    gets a visit from Gran-Granna Tumbly, who knows all about the robots;
+    he tells her he has put the pieces together and knows that Shady Ann was her wife;
+    she reveals that Shady Ann isn't just learning to make things now—she was always a flip,
+    and in fact invented the robot technology;
+    she delivers a book about gardening from Santa Greenwood
+    and another book about great thefts in history from Santa Hood;
+    Finner discovers a note in the former.
 
 -   Chapter 16:
     Finner escapes but Zubi doesn't come with him;
     met by Greenwood and Hood;
     Greenwood thinks that Finner reached out to *them*;
     reveals that they were being chased at the start because they had just kidnapped a flip and delivered him to The Building;
-    ambushed by Gran-Granna's zealots;
-    Greenwood realizes that Hood has betrayed him (a loyalty test: the message in the table leg was too easy to find);
-    Hood reveals that she has been increasingly worried by Greenwood's gardening
-    ("you're making planter boxes! what are you going to make next?");
-    Hotep's cats show up.
+    they are ambushed by Gran-Granna's zealots.
 
 -   Chapter 17:
-    fight reveals that the cats are robots;
-    Greenwood sacrifices himself to help Finner escape to Hotep's world
-    (deeply wounded by Hood's betrayal but won't leave her);
-    Finner finds RoboClaus waiting for him.
+    Greenwood realizes that Hood has betrayed him:
+    she suggested the message in the gardening book as a loyalty test;
+    Hood reveals that she has been increasingly worried by Greenwood
+    ("you're making planter boxes! what are you going to make next?");
+    Hotep's cats show up;
+    Greenwood sacrifices himself to help Finner escape to Hotep's world;
+    Finner finds the Elfabot waiting for him with Hotep.
 
 -   Chapter 18:
     conversation with Hotep, who has finally decided to pick sides
-    (his original cats died long ago, Subway Santa made robotic replacements);
-    RoboClaus reveals that Subway Santa is dying of radiation, old age, and heartbreak;
-    Subway Santa hoped Hotep could arrange an attempt at reconciliation with Tumbly before the end;
-    Hotep in turn hoped that Finner could help make the connection ("she really does care about you");
-    RoboClaus denies replacing people with robots,
-    reveals that Tumbly has made up that story to get people on her side in the anti-flip campaign
-    ("Told your parents it had happened to you");
-    robots are trying to help the flips because they are so outnumbered;
+    (he rather enjoys making furniture);
+    the Elfabot reveals that Shady Ann is dying of radiation, old age, and heartbreak;
+    Shady Ann hoped Hotep could arrange an attempt at reconciliation with Tumbly before the end;
+    Hotep in turn hoped that Finner could help make the connection, saying, "She really does care about you";
+    Finner replies, "No, she cares about who she thinks I'm supposed to be";
     Tumbly and her forces attack (echo of the robots' attack in Chapter 3).
 
 -   Chapter 19:
-    Finner uses the wherever to go back to Subway Santa's world to get help;
-    finds the workshop has mostly been destroyed by Santazilla;
-    one last conversation with Subway Santa, who gives Finner a letter for Tumbly before dying;
+    Finner uses the wherever to go back to Shady Ann's world to get help;
+    one last conversation with Shady Ann, who gives Finner a letter for Tumbly before dying;
     Finner leads Santazilla through the wherever into Hotep's world,
     where it scatters Tumbly's forces;
-    Finner points the zap gun at Tumbly and forces her to take the letter
-    (turns out to be the photo with "I loved what we made together" written on the back);
+    Finner points the zap gun at Tumbly and forces her to take the letter;
+    turns out to be the photo with "I loved what we made together" written on the back;
     Tumbly discards it (showing that she won't change her mind);
     Tumbly asks, "Do you really want to be an elf?";
     Finner responds, "I don't know, but I want the chance to find out";

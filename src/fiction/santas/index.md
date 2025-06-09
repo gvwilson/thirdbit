@@ -2223,7 +2223,7 @@ a voice said.
 "Whatever shall we do?"
 
 Finner turned around slowly.
-The person standing there was wearing a carefully-patched red coat and a tasselled hat.
+The elf standing there was wearing a carefully-patched green coat and a tasselled hat.
 Der steel body and cheery painted face was scratched and dented,
 but the ray gun de was pointing at Finner looked brand new.
 
@@ -2344,40 +2344,44 @@ Finner picked up one of the books.
 *Mechanical Motors Part XVII: Reciprocating Drives* was stamped on the cover.
 Inside were diagrams so detailed he would have needed a magnifying glass to make sense of them
 and dense blocks of text interrupted by formulas and tables.
-"Are these…elf books?"
+"Are you—are you repairing it yourself?"
 
 The santa nodded.
 "There was a school three stops up the line before everything fell apart.
 Took a while,
-but I managed to sneak past Santazilla and bring them here."
+but I managed to sneak past Santazilla and find these.
+Elfabot's helping,"
+she added.
+"In fact,
+de's doing most of the work.
+But I'm learning."
 
-"But—"
 Finner paused for a moment to consider his words.
 "Isn't it a bit unusual for a santa to be doing this kind of thing?"
 he finally ventured.
 
 The santa shrugged.
-"Santa this, elf that—all this who-does-what seems pretty foolish
-when the world has ended,
+"Santa this, elf that—all this who-does-what seems pretty foolish when the world has ended,
 or nearly.
 I think what matters is whether people are happy or not.
-If I can fix the train and deliver some presents
-then I'll be happy and the children will be happy and the world will be a better place."
+If we can fix the train and deliver some presents
+then people will be happy and the world will be a better place."
 
 She straightened some tools on the workbench nearest here.
 "Now, how about you?
 How did you wind up here?"
 
 Finner put down *Mechanical Motors Part XVII*.
-He didn't want to lie—the santa *had* saved his life—but after everything he had been through,
-a selective account seemed prudent.
+He didn't want to lie,
+but after everything he had been through,
+the whole truth seemed ill-advised.
 "By accident," he said,
 trying his best to sound embarrassed.
 "I was fooling around with someone else's wherever.
 So if I could just use yours to get home, I'd really appreciate it."
 
 "I'm afraid that's going to be a bit difficult,"
-the santa said.
+a mechanical voice said.
 "You see,
 the only wherever left on this world is in the factory that Santazilla is guarding."
 

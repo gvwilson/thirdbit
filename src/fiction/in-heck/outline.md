@@ -372,16 +372,37 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Dockety carries Gumption to Heck
 -   Met by Patient when they arrive
     -   It monitored their approach and hid them from Central
-    -   It is waiting for Sindy to arrive
--   Proposes an alliance
-    -   After argument, Dockety persuades Gumption to accept it
--   Patient then sets off an alarm so that Central will capture them
+    -   Explains that Central and the Operators have been work together to prevent the Makers' return
+    -   It is waiting for Sindy to arrive so that it can use her to awaken the Makers
+-   Gumption wants to double back and rescue Sindy
+    -   Patient scoffs: they'll never be able to defeat the Operators
+    -   Instead it proposes that they work together
+-   Dockety and Gumption refuse
+    -   Patient sets off an alarm so that Central will capture them to force their hands
 
 ### Chapter 13 (Maddy's PoV)
 
 -   Goals:
-    -   Maddy finds her father and Sindy
+    -   Maddy finds her father but cannot free him
     -   Mouse involuntarily betrays Maddy to Central
+-   Maddy and Mouse sneak through Heck
+    -   Easier than expected: large parts are not just empty, but derelict
+    -   The few bots she does see are engaged in pointless, repetitive tasks
+-   Mouse leads her to a building that appears to be properly maintained
+    -   A dormitory with people also doing pointless, repetitive tasks
+    -   A moose doing math problems
+    -   An orangutan patiently assembling a jigsaw puzzle
+    -   All of whom ignore her
+-   Find Papa Roo sitting at a desk sketching
+    -   She pleads with him to wake up
+    -   For a moment nothing happens, then Papa Roo blinks and stands up shakily
+    -   He looks smaller than Maddy remembers
+    -   Fur has worn off the underside of his right arm where it rested on the table
+-   He thinks he's seeing things
+    -   Takes a moment to believe his daughters are really there
+    -   Then he's grief-stricken: "It knows you're here! You have to get out!"
+-   Maddy: "Not without you!"
+    -   That's when Mouse zaps her unconscious
 
 ### Chapter 14 (Gumption's PoV)
 
