@@ -1992,7 +1992,7 @@ even if the jingly bells on their hat were stuffed with yarn to muffle them,
 they were clearly an elf,
 not a santa.
 
-[^wrinkles-face]: Old people don't actually have more wrinkles than young ones. The real difference is that young people's skin hasn't had enough practice wrinkling to do it all the time. By the time you have smiled or frowned as often as someone like Gran-Granna Tumbly, your wrinkles are like a weight lifter's biceps. Some cultures regard strongly-defined wrinkles as a sign of virtue, and have specialized gyms where people wiggle their eyebrows to music or smirk over and over again while a personal trainer urges them on.
+[^wrinkles-face]: Old people don't actually have more wrinkles than young ones: young people's skin just hasn't had enough practice wrinkling to do it all the time. By the time you have smiled or frowned as often as someone like Gran-Granna Tumbly, your wrinkles are like a weight lifter's biceps. Some cultures regard strongly-defined wrinkles as a sign of virtue, and have specialized gyms where people wiggle their eyebrows or smirk over and over while a personal trainer urges them on.
 
 "Captain Snood, actually," the elderly elf said in a clipped voice.
 "And you must be Finbar."
@@ -2149,5 +2149,236 @@ A moment later the lock sizzled and evaporated.
 Alpha Seven slid the door open,
 looked despondently at the empty room,
 and used exactly the same word Finner had used moments before.
+
+</section>
+
+<section markdown="1">
+
+## Cold That Seeps Into Your Soul
+
+You have probably been cold at some point in your life.
+Maybe you wriggled out from under your blanket as a baby
+and weren't yet able to wriggle back underneath it.
+Maybe you didn't realize that someone else in the house liked cold showers
+and turned on the water *while you were already standing there*
+and were blasted with the last few seconds of that previous person's liquid self-loathing.
+Or perhaps you have had to endure the kind of bone-deep chill of being poor in winter,
+of not being able to afford to turn up the heat during the day
+or to buy a coat that's thick enough to keep out the wind.
+That kind of cold is the worst:
+it seeps into your soul as well as your body
+because you lose hope of it ever ending.
+
+Thirty seconds after whumping
+into a snowbank somewhere very Arctic,
+Finner felt even colder than that.
+The sky above him was an impossibly clear blue
+and the sun was so bright he couldn't even look *near* it,
+but each time he took a breath
+he could feel the air going into every little corner of his lungs.
+Tiny icicles had formed in his nostrils,
+and his beard crackled each time he squinted.
+
+The snow squeaked beneath his boots with every step.
+Basic survival training is part of every santa's education,
+so Finner knew that if he just stood still and shivered,
+he wouldn't shiver for long.
+He had no idea where he was going,
+or even if there was a "where" to go to,
+but he had to keep moving.
+
+He struggled up to the top of yet another shallow ridge
+and rubbed his eyes with fingers he could no longer feel properly.
+Were there icicles in his eyelashes?
+That wasn't important.
+What mattered was that he could see something large, dark, and rectangular on the horizon.
+A factory, a lab, a fortress:
+as long as it wasn't ice,
+it was something to aim for.
+He stumbled toward it,
+hugging himself to keep in what little body heat he had left.
+
+When he reached the top of the next ridge
+he had to stop and rub his eyes again.
+An enormous factory sat in the shallow valley in front of him.
+Finner could have stacked ten copies of his house on top of one another
+and still not reached its steeply-slanted roof.
+Turrets and towers,
+windows of all shapes and sizes,
+and steam—steam!—rising from chimneys.
+
+He was about to start down the ridge
+when one of the turrets turned its head and blinked.
+Three people could have sat side by side between its eyes,
+and its saber-sharp teeth were as long as Finner was tall.
+The tattered remnants of its red vest were almost gray with grime and age.
+
+Finner ducked behind the ridge line.
+The creature was a santasaurus rex,
+but twice the size of any he'd ever heard of,
+and it was between him and his only hope of not freezing.
+
+"Well that's a problem,"
+a voice said.
+"Whatever shall we do?"
+
+Finner turned around slowly.
+The person standing there was wearing a carefully-patched red coat and a tasselled hat.
+Der steel body and cheery painted face was scratched and dented,
+but the ray gun de was pointing at Finner looked brand new.
+
+Finner raised his hands.
+"I g-g-give up," he chattered miserably.
+
+The robot's lightbulb eyes blinked on and off rapidly.
+"Oh dear.
+Are you organic?
+That's rather a poor choice in *this* climate."
+De tucked the ray gun into a pocket and held out der hand.
+"Come along.
+Let's get you somewhere warm."
+
+The robot's feet were flat round pads that left shallow circular dents in the top of the snow.
+After stopping several times so that Finner could catch up with it,
+it picked him up and carried him.
+Finner would have protested, but he was too tired to more than mumble.
+His ears had stopped hurting.
+He was pretty sure that was a bad sign.
+Why was he trying to keep his eyes open?
+He knew it was important in a distantly theoretical kind of way.
+Maybe he would remember when he woke up…
+
+The next thing he remembered, everything hurt.
+His ears, his toes, his back, his throat—his whole body
+wanted him to know it was annoyed.
+He was lying beneath a heavy pile of scratchy blankets,
+and a quick, furtive inspection confirmed that yes,
+he was naked.
+Warm and not dead,
+but someon had undressed him while he was unconscious.
+
+He sat up,
+clutching the blankets to his chest.
+He had been lying on a bench whose vinyl cushions were flaking with age
+in a room that looked like an abandoned subway station.
+with cracked floor tiles and a truly memorable bouquet
+that was equal parts damp earth, oily rust, and wet dog,
+the last of which was coming from the blankets.
+Two square glass panels connected to a boxy battery
+cast a gloomy blue light over their crates, boxes, sacks, and bags,
+each one overflowing with broken toys,
+salvaged pieces of clothing,
+and kitchen implements still in their immaculate plastic packaging.
+
+"Ah, good, you're awake."
+Finner twisted around at the sound of the robot santa's voice.
+"I've made you some tea."
+
+"What—what is this place?
+What happened here?"
+Finner asked,
+gingerly taking the mug the robot offered him
+and then doing a double-take.
+This santa wasn't a robot.
+This santa was very much alive,
+though the years on her face made her look just as battered as the robot who had rescued him.
+
+The santa tsk'ed.
+"People, that's what happened.
+People who never felt they had enough no matter how many presents they got.
+It all turned into ray guns and speeches and explosions and more speeches.
+How's the tea?"
+
+"Fine," Finner said automatically,
+by which he meant "warm".
+"So are you—I mean, is anyone else—"
+
+The santa sighed.
+"A few here and there.
+I help how I can."
+She patted Finner's shoulder.
+"Come on.
+Get dressed and I'll show you."
+
+Finner was *not* excited about going deeper into the derelict subway tunnel,
+but when the santa picked up the light panels and strode away,
+it was either that or sit in the dark
+and listen to the slow drip, drip, drip from the ceiling.
+He picked his way around the debris and piles of salvage.
+
+The santa waited patiently for him in front of a heavy metal door.
+"Here," she said,
+passing one of the lights to Finner.
+She punched a code into the panel beside the door,
+turned a key in a lock,
+turned a second key in another lock,
+and swung the door open.
+
+"Wow," Finner said.
+The workroom in front of him was as clean as the subway behind him wasn't.
+A double dozen workbenches lined the walls,
+each one bearing lathes, saws, drills, and shelves of spare parts.
+Cans of paint and oil were stacked neatly between them,
+but he didn't see any of that,
+not at first,
+because standing in the center of the room was a red and white subway train.
+
+"It's beautiful, isn't it?" the santa said quietly.
+
+Finner just nodded.
+The engine was decorated with silver bells
+and had a small silver snowman as a crest.
+Green enameled holly leaves ran up the sides of the three cars behind it.
+Only when he looked at it again did he notice the scrapes and scratches,
+the tell-tale scorch marks from ray gun fire,
+and the sheets of plastic taped up where windows had once been.
+
+"It's one of a kind," the santa said.
+"Or it will be when I get it working.
+See?"
+
+She nudged Finner over to the nearest workbench.
+Books and manuals lay on top of it,
+some with scraps of paper tucked into them as placeholders.
+Finner picked up one of the books.
+*Mechanical Motors Part XVII: Reciprocating Drives* was stamped on the cover.
+Inside were diagrams so detailed he would have needed a magnifying glass to make sense of them
+and dense blocks of text interrupted by formulas and tables.
+"Are these…elf books?"
+
+The santa nodded.
+"There was a school three stops up the line before everything fell apart.
+Took a while,
+but I managed to sneak past Santazilla and bring them here."
+
+"But—"
+Finner paused for a moment to consider his words.
+"Isn't it a bit unusual for a santa to be doing this kind of thing?"
+he finally ventured.
+
+The santa shrugged.
+"Santa this, elf that—all this who-does-what seems pretty foolish
+when the world has ended,
+or nearly.
+I think what matters is whether people are happy or not.
+If I can fix the train and deliver some presents
+then I'll be happy and the children will be happy and the world will be a better place."
+
+She straightened some tools on the workbench nearest here.
+"Now, how about you?
+How did you wind up here?"
+
+Finner put down *Mechanical Motors Part XVII*.
+He didn't want to lie—the santa *had* saved his life—but after everything he had been through,
+a selective account seemed prudent.
+"By accident," he said,
+trying his best to sound embarrassed.
+"I was fooling around with someone else's wherever.
+So if I could just use yours to get home, I'd really appreciate it."
+
+"I'm afraid that's going to be a bit difficult,"
+the santa said.
+"You see,
+the only wherever left on this world is in the factory that Santazilla is guarding."
 
 </section>

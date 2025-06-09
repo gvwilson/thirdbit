@@ -164,21 +164,18 @@
     Finner arrives in a frozen post-apocalyptic world;
     sees Santazilla in the distance;
     rescued by RoboClaus;
-    panics when he realizes that RoboClaus is a robot.
-
--   Chapter 11:
     RoboClaus takes him to meet Subway Santa;
     Finner claims to be a flip trying to escape from Gran-Granna Tumbly;
-    Finner notices a picture on the wall (same two santas from behind as on Tumbly's mantelpiece);
     agrees to learn how to make things (tells himself it's part of his cover story).
 
--   Chapter 12:
+-   Chapter 11:
     Finner starts learning how to make things (including how locks work);
+    notices a picture on the wall (same two santas from behind as on Tumbly's mantelpiece);
     discovers a workshop full of mannequin parts,
     which he believes is proof that Subway Santa is making robots to replace people;
     Santazilla attacks.
 
--   Chapter 13:
+-   Chapter 12:
     "rescued" by Santa Hood and Santa Greenwood,
     who led Santazilla to Subway Santa's lair as a distraction
     (a decision that causes Finner angst, because he liked the workshop);
@@ -188,7 +185,7 @@
     who now has uniformed guards for her safety;
     she accuses him of being a robot.
 
--   Chapter 14:
+-   Chapter 13:
     Finner loses his temper, which convinces Tumbly that he's real;
     makes Hood uncomfortable talking about her twin sister;
     recklessly makes a crack about having seen a photo like the one on Tumbly's mantelpiece recently;
@@ -197,7 +194,7 @@
 
 ### Act 3
 
--   Chapter 15:
+-   Chapter 14:
     Finner in The Building;
     meets Zubi;
     they become friends;
@@ -205,13 +202,13 @@
     ut their escape turns out to be a trap (a test of whether they're actually trying to "get better");
     Finner is moved to a more secure part of The Building.
 
--   Chapter 16:
+-   Chapter 15:
     Finner's darkest moment (relentlessly cheerful attempts to "fix" him);
     visit from Gran-Granna Tumbly, who believes she is helping him;
     he tells her he has put the pieces together and knows that Subway Santa was her partner;
     she delivers a table from Santa Hotep that includes a secret message.
 
--   Chapter 17:
+-   Chapter 16:
     Finner escapes but Zubi doesn't come with him;
     met by Greenwood and Hood;
     Greenwood thinks that Finner reached out to *them*;
@@ -222,13 +219,13 @@
     ("you're making planter boxes! what are you going to make next?");
     Hotep's cats show up.
 
--   Chapter 18:
+-   Chapter 17:
     fight reveals that the cats are robots;
     Greenwood sacrifices himself to help Finner escape to Hotep's world
     (deeply wounded by Hood's betrayal but won't leave her);
     Finner finds RoboClaus waiting for him.
 
--   Chapter 19:
+-   Chapter 18:
     conversation with Hotep, who has finally decided to pick sides
     (his original cats died long ago, Subway Santa made robotic replacements);
     RoboClaus reveals that Subway Santa is dying of radiation, old age, and heartbreak;
@@ -240,7 +237,7 @@
     robots are trying to help the flips because they are so outnumbered;
     Tumbly and her forces attack (echo of the robots' attack in Chapter 3).
 
--   Chapter 20:
+-   Chapter 19:
     Finner uses the wherever to go back to Subway Santa's world to get help;
     finds the workshop has mostly been destroyed by Santazilla;
     one last conversation with Subway Santa, who gives Finner a letter for Tumbly before dying;
