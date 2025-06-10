@@ -171,12 +171,10 @@
     notices a picture on the wall (same two santas from behind as on Tumbly's mantelpiece);
     discovers a workshop full of mannequin parts,
     which he believes is proof that Shady Ann is making robots to replace people;
-    Santazilla attacks.
+    they try to reach the wherever using the subway train.
 
 -   Chapter 12:
-    Finner is "rescued" by Santa Hood and Santa Greenwood,
-    who led Santazilla to Shady Ann's lair as a distraction
-    (a decision that causes Finner angst, because he liked the workshop);
+    Finner is rescued from Santazilla by Santa Hood and Santa Greenwood;
     Hood and Greenwood reveal that they put a tracking device on Finner on Tumbly's orders;
     Finner is returned to Gran-Granna Tumbly,
     who now has uniformed guards for her safety;

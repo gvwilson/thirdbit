@@ -2386,3 +2386,165 @@ a mechanical voice said.
 the only wherever left on this world is in the factory that Santazilla is guarding."
 
 </section>
+
+<section>
+
+## A Train Ride
+
+It took a week to finish fixing the subway train,
+and despite the cold showers and cold food,
+Finner enjoyed every moment of it.
+He bashed his thumb with a mallet at one point,
+which really hurt,
+and he was frustrated over and over again by how little he knew,
+but it was the most fun he'd ever had.
+There were plane joints, hinge joints, pivot joints,
+and (lower your voice when you say it) condyloid joints,
+all of which had to be connected with sleeve couplings,
+flanged couplings,
+universal couplings,
+and something called an Oldham coupling
+that he and Shady Ann spent half an hour puzzling over
+before the santa declared that the train would probably run without it.
+They loosened bolts and tightened screws,
+oiled pistons,
+and cleaned the grime out of window jambs
+so that the sashes slid up and down with only a faint *ssh*.
+
+Every once in a while,
+though,
+Shady Ann raised her hand in warning.
+Finner held his breath while heavy steps thudded on the ground above their heads.
+Neither of them moved until the sound had receded into the distance.
+
+FIXME: fill in here
+
+Finally the train was ready,
+or at least ready enough.
+Shady Ann assembled a complicated diagram out of thumbtacks and yarn
+on top of a grimy old map of the city.
+"We can't go straight to factory—that would give away the workshop's location,"
+she explained,
+talking to themself as much as to Finner.
+"So we take the elevated track to here,
+switch lines,
+pick up speed on this downhill,
+the slow a little for this bend for you to jump off,
+then pick up speed again and—"
+
+"Hang on,"
+Finner interrupted.
+"Jump off?"
+
+"Oh yes."
+The Elfabot stabbed the map with a metal finger.
+"It wouldn't be at all safe to stop.
+But don't worry, there are bushes."
+
+"You should take this,"
+Shady Ann said gruffly,
+handing him a flat case held closed by a pair of snaps.
+
+Finner hefted it.
+"Thank you.
+What is it?"
+
+"It's your tools,"
+she said,
+clapping Finner on the shoulder awkwardly.
+"I'll go start the train."
+
+Finner swallowed the sudden lump in his throat
+and tucked the case into his pocket.
+It was heavy,
+but he didn't mind.
+
+"Ready?"
+the Elfabot asked as Finner closed the subway door behind himself.
+
+"No," Finner said.
+
+Shady Ann nodded and pulled first one lever and then another.
+The subway car vibrated faintly as the engine came to life.
+Pulling another lever,
+the santa slowly pressed a pedal down with a booted foot.
+At first nothing happened,
+and for a heartbeat Finner was afraid that they had done something wrong,
+or that *he* had done something wrong.
+Then the train began to roll forward,
+slowly at first and then faster.
+
+He grabbed a bar overhead to steady himself as Shady Ann giggled.
+"It's working!
+Oh, I love you so much!"
+She leaned forward and kissed the train's control panel.
+
+Faster and faster,
+out of the workshop and into the tunnel.
+The train's headlamp came on as it raced along the tracks.
+The Elfabot had spent hours clearing debris from them,
+stacking fallen pieces of tile and masonry on a handcart to dump in a side passage.
+They hurtled past der hard work in moments,
+whooping with excitement as they shot out of the darkness into the gray light of an overcast day.
+
+"Here we go!" Shady Ann shouted.
+as they crested the top of the track and hurtled down into a corkscrew section.
+Half the lights on the control panel were red.[^panel-lights]
+Finner clamped one hand around an overhead bar and the other over his mouth
+as he was upside down,
+right-side up,
+upside down again,
+and—nope,
+now he was sideways as they rocketed around an impossibly tight turn,
+or at least his body was sideways,
+he wasn't sure where the cold beans he'd had for breakfast were going.
+Shady Ann whooped again,
+pedalling pedals and pulling levers.
+
+[^panel-lights]: Most of the others had either given up or were too scared to do anything.
+
+The ruined buildings around them grew taller.
+The few shards of glass left in their windows looked like jagged teeth in hungry mouths.
+Then a windowless tower a few blocks away lifted, swung forward, and came down
+with a thud that made the train shiver on the tracks.
+"Oh dear,"
+the Elfabot said.
+
+"It's trying to cut us off!" Finner shouted.
+
+Shady Ann shook her head and pulled another lever.
+Steam whistled from the control panel as they picked up speed.
+"Well then it's a good thing I took the safeties off the engine, isn't it?
+Otherwise it would shut down to stop from exploding!"
+
+For a moment they were surrounded by overgrown park instead of buildings.
+Finner twisted around.
+Santazilla had broken into a trot,
+each step eating up half a city block.
+
+Shady Ann reached back and tugged on Finner's sleeve.
+"Get ready!
+When I slow down for the next turn,
+you jump!"
+
+Finner looked back again.
+The enormous santasaurus rex was closing fast.
+"We're not going to make it!"
+
+Shady Ann beamed.
+"Sure we will!
+I brought presents!"
+They flipped the safety cover off a big red button[^red-button]
+and punched it with their fist.
+
+[^red-button]: Shady Ann had spent almost a day to choosing an appropriate button. It had to be red—tradition demanded nothing less—but they dithered for a while between one with the word "DANGER!" stamped on it and another shaped like a skull and crossbones. In the end, they went with both.
+
+*Clunk!*
+The hitch connected to the last car in the train snapped open.
+As the rest of the train pulled away from it,
+Shady Ann counted,
+"One smelly reindeer, two smelly reindeer…"
+At "five",
+the car exploded.
+
+</section>
