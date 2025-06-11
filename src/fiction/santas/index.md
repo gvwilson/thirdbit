@@ -124,7 +124,7 @@ She had once delivered a chocolate orange cake to a trio of scientists in a subm
 *without using a submarine herself*,
 and then delivered a baby on the way home.[^deliver-baby]
 
-[^deliver-baby]: "Delivered" in the conventional sense of helping someone give birth rather than the postal sense used for packages. Elves did make dolls sometimes that were so lifelike normal people though they were real, and (whisper it) sometimes santas would deliver them in the dead of night when most people were sleeping and take a real child in exchange, but we're not at that part of the story yet.
+[^deliver-baby]: "Delivered" in the conventional sense of helping someone give birth rather than the postal sense used for packages. Elves did make dolls sometimes that were so lifelike normal people though they were real, and (whisper it) sometimes santas would deliver them in the dead of night when most people were sleeping and take a real child in exchange, but that's a story for another time.
 
 Everyone was a little bit afraid of her,
 except for the unfortunate few who had felt the full force of her disapproving glare:
@@ -1205,7 +1205,7 @@ and then three things happened more or less simultaneously:[^simultaneously]
 
 1.  The larger gray fin changed course to head straight for them.
 
-2.  Air began feeping[^feeping] out of the dinghy;
+2.  Air began feeping[^feeping] out of the dinghy.
 
 3.  A set of black sails appeared on the horizon.
     There was another *crack!*
@@ -2271,44 +2271,43 @@ salvaged pieces of clothing,
 and kitchen implements still in their immaculate plastic packaging.
 
 "Ah, good, you're awake."
-Finner twisted around at the sound of the robot santa's voice.
+Finner twisted around at the sound of the robot elf's voice.
 "I've made you some tea."
 
-"What—what is this place?
+"Where am I?
 What happened here?"
 Finner asked,
 gingerly taking the mug the robot offered him
 and then doing a double-take.
-This santa wasn't a robot.
-This santa was very much alive,
-though the years on her face made her look just as battered as the robot who had rescued him.
+The robot elf wasn't a robot.
+In fact, it wasn't even an elf.
+She was a santa,
+and very much alive,
+though the years on her face made her look
+as battered and worn as the subway station.
 
 The santa tsk'ed.
 "People, that's what happened.
 People who never felt they had enough no matter how many presents they got.
-It all turned into ray guns and speeches and explosions and more speeches.
+It all turned into ray guns and speeches and explosions.
 How's the tea?"
 
 "Fine," Finner said automatically,
 by which he meant "warm".
-"So are you—I mean, is anyone else—"
+"But if you don't mind, where *am* I?"
 
-The santa sighed.
-"A few here and there.
-I help how I can."
-She patted Finner's shoulder.
-"Come on.
-Get dressed and I'll show you."
+The santa patted Finner's shoulder.
+"Get dressed and I'll show you."
 
 Finner was *not* excited about going deeper into the derelict subway tunnel,
 but when the santa picked up the light panels and strode away,
 it was either that or sit in the dark
-and listen to the slow drip, drip, drip from the ceiling.
-He picked his way around the debris and piles of salvage.
+and listen to the ceiling drip.
 
-The santa waited patiently for him in front of a heavy metal door.
+The santa waited patiently for him in front of a heavy metal door
+as he picked his way around the piles of salvage.
 "Here," she said,
-passing one of the lights to Finner.
+passing a light to Finner.
 She punched a code into the panel beside the door,
 turned a key in a lock,
 turned a second key in another lock,
@@ -2323,17 +2322,18 @@ but he didn't see any of that,
 not at first,
 because standing in the center of the room was a red and white subway train.
 
-"It's beautiful, isn't it?" the santa said quietly.
+The santa coughed.
+"It's something, isn't it?" she said quietly.
 
-Finner just nodded.
+Finner nodded.
 The engine was decorated with silver bells
 and had a small silver snowman as a crest.
 Green enameled holly leaves ran up the sides of the three cars behind it.
-Only when he looked at it again did he notice the scrapes and scratches,
-the tell-tale scorch marks from ray gun fire,
+It was so beautiful that he almost didn't notice the scrapes and scratches,
+the scorch marks from ray gun fire,
 and the sheets of plastic taped up where windows had once been.
 
-"It's one of a kind," the santa said.
+"It's the last of its kind," the santa said.
 "Or it will be when I get it working.
 See?"
 
@@ -2344,7 +2344,7 @@ Finner picked up one of the books.
 *Mechanical Motors Part XVII: Reciprocating Drives* was stamped on the cover.
 Inside were diagrams so detailed he would have needed a magnifying glass to make sense of them
 and dense blocks of text interrupted by formulas and tables.
-"Are you—are you repairing it yourself?"
+"Are you repairing it yourself?"
 
 The santa nodded.
 "There was a school three stops up the line before everything fell apart.
@@ -2357,33 +2357,33 @@ de's doing most of the work.
 But I'm learning."
 
 Finner paused for a moment to consider his words.
-"Isn't it a bit unusual for a santa to be doing this kind of thing?"
+"Do santas normally do this kind of work in your world?"
 he finally ventured.
 
 The santa shrugged.
-"Santa this, elf that—all this who-does-what seems pretty foolish when the world has ended,
-or nearly.
+"This isn't actually my world.
+But santa this, elf that—it all seems pretty foolish when everything has fallen apart.
 I think what matters is whether people are happy or not.
-If we can fix the train and deliver some presents
-then people will be happy and the world will be a better place."
+All I know is that if we can fix the train and deliver some presents,
+the world will be a better place."
 
-She straightened some tools on the workbench nearest here.
-"Now, how about you?
+She straightened some tools on the workbench nearest her.
+"Now, tell me about you.
 How did you wind up here?"
 
 Finner put down *Mechanical Motors Part XVII*.
 He didn't want to lie,
 but after everything he had been through,
 the whole truth seemed ill-advised.
-"By accident," he said,
-trying his best to sound embarrassed.
-"I was fooling around with someone else's wherever.
+"By accident," he confessed.
+"I was fooling around with a wherever and set it off by mistake.
 So if I could just use yours to get home, I'd really appreciate it."
 
-"I'm afraid that's going to be a bit difficult,"
-a mechanical voice said.
+"I'm afraid that will be rather difficult,"
+the Elfabot said,
+poking its head out from behind the train's engine.
 "You see,
-the only wherever left on this world is in the factory that Santazilla is guarding."
+the only one left in this world is in the factory that Santazilla is guarding."
 
 </section>
 
@@ -2391,14 +2391,98 @@ the only wherever left on this world is in the factory that Santazilla is guardi
 
 ## A Train Ride
 
-It took a week to finish fixing the subway train,
-and despite the cold showers and cold food,
-Finner enjoyed every moment of it.
+Here's a fun fact:
+if you eat nothing but cold tinned beans for a week,
+you don't actually learn to appreciate either their taste or their texture.
+Here's another:
+hot showers are possibly the greatest thing ever invented,
+even if you're only allowed one a day and it only lasts three minutes.
+
+And here's a third:
+joy can be found at the strangest of times and in the most unlikely places.
+Finner knew his parents must be worried sick about him,
+and he missed his friends and sleeping on a mattress instead of a bench,
+but the next few days were as happy as any he could remember.
+Though when he thought about it
+(which he did every night as he tried to get comfortable on his bench),
+"happy" was the wrong word.
+"Rewarding" or "fulfilling" would be more accurate.
+Despite her protests that she was still learning,
+Shady Ann knew a *lot* about mending and fixing things.
+She also knew enough about young people to give Finner time to try things out for himself.
+"Have you thought about loosening that first?"
+and
+"I think there's something about that in Volume VIII"
+were just enough guidance to keep him from being frustrated.
+
+They never talked about the fact that they were santas.
+They never talked about Shady Ann's persistent cough,
+either,
+or the fact that whenever she needed to lift something heavy
+the Elfabot did it for her.
+She wheezed faintly when she took her afternoon nap,
+and the bags under her eyes seemed darker every day.
+
+It was during one of those naps that Finner betrayed her.
+He had agonized about doing it for several days,
+but in the end convinced himself that he didn't have a choice.
+The more he thought about what had happened,
+the less sense it made.
+He needed to find out more about this world,
+and the only way to do that was to break into the only room that Shady Ann kept locked.
+
+He spent several surreptitious hours studying *Yuen's Guide to Mechanical Locks (Abridged)*,
+then waited until the Elfabot was out on a scavenging expedition and Shady Ann was asleep.
+It took less time to pick the room's lock than he expected.
+When it clicked he took a deep breath and slowly opened the door,
+wincing at a slight squeak.
+
+A light panel flickered on overhead automatically
+to reveal stacked with arms, legs, hands, feet, and heads.
+Every shelf was neatly labelled and everything was tidy,
+but somehow that was more frightening than helter-skelter piles would have been.
+
+*Mannequins,* he thought wildly.
+*Robots. Props for the theater.*
+Because of course they couldn't actually be—be what they looked like.
+
+Swallowing hard,
+he stepped forward and poked the nearest leg with his finger.
+It yielded slightly,
+just like the real thing,
+but it didn't twitch and the toes didn't wiggle
+so at least there was that.
+
+He was just about to poke it again when something clunked behind him.
+Grabbing the leg by the ankle and raising it like a club,
+he whirled around,
+shifting his grip a moment later to get the thigh out of his face.[^thigh-face]
+
+[^thigh-face]: If you ever pick up a leg to wave at someone, please remember that it has a knee.
+
+"How about you put that back?"
+the Elfabot suggested.
+"Quietly, please—she needs her rest."
+
+Finner swallowed hard and set the leg down meekly.
+The Elfabot stepped aside to let him pass.
+As he did so,
+he caught a glimpse of a framed photograph on the wall next to the door
+of two middle-aged women in red-and-white coats holding hands.
+A chill ran down his spine.
+The last time he had seen that picture
+it had been on the wall of Gran-Granna Tumbly's living room.
+Why did Shady Ann have a copy too?
+And why did she have a room full of exactly the parts she would need
+to make robot replacements for people?
+
+It took another week to finish fixing the subway train.
+Finner enjoyed it despite worrying that the Elfabot was going to smother him in his sleep
+so that a robot could take his place.
 He bashed his thumb with a mallet at one point,
 which really hurt,
 and he was frustrated over and over again by how little he knew,
-but it was the most fun he'd ever had.
-There were plane joints, hinge joints, pivot joints,
+but there were plane joints, hinge joints, pivot joints,
 and (lower your voice when you say it) condyloid joints,
 all of which had to be connected with sleeve couplings,
 flanged couplings,
@@ -2417,15 +2501,13 @@ Shady Ann raised her hand in warning.
 Finner held his breath while heavy steps thudded on the ground above their heads.
 Neither of them moved until the sound had receded into the distance.
 
-FIXME: fill in here
-
 Finally the train was ready,
 or at least ready enough.
 Shady Ann assembled a complicated diagram out of thumbtacks and yarn
 on top of a grimy old map of the city.
 "We can't go straight to factory—that would give away the workshop's location,"
 she explained,
-talking to themself as much as to Finner.
+talking to herself as much as to Finner.
 "So we take the elevated track to here,
 switch lines,
 pick up speed on this downhill,
@@ -2437,13 +2519,21 @@ Finner interrupted.
 "Jump off?"
 
 "Oh yes."
-The Elfabot stabbed the map with a metal finger.
+She tapped the map with a grimy finger.
 "It wouldn't be at all safe to stop.
 But don't worry, there are bushes."
 
-"You should take this,"
-Shady Ann said gruffly,
-handing him a flat case held closed by a pair of snaps.
+When the time came to leave,
+though,
+she was too weak to drive.
+"I'll be fine,"
+she said,
+waving Finner away as he tried to help her down onto her couch.
+"Just need to… to catch my breath.
+The Elfabot will get you there.
+But here,
+you should take this."
+Shady Ann handed him a flat case held closed by a pair of snaps.
 
 Finner hefted it.
 "Thank you.
@@ -2452,7 +2542,7 @@ What is it?"
 "It's your tools,"
 she said,
 clapping Finner on the shoulder awkwardly.
-"I'll go start the train."
+"Good luck."
 
 Finner swallowed the sudden lump in his throat
 and tucked the case into his pocket.
@@ -2464,21 +2554,17 @@ the Elfabot asked as Finner closed the subway door behind himself.
 
 "No," Finner said.
 
-Shady Ann nodded and pulled first one lever and then another.
+The Elfabot nodded and pulled first one lever and then another.
 The subway car vibrated faintly as the engine came to life.
 Pulling another lever,
-the santa slowly pressed a pedal down with a booted foot.
+it slowly pressed a pedal down with a booted foot.
 At first nothing happened,
 and for a heartbeat Finner was afraid that they had done something wrong,
 or that *he* had done something wrong.
 Then the train began to roll forward,
 slowly at first and then faster.
 
-He grabbed a bar overhead to steady himself as Shady Ann giggled.
-"It's working!
-Oh, I love you so much!"
-She leaned forward and kissed the train's control panel.
-
+He grabbed a bar overhead to steady himself as Shady Ann waved farewell.
 Faster and faster,
 out of the workshop and into the tunnel.
 The train's headlamp came on as it raced along the tracks.
@@ -2487,7 +2573,7 @@ stacking fallen pieces of tile and masonry on a handcart to dump in a side passa
 They hurtled past der hard work in moments,
 whooping with excitement as they shot out of the darkness into the gray light of an overcast day.
 
-"Here we go!" Shady Ann shouted.
+"Here we go," the Elfabot said unnecessarily
 as they crested the top of the track and hurtled down into a corkscrew section.
 Half the lights on the control panel were red.[^panel-lights]
 Finner clamped one hand around an overhead bar and the other over his mouth
@@ -2498,12 +2584,11 @@ and—nope,
 now he was sideways as they rocketed around an impossibly tight turn,
 or at least his body was sideways,
 he wasn't sure where the cold beans he'd had for breakfast were going.
-Shady Ann whooped again,
-pedalling pedals and pulling levers.
 
 [^panel-lights]: Most of the others had either given up or were too scared to do anything.
 
-The ruined buildings around them grew taller.
+The Elfabot pedalled pedals and pulled levers
+as the ruined buildings around them grew taller.
 The few shards of glass left in their windows looked like jagged teeth in hungry mouths.
 Then a windowless tower a few blocks away lifted, swung forward, and came down
 with a thud that made the train shiver on the tracks.
@@ -2512,7 +2597,7 @@ the Elfabot said.
 
 "It's trying to cut us off!" Finner shouted.
 
-Shady Ann shook her head and pulled another lever.
+The Elfabot pulled another lever.
 Steam whistled from the control panel as they picked up speed.
 "Well then it's a good thing I took the safeties off the engine, isn't it?
 Otherwise it would shut down to stop from exploding!"
@@ -2522,27 +2607,24 @@ Finner twisted around.
 Santazilla had broken into a trot,
 each step eating up half a city block.
 
-Shady Ann reached back and tugged on Finner's sleeve.
-"Get ready!
-When I slow down for the next turn,
-you jump!"
+The Elfabot tugged on Finner's sleeve.
+"Get ready!"
 
 Finner looked back again.
 The enormous santasaurus rex was closing fast.
 "We're not going to make it!"
 
-Shady Ann beamed.
-"Sure we will!
-I brought presents!"
+The Elfabot's eyes flashed rapidly.
+"Sure we will. I brought presents!"
 They flipped the safety cover off a big red button[^red-button]
 and punched it with their fist.
 
-[^red-button]: Shady Ann had spent almost a day to choosing an appropriate button. It had to be red—tradition demanded nothing less—but they dithered for a while between one with the word "DANGER!" stamped on it and another shaped like a skull and crossbones. In the end, they went with both.
+[^red-button]: Shady Ann and Finner had spent almost a day to choosing an appropriate button. It had to be red—tradition demanded nothing less—but they dithered for a while between one with the word "DANGER!" stamped on it and another shaped like a skull and crossbones. In the end, they went with both.
 
 *Clunk!*
 The hitch connected to the last car in the train snapped open.
 As the rest of the train pulled away from it,
-Shady Ann counted,
+The Elfabot counted,
 "One smelly reindeer, two smelly reindeer…"
 At "five",
 the car exploded.
