@@ -8521,6 +8521,8 @@ She caught a brief mental image of a young woman taking a deep breath.
 
 ## Chapter 11: Another Escape
 
+FIXME: fill in the escape
+
 Two minutes and five corners later
 they stopped next to a nondescript utility truck.
 Blocky fuel cells lay three deep on its flat bed.
@@ -10001,11 +10003,10 @@ all apparently imprinted with the same taciturn personality.
 Two of them marched Edson down a corridor
 while Doctor Johel explained to Iffy
 that the Ecologist would be fine.
-"Anyway,
-it's not as if what he tried to do would actually have worked,"
+"It's not as if what he tried to do would actually have worked,"
 she said.
 In real life,
-brainwipes were a lot less reliable but a lot more predictable than they were in sims.
+brainwipes were a lot less reliable than they were in sims.
 Deep memories would survive the EMP pulse,
 just as a person's original personality survived imprinting.
 As for more recent knowledge,
@@ -10013,7 +10014,7 @@ well,
 the Shepherds had undoubtedly changed their access codes already,
 and their network of shelters and greenhouses weren't actually as secret as they thought.
 
-Iffy expected to be locked in a cell next to Edson's.
+Iffy expected to be locked up next to Edson.
 Instead,
 a Marine ushered her up steeply-laddered steps to the hovercraft's cockpit.
 "Have a seat," Doctor Johel said,
@@ -10088,6 +10089,33 @@ She had learned how to keep sleep at bay on night watches long ago.
 Right now,
 she had some thinking to do
 and she didn't want to be disturbed.
+
+*Imagine being born with cataracts in your eyes,
+unable to see anything more than blurs of light.
+Now imagine that one day someone removed them.
+You would still only see blurs
+because your brain would never have had a chance to learn that
+this pattern is a wall
+and this other pattern is a chair.
+People might have told you that things looked smaller if they were far away,
+but the words alone wouldn't mean anything.
+It would be weeks or months before you could make sense of
+the signals your eyes were now able to send to your brain,
+but it would get easier with practice.*
+
+*Later,
+Iffy would wonder whether talking to the machines was getting easier
+because she had been doing it more often,
+or because of her time with Sandrine,
+or because she now knew where her ability had come from.
+In the end she decided it didn't matter.
+What mattered was that diving into that other world of information
+felt more like opening her eyes each time she did it.
+Finding what she wanted was still difficult,
+but what had once seemed as chaotic as the Dance Hall market in Rothera
+now had… structure.
+She didn't understand it yet,
+but for the first time she felt that she might.*
 
 *Wireframes swam in the darkness.
 The hovercraft had been built as a blockade runner in Tashkent
@@ -11129,6 +11157,76 @@ and we'll all get a happy ending."
 
 ## Chapter 15: The End of the World
 
-FIXME
+Iffy pulled a wrench out of the tool crate.
+"Iffy, please,"
+Wales' voice chided.
+"That's not going to—"
+
+"Target!"
+Iffy snapped,
+pointing the wrench at the service bot.
+The gun on the back of the sentry bot beside barked twice.
+The first shot punched a hole through the service bot.
+The second caught it off-center and sent it spinning across the floor.
+
+The tunnel at the other end of the bunker had a blast door
+to match the one behind them.
+Iffy closed her eyes.
+There.
+She traced a shape on a contact pad beside the door,
+then gasped as it slid open to reveal a pair of Marines.
+
+"Iffy, please,"
+Wales' voice said through a speaker on one of their exoskeletons.
+"I really didn't want to have to do this."
+
+Iffy felt rather than saw the three-legged bot move.
+"No!" she shouted.
+Its gun fired twice
+but it was already falling as the Marines' auto-targeted shots brought it down.
+
+She was falling too.
+Something had knocked the breath out of her.
+She was lying on the concrete and it *hurt*,
+it hurt so much that she couldn't even cry out
+because when she tried to breathe
+it felt like someone was kneeling on her back
+and squeezing all the air out of her.
+
+"Don't,"
+she tried to say as exoskeletoned arms picked her up,
+but the words came out as a gasp
+and now she could breathe again
+and the hurt spread through her like milk poured into tea.
+
+Her head lolled to the side as the Marine placed her on a nearby work table.
+One of them put a patch on her arm to take the pain away
+except it was more like taking her away from the pain.
+She floated inside her own body as if it was a warm bath
+while the Marine sliced open her parka with a very sharp knife
+and squeezed cold pink goo into the hole in her side that the needle gun had made.
+
+*«unanticipated / unforeseen»*
+
+*Oh there you are.*
+She didn't know if she had said the words out loud or not.
+*Don't suppose you could lend a hand?*
+
+*«inspection»*
+
+Without warning she was suspended beside a schematic of herself,
+alone in a pocket universe constructed solely for this temporary purpose.
+The fractalized patches of cells scattered through her body glistened blue-white,
+but there and there and there they were red,
+red for danger,
+red like the blood on the work table underneath her.
+They would heal—the tweaks in her genes were quadruply redundant to make sure of that—but
+healing would take time
+and that was something she/they/the world didn't have enough of right now.
+
+"Sh sh sh," the Marine said softly.
+An armored hand brushed gently against her cheek.
+Her last thought before all her thoughts went away was,
+*Honesty?*
 
 </section>

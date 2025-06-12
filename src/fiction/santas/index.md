@@ -2214,7 +2214,7 @@ and its saber-sharp teeth were as long as Finner was tall.
 The tattered remnants of its red vest were almost gray with grime and age.
 
 Finner ducked behind the ridge line.
-The creature was a santasaurus rex,
+The creature was a *santasaurus rex*,
 but twice the size of any he'd ever heard of,
 and it was between him and his only hope of not freezing.
 
@@ -2611,7 +2611,7 @@ The Elfabot tugged on Finner's sleeve.
 "Get ready!"
 
 Finner looked back again.
-The enormous santasaurus rex was closing fast.
+The giant santasaurus was closing fast.
 "We're not going to make it!"
 
 The Elfabot's eyes flashed rapidly.
@@ -2628,5 +2628,294 @@ The Elfabot counted,
 "One smelly reindeer, two smelly reindeer…"
 At "five",
 the car exploded.
+
+</section>
+
+<section>
+
+## Title
+
+FIXME: fill in here
+
+A brisk knock on the cabin door woke him.
+"We just did our last wherever,"
+Santa Hood said briskly as she slid the door open.
+"It's about…"
+She pulled up her sleeve and studied a wristwatch with half a dozen hands,
+her lips moving for a moment.
+"I'd say it's about tea time, actually."
+
+The tea was quite good,
+and so was the buttered naan that came with it.
+Finner sipped one and chewed on the other
+as farms slowly gave way to houses with big backyard gardens,
+which in turn gave way to older, taller houses standing shoulder to shoulder
+along cobblestoned streets that sparkled with frost under the morning sun.
+A few patches of snow huddled in shadowed corners
+and under the branches of the evergreens in an L-shaped park
+that Finner suddenly realized he had played in when he was younger.
+
+He swallowed the lump in his throat.
+"That's my house," he said shakily, pointing at a slate-gray roof
+no different from any of those beside it
+except for how it made him feel.
+
+Santa Hood grinned.
+"Yes it is."
+Her grin slipped a bit.
+"Have to take you to Sensei Tumbly's first, though.
+She's going to have questions,
+and I expect she'd rather not wait for answers."
+
+Like most neighborhoods in town,
+Finner's had a gangly airship docking tower
+that was mostly used for furniture deliveries and house removals.
+He'd only been up to the top once,
+on a school trip that consisted of flying in a big circle around town
+under drizzling clouds
+while the teacher tried to sound excited about urban planning.
+The little waiting room seemed both larger and smaller than he remembered:
+larger because it wasn't packed with two dozen young santas and elves,
+and smaller because—he pushed that thought away for the time being.
+
+He and Santa Hood rode the elevator down in silence.
+A tricycle taxi was waiting for them.
+Its driver nodded to Santa Hood and began pedalling
+without asking where they were going.
+
+Gran-Granna Tumbly's house looked exactly as it had just a couple of days before
+except for a few scorch marks,
+the steel shutters over the windows,
+and the fact that the stone cat on the pedestal out front
+had been replaced by something that looked like an orangutan with four arms,
+each holding a different kind of sword or club.
+Its head swivelled menacingly to follow Santa Hood and Finner
+as they walked up to the front door.
+
+Santa Hood knocked three times,
+paused,
+knocked three times again,
+paused a second time,
+and then rapped her knuckles on the door one last time.
+Catching Finner's eye, she grinned.
+"There's not actually a secret code,"
+she whispered.
+"But if anyone's watching, they won't know that."
+
+The door swung open with a Halloween creak
+before Finner could answer.
+He swallowed hard and followed Santa Hood into the house.
+
+The carpet in the hall looked just like it always had.
+So did the gargoyle coathooks and the over-stuffed chairs in the sitting room,
+but the plants were gone.
+In their place stood a large table covered in maps—maps of cities,
+continents,
+and solar systems,
+with floor plans and aerial photographs scattered among them
+like coins tossed into a fountain.
+
+"I apologize for the mess,"
+Gran-Granna said,
+striding past him
+to pick up a green-and-white teacup perched on the corner of the table.
+
+She scowled at the confusion in front of her.
+Finner glanced at Santa Hood,
+hoping for  clue to what he was supposed to do or say,
+but her eyes were on the table as well.
+Just as he opened his mouth to speak,
+Gran-Granna Tumbly turned around.
+She had a patch over one eye and fresh stiches on her cheek,
+but what *really* startled Finner was the ray gun in her hand,
+which was pointed at his chest.
+
+"So," she said sourly.
+"How about you start by telling me who made you
+and where my *real* grand-grandson is?"
+
+</section>
+
+<section>
+
+## It Doesn't *Feel* Normal
+
+If you have led a quiet life—a life in which
+it is relatively rare for people to threaten you with firearms—you
+will probably find it hard to believe that
+having them pointed at you can become a little bit boring
+if it happens often enough.
+It's rather like living in a house next to a railway line or a spaceport:
+the first few nights,
+you wake up every time a train goes by or a rocket blasts off,
+but then your brain gets used to it and says,
+"Meh."
+
+That said,
+it does depend on the weapon and on who's doing the pointing.
+Something that looks like it was designed to make holes in steel plate
+is pretty hard for a brain to "meh",
+and if the pointer is the kind of little old lady
+who looks as though she could chew a hole in that same piece of steel if she wanted to,
+your brain is far more likely to go "meep!"
+
+Finner's hands put themselves up,
+just as they had on board the *Dancing Marmot*.
+"I'm Finner Tumbly," he said.
+"I'm your gran-grandson."
+
+The ray gun didn't waver.
+"Ask me something," Finner said desperately.
+"Something only I would know.
+Like—like that picture!"
+He pointed at a crayon drawing in a frame on the wall.
+"My dad drew that when he was little,
+and you used to have it on your refrigerator,
+but he took it and had one of the elves frame it
+so he could give it to you a second time,
+only my mum says you would rather he hadn't
+because it doesn't go with anything else in the room
+and you think it was better off on the fridge."
+
+Gran-Granna Tumbly's jaw tightened.
+"I knew it," she hissed.
+"First faces, then memories.
+Do you see what we're up against, Periwinkle?
+Do you see it now?"
+She cocked the ray gun with a loud *click*.
+
+"Sensei, wait! Wait!"
+Santa Hood raised one hand.
+"I'm not saying you're wrong,
+but—"
+
+"But nothing!" Gran-Granna Tumbly raged.
+"He was missing for *days*.
+Who knows what they could have done in that time?"
+
+"Nobody did anything," Finner said,
+lowering his hands because his arms were getting tired
+and also because having them up
+didn't feel like it was making any difference to his odds of survival.
+"But—"
+*But I think I found someone who __is__ making robots,*
+he stopped himself from saying.
+He still didn't know what secrets Shady Ann was keeping,
+but he couldn't believe she was evil.
+
+Gran-Granna Tumbly studied him a moment longer,
+then sighed and pocketed her ray gun.
+She looked older than she had a week ago,
+and it wasn't just the patch and stitches.
+"Right then.
+Have a seat and tell me *everything*."
+
+"Everything" took about an hour.[^everything-hour]
+She scowled when Santa Hotep's pyramid was attacked,
+smacked the table with the palm of her hand during the bit with the sharks,
+but cut short his encounter with Captain Snood.
+"Of course it was her," she muttered.
+
+[^everything-hour]: Fun fact: if could talk approximately 120,094,200,000,000 times faster than normal, you could tell someone everything that had happened to a single subatomic particle since the beginning of the universe.
+
+As if on cue,
+a horn beeped outside.
+Gran-Granna Tumbly sighed again.
+"Your parents have been very worried," she told Finner.
+"Best you go show them you're still in one piece."
+
+"Thanks," he said automatically.
+"Um, you'd be very welcome to, um," he added to Santa Hood,
+who shook her head.
+
+"Sensei and I have need to catch up,"
+she said gently.
+"And I'm sure they'll want some time with you."
+
+Here's the thing about parents:
+they are the most important people in your life when you're growing up,
+but can also be the most annoying.
+Sometimes it's deliberate,
+like when they share your baby pictures with your friends just to make you squirm
+or,
+if their parents were cruel to them and they haven't learned any better since,
+when they keep making jokes about your haircut long after you're in tears.
+Mostly,
+though,
+parents are annoying because you think you're ready to be a grownup and they don't agree,
+or do but aren't ready to let you go.
+
+Going to your gran-granna's for a cup of tea and not coming home for a week
+pretty much guarantees annoying parental behavior,
+especially if the parents in question have been told that
+you spent that week dealing with ray guns, sharks, and a giant santasaurus.
+When they ask if you're all right,
+what they really mean is that they were scared.[^they-were-scared]
+And when they fuss over you and tell you everything's all right now,
+they're trying to convince themselves as much as you.
+
+[^they-were-scared]: You won't really understand *how* scared unless you have kids of your own one day, at which point you will occasionally wake up in a cold sweat in the middle of the night wondering how common meteor strikes are or how often leopards escape from zoos.
+
+We are therefore going to skip over the next few hours of Finner's life
+and several of the days that followed.
+His dad baked three batches of his favorite cookies[^chili-lime]
+while his mum kept checking that he was warm enough.
+His classmates crowded around him and asked what had happened
+and whether it was true that he'd been in an airship battle
+and did he have any cool scars.
+He mostly mumbled in response,
+uncomfortable at suddenly being the center of attention
+instead of in his usual place on the edge of the crowd
+trying to figure out what the cool kids were up to.
+
+[^chili-lime]: Chili-lime shortbread.
+
+People eventually got tired of, "Yeah, something like that,"
+and went back to their usual gossip.
+His writing teacher took him aside and said that
+if he wanted to try expressing what had happened to him in a poem,
+she would be happy to give him extra credit for it.
+A vague, "I'll think about it," was apparently not the right answer,
+but he honestly didn't know what to say.
+The pyramids, the *Dancing Marmot*, Shady Ann's workshop—they already felt like
+they had happened to someone else.
+
+Besides,
+he had other things to think about,
+like making sure his parents didn't find out about
+the odds and ends he smuggled into his bedroom.
+A rusty pair of scissors that he spotted near a bus stop on his way home from school.
+a ball of string that he slipped into his pocket during science class.
+Some paper—not writing paper, but construction paper
+that had to be folded carefully and then creased twice to make a straight seam,
+but oh,
+what a beautiful seam it was—and best of all,
+a roll of tape with only a little bit of lint stuck to it.
+He couldn't stop himself.
+He needed to make things.
+No, he *needed* to make things,
+the same way that he needed to breathe after holding his breath under water
+for as long as he could.
+
+So let's skip ahead to the moment when
+Finner's mum opened his bedroom door
+to tell him that his dad had made another batch of cookies
+and found her son sitting on the floor
+taping carefully-folded bits of paper together
+to make a tiny cardboard dinosaur.
+"Oh," she gasped,
+her hand flying to her mouth.
+
+"Mum! You're supposed to knock!"
+Finner exclaimed as he tried to sweep his craft supplies under his bed.
+His stomach flip-flopped
+as his mum thundered down the stairs,
+calling for his dad.
+He heard voices,
+first questioning and then angry,
+and then his dad saying,
+"All right. All right!
+Let's call your grandmother.
+She'll know what to do."
 
 </section>
