@@ -2919,3 +2919,240 @@ Let's call your grandmother.
 She'll know what to do."
 
 </section>
+
+<section markdown="1">
+
+## The Building
+
+Nobody called The Building a prison except the people who weren't allowed to leave.
+The staff sometimes used the word "hospital",
+but for the most part they stuck to euphemisms like "reorientation center"
+or "a place where you can get back in touch with your inner santa".
+
+And the daily activities weren't mandatory, either.
+In fact,
+they were so *not* mandatory that sometimes Finner wanted to scream.
+"Are you *sure* you don't want to do a little ho-ho-ho'ing?
+Everyone else will be there."
+If he had been at home or at school and said, "No thank you,"
+the person asking might have pressed him once or twice
+but would eventually have taken the hint.
+Not at The Building, though.
+There,
+"no thank you" produced an endless sequence of, "Are you sure?"
+and, "How about you just give it a try?"
+and, "Oh come on, Mister Frowny, it will put a smile on your face."
+
+That last comment actually did make him smile a little,
+but only because of the way Zubi said it.
+De was one of the other residents,[^p-word]
+and claimed to have come from a world where *everyone* was a santa or an elf.
+Or where santas didn't need wherevers
+because they could just imagine themselves wherever they wanted.
+Or where santas pulled sleighs and reindeer handed out presents.
+Der story changed every time they told it,
+but Finner didn't mind.
+It was more entertaining than the jingly movies
+that played on repeat in the dining hall,
+none of which involved ray guns
+or santas wondering if they were really elves.
+
+[^p-word]: *Not* "patients" and *definitely* not "prisoners". Finner was told very firmly several times that nobody used the "p" words in The Building.
+
+"When we break out—"
+Zubi paused for a moment to chew a particularly tough piece of jello.
+De raised a finger,
+swallowed hard,
+and stuck out a green tongue.
+
+"When we break out,"
+de continued,
+setting aside the rest of the jello,
+"The first thing I'm going to make is a bicycle.
+A real bicycle,
+not a toy one,
+and I'm going to ride it aaaaall over town.
+What about you?"
+
+Finner shrugged.
+He had taken a mince pie for dessert instead of a bowl of jello,
+but the first mouthful had tasted of nothing at all,
+so he set it aside too.
+"I dunno.
+Figure it out when I get there, I suppose."
+
+There were only half a dozen other young santas in the dining hall that evening.
+Four of them sat together,
+grimly enjoying a complicated game of cards.
+The other two sat at the same table
+but did their best to ignore each other.
+Finner assumed they would have preferred to sit by themselves,
+but as he had found out the hard way,
+one of the staff would show up in about ninety seconds
+and encouraged you to be more social.
+And while throwing food at them was briefly satisfying,
+it only made them heartier.
+One of them had actually started caroling
+as she mopped his chili off her coat,
+as if being splattered with beans and sauce somehow proved her right.
+
+"I liked wind-up trains," she had confided afterward.
+Finner would rather have been anywhere else than across the table from her,
+but there was no way to escape.
+"I liked how the coilspring tightened as I turned the key,
+and the little clicking sound the refurgent gear made on tight corners,
+and…"
+She had sighed theatrically.
+"But then I realized—that's not who I am.
+I'm a santa.
+I deliver things, I don't make them.
+And I know how confused you feel right now,
+truly I do,
+but you're a santa too.
+You just need a little help realizing it."
+And then she had patted his hand and walked away,
+caroling softly to herself.
+
+"Hey."
+Zubi prodded the back of Finner's hand with der fork.
+
+He shook his head.
+"Just thinking," he mumbled.
+
+Zubi leaned forward.
+"About an escape plan?"
+
+"About whether they'll let me sleep in if I say I'm not feeling well."
+Finner stacked his dishes on his tray and stood up.
+"See you tomorrow."
+
+His bedroom didn't have bars on the windows,
+but those windows didn't open either.
+He lay back with his hands behind his head
+and stared at sleigh-and-reindeer mobile hanging from the ceiling.
+
+And blinked.
+
+And rolled his head gently from side to side
+as if working a kink out of his neck.
+Yup,
+there was definitely something under his pillow.
+He yawned,
+stretched,
+and rolled over on his side
+so that he could slide his hand up to check it out.
+His fingers closed around a piece of metal about the size of his thumb.
+
+His breath caught in his throat as he turned it over.
+It felt like a key.
+In fact,
+it felt exactly like one of the keys that the staff used
+to unlock The Building's many doors.
+
+*Great,* he thought tiredly.
+He stood up with the key in his hand
+and tucked his feet into his slippers one by one.
+
+"Did someone lose this?" he asked a moment later,
+holding the key out
+for the santa behind the desk to inspect.
+He had an eyepatch,
+but looked more like someone who had been clumsy with a broom
+than like a pirate.
+
+"Oh yes, dear me, that *is* one of ours,"
+the santa said brightly.
+"Thank you."
+
+"You're welcome," Finner said automatically.
+It was the third time since he'd arrived
+that someone had "lost" a key where he would find it.
+He had no doubt that if he tried to use it,
+a couple of burly santas would be waiting on the other side
+of whatever door he opened,
+but at least it was subtler
+than the hacksaw someone had put in his underwear drawer.
+
+"Oh, and there's a letter for you,"
+the desk santa added,
+rummaging around for a moment
+before handing Finner a square brown envelope
+covered in a confetti explosion of interdimensional stamps.
+Someone had carefully blacked out the address below Finner's name,
+but careful blocky letters in the corner spelled out
+"S. Greenwood, Isla del Tesoro".
+
+He took the letter back to his room
+and lay down once again with the letter on his chest.
+One of the toy reinder in the mobile hanging from the ceiling
+was missing a hoof.
+You could study the mobile for hours and not notice it,
+but once he had,
+he couldn't stop wondering how it had happened.
+Had someone forgotten to attach it when the mobile was made?
+Had it come off when the mobile was hung
+and been vacuumed up and thrown away before anyone noticed?
+Or was it a deliberate mistake,
+like the mis-tied knots weavers put in rugs
+to show that they'd been made by hand?[^bad-knots]
+Or was it a test?
+Was the staff watching to see if he just couldn't stop himself from fixing it?
+
+[^bad-knots]: The rugs, that is, not the weavers, and yes, they really do this.
+
+He shook his head.
+He was starting to think like Zubi,
+which meant it was time to think about something else.
+He held up the letter,
+turned it over to admire the stamps on the back,
+and tore it open.
+
+> Dear Finner,
+>
+> I heard you got home but are having more trouble.
+> Just wanted you to know that
+> it took me and my dad a while to figure things out
+> after I told him that I liked trees more than pirating.
+> We still argue sometimes
+> and he's never going to enjoy being in the forest
+> instead of on the ocean
+> but he wears the peg leg I made for him
+> and tells my friends his dumb jokes
+> and that's good enough for me.
+>
+> I hope you find your forest too.
+>
+> Your friend,
+>
+> Steve (Santa Greenwood)
+
+Finner wiped his eyes with his sleeve
+and tucked the letter into the envelope.
+And stopped.
+And slowly,
+looking up at the mobile rather than at the stiff cardboard in his hands,
+used his finger to tear open the sides of the envelope
+so that he could unfold it.
+
+Faint silver lines reflected the light
+when he tilted the envelope at the right angle.
+One side showed a map of The Building
+with the dining hall,
+the dormitories,
+and a dotted line showing how to get into the laundry room in the basement
+and then out through a ventilation shaft.
+The other side showed the gardens around The Building,
+including a pond with a carefully drawn crocodile grinning in its center.
+
+A small X marked a spot on the fence.
+Next to it was one word: "Midnight."[^midnight-note]
+
+[^midnight-note]: If you ever have to help someone escape from prison, please try to be more precise than this. Did "midnight" mean "midnight the day this letter was sent"? If so, Finner had already missed it. Did it mean "midnight the day the letter is opened"? How could the sender possibly know that? Or did it mean "every midnight for the next few nights but please don't take too long because sooner or later someone will spot me loitering"? If that had not in fact been the intended meaning in this case, our story would probably have ended here, which would have left me with an awful lot of blank pages.
+
+Finner tucked the letter into the torn envelope
+and slid it under his pillow.
+The cheerful santa clock on the wall told him it was half past seven.
+Was the letter real or was it a trap?
+There was only one way to find out.
+
+</section>
