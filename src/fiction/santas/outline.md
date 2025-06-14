@@ -195,15 +195,13 @@
     they become friends;
     they try to escape,
     but their escape turns out to be a trap (a test of whether they're actually trying to "get better");
-    Finner is moved to a more secure part of The Building.
+    realizes that The Building's staff are anti-flip zealots and are training a robot to replace him.
 
 -   Chapter 15:
     Finner's darkest moment (relentlessly cheerful attempts to "fix" him);
-    realizes that The Building's staff are anti-flip zealots and are training a robot to replace him;
     gets a visit from Gran-Granna Tumbly, who knows all about the robots;
     he tells her he has put the pieces together and knows that Shady Ann was her wife;
-    she reveals that Shady Ann isn't just learning to make things now—she was always a flip,
-    and in fact invented the robot technology;
+    she reveals that Shady Ann invented the robot technology;
     she delivers a book about gardening from Santa Greenwood
     and another book about great thefts in history from Santa Hood;
     Finner discovers a note in the former.
@@ -213,9 +211,7 @@
     met by Greenwood and Hood;
     Greenwood thinks that Finner reached out to *them*;
     reveals that they were being chased at the start because they had just kidnapped a flip and delivered him to The Building;
-    they are ambushed by Gran-Granna's zealots.
-
--   Chapter 17:
+    they are ambushed by Gran-Granna's zealots;
     Greenwood realizes that Hood has betrayed him:
     she suggested the message in the gardening book as a loyalty test;
     Hood reveals that she has been increasingly worried by Greenwood
@@ -224,7 +220,7 @@
     Greenwood sacrifices himself to help Finner escape to Hotep's world;
     Finner finds the Elfabot waiting for him with Hotep.
 
--   Chapter 18:
+-   Chapter 17:
     conversation with Hotep, who has finally decided to pick sides
     (he rather enjoys making furniture);
     the Elfabot reveals that Shady Ann is dying of radiation, old age, and heartbreak;
@@ -233,7 +229,7 @@
     Finner replies, "No, she cares about who she thinks I'm supposed to be";
     Tumbly and her forces attack (echo of the robots' attack in Chapter 3).
 
--   Chapter 19:
+-   Chapter 18:
     Finner uses the wherever to go back to Shady Ann's world to get help;
     one last conversation with Shady Ann, who gives Finner a letter for Tumbly before dying;
     Finner leads Santazilla through the wherever into Hotep's world,
