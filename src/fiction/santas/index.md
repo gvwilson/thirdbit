@@ -2633,9 +2633,9 @@ the car exploded.
 
 <section>
 
-## Title
+## Old(ish) Friends
 
-FIXME: fill in here
+FIXME: write about 700 words here of Hood and Greenwood rescuing Finner
 
 A brisk knock on the cabin door woke him.
 "We just did our last wherever,"
@@ -2928,8 +2928,10 @@ Nobody called The Building a prison except the people who weren't allowed to lea
 The staff sometimes used the word "hospital",
 but for the most part they stuck to euphemisms like "reorientation center"
 or "a place where you can get back in touch with your inner santa".
+The bedrooms didn't have bars on the windows,
+but those windows didn't open either.
 
-And the daily activities weren't mandatory, either.
+And the daily activities weren't mandatory.
 In fact,
 they were so *not* mandatory that sometimes Finner wanted to scream.
 "Are you *sure* you don't want to do a little ho-ho-ho'ing?
@@ -3026,9 +3028,17 @@ Zubi leaned forward.
 Finner stacked his dishes on his tray and stood up.
 "See you tomorrow."
 
-His bedroom didn't have bars on the windows,
-but those windows didn't open either.
-He lay back with his hands behind his head
+FIXME: add about 800 words here of failed escape with Zubi
+
+</section>
+
+<section>
+
+## A Visitor
+
+FIXME: add 500 words of visit from Gran-Granna Tumbly
+
+Finner lay back with his hands behind his head
 and stared at sleigh-and-reindeer mobile hanging from the ceiling.
 
 And blinked.
@@ -3073,17 +3083,16 @@ of whatever door he opened,
 but at least it was subtler
 than the hacksaw someone had put in his underwear drawer.
 
-"Oh, and there's a letter for you,"
+"Oh, and there's a package for you,"
 the desk santa added,
 rummaging around for a moment
-before handing Finner a square brown envelope
-covered in a confetti explosion of interdimensional stamps.
-Someone had carefully blacked out the address below Finner's name,
+before handing Finner a heavy rectangle wrapped in sturdy brown paper
+and covered in a confetti explosion of interdimensional stamps.
+Someone had blacked out the address below Finner's name,
 but careful blocky letters in the corner spelled out
 "S. Greenwood, Isla del Tesoro".
 
-He took the letter back to his room
-and lay down once again with the letter on his chest.
+He took the package back to his room and lay down once again with it beside him.
 One of the toy reinder in the mobile hanging from the ceiling
 was missing a hoof.
 You could study the mobile for hours and not notice it,
@@ -3103,9 +3112,12 @@ Was the staff watching to see if he just couldn't stop himself from fixing it?
 He shook his head.
 He was starting to think like Zubi,
 which meant it was time to think about something else.
-He held up the letter,
-turned it over to admire the stamps on the back,
+He held up the package,
+admiring the stamps,
 and tore it open.
+Inside were two books and a letter.
+
+FIXME: briefly describe the books
 
 > Dear Finner,
 >
@@ -3154,5 +3166,333 @@ and slid it under his pillow.
 The cheerful santa clock on the wall told him it was half past seven.
 Was the letter real or was it a trap?
 There was only one way to find out.
+
+</section>
+
+<section markdown="1">
+
+## Not All Bars Are On Windows
+
+"Psst!"
+
+"Mm?"
+
+"Psst! Zubi! Wake up!"
+
+"Mmph? Uzzat?"
+
+"Zubi! Come on, wake up, wake up!"
+
+"Sh mibble. Uh sleebig."
+
+"No, no, you're not sleeping.
+You have to wake up.
+We're getting out of here.
+We're getting out of here *now*!"
+
+"Finner?"
+
+"Yeah, it's me.
+Listen,
+you have to wake up.
+I got a letter, and—wait.
+I'll be back in a sec."
+
+"Nng? Finner, is that you?"
+
+"Finner?"
+
+"Hey, Finner, are you there?"
+
+"Ssh!
+Keep it down."
+
+"Hey, Finner, where'd you go?"
+
+"One of the staff just went by.
+I had to hide under the credenza and—look,
+that's not important.
+I know a way out, Zubi.
+At least I think I do,
+but it's almost midnight—we have to go *now*."
+
+"…"
+
+"Psst!
+Zubi!
+Oh,
+come on,
+don't go back to sleep!"
+
+"I didn't.
+I'm right here.
+What do you mean, you know a way out?"
+
+"I think I know a way out of here,
+but we have to get moving.
+Get some clothes on and let's go."
+
+"…"
+
+"Zubi!
+Come on!
+The staff could be back any moment!"
+
+"You go ahead."
+
+"What?
+Zubi, come on!
+I know it's scary, but this could be our only shot!"
+
+"I'm not scared, Finner, I just don't want to go."
+
+"…what?"
+
+"I don't want to go.
+I don't want to be here any more than you do,
+but—listen, you should go.
+You should go right now, okay?
+And, you know, good luck."
+
+"Wait.
+Zubi,
+just wait a second.
+I thought you hated this place."
+
+"I do.
+I don't know what kind of santa I'm supposed to be,
+but I don't think I'm an elf, all right?"
+
+"I thought—you said you wanted to make a bicycle."
+
+"Yeah, well, I say a lot of things."
+
+"So what,
+you're just going to spend the rest of your life chewing jello
+and watching the same stupid movies over and over again?"
+
+"I don't know.
+Maybe if I chew enough jello they'll make me one of the staff."
+
+"Oh, come on, Zubi, don't say that.
+Don't say that.
+Come with me."
+
+"Hey—are you crying?"
+
+"No!
+I just—uh oh."
+
+"Finner?
+Hey, Finner, are you there?"
+
+"Finner?"
+
+"Psst! Finner, are you there?"
+
+"Hey—Finner.
+Good luck, okay?"
+
+</section>
+
+<section>
+
+## Outside the Fence
+
+
+Santa Greenwood was waiting exactly where his map said he could be,
+hidden among the trees outside the fence.
+He wrinkled his nose when Finner came close.
+
+"It was a *sanitation* shaft, not a ventilation shaft," Finner explained,
+plucking at the odoriferous clothes sticking damply to his skin.
+
+"There's a pond right over there."
+Santa Greenwood nodded to his left.
+Something large and toothy swished through the water as if in response.
+"All right, never mind.
+Can't be any worse than when the llamas get into the candy canes."
+
+The fence wasn't electrified—after all,
+The Building wasn't a prison—but it was quite high
+and topped with spikes "to keep the pigeons off".
+Santa Greenwood solved that problem by putting on a heavy pair of gloves,
+bracing his legs,
+grabbing hold of the chain mesh,
+and pulling it out of the ground with one might heave.
+Finner scraped underneath[^scraped-underneath]
+and scrambled back to his feet.
+
+[^scraped-underneath]: Adding dirt to his clothes but removing some of the odor.
+
+"Definitely worse than the llamas,"
+Santa Hood said drily,
+stepping out of the shadows behind Santa Greenwood.
+
+Finner goggled at her.
+She shrugged.
+"What?
+You didn't think he came up with this plan all on his own, did you?"
+
+Finner spread his hands.
+"Why are you both even here?"
+
+Santa Greenwood glanced at Santa Hood.
+"Thought Sensei Tumbly might have made a mistake,"
+she said,
+not meeting his eyes.
+"Figured we should check in on you ourselves."
+
+Finner looked up at the sky.
+The moon was half full, or maybe half empty—he didn't know enough
+to be able to tell the two apart.
+He could see a few stars,
+but silvery clouds hid the others.
+A light breeze rustled the leaves on the trees behind the two santas.
+He took a deep breath,
+held it a moment,
+and let it out,
+savoring the absence of the cinnamon hot chocolate smell that pervaded The Building.
+
+"There was no mistake," he said.
+"I'm an elf,
+or at least I think I am.
+I don't know what that means yet,
+but I hope it doesn't mean we have to be on opposite sides of…
+Ooph!"
+
+He grunted as Santa Greenwood picked him up,
+squeezed him,
+and set him back down.
+Santa Hood looked back and forth between them,
+then sighed and punched his shoulder.
+"Come on," she said.
+"Escape's not over 'til you've had a bath."
+
+"This escape is over now,"
+a cold voice said.
+Santa Hood and Santa Greenwood whirled around
+as Gran-Granna Tumbly stepped out of the trees behind them
+with half a dozen other santas behind her.
+No,
+not santas,
+Finner realized: robo-santas with fake beards
+and white plastic smiles
+and thuddy things in their hands.
+
+"Sensei—" Santa Hood began.
+
+Gran-Granna Tumbly raised a hand to cut her off.
+"I am very disappointed in you," she hissed.
+"You have been very, *very* naughty.
+And you!"
+She jabbed a finger at Santa Greenwood.
+"What will your father say when he finds out, hm?"
+
+Santa Greenwood reached over his shoulder for his ax
+and grinned the kind of grin
+that would make even the most experienced lumberjack
+think about becoming a cheesewright instead.
+"He would say *now, Periwinkle, now!*"
+
+Roots burst out of the earth beneath the robo-santas
+and twisted around their metal legs.
+With a bellow that would have made any pirate proud,
+Santa Greenwood charged forward with his ax held high.
+
+And promptly sprawled face-first in the dirt
+as Gran-Granna Tumbly flicked her cane between his ankles.
+Santa Greenwood scrambled to his feet,
+grabbed his ax,
+and promptly went down again.
+
+"So I guess we're doing this,"
+Santa Hood muttered beside Finner,
+drawing a slender sword with a blackened blade from her sack
+and tossing it aside.
+Gran-Granna Tumbly scowled,
+twisted the head of her cane,
+and drew the sparkly rapier Finner had last seen when the elves had attacked her house.
+It didn't seem particularly magical any longer.
+It just looked dangerous.
+
+"See what you can do about those robots, will you?"
+Santa Hood said,
+settling into a wide-legged stance
+as Gran-Granna Tumbly rocked her head from side to side to crack her neck.
+
+"What exactly do you want me to do?"
+Finner didn't ask,
+because he had now been in enough battles to know that
+there's a time for asking and there's a time for doing,
+and if your great-grandmother and the santa who was trying to rescue you
+had just started trading cuts and jabs and blocks,
+it wasn't the time for asking.
+
+"Hang on, Periwinkle, I'll—would you stop doing that!?"
+Santa Greenwood actually made it to his feet this time
+before a kick to the back of one knee put him back on the ground.
+Gran-Granna Tumbly hadn't even glanced at him.
+All her attention was on Santa Hood.
+
+Finner snatched Santa Greenwood's ax off the ground
+and brought it up in a wild parry
+just as one of the robo-santas swung a padded club at his head.
+The robot managed a second step before a fresh crop of roots
+wound themselves around its legs.
+
+*We're going to lose,* Finner realized.
+Gran-Granna Tumbly was more than a match for Santa Greenwood and Santa Hood together,
+and sooner or later the trees were going to run out of roots.
+
+"Catch!" he shouted,
+tossing Santa Greenwood's ax back to him
+and grabbing Santa Hood's sack.
+He thrust his arm into it,
+pulled out the first thing he found,
+and threw it at Gran-Granna Tumbly.
+
+*Flick!*
+Gran-Granna Tumbly knocked the bath duck aside with her sword.
+"Hey, that's mine!" Santa Greenwood shouted.
+
+"I was going to give it back!"
+Santa Hood shouted back,
+frantically parrying a sudden flurry of attacks from Gran-Granna Tumbly.
+
+A frisbee.
+A toy goat that bleated pitifully as it hit the ground.
+A pair of brightly-patterned socks
+that Finner would have looked at more closely under other circumstances.
+Another second frisbee.
+"Where are the grenades?" he demanded.
+
+"On the left!"
+Santa Hood shouted back.
+"No, not your left, the sack's left!"
+
+Finner thrust his arm into the sack as deep as it would go.
+His fingers closed on something rectangular.
+It was a remote control like the one for his family's refrigerator.[^fridge-remote]
+He whirled around just as another robo-santa pulled its legs free from the tree roots
+and pointed the remote at it,
+clicking buttons with his thumb.
+
+[^fridge-remote]: What, your fridge doesn't have a remote?
+
+*Bzzt!*
+The robo-santa froze.
+*All* the robots froze,
+and then turned their heads in unison to look straight at Gran-Granna Tumbly.
+"Safety protocols deactivated," they said in unison.
+"Resuming primary mode."
+
+Gran-Granna Tumbly's eyes widened.
+"Oh, you idiot boy," she snapped.
+"What have you done now?"
+But Finner barely heard her.
+He was too busy being terrified as the robo-santas dropped their padded clubs
+and retracted their hands into their arms,
+sprouting chainsaws and flamethrowers in their place.
 
 </section>

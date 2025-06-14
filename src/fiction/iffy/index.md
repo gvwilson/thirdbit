@@ -7394,17 +7394,13 @@ Her heartbeat was steady,
 even though it wasn't really hers.
 She couldn't explain the difference,
 but something deep in the back of her brain knew that
-the muscle thudding in her chest wasn't the one she had known all her life.
+the muscle thudding in her chest wasn't the one she had known in her life.
 
 She drew a deep breath,
 held it,
 and exhaled slowly.
 Her lungs seemed fine,
-though she could feel a recent injury in her abdomen.
-Through and through,
-if she wasn't mistaken,
-just like the one that had killed her for the first time in Auckland.
-FIXME: keep this?
+though the stringiness of her muscles spoke to a lifetime of barely-adequate nutrition.
 
 Sandrine scrunched her toes.
 They felt stubby—was this body really that much smaller than her original?
@@ -7778,13 +7774,10 @@ and imprints that had gone wrong in a dozen different ways,
 each more cinematic than the last.
 
 She handed back the now-empty bottle and stood.
-The patches on Ang Kwan's injury tugged at her skin, FIXME: continuity
-but everything else felt fine.
 She was going to have bruises from the straps,
-though,
 and her uniform smelled of sweat.
 
-"There's plenty of hot water if you want to clean up,"
+"There's hot water if you want to clean up,"
 Sergeant Vassilenko said.
 "I'll see if I can get you something more interesting than noodles for dinner."
 
