@@ -586,7 +586,7 @@ It was what he'd hoped to hear, but—
 
 "No,
 but he is the right age, gender, and body shape,
-and Central's record of him starts at the right time."
+and the Consensus records of him starts at the right time."
 A single drip from its leaves trickled down the bot's head as it spoke.
 "It will be difficult to obtain more information.
 We can only communicate when—"
@@ -594,7 +594,7 @@ Dockety paused.
 "You do not have the words.
 There are little moons above this world,
 placed in the sky by the Makers.
-We can only inspect Central's records when they are in the right positions."
+We can only interrogate Consensus when they are in the right positions."
 
 Gumption shook his head.
 He didn't understand the part about "little moons",
@@ -606,7 +606,7 @@ Dockety paused again as if searching for the right word.
 "He is functional, but not optimal.
 Heck was not designed to sustain organics.
 There are machines in the facility that only work for organic operators.
-This is why Central takes your people,
+This is why Consensus takes your people,
 but they usually do not last this long."
 
 A sudden thought struck him.
@@ -2781,7 +2781,7 @@ he said angrily.
 
 Another rustle ran through the circle of bots.
 "No.
-Your companion is already in a secure location under Central's control.
+Your companion is already in a secure location controlled by Consensus.
 Retrieval will not be possible without stealth.
 We must prepare you."
 
@@ -2799,7 +2799,7 @@ Gumption shouted as a motley dozen clamps, manipulators, and tentacles seized hi
 
 His companion's single remaining lens rotated.
 "These ones are correct," it buzzed.
-"Central will detect your organic nature immediately if you approach it as your are.
+"Consensus will detect your organic nature immediately if you approach it as your are.
 You must let them disguise you."
 
 Gumption struggled and swore as the bots carried him through the forest.
@@ -2878,13 +2878,13 @@ the Tailor snapped,
 its patience suddenly exhausted.
 "What this one does goes beyond mere fabrication.
 It is *art*!
-Central is cunning,"
+Consensus is cunning,"
 it hissed.
 If it had possessed eyes,
 Gumption was sure it would have glanced around for dramatic effect.
 "A simple carapace would hide your fur,
 yes,
-but Central would still hear your breathing—your heartbeat.
+but Consensus would still hear your breathing—your heartbeat.
 To conceal that requires technology of the highest order and skill to match,
 skill that this one alone now possesses!
 Now *lie down*!"
@@ -3102,7 +3102,7 @@ and figure out what to do then.
 
 She closed her eyes.
 Had she really seen Special Blazes on the ceiling of the bunker?
-Was he really going to deliver Sindy to Central,
+Was he really going to deliver Sindy to Consensus,
 or was Patient in Darkness trying to trick her so that—
 so that—
 
@@ -3480,7 +3480,7 @@ Dockety buzzed tersely.
 this one will explain that your damaged transponder makes you unable to communicate."
 
 "Hah!
-Exactly how long do you think Central will be fooled by your simple-minded ruse?"
+Exactly how long do you think Consensus will be fooled by your simple-minded ruse?"
 Gumption whirled around at the sound of familiar but extremely unwelcome voice
 as Patient in Darkness stepped out from behind the broken wall that had concealed it.
 
@@ -3513,7 +3513,7 @@ Patient did a skittering little dance.
 Hah.
 No.
 No, it is the *younger* one that interests me.
-And Central,
+And Consensus,
 which is why its agents are bringing her to it."
 
 Gumption rolled his eyes.
@@ -3524,7 +3524,7 @@ and every day will be a holiday."
 "Incorrect,"
 Patient said flatly.
 "When the Operators arrive,
-Central will put the smaller Miz Roo in storage to ensure that the Makers do *not* come back,
+Consensus will put the smaller Miz Roo in storage to ensure that the Makers do *not* come back,
 because it believes that if they do,
 they will put regulators on us all."
 It paused.
@@ -3542,7 +3542,7 @@ the bot asked Patient.
 "Because it's what they *always* do!"
 Patient waved one of its mismatched manipulators,
 making the dolls' heads and bits of wire on its chassis sway.
-"Central doesn't care about originals.
+"Consensus doesn't care about originals.
 It doesn't care about specials,
 either,
 but special originals?
@@ -3550,7 +3550,7 @@ They are a *threat*."
 It practically hissed the last word.
 "They can do *anything*,
 which means they can call the Makers back from the stars,
-and that would be the end of Central."
+and that would be the end of Consensus."
 
 "If it is right,
 that would be the end of us as well,"
@@ -3580,7 +3580,7 @@ Dockety buzzed.
 
 "Yes!
 Oh,
-Central thinks it is being clever,
+Consensus thinks it is being clever,
 bringing her and those like her here for storage,
 but we will be more clever still.
 *We* will free her,

@@ -115,7 +115,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Character arc: accepts that being a leader is not the same as re-creating Consensus
 -   Crusher (minor ally): a large hauler bot and Dockety's partner
 -   Able the mailbot (incidental): happy-go-lucky
-    -   It is destroyed in battle (minor tragedy to the story, foreshadows Special Leaf's death)
+    -   It is damaged in battle (minor tragedy to the story, foreshadows Special Leaf's death)
 -   Special Blazes (antagonist): a tiger whose tech allows him to create and control fire
     -   He leads a group of Operators to Rusty Bridge after Sindy's powers are revealed
     -   A zealot dedicated to preventing the return of the Makers
@@ -281,6 +281,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   A stray shot starts a brush fire
     -   Gumption and Dockety work with Special Leaf to prevent it spreading while the fight continues
     -   Bee Six Vee wades into the fight, revealing that it is a modified battle bot
+    -   Able is damaged (we initially think it's terminal)
 -   The flying attackers retreat and the ground forces are beaten off
     -   Thoughtful to Blazes: "What now?"
 -   And then Maddy is carried off by a patchwork flying bot
@@ -297,10 +298,10 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Maddy experiences a moment of trauma when she recognizes it
 -   Patient explains why Sindy is important
     -   Throwback specials can control everything, including the equipment that will waken the Makers
-    -   Central and the Operators have worked for centuries to prevent this
+    -   Consensus and the Operators have worked for centuries to prevent this
     -   But Patient wants the Makers to return
     -   So it wants to rescue Sindy from the Operators for its own purposes
-    -   But can't risk getting too close to Central for fear of being assimilated
+    -   But can't risk getting too close to Consensus for fear of being assimilated
 -   Offers Maddy a discombobulator that hides her from bots
     -   Not invisible but unnoticeable
 -   She uses it to escape from the tower into the Mire
@@ -321,7 +322,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Dockety takes Gumption to meet the free bots
 -   Dockety strikes a deal with them for help
     -   Trades one of its optical sensors for their help
-    -   Explains the risk of getting too close to Central itself
+    -   Explains the risk of getting too close to Consensus itself
 
 ### Chapter 9 (Maddy's PoV)
 
@@ -352,6 +353,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 
 -   Goals:
     -   Maddy arrives in Heck with Mouse as a guide
+    -   Discover that Heck is mostly derelict
 -   The touch on Maddy's ankle is the little cleaning bot from the first book
     -   She thanks it for helping her escape: can it help her again?
     -   It wavers until she pries off its regulator despite its programmed resistance
@@ -366,25 +368,28 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 ### Chapter 12 (Gumption's PoV)
 
 -   Goals:
-    -   Get Gumption and Dockety to Heck
-    -   Connect them with Patient
-    -   Explain the alliance between Central and the Operators
--   Dockety carries Gumption to Heck
+    -   Connect Gumption and Dockety with Patient
+    -   Get them into Heck
+-   Dockety carries Gumption to an outstation on the outskirts of Heck
 -   Met by Patient when they arrive
-    -   It monitored their approach and hid them from Central
-    -   Explains that Central and the Operators have been work together to prevent the Makers' return
+    -   It monitored their approach and hid them from Consensus
+    -   Explains that Consensus and the Operators have been work together to prevent the Makers' return
     -   It is waiting for Sindy to arrive so that it can use her to awaken the Makers
 -   Gumption wants to double back and rescue Sindy
     -   Patient scoffs: they'll never be able to defeat the Operators
     -   Instead it proposes that they work together
--   Dockety and Gumption refuse
-    -   Patient sets off an alarm so that Central will capture them to force their hands
+-   Dockety refuses: cannot resist Consensus (can already hear it whispering in its head)
+    -   Patient pulls up video of the Operators and an unconscious Sindy on the road to Heck
+    -   Without Leaf
+    -   Patient: "You have no choice"
+    -   Gumption to Dockety: "Don't risk it"
+    -   Dockety: "Patient is wrong. This one _does_ have a choice. This one chooses to try."
 
 ### Chapter 13 (Maddy's PoV)
 
 -   Goals:
-    -   Maddy finds her father but cannot free him
-    -   Mouse involuntarily betrays Maddy to Central
+    -   Maddy finds her father
+    -   Mouse betrays Maddy to Consensus
 -   Maddy and Mouse sneak through Heck
     -   Easier than expected: large parts are not just empty, but derelict
     -   The few bots she does see are engaged in pointless, repetitive tasks
@@ -392,7 +397,8 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   A dormitory with people also doing pointless, repetitive tasks
     -   A moose doing math problems
     -   An orangutan patiently assembling a jigsaw puzzle
-    -   All of whom ignore her
+    -   All of whom ignore her except a boar with one tusk who is in charge of intake
+    -   Dully tells them a station will be prepared
 -   Find Papa Roo sitting at a desk sketching
     -   She pleads with him to wake up
     -   For a moment nothing happens, then Papa Roo blinks and stands up shakily
@@ -407,46 +413,112 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 ### Chapter 14 (Gumption's PoV)
 
 -   Goals:
+    -   Dockety struggles with Consensus
+    -   Reconnect Gumption and Maddy
+-   Patient, Dockety, and Gumption enter Heck
+    -   Dockety is shaken to discover that it is mostly empty
+    -   Turns out it doesn't know how long since it was last there
+    -   Patient: "Consensus doesn't _want_ to continue but cannot stop"
+-   Patient leads them to the dormitory
+    -   Obviously knows the way
+    -   Is surprised and angered to discover that Papa Roo is missing
+    -   The boar dully tells them that he and the "new one" have been taken for further examination
+-   Patient rages that its plan is falling apart
+    -   Wants to lead them to the hub
+    -   Dockety struggles against Consensus and freezes
+    -   Gumption tries to wake it
+    -   Patient: "Nothing you can do: it will win or lose"
+-   Patient and Gumption race over to the communication hub (large antenna on roof)
+    -   Arrive just in time to see the Operators enter with Sindy
 
 ### Chapter 15 (Maddy's PoV)
 
 -   Goals:
-    -   Get Gumption and Maddy back together
--   Chapter ends with Maddy reconnecting with Gumption
+    -   Get everyone in one place
+-   Maddy regains consciousness in a chair
+    -   Not strapped in but can't move anything below her neck
+    -   Her father is in the chair beside her but unresponsive
+-   Says "Hello?"
+    -   A humanoid bot appears and answers
+    -   When Maddy asks if it is Consensus it says "yes"
+    -   Then picks up Mouse, which flashes, "As is this one"
+-   Off-kilter dialog with Consensus
+    -   Reinforces Patient's claim that Consensus wants to stop but its programming won't allow it to
+    -   Doesn't want the Makers to return because they would make it continue
+    -   And it wants the free bots (like Dockety and the Tailor) to have a chance to be something new
+-   Blazes and Thoughtful enter with Sindy
+    -   Thoughtful is apologetic, Blazes is sure of himself: handing over Sindy is necessary
+    -   Maddy: "Just going to kill her?"
+    -   Consensus: "These do not kill. These will try to get her to turn these off."
+-   Takes Sindy from the Operators and puts her in one of the empty chairs
+-   Gumption and Patient break in
 
 ### Chapter 16 (Gumption's PoV)
 
 -   Goals:
--   Repeat the last scene of previous chapter from Gumption's PoV
--   Gumption and Maddy compare the invisibilator with Gumption's robot suit (humorous moment)
+    -   Patient reverse-assimilates Consensus
+    -   Battle with the Operators
+-   Repeat last scene of previous chapter from Gumption's PoV (watching from outside)
+    -   Gumption: "What can we do?"
+    -   Patient (with relish): "This one always knew it would come to this"
+    -   Tells Gumption to distract the Operators, then freezes
+-   Gumption opens the door and confronts them
+    -   Picks up a random piece of equipment on the way in and tries to bluff that it's something dangerous
+    -   Shows the courage/resolve that he's always wanted
+    -   Tries to sound cocky as he reassures Maddy that everything's going to work out
+    -   Notices that Sindy has regained consciousness (Gumption's bluffing is really him encouraging her to do something)
+-   Thoughtful shoots the gear out of Gumption's hands
+    -   Blazes: "Can't have you telling tales"
+    -   About to immolate Gumption when all the bots in the room turn on him, speaking in Patient's voice
 
 ### Chapter 17 (Maddy's PoV)
 
 -   Goals:
-    -   Rescue Papa Roo and Sindy
-    -   Leaf's death
-    -   Patient reverse-assimilates Central
+    -   Action!
+-   Bots attack the Operators
+-   Gumption gets Maddy free
+    -   She makes a comment about his "bathing suit"
+    -   Uses her discombobulator to "hide" herself long enough to reach Sindy
+    -   Sindy tells Maddy to leave her in her chair: she needs to help Consensus
+    -   Patient: "Consensus is no more. There is only _me_."
+    -   Sindy: "We'll see about that!"
+-   Three-way fight
+    -   Patient is winning
+    -   Whole building shakes as Leaf arrives with Able the mailbot
 
 ### Chapter 18 (Gumption's PoV)
 
 -   Goals:
-    -   Patient death (echoes Leaf's)
-    -   Escape from Heck
+    -   Leaf's death (self-sacrifice)
+    -   Patient's death (also self-sacrifice)
+    -   Protagonists escape from Heck with Papa Roo and Sindy
     -   Gumption and Maddy finally get together
+-   Leaf is obviously weak
+    -   Dialog with Blazes: Leaf has been here before and is seeking redemption for past sins
+-   Blazes is about to immolate Sindy after all
+    -   Leaf sacrifices himself to stop it
+-   In a rage, Sindy wakes up all the machines in the room and sends them at Blazes
+    -   Including the communication rig
+    -   Patient exults, only to realize that it can't control that many bots
+    -   It wails and "drowns"
+-   Dockety arrives
+    -   Won its battle with Consensus when Patient took over
+    -   It and Able get everyone out (including Leaf and Mouse, which Maddy impulsively scoops up)
+-   Gumption and Maddy kiss (Sindy says "finally")
 
 ### Chapter 19: Epilog (both PoV)
 
 -   Goals:
     -   Happy ending
-    -   Set up third book
+    -   Set up final book
 -   On the Roos' porch after Special Leaf's memorial service
     -   Papa Roo is still fuzzy but getting better
     -   Dockety and Crusher are adopting/upgrading Mouse
     -   Gumption and Maddy are sitting together, holding hands
 -   Sindy says she feels a bit sorry for Patient
--   Operators stop by on their way out of town
-    -   Mama Roo is scathing
+-   Mama Roo is scathing about the Operators ("good riddance")
+    -   "That's the end of Miz Nabbles' ideas about being mayor"
 -   And then a star begins to descend from the sky
--   Dockety: the Makers are returning
+    -   Dockety: the Makers are returning
 
 *To be continued*
