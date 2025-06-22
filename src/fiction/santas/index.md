@@ -2616,18 +2616,19 @@ The giant santasaurus was closing fast.
 
 The Elfabot's eyes flashed rapidly.
 "Sure we will. I brought presents!"
-They flipped the safety cover off a big red button[^red-button]
-and punched it with their fist.
+De flipped the safety cover off a big red button[^red-button]
+and punched it with der fist.
 
 [^red-button]: Shady Ann and Finner had spent almost a day to choosing an appropriate button. It had to be red—tradition demanded nothing less—but they dithered for a while between one with the word "DANGER!" stamped on it and another shaped like a skull and crossbones. In the end, they went with both.
 
 *Clunk!*
-The hitch connected to the last car in the train snapped open.
+The hitch connecting the caboose snapped open.
 As the rest of the train pulled away from it,
-The Elfabot counted,
+the Elfabot counted,
 "One smelly reindeer, two smelly reindeer…"
-At "five",
-the car exploded.
+At "five"
+the car exploded
+just as Santazilla stepped on it.
 
 </section>
 
@@ -2635,7 +2636,140 @@ the car exploded.
 
 ## Old(ish) Friends
 
-FIXME: write about 700 words here of Hood and Greenwood rescuing Finner
+You would be annoyed if a firecracker went off under your boot.
+You would probably be more than just annoyed if it went off under your bare foot.
+And if you a highly territorial predator,
+five stories tall,
+and hungry,
+and had just been knocked off your feet by the explosion,
+you would probably express your annoyance with a earth-shaking roar
+and knock over a building or two.
+
+"Jump!"
+the Elfabot shouted as Santazilla struggled back to its feet.
+"Jump *now*!"
+
+Finner jumped.
+Long-dead branches scratched his face as he landed in
+the bush next to the one he had been aiming for.
+The train's bell clanged as it accelerated away.
+
+Santazilla roared again.
+Something in the back of Finner's brain begged him to hide,
+to be still,
+to let the hunter eat someone else,
+but he squelched the thought.
+He needed to get home,
+and anyway,
+there *wasn't* a "someone else" for Santazilla to eat.
+
+So he ran.
+His coat and heavy trousers made him clumsy,
+but the factory door was only a hundred strides away.
+He could do this.
+
+*Thud. Thud. Thud.*
+Giant steps shook the ground.
+Finner didn't waste time looking over his shoulder.
+He would make it to the gate or he wouldn't.
+
+Sixty strides.
+Fifty.
+Forty.
+A deafening roar from a mouth so close that
+he could smell Santazilla's humid breath.
+
+Thirty strides.
+His foot caught on a broken piece of concrete hidden beneath the dirty snow.
+He fell forward onto his hands and knees just as giant teeth snapped shut where his head had been.
+*Oh well,* he thought.
+*I tried.*
+
+The factory door burst open.
+"Stay down!" Santa Greenwood yelled.
+The rocket launcher on his shoulder belched flame.
+A moment later a sharp crack and another enraged bellow
+told Finner that the missile had hit its mark.
+
+Hands grabbed Finner's shoulders.
+Santa Hood pulled him to his feet.
+"Come on come on come *on*!"
+
+Finner didn't need to be told twice.
+Twenty strides.
+Ten,
+and Santa Greenwood had reloaded.
+"Clear!" Santa Hood snapped.
+The burly santa fired a second rocket
+and then pulled the door closed behind Finner and Santa Hood.
+
+"What are—" Finner started.
+
+"Save it!" Santa Hood ordered.
+They were in a large room that had probably been quite impressive
+before the ceiling caved in
+and someone turned the oversized reception desk on its side to shelter behind.
+Scorch marks from ray guns and the large bite taken out of the desk
+suggested that whatever had happened next hadn't ended well.
+
+"Now?" Santa Greenwood asked,
+tossing the rocket launcher aside.
+
+"Now," Santa Hood confirmed.
+The bigger santa nodded,
+pulled a black radio controller out of his pocket,
+flipped the safety out of the way,
+and pushed the button.[^black-button]
+
+[^black-button]: Which had neither the word "DANGER!" nor a skull and crossbones on it, but please don't judge them for cutting corners.
+
+*Boom! Boom! Boom!*
+The ground shook again.
+Santa Hood grinned.
+"That ought to keep it busy."
+
+The corridor that led to the lab containing the wherever
+was in no better shape than the entrance way.
+Finner kept the flashlight that Santa Hood gave him pointed at the floor in front of his feet.
+Ten strides, twenty…
+When had he started counting his steps?
+Did other people when they were afraid?
+And did they ask themselves inane questions at times like this?
+
+Yellow-tinged light from a pair of camping lanterns lit up the lab.
+Santa Greenwood unslung his ax and nodded at the door frame standing between the lanterns.
+"I'll go first, just in case," he said gruffly.
+Finner nodded,
+suddenly too tired to ask "in case of what?"
+
+Santa Hood spun the dials.
+Something geometrically impossible happened to Santa Greenwood.
+"Your turn,"
+she told Finner.
+Spin, bloop, and he was back in the room on the airship
+with a line drawing of an archway on one whitewashed wall
+and heavy brass dials beside it.
+
+Bloop.
+Santa Hood gave Finner a quick hug.
+"Welcome back," she said in his ear.
+
+"All clear out here,"
+Santa Greenwood called from the corridor.
+
+Santa Hood stepped back and wiped her face with her sleeve.
+"Come on.
+Let's get you home."
+
+There were ray gun burns on the walls of the corridor
+and plastic planks taped down over a hole in floor.
+"What happened to the crew?" Finner asked.
+
+"Pretty sure some of them got away,"
+Santa Hood said,
+but she didn't meet his eyes as she said it.
+"Here's your cabin.
+Why don't you clean up and get some sleep?"
 
 A brisk knock on the cabin door woke him.
 "We just did our last wherever,"
