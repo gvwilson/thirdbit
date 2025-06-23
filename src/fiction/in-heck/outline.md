@@ -144,7 +144,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 
 ## Plot
 
-### Chapter 1: Mail (Maddy's PoV / day 1)
+### 1 (Maddy)
 
 -   Goals:
     -   Introduce protagonists and minor characters in Rusty Bridge
@@ -168,7 +168,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Just as Dockety is about to leave, Bravo and Bluster come back
     -   Claim the bots are picking a fight with some strangers
 
-### Chapter 2: The Operators (Gumption's PoV / day 1)
+### 2 (Gumption)
 
 -   Goals:
     -   Get readers used to alternating points of view
@@ -197,7 +197,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Gumption suggests asking the Operators to help free Papa Roo
     -   Dockety is opposed: distrusts the Operators
 
-### Chapter 3: School (Maddy's PoV / day 2)
+### 3 (Maddy)
 
 -   Goals:
     -   Get Sindy in trouble (inciting incident for everything that follows)
@@ -220,7 +220,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   She can't control it
     -   Leaf throws himself in front of her to prevent harm and is gravely injured
 
-### Chapter 4: Departure (Gumption's PoV / day 2-3)
+### 4 (Gumption)
 
 -   Goals:
     -   Get the protagonists on the road
@@ -243,7 +243,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   She left Sindy a note
     -   They have a conversation in the dark
 
-### Chapter 5: Rolling (Maddy's PoV / day 3)
+### 5 (Maddy)
 
 -   Goals:
     -   Get the protagonists into danger
@@ -265,7 +265,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Will become clear later that Blazes wanted witnesses to confirm that Sindy was kidnapped
 -   Argument interrupted by flying attack
 
-### Chapter 6: Taken (Gumption's PoV / day 3)
+### 6 (Gumption)
 
 -   Goals:
     -   Split up the protagonists
@@ -287,7 +287,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Dockety arrives carrying the damaged Able
 -   Maddy is carried off by a patchwork flying bot while everyone is distracted
 
-### Chapter 7: A Familiar Voice (Maddy's PoV / day 3)
+### 7 (Maddy)
 
 -   Goals:
     -   Re-introduce Patient in Darkness
@@ -308,7 +308,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   It isn't "tech": bots invented it, so anyone can use it
 -   Maddy uses it to escape from the tower into the Mire
 
-### Chapter 8: The Free Bots (Gumption's PoV / day 3)
+### 8 (Gumption)
 
 -   Goals:
     -   Get Gumption's solo adventure going
@@ -326,7 +326,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Trades one of its optical sensors for their help
     -   Explains the risk of getting too close to Consensus itself
 
-### Chapter 9 (Maddy's PoV)
+### 9 (Maddy)
 
 -   Goals:
     -   Reveal the Operators' perfidy
@@ -346,7 +346,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Maddy realizes they're talking about handing Sindy over to Heck
     -   Feels a touch on her ankle
 
-### Chapter 10 (Gumption's PoV)
+### 10 (Gumption)
 
 -   Goals:
     -   Prepare Gumption for Heck
@@ -355,7 +355,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Gumption is fitted with "armor" to make bots believe he is a bot
 -   Chapter ends with the Tailor stopping Gumption's heart
 
-### Chapter 11 (Maddy's PoV)
+### 11 (Maddy)
 
 -   Goals:
     -   Maddy arrives in Heck with Mouse as a guide
@@ -375,7 +375,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Blazes and Thoughtful get out with Sindy
     -   Sindy panics and activates Blazes' tech
 
-### Chapter 12 (Gumption's PoV)
+### 12 (Gumption)
 
 -   Goals:
     -   Connect Gumption and Dockety with Patient
@@ -400,7 +400,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   "This one would rather be deactivated than be part of Consensus again"
     -   They go into Heck
 
-### Chapter 13 (Maddy's PoV)
+### 13 (Maddy)
 
 -   Goals:
     -   Maddy finds her father
@@ -431,7 +431,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Maddy: "Not without you!"
 -   That's when Mouse zaps Maddy unconscious
 
-### Chapter 14 (Gumption's PoV)
+### 14 (Gumption)
 
 -   Goals:
     -   Dockety's struggle with Consensus
@@ -455,7 +455,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Patient and Gumption race over to the central lab (has a large antenna on roof)
     -   Arrive just in time to see the Operators enter with Sindy
 
-### Chapter 15 (Maddy's PoV)
+### 15 (Maddy)
 
 -   Goals:
     -   Get all the main characters in one place
@@ -477,11 +477,11 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Consensus: "Central communications hub - without it, we become our component parts"
 -   Gumption breaks in
 
-### Chapter 16 (Gumption's PoV)
+### 16 (Gumption)
 
 -   Goals:
     -   Battle with the Operators
--   Repeat the conversation of the previous chapter from Gumption's PoV (watching from outside)
+-   Repeat the conversation of the previous chapter from Gumption (watching from outside)
     -   Gumption: "What can we do?"
     -   Patient (with relish): "We can triumph!"
     -   Takes a random piece off itself and hands it to Gumption: "Use this"
@@ -498,7 +498,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Starts to fire up his tech to immolate Gumption
     -   The bots in the room simultaneously speak in Patient's voice: "Finally"
 
-### Chapter 17 (Maddy's PoV)
+### 17 (Maddy)
 
 -   Goals:
     -   Action!
@@ -516,7 +516,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Maddy is yelling but cannot get out of her chair
 -   All looks hopeless until Dockety arrives
 
-### Chapter 18 (Gumption's PoV)
+### 18 (Gumption)
 
 -   Goals:
     -   Patient's "death"
@@ -538,7 +538,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Maddy regains control of her body
 -   Gumption and Maddy kiss
 
-### Chapter 19: Epilog (both PoV)
+### 19: Epilog (both PoV)
 
 -   Goals:
     -   Happy ending
