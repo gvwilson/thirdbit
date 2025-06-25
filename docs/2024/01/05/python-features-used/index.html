@@ -61,18 +61,18 @@
 <!-- content --><p>It&rsquo;s easy to answer the question in this post&rsquo;s title
 for the Python version <a href="../../../../sdxpy/"><em>Software Design by Example</em></a>
 using Python&rsquo;s <code>ast</code> module:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ast</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">seen</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
         <span class="n">scrape</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">seen</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">count</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">seen</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">scrape</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">seen</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scrape</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">seen</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
         <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>

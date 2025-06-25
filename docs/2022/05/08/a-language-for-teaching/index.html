@@ -71,31 +71,31 @@ in ways that most languages don&rsquo;t directly support.
 For example,
 authors commonly want to write something like this
 to give readers a roadmap for what&rsquo;s coming next:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Grid</span><span class="p">:</span>
     <span class="err">…</span><span class="n">constants</span><span class="err">…</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
         <span class="err">…</span><span class="nb">set</span> <span class="n">up</span><span class="err">…</span>
 
-    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="err">…</span><span class="n">fill</span> <span class="n">entire</span> <span class="n">grid</span> <span class="k">with</span> <span class="n">value</span><span class="err">…</span>
 
-    <span class="k">def</span> <span class="nf">adjacent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adjacent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="err">…</span><span class="k">return</span> <span class="n">neighbors</span> <span class="n">of</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="err">…</span>
 </code></pre></div>
 <p>They then want to fill in those markers one at a time
 further down the page or a few pages later:</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">EMPTY</span>
 </code></pre></div>
 <p>I don&rsquo;t know any programming language that allows me to write this as shown.
 Some &ldquo;simple&rdquo; text processing will allow me to write something like this in my source file:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Grid</span><span class="p">:</span>
 
     <span class="c1">## [+fill]</span>
-    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="c1">## [-fill &quot;fill entire grid with value&quot;]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
