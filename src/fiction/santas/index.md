@@ -1961,7 +1961,7 @@ It was Gran-Granna Tumbly.
 
 <section markdown="1">
 
-## Twins
+## I Like to Fix Things
 
 People sometimes say, "Their jaw dropped,"
 but that's not what actually happens.
@@ -3433,7 +3433,6 @@ Good luck, okay?"
 
 ## Outside the Fence
 
-
 Santa Greenwood was waiting exactly where his map said he could be,
 hidden among the trees outside the fence.
 He wrinkled his nose when Finner came close.
@@ -3628,5 +3627,13 @@ But Finner barely heard her.
 He was too busy being terrified as the robo-santas dropped their padded clubs
 and retracted their hands into their arms,
 sprouting chainsaws and flamethrowers in their place.
+
+</section>
+
+<section>
+
+## The Chance to Find Out
+
+FIXME
 
 </section>

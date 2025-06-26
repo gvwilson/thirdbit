@@ -85,11 +85,11 @@
 
 ### Act 1
 
--   Chapter 1:
+-   Chapter 1 "We Meet Our Protagonist":
     introduce Finner and his conflict (he likes making things but is ashamed);
     goes to Gran-Granna Tumbly's house at the urging of his parents.
 
--   Chapter 2:
+-   Chapter 2 "Guests Arrive":
     discussion with Gran-Granna Tumbly,
     who clearly understands what Finner is hinting at and is not sympathetic (see her steely disposition);
     mention picture on the shelf of two santas (taken from behind on a mountaintop);
@@ -99,13 +99,13 @@
     Tumbly thinks they were ambushed by flips but Hood says no, it's worse, it's *them*,
     and then attackers arrive.
 
--   Chapter 3:
+-   Chapter 3 "Mayhem and a Pyramid":
     battle with the robotic santas, elves, and what-not pursuing Greenwood and Hood;
     escape through Gran-Granna Tumbly's wherever to desert world
     ("Keep the boy safe until I can figure out what to do about him");
     meeting Santa Hotep.
 
--   Chapter 4:
+-   Chapter 4 "Some Introductions":
     discussion with Santa Hotep;
     Finner wanders off and finds a workshop with distinctive wooden furniture,
     which one of the guard cat statues says hasn't been used in centuries
@@ -115,21 +115,21 @@
     second attack by robots ("Give us the wherever code for The Building!");
     escape through Santa Hotep's wherever.
 
--   Chapter 5:
+-   Chapter 5 "A Last-Minute Rescue":
     life raft and sharks;
     rescue by Clausbeard;
     Clausbeard is taking supplies somewhere;
     Greenwood makes a snide remark about him being a freighter captain now;
     Clausbeard is about to explain but is stopped by the parrot.
 
--   Chapter 6:
+-   Chapter 6 "Some Explanations":
     Explain what flips are and that Sensei Tumbly is leading the opposition;
     back story about Clausbeard and Santa Greenwood's decision to lead a different life
     (foreshadowing Greenwood's later sympathy for Finner);
     Santa Hood turns the zap gun on Finner:
     is he a robot substituted when he wandered off in the pyramid?
 
--   Chapter 7:
+-   Chapter 7 "An Airborne Attack":
     Finner convinces Hood he's real
     (thinks briefly about letting her check his heartbeat but that would be too embarrassing);
     airship attacks (trying to intercept supplies / get the wherever code for The Building);
@@ -140,47 +140,46 @@
 
 ### Act 2
 
--   Chapter 8:
+-   Chapter 8 "The Airship":
     Finner wakes up on the airship;
     meets the flip crew (elves dressed as santas, santas working in the engine room);
     they saw him use the zap gun and thought he was a prisoner
     (darted him by mistake—apologize for that);
     he tries to escape and finds a wall with pictures of missing elves and santas;
     his captors take him to see the captain,
-    who looks like an elvish version of Hood.
+    **who is an elf dressed like a santa.**
 
--   Chapter 9:
-    captain is Hood's twin sister Snood;
-    born an elf with the temperament of a santa;
-    parents wanted one of each so tried to squash her personality;
-    Snood says that Hood always enjoyed the tinkering part of thieving but wouldn't admit elvish tendencies,
-    which drove them apart;
-    puzzled when Finner accuses her (and the flips) of replacing people with robots;
+-   Chapter 9 "I Like to Fix Things":
+    **captain was born an elf with the temperament of a santa;
+    gives some back story about what that was like
+    (which makes Finner feel uncomfortable);
+    puzzled when Finner accuses her (and the flips) of replacing people with robots
+    (which he does as a distraction);**
     conversation cut short when airship is attacked by biplanes;
     Finner escapes through the wherever to a random world.
 
--   Chapter 10:
+-   Chapter 10 "Cold That Seeps Into Your Soul":
     Finner arrives in a frozen post-apocalyptic world;
     sees Santazilla in the distance;
     rescued by the Elfabot, who takes him to meet Shady Ann;
     Shady Ann is learning how to make things (a flip);
     the Elfabot reveals that the only wherever in this world is guarded by Santazilla.
 
--   Chapter 11:
+-   Chapter 11 "A Train Ride":
     Finner starts learning how to make things (including how locks work);
     notices a picture on the wall (same two santas from behind as on Tumbly's mantelpiece);
     discovers a workshop full of mannequin parts,
     which he believes is proof that Shady Ann is making robots to replace people;
     they try to reach the wherever using the subway train.
 
--   Chapter 12:
+-   Chapter 12 "Old(ish) Friends":
     Finner is rescued from Santazilla by Santa Hood and Santa Greenwood;
     Hood and Greenwood reveal that they put a tracking device on Finner on Tumbly's orders;
     Finner is returned to Gran-Granna Tumbly,
     who now has uniformed guards for her safety;
     she accuses him of being a robot.
 
--   Chapter 13:
+-   Chapter 13 "It Doesn't *Feel* Normal":
     Finner loses his temper, which convinces Tumbly that he's real;
     tells them that the robot replacements are being made in the world they rescued him from;
     makes a remark about having seen a photo like the one on Tumbly's mantelpiece recently;
@@ -189,7 +188,7 @@
 
 ### Act 3
 
--   Chapter 14:
+-   Chapter 14 "The Building":
     Finner in The Building;
     meets Zubi;
     they become friends;
@@ -197,7 +196,7 @@
     but their escape turns out to be a trap (a test of whether they're actually trying to "get better");
     realizes that The Building's staff are anti-flip zealots and are training a robot to replace him.
 
--   Chapter 15:
+-   Chapter 15 "A Visitor":
     Finner's darkest moment (relentlessly cheerful attempts to "fix" him);
     gets a visit from Gran-Granna Tumbly, who knows all about the robots;
     he tells her he has put the pieces together and knows that Shady Ann was her wife;
@@ -206,7 +205,7 @@
     and another book about great thefts in history from Santa Hood;
     Finner discovers a note in the former.
 
--   Chapter 16:
+-   Chapter 16 "Not All Bars Are On Windows":
     Finner escapes but Zubi doesn't come with him;
     met by Greenwood and Hood;
     Greenwood thinks that Finner reached out to *them*;
@@ -220,7 +219,7 @@
     Greenwood sacrifices himself to help Finner escape to Hotep's world;
     Finner finds the Elfabot waiting for him with Hotep.
 
--   Chapter 17:
+-   Chapter 17 "Outside the Fence":
     conversation with Hotep, who has finally decided to pick sides
     (he rather enjoys making furniture);
     the Elfabot reveals that Shady Ann is dying of radiation, old age, and heartbreak;
@@ -229,7 +228,7 @@
     Finner replies, "No, she cares about who she thinks I'm supposed to be";
     Tumbly and her forces attack (echo of the robots' attack in Chapter 3).
 
--   Chapter 18:
+-   Chapter 18 "The Chance to Find Out:
     Finner uses the wherever to go back to Shady Ann's world to get help;
     one last conversation with Shady Ann, who gives Finner a letter for Tumbly before dying;
     Finner leads Santazilla through the wherever into Hotep's world,
@@ -239,6 +238,5 @@
     Tumbly discards it (showing that she won't change her mind);
     Tumbly asks, "Do you really want to be an elf?";
     Finner responds, "I don't know, but I want the chance to find out";
-    he and Hotep leave to find Snood,
-    free Greenwood and everyone else held in The Building,
+    he and Hotep leave to free Greenwood and everyone else held in The Building
     and continue the fight.
