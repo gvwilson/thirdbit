@@ -191,7 +191,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Maddy opens her letter
     -   Her drawing is going to be published by the newspaper
     -   Gumption is happy for her, but that's one step closer to her leaving him behind
--   Sneaks out of the house to visit Dockety in Bots' End that night
+-   Sneaks out of the house to talk to Dockety
     -   Reveal that Gumption warned Dockety of Bluster and Bravo's plan
     -   And that Dockety has proof that Papa Roo is alive
 -   Gumption suggests asking the Operators to help free Papa Roo
@@ -207,8 +207,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Most students are excited (including Gumption)
     -   Maddy is determined not to be (which causes friction with Gumption)
     -   She points out that their bot isn't with them
--   Thoughtful rewrites his death letter and flirts with Miz Nabbles
--   Demonstration of fighting skills shows Blazes' tech and Gumption's martial arts
+-   Demonstration of fighting skills shows Blazes' tech and Thoughtful's martial arts
     -   Special Leaf shows up to watch
     -   Remarks from Thoughtful hint at back story (again)
 -   Blazes speaks to Maddy afterward
