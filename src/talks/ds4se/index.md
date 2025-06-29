@@ -3,16 +3,6 @@ title: "Data Science for Software Engineers"
 template: slides
 ---
 
-<div class="center padtop">
-  <h1>Data Science<br>for Software Engineers</h1>
-  <p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="15%"></p>
-  <p>Greg Wilson</p>
-  <p><a href="http://third-bit.com/talks/ds4se/">http://third-bit.com/talks/ds4se/</a></p>
-  <p><img src="@root/files/talks/cc-by.svg" width="20%" alt="CC-BY"></p>
-</div>
-
----
-
 ## Once Upon a Time…
 
 -   Book review editor for *[Doctor Dobb's Journal](http://drdobbs.com)*
