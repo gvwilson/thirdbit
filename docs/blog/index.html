@@ -139,9 +139,9 @@ I expect that I use much, much less than 60% of Python&rsquo;s standard library�
 it&rsquo;s kind of interesting.</p>
 <p>I hope everyone&rsquo;s having fun in Pittsburgh…</p>
 <p><strong>The Code</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ast</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 <span class="n">ast_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ast</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">ast</span><span class="p">)}</span>
 <span class="n">available</span> <span class="o">=</span> <span class="p">{</span><span class="n">val</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">ast_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)}</span>
@@ -246,7 +246,7 @@ and advice on how to simplify it.</p>
 <p>Importing the package does <em>not</em> load the data.
 Instead,
 each dataset in the package is loaded into memory the first time it is referenced.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">example</span>                <span class="c1"># data not loaded</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">example</span>                <span class="c1"># data not loaded</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">machines</span><span class="p">)</span>       <span class="c1"># &#39;machines&#39; data loaded here</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">persons</span><span class="p">)</span>        <span class="c1"># &#39;persons&#39; data loaded here</span>
 </code></pre></div>
@@ -279,18 +279,18 @@ the package <code>example</code> that provides persons and machines would be str
 └── pyproject.toml
 </code></pre></div>
 <p>Here&rsquo;s the code in <code>__init__.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cached_property</span>
-<span class="kn">from</span> <span class="nn">datapkg.package</span> <span class="kn">import</span> <span class="n">BaseDatasetLoader</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cached_property</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datapkg.package</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseDatasetLoader</span>
 
-<span class="k">class</span> <span class="nc">_Loader</span><span class="p">(</span><span class="n">BaseDatasetLoader</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">_Loader</span><span class="p">(</span><span class="n">BaseDatasetLoader</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Example dataset loader.&quot;&quot;&quot;</span>
 
     <span class="nd">@cached_property</span>
-    <span class="k">def</span> <span class="nf">machines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">machines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_csv</span><span class="p">(</span><span class="s2">&quot;machines.csv&quot;</span><span class="p">)</span>
 
     <span class="nd">@cached_property</span>
-    <span class="k">def</span> <span class="nf">persons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">persons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_csv</span><span class="p">(</span><span class="s2">&quot;persons.csv&quot;</span><span class="p">)</span>
 
 <span class="c1"># Set up lazy loading - automatically discovers cached properties</span>
@@ -309,14 +309,14 @@ For demo purposes,
 beside the package source code directory
 and that there is a cached property in the user-defined class derived from <code>BaseDatasetLoader</code>
 corresponding to each of the datasets:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BaseDatasetLoader</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BaseDatasetLoader</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for dataset loaders.&quot;&quot;&quot;</span>
 
     <span class="c1"># Where datasets are located.</span>
     <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">discover_cached_properties</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">discover_cached_properties</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Discover all cached_property attributes in this class (i.e., datasets).&quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="p">[</span>
@@ -325,14 +325,14 @@ corresponding to each of the datasets:</p>
         <span class="p">]</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">package_name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">install</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">package_name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set up lazy loading for a data package.&quot;&quot;&quot;</span>
 
         <span class="n">loader_instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
         <span class="n">exported_names</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">discover_cached_properties</span><span class="p">()</span>
         <span class="n">create_lazy_package</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="n">loader_instance</span><span class="p">,</span> <span class="n">exported_names</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">load_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Load data from a CSV file.&quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">BaseDatasetLoader</span><span class="o">.</span><span class="n">DATA_DIR</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
@@ -342,7 +342,7 @@ corresponding to each of the datasets:</p>
 which looks up a module and replaces it with a lazy-loading module,
 copying over the attributes of the original model along the way
 and then exporting all the module&rsquo;s names:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_lazy_package</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="n">loader</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_lazy_package</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="n">loader</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Set up lazy loading for a data package.&quot;&quot;&quot;</span>
 
     <span class="n">original_module</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">package_name</span><span class="p">]</span>
@@ -354,22 +354,22 @@ and then exporting all the module&rsquo;s names:</p>
 <p>Finally,
 <code>LazyModule</code> intercepts attempts to get the module&rsquo;s attributes
 and defers them to the user-defined class derived from <code>BaseDatasetLoader</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">LazyModule</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">ModuleType</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LazyModule</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">ModuleType</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A module that lazily loads datasets when attributes are accessed.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">loader</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">loader</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a lazy module.&quot;&quot;&quot;</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span> <span class="o">=</span> <span class="n">loader</span>
 
-    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get an attribute from the loader when not found in the module.&quot;&quot;&quot;</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_loader</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Module &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; has no attribute &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Module &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; has no attribute &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 </code></pre></div>
 <h2>Building the Package</h2>
 <p>Life&rsquo;s not complete these days without a <code>pyproject.toml</code> file:</p>
@@ -399,28 +399,28 @@ I miss my <code>package.json</code> files every day…)</p>
 <p>The solution described above is very complex,
 and it would be unreasonable to expect most data scientists to debug subtle mistakes.
 If we are willing to use:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datapkg</span> <span class="kn">import</span> <span class="n">datapkg</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datapkg</span><span class="w"> </span><span class="kn">import</span> <span class="n">datapkg</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">datapkg</span><span class="o">.</span><span class="n">machines</span><span class="p">)</span>
 </code></pre></div>
 <p>then the <code>pyproject.toml</code> file stays as it is and the Python becomes:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cached_property</span>
-<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">resources</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cached_property</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">resources</span>
 
 <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
 
-<span class="k">class</span> <span class="nc">_loader</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">_loader</span><span class="p">:</span>
 
     <span class="nd">@cached_property</span>
-    <span class="k">def</span> <span class="nf">machines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">machines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">_load_csv</span><span class="p">(</span><span class="s2">&quot;machines.csv&quot;</span><span class="p">)</span>
 
     <span class="nd">@cached_property</span>
-    <span class="k">def</span> <span class="nf">persons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">persons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">_load_csv</span><span class="p">(</span><span class="s2">&quot;persons.csv&quot;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_load_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_load_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load data from a CSV file.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;loading </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
@@ -435,8 +435,8 @@ If we are willing to use:</p>
 use <a href="https://peps.python.org/pep-0562/">a module-level <code>__getattr__</code> function</a>.
 I didn&rsquo;t even know these existed,
 but they make the code <em>much</em> easier to understand:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">resources</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">resources</span>
 
 <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span>
 <span class="n">AVAILABLE</span> <span class="o">=</span> <span class="p">{</span>
@@ -445,7 +445,7 @@ but they make the code <em>much</em> easier to understand:</p>
 <span class="p">}</span>
 
 
-<span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">AVAILABLE</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> does not have </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">entry</span> <span class="o">=</span> <span class="n">AVAILABLE</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
@@ -454,7 +454,7 @@ but they make the code <em>much</em> easier to understand:</p>
     <span class="k">return</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cached&quot;</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">_load_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_load_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">stream</span><span class="p">)]</span>
 </code></pre></div>
@@ -504,39 +504,39 @@ but that feels as grubby as <a href="https://en.wikipedia.org/wiki/Data_dredging
 If you have suggestions,
 please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
 <h2>The Code</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">io</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 
-<span class="k">class</span> <span class="nc">Grid</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Grid</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Store a grid of numbers.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct empty grid.&quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Grid size must be positive not </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span>
 
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get grid element.&quot;&quot;&quot;</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">key</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set grid element.&quot;&quot;&quot;</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert to string.&quot;&quot;&quot;</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
         <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">cmdline_args</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cmdline_args</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse command-line arguments.&quot;&quot;&quot;</span>
 
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
@@ -545,7 +545,7 @@ please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
     <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">fill_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fill in a grid.&quot;&quot;&quot;</span>
 
     <span class="n">moves</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
@@ -598,7 +598,7 @@ and that scares me.</p>
 <p>Another way to fill a grid is called <a href="https://en.wikipedia.org/wiki/Invasion_percolation">invasion percolation</a>.
 In pseudo-Python, it works like this—or rather,
 this code <em>almost</em> does the right thing:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">invasion_percolation</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">invasion_percolation</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
     <span class="c1"># Create grid of random numbers</span>
     <span class="n">grid</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
@@ -615,7 +615,7 @@ this code <em>almost</em> does the right thing:</p>
         <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">MARKED</span>
 
 <span class="c1"># Find the next cell to fill</span>
-<span class="k">def</span> <span class="nf">find_next_cell</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_next_cell</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
     <span class="c1"># Set min_val to Infinity to ensure first cell qualifies</span>
     <span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span><span class="p">,</span> <span class="n">min_val</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Infinity</span>
 

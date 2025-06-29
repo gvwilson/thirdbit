@@ -380,15 +380,20 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Goals:
     -   Connect Gumption and Dockety with Patient
     -   Get them to Heck
+-   **Tailor explains that Gumption's heartbeat would have given him away**
+    -   **Dockety feels a little strange but not as much as he would have expected**
 -   Dockety carries Gumption to a gate on the outskirts of Heck
 -   Patient is waiting for them in a building next to the gate (same one that Maddy notices above)
     -   It monitored their approach and hid them from Consensus ("You wouldn't have made it this far without me!")
     -   Explains that Consensus and the Operators have been work together to prevent the Makers' return
     -   It wants Sindy to awaken the Makers
     -   Proposes that they work together
+    -   **Seems to believe that Gumption is one of Dockety's bot friends**
 -   Gumption refuses
     -   Believes he and Dockety can do it on their own
     -   But Dockety can already hear Consensus whispering in its head and is afraid
+    -   **Gumption feels coldly analytical (no heartbeat)**
+    -   **Believes that he can resist Consensus, but refuses to tell Patient why**
 -   As they argue, the wagon rolls up to the gate
     -   Blazes and Thoughtful get out with Sindy
     -   Sindy panics and activates Blazes' tech
@@ -435,12 +440,17 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 
 -   Goals:
     -   Dockety's struggle with Consensus
+    -   **Gumption seeing the world as a bot would**
     -   Dockety and Gumption confront the Operators
 -   Patient, Dockety, and Gumption make their way through Heck
     -   Dockety is shaken to discover that it is mostly empty
     -   Turns out it doesn't know how long since it was last there
     -   Patient: "Consensus doesn't want to continue but cannot stop"
     -   Dockety's speech is occasionally erratic because of its struggle to resist Consensus
+-   **Gumption trying to sound like he knows what bots would know**
+    -   ***Patient becomes suspicious of Gumption**
+    -   **Gumption deflects by asking how Patient is able to resist Consensus**
+    -   **Patient deflects in turn**
 -   Patient leads them to the dormitory
     -   Obviously knows the way
     -   Dismisses the inmates with a wave: "Merely for baseline comparison - they are not important"
@@ -449,10 +459,10 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Patient assumes that "the new one" is Sindy
     -   Rages that its plan is falling apart
     -   Urges them on to the central lab
-    -   Dockety struggles against Consensus and freezes
+    -   Dockety says that Consensus is winning and freezes (needs all its attention to resist)
     -   Gumption tries to wake it
-    -   Patient: "Nothing you can do: it will win or lose"
--   Patient and Gumption race over to the central lab (has a large antenna on roof)
+    -   Patient: "Nothing you can do: it will win or lose" (clearly suspicious that Gumption doesn't know this)
+-   Patient and Gumption hurry to the central lab (has a large antenna on roof)
     -   Arrive just in time to see the Operators enter with Sindy
 
 ### 15 (Maddy)
@@ -481,7 +491,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 
 -   Goals:
     -   Battle with the Operators
--   Repeat the conversation of the previous chapter from Gumption (watching from outside)
+-   Repeat the conversation of the previous chapter from Gumption's PoV (watching from outside)
     -   Gumption: "What can we do?"
     -   Patient (with relish): "We can triumph!"
     -   Takes a random piece off itself and hands it to Gumption: "Use this"
@@ -492,19 +502,23 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Tries to sound cocky as he reassures Maddy that everything's going to work out
     -   Shows the courage/resolve that he's always wanted
     -   Notices that Sindy has regained consciousness
+-   Maddy and the Operators are all confused by Gumption's appearance
     -   Gumption continues bluffing, dropping heavy hints that Sindy should do something
--   Thoughtful shoots the gear out of Gumption's hands
+    -   **Consensus: "Why can we not hear you?"**
+-   Thoughtful shoots Patient's random piece of gear out of Gumption's hands
     -   Blazes: "Can't have you telling tales"
     -   Starts to fire up his tech to immolate Gumption
-    -   The bots in the room simultaneously speak in Patient's voice: "Finally"
+    -   The bots in the room simultaneously speak in Patient's voice: **"We… can… triumph!"**
 
 ### 17 (Maddy)
 
 -   Goals:
     -   Action!
 -   The bots attack the Operators
--   Gumption gets Maddy free
-    -   She makes a comment about his "bathing suit"
+-   Gumption tries to help Maddy
+    -   **Pulls her out of her chair - she regains control of her body**
+    -   She makes a scathing comment about Gumption's "bathing suit"
+    -   **Gumption's reply is oddly calm (still no heartbeat / muted feelings)**
     -   Uses her discombobulator to "hide" herself long enough to reach Sindy
     -   Sindy tells Maddy to leave her in her chair: she needs to help Consensus
     -   Patient: "Consensus is no more. There is only _me_."
@@ -529,30 +543,33 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Enraged, Sindy turns on all of the machines in the lab
     -   They speak with *her* voice as they seize Blazes and Thoughtful
 -   We hear Sindy start to lose control
-    -   And then Patient's voice comes through again: "It worked!"
-    -   "All" included the control for the antenna on top of the building
-    -   Consensus starts to dissolve (gratefully)
-    -   And then Patient realizes that it is dissolving as well (will not "live" to enjoy its victory)
+    -   And then Patient's voice comes through again: **"I did it! I did it!"**
+    -   **"All the machines" that Sindy turned on included the control for the antenna on top of the building**
+    -   Consensus starts to dissolve **(Its last word is, "Finally…")**
+    -   And then Patient realizes that it is dissolving as well
+    -   **Will not live to enjoy its victory, but it is still a victory (final villain monologue)**
 -   Sindy passes out
 -   Mouse jump-starts Dockety
--   Maddy regains control of her body
--   Gumption and Maddy kiss
+-   **Maddy: "We have to get out of here!"**
+    -   **Gumption still feels indifferent and lethargic**
+    -   **Maddy kisses Gumption**
+    -   **Gumption feels his heart start beating again**
 
 ### 19: Epilog (both PoV)
 
 -   Goals:
-    -   Happy ending
-    -   Set up final book
+    -   Happy ending that sets up the final book
 -   On the Roos' porch
     -   Brief recap of their trip home from Heck
     -   Papa Roo is still fuzzy but getting better
+    -   **Special Leaf is still alive, but not well enough to join them**
     -   Dockety and Crusher are adopting/upgrading Mouse
     -   Gumption and Maddy are sitting together, holding hands
--   Sindy says she feels a bit sorry for Patient
 -   Mama Roo is scathing about the Operators ("good riddance")
     -   Suspicious that Bee Six Vee is now living in Bots' End
     -   Dockety: "Everyone deserves a chance"
+-   Sindy says she feels a bit sorry for Patient
 -   And then a star begins to descend from the sky
-    -   Papa Roo: "The Makers are returning"
+    -   Papa Roo speaks: **"They are awake. They are returning. The Makers are coming."**
 
 *To be continued*

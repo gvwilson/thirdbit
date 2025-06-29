@@ -212,11 +212,11 @@ I hope it&rsquo;s useful.</p>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Convert a pile of Markdown files to HTML.&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">FileSystemLoader</span>
-<span class="kn">from</span> <span class="nn">markdown</span> <span class="kn">import</span> <span class="n">markdown</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jinja2</span><span class="w"> </span><span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">FileSystemLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">markdown</span><span class="w"> </span><span class="kn">import</span> <span class="n">markdown</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 
 <span class="n">MARKDOWN_EXTENSIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;attr_list&quot;</span><span class="p">,</span> <span class="s2">&quot;def_list&quot;</span><span class="p">,</span> <span class="s2">&quot;fenced_code&quot;</span><span class="p">,</span> <span class="s2">&quot;md_in_html&quot;</span><span class="p">,</span> <span class="s2">&quot;tables&quot;</span><span class="p">]</span>
@@ -233,7 +233,7 @@ I hope it&rsquo;s useful.</p>
 <span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Main driver.&quot;&quot;&quot;</span>
     <span class="n">opt</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
 
@@ -248,21 +248,21 @@ I hope it&rsquo;s useful.</p>
             <span class="n">copy_file</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">out</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">copy_file</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">source_path</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">copy_file</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">source_path</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Copy a file verbatim.&quot;&quot;&quot;</span>
     <span class="n">output_path</span> <span class="o">=</span> <span class="n">make_output_path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">source_path</span><span class="p">)</span>
     <span class="n">output_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">write_file</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">do_markdown_links</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">source_path</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">do_markdown_links</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">source_path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fix .md links in HTML.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;a[href]&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">node</span><span class="p">[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.md&quot;</span><span class="p">):</span>
             <span class="n">node</span><span class="p">[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.md&quot;</span><span class="p">,</span> <span class="s2">&quot;.html&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">do_root_path_prefix</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">source_path</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">do_root_path_prefix</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">source_path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fix @root links in HTML.&quot;&quot;&quot;</span>
     <span class="n">depth</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">source_path</span><span class="o">.</span><span class="n">parents</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;./&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">depth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;../&quot;</span> <span class="o">*</span> <span class="n">depth</span>
@@ -277,12 +277,12 @@ I hope it&rsquo;s useful.</p>
                 <span class="n">node</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;@root/&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">do_title</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">source_path</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">do_title</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">source_path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Make sure title element is filled in.&quot;&quot;&quot;</span>
     <span class="n">doc</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">h1</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">find_files</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">skips</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_files</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">skips</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Collect all interesting files.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">{</span>
         <span class="n">filepath</span><span class="p">:</span> <span class="n">read_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
@@ -291,7 +291,7 @@ I hope it&rsquo;s useful.</p>
     <span class="p">}</span>
 
 
-<span class="k">def</span> <span class="nf">is_interesting_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">skips</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_interesting_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">skips</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Is this file worth checking?&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">filepath</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
         <span class="k">return</span> <span class="kc">False</span>
@@ -306,7 +306,7 @@ I hope it&rsquo;s useful.</p>
     <span class="k">return</span> <span class="kc">True</span>
 
 
-<span class="k">def</span> <span class="nf">make_output_path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">source_path</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_output_path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">source_path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Build output path.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">source_path</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">RENAMES</span><span class="p">:</span>
         <span class="n">source_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">source_path</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="n">RENAMES</span><span class="p">[</span><span class="n">source_path</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
@@ -314,7 +314,7 @@ I hope it&rsquo;s useful.</p>
     <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">source_path</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">parse_args</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_args</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse command-line arguments.&quot;&quot;&quot;</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--out&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;docs&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;output directory&quot;</span><span class="p">)</span>
@@ -323,7 +323,7 @@ I hope it&rsquo;s useful.</p>
     <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">read_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read file as bytes or text.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">filepath</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">in</span> <span class="n">SUFFIXES_TXT</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">filepath</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
@@ -331,7 +331,7 @@ I hope it&rsquo;s useful.</p>
         <span class="k">return</span> <span class="n">filepath</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">render_markdown</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">source_path</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">render_markdown</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">source_path</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert Markdown to HTML.&quot;&quot;&quot;</span>
     <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="n">MARKDOWN_EXTENSIONS</span><span class="p">)</span>
     <span class="n">template</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s2">&quot;page.html&quot;</span><span class="p">)</span>
@@ -351,7 +351,7 @@ I hope it&rsquo;s useful.</p>
     <span class="n">output_path</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">write_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">write_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Write file as bytes or text.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">filepath</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">in</span> <span class="n">SUFFIXES_TXT</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">filepath</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
