@@ -43,6 +43,167 @@ template: slides
 
 ---
 
+## A Credible Measure of Productivity
+
+-   We don't know how to measure programmers' productivity
+
+    -   Which makes almost all claims about AI-assisted programming vacuous
+
+-   But almost all of us believe in version control
+
+    -   So strongly that if you find no effect we will believe your methodology is flawed
+
+-   So have several researchers design and run that study independently
+
+    -   Then compare results and combine methods
+
+    -   And apply the method to other problems
+
+> It is not enough to be right: you must also be heard.
+
+---
+
+## A WYSIWYG Notebook
+
+-   Computational notebooks are ubiquitous
+
+    -   [Jupyter](https://jupyter.org/) uses JSON
+
+    -   [Marimo](https://marimo.io/) uses Python with embedded strings
+
+    -   [Quarto](https://quarto.org/) Markdown with embedded code
+
+-   Why not use the format (and UI) that the other 99% of our species uses?
+
+-   Build an [extension](https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions)
+    for [LibreOffice](https://www.libreoffice.org/)
+
+    -   Create tables, draw diagrams, and be taken seriously
+
+> It's OK to be usable.
+
+---
+
+## `diff` Considered Harmful
+
+-   Programmers really like version control
+
+    -   But `diff` only works (comprehensibly) on punchcards
+
+    -   So we refuse to use any richer document format
+
+-   Is there a Unified Theory of Diff?
+
+    -   Structural vs. textual differences in code
+
+    -   Diagrams? Databases? Spreadsheets? Multimedia?
+
+<div class="center">
+  <img src="punchcard.jpg" alt="a punchcard" width="300px">
+</div>
+
+---
+
+## Do We Use What We Teach?
+
+Most undergraduate computer science programs have a first- or
+second-year course on data structures and algorithms.  What do these
+courses actually teach, how has their content changed since
+Wirth's <a href="https://en.wikipedia.org/wiki/Algorithms_%2B_Data_Structures_%3D_Programs">classic
+book</a> appeared in 1976, and which of these algorithms and data
+structures are used in upper-year courses? To answer these
+questions, this project will assemble and apply tools to analyze the
+text of several dozen textbooks; along the way, the students doing
+the project will have to decide how to identify topics, how to count
+them, and how to make their work reproducible.
+
+---
+
+## Variable Roles
+
+Sajaniemi et al's work
+on [roles of variables](https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf)
+identified and named ten small patterns in the way
+variables are used in novice programs. This project would build
+static and dynamic analysis tools to detect those patterns (and
+possibly others) in programs as an aid to teaching, debugging, and
+code review.
+
+---
+
+## Calibrated Code Review
+
+Give a novice programmer a one-page program and have them score it
+using a checklist, then grade them on how closely their scoring
+matches the instructor’s. (They start with 100%, and lose one mark
+for each false positive or false negative.) After doing this a
+handful of times, they should learn to see code through the
+instructor’s eyes. Does this help them write better code? If so, how
+quickly and how well?  This project will attempt to answer these
+questions.
+
+---
+
+## Validity of Popular Claims
+
+Are some programmers really ten times more productive than others?
+Does test-driven development actually make programmers more
+productive?  And do people actually believe these claims?  This
+project will conduct a quantitative survey of best-selling books on
+software developmnt to measure how many of their claims are backed
+by citations, and of those, how many are considered valid, then
+survey programmers to see which (if any) they believe.
+
+---
+
+## Understanding Ethics
+
+This project will start by creating a set of scenarios in which a
+programmer needs to make an ethical decision, each with
+multiple-choice options.  An expert will determine the best answer
+for each; students and professionals will then be asked to answer
+the same questions, and the results will be analyzed to see how well
+each group matches the experts' opinions and whether practitioners'
+opinions are any better than those of students.
+
+---
+
+## What We *Don't* Teach
+
+Many universities offer an undergraduate course on entrepreneurship
+or the business of software. This project will survey these courses
+to determine what they <em>don't</em> teach. For example, how many
+of these courses (if any) devote time to labor rights? How many
+discuss anti-trust legislation? And how does that vary by country
+and by the nature of the institution?
+
+---
+
+## Tooling Effort Over Time
+
+How does the percentage of effort devoted to tooling and deployment
+change as a project grows and/or ages?  And how has it changed as
+we've moved from desktop applications to cloud-based applications?
+Once a project reaches a certain size, does the amount of tooling
+(measured by number of files or lines of configuration) level off?
+Does the effort required to maintain the tooling grow as the code
+base grows, or does it level off as well? Answering these questions
+will give the student(s) a chance to learn how to mine software
+repositories.
+
+---
+
+## Adoption of IDE Tools
+
+Which features of integrated development environments (IDEs) do
+students actually use? To find out, this project will have a set of
+students record their screens while solving a set of programming and
+debugging problems, then analyze those recordings to see whether and
+when students use breakpointing debuggers, multiple cursors,
+refactoring tools, and other features.
+
+---
+
 ## Thank You
 
 <div class="center">
