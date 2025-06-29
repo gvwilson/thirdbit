@@ -3,6 +3,45 @@ title: "My To-Don't List"
 template: slides
 ---
 
+## Who Am I?
+
+-   Software Carpentry (now [The Carpentries](https://carpentries.org))
+
+-   [*Beautiful Code*](https://isbnsearch.org/isbn/9780596510046),
+    [*Making Software*](https://isbnsearch.org/isbn/9780596808327),
+    and [*The Architecture of Open Source Applications*](https://aosabook.org/)
+
+-   [It Will Never Work in Theory](https://neverworkintheory.org/)
+
+-   [ACM SIGSOFT](https://www.sigsoft.org/)
+    [Influential Educator of the Year](https://www2.sigsoft.org/awards/influentialeducator/)
+
+-   Fellow of the [Python Software Foundation](https://www.python.org/psf/)
+
+---
+
+## The Title of This Talk
+
+-   Most people have a to-do list
+
+-   A to-don't list is just as useful
+
+    -   Because life is short and you're busy
+
+-   But other people may be looking for ideas
+
+-   And explaining *why* I want these may help you understand what practitioners actually want from researchers
+
+    -   Because I am really tired of living in
+        <a href="https://en.wikipedia.org/wiki/Two_Solitudes_(Canadian_society)">two solitudes</a>
+
+--
+
+> Software engineering research has had as much impact on programmers
+> as astronomy has had on stars.
+
+---
+
 ## Once Upon a Time…
 
 -   Book review editor for *[Doctor Dobb's Journal](http://drdobbs.com)*
@@ -17,29 +56,16 @@ template: slides
   </div>
   <div class="col-8">
     <ul>
-      <li><p>So I started publishing descriptions of <a href="@root/ideas/not-on-the-shelves/">books that don't exist</a></p></li>
+      <li>
+        <p>
+          So I started publishing descriptions of
+          <a href="@root/ideas/not-on-the-shelves/">books that don't exist</a>
+        </p>
+      </li>
       <li><p>Sympathetic magic</p></li>
     </ul>
   </div>
 </div>
-
----
-
-## What Do You Want and Why?
-
--   Most people have a to-do list
-
--   A to-don't list is just as useful
-
-    -   Things you have to remind yourself not to start
-
-    -   Because life is short and you're busy
-
--   But other people may be looking for ideas
-
--   And explaining *why* I want these may help you understand what practitioners actually want from researchers
-
-    -   Because I am really tired of our <a href="https://en.wikipedia.org/wiki/Two_Solitudes_(Canadian_society)">two solitudes</a>
 
 ---
 
@@ -59,7 +85,23 @@ template: slides
 
     -   And apply the method to other problems
 
+--
+
 > It is not enough to be right: you must also be heard.
+
+---
+
+## Tooling Effort Over Time
+
+-   How does the effort devoted to tooling and deployment change as a project grows?
+
+-   (How) has it been changed by the move from desktop applications to cloud-based applications?
+
+-   Does tooling effort level off when a project reaches a certain size?
+
+-   Requires an agreed-upon measure of effort
+
+-   So this study can't usefully be done before the previous one
 
 ---
 
@@ -80,6 +122,8 @@ template: slides
 
     -   Create tables, draw diagrams, and be taken seriously
 
+--
+
 > It's OK to be usable.
 
 ---
@@ -88,119 +132,154 @@ template: slides
 
 -   Programmers really like version control
 
-    -   But `diff` only works (comprehensibly) on punchcards
+    -   But `diff` only works on punchcards, so we refuse to use richer document formats
 
-    -   So we refuse to use any richer document format
-
--   Is there a Unified Theory of Diff?
+-   Is there a Unified Theory of Diff similar to
+    <a href="http://dx.doi.org/10.1017/s0956796820000088">Mokhov (2020)</a>
+    or <a href="https://doi.org/10.48550/arXiv.2310.04368">Crichton (2023)</a>?
 
     -   Structural vs. textual differences in code
 
     -   Diagrams? Databases? Spreadsheets? Multimedia?
 
-<div class="center">
-  <img src="punchcard.jpg" alt="a punchcard" width="300px">
-</div>
+<img src="punchcard.jpg" alt="a punchcard" width="300px">
 
 ---
 
 ## Do We Use What We Teach?
 
-Most undergraduate computer science programs have a first- or
-second-year course on data structures and algorithms.  What do these
-courses actually teach, how has their content changed since
-Wirth's <a href="https://en.wikipedia.org/wiki/Algorithms_%2B_Data_Structures_%3D_Programs">classic
-book</a> appeared in 1976, and which of these algorithms and data
-structures are used in upper-year courses? To answer these
-questions, this project will assemble and apply tools to analyze the
-text of several dozen textbooks; along the way, the students doing
-the project will have to decide how to identify topics, how to count
-them, and how to make their work reproducible.
+-   All undergrad CS programs have a data structures & algorithms course in first or second year
+
+-   What do these courses actually teach?
+
+    -   Mine topics from textbooks and online course notes
+
+-   (How much) are these ideas used in upper-year courses?
+
+    -   I have never used dynamic programming in a 40-year career
+
+--
+
+-   Real question: how well do different topic aggregation methods agree?
 
 ---
 
 ## Variable Roles
 
-Sajaniemi et al's work
-on [roles of variables](https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf)
-identified and named ten small patterns in the way
-variables are used in novice programs. This project would build
-static and dynamic analysis tools to detect those patterns (and
-possibly others) in programs as an aid to teaching, debugging, and
-code review.
+-   Sajaniemi et al found [ten patterns](https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf)
+    in the way variables are used in novice programs
+
+    -   "Counter" and "Most Valuable" are design patterns for novices
+
+-   (Can we) use static and dynamic analysis tools to:
+
+    -   See if these patterns are real?
+
+    -   Find others?
+
+-   As with the version control study,
+    the real goal is an agreed-on methodology
+
+--
+
+> It's OK to start small.
 
 ---
 
 ## Calibrated Code Review
 
-Give a novice programmer a one-page program and have them score it
-using a checklist, then grade them on how closely their scoring
-matches the instructor’s. (They start with 100%, and lose one mark
-for each false positive or false negative.) After doing this a
-handful of times, they should learn to see code through the
-instructor’s eyes. Does this help them write better code? If so, how
-quickly and how well?  This project will attempt to answer these
-questions.
+-   Give novice programmers a one-page program
 
----
+-   Have them score it using a checklist
 
-## Validity of Popular Claims
+-   Their grade is how well their review matches the instructor's
 
-Are some programmers really ten times more productive than others?
-Does test-driven development actually make programmers more
-productive?  And do people actually believe these claims?  This
-project will conduct a quantitative survey of best-selling books on
-software developmnt to measure how many of their claims are backed
-by citations, and of those, how many are considered valid, then
-survey programmers to see which (if any) they believe.
+    -   Start with 100%, lose one mark for each false positive or false negative
+
+-   How quickly do they learn to see code like the instructor?
+
+-   Does this help them write better code?
+
+-   Does this help them use genAI coding assistants more effectively?
 
 ---
 
 ## Understanding Ethics
 
-This project will start by creating a set of scenarios in which a
-programmer needs to make an ethical decision, each with
-multiple-choice options.  An expert will determine the best answer
-for each; students and professionals will then be asked to answer
-the same questions, and the results will be analyzed to see how well
-each group matches the experts' opinions and whether practitioners'
-opinions are any better than those of students.
+-   Repeat the previous exercise for ethics in programming
+
+    -   Create multiple-choice scenarios in which a programmer needs to make an ethical decision
+
+    -   Have experts rank the available answers
+
+    -   See how well students and professionals match those rankings
+
+> Your manager wants you to add an option to a wayfinding application to avoid checkpoints.
+> It will allow protestors to avoid police on their way home,
+> but it will allow drunk drivers to avoid them as well.
+> Should you add it?
+
+--
+
+-   Prediction: professionals will do no better than students
 
 ---
 
-## What We *Don't* Teach
+## Validity of Popular Claims
 
-Many universities offer an undergraduate course on entrepreneurship
-or the business of software. This project will survey these courses
-to determine what they <em>don't</em> teach. For example, how many
-of these courses (if any) devote time to labor rights? How many
-discuss anti-trust legislation? And how does that vary by country
-and by the nature of the institution?
+-   Are some programmers really ten times more productive than others?
 
----
+-   Does test-driven development actually make programmers more productive?
 
-## Tooling Effort Over Time
+-   *Do people actually believe these claims?*
 
-How does the percentage of effort devoted to tooling and deployment
-change as a project grows and/or ages?  And how has it changed as
-we've moved from desktop applications to cloud-based applications?
-Once a project reaches a certain size, does the amount of tooling
-(measured by number of files or lines of configuration) level off?
-Does the effort required to maintain the tooling grow as the code
-base grows, or does it level off as well? Answering these questions
-will give the student(s) a chance to learn how to mine software
-repositories.
+-   Find out by analyzing
+    [best](https://isbnsearch.org/isbn/9781953953216)-[selling](https://isbnsearch.org/isbn/9781491973899)
+    [books](https://isbnsearch.org/isbn/9789083381824) on
+    [software](https://isbnsearch.org/isbn/9798986769318) [engineering](https://isbnsearch.org/isbn/9780137314911)
+    to see how many of their claims are valid
+
+-   Then survey programmers to see which (if any) they believe
+
+--
+
+> Programmers know as much about software engineering research
+> as stars know about astronomers.
 
 ---
 
-## Adoption of IDE Tools
+## What We Don't Teach
 
-Which features of integrated development environments (IDEs) do
-students actually use? To find out, this project will have a set of
-students record their screens while solving a set of programming and
-debugging problems, then analyze those recordings to see whether and
-when students use breakpointing debuggers, multiple cursors,
-refactoring tools, and other features.
+-   Most universities offer an undergrad course on entrepreneurship or the business of software
+
+-   Survey these courses to determine what they *don't* teach
+
+    -   How many devote time to labor rights?
+
+    -   How many discuss anti-trust legislation?
+
+    -   How does the answer vary by country and by the nature of the institution?
+
+---
+
+## What Ties These Together
+
+<div class="row">
+  <div class="col-4">
+    <img src="./productivity.webp" alt="Rethinking Productivity in Software Engineering" class="center" width="200px">
+  </div>
+  <div class="col-8">
+    <ul>
+      <li><p>We need methods that we agree on…</p></li>
+      <li><p>…that working programmers believe in…</p></li>
+      <li><p>…that let us tackle problems they care about</p></li>
+    </ul>
+  </div>
+</div>
+
+-   And then we need undergrad courses that teach these methods and results
+
+-   But that's another talk
 
 ---
 
