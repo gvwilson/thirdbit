@@ -144,7 +144,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 
 ## Plot
 
-### 1 (Maddy)
+### 1: Mail (Maddy)
 
 -   Goals:
     -   Introduce protagonists and minor characters in Rusty Bridge
@@ -168,7 +168,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Just as Dockety is about to leave, Bravo and Bluster come back
     -   Claim the bots are picking a fight with some strangers
 
-### 2 (Gumption)
+### 2: The Operators (Gumption)
 
 -   Goals:
     -   Get readers used to alternating points of view
@@ -197,7 +197,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Gumption suggests asking the Operators to help free Papa Roo
     -   Dockety is opposed: distrusts the Operators
 
-### 3 (Maddy)
+### 3: School (Maddy)
 
 -   Goals:
     -   Get Sindy in trouble (inciting incident for everything that follows)
@@ -219,7 +219,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   She can't control it
     -   Leaf throws himself in front of her to prevent harm and is gravely injured
 
-### 4 (Gumption)
+### 4: Departures (Gumption)
 
 -   Goals:
     -   Get the protagonists on the road
@@ -237,12 +237,12 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Talks to Dockety, who suggests Gumption enrol in mechanics' school in Sandy Bend
     -   See Gumption's self-doubt
     -   But the suggestion gives him the idea to stow away
--   He sneaks into the barn to stow away with the mail
-    -   Discovers that Maddy has stowed away as well
+-   They sneak into the barn where Able has left the wagon overnight
+    -   Helps Maddy hide, then slides in beside her
     -   She left Sindy a note
     -   They have a conversation in the dark
 
-### 5 (Maddy)
+### 5: Caught (Maddy)
 
 -   Goals:
     -   Get the protagonists into danger

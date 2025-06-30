@@ -982,17 +982,14 @@ with his hands in his pockets.
 He hadn't exactly been invited,
 but no one had told him to leave.
 He had tried leaning against the doorframe,
-but it felt disrespectful next to
+but it felt disrespectful given
 the tearful conversation at the kitchen table.
 
-"Everyone was trying it,
+"Everyone was talking about how they wanted to be Operators,
 and I thought—"
 Sindy hiccupped.
-"I thought folk would notice more if I *didn't* take a turn,
-and then it just—it just—"
-
-Tears rolled down her furless cheeks.
-"I didn't *want* to," she sobbed.
+"I didn't *want* to," she sobbed,
+tears rolling down her furless cheeks.
 "It just kind of woke up."
 
 "Sh sh sh."
@@ -1000,10 +997,12 @@ Mama Roo put an arm around her daughter's shoulders and pulled her close.
 "It's aright.
 You didn't do anything wrong."
 
-"But now they're going to take me *away*!"
+"But Special Leaf is gonna *die*!" she wailed.
+"And they're going to take me *away*!"
 
-"Nobody's taking you anywhere,"
-Maddy said in a tone that put fireballs to shame.
+"Special Leaf isn't going to die,"
+Maddy said firmly.
+"And nobody's taking you anywhere."
 
 "But Special Blazes said I had to!
 And Miz Nabbles said it too."
@@ -1020,10 +1019,11 @@ Gumption ventured.
 Maddy said icily.
 
 Gumption shrugged.
-"My Aunt Dorilee says that if folks are gonna talk about you,
-the smart move is to pick something you don't mind 'em talking about.
-If Sindy goes for testing and she fizzles,
-that'll be the only story anyone remembers."
+"My Aunt Dorilee says that if folks know half a story,
+the smart move is to tell 'em the rest of it
+instead of letting 'em make up something worse.
+Everyone knows she's special now—lettin' the Operators test her
+just makes it official."
 
 Maddy snorted.
 "That's the dumbest thing I've ever heard."
@@ -1033,16 +1033,14 @@ balling his hands into fists in his pockets.
 He was sure he'd had dumber ideas,
 but this didn't seem like the time to point that out.
 
-"Maddy, please, be polite,"
-Mama Roo chided.
-She squeezed Sindy once more and straightened up in her chair.
+Mama Roo squeezed Sindy once more and straightened up in her chair.
+"We shouldn't decide anything on empty stomachs,"
+Mama Roo said.
 There were gray hairs in her fur,
 Gumption noticed.
 When had that happened?
-
-"We don't have make any decisions right now,"
-Mama Roo said.
-"And we definitely shouldn't decide anything on empty stomachs.
+"Able's not back 'til this evening,
+so nothing's going to happen before tomorrow morning.
 Sindy,
 if you'd like to get some carrots—no,
 don't make that face.
@@ -1065,13 +1063,13 @@ but I oughta be gettin' home."
 He tousled Sindy's hair.
 "You'll be aright."
 
-He wasn't sure if he wanted Maddy to walk part-way with him or not,
+He half-hoped Maddy would walk part-way with him,
 but she just said,
 "See you tomorrow,"
 so he nodded and said,
 "See ya,"
 and showed himself out.
-He really should head home,
+He knew he should go straight home,
 but instead he hopped over the split cedar fence
 that marked the back of the Roos' yard.
 A crow scolded him from a tree
@@ -1083,22 +1081,22 @@ on a slippery patch near a stream so small
 that even the children didn't have a name for it.
 
 Nobody in Rusty Bridge knew quite what to call
-the home that Dockety and its fellow bots had built themselves.
-Was "camp" the right word for buildings with stone floors and proper roofs?
-Gumption had overheard people refer to it as "Botsburg" and "Botsville",
-but none of those names felt right.
-For now,
-it was just a place—just a dozen structures ranging in size
-from a garden shed to something half the size of the Roos' house
-arranged in a circle around a black charging post.
+the home that Dockety and its fellow bots had built.
+Was "camp" the right word for buildings with concrete floors and proper roofs?
+Gumption had overheard some people refer to it as "Bots' End",
+and he hoped the name would stick.
+It was just a a dozen structures ranging in size
+from a garden shed to half the size of the Roos' house,
+all arranged in a circle around a black charging post—but
+Rusty Bridge was just a place too.
 
-Dockety was using a heavy brush to clean the muck out of Crusher's treads when he arrived.
+Dockety was cleaning the muck out of Crusher's treads with a heavy brush when Gumption arrived.
 "It says you are better at this than any bot,"
 Dockety told Gumption.
 "Even better than this one."
 
 "Yeah?
-Well, I'm glad I'm good at something."
+Well, I'm glad I'm good for something."
 He took the brush from Dockety and patted Crusher's side.
 "Got a right mess of muck in here.
 Been clearing brush with Zeke again?"
@@ -1119,9 +1117,9 @@ Gumption asked,
 flipping the brush over to pry a rock out of Crusher's treads with its handle.
 
 Dockety's lenses rotated.
-"This one has not.
-With high probability,
-we would not be having this conversation otherwise."
+"We would probably not be having this conversation
+if this one had run in with them.
+They do not approve of free bots."
 
 Gumption nodded and went back to brushing.
 Sparkles drifted across Crusher's screen with each scrape.
@@ -1148,10 +1146,8 @@ Gumption straightened up patted Crusher's side.
 "That's a good idea,
 but I can't afford any kind o' Sandy Bend school."
 
-"It is unlikely that you would be accepted,"
+"We would offer salvage to compensate the school,"
 Dockety said neutrally.
-"But if you were,
-we would offer salvage to compensate the school."
 
 Gumption shook his head.
 "I can't ask you to do that.
@@ -1159,28 +1155,29 @@ You need it for repairs an' stuff."
 
 "You do not have to ask.
 You are this one's friend."
-Dockety hesitated again.
-"But you will have to explain the plan to Maddy."
 
-It was a good plan,
-and it might have worked
-if Gumption's parents hadn't been worried about his ribs
-and hadn't said that he needed to finish school in Rusty Bridge
-before he could go anywhere.
+Gumption patted Crusher's side again as "Friend" flashed on the hauler bot's screen.
+"Thanks,"
+Gumption said awkwardly.
+"Lemme see what my folks think."
+
+What Gumption's parents thought was that his ribs still weren't properly healed
+and said that he needed to finish school in Rusty Bridge before he could go anywhere.
 Voices were raised after that
 and a younger brother was sent next door
 to ask Gumption's grandma to come by and talk some sense into him.
 Once half a dozen relatives were arguing on the porch
-he slipped away unnoticed and headed for Maddy's.
+about whether Gumption's great uncle had ever owned a mitre saw
+he slipped away unnoticed and headed back to Maddy's.
 
 "They're taking Sindy tomorrow,"
 she said without preamble.
 The fur on her cheeks was matted with wiped-away tears.
-"Crusher is hauling produce up to Half-a-Hat,
-and Special Blazes said they could call a stage down from Sandy Bend to collect them there.
+"Able is hauling the big wagon back from Half-a-Hat to Sandy Bend,
+so Special Blazes said they'd ride that.
 Mama's trying to calm her down and get her packed at the same time."
 
-"And what about you?"
+"What about you?"
 Gumption asked.
 
 Maddy sniffled.
@@ -1188,7 +1185,7 @@ Maddy sniffled.
 I just can't."
 
 The young goat shook his head.
-"'S not what I mean.
+"That's not what I mean.
 Are you packed?"
 
 "What?"
@@ -1198,26 +1195,63 @@ Maddy stared at him uncomprehendingly.
 he repeated slowly.
 "I figure you'll want a change of clothes an' your sketchbook.
 Oh, an' that letter from the newspaper."
+Then he explained his plan and tried not to wince when she hugged him.
 
-A few hours later
-he and Maddy lay next to each other
-in the bottom of a wagon full of cabbages and corn
-in the barn on the edge of town.
-It had taken them an hour to unload enough boxes
-to make a space for themselves,
+Dinner was a struggle.
+Mama Roo tried to be chipper while Sindy pushed food around on her plate.
+Gumption almost choked on his guilt and a piece of carrot
+when Mama Roo promised her younger daughter that
+they would look in on Special Leaf every day while she was away.
+He offered to help with the dishes,
+but Mama Roo waved him away.
+"Best if I keep busy," she said.
+
+He went home to eat,
+then slid down the cottonwood outside his bedroom and retraced his steps
+to wait in the woods.
+It was a long time before the light in the Roos' kitchen went dark.
+He slapped at mosquitoes,
+cursed himself for not bringing a snack,
+and wondered how long his family would miss him if he never came back.
+
+Maddy slipped out the kitchen door an hour later
+with her satchel slung over her shoulder.
+They walked in silence until Zeke Bear's barn came into view.
+"You sure Able's not in there?" she whispered.
+
+Gumption nodded.
+"Always spends the night recharging when it's got a big load to haul.
+C'mon."
+
+It took them an hour to unload enough boxes to make a space,
 an hour filled with whispered admonishments to each other not to drop things.
-
-Once they had made room for themselves and their knapsacks,
+Once there was room for them and their knapsacks,
 they wrestled a board into place to serve as a roof for their little cave
 and re-packed everything on top of it.
 After some more whispers of,
 "No, not that one, *that* one,"
 and,
 "The other way around!"
-the wagon's contents looked more or less as they had at the start.
+the wagon's contents looked more or less as they had.
 
-There was just enough room for them to wriggle into their hiding place.
-They lay on their backs and braced their feet against the board above them.
+Maddy wriggled into the hiding place they had made.
+Gumption passed her satchel to her and said,
+"Budge over."
+
+"What?
+Why?
+Gumption, what are you—hey!"
+She stifled a squawk as he pushed her legs out of the way
+and wriggled into the hiding place beside her.
+
+He grinned at her,
+teeth crooked and white in the light from
+the little solar lantern that had been on her bedside table
+since she was small.
+"You didn't think I was gonna let you do this on your own, did you?"
+
+A couple of minutes of whispered argument later,
+they lay on their backs and braced their feet against the board above them.
 With a, "One, two, three,"
 they shifted it over to close the gap.
 
@@ -1258,8 +1292,7 @@ She found his hand in the darkness and squeezed it.
 "Thanks for coming with me."
 
 Gumption squeezed back.
-"Thanks for bringing me.
-I'd be stuck at home otherwise,
+"I'd be stuck at home otherwise,
 and,
 well,
 everybody had the same chili I did."
@@ -1277,9 +1310,9 @@ He tsk'ed.
 "That was truly spectacular."
 
 He rolled onto his side and propped his head up on his arm.
-"But other than that,
+"'cept than that,
 and the time you tried make double-dip cookies but forgot the salt,
-and maybe a couple of other things,
+and maybe a couple or three other times,
 I've pretty much always taken you seriously.
 So don't worry—we'll make sure Sindy's aright,
 an' then we'll figure out what to do about your pa.
@@ -1293,7 +1326,7 @@ he smiled in the darkness.
 
 <section markdown="1">
 
-## The Observatory (Maddy)
+## Caught (Maddy)
 
 Maddy woke a few hours later as the wagon rolled out of the barn.
 A bump knocked her sideways onto Gumption.
