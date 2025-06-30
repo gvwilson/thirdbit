@@ -3,6 +3,18 @@ title: "My To-Don't List"
 template: slides
 ---
 
+## Abstract
+
+Most people use a to-do list to keep track of things they need to do.
+It's just as useful to have a to-don't list of things that would be fun, interesting, and worthwhile,
+but that you're not actually going to start because life is short and you're too busy for yet another side project.
+This talk describes some of the projects on my to-don't list;
+I hope that by explaining why I think they're interesting,
+I will help you understand what practitioners actually want from software engineering research
+(and computer science more generally).
+
+---
+
 ## Who Am I?
 
 -   Software Carpentry (now [The Carpentries](https://carpentries.org))
