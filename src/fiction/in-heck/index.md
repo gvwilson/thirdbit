@@ -1328,9 +1328,14 @@ he smiled in the darkness.
 
 ## Caught (Maddy)
 
-Maddy woke a few hours later as the wagon rolled out of the barn.
-A bump knocked her sideways onto Gumption.
-"Mmph?" the goat mumbled.
+Maddy woke to the sound of her sister crying.
+"She—she didn't even leave a *note*!" Sindy sniffled.
+
+"Hush, hush, hush," Mama Roo soothed.
+"She must have thought it would be too hard to say goodbye."
+
+Maddy bit her lip.
+"Mmph?" Gumption mumbled as she rolled over.
 
 "Ssh!"
 She clamped her hand over his mouth.
@@ -1344,15 +1349,26 @@ he whispered.
 "Oh wait, there's Miz Nabbles an' a couple of other folk.
 An' there's your ma."
 He glanced at Maddy.
-"She looks pretty upset."
+"She looks pretty upset.
+Oh, and here comes Able and the Operators."
 
-A voice rumbled at the front of the wagon—Meribeth's, she guessed.
-She caught her breath at the soundy of Sindy replying.
-She couldn't make out the words,
-but from the tone,
-she could imagine what her sister was saying.
-Where had Maddy been?
-Why hadn't she been there to see Sindy off?
+The next few minutes were filled with the noise and bustle of people getting ready to travel.
+Able clipped the wagon's heavy iron hitch to its back
+while Special Blazes and Thoughtful slung their bags beneath the wagon's bench seat.
+"Don't worry, it's faster than it looks,"
+Special Blazes said to Mama Roo when she asked about Bee Six Vee,
+which was waiting impassively just outside the barn door.
+"And don't you worry either,"
+the tiger continued to Sindy.
+"We'll be in Sandy Bend in time for dinner,
+and there's a place along by the river that does the best milkshakes in the world."
+
+After one final hug from her mother,
+Sindy climbed onto the seat next to Thoughtful.
+"Toot toot!" Able sang out.
+Its spoked cartwheels began to turn,
+slowly at first and then faster.
+Maddy twisted around for one last glimpse of her mother waving goodbye.
 
 Gumption rolled onto his back and pillowed his arms beneath his head.
 A moment later he was asleep.
@@ -1369,7 +1385,7 @@ The ancient black surface of the highway was cracked in places,
 and the wagon had to swerve around fallen branches
 and clumps of weeds tough enough to have broken through the road,
 but even so,
-Crusher hauled them fast enough that Maddy could feel their speed.
+Able hauled them fast enough that Maddy could feel their speed.
 It reminded her of her first time on the road,
 when she and Dockety had chased the raiders who had kidnapped Sindy.
 
@@ -1406,57 +1422,30 @@ The waist-high bushes between them were dry and brittle,
 and the grass below them brown instead of green.
 
 "Whoa up!"
-Meribeth called.
-Crusher slowed and stopped.
-Meribeth and Thoughtful hopped down from their seats at the front of the wagon.
+Thoughtful called,
+hopping down from her seat as Able slowed and stopped.
 Pressing her face against a gap in the slats,
-Maddy saw Special Blazes climb down from atop Bee Six Vee.
+Maddy saw Special Blazes climb down beside Bee Six Vee.
 
 The tiger arched his back and rolled his head from side to side,
 then consulted a heavy pocket watch.
-"Four hours," he declared.
-"Thoughtful, you take first watch.
-Everyone else,
-eat up or recharge as you need.
-He turned to someone Maddy couldn't see.
-"If you wouldn't mind setting up?"
-
-"Agreed,"
-Dockety replied in its buzzing voice.
-Maddy shrank back reflexively as the bot came into view,
-walking straight toward the wagon.
-It paused right in front of her.
-
-"Stay hidden,"
-it said quietly
-before extending its legs
-so that it could reach the solar panels stacked in the back of the wagon.
-
-Maddy gave Gumption a wide-eyed look.
-"What?" he mouthed silently.
-
-She pulled him close.
-"Dockety knows we're here," she whispered in his ear.
-
-Gumption stared at her for a moment,
-then shrugged helplessly.
+"Half an hour," he declared.
+"Thoughtful, you keep an eye out while I get the solars set up."
 
 It only took the travelers a minute to settle in.
-Dockety laid out the solar panels in a line,
-connecting one cable to itself and others to Crusher and Bee Six Vee.
+Special Blazes laid out the solar panels in a line,
+connecting one cable to itself and others to Able and Bee Six Vee.
 Thoughtful unfolded a camp chair
 and took a moment to assemble a long-barrelled rifle on a tripod,
 then sat down and began scanning the road below them
 through its telescopic sight
 in smooth, unhurried sweeps.
-Maddy couldn't see where Meribeth and Special Blazes went,
-but the bear's snoring told her they hadn't gone far.
 
-She held on as long as she could,
+Maddy held on as long as she could,
 but finally whispered to Gumption,
 "I gotta get out for a minute."
 
-"Yes please," he said, grimacing.
+"Me too," he said, grimacing.
 
 Slowly,
 wincing with every slight bump and scrape,
@@ -1510,46 +1499,30 @@ This day couldn't get any worse.
 Five minutes later she, Sindy, and Gumption had joined the rest of the party,
 who were sitting or standing near the front of the wagon
 depending on their inclination and body shape.
-"Your choice is reckless.
-You will not be safe.
-You must return home."
-Dockety sounded as angry as Maddy had ever heard it.
+"It ain't the stupidest thing anyone's ever done,"
+Thoughtful said,
+"But it sure ain't the smartest."
 
-"I agree with my friend here,"
-Special Leaf said,
-looking even older than usual.
-"We should turn back."
-
-Special Blazes shook his head.
-"I've already called ahead to Sandy Bend for a stage.
-These two can ride with us to Half-a-Hat,
-then you and your friends can get 'em home."
-He jerked his chin toward Dockety and Crusher.
-
-*He knew we were there all along,*
-Maddy realized angrily.
-*He's using us to get rid of Special Leaf and Dockety.*
-
-Special Leaf took off his glasses and breathed on them.
-"Well, since we're here, I might as well give them the tour,"
-he said,
-nodding at the domed building nearby
-as he wiped his glasses with the tail of his shirt.
+Special Blazes shrugged.
+"Ain't the worst thing that's ever happened.
+As soon as we get to Sandy Bend you're headed straight back home.
+Why don't you give 'em the tour?"
+He nodded at the domed building.
 "It was solid enough the last time I passed through."
 
-Meribeth growled.
+Thoughtful pursed her lips.
 "Makers' work ain't for the likes of children."
 
 "We're not children,"
-Maddy started to protest,
-but Special Blazes nodded.
+Maddy protested,
+but the rabbit had already shouldered her rifle.
 
 A sign stood in front of the building,
 but time and weather had long since made it mute.
-There was just enough room between its double doors for Special Leaf to squeeze through.
+There was just enough room between its double doors for Thoughtful to squeeze through.
 The children followed single file.
 
-Special Leaf took a small glowball from his pocket and held it up.
+The rabbit took a small glowball from his pocket and held it up.
 Its cool blue-white light threw sharp shadows.
 Maddy shivered.
 The last place like this that she had been in
@@ -1558,10 +1531,8 @@ The air here was cool and dry instead of dank,
 but her steps echoed exactly the same way on the tiled floor.
 
 "This way,"
-Special Leaf said.
-"I want to show you something."
-He led them along the corridor
-past rooms with broken-down doors
+Thoughtful said.
+She led them past rooms with broken-down doors
 whose contents had long since been salvaged.
 Every few paces they passed pillars
 that Maddy realized must once have been display cases.
@@ -1576,59 +1547,62 @@ Someone had swept the scattering of dry leaves and twigs around it into piles.
 Maddy asked.
 
 "It was a telescope,"
-Special Leaf explained.
+Thoughtful explained.
 "The Makers used to like to look at the stars.
 Here, you see?"
-He walked around to one end.
+She walked around to one end.
 "Once upon a time there would have been a lens in there,
 so if you sat in the chair back there
 you could look at the whole sky"
-He sighed.
+She sighed.
 "It must have been quite something.
 But that's not what I wanted to show you.
 Look here."
 
-He picked his way past the piled-up leaves
+She picked her way past the piled-up leaves
 to a window positioned under the gap in the roof.
 A boxy wooden bench stood beneath the window.
 With a grunt,
-Special Leaf lifted the bench seat and propped it open,
-then reached inside and pulled out a cylinder the length of his arm.
+Thoughtful lifted the bench seat and propped it open,
+then reached inside and pulled out a cylinder the length of her arm.
 A few moments later,
 the telescope that had been waiting inside the cylinder
 stood on a little tripod.
 
 "You've been here before, haven't you?"
-Maddy said as Special Leaf pointed the telescope through the broken window
+Maddy said as the rabbit pointed the telescope through the broken window
 and fiddled with the lens on the viewing end.
 
 "Been a lot of places,"
-he replied absently.
-"Here, have a look."
+she replied absently.
+"Here, take a look."
 
 It took Maddy a moment to line her eye up with the lens properly.
 She gasped.
-In the distance she could see dozens of windowless brick building connected by elevated walkways.
-Pipes and cables ran here and there,
-and every third building seemed to have an antenna,
+In the distance she could see dozens of tall building connected by elevated walkways.
+Pipes and cables criss-crossed the scene,
+and every building seemed to have an antenna,
 cooling tower,
 or incomprehensible piece of machinery on its roof.
 She was looking at Heck.
 
-"Where are all the bots?"
+And it was full of bots—more bots than Maddy could have imagined.
+Some were so big that they could have rolled over Crusher without noticing it.
+Others picked their way through the streets on thin stilt legs
+or buzzed from building to building beneath one, two, or half a dozen rotors.
+
+"What are they all doing?"
 she asked as Gumption took his turn.
 
-Special Leaf shrugged.
-"They don't need to go to school or go shopping or the like—surprising how much rushing around
-you don't have to do
-if you don't have to do any of that."
+Thoughtful twitched her whiskers.
+"Nobody knows, but they sure do keep busy."
 
 "I thought it'd be smoky an' all,"
 Gumption offered,
 relinquishing the telescope to Sindy.
 "Like in the stories."
 
-Special Leaf shrugged again.
+Thoughtful twitched her whiskers again.
 "Some people say the Makers left because the world had become too dirty for them to live in.
 Others say the Makers were the ones who made it that way.
 Whichever story you like,
@@ -1642,16 +1616,16 @@ but the empty streets were too unnerving to watch for long.
 They made their way back to the others in silence.
 As they approached,
 Special Blazes held up a kettle.
-"Just boiled if you want some,"
-he said.
+"Anyone else want a cuppa?"
 
 Before they could answer,
 Thoughtful's foot thumped against the ground in a rapid *pat-a-tat-tat*.
-He swung his long rifle back a few degrees,
+She unslung her long rifle,
+sighted through its scope,
 then let loose a string of profanity that set Maddy's ears back against her head.
 "Trouble, boss,"
-he said urgently.
-"Three airborne comin' fast!"
+she said urgently.
+"We got airborne comin' in fast!"
 
 </section>
 

@@ -239,7 +239,6 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   But the suggestion gives him the idea to stow away
 -   They sneak into the barn where Able has left the wagon overnight
     -   Helps Maddy hide, then slides in beside her
-    -   She left Sindy a note
     -   They have a conversation in the dark
 
 ### 5: Caught (Maddy)
