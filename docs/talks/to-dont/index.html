@@ -35,15 +35,26 @@
 ---
 
 
-## Abstract
+## The Title of This Talk
 
-Most people use a to-do list to keep track of things they need to do.
-It's just as useful to have a to-don't list of things that would be fun, interesting, and worthwhile,
-but that you're not actually going to start because life is short and you're too busy for yet another side project.
-This talk describes some of the projects on my to-don't list;
-I hope that by explaining why I think they're interesting,
-I will help you understand what practitioners actually want from software engineering research
-(and computer science more generally).
+-   Most people have a to-do list
+
+-   A to-<em>don't</em> list is just as useful
+
+    -   Because life is short and you're busy
+
+-   But other people may be looking for ideas
+
+-   And explaining *why* I want these may help you understand
+    what practitioners actually want from researchers
+
+    -   Because I am really tired of living in
+        <a href="https://en.wikipedia.org/wiki/Two_Solitudes_(Canadian_society)">two solitudes</a>
+
+--
+
+> Software engineering research has had as much impact on programmers
+> as astronomy has had on stars.
 
 ---
 
@@ -64,29 +75,7 @@ I will help you understand what practitioners actually want from software engine
 
 ---
 
-## The Title of This Talk
-
--   Most people have a to-do list
-
--   A to-don't list is just as useful
-
-    -   Because life is short and you're busy
-
--   But other people may be looking for ideas
-
--   And explaining *why* I want these may help you understand what practitioners actually want from researchers
-
-    -   Because I am really tired of living in
-        <a href="https://en.wikipedia.org/wiki/Two_Solitudes_(Canadian_society)">two solitudes</a>
-
---
-
-> Software engineering research has had as much impact on programmers
-> as astronomy has had on stars.
-
----
-
-## Once Upon a Time…
+## How This Started
 
 -   Book review editor for *[Doctor Dobb's Journal](http://drdobbs.com)*
 
@@ -113,7 +102,88 @@ I will help you understand what practitioners actually want from software engine
 
 ---
 
-## A Credible Measure of Productivity
+## Why Is This Cool?
+
+-   Are some languages actually better than others?
+
+-   <a href="https://doi.org/10.1145/2534973">Stefik2013</a> measured how well novices could recognize
+    Perl, Quorum, and Randomo
+
+-   Perl is as hard for novices to learn as a language with a randomly-designed syntax
+
+-   Languages in the C family are as hard for novices to learn to read as a randomly-designed language
+
+    -   Ruby and Python are significantly easier
+
+    -   <a href="https://quorumlanguage.com/">Quorum</a> is easier still
+
+---
+
+## Test-Driven Development
+
+> I practice TDD…and it works great. We don't need to prove that it works anymore.
+>
+> — posted by someone who sells TDD training
+
+-   <a href="https://doi.org/10.1145/2961111.2962592">Fucci2016</a>
+    studied 39 professionals working on real projects over an extended period
+
+-   No significant difference between test-first and test-last development
+
+-   But "The claimed benefits of TDD may…rather [be] due to the fact that
+    [it] encourages fine-grained steady steps that improve focus and flow."
+
+    -   Are we giving credit for improvement to the wrong cause?
+
+---
+
+## Do 10X Programmers Exist?
+
+-   <a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing independently
+
+-   How long did it take?
+
+<img src="productivity.svg" class="center">
+
+---
+
+## Do 10X Programmers Exist?
+
+-   Shortest and longest times were 0.6 and 63 hours (150X)
+
+    -   But people used 7 different languages
+
+-   If we only look at Java, times are 3.8 vs. 63 hours (17X)
+
+    -   But comparing best and worst exaggerates differences
+
+-   90th percentile vs. 50th gives 3.7X
+
+---
+
+## So Why *Is* This Cool?
+
+-   Intellectual curiosity: how the hell does this all work?
+
+-   Self-interest: get more done in less time and with less pain
+
+-   Being less wrong: a lot of well-paid people repeat Silicon Valley BS to each other
+
+    -   Which becomes quite irritating when you know better
+
+--
+
+-   But mostly because it's fun
+
+    -   The projects I cited in "Who Am I?" were a great way to make new friends
+
+--
+
+-   Note that I'm mostly interested in software enginering, education, and programming languages
+
+---
+
+## Establish a Base Case
 
 -   We don't know how to measure programmers' productivity
 
@@ -132,20 +202,6 @@ I will help you understand what practitioners actually want from software engine
 --
 
 > It is not enough to be right: you must also be heard.
-
----
-
-## Tooling Effort Over Time
-
--   How does the effort devoted to tooling and deployment change as a project grows?
-
--   (How) has it been changed by the move from desktop applications to cloud-based applications?
-
--   Does tooling effort level off when a project reaches a certain size?
-
--   Requires an agreed-upon measure of effort
-
--   So this study can't usefully be done before the previous one
 
 ---
 
@@ -204,7 +260,31 @@ I will help you understand what practitioners actually want from software engine
 
 --
 
--   Real question: how well do different topic aggregation methods agree?
+-   Note: [Denny2019](https://dl.acm.org/doi/10.1145/3291279.3339402) found no overlap between
+    the things CS education researchers study and the things CS educators want to know
+
+---
+
+## Validity of Popular Claims
+
+-   Are some programmers really ten times more productive than others?
+
+-   Does test-driven development actually make programmers more productive?
+
+-   *Do people actually believe these claims?*
+
+-   Find out by analyzing
+    [best](https://isbnsearch.org/isbn/9781953953216)-[selling](https://isbnsearch.org/isbn/9781491973899)
+    [books](https://isbnsearch.org/isbn/9789083381824) on
+    [software](https://isbnsearch.org/isbn/9798986769318) [engineering](https://isbnsearch.org/isbn/9780137314911)
+    to see how many of their claims are valid
+
+-   Then survey programmers to see which (if any) they believe
+
+--
+
+> Programmers know as much about software engineering research
+> as stars know about astronomers.
 
 ---
 
@@ -248,6 +328,20 @@ I will help you understand what practitioners actually want from software engine
 
 ---
 
+## What We Don't Teach
+
+-   Most universities offer an undergrad course on entrepreneurship or the business of software
+
+-   Survey these courses to determine what they *don't* teach
+
+    -   How many devote time to labor rights?
+
+    -   How many discuss anti-trust legislation?
+
+    -   How does the answer vary by country and by the nature of the institution?
+
+---
+
 ## Understanding Ethics
 
 -   Repeat the previous exercise for ethics in programming
@@ -269,48 +363,11 @@ I will help you understand what practitioners actually want from software engine
 
 ---
 
-## Validity of Popular Claims
-
--   Are some programmers really ten times more productive than others?
-
--   Does test-driven development actually make programmers more productive?
-
--   *Do people actually believe these claims?*
-
--   Find out by analyzing
-    [best](https://isbnsearch.org/isbn/9781953953216)-[selling](https://isbnsearch.org/isbn/9781491973899)
-    [books](https://isbnsearch.org/isbn/9789083381824) on
-    [software](https://isbnsearch.org/isbn/9798986769318) [engineering](https://isbnsearch.org/isbn/9780137314911)
-    to see how many of their claims are valid
-
--   Then survey programmers to see which (if any) they believe
-
---
-
-> Programmers know as much about software engineering research
-> as stars know about astronomers.
-
----
-
-## What We Don't Teach
-
--   Most universities offer an undergrad course on entrepreneurship or the business of software
-
--   Survey these courses to determine what they *don't* teach
-
-    -   How many devote time to labor rights?
-
-    -   How many discuss anti-trust legislation?
-
-    -   How does the answer vary by country and by the nature of the institution?
-
----
-
 ## What Ties These Together
 
 <div class="row">
   <div class="col-4">
-    <img src="./productivity.webp" alt="Rethinking Productivity in Software Engineering" class="center" width="200px">
+    <img src="./productivity-book.webp" alt="Rethinking Productivity in Software Engineering" class="center" width="200px">
   </div>
   <div class="col-8">
     <ul>
@@ -327,6 +384,22 @@ I will help you understand what practitioners actually want from software engine
 
 ---
 
+## My Real Purpose
+
+-   My generation kind of messed up
+
+-   We desperately need more science and more courage
+
+-   Learn with simple problems like developer productivity
+
+    -   Practice with harder ones like ethics in software development
+
+    -   And then tackle things that really matter
+
+<img src="wikipedian_protester.png" alt="Wikipedian Protestor" width="400px">
+
+---
+
 ## Thank You
 
 <div class="center">
@@ -335,6 +408,18 @@ I will help you understand what practitioners actually want from software engine
   <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
   <p><a href="http://third-bit.com/talks/to-dont/">http://third-bit.com/talks/to-dont/</a></p>
 </div>
+
+---
+
+## Abstract
+
+Most people use a to-do list to keep track of things they need to do.
+It's just as useful to have a to-don't list of things that would be fun, interesting, and worthwhile,
+but that you're not actually going to start because life is short and you're too busy for yet another side project.
+This talk describes some of the projects on my to-don't list;
+I hope that by explaining why I think they're interesting,
+I will help you understand what practitioners actually want from software engineering research
+(and computer science more generally).
 
 
     </textarea>
