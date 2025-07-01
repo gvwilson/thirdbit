@@ -241,7 +241,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Helps Maddy hide, then slides in beside her
     -   They have a conversation in the dark
 
-### 5: Caught (Maddy)
+### 5: On the Road (Maddy)
 
 -   Goals:
     -   Get the protagonists into danger
@@ -263,7 +263,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Will become clear later that Blazes wanted witnesses to confirm that Sindy was kidnapped
 -   Argument interrupted by flying attack
 
-### 6 (Gumption)
+### 6: Taken (Gumption)
 
 -   Goals:
     -   Split up the protagonists
