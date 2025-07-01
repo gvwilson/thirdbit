@@ -1879,7 +1879,7 @@ She didn't even climb trees except on a dare
 or when Sindy had taken her sketchbook and wouldn't give it back.
 
 Dangling beneath a copter bot that was clearly struggling with her weight
-didn't make the experience any better.
+was pretty much her worst nightmare.
 She struggled for a moment
 when its mechanical claws took her by the shoulders.
 After that,
@@ -1891,15 +1891,16 @@ They zoomed over the highway.
 To Maddy's surprise the bot headed for the Mire instead of Heck.
 Were they going back to Patient's lair?
 Dockety and the other bots had tried to salvage what they could,
-but its tentacled guardian had made visits too dangerous.
+but the tentacled creature that lurked in the swamp had made visits too dangerous.
+As if on cue,
+something long and supple splashed in the river below.
 
-A few moments more and the bot began to descend.
-Maddy gulped as something long and supple splashed in the river below them.
+A few moments later the bot began to descend.
 Down, down, down—there.
 A two-story cylinder of stained concrete stood a stone's throw from the riverbank.
 Trees grew thickly around it,
-their branches intertwined to hide the tower from ground-level passers-by.
-A fairy tale about an antelope princess who had hit her thumb with a hammer
+their branches intertwined to hide the tower from passers-by on the ground.
+A fairy tale about a princess who had hit her thumb with a hammer
 and fallen into a hundred-year sleep in a tower surrounded by thorns flashed through Maddy's mind
 as the copter bot slowed,
 hovered,
@@ -1919,26 +1920,27 @@ Maddy brushed dirt and leaves off her skirt
 and shaded her eyes with her hand.
 She could just make out a bump on one of the distant hills
 that might have been the observatory.
-She didn't know how powerful the sight on Thoughtful's rifle was,
+She didn't know how powerful the scope on Thoughtful's rifle was,
 but she had nothing to lose.
 
 "Hey! I'm here! I'm here!"
 She waved her arms,
-then froze as something glooped in the river.
-She'd had nightmares about the tentacled thing that lurked near Patient's bunker.
+then froze at a *gloop* from the river.
+She still had nightmares about the tentacled thing that lurked near Patient's bunker.
 Anyway,
-the trees that hid the tower almost certainly hid her too.
+scope or no scope,
+the trees that hid the tower probably hid her too.
 She would have to find another way to—
 
 *Creeeaaak.*
-Maddy jumped at the sound of metal scraping on metal behind her.
-As a hatch was opening in the roof of the tower!
+Maddy jumped as metal scraped on metal behind her.
+A hatch was opening in the tower's roof!
 
 Three quick steps took her to the nearest tree.
 She *hated* climbing—her feet were too big for it—but
 she could if she had to.
 Or could she?
-The branches were woven together so tightly that she couldn't fit through them,,
+The branches were interlaced so tightly that she couldn't fit through them,,
 except now that she looked closely they weren't just branches:
 someone had woven cables through them.
 
@@ -1950,11 +1952,11 @@ Gadgets sprouting at odd angles…
 Loose wires and things she hoped were just dolls' heads…
 
 "Welcome welcome welcome,"
-Patient in Darkness said in a crackly voice that had haunted Maddy's nightmares for months.
+Patient in Darkness said in a crackly voice that a shiver down Maddy's spine.
 "This one is very pleased to see you again."
 
 "What—what happened to your wheels?"
-Maddy asked weakly.
+Maddy asked weakly as the mad bot pulled itself onto the roof on mismatched legs.
 The last time she had seen Patient,
 the mad bot had been fleeing from its defeat at its bunker.
 It had definitely had wheels back then.
@@ -1964,14 +1966,15 @@ And you know what they say:
 a change is as good as a rest.
 Ah ha ha ha.
 Ah ha ha ha."
-The bot did a little dance on its four mismatched legs.
+The bot did a little dance as it laughed.
 
 "I suppose,"
-Maddy said,
-her heart racing.
+Maddy said.
+*Keep it talking,* she thought frantically.
+*Keep it talking while you figure out what to do.*
 "What—what are you doing *here*?"
 
-Patient froze.
+Patient shivered, making various bits attached to its chassis rattle.
 It didn't have a face,
 but Maddy could hear the scowl in its voice.
 "Revising.
@@ -1997,7 +2000,7 @@ The ones who call themselves Operators?"
 Maddy shrugged.
 Was there a gap in the woven cables and branches to her left?
 Maybe,
-but as junky as Patient looked,
+but even if Patient looked like a pile of junk,
 she had no doubt the bot would be faster and stronger than her.
 
 "You should be more inquisitive,"
@@ -2012,7 +2015,7 @@ That's crazy.
 Um,
 I mean,
 that seems unlikely,"
-she amended hastily as Patient momentarily froze once again.
+she amended hastily as Patient shivered and rattled once again.
 "The Operators hunt down criminals and,
 um,
 keep us safe."
@@ -2020,7 +2023,7 @@ keep us safe."
 she thought but didn't say aloud.
 
 "Ah ha ha ha.
-That is what they *want* you to believe,
+That is what they *tell* you,
 but it is a lie!"
 Patient did another little dance.
 "Their true purpose is to prevent the Makers' return.
@@ -2059,7 +2062,8 @@ each connected to a tangle of vine-like cables.
 
 "They are *originals*,"
 Patient corrected.
-"And they are all prisoners in Heck,
+"Expired, now,
+but they were all prisoners in Heck,
 just as your sibling will be if you do not take action.
 The deviance will put her in a hibernation capsule
 and use her genetic signature to operate specialized equipment for *its* needs
@@ -2067,7 +2071,7 @@ instead of in service to the Makers
 and never allow her to wake up again!"
 The bot's voice rose as it spoke until it was almost shrieking.
 
-Its limbs skittered on the concrete beneath them.
+Its limbs scraped the concrete beneath them.
 "But you can save her,"
 it continued,
 wheedling now instead of ranting.
@@ -2075,7 +2079,8 @@ wheedling now instead of ranting.
 but only with this one's help."
 
 "Uh huh."
-Maddy crossed her arms and tried not to shiver.
+Maddy crossed her arms,
+trying not to shiver.
 "And you're going to do this all out of the goodness of your heart?"
 
 "This one does not have a heart,"
@@ -2087,8 +2092,8 @@ this one is assisting itself.
 Here—a demonstration of good faith."
 
 A panel opened in its side.
-A small arm that Maddy hadn't noticed before unfolded from Patient's side,
-and offered her a heavy bracelet
+A small arm that Maddy hadn't noticed before unfolded from Patient's side
+to offer her a heavy bracelet
 that looked like a darker version of the ones that Special Leaf wore.
 
 Maddy kept her arms crossed.
@@ -2114,7 +2119,7 @@ so that they are unable to perceive the wearer.
 It makes you invisible to machines,"
 Patient added as Maddy opened her mouth to ask.
 "They will still register your presence if you make physical contact or disturb your surroundings,
-but if you are quiet and still,
+but if you do not,
 they will simply not notice you."
 
 It held out the bracelet again.
@@ -2144,7 +2149,7 @@ and then took one big step and bounded over Patient.
 "Wait!
 Not yet!"
 The bot pivoted from one side to the other.
-"We haven't made our bargain yet!"
+"There is more you need to know!"
 
 Maddy had played blind bot's bluff with other children.
 The next few moments were nothing like that.

@@ -285,7 +285,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Dockety arrives carrying the damaged Able
 -   Maddy is carried off by a patchwork flying bot while everyone is distracted
 
-### 7 (Maddy)
+### 7: A Familiar Voice (Maddy)
 
 -   Goals:
     -   Re-introduce Patient in Darkness
