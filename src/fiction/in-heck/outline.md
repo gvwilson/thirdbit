@@ -306,7 +306,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   It isn't "tech": bots invented it, so anyone can use it
 -   Maddy uses it to escape from the tower into the Mire
 
-### 8 (Gumption)
+### 8: A Meeting in the Trees (Gumption)
 
 -   Goals:
     -   Get Gumption's solo adventure going
