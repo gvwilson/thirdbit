@@ -2493,3 +2493,299 @@ The storkbot clacked its metal beak.
 "In danger."
 
 </section>
+
+<section markdown="1">
+
+## Hide and Seek (Maddy)
+
+FIXME
+
+</section>
+
+<section markdown="1">
+
+## Armor to Hide Your Heart (Gumption)
+
+The storkbot clacked its metal beak.
+"In danger,"
+the bots said.
+
+And with those words,
+Gumption felt a familiar fear squeeze his chest.
+He hadn't ever talked to anyone about it—it wasn't the kind of thing
+a teenage goat would discuss with his parents,
+and he *definitely* couldn't talk about it with Maddy—but she was his best friend,
+and maybe, just maybe, something more.
+He didn't know what would happen if she found out how much he worried about her.
+He had been hurt in the attack on Rusty Bridge,
+but she could have *died*,
+and whenever his thoughts got close to that,
+his mind seized up like a bicycle chain getting caught in between two gears.
+
+"So what are we waiting for?"
+he said angrily.
+"You've got Dockety's eye—let's go help her!"
+
+Another rustle ran through the circle of bots.
+"No.
+Retrieval will not be possible without stealth.
+We must prepare you."
+
+Gumption held his breath for a count of three and then let it out slowly,
+just as he had seen Special Leaf teach Sindy.
+"Prepare me how?"
+
+"We will take you to the Tailor.
+It will fit you with armor to hide your heart."
+With no more warning than that,
+the assembled bots surged forward.
+
+"Stop! Wait! Let me go!"
+Gumption shouted as a motley dozen clamps, manipulators, and tentacles seized him.
+"Dockety! Dockety, help!"
+
+His companion's single remaining lens rotated.
+"These ones are correct," it buzzed.
+"Consensus will detect your organic nature immediately if you approach it as your are.
+You must let them disguise you."
+
+Gumption struggled and swore as the bots carried him through the forest.
+Low-hanging branches scratched his face,
+and at one point his head was lower than his feet as they surged up a hill.
+
+Suddenly there was a dirty gray ceiling over them.
+The squelch of treads and mechanical feet on swampy ground
+gave way to the click and clatter of metal on concrete.
+The last of the daylight vanished as they turned a corner
+in whatever tunnel they had entered.
+
+Gumption's heart hammered as they hurried forward in darkness.
+After what felt like forever but was probably only a minute or two
+the darkness lightened.
+He twitched as something heavy and metallic clanged up ahead.
+Was it a door opening?
+
+"Hey—hey!
+I can walk, all right?"
+
+The bots dropped him unceremoniously on the concrete
+and scuttled, slithered, or rolled away.
+He clambered angrily to his feet.
+"Thanks for your help," he muttered as Dockety came up beside him.
+
+"You are welcome,"
+the bot replied.
+
+The room was a workshop lit by a pair of dull orange light panels.
+Mismatched tables stood against the walls,
+each piled high with salvaged parts and scraps of metal.
+Pulleys hung from the ceiling on cables and chains above band saws,
+press drills taller than Gumption,
+and a pair of compact, blocky furnaces with blackened housings.
+
+One of the furnaces turned around.
+"Welcome," it boomed.
+
+Gumption swallowed hard.
+"Uh, hi."
+The bot had a leg on one side
+and a heavy spoked wheel where the other would have been,
+with two skinny arms on the leg's side and a single heavy one above the wheel.
+Someone or something had painted an incongruous smile on it ages ago.
+A few drips of paint,
+long since dried,
+looked a little too much like fangs for comfort.
+
+"You are here for a fitting, yes?
+For a disguise?
+Excellent, excellent.
+It has been quite some time, you know, quite some time,
+but rest assured,
+this one's skills are undiminished.
+Now, lie down, just here, yes?"
+The bot gestured at a nearby workbench
+with one of its skinnier arms.
+
+"Um…"
+Gumption glanced at Dockety.
+"Are you the Tailor?"
+
+"The last and best,"
+it said proudly.
+"Now,
+if you would lie down here?"
+
+"Why do you want me to—"
+
+"Quiet!"
+the Tailor snapped,
+its patience suddenly exhausted.
+"What this one does goes beyond mere fabrication.
+It is *art*!
+Consensus is cunning,"
+it hissed.
+If it had possessed eyes,
+Gumption was sure it would have glanced around for dramatic effect.
+"A simple carapace would hide your fur,
+yes,
+but Consensus would still hear your breathing—your heartbeat.
+To conceal that requires technology of the highest order and skill to match,
+skill that this one alone now possesses!
+Now *lie down*!"
+
+"You should comply,"
+Dockety buzzed as Gumption opened his mouth once again.
+"We have no other options."
+
+Reluctantly,
+Gumption sat on the edge of the workbench.
+"Do you want me to take my boots off?" he asked.
+
+"Your boots, your uniform, everything,"
+the Tailor ordered.
+"There must be nothing between you and this one's creation."
+
+"It's not a uniform,"
+Gumption muttered.
+Boots, overall, shirt and undershirt—finally his underwear,
+which he stuffed into one of his boots along with his socks.
+He swung his legs up onto the workbench and lay back.
+
+"This one will be right here,"
+Dockety said.
+
+Gumption nodded,
+wishing he found that comforting.
+"Thanks.
+Go ahead."
+
+The light panels on the walls brightened and brightened again.
+He squeezed his eyes shut,
+but that just made the glare orange-red through his eyelids
+instead of blinding white.
+He twitched as the workbench vibrated,
+then twitched again as something brushed against the fur on his chest.
+
+"This one is right here,"
+Dockety repeated.
+
+The light turned off.
+"Good,"
+the three-armed bot said approvingly.
+"You may sit up now."
+
+Gumption pressed the heels of his hands into his eyes.
+"Is that it?
+Am I,
+whatever you said,
+am I concealed now?"
+
+"What?
+No!
+Do not be ridiculous,"
+the Tailor scoffed.
+"That was just to get your measurements.
+Now this one begins fabrication.
+It will take some time.
+Remain undressed in case further sizing is required."
+
+"Sure.
+Can I at least, um, put my clothes on top of me?"
+
+"If you must,
+so long as you are quiet."
+Metal clanged on metal as the bot took a few metal scraps off a table
+and threw them into the furnace.
+A few moments later heat prickled across Gumption's fur.
+
+Apparently,
+being naked in a mad bot's underground lair *could* in fact be boring.
+He yawned,
+wishing he dared to roll onto his side.
+"Does it hurt?" he asked Dockety.
+"Your eye, I mean."
+
+The bot raised its arm and turned its head from side to side.
+"It is unusual.
+This one has lost limbs in the past,
+but never sensory attachments.
+Not being able to see this one's surroundings makes this one feel…exposed."
+
+"I know what you mean."
+Gumption closed one eye,
+then opened it and closed the other.
+It didn't seem to make much difference to how much of the dirty gray ceiling he could see.
+
+As the workroom grew warmer,
+Gumption gave up trying to keep either eye open.
+He had always been more patient than his siblings and cousins.
+Long bouts in bed or on the porch as his ribs healed after the attack on Rusty Bridge
+had taught him that most problems could be slept away.
+He woke up the first time the Tailor banged the furnace with its larger arm
+and tucked his overall under his head.
+If the bots didn't care that he was naked,
+he didn't need to either.
+
+He woke when Dockety pinched his toe.
+"Wuzza?"
+His stomach rumbled as he sat up.
+
+"Behold!" the Tailor said proudly.
+"Your disguise!"
+
+Gumption rubbed his eyes.
+He had expected a suit of armor
+like the ones Operators wore in stories
+when they were battling particularly dangerous bots.
+What he was looking at looked more like a cast-iron bathing suit
+attached to a pair of washboards
+with a helmet tied on for good measure.
+
+"'Zat all?" he mumbled.
+
+The Tailor lowered the contraption.
+"Hmph.
+*Most* of my clients express thanks and praise at this juncture."
+
+"Um,
+yes,
+thank you,
+I just—"
+Gumption suddenly remembered his grandfather's reaction
+to being given twelve jars of pickled rhubarb as a birthday present.
+"It's just so much more than I was expecting."
+
+Two minutes later,
+after some uncomfortable fumbling
+and a handful of exasperated comments from the Tailor,
+Gumption studied his reflection in a small mirror.
+Helmet on head: check.
+Washboards strapped to his back and chest: check.
+Metal bathing suit where bathing suits go: unfortunately, check again.
+It already chafed.
+
+"I hope I don't have to run in this,"
+he muttered to Dockety.
+
+"Run, jump—you can even swim!"
+the Tailor said proudly.
+"Well, if you can actually swim, that is.
+And if the extra weight doesn't pull you under.
+Now go ahead.
+Turn it on!"
+
+"Um…"
+Gumption patted the washboards.
+"Where's the switch?"
+
+"Switch?
+Switch?
+My creations do not use switches!
+There is a button!"
+It darted forward more quickly than Gumption would have believed possible
+and pressed a skinny digit against a slight bump on the front washboard.
+With that,
+and with no other warning,
+Gumption's heart stopped.
+
+</section>
