@@ -324,7 +324,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Trades one of its optical sensors for their help
     -   Explains the risk of getting too close to Consensus itself
 
-### 9 (Maddy)
+### 9: Hide and Seek (Maddy)
 
 -   Goals:
     -   Reveal the Operators' perfidy
@@ -344,7 +344,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Maddy realizes they're talking about handing Sindy over to Heck
     -   Feels a touch on her ankle
 
-### 10 (Gumption)
+### 10: Armor to Hide Your Heart (Gumption)
 
 -   Goals:
     -   Prepare Gumption for Heck

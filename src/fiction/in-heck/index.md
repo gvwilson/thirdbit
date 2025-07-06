@@ -2498,7 +2498,231 @@ The storkbot clacked its metal beak.
 
 ## Hide and Seek (Maddy)
 
-FIXME
+The most important thing about being invisible is that you actually aren't.
+Is your body transparent?
+Fine—what about your clothes?
+Even if they are,
+how could you see anything if light just passed through your eyes?
+Or are you somehow hidden from sight or made unnoticeable?
+Great:
+does it muffle the sound of you panting
+as you hurry along an overgrown path through a swamp filled with your worst nightmares?
+Does it conceal footsteps you leave in the mud,
+or stop branches and tall grass from swaying as you brush against them?
+
+None of this made being invisible useless,
+but as Maddy squelched toward the road,
+she realized that it wouldn't save her on its own.
+The helibot that had kidnapped her would be in the air soon if it wasn't already,
+and Patient was sure to send other minions after her as well.
+She needed to hide, and fast.
+
+The path brought her to the Makers' road sooner than she expected.
+One moment her boots were sinking into soft ground,
+the next they were on cracked pavement.
+She hesitated.
+She could move a lot faster on the road,
+but—
+
+Something buzzed in the sky overhead.
+She ducked under a willow as the helibot zoomed past overhead.
+No,
+the road was definitely out.
+
+Maddy counted twenty in her head,
+took a deep breath,
+and crossed the road in a dozen long bounds.
+The undergrowth on the other side was just as smelly and scratchy,
+and the mosquitoes found her again almost immediately,
+but she had to do *something*.
+
+The discombobulator on her wrist vibrated.
+"Charge exhausted,"
+its readout told her.
+"Please wait fifteen (15) minutes before re-enabling."
+
+"Great,"
+she muttered.
+She had no idea which way the observatory was.
+She wasn't even sure which way Rusty Bridge,
+and which direction would take her to Heck instead.
+The only thing she *did* know was—
+
+Her eyes widened.
+It was a crazy idea,
+but she had played hide and seek with Sindy and Gumption often enough to know that
+where you hid wasn't the only thing that mattered.
+You also had to think about where people were going to look for you.
+
+She counted down the minutes.
+Ten…
+Five…
+The readout on the discombobulator showed just two minutes remaining
+when a bot that looked like a cross between a mechanical ox and a sewing machine
+came out of the willows on the other side of the road.
+Something whirred and rattled as it lowered itself to the cracked pavement
+and swung its foresection from side to side.
+She held her breath.
+She knew that bots didn't have a sense of smell,
+but she must have left bootprints.
+
+The bot straightened its legs and lurched onto the road.
+She wanted to edge back into the trees,
+but she didn't dare move,
+not with it looking right in her direction.
+She glanced at her wrist.
+One minute.
+*Please,* she thought desperately.
+*Please, just—just go away!*
+
+But the bot had other ideas.
+Pistons worked in its legs as it took one slow step and then another,
+each bringing it closer to her hiding place.
+Thirty seconds.
+Step, step.
+Twenty.
+Step.
+Ten.
+
+The discombobulator vibrated on her wrist.
+"Recharged" scrolled across the readout.
+She pressed the button just as the bot tensed
+and charged into the bushes on her left.
+As it did so,
+she bounded across the Makers' road and back along the trail to Patient's tower,
+desperately hoping that whatever other minions the mad bot had sent after her
+had gone in other directions.
+
+A few minutes later she stood in front of a stained concrete wall.
+The partly-open door in front of her looked exactly like
+the one that had led to the underground bunker where she had first encountered Patient.
+Well,
+not exactly,
+she amended,
+but close enough to keep her heart racing.
+She glanced at the discombobulator,
+swallowed hard,
+and slipped through.
+If Patient was anything like her sister and Gumption,
+the last place it would think to look for her
+was where the chase had started.
+
+Inside the tower was a single large, empty room.
+The walls and roof were bare concrete blocks,
+and the air was damp and still.
+Where the entrance to Patient's bunker had been blanketed with dried mud and blown leaves,
+though,
+this room had been swept clean.
+
+Dim light through the door revealed a rust-streaked sign on the wall that read,
+"Data Analysis Network: Genetic Enhancement Research".
+Maddy had no idea what that meant,
+but a black glass panel and a keyhole lay in the wall beside the door
+next to a pair of sturdy levers and an open door.
+
+Pushing aside her memories of what had happened the last time she had been in a place like this,
+Maddy stepped through the door
+onto a small platform at the top of a flight of broad concrete stairs
+and started her descent into the unknown.
+
+Ten… twenty… fifty…
+Seventy-two steps below her starting point
+she reached a corridor made of the same featureless gray concrete as the stairs.
+Small glass panels set into the ceiling cast the same cold white light
+that had haunted her dreams for months.
+
+She had expected a warren of tunnels like the ones Patient had used as its lair.
+Instead,
+she quickly found herself at another heavy door
+that slid aside at her touch to reveal a circular room with a domed ceiling.
+Four reclining chairs waited in the center of the room,
+none of them holding a skeleton.
+
+A lonely light blinked in the arm of one of the chairs.
+"Sure, why not?"
+Maddy muttered.
+She lowered herself into the chair,
+wriggled a bit to make herself more comfortable,
+and placed her hands on the control panels,
+then gasped as the ceiling came to life
+to show hundreds of stars in a clear night sky.
+Faint colored lines arced from one horizon to the other.
+After a moment she realized there were dots moving along some of them.
+Most were dull red,
+but one was a vibrant green.
+
+She waited a moment for something to happen.
+When nothing did,
+she cleared her throat self-consciously and said,
+"Show me where I am.
+Please?"
+
+The scene dimmed
+and was replaced with a grainy picture of her sitting in a reclining chair.
+As she opened her mouth to say,
+"Very funny,"
+the picture zoomed out to become a floor plan of the room she was in
+and half a dozen others connected by corridors.
+It zoomed out again until the underground complex was just a blinking square.
+Stippled green marked the Mire.
+A meandering blue line was the river,
+and a straighter black one must be the Makers' road.
+
+"Show me where Patient is,"
+she ordered.
+"The bot that captured me.
+Not the flying one,
+the—oh.
+Thank you."
+
+The picture above her had been taken through willow branches,
+but was definitely Patient in Darkness.
+A blinking line connected it to a white circle south of her.
+Images of other bots popped up in a circle it:
+some built to fly,
+others to crawl,
+others obviously intended for battle.
+
+A blue circle appeared north and west of her,
+then split in two unequal pieces.
+One moved toward the Makers' road.
+A moment later,
+the other began heading more slowly in the opposite direction.
+Pictures popped up beside them.
+The smaller circle was Dockety and Gumption—they must be looking for her!
+That meant the larger one was the Operators and Sindy on their way to Sandy Bend.
+
+Maddy let out a breath she hadn't realized she was holding.
+At least Sindy was safe.
+
+As if on cue,
+Special Blazes's voice boomed all around her.
+"—about her sister."
+
+"Damn shame,"
+Thoughtful agreed.
+"Roundin' up throwbacks is wearin' enough
+without other folk gettin' caught up in it.
+The sooner we deliver this one to Heck,
+the sooner I can stop hatin' myself."
+
+"Pshaw,"
+Special Blazes scoffed.
+"You don't really hate yourself.
+Not like that old fool Leaf."
+
+"'Spose not."
+The rabbit sighed.
+"On the bright side,
+there's this fella I know in Sandy Bend who'll do his best to take my mind off it
+if I ask nice."
+
+The room fell silent.
+Maddy felt sick.
+She hadn't believed Patient,
+but—
+
+And then she shrieked as something tapped her ankle.
 
 </section>
 
