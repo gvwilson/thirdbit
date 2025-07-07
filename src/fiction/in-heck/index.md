@@ -2717,7 +2717,7 @@ The rabbit sighed.
 there's this fella I know in Sandy Bend who'll do his best to take my mind off it
 if I ask nice."
 
-The room fell silent.
+The screen went silent.
 Maddy felt sick.
 She hadn't believed Patient,
 but—
@@ -3011,5 +3011,265 @@ and pressed a skinny digit against a slight bump on the front washboard.
 With that,
 and with no other warning,
 Gumption's heart stopped.
+
+</section>
+
+<section markdown="1">
+
+## The Gates of Heck (Maddy)
+
+Maddy shrieked as something tapped her ankle.
+Without thinking she pulled her feet under her and stood up on the chair.
+Was it a snake?
+A centipede?
+
+A flat little bot, square and gray, backed away from her on four little wheels as if startled.
+It whirred, paused, and whirred again.
+
+Maddy stared at it in disbelief,
+then swallowed and said,
+"Hello again."
+It was the cleaning bot she had met in Patient's lair,
+the one that had brought her Papa Roo's notebook.
+
+She stepped gingerly onto the floor.
+"It's aright, it's aright," she said soothingly as it backed away from her.
+"Remember me?
+I'm not going to hurt you."
+
+The little bot rolled toward hesitantly, then stopped.
+"How'd you get here?" Maddy asked gently.
+"Hm?
+Did Patient bring you?
+I bet that's what happened, isn't it?
+Oh, you poor thing."
+*I sound just like Mama,*
+Maddy thought,
+just like her mother did whenever she or Sindy was sick or skinned a knee.
+
+That thought brought her back to where she was.
+She crouched down slowly.
+"Hey.
+You see that?"
+She pointed at the screen showing the map of the Mire.
+"Do you know where that is?
+'Cuz I think something bad's happening,
+and I gotta find them and help my sister."
+
+The cleaning bot pivoted back and forth a couple of times
+and whirred at her again.
+"Please?"
+she pleaded.
+"You can come with me if you want to."
+
+She held her breath until the bot beeped,
+turned,
+and rolled over to the wall opposite the entrance.
+A panel slid aside in its top.
+A delicate arm unfolded,
+pulled open a cover plate,
+and punched a code into the keypad behind it.
+With a scraping sound that spoke of long disuse,
+a door slid open.
+
+Or tried to.
+The bot whirred in dismay as the panel jammed.
+"It's aright,"
+Maddy told it,
+wrinkling her nose at the stale smell
+and wishing that the Makers or whoever else had built these places
+hadn't been quite so fond of tunnels.
+
+She had to tuck her tail between her legs to squeeze through the gap,
+and even then the wall and the door panel scraped her dress and her fur.
+Little orange lights came to life on the wall,
+each the size of her thumbnail.
+She waited for her eyes to adjust
+and then glanced down at the little bot
+that had followed her through the gap.
+"Lead the way."
+
+The bot whirred,
+backed up,
+and bumped against the back of her boot.
+Maddy smiled.
+"Aright, then follow me."
+She hoped she sounded braver than she felt.
+
+The tunnel was clean and dry,
+but the still, stale air spoke of long disuse.
+She tried counting her steps,
+but lost track somewhere after two hundred.
+How long had it been since she'd eaten?
+And what must her mama be thinking?
+*I should have left a note,* Maddy thought.
+
+It took her a few minutes to notice the slight ache in her legs.
+The tunnel was climbing upward,
+gently but surely.
+Was the cleaning bot taking her back to the observatory?
+That would take hours, maybe days, and Sindy would be long gone before they got there.
+
+She was just about to stop and ask when the cleaning bot zipped ahead of her
+and was lost the darkness.
+"Hey!"
+She hurried after it.
+
+Without warning the ceiling came to life.
+She shielded her eyes against the blinding white light,
+which turned out to be merely bright rather than blinding
+once her eyes adjusted again.
+The only thing in the room besides the cleaning bot
+was a set of metal rungs set into the concrete.
+The bot whirred and bumped against the wall below the lowest rung.
+
+"Yeah,
+I can see how that would be hard for you,"
+Maddy said.
+She crouched down and held out her hands.
+After a moment's hesitation the bot rolled forward and let her pick it up.
+
+It was heavier than she had expected,
+and too big for the pockets in her dress,
+so in the end she held it against her chest and climbed the ladder one-handed.
+Each time she reached for the next rung
+she had to squelch a moment of panic.
+No one would ever find her if she fell…
+
+The hatch at the top of the ladder slid aside automatically as she approached it.
+The smell and the trees told her that she was still in the swamp,
+but the Makers' road was just a hop and a skip away.
+A black glass recharging pillar stood beside it.
+
+She set the cleaning bot on the ground.
+"Thank you."
+It whirred in response,
+then beeped twice.
+
+Maddy smiled at it.
+"I wish I could understand what you're—wait, what's that?"
+Something was coming on the road.
+
+The bot beeped again and hurried into the undergrowth.
+Maddy followed it,
+crouching down behind a thorny bramble of raspberries
+just as Bee Six Vee and the wagon came into sight.
+
+"Whoa up,"
+she heard Thoughtful say.
+The Operators' bot slowed and stopped next to the recharging pillar.
+The rabbit dismounted,
+then reached up to help Sindy climb down as well.
+
+"We got fifteen minutes, then we gotta keep moving,"
+Special Blazes said from his seat.
+"We don't want to be on this road after dark."
+
+*What am I going to do?*
+Maddy thought frantically
+as Bee Six Vee plugged itself into the pillar
+and Thoughtful and her sister split a biscuit.
+She couldn't overpower the Operators,
+and even if she could figure out a way to lure her sister to the access tunnel,
+Thoughtful and Special Blazes would just follow them.
+
+But then Special Blazes hopped down from the wagon
+and ambled into the trees to take advantage of their stop,
+leaving the wagon unwatched.
+She scooped up the cleaning bot and crept forward as quickly as she dared.
+Had they rearranged the boxes in the back?
+No—the space she and Gumption had made was still there.
+"Quietly," she told the bot,
+pushing it in ahead of her and climbing in after it.
+
+The wagon jerked into motion a few minutes later.
+She heard Sindy's voice raised in a question
+and Thoughtful's calming reply,
+but couldn't make out the words.
+
+The trip lasted only another hour.
+Peering between the boxes and the wagon's sideboards,
+Maddy watched as the landscape slowly dried out.
+Willows gave way to tall grass,
+which in turn gave way to hard-packed earth
+sprinkled with weeds.
+Every bump in the road left a fresh bruise on her hips,
+and at one point she had to brace a box with her feet
+and push it back into place
+to prevent it falling on her,
+but the Operators and her sister didn't seem to suspect her presence.
+
+"Whoa up,"
+Thoughtful said once again.
+Maddy grunted as the wagon bumped off the road.
+Peering through the sideboards again
+she saw a pair of blocky concrete buildings,
+stained by rain and age.
+A barred metal gate stood open between them.
+
+"Where are we?" Sindy asked plaintively.
+
+"Just another stop,"
+Special Blazes told her.
+"Won't be but a minute."
+
+Thoughtful cleared her throat.
+"I'll, um, I'll go see to things, shall I?"
+She hopped down without waiting for an answer.
+
+"Why are we waiting?"
+Sindy asked after a couple of minutes had crawled by.
+
+"It won't be long," the tiger replied absently.
+"But listen,
+whatever happens,
+don't be startled, aright?
+We'll be in Sandy Bend in no time."
+*Liar!* Maddy thought angrily.
+
+"Hey, boss!"
+Thoughtful called out.
+"We got visitors."
+
+Maddy heard Sindy gasp.
+"What are they doing here?"
+
+"Now, now, there's nothing to worry about,"
+Special Blazes soothed.
+"Just sit down and—I said sit down, Miz Roo.
+Now."
+
+But Sindy didn't.
+Maddy felt the wagon jostle as her sister hopped off the bench seat.
+"Get back up here!"
+Special Blazes snapped.
+The wagon jostled again as he stood up.
+
+Maddy couldn't take any more.
+The cleaning bot whirred at her
+as she slithered back to push the tailgate open with her feet.
+Peeking cautiously around the wagon's back corner
+she saw Sindy with her hands on her hips
+looking up belligerently at an angry Special Blazes.
+
+"First you tell me what *they're* doing here!"
+Sindy demanded.
+"And why they've got *that*!"
+
+Maddy gasped.
+A pair of bots with studded tricycle wheels and sturdy arms
+had just pulled up on the other side of the open gate.
+One of them was towing a trailer cage like the one Patient's minions had used
+in their first raid on Rusty Bridge.
+
+"Now listen here—"
+Special Blazes started.
+
+"No!"
+Sindy stamped her foot.
+"I'm done listening!
+I want to go home!
+I want to go home *right now*!"
+And to Maddy's horror the tech on Special Blazes' chest began to glow beneath his shirt.
 
 </section>

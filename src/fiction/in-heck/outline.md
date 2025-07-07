@@ -353,7 +353,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Gumption is fitted with "armor" to make bots believe he is a bot
 -   Chapter ends with the Tailor stopping Gumption's heart
 
-### 11 (Maddy)
+### 11: The Gates of Heck (Maddy)
 
 -   Goals:
     -   Maddy arrives in Heck with Mouse as a guide
