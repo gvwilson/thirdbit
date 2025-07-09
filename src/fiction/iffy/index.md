@@ -8623,6 +8623,11 @@ As the bot loped away she said,
 *Thanks.*
 Sandrine rolled her/their/Iffy's head from side to side
 and started running.
+The *boom!* came a few moments later.
+Somewhere behind them,
+the sentry bot's power cells had reached their limit.
+Sandrine doubted the makeshift bomb would slow their pursuers down by much,
+but every second counted.
 
 The scientists and engineers who erected the first building at Bharati Station
 played a single game of cricket in the snow
@@ -8633,17 +8638,9 @@ And when people began bringing their families with them
 to escape the droughts, floods, and communal warfare of their homeland,
 the proposal to build a proper cricket pitch
 went from a standing joke to a unanimously-approved item in the town plan.
-
 Sandrine doubted the stadium's architects had realized that
 such a large, covered space would be
-a perfect place to hide a fleet of hovercraft from passing drones and satellites.
-
-*Boom!*
-They felt the explosion as much as they heard it.
-Somewhere behind them,
-the sentry bot's power cells had reached their limit and then some.
-She doubted it would slow their pursuers down by much,
-but every second counted.
+a perfect place to hide a fleet of armored hovercraft from passing drones and satellites.
 
 There were no guards at the stadium.
 Why would there be?
@@ -8651,24 +8648,39 @@ They were hundreds of kilometers from the nearest settlement,
 and anyone capable of crossing that expanse
 would not have been slowed down by a couple of shivering Marines.
 
-FIXME: pick a hovercraft and disable the others
+One of the hovercraft was a three-story monster that looked like it could square off against the *Bengal*.
+The others were merely large and menacing.
+Sandrine trotted to the nearest of those and flipped open
+a small armored plate next to an access hatch.
+*Lemme do it,* Iffy thought as Sandrine studied the keypad it revealed.
 
+Sandrine shook her/their/Iffy's head.
+"Nothing here for you to hack," she said aloud.
+"I'm surprised it's even electronic—we used mechanical locks in my day.
+I just need to figure out how to—hey!"
+She yelped as she/they/Iffy raised her/their/Iffy's arm and tapped in a six-digit code.
+
+*Figured it out,* Iffy thought smugly as the hatch hissed open.
+
+"Fine, but warn a girl next time, all right?"
+Sandrine muttered,
+squeezing through and dogging the hatch shut behind her.
 Schematics appeared,
-red and blue and sizzling-bright white,
-each surrounded by a swirling flock of information.
-She grinned at Sandrine's double-take.
-*Still feels that way t' me too,* she thought.
+red and blue and sizzling white,
+each surrounded by a swirl of information.
+Iffy grinned at Sandrine's double-take.
+*Still feels that way t' me too.*
 
-And promptly collapsed.
-*We're bleeding,* Sandrine thought calmly.
-*And our blood pressure—wait, no, don't try to stand up.*
+And then they collapsed on the metal deck.
+*We're bleeding,* Sandrine thought.
+*Our blood pressure is—wait, no, don't try to stand up.*
 
-"Gotta…"
+"Gotta… keep movin'…"
 Iffy felt nauseous and so, so tired.
 
-*Nosebleed,* Sandrine confirmed.
+*That's the low blood pressure,* Sandrine confirmed.
 *And if our heart beats any faster we're probably going to pass out.
-Let me take over.*
+Let me drive.*
 
 Iffy shook her head.
 "Ow," she whimpered.
@@ -11482,7 +11494,7 @@ Wales' voice chided.
 Iffy snapped,
 pointing the wrench at the service bot.
 The gun on the back of the sentry bot beside barked twice.
-The first shot punched a hole through the service bot.
+The first shot punched a hole through the other bot.
 The second caught it off-center and sent it spinning across the floor.
 
 The tunnel at the other end of the bunker had a blast door
@@ -11541,8 +11553,48 @@ healing would take time
 and that was something she/they/the world didn't have enough of right now.
 
 "Sh sh sh," the Marine said softly.
-An armored hand brushed gently against her cheek.
+An armored hand took her by the chin and gently turned her head to the side.
 Her last thought before all her thoughts went away was,
-*Honesty?*
+*Doctor Johel?*
+
+She woke up feeling nauseous and slightly detached from the world.
+Yawning triggered a dull ache in her side,
+which was when she realized that she had been shot.
+She let her eyes open and pressed a hand gingerly against the epicenter of the bruise.
+*Shot and then patched up,* she thought.
+Whoever had done it had opened her jacket but cut away part of her shirt.
+
+"She's with us,"
+Doctor Johel's voice said.
+
+"Thank you,"
+Wales replied.
+"Help her sit up."
+
+Strong mechanical hands took her weight and supported her back.
+She swung her legs over the edge of the workbench she was lying on and rubbed her eyes.
+Doctor Johel smiled at her,
+looking even smaller encased in the bulk of a Marine exoskeleton.
+"How are you feeling?"
+
+Iffy worked her tongue,
+trying to collect enough saliva to spit,
+but her mouth was too dry.
+"Here."
+Doctor Johel passed her a water bottle.
+"Don't worry, it's just water."
+
+Iffy studied it for a second,
+then set it down without drinking and twisted,
+wincing,
+until she could see Johnson Wales.
+He looked up from a bulky app cabled to the machine next to him,
+then set it aside and stood.
+
+"Sorry about that,"
+he said,
+gesturing at the bandage on her abdomen.
+"Targeting shouldn't have—"
+He stopped his apology mid-sentence at her look.
 
 </section>
