@@ -141,11 +141,11 @@ so here's a picture of some kittens.
 ## The Beginning
 
 <div class="center">
-  <img src="./lanl-1998-07.jpg" width="60%">
+  <img src="@root/files/swc/lanl-1998-07.jpg" width="60%">
 </div>
 
 <div class="center">
-  <img src="./lanl-1998-09.jpg" width="60%">
+  <img src="@root/files/swc/lanl-1998-09.jpg" width="60%">
 </div>
 
 <!--

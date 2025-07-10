@@ -210,7 +210,7 @@ template: slides
 
     -   Diagrams? Databases? Spreadsheets? Multimedia?
 
-<img src="punchcard.jpg" alt="a punchcard" width="300px">
+<img src="@root/files/2021/punchcard.jpg" alt="a punchcard" width="300px">
 
 ---
 
