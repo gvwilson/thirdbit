@@ -198,6 +198,6 @@ Final state of project (20%)
 [Perri2018]: https://isbnsearch.org/isbn/9781491973790
 [Scharlau2023]: https://leanpub.com/teachingteamcollaboration
 [Spinellis2007]: https://doi.org/10.1109/MS.2007.121
-[division-of-labor]: @root2025/01/08/division-of-labor/
-[forming-teams]: @root2025/01/07/forming-teams/
-[time-management]: @root2025/01/03/time-management/
+[division-of-labor]: @root/2025/01/08/division-of-labor/
+[forming-teams]: @root/2025/01/07/forming-teams/
+[time-management]: @root/2025/01/03/time-management/

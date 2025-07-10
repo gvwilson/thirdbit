@@ -42,7 +42,7 @@ So will I have a story to give my niece and nephew next Christmas? History sugge
 [maddy-roo]: @root/fiction/maddy-roo/
 [madica]: @root/fiction/madica/
 [sdxjs]: @root/sdxjs/
-[still]: @root/fiction/still-book/
+[still]: @root/fiction/still/
 [still-short]: @root/fiction/still-short/
 [tuppence]: @root/fiction/tuppence-a-bag/
 [voyage]: @root/fiction/voyage/

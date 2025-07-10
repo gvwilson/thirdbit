@@ -102,7 +102,7 @@ Later: see also [A Dollar a Minute][dollar] and this partial list of places to r
 -   Communication
     -   <https://github.com/element-hq> + <https://matrix.org/>
     -   <https://mattermost.com/solutions/use-cases/self-sovereign-collaboration/>
-    -   <https://www.rocket.chat/ >
+    -   <https://www.rocket.chat/>
     -   <https://p2p.mirotalk.com/>
 -   Wiki
     -   <https://www.bookstackapp.com/>
