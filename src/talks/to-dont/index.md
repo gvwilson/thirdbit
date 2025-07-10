@@ -111,7 +111,7 @@ template: slides
 
 -   How long did it take?
 
-<img src="productivity.svg" class="center">
+<img src="@root/files/talks/productivity.svg" class="center">
 
 ---
 

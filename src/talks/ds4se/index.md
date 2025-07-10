@@ -11,7 +11,7 @@ template: slides
 
 -   Or build tools, or package managers, or…
 
-<img src="./ddj.png" alt="Dr Dobb's Journal" class="center">
+<img src="@root/files/talks/ddj.png" alt="Dr Dobb's Journal" class="center">
 
 ---
 

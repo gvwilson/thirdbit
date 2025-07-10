@@ -114,7 +114,7 @@ template: slides
 -   <a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice
 -   How long did it take?
 
-<img src="productivity.svg" class="center">
+<img src="@root/files/talks/productivity.svg" class="center">
 
 ---
 
