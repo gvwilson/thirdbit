@@ -128,7 +128,7 @@ template: slides
 ## Along the Way
 
 <div class="center">
-  <img src="@root/files/bib/beautiful-code.png" width="20%">
+  <img src="@root/files/bib/beautiful-code.jpg" width="20%">
   <img src="@root/files/talks/making-software.jpg" width="20%">
   <img src="@root/files/talks/aosa1.png" width="20%">
   <img src="@root/files/talks/aosa2.png" width="20%">

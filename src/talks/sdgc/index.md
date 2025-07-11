@@ -271,6 +271,96 @@ is anyone naive enough to believe that we would still insist on using these test
 
 ---
 
+## Title
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/igo-privacy.jpg" alt="Igo: The Known Citizen" width="200px">
+  </div>
+  <div class="col-8">
+    <p>
+      Sarah E. Igo: <a href="https://isbnsearch.org/isbn/9780674244795"><em>The Known Citizen: A History of Privacy in Modern America</em></a>
+    </p>
+    <p>
+      FIXME
+    </p>
+  </div>
+</div>
+
+---
+
+## Title
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/singer-accidents.jpg" alt="Singer: There Are No Accidents" width="200px">
+  </div>
+  <div class="col-8">
+    <p>
+      Jessie Singer: <a href="https://isbnsearch.org/isbn/9781982129682"><em>There Are No Accidents: The Deadly Rise of Injury and Disaster—Who Profits and Who Pays the Price</em></a>
+    </p>
+    <p>
+      FIXME
+    </p>
+  </div>
+</div>
+
+---
+
+## Title
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/oluo-race.jpg" alt="Oluo: So You Want to Talk About Race" width="200px">
+  </div>
+  <div class="col-8">
+    <p>
+      Ijeoma Oluo: <a href="https://isbnsearch.org/isbn/9781580058827"><em>So You Want to Talk About Race</em></a>
+    </p>
+    <p>
+      FIXME
+    </p>
+  </div>
+</div>
+
+---
+
+## Title
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/chang-capitalism.jpg" alt="Chang: 23 Things They Don't Tell You About Capitalism" width="200px">
+  </div>
+  <div class="col-8">
+    <p>
+      Ha-Joon Chang: <a href="https://isbnsearch.org/isbn/9781608193387"><em>23 Things They Don't Tell You About Capitalism</em></a>
+    </p>
+    <p>
+      FIXME
+    </p>
+  </div>
+</div>
+
+---
+
+## Title
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/bracha-ideas.jpg" alt="Bracha: Owning Ideas" width="200px">
+  </div>
+  <div class="col-8">
+    <p>
+      Oren Bracha: <a href="https://isbnsearch.org/isbn/9781108790697"><em>Owning Ideas: The Intellectual Origins of American Intellectual Property, 1790–1909</em></a>
+    </p>
+    <p>
+      FIXME
+    </p>
+  </div>
+</div>
+
+---
+
 ## Thank You
 
 <div class="center">
