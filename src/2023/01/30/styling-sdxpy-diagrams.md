@@ -9,7 +9,7 @@ and the sketch style pioneered by [rough.js][rough_js]
 because [people give more honest feedback on work that looks rough][t3_rough]:
 
 <div class="center">
-  <img src="@root/files/2023/rough_comic.svg" alt="Comic Sans and sketch style">
+  <img src="@root/files/2023/backup_concept_map.svg" alt="Comic Sans and sketch style">
 </div>
 
 I recently switched to the [Atkinson Hyperlegible][atkinson_font] font for this site

@@ -50,7 +50,7 @@ original: swc
   But if you give her a box full of parts, you've done this:
 </p>
 <p>
-  <img src="@root/files/2014/11/lego_ad_1981.jpg" width="660" height="893" class="centered">
+  <img src="@root/files/2013/01/lego_ad_1981.jpg" width="660" height="893" class="centered">
 </p>
 <p>
   You see that smile?

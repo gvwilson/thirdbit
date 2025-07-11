@@ -11,7 +11,7 @@ date: 2020-08-20
       April 2020
     </td>
     <td width="33%">
-      <img src="@root/files/2020/08/trimmed-beard-2020-07.jpg" width="90%" class="centered">
+      <img src="@root/files/2020/07/formal-at-home-2020-07.jpg" width="90%" class="centered">
       <br>
       July 2020
     </td>

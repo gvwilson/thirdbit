@@ -18,6 +18,6 @@ and you found it useful,
 please share it with anyone you know
 who wants a better world but isn't sure where to start.
 
-<img alt="Building Powerful Community Organizations" src="@root/files/2018/11/bpco.jpg" class="centered">
+<img alt="Building Powerful Community Organizations" src="@root/files/talks/bpco.jpg" class="centered">
 
 [bpco]: https://www.amazon.com/Building-Powerful-Community-Organizations-Personal/dp/0977151808/

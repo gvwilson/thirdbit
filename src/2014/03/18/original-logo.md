@@ -8,4 +8,4 @@ original: swc
   So old that the only surviving copy of our original logo
   is an unanimated GIF:
 </p>
-<img src="@root/files/2014/03/original-logo.gif" alt="Original Software Carpentry logo" class="centered">
+<img src="@root/files/talks/swc-1998.gif" alt="Original Software Carpentry logo" class="centered">

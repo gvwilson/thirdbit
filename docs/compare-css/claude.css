@@ -1,0 +1,335 @@
+/* claude.css - A minimalist CSS framework for technical content
+ * Created by Claude AI
+ */
+
+:root {
+  /* Typography */
+  --font-family: system-ui, sans-serif;
+  --font-family-mono: monospace;
+  --line-height: 1.6;
+  
+  /* Colors */
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-link: #3b5bdb;
+  --color-link-hover: #1c3faa;
+  --color-border: #dddddd;
+  --color-code-bg: #f5f7fa;
+  --color-accent: #5c7cfa;
+  --color-accent-light: #edf2ff;
+  --color-muted: #f8f9fa;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-s: 0.5rem;
+  --spacing: 1rem;
+  --spacing-m: 1.5rem;
+  --spacing-l: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Layout */
+  --max-width: 72rem;
+  --border-radius: 4px;
+  --column-gap: 2rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1a1a1a;
+    --color-text: #dddddd;
+    --color-text-light: #aaaaaa;
+    --color-link: #748ffc;
+    --color-link-hover: #91a7ff;
+    --color-border: #444444;
+    --color-code-bg: #2a2a2a;
+    --color-accent: #5c7cfa;
+    --color-accent-light: #364fc7;
+    --color-muted: #2c2c2c;
+  }
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; /* 10px base makes rem calculations easy */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-l);
+}
+
+/* Grid system */
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(-1 * var(--column-gap) / 2);
+  margin-right: calc(-1 * var(--column-gap) / 2);
+}
+
+[class^="col-"] {
+  flex: 0 0 100%;
+  padding-left: calc(var(--column-gap) / 2);
+  padding-right: calc(var(--column-gap) / 2);
+  margin-bottom: var(--spacing);
+}
+
+/* 12 column grid */
+@media (min-width: 768px) {
+  .col-1 { flex: 0 0 8.33%; }
+  .col-2 { flex: 0 0 16.66%; }
+  .col-3 { flex: 0 0 25%; }
+  .col-4 { flex: 0 0 33.33%; }
+  .col-5 { flex: 0 0 41.66%; }
+  .col-6 { flex: 0 0 50%; }
+  .col-7 { flex: 0 0 58.33%; }
+  .col-8 { flex: 0 0 66.66%; }
+  .col-9 { flex: 0 0 75%; }
+  .col-10 { flex: 0 0 83.33%; }
+  .col-11 { flex: 0 0 91.66%; }
+  .col-12 { flex: 0 0 100%; }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: var(--spacing-m) 0 var(--spacing);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h1 { font-size: 2.8rem; margin-top: var(--spacing-xl); }
+h2 { font-size: 2.4rem; margin-top: var(--spacing-l); }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.8rem; }
+h5 { font-size: 1.6rem; }
+h6 { font-size: 1.4rem; }
+
+p, ul, ol, dl, table, blockquote, pre {
+  margin-bottom: var(--spacing-m);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+small {
+  font-size: 0.85em;
+}
+
+/* Lists */
+ul, ol {
+  margin-left: var(--spacing-l);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd {
+  margin-left: var(--spacing-l);
+  margin-bottom: var(--spacing-s);
+}
+
+/* Code */
+code, pre {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  background-color: var(--color-code-bg);
+  border-radius: var(--border-radius);
+}
+
+code {
+  padding: 0.2em 0.4em;
+}
+
+pre {
+  padding: var(--spacing);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Blockquote */
+blockquote {
+  border-left: 4px solid var(--color-accent);
+  padding: var(--spacing-s) var(--spacing);
+  background-color: var(--color-muted);
+  font-style: italic;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: var(--spacing-s);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+th {
+  font-weight: 600;
+  background-color: var(--color-muted);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--color-muted);
+}
+
+/* Forms */
+label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 500;
+}
+
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: var(--spacing-s) var(--spacing);
+  margin-bottom: var(--spacing);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  width: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+button, .button {
+  display: inline-block;
+  padding: var(--spacing-s) var(--spacing-m);
+  background-color: var(--color-accent);
+  color: white;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+
+button:hover, .button:hover {
+  background-color: var(--color-link-hover);
+  border-color: var(--color-link-hover);
+  text-decoration: none;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-muted { color: var(--color-text-light); }
+
+hr {
+  height: 1px;
+  background-color: var(--color-border);
+  border: 0;
+  margin: var(--spacing-l) 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+figure {
+  margin-bottom: var(--spacing-m);
+}
+
+figcaption {
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-xs);
+}
+
+/* Additional elements */
+details {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing);
+  margin-bottom: var(--spacing-m);
+}
+
+summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+mark {
+  background-color: var(--color-accent-light);
+  padding: 0.1em 0.3em;
+  border-radius: var(--border-radius);
+}
+
+abbr {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  html {
+    font-size: 60%;
+  }
+  
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.8rem; }
+  
+  body {
+    padding: var(--spacing);
+  }
+}

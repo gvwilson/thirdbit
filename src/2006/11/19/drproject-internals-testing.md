@@ -8,7 +8,7 @@ Trac was one of those.  Its developers had written some unit tests, but they onl
 
 But testing web applications is harder than testing classical command-line applications because web apps consist of several collaborating processes: a browser, a web server, the CGI program (or servlet container and servlets), the database server, and filesystem-dependent components like Subversion (Figure 1).
 
-<img alt="Figure 3" src="@root/files/2006/11/test041.png" class="centered">
+<img alt="Figure 3" src="@root/files/2006/11/test04.png" class="centered">
 
 This causes three problems; in increasing order, they are:
 <ol>

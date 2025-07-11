@@ -87,7 +87,7 @@ and the mark in the middle shows the median:
 
 <div align="center">
 <figure>
-<img src="@root/files/2022/prechelt-boxplot.svg" alt="Box-and-whisker plot show that most developers spent between zero and 20 hours but a few took as long as 63 hours.">
+<img src="@root/files/talks/productivity.svg" alt="Box-and-whisker plot show that most developers spent between zero and 20 hours but a few took as long as 63 hours.">
 <figcaption><strong>Development Time</strong></figcaption>
 </figure>
 </div>
