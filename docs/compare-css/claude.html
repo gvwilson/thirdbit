@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude CSS Framework</title>
+  <link rel="stylesheet" href="claude.css">
+</head>
+<body>
+  <header>
+    <h1>Claude CSS Framework</h1>
+    <p>A minimalist CSS framework for technical content and blogs.</p>
+  </header>
+
+  <hr>
+
+  <section>
+    <h2>Typography</h2>
+    <h1>Heading Level 1</h1>
+    <h2>Heading Level 2</h2>
+    <h3>Heading Level 3</h3>
+    <h4>Heading Level 4</h4>
+    <h5>Heading Level 5</h5>
+    <h6>Heading Level 6</h6>
+
+    <p>This is a standard paragraph with some <strong>bold text</strong>, <em>italic text</em>, and a <a href="#">link</a>. The framework provides clean, readable typography optimized for technical content and articles.</p>
+    
+    <p>Claude CSS uses system fonts for optimal performance and familiarity. The line height and spacing are carefully tuned for readability on screens of various sizes.</p>
+
+    <p><small>This is small text, useful for captions or footnotes.</small></p>
+    
+    <p>This paragraph includes <mark>highlighted text</mark> and an <abbr title="Abbreviation">abbr</abbr> element.</p>
+  </section>
+
+  <section>
+    <h2>Code Display</h2>
+    <p>Inline code looks like <code>const greeting = "Hello, world!";</code></p>
+    
+    <pre><code>// This is a code block
+function factorial(n) {
+  if (n <= 1) return 1;
+  return n * factorial(n - 1);
+}
+
+const result = factorial(5); // 120</code></pre>
+  </section>
+
+  <section>
+    <h2>Lists</h2>
+    <h3>Unordered List</h3>
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item with a longer description that might wrap to multiple lines in some viewports</li>
+      <li>Fourth item</li>
+    </ul>
+
+    <h3>Ordered List</h3>
+    <ol>
+      <li>First step</li>
+      <li>Second step</li>
+      <li>Third step with additional explanation and details that might make this list item take up more space</li>
+      <li>Fourth step</li>
+    </ol>
+
+    <h3>Definition List</h3>
+    <dl>
+      <dt>Term</dt>
+      <dd>Definition or explanation of the term.</dd>
+      <dt>Another Term</dt>
+      <dd>Another definition with more text to demonstrate how longer content is displayed in definition lists.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Blockquote</h2>
+    <blockquote>
+      <p>The best way to predict the future is to invent it.</p>
+      <p>— Alan Kay</p>
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Tables</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>font-family</td>
+          <td>CSS variable</td>
+          <td>Sets the primary font family for body text</td>
+        </tr>
+        <tr>
+          <td>color-accent</td>
+          <td>CSS variable</td>
+          <td>Primary accent color used for links and highlights</td>
+        </tr>
+        <tr>
+          <td>spacing</td>
+          <td>CSS variable</td>
+          <td>Base spacing unit (1rem) for consistent layout</td>
+        </tr>
+        <tr>
+          <td>max-width</td>
+          <td>CSS variable</td>
+          <td>Maximum content width for optimal reading</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Forms</h2>
+    <form>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name">
+      </div>
+      
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your email">
+      </div>
+      
+      <div>
+        <label for="category">Category</label>
+        <select id="category">
+          <option>Option One</option>
+          <option>Option Two</option>
+          <option>Option Three</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Your message"></textarea>
+      </div>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>12-Column Grid System</h2>
+    <p>Claude CSS includes a responsive 12-column grid system. Below are some examples:</p>
+    
+    <div class="container">
+      <h3>Two Equal Columns</h3>
+      <div class="row">
+        <div class="col-6">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Column 1</div>
+        </div>
+        <div class="col-6">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Column 2</div>
+        </div>
+      </div>
+      
+      <h3>Three Equal Columns</h3>
+      <div class="row">
+        <div class="col-4">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Column 1</div>
+        </div>
+        <div class="col-4">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Column 2</div>
+        </div>
+        <div class="col-4">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Column 3</div>
+        </div>
+      </div>
+      
+      <h3>Mixed Column Widths</h3>
+      <div class="row">
+        <div class="col-8">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Main Content (8/12)</div>
+        </div>
+        <div class="col-4">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Sidebar (4/12)</div>
+        </div>
+      </div>
+      
+      <h3>Four Equal Columns</h3>
+      <div class="row">
+        <div class="col-3">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Col 1</div>
+        </div>
+        <div class="col-3">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Col 2</div>
+        </div>
+        <div class="col-3">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Col 3</div>
+        </div>
+        <div class="col-3">
+          <div style="background-color: var(--color-accent-light); padding: var(--spacing); text-align: center;">Col 4</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Collapsible Content</h2>
+    <details>
+      <summary>Click to expand/collapse</summary>
+      <p>This is collapsible content that can be toggled by clicking the summary element. It's useful for FAQs or additional information that doesn't need to be visible initially.</p>
+    </details>
+  </section>
+
+  <section>
+    <h2>Buttons</h2>
+    <button>Standard Button</button>
+    <a href="#" class="button">Button Link</a>
+  </section>
+
+  <hr>
+
+  <footer>
+    <p class="text-center text-muted">Claude CSS Framework — A minimalist CSS framework for technical content</p>
+  </footer>
+</body>
+</html>
