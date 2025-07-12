@@ -299,5 +299,39 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  De Souza Santos et al 2025: "Software Fairness Debt" <https://arxiv.org/abs/2405.02490> Presents a useful categorization of ways in which software can be unfair or reinforce unfairness, synthesized from multiple sources.
 
+1.  Allen et al 2025: "Ten simple rules for PIs to integrate Research Software Engineering into their research group" <https://arxiv.org/abs/2506.20217>.
+
+1.  Bell et al 2025: "How do Software Engineering Candidates Prepare for Technical Interviews?" <https://arxiv.org/abs/2507.02068>.
+
+1.  Cerqueira et al 2025: "Exploring Empathy in Software Engineering: Insights from a Grey Literature Analysis of Practitioners' Perspectives" <https://arxiv.org/abs/2507.05325>.
+
+1.  Christensen et al 2025: "Teaching Energy-Efficient Software—An Experience Report" <https://arxiv.org/abs/2504.19707>.
+
+1.  Daniel et al 2025: "Out of the Day Job: Perspectives of Industry Practitioners in Co-Design and Delivery of Software Engineering Courses" <http://dx.doi.org/10.1145/3724363.3729090>.
+
+1.  Hidellaarachchi et al 2025: "The Role of Humour in Software Engineering—A Literature Review and Preliminary Taxonomy" <https://arxiv.org/abs/2507.03527>.
+
+1.  Hoffmann and Majuntke 2025: "Green Metrics Tool: Measuring for fun and profit" <https://arxiv.org/abs/2506.23967>.
+
+1.  Lamport 2025: "A Retrospective of Proving the Correctness of Multiprocess Programs" <http://dx.doi.org/10.1109/TSE.2024.3522038>.
+
+1.  Montes et al 2025: "The Factors Influencing Well-Being in Software Engineers: A Cross-Country Mixed-Method Study" <https://arxiv.org/abs/2504.01787>.
+
+1.  Oliveira et al 2025: "Bugs in the Shadows: Static Detection of Faulty Python Refactoring" <https://arxiv.org/abs/2507.01103>.
+
+1.  Pfleeger and Kitchenham 2025: "Evidence-Based Software Engineering Guidelines Revisited" <http://dx.doi.org/10.1109/TSE.2025.3526730>.
+
+1.  Rochkind 2025: "A Retrospective on the Source Code Control System" <http://dx.doi.org/10.1109/TSE.2024.3524947>.
+
+1.  Straubinger et al 2025: "Sojourner under Sabotage: A Serious Testing and Debugging Game" <https://arxiv.org/abs/2504.19287>.
+
+1.  Thakur et al 2025: "Scientific Open-Source Software Is Less Likely to Become Abandoned Than One Might Think! Lessons from Curating a Catalog of Maintained Scientific Software" <http://dx.doi.org/10.1145/3729369>.
+
+1.  Vartziotis et al 2025: "Carbon Footprint Evaluation of Code Generation through LLM as a Service" <https://arxiv.org/abs/2504.01036>.
+
+1.  Verwijs et al 2025: "Is It Safe To Learn And Share? On Psychological Safety and Social Learning in (Agile) Communities of Practice" <https://arxiv.org/abs/2507.01065>.
+
+1.  Wang et al 2025: "Why do Machine Learning Notebooks Crash? An Empirical Study on Public Python Jupyter Notebooks" <https://arxiv.org/abs/2411.16795>.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
