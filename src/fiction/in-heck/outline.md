@@ -373,7 +373,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Blazes and Thoughtful get out with Sindy
     -   Sindy panics and activates Blazes' tech
 
-### 12 (Gumption)
+### 12: No Choice But Rescue (Gumption)
 
 -   Goals:
     -   Connect Gumption and Dockety with Patient

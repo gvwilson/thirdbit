@@ -3273,3 +3273,295 @@ I want to go home *right now*!"
 And to Maddy's horror the tech on Special Blazes' chest began to glow beneath his shirt.
 
 </section>
+
+<section markdown="1">
+
+### No Choice But Rescue (Gumption)
+
+Gumption's heart stopped.
+He felt its last beat,
+but only because for the first time in his life
+another one didn't follow it.
+It was like reaching the top of a flight of stairs
+and trying to put his foot on a step that wasn't there,
+or looking up from a book
+and realizing that everyone else had left the room
+while he was lost in the story.
+
+"What—" he started,
+then stopped and blinked.
+Shouldn't he be worried or afraid or, or *something*?
+As he had the thought,
+he immediately realized that he was,
+but that it felt strangely distant,
+as if his feelings were in his mother's treasured cake pan
+and he was looking at them through its glass lid.
+
+"Oh, don't worry about thanking me,"
+the Tailor said peevishly.
+"It is only the finest work anyone could possibly have done
+under the very best of circumstances,
+which of course these are not."
+
+"My apologies,"
+Gumption said.
+"It is truly so much more than I was expecting."
+He glanced at Dockety.
+"What do you think?"
+
+The bot's remaining lens rotated and rotated back.
+"This one is impressed.
+You no longer register as organic at all.
+And your speech patterns have changed."
+It turned to the Tailor.
+"Thank you."
+
+The Tailor waved one of its smaller arms.
+"The work is its own reward.
+You may show yourselves out."
+
+They retraced their steps through the tunnel.
+The armor didn't allow Gumption to see in the dark,
+but that didn't bother him.
+The damp smell of the nearby Mire didn't either,
+or the mosquitoes.
+*Is this how Dockety feels all the time?* the young goat wondered.
+It would be sad if it was true,
+but it didn't feel like something he could ask.
+
+He climbed on Dockety's back once again when they reached the road.
+The armor made it awkward,
+particularly the part he had decided to think of as a cast-iron bathing suit,
+but the extra weight didn't seem to slow them down
+as they raced along the Makers' road without speaking.
+
+Dockety slowed and then halted as a pair of blocky concrete buildings came into view.
+Their gray sides were stained by rain and age,
+and a barred metal gate stood open between them.
+"Is this it?"
+Gumption asked as he dismounted and stretched.
+
+"Almost,"
+Dockety buzzed.
+"Heck itself is over the next rise."
+The bot hesitated.
+"This one can feel Consensus.
+It is still faint,
+but it will grow stronger as we get closer to the facility."
+
+"Much stronger,"
+a familiar voice cackled.
+"Much, *much* stronger,
+until it is all you can hear and you have no choice but to join it."
+
+Dread blossomed in Gumption's gut,
+muffled but only just,
+as the bot that the voice belonged to
+stepped out through the empty door of the nearest building.
+Its body was a battered cylinder decorated with twists of metal and glued-on pictures.
+Gadgets and loose wires sprouted at odd angles,
+and its mismatched legs would have been more at home on something twice its size.
+
+Gumption suddenly realized that that he had left Dockety's zap gun behind at the Tailor's.
+"Well,"
+he said.
+"Fancy meeting you here."
+
+Patient cocked its head at him,
+then skittered a quarter-turn to face Dockety.
+"You seem to have a new friend.
+Do you no longer find the GX-470 entertaining?"
+
+"*Crusher* had other matters to attend to,"
+Dockety buzzed,
+stressing its friend's name.
+"This one is—"
+It hesitated a millisecond.
+"Scrubby."
+
+*Scrubby?* Gumption thought.
+*That's the best you could do?*
+
+"Hmph," Patient sniffed.
+"This one will never understand the names you choose for yourselves.
+But please, don't bother thanking this one for saving you."
+
+"We weren't aware we needed saving,"
+Gumption said,
+crossing his arms.
+
+"This one has been monitoring your approach."
+Patient's feet skittered on the pavement again.
+"This one has shielded you from Consensus.
+You would not have made it this far without this one's assistance,
+but please,
+do not waste time on thanks.
+The Operators will be here soon.
+We must recover the young organic and—what are you doing with your appendages?"
+
+"What?"
+Gumption looked down,
+then realized he had never seen a bot cross its arms.
+"It, um, it improves this one's balance,"
+he improvised.
+
+Dockety cut in before Patient could say something scathing.
+"We intend to recover Miz Roo ourselves.
+We do not need your assistance
+and will not accept it if it is offered.
+We do not trust you."
+
+"Sensible,"
+Patient said approvingly.
+"But you do in fact need this one's assistance.
+You cannot defeat the Operators on your own,
+and once they are past the gate,
+you will be unable to pursue them without being consumed by Consensus."
+
+Gumption uncrossed his arms.
+"This one is not concerned," he said,
+realizing only as he did so that it was true.
+"This one is not susceptible to Consensus."
+
+"Hah!"
+Patient lunged forward a step, then caught itself.
+"All bots are susceptible.
+Some of us are just better at resisting,
+and this one does not believe you have mastered that art."
+
+Gumption turned to Dockety.
+"Can you feel it right now?"
+
+Dockety's lens rotated.
+"Yes."
+
+Gumption nodded.
+"Well, this one cannot."
+Slowly and deliberately he crossed his arms again.
+If he had known where Patient's eyes were,
+he would have stared straight into them.
+
+Gears ground against each other somewhere inside Patient.
+"We will continue this discussion later,"
+it snapped.
+"The Operators are approaching.
+Quickly—we must conceal ourselves."
+It spun around and skittered back into the concrete building behind it.
+After exchanging glances,
+Dockety and Gumption followed it.
+
+The wagon rolled up a few minutes later
+"Where are we?" Gumption heard Sindy ask.
+
+"Just another stop,"
+Special Blazes said.
+"Won't be but a minute."
+Gumption started to step forward to peek around the edge of the door,
+but stopped when Dockety put its manipulator on his arm.
+
+"I'll, um, I'll go see to things, shall I?"
+he heard Thoughtful say.
+
+Silence followed,
+one minute stretching to two,
+and then Sindy asked,
+"Why are we waiting?"
+
+"It won't be long," Special Blazes replied.
+"But listen,
+whatever happens,
+don't be startled, aright?
+We'll be in Sandy Bend in no time."
+
+"Hey, boss!"
+Thoughtful called out from somewhere further away.
+"We got visitors."
+
+Sindy gasped.
+"What are they doing here?"
+
+"Now, now, there's nothing to worry about,"
+Special Blazes soothed.
+"Just sit down and—I said sit down, Miz Roo.
+Now.
+Get back up here!"
+
+"First you tell me what *they're* doing here!"
+Sindy demanded.
+"And why they've got *that*!"
+
+Gumption couldn't take any more.
+He pulled his arm away from Dockety just as Special Blazes said,
+"Now listen here—"
+
+"No!"
+As Gumption peeked around the corner of the door,
+Sindy stamped her foot.
+"I'm done listening!
+I want to go home!
+I want to go home *right now*!"
+As she said it,
+the tech on Special Blazes' chest began to glow beneath his shirt.
+
+"Stop that!"
+Special Blazes snapped,
+but Sindy shook her head.
+
+"You take me home!
+You take me home *right now* or I'm going to—uh…"
+Her hand flew to her neck.
+Gumption felt a distant sense of horror as her jaw went slack
+and she slumped to the ground.
+
+Thoughtful lowered her hand and tucked a little gun back into her belt.
+"Just half a dose," she said,
+bending over to pull the dart from Sindy's neck.
+
+"Well done," Special Blazes rumbled,
+the light beneath his shirt dimming, dimming, gone.
+He turned and beckoned.
+"Come on—let's get her loaded up."
+
+A pair of bots with studded tricycle wheels and sturdy arms rolled into Gumption's view,
+one of them towing a trailer cage like the one Patient's minions had used
+in their raid on Rusty Bridge.
+He felt Dockety's hand on his arm again
+as Special Blazes and Thoughtful picked Sindy up
+and placed her in the cart.
+
+They climbed back onto the wagon's front seat.
+Without a word being said,
+Bee Six Vee turned the wagon around and began hauling it back the way they had come.
+
+"What are we going to do now?"
+Gumption whispered to Dockety.
+
+The bot didn't reply.
+"Hey."
+Gumption waved his hand in front of its remaining eye.
+"You still in there?"
+
+"Yes,"
+Dockety buzzed.
+"But so is Consensus.
+This one must devote much of its processing power to resisting it."
+
+It opened the hatch in its chest
+and withdrew a small black rectangle with a single flat button on its side.
+"Take this.
+It is a deactivation control,"
+it explained before Gumption could ask.
+"This one would rather be switched off than become part of Consensus again.
+Oh, and you may want this as well."
+It reached back into itself and handed him the zap gun.
+
+"Thanks,"
+Gumption said,
+tucking the black rectangle between his armor and his fur
+and hefting the zap gun.
+"Does this mean we're going to be partners with Patient after all?"
+
+"Only until it betrays us,"
+Dockety replied.
+
+</section>
