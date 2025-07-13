@@ -403,7 +403,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   "This one would rather be deactivated than be part of Consensus again"
     -   They go into Heck
 
-### 13 (Maddy)
+### 13: Papa Roo (Maddy)
 
 -   Goals:
     -   Maddy finds her father

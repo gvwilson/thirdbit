@@ -3563,5 +3563,321 @@ and hefting the zap gun.
 
 "Only until it betrays us,"
 Dockety replied.
+It pivoted and walked out into the evening light.
+Happy that he couldn't feel enough to feel afraid,
+Gumption followed.
+
+</section>
+
+<section markdown="1">
+
+### Papa Roo (Maddy)
+
+Maddy watched in horror
+as Special Blazes and Thoughtful loaded Sindy into the trailer cage.
+She had to do something, but what?
+Thoughtful would knock her out with a dart if she revealed herself,
+and—she gulped.
+As far as anyone knew she had been kidnapped by a flying bot.
+Nobody would think to blame the Operators if she was never seen again.
+
+The wagon jostled as Thoughtful and Special Blazes climbed back onto its front seat.
+Bee Six Vee turned the wagon around and began heading back the way they had come.
+The little cleaning bot beeped at her.
+
+"I know," she hissed.
+"Just let me think."
+
+In the end it was the landscape that made her decision for her.
+A few minutes away from the gate to Heck,
+the Makers' road dipped slightly and swung closer to the Mire—close enough
+that drooping willows grew right up to the road's shoulder.
+Maddy unlatched the tailboard of the wagon as quietly as she could,
+then picked up the little cleaning bot and wriggled backward on her belly
+until her legs were dangling over the edge.
+
+A little further…
+a little further…
+Her boots scraped against the pavement.
+She started running in big, bounding steps,
+then took a deep breath and slid out of the wagon.
+
+It almost worked.
+She managed three more steps before her toe caught and she went sprawling,
+tearing a hole in her skirt and skinning both knees.
+*Ow ow ow,* she whimpered in her head,
+still clutching the cleaning bot in one arm.
+
+The wagon rolled around a bend and vanished behind the trees.
+Maddy struggled to her feet,
+limped over to a fallen log,
+and sat down.
+"There," she said,
+setting the cleaning bot on the spongy ground beside her.
+
+The bot beeped.
+Maddy rubbed her knees, wincing.
+"How about I call you Mouse?
+Would you like that?"
+The bot beeped again and rolled toward the road,
+then rolled back to beep at her again.
+
+"Yeah, yeah, I know."
+She stood up,
+suddenly realizing how long it had been since she had eaten.
+"Let's go."
+
+It took half an hour to walk to the gate.
+It was another fifteen minutes from there to a matching gate
+set into a concrete wall three stories high.
+Maddy fingered the discombobulator as they got closer.
+She hadn't seen any bots on the ground,
+but several were floating or flying through the air
+on the other side of the wall.
+
+"Wait!" she hissed as the little bot—no, Mouse, its name was Mouse—rolled through the gate.
+Biting her lip,
+she switched on the discombobulator and followed it.
+What lay beyond made her gasp,
+her aching bladder momentarily forgotten.
+
+The wall that curved away on either side loomed over a jumble of windowless buildings,
+each connected to its neighbors by a bewildering tangle of pipes and rails and conveyor belts.
+Bots twice and ten times the size of Crusher rumbled through the broad paved canyons,
+but she could see right through them.
+And when she looked more closely at the buildings
+it felt like seeing double.
+If she just glanced at them they looked brand new,
+but when she stared for a moment
+she caught glimpses of cracks and rust stains.
+It was all some sort of illusion.
+
+She jumped as Mouse bumped into her boot.
+"All right, all right, I'm coming," she whispered loudly,
+then squeaked as a ladder bot stepped right through her.
+After hesitating for a moment,
+she switched off the discombobulator.
+There was no telling when she would actually need it.
+
+Mouse led her to a building as gray and nondescript as any of the others.
+Its single door slid open as she appraoched.
+Inside was a room not much larger than the cart that had brought her to Heck.
+Panels in the ceiling cast a cold white light on gray walls and a matching floor.
+A rectangular slab at right angles to the door looked enough like a bench
+for her to set herself onto it
+facing the flat glass screen set into the opposite wall.
+
+The screen lit up as the door snicked close behind her.
+The word "intake" scrolled across it in big green letters.
+Maddy fidgeted as she waited for something else to happen.
+Finally she couldn't stand it any more.
+
+"Excuse me,"
+she said,
+"But is there a toilet somewhere nearby that I could use?"
+
+Nothing happened.
+"Please?" she added a bit desperately.
+
+A section of the wall beside her rotated soundlessly
+to bring the most beautiful white porcelain toilet Maddy had ever seen into the room.
+There was even toilet paper and a small basin with a tap…
+
+The toilet rotated away again as soon as she was done washing her hands.
+"Thank you," she said,
+seating herself on the bench again
+and gobbling the flat rectangle with the word "food" printed on it
+that had appeared while she was otherwise occupied.
+She half-expected "you're welcome" to appear on the screen on the wall,
+but it stayed dark.
+
+And stayed dark.
+
+And stayed dark.
+
+"This is ridiculous!"
+Maddy uncrossed her arms and stood up.
+"You must have brought me here for a reason.
+What is it?
+What is 'intake'?"
+
+As soon as she said the word,
+the screen lit up once again.
+"…suitability depends on m-m-many factors,
+including ph-ph-physical health,
+m-m-mental acuity,
+and…"
+a cheerful voice said
+as images splashed onto the screen.
+In one,
+a person with the same mostly-hairless head and tiny nose as Sindy
+smiled and waved.
+In another,
+someone wearing a tight-fitting body suit floated against a black starlit sky,
+while in a third,
+a whole room full of throwbacks—no, *originals*, Maddy corrected herself—sat in a classroom
+not much different from the one back in Rusty Bridge.
+
+The images disappeared,
+only to be replaced with others.
+"Those n-n-not selected will st-st-still have a role to play,"
+the cheerful voice stuttered.
+An original with long, curly hair picked up tortoise and kissed its nose.
+As she turned to face Maddy,
+she and the tortoise both morphed into cartoon drawings
+that slid on top of each other to produce something akin to a young Special Leaf.
+"Our g-g-genetic enhancement research
+is c-c-creating new breeds of c-c-caretakers
+to m-m-m-
+to m-m-m-"
+
+The voice ground to a halt.
+Other drawings materialized around the first one:
+a goat,
+a bear,
+and a tiger,
+each starting on all fours and turning into something like
+the people Maddy had grown up with.
+
+"…waiting for th-th-them to return
+wh-wh-when their long sleep ends!"
+the voice finished triumphantly.
+A dot in the center of the screen swelled
+to become a single original in one of the strange skintight suits,
+three times larger than the people around it.
+Happy music started,
+stopped,
+re-started,
+and finally ended in a plaintive warble.
+
+"Now,
+you're p-p-probably asking yourself,
+how can *I* help?
+The answer is,
+however you can!"
+The original flew away off screen.
+The goat, bear, and tiger held up tools.
+"You will b-b-be assigned tasks that m-m-match your abilities.
+And to ensure peak p-p-performance,
+you will be fitted with a reg- a reg- a regulator
+that will op-op-optimize your every move.
+Isn't that wonderful?"
+As the cheerful voice spoke,
+helmets dropped onto the heads of the three people on screen,
+who immediately began sawing, raking, and tightening screws
+in time with what was probably supposed to be a happy tune.
+
+Horrified,
+Maddy took an involuntary step back.
+"Now, now," the voice chided.
+"A regulator d-d-doesn't hurt once you g-g-get used to it,
+and you will b-b-be allowed several hours of sleep every day!"
+
+A section of the wall pivoted.
+A four-wheeled bot rolled into the room
+holding a helmet in its manipulators.
+"P-p-please take a seat,"
+the voice said.
+"The f-f-fitting will only t-t-take a moment."
+
+"Um, thank you, but I don't really—"
+Maddy started.
+
+"C-c-compliance *is* mandatory,"
+the voice said.
+"Remember,
+you were m-m-made for this."
+
+Two more arms unfolded from the bot's side,
+heavier than the pair holding the helmet.
+As the bot rolled forward and reached for Maddy,
+she grabbed her wrist and pressed the button on her discombobulator.
+
+"Error," the voice said.
+"Error.
+No subject found.
+Where is th-th-the subject?"
+
+A periscope popped up from the top of the four-wheeled bot and rotated through a full circle.
+It bleeped apologetically.
+
+"C-c-calculating."
+The voice fell silent for a moment.
+"The subject must have ex-ex-exited containment.
+Pursue."
+
+The door in the exterior wall slid open.
+Heart pounding,
+Maddy waited for it to leave,
+then slipped through the other door.
+
+Five bots just like the one that had gone in search of her lined the walls of the room she found herself in,
+though "room" didn't feel like the right word.
+The ceiling was two stories above her,
+maybe more,
+and the only exit was a normal-sized door opposite the one behind her.
+It felt like a warehouse without shelves
+or a machine shop that someone had emptied out,
+lonely and somehow purposeless.
+
+She tiptoed forward.
+To her surprise,
+the interior door slid aside as she approached.
+She froze for a moment,
+expecting alarms or lasers or possibly both.
+When nothing happened,
+she stepped inside.
+
+Ceiling lights came on automatically as she crept along a perfectly normal corridor
+with perfectly normal doors on either side.
+None of them were labeled,
+and none responded to her touch.
+It felt more and more like she was walking into a trap,
+but what else could she do?
+
+A set of stairs like the one's in Patient's lair brought her to another corridor
+on the the second floor.
+The doors here had handles.
+She paused for a moment before reaching for the nearest one.
+The four-wheeled bot wouldn't have been able to climb those stairs.
+If this really was where people like her were brought,
+something else must have come to meet it.
+
+*Click.*
+She pulled the door open,
+stepped inside,
+and froze in shock.
+
+A dozen plain metal cots filled an airless, windowless room.
+Half were empty,
+but the ones nearest her held—she swallowed hard.
+Those had been people, once,
+deer and ox and wolves and goats and something she thought was a crocodile
+but might have been an alligator,
+she could never tell the two apart.
+All of them still wore simple white shirts and trousers.
+All of them had wires attached to helmets on their heads,
+and all of them had been dead for quite some time.
+
+She backed up and closed the door gently.
+There were two more doors on this side of the corridor
+and three on the other.
+On impulse,
+she turned off her discombobulator—it would need to recharge soon
+no matter what she did—and strode down the hall to the door furthest from the stairs.
+
+*Click.*
+She pulled it open,
+expecting another scene out of one of the books Special Leaf always warned her
+would give her nightmares.
+Another dozen cots stood in three neat rows of four.
+Two rows were empty.
+The third—she gasped.
+
+"Papa?"
+But as she stepped,
+Mouse bumped into her leg.
+She had a moment to feel its arm press against her calf
+before a shock ran all the way up her spine and knocked her unconscious.
 
 </section>
