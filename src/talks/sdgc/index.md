@@ -22,7 +22,7 @@ template: slides
 
 ## Three Traditions
 
--   Tedre and Sutinen: ["Three Traditions of Computing"](https://doi.org/10.1080/08993400802332332) (2008)
+-   Tedre & Sutinen: ["Three Traditions of Computing"](https://doi.org/10.1080/08993400802332332) (2008)
 
 <table class="centered" style="font-size: 75%">
 <tr>
@@ -129,7 +129,7 @@ template: slides
 -   Lau: *[The Effective Engineer](https://isbnsearch.org/isbn/9780996128100)* (2015)
 -   Orosz: *[The Software Engineer's Guidebook](https://isbnsearch.org/isbn/9789083381824)* (2023)
 -   Reilly: *[The Staff Engineer's Path](https://isbnsearch.org/isbn/9781098118730)* (2022)
--   Skelton and Pais: *[Team Topologies](https://isbnsearch.org/isbn/9781942788812)* (2019)
+-   Skelton & Pais: *[Team Topologies](https://isbnsearch.org/isbn/9781942788812)* (2019)
 -   Stanier: *[Become an Effective Software Engineering Manager](https://isbnsearch.org/isbn/9781680507249)* (2020)
 -   Swerdlow: *[Tech Leadership](https://isbnsearch.org/isbn/9798988984917)* (2023)
 -   Taze: *[Engineers Survival Guide](https://isbnsearch.org/isbn/9798985349900)* (2021)
@@ -171,9 +171,7 @@ template: slides
     <img src="@root/files/books/douglas-purity.jpg" alt="Douglas: Purity and Danger" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Mary Douglas: <em><a href="https://isbnsearch.org/isbn/9780415289955">Purity and Danger: An Analysis of Concepts of Pollution and Taboo</a></em> (2002)
-    </p>
+    Mary Douglas: <em><a href="https://isbnsearch.org/isbn/9780415289955">Purity and Danger: An Analysis of Concepts of Pollution and Taboo</a></em> (2002)
     <ul>
       <li>Every group places some things out of bounds as a way of identifying who's in and who's out</li>
       <li>Racial slurs that I used as a young man are now taboo</li>
@@ -189,7 +187,7 @@ template: slides
 ## Maybe Other Books?
 
 -   Steen: *[Ethics for People Who Work in Tech](https://isbnsearch.org/isbn/9780367542436)* (2022)
--   Goltz and Dowdesell: *[Real World AI Ethics for Data Scientists](https://isbnsearch.org/isbn/9781032275055)* (2023)
+-   Goltz & Dowdesell: *[Real World AI Ethics for Data Scientists](https://isbnsearch.org/isbn/9781032275055)* (2023)
 -   Schlossberger: *[Ethical Engineering: A Practical Guide with Case Studies](https://isbnsearch.org/isbn/9781032151120)* (2023)
 
 
@@ -206,9 +204,7 @@ template: slides
     <img src="@root/files/books/levitt-freakonomics.jpg" alt="Levitt and Dubner: Freakonomics" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Steven Levitt and Stephen Dubner: <em><a href="https://isbnsearch.org/isbn/9780061234002">Freakonomics</a></em> (2006)
-    </p>
+    Steven Levitt & Stephen Dubner: <em><a href="https://isbnsearch.org/isbn/9780061234002">Freakonomics</a></em> (2006)
     <ul>
       <li>"The only valid way to analyze individual behavior is maximization of wealth"</li>
       <li>…which is provably wrong, but their writing is engaging…</li>
@@ -220,7 +216,7 @@ template: slides
 
 --
 
--   Possibly the most effective piece of propagandain the last thirty years
+-   Possibly the most effective piece of propaganda in the last thirty years
 -   Can we do this, but for good?
 
 ---
@@ -232,9 +228,7 @@ template: slides
     <img src="@root/files/books/wainwright-narconomics.jpg" alt="Wainwright: Narconomics" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Tom Wainright: <em><a href="https://isbnsearch.org/isbn/9781610397704">Narconomics: How to Run a Drug Cartel</a></em> (2017)
-    </p>
+    Tom Wainright: <em><a href="https://isbnsearch.org/isbn/9781610397704">Narconomics: How to Run a Drug Cartel</a></em> (2017)
     <ul>
       <li>Turns out that marketing and HR are big challenges</li>
       <li>And you can learn a lot about legitimate businesses by looking at ones that ignore the legal system</li>
@@ -249,6 +243,22 @@ template: slides
 
 ---
 
+## Speaking of Which…
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/davies-lying.jpg" alt="Davies: Lying for Money" width="200px">
+  </div>
+  <div class="col-8">
+    Dan Davies: <em><a href="https://isbnsearch.org/isbn/9781982114947">Lying for Money: How Legendary Frauds Reveal the Workings of the World</a></em> (2022)
+    <ul>
+      <li>You will see tech companies much more clearly once you know how to recognize common types of fraud</li>
+    </ul>
+  </div>
+</div>
+
+---
+
 ## A More Serious Look
 
 <div class="row">
@@ -256,9 +266,7 @@ template: slides
     <img src="@root/files/books/baetjer-capital.jpg" alt="Baetjer: Software as Capital" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Howard Baetjer Jr.: <em><a href="https://isbnsearch.org/isbn/9780818677793">Software as Capital: An Economic Perspective on Software Engineering</a></em> (1997)
-    </p>
+    Howard Baetjer Jr.: <em><a href="https://isbnsearch.org/isbn/9780818677793">Software as Capital: An Economic Perspective on Software Engineering</a></em> (1997)
     <ul>
       <li>Nobody knows how to make a car (or Linux)</li>
       <li>What is the value of institutional knowledge and how do we preserve it?</li>
@@ -279,9 +287,7 @@ template: slides
     <img src="@root/files/books/bellotti-fire.jpg" alt="Bellotti: Kill It With Fire" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Marianne Bellotti: <em><a href="https://isbnsearch.org/isbn/9781718501188">Kill It With Fire: Manage Aging Computer Systems (and Future Proof Modern Ones)</a></em> (2021)
-    </p>
+    Marianne Bellotti: <em><a href="https://isbnsearch.org/isbn/9781718501188">Kill It With Fire: Manage Aging Computer Systems (and Future Proof Modern Ones)</a></em> (2021)
     <ul>
       <li>Cannot modernize legacy software without changing the social structures that produced them…</li>
       <li><em>…and are now supported by them</em></li>
@@ -295,6 +301,28 @@ template: slides
 
 ---
 
+## The View From the Center
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/scott-seeing.jpg" alt="Scott: Seeing Like a State" width="200px">
+  </div>
+  <div class="col-8">
+    James C. Scott: <em><a href="https://isbnsearch.org/isbn/9780300078152">Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed</a></em>
+    <ul>
+      <li>Explains why large organizations always prefer uniformity over productivity</li>
+      <li>And the price we all pay for this</li>
+    </ul>
+  </div>
+</div>
+
+
+--
+
+> "Do it however you want" also has a price.
+
+---
+
 ## Politics
 
 <div class="row">
@@ -302,9 +330,7 @@ template: slides
     <img src="@root/files/books/wendorff-politics.jpg" alt="Wendorff: Politics in Software Development" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Peter Wendorff: <em><a href="https://isbnsearch.org/isbn/9781484273791">Politics in Software Development</a></em> (2022)
-    </p>
+    Peter Wendorff: <em><a href="https://isbnsearch.org/isbn/9781484273791">Politics in Software Development</a></em> (2022)
     <ol>
       <li>We're all working together toward a common goal (the official version)</li>
       <li>Everyone is a self-interested Machiavelli (coffee-room gossip)</li>
@@ -329,9 +355,7 @@ template: slides
     <img src="@root/files/books/raymond-bazaar.jpg" alt="Raymond: The Cathedral and the Bazaar" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Eric Raymond: <em><a href="https://isbnsearch.org/isbn/9781565927247">The Cathedral and the Bazaar</a></em> (1999)
-    </p>
+    Eric Raymond: <em><a href="https://isbnsearch.org/isbn/9781565927247">The Cathedral and the Bazaar</a></em> (1999)
     <ul>
       <li>A compelling but misleading myth about the social organization of open source development</li>
     </ul>
@@ -347,9 +371,7 @@ template: slides
     <img src="@root/files/books/raymond-bazaar.jpg" alt="Raymond: The Cathedral and the Bazaar" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Eric Raymond: <em><a href="https://isbnsearch.org/isbn/9781565927247">The Cathedral and the Bazaar</a></em> (1999)
-    </p>
+    Eric Raymond: <em><a href="https://isbnsearch.org/isbn/9781565927247">The Cathedral and the Bazaar</a></em> (1999)
     <ul>
       <li>A compelling but misleading myth about the social organization of open source development</li>
       <li>Freeman: <a href="https://en.wikipedia.org/wiki/The_Tyranny_of_Structurelessness">"The Tyranny of Structurelessness"</a> (1972)</li>
@@ -367,331 +389,192 @@ template: slides
 
 ---
 
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/scott-seeing.jpg" alt="Scott: Seeing Like a State" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      James C. Scott: <em><a href="https://isbnsearch.org/isbn/9780300078152">Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed</a></em>
-    </p>
-    <p>
-      Explains why large organizations always prefer uniformity over productivity,
-      and the price people pay for this.
-    </p>
-  </div>
-</div>
-
----
-
-## FIXME
+## Wave the Red (Sale) Flag
 
 <div class="row">
   <div class="col-4">
     <img src="@root/files/books/phillips-walmart.jpg" alt="Phillips and Rozworski: The People's Republic of Walmart" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Leigh Phillips and Michal Rozworski: <em><a href="https://isbnsearch.org/isbn/9781786635167">The People's Republic of Walmart</a></em>
-    </p>
-    <p>
-      Most of the world's economic activity occurs within large companies like Walmart and Amazon.
-      They all use central planning:
-      why doesn't the economy as a whole,
-      and can we make the efficiencies of planning democratically accountable?
-    </p>
+    Leigh Phillips & Michal Rozworski: <em><a href="https://isbnsearch.org/isbn/9781786635167">The People's Republic of Walmart</a></em> (2019)
+    <ul>
+      <li>Most of the world's economic activity occurs within large companies like Walmart and Amazon</li>
+      <li>Which all use Soviet-style central planning</li>
+    </ul>
   </div>
 </div>
 
----
-
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/mcmillan-lower.jpg" alt="McMillan Cottom: Lower Ed" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Tressie McMillan Cottom: <em><a href="https://isbnsearch.org/isbn/9781620974384">Lower Ed: The Troubling Rise of For-Profit Colleges in the New Economy</a></em>
-    </p>
-    <p>
-      Describes how a large part of the educational sector in the US exists
-      to translate government grants into personal debt for the poor and private profit for the rich.
-    </p>
-  </div>
-</div>
+-   Why did central planning fail for nation-states?
+    -   Is it just that they didn't have the IT it requires?
+-   Can we make its efficiencies democratically accountable?
 
 ---
 
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/linklater-owning.jpg" alt="Linklater: Owning the Earth" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Andro Linklater: <em><a href="https://isbnsearch.org/isbn/9781620402917">Owning the Earth</a></em>
-    </p>
-    <p>
-      The idea that individuals can own land is a lot younger than most people realize,
-      and its emergence holds a lot of lessons for today's debates over intellectual property.
-    </p>
-  </div>
-</div>
-
----
-
-## FIXME
+## Fair Game
 
 <div class="row">
   <div class="col-4">
     <img src="@root/files/books/wilkinson-level.jpg" alt="Wilkinson and Pickett: The Spirit Level" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Richard Wilkinson and Kate Pickett: <em><a href="https://isbnsearch.org/isbn/9781608193417">The Spirit Level</a></em>
-    </p>
-    <p>
-      An evidence-based exploration of how and why greater equality is better for everyone.
-    </p>
+    Richard Wilkinson & Kate Pickett: <em><a href="https://isbnsearch.org/isbn/9781608193417">The Spirit Level</a></em> (2011)
+    <ul>
+      <li>Greater equality improves outcomes for everyone</li>
+      <li>If the game is fair, it's worth playing</li>
+      <li>If it isn't, people don't play because they're either sure to win or to lose</li>
+    </ul>
   </div>
 </div>
 
----
+--
 
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/davies-lying.jpg" alt="Davies: Lying for Money" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Dan Davies: <em><a href="https://isbnsearch.org/isbn/9781982114947">Lying for Money</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
-  </div>
-</div>
+> If you can convince the lowest white man he's better than the best colored man,
+> he won't notice you're picking his pocket.
+> Hell, give him somebody to look down on and he'll empty his pockets for you.
+> <br>
+> — Lyndon B. Johnson
 
 ---
 
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/merchant-machine.jpg" alt="Merchant: Blood in the Machine" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Brian Merchant: <em><a href="https://isbnsearch.org/isbn/9780316487740">Blood in the Machine</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
-  </div>
-</div>
-
----
-
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/young-abolishing.jpg" alt="Young: Abolishing Fossil Fuels" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Kevin Young: <em><a href="https://isbnsearch.org/isbn/9798887440330">Abolishing Fossil Fuels</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
-  </div>
-</div>
-
----
-
-## FIXME
+## How That Works in Practice
 
 <div class="row">
   <div class="col-4">
     <img src="@root/files/books/achen-democracy.jpg" alt="Achen and Bartels: Democracy for Realists" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Christopher Achen and Larry Bartels: <em><a href="https://isbnsearch.org/isbn/9780691178240">Democracy for Realists: Why Elections Do Not Produce Responsive Government</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
+    Christopher Achen & Larry Bartels: <em><a href="https://isbnsearch.org/isbn/9780691178240">Democracy for Realists: Why Elections Do Not Produce Responsive Government</a></em> (2017)
+    <ul>
+      <li>People don't pick a political party based on their beliefs</li>
+      <li>They pick their beliefs based on the social group they're in…</li>
+      <li>…which is often closely identified with a political party</li>
+    </ul>
   </div>
 </div>
 
 ---
 
-## FIXME
+## Speaking of Democracy…
 
 <div class="row">
   <div class="col-4">
     <img src="@root/files/books/bueno-dictator.jpg" alt="Bueno de Mesquita and Smith: The Dictator's Handbook" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Bruce Bueno de Mesquita and Alastair Smith: <em><a href="https://isbnsearch.org/isbn/9781541701366">The Dictator's Handbook: Why Bad Behavior is Almost Always Good Politics</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
+    Bruce Bueno de Mesquita and Alastair Smith: <em><a href="https://isbnsearch.org/isbn/9781541701366">The Dictator's Handbook: Why Bad Behavior is Almost Always Good Politics</a></em> (2022)
+    <ul>
+      <li>Nominal selectorate: those who nominally have a say</li>
+      <li>Real selectorate: those who actually cast a vote</li>
+      <li>Winning coalition: those whose votes produce victory</li>
+    </ul>
+  </div>
+</div>
+
+
+--
+
+1.  The smaller the winning coalition, the fewer people to satisfy to remain in control.
+1.  The larger the selectorate, the easier it is to replace dissenters.
+1.  Extract as much wealth as you can without provoking rebellion or recession.
+1.  Give your essential supporters just enough rewards to keep them loyal.
+1.  Do not reward your supporters too well or they will become a threat.
+
+---
+
+## Three Kinds of Property
+
+<div class="row">
+  <div class="col-2">
+    <img src="@root/files/books/linklater-owning.jpg" alt="Linklater: Owning the Earth" width="100px">
+  </div>
+  <div class="col-10">
+    Andro Linklater: <em><a href="https://isbnsearch.org/isbn/9781620402917">Owning the Earth: The Transforming History of Land Ownership</a></em> (2015)
+    <br>
+    The idea that individuals can own land is younger than most people realize;
+    its emergence holds lessons for today's debates over intellectual property.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2">
+    <img src="@root/files/books/bracha-ideas.jpg" alt="Bracha: Owning Ideas" width="100px">
+  </div>
+  <div class="col-10">
+    Oren Bracha: <em><a href="https://isbnsearch.org/isbn/9781108790697">Owning Ideas: The Intellectual Origins of American Intellectual Property, 1790–1909</a></em> (2019)
+    <br>
+    The idea of "intangible property" is also fairly new;
+    understanding why and how it was invented is essential to understanding debates about training data for AI.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2">
+    <img src="@root/files/books/igo-privacy.jpg" alt="Igo: The Known Citizen" width="100px">
+  </div>
+  <div class="col-10">
+    Sarah E. Igo: <em><a href="https://isbnsearch.org/isbn/9780674244795">The Known Citizen: A History of Privacy in Modern America</a></em> (2020)
+    <br>
+    The right to privacy is the youngest of the three;
+    again,
+    you can't be part of the debate without understanding how we got here.
   </div>
 </div>
 
 ---
 
-## FIXME
+## Hindsight
+
+<img src="@root/files/talks/carpentries-logo.svg">
+
+-   Step 1: teach scientists how to program
+-   Step 2: teach them how to teach
+-   *Step 3: teach them organizational change to make steps 1 and 2 normal*
+    -   If I'd known this, [It Will Never Work in Theory](https://neverworkintheory.org/) might have succeeded
+
+
+--
+
+-   Should have organized workshops in the other direction right from the start
+    -   "Molecular biology for programmers"
+    -   "Social psychology for software developers"
+
+---
+
+## The Point Is To Change It
 
 <div class="row">
   <div class="col-4">
-    <img src="@root/files/books/frase-futures.jpg" alt="Frase: Four Futures" width="200px">
+    <img src="@root/files/books/young-abolishing.jpg" alt="Young: Abolishing Fossil Fuels" width="200px">
   </div>
   <div class="col-8">
-    <p>
-      Peter Frase: <em><a href="https://isbnsearch.org/isbn/9781781688137">Four Futures: Life After Capitalism</a></em>
-    </p>
-    <p>
-      Explores four scenarios in which our reactions to increasing automation and worsening climate change play out.
-    </p>
-    <p>
-      FIXME
-    </p>
+    Kevin Young: <em><a href="https://isbnsearch.org/isbn/9798887440330">Abolishing Fossil Fuels: Lessons From Movements That Won</a></em> (2024)
+    <ul>
+      <li>Shows that social reform in the US only happens when economic pressure is brought to bear on big business</li>
+      <li>Protests make headlines, but boycotts change laws</li>
+    </ul>
   </div>
 </div>
 
----
 
-## FIXME
+--
 
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/moyn-utopia.jpg" alt="Moyn: The Last Utopia" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Samuel Moyn: <em><a href="https://isbnsearch.org/isbn/9780674064348">The Last Utopia</a></em>
-    </p>
-    <p>
-      Argues that human rights became the defining issue for post-war progressives only because others failed.
-    </p>
-    <p>
-      FIXME
-    </p>
-  </div>
-</div>
+-   My generation squandered the best world we've ever had
+-   The best thing we can do now is help you learn the things we chose to ignore
+
+
+--
+
+-   And it's fun (if you skip the boring bits)
 
 ---
 
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/igo-privacy.jpg" alt="Igo: The Known Citizen" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Sarah E. Igo: <em><a href="https://isbnsearch.org/isbn/9780674244795">The Known Citizen: A History of Privacy in Modern America</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
-  </div>
-</div>
-
----
-
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/singer-accidents.jpg" alt="Singer: There Are No Accidents" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Jessie Singer: <em><a href="https://isbnsearch.org/isbn/9781982129682">There Are No Accidents: The Deadly Rise of Injury and Disaster—Who Profits and Who Pays the Price</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
-  </div>
-</div>
-
----
-
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/oluo-race.jpg" alt="Oluo: So You Want to Talk About Race" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Ijeoma Oluo: <em><a href="https://isbnsearch.org/isbn/9781580058827">So You Want to Talk About Race</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
-  </div>
-</div>
-
----
-
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/chang-capitalism.jpg" alt="Chang: 23 Things They Don't Tell You About Capitalism" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Ha-Joon Chang: <em><a href="https://isbnsearch.org/isbn/9781608193387">23 Things They Don't Tell You About Capitalism</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
-  </div>
-</div>
-
----
-
-## FIXME
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/bracha-ideas.jpg" alt="Bracha: Owning Ideas" width="200px">
-  </div>
-  <div class="col-8">
-    <p>
-      Oren Bracha: <em><a href="https://isbnsearch.org/isbn/9781108790697">Owning Ideas: The Intellectual Origins of American Intellectual Property, 1790–1909</a></em>
-    </p>
-    <p>
-      FIXME
-    </p>
-  </div>
-</div>
-
----
-
-## Thank You
+## Thank You, and Good Luck
 
 <div class="center">
   <p><img src="@root/files/talks/gvwilson.png" width="40%"></p>
   <p><a href="http://third-bit.com">Greg Wilson</a></p>
   <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-  <p><a href="http://third-bit.com/talks/to-dont/">http://third-bit.com/talks/to-dont/</a></p>
+  <p><a href="http://third-bit.com/talks/to-dont/">http://third-bit.com/talks/sdgc/</a></p>
 </div>
 
 ---
