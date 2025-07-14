@@ -1,16 +1,7 @@
 ---
-title: "Software Carpentry: Lessons Learned"
+title: "Software Carpentry:<br>Lessons Learned"
 template: slides
----
-
-<div class="center padtop">
-  <h1>Software Carpentry:<br><a href="https://f1000research.com/articles/3-62/v2">Lessons Learned</a></h1>
-  <p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="15%" /></p>
-  <p>Greg Wilson</p>
-  <p><a href="http://third-bit.com/talks/lessons-learned/">http://third-bit.com/talks/lessons-learned/</a></p>
-  <p><img src="@root/files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
-</div>
-
+date: "2023-05-01"
 ---
 
 ## A Word of Caution

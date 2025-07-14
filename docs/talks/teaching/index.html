@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../assets/tango.css">
+  <link rel="stylesheet" href="../../assets/slides.css">
+  <!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script
+    type="text/javascript"
+    id="MathJax-script"
+    async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <title>Teaching and Learning for Programmers</title>
+</head>
+
+  <body>
+    <textarea id="source">
+
+<div class="center">
+  <h1>Teaching and Learning for Programmers</h1>
+  <p><img src="../../files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
+  <h2>Greg Wilson</h2>
+  <p>2025-07-20</p>
+  <p><img src="../../files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
+</div>
+
+---
+
+
+## The Pitch
+
+<div class="row">
+  <div class="col-4">
+    <img src="../../files/talks/teaching/scientist.png" alt="scientist" class="center" height="200px">
+  </div>
+  <div class="col-4">
+    <img src="../../files/talks/teaching/teacher.png" alt="teacher" class="center" height="200px">
+  </div>
+  <div class="col-4">
+    <img src="../../files/talks/teaching/programmer.png" alt="programmer" class="center" height="200px">
+  </div>
+</div>
+
+<!--
+
+Hello and welcome. This hour-long talk will cover some key ideas in
+evidence-based teaching that we hope you will find useful, both when
+passing on what you know and when learning new things yourself. All
+the material is covered by a Creative Commons license: you are free to
+share and remix it so long as you cite this talk as the original
+source.
+
+We know as much about teaching and learning as we do about public
+health. The problem is, most people in tech (and most university
+professors) don't know what we know. By the time you leave high
+school, you probably know what germs and vitamins are and where babies
+come from. You probably don't know similarly basic facts about how
+people learn or how best to teach them.
+
+-->
+
+---
+
+## Rule #1
+
+<div class="center">
+<h2>Design for three different learners</h2>
+</div>
+
+<!--
+
+Our first rule is that you have to figure out who you're teaching
+before you can start to build a lesson.
+
+-->
+
+---
+
+## Cognitive Progression
+
+<div class="center">
+  <img src="../../files/talks/teaching/benner.png" alt="Patricia Benner" width="300px">
+  <p>Prof. Patricia Benner</p>
+</div>
+
+
+--
+
+-   Novice
+-   <strike>Advanced beginner</strike>
+-   Competent
+-   <strike>Proficient</strike>
+-   Expert
+
+<!--
+
+Benner identified five stages, but for our purposes, we're going to
+simplify the model to three and say that someone is either a novice,
+competent, or an expert.
+
+-->
+
+---
+
+A Novice Doesn't Have a Mental Model
+
+<!--
+
+Here's an example of what we mean by a mental model. In grade school
+science class, you were probably taught that atoms are brightly
+colored balls connected by springs. None of those things are actually
+true, but it's a useful model for understanding the things people want
+to understand at that stage of their development, and for solving the
+problems they want to solve.
+
+-->
+
+---
+
+Concept Map
+
+
+<!--
+
+Here's one possible concept map for a library from a patron's point of
+view.
+
+(Original image from Amy Hodge of Stanford University.)
+
+-->
+
+---
+
+Concept Map
+Here's another from the point of view of the director.
+
+
+<!--
+
+See solutions at a glance Multiple points of view Much (much) better
+at debugging Have difficulty explaining their thinking Symptoms of
+Being an Expert A lack of confidence doesn't necessarily mean that
+someone is a novice.
+
+-->
+
+---
+
+Novice
+
+<!--
+
+Neural networks don't map directly to concept maps, but wiring helps
+explain the differences between novices, competent practitioners, and
+experts. Novices don't have a lot of connections between concepts.
+
+-->
+
+---
+
+Novice
+Competent
+
+<!--
+
+Competent practitioners have more, but it can take them several steps
+to get from what they know to what they need.
+
+-->
+
+---
+
+Novice
+Competent
+Expert
+
+<!--
+
+Experts have many more connections, so their path is shorter—so short,
+in fact, that they can often jump from start to finish in a single
+step. This is also what leads to expert blind spot: they can't explain
+their reasoning because there isn't any.
+
+-->
+
+---
+
+Teaching Methods
+
+novice
+competent
+expert
+
+<!--
+
+These differences mean that different teaching strategies work best
+for different learners. Novices need to be guided: the teacher has to
+decide what they need to learn next. Competent practitioners need to
+be mentored: they can make a lot of progress on their own, and the
+teacher's role is to help them get unstuck or to help them pick their
+next problem. And if someone is an expert, the most effective strategy
+is to help them reflect on their own work.
+
+-->
+
+---
+
+Rule #2:
+
+A lesson is a user interface
+for knowledge
+
+<!--
+
+Our second rule is that everything we know about building user
+interfaces applies directly to building lessons.
+
+-->
+
+---
+
+Example Persona
+
+M'shelle, 38, degree in CS, programmed in Java for a decade, now a project manager.
+Helped build a lot of reporting tools and done budget forecasts.
+Needs to know enough to hire people and arbitrate technical decisions about tools.
+Single parent of two young children, so evenings and weekends are spoken for.
+
+<!--
+
+This is what a finished persona looks like.
+
+-->
+
+---
+
+Four Different Learners
+
+Anya Academic
+Exton Excel
+Larry Legacy
+M'shelle Manager
+
+<!--
+
+We need multiple explanations because we have multiple learners. For
+example, suppose we're teaching data science. Anya is a professor who
+knows a lot of statistics but is new to programming; Exton has been
+using Excel for years but doesn't know much stats; Larry has been
+using SAS for 35 years and doesn't want to have to switch to R or
+Python, and M'shelle used to be a programmer but now manages a team of
+data scientists. The best intro for each person will be very
+different.
+
+-->
+
+---
+
+Rule #3:
+
+Use formative assessments
+as unit tests during learning
+
+<!--
+
+Rule number three is to check for learning as we're teaching.
+
+-->
+
+---
+
+What Is 37 + 15 ?
+
+52
+42
+412
+43
+
+<!--
+
+To see how to do this, let's imagine we're teaching some children how
+to do multi-digit addition, and we ask them to add 37 and 15.  If they
+say "52", then either they understand how to do it or they've made a
+lucky guess.  If they got "42", they probably didn't carry. In fact,
+they probably wrote down "12" as the sum of 7 and 5, and then added 3
+and 1 to get 4 and wrote that on top of the "1" from "12".  What if
+they got 412? In this case, they still don't understand how to carry,
+but it's a step forward: they're keeping the 1.  And what about 43?
+This child has almost got it: they've carried the 1, but they've
+carried it back into the 1's column because they don't understand it's
+a 10.
+
+-->
+
+---
+
+Diagnosing Misconceptions
+
+
+<!--
+
+Forces the instructor to build a mental model of the learners' mental
+models Each of the learners who gave a wrong answer has a different
+misconception. Each one therefore needs a different explanation to
+move forward. It might be a linear progression or it might not; what's
+important is that if you don't understand what they don't understand,
+you're just guessing about what to say next.
+
+-->
+
+---
+
+Quick (30-60 seconds)
+Unambiguous (scalable)
+Diagnostic power
+Formative Assessment
+"Can I move on?"
+
+<!--
+
+They tell instructors whether they can move on or not (and if not, why
+not).
+
+-->
+
+---
+
+Formative Assessment
+
+"Do I understand this?"
+Quick (30-60 seconds)
+Unambiguous (scalable)
+Diagnostic power
+
+<!--
+
+And they give learners a way to check that they actually understand
+something (because it's easy to believe you do until you try to use
+knowledge).
+
+-->
+
+---
+
+Rule #4:
+
+Manage cognitive load
+
+<!--
+
+The fourth rule is to avoid overloading the learner.
+
+-->
+
+---
+
+Cognitive Architecture
+
+<!--
+
+In simple form, we have two types of memory: long-term and short-term.
+
+-->
+
+---
+
+Cognitive Architecture
+
+<!--
+
+On the input side, most data (for most people) comes through the
+visual channel, is integrated with linguistic information, then
+encoded and stored.
+
+-->
+
+---
+
+Reading Is Weird
+
+<!--
+
+This model also explains why it's less effective to present the same
+information as text and speech, such as by reading text-heavy slides
+aloud or by having captions that "say" the same thing as the
+presenter. Text comes in through the visual channel, but is then
+shunted sideways to the verbal channel. Your brain can't help but try
+to reconcile the two streams of speech it's receiving (one through
+your eyes and one through your ears), and doing that takes mental
+effort away from encoding the information for storage.
+
+-->
+
+---
+
+The Magic Number 7 ± 2
+
+<!--
+
+Short-term memory is a serious cognitive bottleneck. Estimates in the
+1950s were that it could hold 7±2 items; more recent estimates put the
+number closer to 4.
+
+-->
+
+---
+
+<!--
+
+This is why phone numbers are as long as they are. It may also be why
+the basic unit of human social organization is half a dozen
+people. From sports teams and military formations through knitting
+circles to meetings, that seems to be the limit of the number of
+people who can all be talking or working with one another at a
+time. Beyond that, larger groups quickly break down into
+sub-groups. (If you have 20 people in a meeting, you either have three
+meetings going on or one meeting of half a dozen people with a bunch
+of bystanders.)
+
+-->
+
+---
+
+One Thing at a Time
+
+<!--
+
+Balance bikes.
+
+-->
+
+---
+
+This Is Hard
+
+
+<!--
+
+Memorize the symbol used to represent each number.
+
+-->
+
+---
+
+Let's Try That Again
+
+
+<!--
+
+Does this make it easier?
+
+-->
+
+---
+
+Cognitive Load
+
+
+<!--
+
+To explain the differences, imagine that you're learning to speak
+Frisian, and that you've been asked to translate this sentence. You
+have to do two things: recall some words, and arrange them
+grammatically.
+
+-->
+
+---
+
+Cognitive Load
+
+How is her knee today?
+
+
+<!--
+
+But suppose I give you the words you need, so that all you have to do
+is arrange them in the right order.
+
+-->
+
+---
+
+Cognitive Load
+
+<!--
+
+I've made them problem much simpler by giving you the vocabulary and
+allowing you to focus your attention on the grammar.
+
+-->
+
+---
+
+Cognitive Load
+
+Intrinsic
+What the learning task is supposed to be about
+Grammar
+Germane
+Extra relevant work (such as retrieving supporting information)
+Vocabulary
+Extrinsic
+Handling irrelevancies
+Fonts
+
+<!--
+
+In general, intrinsic load is what the learning task is supposed to be
+about. Germane load is extra relevant work, such as remembering words
+or picking a proof strategy. Extrinsic load is irrelevancies. In this
+case, the intrinsic load is figuring out the order of the words. The
+germane load is recalling the words, which we can reduce by giving
+them to you. And the extrinsic load is the use of a different font for
+each word: it draws your attention, but it doesn't add anything to the
+lesson.
+
+-->
+
+---
+
+Rule #5:
+
+Active beats passive
+
+<!--
+
+Rule number five is that active learning beats passive learning.
+
+-->
+
+---
+
+Two Ways to Learn
+
+Read about something
+Try it out
+Watch a video
+Do exercises
+Attend a lecture
+Discuss a topic
+Hear something explained
+Try to explain it
+
+<!--
+
+The strategies on the left are "learn now, use later". Those on the
+right are "use while learning", and the latter always beats the
+former.
+
+…but university students report that they prefer passive learning…
+
+For example, this plot shows reduction in failure rates in STEM
+classes (from http://www.pnas.org/content/111/23/8410.full.pdf), and
+we now have the cognitive science to explain why. However, learners
+report that they prefer passive learning, even though active learning
+works better (https://www.pnas.org/content/116/39/19251)
+
+-->
+
+---
+
+Six Strategies
+
+Spaced practice
+Interleaving
+Retrieval practice
+Concrete examples
+Elaboration
+Dual coding
+
+
+<!--
+
+http://learningscientists.org There are six strategies that you and
+your learners can use to leverage all of this, and the best summary of
+them comes from the Learning Scientists website. We don't have time to
+go through them all…
+
+-->
+
+---
+
+Interleaving
+
+Randomize study order to build long-range connections
+And to avoid accidentally training your brain to recall things only in a specific order
+
+<!--
+
+…but this is my favorite: randomizing study order improves learning.
+
+-->
+
+---
+
+Rule #6:
+
+Learners are not robots
+
+<!--
+
+It shouldn't be necessary to say this, but our sixth rule is that
+learners are people with feelings and beliefs.
+
+-->
+
+---
+
+Motivation
+
+Intrinsic
+Doing this for my own reasons
+Extrinsic
+Doing this because I have to
+
+<!--
+
+The single strongest predictor of whether an adult learns something or
+not is their motivation, and any discussion of motivation has to start
+with the difference between intrinsic and extrinsic
+motivation. Learning to play the ukulele because you've always wanted
+to is intrinsic; learning because you're in Grade 5 and the teacher
+said so is extrinsic, and unlikely to stick.
+
+-->
+
+---
+
+Positive: Self-Efficacy
+
+I am in control of my own life.
+
+<!--
+
+First and most importantly, adults want to be in control of their own
+lives - they don't like to jump through hoops. Self-efficacy is the
+driving force behind self-paced online training: it allows people
+(well, those privileged enough to have free time) to learn what they
+want and when they want.
+
+-->
+
+---
+
+Positive: Utility
+
+This will help me meet my goals.
+
+<!--
+
+Utility is the second big motivator for adults. Is this useful? Will
+it help me meet my goals? (It's important to note that there are many
+kinds of utility, just as people have many different kinds of
+goals—learning the ukulele probably won't help you find a job, but
+that's not why you're doing it.)
+
+-->
+
+---
+
+Positive: Community
+
+People I know are learning this with me.
+
+<!--
+
+The third motivator is community. People like to do what their
+friends, neighbors, and colleagues are doing, and they like to do
+things together - this is why the best predictor of whether someone
+actually uses a gym membership is whether or not someone they know is
+going with them.
+
+-->
+
+---
+
+Negative: Unpredictability
+
+What I do doesn't seem to affect the outcome.
+
+<!--
+
+Now let's look at demotivators. The most important is
+unpredictability: if taking actions works some of the time, but not
+other times, people give up trying because there's no point. This is
+called learned helplessness.
+
+-->
+
+---
+
+Negative: Unfairness
+
+The teacher plays favorites.
+
+<!--
+
+A second big demotivator is unfairness. Studies have shown that if
+people believe the game is rigged, everyone will do less well—even
+those that the game is rigged in favor of.
+
+-->
+
+---
+
+Negative: Indifference
+
+Nobody cares.
+
+<!--
+
+The third of our demotivators is indifference—the feeling that nobody
+cares if you succeed or not. It's easy for students to feel this way
+in large classes or when learning online, but it's also easy for
+instructors to give this impression even when they're teaching
+one-to-one.
+
+-->
+
+---
+
+Myths
+
+Visual/auditory/kinesthetic learning styles are the astrology of teaching
+Meyers-Briggs Type Indicators are astrology too
+The Learning Pyramid was made up by an ad agency
+
+<!--
+
+At this point you might think we believe that everything about
+education can be explained in terms of cognitive science. We don't,
+because we don't yet have all the science. More importantly, there are
+a lot of pseudoscientific myths about education that refuse to die:
+People don't actually learn better if lesson materials are tailored to
+visual, auditory, or kinesthetic learning styles The so-called
+"learning pyramid" (10% of what you read, 30% of what you see—the
+numbers vary) is completely made up.  The status of some other ideas,
+like stereotype threat and growth mindset, is currently unknown. They
+make sense, and early studies seemed to bear them out, but more recent
+work hasn't been as clear. But this is how science works: we test and
+refine our ideas, and change our opinions as more evidence comes in.
+
+-->
+
+---
+
+Wrapping up
+
+<!--
+
+So let's wrap up.
+
+-->
+
+---
+
+What Next?
+
+<!--
+
+Critics sometimes say that online education is what everybody wants
+for somebody else's children. They're right, but only if the online
+education is done poorly (as it is in most MOOCs). The most important
+distinction isn't online versus in-person; it's interactive versus
+scripted. Books and videos have far more in common with each other
+than they do with chat groups or in-person discussions. I think the
+future of education looks like my daughter playing Minecraft: she
+doesn't care if the people she's playing with are sitting beside her
+or an ocean away as long as they can talk to each other in real time.
+
+-->
+
+---
+
+What Next?
+
+https://teachtogether.tech
+
+<!--
+
+Teaching Tech Together is what I know condensed into one volume.
+
+-->
+
+---
+
+Start where you are.
+Use what you have.
+Help who you can.
+
+Thank you for listening
+Greg Wilson
+http://third-bit.com/
+
+<!--
+
+These rules are not the whole of teaching, but they're a pretty good
+start.  Thank you for listening.
+
+-->
+
+---
+
+Count Them All
+
+<!--
+
+Limits to short-term memory can tell us when we're trying to teach too
+much, too quickly. This concept map has nineteen things in it. That's
+too many, so part of the craft of designing a lesson is to break it
+into chunks guided by the formative assessments we can do.
+
+-->
+
+---
+
+Count Them All
+
+<!--
+
+Here are some digestible chunks.
+
+-->
+
+---
+
+Learner Personas
+
+General background
+Relevant experience
+Their perceived needs
+Special considerations
+
+<!--
+
+We can capture these differences by creating learner personas with
+these features. Anyone who teachers, or any group that teaches
+together, should create a handful of these that describe the range of
+learners they're trying to help. Personas will remind you of one of
+the most important rules of teaching: you are not your learners.
+
+-->
+
+---
+
+The Bad News
+
+Neither the training programs that most companies put all workers
+through nor the grievance procedures that they have implemented are
+helping to solve the problem of sexual harassment in the workplace. In
+fact, both tend to increase worker disaffection and turnover.
+
+— Dobbin & Kalev
+
+Bystander intervention training…is the most promising alternative we've come across…
+
+---
+
+Allyship Scenario
+
+A student in your class has a medically diagnosed attention
+challenge. To maintain focus, they have to talk to themselves while
+problem solving. Some other students in the class have come to you and
+said they find this distracting. What steps would you take in what
+order?
+
+<!--
+
+This is an example of the kind of scenario teachers should go through.
+
+-->
+
+
+    </textarea>
+    <script src="../../assets/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create()
+    </script>
+  </body>
+</html>

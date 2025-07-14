@@ -1,16 +1,7 @@
 ---
 title: "Staying Safe Online"
 template: slides
----
-
-<div class="center padtop">
-  <h1>Staying Safe Online</h1>
-  <p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="15%" /></p>
-  <p>Greg Wilson</p>
-  <p><a href="http://third-bit.com/talks/safety/">http://third-bit.com/talks/safety/</a></p>
-  <p><img src="@root/files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
-</div>
-
+date: "2024-09-24"
 ---
 
 ## Introduction

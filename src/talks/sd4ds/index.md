@@ -1,16 +1,7 @@
 ---
-title: "Software Design in 50 Minutes"
+title: "Software Design<br>in 50 Minutes"
 template: slides
----
-
-<div class="center padtop">
-  <h1>Software Design<br>in 50 Minutes</h1>
-  <p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%"></p>
-  <p>Greg Wilson</p>
-  <p><a href="http://third-bit.com/talks/sd4ds/">http://third-bit.com/talks/sd4ds/</a></p>
-  <p><img src="@root/files/talks/cc-by.svg" width="20%" alt="CC-BY"></p>
-</div>
-
+date: "2024-09-24"
 ---
 
 ## Why Should You Listen to Me?

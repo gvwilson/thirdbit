@@ -1,16 +1,7 @@
 ---
 title: "Software Design by Example: Lessons Learned"
 template: slides
----
-
-<div class="center padtop">
-  <h1>Software Design by Example:<br>Lessons Learned</h1>
-  <p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="15%" /></p>
-  <p>Greg Wilson</p>
-  <p><a href="http://third-bit.com/talks/sdx/">http://third-bit.com/talks/sdx/</a></p>
-  <p><img src="@root/files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
-</div>
-
+date: "2024-10-03"
 ---
 
 ## Why Should You Listen to Me?

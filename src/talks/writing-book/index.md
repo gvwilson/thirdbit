@@ -1,16 +1,7 @@
 ---
 title: "Writing a Technical Book"
 template: slides
----
-
-<div class="center padtop">
-  <h1>Writing a Technical Book</h1>
-  <p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="20%" /></p>
-  <p>Greg Wilson</p>
-  <p><a href="http://third-bit.com/talks/writing-book/">http://third-bit.com/talks/writing-book/</a></p>
-  <p><img src="@root/files/talks/cc-by.svg" width="20%" alt="CC-BY" /></p>
-</div>
-
+date: "2024-10-18"
 ---
 
 ## Why Should You Listen to Me?

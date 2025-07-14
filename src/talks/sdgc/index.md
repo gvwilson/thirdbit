@@ -1,6 +1,7 @@
 ---
 title: "Sex & Drugs & Guns & Code"
 template: slides
+date: "2025-07-13"
 ---
 
 ## Outline
@@ -11,12 +12,12 @@ template: slides
     -   Radicalization
     -   Ubiquitous surveillance
 -   Most discussion by technologists is *shallow*
+    -   And often self-justifying
     -   Andreessen's "Techno-Optimist Manifesto" was embarrassing
-    -   As was its embrace by equally-ignorant billionaires
 -   If we want better answers, we need to:
-    -   Decide what to learn
+    -   Be humble: the "soft" disciplines are harder than ours
+    -   Choose pieces that are most relevant to our problems
     -   Figure out how to fit it into the curriculcum
-    -   Be humble (the "soft" disciplines are harder than ours)
 
 ---
 
@@ -33,9 +34,9 @@ template: slides
 </tr>
 <tr>
   <th valign="top">Assumptions</th>
-  <td valign="top">Programs (algorithms) are abstract objects, they are correct or incorrect, as well as more or less efficient – knowledge is a priori</td>
-  <td valign="top">Programs (processes) affect the world, they are more or less effective and reliable – knowledge is a posteriori</td>
-  <td valign="top">Programs can model information processes, models are more or less accurate – knowledge is a posteriori</td>
+  <td valign="top">Programs (algorithms) are abstract objects, they are correct or incorrect, as well as more or less efficient</td>
+  <td valign="top">Programs (processes) affect the world, they are more or less effective and reliable</td>
+  <td valign="top">Programs can model information processes, models are more or less accurate</td>
 </tr>
 <tr>
   <th valign="top">Aims</th>
@@ -151,12 +152,28 @@ template: slides
 
 ## This Isn't "Politics"
 
--   A reviewer of an early version of this talk said "politics doesn't belong in software engineering courses"
--   But:
-    1.  *Not* talking about these, while talking about venture capital and IPOs, is also a "political" decision
-    2.  Several of the books we're about to discuss don't align with my personal politics,
-        but are still examples of deep thinking and deserve to be taken seriously
-    3.  Most of the people who use the word "politics" as an insult would struggle to define it correctly
+-   A reviewer said "politics doesn't belong in software engineering courses"
+-   But *not* talking about these things, while talking about venture capital and IPOs, is a "political" decision
+-   Most of the people who use the word "politics" as an insult would struggle to define it correctly
+-   "Decision-making in groups in the absence of agreement on goals"
+
+
+--
+
+> Several of the books we're about to discuss don't align with my personal beliefs,
+> but are still examples of deep thinking and deserve to be taken seriously
+
+---
+
+## The Price
+
+> I suspect that one really terrible byproduct of this longstanding
+> argument that software is somehow politically neutral has been that
+> we're collectively unable to recognize the architectural and design
+> choices that go into software as ideological battles until we're
+> living in and building on top of the consequences of losing them.
+> <br>
+> — [Mike Hoye](https://mastodon.social/@mhoye/114818671486959346)
 
 ---
 
@@ -208,7 +225,8 @@ template: slides
     <ul>
       <li>"The only valid way to analyze individual behavior is maximization of wealth"</li>
       <li>…which is provably wrong, but their writing is engaging…</li>
-      <li>…and tech bros are suckers for simple answers to hard questions</li>
+      <li>…and tech bros are suckers for simple answers to hard questions that fit their preconceived ideas…</li>
+      <li>…especially when they have no idea where those ideas came from</li>
     </ul>
   </div>
 </div>
@@ -310,8 +328,8 @@ template: slides
   <div class="col-8">
     James C. Scott: <em><a href="https://isbnsearch.org/isbn/9780300078152">Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed</a></em>
     <ul>
-      <li>Explains why large organizations always prefer uniformity over productivity</li>
-      <li>And the price we all pay for this</li>
+      <li>Large organizations always prefer <em>legibility</em> over productivity</li>
+      <li>Value <em>techne</em> (universal, first principles) over <em>metis</em> (situational, experiential)</li>
     </ul>
   </div>
 </div>
@@ -357,7 +375,7 @@ template: slides
   <div class="col-8">
     Eric Raymond: <em><a href="https://isbnsearch.org/isbn/9781565927247">The Cathedral and the Bazaar</a></em> (1999)
     <ul>
-      <li>A compelling but misleading myth about the social organization of open source development</li>
+      <li>A compelling but misleading myth about the social organization of open source</li>
     </ul>
   </div>
 </div>
@@ -373,7 +391,7 @@ template: slides
   <div class="col-8">
     Eric Raymond: <em><a href="https://isbnsearch.org/isbn/9781565927247">The Cathedral and the Bazaar</a></em> (1999)
     <ul>
-      <li>A compelling but misleading myth about the social organization of open source development</li>
+      <li>A compelling but misleading myth about the social organization of open source</li>
       <li>Freeman: <a href="https://en.wikipedia.org/wiki/The_Tyranny_of_Structurelessness">"The Tyranny of Structurelessness"</a> (1972)</li>
       <li>Every social group has a power structure</li>
       <li>Only question is whether it is explicit and accountable or implicit and unaccountable</li>
@@ -522,14 +540,66 @@ template: slides
 
 ---
 
+## Disasters and Scandals
+
+<div class="row">
+  <div class="col-2">
+    <img src="@root/files/books/singer-accidents.jpg" alt="Singer: There Are No Accidents" width="100px">
+  </div>
+  <div class="col-10">
+    Jessie Singer: <em><a href="https://isbnsearch.org/isbn/9781982129682">There Are No Accidents: The Deadly Rise of Injury and Disaster—Who Profits and Who Pays the Price</a></em> (2023)
+    <br>
+    Contrasts "blame the individual" with "blame the system"
+    and shows that companies push the latter to absolve themselves of responsibility.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2">
+    <img src="@root/files/books/palazzo-pattern.jpg" alt="Palazzo and Hoffrage: The Dark Pattern" width="100px">
+  </div>
+  <div class="col-10">
+    Guido Palazzo and Ulrich Hoffrage: <em><a href="https://isbnsearch.org/isbn/9781541705302">The Dark Pattern: The Hidden Dynamics of Corporate Scandals</a></em> (2025)
+    <table style="font-size: 85%;">
+      <tr>
+        <td style="border: none;">
+          <ul>
+            <li>rigid ideology</li>
+            <li>toxic leadership</li>
+            <li>manipulative language</li>
+          </ul>
+        </td>
+        <td style="border: none;">
+          <ul>
+            <li>corrupting goals</li>
+            <li>destructive incentives</li>
+            <li>ambiguous rules</li>
+          </ul>
+        </td>
+        <td style="border: none;">
+          <ul>
+            <li>perceived unfairness</li>
+            <li>dangerous groups</li>
+            <li>slippery slope</li>
+          </ul>
+        </td>
+    </table>
+  </div>
+</div>
+
+--
+
+> Security and DevOps make more sense when thought about this way.
+
+---
+
 ## Hindsight
 
 <img src="@root/files/talks/carpentries-logo.svg">
 
 -   Step 1: teach scientists how to program
 -   Step 2: teach them how to teach
--   *Step 3: teach them organizational change to make steps 1 and 2 normal*
-    -   If I'd known this, [It Will Never Work in Theory](https://neverworkintheory.org/) might have succeeded
+-   *Step 3: teach them organizational change so they can make steps 1 and 2 normal*
 
 
 --
@@ -549,8 +619,8 @@ template: slides
   <div class="col-8">
     Kevin Young: <em><a href="https://isbnsearch.org/isbn/9798887440330">Abolishing Fossil Fuels: Lessons From Movements That Won</a></em> (2024)
     <ul>
-      <li>Shows that social reform in the US only happens when economic pressure is brought to bear on big business</li>
-      <li>Protests make headlines, but boycotts change laws</li>
+      <li>Social reform in the US only happens when economic pressure is brought to bear on big business</li>
+      <li>"Protests make headlines, but boycotts change laws"</li>
     </ul>
   </div>
 </div>

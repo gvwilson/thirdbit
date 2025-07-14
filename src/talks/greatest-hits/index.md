@@ -1,6 +1,7 @@
 ---
-title: "Software Engineering's Greatest Hits"
+title: "Software Engineering's<br>Greatest Hits"
 template: slides
+date: "2024-11-01"
 ---
 
 ## In the Beginning

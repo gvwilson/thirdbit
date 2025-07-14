@@ -1,6 +1,7 @@
 ---
-title: "Data Science for Software Engineers"
+title: "Data Science<br>for Software Engineers"
 template: slides
+date: "2023-05-05"
 ---
 
 ## Once Upon a Time…

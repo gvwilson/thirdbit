@@ -1,21 +1,8 @@
 ---
-title: "Late Night Thoughts on Listening to Ike Quebec"
+title: "Late Night Thoughts<br>on Listening to Ike Quebec"
 template: slides
+date: "2018-05-10"
 ---
-
-<div class="center">
-<h1>Late Night Thoughts<br>on Listening to Ike Quebec</h1>
-<p><img src="@root/files/talks/codebender-logo.svg" alt="Third Bit logo" width="15%" /></p>
-<p>Greg Wilson</p>
-<p>
-  <a href="http://third-bit.com/talks/late-night/">http://third-bit.com/talks/late-night/</a>
-  <br>
-  Presented at CarpentryCon 2018 in Dublin, Ireland.
-</p>
-<p>
-  <img src="@root/files/talks/cc-by.svg" width="20%" alt="CC-BY">
-</p>
-</div>
 
 <!--
 
@@ -27,8 +14,6 @@ I could talk about the history of Software Carpentry,
 and how we got to where we are today…
 
 -->
-
----
 
 ## The Paper
 
