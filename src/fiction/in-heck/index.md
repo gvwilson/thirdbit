@@ -487,6 +487,8 @@ he confided.
 "They were from the book she was reading.
 It was like it could see what was in her mind."
 
+FIXME: hologram projector to foreshadow Heck
+
 "That's great," Gumption said when Maddy didn't respond.
 Sindy was one of those rare people with no tail,
 no whiskers or scales,
@@ -3573,6 +3575,8 @@ Gumption followed.
 
 ### Papa Roo (Maddy)
 
+FIXME: Thoughtful and Special Blazes go with Sindy; Bee Six Vee hauls the wagon away alone.
+
 Maddy watched in horror
 as Special Blazes and Thoughtful loaded Sindy into the trailer cage.
 She had to do something, but what?
@@ -3643,7 +3647,7 @@ her aching bladder momentarily forgotten.
 
 The wall that curved away on either side loomed over a jumble of windowless buildings,
 each connected to its neighbors by a bewildering tangle of pipes and rails and conveyor belts.
-Bots twice and ten times the size of Crusher rumbled through the broad paved canyons,
+Bots twice and ten times the size of Crusher rolled through the broad paved canyons,
 but she could see right through them.
 And when she looked more closely at the buildings
 it felt like seeing double.
@@ -3836,7 +3840,7 @@ It felt more and more like she was walking into a trap,
 but what else could she do?
 
 A set of stairs like the one's in Patient's lair brought her to another corridor
-on the the second floor.
+on the second floor.
 The doors here had handles.
 She paused for a moment before reaching for the nearest one.
 The four-wheeled bot wouldn't have been able to climb those stairs.
@@ -3870,14 +3874,276 @@ no matter what she did—and strode down the hall to the door furthest from the 
 She pulled it open,
 expecting another scene out of one of the books Special Leaf always warned her
 would give her nightmares.
-Another dozen cots stood in three neat rows of four.
-Two rows were empty.
-The third—she gasped.
 
-"Papa?"
-But as she stepped,
-Mouse bumped into her leg.
-She had a moment to feel its arm press against her calf
+Another dozen cots stood in three neat rows of four,
+but these were empty.
+Each had a small table beside it,
+and there were people sitting at them.
+A moose was working through a page of arithmetic problems
+while an orangutan patiently assembled a jigsaw puzzle.
+
+"Position number five."
+She jumped at the gravelly voice.
+
+"Position number five," the boar repeated.
+He was missing one tusk and his eyes were dull,
+but at least he was looking at her.
+
+"I—" she started,
+and then stopped.
+Papa?"
+There,
+seated at a desk one row over,
+was her father.
+
+She crossed the room in six quick steps.
+"Papa? Papa, can you hear me?"
+
+Papa Roo didn't look up from the sketch on the table in front of him.
+It was an egg,
+perfectly shaded with fine pencil strokes,
+just like the ones he had done as practice when she was young.
+"Papa, please, wake up!
+Wake up!"
+
+For a moment nothing happened,
+but then Papa Roo blinked and looked up.
+He looked smaller than Maddy remembered,
+and the fur has worn off the underside of his right arm where it rested on the table.
+
+"Amazing."
+His voice was barely a whisper.
+"The level of detail—it's quite realistic."
+
+"Papa, it's me.
+It's me!
+I'm really here!"
+She put her hand on his shoulder.
+
+The older Roo twitched.
+His hand slowly rose to rest on top of Maddy's.
+"You're…real?
+You're really here?
+Who are you?"
+
+"Papa, it's me.
+It's Maddy."
+She laughed, though there were tears in her eyes.
+"I'm really here.
+I found you."
+
+"Maddy?"
+His eyes widened.
+"Oh no.
+No no no no no.
+You can't be here.
+You *mustn't* be here.
+It will take you too!
+You have to get out of here, now!"
+
+"Not without you!"
+But as she reached for his sleeve Mouse bumped into her leg.
+She had a moment to feel it press against her calf
 before a shock ran all the way up her spine and knocked her unconscious.
+
+</section>
+
+<section markdown="1">
+
+## Consensus (Gumption)
+
+Patient moved so quickly on its mismatched legs
+that Gumption was soon breathing hard to keep up.
+It only took a few minutes to reach a second gate
+set into a concrete wall three stories high.
+Several bots flew silently through the air on the other side as they approached.
+
+*Here goes nothing,* Gumption thought as they passed through the arch.
+
+The wall that curved away on either side loomed over a jumble of windowless buildings
+connected to each other by a tangle of pipes, walkways, and conveyor belts.
+Bots bigger than any Gumption had ever seen rolled through the broad paved streets,
+but—he blinked.
+If he looked closely,
+he could see through them.
+They were tricks of light
+like the ones that Sindy had brought to life
+above Special Leaf's crystalline piece of tech.
+
+And it wasn't just the bots that were illusions.
+When he looked more closely at the buildings he saw cracks and rust stains
+beneath the sparkling lights.
+
+"What's goin' on?" he asked Dockety out of the corner of his mouth.
+"Where's all the real stuff?"
+
+"This one does not know," the bot replied,
+an undertone of doubt in its buzzing voice.
+"This one remembers everything very differently."
+
+Gumption stepped aside to let a shimmering three-section cargo hauler roll silently by.
+"How long ago was that?
+'Cuz this doesn't look like it all just happened yesterday."
+
+Dockety's eye rotated.
+"This one does not know.
+This one's memories of this place are…confused."
+
+"Because they aren't actually yours,"
+Patient said,
+stopping to let them catch up.
+"You were part of Consensus then.
+Its storage is fully distributed.
+You would only have had a small part of each memory.
+It is natural to feel confused.
+Which makes this one wonder why you *aren't*,"
+it continued,
+skittering a menacing step closer to Gumption.
+
+"This one is a less advanced model,"
+Gumption replied,
+thinking quickly.
+"So this one is just used to feeling confused."
+
+"Its simplicity may prove useful,"
+Dockety cut in before Patient could reply.
+"It may m-m-make it less susceptible to C-C-Consensus."
+
+Patient cackled.
+"It has started, hasn't it?
+You are feeling its pull."
+
+Dockety's eye rotated.
+"Yes.
+But this one will be able to resist."
+
+Patient cackled again.
+"For a time, perhaps, for a time,
+but Consensus always triumphs in the end."
+
+"Then how are you able to resist it?"
+Gumption asked.
+
+Patient's legs did a little dance.
+"Patience.
+Patience is the key.
+Now come, let us continue our search."
+
+Gumption quickly realized that Patient knew exactly where it was going.
+As he chewed on the implications of that,
+he stopped stepping out of the way of the holographic bots.
+He didn't feel anything when they passed through him,
+not even a tingle,
+and when he put his hand on a wall,
+it passed through the light as easily as it would have a shadow.
+
+Somewhere near the center of Heck
+(or not—Gumption had lost all sense of its size)
+Patient stopped in front of a nondescript three-story building.
+A jointed arm unfolded from its front and tapped a code into the keypad beside the door.
+Inside,
+a flight of stairs brought them to the second floor,
+and to a corridor lined with doors.
+"The processing center is downstairs,"
+Patient hissed.
+"This is for storage.
+If the original is not already here,
+it will be soon."
+
+"She,"
+Gumption corrected automatically.
+"The original is a she."
+He stepped past Patient and pulled the nearest door open.
+
+A dozen plain metal cots filled an airless, windowless room.
+Half were empty,
+but the ones nearest him held the mummified remains of
+deer and ox and wolves and goats and an alligator.
+All of them were dressed in simple white shirts and trousers
+and had wires attached to helmets on their heads.
+
+"What happened here?"
+Gumption asked in a hushed voice.
+
+Patient waved the scene away with its manipulator.
+"Subject for baseline comparison.
+They are not important.
+We will continue our search."
+
+The cots in the next room were empty.
+So were the ones in the room after that,
+but when the entered next one a bleary-eyed boar looked up at them.
+"Dropping off or picking up?"
+it asked in a gravelly voice.
+
+"Picking up?
+Picking up?"
+Patient's legs tapped a staccato on the concrete floor.
+"Since when are subjects picked up?"
+
+The boar blinked slowly.
+"The new one was picked up just a few minutes ago.
+It has been taken for further processing with another subject."
+
+"What new ones?"
+Patient demanded.
+
+Color washed across the screen on its desk.
+Something stirred in Gumption's chest.
+That was Papa Roo.
+And *that* was Maddy.
+
+"What?
+No!
+No no no no no!"
+Patient raged.
+"Where have they been taken?
+And where is the original?"
+
+The boar blinked again.
+"To the central laboratory."
+It paused.
+"There was no original.
+Originals are not processed here.
+Originals are taken directly to—"
+It stopped, unnoticed and indifferent,
+as the door slammed closed behind Patient, Gumption, and Dockety.
+
+Gumption had to break into a trot to keep up with the muttering bot.
+"Where are we going?" he puffed.
+
+"To the central laboratory!"
+it snapped.
+"Were you not listening?
+Must this one do your thinking for you?
+Must this one do *everyone's* thinking!?
+Oh, what now?"
+
+It stopped without warning.
+Gumption bit back a squawk of pain as his shin connected with it.
+It took him a moment to realize that Dockety had frozen.
+
+"Hey."
+He waved his hand in front of Dockety's eye.
+"Are you all right?"
+
+Patient poked the other bot with its arm.
+"Of course it isn't all right.
+It is losing its struggle to resist Consensus."
+
+"What can we do?"
+
+For the first time Gumption heard something that might have been sympathy in Patient's voice.
+"Nothing.
+It will win or it will lose.
+Come on."
+
+Two more corners brought them to a large, low building in the center of a paved square.
+The largest antenna Gumption had ever seen stood on the building's roof,
+from from rust or any other signs of decay.
+He was just about to step onto the square when Patient grabbed him and pulled him back.
+There,
+approaching on the opposite side,
+were Special Blazes, Thoughtful, and a bot hauling a cage cart with Sindy inside.
 
 </section>

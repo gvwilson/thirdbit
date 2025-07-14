@@ -434,7 +434,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Maddy: "Not without you!"
 -   That's when Mouse zaps Maddy unconscious
 
-### 14 (Gumption)
+### 14: Consensus (Gumption)
 
 -   Goals:
     -   Dockety's struggle with Consensus
