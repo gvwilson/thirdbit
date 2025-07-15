@@ -120,7 +120,7 @@ date: "2025-07-13"
 
 ---
 
-## Will Management Save Us?
+## Will Management Books Save Us?
 
 -   Drasner: *[Engineering Management for the Rest of Us](https://isbnsearch.org/isbn/9798986769318)* (2022)
 -   Fournier: *[The Manager's Path](https://isbnsearch.org/isbn/9781491973899)* (2017)
@@ -137,7 +137,7 @@ date: "2025-07-13"
 
 ---
 
-## Some Surprising Gaps
+## Disappointing Gaps
 
 -   Labor rights
 -   Workplace discrimination: less than 8 pages between 12 books
@@ -145,7 +145,7 @@ date: "2025-07-13"
 -   Regulatory capture
 -   Co-operatives and other organizational models
 
-> None of the undergraduate courses on entrepreneurship or the business of software that I looked at
+> None of the courses on entrepreneurship or the business of software that I looked at
 > covered these topics either.
 
 ---
@@ -177,11 +177,10 @@ date: "2025-07-13"
 
 ---
 
-## Why Is This Missing?
+## Why Don't We Talk About This?
 
 -   People in "hard" disciplines tend to look down on the "soft" ones
     -   Until they become managers…
-
 
 <div class="row">
   <div class="col-4">
@@ -197,11 +196,14 @@ date: "2025-07-13"
   </div>
 </div>
 
+
+--
+
 > Knowing things like this helps us build (truly) better software.
 
 ---
 
-## Maybe Other Books?
+## Looking Elsewhere
 
 -   Steen: *[Ethics for People Who Work in Tech](https://isbnsearch.org/isbn/9780367542436)* (2022)
 -   Goltz & Dowdesell: *[Real World AI Ethics for Data Scientists](https://isbnsearch.org/isbn/9781032275055)* (2023)
@@ -214,7 +216,7 @@ date: "2025-07-13"
 
 ---
 
-## It Can Be Done
+## It Can Be Interesting
 
 <div class="row">
   <div class="col-4">
@@ -249,7 +251,7 @@ date: "2025-07-13"
     Tom Wainright: <em><a href="https://isbnsearch.org/isbn/9781610397704">Narconomics: How to Run a Drug Cartel</a></em> (2017)
     <ul>
       <li>Turns out that marketing and HR are big challenges</li>
-      <li>And you can learn a lot about legitimate businesses by looking at ones that ignore the legal system</li>
+      <li>And you can learn a lot about how business actually works by looking at ones that ignore the legal system</li>
     </ul>
   </div>
 </div>
@@ -286,12 +288,14 @@ date: "2025-07-13"
   <div class="col-8">
     Howard Baetjer Jr.: <em><a href="https://isbnsearch.org/isbn/9780818677793">Software as Capital: An Economic Perspective on Software Engineering</a></em> (1997)
     <ul>
-      <li>Nobody knows how to make a car (or Linux)</li>
-      <li>What is the value of institutional knowledge and how do we preserve it?</li>
+      <li>No single person knows how to make a car (or Linux)</li>
+      <li>Tools for thinking about the value of institutional knowledge and how we preserve it</li>
     </ul>
   </div>
 </div>
 
+
+--
 
 > [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) and sociotechnical congruence
 > should be part of every software engineer's education.
@@ -312,6 +316,9 @@ date: "2025-07-13"
     </ul>
   </div>
 </div>
+
+
+--
 
 -   "…if you want to know what parts of the project are suffering the most, pay attention to what the team is having meetings about"
 -   "Managing technical debt is about restoring consistency."
@@ -356,8 +363,6 @@ date: "2025-07-13"
     </ol>
   </div>
 </div>
-
--   Most software developers can't even define "power" in a meaningful way
 
 
 --
@@ -423,8 +428,9 @@ date: "2025-07-13"
 </div>
 
 -   Why did central planning fail for nation-states?
-    -   Is it just that they didn't have the IT it requires?
--   Can we make its efficiencies democratically accountable?
+    -   Did they just not have the IT it requires?
+    -   Or have big companies just managed to outsource the failure?
+-   Can we democratize Amazon's logistics?
 
 ---
 
@@ -479,7 +485,7 @@ date: "2025-07-13"
     <img src="@root/files/books/bueno-dictator.jpg" alt="Bueno de Mesquita and Smith: The Dictator's Handbook" width="200px">
   </div>
   <div class="col-8">
-    Bruce Bueno de Mesquita and Alastair Smith: <em><a href="https://isbnsearch.org/isbn/9781541701366">The Dictator's Handbook: Why Bad Behavior is Almost Always Good Politics</a></em> (2022)
+    Bruce Bueno de Mesquita & Alastair Smith: <em><a href="https://isbnsearch.org/isbn/9781541701366">The Dictator's Handbook: Why Bad Behavior is Almost Always Good Politics</a></em> (2022)
     <ul>
       <li>Nominal selectorate: those who nominally have a say</li>
       <li>Real selectorate: those who actually cast a vote</li>
@@ -606,11 +612,11 @@ date: "2025-07-13"
 
 -   Should have organized workshops in the other direction right from the start
     -   "Molecular biology for programmers"
-    -   "Social psychology for software developers"
+    -   "Politics and economics for software developers"
 
 ---
 
-## The Point Is To Change It
+## Why This Matters
 
 <div class="row">
   <div class="col-4">
