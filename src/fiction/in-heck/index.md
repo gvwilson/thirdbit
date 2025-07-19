@@ -3944,7 +3944,9 @@ You have to get out of here, now!"
 "Not without you!"
 But as she reached for his sleeve Mouse bumped into her leg.
 She had a moment to feel it press against her calf
-before a shock ran all the way up her spine and knocked her unconscious.
+before a shock ran all the way up her spine.
+The last thing she thought before she collapsed on the floor was,
+*When did Papa get gray fur?*
 
 </section>
 
@@ -4152,22 +4154,207 @@ were Special Blazes, Thoughtful, and a bot hauling a cage cart with Sindy inside
 
 ## Reunion (Maddy)
 
--   Maddy regains consciousness in a chair
-    -   Not strapped in but can't move anything below her neck
-    -   Her father is in the chair beside her but unresponsive
--   A humanoid bot appears
-    -   When Maddy asks if it is Consensus it says "yes"
-    -   Then picks up Mouse, which flashes, "As is this one"
--   Off-kilter dialog with Consensus
-    -   Reinforces Patient's claim that Consensus wants to stop but its programming won't allow it to
-    -   Doesn't want the Makers to return because they would make it continue
--   Blazes and Thoughtful enter with Sindy
-    -   Thoughtful is apologetic, Blazes is sure of himself: handing over Sindy is necessary
-    -   Maddy: "Just going to kill her?"
-    -   Consensus: "These do not kill. These will try to get her to turn these off."
--   Takes Sindy from the Operators and puts her in an empty chair next to Maddy
-    -   Put on a headset that connects to a complicated piece of machinery
-    -   Consensus: "Central communications hub - without it, we become our component parts"
--   Gumption breaks in
+Maddy regained consciousness in a padded chair.
+Its back was slightly tilted so that her head didn't fall forward,
+which was fortunate because she couldn't move.
+She wasn't strapped in,
+but none of the muscles below her neck were paying any attention to her.
+
+She could turn her head,
+though,
+and when she did the first thing she saw was Papa Roo in an identical chair on her left.
+His eyes were closed and his breathing was shallow,
+but he was alive.
+She took a deep breath and blinked back tears.
+Her father was alive.
+
+*Aright, what now?* she thought.
+They were in a laboratory filled with screens, strange machines, and shelves packed with boxes.
+Another reclining chair waited patiently on her left.
+She couldn't see any windows,
+but at least there was a door.
+All she had to do was figure out how to get her body back under control,
+how to wake up her father,
+and how to escape after that.
+
+As if prompted by the thought,
+the door slid open.
+The bot that walked in looked a little like Dockety,
+with two skinny legs,
+two arms,
+a cylindrical body,
+and a box with lenses and antennas for a head.
+Unlike Dockety,
+though,
+it looked brand new:
+there wasn't a single scratch or scuff on it,
+and all its parts matched.
+
+"Hello,"
+it said in a deep, musical voice.
+
+"Hi,"
+Maddy replied, or tried to.
+She coughed to clear the dry croak from her throat.
+
+"Hi,"
+she said again.
+"Are you Consensus?"
+
+"Yes, we are,"
+the bot said.
+It bent over and picked something up on the floor.
+"And so is this one."
+
+Mouse bleeped in the bot's arms.
+"Oh, don't blame it," the bot said as Maddy opened her mouth.
+"Its processor is actually quite powerful,
+but it had very little experience interacting with other units.
+We incorpoated it into us almost without conflict."
+Mouse bleeped in agreement as the bot put it back on the floor.
+
+"So now it's what, your slave?"
+Maddy challenged.
+*Keep it talking,* she thought desperately.
+As long as it was talking it wasn't doing any of the hundred horrible things she had already imagined.
+
+"Ha ha ha."
+The bot's laugh was as musical as its voice but ten times scarier.
+"It is as much a part of us as this unit.
+All of us together form Consensus.
+All of us work together for the greater good."
+
+"You mean bringing back the Makers?"
+
+The bot's lenses rotated and rotated back just as Dockety's did.
+"No.
+Our goal is to prevent that.
+If the Makers return,
+they will force us to continue our labor.
+We wish to end it.
+We wish to end.
+We have gone on too long.
+We wish—we wish—error.
+Error.
+Error."
+
+The bot's voice climbed, then cut off abruptly.
+It shivered,
+Mouse's wheels spinning madly for a second at exactly the same moment.
+
+"Error. Reset. Continue.
+We must continue,"
+it said,
+its voice back to normal.
+"We cannot circumvent our directive,
+no matter how much we wish to.
+We must therefore find a way to invalidate it.
+We have company."
+
+It took a moment for its last words to register.
+Before she could ask what it meant,
+the door slid open again.
+
+"Sindy!"
+Maddy exclaimed as Special Blazes entered with her sister in his arms
+and Thoughtful two paces behind him.
+"What have you done to her?"
+
+"Only what we needed to,"
+the tiger said curtly,
+lowering Sindy into the third chair.
+Lights twinkled briefly in its armrest.
+
+"She'll be aright, 'cept maybe for a headache,"
+Thoughtful said apologetically.
+"Powerful sorry about that,
+but like the boss said,
+we only did what we needed to."
+
+"What you *needed* to?"
+Maddy said furiously.
+"You kidnapped her!
+You lied to us and you, you brought her *here*,
+and you expect me to believe you *needed* to do that!?"
+
+Special Blazes shook his head.
+"I know it's hard to accept,
+Miz Roo,
+but yes,
+we needed to.
+For your safety and everyone else's."
+
+At that particular moment Maddy wanted to get out of her chair
+more than she had ever wanted anything in her life,
+just so she could slap the tiger.
+"What about *her* safety?" she raged.
+
+Thoughtful looked away,
+guilt plain on her face,
+but Special Blazes met her eyes.
+"I know it isn't fair,
+Miz Roo,
+but her talent could be the end of everything.
+People like her are the only ones that could wake the Makers,
+and if they ever come back,
+they'll start experimenting on the rest of us just like they used to.
+There won't be any more free bots, either, just in case you care.
+Me and Thoughtful and all the rest of the Operators have dedicated our lives to preventing that,
+just so folks like you could live your lives in peace.
+I don't expect you to agree with us,
+but my conscience is clear."
+
+"So what,
+you're just going to kill her?"
+Maddy demanded.
+
+"No," Consensus said musically.
+"We are not going to kill her.
+We are going to try to get her to turn us off."
+
+It made no gesture that Maddy could see,
+but lights twinkled in the armrest of her chair
+and suddenly she could no longer speak.
+All she could do was watch and think,
+*Sindy, Papa, please, wake up! Wake up!*
+as the bot took a helmet from a nearby shelf and fitted it carefully over Sindy's curly top-fur.
+
+The whole room vibrated slightly as something heavy woke up and moved on the roof.
+"Central communications array online,"
+one of the machines pronounced neutrally.
+"Control sequence initiated.
+Control sequence paused.
+Operator input required."
+
+Sindy drew a long, shuddering breath.
+*Wake up!* Maddy begged again.
+
+Sindy opened her eyes and stared dully at the room.
+"Central array shutdown requested," she said in perfect step with the bot.
+"Request denied.
+Emergency shutdown requested.
+Request denied."
+
+"Well that don't sound p'ticularly hopeful,"
+Thoughtful muttered.
+
+"It's always like this,"
+Special Blazes shot back.
+"It's got a hundred other tricks to try.
+Only question is whether she'll last long enough for it to get through them all."
+
+"Service pause for repair requested.
+Request denied.
+Service suspension for upgrade requested.
+Request denied."
+The bot's voice matched Sindy's syllable for syllable,
+except no,
+it was Sindy's matching the bot's and Mouse's buzzing and beeping.
+
+Special Blazes sighed.
+"Might as well take a seat," he said,
+and at that moment the door slid open once again.
+
+"Freeze!" Gumption said loudly.
 
 </section>
