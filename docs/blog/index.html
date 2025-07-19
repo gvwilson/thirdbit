@@ -83,6 +83,65 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/07/19/workshops-i-want/">
+      Workshops I Want
+    </a>
+  </h2>
+  <p><time datetime="2025-07-19" class="post-date">2025-07-19</time></p>
+  <p>Following up on <a href="../2025/07/18/no-satisfaction/">yesterday&rsquo;s post</a>,
+here are some workshops I&rsquo;d really like to take.
+If you&rsquo;re offering any of them,
+please let me know.</p>
+<ol>
+<li>
+<p><strong>Experimental design and analysis for software engineers</strong>
+    who are trying to figure out how well their AI-based tools actually work.</p>
+</li>
+<li>
+<p><strong>An introduction to the social sciences for programmers</strong>
+    who want to understand how power actually works in our society.
+    (See <a href="../talks/sdgc/"><em>Sex and Drugs and Guns and Code</em></a> for some thoughts.)</p>
+</li>
+<li>
+<p><strong>Distributed systems design by example</strong>—basically,
+    a sequel to <a href="../sdxpy/"><em>Software Design by Example</em></a>
+    in which learners build working models of distributed systems
+    in order to understand how the real things work.</p>
+</li>
+<li>
+<p><strong>Systems administration for data scientists</strong>
+    (or, what people who wrangle dataframes for a living need to know
+    in order to deploy an application for others to use).
+    This request is mostly professional curiosity:
+    I&rsquo;ve <a href="https://gvwilson.github.io/sudonomicon/">tried and failed</a> to create this,
+    and would like to see how others do it.</p>
+</li>
+<li>
+<p><strong>Managing research software projects</strong>—not &ldquo;how to use Git&rdquo;
+    but hiring and firing,
+    marketing,
+    budgeting,
+    succession planning,
+    and similar challenges.
+    Again,
+    I&rsquo;ve also <a href="../mrsp/">tried and failed to create this</a>,
+    so my interest here is partly professional curiosity.</p>
+</li>
+<li>
+<p><strong>Organizational change for research software engineers</strong>.
+    We spend a lot of our time rolling rocks up hills;
+    as I approach the end of my career,
+    I&rsquo;d really like someone to teach me how to get rid of the damn hills.</p>
+</li>
+</ol>
+<p><em>In a better world than this,
+Canada would have a Natural Science and Engineering Education Council alongside NSERC
+to fund the creation, dissemination, delivery, and evaluation of teaching and training materials.
+Alas, that is not the timeline we&rsquo;re in…</em></p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/07/18/no-satisfaction/">
       No Satisfaction
     </a>
@@ -606,200 +665,6 @@ but they make the code <em>much</em> easier to understand:</p>
 But also:
 damn,
 I remember when Python was a small enough language that I actually understood it…</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/04/20/a-testing-question/">
-      A Testing Question
-    </a>
-  </h2>
-  <p><time datetime="2025-04-20" class="post-date">2025-04-20</time></p>
-  <p>I have been thinking some more about how to teach testing to scientists who are learning how to program,
-and I&rsquo;m hoping one of my readers will have suggestions.
-The bit of Python below creates a square NxN grid and then fills it using a random orthogonal walk.
-Each time the walker visits a cell, the cell&rsquo;s count is incremented;
-filling stops when the walker reaches the boundary (i.e., absorbing boundary conditions).</p>
-<p>How can I test this?
-The easy bits are:</p>
-<ol>
-<li>
-<p>Generate a few hundred grids and make sure the boundary cells are all zero.</p>
-</li>
-<li>
-<p>Compare the sum of the grid values with the number of moves made by the walker (they should be equal).</p>
-</li>
-<li>
-<p>Patch the random choice function to force a series of moves (e.g., always up) and then check the resulting grid.</p>
-</li>
-</ol>
-<p>However, these tests are necessary but not sufficient.
-If my choice of moves was biased in some direction,
-for example,
-none of these tests would reveal that.
-If I generate enough grids and look at the distribution of values,
-it should approximate a 2D Gaussian,
-but I&rsquo;d have to generate a <em>lot</em> of grids to get close,
-and it&rsquo;s difficult to specify what &ldquo;close&rdquo; actually means.
-Is 20% relative error after 1000 grids good enough?
-That test will pass for some random number generation seeds and fail for others;
-I could tweak the seed until the test passes,
-but that feels as grubby as <a href="https://en.wikipedia.org/wiki/Data_dredging">p-hacking</a>.
-If you have suggestions,
-please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
-<h2>The Code</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Grid</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Store a grid of numbers.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct empty grid.&quot;&quot;&quot;</span>
-        <span class="k">assert</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Grid size must be positive not </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get grid element.&quot;&quot;&quot;</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">key</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set grid element.&quot;&quot;&quot;</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">key</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert to string.&quot;&quot;&quot;</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
-        <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">cmdline_args</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse command-line arguments.&quot;&quot;&quot;</span>
-
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--seed&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;RNG seed&quot;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--size&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;grid size&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">fill_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fill in a grid.&quot;&quot;&quot;</span>
-
-    <span class="n">moves</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-    <span class="n">center</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span>
-    <span class="n">size_1</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">center</span><span class="p">,</span> <span class="n">center</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">size_1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">size_1</span><span class="p">):</span>
-        <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">moves</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">y</span> <span class="o">+=</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">num</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">cmdline_args</span><span class="p">()</span>
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
-    <span class="n">grid</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-    <span class="n">fill_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-</code></pre></div>
-<h2>The Reveal</h2>
-<p>Did you notice the bug?
-<code>[0, -1]</code> is repeated in the list of available moves;
-the last entry should be <code>[0, 1]</code>.
-This was an actual typo in an early draft of this function,
-and none of my tests spotted it:</p>
-<ol>
-<li>
-<p>The boundary cells of all grids are still zero.</p>
-</li>
-<li>
-<p>The sum of the grid&rsquo;s values is still the number of moves.</p>
-</li>
-<li>
-<p>Patching the random choice function to force a series of moves
-    <em>fixes the underlying bug</em>.</p>
-</li>
-</ol>
-<p>If I had used <code>random.choice(list(range(len(moves))))</code> to choose an index into <code>moves</code>
-and then used that move,
-the final test might have revealed the problem,
-but none of my statistical tests detected it,
-and that scares me.</p>
-<h2>Another Example</h2>
-<p>Another way to fill a grid is called <a href="https://en.wikipedia.org/wiki/Invasion_percolation">invasion percolation</a>.
-In pseudo-Python, it works like this—or rather,
-this code <em>almost</em> does the right thing:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">invasion_percolation</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
-    <span class="c1"># Create grid of random numbers</span>
-    <span class="n">grid</span> <span class="o">=</span> <span class="n">Grid</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
-            <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
-
-    <span class="c1"># Mark the central cell</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span>
-    <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">MARKED</span>
-
-    <span class="c1"># Repeat until the marked region hits the boundary</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">find_next_cell</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-        <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">MARKED</span>
-
-<span class="c1"># Find the next cell to fill</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">find_next_cell</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
-    <span class="c1"># Set min_val to Infinity to ensure first cell qualifies</span>
-    <span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span><span class="p">,</span> <span class="n">min_val</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Infinity</span>
-
-    <span class="c1"># Check all cells</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
-            <span class="c1"># Already filled</span>
-            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="n">MARKED</span><span class="p">:</span>
-                <span class="k">continue</span>
-            <span class="c1"># Not adjacent to a marked cell</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">adjacent</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-                <span class="k">continue</span>
-            <span class="c1"># We have seen a lower value</span>
-            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">min_val</span><span class="p">:</span>
-                <span class="k">continue</span>
-            <span class="c1"># A new winner</span>
-            <span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span><span class="p">,</span> <span class="n">min_val</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">grid</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
-
-    <span class="c1"># Report results</span>
-    <span class="k">return</span> <span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span>
-</code></pre></div>
-<p>Did you spot the problem?
-I didn&rsquo;t:
-I used a variation of this code for more than a year before realizing that
-it is biased toward the (0, 0) corner of the grid.
-To see why,
-imagine that the entire &ldquo;random&rdquo; grid is filled with the value 1.
-The first cell that the double loop finds
-that&rsquo;s adjacent to the already-filled region
-will always be to the lower left of the filled region,
-because that will always be the first time the double loop encounters the value 1.
-Replacing the 1&rsquo;s with random number in the range 0…depth doesn&rsquo;t fix this flaw;
-it just makes it harder to spot.</p>
-<p>The solution in this case is to find all the cells
-that are adjacent to the already-filled region
-<em>and</em> which are tied for lowest value,
-then choose one of those at random.
-My question is,
-what test(s) could I plausibly have written before I realized my mistake
-that would have told me my implementation had introduced an unwanted bias?</p>
 </article>
 
 
