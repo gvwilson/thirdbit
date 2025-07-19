@@ -463,7 +463,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Patient and Gumption hurry to the central lab (has a large antenna on roof)
     -   Arrive just in time to see the Operators enter with Sindy
 
-### 15 (Maddy)
+### 15: Reunion (Maddy)
 
 -   Goals:
     -   Get all the main characters in one place

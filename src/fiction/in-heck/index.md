@@ -4147,3 +4147,27 @@ approaching on the opposite side,
 were Special Blazes, Thoughtful, and a bot hauling a cage cart with Sindy inside.
 
 </section>
+
+<section markdown="1">
+
+## Reunion (Maddy)
+
+-   Maddy regains consciousness in a chair
+    -   Not strapped in but can't move anything below her neck
+    -   Her father is in the chair beside her but unresponsive
+-   A humanoid bot appears
+    -   When Maddy asks if it is Consensus it says "yes"
+    -   Then picks up Mouse, which flashes, "As is this one"
+-   Off-kilter dialog with Consensus
+    -   Reinforces Patient's claim that Consensus wants to stop but its programming won't allow it to
+    -   Doesn't want the Makers to return because they would make it continue
+-   Blazes and Thoughtful enter with Sindy
+    -   Thoughtful is apologetic, Blazes is sure of himself: handing over Sindy is necessary
+    -   Maddy: "Just going to kill her?"
+    -   Consensus: "These do not kill. These will try to get her to turn these off."
+-   Takes Sindy from the Operators and puts her in an empty chair next to Maddy
+    -   Put on a headset that connects to a complicated piece of machinery
+    -   Consensus: "Central communications hub - without it, we become our component parts"
+-   Gumption breaks in
+
+</section>
