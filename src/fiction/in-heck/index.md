@@ -4312,12 +4312,9 @@ Maddy demanded.
 "We are not going to kill her.
 We are going to try to get her to turn us off."
 
-It made no gesture that Maddy could see,
-but lights twinkled in the armrest of her chair
-and suddenly she could no longer speak.
-All she could do was watch and think,
-*Sindy, Papa, please, wake up! Wake up!*
-as the bot took a helmet from a nearby shelf and fitted it carefully over Sindy's curly top-fur.
+"Sindy, Papa, please, wake up! Wake up!" she said
+as the bot took a helmet from a nearby shelf
+and fitted it carefully over Sindy's curly top-fur.
 
 The whole room vibrated slightly as something heavy woke up and moved on the roof.
 "Central communications array online,"
@@ -4327,9 +4324,10 @@ Control sequence paused.
 Operator input required."
 
 Sindy drew a long, shuddering breath.
-*Wake up!* Maddy begged again.
-
+"Wake up!" Maddy begged again,
+but it was no use.
 Sindy opened her eyes and stared dully at the room.
+
 "Central array shutdown requested," she said in perfect step with the bot.
 "Request denied.
 Emergency shutdown requested.
@@ -4355,6 +4353,189 @@ Special Blazes sighed.
 "Might as well take a seat," he said,
 and at that moment the door slid open once again.
 
-"Freeze!" Gumption said loudly.
+"Freeze!" Gumption said loudly as he stepped through
+and leveled something metallic and dangerous looking at the Operators.
+
+</section>
+
+<section markdown="1">
+
+## Your Move (Gumption)
+
+Gumption pulled his arm free of Patient's grip
+as Special Blazes unlocked the door of the cage cart
+and gathered an unconscious Sindy in his arms.
+"Come on!" he hissed.
+"It's two of us and two of them!"
+
+"Idiot!" Patient hissed back.
+"They are Operators.
+If we attack,
+they will terminate our functions and recycle our parts."
+
+Thoughtful shouldered her rifle and pulled a lever next to the building's door.
+"We can't just stand here,"
+Gumption said,
+watching the Operators carry Sindy inside.
+
+One of Patient's legs twitched.
+"Agreed.
+*We* cannot.
+This one will do that while you occupy them."
+
+"What?"
+
+"Are your auditory processors defective?
+This one will stand here and carry out its original plan.
+You will enter the laboratory and distract them.
+If you do not survive,
+be assured that your sacrifice furthered a great cause."
+
+Gumption gaped at it.
+"I have no idea what you're talking about."
+
+Patient skittered backward like a frightened cockroach.
+"What did you say?
+*What did you say?*"
+Hatches opened on its sides.
+Its arms folded into them,
+immediately re-emerging with a circular sawblade and a scorched nozzle on their ends.
+
+Gumption raised his hands.
+"Whoa!" he yelped.
+What had he said?
+*I have no—oh.*
+"Um,
+*this one* apologizes for startling you,
+but this one does not understand your plan."
+
+The sawblade and flamethrower didn't waver.
+"You used proscribed language.
+That should not be possible,
+even for the unregulated."
+
+Gumption lowered his hands slowly.
+"It took a great deal of practice," he improvised.
+"We can discuss it later.
+Right now,
+this one needs you to explain your plan."
+
+Nothing stirred for a moment, not even the breeze.
+"Agreed,"
+Patient finally snapped,
+retracting its arms and replacing their ends with manipulators once again.
+"Here, take this."
+It held out the scorched nozzle that had been on its arm a moment ago.
+
+Gumption plucked it from the bot's grasp.
+"What does it do?"
+
+"Nothing,"
+Patient said shortly.
+"But they will not know that.
+Our triumph is inevitable,
+but keep them occupied as long as you can."
+And with no further ceremony,
+it froze just as Dockety had two blocks away.
+
+"Great," Gumption muttered,
+hefting the nozzle.
+He patted his armor to make sure the zap gun was still tucked inside it,
+then strode across the open square to the door the Operators had gone through
+and pulled the lever next to it.
+
+The door slid open.
+"Freeze!" Gumption said loudly as he stepped through
+and leveled the nozzle at the Operators.
+"No, no, none of that," he continued
+as Thoughtful's hand twitched toward the rifle slung over her shoulder.
+"This one does not want to have to clean your organic bits off the equipment."
+He pointed the nozzle at Special Blazes,
+then at a bot that looked like Dockety might have when it was brand new,
+then back at Thoughtful.
+
+Papa Roo, Maddy, and Sindy sat side by side in padded chairs.
+Maddy's eyes were open,
+but Papa Roo's and Sindy's were closed.
+
+"Procedure interrupted.
+Procedure paused."
+Sindy and the bot said in unison.
+The bot shivered as if struck with a chill.
+Its head pivoted slowly to face Gumption.
+
+"Anomaly," it said in a deep, musical voice.
+"Why can we not hear your thoughts?"
+
+"Oh, there's a lot you don't know you can't do," Gumption said.
+He hefted the nozzle.
+"And a lot this one *can* do that you can't even imagine.
+Now,
+release the, uh, the organics, or else."
+
+"Or else what?" Special Blazes asked
+in the same tone he might have used to ask if he could have an extra mint leaf for his tea.
+
+"Or else this one will splatter your bits all over this room!"
+
+"Mm hm."
+Special Blazes scratched his cheek with one clawed finger.
+"Seems unlikely.
+I mean, sure, maybe you have some fancy-dance tech there that even this guy doesn't recognize."
+He jerked his thumb at the bot.
+"But I think I'm willing to take that chance."
+
+He really ought to be terrified,
+Gumption realized,
+but the most he seemed able to feel without a heartbeat was mildly worried.
+That's when he also realized that Sindy's eyes were open.
+"Perhaps you should ask your captured organics about taking chances,"
+he said,
+raising his voice slightly.
+"They might know more about tech than you think."
+
+The tiger's smile showed sharp white teeth.
+"Oh, I think I know plenty about the subject."
+
+"But so does this one,"
+Gumption fired back,
+pointing at Sindy.
+"After all, she can control all of it, not just a few paltry pieces."
+He didn't actually know if "paltry" was the right word there,
+but he plowed out,
+hoping Sindy would understand the hints he was dropping.
+"She's a real special, not just a one-off like you playing with things you don't understand."
+
+Special Blazes' jaw tightened.
+"All right, that's enough.
+Do it."
+
+A single sharp *crack!* rang out.
+Gumption's fingers stung as the nozzle was shot out of his hand.
+
+"Should I finish it?"
+Thoughtful asked,
+keeping the flat little pistol that had somehow appeared in her hand pointed at Gumption's head.
+
+Special Blazes's whiskers twitched.
+"Any objections?" he asked the bot across from him.
+
+"None,"
+it said.
+"What you do to other organics is not our concern."
+
+Thoughtful's ears went up.
+"Organics?
+What organics?"
+
+"Whatever it is, we can't have it carrying tales," Special Blazes said.
+"Or you either, Miz Roo," he added to Maddy.
+"I'm sorry, truly I am, but—hey!"
+
+He swore as a bright glow appeared under his shirt.
+"Gotcha," Sindy croaked in a dry voice,
+and then as Thoughtful spun toward her the bot spoke in Patient's mad voice.
+
+"Triumph!"
 
 </section>

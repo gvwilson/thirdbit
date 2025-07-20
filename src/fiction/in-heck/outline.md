@@ -485,7 +485,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Consensus: "Central communications hub - without it, we become our component parts"
 -   Gumption breaks in
 
-### 16 (Gumption)
+### 16: Your Move (Gumption)
 
 -   Goals:
     -   Battle with the Operators
