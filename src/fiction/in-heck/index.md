@@ -4532,10 +4532,109 @@ What organics?"
 "Or you either, Miz Roo," he added to Maddy.
 "I'm sorry, truly I am, but—hey!"
 
-He swore as a bright glow appeared under his shirt.
-"Gotcha," Sindy croaked in a dry voice,
-and then as Thoughtful spun toward her the bot spoke in Patient's mad voice.
+Abright glow appeared under his shirt.
+"Gotcha," Sindy croaked in a dry voice.
 
-"Triumph!"
+For the first time Gumption saw fear on the tiger's face,
+but as Thoughtful swing her rifle toward Sindy the bot spoke in Patient's mad voice.
+"At last!
+At last!"
+
+*Crack!*
+Thoughtful's rifle went off as the bot knocked it away.
+*Ping! Ping!*
+The bullet struck a shelf on the other side of the lab and ricocheted away.
+Thoughtful pumped the action on the rifle to reload,
+yelping as the bot seized the barrel
+and then yelping again as Mouse rammed her ankle.
+
+Special Blazes kicked the cleaning bot aside.
+"Stop!" he yelled,
+though whether he meant Sindy or the bot wrestling with Thoughtful
+or everything together,
+Gumption couldn't tell.
+He threw himself forward,
+tripping over Mouse and half-falling on Maddy.
+
+"Get off me!" she squawked.
+
+"Workin' on it," he grunted,
+then flinched as a fireball burped out of the tech on Special Blazes' chest.
+Heat washed over him,
+but the shot had gone off too soon to do more than sizzle in the air.
+
+He couldn't get leverage to pick Maddy up,
+so he grabbed her upper arms and rolled to the side,
+dragging her out of the chair into a heap on the floor beside him.
+"Maddy! Maddy, it's me!"
+
+She pushed him away.
+"I can see that, but get off me!"
+Her eyes went wide as she realized that she had control of her arms again.
+
+They scrambled to their feet just as another fireball fizzled out of
+the scorched hole in Special Blazes' shirt.
+The bot still had Thoughtful's rifle in one manipulator.
+The other was clamped around the tiger's arm.
+The trio spun around as they wrestled,
+banging into machinery and knocking boxes off shelves
+as Mouse zipped back and forth between their feet
+trying to trip the Operators or just because there was nothing else it could do.
+
+"Help me get Sindy!" Maddy ordered.
+
+"No!"
+Sindy sounded like she had a mouthful of dry gravel in her mouth,
+but there was no mistaking the iron in her voice.
+"You gotta leave me here so I can stop 'em from calling more bots!"
+
+"I'm not leaving you!"
+Maddy's voice broke.
+"I'm not leaving either of you!"
+
+"Just get Papa!"
+
+The bot sidestepped suddenly and swung its arm to send Thoughtful flying.
+Spinning,
+it grabbed a handful of Special Blazes' fur with its newly-freed manipulator.
+"This one has you now!"
+Patient cackled.
+
+"No you don't!"
+Gumption jumped at the sound of Sindy's voice coming from the bot.
+
+"What?
+What are you doing here?
+Get out!"
+Patient's voice again, shrill and angry.
+
+"You first!
+Now get Papa!"
+
+Papa Roo was lighter than Gumption expected.
+"What happened to his arms?" he asked
+as Sindy and Patient took turns yelling at each other
+while Special Blazes shouted at them
+and Thoughtful tried to stand up.
+
+"Tell you later," Maddy grunted,
+wrestling her father into a sitting position.
+"But what in the name of decency are you wearing?"
+
+"Tell you later," Gumption replied.
+"One… two… three!"
+They half-lifted, half-rolled Papa Roo out of his chair and onto his feet.
+His eyes fluttered for a moment
+before his legs gave way and he collapsed onto the tiled floor.
+
+"No!" Sindy wailed in her own voice.
+
+"Yes!" the bot exulted in Patient's.
+It spun around,
+throwing Special Blazes on top of Thoughtful.
+"Nothing can stop this one now!"
+
+The door slid open behind it.
+"I can," Dockety said.
 
 </section>
