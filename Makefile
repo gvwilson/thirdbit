@@ -62,4 +62,8 @@ clean:
 ## sterile: clean up and erase generated site
 sterile:
 	@make clean
-	@rm -rf docs
+	@rm -r docs/20*
+	@rm -r docs/about docs/archive docs/atom.xml docs/blog
+	@rm -r docs/colophon docs/conduct docs/cv docs/fiction
+	@rm -r docs/ideas docs/index.html docs/license docs/projects
+	@rm -r docs/selected docs/talks
