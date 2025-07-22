@@ -18,7 +18,7 @@ and how we got to where we are today…
 ## The Paper
 
 <div class="center">
-  <img src="./f1000-screenshot.png" alt="Screenshot of F1000 page for 'Software Carpenry - Lessons Learned' paper" width="80%">
+  <img src="@root/files/talks/late-night/f1000-screenshot.png" alt="Screenshot of F1000 page for 'Software Carpenry - Lessons Learned' paper" width="80%">
 </div>
 
 <!--
@@ -32,7 +32,7 @@ and how we got to where we are today…
 ## The Team
 
 <div class="center">
-  <img src="./carpentries-staff.jpg" alt="Carpentries Staff" width="80%">
+  <img src="@root/files/talks/late-night/carpentries-staff.jpg" alt="Carpentries Staff" width="80%">
 </div>
 
 <!--
@@ -47,7 +47,7 @@ I could talk about the Carpentries' plans for the future…
 ## Lessons Learned (?)
 
 <div class="center">
-  <img src="./coup-detat.jpg" alt="Cover of the book Coup d'Etat" width="40%">
+  <img src="@root/files/talks/late-night/coup-detat.jpg" alt="Cover of the book Coup d'Etat" width="40%">
 </div>
 
 <!--
@@ -88,7 +88,7 @@ that I realized I did still have something to say that some of you wouldn't have
 ## The End
 
 <div class="center">
-  <img src="./end-of-the-day.jpg" alt="The End of the Day" width="40%">
+  <img src="@root/files/talks/late-night/end-of-the-day.jpg" alt="The End of the Day" width="40%">
 </div>
 
 <!--
@@ -111,7 +111,7 @@ and that's what I'd like to start with today.
 ## Safety Kitten
 
 <div class="center">
-  <img src="./kitten2.jpg" alt="Kittens" width="60%">
+  <img src="@root/files/talks/late-night/kitten2.jpg" alt="Kittens" width="60%">
 </div>
 
 <!--
@@ -150,7 +150,7 @@ this is what I'd tell my younger self.
 ## 1. Be sure you mean it.
 
 <div class="center">
-  <img src="./hawaii.jpg" width="80%">
+  <img src="@root/files/talks/late-night/hawaii.jpg" width="80%">
 </div>
 
 <!--
@@ -166,7 +166,7 @@ so be sure you're actually going to do it.
 ## 2. Do it when others think it's time.
 
 <div class="center">
-  <img src="./krakow.jpg" width="80%">
+  <img src="@root/files/talks/late-night/krakow.jpg" width="80%">
 </div>
 
 <!--
@@ -179,10 +179,10 @@ so ask people and pay attention to what they say.
 
 ---
 
-## 3. Tell people what, when, and why.
+## 3. Explain what, when, and why.
 
 <div class="center">
-  <img src="./mauritius.jpg" width="60%">
+  <img src="@root/files/talks/late-night/mauritius.jpg" width="60%">
 </div>
 
 <!--
@@ -197,7 +197,7 @@ Tell people that you're leaving and what the succession plan is as soon as possi
 ## 4. Don't pick a successor yourself.
 
 <div class="center">
-  <img src="./new-zealand.jpg" width="70%">
+  <img src="@root/files/talks/late-night/new-zealand.jpg" width="70%">
 </div>
 
 <!--
@@ -212,7 +212,7 @@ but you should still check those opinions with someone more objective.
 ## 5. Train them before you go.
 
 <div class="center">
-  <img src="./oklahoma.jpg" width="80%">
+  <img src="@root/files/talks/late-night/oklahoma.jpg" width="80%">
 </div>
 
 <!--
@@ -230,7 +230,7 @@ You'll discover even more things you would otherwise forget to pass on.
 ## 6. When you leave, leave.
 
 <div class="center">
-  <img src="./room3.jpg" width="60%">
+  <img src="@root/files/talks/late-night/room3.jpg" width="60%">
 </div>
 
 <!--
@@ -246,7 +246,7 @@ since people are used to looking to you for answers.
 ## 7. Have some fun before you go.
 
 <div class="center">
-  <img src="./idigbio.jpg" width="80%">
+  <img src="@root/files/talks/late-night/idigbio.jpg" width="80%">
 </div>
 
 <!--
@@ -261,7 +261,7 @@ take that back burner project you've been dreaming about and give it a shot.
 ## 8. Reflect on what you learned.
 
 <div class="center">
-  <img src="./learners3.jpg" width="60%">
+  <img src="@root/files/talks/late-night/learners3.jpg" width="60%">
 </div>
 
 <!--
@@ -279,7 +279,7 @@ obsessing over only-ifs and might-have-beens won't help anyone.
 ## 9. Remember the good things too.
 
 <div class="center">
-  <img src="./opencon-es.jpg" width="60%">
+  <img src="@root/files/talks/late-night/opencon-es.jpg" width="60%">
 </div>
 
 <!--
@@ -298,7 +298,7 @@ even if you're Canadian.
 ## 10. Do something next.
 
 <div class="center">
-  <img src="./father-and-child.png" width="60%">
+  <img src="@root/files/talks/late-night/father-and-child.png" width="60%">
 </div>
 
 <!--
@@ -327,7 +327,7 @@ I keep thinking I have to innovate.
 ## Inspiration
 
 <div class="center">
-  <img src="./unix-manual-1971.png" alt="Unix Manual cover page (1971)" width="60%">
+  <img src="@root/files/talks/late-night/unix-manual-1971.png" alt="Unix Manual cover page (1971)" width="60%">
 </div>
 
 <!--
@@ -351,7 +351,7 @@ I do occasionally pick up something new…
 ## Git
 
 <div class="center">
-  <img src="./this-is-git.png" alt="This is Git" width="80%">
+  <img src="@root/files/talks/late-night/this-is-git.png" alt="This is Git" width="80%">
 </div>
 
 <!--
@@ -390,16 +390,16 @@ that I was able to give myself permission to work full time on something that wa
 ## Inspiration
 
 <div class="center">
-  <img src="./blue-and-sentimental.jpg" alt="Blue and Sentimental" width="30%">
+  <img src="@root/files/talks/late-night/blue-and-sentimental.jpg" alt="Blue and Sentimental" width="30%">
   &nbsp;
   &nbsp;
-  <img src="./easy-living.jpg" alt="Easy Living" width="30%">
+  <img src="@root/files/talks/late-night/easy-living.jpg" alt="Easy Living" width="30%">
   <br>
   <br>
-  <img src="./heavy-soul.jpg" alt="Heavy Soul" width="30%">
+  <img src="@root/files/talks/late-night/heavy-soul.jpg" alt="Heavy Soul" width="30%">
   &nbsp;
   &nbsp;
-  <img src="./soul-samba.jpg" alt="Soul Samba" width="30%">
+  <img src="@root/files/talks/late-night/soul-samba.jpg" alt="Soul Samba" width="30%">
 </div>
 
 <!--
@@ -431,7 +431,7 @@ you have to do something <em>new</em>.
 ## It's OK…
 
 <div class="center">
-  <img src="./mummy.jpg" alt="The Mummy" width="80%">
+  <img src="@root/files/talks/late-night/mummy.jpg" alt="The Mummy" width="80%">
 </div>
 
 <!--
@@ -454,7 +454,7 @@ and it makes the world a slightly better place.
 ## A New Beginning
 
 <div class="center">
-  <img src="./rangle-workshop-2017.jpg" alt="Rangle Workshop" width="80%">
+  <img src="@root/files/talks/late-night/rangle-workshop-2017.jpg" alt="Rangle Workshop" width="80%">
 </div>
 
 <!--
@@ -478,7 +478,7 @@ recording yourself in groups of three…
 ## Inspiration
 
 <div class="center">
-  <img src="./learning-scientists.png" alt="Learning Scientists" width="30%">
+  <img src="@root/files/talks/late-night/learning-scientists.png" alt="Learning Scientists" width="30%">
 </div>
 
 <div class="row">
@@ -509,7 +509,7 @@ but what we teach them about how to teach and learn together.
 ## More Inspiration
 
 <div class="center">
-  <img src="./smart-girl-privacy.jpg" alt="Smart Girl's Guide to Privacy" width="40%">
+  <img src="@root/files/talks/late-night/smart-girl-privacy.jpg" alt="Smart Girl's Guide to Privacy" width="40%">
 </div>
 
 <!--
@@ -528,14 +528,16 @@ or using a condom or keeping your shots up to date—can help you protect yourse
 
 ---
 
+## More Inspiration
+
 <div class="row">
   <div class="col-6">
     <img src="@root/files/talks/bpco.jpg" alt="Building Powerful Community Organizations" width="80%">
   </div>
   <div class="col-6">
-    <img src="./t3-2018.jpg" alt="T3 workshop April 2018" width="50%">
+    <img src="@root/files/talks/late-night/t3-2018.jpg" alt="T3 workshop April 2018" width="50%">
     <br>
-    <img src="./t3-logo.png" alt="T3 workshop logo" width="50%">
+    <img src="@root/files/talks/late-night/t3-logo.png" alt="T3 workshop logo" width="50%">
   </div>
 </div>
 
@@ -556,7 +558,7 @@ and that's worked out OK, hasn't it?
 ## You've Been There
 
 <div class="center">
-  <img src="./this-is-vim.png" alt="This is Vim" width="80%">
+  <img src="@root/files/talks/late-night/this-is-vim.png" alt="This is Vim" width="80%">
 </div>
 
 <!--
@@ -570,7 +572,7 @@ and that's worked out OK, hasn't it?
 ## Apple Pie
 
 <div class="center">
-  <img src="./carl-sagan.jpg" alt="Carl Sagan" width="60%">
+  <img src="@root/files/talks/late-night/carl-sagan.jpg" alt="Carl Sagan" width="60%">
   <br>
   <p>
     <em>If you wish to make<br>an apple pie from scratch,<br>you must first invent the universe.</em>
@@ -601,11 +603,11 @@ you need to be able to hold everyone accountable for harassment and discriminati
 ## What Really Matters
 
 <div class="center">
-  <img src="./bury-the-chains.jpg" width="30%">
+  <img src="@root/files/talks/late-night/bury-the-chains.jpg" width="30%">
   &nbsp;
-  <img src="./sisters.jpg" width="30%">
+  <img src="@root/files/talks/late-night/sisters.jpg" width="30%">
   &nbsp;
-  <img src="./victory.jpg" width="30%">
+  <img src="@root/files/talks/late-night/victory.jpg" width="30%">
   <p>
     <em>Nothing worth having<br>comes without some kind of fight.</em>
   </p>
@@ -633,7 +635,7 @@ and no change for the better ever happened by itself.
 ## The Fight We're In
 
 <div class="center">
-  <img src="./lower-ed.jpg" alt="Lower Ed" width="40%">
+  <img src="@root/files/talks/late-night/lower-ed.jpg" alt="Lower Ed" width="40%">
 </div>
 
 <!--
@@ -655,7 +657,7 @@ whether or not someone uses version control will be the least of our problems.
 ## You Need a Kitten
 
 <div class="center">
-  <img src="./kitten.jpg" alt="Kitten" width="80%">
+  <img src="@root/files/talks/late-night/kitten.jpg" alt="Kitten" width="80%">
 </div>
 
 <!--
@@ -676,6 +678,11 @@ Bauer et al: "An Introduction to Implementation Science for the Non-Specialist."
 Borrego &amp; Henderson: "Increasing the Use of Evidence-Based Teaching in STEM Higher Education: A Comparison of Eight Change Strategies." 10.1002/jee.20040, 2014.
 
 ---
+
+<br>
+<br>
+<br>
+<br>
 
 <div class="center">
   <img src="@root/files/talks/carpentries-logo.svg" alt="Carpentries logo" width="80%">
@@ -727,8 +734,8 @@ Thank you all for listening.
 ## Reading
 
 <div class="center">
-  <img src="./discussion-book.jpg" alt="The Discussion Book" width="40%">
+  <img src="@root/files/talks/late-night/discussion-book.jpg" alt="The Discussion Book" width="40%">
   &nbsp;
   &nbsp;
-  <img src="./understanding-how-we-learn.jpg" alt="Understanding How We Learn" width="40%">
+  <img src="@root/files/talks/late-night/understanding-how-we-learn.jpg" alt="Understanding How We Learn" width="40%">
 </div>
