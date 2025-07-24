@@ -11,13 +11,24 @@ date: "2025-07-13"
     -   Rising inequality
     -   Radicalization
     -   Ubiquitous surveillance
+-   And now there's AI to worry about
 -   Most discussion by technologists is *shallow*
     -   And often self-justifying
     -   Andreessen's "Techno-Optimist Manifesto" was embarrassing
 -   If we want better answers, we need to:
-    -   Be humble: the "soft" disciplines are harder than ours
-    -   Choose pieces that are most relevant to our problems
-    -   Figure out how to fit it into the curriculcum
+    1.  Be humble: the "soft" disciplines are harder than ours
+    2.  Choose pieces that are most relevant to our problems
+    3.  Figure out how to fit it into the curriculcum
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<div class="center">
+  <h2>Starting Point</h2>
+</div>
 
 ---
 
@@ -117,6 +128,16 @@ date: "2025-07-13"
     -   Nine types of waste in software projects, none of which are software issues
 -   Hicks: ["It's Like Coding in the Dark"](https://www.catharsisinsight.com/reports) (2022)
     -   Programmers don't learn because they're afraid to reveal ignorance
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<div class="center">
+  <h2>Build vs. Buy</h2>
+</div>
 
 ---
 
@@ -279,7 +300,17 @@ date: "2025-07-13"
 
 ---
 
-## A More Serious Look
+<br>
+<br>
+<br>
+<br>
+<div class="center">
+  <h2>Content</h2>
+</div>
+
+---
+
+## Organizational Knowledge
 
 <div class="row">
   <div class="col-4">
@@ -356,10 +387,12 @@ date: "2025-07-13"
   </div>
   <div class="col-8">
     Peter Wendorff: <em><a href="https://isbnsearch.org/isbn/9781484273791">Politics in Software Development</a></em> (2022)
+    <br>
+    Three mental models of politics in organizations
     <ol>
-      <li>We're all working together toward a common goal (the official version)</li>
-      <li>Everyone is a self-interested Machiavelli (coffee-room gossip)</li>
-      <li>Sincere differences of opinion lead to power struggles because we <em>don't</em> agree on means and ends</li>
+      <li>The official version: we're all working together toward a common goal</li>
+      <li>Grumbling: everyone is a self-interested Machiavelli</li>
+      <li>Reality: sincere differences of opinion lead to power struggles because we <em>don't</em> agree on means and ends</li>
     </ol>
   </div>
 </div>
@@ -367,7 +400,7 @@ date: "2025-07-13"
 
 --
 
-> Unfortunately, this book is also somewhat soporific.
+> How well a group manages those disagreements determines how (dys)functional it is.
 
 ---
 
@@ -381,25 +414,6 @@ date: "2025-07-13"
     Eric Raymond: <em><a href="https://isbnsearch.org/isbn/9781565927247">The Cathedral and the Bazaar</a></em> (1999)
     <ul>
       <li>A compelling but misleading myth about the social organization of open source</li>
-    </ul>
-  </div>
-</div>
-
----
-
-## Influential But Wrong
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/raymond-bazaar.jpg" alt="Raymond: The Cathedral and the Bazaar" width="200px">
-  </div>
-  <div class="col-8">
-    Eric Raymond: <em><a href="https://isbnsearch.org/isbn/9781565927247">The Cathedral and the Bazaar</a></em> (1999)
-    <ul>
-      <li>A compelling but misleading myth about the social organization of open source</li>
-      <li>Freeman: <a href="https://en.wikipedia.org/wiki/The_Tyranny_of_Structurelessness">"The Tyranny of Structurelessness"</a> (1972)</li>
-      <li>Every social group has a power structure</li>
-      <li>Only question is whether it is explicit and accountable or implicit and unaccountable</li>
     </ul>
   </div>
 </div>
@@ -407,8 +421,10 @@ date: "2025-07-13"
 
 --
 
--   I once worked for a company whose org chart wasn't available to staff "to discourage silos"
--   Real effect was to perpetuate the power of the old boys' network
+
+-   Freeman: <a href="https://en.wikipedia.org/wiki/The_Tyranny_of_Structurelessness">"The Tyranny of Structurelessness"</a> (1972)
+    -   Every social group has a power structure
+    -   Only question is whether it is explicit and accountable or implicit and unaccountable
 
 ---
 
@@ -423,14 +439,17 @@ date: "2025-07-13"
     <ul>
       <li>Most of the world's economic activity occurs within large companies like Walmart and Amazon</li>
       <li>Which all use Soviet-style central planning</li>
+      <li>Did the USSR just not have the right IT?</li>
+      <li>Have big companies just managed to outsource the failure?</li>
+      <li>Or is there some deeper difference?</li>
     </ul>
   </div>
 </div>
 
--   Why did central planning fail for nation-states?
-    -   Did they just not have the IT it requires?
-    -   Or have big companies just managed to outsource the failure?
--   Can we democratize Amazon's logistics?
+
+--
+
+> Can we give programmers the intellectual tools they need to ask and answer these questions?
 
 ---
 
@@ -475,6 +494,11 @@ date: "2025-07-13"
     </ul>
   </div>
 </div>
+
+
+--
+
+> Explaining usually isn't enough to change people's minds.
 
 ---
 
@@ -546,56 +570,75 @@ date: "2025-07-13"
 
 ---
 
-## Disasters and Scandals
+## Disasters…
 
 <div class="row">
-  <div class="col-2">
-    <img src="@root/files/books/singer-accidents.jpg" alt="Singer: There Are No Accidents" width="100px">
+  <div class="col-4">
+    <img src="@root/files/books/singer-accidents.jpg" alt="Singer: There Are No Accidents" width="200px">
   </div>
-  <div class="col-10">
+  <div class="col-8">
     Jessie Singer: <em><a href="https://isbnsearch.org/isbn/9781982129682">There Are No Accidents: The Deadly Rise of Injury and Disaster—Who Profits and Who Pays the Price</a></em> (2023)
-    <br>
-    Contrasts "blame the individual" with "blame the system"
-    and shows that companies push the latter to absolve themselves of responsibility.
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-2">
-    <img src="@root/files/books/palazzo-pattern.jpg" alt="Palazzo and Hoffrage: The Dark Pattern" width="100px">
-  </div>
-  <div class="col-10">
-    Guido Palazzo and Ulrich Hoffrage: <em><a href="https://isbnsearch.org/isbn/9781541705302">The Dark Pattern: The Hidden Dynamics of Corporate Scandals</a></em> (2025)
-    <table style="font-size: 85%;">
-      <tr>
-        <td style="border: none;">
-          <ul>
-            <li>rigid ideology</li>
-            <li>toxic leadership</li>
-            <li>manipulative language</li>
-          </ul>
-        </td>
-        <td style="border: none;">
-          <ul>
-            <li>corrupting goals</li>
-            <li>destructive incentives</li>
-            <li>ambiguous rules</li>
-          </ul>
-        </td>
-        <td style="border: none;">
-          <ul>
-            <li>perceived unfairness</li>
-            <li>dangerous groups</li>
-            <li>slippery slope</li>
-          </ul>
-        </td>
-    </table>
+    <ul>
+      <li>Contrasts "blame the individual" with "blame the system"</li>
+      <li>Shows that companies push the latter to absolve themselves of responsibility</li>
   </div>
 </div>
 
 --
 
-> Security and DevOps make more sense when thought about this way.
+> Licensure and security make more sense when thought about this way.
+
+---
+
+## …and Scandals
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/palazzo-pattern.jpg" alt="Palazzo and Hoffrage: The Dark Pattern" width="200px">
+  </div>
+  <div class="col-8">
+    Guido Palazzo and Ulrich Hoffrage: <em><a href="https://isbnsearch.org/isbn/9781541705302">The Dark Pattern: The Hidden Dynamics of Corporate Scandals</a></em> (2025)
+    <ul>
+      <li>There are patterns in the dynamics of corporate scandals</li>
+      <li>If we teach them, can we prevent them?</li>
+    </ul>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <td style="border: none; padding-right: 2rem;">
+      rigid ideology
+      <br>
+      toxic leadership
+      <br>
+      manipulative language
+    </td>
+    <td style="border: none; padding-right: 2rem;">
+      corrupting goals
+      <br>
+      destructive incentives
+      <br>
+      ambiguous rules
+    </td>
+    <td style="border: none; padding-right: 2rem;">
+      perceived unfairness
+      <br>
+      dangerous groups
+      <br>
+      slippery slope
+    </td>
+</table>
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<div class="center">
+  <h2>Wrapping Up</h2>
+</div>
 
 ---
 
@@ -604,37 +647,57 @@ date: "2025-07-13"
 <img src="@root/files/talks/carpentries-logo.svg">
 
 -   Step 1: teach scientists how to program
+
 -   Step 2: teach them how to teach
--   *Step 3: teach them organizational change so they can make steps 1 and 2 normal*
 
 
 --
 
--   Should have organized workshops in the other direction right from the start
-    -   "Molecular biology for programmers"
-    -   "Politics and economics for software developers"
+-   *Step 3: teach them organizational change so they can make steps 1 and 2 normal*
+
 
 ---
 
 ## Why This Matters
 
 <div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/young-abolishing.jpg" alt="Young: Abolishing Fossil Fuels" width="200px">
+  <div class="col-2">
+    <img src="@root/files/books/young-abolishing.jpg" alt="Young: Abolishing Fossil Fuels" width="100px">
   </div>
-  <div class="col-8">
+  <div class="col-10">
     Kevin Young: <em><a href="https://isbnsearch.org/isbn/9798887440330">Abolishing Fossil Fuels: Lessons From Movements That Won</a></em> (2024)
     <ul>
-      <li>Social reform in the US only happens when economic pressure is brought to bear on big business</li>
+      <li>Social reform only happens when economic pressure is brought to bear</li>
       <li>"Protests make headlines, but boycotts change laws"</li>
     </ul>
   </div>
 </div>
+<div class="row">
+  <div class="col-2">
+    <img src="@root/files/books/frase-futures.jpg" alt="Frase: Four Futures" width="100px">
+  </div>
+  <div class="col-10">
+    Peter Frase: <em><a href="https://isbnsearch.org/isbn/9781781688137">Four Futures: Life After Capitalism</a></em>
+    <ul>
+      <li>Explores four ways increasing automation and worsening climate change might play out</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+## Conclusion (?)
+
+-   My generation squandered the best world we've ever had
 
 
 --
 
--   My generation squandered the best world we've ever had
+-   But better *is* possible
+
+
+--
+
 -   The best thing we can do now is help you learn the things we chose to ignore
 
 
