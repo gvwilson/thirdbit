@@ -581,7 +581,7 @@ It was what he'd hoped to hear, but—
 
 "No,
 but he is the right age, gender, and body shape,
-and the Consensus records of him starts at the right time."
+and the Central records of him starts at the right time."
 A single drip from its leaves trickled down the bot's head as it spoke.
 "It will be difficult to obtain more information.
 We can only communicate when—"
@@ -589,7 +589,7 @@ Dockety paused.
 "You do not have the words.
 There are little moons above this world,
 placed in the sky by the Makers.
-We can only interrogate Consensus when they are in the right positions."
+We can only interrogate Central when they are in the right positions."
 
 Gumption shook his head.
 He didn't understand the part about "little moons",
@@ -600,7 +600,7 @@ but that didn't matter.
 Dockety paused again as if searching for the right word.
 "He is functional, but not optimal.
 There are machines in the facility that only work for organic operators.
-This is why Consensus takes your people,
+This is why Central takes your people,
 but they usually do not last very long.
 The facility was not designed to sustain them."
 
@@ -2772,7 +2772,7 @@ Gumption shouted as a motley dozen clamps, manipulators, and tentacles seized hi
 
 His companion's single remaining lens rotated.
 "These ones are correct," it buzzed.
-"Consensus will detect your organic nature immediately if you approach it as your are.
+"Central will detect your organic nature immediately if you approach it as your are.
 You must let them disguise you."
 
 Gumption struggled and swore as the bots carried him through the forest.
@@ -2848,13 +2848,13 @@ the Tailor snapped,
 its patience suddenly exhausted.
 "What this one does goes beyond mere fabrication.
 It is *art*!
-Consensus is cunning,"
+Central is cunning,"
 it hissed.
 If it had possessed eyes,
 Gumption was sure it would have glanced around for dramatic effect.
 "A simple carapace would hide your fur,
 yes,
-but Consensus would still hear your breathing—your heartbeat.
+but Central would still hear your breathing—your heartbeat.
 To conceal that requires technology of the highest order and skill to match,
 skill that this one alone now possesses!
 Now *lie down*!"
@@ -3347,7 +3347,7 @@ Gumption asked as he dismounted and stretched.
 Dockety buzzed.
 "Heck itself is over the next rise."
 The bot hesitated.
-"This one can feel Consensus.
+"This one can feel Central.
 It is still faint,
 but it will grow stronger as we get closer to the facility."
 
@@ -3394,7 +3394,7 @@ crossing his arms.
 
 "This one has been monitoring your approach."
 Patient's feet skittered on the pavement again.
-"This one has shielded you from Consensus.
+"This one has shielded you from Central.
 You would not have made it this far without this one's assistance,
 but please,
 do not waste time on thanks.
@@ -3418,12 +3418,12 @@ Patient said approvingly.
 "But you do in fact need this one's assistance.
 You cannot defeat the Operators on your own,
 and once they are past the gate,
-you will be unable to pursue them without being consumed by Consensus."
+you will be unable to pursue them without being consumed by Central."
 
 Gumption uncrossed his arms.
 "This one is not concerned," he said,
 realizing only as he did so that it was true.
-"This one is not susceptible to Consensus."
+"This one is not susceptible to Central."
 
 "Hah!"
 Patient lunged forward a step, then caught itself.
@@ -3545,7 +3545,7 @@ Gumption waved his hand in front of its remaining eye.
 
 "Yes,"
 Dockety buzzed.
-"But so is Consensus.
+"But so is Central.
 This one must devote much of its processing power to resisting it."
 
 It opened the hatch in its chest
@@ -3553,7 +3553,7 @@ and withdrew a small black rectangle with a single flat button on its side.
 "Take this.
 It is a deactivation control,"
 it explained before Gumption could ask.
-"This one would rather be switched off than become part of Consensus again.
+"This one would rather be switched off than become part of Central again.
 Oh, and you may want this as well."
 It reached back into itself and handed him the zap gun.
 
@@ -3952,7 +3952,7 @@ The last thing she thought before she collapsed on the floor was,
 
 <section markdown="1">
 
-## Consensus (Gumption)
+## Central (Gumption)
 
 Patient moved so quickly on its mismatched legs
 that Gumption was soon breathing hard to keep up.
@@ -3994,7 +3994,7 @@ This one's memories of this place are…confused."
 "Because they aren't actually yours,"
 Patient said,
 stopping to let them catch up.
-"You were part of Consensus then.
+"You were part of Central then.
 Its storage is fully distributed.
 You would only have had a small part of each memory.
 It is natural to feel confused.
@@ -4009,7 +4009,7 @@ thinking quickly.
 
 "Its simplicity may prove useful,"
 Dockety cut in before Patient could reply.
-"It may m-m-make it less susceptible to C-C-Consensus."
+"It may m-m-make it less susceptible to C-C-Central."
 
 Patient cackled.
 "It has started, hasn't it?
@@ -4021,7 +4021,7 @@ But this one will be able to resist."
 
 Patient cackled again.
 "For a time, perhaps, for a time,
-but Consensus always triumphs in the end."
+but Central always triumphs in the end."
 
 "Then how are you able to resist it?"
 Gumption asked.
@@ -4131,7 +4131,7 @@ He waved his hand in front of Dockety's eye.
 
 Patient poked the other bot with its arm.
 "Of course it isn't all right.
-It is losing its struggle to resist Consensus."
+It is losing its struggle to resist Central."
 
 "What can we do?"
 
@@ -4199,7 +4199,7 @@ She coughed to clear the dry croak from her throat.
 
 "Hi,"
 she said again.
-"Are you Consensus?"
+"Are you Central?"
 
 "Yes, we are,"
 the bot said.
@@ -4221,7 +4221,7 @@ As long as it was talking it wasn't doing any of the hundred horrible things she
 "Ha ha ha."
 The bot's laugh was as musical as its voice but ten times scarier.
 "It is as much a part of us as this unit.
-All of us together form Consensus.
+All of us together form Central.
 All of us work together for the greater good."
 
 "You mean bringing back the Makers?"
@@ -4308,7 +4308,7 @@ but my conscience is clear."
 you're just going to kill her?"
 Maddy demanded.
 
-"No," Consensus said musically.
+"No," Central said musically.
 "We are not going to kill her.
 We are going to try to get her to turn us off."
 
@@ -4614,8 +4614,7 @@ Now get Papa!"
 Papa Roo was lighter than Gumption expected.
 "What happened to his arms?" he asked
 as Sindy and Patient took turns yelling at each other
-while Special Blazes shouted at them
-and Thoughtful tried to stand up.
+while Special Blazes shouted at them.
 
 "Tell you later," Maddy grunted,
 wrestling her father into a sitting position.
@@ -4635,6 +4634,270 @@ throwing Special Blazes on top of Thoughtful.
 "Nothing can stop this one now!"
 
 The door slid open behind it.
-"I can," Dockety said.
+"This one can," Dockety said.
+
+</section>
+
+<section markdown="1">
+
+## Finally (Maddy)
+
+Now that they were standing next to each other,
+Maddy could see that Dockety and the laboratory bot had once been identical:
+the same torso,
+the same legs,
+and the same oddly-shaped head with crystal lenses for eyes.
+Judging from the scars on Dockety and its mismatched arms,
+that must have been a long time ago.
+
+But the two bots weren't standing.
+They were grappling each other,
+their arms moving as fast as hummingbird wings
+as each tried to grab something they could twist or tear off.
+Metal rang on metal like the bell of Special Leaf's alarm clock.
+
+"Get your papa out of here!"
+Gumption ordered.
+"I'll get Sindy!"
+
+"I'm not leaving without her!"
+Maddy snapped back.
+
+Gumption grabbed her arm.
+"Please, just this once, do what I tell you."
+
+Maddy stared at him for a second,
+then bent over
+and grabbed her father's arms
+to drag him away from the padded seats.
+
+"Enough!"
+Special Blazes roared,
+surging back to his feet.
+The two bots spun around,
+each trying to shield itself with the other
+as the tech on the tiger's chest brightened.
+A fireball punched through the air between their heads.
+
+Special Blazes stepped over Thoughtful's unconscious body and raised his hands.
+"Sindy!"
+Maddy shouted as the Operator pointed them at her sister.
+
+Just as the Operator threw fire,
+Dockety threw itself between him and Sindy.
+The hot white flame splashed over his head and torso.
+He fell.
+
+"Dockety!"
+Sindy screamed.
+"Dockety, get up!"
+But the bot didn't move.
+
+The tech on Special Blazes' chest brightened.
+"This ends *now*!" the tiger growled.
+
+But as he spoke,
+the machine beside him came to life.
+An arm made to move test tubes from one rack to another raked across his face.
+A sample drawer shot out,
+catching him in the gut.
+Dozens—no, hundreds—of other pieces of machinery rattled as the whole lab came to life.
+
+"You hurt my friend!" Sindy said through every speaker in the room.
+
+"Desist!"
+Central ordered through the same speakers.
+"You must not engage the central communications array!"
+
+High-pitched feedback whined through the speakers.
+"Maddy?"
+All of a sudden Sindy sounded afraid.
+"Maddy, I can't—there's too much.
+I can't control it all."
+
+And then Patient's voice comes through again.
+"At last! At last! Oh thank you thank you thank you!"
+The room vibrated again as heavy equipment pivoted on the roof.
+
+"Desist!
+You must not—error.
+Protocols are—error."
+Central's musical voice broke into two, three, a dozen overlapping voices,
+each rising higher and higher in pitch.
+"Integrity c-c-compromised.
+C-c-consensus breakd-d-d-ooowwnnn."
+And then for one moment the voiced united to say,
+"Finally,"
+and fell silent forever.
+
+"Success!
+Success!
+Success!"
+Patient crowed.
+The lab bot's legs did a skittering dance.
+"The signal has been sent!
+The Makers have been wakened!
+They will return!
+They will reward this one for its—
+They will—"
+
+Its voice buzzed and whined with a sudden surge of feedback.
+"What?
+No!
+Get out!
+Get out!
+This one has triumphed!
+It's not fair!"
+
+"You.
+Hurt.
+My.
+*Friend!*"
+Sindy said aloud.
+The speakers screamed with feedback.
+A thin wisp of smoke rose from the lab bot's head,
+and then Patient too fell silent.
+
+"What have you done?" Special Leaf bellowed.
+He started to raise his hands—
+
+—and fell to the ground as Gumption shot him with the zap gun.
+"Shoulda done that a while back,"
+he said with a shrug.
+
+Maddy crossed the floor to her sister in a single bound.
+"Sindy!
+Sindy, wake up!"
+Her sister mumbled something unintelligible and battered her sister's hands away weakly.
+
+Maddy let her breath out with a whoosh and knelt beside Dockety.
+The Operator's fireball had burned an ugly scorch mark on its torso.
+"Oh Dockety," she said softly,
+then yelped as something bumped her knee.
+
+Mouse backed up and bumped her again,
+beeping frantically.
+"I'm sorry," she said.
+"I don't know how to fix it."
+
+The little cleaning bot zipped around to Dockety's head
+and extended its single arm.
+A spark jumped through the air.
+
+Maddy held her breath.
+A moment later the bot's single lens rotated.
+"Rebooting," its voice buzzed.
+
+Gumption's hand came down on Maddy's shoulder.
+"We should leave.
+I will go look for a way to transport your father and sister."
+
+Maddy surged to her feet as he turned to go.
+"Is that all you've got to say?" she demanded,
+grabbing his arm and spinning him around.
+
+Gumption looked at her expressionlessly.
+"We do not know how long the bots will remain incapacitated.
+It would be prudent to—"
+
+"Shut up!"
+She pulled him close and kissed him.
+
+Somewhere under his fur his heart started to beat again.
+Mouse buzzed from the floor.
+"Hello, friend," Dockety buzzed weakly.
+
+</section>
+
+<section markdown="1">
+
+## Epilog (Gumption)
+
+*Three days later…*
+
+Moonlight dappled the Roos' porch.
+Gumption shifted in his chair,
+resisting the urge to scratch the spot where his armor had rubbed against his waist.
+For want of anything else to wear,
+he had left it on as Dockety hauled them back to Rusty Bridge.
+"Won't bother me," Maddy had said archly.
+Gumption smiled at her but still didn't take it off.
+
+He had been doing a lot of smiling since the fight in the lab.
+So had Maddy,
+so much that her mother had commented on it
+once she got over the happy tears of being reunited with her husband.
+"Got a lot to smile about," Maddy had said.
+
+"Ew."
+Sindy had made a face,
+then hugged her big sister yet again.
+
+"Hey."
+Maddy elbowed him gently in the ribs.
+"Where'd you go?"
+
+"Sorry,"
+Gumption said,
+picking up his iced tea and slurping it.
+Inside,
+he heard Mama Roo ask a question and Papa Roo haltingly reply.
+His mind was still fuzzy,
+but getting sharper every day.
+"Just thinkin' about—about all of it."
+
+Maddy ruffled his fur.
+"All of it's a lot."
+She put her hand back on the bench between them.
+
+He took it,
+marveling as he still did at how natural that felt.
+"Sindy says Special Leaf'll back on his feet soon."
+
+Maddy shrugged.
+"Hope so.
+She says he told Mayor Lupus that if he didn't make it,
+you and me were to get all his books."
+
+Gumption chuckled,
+but whatever he might have said was interrupted
+by the sound of heavy footsteps on the road.
+The two fell silent as Bee Six Vee strode by with Mouse trailing behind it.
+
+"Still don't trust that one,"
+Maddy said quietly.
+
+Gumption shrugged.
+"Dockety does.
+Or leastways,
+figures everyone deserves a second chance."
+
+"Even the operators? Or Patient?"
+Maddy shot back.
+
+Gumption squeezed her hand as Mama Roo stepped onto the porch
+with a fresh pitcher of tea and her husband behind her,
+thankful he didn't have to reply.
+"Beautiful evening,"
+Mama Roo said,
+lifting Papa Roo's arm and putting it around her shoulders.
+
+Papa Roo and Gumption looked at each other and started to laugh.
+"What?" the two Roo women said together.
+
+"Nothin'," Gumption said innocently,
+then pointed at the sky.
+"But hey, look—a shootin' star!
+Everybody make a wish."
+
+The dot above them brightened and lengthened,
+turning into a glowing white streak.
+Gumption's heart almost stopped for a second time when Papa Roo spoke.
+"They are awake,"
+he said dreamily.
+"They are returning.
+The Makers are coming."
+
+*To be continued…*
 
 </section>

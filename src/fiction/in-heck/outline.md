@@ -18,21 +18,21 @@
 -   The last humans put themselves in frozen sleep in an orbiting ark to wait for the world to heal itself
     -   Ever since, the bots they left behind have been patching and repairing themselves however they can
     -   They are not able to create new bots because they have no way to manufacture new "brains"
--   Most bots are part of a hive-mind Consensus
-    -   The only ones with unique personalities are those cut off from Consensus (accidentally or deliberately)
-    -   These "free bots" (polite term) or "rogues" (less polite) fear being pulled back into Consensus and losing their individuality
+-   Most bots are part of a hive-mind Central
+    -   The only ones with unique personalities are those cut off from Central (accidentally or deliberately)
+    -   These "free bots" (polite term) or "rogues" (less polite) fear being pulled back into Central and losing their individuality
 -   Bots and people mingle uneasily
     -   When they do, bots usually have second-class social status
 -   The Operators are peacekeepers (or vigilantes, depending on your point of view)
     -   They keep people safe from outlaws and rogue bots
     -   But their secret purpose is to keep watch on throwback specials, who might be able to awaken the sleeping Makers
-    -   Neither Consensus nor the few people who know the truth about the Makers want the Makers to return
+    -   Neither Central nor the few people who know the truth about the Makers want the Makers to return
 -   Notable places
     -   Rusty Bridge: a town of about a thousand people
     -   Bots' End: a small bot encampment taking shape near Rusty Bridge
     -   Heck: a bot "city"
         -   The story reveals that it was the base from which the Makers' ark was launched
-        -   Consensus bots are still running experiments there in automated laboratories because their programming tells them to
+        -   Central bots are still running experiments there in automated laboratories because their programming tells them to
     -   The Mire: a large, polluted swamp between Rusty Bridge and Heck
         -   Old bunkers and watch towers can be found in it and nearby
         -   An old highway referred to as the Makers' Road runs along its edge
@@ -112,7 +112,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Miz Nabbles (minor antagonist): a donkey schoolteacher who wants to be mayor and is prejudiced against bots
 -   Dockety (ally): Dockety-One Forty-Bee is the unofficial leader of the bots that have settled near Rusty Bridge
     -   It takes its responsibilities as leader very seriously (mirrors Maddy's elder sibling syndrome)
-    -   Character arc: accepts that being a leader is not the same as re-creating Consensus
+    -   Character arc: accepts that being a leader is not the same as re-creating Central
 -   Crusher (minor ally): a large hauler bot and Dockety's partner
 -   Able the mailbot (incidental): happy-go-lucky
     -   It is damaged in battle (minor tragedy to the story, foreshadows Special Leaf's death)
@@ -129,8 +129,8 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
         -   Switches sides and helps Maddy and Gumption after Special Leaf's death
 -   Bee Six Vee: a hauler bot whose job appears to be hauling the Operators' equipment
     -   Later revealed to be modified combat bot
-    -   Assimilated by Consensus (minor tragedy, contrasts with Dockety's struggle to be free)
--   Consensus (antagonist): the collective consciousness of the majority of bots
+    -   Assimilated by Central (minor tragedy, contrasts with Dockety's struggle to be free)
+-   Central (antagonist): the collective consciousness of the majority of bots
     -   Its goals are to carry out its programming (e.g., experiment on people)
     -   And to prevent the Makers' return so that they cannot give it more tasks
 -   Patient in Darkness (antagonist): the villain from the first book
@@ -297,10 +297,10 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Maddy experiences a moment of trauma when she recognizes it
 -   Patient explains why Sindy is important
     -   Throwback specials can control everything, including the equipment that will waken the Makers
-    -   Consensus and the Operators have worked for centuries to prevent this
+    -   Central and the Operators have worked for centuries to prevent this
     -   But Patient wants the Makers to return
     -   So it wants to rescue Sindy from the Operators for its own purposes
-    -   But can't risk getting too close to Consensus for fear of being assimilated
+    -   But can't risk getting too close to Central for fear of being assimilated
 -   Offers Maddy a discombobulator that hides her from bots
     -   Not invisible but unnoticeable
     -   It isn't "tech": bots invented it, so anyone can use it
@@ -322,7 +322,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Dockety takes Gumption to meet the free bots
     -   Dockety strikes a deal with them for help
     -   Trades one of its optical sensors for their help
-    -   Explains the risk of getting too close to Consensus itself
+    -   Explains the risk of getting too close to Central itself
 
 ### 9: Hide and Seek (Maddy)
 
@@ -382,16 +382,16 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Dockety feels a little strange but not as much as he would have expected
 -   Dockety carries Gumption to a gate on the outskirts of Heck
 -   Patient is waiting for them in a building next to the gate (same one that Maddy notices above)
-    -   It monitored their approach and hid them from Consensus ("You wouldn't have made it this far without me!")
-    -   Explains that Consensus and the Operators have been work together to prevent the Makers' return
+    -   It monitored their approach and hid them from Central ("You wouldn't have made it this far without me!")
+    -   Explains that Central and the Operators have been work together to prevent the Makers' return
     -   It wants Sindy to awaken the Makers
     -   Proposes that they work together
     -   Seems to believe that Gumption is one of Dockety's bot friends
 -   Gumption refuses
     -   Believes he and Dockety can do it on their own
-    -   But Dockety can already hear Consensus whispering in its head and is afraid
+    -   But Dockety can already hear Central whispering in its head and is afraid
     -   Gumption feels coldly analytical (no heartbeat)
-    -   Believes that he can resist Consensus, but refuses to tell Patient why
+    -   Believes that he can resist Central, but refuses to tell Patient why
 -   As they argue, the wagon rolls up to the gate
     -   Blazes and Thoughtful get out with Sindy
     -   Sindy panics and activates Blazes' tech
@@ -400,14 +400,14 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Dockety: "No choice but try to rescue her"
     -   Patient goes ahead
     -   Dockety opens its chest and hands a remote control to Gumption
-    -   "This one would rather be deactivated than be part of Consensus again"
+    -   "This one would rather be deactivated than be part of Central again"
     -   They go into Heck
 
 ### 13: Papa Roo (Maddy)
 
 -   Goals:
     -   Maddy finds her father
-    -   Mouse betrays Maddy to Consensus
+    -   Mouse betrays Maddy to Central
 -   Bee Six Vee stops a few minutes away from Heck
     -   Mouse distracts it while Maddy gets out of the wagon and into the bushes
     -   Makes her way back to Heck
@@ -434,20 +434,20 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Maddy: "Not without you!"
 -   That's when Mouse zaps Maddy unconscious
 
-### 14: Consensus (Gumption)
+### 14: Central (Gumption)
 
 -   Goals:
-    -   Dockety's struggle with Consensus
+    -   Dockety's struggle with Central
     -   Gumption seeing the world as a bot would
     -   Dockety and Gumption confront the Operators
 -   Patient, Dockety, and Gumption make their way through Heck
     -   Dockety is shaken to discover that it is mostly empty
     -   Turns out it doesn't know how long since it was last there
-    -   Patient: "Consensus doesn't want to continue but cannot stop"
-    -   Dockety's speech is occasionally erratic because of its struggle to resist Consensus
+    -   Patient: "Central doesn't want to continue but cannot stop"
+    -   Dockety's speech is occasionally erratic because of its struggle to resist Central
 -   Gumption trying to sound like he knows what bots would know
     -   *Patient becomes suspicious of Gumption
-    -   Gumption deflects by asking how Patient is able to resist Consensus
+    -   Gumption deflects by asking how Patient is able to resist Central
     -   Patient deflects in turn
 -   Patient leads them to the dormitory
     -   Obviously knows the way
@@ -457,7 +457,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   Patient assumes that "the new one" is Sindy
     -   Rages that its plan is falling apart
     -   Urges them on to the central lab
-    -   Dockety says that Consensus is winning and freezes (needs all its attention to resist)
+    -   Dockety says that Central is winning and freezes (needs all its attention to resist)
     -   Gumption tries to wake it
     -   Patient: "Nothing you can do: it will win or lose" (clearly suspicious that Gumption doesn't know this)
 -   Patient and Gumption hurry to the central lab (has a large antenna on roof)
@@ -471,18 +471,18 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Not strapped in but can't move anything below her neck
     -   Her father is in the chair beside her but unresponsive
 -   A humanoid bot appears
-    -   When Maddy asks if it is Consensus it says "yes"
+    -   When Maddy asks if it is Central it says "yes"
     -   Then picks up Mouse, which flashes, "As is this one"
--   Off-kilter dialog with Consensus
-    -   Reinforces Patient's claim that Consensus wants to stop but its programming won't allow it to
+-   Off-kilter dialog with Central
+    -   Reinforces Patient's claim that Central wants to stop but its programming won't allow it to
     -   Doesn't want the Makers to return because they would make it continue
 -   Blazes and Thoughtful enter with Sindy
     -   Thoughtful is apologetic, Blazes is sure of himself: handing over Sindy is necessary
     -   Maddy: "Just going to kill her?"
-    -   Consensus: "These do not kill. These will try to get her to turn these off."
+    -   Central: "These do not kill. These will try to get her to turn these off."
 -   Takes Sindy from the Operators and puts her in an empty chair next to Maddy
     -   Put on a headset that connects to a complicated piece of machinery
-    -   Consensus: "Central communications hub - without it, we become our component parts"
+    -   Central: "Central communications hub - without it, we become our component parts"
 -   Gumption breaks in
 
 ### 16: Your Move (Gumption)
@@ -502,7 +502,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   Notices that Sindy has regained consciousness
 -   Maddy and the Operators are all confused by Gumption's appearance
     -   Gumption continues bluffing, dropping heavy hints that Sindy should do something
-    -   Consensus: "Why can we not hear you?"
+    -   Central: "Why can we not hear you?"
 -   Thoughtful shoots Patient's random piece of gear out of Gumption's hands
     -   Blazes: "Can't have you telling tales"
     -   Starts to fire up his tech to immolate Gumption
@@ -513,22 +513,22 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
     -   She makes a scathing comment about Gumption's "bathing suit"
     -   Gumption's reply is oddly calm (still no heartbeat / muted feelings)
     -   Uses her discombobulator to "hide" herself long enough to reach Sindy
-    -   Sindy tells Maddy to leave her in her chair: she needs to help Consensus
-    -   Patient: "Consensus is no more. There is only _me_."
+    -   Sindy tells Maddy to leave her in her chair: she needs to help Central
+    -   Patient: "Central is no more. There is only _me_."
     -   Sindy: "We'll see about that!"
 -   Three-way fight (action takes up most of the chapter)
     -   Gumption is trying to stop Blazes and Thoughtful from shooting Sindy
     -   Bots are trying to stop the Operators
-    -   Patient and Consensus are fighting for control of the bots (which speak in both their voices alternately)
+    -   Patient and Central are fighting for control of the bots (which speak in both their voices alternately)
     -   Maddy is yelling but cannot get out of her chair
 -   All looks hopeless until Dockety arrives
 
-### 17 (Gumption)
+### 17: Finally (Maddy)
 
 -   Goals:
     -   Patient's "death"
     -   Operators are defeated
-    -   Dockety discovers it is strong enough to resist Consensus
+    -   Dockety discovers it is strong enough to resist Central
     -   Protagonists escape from Heck with Papa Roo and Sindy
     -   Gumption and Maddy finally get together
 -   Dockety throws itself in front of Sindy to save her from Blazes' blast
@@ -538,7 +538,7 @@ Dockety reveals that Maddy's father may be alive as a prisoner in the bot city o
 -   We hear Sindy start to lose control
     -   And then Patient's voice comes through again: "I did it! I did it!"
     -   "All the machines" that Sindy turned on included the control for the antenna on top of the building
-    -   Consensus starts to dissolve (Its last word is, "Finally…")
+    -   Central starts to dissolve (Its last word is, "Finally…")
     -   And then Patient realizes that it is dissolving as well
     -   Will not live to enjoy its victory, but it is still a victory (final villain monologue)
 -   Sindy passes out
