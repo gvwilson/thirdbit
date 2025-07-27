@@ -41,6 +41,8 @@ please let me know.
     We spend a lot of our time rolling rocks up hills;
     as I approach the end of my career,
     I'd really like someone to teach me how to get rid of the damn hills.
+    *Note: we're [working on this one](https://gvwilson.github.io/change/);
+    please reach out if you'd like to help.*
 
 *In a better world than this,
 Canada would have a Natural Science and Engineering Education Council alongside NSERC
