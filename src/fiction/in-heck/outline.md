@@ -5,6 +5,74 @@
 -   The story is a fast-paced adventure with occasional moments of character-driven heartbreak
 -   Like all middles it is proving hard to write…
 
+## Critique
+
+-   **"Therefore" and "however" instead of "and then"**
+-   It's too short (26730 words vs. 31331, so shortfall of 5000 words or 3+ chapters)
+-   The ending is too long
+    -   The final confrontation in the lab should be two chapters instead of three
+-   Having both the discombobulator *and* the suit of armor is too much
+    -   Should only have one maguffin per story
+    -   And neither is used
+-   The zap gun is introduced but not used
+-   Don't make enough of Special Leaf being injured
+-   Gumption's character isn't properly developed
+    -   Don't see him building self-confidence
+-   Maddy's corresponding character development isn't clear either
+    -   Don't see her feelings of guilt about her father's capture
+    -   Or her realizing that she doesn't have to solve the world's problems
+-   Maddy and Gumption stowing away without saying goodbye to Sindy isn't plausible
+    -   Need to get them in the wagon *after* a tearful farewell
+    -   But keep the scene of them sleeping side by side
+    -   Maybe one night on the road to stretch out the journey to the Observatory?
+-   Dockety's struggle with Central is unclear
+    -   No one will understand the stakes or its triumph
+    -   Should find a way to re-introduce its use of "I" as a sign of growth
+-   The Operators are left hanging at the end
+    -   Re-introduce Meribeth as Blazes' former partner (hint that she got cold paws)
+    -   Show Thoughtful's qualms about turning Sindy over to Central
+        -   Her first time doing this?
+        -   Or will it be more effective if it's her second?
+    -   Bee Six Vee joining the free bots is unclear and unmotivated
+-   The free bot community around the Tailor is introduced and discarded
+    -   Need them to reappear somehow
+    -   Does Bee Six Vee join them to free itself from the Operators?
+-   Mouse's adoption by Dockety and Crusher is unclear
+-   What happens to the other special originals?
+    -   And the other prisoners?
+    -   Is rescuing them why Gumption goes back to the Tailor's community?
+    -   Does this lead to another conflict with Special Blazes?
+-   Not clear that Patient is destroyed at the end
+    -   Does it need to be?
+-   Central's desire to end itself isn't presented clearly
+    -   Also unclear that it achieves this
+-   Why would Central fill Heck with holograms?
+    -   Or are the Operators behind it all and Central is their servant?
+    -   Or are the Operators keeping Central occupied with special originals (feeding the addiction)?
+-   Need a resolution with Miz Tumbly
+-   Need to resolve Maddy's picture in the newspaper
+    -   And Gumption deciding to go to trade school
+    -   He's going away, but that's OK because they both know they've started something
+-   Does Mouse become Sindy's new best friend at the end?
+-   What happens to Able in the end?
+    -   Friendship with Bee Six Vee leads to the latter turning?
+-   Three-way fight at the Observatory isn't clear
+
+## Solutions
+
+-   Gumption and Maddy go to see Special Leaf
+    -   He is very weak, but warns them that Sindy is in danger if she goes with the Operators
+    -   Reveals a bit of his own dark past
+-   Tearful farewell followed by Dockety and another bot helping them stow away on the road
+    -   Add a mention of Miz Tumbly being there to sniff at Sindy's departure and Mama Roo's angry reaction
+-   So the Observatory is the second day, not the first
+-   Maddy can lie there and hear Sindy cry quietly because she's alone and scared
+    -   Use this to reveal Maddy's guilt about her father and her belief that she has to fix the world
+-   Three-way fight at the Observatory isn't clear
+    -   Have Sindy kidnapped, then other bots re-kidnap her, but she's dropped in the muddle
+    -   Maddy is taken while trying to protect her
+    -   See Patient raging at/punishing the flyer that took her
+
 ## Settings
 
 -   Long ago, as the world was falling apart, humans created intelligent animals
