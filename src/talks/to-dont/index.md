@@ -54,7 +54,7 @@ date: "2025-07-01"
 
 <div class="row">
   <div class="col-4">
-    <img src="./debugger.png" alt="Building a Debugger" class="center" width="200px">
+    <img src="@root/files/talks/debugger.png" alt="Building a Debugger" class="center" width="200px">
   </div>
   <div class="col-8">
     <ul>
@@ -336,7 +336,7 @@ date: "2025-07-01"
 
 <div class="row">
   <div class="col-4">
-    <img src="./productivity-book.webp" alt="Rethinking Productivity in Software Engineering" class="center" width="200px">
+    <img src="@root/files/talks/productivity-book.webp" alt="Rethinking Productivity in Software Engineering" class="center" width="200px">
   </div>
   <div class="col-8">
     <ul>
@@ -365,7 +365,7 @@ date: "2025-07-01"
 
     -   And then tackle things that really matter
 
-<img src="wikipedian_protester.png" alt="Wikipedian Protestor" width="400px">
+<img src="@root/files/talks/wikipedian_protester.png" alt="Wikipedian Protestor" width="400px">
 
 ---
 
