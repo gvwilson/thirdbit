@@ -1,7 +1,7 @@
 ---
-title: "Sex & Drugs & Guns & Code"
+title: "Cocaine Cartels and Conway's Law"
 template: slides
-date: "2025-07-13"
+date: "2025-07-28"
 ---
 
 ## Outline
