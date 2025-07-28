@@ -1,5 +1,6 @@
 ---
-title: "Cocaine Cartels and Conway's Law"
+title: "Cocaine and Conway's Law"
+subtitle: "what young software engineers need to learn and how we should teach it"
 template: slides
 date: "2025-07-28"
 ---
