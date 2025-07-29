@@ -618,6 +618,23 @@ date: "2025-07-28"
 
 ---
 
+## Cheating
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/lang-cheating.jpg" alt="Lang: Cheating Lessons" width="200px">
+  </div>
+  <div class="col-8">
+    James M. Lang: <em><a href="https://isbnsearch.org/isbn/9780674724631">Cheating Lessons: Learning from Academic Dishonesty</a></em> (2023)
+    <ul>
+      <li>Personalize discussion of motivation and misaligned incentives</li>
+      <li>See if they can apply what they've learned</li>
+    </ul>
+  </div>
+</div>
+
+---
+
 <br>
 <br>
 <br>
@@ -669,6 +686,14 @@ date: "2025-07-28"
     </ul>
   </div>
 </div>
+
+
+--
+
+-   This is the worst job market for junior programmers *ever*
+-   People whose hopes have failed look for someone to blame
+-   If we don't explain how the world works,
+    someone much less pleasant will happily do so
 
 ---
 
