@@ -22,7 +22,7 @@ template: page
   </div>
   <div class="col-6">
     <div class="card">
-      <h3 id="tech-talk"><a href="@root/talks/tech-talk/">Giving a Technical Presentation</a></h3>
+      <h3 id="tech-talk"><a href="@root/talks/tech-talk/">Giving a Tech Talk That Doesn't Suck</a></h3>
       <p>
         A few simple rules (or questions) for giving technical pressentations.
 	<br>
@@ -75,7 +75,7 @@ template: page
   </div>
   <div class="col-6">
     <div class="card">
-      <h3 id="what-everyone-in-tech-should-know-about-teaching-and-learning"><a href="@root/files/talks/teaching-learning.odp">What Everyone in Tech Should Know About Teaching and Learning</a></h3>
+      <h3 id="teaching-tech-together"><a href="@root/files/talks/teaching-learning.odp">Teaching Tech Together</a></h3>
       <p>
 	Having tried to cram a dozen books about teaching into a two-day course,
 	I have now tried to cram key ideas from that course into this one-hour talk.
