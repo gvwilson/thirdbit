@@ -1,0 +1,220 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+/* Definitions */
+:root {
+    --color-decorate: #203080;
+    --color-highlight: #f0f0f8;
+    --color-page: #f8f8f8;
+    --color-link-unvisited: #0066ff;
+    --color-link-visited: #0000ff;
+
+    --font-prose: "Atkinson Hyperlegible", Arial, sans-serif;
+    --font-code: "Source Code Pro", "Courier New", monospace;
+
+    --len-thick: 4px;
+    --len-thick-double: 8px;
+    --len-thin: 1px;
+    --len-half: 0.5rem;
+    --len-one: 1rem;
+    --len-page: 68rem;
+    --len-dropdown: 200px;
+
+    --size-prose: 1.2rem;
+    --size-code: 1.1rem;
+}
+
+/* Flex grid */
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%
+}
+
+.row > * {
+  flex: 1; /* allow children to grow when space available */
+}
+
+.col-1 { flex-basis: 8.33%; }
+.col-2 { flex-basis: 16.66%; }
+.col-3 { flex-basis: 25%; }
+.col-4 { flex-basis: 33.33%; }
+.col-5 { flex-basis: 41.66%; }
+.col-6 { flex-basis: 50%; }
+.col-7 { flex-basis: 58.33%; }
+.col-8 { flex-basis: 66.66%; }
+.col-9 { flex-basis: 75%; }
+.col-10 { flex-basis: 83.33%; }
+.col-11 { flex-basis: 91.66%; }
+.col-12 { flex-basis: 100%; }
+
+/* Dropdown menu */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown > a {
+    text-decoration: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-highlight);
+    min-width: var(--len-dropdown);
+    box-shadow: 0px var(--len-thick) var(--len-thick-double) 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: var(--len-thick);
+}
+
+.dropdown-content a {
+    padding-left: var(--len-thick);
+    padding-right: var(--len-thick);
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    color: var(--color-link-visited);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Generic positioning */
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: var(--color-link-unvisited);
+}
+a:visited {
+    color: var(--color-link-visited);
+}
+a:hover {
+    color: var(--color-link-visited);
+}
+
+/* Quotes */
+blockquote {
+    border-left: solid var(--len-thick) var(--color-decorate);
+    margin-left: 0px;
+    padding-left: var(--len-half);
+    padding-top: var(--len-thick);
+    padding-bottom: var(--len-thick);
+    margin-top: var(--len-thick);
+    margin-bottom: var(--len-thick);
+    background-color: var(--color-highlight);
+}
+
+/* Whole document */
+body {
+    font-family: var(--font-prose);
+    font-size: var(--size-prose);
+    max-width: var(--len-page);
+    background-color: var(--color-page);
+    margin: auto;
+}
+
+/* Code text */
+code {
+    font-size: var(--size-code);
+}
+
+/* Footer */
+footer {
+    border-top: solid var(--color-decorate) var(--len-thin);
+    margin-top: var(--len-half);
+    padding-top: var(--len-half);
+    text-align: center;
+}
+
+/* Headings */
+h1, h2, h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* Page heading */
+h1 {
+    text-align: center;
+}
+p.subtitle {
+    text-align: center;
+    font-style: italic;
+}
+
+/* Navigation */
+nav {
+    border-bottom: solid var(--color-decorate) var(--len-thin);
+    margin-bottom: var(--len-half);
+    padding-bottom: var(--len-half);
+}
+
+/* Code block */
+pre {
+    background-color: var(--color-highlight);
+    padding: var(--len-half);
+}
+
+/* Table */
+table {
+  text-align: justify;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: var(--len-half);
+  border: solid var(--len-thin) var(--color-decorate);
+}
+
+tr:hover {
+    background-color: var(--color-highlight);
+}
+
+thead {
+    background-color: var(--color-highlight);
+}
+
+/* Lists */
+ol {
+  padding-left: var(--len-one);
+  margin-top: 0px;
+}
+ul {
+  padding-left: var(--len-one);
+  margin-top: 0px;
+  list-style-type: disc;
+}
+
+/* Exercise blocks */
+section.exercise {
+    background-color: #f1f1f1;
+    padding-left: 1em;
+    padding-right: 0.8em;
+}
+section.exercise h3 {
+    font-size: 1.5em;
+}
+
+/* Definitions */
+
+dt {
+    font-weight: bold;
+}
