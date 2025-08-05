@@ -123,7 +123,6 @@ date: "2025-07-20"
 
 ## When Are You Done?
 
--   It's a trick question
 -   "Lessons are never finished: they are just delivered."
 -   Practice *out loud*
     -   Doing everything you plan to do (e.g., live coding)
@@ -146,13 +145,14 @@ date: "2025-07-20"
     -   I'm a terrible graphic designer,
         so I deliberately stick to mostly-text slides
 -   Everyone talks faster in front of an audience (adrenaline)
--   A glass of water can save your career
+-   Adjust to the size of the room
+    -   Acoustic cafe vs. stadium rock
+-   A glass of water can save your career (or your marriage)
 
 
 --
 
-> 1.  What two adjectives would people who know you well
->     use to describe you?
+> 1.  What two adjectives would people who know you well use to describe you?
 > 2.  How can you use these on stage?
 
 ---
@@ -180,8 +180,38 @@ date: "2025-07-20"
 
 --
 
+-   Show up early to test things
+-   Give the next speaker time and space to do this
+
+
+--
+
 > 1.  How do you handle someone who really wishes he was giving the talk instead of you?
 > 2.  What do you do if your demo just doesn't work?
+
+---
+
+## Where Do You Start?
+
+-   A little-known or counter-intuitive fact (also called a *hook*)
+-   A story of personal failure
+    -   A sympathetic audience is more likely to listen
+-   An audience poll
+    -   Follow up with questions to specific people
+    -   Specifically, those who are still talking
+
+---
+
+## How Do You Finish?
+
+-   A call to action ("submit your pull requests here!")
+-   A pointer to further / deeper resources
+-   A memorable story (poignant, funny, or angry)
+
+
+--
+
+-   Plan to end a few minutes early
 
 ---
 
