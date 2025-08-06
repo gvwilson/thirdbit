@@ -1,5 +1,5 @@
 ---
-title: "Giving a Tech Talk<br>That Doesn't Suck"
+title: "Giving a Tech Talk That Doesn't Suck"
 template: slides
 date: "2025-07-20"
 ---
@@ -57,7 +57,7 @@ date: "2025-07-20"
 
 > **Organizational Change for Open Science**
 >
-> This workshop teaches Sabina the vocabulary of organizational change
+> This workshop gives Sabina a vocabulary for organizational change
 > so that she can think and talk about it more clearly,
 > while the exercises help her figure out what changes she wants
 > and how to achieve them.
@@ -77,9 +77,14 @@ date: "2025-07-20"
 
 --
 
-> **Organizational Change for Open Science**
->
 > Which of the five patterns above does this talk follow?
+
+---
+
+## Is It a Story?
+
+-   "And then" is weak
+-   "But" and "therefore" are strong
 
 ---
 
