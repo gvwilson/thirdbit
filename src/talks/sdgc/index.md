@@ -237,6 +237,7 @@ date: "2025-07-28"
 
 -   Béranger: *[Medical Information Systems Ethics](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119178224)*
 -   Goltz & Dowdesell: *[Real World AI Ethics for Data Scientists](https://isbnsearch.org/isbn/9781032275055)* (2023)
+-   Kizza: *[Ethical and Secure Computing](https://isbnsearch.org/isbn/9783031319051)* (2023)
 -   Schlossberger: *[Ethical Engineering: A Practical Guide with Case Studies](https://isbnsearch.org/isbn/9781032151120)* (2023)
 -   Steen: *[Ethics for People Who Work in Tech](https://isbnsearch.org/isbn/9780367542436)* (2022)
 
@@ -256,7 +257,7 @@ date: "2025-07-28"
   <div class="col-8">
     Steven Levitt & Stephen Dubner: <em><a href="https://isbnsearch.org/isbn/9780061234002">Freakonomics</a></em> (2006)
     <ul>
-      <li>"The only valid way to analyze individual behavior is maximization of wealth"</li>
+      <li>"The profit motive is the only valid way to analyze individual behavior"</li>
       <li>…which is provably wrong, but their writing is engaging…</li>
       <li>…and tech bros are suckers for simple answers to hard questions that fit their preconceived ideas…</li>
       <li>…especially when they have no idea where those ideas came from</li>
