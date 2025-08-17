@@ -21,51 +21,35 @@ template: page
         (where "alternative" == "not Silicon Valley ideology")
     -   Offer short Carpentries-style workshops for people already in industry
         using material shared with those undergraduate courses
+    -   Use stories and scenarios to make material more engaging
     -   Build a coalition of the willing to create, maintain, and deliver these classes and workshops
 
-## Cohort Analysis
+## Personas
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>student</th>
-      <th>professor</th>
-      <th>programmer</th>
-      <th>funder</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Cares about</th>
-      <td>FIXME</td>
-      <td>FIXME</td>
-      <td>FIXME</td>
-      <td>FIXME</td>
-    </tr>
-    <tr>
-      <th>Persuaded by</th>
-      <td>FIXME</td>
-      <td>FIXME</td>
-      <td>FIXME</td>
-      <td>FIXME</td>
-    </tr>
-    <tr>
-      <th>Distractors</th>
-      <td>FIXME</td>
-      <td>FIXME</td>
-      <td>FIXME</td>
-      <td>FIXME</td>
-    </tr>
-    <tr>
-      <th>Approach</th>
-      <td>FIXME</td>
-      <td>FIXME</td>
-      <td>FIXME</td>
-      <td>FIXME</td>
-    </tr>
-  </tbody>
-</table>
+-   Sami Student
+    -   20 years old;
+        in his final year of a BSc in Software Engineering;
+        has done two work terms and taken introductory courses in Economics and Statistics.
+    -   Wants to start his own company "just like Steve Jobs did";
+        makes jokes about "DEI hires" and about other students' lack of job prospects.
+    -   Father (also a programmer) was recently laid off despite his employer posting record profits;
+        Sami wants to understand how that happened,
+        and why some of his classmates are suddenly parroting anti-immigrant talking points.
+-   Paola Professor
+    -   38 years old, has had tenure for three years;
+        research focus is energy consumption of large computer systems.
+    -   Enjoys teaching,
+        but disappointed that most of her students don't seem to care about anything except their job prospects.
+    -   Overworked;
+        frustrated by how hard it is to make meaningful changes at her university,
+        particularly when it comes to hiring and promotion.
+-   Dacey Developer
+    -   29 years old;
+        non-binary but finds it easiest not to correct people who don't use their preferred pronouns.
+    -   Has been building mobile applications for seven years;
+        takes pride in the quality of their work;
+        is now technical lead of a three-person team.
+    -   Wants to be a good manager but finds most books on the subject vague, dull, or both.
 
 ## Four Options
 
@@ -105,7 +89,7 @@ template: page
 
 ### Productivity, Research Methods, and Enlightened Skepticism
 
--   Plan: Teach programmers to distinguish reliable research from plausible punditry
+-   Plan: teach programmers to distinguish reliable research from plausible punditry
     -   Use programmer productivity as the motivating issue
 -   Pro:
     -   Topical: debates about impact of AI are vacuous without shared, reliable understanding of what productivity means
@@ -118,7 +102,7 @@ template: page
 
 ### Social Studies for Software Engineers
 
--   Plan: Summarize key insights from social sciences that are directly related to tech industry
+-   Plan: summarize key insights from social sciences that are directly related to tech industry
     -   Who decides what's allowed on the internet?
     -   Why don't software engineers need to be licensed?
     -   Does strong encryption do more harm than good?
