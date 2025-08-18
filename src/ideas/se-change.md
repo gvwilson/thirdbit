@@ -30,11 +30,11 @@ template: page
     -   20 years old;
         in his final year of a BSc in Software Engineering;
         has done two work terms and taken introductory courses in Economics and Statistics.
-    -   Wants to start his own company "just like Steve Jobs did";
-        makes jokes about "DEI hires" and about other students' lack of job prospects.
+    -   Wants to start his own company "just like Elon Musk";
+        makes jokes about DEI hires and about other students' lack of job prospects.
     -   Father (also a programmer) was recently laid off despite his employer posting record profits;
         Sami wants to understand how that happened,
-        and why some of his classmates are suddenly parroting anti-immigrant talking points.
+        and why some of his classmates have started sharing anti-immigrant memes.
 -   Paola Professor
     -   38 years old, has had tenure for three years;
         research focus is energy consumption of large computer systems.
