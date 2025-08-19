@@ -678,17 +678,20 @@ he wished he had someone he could do it with.
 ## School (Maddy)
 
 "Sorry, Miz Nabbles,"
-Maddy said the next morning.
+Maddy said the next morning with half-hearted sincerity.
 She and Sindy had gotten to school
 just as Rusty Bridge's other children were finishing
 a ragged rendition of the Plea to the Makers.
-Miz Nabbles scolded them more sternly than usual
-as they slipped into their usual seats.
+Miz Nabbles glared at Sindy even more sternly than usual
+as the sisters slipped into their seats.
+*Please let it be a normal day,*
+Maddie thought.
 
-The reason quickly became apparent.
-"Class,
-we have a special treat today.
-How many of you know what a Operator is?"
+But it was not to be.
+"Class—class!
+Settle down, please,"
+Miz Nabbles said in her braying voice.
+"How many of you know what a Operator is?"
 Every hand shot into the air.
 "And how many of you know that
 we actually have some Operators here in Rusty Bridge *right now*?"
@@ -703,7 +706,7 @@ Everybody find a partner.
 No,
 Jessamyn,
 you can't be your own partner,
-just—yes, anyone will do.
+just—yes, Filbert, anyone will do.
 All right?
 Two by two,
 then,
@@ -727,8 +730,9 @@ no different from a farm hand's.
 Bluster and Bravo shouldered their way through the other children
 to stand front and center.
 
-"I missed you in class today,"
-Miz Nabbles said curtly.
+"Oh, there you are.
+I didn't see you in class,"
+Miz Nabbles said acidly.
 
 "Doin' chores,"
 Bluster lied without looking at her.
@@ -773,8 +777,8 @@ then stepped in close and brought his hand up to the rabbit's throat.
 
 Some of the children clapped,
 Sindy and Gumption among them.
-When Maddy scowled at her sister,
-the younger Roo stuck out her tongue.
+When Maddy scowled at them Gumption looked away
+and the younger Roo stuck out her tongue.
 
 "Oh come now,"
 Special Blazes said,
@@ -782,7 +786,7 @@ Special Blazes said,
 can't you?"
 
 "So here's the second lesson,"
-the tiger said.
+the tiger said as the children applauded.
 "Training wins.
 Training beats size and speed and everything else you can think of."
 
@@ -790,14 +794,26 @@ Training beats size and speed and everything else you can think of."
 Bluster asked.
 
 "Even tech,"
-Thoughtful said with a twang in her voice.
+Thoughtful said,
+a lazy twang in her voice.
 She took the baton from Special Blazes,
 spun it around,
 and settled into fighting stance.
 
-The tiger stepped back,
-raised his fists,
-and winked at the children as his hands burst into flame.
+"Come on,"
+Gumption muttered,
+elbowing Maddy.
+"This is pretty neat."
+
+Maddy crossed her arms.
+"You think so?
+I notice they didn't invite the bot that was hauling the wagon for them.
+I wonder how it feels about that."
+
+Whatever Gumption might have said was lost amidst "oohs" and "aahs"
+as the tiger's raised fists burst into flame.
+He winked at the children,
+the roared and threw himself at Thoughtful.
 The flurry of punches, kicks, and whirlwind baton strikes that followed
 was too fast for Maddy to follow.
 Special Blazes threw one fireball after another.
@@ -813,22 +829,40 @@ she bounced forward and grabbed the front of his shirt.
 "That was *amazing*!"
 
 "It was certainly well rehearsed,"
-a familiar voice said behind Maddy.
-Special Leaf had come up behind her and Gumption
-while they were watching the Operators' mock battle.
+a familiar voice said.
+Special Leaf had come up behind her
+while she was watching the Operators' mock battle.
 "It's a pity that real fights aren't so well organized."
 
-Maddy opened her mouth to ask him what he knew about real fights,
-but before she could get the words out Miz Nabbles clapped her hands loudly.
+Before Maddy could ask him what he knew about real fights,
+the old tortoise raised his voice.
+"That was very impressive,
+Special Blazes,
+very impressive indeed.
+But if you'll forgive my memory,
+I'm a little puzzled.
+I thought you traveled with a bear named Meribeth.
+No offense to, um, Thoughtful, is it?
+No offense, of course, but what happened to her?"
+
+The tiger's smile widened
+even as an uncomfortable look flitted across the rabbit's face.
+"We parted ways some while back,"
+the tiger rumbled.
+"Amicably,
+I'd say,
+but she decided it was time for her to follow her own road."
+
+Miz Nabbles clapped her hands loudly to fill the awkward silence that followed.
 "All right, um, thank you,
-thank you very much for, um, for that demonstration.
+thank you very much for that.
 Now how about we all line up and go *back into the classroom*
 and we can ask the Operators about
 all the *other* things they know how to do?"
 
-Special Leaf put his hand on Maddy's arm.
-"If he asks you questions, tell him the truth.
-Just remember that you don't have to tell *all* the truth."
+Special Leaf put his hand on Maddy's arm as she started to turn around.
+"If he asks you questions, tell him the truth," he muttered.
+"Just remember that you don't have to tell *all* the truth."
 She nodded,
 a little frightened by the intensity in the old tortoise's voice.
 
@@ -841,11 +875,12 @@ He threw a couple of punches at the air.
 Bravo allowed.
 
 "I bet they rehearsed the whole thing,"
-Maddy muttered.
+Maddy muttered,
+remembering what Special Leaf had said.
 
 "Better than drawin' stupid little pictures,"
 Bluster shot back.
-Gumption put his hand on Maddy's arm to stop her from replying.
+Maddy scowled but didn't reply.
 
 The children settled into their seats.
 Special Blazes stood at the front of the class
@@ -887,10 +922,10 @@ the tiger said drily.
 
 "And yours,"
 Maddy replied stiffly.
-"So if you don't mind me asking…?"
+"So, *have* you ever killed any bots?"
 
-"Too many," the Operator replied levelly.
-"And I hope I've never *decommissioned* any that I didn't have to.
+"I have *decommissioned* a few," the Operator replied levelly.
+"Though I hope never any that didn't deserve it.
 But you of all people should know how dangerous rogue bots can be."
 His stern gaze swept the classroom.
 "Our job is to keep people safe.
@@ -924,7 +959,8 @@ Put the two together,
 and you have someone who can outwait a tiger.
 After a few moments the corner of Special Blazes' mouth quirked up.
 "Miz Roo,
-I want you to know that I would trust Bee Six Vee with my life.
+regarding your question,
+I'd like you to know that I would trust Bee Six Vee with my life.
 I have in fact done so many times."
 
 "And I trust Dockety and Crusher the same way,"
@@ -933,13 +969,12 @@ Maddy retorted sharply.
 Makers' Names,
 we might *all* be there!"
 
-"I don't think there's any need for that kind of language,"
-Special Blazes shot back.
+"Language, please,"
+Special Blazes chided.
 Then he sighed.
 "Listen,
 Miz Roo,
-I know they're your friends,
-and I know what you and this town owe them.
+I know what you and this town owe them.
 But from what Miz Nabbles tells me,
 there's more of them every day out at that camp of theirs,
 and—"
@@ -960,7 +995,17 @@ well,
 that never goes well for the living.
 I'm not asking you to spy on them,"
 he continued before Maddy could interrupt again.
-"I just think it would be best for everyone if you'd be mindful of what you see and hear."
+"I just think it would be best for everyone
+if you'd be mindful of what you see and hear."
+
+Maddy met his eyes.
+"That depends on who you count as 'everyone', doesn't it?"
+
+The Operator snorted again.
+"That old tortoise sure does have a way with people,"
+he said,
+almost to himself,
+then nodded a farewell and padded silently away.
 
 Gumption was waiting for her
 when she hopped angrily out the door a moment later.
@@ -972,51 +1017,90 @@ Gumption said.
 "I was listenin' from outside the side window,"
 he added with a non-apologetic shrug.
 
-"They've done nothing wrong!
-They've *helped* people!
-It's folk like Miz Nabbles that are the problem!"
+She crossed her arms.
+"And that don't make you angry?"
 
-She half-hoped Gumption would shush her
-so she could let out some of her anger.
-Sindy and all the other children crowded around Thoughtful and Special Blazes,
-pestering them with questions.
+"Doesn't matter if it makes me angry or not,"
+the young goat said in the oh-so-reasonable voice
+that always rubbed her fur the wrong way.
+"I mean,
+maybe the best thing is to say you'll do it an' then,
+you know,
+not,
+or not really."
 
-"They're all yours,"
-Maddy grumbled.
-Just as she reached into her satchel for her sketchbook,
-a ball of flame shot into the sky.
+She stamped her foot.
+"Honestly,
+Gumption Goat,
+I don't know how to square that with saying you're their friend."
 
-Miz Nabbles shrieked,
-and so did some of the children.
-Others when, "Whoa!"
-and one even started to clap.
+Gumption shrugged.
+"Just tryin' to find a way to fit everything together."
 
-Maddy sprang to her feet.
-Special Blazes was crouched low,
-teeth bared and claws out.
-"I'm sorry, I'm sorry," Sindy repeated,
-panic rising in her voice.
-Maddy could see the lozenge on Special Blazes' chest glowing through his shirt.
+Maddy's reply was cut off by the tiger's rumble.
+"Give us space, give us space.
+My friend here wants a chance to get her self-respect back.
+Unless you'd like to show us something?"
+he added,
+gesturing to Special Leaf.
 
-*Blam!*
-Without warning a fireball shot from the lozenge and sizzled over the children's heads.
-"Stop! Stop!" he roared at Sindy.
+The tortoise shook his head.
+"Oh, come now,"
+Special Blazes wheedled.
+"It's just dirt.
+You can always put it back the way it was."
 
-"I can't!" she cried.
-*Blam!*
-A second fireball flew from his chest and left a long scorch mark on the schoolyard grass.
-The children screamed and scattered,
+"Sometimes that's harder to do than you'd think,"
+the tortoise replied.
+
+The tiger shrugged as a couple of children said "aww".
+"I guess it's just me and you,"
+he said to Thoughtful.
+"Ready… steady… go!"
+The rabbbit knocked aside the ball of flame he threw
+and threw herself into the fight with a mad grin on her face.
+One, two, three—Thoughtful swung her baton again and again
+to knock fireballs away
+while the tiger dodged her strikes.
+
+"Maddy…"
+Sindy said.
+
+"What?"
+Maddy snapped.
+
+"Maddy!
+Maddy, help!"
+
+Maddy spun around at the panic in her sister's voice.
+Just as she did so,
+a stream of fire spewed from the tiger's chest.
+"Whoa!" Thoughtful shouted,
+diving onto the grass.
+"What are you doin'?"
+
+"That's not me!"
+the tiger roared.
+
+Another jet of flame spurted from his chest.
+Children screamed and scattered,
 Miz Nabbles with them.
+"I'm sorry, I'm sorry,"
+Sindy said,
+panic in her voice.
+"I don't know—I can't stop it!
+Maddy, I can't stop it!"
+
+*Blam!*
+A fireball bigger than Maddy's head flew from his chest and left a long scorch mark on the schoolyard grass.
 Maddy had just a split second to register Thoughtful raise her baton
 to swing at Sindy
-before Special Blazes' tech lit up a third time.
-
-The ground split beneath the rabbit's feet,
+before the ground split beneath the rabbit's feet,
 sending her to her knees.
-Special Leaf threw himself in front of Sindy
-just as a third fireball shot from Special Blazes's chest.
-"No!" Maddy screamed as it struck the old tortoise,
-sending him toppling forward on top of her sister.
+
+Special Leaf threw himself in front of Sindy.
+"No!" Maddy screamed as another fireball struck the old tortoise,
+sending him toppling to the ground.
 
 </section>
 
