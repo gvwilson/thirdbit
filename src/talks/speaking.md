@@ -86,7 +86,7 @@ may also be helpful.*
   (This usually works out to roughly the same total cost for you thanks to tax write-downs.)
 - If there are multiple speakers, we must all be paid equally.
   I do not support celebrity speakers getting paid more.
-- I usually waive my free for not-for-profit/community events where tickets are free or very low priced.
+- I usually waive my fee for not-for-profit/community events where tickets are free or very low priced.
 
 ### Ticket to full event
 
