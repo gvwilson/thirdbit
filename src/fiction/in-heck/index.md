@@ -1092,7 +1092,8 @@ panic in her voice.
 Maddy, I can't stop it!"
 
 *Blam!*
-A fireball bigger than Maddy's head flew from his chest and left a long scorch mark on the schoolyard grass.
+A fireball bigger than Maddy's head flew from his chest
+and left a long scorch mark on the schoolyard grass.
 Maddy had just a split second to register Thoughtful raise her baton
 to swing at Sindy
 before the ground split beneath the rabbit's feet,
@@ -1101,6 +1102,142 @@ sending her to her knees.
 Special Leaf threw himself in front of Sindy.
 "No!" Maddy screamed as another fireball struck the old tortoise,
 sending him toppling to the ground.
+
+</section>
+
+<section markdown="1">
+
+## Keep Her Safe (Gumption)
+
+Rusty Bridge didn't have a hospital.
+Instead,
+it had the front room of Doc Whinny's house.
+It was as large as the mayor's house,
+and well kept,
+but people only went through its front door
+at the beginning and end of their lives.
+For every other visit they went around to the back
+and waited on the spacious, shady porch
+until they were invited in.
+
+Gumption and Maddy jumped to their feet
+when Doc Whinny opened the door.
+"Is he aright?" Maddy asked anxiously.
+"Is he gonna be aright?"
+
+Doc Whinny took off her glasses
+and wiped a speck of dust off them on the sleeve of her pristine white coat.
+"He's still with us,"
+she said quietly.
+"And I expect he'll still be with us tomorrow,
+but he's going to have to stay here for quite some time.
+And that burn on his shell…"
+She blew on her classes and seated them on her face once again.
+"Don't suppose you know if he has people somewhere we could write to?"
+
+Gumption reached for Maddy's hand,
+then stuffed his hand back into his pocket when she hugged herself.
+"Can we see him?"
+
+The doctor nodded.
+"He's been asking for you.
+Just a minute or two, mind—he needs to rest."
+
+Inside,
+the house smelled like flowers,
+with an undertone of the extra-strong vinegar
+that the doctor used as disinfectant.
+Doc Whinny's husband nodded at the two teenagers,
+then bent his graying head over his account book again.
+"Only a minute or two,"
+the doctor repeated as Gumption and Maddy climbed the stairs.
+
+Someone,
+years ago,
+had cut away most of the wall between two small bedrooms
+to make one larger room.
+The morning light pouring through its twin windows
+made the whitewashed walls glow,
+and Gumption thought that under other circumstances
+Maddy would have insisted on pulling out her sketch book
+and trying to capture the flowers on the little table beside the bed.
+
+She wouldn't have wanted to draw the bed's occupant, though.
+Special Leaf looked older and weaker than Gumption would have imagined possible.
+With his glasses off and his mouth slack,
+only his slow breathing showed that they hadn't arrived too late.
+
+But then he turned his head and opened his eyes.
+"Well," he rasped,
+"Isn't this a mess?"
+
+Maddy's mouth worked, but no words came.
+This time Gumption *did* take her hand and squeeze it.
+"Glad you're still with us," he said,
+swallowing the catch in his throat.
+
+The old tortoise nodded,
+his eyes fluttering.
+"Mostly.
+Close run thing, though."
+He coughed.
+"Been a while since I did anything like that.
+Out of…
+Out of practice."
+
+"Sindy wanted me to say thank you,"
+Maddy blurted.
+"For—for saving her."
+
+Special Leaf nodded again.
+"Glad she's aright."
+He started to sit up,
+then thought the better of it and fell back onto the mattress.
+"You two…
+You keep an eye on her.
+You have to keep her safe.
+The Operators…"
+
+"They're talkin' to the mayor right now,"
+Gumption said.
+"Special Blazes already said that what happened ain't her fault.
+Didn't sound like they were gonna lock her up or anythin'."
+
+Special Leaf coughed and shook his head.
+"That's—that's not it.
+They'll take her.
+They'll take her if they can.
+You mustn't let them…
+Not again…"
+
+His voice trailed off.
+Gumption exchanged a worried look with Maddy.
+"Special?
+Special, you aright?"
+
+"No, he's not,"
+Doc Whinny said,
+pushing past them and putting her hand on the tortoise's forehead.
+"That's as much as he can do right now.
+You two are welcome to come back tomorrow,
+but we have to let him rest."
+
+Gumption put his hand on Maddy's shoulder.
+"Let's go," he said quietly.
+
+She shook him off,
+wiped her face on her sleeve,
+and turned and left without a word.
+After one last look at Special Leaf,
+Gumption followed her.
+
+</section>
+
+<section markdown="1">
+
+## Tears in the Kitchen (Maddy)
+
+FIXME
 
 </section>
 
