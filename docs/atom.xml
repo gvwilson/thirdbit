@@ -3,12 +3,45 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-08-15T00:00:00Z</updated>
+ <updated>2025-08-21T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Things I&#39;m Looking For</title>
+   <link href="https://third-bit.com/2025/08/21/things-im-looking-for/"/>
+   <updated>2025-08-21T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/08/21/things-im-looking-for/</id>
+   <content type="html">&lt;p&gt;Following up on &lt;a href=&#34;https://third-bit.com/2025/08/15/productivity-workshop-ideas/&#34;&gt;my recent plea&lt;/a&gt;
+for material to use in a workshop on productivity for software engineers,
+I&amp;rsquo;d also be grateful for material on:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;How to hand off or wind down a research project or open source software project.&lt;/dt&gt;
+&lt;dd&gt;For every beginning there must be an ending, but we don&amp;rsquo;t like to talk about them.
+For example, there are thousands of books in print about how to start a business,
+but only a handful about how to pass one on or wind one down,
+and many of those are really about how to sell out at the right time.
+I think the reason is that mortality scares us,
+but preparing for the end can make the end less likely,
+and can help make what happens before then more enjoyable.
+If you have ever shut something down or handed it over after several years,
+please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;get in touch&lt;/a&gt;.&lt;/dd&gt;
+&lt;dt&gt;A legal and business comparison of the new generation of software licenses.&lt;/dt&gt;
+&lt;dd&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/Business_Source_License&#34;&gt;Business Source License&lt;/a&gt;
+has attracted a lot of fire from open source zealots;
+the &lt;a href=&#34;https://www.unrealengine.com/en-US/license&#34;&gt;Unreal Engine license&lt;/a&gt;
+also puts restrictions on use,
+but hasn&amp;rsquo;t caused nearly as much yelling.
+If anyone has written a level-headed compare-and-contrast of licenses
+that the &lt;a href=&#34;https://opensource.org/&#34;&gt;Open Source Initiative&lt;/a&gt; &lt;em&gt;hasn&amp;rsquo;t&lt;/em&gt; blessed,
+but which give users more rights than a standard closed-source license,
+I&amp;rsquo;d be very grateful for a pointer—again,
+please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;get in touch&lt;/a&gt;.&lt;/dd&gt;
+&lt;/dl&gt;</content>
+ </entry>
  
  <entry>
    <title>Productivity Workshop Ideas</title>
@@ -1513,74 +1546,6 @@ I would be very grateful if you could &lt;a href=&#34;mailto:gvwilson@third-bit.
 (or better yet, a checklist of what you&amp;rsquo;ve done that other people could do).
 I&amp;rsquo;m not looking for &amp;ldquo;we could X&amp;rdquo;, &amp;ldquo;you should Y&amp;rdquo;, or &amp;ldquo;maybe it&amp;rsquo;s time to think about Z&amp;rdquo;,
 but rather a list of what you&amp;rsquo;ve done and what you&amp;rsquo;re doing.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>What We Mean by Software Design</title>
-   <link href="https://third-bit.com/2025/03/08/what-we-mean-by-software-design/"/>
-   <updated>2025-03-08T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/03/08/what-we-mean-by-software-design/</id>
-   <content type="html">&lt;p&gt;Suppose you are building a static site generator that turns a bunch of Markdown files into HTML pages.
-The Markdown files include links to external sites;
-to ensure these are consistent between pages,
-you have decided to do the following:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;All links to external sites are written as &lt;code&gt;[text][some_key]&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The keys and their associated URLs are stored in a YAML file like this:
-    &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;- key: first
-  url: https://first.site
-- key: second
-  url: https://second.site
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The static site generator reads the YAML file and converts the content to a block of text
-    like the one shown below,
-    then appends that text to each Markdown file in memory before translating to HTML:
-    &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;[first]: https://first.site
-[second]: https://second.site
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Now comes the hard part.
-Your static site generator includes a linting tool that checks for common mistakes,
-such as improperly-nested headings or undefined bibliography references.
-You want to check that every link reference corresponds to an entry in the YAML file
-and that everyone entry in the YAML file is used at least once.
-Your first attempt uses a regular expression to find patterns of the form &lt;code&gt;[some][url]&lt;/code&gt; in the Markdown,
-then does the obvious two-sided check with the URLs.
-However,
-your Markdown files also include snippets of Python code;
-these may contain chained subscripts like &lt;code&gt;grid[x][y]&lt;/code&gt;,
-which cause your linter to produce spurious error reports.
-What should you do?&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Implement some sort of &amp;ldquo;known problem&amp;rdquo; list to suppress the spurious error messages.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Use regular expressions to erase code chunks from your Markdown files before searching for link references.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Wait until the Markdown has been converted to HTML,
-    then walk the DOM tree and check all the text that isn&amp;rsquo;t in code chunks.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Solution #1 requires users to do extra work (and re-work as their content changes),
-so let&amp;rsquo;s set it aside.
-It&amp;rsquo;s easier to implement a first version of Solution #2 than of Solution #3,
-but Solution #2 turns out to be surprisingly tricky to get right:
-Markdown allows for indented code blocks,
-and inline code sections might be marked with &lt;code&gt;&amp;lt;code&amp;gt;…&amp;lt;/code&amp;gt;&lt;/code&gt; rather than with single backticks.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m sure there are other solutions,
-some of which may be better than the ones I&amp;rsquo;ve outlined,
-but the point of this post is that when I say &amp;ldquo;software design&amp;rdquo;,
-what I mean is &amp;ldquo;answers to questions like these and the justifications behind them&amp;rdquo;.
-I wish there were more worked examples that discussed the pros and cons of possible solutions—I feel like
-I still have a lot to learn.&lt;/p&gt;</content>
  </entry>
  
 </feed>
