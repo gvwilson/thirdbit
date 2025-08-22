@@ -1231,6 +1231,308 @@ and turned and left without a word.
 After one last look at Special Leaf,
 Gumption followed her.
 
+His heart sank as he stepped outside.
+Of *course* Miz Nabbles just happened to be walking past the doctor's house
+with a solicitous look on her face.
+As she crossed the narrow road,
+he wondered how many times she had gone back and forth
+so that she could accidentally bump into them.
+
+"Afternoon', Miz Nabbles," he said politely.
+
+"Good afternoon, Mister Goat.
+Miz Roo.
+I take it you've been up to see the victim?
+How is he?"
+
+Gumption shrugged
+"Doc Whinny says he's gonna make it,
+but he needs rest,
+so we,
+um,
+we're just headin' home to do chores."
+
+"Well,
+of course I'm glad the Special is going to be aright.
+Terrible thing, just terrible.
+Imagine if Sindy had done this to one of the other children."
+
+"Sindy didn't *do* anything,"
+Maddy snapped.
+"It was an accident!"
+
+Miz Nabbles sniffed.
+"Of course,
+of course it was an accident,
+but she's the one who caused it, isn't she?
+Not that anyone is really surprised.
+After all,
+there was always something a little… *odd* about your sister."
+
+*Please please please don't start a fight,*
+Gumption thought hopelessly,
+but Maddy's hands were already balled into fists.
+"You take that back!
+There ain't nothing wrong with my sister!"
+
+Miz Nabbles' eyes widened in mock surprise.
+"Dear me,
+I didn't say there was anything *wrong*.
+But being a special and not telling anyone about it…
+And being able to control someone else's tech—why,
+I've never heard of anything like it."
+
+"Anyway,"
+she continued as Maddy started to say something that
+Gumption was sure they'd both regret,
+"The mayor has been looking for you.
+She's obviously quite worried about all of this.
+Perhaps you should go and speak to her?"
+
+"Thanks, Miz Nabbles, we'll do that,"
+Gumption said hastily.
+"Come on, Maddy."
+
+Maddy rounded on him ten steps and a corner later.
+"Well *that* went well," she said,
+her voice full of vinegar.
+
+Gumption sighed.
+"You know how she is."
+
+"I'm not talking about her,"
+Maddy snapped.
+"You should have said something!"
+
+"Like what?"
+Gumption snapped back.
+
+"Anything!"
+Maddy spluttered.
+"Seriously,
+is there anything you *will* stand up for?"
+
+*You,* he thought,
+but didn't say.
+They walked the rest of the way to the mayor's house in silence.
+
+The ground floor of the mayor's house was one big open room.
+"Big enough for all my friends," Mayor Lupus was fond of saying.
+"But not enough for your opinion of yourself,"
+Miz Nabbles had once been heard to mutter.
+Gumption had been in the room once a year for the end-of-school celebration,
+but had never been upstairs before.
+Climbing the stairs felt like going from morning to evening.
+Dark wood instead of brightly-painted walls,
+portraits of previous mayors with serious looks on their faces
+(he wondered if any had been painted by Papa Roo),
+and actual carpets on the floor—it made him wish he'd had a bath that morning,
+or at least the day before.
+
+If anything,
+the mayor's office was even more intimdating,
+not least because Special Blazes and Mama Roo were sitting there with her.
+Special Blazes had changed out of his singed tunic,
+but had left the collar of his uniform jacket unbuttoned.
+Mama Roo was in her usual gingham dress,
+with her knees pressed together and her hands in her lap
+and the same stubborn expression on her face
+that Maddy wore so often.
+
+Nobody offered Gumption and Maddy a seat.
+
+The questions started immediately.
+How long had the teens known about Sindy's ability?
+Had Special Leaf known?
+Had she ever controlled *his* tech?
+Or anything else?
+What about Dockety and the other bots—did they know about this?
+
+Growing up in a large family had given Gumption
+a lot of opportunities to practice playing dumb.
+Maddy wasn't nearly as good at dodging questions,
+but the only time he tried to take one for her
+she gave him a glare that would have curdled vinegar.
+Yes, they'd known,
+but not that she could do *this*.
+No,
+they'd never seen her use Special Leaf's tech—they didn't even know that was possible.
+(Which wasn't exactly a lie, but still made Gumption uncomfortable.)
+As for the bots,
+they weren't part of this.
+
+Finally Special Blazes leaned back in his chair.
+"I know this is difficult,"
+he rumbled,
+"But we can't help her if we don't know what help she needs."
+
+"So you're going to help her now?"
+Maddy muttered.
+
+"Maddy Roo, your manners,"
+Mama Roo said curtly.
+
+Maddy scowled.
+"Sorry, mama."
+
+Special Blazes exchanged a look with the mayor.
+"Well,
+I don't think we have much choice.
+We're going to have to take Sindy to headquarters at Sandy Bend for testing.
+No, no, hear me out, please."
+He raised a paw to cut off the Roos' objections.
+"It isn't up to me, or the mayor, or you either.
+It's regulations.
+Any time someone shows special abilities,
+they have to be tested and registered.
+Leaf was,
+I was,
+and now it's your daughter's turn.
+It's for everyone's safety,
+including hers."
+
+Mama Roo argued,
+of course,
+but it had no more effect than arguing with the rain.
+Gumption kept expecting Maddy to chime in as well,
+but she just stared at the floor.
+If not for how tightly her hands were clenched in her lap,
+he would have thought she was sitting through
+one of Miz Nabbles' homilies on tidiness.
+
+"All right,"
+Mama Roo finally said.
+"I'll tell her."
+
+Special Blazes nodded.
+"Thank you, ma'am.
+We'll head out tomorrow—no,
+please,
+it's for the best.
+No need to drag this out.
+We'll head out tomorrow,
+and she'll be back before you know it."
+
+Standing on the porch a couple of minutes later,
+Gumption cleared his throat.
+"Well, I guess you gotta go get her ready."
+
+Mama Roo nodded.
+There was gray in her fur, Gumption noticed.
+When had that happened?
+"Thank you, Gumption.
+Come on, Maddy."
+She squeezed her daughter's shoulders.
+
+Gumption half-hoped Maddy would invite him to come with them,
+but she just said,
+"See you tomorrow,"
+so he nodded and said,
+"See ya,"
+and watched them walk away.
+
+He knew he should go straight home,
+but instead he hopped over the split cedar fence
+that marked the back of the Roos' yard.
+A crow scolded him from a tree
+as he swung himself over another fence
+onto a dirt path that ran through the trees.
+It was muddy but he didn't slow down,
+not even when his feet almost went out from under him
+on a slippery patch near a stream so small
+that even the children didn't have a name for it.
+
+Nobody in Rusty Bridge knew quite what to call
+the home that Dockety and its fellow bots had built.
+Was "camp" the right word for buildings with concrete floors and proper roofs?
+Gumption had overheard some people refer to it as "Bots' End",
+and he hoped the name would stick.
+It was just a a dozen structures ranging in size
+from a garden shed to half the size of the Roos' house,
+all arranged in a circle around a black charging post—but
+Rusty Bridge was just a place too.
+
+Dockety was cleaning the muck out of Crusher's treads with a heavy brush when Gumption arrived.
+"It says you are better at this than any bot,"
+Dockety told Gumption.
+"Even better than this one."
+
+"Yeah?
+Well, I'm glad I'm good for something."
+He took the brush from Dockety and patted Crusher's side.
+"Got a right mess of muck in here.
+Been clearing brush with Zeke again?"
+
+"Confirmed," the hauler bot flashed on its screen.
+The word dissolved into happy sparkles
+as Gumption began scrubbing mud and leaves out of its treads.
+
+As he worked,
+he told Dockety what had happened.
+"Special Blazes is right," the bot said when he finished.
+"Your regulations require her to be assessed.
+Her only alternative is to flee,
+but the Operators will be prepared for that."
+
+"Have you ever had a run-in with 'em?"
+Gumption asked,
+flipping the brush over to pry a rock out of Crusher's treads with its handle.
+
+Dockety's lenses rotated.
+"We would probably not be having this conversation
+if this one had run in with them.
+They do not approve of free bots."
+
+Gumption nodded and went back to brushing.
+Sparkles drifted across Crusher's screen with each scrape.
+If the hauler bot had been a cat,
+Gumption would have said it was purring.
+
+He was almost done by the time Dockety spoke again.
+"You could perform that task more efficiently."
+
+"Probably,"
+Gumption admitted,
+feeling stung.
+
+"But you would require training,"
+Dockety continued.
+"There is a school for mechanics in Sandy Bend.
+We could make the journey at the same time as the Operators take Miz Roo for evaluation.
+That would be—"
+It hesitated.
+"Innocuous,"
+it finally said.
+
+Gumption straightened up patted Crusher's side.
+"That's a good idea,
+but I can't afford any kind o' Sandy Bend school."
+
+"We would offer salvage to compensate the school,"
+Dockety said neutrally.
+
+Gumption shook his head.
+"I can't ask you to do that.
+You need it for repairs an' stuff."
+
+"You do not have to ask.
+You are this one's friend."
+
+Gumption patted Crusher's side again as "Friend" flashed on the hauler bot's screen.
+"Thanks,"
+Gumption said awkwardly.
+"Lemme see what my folks think."
+
+What Gumption's parents thought was that his ribs still weren't properly healed
+and said that he needed to finish school in Rusty Bridge before he could go anywhere.
+Voices were raised after that
+and a younger brother was sent next door
+to ask Gumption's grandma to come by and talk some sense into him.
+Once half a dozen relatives were arguing on the porch
+about whether Gumption's great uncle had ever owned a mitre saw
+he slipped away unnoticed and headed to the Roos' house.
+His conversation with Dockety had given him an idea.
+
 </section>
 
 <section markdown="1">
@@ -1330,113 +1632,6 @@ you're very welcome to stay if you want."
 but I oughta be gettin' home."
 He tousled Sindy's hair.
 "You'll be aright."
-
-He half-hoped Maddy would walk part-way with him,
-but she just said,
-"See you tomorrow,"
-so he nodded and said,
-"See ya,"
-and showed himself out.
-He knew he should go straight home,
-but instead he hopped over the split cedar fence
-that marked the back of the Roos' yard.
-A crow scolded him from a tree
-as he swung himself over another fence
-onto a dirt path that ran through the trees.
-It was muddy from the overnight rain but he didn't slow down,
-not even when his feet almost went out from under him
-on a slippery patch near a stream so small
-that even the children didn't have a name for it.
-
-Nobody in Rusty Bridge knew quite what to call
-the home that Dockety and its fellow bots had built.
-Was "camp" the right word for buildings with concrete floors and proper roofs?
-Gumption had overheard some people refer to it as "Bots' End",
-and he hoped the name would stick.
-It was just a a dozen structures ranging in size
-from a garden shed to half the size of the Roos' house,
-all arranged in a circle around a black charging post—but
-Rusty Bridge was just a place too.
-
-Dockety was cleaning the muck out of Crusher's treads with a heavy brush when Gumption arrived.
-"It says you are better at this than any bot,"
-Dockety told Gumption.
-"Even better than this one."
-
-"Yeah?
-Well, I'm glad I'm good for something."
-He took the brush from Dockety and patted Crusher's side.
-"Got a right mess of muck in here.
-Been clearing brush with Zeke again?"
-
-"Confirmed," the hauler bot flashed on its screen.
-The word dissolved into happy sparkles
-when Gumption began scrubbing mud and leaves out of its treads.
-
-As he worked,
-he told Dockety what had happened to Sindy.
-"Young Miz Roo is right," the bot said when he finished.
-"Your regulations require her to be assessed.
-Her only alternative is to flee,
-but the Operators will be prepared for that."
-
-"Have you ever had a run-in with 'em?"
-Gumption asked,
-flipping the brush over to pry a rock out of Crusher's treads with its handle.
-
-Dockety's lenses rotated.
-"We would probably not be having this conversation
-if this one had run in with them.
-They do not approve of free bots."
-
-Gumption nodded and went back to brushing.
-Sparkles drifted across Crusher's screen with each scrape.
-If the hauler bot had been a cat,
-Gumption would have said it was purring.
-
-He was almost done by the time Dockety spoke again.
-"You could perform that task more efficiently."
-
-"Probably,"
-Gumption admitted,
-feeling stung.
-
-"But you would require training,"
-Dockety continued.
-"There is a school for mechanics in Sandy Bend.
-We could make the journey at the same time as the Operators take Miz Roo for evaluation.
-That would be—"
-It hesitated.
-"Innocuous,"
-it finally said.
-
-Gumption straightened up patted Crusher's side.
-"That's a good idea,
-but I can't afford any kind o' Sandy Bend school."
-
-"We would offer salvage to compensate the school,"
-Dockety said neutrally.
-
-Gumption shook his head.
-"I can't ask you to do that.
-You need it for repairs an' stuff."
-
-"You do not have to ask.
-You are this one's friend."
-
-Gumption patted Crusher's side again as "Friend" flashed on the hauler bot's screen.
-"Thanks,"
-Gumption said awkwardly.
-"Lemme see what my folks think."
-
-What Gumption's parents thought was that his ribs still weren't properly healed
-and said that he needed to finish school in Rusty Bridge before he could go anywhere.
-Voices were raised after that
-and a younger brother was sent next door
-to ask Gumption's grandma to come by and talk some sense into him.
-Once half a dozen relatives were arguing on the porch
-about whether Gumption's great uncle had ever owned a mitre saw
-he slipped away unnoticed and headed back to Maddy's.
 
 "They're taking Sindy tomorrow,"
 she said without preamble.
