@@ -1539,44 +1539,31 @@ His conversation with Dockety had given him an idea.
 
 ## Tears in the Kitchen (Maddy)
 
-FIXME
-
-</section>
-
-<section markdown="1">
-
-## Departures (Gumption)
-
-Gumption stood in in the Roos' kitchen door
-with his hands in his pockets.
-He hadn't exactly been invited,
-but no one had told him to leave.
-He had tried leaning against the doorframe,
-but it felt disrespectful given
-the tearful conversation at the kitchen table.
+Maddy, Sindy, and Mama Roo sat in their usual chairs in the kitchen.
+Gumption leaned against the frame of the door.
+Maddy hadn't exactly invited him,
+but she hadn't told him to leave either,
+even though she was half-minded to.
 
 "Everyone was talking about how they wanted to be Operators,
 and I thought—"
-Sindy hiccupped.
-"I didn't *want* to," she sobbed,
-tears rolling down her furless cheeks.
-"It just kind of woke up."
+Sindy hiccupped
+and another tear rolled down her furless cheeks.
+"I didn't *want* to.
+It just kind of woke up."
 
 "Sh sh sh."
-Mama Roo put an arm around her daughter's shoulders and pulled her close.
+Mama Roo took her daughter's hand.
 "It's aright.
 You didn't do anything wrong."
 
 "But Special Leaf is gonna *die*!" she wailed.
-"And they're going to take me *away*!"
 
 "Special Leaf isn't going to die,"
 Maddy said firmly.
-"And nobody's taking you anywhere."
 
-"But Special Blazes said I had to!
-And Miz Nabbles said it too."
-She leaned into her mother and sniffled.
+"But they're gonna take me *away*!"
+She jumped out of her chair and wrapped her arms around her mother.
 "I have to go to and be tested
 and they're going to find out about,"
 hiccup,
@@ -1590,48 +1577,92 @@ Maddy said icily.
 
 Gumption shrugged.
 "My Aunt Dorilee says that if folks know half a story,
-the smart move is to tell 'em the rest of it
+the best thing is to tell 'em the rest of it
 instead of letting 'em make up something worse.
 Everyone knows she's special now—lettin' the Operators test her
 just makes it official."
 
-Maddy snorted.
-"That's the dumbest thing I've ever heard."
-
-Gumption leaned against the doorframe,
-balling his hands into fists in his pockets.
-He was sure he'd had dumber ideas,
-but this didn't seem like the time to point that out.
+"That's the dumbest thing I've ever heard,"
+Maddy said curtly.
+She knew that it wasn't,
+and that none of what was happening was Gumption's fault,
+but she felt so *angry*.
 
 Mama Roo squeezed Sindy once more and straightened up in her chair.
 "We shouldn't decide anything on empty stomachs,"
 Mama Roo said.
-There were gray hairs in her fur,
-Gumption noticed.
-When had that happened?
-"Able's not back 'til this evening,
-so nothing's going to happen before tomorrow morning.
-Sindy,
+"It won't take but a few minutes to pack,
+so Maddy,
 if you'd like to get some carrots—no,
 don't make that face.
 I know we had them last night—"
 
 "And the night before,"
-Sindy muttered.
+Maddy muttered.
 
 "—but we'll put some salt and rosemary on them this time
 and they'll taste brand new."
 Mama Roo stood up,
 brisk and confident now that she had something to do.
-"Maddy,
-can you get a squash out of the pantry?
+"Sindy,
+can you go pick some herbs out of the garden?
 And Gumption,
 you're very welcome to stay if you want."
 
 "Thank you,
 but I oughta be gettin' home."
 He tousled Sindy's hair.
-"You'll be aright."
+"You'll be aright.
+You Roos are pretty tough."
+He stepped aside to let Sindy past,
+nodded to Maddy and Mama Roo,
+and then closed the door quietly behind him.
+
+The clock on the counter ticked a dozen times.
+"Maddy?"
+Mama Roo said.
+"The carrots?"
+
+Maddy took a deep breath.
+"I'm going to go with Sindy.
+Wait, no, please, hear me out—please?
+The newspaper is going to publish one of my pictures.
+They're not paying me for it,
+but maybe if I go and show them what else I can do
+they'll take me on or give me piecework,
+and you know we can use the money,
+and that Sindy won't have to—"
+
+Mama Roo shook her head.
+"No.
+I'll send a letter with her for Cousin Ramble—I'm sure
+she can stay with him and his family,
+and then you and I can go get her in a few days."
+
+"But Mama—"
+
+"I said no."
+Mama Roo's refusal sounded as hard as stone and just as likely to bend.
+"I already asked the mayor if I could go,
+but apparently there are rules about these things.
+The Operators will take care of her."
+
+It sounded more like a wish in Maddy's ears than a prediction.
+She hesitated.
+Should she tell mer mother Special Leaf's warning?
+But if she did,
+what exactly would she say?
+
+So instead she said, "Yes, mama,"
+and got the carrots out of the vegetable box
+and started peeling them
+as if they were kindling to be chopped.
+
+</section>
+
+<section markdown="1">
+
+## Departures (Gumption)
 
 "They're taking Sindy tomorrow,"
 she said without preamble.
