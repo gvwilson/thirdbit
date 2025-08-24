@@ -685,7 +685,7 @@ a ragged rendition of the Plea to the Makers.
 Miz Nabbles glared at Sindy even more sternly than usual
 as the sisters slipped into their seats.
 *Please let it be a normal day,*
-Maddie thought.
+Maddy thought.
 
 But it was not to be.
 "Class—class!
@@ -1658,75 +1658,282 @@ and got the carrots out of the vegetable box
 and started peeling them
 as if they were kindling to be chopped.
 
-</section>
+Mama Roo tried her best to be cheerful during dinner.
+Maddy tried to play along,
+but all the while her thoughts were elsewhere.
+Once dishes were washed
+and her mother and sister lying side-by-side in Sindy's narrow bed,
+Maddy closed the door to her tiny bedroom and began to pack her bag.
+Her sketchbook and two pencils,
+clean underwear,
+her other dress,
+a toothbrush she had bought to give her mother for her birthday…
+It hardly seemed adequate for running away from home,
+but she had survived the Mire and escaped from Patient's lair with less.
 
-<section markdown="1">
+She crept down the stairs as quietly as she could,
+being careful not to step on the one that always squeaked,
+tiptoed through the kitchen,
+and nearly jumped out of her skin when she opened the door.
 
-## Departures (Gumption)
+"Hi,"
+Gumption whispered loudly.
 
-"They're taking Sindy tomorrow,"
-she said without preamble.
-The fur on her cheeks was matted with wiped-away tears.
-"Able is hauling the big wagon back from Half-a-Hat to Sandy Bend,
-so Special Blazes said they'd ride that.
-Mama's trying to calm her down and get her packed at the same time."
+"Hi,"
+Maddy replied curtly.
 
-"What about you?"
-Gumption asked.
+He jerked his chin toward the knapsack in her hand.
+"Runnin' off to join the circus?"
 
-Maddy sniffled.
-"I ought to be up there helping, but I can't.
-I just can't."
+"Maybe,"
+she hissed.
+"Maybe they'd have clowns that are actually as funny as they think they are."
 
-The young goat shook his head.
-"That's not what I mean.
-Are you packed?"
+The young goat's face fell.
+"I'm just tryin' to help."
 
-"What?"
-Maddy stared at him uncomprehendingly.
+Maddy sighed again.
+"I know.
+I just—I can't let her go off on her own,
+not after what Special Leaf said."
 
-"Are… you… packed?"
-he repeated slowly.
-"I figure you'll want a change of clothes an' your sketchbook.
-Oh, an' that letter from the newspaper."
-Then he explained his plan and tried not to wince when she hugged him.
+"Mm hm.
+Problem is,
+they ain't stupid.
+If you're not there to say goodbye when she leaves tomorrow,
+they're gonna know somethin's up."
+And then he grinned.
+"So here's my plan…"
 
-Dinner was a struggle.
-Mama Roo tried to be chipper while Sindy pushed food around on her plate.
-Gumption almost choked on his guilt and a piece of carrot
-when Mama Roo promised her younger daughter that
-they would look in on Special Leaf every day while she was away.
-He offered to help with the dishes,
-but Mama Roo waved him away.
-"Best if I keep busy," she said.
-
-He went home to eat,
-then slid down the cottonwood outside his bedroom and retraced his steps
-to wait in the woods.
-It was a long time before the light in the Roos' kitchen went dark.
-He slapped at mosquitoes,
-cursed himself for not bringing a snack,
-and wondered how long his family would miss him if he never came back.
-
-Maddy slipped out the kitchen door an hour later
-with her satchel slung over her shoulder.
-They walked in silence until Zeke Bear's barn came into view.
-"You sure Able's not in there?" she whispered.
+Hours later,
+once her mother and Sindy were asleep,
+Maddy crept downstairs again.
+She and Gumption walked in silence to Zeke Bear's barn,
+where the Operators had parked their wagon.
+"You sure their bot's not in there?" Maddy whispered.
 
 Gumption nodded.
-"Always spends the night recharging when it's got a big load to haul.
+"It's rechargin',
+same as Able does when it's got a long trip and a load to haul.
 C'mon."
 
-It took them an hour to unload enough boxes to make a space,
-an hour filled with whispered admonishments to each other not to drop things.
-Once there was room for them and their knapsacks,
-they wrestled a board into place to serve as a roof for their little cave
-and re-packed everything on top of it.
+It took them an hour to unload enough boxes to make a space in the back of the wagon.
+Once there was room for them,
+they wrestled a board into place to serve as a roof for their little cave,
+stowed their bags,
+and re-packed everything on top of their newly-made hiding place.
 After some more whispers of,
 "No, not that one, *that* one,"
 and,
 "The other way around!"
 the wagon's contents looked more or less as they had.
+
+"You sure you want to come?"
+Maddy asked as they walked back to her house.
+
+"'Course I do.
+It's my plan, ain't it?"
+She punched his shoulder,
+feeling a weight lift from hers at his grin.
+
+Maddy woke to the sound of her sister's tears
+and her mother's soothing voice.
+She rubbed the sleep from her eyes and dressed quickly,
+cursing the knots in her fur as she tried to brush them out.
+She hadn't put a brush in her knapsack,
+she realized,
+or a bar of soap,
+but there wasn't time for that now.
+
+Gumption was waiting for them on their porch.
+"Thanks for coming to see her off,"
+Mama Roo said gratefully.
+He tousled Sindy's hair
+and then folded his arms around her awkwardly as she hugged him.
+Maddy exchanged an anxious nod with him as they set off.
+
+A handful of people had gathered to see the Operators off.
+*And to gawk at Sindy,* Maddy thought angrily
+when she spotted Miz Nabbles,
+who sniffed and then ignored her.
+Mayor Lupus was there too,
+listening patiently as Able chatted happily
+about how nice it would be to have company on the road,
+but at least Bluster and Bravo had stayed away.
+
+"Aright,"
+Thoughtful said loudly,
+clapping her paws.
+"Let's get this show on th' road."
+
+The next few minutes were filled with the noise and bustle of people preparing to travel.
+Bee Six Vee clipped the wagon's heavy hitch to its back
+while the Operators slung their bags and Sindy's beneath the wagon's bench seat.
+"Don't worry, it hauls real smooth,"
+the rabbit reassured Sindy.
+"And it's fast, too.
+We'll be in Sandy Bend in time for lunch tomorrow,
+and I know a place along by the river that'll do you the best milkshake in the world."
+
+After one final hug from her mother,
+Sindy climbed onto the seat between the two Operators.
+"Toot toot!" Able sang out as Bee Six Vee pulled them out of the barn and onto the road.
+
+"You aright?"
+Maddy asked her mother.
+
+Mama Roo shook her head.
+"Not really, but I will be."
+She smiled at her elder daughter.
+"I've been getting used to the idea of you leaving ever since you two got back.
+Wasn't ready for Sindy to be going instead."
+
+Gumption cleared his throat.
+"How about you an' me go see if there's any salvage down by the creek?"
+he said off-handedly to Maddy.
+
+"Oh, that's a good idea."
+The smile on Mama Roo's face made Maddy want to squirm.
+"I'll go see if the Ox brothers want any preserving done.
+See you for lunch?"
+
+"Or dinner,"
+Maddy said,
+hugging her mother
+and biting her tongue to stop herself from saying goodbye.
+She held herself to a walk until she and Gumption were around the corner,
+then broke into a run with him at her heels.
+
+Dockety was waiting for them in the woods five minutes out of town.
+"Hey," Maddy panted.
+
+The bot's lenses rotated a quarter-turn with a slight whine.
+"Greetings.
+Did everything go as planned?"
+
+"So far,"
+Gumption said,
+bending over and putting his hands on his knees as he tried to catch his breath.
+"How 'bout your end?"
+
+"We are ready.
+Follow me."
+
+Up a slight rise and down the other side,
+the path ended at the Makers' road.
+"Hey," Maddy said again,
+waving at Crusher and the other bots who stood there.
+
+"Hello," flashed across the big hauler's screen.
+With nothing more than that it pivoted on its heavy treads,
+seized a nearby sapling,
+and pulled it out of the ground.
+Behind it,
+the rest of the crew Dockety had assembled began cutting branches
+and tossing them onto the road.
+
+The Operators' wagon came around the bend a minute later.
+Bee Six Vee slowed from a trot to a walk,
+then stopped a few paces away from the pile of brush blocking its way.
+Special Blazes and Thoughtful put their heads together to confer quietly for a moment.
+"Morning,"
+the tiger said after straightening up.
+"Mind telling me what you're about?"
+
+"Maintenance," Dockety replied,
+its voice buzzing slightly.
+"If any of this fell during a storm, it would obstruct the road."
+
+"Mm hm."
+Special Blazes nodded.
+"Kind of obstructing the road right now, though.
+Don't suppose you could do something about that so we can get by?"
+
+As he spoke,
+Maddy put her hand on Gumption's shoulder and nodded.
+This was their chance to sneak onto the wagon.
+He nodded back and started to rise,
+then ducked down again.
+"Look!" he mouthed,
+pointing as Bravo stepped out of the bushes on the other side of the road.
+
+"Whoa, whoa, whoa!" the young goat exclaimed,
+raising his hands.
+
+Thoughtful waited a heartbeat before lowering the rifle
+that had somehow leaped into her hands.
+"Sorry 'bout that,"
+she said.
+"You startled me."
+
+Special Blazes looked back and forth between Bravo and Dockety.
+"You part of this crew?"
+
+"No sir,"
+Bravo said,
+his hands still in the air.
+"I—I figured I could catch you here, is all.
+I'd like to volunteer, sir.
+To be an Operator.
+I already know how to fight,"
+he said hurriedly before Special Blazes could reply.
+"And I'm tough as anythin'.
+Just ask folk, they'll tell you.
+And I ain't scared o' bots or nothin'."
+
+"Huh,"
+Sindy snorted.
+"What about your brother?
+Never seen you do anything without his say-so.
+You think you'll be all right without him around to tell you what to do?"
+
+Bravo lowered his hands, glowering.
+"This ain't none o' your business, Sindy Roo."
+
+"Might not be hers, but it sure is mine,"
+Bluster Goat said angrily,
+standing up just a few steps away from his brother.
+
+"What're *you* doin' here?"
+Bravo spluttered.
+
+"What am *I* doin'?
+What're *you* doin'?
+You won't last two days on your own!"
+
+"I'll do better than I'll do with you bossin' me around all the time!"
+
+As the two goats began arguing,
+Maddy tugged on Gumption's sleeve.
+Together,
+they crept through the bushes and onto the road behind the wagon.
+She winced at the tailboard's squeak as they lowered it.
+"Ladies first," Gumption whispered.
+She slithered into the gap they had made.
+Gumption followed her,
+wriggling around awkwardly to pull the tailboard closed again.
+
+"Aright, pipe down!" she heard Special Blazes say.
+"You want to join the Operators?
+Fine—you go back home and finish school,
+and then we'll talk.
+Right now,
+though,
+I'd be obliged if you could help these bots pull some of that brush aside.
+We have a lot of ground to cover,
+and the day isn't getting any longer."
+
+With matching grumbles the goat twins started work.
+A few minutes later Bee Six Vee surged forward into a trot
+with the wagon,
+its passengers,
+and the two stowaways behind it.
+
+</section>
+
+<section markdown="1">
+
+## Hot Chocolate on the Road (Gumption)
 
 Maddy wriggled into the hiding place they had made.
 Gumption passed her satchel to her and said,
@@ -1822,12 +2029,6 @@ he smiled in the darkness.
 
 ## On the Road (Maddy)
 
-Maddy woke to the sound of her sister's tears.
-"She—she didn't even leave a *note*!" Sindy sniffled.
-
-"Hush, hush, hush," Mama Roo soothed.
-"She must have thought it would be too hard to say goodbye."
-
 Maddy bit her lip.
 "Mmph?" Gumption mumbled as she rolled over.
 
@@ -1840,29 +2041,6 @@ Gumption wriggled out from under her
 and peered between the boxes that hid them.
 "I can't see anything,"
 he whispered.
-"Oh wait, there's Miz Nabbles an' a couple of other folk.
-An' there's your ma."
-He glanced at Maddy.
-"She looks pretty upset.
-Oh, and here comes Able and the Operators."
-
-The next few minutes were filled with the noise and bustle of people getting ready to travel.
-Able clipped the wagon's heavy iron hitch to its back
-while Special Blazes and Thoughtful slung their bags beneath the wagon's bench seat.
-"Don't worry, it's faster than it looks,"
-Special Blazes said to Mama Roo when she asked about Bee Six Vee,
-which was waiting impassively just outside the barn door.
-"And don't you worry either,"
-the tiger continued to Sindy.
-"We'll be in Sandy Bend in time for dinner,
-and there's a place along by the river that does the best milkshakes in the world."
-
-After one final hug from her mother,
-Sindy climbed onto the seat next to Thoughtful.
-"Toot toot!" Able sang out.
-Its spoked cartwheels began to turn,
-slowly at first and then faster.
-Maddy twisted around for one last glimpse of her mother waving goodbye.
 
 Gumption rolled onto his back and pillowed his arms beneath his head.
 A moment later he was asleep.
