@@ -1924,7 +1924,7 @@ We have a lot of ground to cover,
 and the day isn't getting any longer."
 
 With matching grumbles the goat twins started work.
-A few minutes later Bee Six Vee surged forward into a trot
+A few minutes later Bee Six Vee lurched into a trot
 with the wagon,
 its passengers,
 and the two stowaways behind it.
@@ -1933,33 +1933,63 @@ and the two stowaways behind it.
 
 <section markdown="1">
 
-## Hot Chocolate on the Road (Gumption)
+## Camp and Conversation (Gumption)
 
-Maddy wriggled into the hiding place they had made.
-Gumption passed her satchel to her and said,
-"Budge over."
+The road was bumpier than it looked,
+or maybe the wagon's suspension had been designed
+for the comfort of the passengers on the bench at the front
+rather than stowaways hiding in the back.
+Their little box cave was pitch black—the only light
+came from a tiny crack between two of the boxes over Gumption's head
+and another one between the sideboards next to him.
 
-"What?
-Why?
-Gumption, what are you—hey!"
-She stifled a squawk as he pushed her legs out of the way
-and wriggled into the hiding place beside her.
+Gumption tried to stay out of Maddy's way as she wriggled around
+in a vain attempt to find a more comfortable position.
+Finally he reached down by their feet to grab her satchel
+and handed it to her.
+"Here," he whispered.
+"Try using this for a pillow."
+He put his own bag under his head and closed his eyes.
+Their little hiding place was already uncomfortably warm,
+but he had worked in the fields since he was old enough to pull carrots out of the ground,
+and had dozed on a plank bench more than once.
+He could get through this—he just hoped Maddy could as well.
 
-He grinned at her,
-teeth crooked and white in the light from
-the little solar lantern that had been on her bedside table
-since she was small.
-"You didn't think I was gonna let you do this on your own, did you?"
+An hour out of town
+the dirt track beneath them joined the Makers' road.
+The ancient black highway was cracked in places,
+and the wagon occasionally had to swerve around
+clumps of weeds tough enough to have broken through the surface,
+but even so,
+Bee Six Vee hauled them fast enough that
+Gumption could feel how fast they were going.
 
-A couple of minutes of whispered argument later,
-they lay on their backs and braced their feet against the board above them.
-With a, "One, two, three,"
-they shifted it over to close the gap.
+He peeked through the gap in the sideboards
+as they passed under a row of ruined arches that marched from one horizon to the other,
+wrapped in creeping vines but still solid.
+A half-sunken metal sphere as big as a house was next,
+and then a tangle of concrete and bent bars
+that the villagers just called "the thing".
 
-"Well, that was fun,"
-Gumption whispered.
+The ground on either side of the highway began to grow damp.
+The twin smells of rust and rotting vegetation filled his nose
+as they approach the polluted swamp known as the Mire.
+Somewhere out there was the bunker
+where Patient in Darkness had kept Maddy's father prisoners—where
+she and Sindy had almost wound up as prisoners too.
+Dockety and the other free bots had tried once to salvage some of its riches,
+but its tentacled guard had made the task too risky.
 
-Maddy elbowed him.
+*And now Papa Roo is somewhere a hundred times worse,*
+Gumption thought despondently.
+He hadn't known Maddy's father well,
+but he remembered a warm laugh and jokes so bad you just had to smile.
+
+He elbowed Maddy.
+"Hey,"
+he whispered.
+"Whatcha thinking about?"
+
 After a moment of silence,
 she said,
 "It's a lot easier in stories, isn't it?
@@ -1971,7 +2001,7 @@ and nobody ever talks about the smell,"
 Gumption agreed.
 
 "The what?"
-A moment later she said, "Eww!
+A moment later she hissed, "Eww!
 Gumption Goat, you're disgusting!"
 
 "Sorry," he whispered cheerfully.
@@ -1979,12 +2009,11 @@ Gumption Goat, you're disgusting!"
 
 "Ssh!"
 Maddy elbowed him again.
-"Go to sleep.
-And don't do that again.
+"Don't do that again.
 The Mire's going to be stinky enough."
 
 Silence,
-and then Gumption asked quietly,
+and then Gumption said,
 "She's gonna be aright, you know.
 Your sister, I mean."
 
@@ -1999,7 +2028,7 @@ well,
 everybody had the same chili I did."
 
 Maddy let go of his hand.
-"Do you ever take *anything* seriously?" she asked.
+"Do you ever take *anything* seriously?" she whispered.
 
 Gumption shrugged,
 very aware of how warm she was beside him
@@ -2016,18 +2045,215 @@ and the time you tried make double-dip cookies but forgot the salt,
 and maybe a couple or three other times,
 I've pretty much always taken you seriously.
 So don't worry—we'll make sure Sindy's aright,
-an' then we'll figure out what to do about your pa.
-Now get some sleep—we got a lot in front of us."
+an' then we'll figure out what to do about your pa."
 
 He lay back down.
 When Maddy said, "Eww!" again a moment later,
 he smiled in the darkness.
+Above their heads,
+Able the mailbot began to hum a happy tune.
+
+Bee Six Vee pulled off the road just before mid-day.
+The wagon bounced a little as the passengers up front climbed down off their bench.
+"Go ahead and stretch your legs,"
+Thoughtful told Sindy.
+"And, uh, if you need a bit o' privacy,
+just duck behind those bushes over there."
+
+"Thank you," Gumption heard Sindy reply.
+*I could use a bit of privacy myself,* he thought.
+*And some lunch.*
+
+As if she had read his mind,
+Maddy elbowed him and then passed him a squashed sandwich wrapped in wax paper.
+"Thanks," he whispered.
+Pickled peaches weren't his favorite,
+but his stomach was happy to have them.
+
+He nearly choked on a mouthful when Special Blazes said,
+"Enjoying that?"
+
+"Always enjoy a good chew," Thoughtful replied.
+Gumption whooshed silently,
+exchanging a look with Maddy.
+"Little bit worried about the time we're makin', though.
+Shoulda been here half an hour ago."
+
+"Isn't like Bee to run slow," the tiger rumbled.
+
+Peeking through the sideboards,
+Gumption caught half of Thoughtful's shrug.
+"It says the wagon feels heavy."
+
+Special Blazes snorted.
+"Always does when we're carrying a load like this.
+Come on—let's get rolling."
+
+The afternoon was worse than the morning.
+Their hiding spot went from uncomfortably warm to almost unbearably stuffy,
+and Gumption's injured ribs ached each time a wheel hit a pothole.
+The worst part was his bladder,
+but there was nothing he could do about any of it
+so he just lay there and listened to Able's humming.
+It wasn't much of an adventure,
+but he supposed real adventures never were.
+
+Finally Special Blazes said,
+"Aright, let's stop here."
+Bee Six Vee pulled the wagon off the road again
+to stop under a stand of willows that had grown up around a black glass charging post.
+
+The wagon bounced once again as its passengers dismounted.
+"How about we scout around a bit and see what's what?"
+Special Blazes said to Thoughtful.
+
+"Sure, boss."
+Thoughtful stretched until something cracked in her back.
+"Ah, that's better.
+How about I do that,
+then you an' I can set up your tent?"
+she said to Sindy.
+
+"Aright," the younger Roo replied with a yawn.
+"Are we going to have dinner, too?
+I'm hungry."
+
+"Best road stew you've ever eaten,"
+the rabbit promised.
+"I'll be back to get a fire started in no time."
+
+"I really need to pee," Maddy whispered as Thoughtful walked away,
+her rifle in her hands.
+"Like, *really*."
+
+Gumption nodded and peeked through the sideboard again.
+Able and Bee Six Vee were together by the charging post.
+Sindy had picked up some loose pebbles and was tossing them into the little creek
+that ran past the willows,
+and Special Blazes was nowhere to be seen.
+He twisted around,
+wincing at the stabbing in his ribs,
+unlatched the backboard,
+and winced again as it squeaked when he lowered it.
+
+"Quick as you can,"
+he muttered to Maddy.
+
+"I know, I know,"
+she muttered back.
+They ran on tiptoes for the nearest bushes.
+
+Two minutes later they were back in the wagon.
+A minute after that he heard Thoughtful and Special Blazes return.
+"See anything?" the tiger asked.
+
+"Couple o' little bots, but they ran off,"
+Thoughtful replied.
+"I figure they were just wantin' to recharge."
+
+"Mm.
+Where there's little ones, there's usually big ones,"
+Special Blazes rumbled.
+
+Thoughtful patted her rifle.
+"I'll keep watch.
+Now, Miz Roo?
+You want to come over here and help me with your tent,
+and then we'll start that stew?"
+
+The rabbit chatted as she banged pegs into the ground,
+seemingly not bothered by Sindy's curt replies.
+"There."
+She stood back and admired her handiwork.
+"Nice and snug."
+
+"Looks like you done this a lot,"
+Sindy said resentfully.
+
+"Oh, plenty o' times.
+My folks were travelers—I practically grew up on the road.
+They were always findin' stuff here, sellin' it there.
+Never stayed in one place for long."
+
+"They still on the road?"
+Sindy asked,
+plucking on one of the tent strings.
+
+Thoughtful shook her head.
+"Naw.
+They,
+uh,
+well,
+they're gone now.
+We had a run-in with some pretty bad folks a few years back
+and they didn't make it."
+
+"I'm sorry."
+Sindy sniffled suddenly and hugged herself.
+"Did you say there was going to be stew?"
+
+"Sure is.
+Come on—you help me get the fire started and it'll be ready in no time."
+
+The smell of cooking made Gumption's stomach rumble so loudly
+that he had to press a fist into his belly to quiet it.
+Afterward,
+he hummed along as Able sang Sindy a lullaby.
+"Sow, sow, sow your oats,
+right beside your beans…"
+
+"G'night," Maddy whispered once they could hear Sindy's gentle snores.
+
+"G'night," he whispered back.
+
+He lay beside her in the darkness,
+one arm under his head,
+and thought about Bluster and Bravo both trying to run away to join the Operators
+without telling one another.
+They'd bullied him ever since they were little,
+and he didn't much care if he ever saw either of them again,
+but he couldn't help feeling a little bit of sympathy for them
+wanting to go and see the world.
+
+He had known since the first day he met Maddy that she was going to.
+He had been trying all summer to figure out how to tell her that it was aright,
+that he understood she needed more than Rusty Bridge could offer
+and that he wouldn't mind her leaving him behind,
+but he could never find the right words.
+Plus,
+he had promised her once that he'd never lie to her.
+
+The Operators' voices startled him out of his semi-doze.
+"Want me to take first watch?"
+Thoughtful asked.
+
+"Sure."
+Special Blazes slurped the last of his tea and dumped the dregs on the ground.
+"You sure you're up for this job?
+I'm just asking because you seem to be getting pretty fond of Miz Roo."
+
+"Don't worry about me, boss,"
+the rabbit protested.
+"I can do what I need to when the time comes."
+
+"Mm,"
+Special Blazes rumbled.
+"That's what Meribeth said,
+and look how that played out.
+There's no shame at all if you decide it's not your road.
+I just need to know."
+
+"I can do what I need to,"
+Thoughtful repeated firmly.
+Special Blazes clapped her on the shoulder and turned away.
+
+It took Gumption a long time to fall asleep after that.
 
 </section>
 
 <section markdown="1">
 
-## On the Road (Maddy)
+## The Observatory (Maddy)
 
 Maddy bit her lip.
 "Mmph?" Gumption mumbled as she rolled over.
@@ -2050,35 +2276,6 @@ she grumbled.
 She settled down beside Gumption.
 "Or if they stop for a toilet break,"
 she added.
-
-An hour out of town
-the dirt road they were on joined the Makers' road.
-The ancient black surface of the highway was cracked in places,
-and the wagon had to swerve around fallen branches
-and clumps of weeds tough enough to have broken through the road,
-but even so,
-Able hauled them fast enough that Maddy could feel their speed.
-It reminded her of her first time on the road,
-when she and Dockety had chased the raiders who had kidnapped Sindy.
-
-They passed under a row of ruined arches that marched from one horizon to the other,
-crumbling but still solid.
-A half-sunken metal sphere as big as a house was next,
-and then a tangle of concrete and bent bars
-that the villagers just called "the thing".
-
-The ground on either side of the highway began to grow damp.
-The twin smells of rust and rotting vegetation filled Maddy's nose
-as they entered the polluted swamp known as the Mire.
-Somewhere out there was the bunker
-where Patient in Darkness had kept her father and other prisoners—where
-she and Sindy had almost wound up as prisoners too.
-Dockety and the other free bots had tried once to salvage some of its riches,
-but its tentacled guard had made the task too risky.
-
-*And now papa's somewhere a hundred times worse,*
-Maddy thought despondently.
-She *really* needed a toilet break.
 
 The sun was high when they turned off the Makers' road onto a smaller one.
 What had once been two smooth lanes with knee-high concrete barriers on each side
