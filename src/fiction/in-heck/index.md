@@ -1981,7 +1981,7 @@ Dockety and the other free bots had tried once to salvage some of its riches,
 but its tentacled guard had made the task too risky.
 
 *And now Papa Roo is somewhere a hundred times worse,*
-Gumption thought despondently.
+Gumption thought.
 He hadn't known Maddy's father well,
 but he remembered a warm laugh and jokes so bad you just had to smile.
 
@@ -2255,27 +2255,34 @@ It took Gumption a long time to fall asleep after that.
 
 ## The Observatory (Maddy)
 
-Maddy bit her lip.
-"Mmph?" Gumption mumbled as she rolled over.
+"Mmph?" Gumption mumbled as the wagon started to roll the next morning.
 
 "Ssh!"
-She clamped her hand over his mouth.
+Maddy clamped her hand over his mouth.
 Her mouth tasted *awful*,
 and her neck—she realized that she had never really appreciated pillows properly before.
 
-Gumption wriggled out from under her
-and peered between the boxes that hid them.
-"I can't see anything,"
+Gumption wriggled away from under her
+and peered through the gap in the sideboards.
+"I can't see anyone,"
 he whispered.
+A moment later they both rolled their eyes
+as Able started humming a happy tune above them.
+
+"I don't know if I can get through another day of this,"
+Maddy grumbled.
 
 Gumption rolled onto his back and pillowed his arms beneath his head.
-A moment later he was asleep.
+"Yes you can,"
+he said quietly,
+his eyes already closed.
+A moment later he was asleep again.
+
 Maddy sighed.
 "Don't worry, I'll wake us up when we get somewhere,"
-she grumbled.
-She settled down beside Gumption.
-"Or if they stop for a toilet break,"
-she added.
+she muttered.
+*Or if they stop for a toilet break,*
+she added in her head.
 
 The sun was high when they turned off the Makers' road onto a smaller one.
 What had once been two smooth lanes with knee-high concrete barriers on each side
@@ -2286,48 +2293,41 @@ until they reached the summit of a tall hill overlooking the Mire.
 
 A single building stood there,
 its domed metal roof stained with rust but still intact.
-The ground around it was filled with scattered stands of larch and pine.
+An antenna stood beside it,
+its curved dish as wide across as the central square in Rusty Bridge.
 The waist-high bushes between them were dry and brittle,
 and the grass below them brown instead of green.
+Scattered pickets of larch and pine stood guard,
+their branches swaying gently in the wind.
 
 "Whoa up!"
 Thoughtful called,
-hopping down from her seat as Able slowed and stopped.
-Pressing her face against a gap in the slats,
-Maddy saw Special Blazes climb down beside Bee Six Vee.
-
+hopping down from her seat as Bee Six Vee slowed and stopped.
+Leaning awkwardly over Gumption to look through the sideboard,
+Maddy saw Special Blazes climb from the wagon bench.
 The tiger arched his back and rolled his head from side to side,
 then consulted a heavy pocket watch.
 "Half an hour," he declared.
 "Thoughtful, you keep an eye out while I get the solars set up."
 
-It only took the travelers a minute to settle in.
+It only took the travelers a few minutes to settle in.
 Special Blazes laid out the solar panels in a line,
-connecting one cable to itself and others to Able and Bee Six Vee.
+connecting one cable to them and others to Able and Bee Six Vee.
 Thoughtful unfolded a camp chair
-and took a moment to assemble a long-barrelled rifle on a tripod,
+and took a moment to assemble a tripod for her long-barrelled rifle,
 then sat down and began scanning the road below them
 through its telescopic sight
 in smooth, unhurried sweeps.
 
-Maddy held on as long as she could,
-but finally whispered to Gumption,
+Maddy nudged Gumption.
 "I gotta get out for a minute."
-
-"Me too," he said, grimacing.
+He nodded,
+his bladder clearly as uncomfortable as hers.
 
 Slowly,
-wincing with every slight bump and scrape,
-they pulled one of the boards to the side
-and unfastened the loose slat on the back of the wagon.
-Maddy looked at the narrow gap despondently.
-She would have to slither out head first
-and hope that she could somehow right herself
-before she fell on the ground.
-On the bright side,
-there was a thick stand of bushes just a few strides away.
-
-She poked her head out cautiously.
+gingerly,
+they lowered the backboard.
+Maddy poked her head out cautiously.
 No one was in sight.
 Digging her elbows into the boards,
 she dragged herself forward until she could reach the hitch
@@ -2335,13 +2335,13 @@ at the back of the wagon.
 If she braced herself on that—
 
 "Would you like a hand getting down?"
-Special Blazes asked,
-coming around the corner with a freshly-brewed cup of tea in his hand.
+Special Blazes was standing by the back corner of the wagon
+with a freshly-brewed cup of tea in his hand.
 He nodded,
 solemn-faced,
 at Maddy's polite,
 "No thank you,"
-and sipped his tea as she lowered herself awkwardly to the ground,
+and sipped his drink as she lowered herself awkwardly to the ground,
 stood,
 and brushed her skirt back into place.
 
@@ -2352,30 +2352,29 @@ he observed.
 Um, if you'll excuse me a moment…?"
 
 "By all means."
-The Operator stepped aside.
+The Operator waved her toward the bushes.
 
 Back straight and head held high,
 Maddy got three steps toward the bushes when a small voice said,
-"Can I go too please?
-'Cuz I *really* need to."
-
-Maddy opened and closed her mouth as her sister walked past,
-her expression saying more clearly than words
-how angry she was.
+"Excuse me."
+Maddy opened and closed her mouth as her sister marched past her,
+the expression on her face saying more clearly than words how angry she was.
 Maddy sighed.
-This day couldn't get any worse.
+This day just couldn't get any worse.
 
-Five minutes later she, Sindy, and Gumption had joined the rest of the party,
+When she, Sindy, and Gumption were done their business
+they joined the rest of the party,
 who were sitting or standing near the front of the wagon
 depending on their inclination and body shape.
 "It ain't the stupidest thing anyone's ever done,"
 Thoughtful said,
 "But it sure ain't the smartest."
 
-Special Blazes shrugged.
-"Ain't the worst thing that's ever happened.
-As soon as we get to Sandy Bend you're headed straight back home.
-Why don't you give 'em the tour?"
+Special Blazes nodded.
+"We'll send word back to your folks as soon as we get to Sandy Bend.
+They must be worried sick.
+Meanwhile,
+why don't you give 'em the tour?"
 He nodded at the domed building.
 "It was solid enough the last time I passed through."
 
@@ -2386,31 +2385,31 @@ Thoughtful pursed her lips.
 Maddy protested,
 but the rabbit had already shouldered her rifle.
 
-A sign stood in front of the building,
-but time and weather had long since made it mute.
-There was just enough room between its double doors for Thoughtful to squeeze through.
+A sign stood in front of the domeed building,
+but time and weather had long since erased whatever it had once said.
+There was just enough room between the double doors for Thoughtful to squeeze through.
 The children followed single file.
 
-The rabbit took a small glowball from his pocket and held it up.
+The rabbit took a small glowball from her pocket and held it up.
 Its cool blue-white light threw sharp shadows.
 Maddy shivered.
-The last place like this that she had been in
+The last place she had been in that looked like this
 had been Patient's bunker in the Mire.
 The air here was cool and dry instead of dank,
 but her steps echoed exactly the same way on the tiled floor.
 
-"This way,"
-Thoughtful said.
-She led them past rooms with broken-down doors
+"This way."
+Thoughtful led them past rooms with broken doors
 whose contents had long since been salvaged.
 Every few paces they passed pillars
 that Maddy realized must once have been display cases.
 
 The corridor took them to a broad flight of stairs.
-Up they went into a room that filled the entire second story of the building.
+The room waiting at their top filled the entire second story of the building.
 Daylight poured through a wide gap in the domed roof
 to reveal something that looked like a metal log lying on the floor.
-Someone had swept the scattering of dry leaves and twigs around it into piles.
+Someone had swept the scattering of dry leaves and twigs around it
+into piles by the walls.
 
 "What is that?"
 Maddy asked.
@@ -2433,10 +2432,8 @@ to a window positioned under the gap in the roof.
 A boxy wooden bench stood beneath the window.
 With a grunt,
 Thoughtful lifted the bench seat and propped it open,
-then reached inside and pulled out a cylinder the length of her arm.
-A few moments later,
-the telescope that had been waiting inside the cylinder
-stood on a little tripod.
+then reached inside and pulled out a telescope the length of her arm
+and a little tripod like the one she had set up in camp for her rifle.
 
 "You've been here before, haven't you?"
 Maddy said as the rabbit pointed the telescope through the broken window
@@ -2446,8 +2443,8 @@ and fiddled with the lens on the viewing end.
 she replied absently.
 "Here, take a look."
 
-It took Maddy a moment to line her eye up with the lens properly.
-She gasped.
+Maddy squinted to line her eye up with the lens properly,
+then gasped.
 In the distance she could see dozens of tall building connected by elevated walkways.
 Pipes and cables criss-crossed the scene,
 and every building seemed to have an antenna,
@@ -2464,7 +2461,8 @@ or buzzed from building to building beneath one, two, or half a dozen rotors.
 she asked as Gumption took his turn.
 
 Thoughtful twitched her whiskers.
-"Nobody knows, but they sure do keep busy."
+"Keepin' busy.
+Busy enough to leave folk alone, I hope."
 
 "I thought it'd be smoky an' all,"
 Gumption offered,
@@ -2478,20 +2476,23 @@ Whichever story you like,
 the bots they left behind tend to like things tidy."
 
 They each took another turn,
-but the empty streets were too unnerving to watch for long.
+but the scene was too unnerving to watch for long.
 *Papa's down there somewhere,* Maddy thought despondently.
-*I hope he's aright.*
+*And now I'm going to lose Sindy too.*
 
-They made their way back to the others in silence.
+They made their way back to the wagon in silence.
 As they approached,
 Special Blazes held up a kettle.
-"Anyone else want a cuppa?"
+"Anyone want to join me?"
+as Thoughtful seated herself in her camp chair
+and put her rifle back on its tripod.
 
-Before they could answer,
-Thoughtful's foot thumped against the ground in a rapid *pat-a-tat-tat*.
-She unslung her long rifle,
-sighted through its scope,
-then let loose a string of profanity that set Maddy's ears back against her head.
+"I would, except I don't drink,"
+Able replied cheerfully.
+
+Before Maddy could add anything,
+Thoughtful's foot thumped against the ground in a rapid *pat-a-tat-tat*
+and she let loose a string of profanity that set Maddy's ears back against her head.
 "Trouble, boss,"
 she said urgently.
 "We got airborne comin' in fast!"
