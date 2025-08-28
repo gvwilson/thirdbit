@@ -68,15 +68,15 @@ template: page
     -   Unlikely to excite people
     -   Unlikely to attract funding
 
-### The Compassionate Programmer
+### The Responsible Programmer
 
--   Plan: teach tools, processes, evidence, and compassion in team capstone courses
+-   Plan: teach tools, processes, evidence, and responsibility in team capstone courses
     -   "Tools" because intended audience accepts them as valid
     -   "Processes" because tools aren't useful unless you know how to use them
     -   "Evidence" because we want to know which tools and processes actually work
-    -   "Compassion" because once you know how to look at evidence,
-        you can see how tech discriminates and the harm it causes,
-        so what are you going to do about it?
+    -   "Responsibility" to both teammates (fair play) and society as a whole,
+        because once you know how to interpret evidence,
+        it's hard not to see the harm we're doing
 -   Pro:
     -   Medium effort to create
     -   Gradual escalation from where people are to where we want them to be
@@ -86,11 +86,14 @@ template: page
     -   Hard to subsection material for workshops:
         early content is already covered elsewhere,
         later will feel like "jump in at the deep end" on its own
+-   Note: the title is a deliberate play on the title of *The Pragmatic Programmer*
+    -   Making pragmatic compromises got us into this mess
+    -   See [this site][setper] for a more detailed outline
 
-### Productivity, Research Methods, and Enlightened Skepticism
+### Observability, Research Methods, and Enlightened Skepticism
 
 -   Plan: teach programmers to distinguish reliable research from plausible punditry
-    -   Use programmer productivity as the motivating issue
+    -   Use the problem of observing programmer productivity as the motivating issue
 -   Pro:
     -   Topical: debates about impact of AI are vacuous without shared, reliable understanding of what productivity means
     -   Motivates study of both qualitative and quantitative methods
@@ -98,7 +101,9 @@ template: page
     -   Practical exercises are easy to create
 -   Con:
     -   Medium effort to create
-    -   May be seen as niche (people won't understand productivity is just being used as a working example)
+    -   May be seen as niche:
+        people won't understand observability and productivity are just being used as a working example
+-   Note: see [this site][observe] for a more detailed outline
 
 ### Social Studies for Software Engineers
 
@@ -116,3 +121,8 @@ template: page
     -   Will require partnership with people outside tech
         who may not understand what programmers are willing to sit through
     -   Will be seen as "political" (and encounter resistance as a result)
+-   Note: see [this talk][sdgc] for a more detailed outline
+
+[observe]: https://gvwilson.github.io/observe/
+[sdgc]: @root/talks/sdgc/
+[setper]: https://gvwilson.github.io/setper/
