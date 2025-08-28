@@ -2504,7 +2504,7 @@ she said urgently.
 ## Taken (Gumption)
 
 Special Blazes put two fingers in his mouth and whistled loudly.
-"Wake up," he ordered Bee Six Vee.
+"Power up," he ordered Bee Six Vee.
 "We got work to do."
 
 "And you,"
@@ -2513,7 +2513,7 @@ rounding on Sindy, Maddy, and Gumption.
 "You get into the trees and keep your heads down.
 Understood?
 You too,"
-he snarled,
+he added,
 waving Able toward the trees.
 
 "Wait!"
@@ -2523,72 +2523,91 @@ I've been practicin'!"
 
 The tiger and Thoughtful exchanged looks.
 "This isn't a story, son,"
-the rabbit said.
-There was a hardness in her voice that hadn't been there a moment before.
+the rabbit said,
+with a hardness in her voice that hadn't been there a moment before.
 "You stay with your friends and keep outta trouble."
-But then she reached into the wagon and pulled out a squat gun with a wide mouth
-and handed it to the young goat.
+But then she reached under the wagon's bench seat
+to pull out a squat wide-mouthed gun and pass it to the young goat.
+
+"You know how to use this?"
+she asked.
+
+"Yes'm," Gumption said.
+"Point it at the bad guy and pull the trigger."
 
 Special Blazes shrugged out of his uniform jacket.
-The tech on his arms lit up.
-Thoughtful touched the brim of her hat in salute and shouldered her rifle.
+The tech on his arms lit up
+as Thoughtful shouldered her rifle.
 
 Crouching behind a stand of larch trees a few moments later,
-Gumption could smell dry earth under his feet,
+Gumption could smell the dry earth under his feet,
 the soap that Mama Roo used on her children,
-and the shame boiling off his cheeks.
+and the sweat in his armpits.
+Beside him,
+Maddy put an arm around her sister's shoulders and squeezed.
+
+"Here they come,"
+Gumption said as half a dozen dark dots in a vee zoomed closer.
+
 The helibots' rotors whined and then shrieked as they dove at the camp.
-Bright sparks danced across their bellies.
+White sparks danced across their bellies.
 Gumption heard the *rat a tat tat* of their guns a moment later
 as puffs of dirt spattered from the ground.
 
 *Chonk!*
-A white streak lanced up from where Thoughtful had sheltered behind the wagon.
+A white streak lanced up from where Thoughtful had sheltered beside the wagon.
 Her shot went straight through one of the attackers.
 The bot tumbled end over end before breaking apart.
-"That's one,"
-Gumption muttered as the smoldering fragments fell.
+"Woo hoo!"
+Gumption whooped as smoldering fragments fell to the ground.
 
-The two remaining bots zipped away in opposite directions,
+The other bots split formation and zipped away in opposite directions,
 circled around,
-and came in for a second pass at right angles to each other.
+and then came in for a second pass at right angles to each other.
 *Chonk!*
-Thoughtful's second shot nicked one of the bots off center.
+Thoughtful's second shot nicked one of them off center.
 Its rotors whined as it vainly tried to right itself
 before crashing into the trees
 and exploding with a muffled *whump!*
 
-"That's two!" Gumption whooped.
+"That's two!" Gumption shouted.
+He gripped the shotgun that Thoughtful had given him.
+He had never actually fired a gun before,
+but he'd read about them in Special Leaf's books
+and in newspaper stories.
+If any of the helibots came close—
 
-But even as he spoke,
-Bee Six Vee blared,
+But even as he thought that Able bleated,
 "Marauders! Marauders!"
 
-Maddy swore under her breath.
-"What?" she demanded as her sister and Gumption stared at her.
-Then she stopped and sniffed the air.
-"Makers' names.
-If it isn't one thing it's another."
+"What's happening?" Sindy asked plaintively.
 
-The acrid tang of smoke tickled Gumption's nose.
-The crashed bots had set the dry brush alight.
+"Sh sh sh," Maddy said,
+squeezing her shoulders again
+and looking wide-eyed at Gumption as if he might have an answer.
+
+Just then the acrid tang of smoke tickled Gumption's nose.
+He spun around.
+The bot that had crashed behind them had set the dry brush alight.
 "The water tank!"
 Gumption pointed at the wagon.
 
-"You stay right where you are!"
+"No!"
 Maddy snapped,
-grabbing the back of his overalls.
+grabbing the back of his overalls as he started forward.
 "If we're still here in five minutes
-we can worry about the fire then."
+we can worry about it then."
 
-The third helibot zipped overhead,
-dodging and weaving as Special Blazes threw fireballs at it.
-One second, two, and a fresh wave of attackers rolled into view.
+The helibots zipped overhead,
+dodging and weaving as Special Blazes threw fireballs at them.
+Beyond him,
+where the road reached the observatory plateau,
+a fresh wave of attackers rolled into view.
 These weren't rag-tag machines
 like the ones Patient in Darkness had cobbled together out of spare parts.
 These were weapons.
-The small six-wheeled scouts in front were almost as fast as the helibots.
-The two behind them were as large as Bee Six Vee,
+The small six-wheeled scouts in front raced forward almost as fast as the helibots.
+The two bots behind them were as large as Bee Six Vee,
 squat and heavily armored,
 with four wheeled legs for speed
 and two crab arms for fighting.
@@ -2596,18 +2615,18 @@ and two crab arms for fighting.
 *Chonk!*
 Thoughtful's shot pinged off one of the crab tanks.
 *Chonk!*
-His second shot knocked one of the little scout bots into the air.
-It hit the ground,
+His second shot knocked over one of the little scout bots.
+It tumbled,
 righted itself,
-and rejoined the attack.
+and raced toward them again.
 
 Special Blazes braced himself,
 brought his hands together,
 and *pushed*.
 The lead crab tank braked hard but couldn't dodge the enormous white fireball.
-The blast of its impact knocked the bot onto its side,
-but almost immediately one of its armored claws punched the ground.
-The crab tank heaved itself back onto its legs,
+The impact knocked the bot onto its side.
+One of its armored claws immediately punched the ground.
+The crab tank heaved itself upright,
 shook itself like a wet cat,
 and rolled implacably forward.
 
@@ -2617,7 +2636,7 @@ throwing scraps of metal in all directions.
 The other scouts scattered like startled chickens.
 
 But "in all directions" meant "toward the trees".
-Sindy grabbed Maddy's arm and and yelled, "Run!"
+Maddy yanked on Sindy's arm and and yelled, "Run!"
 just as Gumption raised the gun that Thoughtful had given him and fired.
 
 *Boom!*
@@ -2628,7 +2647,7 @@ crashed into a tree,
 and toppled over on its side to lie still.
 
 *Szzt!*
-Special Blazes' fireball its target,
+Special Blazes' fireball found its target,
 but the crab tank knew to brace itself.
 The fireball bounced across the broken ground and evaporated unnoticed.
 Another fireball,
@@ -2642,17 +2661,17 @@ But he had reckoned without Bee Six Vee.
 The squat mulebot slammed into the attacker's side
 with a clang he was sure they must have heard
 all the way back in Rusty Bridge.
-As the crab tank scrabbled to regain its footing,
-Bee Six Vee rammed it again
-and grabbed one of its legs,
-twisting it.
 
+As the crab tank scrabbled to regain its footing,
+Bee Six Vee rammed it again,
+grabbed one of its legs,
+and twisted.
 Special Blazes flung a stream of fire straight into the crab tank's joints.
 One second, two…
 Smoke and flame burst out of the bot's rear.
-Bee Six Vee tossed it aside contemptuously.
+Bee Six Vee tossed the ruined bot aside contemptuously.
 
-"Look out!" Able buzzed.
+"Look out!" Able called out.
 Gumption fired again,
 tangling another scout bot.
 
@@ -2665,9 +2684,7 @@ and pushed.
 
 The wagon began to roll forward.
 Slowly, slowly…
-"Come on, help me!" Gumption yelled again,
-"Oh, come on!" Gumption shouted
-as the mailbot fled,
+"Oh, come on!" Gumption shouted as the mailbot fled,
 squeaking and buzzing in panic.
 
 *Chonk!*
@@ -2709,10 +2726,8 @@ the bot buzzed.
 
 Special Blazes didn't lower his fists.
 "And you just happened to catch up with us at the same time as this lot?
-I have to say,
-that's mighty convenient."
-Gumption gulped as Thoughtful casually swung her rifle around
-to not-quite-point at Dockety as well.
+That's mighty convenient."
+Gumption gulped as Thoughtful swung her rifle around and took aim at Dockety.
 
 Dockety's lenses rotated.
 "This one played no part in the attack."
