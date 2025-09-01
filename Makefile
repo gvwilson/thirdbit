@@ -22,6 +22,16 @@ count:
 	@python bin/count.py src/fiction/$${book}/index.md $${prev}
 endif
 
+## spelling: check spelling in book
+.PHONY: spelling
+ifeq (${book},)
+spelling:
+	@echo "'book' not defined"
+else
+spelling:
+	@cat src/fiction/$${book}/index.md | aspell list | sort | uniq | diff - src/fiction/$${book}/words.txt
+endif
+
 ## ----
 
 ## validate: check the generated HTML
