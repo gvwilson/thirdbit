@@ -3437,17 +3437,19 @@ Is your body transparent?
 Fine—what about your clothes?
 Even if they are,
 how could you see anything if light just passed through your eyes?
-Or are you somehow hidden from sight or made unnoticeable?
+
+Or has something hidden you from sight or made you unnoticeable?
 Great:
 does it muffle the sound of you panting
-as you hurry along an overgrown path through a swamp filled with your worst nightmares?
-Does it conceal footsteps you leave in the mud,
+as you run along an overgrown path through a swamp filled with your worst nightmares?
+Does it conceal the footsteps you leave in the mud,
 or stop branches and tall grass from swaying as you brush against them?
 
-None of this made being invisible useless,
+None of this made the discombobulator useless,
 but as Maddy squelched toward the road,
-she realized that it wouldn't save her on its own.
-The helibot that had kidnapped her would be in the air soon if it wasn't already,
+she quickly realized that it wouldn't save her on its own.
+Battered or not,
+the helibot that had kidnapped her would be in the air soon if it wasn't already,
 and Patient was sure to send other minions after her as well.
 She needed to hide, and fast.
 
@@ -3458,7 +3460,7 @@ She hesitated.
 She could move a lot faster on the road,
 but—
 
-Something buzzed in the sky overhead.
+Something buzzed in the sky above her.
 She ducked under a willow as the helibot zoomed past overhead.
 No,
 the road was definitely out.
@@ -3466,14 +3468,14 @@ the road was definitely out.
 Maddy counted twenty in her head,
 took a deep breath,
 and crossed the road in a dozen long bounds.
-The undergrowth on the other side was just as smelly and scratchy,
-and the mosquitoes found her again almost immediately,
-but she had to do *something*.
+The undergrowth on the other side was smelly and scratchy,
+and the mosquitoes found her again almost immediately.
+What was she going to do?
 
 The discombobulator on her wrist vibrated.
 "Charge exhausted,"
 its readout told her.
-"Please wait fifteen (15) minutes before re-enabling."
+"Please wait ten (10) minutes before re-enabling."
 
 "Great,"
 she muttered.
@@ -3485,8 +3487,7 @@ The only thing she *did* know was—
 Her eyes widened.
 It was a crazy idea,
 but she had played hide and seek with Sindy and Gumption often enough to know that
-where you hid wasn't the only thing that mattered.
-You also had to think about where people were going to look for you.
+where you hid didn't matter as much as where people went looking for you.
 
 She counted down the minutes.
 Ten…
@@ -3522,18 +3523,18 @@ The discombobulator vibrated on her wrist.
 "Recharged" scrolled across the readout.
 She pressed the button just as the bot tensed
 and charged into the bushes on her left.
-As it did so,
+While it thrashed the innocent weeds in disappointment
 she bounded across the Makers' road and back along the trail to Patient's tower,
-desperately hoping that whatever other minions the mad bot had sent after her
-had gone in other directions.
+desperately hoping that she wouldn't run headlong into
+whatever other minions the mad bot had sent after her.
 
-A few minutes later she stood in front of a stained concrete wall.
-The partly-open door in front of her looked exactly like
-the one that had led to the underground bunker where she had first encountered Patient.
-Well,
-not exactly,
-she amended,
-but close enough to keep her heart racing.
+A few minutes later she stood in front of the tower's stained concrete base.
+The rusty metal door in front of her looked enough like
+the one that had led to the underground bunker where she had first encountered Patient
+to keep her heart racing.
+The sign above it read "DANGER",
+but she already knew that.
+
 She glanced at the discombobulator,
 swallowed hard,
 and slipped through.
@@ -3556,7 +3557,7 @@ next to a pair of sturdy levers and an open door.
 
 Pushing aside her memories of what had happened the last time she had been in a place like this,
 Maddy stepped through the door
-onto a small platform at the top of a flight of broad concrete stairs
+onto a small platform at the top of a flight of narrow concrete stairs
 and started her descent into the unknown.
 
 Ten… twenty… fifty…
@@ -3565,7 +3566,7 @@ she reached a corridor made of the same featureless gray concrete as the stairs.
 Small glass panels set into the ceiling cast the same cold white light
 that had haunted her dreams for months.
 
-She had expected a warren of tunnels like the ones Patient had used as its lair.
+She had expected a warren of tunnels like Patient's previous lair.
 Instead,
 she quickly found herself at another heavy door
 that slid aside at her touch to reveal a circular room with a domed ceiling.
@@ -3582,8 +3583,7 @@ then gasped as the ceiling came to life
 to show hundreds of stars in a clear night sky.
 Faint colored lines arced from one horizon to the other.
 After a moment she realized there were dots moving along some of them.
-Most were dull red,
-but one was a vibrant green.
+All were dull red except one that pulsed a vibrant green.
 
 She waited a moment for something to happen.
 When nothing did,
@@ -3638,25 +3638,35 @@ Thoughtful agreed.
 "Roundin' up throwbacks is wearin' enough
 without other folk gettin' caught up in it.
 The sooner we deliver this one to Heck,
-the sooner I can stop hatin' myself."
+the sooner I can stop hatin' myself
+and start figurin' out how we're goin' to explain this mess."
 
 "Pshaw,"
 Special Blazes scoffed.
 "You don't really hate yourself.
 Not like that old fool Leaf."
 
-"'Spose not."
-The rabbit sighed.
-"On the bright side,
-there's this fella I know in Sandy Bend who'll do his best to take my mind off it
-if I ask nice."
+"What if he gets it into his head to tell tales like Meribeth did?"
+the rabbit asked.
+
+"He won't,"
+the tiger replied confidently.
+"He might not have the stomach for this any more,
+but he won't betray the living."
+
+"I hope you're right,"
+Thoughtful sighed.
 
 The screen went silent.
 Maddy felt sick.
 She hadn't believed Patient,
-but—
+but what was she supposed to think now?
+She had to warn Sindy.
+No,
+she had to rescue her.
+She had to—
 
-And then she shrieked as something tapped her ankle.
+She shrieked as something tapped her ankle.
 
 </section>
 
@@ -3670,29 +3680,32 @@ it said.
 "And in danger."
 
 And with those words,
-Gumption felt a familiar fear squeeze his chest.
-He hadn't ever talked to anyone about it—it wasn't the kind of thing
-a teenage goat would discuss with his parents,
-and he *definitely* couldn't talk about it with Maddy—but she was his best friend,
-and maybe, just maybe, something more.
+Gumption felt a familiar fear squeeze his chest once again.
+He hadn't ever talked to anyone about it:
+it wasn't the kind of thing
+a teenage goat would discuss with his parents.
+He *definitely* couldn't talk about it with Maddy,
+even though she was his best friend,
+because he hoped that maybe, some day, she would be something more.
 He didn't know what would happen if she found out how much he worried about her.
 He had been hurt in the attack on Rusty Bridge,
 but she could have *died*,
 and whenever his thoughts got close to that,
-his mind seized up like a bicycle chain getting caught in between two gears.
+his mind seized up like a saw blade getting snagged on green wood.
 
 "So what are we waiting for?"
-he said angrily.
+he demanded angrily.
 "You've got Dockety's eye—let's go help her!"
 
-Another rustle ran through the circle of bots.
+A rustle ran through the circle of bots.
 "No.
 Retrieval will not be possible without stealth.
-We must prepare you."
+These must prepare you."
 
 Gumption held his breath for a count of three and then let it out slowly,
-just as he had seen Special Leaf teach Sindy.
-"Prepare me how?"
+just as he had seen Special Leaf teach Sindy to do
+when a piece of tech misbehaved.
+"What does *that* mean?"
 
 "We will take you to the Tailor.
 It will fit you with armor to hide your heart."
@@ -3711,6 +3724,12 @@ You must let them disguise you."
 Gumption struggled and swore as the bots carried him through the forest.
 Low-hanging branches scratched his face,
 and at one point his head was lower than his feet as they surged up a hill.
+All he could think about was
+a particularly creepy scene from one of Special Leaf's story books
+about a raccoon who was turned into a bot and sent back to spy on the breathing.
+He knew it couldn't happen—he had asked Dockety, twice—but
+that wasn't much comfort as he twisted and kicked,
+trying vainly to get free.
 
 Suddenly there was a dirty gray ceiling over them.
 The squelch of treads and mechanical feet on swampy ground
@@ -3719,20 +3738,16 @@ The last of the daylight vanished as they turned a corner
 in whatever tunnel they had entered.
 
 Gumption's heart hammered as they hurried forward in darkness.
-After what felt like forever but was probably only a minute or two
+After what felt like forever but was probably only a few seconds
 the darkness lightened.
-He twitched as something heavy and metallic clanged up ahead.
-Was it a door opening?
-
-"Hey—hey!
-I can walk, all right?"
+Something heavy and metallic clanged up ahead.
 
 The bots dropped him unceremoniously on the concrete
 and scuttled, slithered, or rolled away.
-He clambered angrily to his feet.
+He scrambled angrily to his feet.
 "Thanks for your help," he muttered as Dockety came up beside him.
 
-"You are welcome,"
+"This one did not feel help was necessary,"
 the bot replied.
 
 The room was a workshop lit by a pair of dull orange light panels.
@@ -3745,7 +3760,7 @@ and a pair of compact, blocky furnaces with blackened housings.
 One of the furnaces turned around.
 "Welcome," it boomed.
 
-Gumption swallowed hard.
+Gumption stepped back involuntarily and swallowed hard.
 "Uh, hi."
 The bot had a leg on one side
 and a heavy spoked wheel where the other would have been,
@@ -3753,7 +3768,7 @@ with two skinny arms on the leg's side and a single heavy one above the wheel.
 Someone or something had painted an incongruous smile on it ages ago.
 A few drips of paint,
 long since dried,
-looked a little too much like fangs for comfort.
+looked too much like fangs for comfort.
 
 "You are here for a fitting, yes?
 For a disguise?
@@ -3769,27 +3784,28 @@ with one of its skinnier arms.
 Gumption glanced at Dockety.
 "Are you the Tailor?"
 
-"The last and best,"
+"The very best,"
 it said proudly.
-"Now,
+"Also the only.
+Now,
 if you would lie down here?"
 
 "Why do you want me to—"
 
-"Quiet!"
+"No questions!"
 the Tailor snapped,
 its patience suddenly exhausted.
 "What this one does goes beyond mere fabrication.
 It is *art*!
 Central is cunning,"
 it hissed.
-If it had possessed eyes,
+If the bot had possessed eyes,
 Gumption was sure it would have glanced around for dramatic effect.
 "A simple carapace would hide your fur,
 yes,
 but Central would still hear your breathing—your heartbeat.
 To conceal that requires technology of the highest order and skill to match,
-skill that this one alone now possesses!
+skill that this one now possesses!
 Now *lie down*!"
 
 "You should comply,"
@@ -3808,7 +3824,8 @@ the Tailor ordered.
 Gumption muttered.
 Boots, overall, shirt and undershirt—finally his underwear,
 which he stuffed into one of his boots along with his socks.
-He swung his legs up onto the workbench and lay back.
+He swung his legs up onto the workbench and lay back,
+trying and failing not to feel naked.
 
 "This one will be right here,"
 Dockety said.
@@ -3816,7 +3833,9 @@ Dockety said.
 Gumption nodded,
 wishing he found that comforting.
 "Thanks.
-Go ahead."
+I'm ready."
+Which was a lie,
+but felt like the sort of thing someone who was actually brave would say.
 
 The light panels on the walls brightened and brightened again.
 He squeezed his eyes shut,
@@ -3851,7 +3870,7 @@ Remain undressed in case further sizing is required."
 "Sure.
 Can I at least, um, put my clothes on top of me?"
 
-"If you must,
+"As you wish,
 so long as you are quiet."
 Metal clanged on metal as the bot took a few metal scraps off a table
 and threw them into the furnace.
@@ -3859,8 +3878,7 @@ A few moments later heat prickled across Gumption's fur.
 
 Apparently,
 being naked in a mad bot's underground lair *could* in fact be boring.
-He yawned,
-wishing he dared to roll onto his side.
+He yawned.
 "Does it hurt?" he asked Dockety.
 "Your eye, I mean."
 
@@ -3897,8 +3915,8 @@ He had expected a suit of armor
 like the ones Operators wore in stories
 when they were battling particularly dangerous bots.
 What he was looking at looked more like a cast-iron bathing suit
-attached to a pair of washboards
-with a helmet tied on for good measure.
+attached by wires to a pair of washboards,
+which were in turn wired to a helmet.
 
 "'Zat all?" he mumbled.
 
@@ -3929,7 +3947,7 @@ he muttered to Dockety.
 "Run, jump—you can even swim!"
 the Tailor said proudly.
 "Well, if you can actually swim, that is.
-And if the extra weight doesn't pull you under.
+Though the weight will probably pull you under.
 Now go ahead.
 Turn it on!"
 
@@ -3939,8 +3957,9 @@ Gumption patted the washboards.
 
 "Switch?
 Switch?
-My creations do not use switches!
-There is a button!"
+My creations do not use switches!"
+the Tailor scoffed.
+"There is a button!"
 It darted forward more quickly than Gumption would have believed possible
 and pressed a skinny digit against a slight bump on the front washboard.
 With that,
