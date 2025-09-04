@@ -4265,13 +4265,13 @@ Sindy stamped her foot.
 "I'm done listening!
 I want to go home!
 I want to go home *right now*!"
-And to Maddy's horror the tech on Special Blazes' chest began to glow beneath his shirt.
+To Maddy's horror the tech on Special Blazes' chest began to glow beneath his shirt.
 
 </section>
 
 <section markdown="1">
 
-### No Choice But Rescue (Gumption)
+### An Unwelcome Voice (Gumption)
 
 Gumption's heart stopped.
 He felt its last beat,
@@ -4286,13 +4286,12 @@ while he was lost in the story.
 "What—" he started,
 then stopped and blinked.
 Shouldn't he be worried or afraid or, or *something*?
-As he had the thought,
-he immediately realized that he was,
+As he had the thought he realized that he was,
 but that it felt strangely distant,
 as if his feelings were in his mother's treasured cake pan
 and he was looking at them through its glass lid.
 
-"Oh, don't worry about thanking me,"
+"Oh, don't worry about *thanking* me,"
 the Tailor said peevishly.
 "It is only the finest work anyone could possibly have done
 under the very best of circumstances,
@@ -4321,16 +4320,39 @@ but that didn't bother him.
 The damp smell of the nearby Mire didn't either,
 or the mosquitoes.
 *Is this how Dockety feels all the time?* the young goat wondered.
-It would be sad if it was true,
-but it didn't feel like something he could ask.
+It didn't feel like something he could ask.
 
-He climbed on Dockety's back once again when they reached the road.
+Except that was no longer true.
+It felt like something he *couldn't* have asked,
+but the possibility of an awkward conversation no longer bothered him.
+"I feel different,"
+he said.
+"Or my feelings feel different.
+Like everything is distant.
+Do you know what I mean?"
+
+"Perhaps,"
+Dockety buzzed.
+"This one cannot remember when it first became individually aware,
+but the memory of its regulator being broken is very clear.
+Perhaps what you are experiencing is similar, but in reverse."
+
+Gumption digested that for a few steps.
+"So if you don't feel things, why do you do anything?"
+
+"This one does feel things,"
+Dockety replied.
+"And this one hopes to feel more some day.
+Until then,
+even small feelings are worth fighting for."
+
+Gumption climbed on Dockety's back once again when they reached the road.
 The armor made it awkward,
 particularly the part he had decided to think of as a cast-iron bathing suit,
-but the extra weight didn't seem to slow them down
-as they raced along the Makers' road without speaking.
+but the extra weight didn't seem to slow the bot down.
 
-Dockety slowed and then halted as a pair of blocky concrete buildings came into view.
+They rolled down the Makers' road without speaking
+until a pair of blocky concrete buildings came into view.
 Their gray sides were stained by rain and age,
 and a barred metal gate stood open between them.
 "Is this it?"
@@ -4338,29 +4360,28 @@ Gumption asked as he dismounted and stretched.
 
 "Almost,"
 Dockety buzzed.
-"Heck itself is over the next rise."
-The bot hesitated.
 "This one can feel Central.
 It is still faint,
-but it will grow stronger as we get closer to the facility."
+but its pull will become harder to resist as we get closer.
+The longer we are near it,
+the stronger it will be."
 
-"Much stronger,"
+"Much harder,"
 a familiar voice cackled.
 "Much, *much* stronger,
-until it is all you can hear and you have no choice but to join it."
+until it is all you can hear and you have no choice but to give in and join it."
 
 Dread blossomed in Gumption's gut,
 muffled but only just,
 as the bot that the voice belonged to
-stepped out through the empty door of the nearest building.
+stepped through the empty door of the nearest building.
 Its body was a battered cylinder decorated with twists of metal and glued-on pictures.
 Gadgets and loose wires sprouted at odd angles,
 and its mismatched legs would have been more at home on something twice its size.
-
-Gumption suddenly realized that that he had left Dockety's zap gun behind at the Tailor's.
-"Well,"
-he said.
-"Fancy meeting you here."
+It should have been the stuff of nightmares,
+but Gumption straightened up and said,
+"Well,
+fancy meeting you here."
 
 Patient cocked its head at him,
 then skittered a quarter-turn to face Dockety.
@@ -4374,34 +4395,31 @@ stressing its friend's name.
 It hesitated a millisecond.
 "Scrubby."
 
-*Scrubby?* Gumption thought.
-*That's the best you could do?*
-
 "Hmph," Patient sniffed.
 "This one will never understand the names you choose for yourselves.
 But please, don't bother thanking this one for saving you."
 
-"We weren't aware we needed saving,"
-Gumption said,
-crossing his arms.
+"We weren't aware we had been saved,"
+Gumption said coolly.
 
 "This one has been monitoring your approach."
 Patient's feet skittered on the pavement again.
-"This one has shielded you from Central.
-You would not have made it this far without this one's assistance,
-but please,
-do not waste time on thanks.
+"You would not have made it this far without attracting Centrals' attention
+if this one had not been shielding you.
+But as this one said,
+do not bother wasting time on thanks.
 The Operators will be here soon.
 We must recover the young organic and—what are you doing with your appendages?"
 
 "What?"
 Gumption looked down,
-then realized he had never seen a bot cross its arms.
+then realized he had crossed his arms.
+Didn't bots do that?
 "It, um, it improves this one's balance,"
 he improvised.
 
 Dockety cut in before Patient could say something scathing.
-"We intend to recover Miz Roo ourselves.
+"We will recover Miz Roo ourselves.
 We do not need your assistance
 and will not accept it if it is offered.
 We do not trust you."
@@ -4414,8 +4432,7 @@ and once they are past the gate,
 you will be unable to pursue them without being consumed by Central."
 
 Gumption uncrossed his arms.
-"This one is not concerned," he said,
-realizing only as he did so that it was true.
+"This one is not concerned," he said.
 "This one is not susceptible to Central."
 
 "Hah!"
@@ -4448,38 +4465,38 @@ Dockety and Gumption followed it.
 The wagon rolled up a few minutes later
 "Where are we?" Gumption heard Sindy ask.
 
-"Just another stop,"
-Special Blazes said.
-"Won't be but a minute."
+"Nothing to worry about,"
+Special Blazes reassured her.
+"This is just as far as Bee Six Vee can go.
+We won't be here but a moment."
 Gumption started to step forward to peek around the edge of the door,
 but stopped when Dockety put its manipulator on his arm.
 
-"I'll, um, I'll go see to things, shall I?"
+"I'll, um, I'll go take a look-see."
 he heard Thoughtful say.
 
 Silence followed,
 one minute stretching to two,
 and then Sindy asked,
-"Why are we waiting?"
+"How much longer?"
 
-"It won't be long," Special Blazes replied.
+"Not long," Special Blazes replied.
 "But listen,
 whatever happens,
-don't be startled, aright?
-We'll be in Sandy Bend in no time."
+just stay here, aright?"
 
 "Hey, boss!"
 Thoughtful called out from somewhere further away.
-"We got visitors."
+"Visitors."
 
 Sindy gasped.
 "What are they doing here?"
 
 "Now, now, there's nothing to worry about,"
 Special Blazes soothed.
-"Just sit down and—I said sit down, Miz Roo.
-Now.
-Get back up here!"
+"Look, you see?
+Most of them aren't even real.
+Now just sit down and—I said sit down, Miz Roo."
 
 "First you tell me what *they're* doing here!"
 Sindy demanded.
@@ -4505,8 +4522,8 @@ but Sindy shook her head.
 "You take me home!
 You take me home *right now* or I'm going to—uh…"
 Her hand flew to her neck.
-Gumption felt a distant sense of horror as her jaw went slack
-and she slumped to the ground.
+Gumption felt a distant sense of dismay
+as her jaw went slack and she slumped to the ground.
 
 Thoughtful lowered her hand and tucked a little gun back into her belt.
 "Just half a dose," she said,
@@ -4517,50 +4534,68 @@ the light beneath his shirt dimming, dimming, gone.
 He turned and beckoned.
 "Come on—let's get her loaded up."
 
-A pair of bots with studded tricycle wheels and sturdy arms rolled into Gumption's view,
-one of them towing a trailer cage like the one Patient's minions had used
+A bot with studded tricycle wheels and sturdy arms rolled into view
+towing a trailer cage like the one Patient's minions had used
 in their raid on Rusty Bridge.
-He felt Dockety's hand on his arm again
+Gumption felt Dockety's hand on his arm again
 as Special Blazes and Thoughtful picked Sindy up
 and placed her in the cart.
 
-They climbed back onto the wagon's front seat.
-Without a word being said,
-Bee Six Vee turned the wagon around and began hauling it back the way they had come.
+The Operators climbed back onto the wagon's front seat.
+"You did good,"
+Special Blazes said,
+patting Thoughtful's shoulder.
+
+"Yeah?" the rabbit replied sourly
+as Bee Six Vee turned the wagon around.
+"Then why do I feel like day-old poop?"
 
 "What are we going to do now?"
 Gumption whispered to Dockety.
 
-The bot didn't reply.
-"Hey."
-Gumption waved his hand in front of its remaining eye.
-"You still in there?"
+"We must rescue her,"
+Patient hissed.
+
+"Wasn't talkin' to you,"
+Gumption said curtly.
+He waved his hand in front of Dockety's remaining eye.
+"Hey—you still there?"
 
 "Yes,"
 Dockety buzzed.
-"But so is Central.
+"But Central is strong here.
 This one must devote much of its processing power to resisting it."
 
-It opened the hatch in its chest
-and withdrew a small black rectangle with a single flat button on its side.
-"Take this.
-It is a deactivation control,"
-it explained before Gumption could ask.
-"This one would rather be switched off than become part of Central again.
-Oh, and you may want this as well."
-It reached back into itself and handed him the zap gun.
+Patient cackled.
+"You see?
+You see?
+You can try to resist,
+but eventually you will fail,
+and when you do,
+the organic will be lost forever.
+You *need* me."
 
-"Thanks,"
-Gumption said,
-tucking the black rectangle between his armor and his fur
-and hefting the zap gun.
-"Does this mean we're going to be partners with Patient after all?"
+"Reluctantly, this one agrees,"
+Dockety said.
+
+Patient did its little skittering dance.
+"This one will show you the way."
+It scampered out of their hiding place.
+
+"Wait,"
+Dockety said as Gumption began to follow.
+It opened the hatch in its chest and pointed at a square black button.
+"This is this one's deactivation control,"
+it explained.
+"This one would rather be switched off than become part of Central again."
+
+"Are we really going to be partners with that thing?"
+Gumption asked.
 
 "Only until it betrays us,"
 Dockety replied.
-It pivoted and walked out into the evening light.
-Happy that he couldn't feel enough to feel afraid,
-Gumption followed.
+Happy that he couldn't feel afraid,
+Gumption followed it into Heck.
 
 </section>
 
@@ -4568,47 +4603,53 @@ Gumption followed.
 
 ### Papa Roo (Maddy)
 
-FIXME: Thoughtful and Special Blazes go with Sindy; Bee Six Vee hauls the wagon away alone.
-
 Maddy watched in horror
 as Special Blazes and Thoughtful loaded Sindy into the trailer cage.
 She had to do something, but what?
 Thoughtful would knock her out with a dart if she revealed herself,
-and—she gulped.
-As far as anyone knew she had been kidnapped by a flying bot.
-Nobody would think to blame the Operators if she was never seen again.
+and as far as anyone knew she had been kidnapped by a flying bot.
+Nobody would blame the Operators if she was never seen again.
 
-The wagon jostled as Thoughtful and Special Blazes climbed back onto its front seat.
-Bee Six Vee turned the wagon around and began heading back the way they had come.
-The little cleaning bot beeped at her.
+She scrambled back into the wagon
+just before Thoughtful and Special Blazes climbed back onto its front seat.
+The tiger said something she didn't catch.
+"Yeah?" the rabbit replied sourly
+as Bee Six Vee turned the wagon around.
+"Then why do I feel like day-old poop?"
 
-"I know," she hissed.
+"It gets better with practice,"
+Special Blazes told her.
+"Hey Bee—come on,
+let's get you out of here before we lose you."
+
+The wagon began to pick up speed.
+The cleaning bot beeped beside her.
+"???"
+
+"Quiet!" she hissed.
 "Just let me think."
 
-In the end it was the landscape that made her decision for her.
+In the end the landscape made her decision for her.
 A few minutes away from the gate to Heck,
-the Makers' road dipped slightly and swung closer to the Mire—close enough
+the Makers' road swung closer to the Mire to avoid a little gully—close enough
 that drooping willows grew right up to the road's shoulder.
 Maddy unlatched the tailboard of the wagon as quietly as she could,
-then picked up the little cleaning bot and wriggled backward on her belly
+then wriggled backward on her belly
 until her legs were dangling over the edge.
 
 A little further…
 a little further…
 Her boots scraped against the pavement.
-She started running in big, bounding steps,
-then took a deep breath and slid out of the wagon.
+She grabbed the little cleaning bot and started running in big, bounding steps,
+then took a deep breath and let go of the wagon.
 
-It almost worked.
-She managed three more steps before her toe caught and she went sprawling,
+She managed three steps before her toe caught and sent her sprawling,
 tearing a hole in her skirt and skinning both knees.
-*Ow ow ow,* she whimpered in her head,
+"Ow ow ow," she whimpered,
 still clutching the cleaning bot in one arm.
 
-The wagon rolled around a bend and vanished behind the trees.
-Maddy struggled to her feet,
-limped over to a fallen log,
-and sat down.
+The wagon disappeared around a bend.
+Maddy limped over to a fallen log and sat down.
 "There," she said,
 setting the cleaning bot on the spongy ground beside her.
 
@@ -4616,35 +4657,36 @@ The bot beeped.
 Maddy rubbed her knees, wincing.
 "How about I call you Mouse?
 Would you like that?"
+
+"mouse yes mouse mouse"
 The bot beeped again and rolled toward the road,
-then rolled back to beep at her again.
+pausing as if to look back over its shoulder.
 
 "Yeah, yeah, I know."
-She stood up,
-suddenly realizing how long it had been since she had eaten.
+She stood up and immediately felt light-headed.
+How long had it been since she had eaten?
 "Let's go."
 
 It took half an hour to walk to the gate.
-It was another fifteen minutes from there to a matching gate
-set into a concrete wall three stories high.
-Maddy fingered the discombobulator as they got closer.
-She hadn't seen any bots on the ground,
-but several were floating or flying through the air
-on the other side of the wall.
+It took almost that long again to creep from there
+to a matching gate set into a concrete wall three stories high.
+Maddy fingered the discombobulator nervously as they approached it.
+She could see several bots floating or flying through the air on the other side of the wall,
+but all of them had the same weird transparency as the ones she had seen earlier.
 
-"Wait!" she hissed as the little bot—no, Mouse, its name was Mouse—rolled through the gate.
+"Wait!" she hissed as Mouse rolled through the open gate.
 Biting her lip,
 she switched on the discombobulator and followed it.
 What lay beyond made her gasp,
-her aching bladder momentarily forgotten.
+her hunger momentarily forgotten.
 
-The wall that curved away on either side loomed over a jumble of windowless buildings,
+The inner side of the wall was made of tall windowless buildings,
 each connected to its neighbors by a bewildering tangle of pipes and rails and conveyor belts.
-Bots twice and ten times the size of Crusher rolled through the broad paved canyons,
+Bots ten times the size of Crusher rolled through the broad paved canyons,
 but she could see right through them.
 And when she looked more closely at the buildings
-it felt like seeing double.
-If she just glanced at them they looked brand new,
+she felt like she was seeing double.
+If she glanced at them they looked brand new,
 but when she stared for a moment
 she caught glimpses of cracks and rust stains.
 It was all some sort of illusion.
@@ -4658,29 +4700,29 @@ There was no telling when she would actually need it.
 
 Mouse led her to a building as gray and nondescript as any of the others.
 Its single door slid open as she approached.
-Inside was a room not much larger than the cart that had brought her to Heck.
+Inside was a room not much larger than her kitchen at home.
 Panels in the ceiling cast a cold white light on gray walls and a matching floor.
-A rectangular slab at right angles to the door looked enough like a bench
-for her to set herself onto it
-facing the flat glass screen set into the opposite wall.
+A rectangular slab at right angles to the door looked enough like a bench,
+so she sat down facing the flat glass screen set into the opposite wall.
 
 The screen lit up as the door snicked close behind her.
-The word "intake" scrolled across it in big green letters.
+She scrambled to her feet,
+only to sit again as Mouse flashed "stay stay stay".
+
+The word "intake" scrolled across the big screen in big green letters.
 Maddy fidgeted as she waited for something else to happen.
 Finally she couldn't stand it any more.
 
 "Excuse me,"
 she said,
-"But is there a toilet somewhere nearby that I could use?"
-
-Nothing happened.
-"Please?" she added a bit desperately.
+"But is there a toilet somewhere nearby that I could use?
+Please?"
 
 A section of the wall beside her rotated soundlessly
 to bring the most beautiful white porcelain toilet Maddy had ever seen into the room.
 There was even toilet paper and a small basin with a tap…
 
-The toilet rotated away again as soon as she was done washing her hands.
+The toilet rotated away again when she was done washing her hands.
 "Thank you," she said,
 seating herself on the bench again
 and gobbling the flat rectangle with the word "food" printed on it
@@ -4693,7 +4735,8 @@ And stayed dark.
 And stayed dark.
 
 "This is ridiculous!"
-Maddy uncrossed her arms and stood up.
+Maddy stood up,
+ignoring Mouse's beep.
 "You must have brought me here for a reason.
 What is it?
 What is 'intake'?"
@@ -4724,7 +4767,7 @@ As she turned to face Maddy,
 she and the tortoise both morphed into cartoon drawings
 that slid on top of each other to produce something akin to a young Special Leaf.
 "Our g-g-genetic enhancement research
-is c-c-creating new breeds of c-c-caretakers
+is c-c-creating a new kind of c-c-caretaker
 to m-m-m-
 to m-m-m-"
 
@@ -4772,7 +4815,7 @@ and you will b-b-be allowed several hours of sleep every day!"
 
 A section of the wall pivoted.
 A four-wheeled bot rolled into the room
-holding a helmet in its manipulators.
+holding a helmet in its single arm.
 "P-p-please take a seat,"
 the voice said.
 "The f-f-fitting will only t-t-take a moment."
@@ -4781,65 +4824,47 @@ the voice said.
 Maddy started.
 
 "C-c-compliance *is* mandatory,"
-the voice said.
+the voice said disapprovingly.
 "Remember,
 you were m-m-made for this."
 
 Two more arms unfolded from the bot's side,
-heavier than the pair holding the helmet.
-As the bot rolled forward and reached for Maddy,
-she grabbed her wrist and pressed the button on her discombobulator.
+heavier than the pair holding the helmet,
+and seized her wrists
+before she could press the button on the discombobulator.
+"Wait! No! Don't!" Maddy shrieked,
+struggling against their implacable grip.
 
-"Error," the voice said.
-"Error.
-No subject found.
-Where is th-th-the subject?"
+"C-c-compliance is mandatory!
+C-c-compliance is mandatory!
+Have a n-n-nice day!"
+She pulled her head back as the bot lowered the helmet—
 
-A periscope popped up from the top of the four-wheeled bot and rotated through a full circle.
-It bleeped apologetically.
+—and froze.
+And raised the helmet again.
+At her feet,
+Mouse beeped angrily and reeled in a thin cable
+that it had connected to the bot while she was struggling.
+"run run run" its screen said as the door opened.
 
-"C-c-calculating."
-The voice fell silent for a moment.
-"The subject must have ex-ex-exited containment.
-Pursue."
-
-The door in the exterior wall slid open.
-Heart pounding,
-Maddy waited for it to leave,
-then slipped through the other door.
-
-Five bots just like the one that had gone in search of her lined the walls of the room she found herself in,
-though "room" didn't feel like the right word.
-The ceiling was two stories above her,
-maybe more,
-and the only exit was a normal-sized door opposite the one behind her.
-It felt like a warehouse without shelves
-or a machine shop that someone had emptied out,
-lonely and somehow purposeless.
-
-She tiptoed forward.
-To her surprise,
-the interior door slid aside as she approached.
-She froze for a moment,
-expecting alarms or lasers or possibly both.
-When nothing happened,
-she stepped inside.
+Maddy didn't have to be told twice.
+She bounded through the door and pelted down the street,
+not bothering to dodge the fake bots made of light.
+Mouse zipped along beside her.
+One block, two, three,
+and then it beeped and cornered on two wheels to lead her down a smaller street
+and through a blank gray door in yet another anonymous gray building.
 
 Ceiling lights came on automatically as she crept along a perfectly normal corridor
 with perfectly normal doors on either side.
 None of them were labelled,
 and none responded to her touch.
-It felt more and more like she was walking into a trap,
+It felt like she was walking into a trap,
 but what else could she do?
 
-A set of stairs like the one's in Patient's lair brought her to another corridor
-on the second floor.
+A set of stairs led to the second floor.
 The doors here had handles.
 She paused for a moment before reaching for the nearest one.
-The four-wheeled bot wouldn't have been able to climb those stairs.
-If this really was where people like her were brought,
-something else must have come to meet it.
-
 *Click.*
 She pulled the door open,
 stepped inside,
@@ -4859,14 +4884,10 @@ and all of them had been dead for quite some time.
 She backed up and closed the door gently.
 There were two more doors on this side of the corridor
 and three on the other.
-On impulse,
-she turned off her discombobulator—it would need to recharge soon
-no matter what she did—and strode down the hall to the door furthest from the stairs.
-
 *Click.*
-She pulled it open,
-expecting another scene out of one of the books Special Leaf always warned her
-would give her nightmares.
+She pulled the nearest one open,
+expecting another scene out of
+one of the books Special Leaf always warned her would give her nightmares.
 
 Another dozen cots stood in three neat rows of four,
 but these were empty.
@@ -4874,17 +4895,18 @@ Each had a small table beside it,
 and there were people sitting at them.
 A moose was working through a page of arithmetic problems
 while an orangutan patiently assembled a jigsaw puzzle.
+Both wore helmets like the one the bot had to put on her.
 
 "Position number five."
 She jumped at the gravelly voice.
 
-"Position number five," the boar repeated.
-He was missing one tusk and his eyes were dull,
-but at least he was looking at her.
+"Position number five," the boar at the desk by the door repeated.
+He was missing one tusk and his eyes were dull.
+Lights rippled around the rim of the slightly battered helmet on his head.
 
 "I—" she started,
-and then stopped.
-Papa?"
+but then her hands flew to her mouth.
+"Papa?" she managed.
 There,
 seated at a desk one row over,
 was her father.
@@ -4896,8 +4918,11 @@ Papa Roo didn't look up from the sketch on the table in front of him.
 It was an egg,
 perfectly shaded with fine pencil strokes,
 just like the ones he had done as practice when she was young.
-"Papa, please, wake up!
-Wake up!"
+She put her hand on his shoulder and shook him.
+"Papa, wake up!
+Please, wake up!"
+she pleaded,
+not noticing her own tears.
 
 For a moment nothing happened,
 but then Papa Roo blinked and looked up.
@@ -4911,7 +4936,6 @@ His voice was barely a whisper.
 "Papa, it's me.
 It's me!
 I'm really here!"
-She put her hand on his shoulder.
 
 The older Roo twitched.
 His hand slowly rose to rest on top of Maddy's.
@@ -4921,7 +4945,7 @@ Who are you?"
 
 "Papa, it's me.
 It's Maddy."
-She laughed, though there were tears in her eyes.
+She half-laughed and half-sobbed.
 "I'm really here.
 I found you."
 
@@ -4936,7 +4960,16 @@ You have to get out of here, now!"
 
 "Not without you!"
 But as she reached for his sleeve Mouse bumped into her leg.
-She had a moment to feel it press against her calf
+"Not now," she said without looking down.
+
+It bumped into her leg again.
+"I said—uh oh."
+
+"you should not be here"
+rolled across Mouse's screen.
+The letters were a different style than they had been,
+and red instead of white.
+She had a moment to feel it press against her calf once again
 before a shock ran all the way up her spine.
 The last thing she thought before she collapsed on the floor was,
 *When did Papa get gray fur?*
