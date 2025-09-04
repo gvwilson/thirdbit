@@ -55,7 +55,7 @@ template: page
 
 -   Presented in order of increasing radicalism
 
-### Gradual Reform
+### Gradual Reform {: #reform}
 
 -   Plan: add a little to existing courses
 -   Pro:
@@ -68,7 +68,7 @@ template: page
     -   Unlikely to excite people
     -   Unlikely to attract funding
 
-### The Responsible Programmer
+### The Responsible Programmer {: #setper}
 
 -   Plan: teach tools, processes, evidence, and responsibility in team capstone courses
     -   "Tools" because intended audience accepts them as valid
@@ -90,7 +90,7 @@ template: page
     -   Making pragmatic compromises got us into this mess
     -   See [this site][setper] for a more detailed outline
 
-### Observability, Research Methods, and Enlightened Skepticism
+### Observability, Research Methods, and Enlightened Skepticism {: #observe}
 
 -   Plan: teach programmers to distinguish reliable research from plausible punditry
     -   Use the problem of observing programmer productivity as the motivating issue
@@ -105,7 +105,7 @@ template: page
         people won't understand observability and productivity are just being used as a working example
 -   Note: see [this site][observe] for a more detailed outline
 
-### Social Studies for Software Engineers
+### Social Studies for Software Engineers {: #sdgc}
 
 -   Plan: summarize key insights from social sciences that are directly related to tech industry
     -   Who decides what's allowed on the internet?

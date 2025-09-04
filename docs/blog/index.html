@@ -82,6 +82,49 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/09/04/if-i-retired/">
+      If I Retired
+    </a>
+  </h2>
+  <p><time datetime="2025-09-04" class="post-date">2025-09-04</time></p>
+  <p>If I retired tomorrow,
+here&rsquo;s how I would spend each week:</p>
+<ul>
+<li>
+<p>One day a week writing fiction.
+    (I&rsquo;m making slow but steady progress on a middle-grade book
+    and have the last 30,000 words of a YA novel queued up behind it.)</p>
+</li>
+<li>
+<p>One day a week on a sequel to <em>Beautiful Code</em> called <em>Beautiful Reviews</em>,
+    in which experienced developers trade reviews of each other&rsquo;s code
+    so that we can see how they see the world.</p>
+</li>
+<li>
+<p>One day a week on either the <a href="../ideas/se-change/#setper">second</a>
+    or <a href="../ideas/se-change/#observe">third</a> proposal
+    for a new kind of undergraduate software engineering course.</p>
+</li>
+<li>
+<p>One day a week building a workshop on how to wind projects down.
+    Helping with <a href="https://arxiv.org/abs/2505.06484">this paper</a> has convinced me that
+    this is a really important subject,
+    even though (or because) people talk so little about it.</p>
+</li>
+<li>
+<p>One day a week contributing to some open source project,
+    because I enjoy programming the way some people enjoy knitting or cooking.</p>
+</li>
+</ul>
+<p>I&rsquo;d find time in there to ride my bike,
+play the sax,
+and do housework,
+and I&rsquo;m sure that new projects would come up as these ones ended,
+but I think it would be a pretty satisfying life.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/08/21/things-im-looking-for/">
       Things I'm Looking For
     </a>
@@ -535,56 +578,6 @@ Testing in the face of randomness is more common and more important in (data) sc
 than in commercial software development;
 as more and more applications incorporate small household spirits (i.e., genAI),
 we&rsquo;re going to have to figure out how to do this well.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/05/18/two-thirds-of-a-language/">
-      Two Thirds of a Language
-    </a>
-  </h2>
-  <p><time datetime="2025-05-18" class="post-date">2025-05-18</time></p>
-  <p>Inspired in part by posts online about this year&rsquo;s PyCon,
-I started to wonder how much of the language I actually use.
-To answer the question,
-I counted how many different types of nodes are provided by <a href="https://docs.python.org/3/library/ast.html">Python&rsquo;s <code>ast</code> module</a>
-and how many of those show up in the code I wrote for
-<a href="../sdxpy/"><em>Software Design by Example</em></a>.
-The answer appears to be 60%,
-i.e.,
-I use a bit less than two-thirds of what Python 3.12 offers.
-Other measures would give other answers—for example,
-I expect that I use much, much less than 60% of Python&rsquo;s standard library—but still,
-it&rsquo;s kind of interesting.</p>
-<p>I hope everyone&rsquo;s having fun in Pittsburgh…</p>
-<p><strong>The Code</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-<span class="n">ast_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ast</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">ast</span><span class="p">)}</span>
-<span class="n">available</span> <span class="o">=</span> <span class="p">{</span><span class="n">val</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">ast_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)}</span>
-
-<span class="n">used</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
-        <span class="n">used</span> <span class="o">|=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">)}</span>
-    <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
-        <span class="k">pass</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;available: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">available</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;used: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">used</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;percentage: </span><span class="si">{</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">used</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">available</span><span class="p">))</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">unused</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">available</span> <span class="o">-</span> <span class="n">used</span><span class="p">}</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">unused</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>The Output</strong></p>
-<div class="highlight"><pre><span></span><code>available: 136
-used: 81
-percentage: 59.6
-</code></pre></div>
 </article>
 
 
