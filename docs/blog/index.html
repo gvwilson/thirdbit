@@ -82,6 +82,77 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/09/05/mastodon-and-webbly/">
+      Mastodon and Webbly
+    </a>
+  </h2>
+  <p><time datetime="2025-09-05" class="post-date">2025-09-05</time></p>
+  <p>I was going to title this post &ldquo;Two Great Tastes That Taste Great Together&rdquo;,
+but I expect most of my readers are too young to get the reference,
+so I&rsquo;ll just dive right in:</p>
+<ol>
+<li>
+<p>Glitch gave literally millions of people a chance to build something on the web
+    without having to wrestle with NPM or webpack
+    or set up a server
+    or deal with any of the other crap that Sumana Harihareswara has dubbed
+    <a href="https://www.harihareswara.net/posts/2016/inessential-weirdnesses-in-open-source-software-oscon-2016/">inessential weirdness</a>.
+    It was beautiful and useful,
+    but it wasn&rsquo;t profitable enough for Fastly to keep it alive.</p>
+</li>
+<li>
+<p>But the idea of a low-overhead in-the-browser way for the 99% to build things
+    didn&rsquo;t start with Glitch
+    and hasn&rsquo;t died with it either.
+    Projects like <a href="https://make.webblythings.com/">Webbly</a> (source <a href="https://github.com/pomax/make-webbly-things">here</a>)
+    are still trying to let people use the web to build the web.
+    However,
+    someone has to host these things somewhere:
+    who&rsquo;s going to do that, and where?
+    More specifically,
+    can we construct a hosting solution that isn&rsquo;t tied to a particular company
+    and therefore doesn&rsquo;t have a singular point of failure?</p>
+</li>
+<li>
+<p>Well,
+    what about <a href="https://en.wikipedia.org/wiki/Mastodon_(social_network)">Mastodon</a>?
+    Its authors and users are deeply committed to decentralization and federation,
+    and more people are running servers for particular communities every day.
+    What if (wait, hear me out)
+    what if Webbly was bundled with Mastodon
+    so that Mastodon site admins could provide an in-the-browser page-building experience to their users
+    simply by saying &ldquo;yes&rdquo; to one configuration option?</p>
+</li>
+<li>
+<p>Why would they do that?
+    My answer is,
+    &ldquo;Take a look at Mastodon&rsquo;s default browser interface.&rdquo;
+    It lets you add a couple of pictures and a few links to your profile,
+    but that&rsquo;s less than <a href="https://en.wikipedia.org/wiki/Myspace">MySpace</a> offered twenty years ago.
+    I am 100% certain that if Mastodon came with an easy in-browser page builder,
+    people would use it to create all sorts of wonderful things.
+    (Awful ones too, of course, but Mastodon site admins already have to grapple with content admin.)</p>
+</li>
+</ol>
+<p><a href="https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule">Greenspun&rsquo;s Tenth Rule</a> is that every sufficiently complicated program
+contains a mediocre implementation of Lisp.
+Equally,
+I think every useful web-based tool is trying to be
+what Visual Basic was in the 1990s
+and WordPress was to the early web:
+useful, right there, and a gradual ramp for new users rather than a cliff to climb.
+I think the sort of people who built useful little things with Glitch
+would do amazing things with Webbly
+if it was married to their social media.
+I also think that allowing people to create custom home pages
+or tweak their feeds
+would draw a lot of new users away from fragile, centralized systems like X and Bluesky.
+I know that I&rsquo;ve been wrong far more often than I&rsquo;ve been right,
+but this really does feel promising.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/09/04/if-i-retired/">
       If I Retired
     </a>
@@ -541,43 +612,6 @@ how regulatory capture works,
 why Americans keep shooting one another,
 and what can we learn about big tech by studying drug cartels.</p>
 </blockquote>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/05/19/some-testing-answers/">
-      Some Testing Answers
-    </a>
-  </h2>
-  <p><time datetime="2025-05-19" class="post-date">2025-05-19</time></p>
-  <p>A month ago I <a href="../2025/04/20/a-testing-question/">asked for advice</a> on testing a little piece of Python
-that fills a grid using a random walk.
-<a href="https://stochasticsolutions.com/">Nick Radcliffe</a>,
-a former colleague who is writing a book on test-driven data analysis,
-suggested that one way to test the code is to put move generation in a function of its own,
-call that function a few hundred times,
-and check that the results are evenly distributed
-(e.g., each of the four moves appears 20-30% of the time).
-If not,
-double the number of moves generated,
-check again,
-and repeat until either the distribution converges
-or you decide that it&rsquo;s not going to.
-This approach ensures that tests run quickly most of the time,
-and it did indeed catch a bug when I moved from 4-way steps to 8-way (i.e., allowed diagonal moves).</p>
-<p><a href="https://nathanfurnal.xyz/">Nathan Furnal</a> suggested a similar approach.
-If we generate 30 moves,
-the probability of never seeing one of the four possible moves is less than 0.02%.
-If we increase the number of moves to 100 (which only takes 61 microseconds on my five-year-old laptop)
-the odds of not seeing one of the moves drop to one in 10<sup>13</sup>.
-If we&rsquo;re running the tests 1000 times a day,
-we can expect one false positive every ten million years or so.</p>
-<p>I&rsquo;ve added both tests to my test suite,
-but would appreciate suggestions for others.
-Testing in the face of randomness is more common and more important in (data) science
-than in commercial software development;
-as more and more applications incorporate small household spirits (i.e., genAI),
-we&rsquo;re going to have to figure out how to do this well.</p>
 </article>
 
 
