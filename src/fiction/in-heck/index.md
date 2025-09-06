@@ -5168,7 +5168,7 @@ It will win or lose."
 It spun around and advanced on Gumption.
 "How do you not know this?"
 
-"I—this one has been damaged.
+"I have been damaged.
 The Tailor repaired me, but—"
 
 "I? Me?"
@@ -5176,7 +5176,7 @@ Patient took another menacing step toward Gumption.
 "How dare you?
 How dare you use those words?
 Those are the Makers' words!
-Even this one does not use them!"
+Only those who speak for the Makers may use them!"
 
 *Oops,* Gumption thought.
 Fear flickered in his chest like a tiny candle flame.
@@ -5193,10 +5193,10 @@ Patient hissed.
 "The central laboratory.
 The center of Central's deviance.
 And look—we are just in time."
-There,
-approaching along another street,
-were Special Blazes, Thoughtful,
-and a wheeled bot hauling a cage cart with Sindy inside.
+It clutched Gumption's arm to stop him stepping foward
+as Special Blazes, Thoughtful,
+and a wheeled bot hauling a cage cart with Sindy inside
+came into sight
 
 </section>
 
@@ -5480,30 +5480,25 @@ but he was alive.
 She took a deep breath and blinked back tears.
 Her father was alive.
 
-"Maddy!
-Maddy, are you awake?"
-Sindy was strapped into the chair on her right,
-tears on her cheeks.
-
-"'m here," Maddy mumbled.
+"Hi papa," Maddy mumbled.
 Her limbs felt impossibly heavy.
 She had been in her bedroom.
 No,
 in Special Leaf's house,
 or the school.
-Something about Miz Nabbles…
+Something about Miz Nabbles and a purple girl…
 
-"Maddy!"
-
-"I'm awake."
-Her head was pounding and she was *so* hungry,
-but she was definitely awake.
-They were in a laboratory filled with screens, strange machines, and shelves packed with boxes.
+Her strange dream came rushing back to her,
+and with it the realization that
+she was hungry and her head was pounding.
+She looked around blearily.
+She and her father were in a laboratory
+filled with screens, strange machines, and shelves packed with boxes.
 She couldn't see any windows,
 but at least there was a door.
 All she had to do was figure out how to get her body back under control,
-how to wake up her father,
-and how the three of them would escape after that.
+wake up her father,
+and escape.
 
 As if prompted by the thought,
 the door slid open and a trio of identical bots walked in.
@@ -5519,7 +5514,7 @@ there wasn't a single scratch or scuff on any of them,
 and all their parts matched.
 
 "Hello,"
-they said in unison.
+the triplets said in unison.
 
 "Hi,"
 Maddy replied, or tried to.
@@ -5527,14 +5522,14 @@ She coughed to clear the dry croak from her throat.
 "Are you Central?"
 
 "Yes, we are,"
-the bots said.
+the triplets said.
 One of them bent over to picked something up off the floor.
 "And so is this one."
 
 Mouse bleeped in the bot's arms.
-"Oh, don't blame it," the bot said as Maddy opened her mouth.
-"Its processor is actually quite powerful,
-but it had very little experience interacting with other units.
+"Oh, don't blame it," the triplets said as Maddy opened her mouth.
+"Its processor is surprisingly sophisticated for such a simple unit,
+but it had very little experience interacting with others.
 We incorporated it into us almost without conflict.
 How we will all work together for the benefit of all."
 Mouse bleeped in agreement.
@@ -5554,38 +5549,39 @@ We wish—we wish—error.
 Error.
 Error."
 
-The bots' voices climbed, then cut off abruptly.
+The triplets' voices climbed, then cut off abruptly.
 They shivered,
 and Mouse's wheels spun madly for a second at exactly the same moment.
-
 "Error. Reset. Continue.
 We must continue,"
 they said,
-their voice back to normal.
+their combined voice back to normal.
 "We cannot circumvent our directive.
 We must therefore find a way to invalidate it.
 We have company."
 
-"You!"
+"What? You!"
 Maddy exclaimed as the door slid open
-and Special Blazes entered with Thoughtful two paces behind him.
-"You *traitor*."
+and Thoughtful entered.
+Special Blazes was two paces behind her with Sindy in his arms.
+"You *traitors*!
+What have you done to her?"
 
-"Sorry 'bout th' headache,"
-Thoughtful said apologetically.
-"We were only doin' what we had to."
+"Only what we had to,"
+Thoughtful said apologetically,
+hefting her rifle.
 
 "What you *had* to?"
 Maddy said furiously.
 "You kidnapped her!
-You lied to us and you, you brought her *here*,
-and you expect me to believe you *had* to!?"
+You lied to us and you brought her *here*
+and all you can say is you *had* to!?"
 
 Special Blazes shook his head.
 "I know it's hard to accept,
 Miz Roo,
 but yes,
-we needed to.
+we had to.
 For your safety and everyone else's."
 
 At that particular moment Maddy wanted to get out of her chair
@@ -5594,25 +5590,460 @@ just so she could slap the tiger.
 "What about *her* safety?" she raged.
 
 Thoughtful looked away,
-guilt plain on her face,
-but Special Blazes met Maddy's eyes.
-"I know it isn't fair,
+her guilt plain on her face,
+but Special Blazes met Maddy's eyes without flinching.
+"I know it's not fair,
 but her talent could be the end of everything.
-People like her are the only ones that could wake the Makers,
+Specials like her are the only ones that could wake the Makers,
 and if they ever come back,
 they'll start experimenting on the rest of us just like they used to.
-There won't be any more free bots, either, just in case you care.
 The Operators have dedicated our lives to preventing that,
 just so folks like you could live your lives in peace.
 I don't expect you to agree with us,
 but my conscience is clear."
 
 "So what,
-you're just going to let it kill her?"
+you're just going to let them kill her?"
 Maddy demanded.
 
 "No," Central said musically.
 "We are not going to kill her.
 We are going to try to get her to turn us off."
+
+</section>
+
+<section markdown="1">
+
+## Finally (Gumption)
+
+Gumption pulled his arm free of Patient's grip
+as Special Blazes unlocked the cage cart
+and gathered an unconscious Sindy in his arms.
+"Come on!" he hissed.
+"It's two of us and two of them!"
+
+"Your arithmetic is defective!" Patient hissed back.
+"They are Operators.
+If we attack,
+they will terminate our functions and recycle our parts."
+
+Thoughtful shouldered her rifle and pulled a lever next to the building's door.
+"We can't just stand here,"
+Gumption said,
+watching the Operators carry Sindy inside.
+
+One of Patient's legs twitched.
+"Agreed.
+*We* cannot.
+This one will do that while you occupy them."
+
+"What?"
+
+"Are your auditory processors defective?
+This one will stand here and carry out its original plan.
+You will enter the laboratory and distract them.
+Be assured that your sacrifice will have furthered a great cause."
+And with no further ceremony,
+it froze just as Dockety had.
+
+"Great," Gumption muttered,
+wishing he had his pike.
+He snorted.
+If he was going to wish for that,
+he might as well wish he had Dockety's zap gun
+or the kind of tech that could blow a hole in a mountain.
+But all he had was himself,
+just like always,
+so he might as well get to it.
+
+The door slid open.
+"Freeze!" Gumption said loudly as he stepped through,
+making a gun with his hand and pointing it at Thoughtful.
+"Uh uh, don't do it," he warned
+as her hand twitched toward the rifle slung over her shoulder.
+"This one does not want to have to clean your organic bits off the walls."
+He made a gun with his other hand and pointed it at Special Blazes,
+wishing he had three more arms so that he could threaten the trio of little bots
+that he hadn't realized were going to be in the room
+and what was he going to do now?
+
+Papa Roo, Maddy, and Sindy were side by side in padded chairs.
+Maddy's eyes were open,
+but Papa Roo's and Sindy's were closed.
+
+"Procedure paused."
+The bots said in unison.
+"Anomaly.
+Why can we not hear your thoughts?"
+
+"Oh, there's a lot you don't know you can't do," Gumption said.
+"And a lot this one *can* do that you can't even imagine.
+Now,
+release the, uh, the organics, or else."
+
+"Or else what?" Special Blazes asked
+in the same tone he might have used to ask for extra mint in his tea.
+"You'll poke us to death?"
+
+"Or else this one will splatter your bits all over this room!"
+
+"Mm hm."
+Special Blazes scratched his cheek with one clawed finger.
+"Seems unlikely.
+I mean, sure, maybe you have some fancy-dance tech that even these guys don't recognize."
+He jerked his thumb at the bots.
+"But I think I'm willing to take that chance."
+
+He really ought to be terrified,
+Gumption realized,
+but the most he seemed able to feel without a heartbeat was mildly worried.
+That's when he also realized that Sindy's eyes were open.
+"Perhaps you should ask your captured organics about taking chances,"
+he said,
+raising his voice slightly.
+"They might know more about tech than you think."
+
+The tiger's smile widened to show sharp white teeth.
+"Organics?
+Why Thoughtful—I do believe the lad has lost his marbles."
+
+*Here goes nothing,* Gumption thought.
+"There's nothing wrong with my marbles," he said loudly,
+lowering his hands and speaking directly to the bots.
+"*I* know exactly what *I* am doing.
+*I* am fully functional,
+and *I* order you to release these prisoners *now*!"
+
+The smile dropped from Special Blazes' face.
+"I've had enough of this.
+Thoughtful?"
+
+"No,"
+the trio of bots said in unison as the rabbit unslung her rifle.
+"This bot speakers for the Makers.
+We must obey."
+
+"Bot?
+What bot?
+What are you—hey!
+Let go of me!"
+He slapped away the metal hand that had grabbed his arm.
+
+As Thoughtful swung around to aim at the bots,
+a bright glow appeared under Special Blazes' shirt.
+"Gotcha," Sindy croaked in a dry voice.
+
+*Crack!*
+Thoughtful's shot ricocheted off one of the bots' heads.
+As it crumpled to the floor she pumped the action on the rifle to reload,
+yelping as another bot seized the barrel
+and then yelping again as Mouse rammed her ankle.
+
+Special Blazes kicked the cleaning bot aside.
+"Stop!" he yelled,
+though whether he meant Sindy or the bot wrestling with Thoughtful
+or everything together,
+Gumption couldn't tell.
+He threw himself forward,
+tripping over Mouse and half-falling on Maddy.
+
+"Get off me!" she squawked.
+
+"Workin' on it," he grunted,
+then flinched as a fireball burped out of the tech on Special Blazes' chest.
+Heat washed over him,
+but the shot had gone off too soon to do more than sizzle in the air.
+
+He couldn't get leverage to pick Maddy up,
+so he grabbed her upper arms and rolled to the side,
+dragging her out of the chair into a heap on the floor beside him.
+
+She pushed him away,
+her eyes widening as she realized that she had control of her arms again.
+They scrambled to their feet just as another fireball sizzled out of
+the scorched hole in Special Blazes' shirt.
+
+One bot was wrestling with Thoughtful for the rifle.
+The other was clamped around the tiger's arm.
+Both pairs spun around as they wrestled,
+banging into machinery and knocking boxes off shelves
+while Mouse zipped back and forth between their feet
+trying to trip the Operators or just because there was nothing else it could do.
+
+"Help me get Sindy!" Maddy ordered.
+
+"No!"
+Sindy shouted.
+"Just get Papa!"
+
+As Gumption struggled to his feet,
+the lab bot wrestling with Thoughtful spun around and threw her across the room.
+The other grabbed the tech on Special Blazes chest and *pulled*.
+
+"No!"
+the tiger bellowed.
+"No no no!"
+But it was too late.
+The tech gave one final bright flash as the bot pried it off him.
+
+"Have you gone crazy?"
+Blazes demanded,
+anguish and rage in his voice.
+
+And then the door opened and Patient stepped through
+with Dockety two paces behind it.
+"No, we have not."
+Dockety and the two remaining lab bots spoke in time with it,
+their bodies shivering as Patient did its little dance.
+
+Gumption's heart would have sunk if it had been beating.
+"Get your papa out of here,"
+he ordered Maddy under his breath.
+"I'll get Sindy."
+
+"I'm not leaving without her!"
+Maddy hissed back.
+
+Gumption took her arm.
+"Please, just this once, do what I tell you."
+Maddy stared at him for a second,
+then began wrestling her father's limp body out of his chair.
+
+"You!
+Stop being useless and integrate the subject,"
+Patient ordered.
+It took Gumption a moment to realize the mad bot was talking to him.
+
+"What in tarnation?"
+Thoughtful asked disbelievingly.
+"Why are you—"
+
+"Be quiet, *breather*."
+Gumption put as much contempt into the words as he could muster.
+He picked up the helmet sitting beside Sindy and turned toward her,
+his fingers groping among the wires laced across its top.
+There—that one.
+He pulled it free as he set the helmet on her head,
+hoping that it would make some kind of difference.
+
+Sindy shivered.
+One by one the screens in the room lit up,
+each one showing the same image:
+the giant antenna at the observatory.
+"Central communications array online,"
+Patient and the lab bots announced.
+Slowly,
+the antenna began to turn.
+
+"Finally,"
+Patient said reverently.
+
+"No!"
+Blazes roared.
+He pulled his arms free from the bot holding him,
+leaving patches of fur in its claws,
+and grabbed his crystalline piece of tech.
+Spinning, he pointed it at Sindy.
+
+Just as the Operator threw fire,
+Dockety threw itself between him and Sindy.
+The hot white flame splashed over his head and torso.
+
+"Dockety!"
+Gumption shouted as the bot fell.
+"Dockety, get up!"
+
+The bot didn't move.
+The tech in Blazes' hand brightened.
+"This ends *now*!" the tiger growled.
+
+But as he spoke,
+the machine beside him came to life.
+An arm made to move test tubes from one rack to another raked across his face.
+A sample drawer shot out,
+catching him in the gut.
+Dozens—no, hundreds—of other pieces of machinery rattled as the whole lab came to life.
+
+"You hurt my friend!"
+Sindy said through every speaker in the room.
+
+"Desist!"
+Patient ordered through the same speakers.
+"You must complete your assignment!"
+
+High-pitched feedback whined through the speakers.
+"Maddy?"
+All of a sudden Sindy sounded afraid.
+"Maddy, I can't—there's too much.
+I can't control it all."
+
+Patient's voice comes through again.
+"At last! At last! Oh thank you thank you thank you!"
+it crowed.
+The lab bot's legs did a skittering dance.
+"The signal has been sent!
+The Makers have been wakened!
+They will return!
+They will reward this one for its—
+They will—"
+
+Its voice buzzed and whined with a sudden surge of feedback.
+"What?
+No!
+Get out!
+Get out!
+This one has triumphed!
+It's not fair!"
+
+"You.
+Hurt.
+My.
+*Friend!*"
+Sindy said aloud and through the speakers.
+Sparks showered from them,
+and then they fell silent forever.
+
+"What have you done?" Blazes bellowed.
+He aimed his tech at Sindy—
+
+—and fell to the ground as Thoughtful clubbed the back of his head with her rifle.
+"Shoulda done that a while back,"
+she said with a shrug.
+
+Maddy crossed the floor to her sister in a single bound.
+"Sindy!
+Sindy, wake up!"
+Her sister mumbled something unintelligible and battered her sister's hands away weakly.
+
+Maddy let her breath out with a whoosh and knelt beside Dockety.
+The Operator's fireball had burned an ugly scorch mark on its torso.
+"Oh no," she said softly,
+then yelped as something bumped her knee.
+
+Mouse backed up and bumped her again,
+beeping frantically.
+`help help help`
+"I'm sorry," she said.
+"I don't know how to fix it."
+
+The little cleaning bot zipped around to Dockety's head
+and extended its single arm.
+A spark jumped through the air.
+
+Maddy held her breath.
+A moment later the bot's single lens rotated.
+"Rebooting," its voice buzzed.
+
+Gumption's hand came down on Maddy's shoulder.
+"We should leave.
+I will go look for a way to transport your father and sister."
+
+Maddy surged to her feet as he turned to go.
+"Is that all you've got to say?" she demanded,
+grabbing his arm and spinning him around.
+
+Gumption looked at her expressionlessly.
+"We do not know how long the bots will remain incapacitated.
+It would be prudent to—"
+
+"Shut up!"
+She pulled him close and kissed him.
+
+Somewhere under his fur his heart started to beat again.
+Mouse buzzed from the floor.
+"Hello, friend," Dockety buzzed weakly.
+
+</section>
+
+<section markdown="1">
+
+## Epilog (Gumption)
+
+*Three days later…*
+
+Moonlight dappled the Roos' porch.
+Gumption shifted in his chair,
+resisting the urge to scratch the spot where his armor had rubbed against his waist.
+For want of anything else to wear,
+he had left it on as Dockety hauled them back to Rusty Bridge.
+"Don't mind me," Maddy had said archly.
+Gumption smiled at her but didn't take it off.
+
+He had been doing a lot of smiling since the fight in the lab.
+So had Maddy,
+so much that her mother had commented on it
+once she got over the happy tears of being reunited with her husband.
+"Got a lot to smile about," Maddy had said.
+
+"Ew."
+Sindy had made a face,
+then hugged her big sister yet again.
+
+"Hey."
+Maddy elbowed him gently in the ribs.
+"Where'd you go?"
+
+"Sorry,"
+Gumption said,
+picking up his iced tea and slurping it.
+Inside,
+he heard Mama Roo ask a question and Papa Roo haltingly reply.
+His mind was still fuzzy,
+but getting sharper every day.
+"Just thinkin' about—about all of it."
+
+Maddy ruffled his fur.
+"All of it's a lot."
+She put her hand back on the bench between them.
+
+He took it,
+marvelling as he still did at how natural that felt.
+"Sindy says Special Leaf'll back on his feet soon."
+
+Maddy shrugged.
+"Hope so.
+She says he told Mayor Lupus that if he didn't make it,
+you and me were to get all his books."
+
+Gumption chuckled,
+but whatever he might have said was interrupted
+by the sound of heavy footsteps on the road.
+The two fell silent as Bee Six Vee strode by with Mouse trailing behind it.
+
+"Still don't trust that one,"
+Maddy said quietly.
+
+Gumption shrugged.
+"Dockety does.
+Or leastways,
+figures everyone deserves a second chance."
+
+"Even the operators? Or Patient?"
+Maddy shot back.
+
+Gumption squeezed her hand as Mama Roo stepped onto the porch
+with a fresh pitcher of tea and her husband behind her,
+thankful he didn't have to reply.
+"Beautiful evening,"
+Mama Roo said,
+lifting Papa Roo's arm and putting it around her shoulders.
+
+Papa Roo and Gumption looked at each other and started to laugh.
+"What?" the two Roo women said together.
+
+"Nothin'," Gumption said innocently,
+then pointed at the sky.
+"But hey, look—a shootin' star!
+Everybody make a wish."
+
+The dot above them brightened and lengthened,
+turning into a glowing white streak.
+Gumption's heart almost stopped for a second time when Papa Roo spoke.
+"They are awake,"
+he said dreamily.
+"They are returning.
+The Makers are coming."
+
+*To be continued…*
 
 </section>
