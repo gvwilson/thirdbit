@@ -333,5 +333,53 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 
 1.  Wang et al 2025: "Why do Machine Learning Notebooks Crash? An Empirical Study on Public Python Jupyter Notebooks" <https://arxiv.org/abs/2411.16795>.
 
+1.  Taipalus et al 2025: "Enhanced SQL error messages facilitate faster error fixing" <https://link.springer.com/article/10.1007/s10664-025-10695-1>
+
+1.  Mohayeji et al 2025: "Securing dependencies: A comprehensive study of Dependabot's impact on vulnerability mitigation" <https://link.springer.com/article/10.1007/s10664-025-10638-w>
+
+1.  da Matta Vegi & Valente 2025: "Understanding refactorings in Elixir functional language" <https://homepages.dcc.ufmg.br/~mtov/pub/emse2025-elixir-refactorings.pdf>
+
+1.  Eckmann et al 2025: "Use as Directed? A Comparison of Software Tools Intended to Check Rigor and Transparency of Published Work" <https://arxiv.org/abs/2507.17991>
+
+1.  Ghianni et al 2025: "Search-Based Fuzzing For RESTful APIs That Use MongoDB" <https://arxiv.org/abs/2507.20848>
+
+1.  Sesari et al 2025: "It Is Giving Major Satisfaction: Why Fairness Matters for Software Practitioners" <https://dl.acm.org/doi/10.1145/3757060>
+
+1.  Miller et al 2025: "'Maybe We Need Some More Examples:' Individual and Team Drivers of Developer GenAI Tool Use" <https://arxiv.org/abs/2507.21280>
+
+1.  Hegewald & Beyer 2025: "Evaluating Software Supply Chain Security in Research Software" <https://arxiv.org/abs/2508.03856> "This study analyses 3,248 high-quality, largely peer-reviewed research software repositories using the OpenSSF Scorecard. We find a generally weak security posture with an average score of 3.5/10. Important practices, such as signed releases and branch protection, are rarely implemented."
+
+1.  Dzialets et al 2025: "Everything You Need to Know About CS Education: Open Results from a Survey of More Than 18,000 Participants" <https://arxiv.org/abs/2508.05286> and the dataset is available at https://zenodo.org/records/16754164 too, which is awesome. (As I've grumbled many times before, I really, *really* wish that a course on "data science for software engineering research" was part of every undergrad CS curriculum so that practitioners would understand and value work like this. If nothing else, that understanding would help people evaluate claims being made about AI and programmers' productivity.)
+
+1.  Pan et al 2025: "The Hidden Cost of Readability: How Code Formatting Silently Consumes Your LLM Budget" <https://arxiv.org/abs/2508.13666> Turns out that pretty formatting doesn't help LLMs, and removing it can significantly improve their efficiency.
+
+1.  Baltes et al 2025: "Evaluation Guidelines for Empirical Studies in Software Engineering involving LLMs" <https://arxiv.org/abs/2508.15503> "We present…a taxonomy of LLM-based study types together with eight guidelines for designing and reporting empirical studies involving LLMs." This is important and useful work, and I hope the authors and others start scoring various reports and claims (both peer-reviewed and otherwise) using this checklist.
+
+1.  Larooij & Törnberg 2025: "Can We Fix Social Media? Testing Prosocial Interventions using Generative Social Simulation" <https://arxiv.org/abs/2508.03385> The authors built a bots-only "social" network and found it inevitably spiraled down into partisan echo chambers, elite formation, and polarization. None of the six mitigation strategies they implemented (including chronological feeds, hiding likes, and bridging strategies) changed those outcomes.
+
+1.  Knutsen et al 2026: "Do-or-die software projects in Norway during the COVID-19 pandemic" <https://www.sciencedirect.com/science/article/pii/S0164121225002560> The paper looks at Norwegian public institutions that had defied conventional wisdom about public sector inertia by successfully completing important, urgent, and unexpected development efforts, and identifies four common factors that led to success: (1) antecedent capabilities for collaboration, use of expertise, and interdisciplinary problem-solving; (2) characteristics of the project mandates including specificity of goals, importance, deadlines, and tie-in with societal mission; (3) emergent development practices that empowered a core team to make decisions, benefit from organizational support, and integrate effectively with diverse stakeholders; and (4) outcomes that reinforced the practices, such as success, pride in work, transparency, and continuous capability development.
+
+1.  Chattaraj et al 2025: "Who Wins the Race? (R Vs Python) - An Exploratory Study on Energy Consumption of Machine Learning Algorithms" <https://arxiv.org/abs/2508.17344> Short version: there are very large differences between the two languages' efficiencies, but neither is consistently better than the other.
+
+1.  Cohen & Chugh 2025: "Code Style Sheets: CSS for Code" <https://lnkd.in/gGHXVdAx> This is very cool and I hope it is widely adopted.
+
+1.  Brynjolfsson et al 2025: "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence" <https://digitaleconomy.stanford.edu/wp-content/uploads/2025/08/Canaries_BrynjolfssonChandarChen.pdf> "Since the widespread adoption of generative AI, early-career workers in the most AI-exposed occupations have experienced a 13 percent relative decline in employment even after controlling for firm-level shocks [while] employment for workers in less exposed fields and more experienced workers has remained stable or continued to grow."
+
+1.  Grijseels et al 2025: "Ten simple rules for queer data collection and analysis by STEM researchers" <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1013091>
+
+1.  Christensen et al 2025: "ProbTest: Unit Testing for Probabilistic Programs" <https://arxiv.org/abs/2509.02012> If you're incorporating LLMs into your tools, you're incorporating non-determinism; this paper presents the math behind one approach to testing that, and a PyTest plugin to go with it.
+
+1.  Shah et al 2025: "Tether: A Personalized Support Assistant for Software Engineers with ADHD" <https://arxiv.org/abs/2509.01946-aae5w> The partner of a friend of mine is high-functioning autistic, and regards ChatGPT as a disability aid because it can get the tone of conversation right in a way that he has always struggled with. This brief paper looks at using such tools to support developers with ADHD; I don't know enough to evaluate it, but it's a really interesting use case.
+
+1.  Rau et al 2025: "Parse Tree Tracking Through Time for Programming Process Analysis at Scale" <https://arxiv.org/abs/2509.03668>
+
+1.  Anandayuvaraj et al 2025: "Learning From Software Failures: A Case Study at a National Space Research Center" <https://arxiv.org/abs/2509.06301> "(1) Failure learning is informal, ad hoc, and inconsistently integrated into SDLC; (2) Recurring failures persist due to absence of structured processes; and (3) Key challenges, including time constraints, knowledge loss from turnover and fragmented documentation, and weak process enforcement, undermine systematic learning."
+
+1.  Cutrupi et al 2026: "Gender Diversity Interventions in Software Engineering: A Comprehensive Review of Existing Practices" <https://www.sciencedirect.com/science/article/pii/S1574013725000887?via%3Dihub> Reveals a lack of interventions aimed at retaining women; few programs investing in employees' satisfaction with the work environment; a lack of outreach programs to create meaningful connections w/ companies and provide support in finding jobs; only one intervention incorporates long-term activities; very few build on a theoretical background.
+
+1.  Jewitt et al 2025: "From Hugging Face to GitHub: Tracing License Drift in the Open-Source AI Ecosystem" <https://arxiv.org/abs/2509.09873> "We present the first end-to-end audit of licenses for datasets and models on Hugging Face, as well as their downstream integration into open-source software applications [which reveals] systemic non-compliance in which 35.5% of model-to-application transitions eliminate restrictive license clauses by relicensing under permissive terms."
+
+1.  Küüsvek & Anwar 2025: "Toward Greener Background Processes - Measuring Energy Cost of Autosave Feature" <https://arxiv.org/abs/2509.11738> Includes "a case study of autosave implementations across three open-source Python-based text editors. Using 900 empirical software-based energy measurements, we identify key design factors affecting energy use, including save frequency, buffering strategy, and auxiliary logic such as change detection."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
