@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Time Spent on Hardening</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../ideas/">ideas</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Time Spent on Hardening</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/09/12/searching-for-closure/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-09-18" class="post-date">2025-09-18</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>I recently received mail from someone working on a software-based approach to fault tolerance.
+Their tool makes applications more reliable,
+but they think it also makes developers more productive
+by reducing the amount of error detection and handling code they need write.</p>
+<p>They have never been able to find research
+that quantifies how much time developers spend on code for detecting and handling problems
+relative to the effort for the &ldquo;happy path&rdquo;.
+they know it&rsquo;s substantial,
+and is (probably) increasing as applications become more distributed,
+but the only number they&rsquo;ve found is from a 1995 book called
+<em><a href="https://isbnsearch.org/isbn/9780471950684">Software Fault Tolerance</a></em>,
+where Dr. Flaviu Cristian says that it often accounts for more than two-thirds of code in production systems.</p>
+<p>So I asked a dozen researchers I met through <a href="https://neverworkintheory.org">It Will Never Work in Theory</a>
+if they knew of anything,
+and the answer was, &ldquo;No, there isn&rsquo;t anything that specifically addresses that question.&rdquo;
+This strikes me as odd,
+because it wouldn&rsquo;t be hard to measure
+and the answer would be interesting.</p>
+<p>People do throw around questionable numbers about the cost of bugs and bug fixing,
+e.g., claim that companies <a href="https://www.it-cisq.org/cisq-files/pdf/CPSQ-2020-report.pdf">$2 trillion in 2020</a>.
+Here are some other related resources my contacts were able to give me:</p>
+<ul>
+<li>
+<p><a href="https://dl.acm.org/doi/10.1145/3448977">A Systematic Review on Software Robustness Assessment</a></p>
+</li>
+<li>
+<p><a href="https://conf.researchr.org/details/ast-2025/ast-2025-papers/9/Exceptional-Behaviors-How-Frequently-Are-They-Tested-">Exceptional Behaviors: How Frequently Are They Tested?</a></p>
+</li>
+<li>
+<p><a href="https://dl.acm.org/doi/10.1109/ICSE-SEIP.2019.00012">Automating chaos experiments in production</a></p>
+</li>
+<li>
+<p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0164121218300724">The Exception Handling Riddle: An Empirical Study on the Android API</a></p>
+</li>
+<li>
+<p><a href="https://ctreude.ca/wp-content/uploads/2019/01/saner19.pdf">Unveiling Exception Handling Guidelines Adopted by Java Developers</a></p>
+</li>
+<li>
+<p><a href="https://ieeexplore.ieee.org/document/8666786">Today Was a Good Day: The Daily Life of Software Developers</a>:
+    Developers spend about 11% of their time on debugging and bugfixing
+    with some days being dedicated to the task (up to 32%)
+    and some days being dedicated to meetings and collaboration (4-6%).
+    You can also add time spent on testing (up to 16%).</p>
+</li>
+<li>
+<p><a href="https://ieeexplore.ieee.org/document/7829407">The Work Life of Developers: Activities, Switches and Perceived Productivity</a></p>
+</li>
+<li>
+<p><a href="https://ieeexplore.ieee.org/document/7181430">I Know What You Did Last Summer - An Investigation of How Developers Spend Their Time</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1901.08718">Unveiling Exception Handling Guidelines Adopted by Java Developers</a></p>
+</li>
+<li>
+<p><a href="https://journal-bcs.springeropen.com/articles/10.1186/s13173-019-0095-5">Studying the Evolution of Exception Handling Anti-Patterns in a Long-Lived Large-Scale Project</a></p>
+</li>
+<li>
+<p><a href="https://plg.uwaterloo.ca/~migod/papers/2019/scam19.pdf">A Study on the Effects of Exception Usage in Open-Source C++ Systems</a></p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2007.10912">The Corrective Commit Probability Code Quality Metric</a></p>
+</li>
+<li>
+<p><a href="https://ieeexplore.ieee.org/document/6681382">Debugging Revisited: Toward Understanding the Debugging Needs of Contemporary Software Developers</a></p>
+</li>
+<li>
+<p><a href="https://dl.acm.org/doi/abs/10.1145/355045.355046">Designing robust Java programs with exceptions</a></p>
+</li>
+<li>
+<p><a href="https://marybethkery.com/projects/ErrorHandling/kistner_vlhcc17.pdf">Moonstone: Support for Understanding and Writing Exception Handling Code</a></p>
+</li>
+<li>
+<p><a href="https://ieeexplore.ieee.org/document/5383375">Understanding Exception Handling: Viewpoints of Novices and Experts</a></p>
+</li>
+<li>
+<p><a href="https://dl.acm.org/doi/10.1145/3196398.3196435">Studying the relationship between exception handling practices and post-release defects</a></p>
+</li>
+</ul>
+<p>Again,
+the fact that we don&rsquo;t have reliable figures for this strikes me as odd.
+As one of them pointed out,
+while everyone is throwing LLMs at often artificial and academic problems
+and then claiming to have improved some arbitrary metric X% over a random baseline,
+we still don&rsquo;t know fairly basic things about software development.</p>
+<p><em>My thanks to everyone who responded to my late-night email about this.</em></p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/greg-wilson-a26510b6/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+</footer>
+  </body>
+</html>

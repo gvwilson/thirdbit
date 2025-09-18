@@ -3,12 +3,104 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-09-12T00:00:00Z</updated>
+ <updated>2025-09-18T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Time Spent on Hardening</title>
+   <link href="https://third-bit.com/2025/09/18/time-spent-on-hardening/"/>
+   <updated>2025-09-18T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/09/18/time-spent-on-hardening/</id>
+   <content type="html">&lt;p&gt;I recently received mail from someone working on a software-based approach to fault tolerance.
+Their tool makes applications more reliable,
+but they think it also makes developers more productive
+by reducing the amount of error detection and handling code they need write.&lt;/p&gt;
+&lt;p&gt;They have never been able to find research
+that quantifies how much time developers spend on code for detecting and handling problems
+relative to the effort for the &amp;ldquo;happy path&amp;rdquo;.
+they know it&amp;rsquo;s substantial,
+and is (probably) increasing as applications become more distributed,
+but the only number they&amp;rsquo;ve found is from a 1995 book called
+&lt;em&gt;&lt;a href=&#34;https://isbnsearch.org/isbn/9780471950684&#34;&gt;Software Fault Tolerance&lt;/a&gt;&lt;/em&gt;,
+where Dr. Flaviu Cristian says that it often accounts for more than two-thirds of code in production systems.&lt;/p&gt;
+&lt;p&gt;So I asked a dozen researchers I met through &lt;a href=&#34;https://neverworkintheory.org&#34;&gt;It Will Never Work in Theory&lt;/a&gt;
+if they knew of anything,
+and the answer was, &amp;ldquo;No, there isn&amp;rsquo;t anything that specifically addresses that question.&amp;rdquo;
+This strikes me as odd,
+because it wouldn&amp;rsquo;t be hard to measure
+and the answer would be interesting.&lt;/p&gt;
+&lt;p&gt;People do throw around questionable numbers about the cost of bugs and bug fixing,
+e.g., claim that companies &lt;a href=&#34;https://www.it-cisq.org/cisq-files/pdf/CPSQ-2020-report.pdf&#34;&gt;$2 trillion in 2020&lt;/a&gt;.
+Here are some other related resources my contacts were able to give me:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://dl.acm.org/doi/10.1145/3448977&#34;&gt;A Systematic Review on Software Robustness Assessment&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://conf.researchr.org/details/ast-2025/ast-2025-papers/9/Exceptional-Behaviors-How-Frequently-Are-They-Tested-&#34;&gt;Exceptional Behaviors: How Frequently Are They Tested?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://dl.acm.org/doi/10.1109/ICSE-SEIP.2019.00012&#34;&gt;Automating chaos experiments in production&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sciencedirect.com/science/article/abs/pii/S0164121218300724&#34;&gt;The Exception Handling Riddle: An Empirical Study on the Android API&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://ctreude.ca/wp-content/uploads/2019/01/saner19.pdf&#34;&gt;Unveiling Exception Handling Guidelines Adopted by Java Developers&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://ieeexplore.ieee.org/document/8666786&#34;&gt;Today Was a Good Day: The Daily Life of Software Developers&lt;/a&gt;:
+    Developers spend about 11% of their time on debugging and bugfixing
+    with some days being dedicated to the task (up to 32%)
+    and some days being dedicated to meetings and collaboration (4-6%).
+    You can also add time spent on testing (up to 16%).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://ieeexplore.ieee.org/document/7829407&#34;&gt;The Work Life of Developers: Activities, Switches and Perceived Productivity&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://ieeexplore.ieee.org/document/7181430&#34;&gt;I Know What You Did Last Summer - An Investigation of How Developers Spend Their Time&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://arxiv.org/abs/1901.08718&#34;&gt;Unveiling Exception Handling Guidelines Adopted by Java Developers&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://journal-bcs.springeropen.com/articles/10.1186/s13173-019-0095-5&#34;&gt;Studying the Evolution of Exception Handling Anti-Patterns in a Long-Lived Large-Scale Project&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://plg.uwaterloo.ca/~migod/papers/2019/scam19.pdf&#34;&gt;A Study on the Effects of Exception Usage in Open-Source C++ Systems&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://arxiv.org/abs/2007.10912&#34;&gt;The Corrective Commit Probability Code Quality Metric&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://ieeexplore.ieee.org/document/6681382&#34;&gt;Debugging Revisited: Toward Understanding the Debugging Needs of Contemporary Software Developers&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://dl.acm.org/doi/abs/10.1145/355045.355046&#34;&gt;Designing robust Java programs with exceptions&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://marybethkery.com/projects/ErrorHandling/kistner_vlhcc17.pdf&#34;&gt;Moonstone: Support for Understanding and Writing Exception Handling Code&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://ieeexplore.ieee.org/document/5383375&#34;&gt;Understanding Exception Handling: Viewpoints of Novices and Experts&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://dl.acm.org/doi/10.1145/3196398.3196435&#34;&gt;Studying the relationship between exception handling practices and post-release defects&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Again,
+the fact that we don&amp;rsquo;t have reliable figures for this strikes me as odd.
+As one of them pointed out,
+while everyone is throwing LLMs at often artificial and academic problems
+and then claiming to have improved some arbitrary metric X% over a random baseline,
+we still don&amp;rsquo;t know fairly basic things about software development.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;My thanks to everyone who responded to my late-night email about this.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Searching for Closure</title>
@@ -1532,39 +1624,6 @@ when the worst finally happens.
 Most of what I&amp;rsquo;m familiar with deals with natural disasters and their physical or economic aftermath;
 again,
 I&amp;rsquo;d &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;be grateful for pointers&lt;/a&gt; to prior art that focuses on recovery for research.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Congratulations to This Term&#39;s Students</title>
-   <link href="https://third-bit.com/2025/04/09/congratulations-to-this-terms-students/"/>
-   <updated>2025-04-09T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/04/09/congratulations-to-this-terms-students/</id>
-   <content type="html">&lt;p&gt;I had the pleasure of working with two teams of undergraduates at the University of Toronto this semester.
-They have now wrapped up their projects
-and I think what they did was very cool.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/amy-kim8/&#34;&gt;Amy Kim&lt;/a&gt; and &lt;a href=&#34;https://www.linkedin.com/in/daelenia-susanto-69067b255/&#34;&gt;Daelenia Susanto&lt;/a&gt; built a tool called &lt;a href=&#34;https://github.com/gvwilson/browsercast&#34;&gt;Browsercast&lt;/a&gt;
-that plays an HTML slideshow in sync with a voiceover.
-They spent a lot of time wrestling with JavaScript APIs and browser idiosyncracies,
-and a lot more thinking about who would use it and how;
-their &lt;a href=&#34;https://www.youtube.com/watch?v=fvqkXGvw9bU&#34;&gt;demo video&lt;/a&gt; shows what it can do,
-and we&amp;rsquo;re grateful to &lt;a href=&#34;https://www.linkedin.com/in/tony-burbage/&#34;&gt;Tony Burbage&lt;/a&gt; for guidance.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/david-barsamyan-213a75265/&#34;&gt;David Barsamyan&lt;/a&gt;,
-&lt;a href=&#34;https://www.linkedin.com/in/lorena-buciu/&#34;&gt;Lorena Buciu&lt;/a&gt;,
-&lt;a href=&#34;https://www.linkedin.com/in/eunchae-seong/&#34;&gt;Rachel Seong&lt;/a&gt;,
-&lt;a href=&#34;https://www.linkedin.com/in/yifan-wang-01/&#34;&gt;Evence Wang&lt;/a&gt;,
-and &lt;a href=&#34;https://www.linkedin.com/in/cassandra-tin-kwon-yuen-4a0011267/&#34;&gt;Cassandra Tin Kwon Yuen&lt;/a&gt;
-built &lt;a href=&#34;https://github.com/gvwilson/mossball&#34;&gt;a set of plugins&lt;/a&gt; for &lt;a href=&#34;https://marimo.io/&#34;&gt;Marimo&lt;/a&gt;
-that implement common types of classroom exercises
-like find-the-word puzzles and multiple choice questions.
-&lt;a href=&#34;https://www.youtube.com/watch?v=oeYEotXOvgA&#34;&gt;Their video&lt;/a&gt; shows each one in operation and explains their architecture;
-we hope to have them available as a Python package just as soon as exams are over.&lt;/p&gt;
-&lt;p&gt;This marks the first time I&amp;rsquo;ve supervised senior computer science projects in 15 years.
-I think I had at least as much fun as they did,
-and very proud of what they accomplished.
-If you&amp;rsquo;re looking for talented junior programmers,
-please reach out,
-and if you&amp;rsquo;d like to contribute to the projects,
-they&amp;rsquo;d be very happy to talk to you.&lt;/p&gt;</content>
  </entry>
  
 </feed>
