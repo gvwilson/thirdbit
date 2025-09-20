@@ -95,8 +95,9 @@ the mayor said as Able opened a hatch in its side.
 the bot replied,
 opening a hatch in its side.
 "Big fella haulin' some passengers.
-They oughta be along shortly.
-Now, let's see—I got letters,
+They just stopped for a quick recharge—oughta be along shortly.
+Now, let's see…
+I got letters,
 I got parcels,
 even got a newspaper from Sandy Bend."
 Its periscope cameras swivelled from side to side
@@ -307,10 +308,10 @@ exasperated,
 as the twins ran back into the square.
 
 Bluster bent over and put his elbows on his knees to catch his breath.
-"Some travellers just come off the road!"
+"Some folks just come off the road!"
 Bravo panted.
-"An' the bots are fightin' with 'em!
-They got guns an' tech an' everythin'!"
+"They got guns an' tech an' everythin',
+an' the bots are settin' up to fight 'em!"
 
 Whatever Mayor Lupus might have said next was cut off
 by a sizzle and a sharp *crack!*
@@ -325,7 +326,7 @@ The rest of you, stay here!"
 She shouldered past the gaping onlookers
 and hurried off behind the twins
 as another fireball followed the first into the sky,
-her cane and prosthetic leg rapping the cobblestones
+Her cane and prosthetic leg rapped the cobblestones
 in an uneven staccato.
 People exchanged looks and followed her.
 
@@ -343,7 +344,7 @@ Its heavy armor put Special Leaf's shell to shame.
 
 Behind them both stood a tiger with a black patch over one eye,
 his hands raised as if to play dodgeball.
-She wore a dark green jacket with black collar and cuffs
+He wore a dark green jacket with black collar and cuffs
 that matched the rabbit's
 and the camouflage on the mulebot.
 
@@ -394,14 +395,14 @@ He was wearing a shapeless gray sweater
 that Mama Bear had knit for him the winter before last,
 and had an old blue scarf wrapped around his neck as well
 despite the sun's warmth.
-He peered at the Operators through his little round glasses
+He peered at the Operators through little round glasses
 as if trying to decide whether they were books that needed re-shelving.
 
-The rabbit lowered his rifle and doffed her hat.
+The rabbit lowered her rifle and doffed her hat.
 Special Blazes nodded.
 "It's an honor," he rumbled.
 
-"Thank you, thank you,"
+"Yes, thank you, I'm sure,"
 Special Leaf said in a slightly fuddled tone.
 "As the mayor says,
 Crusher and Dockety are neighbors.
@@ -413,8 +414,8 @@ The rabbit muttered something that may or may not have been,
 The tiger lowered his hands.
 "I'm glad to hear it.
 My apologies if we overreacted."
-*LIKEWISE* scrolled across the screen
-set into the front of the mulebot.
+`LIKEWISE` scrolled across the screen
+on the front of the mulebot.
 
 Mayor Lupus turned to Dockety.
 "Well?" she said as the moment stretched.
@@ -428,8 +429,9 @@ who lowered its own massive arms reluctantly.
 "Well,
 I'm glad that's sorted,"
 Special Leaf said brightly.
-"If you'd like some tea,
-you'd be very, um…"
+"Would you like some tea?
+I just made a fresh pot,
+and you'd be very, um…"
 He gestured vaguely in the direction of his house.
 
 Special Blazes dipped his head.
@@ -454,12 +456,12 @@ and headed for home.
 Gumption asked Special Leaf.
 
 The old tortoise nodded.
-"Not in some years," he replied quietly,
+"A few, but not in some years," he replied quietly,
 all traces of fuddlement gone from his voice.
 
 "Why do you think they're here?"
 
-Special Leaf shook his head.
+Special Leaf's shook his head.
 "I don't know.
 But please,
 be very, very careful what you say,
@@ -490,8 +492,8 @@ Maddy looked at Gumption, who shrugged.
 "I don't mind waiting."
 He was supposed to spend the day weeding his family's vegetable garden.
 It wasn't the worst job in the world,
-but even if he wore his father's waxed cotton slicker
-his fur would get soaked and muddy,
+but his fur would get soaked and muddy
+even if he wore his father's waxed cotton slicker,
 and stooping over would make his half-healed ribs ache.
 On the other hand,
 at least Maddy had asked before making a decision.
@@ -501,7 +503,7 @@ Maddy told her sister sternly.
 
 Special Leaf nodded toward the kitchen.
 The two teenagers followed him into it.
-"How's she doing?" Maddy asked
+"How is she doing?" Maddy asked
 as Gumption plopped himself down in his usual chair,
 then winced at a twinge in his ribs.
 
@@ -514,8 +516,10 @@ but she picked it up this morning
 and all of a sudden there were pictures floating in the air above it.
 Except they weren't really pictures,"
 he continued,
-looking wistfully at the bit of ancient tech.
-"They looked as solid as any of us."
+turning the bit of ancient tech over in his hands.
+"They looked as solid as any of us.
+I looked it up—they're called 'holograms',
+and they're very rare."
 
 "That's great," Gumption said when Maddy didn't respond.
 Sindy was one of those rare people with no tail,
@@ -526,14 +530,14 @@ but every piece of tech she touched responded to her.
 
 The look on Maddy's face told Gumption that
 she was worrying yet again about
-what might happen if people found out about Sindy's gift,
+what would happen if people found out about Sindy's gift,
 so he elbowed her in the ribs to distract her.
 "Aren't you going to tell him?"
 
 Special Leaf wrinkled his forehead,
 which was as close as he could get to raising his nonexistent eyebrows.
 Maddy reluctantly pulled the letter out of her satchel.
-"I was wondering when that would arrive," Special Leaf said.
+"Ah, I've been waiting for this," Special Leaf said.
 He opened the breadbox on the counter behind him,
 took out a butternut cookie,
 and offered it to Maddy.
@@ -585,13 +589,13 @@ as saving Rusty Bridge from a band of marauding bots.
 
 It was great news,
 but it also meant she was that much closer
-to leaving for somewhere better
+to leaving for somewhere
 full of people as smart and as talented as she was.
 He'd known since their first conversation about books at Special Leaf's
 that she would be going some day.
 He just wished that day wasn't getting closer quite so fast.
 
-He nearly fell out of bed when something rapped softly on his window.
+He jumped slightly when pebbles rattled softly on his window.
 "'Bout time," he muttered,
 getting quietly to his feet.
 He had oiled the shutter after dinner to prevent it squeaking,
@@ -724,8 +728,7 @@ There,
 in the center of the more-or-less rectangular field behind the school,
 stood Special Blazes and the rabbit who had arrived with him.
 Both wore their uniform trousers,
-but instead of their jackets they were in plain tunics
-no different from a farm hand's.
+but instead of their jackets they wore plain tunics no different from a farm hand's.
 
 "Get outta-come on, I wanna see."
 Bluster and Bravo shouldered their way through the other children
@@ -753,7 +756,7 @@ Who can tell me what we just learned?"
 Bluster called,
 scowling when Bravo made a kissing sound beside him.
 
-"I try,"
+"Thank you,"
 Special Blazes said modestly.
 "But the real lesson is surprise.
 If you're ever in trouble—if you're ever attacked
@@ -972,7 +975,6 @@ we might *all* be there!"
 
 "Language, please,"
 Special Blazes chided.
-Then he sighed.
 "Listen,
 Miz Roo,
 I know what you and this town owe them.
@@ -1006,7 +1008,7 @@ The Operator snorted again.
 "That old tortoise sure does have a way with people,"
 he said,
 almost to himself,
-then nodded a farewell and padded silently away.
+then nodded a farewell and padded away on silent paws.
 
 Gumption was waiting for her
 when she hopped angrily out the door a moment later.
@@ -1036,7 +1038,10 @@ Gumption Goat,
 I don't know how to square that with saying you're their friend."
 
 Gumption shrugged.
-"Just tryin' to find a way to fit everything together."
+"I'm just tryin' to get through the day,"
+he said defensively.
+"We ain't all talented, you know.
+Some of us actually have to get along with folk if we want to get by."
 
 Maddy's reply was cut off by the tiger's rumble.
 "Give us space, give us space.
@@ -2535,7 +2540,7 @@ I've been practicin'!"
 The tiger and Thoughtful exchanged looks.
 "This isn't a story, son,"
 the rabbit said,
-with a hardness in her voice that hadn't been there a moment before.
+a hardness in her voice that hadn't been there a moment before.
 "You stay with your friends and keep outta trouble."
 But then she reached under the wagon's bench seat
 to pull out a squat wide-mouthed gun and pass it to the young goat.
@@ -2562,8 +2567,8 @@ Gumption said as half a dozen dark dots in a vee zoomed closer.
 
 The helibots' rotors whined and then shrieked as they dove at the camp.
 White sparks danced across their bellies.
-Gumption heard the *rat a tat tat* of their guns a moment later
-as puffs of dirt spattered from the ground.
+Gumption heard the *rat a tat tat* of their guns a moment later.
+Puffs of dirt spattered from the ground.
 
 *Chonk!*
 A white streak lanced up from where Thoughtful had sheltered beside the wagon.
@@ -5032,8 +5037,8 @@ but—he blinked.
 If he looked closely,
 he could see through them.
 They were tricks of light
-like the ones Sindy had brought to life
-above Special Leaf's crystalline piece of tech.
+like the holograms Sindy had brought to life
+with Special Leaf's piece of tech.
 
 And it wasn't just the bots that were illusions.
 When he looked more closely at the buildings he saw cracks and rust stains
