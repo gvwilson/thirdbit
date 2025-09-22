@@ -75,8 +75,8 @@ His parents tolerated it at first.
 they told each other.
 After a while,
 though,
-they began hinting that maybe he should being ho-ho-ho'ing in the attic
-rather than sewing or gluing.
+they began hinting that maybe he should being ho-ho-ho'ing
+rather than sewing or gluing in the attic.
 And a while after that,
 Finner could tell that the hints were about to become
 a number three talk from his father,[^number-three-talk]
@@ -86,9 +86,8 @@ and pretended his dreams weren't filled with sanding and polishing.
 [^number-three-talk]: Direct eye contact, patient but serious voice, lots of awkward pauses on both sides, every other sentence starting, "Your mother and I think…"
 
 Finner became more restless every day.
-His mother suggested running up and down three flights of stairs over and over
-to burn off some energy,
-but it only made him sweaty.
+His mother suggested running up and down the stairs to burn off some energy,
+but that only made him sweaty.
 He tried sitting cross-legged on the floor with his eyes closed
 and humming softly to himself like the monks of Lotse Nuffin,[^lotse-nuffin]
 but all he got was a cold bum.
@@ -106,8 +105,10 @@ elves made and santas delivered.
 That's how it was,
 that's how it had always been,
 and that was how it was always going to be.
+Any adult who even suggested otherwise was the immediate target of cold looks,
+and any kid who mentioned it ran the risk of being called a flip in schoolyard.
 
-For a while he wondered if he was just lazy,
+For a while Finner wondered if he was actually just lazy,
 which was basically a synonym for "sinful",
 so he tried a few experiments.
 Working twice as hard made him even sweatier than running up and down stairs.
@@ -118,7 +119,10 @@ desperately,
 he realized there was only one thing left for him to do.
 He would have to ask his great-grandmother for advice.
 
+As far as Finner could tell,
 Gran-Granna Tumbly spent most of her time napping,
+writing pamphlets about the flip menace,
+or giving speeches on the same subject,
 but she had been one of the greatest santas ever.
 She had once delivered a chocolate orange cake to a trio of scientists in a submarine
 *without using a submarine herself*,
@@ -129,7 +133,7 @@ and then delivered a baby on the way home.[^deliver-baby]
 Everyone was a little bit afraid of her,
 except for the unfortunate few who had felt the full force of her disapproving glare:
 they were a *lot* afraid.
-But everyone also knew that she and her wife Shady Ann had fought long and hard
+But everyone knew that she and her wife Shady Ann had fought long and hard
 to get santas the right to marry other santas
 and elves the right to marry other elves.
 There was a statue in the town square of Gran-Granna Tumbly and Shady Ann holding hands at their wedding,
@@ -137,17 +141,17 @@ and Finner thought that if anyone would know what to do,
 she would.
 
 He waited until Tuesday afternoon before going to see her.
-He knew the postman delivered her weekly order of chocolate on Tuesdays,
-and hoped that would put her in a good mood.
-"Or at least a less grumpy one,"
+The postman delivered her chocolate on Tuesdays,
+and he hoped that would put her in a good mood.
+*Or at least a less grumpy one,*
 he thought as he trudged through the damp, clumpy snow that had fallen overnight.
-The last time he had seen her had been the family gathering at Long Night the year before.
-Finner's uncle had accidentally served Gran-Granna camomile tea instead of double-dark coffee,
-and had squirmed for an hour as she drank it one slow, withering sip at a time.
+The last time he had seen her had been the family gathering at Long Night.
+Finner's uncle had accidentally served her camomile tea instead of double-dark coffee,
+and had squirmed for an hour as she drank one slow, withering sip after another.
 
-The Tumbly house looked exactly like those on either side of it:
-a front door with an evergreen wreath on it,
-a large curtained window to one side,
+The Tumbly house looked exactly like the others on its street:
+a front door with an evergreen wreath,
+a large curtained window beside it,
 and a pair of smaller windows with matching curtains on the floor above.
 The downstairs window had a warm, welcoming glow,
 and even from the street Finner could smell curry and freshly-baked bread.
@@ -155,7 +159,7 @@ The only notable thing was a statue of a cat sitting on a round pedestal
 in the middle of the front yard,
 its stone eyes fixed on a snow-filled bird bath.[^notable-yard]
 
-[^notable-yard]: The houses on either side had a miniature Ferris wheel and a model locomotive in their front yards, though, so the statue wasn't really *that* notable.
+[^notable-yard]: The houses on either side had a miniature Ferris wheel and a model locomotive in their front yards, so the statue wasn't really *that* notable.
 
 Finner took a deep breath and knocked on the door.
 When nothing happened he knocked again.
@@ -166,7 +170,7 @@ secretly relieved.
 a voice rumbled behind him.
 "If you don't mind waiting a moment…?"
 
-Finner turned around slowly.
+Finner spun around.
 The stone cat had turned its head toward him,
 but was still keeping one eye on the empty bird bath.
 "I—sure," he said lamely,
@@ -175,10 +179,9 @@ because a statue of a cat is still in some sense a cat,
 and one of the first lessons a santa is taught is
 to always be polite to cats.
 
-"You're welcome," the cat rumbled,
-and together they waited in silence.
+"You're welcome," the cat rumbled.
 
-They didn't have to wait long.
+He didn't have to wait long.
 A tricycle taxi rolled to a gentle stop in front of the house.
 The taxi pedaller climbed out of his seat,
 stretched until his spine went *pop!*,
@@ -214,12 +217,12 @@ and into the rest of his life.
 
 <section markdown="1">
 
-## Guests Arrive
+## Unexpected Guests
 
 Finner had never actually been in Gran-Granna's house before,
 but he'd heard stories.
-A richly-patterned carpet in the hall that looked like it might once have been able to fly: check.
-A set of coathooks with gargoyle faces: check.
+A richly-patterned carpet in the hall that looked like it might still be able to fly: check.
+A set of gargoyle coathooks: check.
 A sitting room filled with a riot of greenery
 and a mis-matched pair of overstuffed chairs: check.
 Crossed harpoons over the fireplace and dozens of framed pictures
@@ -227,7 +230,10 @@ of children, grandchildren, great-grandchildren,
 neighbors, friends, enemies,[^enemies-dates]
 and the grateful, if somewhat perplexed, crew of a submarine: check.
 A photograph of two middle-aged women in red-and-white coats holding hands
-that Finner realized must have been the inspiration for the statue of Gran-Granna Tumbly and her wife: check.
+that must have been the inspiration for the statue of Gran-Granna Tumbly and her wife:
+check,
+although Finner noticed that there was an elf in the picture as well,
+standing somewhat awkwardly off to the side.
 
 [^enemies-dates]: Some of which had dates and locations written on them in neat, smug lettering.
 
@@ -264,7 +270,7 @@ The silence that followed was broken only by
 the ticking of the burl clock in the kitchen.
 "Doesn't it?" Finner asked.
 
-"Not so far as I can tell,"
+"Not in most cases,"
 Gran-Granna sighed.
 She sipped her tea,
 eyes half-closed like a cat having its ears scratched.
@@ -277,7 +283,7 @@ and a beautiful singing voice,
 but as clumsy as an ox on ice skates.
 They could trip over a rock that was clear across the other side of the street."
 
-"So no deliveries?"
+"Not the sort to make deliveries?"
 Finner ventured.
 
 "That's certainly the conclusion they reached.
@@ -288,14 +294,15 @@ but when you've been told your whole life that you're destined for something els
 well,
 it's hard to change direction."
 
-Finner turned his teacup around in his hands.
+Finner turned his teacup around in his hands,
+wondering if his cheeks were actually hotter than the tea
+or if it just felt that way.
 "So what happened to them?"
 
-Gran-Granna smiled.
 "They ran off and joined the opera.
 Last I heard,
 they were singing six shows a week with not an empty seat in the house."
-She sipped her tea.
+Gran-Granna Tumbly sipped her tea.
 "The way I look at it,
 they *did* become a santa.
 They're delivering the gift of music night after night,
@@ -308,25 +315,25 @@ and wished he could be almost anywhere else in the world.[^geography-volcanoes]
 
 [^geography-volcanoes]: "Almost", because he had taken geography in school and knew about volcanoes.
 
-"M-me?" Finner stammered.
+"Me?" Finner stammered.
 
 "Yes, you," Gran-Granna said impatiently.
-"Your folks have been worried about you for a while now.
-Oh, I know, you didn't think anyone had noticed,
-but you've been mopey and anxious
+"Your parents have been worried about you for a while now.
+You've been mopey and anxious
 and all the other things young people get carried away with these days,
 only more so."
 
 A clock chimed quietly in the kitchen next door.
 Somewhere in the distance,
-someone called for their children to come inside,
-it was time for bed and their teeth weren't going to brush themselves.
+someone called their children to come inside
+because it was time for bed and their teeth weren't going to brush themselves.
 "I just don't know what to do," Finner confessed,
 angry at the tears that he was absolutely *not* going to cry.
 "I like the ho-ho-ho'ing,
-but deliveries are—"
+but—"
 He paused for breath.
-"It's like everyone else is excited about it but I'm just watching myself do it,
+"It's like everyone else is excited about making deliveries and everything
+but I'm just watching myself do it,
 you know?
 Like this is someone else's life and I've just put it on like a sweater
 except it doesn't quite fit
@@ -347,13 +354,14 @@ Finner turned his teacup around in his hands again.
 "Do they write the stories too?"
 
 Gran-Granna Tumbly shook her head firmly.
-"No, of course not.
-That's making, and making is elves' work."
+"Of course not,"
+she said flatly.
 She caught his eyes with hers,
 which were as clear as a deep mountain lake and only half a degree warmer.
+"That's making, and making is elves' work."
 
 *THUMP!*
-He jumped as something heavy hit the floor in the room overhead.
+Finner jumped as something heavy hit the floor in the room overhead.
 "What was that?"
 
 Gran-Granna picked up her cane and struggled to her feet.
@@ -379,28 +387,26 @@ a second voice bellowed from above.
 Finner practically heard someone putting their hand over someone else's mouth.
 
 He gestured weakly toward the front door.
-"Well, um, I'll just—" he started.
+"I'll just, um—" he started.
 
 Heavy boots thumped on carpeted steps
-as the biggest, beardiest santa Finner had ever seen came downstairs
-and wrapped his arms around Gran-Granna Tumbly
-in a number three hug.[^number-three-hug]
-To Finner's complete surprise the bearded santa started crying.
-
-[^number-three-hug]: Both arms, full wrap, strong squeeze for two or three heartbeats depending on how bad things are.
-
+as the biggest, beardiest santa Finner had ever seen came downstairs,
+wrapped his arms around Gran-Granna Tumbly in a number three hug,[^number-three-hug]
+and started crying.
 "Oh Vidancia," he sniffled.
 "It all went wrong.
 It all went *wrong*."
 
+[^number-three-hug]: Both arms, full wrap, strong squeeze for two or three heartbeats depending on how bad things are.
+
 Gran-Granna Tumbly wriggled out of the beard and the hug.
-"Get ahold of yourself,"
+"Get hold of yourself,"
 she ordered.
 "What went wrong?"
 Finner did a double take.
-Was that an ax strapped to the first santa's back?
-A really big ax that looked like it was designed for chopping off heads
-rather than for turning logs into kindling?
+The santa had an ax strapped to his back,
+a really big ax that looked like it was designed for chopping off heads
+rather than for turning logs into kindling.
 
 "We were ambushed,"
 said a second santa
@@ -408,17 +414,21 @@ who had come silently down the stairs behind the first one.
 She was no taller than Finner,
 but lean where the first santa was brawny,
 and her uniform—Finner did a double take.
-Her hood and sack were red and white,
-but the rest was changing color to match the carpet on the stairs.
+Her hood and sack had been red and white a moment ago,
+but were now changing color to match the carpet on the stairs.
 
 Gran-Granna Tumbly pulled a handkerchief out of her sleeve
 and thrust it into the big santa's hand.
 "By whom?
+Flips?
 And what happened to your target?"
 
-"I don't know who they were.
-But the target got away."
 The second santa sat down heavily on the stairs.
+"The target got away.
+And I don't think the ones that jumped us were flips.
+I think it's our other problem."
+She raised her arms to put scare quotes around the word "other",
+then winced.
 
 "You're hurt," Gran-Granna said accusingly.
 
@@ -432,18 +442,15 @@ she added with a wicked grin.
 The burly santa wiped his eyes on a sleeve that Finner could have used as a sleeping bag.
 "We were all set to make the grab, and then *bam*!"
 He smacked a meaty fist into an equally meaty palm.
-"There they were,
-all over us.
+"They were all over us.
 I tried to fight 'em, Vidancia, I swear."
-His lower lip trembled.
 
-Gran-Granna tumbly pursed her lips.
-"That's twice now,"
+Gran-Granna Tumbly pursed her lips.
+"That's twice they've shown up,"
 she said to the second santa,
-who nodded and then winced
-before turning her gaze on Finner.
+who nodded and winced before turning her gaze on Finner.
 
-Something very much like a mild electric shock ran down his spine
+Something that felt like a mild electric shock ran down his spine
 as her dark eyes locked with his.
 "And who's this?" she asked.
 
@@ -452,10 +459,10 @@ Before anyone could answer there was another pair of thumps upstairs.
 "It's not exactly a palace, is it?"
 
 The burly santa growled and pulled his ax off his back
-with a complicated shrug.
+with a complicated motion made fluid by practice.
 The santa on the stairs struggled to her feet with a curse.
 "Sorry, sensei.
-The flips must have followed us through."
+They must have followed us through."
 
 "So it appears,"
 Gran-Granna Tumbly said grimly.
@@ -484,8 +491,8 @@ and bilious green foam began expanding in the stairwell.
 
 "That won't hold them for long,"
 Gran-Granna Tumbly said,
-twisting at the waist until her spine made a *crack*
-that was only slightly quieter than the grenade's.
+twisting at the waist until her spine made a *pop!*
+only slightly quieter than the grenade's.
 
 "Come on ya sock-chewin' deviants!" the big santa bellowed,
 hefting his really quite large ax
@@ -493,7 +500,8 @@ as a UPOF[^upof] crashed through a window upstairs
 and landed in the front yard with a wet *thud*.
 Boots and broken glass clattered on the porch roof.
 Moments later there were more thuds in the yard and a muttered,
-"Ouch, Norman, watch where you're going."
+"Ouch!
+Watch where you're going."
 
 [^upof]: Unidentified Piece of Furniture. It's like a flying saucer, except it's (usually) rectangular, doesn't fly (unless it's thrown very hard), and (normally) isn't of alien origin.
 
@@ -505,7 +513,7 @@ Sparkles ran down the rapier in her hand.
 "Not magic enough," their great-grandmother snapped.
 "You two! Get him out of here and keep him safe.
 No, don't argue,"
-she continued as the lean santa opened her mouth.
+she continued as the smaller santa opened her mouth.
 "You're in no shape for another fight.
 And you!"
 She jabbed a finger at Finner.
@@ -520,7 +528,7 @@ out of the stomachs of large predators.
 
 "What—" a voice in the front yard started but never managed to finish.
 Someone else simply screamed, briefly.
-A sound like a dozen empty cans being crunched together
+A sound like a dozen empty cans being crunched under a boot
 was followed by a moment of stunned silence,
 and then the shooting started.
 
@@ -537,12 +545,12 @@ knocking bullets away from them.[^teapot-bullets]
 
 [^teapot-bullets]: Or possibly from her teapot. Finner wondered about that later.
 
-Suddenly Gran-Granna's fireplace was gone,
+Without warning Gran-Granna's fireplace was gone,
 or rather it was still there but it was also a doorway,
 like one of those puzzle pictures that looks like two different things at once.
 The big santa picked Finner up like a sack of laundry
 and crossed the room with two enormous strides.
-Something twisted and everything stretched around them
+The universe twisted inside out and everything stretched around them
 or possibly they did the stretching
 and just like that they were somewhere else.
 
@@ -550,10 +558,10 @@ It was bright.
 Very bright,
 where before it had been the cozy indoor gloom of an elderly person's living room.
 And there was sand, comma, lots of.
-*And that looks like a pyramid,*
-a small part of Finner's brain noticed,
-a pyramid with half a dozen cat statues like the one in gran-granna's yard
-crouched in front of it.
+*That's a pyramid,*
+a small part of Finner's brain noticed.
+It was indeed a pyramid,
+with half a dozen cat statues like the one in gran-granna's yard crouched in front of it.
 
 The second santa got to her feet and brushed sand off her uniform,
 which was already turning a dusty beige.
@@ -578,7 +586,7 @@ Its eyes didn't quite line up,
 and—was that a *bone* of the end of one of its arms
 where there really ought to be a hand?[^mechanical-hand]
 
-[^mechanical-hand]: Even a mechanical hand would have been okay. Finner had an aunt who had started wearing one after an encounter with a particularly militant guard goose, and more than a few of his mother's elvish friends had needed mechanical upgrades after what people referred to as "workshop incidents".
+[^mechanical-hand]: A mechanical hand would have been okay. Finner had an aunt who had started wearing one after an encounter with a particularly militant guard goose, and more than a few of his mother's elvish friends had needed mechanical upgrades after what people referred to as "workshop incidents".
 
 The burly santa hefted his ax.
 "Friend or foe?" he demanded.
@@ -592,7 +600,7 @@ for my pets."
 At the word "treats",
 one of the giant cat statues at the base of the pyramid
 turned its head and blinked,
-which made the "stay out of predators" part of Finner's brain go *ding ding ding!*
+which made the "keep out of predators" part of Finner's brain go *ding ding ding!*
 
 "Tea?" the burly santa asked,
 clearly never having had this particular response to his friend-or-foe question before.
@@ -605,7 +613,7 @@ a magazine?"
 the mummy santa finished hopefully.
 
 "No magazines, I'm afraid, and no tea either,"
-the lean santa said,
+the smaller santa said,
 her uniform now a perfect match for the sand.
 "We had to leave Sensei Tumbly's in rather a hurry."
 
@@ -616,7 +624,7 @@ you're going…
 to claim…
 refuge?"
 
-The lean santa elbowed her burly companion's ribs to stop him from speaking.
+The smaller santa elbowed her burly companion's ribs to stop him from speaking.
 "As is our right," she said.
 "A cookie, a glass of milk, and the use of your wherever."
 
@@ -633,12 +641,12 @@ time."
 The giant stone cat behind it stepped down from its pedestal.
 Finner gulped as three more joined it.
 Some were missing bits of ear or tail,
-but the one that yawned seemed to have all of its very sharp teeth.
+but the one that yawned still seemed to have a full set of very sharp teeth.
 "So tell me…
 why I…
 should say yes?"
 
-The lean santa reached into her sack.
+The smaller santa reached into her sack.
 For a heartbeat Finner thought she was going to throw another foam grenade,
 but instead she pulled out a head.
 A toy head,
@@ -651,23 +659,21 @@ The mummy hissed again.
 here!?"
 
 The santa hefted her sack.
-Loose pieces of metal clinked against one another.
-The mummy hissed again,
-and the cats around it growled.
-"Oh, don't be a bunny," the santa said dismissively.
+The cats growled as loose pieces of metal clinked against one another.
+"Oh, don't be such bunnies," the santa said dismissively.
 "It would take a dozen elves a week to put it back together,
 and anyway,
 I didn't manage to salvage a battery."
 She jerked her chin at the santa with the ax.
-"The flips ambushed us when we were out on a mission for the sensei."
+"We were ambushed while we were on a mission for the sensei."
 
-"Followed us back somehow,"
+"They followed us back somehow,"
 the big santa added grimly.
-"Probably makin' a mess of the place right now."
+"Probably makin' a mess of her place right now."
 
-The lean santa shook her head.
+The smaller santa shook her head.
 "Sensei will be all right."
-She was hurt,
+She really was hurt,
 Finner realized,
 but trying hard not to show it.
 
@@ -691,7 +697,7 @@ I'm…
 redecorating."
 
 As they climbed the worn stone steps on the pyramid
-Finner sidled over to the lean santa.
+Finner sidled over to the smaller santa.
 "Can you please tell me what's going on?"
 
 She sighed.
@@ -702,7 +708,7 @@ We're trying to save the worlds."
 
 <section markdown="1">
 
-## Some Introductions
+## Introductions and Further Mayhem
 
 Zombies and mummies are similar in many ways—the shambling gait,
 the moaning,
@@ -710,9 +716,9 @@ and of course the whole "undead" thing—but there are important differences.
 First,
 mummies are generally (ex-)royalty,
 while zombies tend to have been idiots who went into the basement after dark
-despite the strange sounds they heard
-or didn't run fast enough when someone shouted,
-"Look out, they're coming!"
+despite the growling and gnawing sounds
+or stopped to ask, "Who?"
+when someone yelled, "Look out, here they come!"
 
 Second,
 mummies are created through a complex multi-step process
@@ -725,7 +731,7 @@ fancy name…
 for jars…
 that hold…
 someone's…
-squishy bits,"
+bits,"
 the mummy explained as they climbed the stairs
 to an entrance in the side of the pyramid
 that seemed quite small compared to the pyramid
@@ -757,9 +763,7 @@ One blinked slowly as they entered the pyramid,
 but other than that they might truly have been statues.
 The corridor inside was wide enough for the four of them to walk side by side.
 Torches guttered in sconces every few dozen strides,
-their light making the figures painted on the walls dance.[^walls-dance]
-
-[^walls-dance]: It didn't occur to Finner until much later to wonder about the torches. Were they some sort of magical everlasting torch? Or were they delivered on Tuesdays and Fridays like the cheese his father was so fond of? And why torches rather than lamps? The mummy's rags looked awfully flammable…
+making the figures painted on the walls dance.
 
 The corridor turned into a ramp,
 which turned left and left again,
@@ -773,23 +777,24 @@ If Gran-Granna Tumbly's house had been tucked into one corner
 there would still have been plenty of space for a hockey rink and a river barge.
 And while there wasn't actually a hockey rink,
 there *was* a barge,
-along with dozens of statues,
+along with dozens of (inanimate) statues,
 a chariot,
 six life-sized wooden horses,
 and a small catapult.
 
-There was also something that looked suspiciously like Gran-Granna's living room.
+There was also something that looked suspiciously like
+a makeover of Gran-Granna Tumbly's living room.
 "Please…
 sit down…"
 the mummy told them,
-gesturing at a matched pair of blue-and-gold striped couches.
+gesturing at a pair of overstuffed chairs and a blue-and-gold striped couch.
 "I know…
 it's not…
 much…
 to look at…
 but…"
 
-"Oh, it's amazing," the lean santa said
+"Oh, it's amazing," the smaller santa said
 when the mummy's pause stretched longer than usual.
 "And I *love* the side tables."
 
@@ -805,11 +810,11 @@ muttering under its lack of breath.
 What do…
 you think?"
 
-It thrust the magazine at the lean santa
+It thrust the magazine at the smaller santa
 while the burly one plopped himself down on the nearest couch,
 which creaked slightly under his weight.
 Finner sat hesitantly on the other
-as the lean santa agreed that of *course* you had to see it in the room
+as the smaller santa agreed that of *course* you had to see it in the room
 to really appreciate it,
 particularly with such difficult lighting.
 
@@ -823,7 +828,7 @@ Because I'd like to,
 if that's all right."
 
 "Probably not a good idea right now,"
-the lean santa said,
+the smaller santa said,
 setting aside the filigree tea tray
 that the mummy had casually mentioned was an antique.[^antique-living]
 "I'm sure Sensei Tumbly is all right,"
@@ -834,12 +839,12 @@ she added quickly.
 
 "Why do you keep calling her 'sensei'?"
 Finner asked,
-instantly annoyed at the whining tone in his voice.
+instantly annoyed by the whining tone in his voice.
 "And where are we,
 and who are you?"
 
 The three santas exchanged looks.
-The lean santa sighed.
+The smaller santa sighed.
 "I'm Santa Hood.
 This is Santa Greenwood, and…?"
 
@@ -863,7 +868,6 @@ Santa Hood shrugged.
 Some people think we're why all those universes exist.
 Every kind of santa that can be, must be.
 It's some kind of quantum thing."
-She shrugged again.
 
 "So what kind of santa are you?"
 Finner asked.
@@ -877,12 +881,12 @@ he asked Santa Greenwood.
 
 "No,"
 the burly man growled.
-"The gifts are for the trees.
+"My gifts are for the trees.
 The ax is for anyone who tries to hurt 'em."
 
 "I haven't…
-brought anyone…
-a gift…
+delivered…
+any gifts…
 in years,"
 Santa Hotep wheezed wistfully in the awkward silence that followed.
 "After…
@@ -904,12 +908,15 @@ This place looks *amazing*."
 Miz Tumbly…
 to thank…
 for that."
-The mummy took a faded magazine off a lacquered bookshelf.
-"She started…
+The mummy took another magazine off a lacquered bookshelf.
+"She comes…
+to chat…
+sometimes and…
+she started…
 bringing me…
 these.
 It was…
-the nicest thing.
+very kind.
 I hope…
 she's…
 all right."
@@ -925,7 +932,7 @@ to have…
 company."
 
 "I'm sure Sensei Tumbly is fine,"
-Santa Hood said firmly,
+Santa Hood said,
 then winced.
 
 "Here, let me have a look at that,"
@@ -935,7 +942,7 @@ Santa Hood nodded
 and pulled up her coat to reveal a purpling bruise the size of Finner's hand
 on her smooth, dark skin.
 
-Finner's mouth suddenly felt dry.
+Finner's mouth went dry at the sight.
 "I, um… Is there a…? I mean, I, um, I could really use…" he stammered.
 
 "Of course…"
@@ -944,16 +951,16 @@ Santa Hotep waved a bandaged arm.
 the barge."
 
 *Somewhere in the multiverse,
-someone has undoubtedly written an entire book about washroom facilities in ancient pyramids.
+someone has undoubtedly devoted a book about the peculiarities of washroom facilities in ancient pyramids.
 I'm not that book,
 so let's just skip over the next few minutes.*
 
-Finner closed the door carefully behind him.
+Finner closed the door carefully behind him after he finished drying his hands.
 He could hear the santas talking quietly in the distance,
 but seized by a sudden curiosity,
 he turned left instead of right.
 The horses tethered to the chariot were very life-like but just wood.
-The swords and shields on display were ever-so-slightly dusty but very clearly functional,
+The swords and shields on display were slightly dusty but very clearly functional,
 and—
 
 He pulled up short.
@@ -961,8 +968,7 @@ There,
 hidden behind a vertically-hung rug,
 stood a workbench.
 Carpenters' tools lay on it,
-some in wooden racks but others laid out for use
-next to a trio of unfinished stool legs.
+some in wooden racks but others laid out next to a trio of unfinished stool legs.
 He sniffed the air.
 Yes:
 he could definitely smell fresh-cut wood.
@@ -970,9 +976,10 @@ he could definitely smell fresh-cut wood.
 "Can I help you?"
 a voice rumbled behind him.
 
-Finner turned around slowly.
-The stone cat was missing one ear but seemed to have all of its teeth.
-Certainly lots of teeth.
+Finner spun around.
+The stone cat was missing one ear but seemed to have all of its teeth,
+or if not,
+as many as any one creature reasonably needed.
 "I, um—I was just—"
 
 "Perhaps you should rejoin the others,"
@@ -1019,7 +1026,7 @@ Santa Hotep nodded.
 "This way."
 
 The chamber was even larger than Finner had realized.
-He froze as a statue of a hyena turned its head.
+He froze as a statue of a hyena bared its teeth at him.
 "Automated defenses,"
 Santa Hood said without breaking stride.
 "Pretty standard in a place like this.
@@ -1039,11 +1046,13 @@ With the slightest of scraping sounds
 the stone block in front of it pivoted
 to reveal another passage,
 smaller and narrower than the one they had climbed
-but lit by the same flickering torches.
+but lit by the same flickering torches.[^torches]
+
+[^torches]: It didn't occur to Finner until much later to wonder about the torches. Were they magical everlasting torches? Or were they delivered on Tuesdays and Fridays like the cheese his father was so fond of? And why torches rather than lamps? The mummy's rags looked awfully flammable…
 
 Up, up, up they went.
 The passage cut back on itself so many times that Finner lost count.
-He was just about to ask how much further it was
+He was just about to ask how much further they had to go
 when he rounded a final bend and was almost blinded by
 the bright blue square of empty sky in front of them.
 That,
@@ -1052,7 +1061,7 @@ and the dazzling green beam of a ray gun blast.
 "Jet packs," Santa Greenwood spat
 "Of *course* they'd have jet packs."
 He brought up his ax
-just in time for the next shot to bounce off its shiny blade.
+just in time for the next shot to bounce off its polished blade.
 
 "Where's the wherever?" Santa Hood demanded as the mummy caught up with them.
 
@@ -1095,8 +1104,7 @@ where they fell screaming to their deaths.
 
 At least,
 that's what Finner expected would happen
-in the heart-stopping second before the universe
-did the "see it both ways" trick again
+in the heart-stopping second before the universe did the "see it both ways" trick again
 and the desert was an ocean,
 a beautiful blue ocean with nice soft waves instead of nasty bone-breaking solid ground.
 
@@ -1105,7 +1113,7 @@ between his size and hitting the water in a spread-eagle bellyflop,
 he actually, briefly, made a dent in the water.
 Finner had only a moment to admire how Santa Hood tucked in her elbows
 to plunge into the water as gracefully as a seahawk diving for fish
-before he discovered the hard way that the water was very, very cold.
+before discovering the hard way that it was very, very cold.
 
 He spluttered to the surface,
 thrashing his arms against the weight of his suddenly-sodden coat.
@@ -1114,14 +1122,14 @@ His boots felt like concrete blocks on his feet.
 
 "Periwinkle!" Santa Greenwood roared.
 
-"I'm working on it!" Santa Hood shouted back.
+"Working on it!" Santa Hood shouted back.
 She pulled something orange out of her sack.
 With a sharp *pop!* and a hiss it began to inflate.
 
 "Be careful with your stupid ax!" she yelled at Santa Greenwood
-as she tossed her sack into the little dinghy.
+as she tossed her sack into the newborn dinghy.
 
-"I'm bein' careful! And it ain't stupid!" the burly santa yelled back.
+"I'm bein' careful! And it ain't stupid!" he yelled back.
 A dozen powerful one-armed strokes
 and he dragged himself up out of the water,
 nearly flipping the dinghy over as he did so.
@@ -1130,15 +1138,15 @@ Finner was too busy not drowning to really notice this.
 He'd managed to kick off one boot[^one-boot]
 and was struggling to unbutton his coat
 when Santa Hood popped up beside him like an otter and said,
-"Easy, easy, let me do that."
+"Here, let me do that."
 
-[^one-boot]: His mother always told him to do up his laces properly so he didn't trip and break his neck. It had never occurred to him to say, "But what if I fall into another universe and need to get them off so I don't drown?"
+[^one-boot]: His mother always told him to do up his laces properly so he didn't trip and break his neck. It had never occurred to him to say, "But what if I fall into another universe and need to get my boots off so I don't drown?"
 
 Panting and kicking furiously to stay afloat,
 Finner squelched his panic long enough
 for Santa Hood's deft fingers to undo his buttons
-and hold his sleeves so that Finner could pull his arms out of his coat.
-It floated away like a sad red jellyfish,
+and hold his sleeves so he could pull his arms free.
+His coat floated away like a sad red jellyfish,
 taking with it a handkerchief,[^handkerchief]
 a folded piece of paper with a game of Hangman on it
 left over from a particularly boring writing class at school,
@@ -1146,26 +1154,23 @@ and a mostly uneaten piece of toffee.
 
 [^handkerchief]: Santas don't use kleenex. That's for wrapping presents.
 
-A few moments later Santa Hood boosted Finner into the dinghy
-and slithered in after him.
+Santa Hood boosted Finner into the dinghy and slithered in after him.
 "Y'aright?"
 Santa Greenwood asked,
 wringing seawater out of his beard.
-He had a bit of seaweed in his hair,
-Finner noticed.
 
 Santa Hood nodded, shivering.
 "Lucky we d-d-didn't wind up in some d-d-drowned city."
 
-"There's that.
+"There is that.
 You remember Kraken Claus?"
 Santa Greenwood shook himself like a very large dog
 and laid his ax across his knees,
 glaring at the ocean
 as if a billion liters of salt water could be intimidated.
 
-Santa Hood forced a smile,
-her teeth chattering.
+Santa Hood hugged herself,
+teeth chattering.
 "Don't you have something in your sack to keep you warm?"
 Finner asked,
 hoping the answers would be "yes" and "I have a spare".
@@ -1182,7 +1187,7 @@ a triangular gray fin sliced through the water beside them.
 "Is there a Santa Shark?" Finner asked weakly,
 hoping the answers would be "yes" and "it's actually very friendly".
 
-"I'm afraid so," Santa Hood said grimly,
+"I'm af-fraid so," Santa Hood said grimly,
 her teeth still chattering.
 "She takes everything she c-can and never g-gives *anything* back.
 Be c-careful with that!" she snapped
@@ -1195,7 +1200,7 @@ and then three things happened more or less simultaneously:[^simultaneously]
 
 1.  A second, larger gray fin appeared in the water beside the first.
 
-2.  The edge of Santa Greenwood's ax brushed against the dinghy's rubber gunwale.
+2.  The edge of Santa Greenwood's ax nicked the dinghy's rubber gunwale.
 
 3.  There was a sharp *crack!*
     like someone snapping a piece of wood over their knee.
@@ -1211,7 +1216,7 @@ and then three things happened more or less simultaneously:[^simultaneously]
     There was another *crack!*
     and a second cannonball splashed into the water nearby.
 
-[^feeping]: A word that other worlds would do well to borrow. Our world's contribution would be "phlegm", which also it sounds exactly like the thing it describes.
+[^feeping]: A word that other worlds would do well to borrow. Your world's contribution would be "phlegm", which also it sounds exactly like the thing it describes.
 
 Santa Greenwood stood up,
 nearly spilling the others into the ocean.
@@ -1225,8 +1230,9 @@ her arm deeper in her sack than basic physics should have allowed.[^basic-physic
 [^basic-physics]: This actually made basic physics quite uncomfortable, but nobody thought to ask it. Quantum physics would have just been, "Like, whatever."
 
 "Look!" Finner shouted.
-A wooden ship painted the same menacing black as the sails crested the horizon.
-There was an orange flash on her deck and another *crack!*.
+A ship painted the same menacing black as its sails crested the horizon.
+There was an orange flash on her deck.
+*Crack!*
 A third cannonball hit the water between the dinghy and the circling gray fins.
 
 "Ya gormless nabblers!" Santa Greenwood bellowed,
@@ -1246,11 +1252,9 @@ Finner exclaimed.
 Santa Hood snapped,
 her arm still deep in her sack.
 
-And then the smaller gray fin decided it was now or never
-and changed course and raced toward them.
-The shark the fin belonged to was a menacing dark bulk just below the surface.
-
-Finner felt the dinghy squelch beneath his bootless foot
+And then the owner of the first gray fin decided it was now or never
+and changed course toward them.
+The dinghy squelch beneath Finner's bootless foot
 as Santa Greenwood tried to stand up again
 and Santa Hood ducked so as not to be beheaded by the ax
 he actually wasn't being very careful with.
@@ -1281,7 +1285,7 @@ the dinghy was left empty in the ship's wake.[^empty-dinghy]
 
 [^empty-dinghy]: The dinghy rather appreciated having some time to itself, what with the first few minutes of its inflated existence being so full of new experiences. Then it sank, which only goes to show—something.
 
-Finner clambered up the ladder and onto the deck.
+Finner clambered onto the deck.
 Given recent events,
 he was completely unsurprised to find himself face-to-face with another santa.
 But what a santa:
@@ -1310,19 +1314,19 @@ all of whom just happened to have sharp pieces of metal in their hands.
 
 "This is Santa Hood,"
 Santa Greenwood said reluctantly.
-"And Figleaf—they're Vidancia's grand-something."
+"And Figleaf—he's Vidancia's grand-something."
 
 "It's Finner," Finner corrected automatically,
 but no-one noticed.
 
 The pause stretched
 until Santa Greenwood sighed heavily and gestured at Captain Clausbeard.
-"And this is my dad."
+"And *this* is my dad."
 
 "Pleased t' meet yez."
 The peg-legged santa doffed his hat and bowed in Santa Hood's direction.
 "The crew'll find some you some tea and dry clothes.
-Got plenty o' both this trip,"
+Got plenty o' both in the hold,"
 he added expansively.
 
 "Oh,
@@ -1332,9 +1336,11 @@ Santa Greenwood muttered.
 His father scowled,
 and for a moment Finner could see
 what Santa Greenwood was going to look like when he was older.
-"Nothin' shameful about haulin' cargo in times like these.
+"It ain't cargo, it's contraband,
+and there's nothin' shameful about haulin' contraband.
 Why, it's practic'ly smugglin'!
 And anyway,
+times like these,
 I figure it's every true santa's duty to—"
 
 "Tell no tales! Tell no tales!"
@@ -1356,10 +1362,11 @@ let's get you that tea."
 
 ## Some Explanations
 
-A few minutes later
-Finner was sitting on a stool in a slightly cramped cabin
-with a thick blanket wrapped around his shoulders
-and a steaming mug of something made of sweetened seaweed in his hands.
+A short time later
+Finner found himself sitting on a stool in a slightly cramped cabin
+with a thick blanket wrapped around his shoulders,
+a steaming mug of something made of sweetened seaweed in his hands,
+and no immediate threat to his life.
 Santa Hood was somewhere beneath an even larger blanket on the bunk next to him,
 while Santa Greenwood had solved the problem of being too big for the furniture
 by sitting on the floor.
@@ -1369,10 +1376,9 @@ Which this is.*
 
 He shook himself.
 "About the whole saving the worlds thing," he ventured.
-"And you keep talking about 'flips'."
+"And you mentioned flips."
 
-Santa Greenwood swallowed a swig[^swig] of tea
-and set the mug on the deck beside his ax.
+Santa Greenwood swallowed a swig[^swig] of tea.
 "It's what folk call other folk who are all flipped around.
 Santas wanting to make things,
 elves wanting to deliver—it ain't natural."
@@ -1381,30 +1387,36 @@ elves wanting to deliver—it ain't natural."
 
 A chill ran up Finner's spine
 that had nothing to do with how cold he had been a few minutes ago.
-"And you're— they're—"
+"I know what flips are.
+I just—
+you're—"
+He paused,
+his brain having no idea how to finish the sentence
+that his mouth had started.
 
 "At first their were just a handful of them,"
-Santa Hood's muffled voice said from under the blanket.
-"After Sensei Tumbly and others got everyone to understand that
-it's okay for santas to marry santas and elves to marry elves,
-a few people got carried away and started saying
-we should throw out all the other rules too.
+Santa Hood's muffled voice said from under her blanket.
+"After Sensei Tumbly and Shady Ann and others 
+made it okay for santas to marry santas and elves to marry elves,
+a few troublemakers got carried away
+and started saying we should throw out all the other rules too.
 Nobody took them seriously at first.
 People get odd notions sometimes,
 especially on worlds where they're on their own."
 
-"Callin' it 'odd' is more polite than I'd be."
-Santa Greenwood picked up his mug and scowled at its contents.
+"Callin' 'em odd is more polite than I'd be."
+Santa Greenwood scowled at the contents of his mug.
 "When sensible folk wouldn't listen to their nonsense,
 they just started *doing* stuff.
 Santas making socks and cutlery and what-not,
-elves sneaking into places they didn't belong and deliverin' stuff…"
+elves sneaking into places they didn't belong to do deliveries…
+It ain't natural."
 
 "So what happened?"
 Finner asked,
 looking into his tea so that he didn't have to make eye contact.
 
-"Turned out a lot more people agreed with them than anyone would have thought,"
+"Turned out a lot more people agreed with them than anyone thought,"
 Santa Hood said wearily.
 "Or didn't exactly agree with them but figured it was none of their business
 or they didn't have a right to say it was wrong.
@@ -1412,7 +1424,7 @@ Sensei Tumbly was one of the few who did."
 
 Santa Greenwood nodded.
 "Cost Vidancia a lot of friends.
-Folk that stood with her when she and Shady Ann were marching and writing letters
+Folk that stood with her and Shady Ann when they were marching and writing letters
 and getting themselves arrested—turned out a lot of them were okay with this nonsense."
 He shook his head.
 "It's disrespectful, is what it is, after all Vidancia's done."
@@ -1432,7 +1444,7 @@ Santa Hood jerked her chin at a pencil drawing of a tropical island
 nailed up beside the cabin's single round porthole.
 "I didn't know you were so artistic."
 
-"Oh, my boy was a wizard with all that stuff,"
+"Oh, he was a wizard with all that stuff,"
 Captain Clausbeard said proudly.
 "An' even better at crochet.
 Why, I still have a couple of doilies that—"
@@ -1449,23 +1461,26 @@ these *troublemakers*,
 because I for one have had *enough*!"
 He thumped his meaty fist on the deck,
 making Captain Clausbeard's parrot[^parrot] squawk.
+"First it's the flips,
+then it's this new lot—it's troublesome,
+is what it is.
+Troublesome!"
 
-[^parrot]: The parrot would have been somewhat offended by this phrasing, as she thought of the captain as being hers. Luckily for our story, the parrot found turning pages so difficult that she never bothered to read books.
+[^parrot]: The parrot would have been somewhat offended by this phrasing, as she thought of the captain as being hers. Luckily for me, the parrot found turning pages so difficult that she never bothered to read books.
 
-Whatever the captain might have said in reply to that
+Whatever the captain might have said in reply
 was cut off by a cry from the crow's nest.
-"Trouble, cap'n!
-We got smoke up over the horizon!
+"Cap'n!
+We got somethin' on the horizon!
 North by nor'west,
-a hundred fathoms high an' headed our way!"
+a hundred fathoms up an' headed our way!"
 
 The humor dropped from Captain Clausbeard's face like spilled porridge.
 "Well, lad, are ye fit to fight?" he asked.
 
 "Fit enough."
 Santa Greenwood clambered to his feet,
-swore as his head hit the ceiling,
-and picked up his ax.
+swearing as his head hit the ceiling.
 
 Captain Clausbeard nodded.
 "Glad t' hear it.
@@ -1481,30 +1496,35 @@ The door closed behind him.
 
 Santa Greenwood hefted his ax.
 "Don't worry about us,"
-Santa Hood said perkily,
+Santa Hood told him,
 wriggling a bit to free herself from her blanket's embrace.
 "We'll be safe in here.
 Besides, I'm not done studying this masterpiece of yours."
 
 Finner expected Santa Greenwood to scowl or make a joke.
-Instead, he spoke quietly, without looking at either of them.
+Instead, he spoke without looking at either of them.
 "That's Isla del Tesoro.
 It was my first forest.
-More of a jungle, really,
-but there were trees big as masts with these great beards o' moss hangin' off them.
+More of a broadleaf basal jungle,
+really,
+but there were trees big as masts with great beards o' moss hangin' off them,
+and orchids an' ferns an' all sorts.
 The rest o' the crew didn't like it—they all got itchy
 as soon as they were out of earshot o' the waves,
 but you could walk for hours an' see nothin' that wasn't green.
 First time I spent the night there felt like comin' home.
 Drawin' that picture felt like makin' myself a promise.
 Kinda surprised my dad left it up,
-what with all the arguin' we did when I told him I was leavin'."
+what with all the arguin' we did when I told him I was set on becomin' a landlubber."
+He paused.
+"He came 'round eventually, though.
+Glad for that."
 
 For a long moment the only sounds were the creaking of the ship's timbers
 and muffled shouts from the crew.
 "We'll be safe in here,"
 Santa Hood repeated,
-her voice as quiet as Santa Greenwood's had been.
+her voice as quiet as Santa Greenwood's had become.
 
 Santa Greenwood nodded,
 yanked the door open,
@@ -1525,24 +1545,25 @@ Finner's hands put themselves up.[^hands-up]
 "I'm Finner!" he exclaimed.
 "Finner Tumbly!"
 
-[^hands-up]: Whic is more accurate than saying "he raised his hands" because his brain wasn't really involved in the process.
+[^hands-up]: Whic is more accurate than saying "he raised his hands" because his brain wasn't involved in the process.
 
 "Uh huh.
 And I suppose you want me to believe that
-you just happened to be in sensei's house when the flips followed through the wherever?
-And again to Santa Hotep's pyramid?"
+you just happened to be in sensei's house when those robots followed through the wherever?"
 
 Finner's mouth worked.
-"I don't know anything about that!" he finally managed to get out.
-"I don't know why you call my gran-granna 'sensei',
+"Robots?" he finally managed to get out.
+"I don't know anything about robots!
+And I don't know why you call my gran-granna 'sensei',
 or any of this!
 I just want to go *home*."
 
 Santa Hood pressed a button on the ray gun with her thumb.
-The ray gun hummed in response.
-"You're not going anywhere until I'm sure you're not a robot."
+It hummed threateningly in response.
+"You're not going anywhere until I'm sure you're not a robot yourself."
 
-"A what?"
+"What!?
+I'm not a robot!"
 
 "Uh uh uh."
 Santa Hood gestured with the gun.
@@ -1568,16 +1589,18 @@ Finner pulled his right sleeve down to his elbow.
 "See?" he said hopefully.
 It wasn't actually much of a scratch,
 but it was red and yay,
-there was in fact a small streak on his skin.
+there was in fact a small splotch on his skin.
 
 Santa Hood studied it a moment,
 then pressed the button the ray gun again.
 With a disappointed *mmrrrmmm*
 the end of the gun dimmed and blinked out.
-"Here, take it."
+"Sorry about that,
+but you can't be too careful.
+Here, take it."
 She leaned forward to pass it to him and winced.
 
-Finner put it on the tiny desk he'd been sitting on.
+Finner put it on the tiny desk he'd been sitting beside.
 "How are your ribs?" he asked sulkily.
 
 Santa Hood shook her head.
@@ -1586,22 +1609,22 @@ You don't learn to make the kinds of presents I make
 without getting a few bumps and bruises.
 Your gran-granna taught me that.
 That's why I call her sensei," she added.
-"When all the trouble started with the flips
-she was one of the few people to say we had to do more than just talk."
+"She taught me a lot of things,
+and I'd do anything for her."
 
-Finner would have said, "I don't believe it,"
-except he did.
+Finner nodded slowly.
 The stone cat in Gran-Granna's front yard,
 her magic sword:
 even without all of that,
-the idea was perfectly in character.
+the idea of that particular little old lady knowing enough to teach those particular skills
+was perfectly in character.
 
 A hundred questions about robots and replacements whirled in his head.
 What he asked instead was,
-"Can I get you anything for your ribs?"
+"Can I do anything?"
 
 Santa Hood snorted, which made her wince again.
-"Some actual tea would be nice,
+"A cup of actual tea would be nice,
 but I think we'd both better stay down here for now.
 Wake me up if anything exciting happens."
 
@@ -1631,15 +1654,15 @@ and started snoring again.
 The ray gun just lay there the whole time
 like an unopened note for his parents from his writing teacher.[^writing-teacher]
 
-[^writing-teacher]: The first time Finner had to bring home a note from that teacher, his parents let it sit on the dinner table *until dinner* before opening it. They didn't mention it or even look at it, which of course meant Finner couldn't think about anything else. It turned out to be a reminder about an overdue book addressed to another student, which left Finner feeling somehow cheated out of a calamity.
+[^writing-teacher]: The first time Finner had to bring home a note from that teacher, his parents let it sit on the dinner table *until dinner* before opening it. They didn't mention it or even look at it until then, which of course meant Finner couldn't think about anything else. It turned out to be a reminder about an overdue book addressed to another student, which left Finner feeling somehow cheated out of a calamity.
 
 "Right," Finner muttered under his breath.
 He picked up the ray run gingerly with just his thumb and one finger.
 The porthole was definitely glassless.
 He brightened slightly.
-Maybe instead of just being baggage he could actually help Santa Hood
-(and Santa Greenwood too, of course).
-For a moment he saw himself standing beside them,
+Maybe instead of just being baggage he could actually help Santa Hood.
+*And Santa Greenwood too, of course,* he added hastily in his head.
+For a moment he saw himself standing beside her—er, them,
 blasting away with the ray gun while his new-found teammates tossed their grenades
 and waved their ax menacingly.
 Maybe he could even—
@@ -1654,29 +1677,28 @@ Shouts rang on the deck outside the cabin.
 "Stay here," Finner said firmly.
 He tucked the ray gun into his trousers,
 then imagined what would happen if it went off again
-and transferred it to his pocket.
-"I'll be right back," he promised
+and transferred it to his pocket
 as he pulled the cabin door open
 and stepped out into chaos.
 
-Half a dozen sailors were firing rifles and crossbows into the air.
-Half a dozen others were reloading the ship's cannons
+Half a dozen sailors were firing rifles and complicated crossbow-ish things into the air.
+Others were reloading the ship's cannons
 as Captain Clausbeard and his parrot[^parrot-time] bellowed orders.
 In between them,
 Santa Greenbeard was hacking at an enormous black tentacle with his ax.
-No, not a tentacle—it was a metal cable as thick as Finner's arm,
-and it hung down from the blue-and-gray airship that was now above the ship.
+No, not a tentacle—it was a metal cable as thick as Finner's arm
+dangling from the blue-and-gray airship that now floated above the ship.
 
 [^parrot-time]: Sorry, sorry—the parrot that usually chose to spend time with the captain.
 
-A second cable fell from the airship as Finner gaped up into the sky,
-and then a third.
-The sailors' bullets and arrows had no more effect on the airship
+A second cable dropped from the airship as Finner gaped up into the sky,
+then a third.
+The sailors' bullets and arrow-ish things had no more effect on the airship
 than Santa Greenwood's ax had on the cable.
 "Stand by to repel boarders, ye grumble-fisted knucklewaddlers!"
 Captain Clausbeard shouted,
 drawing his cutlass and passing a tiny replica of it to the parrot,
-who clutched the sliver-sized blade in its beak.
+who clutched its sliver-sized blade in her beak.
 
 *Crack!*
 *Crack!*
@@ -1685,19 +1707,17 @@ Something thunked into the deck a few steps away from Finner
 and began spewing smoke.
 The cable snagged on a hatch and went taut.
 *Snap!*
-Finner ducked as half of the hatch flew through the air
+Finner ducked as the hatch flew through the air
 and splashed into the ocean.
 
 Someone yelled,
 "Here they come, cap'n!"
-as half a dozen elves and santas slid down the cable,
-letting go just as they reached the height of the mast.
+as half a dozen elves and santas slid down the cable.
 *Thump!* *Thump!* *Thump!*
-The first three hit the deck,
-tumbled head over heels,
+The first three hit the deck
 and rolled to their feet with swords in their hands.
 
-"Get on the blasted radio and get me some blased air support!"
+"Get on the blasted radio and get me some blasted air support!"
 Clausbeard roared at the nearest pirate.
 "The rest o' you—hold 'em off 'til the flyers get here!"
 
@@ -1716,16 +1736,16 @@ took aim—
 [^gunwale-sharks]: Which made the sharks very, very happy.
 
 —and froze as a dart the length of Finner's thumb
-suddenly sprouted from the side of his neck.
+sprouted from the side of his neck.
 "Oh drat," he said weakly.
 The ax slid out of his hands.
-He fell to one knee, then both,
+He fell to his knees,
 his hand reaching for the dart as his eyes unfocused.
 
 Finner spun around.
-A single elf dressed in black hung in the rigging of the foresail,
+An elf dressed in black hung in the rigging of the foresail,
 a blowgun in der hand.
-The elf caught Finner's eye and grinned
+De caught Finner's eye and grinned
 as de pulled another dart from the pouch on der belt
 and put it between der teeth.
 De raised the blowgun to der lips and took aim.
@@ -1742,20 +1762,24 @@ spat out the dart de had just swallowed,
 and sagged in the rigging like a straw doll
 hanging forgotten in a tired child's hand.
 
-Finner didn't give himself time to think.
-He spun around and fired again and again.
+Finner didn't let himself think.
+Instead,
+he spun around,
+firing again and again.
 His shots went wild,
 but all of a sudden it was no longer
-just a battle between the pirates and the boarders,
-It was a battle between the elves and the pirates and *him*.
+just the boarders versus the pirates.
+It was the boarders versus the pirates and *him*.
 
 "Their ship!
 Blast their blasted ship, you blasted idiot!"
 Captain Clausbeard shouted.
-Finner squinted,
-pointed the ray gun into the air,
-and pulled the trigger
-just as the deck swayed beneath him.
+Finner pointed the ray gun into the air,
+squinted,
+and pulled the trigger—
+
+—just as the deck swayed beneath him.
+His shot went wide.
 He took aim again,
 flexing his knees in time with the ship's roll and heave,
 and—
@@ -1764,12 +1788,15 @@ and—
 His hand flew to his neck.
 There was something there.
 There was—wait,
-did he have a gym sock in his mouth?
-It sure tasted like he did.
+did he have a dirty gym sock in his mouth?
+It sure felt like he did.
+Tasted like it, too.[^teenage-bets]
 He turned his head sloooowly
 and blinked at a second black-clad elf holding a blowgun,
 and then everything went away,
 including him.
+
+[^teenage-bets]: Teenage boys will do almost anything to win a bet.
 
 </section>
 

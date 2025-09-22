@@ -32,7 +32,7 @@ Here are some other related resources my contacts were able to give me:
 
 -   [Exceptional Behaviors: How Frequently Are They Tested?](https://conf.researchr.org/details/ast-2025/ast-2025-papers/9/Exceptional-Behaviors-How-Frequently-Are-They-Tested-)
 
--   [Automating chaos experiments in production](https://dl.acm.org/doi/10.1109/ICSE-SEIP.2019.00012)
+-   [Automating Chaos Experiments in Production](https://dl.acm.org/doi/10.1109/ICSE-SEIP.2019.00012)
 
 -   [The Exception Handling Riddle: An Empirical Study on the Android API](https://www.sciencedirect.com/science/article/abs/pii/S0164121218300724)
 
@@ -64,7 +64,9 @@ Here are some other related resources my contacts were able to give me:
 
 -   [Understanding Exception Handling: Viewpoints of Novices and Experts](https://ieeexplore.ieee.org/document/5383375)
 
--   [Studying the relationship between exception handling practices and post-release defects](https://dl.acm.org/doi/10.1145/3196398.3196435)
+-   [Studying the Relationship Between Exception Handling Practices and Post-Release Defects](https://dl.acm.org/doi/10.1145/3196398.3196435)
+
+-   [Where Do Developers Log?](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/ICSE-2014-SEIP-Where-Do-Developers-Log-An-Empirical-Study-on-Logging-Practices-in-Industry.pdf)
 
 Again,
 the fact that we don't have reliable figures for this strikes me as odd.
@@ -74,3 +76,9 @@ and then claiming to have improved some arbitrary metric X% over a random baseli
 we still don't know fairly basic things about software development.
 
 *My thanks to everyone who responded to my late-night email about this.*
+
+**Later:**
+this post made the #8 spot on Hacker News.
+It must have been a slow day…
+
+<a href="@/files/2025/hacker-news-hardening.png"><img src="@/files/2025/hacker-news-hardening.png" alt="Hacker News" width="400px"></a>
