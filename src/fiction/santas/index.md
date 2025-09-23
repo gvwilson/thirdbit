@@ -1343,6 +1343,8 @@ And anyway,
 times like these,
 I figure it's every true santa's duty to—"
 
+**FIXME: mention that other ships have been attacked**
+
 "Tell no tales! Tell no tales!"
 the parrot squawked,
 nipping at the pirate's ear.
