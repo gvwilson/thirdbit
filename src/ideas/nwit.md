@@ -565,7 +565,10 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 :   Includes "a case study of autosave implementations across three open-source Python-based text editors. Using 900 empirical software-based energy measurements, we identify key design factors affecting energy use, including save frequency, buffering strategy, and auxiliary logic such as change detection."
 
 186) Patil 2025: "When Bugs Linger: A Study of Anomalous Resolution Time Outliers and Their Themes" <https://arxiv.org/abs/2509.16140>
-:   …specific bug reports experience unusually long resolution times…with anomalies often clustering around test failures, enhancement requests, and user interface issues
+:   …specific bug reports experience unusually long resolution times…with anomalies often clustering around test failures, enhancement requests, and user interface issues.
+
+187) Wang et al 2025: "Incentives and Outcomes in Bug Bounties" <https://arxiv.org/abs/2509.16655>
+:   Looks at the impact of Google increasing bug bounties in July 2024, and finds that it increased the volume of high-value bug received and "both redirected the attention of veteran researchers and attracted new top security researchers".
 
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
