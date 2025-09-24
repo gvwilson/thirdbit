@@ -68,6 +68,8 @@ Here are some other related resources my contacts were able to give me:
 
 -   [Where Do Developers Log?](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/ICSE-2014-SEIP-Where-Do-Developers-Log-An-Empirical-Study-on-Logging-Practices-in-Industry.pdf)
 
+-   [What Leads to a Confirmatory or Disconfirmatory Behavior of Software Testers?](https://ieeexplore.ieee.org/abstract/document/9179007)
+
 Again,
 the fact that we don't have reliable figures for this strikes me as odd.
 As one of them pointed out,
