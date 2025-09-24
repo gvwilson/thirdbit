@@ -570,5 +570,8 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 187) Wang et al 2025: "Incentives and Outcomes in Bug Bounties" <https://arxiv.org/abs/2509.16655>
 :   Looks at the impact of Google increasing bug bounties in July 2024, and finds that it increased the volume of high-value bug received and "both redirected the attention of veteran researchers and attracted new top security researchers".
 
+188) Diallo et al 2025: "Security Evaluation of Android apps in budget African Mobile Devices" <https://arxiv.org/abs/2509.18800>
+:   Of 1544 applications, 145 disclose sensitive data, 249 expose critical components without sufficient safeguards, 226 execute privileged or dangerous commands, 79 interact with SMS messages, 33 perform silent installations, and one vendor-supplied package appears to transmit device IDs and locations to a third party.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
