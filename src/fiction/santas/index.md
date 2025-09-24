@@ -1790,21 +1790,21 @@ and—
 His hand flew to his neck.
 There was something there.
 There was—wait,
-did he have a dirty gym sock in his mouth?
+did he have a dirty gym sock[^gym-sock] in his mouth?
 It sure felt like he did.
-Tasted like it, too.[^teenage-bets]
+Tasted like it, too.
 He turned his head sloooowly
 and blinked at a second black-clad elf holding a blowgun,
 and then everything went away,
 including him.
 
-[^teenage-bets]: Teenage boys will do almost anything to win a bet.
+[^gym-sock]: The particular sock he was thinking of had belonged to a classmate of his whose idea of "funny" was sneaking up behind people and stuffing a sock or a mitten in their mouth. He was eventually eaten by a crocodile while trying to win an ill-considered dare. Nobody really missed him except his parents, and even they were secretly a little relieved.
 
 </section>
 
 <section markdown="1">
 
-## The Airship
+## Captain Snood
 
 When Finner was next aware of his own existence,
 his head was several feet away from his body.
@@ -1813,29 +1813,29 @@ that's how he felt until he scrunched up his eyes
 and opened them again to discover that
 he was in fact lying on a padded table of some kind
 in what looked like an operating room.
-His mouth no longer tasted like a gym sock,[^gym-sock]
-but his tongue still seemed a size larger than usual,
+His mouth no longer tasted like a gym sock,
+but his tongue still seemed much larger than usual,
 and the straps around his wrists and ankles
 were just a little too tight to be comfortable.
-
-[^gym-sock]: The particular sock he was thinking of had belonged to a classmate of his whose idea of "funny" was sneaking up behind people and stuffing a sock or a mitten in their mouth. He was eventually eaten by a crocodile while trying to win an ill-considered dare. Nobody really missed him except his parents, and even they were secretly a little relieved.
 
 His brain paused and reversed
 like a driver noticing an overlooked parking spot.
 Straps?
 Why was he strapped down in what looked like an operating room?
 Half a dozen possible explanations raced through his mind,
-each less comforting than the last.
+each less pleasant than the one before.
 
-He was about to call for help when the door near his feet slid open.
-A santa wearing a white coat and a matching white mask stepped into the room,
+He was wondering if he should call for help
+or hope that his captors had forgotten him
+when the door near his feet slid open.
+A short, plump santa wearing a white coat and a matching white mask stepped into the room,
 exclaimed,
 "You're awake!"
 and fled.
 
 "Hello?" Finner said.
 "Could someone please—um, could someone please let me up?
-I think I need to go to the bathroom."
+I'd like to go to the bathroom."
 
 The door slid open again.
 The elf who entered this time was taller than the santa
@@ -1849,18 +1849,18 @@ and was pointed at Finner.
 
 "I—"
 *I just want to go home,* he finished in his head,
-but what he said was,
-"I really do need to use the bathroom.
+but what he said out loud was,
+"I really do need to go to the bathroom.
 Please."
 
 The elf scowled a moment longer,
 then turned her head slightly.
-"Go ahead," she ordered the santa without taking her eyes off Finner.
+"Undo him," she ordered the santa without taking her eyes off Finner.
 She held the ray gun steady as the santa nervously unbuckled the straps holding Finner down.
 
 He sat up and rubbed his wrists.
 The elf waggled her ray gun toward the door.
-"Out and to the right," she said curtly.
+"Third one on the right," she said curtly.
 "And don't try anything funny."[^try-funny]
 
 [^try-funny]: She probably didn't mean, "Don't try stuffing a sock in my mouth," but we'll never know.
@@ -1869,7 +1869,7 @@ The elf waggled her ray gun toward the door.
 Flat strips set into the ceiling cast orange light
 on doors like the one that slid closed behind them,
 each with a number and a cryptic legend like "Aux. Batt." stenciled on it.
-Finner fumbled with the door's handle,
+Finner fumbled with the bathroom's handle,
 then sighed with relief at the sight of a perfectly normal toilet and sink.
 
 "I'll be right here," the elf warned,
@@ -1897,9 +1897,7 @@ His boots thumped on the rubberized floor as he pelted down the corridor.
 The first door he tried was locked.
 So was the second,[^second-door]
 but the handle of the third turned and clicked.
-He slid the door out of his way,
-ducked in,
-and pulled the door closed again as quietly as he could.
+He ducked in and pulled the door closed behind him as quietly as he could.
 
 [^second-door]: Which is why he never got to find out what "BCB RNV" meant, or why there was a hand-lettered note below the title reminding readers to make sure their next-of-kin form was up to date before entering.
 
@@ -1910,16 +1908,14 @@ then hesitated.
 It might be a light,
 but it might also—he wasn't quite sure what,
 but given how things had been doing,
-"alarm" and "trap door" both seemed possible.
+"alarm" and "incinerator" both seemed possible.
 Instead,
 he pressed his ear to the door
 and listened for sounds of pursuit.
 There was nothing except his own breathing
-and the deep *thrum thrum thrum* of a distant motor.
+and the deep *thrum thrum thrum* of distant motors.
 
-He turned,
-put his back against the door,
-and slid down to the floor.
+He put his back against the wall and slid down to the floor.
 "Well," he said,
 then hugged his knees and pressed his face into them.
 He had no idea where he was,
@@ -1943,22 +1939,22 @@ and others sparkled slightly and tracked Finner with their eyes.
 There were nametags below the pictures,
 each with a date and a six-letter code of some sort.
 
-The door slid open behind him.
+The door opened behind him.
 He whirled around.
 The elf he had run away from looked at him with just a touch of annoyance on her face.
-"How about you just come with me?"
+"How about you come with me?"
 she suggested.
 
-Thirty seconds and three corners later,
-the corridor brought them to a short ladder with rungs polished by hard use.
-Finner clambered up into the murmur and bustle of
+Ninety seconds and three corners later,
+the corridor brought them to a short ladder with rungs polished by frequent use.
+Finner clambered up it into the murmur and bustle of
 the bridge of a airship in flight.
-The front wall was made of hexagonal glass panels
+The front window was made of hexagonal glass panels
 held together by thin strips of brass.
-The walls to either side were filled with instruments, controls, and relays.
+The walls to either side were filled with instruments and controls.
 Santas and elves in blue uniforms paced back and forth beside them,
 adjusting dials and jotting notes on clipboards.
-Another uniformed elf stood facing the enormous window
+A uniformed elf stood facing the enormous window
 with her hands clasped behind her back.
 Her straight back and the cutlass at her side practically shouted "captain".
 
@@ -1972,56 +1968,22 @@ Alpha Two hesitated.
 "Ma'am—"
 
 "I'm sure it will be all right,"
-the captain said smoothly.
+the captain said.
 "If he was going to explode, he would have done so by now."
 
 "Yes, ma'am."
 Alpha Two saluted, turned, and slid back down the ladder.
 
 "Um, excuse me," Finner started,
-then stopped in shock as the captain put her hand on the hilt of her cutlass
+then stopped as the captain put her hand on the hilt of her cutlass
 and turned around.
-
-It was Gran-Granna Tumbly.
-
-</section>
-
-<section markdown="1">
-
-## I Like to Fix Things
-
-People sometimes say, "Their jaw dropped,"
-but that's not what actually happens.
-What *usually* happens is that your mouth opens and closes a few times
-because your brain knows you're supposed to say something like,
-"What are you doing here?"
-but can't find the words.
-It's as if something was stuck in the elevator doors of your mind
-and making it go *ding! ding! ding!* over and over again.
-
-The airship's captain waited patiently for Finner's doors to close.
-The bridge crew glanced at him but didn't interfere:
-flying is tricky even in the best of circumstances,
-and if Finner had been paying attention
-he would have heard quiet murmurs about damage control crews reporting in
-and steering vanes needing in-flight repairs.
-The skirmish with Captain Clausbeard's ship had only been
-the equivalent of two cats taking swipes at one another
-and then pretending each other didn't exist,
-but airships are fragile things.
-
-"Gran-Granna?" Finner finally managed.
-Even as he said it he belatedly realized that the elf wasn't his great-grandmother.
-She was too tall and didn't have nearly enough wrinkles on her face,[^wrinkles-face]
-though they *did* have an impressive scar on one cheek.
-Plus,
-even if the jingly bells on her hat were stuffed with yarn to muffle them,
-she was clearly an elf,
-not a santa.
+She was taller than Gran-Granna Tumbly and didn't have nearly as many wrinkles on her face,[^wrinkles-face]
+and she was clearly an elf rather than a santa,
+but she gave off the same feeling of being an irresistible force in search of an immovable object.
 
 [^wrinkles-face]: Old people don't actually have more wrinkles than young ones: young people's skin just hasn't had enough practice wrinkling to do it all the time. By the time you have smiled or frowned as often as someone like Gran-Granna Tumbly, your wrinkles are like a weight lifter's biceps. Some cultures regard strongly-defined wrinkles as a sign of virtue, and have specialized gyms where people wiggle their eyebrows or smirk over and over while a personal trainer urges them on.
 
-"Captain Snood, actually," the elf said in a clipped voice.
+"Captain Snood, at your service," the elf said in a clipped voice.
 "And you must be Finbar."
 
 "It's Finner,"
@@ -2036,15 +1998,42 @@ She pulled Santa Hood's ray gun out of one of the voluminous pockets of her over
 "Um."
 Finner cleared his throat.
 "If the *Dancing Marmot* is the ship I was just on,
-they rescued us from sharks because our rubber dinghy was sinking.
+they rescued us from sharks because our dinghy was sinking.
 And I got that from one of the santas I was with.
 I think she got it from one of the elves who was shooting at us
-when we were—um,
-well,
-there was this pyramid.
+when we were,
+um,
+earlier.
 I hope I didn't hurt anyone,"
 he added hurriedly,
 thinking of the glass that wasn't in the porthole of Santa Greenwood's old cabin any longer.
+
+"If hope was soup we'd never go hungry,"
+the captain said evenly.
+"You put one of my crew in the infirmary with a rather nasty burn,
+though the doctor says de'll be fine."
+
+"I'm sorry,"
+Finner said contritely.
+"I thought you were attacking us and I wanted to help."
+
+"We were, and unfortunately you did.
+The *Marmot* got away,
+which means you've put dozens or even hundreds of people at risk."
+
+"I'm sorry,"
+Finner repeated miserably.
+
+The bridge crew glanced at them but didn't interfere.
+Flying is tricky even in the best of circumstances,
+and if Finner had been paying attention
+he would have heard quiet murmurs about
+damage control crews reporting hull breaches
+and steering vanes needing in-flight repairs.
+The skirmish with Captain Clausbeard's ship had only been
+the equivalent of two cats taking swipes at one another
+and then pretending each other didn't exist,
+but airships are fragile things.
 
 "Number two stabilizer is back in action, captain,"
 an elf called out from a control panel to Finner's left.
@@ -2058,28 +2047,15 @@ the captain said without taking her eyes off Finner's face.
 Captain Snood studied Finner a moment longer.
 "Let me save us some time,"
 she said as he opened his mouth.
-"Tumbly is my sister.
-We're twins, actually,
-and our parents were so excited about having one of each
-that they pushed her to be as santa as a santa could be
-and me to be the perfect little elf.
-The problem was that we are very alike in temperament,
-so sitting in a workshop making trinkets and gew-gaws didn't really work out for me.
-I wanted *this*."
+"You're Tumbly's great-grandson and I am her nemesis.
+Or one of them, actually—she's the sort of person who collects nemeses.
+She thinks elves ought to sit in dingy basements folding paper,
+but all I ever wanted was *this*."
 Her gesture took in her cutlass, the bridge, the airship, and all the infinite worlds.
-
-"But—" Finner started.
-
-"The funny thing is,"
-Captain Snood continued over top of him,
-"Tum-tum enjoyed tinkering more than I did.
-She kept coming up with new ways to rig harnesses for reindeer and,
-well,
-I presume she still has that sword cane she made?
-Mm.
-Wouldn't ever admit it was elfing, though.
-Actually got quite shirty when I finally brought it up."
-This time her gesture was very clearly aimed at the scar on her cheek.
+"If it wasn't for her lot,
+we'd be delivering some of the best presents the worlds have ever seen.
+As it is…"
+She left the sentence unfinished.
 
 "So—so you're a flip?"
 Finner asked.
@@ -2112,6 +2088,12 @@ This is not a drill!"
 Alpha Seven spun around.
 In the moment it took the elf to realize de had been tricked,
 Finner ran.
+
+</section>
+
+<section markdown="1">
+
+## I Like to Fix Things
 
 *I'm getting pretty good at this,* he thought giddily
 as he half-slid, half-bounced around a corner.
