@@ -573,5 +573,17 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 188) Diallo et al 2025: "Security Evaluation of Android apps in budget African Mobile Devices" <https://arxiv.org/abs/2509.18800>
 :   Of 1544 applications, 145 disclose sensitive data, 249 expose critical components without sufficient safeguards, 226 execute privileged or dangerous commands, 79 interact with SMS messages, 33 perform silent installations, and one vendor-supplied package appears to transmit device IDs and locations to a third party.
 
+189) Stray et al 2025: "Developer Productivity With and Without GitHub Copilot: A Longitudinal Mixed-Methods Case Study"
+:   <https://arxiv.org/abs/2509.20353> Among other things, "…individuals who used Copilot were consistently more active than non-users, even prior to Copilot's introduction."
+
+190) Kumar et al 2025: "Intuition to Evidence: Measuring AI's True Impact on Developer Productivity" <https://arxiv.org/abs/2509.19708>
+:   "…demonstrates statistically significant productivity improvements, including an overall 31.8% reduction in PR review cycle time." Note: I tried to visit the authors' site 1mg.com to learn more about them, but was blocked at their end each time.
+
+191) Liggesmeyer et al 2025: "Protocol Testing with I/O Grammars" <https://arxiv.org/abs/2509.20308>
+:   Proposes a novel approach to protocol testing that combines input generation and output checking in a single framework.
+
+192) Ouf et al 2025: "Reverse Engineering User Stories from Code using Large Language Models" <https://arxiv.org/abs/2509.19587>
+:   "…a single illustrative example enables the smallest model (8B) to match the performance of a much larger 70B model. In contrast, structured reasoning via Chain-of-Thought offers only marginal gains, primarily for larger models."
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
