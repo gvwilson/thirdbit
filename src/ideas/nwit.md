@@ -585,5 +585,8 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 192) Ouf et al 2025: "Reverse Engineering User Stories from Code using Large Language Models" <https://arxiv.org/abs/2509.19587>
 :   "…a single illustrative example enables the smallest model (8B) to match the performance of a much larger 70B model. In contrast, structured reasoning via Chain-of-Thought offers only marginal gains, primarily for larger models."
 
+193) Cutrupi et al 2025: "Women’s Participation in Student Software Development Teams: A Cross-Sectional Study on Role Distribution" <https://www.computer.org/csdl/journal/ts/5555/01/11175036/2adNMtMmb6M>
+:   TO DO
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
