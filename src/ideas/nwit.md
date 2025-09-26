@@ -588,5 +588,11 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 193) Cutrupi et al 2025: "Women’s Participation in Student Software Development Teams: A Cross-Sectional Study on Role Distribution" <https://www.computer.org/csdl/journal/ts/5555/01/11175036/2adNMtMmb6M>
 :   TO DO
 
+194) Kurniawan et al 2025: "Designing for Novice Debuggers: A Pilot Study on an AI-Assisted Debugging Tool" <https://arxiv.org/abs/2509.21067>
+:   "…we aim to design an intuitive debugging assistant, CodeHinter, that combines traditional debugging tools with LLM-based techniques to help novice debuggers fix semantic errors while promoting active engagement in the debugging process. We present findings from our second design iteration…"
+
+195) Hasan Amiri & Mainul Islam 2025: "Enhancing Python Programming Education with an AI-Powered Code Helper: Design, Implementation, and Impact" <https://arxiv.org/abs/2509.20518>
+:   "the system demonstrated an 85% error resolution success rate, outperforming tools like pylint (62%) and GPT-4 (73%). Quantitative results revealed a 59.3% reduction in debugging time, with pre- and post-test assessments showing a 34% improvement in coding proficiency, particularly in recursion and exception handling"
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
