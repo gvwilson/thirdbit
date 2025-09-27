@@ -1868,7 +1868,7 @@ The elf waggled her ray gun toward the door.
 "To the right" was a narrow corridor with painted metal walls and a rubberized floor.
 Flat strips set into the ceiling cast orange light
 on doors like the one that slid closed behind them,
-each with a number and a cryptic legend like "Aux. Batt." stenciled on it.
+each with a number and a cryptic legend like "Aux Batt" or "Emerg Whvr" stenciled on it.
 Finner fumbled with the bathroom's handle,
 then sighed with relief at the sight of a perfectly normal toilet and sink.
 
@@ -1978,13 +1978,22 @@ Alpha Two saluted, turned, and slid back down the ladder.
 then stopped as the captain put her hand on the hilt of her cutlass
 and turned around.
 She was taller than Gran-Granna Tumbly and didn't have nearly as many wrinkles on her face,[^wrinkles-face]
-and she was clearly an elf rather than a santa,
 but she gave off the same feeling of being an irresistible force in search of an immovable object.
 
 [^wrinkles-face]: Old people don't actually have more wrinkles than young ones: young people's skin just hasn't had enough practice wrinkling to do it all the time. By the time you have smiled or frowned as often as someone like Gran-Granna Tumbly, your wrinkles are like a weight lifter's biceps. Some cultures regard strongly-defined wrinkles as a sign of virtue, and have specialized gyms where people wiggle their eyebrows or smirk over and over while a personal trainer urges them on.
 
-"Captain Snood, at your service," the elf said in a clipped voice.
+And even if the jingly bells on her hat were stuffed with yarn to muffle them,
+she was very clearly a santa,
+not an elf.
+
+"Captain Snood, at your service," she said in a clipped voice.
 "And you must be Finbar."
+
+</section>
+
+<section markdown="1">
+
+## That's Not a Word We Use
 
 "It's Finner,"
 Finner corrected automatically.
@@ -1997,14 +2006,14 @@ She pulled Santa Hood's ray gun out of one of the voluminous pockets of her over
 
 "Um."
 Finner cleared his throat.
-"If the *Dancing Marmot* is the ship I was just on,
-they rescued us from sharks because our dinghy was sinking.
+"If the *Dancing Marmot* is Captain Clausbeard's ship,
+he rescued us from sharks because our dinghy was sinking.
 And I got that from one of the santas I was with.
 I think she got it from one of the elves who was shooting at us
 when we were,
 um,
 earlier.
-I hope I didn't hurt anyone,"
+I hope I didn't hurt anyone with it,"
 he added hurriedly,
 thinking of the glass that wasn't in the porthole of Santa Greenwood's old cabin any longer.
 
@@ -2022,7 +2031,12 @@ The *Marmot* got away,
 which means you've put dozens or even hundreds of people at risk."
 
 "I'm sorry,"
-Finner repeated miserably.
+Finner repeated.
+
+Captain Snood cocked her head to one side like a bird.
+"Are you?
+Or are you just embarrassed and afraid?
+Because they're not the same thing."
 
 The bridge crew glanced at them but didn't interfere.
 Flying is tricky even in the best of circumstances,
@@ -2036,7 +2050,7 @@ and then pretending each other didn't exist,
 but airships are fragile things.
 
 "Number two stabilizer is back in action, captain,"
-an elf called out from a control panel to Finner's left.
+a santa called out from a control panel to Finner's left.
 
 "Thank you, Alpha Nine,"
 the captain said without taking her eyes off Finner's face.
@@ -2049,29 +2063,47 @@ Captain Snood studied Finner a moment longer.
 she said as he opened his mouth.
 "You're Tumbly's great-grandson and I am her nemesis.
 Or one of them, actually—she's the sort of person who collects nemeses.
-She thinks elves ought to sit in dingy basements folding paper,
-but all I ever wanted was *this*."
+She thinks santas ought to spend their lives quaffing hot chocolate
+while elves sit in dingy basements folding paper.
+There's no room in her worlds for *this*."
 Her gesture took in her cutlass, the bridge, the airship, and all the infinite worlds.
-"If it wasn't for her lot,
-we'd be delivering some of the best presents the worlds have ever seen.
-As it is…"
-She left the sentence unfinished.
+"I helped repair this after we crashed.
+I learned how to rivet,
+how to weld,
+how to stretch canvas over a frame without letting it tear.
+It was the best two years of my life."
+
+"And then I flew home
+only to have people like Tumbly say that
+I should have stay stranded rather than betray our traditions."
+She stared out the window,
+past the darkening clouds and into painful memories.
 
 "So—so you're a flip?"
-Finner asked.
+Finner ventured.
 
-The captain looked at him with absolutely no expression.[^absolute-expression]
+Captain Snood looked at him with absolutely no expression.[^absolute-expression]
 "That's not a word we use on this ship," she said levelly.
-"Alpha Seven?"
+"Now, what can you tell me about the robots?
+Where is Clausbeard headed,
+and who are they planning to replace next?"
 
 [^absolute-expression]: In the sense of "absolute zero".
 
-A nearby elf saluted.
+"Robots?
+I don't know anything about robots!"
+But even as he said it,
+he remembered Santa Hood pointing the ray gun at him on board the *Dancing Marmot*.
+
+Captain Snood must have seen the recollection on his face.
+"Alpha Seven?"
+
+A nearby crew member saluted.
 "Yes, captain."
 
-"Remove him from the bridge.
+"Remove Mister Finner to the brig, if you would.
 Find someone from Beta watch who has annoyed me recently
-and tell them to keep him out of trouble."
+and tell them to keep an eye on him until I he's ready to talk to us."
 
 A few moments later Finner was back at the bottom of the ladder.
 "That way,"
@@ -2089,22 +2121,19 @@ Alpha Seven spun around.
 In the moment it took the elf to realize de had been tricked,
 Finner ran.
 
-</section>
-
-<section markdown="1">
-
-## I Like to Fix Things
-
 *I'm getting pretty good at this,* he thought giddily
 as he half-slid, half-bounced around a corner.
 There!
 Door number one oh six, "Emerg Whvr".
+He hoped it meant what he thought it meant,
+because if it didn't,
+he was going to set a record for the world's briefest escape.
+
 He twisted the handle,
-pulled it aside,
-stubbed his toe on the sill as he stepped through,
-and slid the door shut behind him.
-*Snick!*
-He hoped that was a lock.
+pulled the door aside,
+tripped on the sill as he stepped through,
+slid the door shut behind him and snicked the lock.
+At least he hoped that was a lock.
 Even more,
 he hoped he wouldn't be here long enough to find out if it wasn't.
 
@@ -2128,8 +2157,8 @@ Open up *now*!"
 Finner sang.
 The codes had to stand for places,
 and the numbers had to be how to set the dials to get to them,
-but how was he supposed to know where "QCD" or "NAR" were
-or whether they were safe to go to,
+but how was he supposed to know where "QCD" or "NAR" were?
+Or whether they were safe to go to,
 because he was pretty sure "OVB" wasn't.
 
 "Last chance!" Alpha Seven bellowed.
@@ -2138,8 +2167,7 @@ because he was pretty sure "OVB" wasn't.
 Finner said a word he was pretty sure his parents thought he still didn't know.
 If he picked a world at random
 he could wind up on the moon without a spacesuit
-or sitting on an ice floe wondering if the cold or Santa Kraken
-would get to him first.
+or back in the ocean wondering if the cold or Santa Kraken would get to him first.
 
 His shoulders slumped.
 Better to be a prisoner than a meal.
@@ -2171,6 +2199,7 @@ and weren't yet able to wriggle back underneath it.
 Maybe you didn't realize that someone else in the house liked cold showers
 and turned on the water *while you were already standing there*
 and were blasted with the last few seconds of that previous person's liquid self-loathing.
+
 Or perhaps you have had to endure the kind of bone-deep chill of being poor in winter,
 of not being able to afford to turn up the heat during the day
 or to buy a coat that's thick enough to keep out the wind.
@@ -2184,9 +2213,9 @@ Finner felt even colder than that.
 The sky above him was an impossibly clear blue
 and the sun was so bright he couldn't even look *near* it,
 but each time he took a breath
-he could feel the air going into every little corner of his lungs.
-Tiny icicles had formed in his nostrils,
-and his beard crackled each time he squinted.
+he felt icy tendrils of air in every little corner of his lungs.
+Tiny icicles formed in his nostrils,
+and his beard crackled when opened or closed his mouth.
 
 The snow squeaked beneath his boots with every step.
 Basic survival training is part of every santa's education,
@@ -2198,50 +2227,56 @@ but he had to keep moving.
 
 He struggled up to the top of yet another shallow ridge
 and rubbed his eyes with fingers he could no longer feel properly.
-Were there icicles in his eyelashes?
+Were there icicles in his eyelashes as well?
 That wasn't important.
 What mattered was that he could see something large, dark, and rectangular on the horizon.
-A factory, a lab, a fortress:
+A factory,
+a fortress,
+a research station abandoned when an attempt to reanimate the dead
+worked a little too well:
 as long as it wasn't ice,
 it was something to aim for.
 He stumbled toward it,
-hugging himself to keep in what little body heat he had left.
+hugging himself to hold on to what little body heat he had left.
 
 When he reached the top of the next ridge
 he had to stop and rub his eyes again.
-An enormous factory sat in the shallow valley in front of him.
+It was a factory—an enormous factory sitting in a shallow valley
+that offered a little protection from the intensifying wind.
 Finner could have stacked ten copies of his house on top of one another
-and still not reached its steeply-slanted roof.
-Turrets and towers,
+and still not reached the building's steeply-slanted roof.
+It had turrets and towers,
 windows of all shapes and sizes,
-and steam—steam!—rising from chimneys.
+and there was steam—steam!—rising from one of its chimneys.
 
 He was about to start down the ridge
-when one of the turrets turned its head and blinked.
+when the thing he had thought was a chimney turned its head and blinked,
+the fog of its breath rising from its nostrils.
 Three people could have sat side by side between its eyes,
 and its saber-sharp teeth were as long as Finner was tall.
-The tattered remnants of its red vest were almost gray with grime and age.
 
 Finner ducked behind the ridge line.
-The creature was a *santasaurus rex*,
-but twice the size of any he'd ever heard of,
-and it was between him and his only hope of not freezing.
+The red scales on the creature's chest, arms, and head
+made it look like it was wearing a santa's uniform,
+which meant it was a *santasaurus rex*,
+but it was ten times bigger than any he'd ever heard of.
+It was also between him and his only hope of not freezing.
 
 "Well that's a problem,"
 a voice said.
 "Whatever shall we do?"
 
-Finner turned around slowly.
+Finner turned around clumsily.
 The elf standing there was wearing a carefully-patched green coat and a tasselled hat.
 Its steel body and cheery painted face was scratched and dented,
 but the ray gun it was pointing at Finner looked brand new.
 
 Finner raised his hands.
-"I g-g-give up," he chattered miserably.
+"I g-g-give up," he chattered.
 
 The robot's lightbulb eyes blinked on and off rapidly.
 "Oh dear.
-Are you organic?
+You're organic, aren't you?
 That's rather a poor choice in *this* climate."
 It tucked the ray gun into a pocket and held out its hand.
 "Come along.
@@ -2250,34 +2285,34 @@ Let's get you somewhere warm."
 The robot's feet were flat round pads that left shallow circular dents in the top of the snow.
 After stopping several times for Finner could catch up,
 it picked him up and carried him.
-Finner would have protested, but he was too tired to more than mumble.
+Finner would have protested,
+but he was too tired to more than mumble.
 His ears had stopped hurting.
 He was pretty sure that was a bad sign.
 Why was he trying to keep his eyes open?
 He knew it was important in a distantly theoretical kind of way.
 Maybe he would remember when he woke up…
 
-The next thing he remembered, everything hurt.
+The next thing he knew, everything hurt.
 His ears, his toes, his back, his throat—his whole body
 wanted him to know it was annoyed.
 He was lying beneath a heavy pile of scratchy blankets,
 and a quick, furtive inspection confirmed that yes,
-he was naked.
-Warm and not dead,
-but someone had undressed him while he was unconscious.
+someone had stripped him down to his underwear while he was unconscious.
+He sat up and clutched the blankets to his chest,
+momentarily grateful that whoever had taken his clothes off
+hadn't strapped him down.
 
-He sat up,
-clutching the blankets to his chest.
 He had been lying on a bench whose vinyl cushions were flaking with age
 in a room that looked like an abandoned subway station.
 with cracked floor tiles and a truly memorable bouquet
 that was equal parts damp earth, oily rust, and wet dog,
-the last of which was coming from the blankets.
+the last of which came from the blankets.
 Two square glass panels connected to a boxy battery
 cast a gloomy blue light over crates, boxes, sacks, and bags,
 each one overflowing with broken toys,
 salvaged pieces of clothing,
-and kitchen implements still in their immaculate plastic packaging.
+and kitchen implements still wearing immaculate plastic packaging.
 
 "Ah, good, you're awake."
 Finner twisted around at the sound of the robot elf's voice.
@@ -2289,7 +2324,7 @@ Finner asked,
 gingerly taking the mug the robot offered him
 and then doing a double-take.
 The robot elf wasn't a robot.
-In fact, it wasn't even an elf.
+In fact, it wasn't an elf, either.
 She was a santa,
 and very much alive,
 though the years on her face made her look
@@ -2297,24 +2332,29 @@ as battered and worn as the subway station.
 
 The santa tsk'ed.
 "People, that's what happened.
-People who never felt they had enough no matter how many presents they got.
-It all turned into ray guns and speeches and explosions.
+People who kept wishing for bigger ray guns and explody things than their neighbors.
+It all turned into speeches and, well, as you've seen.
 How's the tea?"
 
 "Fine," Finner said automatically,
-by which he meant "warm".
+by which he meant "warm",
+because it actually tasted quite stale.
 "But if you don't mind, where *am* I?"
 
 The santa patted Finner's shoulder.
 "Get dressed and I'll show you."
 
-Finner was *not* excited about going deeper into the derelict subway tunnel,
-but when the santa picked up the light panels and strode away,
-it was either that or sit in the dark
-and listen to the ceiling drip.
+Finner was not excited about going deeper into the derelict subway tunnel.
+When the santa picked up the light panels and began limping slowly away,
+though,
+his options were to follow her
+or to sit in the dark and listen to the ceiling drip.
+He pulled on his clothes,
+which were waiting for him in a neat pile next to the bench,
+and hurried after her.
 
-The santa waited patiently for him in front of a heavy metal door
-as he picked his way around the piles of salvage.
+The santa waited for him patiently in front of a heavy metal door
+while he picked his way around the piles of salvage.
 "Here," she said,
 passing a light to Finner.
 She punched a code into the panel beside the door,
@@ -2339,8 +2379,8 @@ The engine was decorated with silver bells
 and had a small silver snowman as a crest.
 Green enameled holly leaves ran up the sides of the three cars behind it.
 It was so beautiful that he almost didn't notice the scrapes and scratches,
-the scorch marks from ray gun fire,
-and the sheets of plastic taped up where windows had once been.
+the sheets of plastic taped up where windows had once been,
+and the scorch marks from ray gun fire.
 
 "It's the last of its kind," the santa said.
 "Or it will be when I get it working.
@@ -2351,13 +2391,13 @@ Books and manuals lay on top of it,
 some with scraps of paper tucked into them as placeholders.
 Finner picked up one of the books.
 *Mechanical Motors Part XVII: Reciprocating Drives* was stamped on the cover.
-Inside were diagrams so detailed he would have needed a magnifying glass to make sense of them
-and dense blocks of text interrupted by formulas and tables.
+Inside were dense blocks of text interrupted by formulas and tables
+and diagrams so detailed he would have needed a magnifying glass to make sense of them.
 "Are you repairing it yourself?"
 
 The santa nodded.
 "There was a school three stops up the line before everything fell apart.
-Took a while,
+It took a while,
 but I managed to sneak past Santazilla and find these.
 Elfabot's helping,"
 she added.
@@ -2370,11 +2410,11 @@ Finner paused for a moment to consider his words.
 he finally ventured.
 
 The santa shrugged.
-"This isn't actually my world.
-But santa this, elf that—it all seems pretty foolish when everything has fallen apart.
+"Santa this, elf that—it all seems pretty foolish when everything has fallen apart.
 I think what matters is whether people are happy or not.
 All I know is that if we can fix the train and deliver some presents,
-the world will be a better place."
+it might make up for—well,
+for some of the presents I *shouldn't* have delivered."
 
 She straightened some tools on the workbench nearest her.
 "Now, tell me about you.
@@ -2390,7 +2430,7 @@ So if I could just use yours to get home, I'd really appreciate it."
 
 "I'm afraid that will be rather difficult,"
 the Elfabot said,
-poking its head out from behind the train's engine.
+poking its head out from underneath the train's engine.
 "You see,
 the only one left in this world is in the factory that Santazilla is guarding."
 
@@ -2398,10 +2438,10 @@ the only one left in this world is in the factory that Santazilla is guarding."
 
 <section markdown="1">
 
-## A Train Ride
+## Deliveries
 
 Here's a fun fact:
-if you eat nothing but cold tinned beans for a week,
+if you eat nothing but cold tinned beans for breakfast, lunch, and dinner,
 you don't actually learn to appreciate either their taste or their texture.
 Here's another:
 hot showers are possibly the greatest thing ever invented,
@@ -2410,10 +2450,10 @@ particularly if you're only allowed one a day and it only lasts three minutes.
 And here's a third:
 joy can be found at the strangest of times and in the most unlikely places.
 Finner knew his parents must be worried sick about him,
-and he missed his friends and sleeping on a mattress instead of on a bench,
+and he missed Santa Hood and Santa Greenwood and sleeping on a mattress instead of a bench,
 but the next few days were as happy as any he could remember.
 Though when he thought about it
-(which he did every night as he tried to get comfortable on his bench),
+(which he did every night as he tried to get comfortable on his bench)
 "happy" was the wrong word.
 "Rewarding" or "fulfilling" would be more accurate.
 Despite her protests that she was still learning,
@@ -2427,33 +2467,35 @@ were just enough guidance to keep him from being frustrated.
 They never talked about the fact that they were santas.
 They never talked about the santa's persistent cough,
 either,
-or the fact that whenever she needed to lift something heavy
+or the fact that whenever she needed something heavy lifted,
 the Elfabot did it for her.
 She wheezed faintly when she took her afternoon nap,
-and the bags under her eyes seemed darker every day.
+and the bags under her eyes seemed to get darker by the day.
 
 It was during one of those naps that Finner betrayed her.
-He had agonized about doing it for several days,
+He had agonized about doing it,
 but in the end convinced himself that he didn't have a choice.
-The more he thought about what had happened,
-the less sense it made.
+The more he tried to make sense of what had happened to him,
+the less the pieces fit together.
 He needed to find out more about this world,
 and the only way to do that was to break into the only room that the santa kept locked.
 
 He spent several surreptitious hours studying *Yuen's Guide to Mechanical Locks (Abridged)*,
 then waited until the Elfabot was out on a scavenging expedition and the santa was asleep.
-It took less time to pick the room's lock than he expected.
+It took less time to pick the room's lock than he expected.[^lock-picking]
 When it clicked he took a deep breath and slowly opened the door,
 wincing at a slight squeak.
 
-A light panel flickered on overhead automatically
+[^lock-picking]: *Yuen's* is crisply written, logically organized, and clearly illustrated. It is everything that a book like me aspires to be.
+
+A light bulb flickered on overhead automatically
 to reveal stacked with arms, legs, hands, feet, and heads.
 Every shelf was neatly labelled and everything was tidy,
 but somehow that was more frightening than helter-skelter piles would have been.
 
 *Mannequins,* he thought wildly.
-*Robots. Props for the theater.*
-Because of course they couldn't actually be—be what they looked like.
+*Props for the theater.*
+Because of course they couldn't actually be what they looked like.
 
 Swallowing hard,
 he stepped forward and poked the nearest leg with his finger.
@@ -2462,18 +2504,21 @@ just like the real thing,
 but it didn't twitch and the toes didn't wiggle
 so at least there was that.
 
-He was just about to poke it again when something clunked behind him.
+He had just realized that it had a metal strut where a bone should have been[^bone]
+when something clunked behind him.
 Grabbing the leg by the ankle and raising it like a club,
 he whirled around,
 shifting his grip a moment later to get the thigh out of his face.[^thigh-face]
+
+[^bone]: For some value of "should have been".
 
 [^thigh-face]: If you ever pick up a leg to wave at someone, please remember that it bends at the knee.
 
 "How about you put that back?"
 the Elfabot suggested.
-"Quietly, please—she needs her rest."
+"Quietly, please—she does need her rest."
 
-Finner swallowed hard and set the leg down meekly.
+Finner set the leg down meekly.
 The Elfabot stepped aside to let him pass.
 As he did so,
 he caught a glimpse of a framed photograph on the wall next to the door
@@ -2484,6 +2529,96 @@ it had been on the wall of Gran-Granna Tumbly's living room.
 Why did the santa have a copy too?
 And why did she have a room full of exactly the parts she would need
 to make robot replacements for people?
+
+He didn't ask either question when the santa woke up.
+Instead,
+he said,
+"Of course,"
+when she asked if he would like to help her make some deliveries,
+partly because she looked so weak
+but also because he was suddenly desperate for fresh air,
+however cold.
+
+Finner thought they would take the subway train.
+Instead,
+they loaded boxes of beans and salvaged equipment onto a traditional sleigh
+hidden under a dirty gray tarp near the entrance to the station.
+His thighs were burning from trips up and down the broken escalator
+by the time the santa said,
+"Right, that's the last of it."
+
+The Elfabot gave him a parka that was only a couple of sizes too large.
+The santa put on a one-piece survival suit.
+"In case we run into the santazilla?" Finner asked
+as the santa checked and holstered a ray gun.
+
+She shook her head as she climbed onto the sleigh's bench seat beside him.
+"This wouldn't do anything more than annoy it.
+No,
+this is in case we run into anyone who isn't glad to see us.
+Shall we?"
+she continued to the Elfabot.
+
+The robot stepped between the sleigh's front shafts,
+grabbed hold with both hands,
+and braced both feet.
+The sleigh lurched forward,
+then began to slide across the hard-packed snow.
+
+Their first stop came half an hour later.
+The Elfabot pulled the sleigh under an overhang
+in front of a tall building that Finner guessed had once been a hotel.
+Two figures in heavy coats and ski masks came out
+and took the boxes that Finner passed to them
+with only a muttered, "Thanks."
+
+Their reception was just as frosty at the next stop,
+where they dropped off some of the salvaged machinery as well as the beans.
+"Sphenometer's broken again,"
+one person said while the other stacked the delivery on a child's sled
+and tied it down.
+
+"I'll see what I can find,"
+the santa said.
+The person nodded curtly and turned without saying goodbye.
+
+"They don't seem very happy to see you,"
+Finner said once they were in motion again.
+
+The santa shrugged wearily.
+"No reason they should be.
+None of this would have happened if I hadn't—"
+
+Finner watched the broken scenery slide by while she collected herself.
+Other than the people who had accepted their deliveries,
+he hadn't seen a single living thing since they left the subway station.
+"I just wanted to make them happy,"
+the santa said.
+"That's what we were taught to do:
+bring them what they most desire.
+What they do with it isn't supposed to be our concern.
+We just *deliver* hammers—it's up to them to decide what's a nail."
+She said it as if she was quoting someone,
+then wiped her eyes and snorted.
+"Tumbly warned me it would end badly,
+but we were already arguing about so many other things
+that I wasn't of a mind to listen."
+
+The sleigh bumped over something buried beneath the snow.
+Pieces of a puzzle he hadn't known his brain was trying to solve
+clicked together in Finner's head.
+"You're Shady Ann, aren't you?"
+he said.
+
+She smiled,
+though her eyes remained sad.
+"Ho ho ho," she said.
+
+</section>
+
+<section markdown="1">
+
+## A Train Ride
 
 It took another week to finish fixing the subway train.
 Finner enjoyed it despite worrying that the Elfabot was going to smother him in his sleep
@@ -2514,10 +2649,10 @@ Finally the train was ready,
 or at least ready enough.
 The santa assembled a complicated diagram out of thumbtacks and yarn
 on top of a grimy old map of the city.
-"We can't go straight to factory—that would give away the workshop's location,"
+"You can't go straight to factory—that would give away the workshop's location,"
 she explained,
 talking to herself as much as to Finner.
-"So we take the elevated track to here,
+"So you'll take the elevated track to here,
 switch lines,
 pick up speed on this downhill,
 the slow a little for this bend for you to jump off,
