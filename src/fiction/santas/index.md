@@ -2523,8 +2523,12 @@ The Elfabot stepped aside to let him pass.
 As he did so,
 he caught a glimpse of a framed photograph on the wall next to the door
 of two middle-aged women in red-and-white coats holding hands.
-A chill ran down his spine.
-The last time he had seen that picture
+Off to the side,
+in the picture but not quite part of it,
+a bespectacled elf looked at the pair with wistful pride in his eyes.
+
+A chill ran down Finner's spine.
+The last time he had seen that photograph
 it had been on the wall of Gran-Granna Tumbly's living room.
 Why did the santa have a copy too?
 And why did she have a room full of exactly the parts she would need
@@ -2574,9 +2578,10 @@ with only a muttered, "Thanks."
 
 Their reception was just as frosty at the next stop,
 where they dropped off some of the salvaged machinery as well as the beans.
-"Sphenometer's broken again,"
+"Well, if it ain't the subway santa,"
 one person said while the other stacked the delivery on a child's sled
 and tied it down.
+"Sphenometer's broken again."
 
 "I'll see what I can find,"
 the santa said.
@@ -2620,7 +2625,36 @@ though her eyes remained sad.
 
 ## A Train Ride
 
-It took another week to finish fixing the subway train.
+The delivery trip exhausted Shady Ann.
+She spent all of the next day in bed,
+coughing when she was awake
+and wheezing when she was asleep.
+The Elfabot made cup after cup of tea,
+dosing it with something that made Finner's eyes water.
+
+He had so many questions to ask that he started writing a list,
+only to have the Elfabot tear it up.
+"She will tell you what she wants to tell you when she wants to tell you,"
+it told him when he protested.
+It waited until he nodded,
+then went back to sorting through the haul from its latest scavenging run.
+
+Finally Shady Ann was able to sit up.
+"I hate being sick,"
+she told Finner.
+"Not just the ache of it, but the time it steals."
+She stirred her beans with a fork,
+then set the bowl aside and looked at him for a moment.
+"I think it's time we got you home."
+
+"Sure."
+He forced a smile.
+"We'll just go up to Santazilla and say please may we use the wherever."
+
+Shady Ann smiled back wanly.
+"Something like that."
+
+It took them another week to finish fixing the subway train.
 Finner enjoyed it despite worrying that the Elfabot was going to smother him in his sleep
 so that a robot could take his place.
 He bashed his thumb with a mallet at one point,
@@ -2632,24 +2666,24 @@ all of which had to be connected with sleeve couplings,
 flanged couplings,
 universal couplings,
 and something called an Oldham coupling
-that he and the santa spent half an hour puzzling over
-before the santa declared that the train would probably run without it.
+that he and Shady Ann spent half an hour puzzling over
+before she declared that the train would probably run without it.
 They loosened bolts and tightened screws,
 oiled pistons,
 and cleaned the grime out of window jambs
 so that the sashes slid up and down with only a faint *ssh*.
 
 Every once in a while,
-though,
-the santa raised her hand in warning.
+Shady Ann raised her hand in warning.
 Finner held his breath while heavy steps thudded on the ground above their heads.
 Neither of them moved until the sound had receded into the distance.
 
 Finally the train was ready,
 or at least ready enough.
-The santa assembled a complicated diagram out of thumbtacks and yarn
+Shady Ann assembled a complicated diagram out of thumbtacks and yarn
 on top of a grimy old map of the city.
-"You can't go straight to factory—that would give away the workshop's location,"
+"You can't go straight to factory—that would give away the workshop's location,
+and I still have deliveries to do,"
 she explained,
 talking to herself as much as to Finner.
 "So you'll take the elevated track to here,
@@ -2665,10 +2699,9 @@ Finner interrupted.
 "Oh yes."
 She tapped the map with a grimy finger.
 "It wouldn't be at all safe to stop.
-But don't worry, the snowbank is quite deep."
+But don't worry, the Elfabot says the snowbank is quite deep."
 
 When the time came to leave,
-though,
 she was too weak to drive.
 "I'll be fine,"
 she said,
@@ -2691,37 +2724,48 @@ clapping Finner on the shoulder awkwardly.
 Finner swallowed the sudden lump in his throat
 and tucked the case into his pocket.
 It was heavy,
-but he didn't mind.
+but the weight was welcome.
 
-"Ready?"
+"All set?"
 the Elfabot asked as Finner closed the subway door behind himself.
 
 "No," Finner said.
+He through the window at Shady Ann,
+who waved.
+"She's really sick, isn't she?"
 
-The Elfabot nodded and pulled first one lever and then another.
+"Yes,"
+the robot said.
+"She is dying.
+It makes me sad,
+but she tells me that all organics do it eventually.
+I hope my creator will make a copy of her to keep me company when she is gone."
+
+Before Finner could ask any more questions,
+the Elfabot pulled first one lever and then another.
 The subway car vibrated faintly as the engine came to life.
-Pulling another lever,
-it slowly pressed a pedal down with a booted foot.
+The robot slowly pressed a pedal down with a booted foot.
 At first nothing happened,
 and for a heartbeat Finner was afraid that they had done something wrong,
-or that *he* had done something wrong.
-Then the train began to roll forward,
+or that *he* had done something wrong,
+but then the train began to roll forward,
 slowly at first and then faster.
 
-He grabbed a bar overhead to steady himself as the santa waved farewell.
+He grabbed a bar overhead to steady himself as the santa waved once again.
 Faster and faster they went,
 out of the workshop and into the tunnel.
 The train's headlamp came on as it raced along the tracks.
 The Elfabot had spent hours clearing debris from them,
-stacking fallen pieces of tile and masonry on a handcart to dump in a side passage.
-They hurtled past its hard work in moments,
-whooping with excitement as they shot out of the darkness into the gray light of an overcast day.
+stacking fallen pieces of tile and masonry on a handcart to dump in side passages
+so as not to reveal the work to Santazilla.
+They hurtled past its hard work in moments.
+Finner whooped as they shot out of the darkness into the gray light of an overcast day.
 
 "Here we go," the Elfabot said unnecessarily
 as they crested the top of the track and hurtled down into a corkscrew section.
 Half the lights on the control panel were red.[^panel-lights]
-Finner clamped one hand around an overhead bar and the other over his mouth
-as he was upside down,
+Finner tightened his grip on the overhead bar and put his other hand over his mouth.
+He was upside down,
 right-side up,
 upside down again,
 and—nope,
@@ -2759,11 +2803,11 @@ The giant santasaurus was closing fast.
 "We're not going to make it!"
 
 The Elfabot's eyes flashed rapidly.
-"Sure we will. I brought presents!"
+"That depends on whether it likes its presents or not."
 It flipped the safety cover off a big red button[^red-button]
 and punched it with a fist.
 
-[^red-button]: The santa and Finner had spent almost a day to choosing an appropriate button. It had to be red—tradition demanded nothing less—but they dithered for a while between one with the word "DANGER!" stamped on it and another shaped like a skull and crossbones. In the end, they went with both.
+[^red-button]: Shady Ann and Finner had spent almost a day to choosing an appropriate button. It had to be red—tradition demanded nothing less—but they dithered for a while between one with the word "DANGER!" stamped on it and another shaped like a skull and crossbones. In the end, they made one that had both.
 
 *Clunk!*
 The hitch connecting the caboose snapped open.
@@ -2774,12 +2818,6 @@ At "five"
 the car exploded
 just as Santazilla stepped on it.
 
-</section>
-
-<section markdown="1">
-
-## Old(ish) Friends
-
 You would be annoyed if a firecracker went off under your boot.
 You would probably be more than just annoyed if it went off under your bare foot.
 And if you a highly territorial predator,
@@ -2789,11 +2827,18 @@ and had just been knocked off your feet by the explosion,
 you would probably express your annoyance with a earth-shaking roar
 and knock over a building or two.
 
-"Jump!"
+"Now!"
 the Elfabot shouted as Santazilla struggled back to its feet.
 "Jump *now*!"
 
 Finner jumped.
+
+</section>
+
+<section markdown="1">
+
+## Old(ish) Friends
+
 Long-dead branches scratched his face as he landed in
 the bush next to the one he had been aiming for.
 The train's bell clanged as it accelerated away.
