@@ -2841,26 +2841,28 @@ Finner jumped.
 
 Long-dead branches scratched his face as he landed in
 the bush next to the one he had been aiming for.
-The train's bell clanged as it accelerated away.
+The Elfabot rang the engine's bell for good luck as it accelerated,
+or possibly to try to get Santazilla to follow it.
 
-Santazilla roared again.
-Something in the back of Finner's brain begged him to hide,
+Santazilla ignored the train and roared again.
+The "keep out of predators" part of Finner's brain begged him to hide,
 to be still,
 to let the hunter eat someone else,
 but he squelched the thought.
 He needed to get home,
 and anyway,
-there *wasn't* a "someone else" for Santazilla to eat.
+there *wasn't* a "someone else".
 
 So he ran.
-His coat and heavy trousers made him clumsy,
-but the factory door was only a hundred strides away.
+His heavy coat and trousers made him clumsy,
+but the factory door was only a block away.
 He could do this.
+He *had* to.
 
 *Thud. Thud. Thud.*
 Giant steps shook the ground.
 Finner didn't waste time looking over his shoulder.
-He would make it to the gate or he wouldn't.
+He would make it to the factory or he wouldn't.
 
 Sixty strides.
 Fifty.
@@ -2877,7 +2879,7 @@ He fell forward onto his hands and knees just as giant teeth snapped shut where 
 The factory door burst open.
 "Stay down!" Santa Greenwood yelled.
 The rocket launcher on his shoulder belched flame.
-A moment later a sharp crack and another enraged bellow
+A moment later a boom and another enraged bellow
 told Finner that the missile had hit its mark.
 
 Hands grabbed Finner's shoulders.
@@ -2886,15 +2888,14 @@ Santa Hood pulled him to his feet.
 
 Finner didn't need to be told twice.
 Twenty strides.
-Ten,
-and Santa Greenwood had reloaded.
+Ten.
 "Clear!" Santa Hood snapped.
 The burly santa fired a second rocket
-and then pulled the door closed behind Finner and Santa Hood.
+and pulled the door closed behind Finner and Santa Hood.
 
 "What are—" Finner started.
 
-"Save it!" Santa Hood ordered.
+"Later!" Santa Hood ordered.
 They were in a large room that had probably been quite impressive
 before the ceiling caved in
 and someone turned the oversized reception desk on its side to shelter behind.
@@ -2906,28 +2907,29 @@ tossing the rocket launcher aside.
 
 "Now," Santa Hood confirmed.
 The bigger santa nodded,
-pulled a black radio controller out of his pocket,
+fished a black controller out of his pocket,
+pulled out its antenna,
 flipped the safety out of the way,
 and pushed the button.[^black-button]
 
 [^black-button]: Which had neither the word "DANGER!" nor a skull and crossbones on it, but please don't judge them for cutting corners.
 
 *Boom! Boom! Boom!*
-The ground shook again.
-Santa Hood grinned.
-"That ought to keep it busy."
+Bits of plaster rained on them as the explosions shook the building.
+Santa Hood grinned manically.
+"My favorite kind of present."
 
-The corridor that led to the lab containing the wherever
+The corridor that led to the laboratory containing the wherever
 was in no better shape than the entrance way.
 Finner kept the flashlight that Santa Hood gave him pointed at the floor in front of his feet.
 Ten strides, twenty…
 When had he started counting his steps?
-Did other people when they were afraid?
-And did they ask themselves inane questions at times like this?[^inane]
+Did other people do that when they were afraid?
+And did they ask themselves inane questions to avoid thinking about everything that could go wrong?[^inane]
 
 [^inane]: Yes.
 
-Yellow-tinged light from a pair of camping lanterns lit up the lab.
+Yellow light from a pair of camping lanterns lit up the lab.
 Santa Greenwood unslung his ax and nodded at the door frame standing between the lanterns.
 "I'll go first, just in case," he said gruffly.
 Finner nodded,
@@ -2937,15 +2939,13 @@ Santa Hood spun the dials.
 Something geometrically impossible happened to Santa Greenwood.
 "Your turn,"
 she told Finner.
-Spin, bloop, and he was back in the room on the airship
-with a line drawing of an archway on one whitewashed wall
-and heavy brass dials beside it.
+Spin, bloop, and he was back in the room on the airship where he had started.
 
 Bloop.
-Santa Hood gave Finner a quick hug.
-"Welcome back," she said in his ear.
+Santa Hood squeezed into the universe and gave Finner a quick hug.
+"Welcome back," she said.
 
-"All clear out here,"
+"All clear,"
 Santa Greenwood called from the corridor.
 
 Santa Hood unhugged him and stepped back.
@@ -2958,8 +2958,8 @@ and plastic planks taped down over a hole in floor.
 
 "Pretty sure some of them got away,"
 Santa Hood said,
-but she didn't meet his eyes as she said it.
-"Here's your cabin.
+not meeting his eyes.
+"Here—you can have one of the officers' cabins.
 Why don't you clean up and get some sleep?"
 
 A brisk knock on the door woke him a few hours later.
@@ -2969,6 +2969,24 @@ Santa Hood said briskly as she slid the door open.
 She pulled up her sleeve and studied a wristwatch with half a dozen hands,
 her lips moving for a moment.
 "I'd say it's about tea time, actually."
+
+"How did you find me?" he asked,
+suddenly realizing that he probably should have some time ago.
+
+Santa Hood's grin gave up entirely.
+"We got a message.
+Or sensei did, actually.
+She didn't believe it at first,
+but whoever sent it convinced her."
+
+She paused as if to let Finner volunteer a name.
+When he didn't,
+she continued,
+"We had just captured the *Yanina*—that's
+this airship, by the way—but
+sensei didn't think it would be safe to take it through.
+The rest was…"
+She shrugged.
 
 The tea was quite good,
 and so was the buttered naan that came with it.
@@ -2981,34 +2999,34 @@ and under the branches of the evergreens in an L-shaped park
 that Finner suddenly realized he had played in when he was younger.
 
 He swallowed the lump in his throat.
-"That's my house," he said shakily, pointing at a slate-gray roof
-no different from any of those beside it
+"That's my house," he said shakily,
+pointing at a slate-gray roof no different from any of those beside it
 except for how it made him feel.
 
 Santa Hood grinned.
 "Yes it is."
 Her grin slipped a bit.
-"Have to take you to Sensei Tumbly's first, though.
+"We have to take you to Sensei Tumbly's first, though.
 She's going to have questions,
 and I expect she'd rather not wait for answers."
 
 Like most neighborhoods in town,
 Finner's had a gangly airship docking tower
-that was mostly used for furniture deliveries and house removals.
+that was mostly used for furniture deliveries.
 He'd only been up to the top once,
-on a school trip that consisted of flying in a big circle around town
+on a school trip that consisted of flying in a big circle
 under drizzling clouds
 while the teacher tried to sound excited about urban planning.
 The tower's waiting room seemed both larger and smaller than he remembered:
 larger because it wasn't packed with two dozen young santas and elves,
-and smaller because—he pushed that thought away for the time being.
+and smaller because it wasn't a pyramid or a pirate ship or a ruined subway station.
 
 He and Santa Hood rode the elevator down in silence.
 A tricycle taxi was waiting for them.
 Its driver nodded to Santa Hood and began pedalling
 without asking for a destination.
 
-Gran-Granna Tumbly's house looked exactly as it had just a couple of days before
+Gran-Granna Tumbly's house looked exactly as it had
 except for a few scorch marks,
 the steel shutters over the windows,
 and the fact that the stone cat on the pedestal out front
@@ -3030,7 +3048,7 @@ she whispered.
 The door swung open with an ominous creak before Finner could answer.
 He swallowed hard and followed Santa Hood into the house.
 
-The carpet in the hall looked just like it always had.
+The carpet in the hall looked the same as well.
 So did the gargoyle coathooks and the over-stuffed chairs in the sitting room,
 but the plants were gone.
 In their place stood a large table covered in maps of cities,
@@ -3039,7 +3057,7 @@ and solar systems,
 with floor plans and aerial photographs scattered among them
 like coins tossed into a fountain.
 
-"I apologize for the mess,"
+"Sorry about the mess,"
 Gran-Granna said,
 striding past him
 to pick up a green-and-white teacup perched on the corner of the table.
