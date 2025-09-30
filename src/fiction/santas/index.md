@@ -2489,7 +2489,8 @@ wincing at a slight squeak.
 [^lock-picking]: *Yuen's* is crisply written, logically organized, and clearly illustrated. It is everything that a book like me aspires to be.
 
 A light bulb flickered on overhead automatically
-to reveal stacked with arms, legs, hands, feet, and heads.
+to reveal stacked with arms, legs, hands, feet, and other parts that we don't specifically need to name,
+thank you very much.
 Every shelf was neatly labelled and everything was tidy,
 but somehow that was more frightening than helter-skelter piles would have been.
 
@@ -3069,7 +3070,7 @@ but her eyes were on the table as well.
 Just as he opened his mouth to speak,
 Gran-Granna Tumbly turned around.
 She had fresh stiches on her cheek,
-but what *really* startled Finner was the ray gun in her hand,
+but what *really* startled Finner was the rather large ray gun in her hand,
 which was pointed at his chest.
 
 "So," she said sourly.
@@ -3083,10 +3084,10 @@ and where my *real* grand-grandson is?"
 ## It Doesn't *Feel* Normal
 
 If you have led a quiet life—a life in which
-it is relatively rare for people to threaten you with firearms—you
+it is relatively rare for people to threaten you with ray guns—you
 will probably find it hard to believe that
 having them pointed at you can become a little bit boring
-if it happens often enough.
+if it happens frequently enough.
 But it's rather like living in a house next to a railway line or a spaceport:
 the first few nights,
 you wake up every time a train goes by or a rocket blasts off,
@@ -3095,10 +3096,10 @@ but then your brain gets used to it and says,
 
 That said,
 it does depend on the weapon and on who's doing the pointing.
-Something that looks like it was designed to make holes in steel plate
-is pretty hard for a brain to "meh",
+It's pretty hard for a brain to say "meh"
+to something that looks like it was designed to make holes in steel plate,
 and if the person pointing it
-looks as though she could chew a hole in that same piece of steel if she wanted to,
+looks as though she could chew a hole through that same piece of steel if she wanted to,
 your brain is far more likely to go "meep!"
 
 Finner's hands put themselves up,
@@ -3107,9 +3108,8 @@ just as they had on board the *Dancing Marmot*.
 "I'm your gran-grandson."
 
 The ray gun didn't waver.
-"Ask me something," Finner said desperately.
-"Something only I would know.
-Like—like that picture!"
+"Ask me something only I would," Finner said desperately.
+"Like—like that picture!"
 He pointed at a crayon drawing in a frame on the wall.
 "My dad drew that when he was little,
 and you used to have it on your refrigerator,
@@ -3132,37 +3132,92 @@ Santa Hood raised one hand.
 but—"
 
 "But nothing!" Gran-Granna Tumbly raged.
-"He was missing for *days*.
+"He was gone for *days*.
 Who knows what they could have done in that time?"
 
 "Nobody did anything," Finner said,
 lowering his hands because his arms were getting tired
 and also because having them up
-didn't feel like it was making any difference to his odds of survival.
-"But—"
-*But I think I found someone who __is__ making robots,*
-he stopped himself from saying.
-He still didn't know what secrets the subway santa was keeping,
-but he couldn't believe she was evil.
+didn't feel like it was making any difference to his odds of survival
+and because part of his brain actually was saying "meh".[^saying-meh]
+"But I found someone who _is_ making robots.
+Or at least I think she is.
+Her workshop was full of arms and legs and, and other parts."
+He pointed at the photograph on the mantelpiece.
+"It was Shady Ann."
+
+[^saying-meh]: Finner didn't realize it at the time—in fact, he *never* consciously realized it—but this was actually a turning point in his personal development. Being somewhat indifferent to danger, and to the opinions of other people, is more or less the same thing as courage.
 
 Gran-Granna Tumbly studied him a moment longer,
-then sighed and pocketed her ray gun.
+then thumbed the safety on the ray gun and pocketed it.
 She looked older than she had a week ago,
 and it wasn't just the stitches.
-"Right then.
-Have a seat and tell me *everything*."
+"I was afraid of that.
+Sit down and tell me *everything*."
 
 "Everything" took about an hour.[^everything-hour]
 She scowled when Santa Hotep's pyramid was attacked,
 smacked the table with the palm of her hand during the bit with the sharks,
 but cut short his encounter with Captain Snood.
-"Of course it was her," she muttered.
+"That particular problem has already been resolved,"
+she said curtly,
+glancing at Santa Hood.
 
 [^everything-hour]: Fun fact: if could talk approximately 120,094,200,000,000 times faster than normal, you could tell someone everything that had happened to a single subatomic particle since the beginning of the universe.
 
+Gran-Granna Tumbly's habitual scowl deepened
+as Finner described his rescue by the Elfabot,
+the subway workshop,
+and Shady Ann's deliveries.
+"At least she hasn't gone completely flip,"
+she muttered.
+
+"I think she's just trying to help,"
+Finner offered.
+"She feels pretty guilty about whatever happened.
+The Elfabot's actually not very good at making things."
+*Not as good as I am,*
+he finished in his head.
+He had decided even before her interrogation started
+that he wasn't going to mention all the things he had learned
+about plane joints and flanged couplings and picking locks,
+not until he had figured out how he felt about them.
+
+"So I guess you know the rest,"
+he said when Gran-Granna Tumbly didn't ask any more questions.
+
+"What?
+Oh, yes.
+We got her message.
+Your friends practically jumped over each other to volunteer."
+Her wave took in Santa Hood and (presumably) the absent Santa Greenwood.
+"It's just a shame they couldn't do a little sightseeing while they were there.
+Or bring that robot back with them.
+Hm…"
+
+From the look on his gran-granna's face,
+Finner guessed that wheels were turning in her head,
+the kinds of turning that eventually produces a plan for kidnapping a robot.
+All of a sudden he felt annoyed.
+"She's really sick, you know.
+Shady Ann, I mean."
+
+Gran-Granna Tumbly glanced at the photograph on the mantelpiece.
+"She wasn't always like that.
+There was a time when she was as proud a santa as you can imagine."
+
+Finner stared at her for a moment.
+"No,
+I mean she's *sick* sick.
+The coughing and everything."
+
+"Oh, that."
+Gran-Granna Tumbly shook her head.
+"That's just radiation poisoning."
+
 As if on cue,
 a horn beeped outside.
-Gran-Granna Tumbly sighed again.
+Gran-Granna Tumbly set aside her tea and steepled her fingers.
 "Your parents have been very worried," she told Finner.
 "Best you go show them you're still in one piece."
 
@@ -3171,40 +3226,40 @@ Gran-Granna Tumbly sighed again.
 who shook her head.
 
 "Sensei and I have need to catch up,"
-she said gently.
+she said.
 "And I'm sure they'll want some time with you."
 
 Here's the thing about parents:
 they are the most important people in your life when you're growing up,
 but can also be the most annoying.
 Sometimes it's deliberate,
-like when they share your baby pictures with your friends just to make you squirm
-or,
-if their parents were cruel to them and they haven't learned any better since,
+like when they share your baby pictures with your friends just to make you squirm,
+or if their parents were cruel to them and they haven't learned any better since,
 when they keep making jokes about your haircut long after you're in tears.
 Mostly,
 though,
 parents are annoying because you think you're ready to be a grownup and they don't agree,
 or do but aren't ready to let you go.
 
-Going to your gran-granna's for a cup of tea and not coming home for a week
+Going to your gran-granna's for a cup of tea and not coming home for a couple of weeks
 pretty much guarantees annoying parental behavior,
-especially if the parents in question have been told that
+especially if the parents in question have somehow found out that
 you spent that week dealing with ray guns, sharks, and a giant santasaurus.
 When they ask if you're all right,
 what they really mean is that they were scared.[^they-were-scared]
 And when they fuss over you and tell you everything's all right now,
 they're trying to convince themselves as much as you.
 
-[^they-were-scared]: You won't really understand *how* scared unless you have kids of your own one day, at which point you will occasionally wake up in a cold sweat in the middle of the night wondering how common meteor strikes are or how often leopards escape from zoos.
+[^they-were-scared]: You won't really understand *how* scared unless you have kids of your own, at which point you will occasionally wake up in a cold sweat in the middle of the night wondering how common meteor strikes are or how often leopards escape from zoos.
 
 We are therefore going to skip over the next few hours of Finner's life
-and several of the days that followed.
-His dad baked three batches of his favorite cookies[^chili-lime]
-while his mum kept checking that he was warm enough.
+and most of the week that followed.
+His father baked three batches of his favorite cookies[^chili-lime]
+while his mother kept checking that he was warm enough.
 His classmates crowded around him and asked what had happened
 and whether it was true that he'd been in an airship battle
-and did he have any cool scars.
+and could he show them his scars or his tattoo,
+because obviously if he'd been through all of that he had to have one or the other.
 He mostly mumbled in response,
 uncomfortable at suddenly being the center of attention
 instead of in his usual place on the edge of the crowd
@@ -3212,14 +3267,14 @@ trying to figure out what the cool kids were up to.
 
 [^chili-lime]: Chili-lime shortbread.
 
-People eventually got tired of, "Yeah, something like that,"
+After a few days his classmates got tired of, "Yeah, something like that,"
 and went back to their usual gossip.
 His writing teacher took him aside and said that
 if he wanted to try expressing what had happened to him in a poem,
 she would be happy to give him extra credit for it.
 A vague, "I'll think about it," was apparently not the right answer,
 but he honestly didn't know what to say.
-The pyramids, the *Dancing Marmot*, the subway santa's workshop—they
+The pyramids, the *Dancing Marmot*, Shady Ann's workshop—they
 already felt like they had happened to someone else.
 
 Besides,
@@ -3228,20 +3283,19 @@ like making sure his parents didn't find out about his tools
 or the odds and ends he smuggled into his bedroom.
 A rusty pair of scissors that he spotted near a bus stop on his way home from school.
 a ball of string that he slipped into his pocket during science class.
-Some paper—construction paper
-that had to be folded carefully and then creased twice to make a straight seam,
-and oh,
-what a beautiful seam it was—and best of all,
+Some construction paper that had to be folded carefully and then creased twice to make a straight seam,
+and best of all,
 a roll of tape with only a little bit of lint stuck to it.
 He couldn't stop himself.
 He needed to make things.
 No, he *needed* to make things,
-the same way that he needed to breathe after holding his breath under water
-for as long as he could.
+the same desperate kind of need that he had felt
+while trying to kick off his boots and get out of his coat
+when he and Santa Hood and Santa Greenwood had fallen into the ocean.
 
 So let's skip ahead to the moment when
-Finner's mum opened his bedroom door
-to tell him that his dad had made another batch of cookies
+Finner's mother opened his bedroom door
+to tell him that his father had made another batch of cookies
 and found her son sitting on the floor
 taping carefully-folded bits of paper together
 to make a tiny cardboard dinosaur.
@@ -3251,11 +3305,11 @@ her hand flying to her mouth.
 "Mum! You're supposed to knock!"
 Finner exclaimed as he tried to sweep his creation under his bed.
 His stomach flip-flopped
-as his mum thundered down the stairs,
-calling for his dad.
+as his mother thundered down the stairs,
+calling for his father.
 He heard voices,
 first questioning and then angry,
-and then his dad saying,
+and then his father saying,
 "All right. All right!
 Let's call your grandmother.
 She'll know what to do."
