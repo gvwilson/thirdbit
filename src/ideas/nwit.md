@@ -594,5 +594,17 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 195) Hasan Amiri & Mainul Islam 2025: "Enhancing Python Programming Education with an AI-Powered Code Helper: Design, Implementation, and Impact" <https://arxiv.org/abs/2509.20518>
 :   "the system demonstrated an 85% error resolution success rate, outperforming tools like pylint (62%) and GPT-4 (73%). Quantitative results revealed a 59.3% reduction in debugging time, with pre- and post-test assessments showing a 34% improvement in coding proficiency, particularly in recursion and exception handling"
 
+196) Bifolco et al 2025: "CodeGenLink: A Tool to Find the Likely Origin and License of Automatically Generated Code" <https://arxiv.org/abs/2510.01077>
+:   Proposes a GitHub CoPilot extension that suggests links containing code very similar to automatically generated code, and when possible, indicates the license of the likely origin of the code. The tool retrieves candidate links…then performs similarity analysis between the generated and retrieved code.
+
+197) Schmid et al 2025: "Maven-Lockfile: High Integrity Rebuild of Past Java Releases" <https://arxiv.org/abs/2510.00730>
+:   Their lockfiles capture all direct and transitive dependencies with their checksums, enabling high integrity builds, and is able to detect tampered artifacts.
+
+198) Karakatsanis et al 2025: "PyTrim: A Practical Tool for Reducing Python Dependency Bloat" <https://arxiv.org/abs/2510.00674>
+:   Their tool achieves 98.3% accuracy in replicating human-made changes; when run on 971 open-source packages, it identified and trimmed bloated dependencies in 39 of them.
+
+199) Pan et al 2025: "Hamster: A Large-Scale Study and Characterization of Developer-Written Tests" <https://arxiv.org/abs/2509.26204>
+:   Our results highlight that a vast majority of developer-written tests exhibit characteristics that are beyond the capabilities of current ATG (automatic test generation) tools.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
