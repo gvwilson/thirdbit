@@ -3322,16 +3322,20 @@ She'll know what to do."
 
 Nobody called The Building a prison except the people who weren't allowed to leave.
 The staff sometimes used the word "hospital",
-but for the most part they stuck to euphemisms like "reorientation center"
-or "a place where you can get back in touch with your inner santa".
+but for the most part they stuck to euphemisms like
+"a place where you can get back in touch with your inner santa".
+Finner assumed there was another building somewhere for elves,
+but nobody he was willing to ask knew for sure.
+
 The bedrooms didn't have bars on the windows,
 but those windows didn't open either.
-
 And the daily activities weren't mandatory.
 In fact,
-they were so *not* mandatory that sometimes Finner wanted to scream.
-"Are you *sure* you don't want to do a little ho-ho-ho'ing?
-Everyone else will be there."
+they were so *not* mandatory that Finner wanted to scream sometimes.
+"Are you *sure* you don't want to do a little ho-ho-ho'ing?"
+one of the staff would ask.
+"Everyone else will be there."
+
 If he had been at home or at school and said, "No thank you,"
 the person asking might have pressed him once or twice
 but would eventually have taken the hint.
@@ -3339,11 +3343,11 @@ Not at The Building, though.
 There,
 "no thank you" produced an endless sequence of, "Are you sure?"
 and, "How about you just give it a try?"
-and, "Oh come on, Mister Frowny, it will put a smile on your face."
+and, "Come on, Mister Frowny, it will put a smile on your face."
 
 That last comment actually did make him smile a little,
 but only because of the way Zubi said it.
-De was one of the other residents,[^p-word]
+De was one of the other guests,[^p-word]
 and claimed to have come from a world where *everyone* was a santa or an elf.
 Or where santas didn't need wherevers
 because they could just imagine themselves wherever they wanted.
@@ -3353,7 +3357,7 @@ but Finner didn't mind.
 It was more entertaining than the jingly movies
 that played on repeat in the dining hall,
 none of which involved ray guns
-or santas wondering if they were really elves.
+or santas who wanted to make things instead of delivering them.
 
 [^p-word]: *Not* "patients" and *definitely* not "prisoners". Finner was told very firmly several times that nobody used the "p" words in The Building.
 
@@ -3363,9 +3367,15 @@ De raised a finger,
 swallowed hard,
 and stuck out a green tongue.
 
-"When we break out,"
-de continued,
-setting aside the rest of the jello,
+"Nice,"
+Finner judged,
+nodding.
+"You have a real two-tone effect going with that one."
+
+"Thans.
+When we break out,"
+Zubi continued,
+setting aside the rest of der jello,
 "The first thing I'm going to make is a bicycle.
 A real bicycle,
 not a toy one,
@@ -3374,7 +3384,7 @@ What about you?"
 
 Finner shrugged.
 He had taken a mince pie for dessert instead of a bowl of jello,
-but the first mouthful tasted of nothing at all,
+but the first mouthful tasted like nothing at all,
 so he set it aside too.
 "I dunno.
 Figure it out when I get there, I suppose."
@@ -3387,11 +3397,11 @@ but did their best to ignore each other.
 Finner assumed they would have preferred to sit by themselves,
 but as he had found out the hard way,
 one of the staff would show up in about ninety seconds
-and encouraged you to be more social.
+to encourage you to be more social if you did that.
 And while throwing food at them was briefly satisfying,
 it only made them heartier.
 One of them had actually started caroling
-as she mopped his chili off her coat,
+while she mopped his chili off her coat,
 as if being splattered with beans and sauce somehow proved her right.
 
 "I liked wind-up trains," she had confided afterward.
@@ -3409,7 +3419,9 @@ truly I do,
 but you're a santa too.
 You just need a little help realizing it."
 And then she had patted his hand and walked away,
-caroling softly to herself.
+happily humming a tune whose lyrics included the words "snowman",
+"presents",
+and "harpsichord".
 
 "Hey."
 Zubi prodded the back of Finner's hand with der fork.
@@ -3418,13 +3430,60 @@ He shook his head.
 "Just thinking," he mumbled.
 
 Zubi leaned forward.
-"About an escape plan?"
+"About escaping?
+Do you have a plan yet?"
 
-"About whether they'll let me sleep in if I say I'm not feeling well."
-Finner stacked his dishes on his tray and stood up.
+Finner stopped himself from glancing at the light overhead.
+If he was going to hide a microphone somewhere,
+that would be where.
+"About whether they'll let me sleep in if I say I'm not feeling well,"
+he said.
+He stacked his dishes on his tray,
+stood up,
+and yawned theatrically.
 "See you tomorrow."
 
-FIXME: add about 800 words here of failed escape with Zubi
+*Yuen's Guide to Mechanical Locks (Abridged)* was,
+as its title suggests,
+about building, repairing, and collecting mechanical locks.
+The word "picking" did not appear in it at all,
+but its author acknowledged that
+people would sometimes need to open locks whose keys had been lost,
+and that avid collectors might,
+upon occasion,
+find it morally justifiable to open and relocate a lock
+whose present owner simply didn't appreciate how unique it was.
+
+Finner had left Shady Ann's copy of *Yuen's* in the subway station.
+Its 844 pages was far too much for him to memorize,
+but The Building's locks were simple enough
+for him to open using what he remembered.
+He drank three large glasses of water before going to bed
+so that his bladder would wake him up in the middle of the night,
+then use some dental floss,
+a mismatched pair of paper clips,
+and a piece of veneer pried off the edge of the desk in his room
+to open his door.
+
+The corridor outside was empty,
+its lights dimmed to a warm glow.
+Shoes in hand,
+he hurried silently[^silently] back toward the dining hall,
+turning left just before he reached it.
+A few moments of dental floss, paper clips, and veneer,
+and the lock on Zubi's door made a very quiet *click*.
+
+Finner slipped inside.
+"Psst!
+Are you ready?"
+
+"No,"
+the other santa whispered.
+De slipped out out from under der covers,
+already dressed.
+"Let's go."
+
+[^silently]: Some people learn to play volleyball in school. Santas learn to walk on popcorn without making a sound.
 
 </section>
 
