@@ -3473,6 +3473,8 @@ turning left just before he reached it.
 A few moments of dental floss, paper clips, and veneer,
 and the lock on Zubi's door made a very quiet *click*.
 
+[^silently]: Some people learn to play volleyball in school. Santas learn to walk on popcorn without making a sound.
+
 Finner slipped inside.
 "Psst!
 Are you ready?"
@@ -3483,7 +3485,66 @@ De slipped out out from under der covers,
 already dressed.
 "Let's go."
 
-[^silently]: Some people learn to play volleyball in school. Santas learn to walk on popcorn without making a sound.
+There weren't any cameras in The Building's corridors,
+at least not that Finner had been able to spot.
+He hadn't seen any laser motion sensors or enchanted statues either,
+but it still seemed to take forever to get to the janitor's closet
+that Zubi had found a couple of days before.
+
+Its lock was harder to pick than the one on Finner's door.[^lock-value]
+"Come on come on come *on*," Zubi whispered,
+shifting der weight back and forth from one foot the other.
+
+[^lock-value]: Presumably because someone thought that mops and bottles of bleach were worth more than a bunch of truculent teenagers, which, you know, is actually hard to argue with.
+
+"Got it!"
+Finner swung the door open,
+wincing as it squeaked.
+
+The fan grill set into the closet's back wall was right where Zubi had said it would be.
+After a bit of pointing and miming,
+they stacked some boxes to stand on,
+undid the screws holding the grill in place using Finner's scrap of veneer,
+and wrestled the fan out of its hole.
+
+"You sure you'll fit?"
+Zubi asked.
+
+Finner grinned.
+"Come on, give me a boost."
+
+He had to wriggle around to fit his shoulders through the hole diagonally,
+but he had learned how to do that in kindergarten.
+Turning over to catch the lip of the hole with the backs of his knees,
+then holding on with his hands while he pulled his legs through
+was straight out of middle school gym class.
+He twisted,
+flipped over,
+let go,
+and landed perfectly on the grass.
+
+Then raised his hands as a pair of spotlights came on,
+pinning him against the wall like a bug.
+"Oh dear, no, there's no need for that,"
+a sweet voice said.
+"It's not like you're being *arrested* or anything."
+
+Finner lowered his hands and squinted.
+Three santas smiled at him,
+one behind each of the lights
+and the third between them with her hands clasped in front of her.
+"Now,
+why don't we all go back inside where it's nice and warm?"
+she suggested.
+
+Finner looked at the tall fence outlined against the night sky behind her.
+Could Zubi get over it on der own?
+Or was de already on der way back to der room?
+*I guess I'll find out tomorrow,* he thought,
+suddenly too tired to be disappointed at being caught
+or angry at the way the two santas who'd been manning the lights
+fell in behind him
+while the one who'd spoken led them back into The Building.
 
 </section>
 
