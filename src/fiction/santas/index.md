@@ -3552,8 +3552,66 @@ while the one who'd spoken led them back into The Building.
 
 ## A Visitor
 
-FIXME: add 500 words of visit from Gran-Granna Tumbly
+Gran-Granna Tumbly didn't show up the next day,
+or the one after that,
+but when one of the staff knocked on Finner's door and said,
+"You have a visitor!"
+in the bright tone that they all used,
+Finner knew who it was going to be.
 
+She looked smaller than he remembered,
+but fiercer.
+The stitches had been removed from her cheek,
+and he spent a moment trying to figure out if she was deliberately letting her beard grow in
+to cover the faint scars where they had been,
+or if it was just too difficult for her to shave there yet.
+
+She studied him as the thought went around and around in his head,
+clearly waiting for him to speak.
+When he didn't,
+she cleared her throat.
+"Well, this is all a bit of a mess, isn't it?"
+
+Finner shrugged.
+"I suppose.
+How are mum and dad?"
+
+"Worried.
+Disappointed.
+They love you very much, you know.
+We all do.
+That's why we want to help you."
+
+"I know."
+He picked at a loose thread in the arm of his chair,
+then forced his hand to be still.
+The festive yak clock on the wall ticked off a few more seconds
+as if it was uncomfortable with the silence.
+
+Gran-Granna Tumbly's expression hardened.
+"This is ridiculous.
+Don't you *want* to go home?"
+
+Finner shrugged again.
+"I don't know."
+He hesitated, but only for a millisecond.
+"Did you ever ask Shady Ann if she wanted to go home?"
+
+Gran-Granna Tumbly's eyes widened with shock.
+"How *dare* you?
+You don't know anything about—"
+
+"Because I think she wanted to,"
+Finner plowed on.
+"I think she wanted to more than anything.
+She didn't believe she had one any more."
+
+Feeling a little light-headed,
+he stood up and rapped the door with his knuckles.
+"I'm ready to go back to my room,"
+he told the santa who opened it.
+
+Later that afternoon,
 Finner lay back with his hands behind his head
 and stared at sleigh-and-reindeer mobile hanging from the ceiling.
 
@@ -3584,35 +3642,30 @@ holding the key out
 for the santa behind the desk to inspect.
 He had an eyepatch,
 but looked more like someone who had been clumsy with a broom
-than like a pirate.
+than like Clausbeard.
 
 "Oh yes, dear me, that *is* one of ours,"
 the santa said brightly.
 "Thank you."
 
 "You're welcome," Finner said automatically.
-It was the third time since he'd arrived
+It was the third time since he and Zubi had tried to escape
 that someone had "lost" a key where he would find it.
-He had no doubt that if he tried to use it,
-a couple of burly santas would be waiting on the other side
-of whatever door he opened,
-but at least it was subtler
-than the hacksaw someone had put in his underwear drawer.
+At least it was subtler than the hacksaw someone had put in his underwear drawer.
 
-"Oh, and there's a package for you,"
+"Oh, and Sensei Tumbly left a package for you,"
 the desk santa added,
-rummaging around for a moment
-before handing Finner a heavy rectangle wrapped in sturdy brown paper
+handing Finner a heavy rectangle wrapped in sturdy brown paper
 and covered in a confetti explosion of interdimensional stamps.
 Someone had blacked out the address below Finner's name,
 but careful block letters in the corner spelled out
 "S. Greenwood, Isla del Tesoro".
 
-He took the package back to his room and lay down once again with it beside him.
+He took it back to his room and lay down once again with it beside him.
 One of the toy reinder in the mobile hanging from the ceiling
 was missing a hoof.
 You could study the mobile for hours and not notice it,
-but once he had,
+but once he did,
 he couldn't stop wondering how it had happened.
 Had someone forgotten to attach it when the mobile was made?
 Had it come off when the mobile was hung
@@ -3620,20 +3673,32 @@ and been vacuumed up and thrown away before anyone noticed?
 Was it a deliberate mistake,
 like the mis-tied knots weavers put in rugs
 to show that they'd been made by hand?[^bad-knots]
-Or was it a test?
+Or was it another test?
 Was the staff watching to see if he just couldn't stop himself from fixing it?
 
 [^bad-knots]: The rugs, that is, not the weavers, and yes, they really do this.
 
-He shook his head.
-He was starting to think like Zubi,
-which meant it was time to think about something else.
-He held up the package,
-admiring the stamps,
-and tore it open.
+He shook the thought from his head
+and held up the package to admire the stamps again
+before tearing it open.
 Inside were two books and a letter.
 
-FIXME: briefly describe the books
+The first book was titled *101 Great Relocations*.
+Flipping through it,
+he realized that "relocation" meant relocating valuable objects
+from wherever their current owner had put them
+to somewhere out of said owner's reach.
+There wasn't a note or inscription in the book,
+but he could guess who had sent it.
+"Thanks, Hood," he whispered.
+
+The second book was a beginner's guide to orchids.
+"The average world is home to more than 40,000 species of orchid,
+each one special in its own way."
+The illustrations were all line drawings,
+but a few had been colored in by hand.
+
+He unfolded the letter ticked in between the pages.
 
 > Dear Finner,
 >
@@ -3652,15 +3717,15 @@ FIXME: briefly describe the books
 >
 > Your friend,
 >
-> Steve (Santa Greenwood)
+> Steve Greenwood
 
 Finner wiped his eyes with his sleeve
-and tucked the letter into the envelope.
+and started to re-fold the letter.
 And stopped.
 And slowly,
 looking up at the mobile rather than at the stiff cardboard in his hands,
 used his finger to tear open the sides of the envelope
-so that he could unfold it.
+so that he could open it up.
 
 Faint silver lines reflected the light
 when he tilted the envelope at the right angle.
@@ -3679,9 +3744,11 @@ Next to it was one word: "Midnight."[^midnight-note]
 
 Finner tucked the letter into the torn envelope
 and slid it under his pillow.
-The cheerful santa clock on the wall told him it was half past seven.
+The clock on the wall told him it was half past four.
+Dinner was at six,
+lights out at ten.
 Was the letter real?
-There was only one way to find out.
+He'd find out in seven and a half hours.
 
 </section>
 
@@ -3760,14 +3827,31 @@ The staff could be back any moment!"
 Zubi, come on!
 I know it's scary, but this could be our only shot!"
 
-"I'm not scared, Finner, I just don't want to go."
+"I'm not scared, Finner, I just don't want to go.
+I—I'm sorry.
+I'm really sorry.
+When we tried to escape?
+That wasn't real."
 
 "…what?"
 
-"I don't want to go.
-I don't want to be here any more than you do,
-but—listen, you should go.
-You should go right now, okay?
+"I'm really sorry.
+They told me about the janitor's closet
+and how the fan would come out
+and they said that as long as you were thinking about escaping like that
+you wouldn't get better
+and I'd actually be helping you
+and,
+and,
+look,
+I'm really sorry,
+but you should go."
+
+"I—"
+
+"I don't want to be here any more than you do,
+Finner,
+but you should go right now, okay?
 And, you know, good luck."
 
 "Wait.
@@ -3784,7 +3868,7 @@ but I don't think I'm an elf, all right?"
 "Yeah, well, I say a lot of things."
 
 "So what,
-you're just going to spend the rest of your life chewing jello
+you're just going to spend the rest of your life chewing green jello
 and watching the same stupid movies over and over again?"
 
 "I don't know.
@@ -3797,7 +3881,8 @@ Come with me."
 "Hey—are you crying?"
 
 "No!
-I just—uh oh."
+I just—uh oh,
+someone's coming."
 
 "Finner?
 Hey, Finner, are you there?"
