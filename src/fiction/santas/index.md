@@ -1868,7 +1868,7 @@ The elf waggled her ray gun toward the door.
 "To the right" was a narrow corridor with painted metal walls and a rubberized floor.
 Flat strips set into the ceiling cast orange light
 on doors like the one that slid closed behind them,
-each with a number and a cryptic legend like "Aux Batt" or "Emerg Whvr" stenciled on it.
+each with a number and a cryptic legend like "Aux Batt" or "Emerg Whvr" stencilled on it.
 Finner fumbled with the bathroom's handle,
 then sighed with relief at the sight of a perfectly normal toilet and sink.
 
@@ -2377,7 +2377,7 @@ The santa coughed.
 Finner nodded.
 The engine was decorated with silver bells
 and had a small silver snowman as a crest.
-Green enameled holly leaves ran up the sides of the three cars behind it.
+Green enamelled holly leaves ran up the sides of the three cars behind it.
 It was so beautiful that he almost didn't notice the scrapes and scratches,
 the sheets of plastic taped up where windows had once been,
 and the scorch marks from ray gun fire.
@@ -3372,7 +3372,7 @@ Finner judged,
 nodding.
 "You have a real two-tone effect going with that one."
 
-"Thans.
+"Thanks.
 When we break out,"
 Zubi continued,
 setting aside the rest of der jello,
@@ -3662,7 +3662,7 @@ but careful block letters in the corner spelled out
 "S. Greenwood, Isla del Tesoro".
 
 He took it back to his room and lay down once again with it beside him.
-One of the toy reinder in the mobile hanging from the ceiling
+One of the toy reindeer in the mobile hanging from the ceiling
 was missing a hoof.
 You could study the mobile for hours and not notice it,
 but once he did,
@@ -3926,7 +3926,7 @@ and scrambled back to his feet.
 [^scraped-underneath]: Adding dirt to his clothes but removing some of the odor.
 
 "Definitely worse than the llamas,"
-Santa Hood said drily,
+Santa Hood said dryly,
 stepping out of the shadows behind Santa Greenwood.
 
 Finner goggled at her.
@@ -4019,20 +4019,23 @@ That's what you really want—I know it is."
 
 "That's what they both want.
 They just don't realize it yet."
-Finner's breath caught in his throat
-as Gran-Granna stepped out from behind a nearby tree,
+Finner's jaw dropped[^jaw-dropped] as Gran-Granna stepped out from behind a nearby tree,
 her sword cane in her hand.
 "So what do you say?
 Shall we do this the easy way or the hard way?"
+
+[^jaw-dropped]: We say, "Someone's jaw dropped," but that's not what actually happens. What *usually* happens is that your mouth opens and closes a few times because your brain knows you're supposed to say something like, "What are you doing here?" but can't find the words. It's as if something was stuck in the elevator doors of your mind and making them go *ding! ding! ding!* over and over again.
 
 Santa Greenwood studied her for a long moment,
 then grinned the kind of grin
 that would make even the toughest lumberjack think about becoming a cheesewright.
 "He would say *now, Hotep, now!*"
 
-Half a dozen animated cat statues charged out of the trees.
-Santa Hood and the three camouflaged santas spun around and began firing.
-With a bellow that would have made any pirate proud,
+An unearthly moan shivered through the night.
+On cue,
+half a dozen animated cat statues charged out of the trees.
+Santa Hood and the camouflaged santas spun around and began firing.
+With a blood-curdling yell that would have made any pirate proud,
 Santa Greenwood charged forward with his ax held high,
 promptly sprawling face-first in the dirt
 when Gran-Granna Tumbly flicked her cane between his ankles.
@@ -4060,7 +4063,7 @@ without giving himself time to think about all the reasons it was a bad idea.
 The santa dodged him,
 but that gave the statue cat the opening it needed.
 It batted the ray gun out of the santa's hand with one stony paw,
-then clouted him in the head.
+then pinned him to the ground.
 
 Finner snatched up the ray gun and fired at another of the camouflaged santas's feet.
 As he did so,
@@ -4068,19 +4071,115 @@ Santa Hood reached into her sack
 and threw something at Santa Greenwood.
 
 *Flick!*
-He knocked the rubber bath duck aside with hix ax.
+He knocked the rubber bath duck aside with his ax.
 "Hey, I've been looking for that!" he shouted.
 
 "I was going to give it back!"
 Santa Hood shouted back,
 rolling to dodge a swipe from a statue cat.
+A frisbee,
+an armored slipper:
+something that made a loud *pop!* and scattered glitter over everyone:
+she pulled one thing after another from her sack
+to throw at the advancing cat until she crowed,
+"Got it!"
+and tossed a grenade at it.
+
+*Crack!*
+Green foam billowed in all directions,
+but the cat was quicker.
+With a deft twist and a scoop of its paw
+it flipped Santa Hood into the foam's path.
+"Hey!" she shouted,
+struggling fruitlessly as it trapped her legs.
+
+"Yes!" Finner shouted,
+then, "No!" as a well-aimed shot from a ray gun
+turned the cat's leg into sharp-edged gravel.
+
+"Fingal!
+You gotta go, lad!
+You gotta go *now*!"
+Santa Greenwood bellowed,
+parrying Gran-Granna Tumbly's cuts and lunges frantically.
+
+"I'm not leaving you!"
+Finner shouted back.
+
+A hand came down on his shoulder.
+"We…
+have to…
+go,"
+Santa Hotep wheezed.
+
+"But—"
+
+"He has made…
+his choice.
+Don't…
+waste it."
+
+Metal clanged on metal and ray gun blasts drew angry feline yowls of protest
+as Finner followed Santa Hotep through the trees.
+The mummy moved more quickly than Finner would have believed possible,
+its long strides forcing him to jog.
+"This isn't over!" Santa Hood yelled behind them.
+"We'll find you!
+You know we will!"
+
+A moment later they were back at the fence.
+A door frame stood next to it.
+"Wait!"
+Finner grabbed Santa Hotep's bandaged arm.
+"What are you doing here?
+I mean,
+how did you know?"
+
+"Your friend…
+isn't…
+as simple…
+as he…
+seems."
+The mummy pulled a pair of keys out of its abdomen[^abdomen]
+and slid the first one into a slot in the door frame.
+"He is…
+a pirate…
+you know.
+They aren't…
+a naturally…
+trusting…
+people."
+
+The second key clicked into place.
+Santa Hotep grabbed Finner and pulled him close
+just in time for the world to bloop around them.
+
+[^abdomen]: Yes, yes, "eww" is a perfectly reasonable reaction, but a mummy's insides are perfectly dry, thank you very much, and it's not as though the priests think to make pockets when they wrap the bandages.
+
+"Hello," a familiar robotic voice said.
+Finner rubbed his eyes.
+He was back in Santa Hotep's living room.
+The Elfabot raised a hand in greeting.
+Beside it,
+Captain Snood nodded,
+then sipped her tea.
+
+</section>
+
+<section markdown="1">
+
+## The Smell of Fresh-Cut Wood
+
+</section>
+
+<section markdown="1">
+
+## Choosing Sides
 
 </section>
 
 <section markdown="1">
 
 ## The Chance to Find Out
-
-FIXME
 
 </section>
