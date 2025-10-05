@@ -3930,22 +3930,25 @@ Santa Hood said drily,
 stepping out of the shadows behind Santa Greenwood.
 
 Finner goggled at her.
-She shrugged.
+She grinned.
 "What?
 You didn't think he came up with this plan all on his own, did you?"
 
 Finner spread his hands.
 "Why are you both even here?"
 
-Santa Greenwood glanced at Santa Hood.
-"Thought Sensei Tumbly might have made a mistake,"
-she said,
-not meeting his eyes.
-"Figured we should check in on you ourselves."
+Santa Greenwood looked away uncomfortably.
+"Thought Sensei Tumbly might have made a mistake.
+Figured we should check in on you ourselves,
+see how you were and…"
+He shrugged.
+"And whether you wanted to stay here a bit longer or,
+you know,
+whether you figured Vidancia might have made a mistake."
 
 Finner looked up at the sky.
-The moon was half full, or maybe half empty—he didn't know enough
-to be able to tell the two apart.
+The moon was half full, or maybe half empty:
+he didn't know enough to be able to tell the two apart.
 He could see a few stars,
 but silvery clouds hid the others.
 A light breeze rustled the leaves on the trees behind the two santas.
@@ -3954,70 +3957,93 @@ held it a moment,
 and let it out,
 savoring the absence of the cinnamon hot chocolate smell that pervaded The Building.
 
-"There was no mistake," he said.
-"I'm an elf,
-or at least I think I am.
-I don't know what that means yet,
-but I hope it doesn't mean we have to be on opposite sides of…
-Ooph!"
-
+"I don't know if I'm a flip or not," he said.
+Santa Greenwood winced at the word,
+but Finner plowed on.
+"What I *do* know is that
+I want to find out
+and I'm not going to here.
+I hope it doesn't mean we have to be on opposite sides of—whoosh!"
 He grunted as Santa Greenwood picked him up,
-squeezed him,
+hugged him hard,
 and set him back down.
-Santa Hood looked back and forth between them,
-then sighed and punched his shoulder.
-"Come on," she said.
-"Escape's not over 'til you've had a bath."
 
-"This escape is over now,"
-a cold voice said.
-Santa Hood and Santa Greenwood whirled around
-as Gran-Granna Tumbly stepped out of the trees behind them
-with half a dozen other santas behind her.
-No,
-not santas,
-Finner realized: robo-santas with fake beards
-and white plastic smiles
-and thuddy things in their hands.
+"Good enough,"
+the big santa said,
+wiping his cheek with his sleeve.
+"We'll get you somewhere safe to do your thinking.
+Won't we, Periwinkle?
+Periwinkle?
+What are you doing?"
 
-"Sensei—" Santa Hood began.
+"I'm sorry,"
+Santa Hood said.
+The ray gun in her hand was pointed at Santa Greenwood's chest,
+and while her voice might have wavered slightly,
+her aim did not.
+"I really am,
+but this escape is over."
 
-Gran-Granna Tumbly raised a hand to cut her off.
-"I am very disappointed in you," she hissed.
-"You have been very, *very* naughty.
-And you!"
-She jabbed a finger at Santa Greenwood.
-"What will your father say when he finds out, hm?"
+She pursed her lips and whistled.
+Behind her,
+three santas rose from the ground
+where their camouflage suits had concealed them
+and pointed ray guns of their own at Finner and Santa Greenwood.[^pointing-guns]
 
-Santa Greenwood reached over his shoulder for his ax
-and grinned the kind of grin
-that would make even the most experienced lumberjack
-think about becoming a cheesewright instead.
-"He would say *Aidez-moi, mes vieux amis verts!*"
+[^pointing-guns]: Well, mostly at Santa Greenwood. Only one of them aimed at Finner, and that was mostly so he wouldn't feel left out. There *is* a certain etiquette to these things…
 
-Roots burst out of the earth beneath the robo-santas
-and twisted around their metal legs.
+"Periwinkle…what are you doing?"
+Santa Greenwood spluttered.
+His hand twitched toward the ax strapped to his back.
+
+"I'm sorry,"
+she repeated,
+"But sensei has had her doubts about your for a while—ever since
+you started making planter boxes,
+maybe longer.
+She needed to see if you were just a little confused
+or if you would actually betray us.
+I was really hoping you wouldn't."
+
+"Periwinkle, please, you don't have to do this,"
+Santa Greenwood pleaded,
+his tone a perfect match to the feeling of Finner's heart breaking.
+
+"It's for your own good,"
+she said.
+She gestured at The Building.
+"They'll help you sort yourself out,
+just like they helped me,
+and then we can get back to work.
+That's what you really want—I know it is."
+
+"That's what they both want.
+They just don't realize it yet."
+Finner's breath caught in his throat
+as Gran-Granna stepped out from behind a nearby tree,
+her sword cane in her hand.
+"So what do you say?
+Shall we do this the easy way or the hard way?"
+
+Santa Greenwood studied her for a long moment,
+then grinned the kind of grin
+that would make even the toughest lumberjack think about becoming a cheesewright.
+"He would say *now, Hotep, now!*"
+
+Half a dozen animated cat statues charged out of the trees.
+Santa Hood and the three camouflaged santas spun around and began firing.
 With a bellow that would have made any pirate proud,
-Santa Greenwood charged forward with his ax held high.
+Santa Greenwood charged forward with his ax held high,
+promptly sprawling face-first in the dirt
+when Gran-Granna Tumbly flicked her cane between his ankles.
 
-And promptly sprawled face-first in the dirt
-as Gran-Granna Tumbly flicked her cane between his ankles.
-Santa Greenwood scrambled to his feet,
-grabbed his ax,
-and promptly went down again.
-
-"So I guess we're doing this,"
-Santa Hood muttered beside Finner,
-drawing a slender sword with a blackened blade from her sack
-and tossing the latter aside.
-Gran-Granna Tumbly scowled,
-twisted the head of her cane,
-and drew the sparkly rapier Finner had last seen when the elves had attacked her house.
-It didn't seem particularly magical any longer.
+He scrambled to his feet.
+Gran-Granna Tumbly twisted the head of her cane and drew her sparkly rapier.
+It didn't seem particularly magical to Finner any longer.
 It just looked dangerous.
 
-"See what you can do about those robots, will you?"
-Santa Hood said,
+"Help Hotep!"
+Santa Greenwood yelled,
 settling into a wide-legged stance
 as Gran-Granna Tumbly rocked her head from side to side to crack her neck.
 
@@ -4029,71 +4055,25 @@ and if your great-grandmother and the santa who was trying to rescue you
 had just started trading cuts and jabs and blocks,
 it wasn't the time for asking.
 
-"Hang on, Periwinkle, I'll—would you stop doing that!?"
-Santa Greenwood actually made it to his feet this time
-before a kick to the back of one knee put him back on the ground.
-Gran-Granna Tumbly hadn't even glanced at him.
-All her attention was on Santa Hood.
+He charged at the nearest santa
+without giving himself time to think about all the reasons it was a bad idea.
+The santa dodged him,
+but that gave the statue cat the opening it needed.
+It batted the ray gun out of the santa's hand with one stony paw,
+then clouted him in the head.
 
-Finner snatched Santa Greenwood's ax off the ground
-and brought it up in a wild parry
-just as one of the robo-santas swung a padded club at his head.
-The robot managed a second step before a fresh crop of roots
-wound themselves around its legs.
-
-*We're going to lose,* Finner realized.
-Gran-Granna Tumbly was more than a match for Santa Greenwood and Santa Hood together,
-and sooner or later the trees were going to run out of roots.
-
-"Catch!" he shouted,
-tossing Santa Greenwood's ax back to him
-and grabbing Santa Hood's sack.
-He thrust his arm into it,
-pulled out the first thing he found,
-and threw it at Gran-Granna Tumbly.
+Finner snatched up the ray gun and fired at another of the camouflaged santas's feet.
+As he did so,
+Santa Hood reached into her sack
+and threw something at Santa Greenwood.
 
 *Flick!*
-Gran-Granna Tumbly knocked the bath duck aside with her sword.
-"Hey, that's mine!" Santa Greenwood shouted.
+He knocked the rubber bath duck aside with hix ax.
+"Hey, I've been looking for that!" he shouted.
 
 "I was going to give it back!"
 Santa Hood shouted back,
-frantically parrying a sudden flurry of attacks from Gran-Granna Tumbly.
-
-A frisbee.
-A toy goat that bleated pitifully as it hit the ground.
-A pair of brightly-patterned socks
-that Finner would have looked at more closely under other circumstances.
-Another second frisbee.
-"Where are the grenades?" he demanded.
-
-"On the left!"
-Santa Hood shouted back.
-"No, not your left, the sack's left!"
-
-Finner thrust his arm into the sack as deep as it would go.
-His fingers closed on something rectangular.
-It was a remote control like the one for his family's refrigerator.[^fridge-remote]
-He whirled around just as another robo-santa pulled its legs free from the tree roots
-and pointed the remote at it,
-clicking buttons with his thumb.
-
-[^fridge-remote]: What, your fridge doesn't have a remote?
-
-*Bzzt!*
-The robo-santa froze.
-*All* the robots froze,
-and then turned their heads in unison to look straight at Gran-Granna Tumbly.
-"Safety protocols deactivated," they said in unison.
-"Resuming primary mode."
-
-Gran-Granna Tumbly's eyes widened.
-"Oh, you idiot boy," she snapped.
-"What have you done now?"
-But Finner barely heard her.
-He was too busy being terrified as the robo-santas dropped their padded clubs
-and retracted their hands into their arms,
-sprouting chainsaws and flamethrowers in their place.
+rolling to dodge a swipe from a statue cat.
 
 </section>
 
