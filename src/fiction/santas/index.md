@@ -4160,15 +4160,146 @@ just in time for the world to bloop around them.
 Finner rubbed his eyes.
 He was back in Santa Hotep's living room.
 The Elfabot raised a hand in greeting.
-Beside it,
-Captain Snood nodded,
-then sipped her tea.
+Captain Snood nodded from her place beside it on the blue-and-gold striped couch,
+a cup of tea in her hand.
+
+"Well,"
+Santa Hotep wheezed.
+"I suppose…
+we should…
+have a talk."
 
 </section>
 
 <section markdown="1">
 
 ## The Smell of Fresh-Cut Wood
+
+A few minutes and a few hundred words later,
+Finner let his breath out in a slow whoosh.
+"I actually did wonder about that," he said,
+picking up the cup of tea that the Elfabot had poured for him
+and immediately forgetting it was in his hand.
+
+Santa Hotep cocked its head to one side.
+"Really?"
+
+Finner nodded.
+"It was the wood.
+It smelled like it had just been cut.
+And you said everyone else had left a long time ago,
+so I figured you might have been doing the work yourself."
+He shrugged,
+suddenly embarrassed.
+
+"It happened…
+slowly,"
+Hotep said.
+"After all…
+my elves…
+were gone.
+I could…
+have asked…
+for help…
+but I…
+discovered that…
+I rather enjoyed…
+the work.
+Couldn't tell…
+Miz Tumbly…
+of course."
+
+"I guess not."
+Finner swallowed hard,
+not wanting to ask his next question but knowing that he had to.
+"How's Shady Ann?"
+
+"Dead,"
+the Elfabot replied.
+"It was difficult to process at first.
+I considered shutting down,
+but decided to continue making deliveries instead."
+
+"I'm sorry,"
+Finner said,
+wishing it didn't sound so inadequate.
+
+"She ended well,"
+Captain Snood said,
+raising her tea in salute.
+"I think she would have liked to talk to Tumbly one more time,
+but she made the worlds a better place for a lot of people,
+and most of us don't get to say that."
+
+"You know,
+I don't think she actually would have enjoyed talking to gran-granna
+as much as she thought she would,"
+Finner said.
+
+"Now, now…"
+Santa Hotep wheezed.
+"She does…
+care…
+for you…
+you know."
+
+"No she doesn't,"
+Finner replied bitterly.
+"She cares about who she thinks I'm supposed to be.
+If she cared about *me*,
+she wouldn't have dumped me in The Building and replaced me with a robot."
+
+Captain Snood cleared her throat.
+"Speaking of robots,
+we still need to figure out who's making them."
+
+Finner blinked.
+"It's not you?
+I mean,
+I saw all those parts on your airship."
+
+The muffled bells on Captain Snood's hat clunked faintly
+as she shook her head.
+"That was plunder from the ship before Clausbeard's.
+They didn't know where it was bound—all they knew was
+where to pick it up and where to drop it off.
+Rule number one of the Smuggler's Code,"
+she added.
+"Don't ask questions."[^smugglers-code]
+
+[^smugglers-code]: Rule number two is, "Unless you want to."
+
+It sounded like a good rule to Finner.
+All of a sudden he wanted nothing more than
+to peel off his filthy clothing,
+take a hot shower,
+and sleep for a week or the rest of his life,
+whichever came first.
+He was about to ask whether and how he could do that
+when something chimed.
+
+"That was quick,"
+Captain Snood muttered
+as Santa Hotep drew a circle with its fingertip on the mirror by its elbow.
+As it had just a few days before,
+the mirror rippled to show the steps leading up to the pyramid entrance.
+Instead of stone cats fighting unknown hooded figures,
+though,
+it revealed several very known figures:
+Gran-Granna Tumbly,
+Santa Hood,
+and half a dozen santas wearing the same camouflage suits
+as the ones who had been waiting for Finner at The Building.
+
+"At least…
+they're a bit…
+worse for wear,"
+Santa Hotep observed.
+"Too bad…
+I haven't…
+had time…
+to conjure up…
+more cats."
 
 </section>
 
