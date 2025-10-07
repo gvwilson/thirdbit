@@ -1,6 +1,7 @@
 ---
 title: Loading the Dishwasher
 date: 2025-10-05
+category: anecdote
 ---
 
 My daughter was profligate in her use of kitchenware:

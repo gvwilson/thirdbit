@@ -1,6 +1,7 @@
 ---
 title: Story Dice
 date: 2025-10-07
+category: anecdote
 ---
 
 My daughter gave me a set of story dice for Christmas a couple of years ago.
