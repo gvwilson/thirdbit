@@ -606,5 +606,11 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 199) Pan et al 2025: "Hamster: A Large-Scale Study and Characterization of Developer-Written Tests" <https://arxiv.org/abs/2509.26204>
 :   Our results highlight that a vast majority of developer-written tests exhibit characteristics that are beyond the capabilities of current ATG (automatic test generation) tools.
 
+200) Smite et al 2025: "A Wave of Resignations in the Aftermath of Remote Onboarding" <https://arxiv.org/abs/2510.05878>
+:   HR data from 2016-2025 in Ericsson Sweden [showed that] employees onboarded remotely during the pandemic were significantly more likely to resign within their first three years, even after returning to the office.
+
+201) Anderson et al 2025: "Who Do You Think You Are? Creating RSE Personas from GitHub Interactions" <https://arxiv.org/abs/2510.05390>
+:   Characterizes research software engineers into Ephemeral Contributors, Occasional Contributors, Project Organisers, Moderate Contributors, Low-Process Closers, Low-Coding Closers, and Active Contributors based on GitHub data.
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
