@@ -3598,16 +3598,46 @@ He hesitated, but only for a millisecond.
 "Did you ever ask Shady Ann if she wanted to go home?"
 
 Gran-Granna Tumbly's eyes widened with shock.
-"How *dare* you?
-You don't know anything about—"
+"How *dare* you?"
 
 "Because I think she wanted to,"
 Finner plowed on.
 "I think she wanted to more than anything.
-She didn't believe she had one any more."
+She didn't believe she had one any more.
+At least you haven't taken *that* from me."
 
+Later,
+Finner would wonder what would have happened if he hadn't provoked her.
+Would she have taken the photographs from her bag?
+Would she have tossed them onto the table between their chairs?
+Would he have picked them up and flipped through them,
+confused at first but then nauseous
+at the sight of his parents sitting at dinner with someone who looked just like him
+but whose smile was relaxed in a way his hadn't been for such a long time?
+The leaves outside the picture window and his mother's haircut told him
+that the pictures were recent.
+
+"I wish I could tell you that they were at least a little bit suspicious,"
+Gran-Granna Tumbly told him.
+"But to be honest,
+I think the robot was enough of an improvement
+that they didn't want to know."
+
+"So—so you're the one who's been making them all along?"
+Finner asked.
+
+Gran-Granna Tumbly scowled.
+"No.
+We just started.
+I don't like it,
+but if your lot is doing it,
+we have to—"
+
+"*My lot!?*"
 Feeling a little light-headed,
-he stood up and rapped the door with his knuckles.
+Finner tossed the pictures back on the table,
+stood up,
+and rapped the door with his knuckles.
 "I'm ready to go back to my room,"
 he told the santa who opened it.
 
@@ -4280,26 +4310,32 @@ when something chimed.
 
 "That was quick,"
 Captain Snood muttered
-as Santa Hotep drew a circle with its fingertip on the mirror by its elbow.
-As it had just a few days before,
-the mirror rippled to show the steps leading up to the pyramid entrance.
+as Santa Hotep's magic mirror rippled and reformed
+to show the steps leading up to the pyramid entrance.
 Instead of stone cats fighting unknown hooded figures,
 though,
 it revealed several very known figures:
 Gran-Granna Tumbly,
 Santa Hood,
 and half a dozen santas wearing the same camouflage suits
-as the ones who had been waiting for Finner at The Building.
+as the ones who had been at The Building.
+Two elves were with them as well—at least,
+Finner assumed they were elves
+from the amount of equipment they were carrying.
 
-"At least…
-they're a bit…
-worse for wear,"
-Santa Hotep observed.
 "Too bad…
 I haven't…
 had time…
 to conjure up…
-more cats."
+more cats,"
+Santa Hotep said.
+"I don't suppose…
+your people…
+will be able…
+to help?"
+
+Captain Snood scowled.
+"They're in even worse shape than this lot."
 
 </section>
 
