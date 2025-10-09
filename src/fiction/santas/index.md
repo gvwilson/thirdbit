@@ -4242,28 +4242,26 @@ of course."
 "I guess not."
 Finner swallowed hard,
 not wanting to ask his next question but knowing that he had to.
-"How's Shady Ann?"
+"How is Shady Ann?"
 
 "Dead,"
-the Elfabot replied.
+the Elfabot answered brightly.
 "It was difficult to process at first.
 I considered shutting down,
-but decided to continue making deliveries instead."
+but decided to continue making deliveries instead.
+I think it is what she would have wanted."
 
 "I'm sorry,"
 Finner said,
 wishing it didn't sound so inadequate.
 
-"She ended well,"
-Captain Snood said,
-raising her tea in salute.
-"I think she would have liked to talk to Tumbly one more time,
-but she made the worlds a better place for a lot of people,
-and most of us don't get to say that."
+"She ended well."
+Captain Snood raised her tea in salute.
+"She made the worlds a better place for a lot of people,
+and most of us don't get to say that.
+It's just a shame she didn't get one last chance to talk to Tumbly."
 
-"You know,
-I don't think she actually would have enjoyed talking to gran-granna
-as much as she thought she would,"
+"I don't think she actually would have enjoyed talking to gran-granna,"
 Finner said.
 
 "Now, now…"
@@ -4274,7 +4272,7 @@ for you…
 you know."
 
 "No she doesn't,"
-Finner replied bitterly.
+Finner replied tiredly.
 "She cares about who she thinks I'm supposed to be.
 If she cared about *me*,
 she wouldn't have dumped me in The Building and replaced me with a robot."
@@ -4291,26 +4289,25 @@ I saw all those parts on your airship."
 The muffled bells on Captain Snood's hat clunked faintly
 as she shook her head.
 "That was plunder from the ship before Clausbeard's.
-They didn't know where it was bound—all they knew was
-where to pick it up and where to drop it off.
+They didn't know where it was bound—all they knew was their leg of the journey.
 Rule number one of the Smuggler's Code,"
 she added.
 "Don't ask questions."[^smugglers-code]
 
 [^smugglers-code]: Rule number two is, "Unless you want to."
 
-It sounded like a good rule to Finner.
+Finner nodded.
 All of a sudden he wanted nothing more than
 to peel off his filthy clothing,
 take a hot shower,
 and sleep for a week or the rest of his life,
 whichever came first.
-He was about to ask whether and how he could do that
-when something chimed.
+He was about to ask whether he could do that
+when the magic mirror beside Santa Hotep chimed.
 
 "That was quick,"
 Captain Snood muttered
-as Santa Hotep's magic mirror rippled and reformed
+as the mirror rippled and reformed
 to show the steps leading up to the pyramid entrance.
 Instead of stone cats fighting unknown hooded figures,
 though,
@@ -4330,12 +4327,55 @@ to conjure up…
 more cats,"
 Santa Hotep said.
 "I don't suppose…
-your people…
-will be able…
-to help?"
+you could ask…
+your crew…
+for help?"
 
-Captain Snood scowled.
-"They're in even worse shape than this lot."
+Captain Snood scowled and shook her head.
+"Not in time."
+
+"I could help,"
+the Elfabot volunteered.
+It did something complicated with its arms.[^complicated-arms]
+
+[^complicated-arms]: Books are very good at describing things, but would take several paragraphs to capture the way bits of metal plating pivoted out of the way and/or folded up to allow other, equally complicated bits of metal to take their place, and even with diagrams, I didn't feel it advanced the story very much.
+
+"Whoa,"
+Finner breathed.
+The robot's right arm now ended in what seemed to be a rather large ray gun,
+while the left was some sort of curved shield.
+"Did Shady Ann make those for you?"
+
+"No."
+The Elfabot hesitated.
+"I—error.
+I don't know who did.
+Strange."
+Its eyes flashed on and off.
+"Shall we see how well they work?"
+Without waiting for an answer it strode away.
+
+Finner, Captain Snood, and Santa Hotep watched it go.
+"Well, that was odd," the captain observed.
+She put down her tea and drew her cutlass.
+"Shall we?"
+
+"After… you…"
+Santa Hotep wheezed.
+"But not… you,"
+it added to Finner.
+"This will…
+probably…
+be messy."
+
+"I'm not just going to watch!" he protested.
+
+"Of course… not,"
+the mummy said,
+making an arcane gesture in the general direction of its magic mirror.
+"You can…
+listen…
+too."
 
 </section>
 
