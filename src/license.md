@@ -4,11 +4,12 @@ title: License
 ---
 
 Except where otherwise noted,
-all of this site is made available under the Creative Commons Attribution license.
+all of this site is made available under the Creative Commons Attribution license
+with an added provision regarding training of AI models.
 You are free:
 
--   to Share: to copy, distribute and transmit the work
--   to Remix: to adapt the work
+-   to Share: to copy, distribute and transmit the work.
+-   to Remix: to adapt the work.
 
 Under the following conditions:
 
@@ -16,6 +17,9 @@ Under the following conditions:
     Greg Wilson" (but not in any way that suggests that we
     endorse you or your use of the work).  Where practical, you must
     also include a hyperlink to <https://third-bit.com>.
+-   No Training: You may not use the work, in whole or in part,
+    for training AI models without prior express permission from
+    the author.
 
 With the understanding that:
 
@@ -29,6 +33,4 @@ With the understanding that:
         the work is used, such as publicity or privacy rights.
 -   Notice: For any reuse or distribution, you must make clear to
     others the license terms of this work. The best way to do this is
-    with a link to <http://creativecommons.org/licenses/by/4.0/>.
-
-For the full legal text of this license, please see <http://creativecommons.org/licenses/by/4.0/legalcode>.
+    with a link to this license.
