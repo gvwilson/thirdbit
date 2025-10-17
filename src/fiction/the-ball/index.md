@@ -7,8 +7,8 @@ fiction: true
 In your world the story is always the same.
 The girl tells the boy that he can kick the football
 but pulls it away at the last moment.
-The boy falls for it over and over,
-forever finding some reason to believe this time will be different.
+The boy falls for it again and again,
+forever finding some reason to believe that this time will be different.
 
 But that is your world, and there are many others.
 In one he knows she will pull the ball away
@@ -23,7 +23,7 @@ It is not for him to ask why he must humiliate himself,
 any more than it is our place to ask why children starve while the sinful prosper.
 
 Look: in this world she sits alone in a field,
-cold worms of panic slithering in her gut as she realizes that he never showing up again.
+cold worms of panic slithering in her gut as she realizes that he is never showing up again.
 Next door is a world where the boy stands alone and bereft because she repented or grew bored.
 (There as elsewhere,
 it can sometimes be hard to tell the two apart.)
@@ -39,9 +39,10 @@ Strike a deal at a crossroads and yes,
 you get to kick the ball,
 but that's all you get to do,
 over and over and over and over
-until the boy would give anything and everything just to scream
+until the boy would give anything and everything to scream
 except nobody will write that for him
-and all he can see is the wicked red glint in the girl's eyes as she pulls the ball away.
+and all he can see is the wicked red glint in the girl's eyes
+each time she pulls the ball away.
 
 There are better worlds,
 of course.
@@ -60,7 +61,7 @@ a solar flare,
 or maybe the boy and the girl both lost interest.
 The ball remains,
 though.
-Why doesn't anyone ever ask how it feels about its role in this?
+Why doesn't anyone ever ask how it feels about all of this?
 
 This world isn't empty,
 and is all the colder for it.
@@ -76,9 +77,7 @@ kicks,
 misses,
 and falls to the ground.
 Laughing,
-the other boy scrambles to his feet,
-pulls the girl to hers,
-and kisses her.
+that other boy scrambles to his feet and kisses the girl.
 Our boy wipes his sleeve across his face and walks away,
 already knowing that he will torture himself with this memory for the rest of his life.
 
@@ -103,6 +102,5 @@ His friends think he is foolish,
 and the artist is perplexed,
 but the boy doesn't care.
 He just knows that when she hugs the ball to her chest and says,
-"I don't know any other games," he will be there to say,
-"Neither do I.
-Let's make one up together."
+"I don't know any other games," he will be able to say,
+"Then let's make one up together."
