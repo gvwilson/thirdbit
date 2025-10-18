@@ -722,11 +722,19 @@ date: "2025-07-28"
 
 ## Thank You, and Good Luck
 
-<div class="center">
-  <p><img src="@root/files/talks/gvwilson.png" width="40%"></p>
-  <p><a href="http://third-bit.com">Greg Wilson</a></p>
-  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-  <p><a href="http://third-bit.com/talks/to-dont/">http://third-bit.com/talks/sdgc/</a></p>
+<div class="row">
+  <div class="col-4">
+    <p><img src="@root/files/cv/gvwilson-2025.jpg" alt="Greg Wilson" width="200px"></p>
+  </div>
+  <div class="col-8">
+    <p><a href="http://third-bit.com">Greg Wilson</a></p>
+    <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+    <p><a href="http://third-bit.com/talks/sdgc/">http://third-bit.com/talks/sdgc/</a></p>
+  </div>
+</div>
+
+<div align="center">
+  <p><em>start where you are &middot; use what you have &middot; help who you can</em></p>
 </div>
 
 ---
