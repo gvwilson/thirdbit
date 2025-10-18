@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../../../assets/thirdbit.css">
     <link rel="stylesheet" href="../../../../assets/page.css">
     
-<title>The Third Bit: Labwork to Leadership</title>
+<title>The Third Bit: One Small Command</title>
 
     
   </head>
@@ -34,42 +34,63 @@
 </nav>
     <main>
       
-<h1>Labwork to Leadership</h1>
+<h1>One Small Command</h1>
 
 
 <div class="row">
   <div class="col-2 left">
     
-      <a href="../../../../2025/10/07/story-dice/">
+      <a href="../../../../2025/10/08/labwork-to-leadership/">
         &lArr; <span class="pagination-text">previous</span>
       </a>
     
   </div>
   <div class="col-8 center">
-    Posted <time datetime="2025-10-08" class="post-date">2025-10-08</time>
+    Posted <time datetime="2025-10-18" class="post-date">2025-10-18</time>
   </div>
   <div class="col-2 right">
     
-      <a href="../../../../2025/10/18/one-small-command/">
-        <span class="pagination-text">next</span> &rArr;
-      </a>
-    
   </div>
 </div>
-<!-- content --><p>Jen Heemstra&rsquo;s
-<a href="https://isbnsearch.org/isbn/9780674258631"><em>Labwork to Leadership: A Concise Guide to Thriving in the Science Job You Weren’t Trained For</em></a>
-is the book I&rsquo;ve been hoping to find for years.
-It includes sections on managing yourself, managing others, and coaching future leaders,
-all grounded in first-hand experience and empirical research.
-I wish it included more on <a href="https://gvwilson.github.io/change/">organizational change</a>
-and <a href="../../../../2025/09/12/searching-for-closure/">winding projects down</a>,
-but those are <em>my</em> preoccupations:
-as is,
-it would be a great foundation for a Carpentries-style workshop,
-and I hope someone creates that.</p>
-<div class="center">
-  <img src="../../../../files/books/heemstra-leadership.jpg" alt="cover of Heemstra's 'Labwork to Leadership'">
-</div><!-- /content -->
+<!-- content --><blockquote>
+<p>Please note that I am suffering from jet lag and recovering from a bad cold while writing this,
+which means my proposal may well be garbage.</p>
+</blockquote>
+<p>I&rsquo;ve had a lot of conversations over the years about
+the differences in how software engineers and data scientists work.
+One example is how they manage software:</p>
+<ul>
+<li>
+<p>Software engineers regard duplicated code as sinful and refactor to avoid it.</p>
+</li>
+<li>
+<p>Data scientists routinely copy a notebook or a script and make small changes to do a new data analysis.
+    After many years,
+    I have accepted that they are right to do so:
+    their analyses are often exploratory one-offs,
+    so copy-and-modify is more efficient than generalize-and-parameterize.</p>
+</li>
+</ul>
+<p>The problem is that software engineers build tools for software engineers,
+which means they don&rsquo;t automatically support data scientists&rsquo; workflows.
+Continuing the refactor-versus-copy example,
+Git doesn&rsquo;t have a way to explicitly say &ldquo;this file started as a copy of that one&rdquo;.
+Git has a way to say &ldquo;this file was moved or renamed&rdquo; (<code>git mv</code>),
+but there isn&rsquo;t a corresponding <code>git cp</code> command
+because software engineers believe that you shouldn&rsquo;t be doing that.
+You can ask Git to guess which files were copied in each commit:</p>
+<div class="highlight"><pre><span></span><code>git log --find-copies --diff-filter=C --stat
+</code></pre></div>
+<p>but (a) you probably didn&rsquo;t know this existed,
+(b) you&rsquo;re not going to remember it,
+and (c) Git&rsquo;s heuristics often produce incorrect answers.</p>
+<p>So let&rsquo;s add <code>git cp</code> so that the log records copying events explicitly.
+That will allow us to trace the lineage of copied-and-modified notebooks and scripts
+(and the copied-and-modified configuration files that software engineers create
+because they don&rsquo;t think of YAML and TOML as code).
+Doing this won&rsquo;t solve all our traceability problems,
+but I think it will solve some of them,
+and we&rsquo;ll learn something useful from its failure if it doesn&rsquo;t.</p><!-- /content -->
 
     </main>
     <footer>

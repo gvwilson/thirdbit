@@ -3,12 +3,58 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-10-08T00:00:00Z</updated>
+ <updated>2025-10-18T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>One Small Command</title>
+   <link href="https://third-bit.com/2025/10/18/one-small-command/"/>
+   <updated>2025-10-18T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/10/18/one-small-command/</id>
+   <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Please note that I am suffering from jet lag and recovering from a bad cold while writing this,
+which means my proposal may well be garbage.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I&amp;rsquo;ve had a lot of conversations over the years about
+the differences in how software engineers and data scientists work.
+One example is how they manage software:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Software engineers regard duplicated code as sinful and refactor to avoid it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Data scientists routinely copy a notebook or a script and make small changes to do a new data analysis.
+    After many years,
+    I have accepted that they are right to do so:
+    their analyses are often exploratory one-offs,
+    so copy-and-modify is more efficient than generalize-and-parameterize.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The problem is that software engineers build tools for software engineers,
+which means they don&amp;rsquo;t automatically support data scientists&amp;rsquo; workflows.
+Continuing the refactor-versus-copy example,
+Git doesn&amp;rsquo;t have a way to explicitly say &amp;ldquo;this file started as a copy of that one&amp;rdquo;.
+Git has a way to say &amp;ldquo;this file was moved or renamed&amp;rdquo; (&lt;code&gt;git mv&lt;/code&gt;),
+but there isn&amp;rsquo;t a corresponding &lt;code&gt;git cp&lt;/code&gt; command
+because software engineers believe that you shouldn&amp;rsquo;t be doing that.
+You can ask Git to guess which files were copied in each commit:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git log --find-copies --diff-filter=C --stat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;but (a) you probably didn&amp;rsquo;t know this existed,
+(b) you&amp;rsquo;re not going to remember it,
+and (c) Git&amp;rsquo;s heuristics often produce incorrect answers.&lt;/p&gt;
+&lt;p&gt;So let&amp;rsquo;s add &lt;code&gt;git cp&lt;/code&gt; so that the log records copying events explicitly.
+That will allow us to trace the lineage of copied-and-modified notebooks and scripts
+(and the copied-and-modified configuration files that software engineers create
+because they don&amp;rsquo;t think of YAML and TOML as code).
+Doing this won&amp;rsquo;t solve all our traceability problems,
+but I think it will solve some of them,
+and we&amp;rsquo;ll learn something useful from its failure if it doesn&amp;rsquo;t.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Labwork to Leadership</title>
@@ -1337,59 +1383,6 @@ then choose one of those at random.
 My question is,
 what test(s) could I plausibly have written before I realized my mistake
 that would have told me my implementation had introduced an unwanted bias?&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>A Dollar a Minute</title>
-   <link href="https://third-bit.com/2025/04/18/a-dollar-a-minute/"/>
-   <updated>2025-04-18T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/04/18/a-dollar-a-minute/</id>
-   <content type="html">&lt;p&gt;Yesterday I wrote about &lt;a href=&#34;https://third-bit.com/2025/04/17/when-the-fire-comes/&#34;&gt;making contingency plans for research projects&lt;/a&gt;
-in case the Trump administration&amp;rsquo;s attack on science reaches you.
-Today&amp;rsquo;s topic is an even scarier scenario:
-taxes on online services.
-As far as I can tell,
-there is no legal or technical obstacle to the American government mandating a dollar-a-minute tax
-on video conferencing
-for people outside the United States.
-The machinery needed to charge people is already in place—Zoom,
-Google Meet, and Microsoft Teams all offer paid plans—and
-a quick check of IP addresses would correctly geolocate 99% of users.
-(Yes,
-you fool this using a VPN,
-but only a handful of individuals would,
-and companies aren&amp;rsquo;t going to flout the law that way.)&lt;/p&gt;
-&lt;p&gt;If you want to hit businesses and middle-class voters in Canada, the EU, and elsewhere,
-and raise a few billion dollars at the same time,
-why &lt;em&gt;wouldn&amp;rsquo;t&lt;/em&gt; you do this?
-Why wouldn&amp;rsquo;t you tell Google that it has to start charging foreigners a penny for each email
-or ten cents a week for each kilobyte&amp;rsquo;s worth of docs?
-Because people would just migrate to other services?
-Please:
-most of those other services are also US-based,
-and if you&amp;rsquo;ve ever done a large service migration,
-you&amp;rsquo;ll realize how much pain the word &amp;ldquo;just&amp;rdquo; is painting over.&lt;/p&gt;
-&lt;p&gt;So here&amp;rsquo;s the scenario that actually keeps me up at night.
-It&amp;rsquo;s July 2025.
-The US economy is in a nosedive because of tariffs,
-so Trump needs money &lt;em&gt;now&lt;/em&gt;.
-Musk feels exposed:
-the savings he promised DOGE would deliver haven&amp;rsquo;t materialized,
-so he needs something to fend off the MAGA sharks who now smell blood in the water.
-&amp;ldquo;Why should American companies be allowed to help foreigners compete with us &lt;em&gt;for free&lt;/em&gt;?&amp;rdquo;
-he asks.
-Slack, GitHub, Airtable:
-everything business has gotten hooked on because it was free suddenly isn&amp;rsquo;t.
-Move your data to another provider?
-Sure,
-here are the federally-mandated rates for exporting your data in bulk.
-Go ahead,
-sit down for a moment if you need too…&lt;/p&gt;
-&lt;p&gt;The odds of this actually happening are low.
-The odds of someone breaking into my house are also low,
-but I still have insurance because that&amp;rsquo;s what sensible grownups do.
-We can all now see the river rising;
-it will be our own fault if we drown when the flood comes.&lt;/p&gt;</content>
  </entry>
  
 </feed>

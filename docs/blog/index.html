@@ -81,6 +81,54 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/10/18/one-small-command/">
+      One Small Command
+    </a>
+  </h2>
+  <p><time datetime="2025-10-18" class="post-date">2025-10-18</time></p>
+  <blockquote>
+<p>Please note that I am suffering from jet lag and recovering from a bad cold while writing this,
+which means my proposal may well be garbage.</p>
+</blockquote>
+<p>I&rsquo;ve had a lot of conversations over the years about
+the differences in how software engineers and data scientists work.
+One example is how they manage software:</p>
+<ul>
+<li>
+<p>Software engineers regard duplicated code as sinful and refactor to avoid it.</p>
+</li>
+<li>
+<p>Data scientists routinely copy a notebook or a script and make small changes to do a new data analysis.
+    After many years,
+    I have accepted that they are right to do so:
+    their analyses are often exploratory one-offs,
+    so copy-and-modify is more efficient than generalize-and-parameterize.</p>
+</li>
+</ul>
+<p>The problem is that software engineers build tools for software engineers,
+which means they don&rsquo;t automatically support data scientists&rsquo; workflows.
+Continuing the refactor-versus-copy example,
+Git doesn&rsquo;t have a way to explicitly say &ldquo;this file started as a copy of that one&rdquo;.
+Git has a way to say &ldquo;this file was moved or renamed&rdquo; (<code>git mv</code>),
+but there isn&rsquo;t a corresponding <code>git cp</code> command
+because software engineers believe that you shouldn&rsquo;t be doing that.
+You can ask Git to guess which files were copied in each commit:</p>
+<div class="highlight"><pre><span></span><code>git log --find-copies --diff-filter=C --stat
+</code></pre></div>
+<p>but (a) you probably didn&rsquo;t know this existed,
+(b) you&rsquo;re not going to remember it,
+and (c) Git&rsquo;s heuristics often produce incorrect answers.</p>
+<p>So let&rsquo;s add <code>git cp</code> so that the log records copying events explicitly.
+That will allow us to trace the lineage of copied-and-modified notebooks and scripts
+(and the copied-and-modified configuration files that software engineers create
+because they don&rsquo;t think of YAML and TOML as code).
+Doing this won&rsquo;t solve all our traceability problems,
+but I think it will solve some of them,
+and we&rsquo;ll learn something useful from its failure if it doesn&rsquo;t.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/10/08/labwork-to-leadership/">
       Labwork to Leadership
     </a>
@@ -447,41 +495,6 @@ I always thought <a href="../2018/03/20/goodbye-jeff/">my younger brother</a> an
 would wind up playing chess in the park in our twilight years;
 as the nights grow longer and the leaves begin to turn,
 I&rsquo;d like to have other people to do that with.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/08/21/things-im-looking-for/">
-      Things I'm Looking For
-    </a>
-  </h2>
-  <p><time datetime="2025-08-21" class="post-date">2025-08-21</time></p>
-  <p>Following up on <a href="../2025/08/15/productivity-workshop-ideas/">my recent plea</a>
-for material to use in a workshop on productivity for software engineers,
-I&rsquo;d also be grateful for material on:</p>
-<dl>
-<dt>How to hand off or wind down a research project or open source software project.</dt>
-<dd>For every beginning there must be an ending, but we don&rsquo;t like to talk about them.
-For example, there are thousands of books in print about how to start a business,
-but only a handful about how to pass one on or wind one down,
-and many of those are really about how to sell out at the right time.
-I think the reason is that mortality scares us,
-but preparing for the end can make the end less likely,
-and can help make what happens before then more enjoyable.
-If you have ever shut something down or handed it over after several years,
-please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</dd>
-<dt>A legal and business comparison of the new generation of software licenses.</dt>
-<dd>The <a href="https://en.wikipedia.org/wiki/Business_Source_License">Business Source License</a>
-has attracted a lot of fire from open source zealots;
-the <a href="https://www.unrealengine.com/en-US/license">Unreal Engine license</a>
-also puts restrictions on use,
-but hasn&rsquo;t caused nearly as much yelling.
-If anyone has written a level-headed compare-and-contrast of licenses
-that the <a href="https://opensource.org/">Open Source Initiative</a> <em>hasn&rsquo;t</em> blessed,
-but which give users more rights than a standard closed-source license,
-I&rsquo;d be very grateful for a pointer—again,
-please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</dd>
-</dl>
 </article>
 
 
