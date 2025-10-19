@@ -200,11 +200,11 @@ The three that take the most time to fix are:
 
 <a href="#Hicks2022">Hicks2022</a>: "It's like coding in the dark: The need for learning cultures within coding teams"
 
--   …the work that code writers needed to do to understand code often did not feel like what was rewarded in the evaluation of their work
--   Despite stated ideals about knowledge sharing…this work was often contradicted with negative cues from colleagues about what was truly valued
--   This tension was exacerbated by code writers' fears about not looking like an engineer…
--   Code writers navigated this by divesting from their own learning and from the invisible work of knowledge transfer
--   [They] frequently expressed a poignant loneliness, even in highly resourced teams
+-   "…the work that code writers needed to do to understand code often did not feel like what was rewarded in the evaluation of their work"
+-   "Despite stated ideals about knowledge sharing…this work was often contradicted with negative cues from colleagues about what was truly valued"
+-   "This tension was exacerbated by code writers' fears about not looking like an engineer…"
+-   "Code writers navigated this by divesting from their own learning and from the invisible work of knowledge transfer"
+-   "[They] frequently expressed a poignant loneliness, even in highly resourced teams"
 
 ---
 
@@ -366,10 +366,18 @@ The three that take the most time to fix are:
 
 ## Thank You
 
-<div class="center">
-  <p><img src="@root/files/talks/gvwilson.png" width="40%"></p>
-  <p><a href="http://third-bit.com">Greg Wilson</a></p>
-  <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
-  <p><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></p>
-  <p><a href="./bibliography/">Bibliography</a></p>
+
+<div class="row">
+  <div class="col-4">
+    <p><img src="@root/files/cv/gvwilson-2025.jpg" alt="Greg Wilson" width="90%"></p>
+  </div>
+  <div class="col-8">
+    <p><a href="http://third-bit.com">Greg Wilson</a></p>
+    <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
+    <p><a href="http://third-bit.com/talks/greatest-hits/">http://third-bit.com/talks/greatest-hits/</a></p>
+    <p><a href="./bibliography/">Bibliography</a></p>
+  </div>
 </div>
+<p class="center">
+  <em>start where you are &middot; use what you have &middot; help who you can</em>
+</p>
