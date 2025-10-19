@@ -612,5 +612,8 @@ while the current page reprints very short summaries I've posted on Mastodon sin
 201) Anderson et al 2025: "Who Do You Think You Are? Creating RSE Personas from GitHub Interactions" <https://arxiv.org/abs/2510.05390>
 :   Characterizes research software engineers into Ephemeral Contributors, Occasional Contributors, Project Organisers, Moderate Contributors, Low-Process Closers, Low-Coding Closers, and Active Contributors based on GitHub data.
 
+202) Rahman et al 2025: "Which Is Better For Reducing Outdated and Vulnerable Dependencies: Pinning or Floating?" <https://arxiv.org/abs/2510.08609>
+:   TODO
+
 [nwit]: https://neverworkintheory.org/
 [postmortem]: https://www.computer.org/csdl/magazine/so/5555/01/10424425/1Ulj1Qa8tJ6
