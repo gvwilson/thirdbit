@@ -12,14 +12,13 @@ date: "2025-07-28"
     -   Rising inequality
     -   Radicalization
     -   Ubiquitous surveillance
--   And now there's AI to worry about
+    -   And now there's AI to worry about
 -   Most discussion by technologists is *shallow*
-    -   And often self-justifying
     -   Andreessen's "Techno-Optimist Manifesto" was embarrassing
 -   If we want better answers, we need to:
-    1.  Be humble: the "soft" disciplines are harder than ours
-    2.  Choose pieces that are most relevant to our problems
-    3.  Figure out how to fit it into the curriculcum
+    1.  Develop a better threat model
+    2.  Be humble: the "soft" disciplines are harder than ours
+    3.  *Figure out how to get students to care*
 
 ---
 
@@ -120,7 +119,7 @@ date: "2025-07-28"
 ## Examples
 
 -   Petre: ["UML in Practice"](https://dl.acm.org/doi/10.5555/2486788.2486883) (2013)
-    -   Careful analysis of structured interviews to determine why people *don't* use UML
+    -   Careful analysis of interviews to determine why people *don't* use UML
 -   Steinmacher et al: ["Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects"](https://doi.org/10.1145/2675133.2675215) (2015)
     1.  How easy it is to get set up to make a contribution
     1.  How easy it is to find a task to start with
@@ -132,7 +131,26 @@ date: "2025-07-28"
 
 ---
 
-## But How Do We Reach This Guy?
+## Threat Model
+
+-   [Therac-25 incident](https://en.wikipedia.org/wiki/Therac-25) and
+    [Ariane 5 flight V88](https://en.wikipedia.org/wiki/Ariane_flight_V88)
+    -   Direct cause-and-effect relationships
+    -   But rare and remote
+
+--
+
+-   What now appears to be more relevant:
+    -   [Tetraethyl lead](https://en.wikipedia.org/wiki/Tetraethyllead)
+    -   [Asbestos](https://en.wikipedia.org/wiki/Asbestos) and
+        [mesothelioma](https://en.wikipedia.org/wiki/Mesothelioma)
+    -   Oxycodone and [Purdue Pharma](https://en.wikipedia.org/wiki/Purdue_Pharma)
+    -   The [fossil fuels lobby](https://en.wikipedia.org/wiki/Fossil_fuels_lobby)'s campaign
+        to promote [climate change denial](https://en.wikipedia.org/wiki/Climate_change_denial)
+
+---
+
+## Now, How Do We Reach This Guy?
 
 > Jay is 21, white, straight, and male.
 > He went into programming because he enjoys solving puzzles,
@@ -144,7 +162,7 @@ date: "2025-07-28"
 
 --
 
--   Most young programmers know little or nothing about the humanities and social sciences
+-   Most programmers know little or nothing about the humanities and social sciences
 -   Most material assumes concepts they've never heard of…
     -   …which makes them feel stupid…
     -   …which they hate
@@ -209,9 +227,6 @@ date: "2025-07-28"
 
 ## Why Don't We Talk About This?
 
--   People in "hard" disciplines tend to look down on the "soft" ones
-    -   Until they become managers…
-
 <div class="row">
   <div class="col-4">
     <img src="@root/files/books/douglas-purity.jpg" alt="Douglas: Purity and Danger" width="200px">
@@ -220,16 +235,17 @@ date: "2025-07-28"
     Mary Douglas: <em><a href="https://isbnsearch.org/isbn/9780415289955">Purity and Danger: An Analysis of Concepts of Pollution and Taboo</a></em> (2002)
     <ul>
       <li>Every group places some things out of bounds as a way of identifying who's in and who's out</li>
-      <li>Racial slurs that I used as a young man are now taboo</li>
+      <li>Racial slurs I used as a young man are now taboo</li>
       <li>Public discussion of sexuality is now accepted</li>
     </ul>
   </div>
 </div>
 
-
 --
 
-> These insights can help us build better software and a better society.
+-   These insights can help us build better software and a better society
+-   But people in "hard" disciplines tend to look down on the "soft" ones
+    -   Until they become managers…
 
 ---
 
@@ -244,7 +260,7 @@ date: "2025-07-28"
 
 --
 
-> It doesn't matter what you say if no one is awake to hear it.
+> It doesn't matter what you say if no one stays awake to hear it.
 
 ---
 
@@ -288,6 +304,7 @@ date: "2025-07-28"
   </div>
 </div>
 
+--
 
 -   Big tech companies sell deliberately addictive products…
 -   …treat the law as a business expense…
@@ -647,22 +664,6 @@ date: "2025-07-28"
 
 ---
 
-## Hindsight
-
-<img src="@root/files/talks/carpentries-logo.svg">
-
--   Step 1: teach scientists how to program
-
--   Step 2: teach them how to teach
-
-
---
-
--   *Step 3: teach them organizational change so they can make steps 1 and 2 normal*
-
-
----
-
 ## Why This Matters
 
 <div class="row">
@@ -695,7 +696,7 @@ date: "2025-07-28"
 -   This is the worst job market for junior programmers *ever*
 -   People whose hopes have failed look for someone to blame
 -   If we don't explain how the world works,
-    someone much less pleasant will happily do so
+    someone much less pleasant will do so
 
 ---
 
