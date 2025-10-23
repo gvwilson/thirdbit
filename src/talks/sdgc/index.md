@@ -140,7 +140,7 @@ date: "2025-07-28"
 
 --
 
--   What now appears to be more relevant:
+-   *Cognitive pollution* is a better model:
     -   [Tetraethyl lead](https://en.wikipedia.org/wiki/Tetraethyllead)
     -   [Asbestos](https://en.wikipedia.org/wiki/Asbestos) and
         [mesothelioma](https://en.wikipedia.org/wiki/Mesothelioma)
@@ -148,9 +148,14 @@ date: "2025-07-28"
     -   The [fossil fuels lobby](https://en.wikipedia.org/wiki/Fossil_fuels_lobby)'s campaign
         to promote [climate change denial](https://en.wikipedia.org/wiki/Climate_change_denial)
 
+--
+
+-   Meta's role in the [Rohingya genocide](https://en.wikipedia.org/wiki/Rohingya_genocide)
+    -   "…the military used dozens of seemingly unrelated Facebook pages to spread hate speech…before the 2017 attacks."
+
 ---
 
-## Now, How Do We Reach This Guy?
+## So How Do We Reach This Guy?
 
 > Jay is 21, white, straight, and male.
 > He went into programming because he enjoys solving puzzles,
@@ -159,14 +164,33 @@ date: "2025-07-28"
 > but makes disparaging jokes about "cancel culture" and "DEI hires" to fit in with his peers.
 > His favorite phrase in arguments is, "Well, actually…"
 
-
 --
 
 -   Most programmers know little or nothing about the humanities and social sciences
 -   Most material assumes concepts they've never heard of…
     -   …which makes them feel stupid…
     -   …which they hate
--   Many don't even believe there's a problem
+
+---
+
+## Facts Aren't Enough
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/steinlubrano-politics.jpg" alt="Stein Lubrano: Don't Talk About Politics" width="200px">
+  </div>
+  <div class="col-8">
+    Sarah Stein Lubrano: <em><a href="https://isbnsearch.org/isbn/9781399413923">Don't Talk About Politics: How to Change 21st Century Minds</a></em> (2002)
+    <ul>
+      <li>People choose beliefs based on group membership rather than vice versa</li>
+      <li>Changing their minds therefore has a high social cost</li>
+    </ul>
+  </div>
+</div>
+
+--
+
+> People want data, but believe stories.
 
 ---
 
@@ -199,29 +223,16 @@ date: "2025-07-28"
 
 ## Disappointing Gaps
 
--   Employees' rights
+-   Employees' rights: nothing
+-   Co-operatives, practices, and other models: nope
 -   Workplace discrimination: less than 8 pages between 12 books
--   Professional liability: or rather, why there isn't any
--   Co-operatives and other organizational models
--   Regulatory capture
-
-> None of the courses on entrepreneurship or the business of software that I looked at
-> covered these topics either.
-
----
-
-## This Isn't "Politics"
-
--   A reviewer said "politics doesn't belong in software engineering courses"
--   But *not* talking about these things, while talking about venture capital and IPOs, is a "political" decision
--   Most of the people who use the word "politics" as an insult would struggle to define it correctly
--   "Decision-making in groups in the absence of agreement on goals"
-
+    -   All about how to handle it *as a manager*
+-   Why there *isn't* licensure or professional liability: nope
 
 --
 
-> Several of the books we're about to discuss don't align with my personal beliefs,
-> but are still examples of deep thinking and deserve to be taken seriously
+> None of the courses on entrepreneurship or the business of software that I looked at
+> covered these topics either.
 
 ---
 
@@ -235,17 +246,31 @@ date: "2025-07-28"
     Mary Douglas: <em><a href="https://isbnsearch.org/isbn/9780415289955">Purity and Danger: An Analysis of Concepts of Pollution and Taboo</a></em> (2002)
     <ul>
       <li>Every group places some things out of bounds as a way of identifying who's in and who's out</li>
-      <li>Racial slurs I used as a young man are now taboo</li>
-      <li>Public discussion of sexuality is now accepted</li>
+      <li>Racial slurs I used as a young man are now taboo…</li>
+      <li>…while public discussion of sexuality is now accepted</li>
     </ul>
   </div>
 </div>
 
 --
 
--   These insights can help us build better software and a better society
--   But people in "hard" disciplines tend to look down on the "soft" ones
+-   People in "hard" disciplines tend to look down on the "soft" ones
     -   Until they become managers…
+-   But these insights can help us build better software *and* a better society
+
+---
+
+## This Isn't "Politics"
+
+-   A reviewer said "politics doesn't belong in software engineering courses"
+-   But *not* talking about these things, while talking about venture capital and IPOs, is a "political" decision
+-   Most of the people who use the word "politics" as an insult would struggle to define it correctly
+-   "Decision-making in groups in the absence of agreement on goals"
+
+--
+
+> Several of the books we're about to discuss don't align with my personal beliefs,
+> but are still examples of deep thinking and deserve to be taken seriously
 
 ---
 
@@ -256,7 +281,6 @@ date: "2025-07-28"
 -   Kizza: *[Ethical and Secure Computing](https://isbnsearch.org/isbn/9783031319051)* (2023)
 -   Schlossberger: *[Ethical Engineering: A Practical Guide with Case Studies](https://isbnsearch.org/isbn/9781032151120)* (2023)
 -   Steen: *[Ethics for People Who Work in Tech](https://isbnsearch.org/isbn/9780367542436)* (2022)
-
 
 --
 
@@ -280,7 +304,6 @@ date: "2025-07-28"
     </ul>
   </div>
 </div>
-
 
 --
 
@@ -317,7 +340,7 @@ date: "2025-07-28"
 <br>
 <br>
 <div class="center">
-  <h2>Possible Content</h2>
+  <h2>Well That's Interesting</h2>
 </div>
 
 ---
@@ -353,7 +376,6 @@ date: "2025-07-28"
   </div>
 </div>
 
-
 --
 
 > [Conway's Law](https://en.wikipedia.org/wiki/Conway%27s_law) and sociotechnical congruence
@@ -375,7 +397,6 @@ date: "2025-07-28"
     </ul>
   </div>
 </div>
-
 
 --
 
@@ -399,7 +420,6 @@ date: "2025-07-28"
     </ul>
   </div>
 </div>
-
 
 --
 
@@ -425,10 +445,10 @@ date: "2025-07-28"
   </div>
 </div>
 
-
 --
 
-> Can we give programmers the intellectual tools they need to ask and answer these questions?
+> Give programmers the intellectual tools they need to ask these questions
+> and distinguish credible answers from ones that are merely plausible.
 
 ---
 
@@ -446,38 +466,11 @@ date: "2025-07-28"
   </div>
 </div>
 
-
 --
-
 
 -   Freeman: <a href="https://en.wikipedia.org/wiki/The_Tyranny_of_Structurelessness">"The Tyranny of Structurelessness"</a> (1972)
     -   Every social group has a power structure
     -   Only question is whether it is explicit and accountable or implicit and unaccountable
-
----
-
-## Power and Influence
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/wendorff-politics.jpg" alt="Wendorff: Politics in Software Development" width="200px">
-  </div>
-  <div class="col-8">
-    Peter Wendorff: <em><a href="https://isbnsearch.org/isbn/9781484273791">Politics in Software Development</a></em> (2022)
-    <br>
-    Three mental models of politics in organizations
-    <ol>
-      <li>The official version: we're all working together toward a common goal</li>
-      <li>Grumbling: everyone is a self-interested Machiavelli</li>
-      <li>Reality: sincere differences of opinion lead to power struggles because we <em>don't</em> agree on means and ends</li>
-    </ol>
-  </div>
-</div>
-
-
---
-
-> How well a group manages those disagreements determines how (dys)functional it is.
 
 ---
 
@@ -496,7 +489,6 @@ date: "2025-07-28"
     </ul>
   </div>
 </div>
-
 
 --
 
@@ -637,7 +629,7 @@ date: "2025-07-28"
 
 ---
 
-## Cheating
+## Closer to Home
 
 <div class="row">
   <div class="col-4">
@@ -648,6 +640,23 @@ date: "2025-07-28"
     <ul>
       <li>Personalize discussion of motivation and misaligned incentives</li>
       <li>See if they can apply what they've learned</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+## The Point Is To Change It
+
+<div class="row">
+  <div class="col-4">
+    <img src="@root/files/books/young-abolishing.jpg" alt="Young: Abolishing Fossil Fuels" width="200px">
+  </div>
+  <div class="col-8">
+    Kevin Young: <em><a href="https://isbnsearch.org/isbn/9798887440330">Abolishing Fossil Fuels: Lessons From Movements That Won</a></em> (2024)
+    <ul>
+      <li>Social reform only happens when economic pressure is applied</li>
+      <li>"Protests make headlines, but boycotts change laws"</li>
     </ul>
   </div>
 </div>
@@ -666,37 +675,20 @@ date: "2025-07-28"
 
 ## Why This Matters
 
-<div class="row">
-  <div class="col-2">
-    <img src="@root/files/books/young-abolishing.jpg" alt="Young: Abolishing Fossil Fuels" width="100px">
-  </div>
-  <div class="col-10">
-    Kevin Young: <em><a href="https://isbnsearch.org/isbn/9798887440330">Abolishing Fossil Fuels: Lessons From Movements That Won</a></em> (2024)
-    <ul>
-      <li>Social reform only happens when economic pressure is applied</li>
-      <li>"Protests make headlines, but boycotts change laws"</li>
-    </ul>
-  </div>
-</div>
-<div class="row">
-  <div class="col-2">
-    <img src="@root/files/books/frase-futures.jpg" alt="Frase: Four Futures" width="100px">
-  </div>
-  <div class="col-10">
-    Peter Frase: <em><a href="https://isbnsearch.org/isbn/9781781688137">Four Futures: Life After Capitalism</a></em>
-    <ul>
-      <li>Explores four ways increasing automation and worsening climate change might play out</li>
-    </ul>
-  </div>
-</div>
-
-
---
-
 -   This is the worst job market for junior programmers *ever*
 -   People whose hopes have failed look for someone to blame
 -   If we don't explain how the world works,
     someone much less pleasant will do so
+
+--
+
+> It is 2035.
+> Most men under 20 have learned what they "know" about what women like
+> from AI chatbots trained on porn and tuned to maximize engagement.
+> The people who have earned billions from these systems
+> cannot legally be held accountable for their users' actions.
+>
+> How does that make you feel?
 
 ---
 
@@ -712,7 +704,7 @@ date: "2025-07-28"
 
 --
 
--   The best thing we can do now is help you learn the things we chose to ignore
+-   The best we can do now is help you learn things that we chose to ignore
 
 
 --
