@@ -4261,8 +4261,8 @@ Captain Snood raised her tea in salute.
 and most of us don't get to say that.
 It's just a shame she didn't get one last chance to talk to Tumbly."
 
-"I don't think she actually would have enjoyed talking to gran-granna,"
-Finner said.
+"I don't think either of them would have enjoyed that conversation,"
+Finner said bitterly.
 
 "Now, now…"
 Santa Hotep wheezed.
@@ -4272,7 +4272,7 @@ for you…
 you know."
 
 "No she doesn't,"
-Finner replied tiredly.
+Finner replied.
 "She cares about who she thinks I'm supposed to be.
 If she cared about *me*,
 she wouldn't have dumped me in The Building and replaced me with a robot."
@@ -4307,7 +4307,7 @@ when the magic mirror beside Santa Hotep chimed.
 
 "That was quick,"
 Captain Snood muttered
-as the mirror rippled and reformed
+as the mirror rippled
 to show the steps leading up to the pyramid entrance.
 Instead of stone cats fighting unknown hooded figures,
 though,
@@ -4327,22 +4327,21 @@ to conjure up…
 more cats,"
 Santa Hotep said.
 "I don't suppose…
-you could ask…
 your crew…
-for help?"
+can help?"
 
 Captain Snood scowled and shook her head.
-"Not in time."
+"Wouldn't get here in time."
 
-"I could help,"
+"I could assist,"
 the Elfabot volunteered.
 It did something complicated with its arms.[^complicated-arms]
 
-[^complicated-arms]: Books are very good at describing things, but would take several paragraphs to capture the way bits of metal plating pivoted out of the way and/or folded up to allow other, equally complicated bits of metal to take their place, and even with diagrams, I didn't feel it advanced the story very much.
+[^complicated-arms]: Books are very good at describing things, but would take several paragraphs to capture the way bits of metal plating pivoted out of the way and/or folded up to allow other, equally complicated bits of metal to take their place, and even with diagrams, it wouldn't advance the story very much.
 
 "Whoa,"
 Finner breathed.
-The robot's right arm now ended in what seemed to be a rather large ray gun,
+The robot's right arm now ended in a large ray gun,
 while the left was some sort of curved shield.
 "Did Shady Ann make those for you?"
 
@@ -4353,29 +4352,15 @@ I don't know who did.
 Strange."
 Its eyes flashed on and off.
 "Shall we see how well they work?"
-Without waiting for an answer it strode away.
 
-Finner, Captain Snood, and Santa Hotep watched it go.
-"Well, that was odd," the captain observed.
-She put down her tea and drew her cutlass.
-"Shall we?"
-
-"After… you…"
-Santa Hotep wheezed.
-"But not… you,"
-it added to Finner.
-"This will…
-probably…
-be messy."
-
-"I'm not just going to watch!" he protested.
-
-"Of course… not,"
-the mummy said,
-making an arcane gesture in the general direction of its magic mirror.
-"You can…
-listen…
-too."
+"You stay here and watch over the boy,"
+Captain Snood ordered,
+standing and straightening her coat.
+"We'll see if we can sort this out.
+After you?"
+She gestured.
+Santa Hotep dipped his head and shuffled toward the exit
+with her at his side.
 
 </section>
 
