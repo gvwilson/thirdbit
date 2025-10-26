@@ -3,6 +3,8 @@ title: Cognitive Pollution
 date: 2025-10-25
 ---
 
+> *Update: I have posted [a recording of the talk](https://youtu.be/f86KBeJ7e2M).*
+
 I am grateful to [Prof. Alberto Bacchelli](https://sback.it/)
 for inviting me to give a colloquium at the [University of Zurich](https://www.ifi.uzh.ch/en.html)
 a couple of days ago.
