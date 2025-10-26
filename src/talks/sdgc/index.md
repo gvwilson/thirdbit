@@ -2,7 +2,7 @@
 title: "Cocaine and Conway's Law"
 subtitle: "what young software engineers need to learn and how we should teach it"
 template: slides
-date: "2025-07-28"
+date: "2025-10-23"
 ---
 
 ## Outline
@@ -12,13 +12,13 @@ date: "2025-07-28"
     -   Rising inequality
     -   Radicalization
     -   Ubiquitous surveillance
-    -   And now there's AI to worry about
+-   And now there's AI to worry about
 -   Most discussion by technologists is *shallow*
     -   Andreessen's "Techno-Optimist Manifesto" was embarrassing
 -   If we want better answers, we need to:
     1.  Develop a better threat model
-    2.  Be humble: the "soft" disciplines are harder than ours
-    3.  *Figure out how to get students to care*
+    2.  Be humble enough to learn from others
+    3.  *Get students to care*
 
 ---
 
@@ -131,19 +131,18 @@ date: "2025-07-28"
 
 ---
 
-## Threat Model
+## A Better Threat Model
 
 -   [Therac-25 incident](https://en.wikipedia.org/wiki/Therac-25) and
     [Ariane 5 flight V88](https://en.wikipedia.org/wiki/Ariane_flight_V88)
     -   Direct cause-and-effect relationships
-    -   But rare and remote
+    -   But incidents are rare and feel remote
 
 --
 
--   *Cognitive pollution* is a better model:
+-   *Cognitive pollution* is a better model
     -   [Tetraethyl lead](https://en.wikipedia.org/wiki/Tetraethyllead)
-    -   [Asbestos](https://en.wikipedia.org/wiki/Asbestos) and
-        [mesothelioma](https://en.wikipedia.org/wiki/Mesothelioma)
+    -   [Asbestos](https://en.wikipedia.org/wiki/Asbestos)
     -   Oxycodone and [Purdue Pharma](https://en.wikipedia.org/wiki/Purdue_Pharma)
     -   The [fossil fuels lobby](https://en.wikipedia.org/wiki/Fossil_fuels_lobby)'s campaign
         to promote [climate change denial](https://en.wikipedia.org/wiki/Climate_change_denial)
@@ -166,10 +165,10 @@ date: "2025-07-28"
 
 --
 
--   Most programmers know little or nothing about the humanities and social sciences
--   Most material assumes concepts they've never heard of…
-    -   …which makes them feel stupid…
-    -   …which they hate
+-   Jay knows little or nothing about the humanities and social sciences
+-   Most material assumes concepts he has never heard of…
+    -   …which makes him feel stupid…
+    -   …which makes him tune out
 
 ---
 
@@ -226,7 +225,7 @@ date: "2025-07-28"
 -   Employees' rights: nothing
 -   Co-operatives, practices, and other models: nope
 -   Workplace discrimination: less than 8 pages between 12 books
-    -   All about how to handle it *as a manager*
+    -   But all about how to handle it *as a manager*
 -   Why there *isn't* licensure or professional liability: nope
 
 --
@@ -260,7 +259,7 @@ date: "2025-07-28"
 
 ---
 
-## This Isn't "Politics"
+## "Politics" Should't be a Dirty Word
 
 -   A reviewer said "politics doesn't belong in software engineering courses"
 -   But *not* talking about these things, while talking about venture capital and IPOs, is a "political" decision
@@ -270,7 +269,7 @@ date: "2025-07-28"
 --
 
 > Several of the books we're about to discuss don't align with my personal beliefs,
-> but are still examples of deep thinking and deserve to be taken seriously
+> but are still examples of deep thinking and deserve to be taken seriously.
 
 ---
 
@@ -284,7 +283,7 @@ date: "2025-07-28"
 
 --
 
-> It doesn't matter what you say if no one stays awake to hear it.
+> It doesn't matter what you say if no one is awake to hear it.
 
 ---
 
@@ -298,9 +297,9 @@ date: "2025-07-28"
     Steven Levitt & Stephen Dubner: <em><a href="https://isbnsearch.org/isbn/9780061234002">Freakonomics</a></em> (2006)
     <ul>
       <li>"The profit motive is the only valid way to analyze individual behavior"</li>
-      <li>…which is provably wrong, but their writing is engaging…</li>
-      <li>…and tech bros are suckers for simple answers to hard questions that fit their preconceived ideas…</li>
-      <li>…especially when they have no idea where those ideas came from</li>
+      <li>…which is provably wrong, but their writing is engaging</li>
+      <li>Guys like Jay are suckers for simple answers to hard questions that fit their preconceived ideas…</li>
+      <li>…especially when they've never heard the alternatives</li>
     </ul>
   </div>
 </div>
@@ -321,8 +320,8 @@ date: "2025-07-28"
   <div class="col-8">
     Tom Wainright: <em><a href="https://isbnsearch.org/isbn/9781610397704">Narconomics: How to Run a Drug Cartel</a></em> (2017)
     <ul>
-      <li>Turns out that marketing and HR are big challenges</li>
-      <li>And you can learn a lot about how business actually works by looking at ones that ignore the legal system</li>
+      <li>What does capitalism look like in its purest form?</li>
+      <li>Turns out that marketing, HR, and dispute resolution are challenging</li>
     </ul>
   </div>
 </div>
@@ -354,7 +353,7 @@ date: "2025-07-28"
   <div class="col-8">
     Dan Davies: <em><a href="https://isbnsearch.org/isbn/9781982114947">Lying for Money: How Legendary Frauds Reveal the Workings of the World</a></em> (2022)
     <ul>
-      <li>You will understand tech companies' business models better once you know how to recognize common types of fraud</li>
+      <li>You will understand some tech companies' business models better once you can recognize common types of fraud</li>
     </ul>
   </div>
 </div>
@@ -383,7 +382,7 @@ date: "2025-07-28"
 
 ---
 
-## Conway's Law
+## Speaking of Conway's Law
 
 <div class="row">
   <div class="col-4">
@@ -400,13 +399,12 @@ date: "2025-07-28"
 
 --
 
--   "…if you want to know what parts of the project are suffering the most, pay attention to what the team is having meetings about"
--   "Managing technical debt is about restoring consistency."
--   …and many other insights
+-   "If you want to know what parts of the project are suffering the most, pay attention to what the team is having meetings about."
+-   And many other insights
 
 ---
 
-## Central vs. Local Control
+## Central vs. Distributed Control
 
 <div class="row">
   <div class="col-4">
@@ -415,8 +413,8 @@ date: "2025-07-28"
   <div class="col-8">
     James C. Scott: <em><a href="https://isbnsearch.org/isbn/9780300078152">Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed</a></em>
     <ul>
-      <li>Large organizations always prefer <em>legibility</em> over productivity</li>
-      <li>Value <em>techne</em> (universal, first principles) over <em>metis</em> (situational, experiential)</li>
+      <li>Large organizations always prefer legibility over productivity</li>
+      <li>Because the former gives the center some degree of control</li>
     </ul>
   </div>
 </div>
@@ -474,32 +472,6 @@ date: "2025-07-28"
 
 ---
 
-## Coalitions
-
-<div class="row">
-  <div class="col-4">
-    <img src="@root/files/books/bueno-dictator.jpg" alt="Bueno de Mesquita and Smith: The Dictator's Handbook" width="200px">
-  </div>
-  <div class="col-8">
-    Bruce Bueno de Mesquita & Alastair Smith: <em><a href="https://isbnsearch.org/isbn/9781541701366">The Dictator's Handbook: Why Bad Behavior is Almost Always Good Politics</a></em> (2022)
-    <ul>
-      <li>Nominal selectorate: those who nominally have a say</li>
-      <li>Real selectorate: those who actually cast a vote</li>
-      <li>Winning coalition: those whose votes produce victory</li>
-    </ul>
-  </div>
-</div>
-
---
-
-1.  The smaller the winning coalition, the fewer people to satisfy to remain in control.
-1.  The larger the selectorate, the easier it is to replace dissenters.
-1.  Extract as much wealth as you can without provoking rebellion or recession.
-1.  Give your essential supporters just enough rewards to keep them loyal.
-1.  Do not reward your supporters too well or they will become a threat.
-
----
-
 ## Fairness and Productivity
 
 <div class="row">
@@ -526,7 +498,7 @@ date: "2025-07-28"
 
 ---
 
-## Three Kinds of Property
+## Where Does Property Come From?
 
 <div class="row">
   <div class="col-2">
@@ -559,9 +531,7 @@ date: "2025-07-28"
   <div class="col-10">
     Sarah E. Igo: <em><a href="https://isbnsearch.org/isbn/9780674244795">The Known Citizen: A History of Privacy in Modern America</a></em> (2020)
     <br>
-    The right to privacy is the youngest of the three;
-    again,
-    you can't be part of the debate without understanding how we got here.
+    The right to privacy is the youngest and least evolved of the three.
   </div>
 </div>
 
@@ -587,7 +557,7 @@ date: "2025-07-28"
 
 ---
 
-## Corporate Responsibility
+## How Corporations Fail
 
 <div class="row">
   <div class="col-4">
@@ -601,6 +571,8 @@ date: "2025-07-28"
     </ul>
   </div>
 </div>
+
+<br>
 
 <table>
   <tr>
@@ -639,7 +611,7 @@ date: "2025-07-28"
     James M. Lang: <em><a href="https://isbnsearch.org/isbn/9780674724631">Cheating Lessons: Learning from Academic Dishonesty</a></em> (2023)
     <ul>
       <li>Personalize discussion of motivation and misaligned incentives</li>
-      <li>See if they can apply what they've learned</li>
+      <li>See if students can apply what they've learned</li>
     </ul>
   </div>
 </div>
@@ -716,10 +688,10 @@ date: "2025-07-28"
 ## Thank You, and Good Luck
 
 <div class="row">
-  <div class="col-4">
-    <p><img src="@root/files/cv/gvwilson-2025.jpg" alt="Greg Wilson" width="200px"></p>
+  <div class="col-6">
+    <p><img src="@root/files/cv/gvwilson-2025.jpg" alt="Greg Wilson" width="300px"></p>
   </div>
-  <div class="col-8">
+  <div class="col-6">
     <p><a href="http://third-bit.com">Greg Wilson</a></p>
     <p><a href="mailto:gvwilson@third-bit.com">gvwilson@third-bit.com</a></p>
     <p><a href="http://third-bit.com/talks/sdgc/">http://third-bit.com/talks/sdgc/</a></p>
