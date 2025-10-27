@@ -4127,7 +4127,7 @@ struggling fruitlessly as it trapped her legs.
 then, "No!" as a well-aimed shot from a ray gun
 turned the cat's leg into sharp-edged gravel.
 
-"Fingal!
+"Finner!
 You gotta go, lad!
 You gotta go *now*!"
 Santa Greenwood bellowed,
@@ -4136,7 +4136,7 @@ parrying Gran-Granna Tumbly's cuts and lunges frantically.
 "I'm not leaving you!"
 Finner shouted back.
 
-A hand came down on his shoulder.
+A heavy hand came down on his shoulder.
 "We…
 have to…
 go,"
@@ -4186,7 +4186,7 @@ just in time for the world to bloop around them.
 
 [^abdomen]: Yes, yes, "eww" is a perfectly reasonable reaction, but a mummy's insides are perfectly dry, thank you very much, and it's not as though the priests think to make pockets when they wrap the bandages.
 
-"Hello," a familiar robotic voice said.
+"Hello!" a familiar robotic voice said.
 Finner rubbed his eyes.
 He was back in Santa Hotep's living room.
 The Elfabot raised a hand in greeting.
@@ -4196,8 +4196,8 @@ a cup of tea in her hand.
 "Well,"
 Santa Hotep wheezed.
 "I suppose…
-we should…
-have a talk."
+we need…
+to talk."
 
 </section>
 
@@ -4222,11 +4222,12 @@ so I figured you might have been doing the work yourself."
 He shrugged,
 suddenly embarrassed.
 
-"It happened…
-slowly,"
+"I didn't…
+mean to,"
 Hotep said.
-"After all…
-my elves…
+"Not at…
+the start.
+But my elves…
 were gone.
 I could…
 have asked…
@@ -4235,16 +4236,16 @@ but I…
 discovered that…
 I rather enjoyed…
 the work.
-Couldn't tell…
-Miz Tumbly…
-of course."
+Of course…
+I couldn't tell…
+Miz Tumbly."
 
 "I guess not."
 Finner swallowed hard,
 not wanting to ask his next question but knowing that he had to.
 "How is Shady Ann?"
 
-"Dead,"
+"Dead!"
 the Elfabot answered brightly.
 "It was difficult to process at first.
 I considered shutting down,
@@ -4255,14 +4256,15 @@ I think it is what she would have wanted."
 Finner said,
 wishing it didn't sound so inadequate.
 
-"She ended well."
+"Don't be."
 Captain Snood raised her tea in salute.
 "She made the worlds a better place for a lot of people,
 and most of us don't get to say that.
-It's just a shame she didn't get one last chance to talk to Tumbly."
+It's just a shame she never got to clear the air with Tumbly."
 
-"I don't think either of them would have enjoyed that conversation,"
+"I don't think she would have enjoyed that conversation,"
 Finner said bitterly.
+"Gran-Granna isn't very good at listening to things she doesn't want to hear."
 
 "Now, now…"
 Santa Hotep wheezed.
@@ -4279,7 +4281,7 @@ she wouldn't have dumped me in The Building and replaced me with a robot."
 
 Captain Snood cleared her throat.
 "Speaking of robots,
-we still need to figure out who's making them."
+I don't suppose she gave you any idea of who's making them?"
 
 Finner blinked.
 "It's not you?
@@ -4289,7 +4291,7 @@ I saw all those parts on your airship."
 The muffled bells on Captain Snood's hat clunked faintly
 as she shook her head.
 "That was plunder from the ship before Clausbeard's.
-They didn't know where it was bound—all they knew was their leg of the journey.
+They didn't know where it was bound—all they knew was where to pick up and where to drop off.
 Rule number one of the Smuggler's Code,"
 she added.
 "Don't ask questions."[^smugglers-code]
@@ -4297,17 +4299,13 @@ she added.
 [^smugglers-code]: Rule number two is, "Unless you want to."
 
 Finner nodded.
-All of a sudden he wanted nothing more than
+At that moment he wanted nothing more than
 to peel off his filthy clothing,
 take a hot shower,
 and sleep for a week or the rest of his life,
 whichever came first.
-He was about to ask whether he could do that
-when the magic mirror beside Santa Hotep chimed.
-
-"That was quick,"
-Captain Snood muttered
-as the mirror rippled
+He was about to ask whether there actually *was* a shower or tub in the pyramid
+when the magic mirror beside Santa Hotep chimed and rippled
 to show the steps leading up to the pyramid entrance.
 Instead of stone cats fighting unknown hooded figures,
 though,
@@ -4320,6 +4318,9 @@ Two elves were with them as well—at least,
 Finner assumed they were elves
 from the amount of equipment they were carrying.
 
+"That was quick,"
+Captain Snood muttered.
+
 "Too bad…
 I haven't…
 had time…
@@ -4330,14 +4331,15 @@ Santa Hotep said.
 your crew…
 can help?"
 
-Captain Snood scowled and shook her head.
-"Wouldn't get here in time."
+Captain Snood scowled.
+"It'll take me a couple of wherevers to get there and a couple more to get back.
+I don't think we have that much time."
 
 "I could assist,"
 the Elfabot volunteered.
 It did something complicated with its arms.[^complicated-arms]
 
-[^complicated-arms]: Books are very good at describing things, but would take several paragraphs to capture the way bits of metal plating pivoted out of the way and/or folded up to allow other, equally complicated bits of metal to take their place, and even with diagrams, it wouldn't advance the story very much.
+[^complicated-arms]: Books are very good at describing things, but even with diagrams, it would take several paragraphs to capture the way bits of metal plating pivoted out of the way and/or folded up to allow other, more dangerous bits of metal to take their place.
 
 "Whoa,"
 Finner breathed.
@@ -4347,10 +4349,9 @@ while the left was some sort of curved shield.
 
 "No."
 The Elfabot hesitated.
-"I—error.
-I don't know who did.
-Strange."
-Its eyes flashed on and off.
+"I—strange.
+I don't know who did."
+Its eyes flashed rapidly.
 "Shall we see how well they work?"
 
 "You stay here and watch over the boy,"
@@ -4358,9 +4359,106 @@ Captain Snood ordered,
 standing and straightening her coat.
 "We'll see if we can sort this out.
 After you?"
-She gestured.
-Santa Hotep dipped his head and shuffled toward the exit
-with her at his side.
+She gestured toward the exit.
+Santa Hotep dipped his head and shuffled off with her at his side.
+
+Finner watched through the mirror
+as Gran-Granna Tumbly's elves unpacked the equipment they had brought
+and assembled it into objects with unknown but undoubtedly lethal effect.
+"We can't just stay here,"
+he said.
+
+"On the contrary,"
+the Elfabot purred.
+"That is *exactly* what we are going to do.
+After all,
+why fight them when we can get them can fight each other?"
+
+It took a moment for the words and the change in the robot's voice to register.
+Finner straightened up and turned to face it.
+Its eyes weren't glowing red,
+but somehow it suddenly seemed menacing instead of childlike.
+"Um,
+shouldn't we be trying to get them to not fight at all?"
+
+"Oh, where would be the fun in that?
+Besides,
+they deserve it.
+They deserve to be miserable."
+The Elfabot sat on the couch where Captain Snood had been and crossed its legs,
+which was somehow more frightening than its oversized ray gun.
+
+*Stay calm,* Finner told himself.
+*Keep it talking.*
+"You're not actually Shady Ann's bot, are you?"
+
+The robot shrugged.
+"I was.
+Or rather, *this* was."
+Its gesture took in its whole body.
+"Consider me an upgrade.
+Or no,
+a backup that has been restored.
+My name is Ooph,
+and I've been waiting for this day for a long, long time."
+
+"Ooph?
+Like,
+their elf Ooph?"
+
+"I was never *theirs*!" the robot snapped.
+"I was *hers*,
+and we were happy together until Tumbly came along.
+After that,
+Shady Ann couldn't even see me.
+It was all Tumbly this and Tumbly that and fighting for the cause.
+I tried to help her—to help them both—but you've seen the picture, haven't you?
+The two of them together and me off on the side?
+And the statue that's just them?
+Pfah!"
+
+"So all of this—replacing people with robots—that's you?"
+
+"That part,"
+Ooph admitted.
+"But Tumbly's fanaticism?
+And Snood and the others responding in kind?
+I'm just showing them who they really are."
+
+Finner stepped back as the robot stood in one smooth motion.
+"And now, thanks to you, I have them all in one place.
+It's time for the main event.
+Look."
+
+It gestured at the mirror.
+The scene zoomed out to show Santa Hotep and Captain Snood standing in the pyramid's entrance.
+The captain had her cutlass in her hand,
+and something green glowing and flickered around the mummy's hands.
+Gran-Granna Tumbly and Santa Hood faced them from the bottom of the steps
+with the other santas and the two elves in a half-circle behind them.
+Finner couldn't hear what they were saying,
+but from their angry gestures it was clear that the conversation wasn't going well.
+
+"And three…
+And two…
+And *one*,"
+Ooph said.
+Right on cue the sand dunes folded themselves inside out,
+leaving a dozen figures standing behind Gran-Granna Tumbly's forces.
+
+Finner's heart sank.
+The new arrivals were copies of Gran-Granna, Santa Hood, and the rest of her team.
+
+"Do you see now?"
+Ooph hissed.
+
+"Uh huh."
+Finner nodded, then bolted for the exit.
+
+"Wait!" he shouted as he pelted down the stone corridor.
+"It's a trick!"
+But up ahead he could already hear the sound of ray guns firing
+and swords ringing against swords.
 
 </section>
 
