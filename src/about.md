@@ -22,8 +22,7 @@ and most recently [*Software Design by Example in JavaScript*][sdxjs]
 and [*Software Design by Example in Python*][sdxpy].
 
 Greg is a member of the [Python Software Foundation][psf]
-and a recipient of [ACM SIGSOFT][sigsoft]'s Influential Educator of the Year award,
-and currently works as a software engineering manager at [Plotly][plotly].
+and a recipient of [ACM SIGSOFT][sigsoft]'s Influential Educator of the Year award.
   </div>
 </div>
 
