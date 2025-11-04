@@ -2409,7 +2409,7 @@ Finner paused for a moment to consider his words.
 "Do santas normally do this kind of work in your world?"
 he finally ventured.
 
-The santa shrugged.
+The santa looked slightly embarrassed, then slightly sad.
 "Santa this, elf that—it all seems pretty foolish when everything has fallen apart.
 I think what matters is whether people are happy or not.
 All I know is that if we can fix the train and deliver some presents,
@@ -2515,8 +2515,8 @@ shifting his grip a moment later to get the thigh out of his face.[^thigh-face]
 
 [^thigh-face]: If you ever pick up a leg to wave at someone, please remember that it bends at the knee.
 
-"How about you put that back?"
-the Elfabot suggested.
+"Please put that back,"
+the Elfabot said politely.
 "Quietly, please—she does need her rest."
 
 Finner set the leg down meekly.
@@ -2577,16 +2577,30 @@ Two figures in heavy coats and ski masks came out
 and took the boxes that Finner passed to them
 with only a muttered, "Thanks."
 
-Their reception was just as frosty at the next stop,
-where they dropped off some of the salvaged machinery as well as the beans.
-"Well, if it ain't the subway santa,"
+The next delivery was more warmly received.
+A bald man wearing a t-shirt and shorts said,
+"Thank you, Santa! See you next week!"
+as Finner passed him a box.
+
+"Ho ho ho," Finner replied weakly.
+The man's arms and jaw had mechanical joints,
+and his eyes were lightbulbs like the Elfabot's.
+Finner glanced sidelong at Shady Ann,
+but she had sunk into her parka,
+and the shadows under her eyes were even deeper and darker
+than when they left the subway station.
+
+They made half a dozen stops after that,
+and were met each time by someone cheerful and mechanical.
+Their reception was frosty again at their final stop,
+where they dropped off the last of the salvaged machinery as well as beans.
+"Sphenometer's broken again,"
 one person said while the other stacked the delivery on a child's sled
 and tied it down.
-"Sphenometer's broken again."
 
 "I'll see what I can find,"
 the santa said.
-The person nodded curtly and turned without saying goodbye.
+The person who had spoken nodded curtly and turned without saying goodbye.
 
 "They don't seem very happy to see you,"
 Finner said once they were in motion again.
@@ -2656,8 +2670,7 @@ Shady Ann smiled back wanly.
 "Something like that."
 
 It took them another week to finish fixing the subway train.
-Finner enjoyed it despite worrying that the Elfabot was going to smother him in his sleep
-so that a robot could take his place.
+Finner enjoyed it despite worrying about what the Elfabot might do.
 He bashed his thumb with a mallet at one point,
 which really hurt,
 and he was frustrated over and over again by how little he knew,
@@ -2674,10 +2687,9 @@ oiled pistons,
 and cleaned the grime out of window jambs
 so that the sashes slid up and down with only a faint *ssh*.
 
-Every once in a while,
-Shady Ann raised her hand in warning.
+Every once in a while the Elfabot bleeped a warning.
 Finner held his breath while heavy steps thudded on the ground above their heads.
-Neither of them moved until the sound had receded into the distance.
+None of them moved until the sound had receded into the distance.
 
 Finally the train was ready,
 or at least ready enough.
@@ -2707,7 +2719,7 @@ she was too weak to drive.
 "I'll be fine,"
 she said,
 waving Finner away as he tried to help her down onto her couch.
-"Just need to… to catch my breath.
+"Just need to rest for a bit.
 The Elfabot will get you there.
 But here,
 you should take this."
@@ -2739,10 +2751,13 @@ who waved.
 the robot said.
 "She is dying.
 It makes me sad,
-but she tells me that all organics do it eventually.
-I hope my creator will make a copy of her to keep me company when she is gone."
+but she tells me that all organics do it eventually."
+It paused.
+"I don't think I will make a copy of her
+like the ones I made of the others.
+I think a copy would just make me feel lonely."
 
-Before Finner could ask any more questions,
+Before Finner could ask any of questions that prompted,
 the Elfabot pulled first one lever and then another.
 The subway car vibrated faintly as the engine came to life.
 The robot slowly pressed a pedal down with a booted foot.
@@ -2752,7 +2767,7 @@ or that *he* had done something wrong,
 but then the train began to roll forward,
 slowly at first and then faster.
 
-He grabbed a bar overhead to steady himself as the santa waved once again.
+He grabbed a bar overhead to steady himself as Shady Ann waved one last time.
 Faster and faster they went,
 out of the workshop and into the tunnel.
 The train's headlamp came on as it raced along the tracks.
@@ -2787,7 +2802,7 @@ the Elfabot said.
 "It's trying to cut us off!" Finner shouted.
 
 The Elfabot pulled another lever.
-Steam whistled from the control panel as they picked up speed.
+Steam whistled from the control panel as they picked up even more speed.
 "Well then it's a good thing I took the safeties off the engine, isn't it?
 Otherwise it would shut down to stop from exploding!"
 
