@@ -3631,38 +3631,8 @@ Finner plowed on.
 She didn't believe she had one any more.
 At least you haven't taken *that* from me."
 
-Later,
-Finner would wonder what would have happened if he hadn't provoked her.
-Would she have taken the photographs from her bag?
-Would she have tossed them onto the table between their chairs?
-Would he have picked them up and flipped through them,
-confused at first but then nauseous
-at the sight of his parents sitting at dinner with someone who looked just like him
-but whose smile was relaxed in a way his hadn't been for such a long time?
-The leaves outside the picture window and his mother's haircut told him
-that the pictures were recent.
-
-"I wish I could tell you that they were at least a little bit suspicious,"
-Gran-Granna Tumbly told him.
-"But to be honest,
-I think the robot was enough of an improvement
-that they didn't want to know."
-
-"So—so you're the one who's been making them all along?"
-Finner asked.
-
-Gran-Granna Tumbly scowled.
-"No.
-We just started.
-I don't like it,
-but if your lot is doing it,
-we have to—"
-
-"*My lot!?*"
 Feeling a little light-headed,
-Finner tossed the pictures back on the table,
-stood up,
-and rapped the door with his knuckles.
+Finner stood up and rapped the door with his knuckles.
 "I'm ready to go back to my room,"
 he told the santa who opened it.
 
@@ -3962,8 +3932,8 @@ He wrinkled his nose when Finner came close.
 "It was a *sanitation* shaft, not a ventilation shaft," Finner explained,
 plucking at the odoriferous clothes sticking damply to his skin.
 
-"There's a pond right over there if you want to clean up."
-Santa Greenwood nodded to his left.
+Santa Greenwood jerked a thumb at the pond to his left.
+"Take a dip and clean up if you want."
 Something large and toothy swished through the water as if in response.
 "All right, never mind.
 Can't be any worse than when the llamas get into the candy canes."
@@ -3985,11 +3955,6 @@ Santa Hood said dryly,
 stepping out of the shadows behind Santa Greenwood.
 
 Finner goggled at her.
-She grinned.
-"What?
-You didn't think he came up with this plan all on his own, did you?"
-
-Finner spread his hands.
 "Why are you both even here?"
 
 Santa Greenwood looked away uncomfortably.
@@ -4015,8 +3980,7 @@ savoring the absence of the cinnamon hot chocolate smell that pervaded The Build
 "I don't know if I'm a flip or not," he said.
 Santa Greenwood winced at the word,
 but Finner plowed on.
-"What I *do* know is that
-I want to find out
+"What I *do* know is that I want to find out
 and I'm not going to here.
 I hope it doesn't mean we have to be on opposite sides of—whoosh!"
 He grunted as Santa Greenwood picked him up,
@@ -4025,7 +3989,8 @@ and set him back down.
 
 "Good enough,"
 the big santa said,
-wiping his cheek with his sleeve.
+wiping a tear from his cheek with his sleeve,
+then mud from his cheek with his glove.
 "We'll get you somewhere safe to do your thinking.
 Won't we, Periwinkle?
 Periwinkle?
@@ -4060,7 +4025,7 @@ She needed to see if you were just a little confused
 or if you would actually betray us.
 I was really hoping you wouldn't."
 
-"Periwinkle, please, you don't have to do this,"
+"Periwinkle, please…"
 Santa Greenwood pleaded,
 his tone a perfect match to the feeling of Finner's heart breaking.
 
@@ -4083,8 +4048,9 @@ Shall we do this the easy way or the hard way?"
 
 Santa Greenwood studied her for a long moment,
 then grinned the kind of grin
-that would make even the toughest lumberjack think about becoming a cheesewright.
-"He would say *now, Hotep, now!*"
+that would make even the toughest lumberjack think about becoming a cheese maker.
+"Well, my dad would say that if it ain't hard, it ain't worth doing.
+And then he'd say *now, Hotep, now!*"
 
 An unearthly moan shivered through the night.
 On cue,
@@ -4152,6 +4118,19 @@ struggling fruitlessly as it trapped her legs.
 then, "No!" as a well-aimed shot from a ray gun
 turned the cat's leg into sharp-edged gravel.
 
+And then,
+in a moment,
+the world changed.
+One of the santas fired his ray gun just as he stumbled on a root.
+The shot caught Gran-Granna Tumbly in the chest,
+but the old santa didn't fall to the ground.
+Instead,
+she looked down at the sparks spitting out of the hole the shot had made
+with a rueful expression.
+
+"Well, that's awkward," she said,
+and then redoubled her attack.
+
 "Finner!
 You gotta go, lad!
 You gotta go *now*!"
@@ -4162,9 +4141,8 @@ parrying Gran-Granna Tumbly's cuts and lunges frantically.
 Finner shouted back.
 
 A heavy hand came down on his shoulder.
-"We…
-have to…
-go,"
+"We must…
+retreat,"
 Santa Hotep wheezed.
 
 "But—"
@@ -4197,9 +4175,9 @@ as he…
 seems."
 The mummy pulled a pair of keys out of its abdomen[^abdomen]
 and slid the first one into a slot in the door frame.
-"He is…
-a pirate…
-you know.
+"After all…
+he is…
+a pirate.
 They aren't…
 a naturally…
 trusting…
@@ -4211,17 +4189,37 @@ just in time for the world to bloop around them.
 
 [^abdomen]: Yes, yes, "eww" is a perfectly reasonable reaction, but a mummy's insides are perfectly dry, thank you very much, and it's not as though the priests think to make pockets when they wrap the bandages.
 
-"Hello!" a familiar robotic voice said.
 Finner rubbed his eyes.
-He was back in Santa Hotep's living room.
-The Elfabot raised a hand in greeting.
-Captain Abacus nodded from her place beside it on the blue-and-gold striped couch,
-a cup of tea in her hand.
+He was back in Santa Hotep's living room,
+and Captain Abacus was somehow standing in front of him
+with her cutlass in her hand
+and a murderous expression on her face.
 
-"Well,"
-Santa Hotep wheezed.
-"I suppose…
-we need…
-to talk."
+He didn't wait for her to swing.
+He just ran.
+
+</section>
+
+<section markdown="1">
+
+## Choose Your Enemy
+
+</section>
+
+<section markdown="1">
+
+## Save Who You Can
+
+</section>
+
+<section markdown="1">
+
+## When All Hope Seems Lost
+
+</section>
+
+<section markdown="1">
+
+## The Chance to Find Out
 
 </section>
