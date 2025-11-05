@@ -2517,7 +2517,7 @@ shifting his grip a moment later to get the thigh out of his face.[^thigh-face]
 
 "Please put that back,"
 the Elfabot said politely.
-"Quietly, please—she does need her rest."
+"Quietly, please—she needs her rest."
 
 Finner set the leg down meekly.
 The Elfabot stepped aside to let him pass.
@@ -2585,15 +2585,27 @@ as Finner passed him a box.
 "Ho ho ho," Finner replied weakly.
 The man's arms and jaw had mechanical joints,
 and his eyes were lightbulbs like the Elfabot's.
-Finner glanced sidelong at Shady Ann,
+Finner glanced sidelong at the santa,
 but she had sunk into her parka,
 and the shadows under her eyes were even deeper and darker
 than when they left the subway station.
 
 They made half a dozen stops after that,
 and were met each time by someone cheerful and mechanical.
-Their reception was frosty again at their final stop,
-where they dropped off the last of the salvaged machinery as well as beans.
+When Finner finally worked up the courage to point this out to the Elfabot,
+its response was,
+"It's best she doesn't know."
+
+But the robot made a point of jolting the sleigh as they approached their final stop.
+The santa woke up with a snort and a mumble.
+"Oh dear, was I napping?" she asked blearily.
+
+"It's all right,"
+Finner told her.
+"Just one more package to deliver."
+
+Two people—actual human people—waited for them sullenly
+outside what had once been a school.
 "Sphenometer's broken again,"
 one person said while the other stacked the delivery on a child's sled
 and tied it down.
@@ -2605,13 +2617,11 @@ The person who had spoken nodded curtly and turned without saying goodbye.
 "They don't seem very happy to see you,"
 Finner said once they were in motion again.
 
-The santa shrugged wearily.
+She shrugged wearily.
 "No reason they should be.
 None of this would have happened if I hadn't—"
 
 Finner watched the broken scenery slide by while she collected herself.
-Other than the people who had accepted their deliveries,
-he hadn't seen a single living thing since they left the subway station.
 "I just wanted to make them happy,"
 the santa said.
 "That's what we were taught to do:
@@ -2632,7 +2642,7 @@ he said.
 
 She smiled,
 though her eyes remained sad.
-"Ho ho ho," she said.
+"Ho ho ho."
 
 </section>
 
