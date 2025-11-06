@@ -951,7 +951,8 @@ Santa Hotep waved a bandaged arm.
 the barge."
 
 *Somewhere in the multiverse,
-someone has undoubtedly devoted a book about the peculiarities of washroom facilities in ancient pyramids.
+someone has undoubtedly devoted a book about
+the peculiarities of washroom facilities in ancient pyramids.
 I'm not that book,
 so let's just skip over the next few minutes.*
 
@@ -1216,7 +1217,7 @@ and then three things happened more or less simultaneously:[^simultaneously]
     There was another *crack!*
     and a second cannonball splashed into the water nearby.
 
-[^feeping]: A word that other worlds would do well to borrow. Your world's contribution would be "phlegm", which also it sounds exactly like the thing it describes.
+[^feeping]: A word that other worlds would do well to borrow.
 
 Santa Greenwood stood up,
 nearly spilling the others into the ocean.
@@ -4191,18 +4192,93 @@ just in time for the world to bloop around them.
 
 Finner rubbed his eyes.
 He was back in Santa Hotep's living room,
-and Captain Abacus was somehow standing in front of him
+and Captain Abacus was standing in front of him
 with her cutlass in her hand
 and a murderous expression on her face.
 
-He didn't wait for her to swing.
-He just ran.
+He ran.
 
 </section>
 
 <section markdown="1">
 
 ## Choose Your Enemy
+
+"Stop!" Captain Abacus shouted behind him
+as he vaulted over an ottoman,
+ducked under the prow of a river barge,
+and fled down the corridor.
+
+*Where exactly do you think you're going?*
+a small voice in his head asked.
+*There's nothing outside except sand,
+and as for the wherever,
+you do remember the sharks, right?
+You should turn around.
+Santa Hotep will keep you safe.*
+
+His legs ignored the voice
+until he rounded a corner
+and found himself standing in front of
+the workbench he had seen on his previous visit.
+Tools lay on it haphazardly instead of being lined up neatly,
+and this time it smelled of varnish rather than fresh-cut wood.
+
+Finner grabbed a saw and then a screwdriver
+before finally settling on a hammer.
+It wasn't much of a weapon,
+but—
+
+"You won't…
+need that."
+He spun around.
+Santa Hotep patted the air with his bandaged hands
+while Captain Abacus glowered beside him.
+Her cutlass was back in its sheath,
+so Finner hesitantly lowered the hammer.
+
+"I wasn't…" Finner started,
+which turned into, "I'm sorry."
+He dropped the hammer back on the workbench
+and sat down on the stool beside it.
+
+"Drat,"
+Santa Hotep said mildly.
+"Now I'll…
+have to…
+varnish that…
+again."
+
+A few minutes and a change of trousers later[^change-trousers],
+Finner sat down on Santa Hotep's blue-and-gold striped couch.
+He made sure to leave plenty of room for Captain Abacus,
+whose expression had softened from murderous to merely irritated.
+"It was a foolish and unnecessary risk,"
+she said curtly.
+
+[^change-trousers] Straight-legged, black, and cotton, with drawstrings at the waist and ankles. They had originally belonged to a ninja who had been sent across the worlds by an evil sorcerer bent on wresting the secret of immortality from the embalmers of Santa Hotep's world, but had instead become one of the greatest ice cream artists of all time.
+
+"Greenwood… insisted," Hotep wheezed.
+"He still… doesn't really… trust you."
+
+"Nor I him."
+Captain Abacus drummed her fingers on the hilt of her cutlass.
+"To be frank,
+if Tumbly really has been replaced
+then I don't know *who* to trust."
+
+She turned her glare on Finner.
+"Uh, uh, nope, I'm one hundred percent me," he protested.
+"Look."
+He pulled up his sleeve to show her
+one of the scrapes he had acquired while wriggling under the fence.
+
+"Hm."
+The airship captain drummed her fingers again.
+"I don't suppose *you* know who's behind all this?"
+
+Finner took a deep breath.
+"As a matter of fact, I think I do."
 
 </section>
 
