@@ -3632,6 +3632,23 @@ Finner plowed on.
 She didn't believe she had one any more.
 At least you haven't taken *that* from me."
 
+Later,
+Finner would wonder what would have happened if he hadn't provoked her.
+Would she have taken the photographs from her bag?
+Would she have tossed them onto the table between their chairs?
+Would he have picked them up and flipped through them,
+confused at first but then nauseous
+at the sight of his parents sitting at dinner with someone who looked just like him
+but whose smile was relaxed in a way his hadn't been for such a long time?
+The leaves outside the picture window and his mother's haircut told him
+that the pictures were recent.
+
+"I wish I could tell you that they were at least a little bit suspicious,"
+Gran-Granna Tumbly told him.
+"But to be honest,
+I think the robot was enough of an improvement
+that they didn't want to know."
+
 Feeling a little light-headed,
 Finner stood up and rapped the door with his knuckles.
 "I'm ready to go back to my room,"
@@ -4280,17 +4297,51 @@ The airship captain drummed her fingers again.
 Finner took a deep breath.
 "As a matter of fact, I think I do."
 
+It took him a couple of minutes to explain what he had seen
+when he was marooned in the frozen world.
+When he was done,
+Santa Hotep seemed to slump even more in his padded armchair.
+"I have…
+never…
+met her…"
+he said quietly.
+"But everyone says…
+she has…
+a big…
+heart."
+
+Captain Abacus's scowl could have boiled a kettle.
+"So you think this,
+what,
+this Elfabot is making the replacements?"
+
+Finner nodded.
+"I think it's a replica of the elf that's in their photographs.
+Maybe it started making people so Shady Ann wouldn't notice how many from her world were gone,
+and then it just,
+I don't know,
+got carried away?"
+His thoughts flashed back to the photograph of his parents and him-but-not-him
+smiling at the dinner table.
+"Or maybe once it replaced Gran-Granna Tumbly,
+her replacement had it make substitutes for the people in The Building?"
+
+"The 'why' doesn't matter,"
+Captain Abacus said decisively.
+"What we need now is a plan to stop it.
+And allies,"
+she added bitterly.
+"It's going to be weeks before the *Marmot* is fit to fight,
+and my crew's in no better shape."
+
+Finner took another deep breath.
+"I have a suggestion."
+
 </section>
 
 <section markdown="1">
 
-## Save Who You Can
-
-</section>
-
-<section markdown="1">
-
-## When All Hope Seems Lost
+## When All Hope Is Lost
 
 </section>
 
