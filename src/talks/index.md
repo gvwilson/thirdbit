@@ -16,7 +16,9 @@ template: page
         Outlines what a course for programmers on civics and society might contain
         and how it ought to be presented.
 	<br>
-        <em><a href="@root/talks/sdgc/">HTML</a>; last updated July 2025.</em>
+        <em><a href="@root/talks/sdgc/">HTML</a>;
+	<a href="https://youtu.be/f86KBeJ7e2M">video</a>;
+	last updated October 2025.</em>
       </p>
     </div>
   </div>
