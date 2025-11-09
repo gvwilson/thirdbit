@@ -4223,7 +4223,7 @@ He ran.
 
 "Stop!" Captain Abacus shouted behind him
 as he vaulted over an ottoman,
-ducked under the prow of a river barge,
+ducked under the prow of a funeral barge,
 and fled down the corridor.
 
 *Where exactly do you think you're going?*
@@ -4273,7 +4273,7 @@ whose expression had softened from murderous to merely irritated.
 "It was a foolish and unnecessary risk,"
 she said curtly.
 
-[^change-trousers] Straight-legged, black, and cotton, with drawstrings at the waist and ankles. They had originally belonged to a ninja who had been sent across the worlds by an evil sorcerer bent on wresting the secret of immortality from the embalmers of Santa Hotep's world, but had instead become one of the greatest ice cream artists of all time.
+[^change-trousers]: Straight-legged, black, and cotton, with drawstrings at the waist and ankles. They had originally belonged to a ninja who had been sent across the worlds by an evil sorcerer bent on wresting the secret of immortality from the embalmers of Santa Hotep's world, but had instead become one of the greatest ice cream artists of all time.
 
 "Greenwood… insisted," Hotep wheezed.
 "He still… doesn't really… trust you."
@@ -4329,13 +4329,98 @@ her replacement had it make substitutes for the people in The Building?"
 "The 'why' doesn't matter,"
 Captain Abacus said decisively.
 "What we need now is a plan to stop it.
-And allies,"
+And a crew to see it through,"
 she added bitterly.
 "It's going to be weeks before the *Marmot* is fit to fight,
-and my crew's in no better shape."
+and my lot is in no better shape."
 
 Finner took another deep breath.
 "I have a suggestion."
+
+Mummies are stronger than the living,
+but even Santa Hotep couldn't budge the funeral barge
+that marked one edge of its improvised living room.
+Luckily,
+it didn't have to:
+its end-of-life gifts had included some ceremonial surfboards,
+which it had stored in one of the pyramid's lower chambers.
+"As good…
+as new,"
+the mummy wheezed fondly.
+"My elves…
+waxed them…
+every year…
+until they…
+moved on.
+I have…
+done it…
+ever since."
+
+"Is that why you started elfing?"
+Finner asked.
+
+The question earned him a look from Captain Abacus,
+but Santa Hotep didn't seem to mind.
+"At first,"
+it admitted,
+running a hand over the cream-and-brown paulownia.[^paulownia]
+"Even here…
+iron rusts…
+and silver…
+tarnishes.
+Leather…
+dries up…
+and cracks.
+I could…
+have found…
+more elves…
+but…
+I didn't think…
+it would be…
+fair to them."
+Its bandages rustled as it shrugged.
+"Plus…
+I needed…
+to stay…
+busy."
+
+[^paulownia]: A strong, lightweight hardwood, and one of the fastest-growing trees in the world. (Yes, I had to look this up.)
+
+Finner's surfboard wasn't heavy,
+but its size made it awkward.
+Captain Abacus seemed able to manage hers,
+though,
+so after shifting his grip a couple of times
+he focused on not letting it slip out from under his arm.
+
+Up, up, up they went,
+the passage cutting back on itself more and more frequently
+until they rounded the final bend
+and were almost blinded once again
+by the bright blue square of empty sky in front of them.
+
+He paused,
+panting from the climb,
+and looked out at the dunes that stretched away to the horizon,
+unmarred by footprints or any other signs of life.
+"You sure you won't come with us?" he asked.
+
+Santa Hotep chuckled dryly.
+"Thank you…
+but I…
+don't think…
+my wrappings…
+would manage…
+very well."
+
+"We'll make sure the boards get back to you,"
+Captain Abacus promised.
+
+The mummy nodded and pressed its hand against a granite block
+that looked no different from the ones beside it.
+"Ready?" the airship captain asked.
+
+"No," Finner said, and jumped.
 
 </section>
 
