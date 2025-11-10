@@ -4331,8 +4331,9 @@ Captain Abacus said decisively.
 "What we need now is a plan to stop it.
 And a crew to see it through,"
 she added bitterly.
-"It's going to be weeks before the *Marmot* is fit to fight,
-and my lot is in no better shape."
+"It's going to be weeks before we're fit to fly,
+much less fight,
+and my crew is in no better shape."
 
 Finner took another deep breath.
 "I have a suggestion."
@@ -4384,7 +4385,7 @@ I needed…
 to stay…
 busy."
 
-[^paulownia]: A strong, lightweight hardwood, and one of the fastest-growing trees in the world. (Yes, I had to look this up.)
+[^paulownia]: A strong, lightweight hardwood, and one of the fastest-growing trees in the world. It is usually found in—sorry, sorry, not this story.
 
 Finner's surfboard wasn't heavy,
 but its size made it awkward.
@@ -4421,6 +4422,91 @@ that looked no different from the ones beside it.
 "Ready?" the airship captain asked.
 
 "No," Finner said, and jumped.
+
+Once again the universe did its "see it both ways" trick,
+turning the desert into a wave-capped ocean.
+Finner yelped at the cold shock,
+even though he had been expecting it,
+then scrambled onto his surfboard,
+toppled over,
+and scrambled up again.
+
+Captain Abacus splashed into the water next to him.
+She managed to get up on her board in one try.
+"Still have your boots?" she asked.
+Finner held them up.
+She nodded grimly.
+"Good.
+Now we find out if Clausbeard can get here before the sharks."
+
+Finner was shivering
+by the time the *Dancing Marmot*'s black sails crested the horizon.
+The sharks hadn't made an appearance,
+but the expressions on the pirates' faces almost made Finner wish they had.[^sharks-almost]
+
+[^sharks-almost]: Almost.
+
+"So,"
+Captain Clausbeard said evenly
+once Finner and Captain Abacus had pulled on their boots.
+"I'm guessin' you're not here to surrender,
+and I'm not about to be surrendin' to you,
+so to what do I owe the pleasure o' this visit?"
+
+It took Finner a moment to realize that Captain Abacus was waiting for him to reply.
+"It's about your son," he said.
+"He's been captured by my gran-granna,
+except not really because she's been replaced by a robot.
+I think I know where they are,"
+he continued hurriedly.
+"And I think I know where the robots are coming from,
+and—"
+
+"My boy's been *what*?" Captain Clausbeard bellowed.
+The parrot on his shoulder squawked furiously.
+"Who's got 'im?
+Eh?
+Who's got my Steve?"
+
+"Tumbly,"
+Captain Abacus said.
+"But as this young man just said,
+it's not really her."
+
+Captain Clausbeard glare shifted from Finner to the airship captain and back.
+His fingers tightened on the hilt of his cutlass.
+Around them,
+his crew muttered and hefted various sharp and/or thuddy things.[^thuddy]
+"I find myself disinclined to believe you,"
+he growled.
+"'Specially seein' as how I think you an' yours are the ones behind all this nonsense."
+
+[^thuddy]: I.e., things that go "thud" when they hit you.
+
+"It's a trick!" the parrot squawked.
+"It's a trick!"
+
+"Wait!"
+Finner shouted as the pirate crew closed in.
+"Your peg leg—Santa Greenwood made that for you, didn't he?
+He said so in his letter.
+Here!"
+He fished the envelope out of his pocket and handed it to Clausbeard.
+
+The pirate captain took out the letter and unfolded it.
+His lips moved as he read it,
+and then to Finner's astonishment he wiped a tear off his cheek.
+"Always was a sentimental one, that lad," he sniffled
+as one of the other pirates handed him a handkerchief.[^handkerchief2]
+"But that don't prove that Miz Tumbly's a robot,
+and it don't make me any less suspicious of your travelin' companion."
+
+[^handkerchief2]: Remember, santas don't use kleenex.
+
+"But it's worth checking out, isn't it?"
+Finner held his breath until Captain Clausbeard nodded.
+"All right.
+Here's what we're going to do…"
 
 </section>
 
