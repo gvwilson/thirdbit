@@ -1,6 +1,7 @@
 ---
 title: A Game of Chess
-date: 2025-11-09
+template: page
+fiction: true
 ---
 
 A solarium.
