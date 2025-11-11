@@ -4514,6 +4514,69 @@ Here's what we're going to do…"
 
 ## When All Hope Is Lost
 
+When people think of pirates,
+they usually think of tropical seas with palm-covered islands.
+Snowstorms, ice floes, parkas, and triple-thick socks don't normally make an appearance,
+but actual working pirates know that cold seas are a lot more common than warm ones,
+and are always ready to dress accordingly.
+
+It therefore took only a few minutes
+for the dozen santas and elves that Captain Clausbeard selected from his crew
+to outfit themselves for Shady Ann's frozen world.
+"The rest of you will stay with the *Marmot*," he ordered,
+waving away the answering chorus of groans.
+"You too," he added to the parrot on his shoulder.
+She bit his ear and dug her claws into his shoulder.
+"Aright, aright, you can come."
+He ruffled her feathers with the tip of his finger.
+
+The crew slung rope ladders over the ship's starboard gunwale.
+The two captains and Finner took up positions on the forward ladder
+while three pirates clambered down each of the others.
+"Ready?"
+Captain Clausbeard asked.
+
+"Sure,"
+Finner lied.
+
+"Good lad.
+Let's go get m' boy back.
+Bosun!
+Do the thing!"
+
+A whistle shrilled on deck.
+Somewhere in the belly of the ship
+a bald pirate with the constellations tattooed on his scalp
+turned the dials on the *Dancing Marmot*'s wherever.
+The universes sighed inaudibly[^sighed-inaudibly]
+and moved *this* from *here* to *there*.
+
+[^sighed-inaudibly]: It never occurs to most people to ask the universes how they feel about people traveling about willy-nilly. Yes, it's a rather small thing compared to, for example, galaxies colliding or an evil genius inventing a [REDACTED] that can [REDACTED], but still…
+
+One moment the ship was plowing through the waves north-northeast of Isla de Las Anguilas.
+The next it was skidding to a stop in deep snow,
+its keel leaving a deep furrow behind it.
+"Sharpish, now, the lot of you!"
+Captain Clausbeard barked.
+The pirates dropped to the snow and scrambled out of the way.
+
+Finner followed suit with Captain Abacus behind him.
+He could already feel the skin on his cheeks tightening from the cold.
+"Aright, away wi' you!"
+Captain Clausbeard waved up at the bosun.
+They sounded their whistle again,
+and the ship blooped back to her own world.
+
+Captain Clausbeard undid the top button of his pea coat.
+The parrot poked her head out,
+glared at him,
+and then burst into the sky in a flurry of bright feathers.
+She circled overhead a couple of times before fluttering back to his shoulder
+and muttering in his ear.
+"That way," he pointed.
+Weapons at the ready,
+they set off.
+
 </section>
 
 <section markdown="1">
