@@ -2168,7 +2168,7 @@ because he was pretty sure "OVB" wasn't.
 Finner said a word he was pretty sure his parents thought he still didn't know.
 If he picked a world at random
 he could wind up on the moon without a spacesuit
-or back in the ocean wondering if the cold or Santa Kraken would get to him first.
+or back in the ocean wondering if the cold or Kraken Claus would get to him first.
 
 His shoulders slumped.
 Better to be a prisoner than a meal.
@@ -4569,13 +4569,83 @@ and the ship blooped back to her own world.
 
 Captain Clausbeard undid the top button of his pea coat.
 The parrot poked her head out,
-glared at him,
+glared at the icy world,
 and then burst into the sky in a flurry of bright feathers.
 She circled overhead a couple of times before fluttering back to his shoulder
-and muttering in his ear.
+to mutter in his ear.
 "That way," he pointed.
 Weapons at the ready,
 they set off.
+
+Once again the sky was a cloudless blue
+and the sun was so bright that it hurt Finner's eyes.
+But he was dressed for the cold this time,
+and he knew (roughly) where he was going.
+Most importantly,
+he knew *why* he was going there
+and had companions to go there with,
+even if Captain Abacus looked less gruntled than ever
+and some of the pirates kept looking at him
+as though he was an unwanted present fit only to be put in a closet
+until enough time had passed that he could be thrown out or thrifted.
+
+As they came up to the crest of a ridge
+Captain Clausbeard raised a hand.
+Finner advanced the last few steps in a crouch.
+The factory he had seen on his first visit lay waiting in the hollow below.
+He wiped ice from his eyelashes.
+"There," he mouthed, pointing unnecessarily
+at the Santazilla standing guard beside it.
+
+"Crikey," one of the pirates muttered.
+
+"None o' that language," Captain Clausbeard scolded.
+"We've faced worse.
+Remember that nest of sea serpents?
+Or Walter the Very Hungry Whale?
+Handled them aright, didn't we?"
+
+"Aye,
+but we needed a whole new ship after Walter,"
+another pirate said under his breath.
+
+"Stow that talk.
+Now, you lot get ready
+while Mister Finner gets the beastie's attention."
+
+"Me?"
+Finner asked?
+
+The pirate captain grinned a sharkish grin.
+"Aye.
+If this is some sort o' trap,
+I want you front an' center.
+Now look sharp—it'd be a bit of a let-down to just freeze to death."
+
+Finner looked at Captain Abacus,
+who raised an eyebrow as if to say,
+"This was your idea,
+and it's perfectly reasonable for a captain to want to safeguard their crew."
+Finner nodded,
+wished briefly that he was almost anywhere else,[^almost-anywhere]
+and trudged up to the top of the ridge.
+
+[^almost-anywhere]: See the earlier note about volcanoes.
+
+"Hey!" he shouted,
+waving his arms.
+"Over here!
+Remember me?
+I tried to blow you up with a train?
+I'm back and, um, tastier than ever,
+so come and get some?"
+
+He hadn't meant for the last bit to sound like a question,
+but Santazilla had turned its head toward him
+and the "stay out of predators" bit in the back of his brain
+had suddenly woken up.
+The giant santasaurus sniffed the air with nostrils the size of soup pots,
+and then the ground shook as it took a first enormous stride toward them.
 
 </section>
 
