@@ -6934,7 +6934,7 @@ She closed her eyes and let herself slide away.
 
 </section>
 
-<section>
+<section markdown="1">
 
 ## Chapter 8: Pursuit
 
@@ -7356,7 +7356,7 @@ Moments later, quiet snores filled her cabin.
 
 </section>
 
-<section>
+<section markdown="1">
 
 ## Chapter 9: The Puppet Master
 
@@ -7364,7 +7364,7 @@ FIXME
 
 </section>
 
-<section>
+<section markdown="1">
 
 ## Chapter 10: Changeling
 
@@ -8500,7 +8500,7 @@ She caught a brief mental image of a young woman taking a deep breath.
 
 </section>
 
-<section>
+<section markdown="1">
 
 ## Chapter 11: Another Escape
 
@@ -9588,7 +9588,7 @@ nurtures it at home instead.*
 
 </section>
 
-<section>
+<section markdown="1">
 
 ## Chapter 12: The New World
 
@@ -10322,7 +10322,7 @@ you can do it yourself!"
 
 </section>
 
-<section>
+<section markdown="1">
 
 ## Chapter 13: Flight
 
@@ -10972,7 +10972,7 @@ as the polar bear rosed to its feet.
 
 </section>
 
-<section>
+<section markdown="1">
 
 ## Chapter 14: The Labyrinth
 
@@ -11481,7 +11481,7 @@ and we'll all get a happy ending."
 
 </section>
 
-<section>
+<section markdown="1">
 
 ## Chapter 15: The End of the World
 
