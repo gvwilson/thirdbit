@@ -4645,7 +4645,97 @@ but Santazilla had turned its head toward him
 and the "stay out of predators" bit in the back of his brain
 had suddenly woken up.
 The giant santasaurus sniffed the air with nostrils the size of soup pots,
-and then the ground shook as it took a first enormous stride toward them.
+and then the ground shook as it took an enormous stride toward them.
+
+"Steady!" Captain Clausbeard and Captain Abacus said simultaneously.
+"Sorry," the airship captain immediately added.
+"Your crew, captain."
+
+The pirate nodded,
+his earlier grin gone.
+"Steady!" he repeated.
+"You too, lad," he added as Santazilla took another enormous step forward
+and Finner took a couple of involuntary steps back.
+"If you run, the beast will too."
+
+*Thud. Thud. Thud.*
+Giant steps shook the ground.
+One of the pirate elves muttered something under der breath.
+
+"Steady!"
+And then Santazilla caught sight of the ambush,
+roared a challenge,
+and charged.
+
+"Fire!"
+*Boom! Boom! Boom!*
+The first three pepper canisters burst against the santasaurus's scaly chest,
+enveloping the monster in a stinging orange cloud.
+It roared again,
+then surprised itself and its attackers with an enormous sneeze.
+
+"Reload, you gormless slackpeelers!" Captain Clausbeard yelled
+as Santazilla stopped and tried vainly to wipe its eyes with arms that couldn't quite reach.
+"And you, lad, why are you just standing there?
+Get out o' the way!"
+
+Finner didn't need to be told twice.
+He waded through the snow and crouched beside Captain Abacus.
+"Fire!" Captain Clausbeard bellowed.
+Three more booms,
+three more canisters,
+and the santasaurus threw itself onto the snow
+and began rolling from side to side,
+dragging its face across the ice.
+
+"Nets!"
+The elves loaded, the santas fired.
+Enormous sticky webs built to hold angry cyber-whales
+wrapped around Santazilla's legs and began to tighten.
+The creature roared in frustration,
+sneezed,
+and roared again.
+
+"Hold your positions!"
+Captain Clausbeard barked as one of the pirate santas started to stand.
+"It could be fussin' with us.
+They're crafty beasts,"
+he added to Finner.
+"Just when you think you've got them where you want them—"
+
+"—you realize they're the ones who've got *you*,"
+a familiar voice finished.
+
+Finner whirled around.
+"Hello," the Elfabot said,
+its cheerful tone at odds with the rather large ray gun it was pointing at Captain Clausbeard.
+Half a dozen other bots stood beside with similar weaponry pointed in similar directions.
+Some still wore the human faces Finner had seen when doing deliveries,
+but had dispensed with the parkas and gloves that had hidden their steel frames.
+Others had discarded part or all of their faces,
+revealing skull-like grins that were more terrifying than the angry santasaurus's teeth.
+
+"Please don't," the Elfabot continued calmly
+as Captain Clausbeard's hand twitched toward his own ray gun.
+"We've done our best to adjust these to stun,
+but our calculations are obviously not precise.
+If you could put your weapons down,
+we'd be happy to show you to your new homes."
+
+"Homes?
+What homes?"
+Captain Clausbeard blustered.
+
+"Numbers eighteen through twenty-two Filibuster Street,"
+one of the other robots volunteered.
+"Originally single-family bungalows,
+these attractive modern buildings have been topped up with—"
+
+"Thank you,"
+the Elfabot cut in.
+"I'm sure you'll find them quite comfortable.
+At least I hope you will,
+because you're going to be there for the rest of your lives."
 
 </section>
 
