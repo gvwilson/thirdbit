@@ -89,7 +89,7 @@ date: "2024-11-01"
 
 ## Are Some Languages Better?
 
-<a href="#Stefik2013">Stefik2013</a>: "An Empirical Investigation into Programming Language Syntax"
+<a href="./bibliography/#Stefik2013">Stefik2013</a>: "An Empirical Investigation into Programming Language Syntax"
 
 -   Measured how easily novices could read:
     -   Perl
@@ -112,7 +112,7 @@ date: "2024-11-01"
 
 ## Productivity
 
--   <a href="#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice
+-   <a href="./bibliography/#Prechelt2000">Prechelt2000</a> had programmers implement the same thing in the language of their choice
 -   How long did it take?
 
 <img src="@root/files/talks/productivity.svg" class="center">
@@ -132,7 +132,7 @@ date: "2024-11-01"
 
 ## Test-Driven Development
 
-<a href="#Shull2010">Shull2010</a>: "How Effective is Test-Driven Development?"
+<a href="./bibliography/#Shull2010">Shull2010</a>: "How Effective is Test-Driven Development?"
 
 > …evidence from controlled experiments suggests an
 > improvement in productivity when TDD is used.
@@ -147,7 +147,7 @@ date: "2024-11-01"
 
 ## Test-Driven Development
 
-<a href="#Fucci2016">Fucci2016</a>: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach"
+<a href="./bibliography/#Fucci2016">Fucci2016</a>: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach"
 
 -   Replication study, 39 professionals, real projects
 -   No significant difference between test-first and test-last development
@@ -159,7 +159,7 @@ date: "2024-11-01"
 
 ## Nobody Knows Anything
 
-<a href="#Altadmri2016">Altadmri2016</a>: "37 Million Compilations: Investigating Novice Programming Mistakes in Large-Scale Student Data"
+<a href="./bibliography/#Altadmri2016">Altadmri2016</a>: "37 Million Compilations: Investigating Novice Programming Mistakes in Large-Scale Student Data"
 
 -   Ask educators for learners' most common mistakes
 -   Compare their answers to empirical data
@@ -187,7 +187,7 @@ The three that take the most time to fix are:
 
 ## A Caution
 
-<a href="#Begel2014">Begel2014</a>: "Analyze This! 145 Questions for Data Scientists in Software Engineering"
+<a href="./bibliography/#Begel2014">Begel2014</a>: "Analyze This! 145 Questions for Data Scientists in Software Engineering"
 
 -   Ask a bunch of developers to propose questions, then ask another bunch to rate them
 -   Developers want to know how people actually use their products
@@ -198,7 +198,7 @@ The three that take the most time to fix are:
 
 ## Coding in the Dark
 
-<a href="#Hicks2022">Hicks2022</a>: "It's like coding in the dark: The need for learning cultures within coding teams"
+<a href="./bibliography/#Hicks2022">Hicks2022</a>: "It's like coding in the dark: The need for learning cultures within coding teams"
 
 -   "…the work that code writers needed to do to understand code often did not feel like what was rewarded in the evaluation of their work"
 -   "Despite stated ideals about knowledge sharing…this work was often contradicted with negative cues from colleagues about what was truly valued"
@@ -210,7 +210,7 @@ The three that take the most time to fix are:
 
 ## Open Source
 
-<a href="#Steinmacher2015">Steinmacher2015</a>: "Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects"
+<a href="./bibliography/#Steinmacher2015">Steinmacher2015</a>: "Social Barriers Faced by Newcomers Placing Their First Contribution in Open Source Software Projects"
 
 -   Identify 58 potential barriers
 -   What matters most?
@@ -222,7 +222,7 @@ The three that take the most time to fix are:
 
 ## There Is No "Geek Gene"
 
-<a href="#Patitsas2016">Patitsas2016</a>: "Computer Science Grades Are Not Bimodal"
+<a href="./bibliography/#Patitsas2016">Patitsas2016</a>: "Computer Science Grades Are Not Bimodal"
 
 -   The "geek gene" is computing's most enduring and damaging myth
 -   In fact, only 5.8% of course grade distributions at a large university were actually multi-modal
@@ -238,14 +238,14 @@ The three that take the most time to fix are:
     -   Cyclomatic complexity
     -   Many object-oriented measures
 -   But nothing works better than counting lines of code
-    -   <a href="#ElEmam2001">ElEmam2001</a>: "Confounding Effects of Class Size on the Validity of Object-Oriented Metrics"
-    -   <a href="#Herraiz2010">Herraiz2010</a>: "Beyond Lines of Code: Do We Need More Complexity Metrics?"
+    -   <a href="./bibliography/#ElEmam2001">ElEmam2001</a>: "Confounding Effects of Class Size on the Validity of Object-Oriented Metrics"
+    -   <a href="./bibliography/#Herraiz2010">Herraiz2010</a>: "Beyond Lines of Code: Do We Need More Complexity Metrics?"
 
 ---
 
 ## Test Flakiness
 
-<a href="#Costa2022">Costa2022</a>: "Test Flakiness Across Programming Languages"
+<a href="./bibliography/#Costa2022">Costa2022</a>: "Test Flakiness Across Programming Languages"
 
 <img src="costa2022-table6.png" class="center">
 
@@ -253,7 +253,7 @@ The three that take the most time to fix are:
 
 ## Who Fixes What?
 
--   Original authors fix their own simple bugs much faster than other people (<a href="#Zhu2021">Zhu2021</a>)
+-   Original authors fix their own simple bugs much faster than other people (<a href="./bibliography/#Zhu2021">Zhu2021</a>)
 -   But are more likely to fix or change other things at the same time
 
 <div class="row">
@@ -273,7 +273,7 @@ The three that take the most time to fix are:
   <div class="col-12 center">
     <img src="typescript-features.png" alt="Typescript feature adoption" width="90%">
     <br>
-    From [<a href="#Scarsbrook2023">Scarsbrook2023</a>]
+    From [<a href="./bibliography/#Scarsbrook2023">Scarsbrook2023</a>]
   </div>
 </div>
 
@@ -284,12 +284,12 @@ The three that take the most time to fix are:
 ## Miscellaneous
 
 -   Design patterns
-    -   Teaching people design patterns makes them better programmers (<a href="#Tichy2010">Tichy2010</a>)
+    -   Teaching people design patterns makes them better programmers (<a href="./bibliography/#Tichy2010">Tichy2010</a>)
     -   Three experiments demonstrated cause and effect
     -   This is *not* obvious
     -   Maybe good programmers are just more likely to use patterns
 -   Fuzz testing
-    -   Invented by accident in 1988 (<a href="#Miller2021">Miller2021</a>)
+    -   Invented by accident in 1988 (<a href="./bibliography/#Miller2021">Miller2021</a>)
     -   25-33% of Unix utilities crashed when fuzzed
     -   Thirty years later, "only" 12-20% still crash
     -   [*The Fuzzing Book*](https://www.fuzzingbook.org/)
@@ -298,14 +298,14 @@ The three that take the most time to fix are:
 
 ## Miscellaneous
 
--   Strong typing catches about 15% of bugs (<a href="#Gao2017">Gao2017</a>)
+-   Strong typing catches about 15% of bugs (<a href="./bibliography/#Gao2017">Gao2017</a>)
     -   Which is a lot or a little depending on your point of view
--   Only 6-17% of configuration options are set by most users (<a href="#Xu2015">Xu2015</a>)
+-   Only 6-17% of configuration options are set by most users (<a href="./bibliography/#Xu2015">Xu2015</a>)
     -   Only 2%-8% of parameters are configured by more than 90% of users
 -   Secret management is a solved problem
-    -   But most developers don't know the solutions (<a href="#Basak2023">Basak2023</a>)
--   Protestware is on the rise (<a href="#Fan2024">Fan2024</a>)
--   Machine learning systems are bloated and vulnerable (<a href="#Zhang2024">Zhang2024</a>)
+    -   But most developers don't know the solutions (<a href="./bibliography/#Basak2023">Basak2023</a>)
+-   Protestware is on the rise (<a href="./bibliography/#Fan2024">Fan2024</a>)
+-   Machine learning systems are bloated and vulnerable (<a href="./bibliography/#Zhang2024">Zhang2024</a>)
     -   "Through experimentation with 15 machine learning containers from TensorFlow, PyTorch, and Nvidia,
         we show that bloat accounts for up to 80% of machine learning container sizes,
 	increasing container provisioning times by up to 370% and exacerbating vulnerabilities by up to 99%."
