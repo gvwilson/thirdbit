@@ -169,6 +169,8 @@ date: "2025-11-15"
 
     -   So strongly that if you find no effect we will believe your methodology is flawed
 
+--
+
 -   So have several researchers design and critique a calibration study
 
     -   Compare, contrast, and combine
@@ -176,6 +178,24 @@ date: "2025-11-15"
     -   *Then* run
 
     -   Then apply the method to other problems
+
+---
+
+## Variable Roles
+
+-   Sajaniemi et al found [ten patterns](https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf)
+    in the way variables are used in novice programs
+
+    -   "Counter" and "Most Valuable" are design patterns for novices
+
+-   (Can we) use static and dynamic analysis tools to:
+
+    -   See if these patterns are real?
+
+    -   Find others?
+
+-   As with the version control study,
+    the real goal is an agreed-on methodology
 
 ---
 
@@ -223,6 +243,26 @@ date: "2025-11-15"
 
 ---
 
+## Evolution Over Time
+
+-   People have invented lots of graphical notations for software architecture
+
+    -   UML is the best known
+
+    -   [Use case maps](@root/2018/12/27/use-case-maps/) are my favorite
+
+-   None (that I know of) are designed to show system evolution over time
+
+    -   Even though challenge and response is often the best way to understand a design
+
+-   Does such a notation exist (or can one be created)?
+
+-   Can evolution diagrams be generated (semi-)automatically by LLMs?
+
+-   Do programmers find them useful, and if so, how can we tell?
+
+---
+
 ## Do We Use What We Teach?
 
 -   All undergrad CS programs have a data structures & algorithms course in first or second year
@@ -262,24 +302,6 @@ date: "2025-11-15"
 
 ---
 
-## Variable Roles
-
--   Sajaniemi et al found [ten patterns](https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf)
-    in the way variables are used in novice programs
-
-    -   "Counter" and "Most Valuable" are design patterns for novices
-
--   (Can we) use static and dynamic analysis tools to:
-
-    -   See if these patterns are real?
-
-    -   Find others?
-
--   As with the version control study,
-    the real goal is an agreed-on methodology
-
----
-
 ## Calibrated Code Review
 
 -   Give novice programmers a one-page program
@@ -295,6 +317,26 @@ date: "2025-11-15"
 -   Does this help them write better code?
 
 -   Does this help them use genAI coding assistants more effectively?
+
+---
+
+## Speaking of Which…
+
+-   Working programmers spend more time debugging than writing new code
+
+-   But there are only a handful of books on the topic
+
+-   And no English-language university offers an undergraduate course in debugging
+
+    -   Less than 10% of undergraduates routinely use a breakpointing debugger
+
+--
+
+-   (How) can we teach debugging?
+
+-   What else can we use classes on systematic debugging to teach?
+
+-   *How can we tell if it's making a difference?*
 
 ---
 
@@ -345,10 +387,12 @@ date: "2025-11-15"
     <ul>
       <li><p>We need methods that we agree on…</p></li>
       <li><p>…that working programmers believe in…</p></li>
-      <li><p>…that let us tackle problems they care about</p></li>
+      <li><p><em>…that let us tackle problems they care about</em></p></li>
     </ul>
   </div>
 </div>
+
+--
 
 -   And then we need undergrad courses that teach these methods and results
 
