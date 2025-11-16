@@ -4512,7 +4512,7 @@ Here's what we're going to do…"
 
 <section markdown="1">
 
-## When All Hope Is Lost
+## Back to the Frozen World
 
 When people think of pirates,
 they usually think of tropical seas with palm-covered islands.
@@ -4585,7 +4585,7 @@ Most importantly,
 he knew *why* he was going there
 and had companions to go there with,
 even if Captain Abacus looked less gruntled than ever
-and some of the pirates kept looking at him
+and some of the pirates kept looking at him as they marched through the snow
 as though he was an unwanted present fit only to be put in a closet
 until enough time had passed that he could be thrown out or thrifted.
 
@@ -4628,7 +4628,7 @@ who raised an eyebrow as if to say,
 and it's perfectly reasonable for a captain to want to safeguard their crew."
 Finner nodded,
 wished briefly that he was almost anywhere else,[^almost-anywhere]
-and trudged up to the top of the ridge.
+and struggled up to the top of the ridge.
 
 [^almost-anywhere]: See the earlier note about volcanoes.
 
@@ -4726,7 +4726,7 @@ we'd be happy to show you to your new homes."
 What homes?"
 Captain Clausbeard blustered.
 
-"Numbers eighteen through twenty-two Filibuster Street,"
+"Numbers eighteen through twenty-two Flump Street,"
 one of the other robots volunteered.
 "Originally single-family bungalows,
 these attractive modern buildings have been topped up with—"
@@ -4736,6 +4736,84 @@ the Elfabot cut in.
 "I'm sure you'll find them quite comfortable.
 At least I hope you will,
 because you're going to be there for the rest of your lives."
+
+</section>
+
+<section markdown="1">
+
+## Only In the Picture
+
+Marching and trudging can look similar from a distance,
+but up close it's easy to tell them apart.
+A squad of pirates who are marching have a sense of purpose:
+they're going somewhere for a reason
+and are going to do something[^something-dastardly] when they get there.
+If you take their various sharp, thuddy, and boomy things away from them
+and herd them like sheep,
+you'll take the spring out of their step,
+and the determined looks on their faces will turn sour.
+
+[^something-illegal]: Probably something dastardly.
+
+"Why are they all looking at me like that?"
+Finner muttered to Captain Abacus
+as another one of the pirates scowled at him.
+
+"They think this is your fault,"
+she answered.
+"Or that you're bad luck."
+
+"Well it isn't and I'm not!" he protested.
+The captain didn't reply.
+
+It took them almost half an hour to reach the outskirts of the city.
+Its half-ruined buildings looked even more forlorn than they had
+the first time Finner had seen them.
+A handful of frozen, leafless trees stood in what had once been a park.
+For a heart-stopping moment Finner thought there was a dog frozen mid-strike beside them,
+but then he realized it was just a statue.
+He shivered inside his parka,
+more certain with every block that this *was* his fault.
+
+And then they turned a corner and he stopped short.
+One of the pirates said a bad word.
+Another shushed her.
+"Welcome to Flump Street," the Elfabot said brightly.
+
+The short street in front of them was as clean and well-kept
+as the rest of the city wasn't.
+Six houses on one side,
+five on the other,
+each practically sparkling amidst the freshly-shoveled snow.
+Some had blue doors, some had green,
+but all had chimneys wrapped in bright lights
+and evergreen wreaths on their doors
+and was that *chocolate* that Finner could smell,
+chocolate and cinnamon?
+
+"And this one is yours,"
+the Elfabot said,
+as cheerful as ever.
+It waved Finner and Captain Abacus through a wrought iron gate
+decorated with holly.
+"I hope you don't mind sharing."
+
+"Won't be here long enough for it to matter,"
+the captain said evenly.
+
+"Ha. Ha. Ha."
+The Elfabot and the robots around it laughed in unison,
+which instantly won first place for "creepiest thing that had happened to Finner recently".
+He swallowed,
+glanced at Captain Abacus,
+and then walked up to the front door and knocked.
+
+The door opened a moment later.
+"Figures,"
+Gran-Granna Tumbly said curtly.
+She glared past him at Captain Abacus and the robots.
+"Well, since you're here,
+you might as well come in."
 
 </section>
 
