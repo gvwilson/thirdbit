@@ -141,7 +141,7 @@ It was ridiculous—Jeep had made fun of her for a month
 when he found out—but…
 
 "Figures," she muttered when she opened her eyes.
-The armadillo wasn't the most ridiculous animal in the book,
+The armadillo wasn't the worst animal in the book,
 but it wasn't her favorite.
 Still,
 an armadillo day was better than a blobfish day.
@@ -184,7 +184,7 @@ to find work that would get them through the long dark.
 Iffy shaded her eyes against the razor-edged sun.
 A cluster of buildings was taking shape by the new pier on the edge of town.
 Two were just bunkhouses,
-but the third—the one Iffy looked at like a hungry gull look at a scrap of naan—was a machine shop.
+but the third—the one Iffy looked at like a hungry gull looking at a scrap of naan—was a machine shop.
 Shiploads of precious equipment had already been carted through its double-wide doors:
 forges,
 presses,
@@ -267,8 +267,7 @@ Without so much as a grunt of thanks
 her husband took the entire basket of naan from the center of table in one hand
 and his plate with the other
 and disappeared back into his cabin.
-A moment after the door closed
-Iffy heard something gurgle out of a bottle.
+Iffy heard something gurgle out of a bottle as the door closed.
 
 Aunt Naggie let out her breath and smiled at her foster daughter.
 "You'll be hungry then?"

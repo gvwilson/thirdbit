@@ -11,7 +11,7 @@ author = {
     "calendly": "https://calendly.com/gvwilson",
     "github": "https://github.com/gvwilson",
     "mastodon": "https://mastodon.social/@gvwilson",
-    "linkedin": "https://www.linkedin.com/in/greg-wilson-a26510b6/",
+    "linkedin": "https://www.linkedin.com/in/gvwilson/",
     "youtube": "https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg",
 }
 
