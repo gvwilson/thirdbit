@@ -223,7 +223,8 @@ Finner had never actually been in Gran-Granna's house before,
 but he'd heard stories.
 A richly-patterned carpet in the hall that looked like it might still be able to fly: check.
 A set of gargoyle coathooks: check.
-A sitting room filled with a riot of greenery
+A sitting room filled with a riot of greenery,
+a reindeer rocking horse to give small children something to fight over,
 and a mis-matched pair of overstuffed chairs: check.
 Crossed harpoons over the fireplace and dozens of framed pictures
 of children, grandchildren, great-grandchildren,
@@ -4814,6 +4815,84 @@ Gran-Granna Tumbly said curtly.
 She glared past him at Captain Abacus and the robots.
 "Well, since you're here,
 you might as well come in."
+
+There wasn't a richly-patterned carpet in the hall that looked like it might still be able to fly.
+There weren't gargoyle coathooks either,
+or the potted plants that Finner remembered from Gran-Granna Tumbly's house,
+but there was a pair of overstuffed armchairs,
+a reindeer rocking horse,
+and a framed photograph of two santas and an elf hanging above the mantel.
+
+Gran-Granna Tumbly seated herself in one of the armchairs
+while Finner and Captain Abacus divested themselves of their boots and parkas.
+"I'll stand, thank you," the captain said neutrally
+when Gran-Granna Tumbly gestured at the other chair.
+The two locked eyes as Finner lowered himself onto
+a cushion that felt as soft as a marshmallow.
+
+"You realize you have to blink eventually, right?"
+he said after a moment,
+closing his eyes and letting himself sink into the chair.
+A pair of "hmphs" were followed by
+the sound of his great-grandmother slurping tea
+and Captain Abacus drumming her fingers on her thigh.
+
+"I'm sure you have questions,"
+Gran-Granna Tumbly said.
+
+Finner opened his eyes.
+"Not really."
+He jerked his chin at the photograph.
+"He was your elf, wasn't he?
+The one in the pictures.
+And then you and Shady Ann fell in love
+and he went off and started making robots,
+but they got out of control and now they're replacing people.
+I'm not stupid,"
+he added.
+
+Gran-Granna Tumbly was silent for a long moment.
+"His name was Ooph," she finally admitted.
+"And no, we weren't together—he was with Shady Ann.
+He was very supportive, even when… Even after.
+He just wanted her to be happy."
+
+She raised her teacup halfway to her lips,
+then lowered it undrunk.
+Finner realized with a start that it was the first time he'd ever seen her unsure of herself.
+"She and I were spending all our time campaigning—holding meetings,
+giving speeches,
+writing articles for the newspapers in a hundred different worlds.
+When things went wrong here,
+she blamed herself for not paying enough attention
+to the presents people were asking for
+and what they might do with them.
+And then Ooph got sick and didn't tell her.
+She only found out after he was gone.
+She came back here to try to make up for it all,
+but…"
+The old woman shook her head.
+"She never forgave herself."
+
+"I'm sorry for your loss,"
+Captain Abacus said quietly.
+"But that doesn't explain why the robot is replacing people."
+
+"I'm trying to give you a chance to learn how to get along with each other,"
+the reindeer rocking horse said in the Elfabot's voice.
+Gran-Granna Tumbly rolled her eyes
+as Captain Abacus's hand flew to the cutlass that wasn't on her belt.
+"It's what she wanted most in all the wide worlds,
+so it's what my maker programmed me to do."
+
+"And what if we can't?"
+Finner asked.
+
+The reindeer slowly turned its head to look at him,
+which immediately replaced the robots' earlier laughter as
+the creepiest thing that had happened recently.
+"I'm counting on it,"
+the reindeer said.
 
 </section>
 
