@@ -8,7 +8,7 @@ fiction: true
 
 <section markdown="1">
 
-## Chapter 1: The Meeting
+## Chapter 1
 
 Iffy had a bad dream that night.
 It was the same one she always had,
@@ -718,7 +718,7 @@ Pleased to meet you too."
 
 <section markdown="1">
 
-## Chapter 2: Faulty Maintenance My Orphaned Arse
+## Chapter 2
 
 Iffy ran all the way back to the pier,
 dodging around the people and bots going about their chores
@@ -1828,15 +1828,15 @@ It took her a long time to fall asleep again.
 
 <section markdown="1">
 
-## Chapter 3: Raising the Stakes
+## Chapter 3
 
 It was four days to Rothera across the Weddell Sea.
-Once upon a time they could have driven across a solid sheet of ice.
+Once upon a time they would have driven across a solid sheet of ice.
 During the Melt they would have had to thread their way through cakes and bergs,
 but those days were long gone.
 There was nothing between them and their destination except hungry gulls,
 floating plastic,
-and the faint but ever-present risk of the sea boiling into foam beneath them.
+and the faint but ever-present risk of the sea turning to foam beneath them.
 
 Halley quickly fell below the horizon.
 After motoring for an hour under high, thin clouds,
@@ -1853,7 +1853,7 @@ but Iffy nodded and climbed back on deck
 with a chipped ceramic mug in her hand.
 
 "'Bout affin' time," her uncle said sharply
-when she knocked on the door of the pilot house and handed him his tea.
+when she knocked on the door of the pilot house and handed the tea to him.
 He slurped a mouthful and set it in the ring next to the ship's wheel.
 
 Iffy glanced at the control panel.
@@ -1861,7 +1861,7 @@ Tiny cameras dotted about the ship showed the engine,
 the hold,
 the sails,
 and practically everything else on board
-except the insides of the cabins and the tiny toilet near the stern.
+except the insides of the cabins and the cramped toilet near the stern.
 Small graphs scattered among the images told her at a glance
 how much fuel they had,
 how much tension was in the forestays and mainstays,
@@ -1883,7 +1883,7 @@ she guessed he'd been at it for a while.
 
 "An' see if that baggage o' yours wants t' make himself useful as well,"
 Uncle Jack added as she turned to go.
-"Or better yet, just tell 'im I told him to!"
+"Or better yet, just tell 'im I told him to."
 
 Wales had reorganized the ship's other storage locker while Iffy was asleep
 to make room for his pack and toolboxes.
@@ -1894,7 +1894,7 @@ Standing,
 he straightened his jacket and smiled.
 "Being useful would do me good right now."
 
-"You thinkin' bout them off th' *Taroona*?
+"You thinkin' 'bout them off th' *Taroona*?
 Not that it's any o' my look-in,"
 she added hastily.
 
@@ -1911,17 +1911,18 @@ and a core smart enough to qualify for citizenship.
 She was the first of her kind to solo the Pacific,
 but then the war came, and…"
 He sighed.
-"It must have broken her heart to up like this."
+"It must have broken her heart to end up like this."
 
 "I guess," Iffy said to fill the silence that followed.
 "Can't imagine how I'd feel if somethin' like that happened to th' *Ginny*."
 
-"Let's hope you never have to find out," Wales said,
-then shook his head to clear it.
+"Let's hope you never have to find out," Wales said.
+He shook his head to clear it.
 "Now, where's this cable we're supposed to mend?"
 
 Iffy had hoped that Wales would bring out his toolboxes—she
-was itching to examine their contents in detail—but instead,
+was itching to examine their contents in detail.
+Instead,
 he studied the hacked-off ends of the backstay cable
 with a hand-held smart lens
 that highlighted the worse of the damage in garish reds and yellows.
@@ -1941,12 +1942,12 @@ When Wales nodded
 she fished a roll of twisted eight-gauge cable from her bag of odds and ends
 and dug around to find a wire cutter and a pair of needle-nosed pliers.
 
-The next half hour flew by as Iffy lost herself in the task at hand.
+The next hour flew by as Iffy lost herself in the task at hand.
 She had expected Wales to take charge,
 but instead he asked one question after another,
-drawing ideas out of her that she hadn't know were there.
+drawing ideas out of her that she hadn't known were there.
 It was like the schematics that sometimes popped into her head
-but without the chill in her gut of not knowing where they came from.
+but without the chill in her gut of wondering where they'd come from.
 
 Once the first dozen lengths of splice were woven into the cable
 Wales sat cross-legged on the deck and held the ends together
@@ -1955,7 +1956,7 @@ She worked as quickly as she could,
 waiting for him to say it was time for a break,
 but he didn't.
 *Uncle Jack wouldn't have been able to hold the cable like that,* she thought.
-Even Mister Mishra would have struggled after a minute or two,
+Even Mister Mishra would have struggled after a few minutes,
 but Wales seemed unbothered.
 She glanced at the silver rectangles in his temples
 and wondered what other tech he might have that wasn't so visible.
@@ -1995,8 +1996,7 @@ only repaired.
 Keeping her afloat was a matter of swaps and trades and patches,
 of scouring noticeboards in Hell
 to find tips that weren't self-replicating spamotage left over from the war,
-of swapping messages with other mechanics
-trying to keep their own ships running,
+of swapping messages with other mechanics who were trying to keep their own ships running,
 and of running sims to see if this patched with that
 would hold together in sub-zero temperatures.
 In the end,
@@ -2007,12 +2007,12 @@ and improvisation that Iffy had used on the cable.
 She loved it.
 
 Wales worked beside her the whole time,
-handing her tools,
-holding things steady while she screwed them in
+handing her tools
+and holding things steady while she screwed them in
 or used her cherished little laser to put a patch on a weld
 that held an even older patch in place.
 He somehow managed to keep up a steady stream of questions
-without ever making her feel like he was pestering her.
+without making her feel like he was pestering.
 She enjoyed every minute of it,
 just like she enjoyed the times
 when Mister Mishra turned something she'd made over and over in his hands
@@ -2040,16 +2040,15 @@ The square-faced man sighed.
 "But—coal? Really?"
 
 Iffy's eyes widened.
-"Oh crivens—you ain't an Eco, are you?
+"Oh crivens—you ain't an eco, are you?
 Uncle Jack'll put you o'er the side an' no mistake.
-He hates Ecos even worse'n he hates Zillions."
+He hates ecos even worse'n he hates Zillions."
 
 Wales sighed again.
 "No, I'm not an Ecologist.
 Or Brazilian, for that matter.
 I just…"
-He squatted on his haunches
-and looked resignedly at the engine.
+He squatted on his haunches and looked resignedly at the engine.
 "Come on. Let's get this done."
 
 He asked fewer questions after that,
@@ -2063,7 +2062,7 @@ but at the thought of Wales not saying anything if she did
 she shut it down instead.
 
 Aunt Naggie made noodles for lunch.
-The smell of synthetic coconut milk,
+The smell of soy milk,
 greenhouse peppers,
 diced mushrooms,
 and spices made the galley as warm and as comfortable as an old sweater.
@@ -2098,7 +2097,7 @@ she had the feeling that double-crossing Wales
 might actually be the dumbest idea Uncle Jack had ever had.
 
 She and Aunt Naggie cleaned up afterward.
-"He seems nice," Aunt Naggie observed
+"He seems aright," Aunt Naggie observed
 as she scraped the last traces of sauce off a plate into the composter.
 "Handy, too."
 
@@ -2143,12 +2142,11 @@ she spent five minutes rearranging her meager possessions
 before flopping down on her bed.
 She spent another five minutes wondering if she should message Honesty,
 but "Howzit goin?" felt too flippant
-and "We're comin' in early" made it sound like she was expecting something
-and describing the things she and Wales had been doing was—
+and "We're comin' early" made it sound like she was expecting something.
 
 She tossed her app aside and pulled out her nature book.
 The giraffe, the tiger, the wolf with his sad, intelligent eyes…
-Someone had written *Looks like Grandad!!!* beside it in tiny curving script.
+Someone had written *Looks like Grandad!* beside it in tiny curving script.
 Iffy had long ago decided that the writer had been a girl about her own age
 who had a family and a whole pack of friends.
 She closed the book,
@@ -2162,13 +2160,13 @@ Her windowless room was completely dark,
 but her hands found her clothes on the floor beside her foam slab.
 She pulled them on over her thermals,
 slipped her feet into her boots,
-and went out to face another day on the southern ocean.
+and headed aft to use the toilet.
 
 Aunt Naggie nodded to Iffy when she reached the pilot house.
 "Sleep well?"
 
 Iffy yawned and plopped herself onto the stool beside her foster mother.
-"'Saright. How's she doin'?"
+"Aright. How's she doin'?"
 She studied the control panel for a moment.
 There was a bit too much tension in the mainsail,
 and wind drag over the hull was ten percent higher
@@ -2720,7 +2718,7 @@ gray and single-purposed like the shark in Iffy's nature book.
 The map on the control panel tilted to show depth.
 The ridge on the sea floor lay directly beneath the drone,
 orange splashed with warning pink.
-"Ten seconds," Wales said.
+"Thirty seconds," Wales said.
 Before Iffy could ask, "Until what?"
 the drone dove straight down into the water.
 
