@@ -4736,13 +4736,13 @@ these attractive modern buildings have been topped up with—"
 the Elfabot cut in.
 "I'm sure you'll find them quite comfortable.
 At least I hope you will,
-because you're going to be there for the rest of your lives."
+because I expect you're going to be there for the rest of your lives."
 
 </section>
 
 <section markdown="1">
 
-## Only In the Picture
+## Ooph
 
 Marching and trudging can look similar from a distance,
 but up close it's easy to tell them apart.
@@ -4891,8 +4891,63 @@ Finner asked.
 The reindeer slowly turned its head to look at him,
 which immediately replaced the robots' earlier laughter as
 the creepiest thing that had happened recently.
-"I'm counting on it,"
-the reindeer said.
+"Then I will program your replacements to do what you cannot,"
+it said.
+
+The reindeers eyes dimmed.
+Gran-Granna Tumbly sighed.
+"I hate it when it does that," she grumbled.
+"There was one time when the kettle had just boiled
+and I was just about to make a pot.
+Nearly scalded myself."
+
+Captain Abacus jerked her chin at the reindeer.
+"Are you sure it's not still listening?"
+
+"How would I know?"
+Gran-Granna Tumbly snapped.
+"It told me it wouldn't,
+but I'm not fool enough to trust it.
+Or you,"
+she added pointedly.
+"For all I know, you're one of *them*.
+Or you actually are working with it and—"
+
+"Aaaall right,"
+Finner cut in loudly,
+surprising himself as much as his great-grandmother.
+"Let's just, um, let's just sort out bedrooms and whatever, shall we?
+I assume there *are* bedrooms?
+And then maybe we can talk about dinner?"
+
+The old santa glared at him for a moment
+before pointing at the stairs with her teacup.
+Finner stood,
+waited a moment to see if Captain Abacus would join him,
+and then left them to resume their staring contest.
+
+There were three bedrooms,
+a small solarium full of orchids,
+and a tiled bathroom on the second story.
+Finner looked longingly at the shower,
+but couldn't see any towels,
+so he picked one of the bedrooms and lay down on the bed.
+It reminded him of his room in The Building,
+except there wasn't a mobile to look at
+and there weren't bars on the window.
+
+He wondered how Zubi and Santa Greenwood were doing
+and where Santa Hood was
+and whether his parents missed him.
+Then he rolled onto his side,
+pulled the heavy blanket up to cover himself,
+slid his hand under his shirt,
+and slipped the slim packet of tools tucked into his waistband under his pillow for safekeeping.
+It wasn't much of a hiding place,
+but it would do for now.
+*Thanks, Santa Hotep,* he thought.
+Closing his eyes,
+he let himself drift off to sleep.
 
 </section>
 

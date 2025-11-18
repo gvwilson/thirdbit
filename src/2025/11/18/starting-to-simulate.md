@@ -181,7 +181,7 @@ def main():
     env.process(random_worker(env, worker_id=1, num_jobs=3, job_time=2))
     env.process(random_worker(env, worker_id=2, num_jobs=3, job_time=3))
     env.run()
-    print(f"\nSimulation completed at T={env.now}")
+    print(f"Simulation completed at T={env.now}")
 ```
 
 The key thing here is that `random_worker` *isn't* a normal function call.
