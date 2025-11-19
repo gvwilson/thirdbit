@@ -1,0 +1,138 @@
+"""Pool of developers with tasks as processes."""
+
+import csv
+from itertools import count
+import random
+import sys
+import simpy
+
+PARAMS = {
+    "max_task_duration": 10.0,
+    "task_arrival_rate": 2.0,
+    "num_developers": 2,
+    "simulation_duration": 20,
+    "random_seed": 12345,
+}
+PRECISION = 2
+
+
+class TaskRecorder:
+    """Task with uniformly-distributed durations that records activity."""
+
+    _id = count()
+    _all = []
+
+    @staticmethod
+    def arrival(params):
+        return random.expovariate(1.0 / params["task_arrival_rate"])
+
+    @staticmethod
+    def duration(params):
+        return random.uniform(1, params["max_task_duration"])
+
+    def __init__(self, params):
+        self._id = next(TaskRecorder._id)
+        self._duration = TaskRecorder.duration(params)
+        self._elapsed = 0.0
+        self._current = None
+        TaskRecorder._all.append(self)
+
+    def start(self, env):
+        assert self._current is None
+        self._current = env.now
+
+    def end(self, env):
+        assert self._current is not None
+        self._elapsed += env.now - self._current
+        self._current = None
+
+    def is_complete(self):
+        return (self._current is None) and (self._elapsed > 0.0)
+
+
+def simulate_task(env, developers, task):
+    """Simulate a task flowing through the system."""
+
+    with developers.request() as req:
+        yield req
+        task.start(env)
+        yield env.timeout(task._duration)
+        task.end(env)
+
+
+def generate_tasks(params, env, developers):
+    """Generates tasks at random intervals."""
+
+    while True:
+        yield env.timeout(TaskRecorder.arrival(params))
+        task = TaskRecorder(params)
+        env.process(simulate_task(env, developers, task))
+
+
+def get_log(kind, cls):
+    """Build one set of log entries."""
+
+    records = [
+        (kind, x._id, round(x._elapsed, PRECISION), x.is_complete()) for x in cls._all
+    ]
+    total = sum(x._elapsed for x in cls._all)
+    return records, round(total, PRECISION)
+
+
+def get_params(params):
+    """Convert parameters to log entries."""
+
+    return [
+        ("parameter", name, value, None)
+        for name, value in sorted(params.items())
+    ]
+
+
+def write_log(params, stream, *args):
+    """Create and write entire log."""
+
+    log = [("kind", "id", "elapsed", "completed")]
+    log.extend(get_params(params))
+    for name, data in args:
+        records, total = get_log(name, data)
+        log.extend(records)
+        log.append(("total", name, total, None))
+    csv.writer(stream, lineterminator="\n").writerows(log)
+
+
+def update_params(params, args):
+    """Adjust parameters based on command line arguments."""
+
+    for arg in args:
+        fields = arg.split("=")
+        assert len(fields) == 2 and all(len(f) > 0 for f in fields)
+        key, value = fields[0], float(fields[1])
+        assert key in params
+        params[key] = value
+
+
+def check_tasks_completed_in_order():
+    """Sanity check that tasks are done in order."""
+    completed = [t.is_complete() for t in TaskRecorder._all]
+    try:
+        first_false = completed.index(False)
+        return not any(completed[first_false:])
+    except ValueError:
+        return True
+
+
+def main(params):
+    """Run simulation."""
+
+    update_params(params, sys.argv[1:])
+    random.seed(params["random_seed"])
+    env = simpy.Environment()
+    developers = simpy.Resource(env, capacity=params["num_developers"])
+    env.process(generate_tasks(params, env, developers))
+    env.run(until=params["simulation_duration"])
+    assert check_tasks_completed_in_order()
+    write_log(params, sys.stdout, ("task", TaskRecorder))
+
+
+if __name__ == "__main__":
+    main(PARAMS)
