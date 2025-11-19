@@ -217,7 +217,7 @@ But is our code correct?
 And what does it tell us about how long tasks take to complete
 and how busy developers are?
 To answer those questions,
-we need to collect some statistics and do a bit of analysis.
+we need to collect some data and do a bit of analysis.
 Stay tuned…
 
 [starting-to-simulate]: @root/2025/11/18/starting-to-simulate/

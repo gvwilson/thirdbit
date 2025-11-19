@@ -69,34 +69,16 @@ def generate_tasks(params, env, developers):
         env.process(simulate_task(env, developers, task))
 
 
-def get_log(kind, cls):
-    """Build one set of log entries."""
-
-    records = [
-        (kind, x._id, round(x._elapsed, PRECISION), x.is_complete()) for x in cls._all
-    ]
-    total = sum(x._elapsed for x in cls._all)
-    return records, round(total, PRECISION)
-
-
-def get_params(params):
-    """Convert parameters to log entries."""
-
-    return [
-        ("parameter", name, value, None)
-        for name, value in sorted(params.items())
-    ]
-
-
-def write_log(params, stream, *args):
+def write_log(params, stream):
     """Create and write entire log."""
 
     log = [("kind", "id", "elapsed", "completed")]
-    log.extend(get_params(params))
-    for name, data in args:
-        records, total = get_log(name, data)
-        log.extend(records)
-        log.append(("total", name, total, None))
+    log.extend([
+        ("task", x._id, round(x._elapsed, PRECISION), x.is_complete())
+        for x in TaskRecorder._all
+    ])
+    total = sum(x._elapsed for x in TaskRecorder._all)
+    log.append(("total", "task", round(total, PRECISION), None))
     csv.writer(stream, lineterminator="\n").writerows(log)
 
 
@@ -120,7 +102,7 @@ def main(params):
     developers = simpy.Resource(env, capacity=params["num_developers"])
     env.process(generate_tasks(params, env, developers))
     env.run(until=params["simulation_duration"])
-    write_log(params, sys.stdout, ("task", TaskRecorder))
+    write_log(params, sys.stdout)
 
 
 if __name__ == "__main__":
