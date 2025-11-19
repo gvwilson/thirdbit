@@ -178,13 +178,13 @@ import simpy
 
 def main():
     env = simpy.Environment()
-    env.process(random_worker(env, worker_id=1, num_jobs=3, job_time=2))
-    env.process(random_worker(env, worker_id=2, num_jobs=3, job_time=3))
+    env.process(worker(env, worker_id=1, num_jobs=3, job_time=2))
+    env.process(worker(env, worker_id=2, num_jobs=3, job_time=3))
     env.run()
     print(f"Simulation completed at T={env.now}")
 ```
 
-The key thing here is that `random_worker` *isn't* a normal function call.
+The key thing here is that `worker` *isn't* a normal function call.
 Instead of handing a value to `env.process`,
 it creates a generator for the environment to run.
 That generator yields `env.timeout(delay)` to tell SimPy
@@ -194,8 +194,8 @@ to simulate being busy.
 (Processes can yield other things as well—we'll see some in future posts.)
 
 ```python
-def random_worker(env, worker_id, num_jobs, job_time):
-    """Actor with random-time jobs."""
+def worker(env, worker_id, num_jobs, job_time):
+    """Actor with fixed-time jobs."""
     print(f"T={env.now} worker {worker_id} starts")
 
     for job_num in range(num_jobs):

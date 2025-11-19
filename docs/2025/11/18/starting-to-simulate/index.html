@@ -50,6 +50,10 @@
   </div>
   <div class="col-2 right">
     
+      <a href="../../../../2025/11/19/simulating-a-developer-pool/">
+        <span class="pagination-text">next</span> &rArr;
+      </a>
+    
   </div>
 </div>
 <!-- content --><p>Inspired in part by <a href="https://sim.curiousduck.io/">the software development simulator</a>
@@ -201,12 +205,12 @@ All we have to do is:</p>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">random_worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">job_time</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">random_worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">job_time</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">job_time</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">job_time</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simulation completed at T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>The key thing here is that <code>random_worker</code> <em>isn&rsquo;t</em> a normal function call.
+<p>The key thing here is that <code>worker</code> <em>isn&rsquo;t</em> a normal function call.
 Instead of handing a value to <code>env.process</code>,
 it creates a generator for the environment to run.
 That generator yields <code>env.timeout(delay)</code> to tell SimPy
@@ -214,8 +218,8 @@ that it wants to wait for a certain length of time,
 e.g.,
 to simulate being busy.
 (Processes can yield other things as well—we&rsquo;ll see some in future posts.)</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">random_worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">,</span> <span class="n">num_jobs</span><span class="p">,</span> <span class="n">job_time</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Actor with random-time jobs.&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">,</span> <span class="n">num_jobs</span><span class="p">,</span> <span class="n">job_time</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Actor with fixed-time jobs.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> starts&quot;</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">job_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_jobs</span><span class="p">):</span>
