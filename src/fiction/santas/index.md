@@ -4916,12 +4916,12 @@ Or you actually are working with it and—"
 "Aaaall right,"
 Finner cut in loudly,
 surprising himself as much as his great-grandmother.
-"Let's just, um, let's just sort out bedrooms and whatever, shall we?
-I assume there *are* bedrooms?
+"Let's just, um, let's just sort out where we're sleeping, shall we?
+I assume there are bedrooms?
 And then maybe we can talk about dinner?"
 
-The old santa glared at him for a moment
-before pointing at the stairs with her teacup.
+His great-grandmother and the airship captain glared at him for a moment
+before Gran-Granna Tumbly at the stairs with her teacup.
 Finner stood,
 waited a moment to see if Captain Abacus would join him,
 and then left them to resume their staring contest.
@@ -4948,6 +4948,59 @@ but it would do for now.
 *Thanks, Santa Hotep,* he thought.
 Closing his eyes,
 he let himself drift off to sleep.
+
+The blanket was tangled around his legs when he woke up,
+and the room was so cold that
+he could feel his breath fogging against his face.
+He groped under the pillow to check that his tools were still there,
+then stretched to loosen the kink in his back
+and mentally calculated how many steps lay between him and the bathroom.
+
+Captain Abacus was in the kitchen when he went downstairs.
+A dozen tins with faded labels or no labels at all
+stood in a neat row on the counter.
+"Don't suppose you know what marrowfat peas are?"
+she asked by way of greeting.
+
+"'Fraid not," he yawned.
+
+"What about pickled celeriac?"
+
+"Sounds terrible."
+He leaned against the door frame.
+"At least it's not beets."
+
+"There is that,"
+the captain agreed.
+"Apparently we have to do our own scavenging
+if we want anything more than what the robots provide."
+
+"At least we don't have to watch jingly movies in the dining hall.
+Never mind,"
+Finner added hastily in response to her raised eyebrow.
+"Is Gran-Granna sleeping?"
+
+"No,
+she went next door to see about swapping houses.
+She said we'd probably all be more comfortable that way."
+
+"Would we?" Finner asked.
+"Would *you*?"
+
+Captain Abacus finally turned and looked at him.
+"Your great-grandmother doesn't think that people like us should exist,"
+she said levelly.
+"I don't think I can change her mind about that,
+and I'd be surprised if you could either,
+so yes,
+I think I'd be more comfortable if I didn't have to tiptoe around her feelings,
+and I'm *sure* she'd rather not have to constantly be biting her tongue."
+
+Finner leaned back far enough to see the reindeer in the living room.
+He really hoped that the lack of light in its eyes meant that
+the Elfabot's attention was elsewhere.
+"That's what I thought,
+which is why I'm going to break us out of here."
 
 </section>
 
