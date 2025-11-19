@@ -2922,12 +2922,12 @@ and the muffled sound of the uncaring sea.
 
 <section markdown="1">
 
-## Chapter 4: Politics
+## Chapter 4
 
 Her tears eventually stopped, as tears always do.
 After one more hug from Aunt Naggie,
 Iffy went and sat on the thwart at the *Guinevere*'s stern
-and gray thoughts chase each other aimlessly in her head.
+and let gray thoughts chase each other aimlessly in her head.
 She half-hoped that Wales would sit beside her so that she could be curt to him.
 Instead,
 he disappeared into his cabin,
@@ -2994,7 +2994,7 @@ Skies the world over had been off limits since the end of the war:
 the machines couldn't watch the whole world all the time,
 but anything too big or moving too quickly
 ran the risk of being fried from orbit.
-A handful of light, slow-moving aircraft still took tested their luck here and there,
+A handful of light, slow-moving aircraft still tested their luck here and there,
 but for most people,
 flying had become the stuff of dreams.
 Iffy spent every moment she could studying the drone through a high-powered monocular.
@@ -3032,7 +3032,7 @@ his eyes as distant as his thoughts.
 Iffy hesitated,
 thinking about all the times she'd tried to make friends with people
 only to put her foot in her mouth,
-then stepped up to the taffrail a meter away from him and leaned on it as well.
+then stepped up to the rail a meter away from him and leaned on it as well.
 
 He sighed without looking at her.
 "I'm sorry about what happened."
@@ -3049,7 +3049,7 @@ Wales chuckled.
 "It's from an old sim.
 And no, it isn't that bad."
 His half-smile slipped slightly.
-"Or at least, I hope it isn't."
+"At least, I hope it isn't."
 
 Thin trails of soot sketched dark lines on the sky above the city.
 Iffy glanced at Wales,
@@ -3064,7 +3064,7 @@ the whole of Antarctica would still be covered in ice
 if it weren't for the Melt.
 And if cities elsewhere had drowned,
 well,
-damage done.
+the damage was long since done.
 
 Then the wind shifted and the city's smell hit Iffy like a wet hammer.
 Rothera didn't just have coal mines—it had a dredging fleet too,
@@ -3092,7 +3092,7 @@ Someone had turned the "0" of the "G-80" stencilled on its side
 into a scowling face.
 Another handful Marines were scattered among crates and machines
 or on the decks of nearby ships,
-their positions selected after a millisecond of high-intensity simulation by the city's core.
+their positions optimized after a millisecond of high-intensity simulation by the city's core.
 Other than them the pier was deserted.
 So was the piers south of them,
 but not the one to the north.
@@ -3245,10 +3245,10 @@ I'm pretty sure our welcome would have been much less friendly."
 He raised an eyebrow at Doctor Johel.
 The old woman smiled back but said nothing.
 
-Rothera bustled around them once the bus left the dock behind.
+Rothera bustled around them as the bus left the dock behind.
 They hummed quietly through the city streets
 and up the long, gentle slope that led to the governor's mansion.
-The G-80 stayed five meters in front of them,
+The G-80 stayed twenty meters in front of them,
 its twin turrets swivelling each time they went through an intersection,
 while the Marines jogged along on either side with long mechanical strides.
 Traffic pulled aside to let them pass,
@@ -3256,7 +3256,7 @@ but Iffy didn't see any of the mad scramble
 that a convoy like theirs would cause in Halley.
 Her heart skipped a beat once
 when she thought she saw a familiar face in the crowd,
-but then the girl turned her head and she realized it was someone else.
+but then de turned der head and she realized it was someone else.
 
 As they drew closer to the governor's mansion,
 the three-story cinderblock buildings thrown up to house
@@ -3356,7 +3356,7 @@ She stepped to the side and beckoned them through.
 "Until it makes a fuss about me not being back,"
 he whispered back.
 
-The windowless office Doctor Johel showed them into
+The windowless office Doctor Johel ushered them into
 was the same size as the room they had been waiting in.
 Framed photographs on the walls traced the history of Rothera
 from its early days as a research station
@@ -3369,8 +3369,7 @@ at the height of the machine wars.
 A smaller one beneath it showed what was left of the old country's drowned capital.
 
 Clear cases hung on the walls between the photographs,
-each holding an old notebook, diary, or surveyor's log,
-and each decorated with a neat handwritten label.
+each holding an old notebook, diary, or surveyor's log decorated with a neat handwritten label.
 The governors' passion for Antarctica's history was as famous as their love of fine food,
 though schoolchildren only had to suffer through sims of the former.
 
@@ -3407,7 +3406,7 @@ Happy to, any time you need."
 
 The governor nodded his head gravely.
 "Thank you, Captain Ng.
-The government appreciates your service.
+We appreciate your service.
 And you, Mister Wales," he continued,
 looking directly at the American for the first time.
 "Will you be happy to help too?"
@@ -3496,7 +3495,7 @@ Wales said sharply.
 Doctor Johel and the governor exchanged looks.
 "Bring them," the governor ordered.
 
-"Sir, it is against protocol to bring unaudited tech into the secure area,"
+"Sir, it is against protocol to bring unaudited equipment into the secure area,"
 the sergeant protested.
 
 "Executive override,"
@@ -3598,7 +3597,7 @@ the Marine demanded incredulously
 as the bear scuttled away
 and Wales began pulling parts out of his toolbox.
 
-"Saving us," Wales muttered.
+"Saving us, I hope," Wales muttered.
 Two skeletal legs,
 a wheel of nested gears only slightly smaller than Iffy's hand,
 an origami box to hold it all together—all of a sudden
@@ -3648,7 +3647,7 @@ gave it a hunched appearance,
 and the fresh scratches on its side
 where the mansion's mechanical defenders had clawed it
 made its camouflage flicker and jump.
-Twin needle guns on the sides of its head chattered,
+Twin needle guns on the sides of its head chattered uselessly,
 their ammunition spent.
 
 The Marine pushed Wales away and fired two quick shots.
@@ -3709,7 +3708,7 @@ and started to fill the hole in his leg with pink goo from a squeeze tube.
 "Which of course begs the question, doesn't it?"
 The governor paced restlessly as he spoke.
 "What kind of man has a fully functional mil sat link in his head
-and a hundred milligrams of tactical antimatter in his luggage?"
+and twenty milligrams of tactical antimatter in his luggage?"
 
 Wales pushed the medic's hands away.
 "The sort of man who can change the world for you."
@@ -3735,7 +3734,7 @@ Iffy guessed.
 he said as whatever he had just seen confirmed what Wales had said.
 "But it was scavenged decades ago.
 And anyway,
-everybody who was anybody built some kind of secret lab down here.
+everyone who was anyone built some kind of secret lab down here.
 What makes this one special?"
 
 "It wasn't completely scavenged.
