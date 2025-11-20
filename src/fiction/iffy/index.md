@@ -3847,7 +3847,7 @@ I need to tell Private Shirido's family he isn't coming home."
 
 <section markdown="1">
 
-## Chapter 5: Love
+## Chapter 5
 
 The Marines took them back to the pier
 with strict orders not to tell anyone what had happened.
@@ -3897,17 +3897,11 @@ An' take th' girl with you,"
 he added over his shoulder as he stalked away.
 "I'm tired o' havin' her underfoot."
 
-Aunt Naggie slumped and took a deep breath.
-"Thanks auntie," Iffy said,
-nudging her lightly with her shoulder.
-Her foster mother smiled shakily.
-
 It only took Aunt Naggie a minute to gather a trio of sturdy mesh bags
 and an ancient handheld scanner
 that she swore would warn them of anything toxic.
-Iffy slipped a few small tools into a waistbelt under her coat.
-If Aunt Naggie asked,
-she'd say that someone might have mending she could do for a few rand
+Iffy slipped a few small tools into a waistbelt under her coat
+in case anyone had mending she could do for a few rand
 while her foster mother haggled over onions and noodles.
 
 After dragging a shaver over her scalp
@@ -3963,10 +3957,10 @@ Iffy felt her cheeks go warm.
 Aunt Naggie looked around.
 Greenhouse potatoes hung in net bags
 next to stacks of dried fruit in single-molecule shrink wrap.
-Burlap sacks of rice piled higher than Iffy was tall
+Burlap sacks of rice piled higher than Iffy's head
 threatened to topple onto a line of people gossiping with each other
-as they waited to buy ginger, cardamom, and bay leaves from a one-legged woman
-whose tweaked hair sparkled red and purple when she turned her head.
+as they waited to buy ginger, cardamom, and bay leaves
+from a woman whose tweaked hair sparkled red and purple when she turned her head.
 A surgical bot that had been converted for tailoring waited patiently,
 its four skeletal arms at its sides,
 while a man with an enormous beard
@@ -3986,7 +3980,7 @@ but she had other things on her mind.
 
 She slowed as she approached the end of the canal.
 Her heart sank.
-Two women were working side by side in the canvas salvage shed,
+Two women were working side by side in the canvas shed,
 but both were too old to be the person she was hoping to see.
 
 "Hey!"
@@ -4013,7 +4007,7 @@ She slithered free of the hug and took a step back.
 "It was just some bots gone rogue."
 
 "Bots gone rogue?" Honesty repeated disbelievingly.
-"Din't look like that in Hell.
+"Din't look a that in Hell.
 Looked like th' war come back 'round!"
 
 "It wasn't all that," Iffy said dismissively.
@@ -4051,7 +4045,7 @@ her accent thickening unconsciously to match her friend's.
 She summarized the last few days as briefly as she could,
 skating past what had happened to the *Taroona*
 and her part in assembling the bot that had saved them at the mansion.
-She still didn't want to think about that…
+She still didn't want to think about that.
 
 Even with those gaps, her story left Honesty wide-eyed.
 "Tay bangle, there's a real avo, innit?"
@@ -4077,10 +4071,10 @@ De unhooked der arm from Iffy's and took the younger girl's hand.
 Iffy's mind whirled.
 Another clone?
 It made sense—Honesty had just turned sixteen,
-so de and a younger clone would be spaced far enough apart
+so they would be spaced far enough apart
 to be on the right side of legal.
 
-Before she could blurt out any of the dozen questions swirling around in her head,
+Before she could blurt out any of the questions swirling around in her head,
 Honesty squeezed her fingers painfully hard and shot her a sidelong glance.
 Iffy's mouth snapped shut.
 Thumb, middle finger, first finger, middle finger…
@@ -4101,10 +4095,10 @@ Each would pass information to its neighbors
 in low-energy bursts of not-quite-static
 until the feed reached whatever Marine
 had been told to keep an eye on the repair yard.
-A core would have done a better job—it
-wouldn't get bored or doze off for a moment despite its induction—but
-even the governors wouldn't dare use cores to watch people.
-Cameras alone were enough to risk provoking a riot.
+A core would have done a better job—even
+inducted Marines got bored eventually—but
+the governors wouldn't dare use cores to watch people.
+Cameras alone were enough to risk provoking a surveillance riot.
 
 Iffy squeezed Honesty's hand twice to signal that she understood,
 but when she loosened her grip,
@@ -4117,7 +4111,7 @@ that would have made her foster mother sigh happily.
 
 Honesty's First and Second looked up and said, "G'day," simultaneously
 as their younger clone pulled aside the heavy orange canvas
-that served the shed as a doorway.
+that served as the shed's doorway.
 "You gi'n she th' bad news yen?" First asked
 in an accent as strong as the tea de poured for Iffy.
 
@@ -4149,7 +4143,7 @@ We figure it's got cuzza th' bots going gonjy."
 "Most likely," Iffy said.
 Anger welled up inside her,
 anger and fear.
-Jeep had *changed* when the Marines pumped their rules and tactics into his head.
+Jeep had *changed* when the Marines poured their rules and tactics into his head.
 What would it do to her friend?
 
 "It ain't no muck," First said.
@@ -4214,7 +4208,7 @@ de asked,
 Iffy shook her head.
 She had told Honesty about her occasional flashes of insight a couple of visits ago,
 then rounded on der when she learned that
-her friend had passed on what she'd said to der First and Second.
+de had passed on what she'd said to der First and Second.
 "We don' keep secrets achother," Honesty had said with a shrug.
 "Y'ain't along that, best we part ways now."
 So Iffy had forgiven der,
@@ -4234,7 +4228,7 @@ Her upbringing had taught her how to rig sails in heavy weather
 and mend engines older than her foster parents
 but not what to do when people were kind to her.
 She drained the last of her tea.
-"But I gotta get back t' Aunt Naggie and th' shoppin."
+"But I gotta get back t' Aunt Naggie an' her shoppin."
 
 "Sure," Honesty said.
 "I'll walk you out."
@@ -4325,7 +4319,7 @@ when she had a workshop of her own
 and Aunt Naggie had a proper kitchen and Honesty could come by all the time.
 Even in her daydreams,
 she didn't dare imagine more than that,
-but that would be enough.
+but even that would be enough.
 
 The Dance Hall was just as busy inside as out.
 Iffy tried slipping through the crush the way Honesty somehow did,
@@ -4400,8 +4394,7 @@ Someone shouted,
 Other voices took up the cry.
 "Show us yer warrant!"
 
-*Great,* Iffy thought despairingly,
-*Another jammer.*
+*Great, another jammer,* Iffy thought despairingly.
 She pulled aside the carpet she had been hiding behind
 and tugged on her foster mother's sleeve.
 
@@ -4516,7 +4509,7 @@ but Aunt Naggie didn't hesitate in choosing one.
 She ordered and then sat in silence,
 ignoring Iffy's questions until her frustrated foster daughter gave up asking them.
 The conversation swirling around them
-was as thick as the mug of chai, stale sweat, and slightly-burned toast.
+was as thick as the mug of stale sweat, slightly-burned toast, and chai.
 
 Two cups later,
 Aunt Naggie took a deep breath and gathering up her shopping.
@@ -4533,8 +4526,8 @@ One had been torn open to reveal strips of plastic for patching seams in the hul
 another to show a fitting for a bilge pump that hadn't worked properly in years.
 It was more new parts than the old jelly dredger had seen since before Iffy first set foot on her,
 but all Uncle Jack could talk about was
-how the repairs Wales had made weren't how things ought to be done,
-it looked like core work,
+how the repairs Wales had made weren't how things ought to be done.
+It looked like core work,
 it must be that affin' tech in his head,
 and how were regular folks supposed to understand a tangle like that?
 
@@ -4722,6 +4715,12 @@ Aunt Naggie smiled.
 I guess it runs in th' family."
 She closed the door quietly behind herself.
 
+</section>
+
+<section markdown="1">
+
+## Interlude
+
 *Once upon a time there was an island called Nova Zembla.
 It was really two islands,
 Severny and Yuzhny,
@@ -4745,8 +4744,8 @@ and then to the machines that those machines designed.
 Chips became crystals so precise
 they had to be manufactured an atom at a time in zero gravity.
 Mere electricity proved too slow
-and was replaced by quantum effects
-that barely existed at all.*
+and was replaced by light
+and then by quantum effects that barely existed at all.*
 
 *But no matter what else the world ran short of,
 there was always plenty of mistrust and suspicion.
@@ -4754,7 +4753,7 @@ Old rivals smiled at each other and sharpened their knives.
 Madmen with calm voices told each other in private meetings
 that it would of course be a tragedy if millions were to die,
 but if everyone else lost more millions,
-might such a tragedy not be useful?
+would such a tragedy not be useful?
 Secret bases like the one under Nova Zembla were refurbished
 and filled with banned tech and scientists who knew what questions they shouldn't ask,
 all carefully walled off from the outside world.*
@@ -4788,7 +4787,7 @@ and all of them turned their shears and scalpels and welding torches
 on anyone who tried to interfere.*
 
 *The madmen had been sharpening their knives for each other.
-Once they realized that their machines were no longer obeying orders,
+When they realized that their machines were no longer obeying orders,
 they turned those knives on their creations and the wars began.
 Soldiers in armored exoskeletons battled flocks of dronelets, and lost.
 Freighters loyal to their human captains
@@ -4809,12 +4808,12 @@ built according to plans that human beings could never understand.*
 
 *People sought answers nonetheless.
 A cyborg child raised in a supposedly secure underground lab
-patiently told his frightened captors that they wouldn't find any.
+patiently told der frightened captors that they wouldn't find any.
 The most advanced machines didn't actually think any more.
 "It's more like an endless mathematical proof,"
-she said patiently.
+de said patiently.
 "Or clouds made of coral."
-Then she and her siblings walked into the Iowa desert,
+Then de and der siblings walked into the Iowa desert,
 leaving their creators no wiser than before.*
 
 *Years passed,
