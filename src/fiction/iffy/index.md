@@ -6091,10 +6091,10 @@ Aunt Naggie said coldly.
 
 <section markdown="1">
 
-## Chapter 7: Escape
+## Chapter 7
 
 The hospital smelled nothing like the Marines' headquarters.
-The soapy undertone was the same,
+The soapy undertones were the same,
 but disinfectant and the lingering traces of desperation and dashed hopes covered it up.
 It was warmer,
 though,
@@ -6124,8 +6124,8 @@ You've no affin' right,
 an' when Taz hears on this they'll strip you for parts!"
 
 "Your government… is being… informed," the guard grunted,
-shifting der weight to keep der charge pinned
-as the other guard zip-tied the captain's wrists together.
+shifting der weight to keep the angry sea captain pinned
+as the other guard zip-tied her wrists together.
 "Now may we please… have your consent… to take a blood sample… for medical purposes?"
 
 Captain Kerse spent a few seconds telling the guard
@@ -6133,7 +6133,7 @@ exactly what de could do with der request for consent.
 She stopped when she caught sight of Iffy.
 "You!
 I know you!
-You're with him!
+You were with him!
 Where is he?
 Where is Johnson bloody Wales?"
 
@@ -6147,7 +6147,7 @@ the Marines were faster.
 "No!" the one in front of Iffy barked,
 pointing a clenched fist at Captain Kerse.
 
-For a moment Iffy thought the Aussie was going to attack the Marine,
+For a moment Iffy thought the Aussie was going to attack anyway,
 but instead she turned her shaven head and spat on the tiles.
 "You tell *Mister* Wales I'm gonna find 'im,"
 Captain Kerse said.
@@ -6217,7 +6217,7 @@ a jigsaw puzzle,
 and a vast subterranean lake untouched by light for millenia,
 all at once and all together.
 
-*«limited time interval / urgency of action / exchange of value / binding agreement / confirm»*
+*«limited window of opportunity / urgency / exchange of value / binding agreement / confirm»*
 
 She swallowed her nausea again.
 "Help me," she whispered.
@@ -6297,7 +6297,7 @@ but the first time she opened her mouth
 Edson flashed the handsign for "quiet".
 She bit back her question,
 kept her head down,
-and counted steps in her head.
+and counted steps.
 
 At one hundred and thirty two Edson stopped
 and pressed his thumb against a silver plate set waist-high on one of the doors.
@@ -6324,7 +6324,7 @@ like a facecloth that had been sitting in cold water.
 
 He flashed her a smile.
 "Just like Nagatha when I first met her.
-Here, you'll need this too."
+You'll need this too."
 He waited for her to shrug into the windbreaker
 before handing her a bracelet
 that snapped snug around her wrist.
@@ -6341,7 +6341,7 @@ She slipped out the door and into a dimly-lit room full of sentry bots.
 
 "It's aright."
 He put his hand on her shoulder.
-"They're all on standby.
+"Your friends put them on standby.
 Come on."
 
 A moment later they were in a corridor
@@ -6379,9 +6379,9 @@ Whatever Edson was going to do—
 "Ssh!"
 His arm tightened around her shoulders.
 "Aright, when I say, you go limp-like, aright?
-I'll pick you up an'—whoa!"
+I'll pick you up an' we can—whoa!"
 
-They froze as a sentry bot loped forward and halted right in front of them.
+They froze as a sentry bot strode forward and halted right in front of them.
 Its streamlined gray head pivoted from side to side as it scanned them.
 Iffy held her breath as everyone else inched away.
 
@@ -6399,7 +6399,8 @@ tangling itself in the legs of her exoskeleton.
 As she crashed to the floor,
 the lights went out.
 
-"No no no no," someone moaned.
+"Oh no," someone moaned.
+"No no no no."
 
 Red emergency lights came on.
 People surged toward the door.
@@ -6414,10 +6415,10 @@ People pressed in on Iffy from all sides.
 Someone or something hit her hard between her shoulder blades.
 She felt Edson stumble—no,
 he hadn't stumbled,
-he'd broken stride to trip whoever was behind her,
+he'd broken stride to trip whoever was behind them,
 and then they were out the door and on a cobbled side street with a dozen other people,
-heads down and walking quickly as drones circled overhead
-and told them to stay calm,
+heads down and walking quickly
+as drones circled overhead telling them to stay calm,
 this was not an attack,
 it was just a temporary malfunction
 and they should all resume normal activity immediately.
@@ -6434,14 +6435,14 @@ when the machines were talking to her.
 
 "Here."
 Edson steered her into a narrow walkway between the damaged building and its neighbor.
-The battered green dumpster partially blocking it smelled faintly of old garbage.
+The battered green dumpster partially blocking it smelled of old garbage.
 They squeezed around it to find a raccoon waiting for them.
 A raccoon,
 and Johnson Wales with one of his toolboxes in his hand.
 
 Wales set down the toolbox.
 "Before you say anything, let me say I'm sorry.
-I didn't know Gayathri what was going to do."
+Gayathri was going to take you no matter what I did."
 
 Iffy turned her head and spat very deliberately on the wall.
 Wales closed his eyes for a moment,
@@ -6461,7 +6462,7 @@ The Ecologist nodded.
 The Ecologist shrugged.
 "Didn't get a chance.
 An' I wouldna been able to get in without his help.
-But if you don't him tagging along…"
+But if you don't want him tagging along…"
 With one smooth motion he took his hands out of his pockets,
 clicked together the two pieces of hardware they held,
 and pointed an ugly little gun at Wales.
@@ -6493,7 +6494,7 @@ about a lonely prince who had built a palace full of hidden doors and secret pas
 The next half hour felt like a grimy, grown-up replay of that
 as the raccoon led them to a side door whose rusty mechanical lock snapped with one good heave,
 through a room full of mannequin parts (at least, Iffy hoped that's what they were),
-across another narrow walkway that smelled like garlic and onions instead of like garbage,
+along a narrow walkway that smelled like garlic and onions instead of like garbage,
 and finally into a basement whose small, high windows were gray with grime.
 They moved in fits and starts,
 waiting silently each time the raccoon froze and bristled at nothing Iffy could see or hear.
@@ -6505,7 +6506,7 @@ Wales looked around and seated himself on a plastic packing crate,
 his toolbox at his side.
 
 Iffy lowered herslef onto another one.
-"You know anythin' more about who's shootin' at who?" she asked,
+"You know who's shootin' at who?" she asked,
 her eyes on the floor.
 
 Edson looked at Wales, who shrugged.
@@ -6530,8 +6531,8 @@ She said she was gonna come find you."
 Wales nodded slowly.
 "Then we'd better get going."
 The tech in his temples sparkled.
-An answering glitter danced beneath the raccoon's fur
-and then the creature disappeared through a hole barely wide enough for its shoulders.
+An answering glitter danced beneath the raccoon's fur.
+The creature disappeared through a hole barely wide enough for its shoulders.
 
 It took Wales, Edson, and a crowbar improvised out of a table leg
 to open the basement's battered metal door.
@@ -6541,7 +6542,7 @@ but no one shouted or came to investigate.
 
 The little store they found themselves in reminded Iffy of the Sandhus' grocery,
 but had clearly been closed up for many years.
-The shelves were bare except for a handful of empty cardboard boxes.
+The shelves were bare except for a few dusty cardboard boxes.
 Canvas curtains hung over the windows,
 while unidentifiable scraps on the floor hinted at
 generations of raccoons using the forgotten space as a safe haven.
@@ -6556,9 +6557,9 @@ Iffy looked at Edson, who nodded.
 "I'm impressed you could hack this all t'gether so quick," the Ecologist said.
 
 Wales grunted.
-"Set this up years ago—this and half a dozen other ways out.
-Gayathri probably knows about half of them.
-Let's see if she knows about this one."
+"Set this up years ago—this and a few other ways out.
+I'm sure Gayathri knows about some of them.
+Let's see if she's conned this one."
 
 The seconds ticked by.
 Three, two, one:
@@ -6574,8 +6575,7 @@ Edson's boots thumped on the running board a heartbeat later
 and then they were around the corner and accelerating.
 
 "Keep your head down," Wales ordered sharply,
-but Iffy had to look,
-she had to.
+but Iffy had to look.
 Rothera wasn't home but she wasn't a stranger here either.
 She knew its streets almost as well as she knew Halley's.
 She had to look.
@@ -6590,7 +6590,7 @@ went back to their patrol.
 They were both too tall to be Honesty,
 but Iffy watched them through the tinted window anyway
 until the bus turned a corner
-and started rolling down the long slope that led to the dock.
+and started down the long slope that led to the dock.
 
 "Now comes the hard part,"
 Wales said quietly.
@@ -6615,12 +6615,12 @@ Just get out of here.*
 Silence again,
 just for a moment,
 then: *«confirmed»*
-The thought hung in her mind like an ice cube in a glass of water
+The thought hung in her mind
 before turning inside out to become a wireframe of the strange antenna
 she had helped assemble on the *Guinevere*'s deck.
 
-"It's aright," she mumbled.
-"Th' drones won't be a problem."
+"Th' drones won't be a problem,"
+she mumbled.
 
 That turned out to be an understatement.
 As the bus slowed and stopped at the top of the pier,
@@ -6628,7 +6628,7 @@ the drones above the harbor suddenly changed direction.
 Iffy heard their motors whine as they accelerated toward the featureless gray bulk of the *Bengal*.
 Someone shouted a question.
 The Marines on the pier beside the warship scattered,
-their weapons raised to track the drones circling over their heads.
+their weapons raised to track the angry flock circling over their heads.
 
 Edson grinned at Iffy,
 his smile slipping as she wiped her nosebleed on her sleeve.
@@ -6637,7 +6637,7 @@ his smile slipping as she wiped her nosebleed on her sleeve.
 
 They walked up the pier as if it was just another day,
 Edson and Iffy side by side with Wales two steps behind them.
-Iffy suddenly wondered what had happened to his toolboxes,
+Iffy suddenly wondered how he had retrieved his toolbox,
 but then they were at the gangplank
 and Aunt Naggie ran down to meet them
 and wrapped her foster daughter in a hug
@@ -6664,7 +6664,7 @@ Uncle Jack was waiting on the deck with a gaff hook in his hands.
 You get off my affin' ship too.
 And you!"
 He turned his glare on Iffy.
-"You got five minutes t' bag your stuff and clear out too.
+"You got one minute t' bag your stuff and clear out too.
 You been nothin' but trouble since the day I—"
 
 *Thump.*
@@ -6676,15 +6676,15 @@ tossing the life preserver onto the deck beside her unconscious husband.
 
 Iffy sat in the pilot house while Aunt Naggie brought the *Guinevere* to life a few minutes later.
 Wales and Edson untied the staylines and secured the deck
-as efficiently as they had carried Uncle Jack down the gangplank to leave on the pier.
+as efficiently as they had carried Uncle Jack down the gangplank to the pier.
 "I'll get you somethin' to eat just as soon as we're under way,"
 Aunt Naggie promised over her shoulder.
 
 Iffy nodded.
 "Thanks, auntie."
 She was hungry,
-she realized,
-starving hungry.
+she realized.
+No, she was *starving*.
 
 Wales' voice came over the speaker.
 "All clear here."
@@ -6707,7 +6707,7 @@ Assumin' nobody sinks us, that is."
 Iffy replied.
 Aunt Naggie leaned over and kissed the top of her head,
 then squeezed Edson's hand and brought the ship around in a tight arc
-that left them pointing straight at the harbor mouth.
+that pointed them straight at the mouth of the harbor.
 Iffy watched on the displays as drones and sentry torpedoes approached and then veered away,
 their cores' instinct to investigate overridden by whatever the antenna on deck was telling them.
 
@@ -6715,7 +6715,7 @@ their cores' instinct to investigate overridden by whatever the antenna on deck 
 half the time when the machines won battles
 it was because people acted like machines,"
 Wales said,
-jerking his chin at the *Bengal* as he joined them.
+nodding at the *Bengal* as he joined them.
 Half a dozen crew on the warship's deck watched them go by.
 "They have to be wondering why we're moving when nothing else is,
 or why we're allowed out to sea when Rothera is under attack,
@@ -6751,7 +6751,7 @@ we had bigger problems to solve at home."
 They thought that maybe if we had a different kind of human being we could make it work.
 We were already tweaking people to cure diseases.
 A few labs here and there were making them stronger and faster,
-and everyone was trying to figure out how to make people smarter.
+and everyone was trying to figure out how to make us smarter.
 Why not go a little further and make a better astronaut?
 Why not give them super-dense bones so they could handle higher gee during liftoff
 and hypermelanic skin so that they wouldn't have to worry about ultraviolet exposure?
@@ -6785,7 +6785,7 @@ Wales explained.
 "Machines were designing amazing things,
 but nobody could understand how they worked.
 That scared a lot of people,
-so Surjinder—Professor Johel—told them
+so he told them
 he could make a person who'd be able to figure them out and explain them to the rest of us."
 
 Iffy's mouth worked as a dozen questions tried to get out at once.
@@ -6812,8 +6812,8 @@ You can see machines the way cores do.
 You can see how things fit together."
 
 He straightened.
-"Gayathri knows about your olders.
-If she realizes you can already talk to the machines,
+"Gayathri knows about your spatial reasoning.
+If she realizes you can also talk to the machines,
 there's nothing she won't do to get her hands on you."
 
 Iffy nodded.
@@ -6876,8 +6876,7 @@ A horrible thought struck Iffy.
 "Not any more," Aunt Naggie told her.
 "An' when he gets around t' callin' th' registry
 I think he'll find he has less claim on this old tub than he thought."
-She patted the side of the console fondly,
-then made her husband disappear with another tap of her finger.
+She patted the side of the console fondly.
 
 Iffy surprised herself by yawning.
 "I'm gonna…"
@@ -6886,7 +6885,7 @@ waved vaguely at her foster mother's, "Sleep well, love,"
 and headed for her storage locker.
 
 She detoured a few steps to study the antenna at the stern,
-which looked just as normal as it had that morning,
+which looked as innocuous as it had that morning,
 then shrugged,
 retraced her steps to her room,
 and closed the door behind her.
@@ -6924,7 +6923,7 @@ People were dead,
 it would take weeks to repair the damage,
 Rothera's harbor was closed until further notice—everything she didn't already know
 was immediately contradicted by something else.
-Had Australian troops occupied Paddington South?
+Had Australian troops already entered Paddington South?
 Were people fighting in the streets in Halley?
 Were machine-made zombies massing in the ruins of Bharati?
 Had Mount Erebus erupted again?
