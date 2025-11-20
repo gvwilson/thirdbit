@@ -3478,8 +3478,9 @@ but its author acknowledged that
 people would sometimes need to open locks whose keys had been lost,
 and that avid collectors might,
 upon occasion,
-find it morally justifiable to open and relocate a lock
-whose present owner simply didn't appreciate how unique it was.
+find it morally justifiable to open a lock
+and relocate whatever it was guarding
+if the present owner of that "whatever" didn't fully appreciate it.
 
 Finner had left Shady Ann's copy of *Yuen's* in the subway station.
 Its 844 pages was far too much for him to memorize,
@@ -4776,7 +4777,19 @@ but then he realized it was just a statue.
 He shivered inside his parka,
 more certain with every block that this *was* his fault.
 
-And then they turned a corner and he stopped short.
+At one point their path took them beneath a raised track.
+A shallow crater and the remains of a subway car,
+both lightly dusted with snow,
+were evidence of Finner and the Elfabot's previous encounter with Santazilla.
+He paused for a moment as if to catch his breath[^catch-breath]
+and looked back along the tracks.
+There:
+he was just able to make out a corkscrew-shaped section of track in the distance
+before one of the robots waved its ray gun to show that he should keep moving.
+
+[^catch-breath]: All right, to *actually* catch his breath.
+
+A few minutes later they turned a corner and he stopped short.
 One of the pirates said a bad word.
 Another shushed her.
 "Welcome to Flump Street," the Elfabot said brightly.
@@ -5007,5 +5020,11 @@ which is why I'm going to break us out of here."
 <section markdown="1">
 
 ## The Chance to Find Out
+
+Finner hadn't memorized *Yuen's Guide to Mechanical Locks (Abridged)*
+during his stay in the subway.
+He had read the first four chapters quite carefully,
+though,
+and a quick examination of the front door convinced him that would be enough.
 
 </section>

@@ -4834,11 +4834,12 @@ everyone found they had more pressing things to worry about.*
 
 <section markdown="1">
 
-## Chapter 6: Betrayal
+## Chapter 6
 
 Iffy woke the next morning
 to the sound of two squads of Marines in combat exoskeletons tramping up the pier.
-"That jammer yes'dy in the Dance Hall—the blues were after some Aussie off the *Taroona*,"
+"That jammer yes'dy in the Dance Hall—the blues were after some Aussie
+what survived off the *Taroona*,"
 the captain of a ship two piers over told Aunt Naggie.
 His avatar (a parrot with an eyepatch) nodded on the little screen that hung next to the stove,
 the bar beside it showing 97%.
@@ -4853,17 +4854,17 @@ and watched the Marines unpack and assemble their gear
 with the speed and skill of the inducted.
 She wondered how Honesty was doing—was de still derself,
 or was de struggling right at that very moment
-to make sense of the reflexes and attitudes of some long-dead soldier?
+to make sense of the reflexes and attitudes of some long-gone soldier?
 
 By the time Aunt Naggie joined her
 a portable railgun squatted beside a pair of steel-gray capacitors.
 Half a dozen rocket lances stood ready on slender posts
 like flamingoes from Iffy's nature book.
-Drones the size of seagulls patrolled overhead
-as the actual seagulls squawked in protest.
+Drones the size of seagulls patrolled overhead,
+making the actual seagulls squawk in protest.
 
 "Don't fret,"
-Aunt Naggie said gently as scraped the paint on the taffrail with her thumbnail.
+Aunt Naggie said gently as Iffy scraped the paint on the taffrail with her thumbnail.
 "Lotsa folk get through this.
 De'll be fine."
 
@@ -5154,10 +5155,10 @@ after he had been silent for a moment.
 Wales snorted.
 "Sorry.
 I get carried away sometimes.
-But I promise you.
 I promise you, Iffy,
+I promise,
 if the Niobium base hasn't been stripped or burned out,
-things will get better."
+I'll do what I can to make it better."
 
 Iffy tried her best to keep herself busy for the rest of the day.
 She was used to spending weeks at a time on board the *Guinevere*.
@@ -5196,7 +5197,8 @@ a lump in her throat.
 
 - `i'm sorry i wasn't around more after you got back`
 
-His reply came back so quickly that she wondered if he'd started typing before she'd sent her message.
+His reply came back so quickly that
+she wondered if he'd started typing before she'd sent her message.
 
 - `don't feel sorry for me`
 
@@ -5227,7 +5229,8 @@ but then her smile slipped a little.
 "I'm gonna ask him if I can take on with 'im,"
 Iffy said in a rush,
 not knowing how to ask any of the questions
-she had been bottling up since the encounter in the market.
+she had been bottling up since the encounter in the market
+but needing say *something*.
 "Like, be his 'prentice for real."
 
 "You should,"
@@ -5261,7 +5264,7 @@ Third sealed the last flap on the ecosuit.
 "I love you always an' forever."
 
 "I love you too," Iffy replied tearfully.
-Second bent over and kissed them both on the tops of their heads.
+Second bent over and kissed the top of her head.
 She smelled like engine oil and soap and curry powder
 and somehow Iffy knew what was coming
 and would have given anything to stop it.
@@ -5306,7 +5309,7 @@ Iffy would wonder how much computing power was brought to bear
 in the millisecond between her making her demand
 and it being answered.
 How many models of her were created?
-How many simulations were run, evaluated, tweaked, discarded, modified, and run again?
+How many simulations were run, evaluated, modified, and run again?
 But that came later.
 What happened next was her mind blew apart into little pieces
 
@@ -5314,7 +5317,7 @@ What happened next was her mind blew apart into little pieces
 
 / each beautiful on its own but more beautiful as part of a whole
 
-/ the whole was so much bigger than anything merely human could ever hope to encompass
+/ a whole that was so much bigger than anything merely human could ever hope to encompass
 
 / her fragments were just blades of grass scattered across a vast field among other blades
 
@@ -5338,7 +5341,7 @@ What happened next was her mind blew apart into little pieces
 
 / legs and wheels and wings and treads and sails
 
-/ cameras like grains of sand ten thousand kaleidoscope views of an injured seagull
+/ cameras like grains of sand giving a thousand kaleidoscope views of an injured seagull
 
 / too much she was dissolving she was forgetting herself
 
@@ -5481,8 +5484,9 @@ you just lemme know."
 She wiped her hands on her trousers
 and went back to her cabin.
 
-She fell onto her mattress and pulled her sleeping bag on top of her.
+She fell onto her mattress and checked her app.
 Four eighteen.
+She pulled her sleeping bag on top of her.
 Were things *ever* going to start making sense?
 A few moments later her breathing softened and slowed.
 
@@ -5491,7 +5495,7 @@ Her head ached
 and her mouth tasted like someone had stuffed it with old socks.
 Something tugged at the skin on her upper lip as she yawned.
 She rubbed it,
-then stared in weary disbelief at a crust of scab in her hand.
+then stared in weary resignation at a crust of scab in her hand.
 Her nose had been bleeding.
 There was some on her pillow, too.
 
@@ -5500,7 +5504,7 @@ Two Marines were still on the peir—she ducked her head
 so they wouldn't see the dried blood on her face—but
 thankfully no one was on deck.
 She splashed water from the sink on her face,
-then hung her clothes in the drying closet
+then pegged her clothes to the wall
 and pressed the button to fill the tiny bathroom with hot, prickly mist,
 wishing as always that the *Guinevere* had a real shower.
 
@@ -5626,7 +5630,7 @@ She pulled her arm away from Wales and—
 Angles and vectors and trajectories painted crisp colored lines
 across wireframe renderings of the ship and the pier.
 
-/ the drone ID RTHDR172 was banking to attack
+/ the drone RTHDR172 was banking to attack
 
 / the railgun RTHFG1343 was fully operational
 
@@ -5724,7 +5728,7 @@ Wales looped the end of the rope around his back and handed it to Iffy.
 "Take up the slack.
 And *one*, and *two*."
 With each grunt he hauled in a meter of bright yellow rope,
-lifting two hundred kilos of Marine and machinery
+lifting a hundred and fifty hundred kilos of Marine and machinery
 as easily as Iffy would have picked up a sack of laundry.
 
 The Marine thumped against the *Guinevere*'s hull.
@@ -5963,8 +5967,8 @@ paint, varnish, concrete, glue, dust,
 and several generations of people sweating and crying and farting.
 Soap and bleach mixed with the lingering traces of someone's perfume,
 the supposedly odorless oil applied to the joints of aging exoskeletons,
-and the curry that the roti shop around the corner used for forty years,
-forty years ago.
+and the curry that the roti shop around the corner had been using
+for the last forty years.
 
 The blast that had torn open the front wall of the Marines' headquarters
 had replaced all that with the acrid afterburn of explosives.
@@ -6038,7 +6042,7 @@ back straight and voice formal.
 "Under Section Twenty Four of the Permanent Emergency Act,
 and as authorized by the Governor of Rothera and validated by the city core,
 you are hereby ordered to report for induction
-into the armed forces of the Commonwealth of Greater Australia
+into the armed forces of the Antarctic Territories
 for an indefinite period of service."
 De cleared der throat and gestured toward the door behind der.
 "If you'll come this way?"
