@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Making Sense of Simulation</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Making Sense of Simulation</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/11/19/simulating-a-developer-pool/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-11-20" class="post-date">2025-11-20</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>I ended <a href="../../../../2025/11/19/simulating-a-developer-pool/">yesterday&rsquo;s post</a> by saying that
+we need to collect some data and do a bit of analysis.
+<a href="https://simpy.readthedocs.io/">SimPy</a> <a href="https://simpy.readthedocs.io/en/latest/topical_guides/monitoring.html">doesn&rsquo;t do monitoring</a> out of the box,
+so we have to roll our own.</p>
+<h2>Tracking Time in Tasks</h2>
+<p>The first step is to update the class that represents a task
+so that it can keep track of how much time it takes.
+To do this,
+we add two fields called <code>._current</code> (the most recent start-of-work time)
+and <code>._elapsed</code> (the total time so far).
+We then add three methods:
+<code>.start</code> to signal the start of work,
+<code>.end</code> to signal the end of work,
+and <code>.is_complete</code> so that we can ask if the task has been completed:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TaskRecorder</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Task with uniformly-distributed durations that records activity.&quot;&quot;&quot;</span>
+
+    <span class="n">_id</span> <span class="o">=</span> <span class="n">count</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">TaskRecorder</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_duration</span> <span class="o">=</span> <span class="n">TaskRecorder</span><span class="o">.</span><span class="n">duration</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_elapsed</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_elapsed</span> <span class="o">+=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_complete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_current</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_elapsed</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span>
+</code></pre></div>
+<p>The logic of <code>.is_complete</code> needs a bit of explanation.
+When the task is initially created,
+its current start time is <code>None</code>.
+When it is being executed,
+<code>._current</code> records the (simulated) time at which work started,
+and when it&rsquo;s done,
+we re-set <code>._current</code> to <code>None</code> and record the elapsed time in <code>._elapsed</code>.
+The task is therefore complete if <code>._current</code> is <code>None</code>
+<em>and</em> some elapsed time has been set.</p>
+<p>With this in place,
+we can modify the generator that simulates task execution
+to signal the start and stop of work:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task flowing through the system.&quot;&quot;&quot;</span>
+
+    <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">developers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">req</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
+        <span class="n">task</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+</code></pre></div>
+<p>(We pass the simulation environment <code>env</code> to <code>task.start</code> and <code>task.end</code>
+so that the task can check the current simulated time with <code>sim.now</code>.)</p>
+<h2>Gathering Statistics</h2>
+<p>Now that each task is recording its elapsed time,
+we need to gather statistics for all of them.
+Let&rsquo;s go back to the <code>TaskRecord</code> class
+and have each new task add itself to a list owned by the class:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TaskRecorder</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Task with uniformly-distributed durations that records activity.&quot;&quot;&quot;</span>
+
+    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
+    <span class="n">_all</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
+        <span class="n">TaskRecorder</span><span class="o">.</span><span class="n">_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div>
+<p>When the simulation is finished,
+we can walk through this list to find out
+how much time was spent on each task
+and whether that task was completed or not:</p>
+<div class="highlight"><pre><span></span><code><span class="n">PRECISION</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">write_log</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create and write entire log.&quot;&quot;&quot;</span>
+
+    <span class="n">log</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;kind&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;elapsed&quot;</span><span class="p">,</span> <span class="s2">&quot;completed&quot;</span><span class="p">)]</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+        <span class="p">(</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">_id</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">_elapsed</span><span class="p">,</span> <span class="n">PRECISION</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">is_complete</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">TaskRecorder</span><span class="o">.</span><span class="n">_all</span>
+    <span class="p">])</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">_elapsed</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">TaskRecorder</span><span class="o">.</span><span class="n">_all</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;total&quot;</span><span class="p">,</span> <span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">PRECISION</span><span class="p">),</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">lineterminator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
+    <span class="n">write_log</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</code></pre></div>
+<p>Let&rsquo;s run it for 100 simulated timesteps
+with two developers:</p>
+<div class="highlight"><pre><span></span><code>kind,id,elapsed,completed
+task,0,1.09,True
+task,1,3.69,True
+task,2,2.74,True
+…,…,…,…
+task,39,0.0,False
+task,40,0.0,False
+task,41,0.0,False
+total,task,378.68,
+</code></pre></div>
+<p>Cool!
+Our simulation is working—except it isn&rsquo;t.</p>
+<h2>Don&rsquo;t Trust, Just Verify</h2>
+<p>Take a look at the last line of the output shown above.
+It&rsquo;s telling us that our workers did a total of 378.68 timesteps of work during this simulation,
+but that&rsquo;s impossible:
+we have two developers and the simulation ran for 100 timesteps,
+so even if both developers were busy 100% of the time,
+they couldn&rsquo;t have done more than 200 timesteps of work.
+What&rsquo;s gone wrong?</p>
+<p>The answer lies in <code>simulate_task</code>,
+which we reproduce here from above:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+    <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">developers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">req</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
+        <span class="n">task</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+</code></pre></div>
+<p>The problem is that we&rsquo;re including the time the task spends waiting for a developer
+in our measure of how long the task was worked on.
+The fix is to move <code>task.start</code> <em>after</em> <code>yield req</code>,
+so that we start the task&rsquo;s clock when we start work on it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">developers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">req</span>
+        <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
+        <span class="n">task</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+</code></pre></div>
+<p>When we re-run the simulation with the same parameters,
+we get:</p>
+<div class="highlight"><pre><span></span><code>kind,id,elapsed,completed
+task,0,1.09,True
+task,1,3.69,True
+task,2,2.74,True
+…,…,…,…
+task,39,0.0,False
+task,40,0.0,False
+task,41,0.0,False
+total,task,149.41,
+</code></pre></div>
+<p>This result is physically plausible but still puzzling:
+why are the developers only busy 75% of the time?
+Let&rsquo;s try running the simulation for 100,000 timesteps instead:</p>
+<div class="highlight"><pre><span></span><code>…,…,…,…
+total,task,199961.93,
+</code></pre></div>
+<p>That works out to 99.98% utilization,
+so the earlier figure of 75% seems to be due to warmup effects.</p>
+<h2>What We&rsquo;ve Learned</h2>
+<p>What I learned from this bug is that
+badly-designed measurements can produce numbers that are wrong
+without being obviously wrong.
+I didn&rsquo;t immediately notice that worker utilization in the buggy simulation was impossible;
+I don&rsquo;t believe I would have noticed at all if the measure or the simulation
+were more complicated.
+As I build more realistic simulations,
+I&rsquo;m going to add checks on the results
+based on the properties of the model
+(e.g., &ldquo;we can&rsquo;t have done more work than is physically possible&rdquo;).
+Similarly,
+when we start to monitor real developers,
+I&rsquo;m going to think very carefully about whether
+what I&rsquo;m measuring is measuring what I want to.</p>
+<blockquote>
+<p>I also have to go back and figure out exactly what &ldquo;warmup effects&rdquo; means:
+right now,
+I&rsquo;m just waving my hands and hoping you won&rsquo;t notice that I glossed over that.</p>
+</blockquote><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  None of the material on this site may be used to train AI models without the express prior permission of the author.
+</footer>
+  </body>
+</html>

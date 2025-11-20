@@ -217,6 +217,10 @@ when we start to monitor real developers,
 I'm going to think very carefully about whether
 what I'm measuring is measuring what I want to.
 
+> I also have to go back and figure out exactly what "warmup effects" means:
+> right now,
+> I'm just waving my hands and hoping you won't notice that I glossed over that.
+
 [developer-pool]: @root/2025/11/19/simulating-a-developer-pool/
 [simpy]: https://simpy.readthedocs.io/
 [simpy-monitoring]: https://simpy.readthedocs.io/en/latest/topical_guides/monitoring.html
