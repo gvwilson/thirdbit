@@ -66,7 +66,7 @@ who I'm proud to say [fired me in 2018][datacamp].
 
 More recently I developed an [instructor training and certification program][rstudio-trainers] for RStudio (now Posit)
 and was briefly Head of Education for [Metabase][metabase]
-before working as a software engineering manager at [Deep Genomics][dg] and now [Plotly][plotly].
+before working as a software engineering manager at [Deep Genomics][dg] and then [Plotly][plotly].
 In my free time I helped build TidyBlocks and [Glosario][glosario]
 and wrote or co-wrote [*Teaching Tech Together*][t3],
 [*JavaScript for Data Science*][js4ds],
