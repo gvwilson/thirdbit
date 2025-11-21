@@ -11,7 +11,7 @@ template: page
   </div>
   <div class="col-9" markdown="1">
 Dr. Greg Wilson is a programmer, author, and educator based in Toronto.
-He co-founded and and was the first Executive Director of [Software Carpentry][carpentries],
+He co-founded and was the first Executive Director of [Software Carpentry][carpentries],
 which has taught basic software skills to tens of thousands of researchers worldwide,
 and has authored or edited over a dozen books,
 including [*Beautiful Code*][bc],
