@@ -10311,7 +10311,7 @@ you can do it yourself!"
 
 <section markdown="1">
 
-## Chapter 13: Flight
+## Chapter 13
 
 There were Marines on board the hovercraft,
 all apparently imprinted with the same taciturn personality.
@@ -10361,7 +10361,7 @@ like courtiers waiting on a king.
 She had tried loosening the straps of her harness so that she could wriggle out if she needed to,
 but they had re-tightened themselves as soon as the engine came to life.
 
-"Home, sort of,"
+"Home, in a way,"
 Doctor Johel replied absently
 as she rearranged the display with a few flicks of her fingers.
 "Don't mind the noise.
@@ -10379,7 +10379,7 @@ Doctor Johel flicked her fingers again.
 The hovercraft picked up speed like an overweight seagull trying to take off.
 Acceleration pushed Iffy back in her seat.
 Twenty klicks an hour, fifty…
-At eight the numbers on the display stopped climbing
+At eighty the numbers on the display stopped climbing
 and the pressure lifted from her chest.
 She took a deep breath and watched the world race by
 as the hovercraft bumped and shook toward the horizon.
@@ -10428,7 +10428,7 @@ What mattered was that diving into that other world of information
 felt more like opening her eyes each time she did it.
 Finding what she wanted was still difficult,
 but what had once seemed as chaotic as the Dance Hall market in Rothera
-now had… structure.
+now had the beginnings of structure.
 She didn't understand it yet,
 but for the first time she felt that she might.*
 
@@ -10436,8 +10436,8 @@ but for the first time she felt that she might.*
 The hovercraft had been built as a blockade runner in Tashkent
 before the start of the machine wars.
 Its reactor had originally been designed for use in a submarine—she
-took a moment to admire the sleek, single-minded recklessness of its design—and
-the motors that created its cushion of air
+took a moment to admire the sleek, single-minded recklessness of its design.
+The motors that created its cushion of air
 would have pumped fuel at hypersonic speeds
 in orbital booster rockets
 if history had unfolded just a little bit differently.
@@ -10451,10 +10451,10 @@ slithered between bulkheads.*
 
 *She flipped the wireframe upside down and rightside up,
 flew through it,
-spun it around.
+and spun it around.
 Any of a dozen rooms or holds could have been repurposed as a cell.
 For one moment she thought about reaching out to the hovercraft's core,
-but it would be better protected than the railgun back on the pier.*
+but it would be better protected than the railgun on the pier in Rothera had been.*
 
 She yawned widely.
 The images slipped away as her concentration finally conceded
@@ -10474,7 +10474,7 @@ but the gently undulating tundra on the screens around her looked the same as it
 Their speed hadn't changed either,
 she noticed,
 or their heading.
-They were headed for Mount Tyree or somewhere nearby.
+They were headed straight for Mount Tyree.
 
 She looked up at the Marine.
 "Can I please have some more onions on it?
@@ -10505,8 +10505,8 @@ Private Norbu will take you down to the galley
 and then show you to your cabin.
 Promise you won't do anything foolish?"
 
-"Sure.
-An' I promise I'll keep it as well as you've kept yours."
+"Sure."
+*An' I'll keep my promise as well as you've kept yours.*
 She wriggled out of the straps without spilling any of her noodles,
 then stood up and tested her knee.
 Whatever had been in the patch seemed to have set it right.
@@ -10537,13 +10537,9 @@ Private Norbu stood near the galley door and watched her eat.
 She ignored him the same way she had learned to ignore shopkeepers
 who didn't think an orphan jelly dredger had any place in their store.
 She thought briefly about trying to steal her chopsticks,
-but by the time she finished her tea she had decided it was too risky.
-They felt like aluminum,
-and she could do a lot with a couple of metal rods,
-but Private Norbu was right there
+but by the time she finished her tea she had decided it was too risky:
+Private Norbu was right there
 and there were probably cameras she couldn't see as well.
-No,
-the chopsticks were almost certainly a dead end.
 The loose screw on the underside of the table,
 on the other hand…
 
@@ -10570,7 +10566,7 @@ designed to hide in the herd,
 and marvelled for a moment at
 the ingenious way it emulated its organic namesake's digestive processes.
 This was the *Guinevere* as she had been the day she first sailed.
-And that—right there—was her.
+And ah—thatwas her.
 
 She forgot to breathe for a moment as the image rotated slowly,
 panning and zooming as her attention shifted.
@@ -10580,12 +10576,11 @@ laced through her brain:
 they weren't wires—those would be too easy for a scanner to spot—but rather
 tiny fractalized patches of cells arranged in precisely the right way
 to make her a living antenna.
-
 And any antenna that could receive a signal could send one.
 
-It only took her a minute to find an opening in the hovercraft's systems.
+It only took a minute to find an opening in the hovercraft's systems.
 It took another five to find one that wasn't a trap,
-and another hour to convince herself that she was right.
+and another hour to convince herself of that.
 Fifteen years ago,
 just a few days after she had been born,
 a tech in Paddington South had replaced a reactor coolant pump
@@ -10595,7 +10590,7 @@ that had suffered a catastrophic loss of containment.
 to toss aside the insurance reports and obituaries
 that thought called up.)
 The tech had cut corners to meet a deadline
-(another twitch dispelled performance reviews and der eventual punitive imprinting).
+(another twitch dispelled performance reviews and der eventual punitive reconditioning).
 One of those corners had been a software shim
 to connect the monitor's century-old software
 to the hovercraft's merely elderly systems.
@@ -10667,7 +10662,7 @@ but the room was longer an endlessly-receding tunnel from a horror sim.
 She focused on the app lying on the bunk and pushed with her mind once again.
 Something inside the door clicked and it slid aside.
 
-Two minutes later she stood in front of another cabin door
+A few seconds later she stood in front of another cabin door
 and pressed her sticky hand against the contact place beside it.
 
 "What happened to you?"
@@ -10684,7 +10679,7 @@ So what now?"
 She jerked her chin toward the stern.
 "Back an' out 's as far as I got."
 
-Someone was banging against one of the doors they passed.
+Someone banged against a locked door as they passed.
 They were shouting, too.
 Iffy thought it was funny but didn't have enough energy to laugh.
 At some point Edson had put his arm around her to help her stay upright.
@@ -10716,16 +10711,15 @@ I'll be right behind you."
 He took her wrists and placed her hands on the grips built into the seat.
 "One… two… *three*."
 
-She yelped into the mouthpiece as hovercraft fired the ejection seat into the air
-like an old-fashioned artillery shell.
+She yelped into the mouthpiece as hovercraft fired the ejection seat into the air.
 Daylight blinded her and ice-cold wind instantly numbed her cheeks.
 Tiny gyros whined to stabilize the chair
 long enough for the explosive bolts in its back to fire.
 A translucent parawing snapped open.
 The surge of deceleration threw her against her harness
 and then she was swinging like a pendulum
-as the parawing's tiny core picked a safe landing spot
-and turned toward it.
+as the parawing's tiny core picked a safe landing spot and turned toward it,
+racing against the risk of orbital incineration.
 
 The ground below her was covered with snow.
 The harsh white reached from horizon to horizon,
@@ -10738,13 +10732,12 @@ had just fired into the air.
 She was flying,
 really actually flying,
 except it had to be over in a few seconds
-before a satellite decided they had broken the machines' "no flying" rule,
-and even if that didn't happen
-the chair hit the ground the wrong way and snap her neck.
+before a satellite spotted them.
+Even if that didn't happen,
+the chair could hit the ground the wrong way and snap her neck.
 The gyros were supposed to prevent that,
 but she had seen their specs when she was planning her escape,
-and they had last been serviced by the same tech
-who had screwed up the coolant pump.
+and they had last been serviced by the same tech as the coolant pump.
 
 Snow raced away beneath her far too fast for safety.
 She was headed straight for a boulder.
@@ -10758,15 +10751,15 @@ Iffy spat out the mouthpiece,
 pulled off her goggles,
 wriggled out of the straps,
 tripped,
-and fell face-first into the little snowbank thrown up by the chair's impact.
+and fell face-first into the little snowbank thrown up by the impact.
 Ice crystals stung her face and hands.
 
 The chair bleeped.
 Panels popped off its bulky arms
-to reveal a featherweight windproof parka on one side,
-rolled up to be not much larger than a roti,
+to reveal a featherweight windproof parka on one side
+rolled up to the size of a roti
 and a waistpack on the other.
-She unrolled the parka and put it on,
+She fumbled with the parka and put it on,
 then unzipped the pack.
 A tiny first aid kid,
 a ruggedized app,
@@ -10779,7 +10772,7 @@ Her nosebleed had stopped,
 but she was still lightheaded.
 She clambered awkwardly up the boulder
 and shielded her eyes with her hand.
-Edson's chair had just landed a few hundred meters away.
+Edson's chair had just landed a hundred meters away.
 Doctor Johel had undoubtedly retaken control of the hovercraft,
 only to discover that all three coolant pumps had burned out
 and would need to be replaced
@@ -10802,7 +10795,7 @@ It was one of Mister Mishra's favorite sayings,
 but there wasn't time to think about him or Jeep
 because she had to tighten the spigot valve on the seat's tiny fuel line all the way
 before prying out the fist-sized tank of peroxide
-or she and her escape were going to be very short-lived.
+or their escape were going to be very short-lived.
 
 Edson's boots crunched on the snow.
 "What're you—oh no.
@@ -10859,7 +10852,7 @@ and the next he was coming straight at her,
 wide-eyed and shouting something she couldn't hear.
 She took a deep breath and spread her arms wide.
 
-Edson hit her with a thump that cracked her spine.
+Edson hit her with a thump that she felt in her jaw.
 His hands scrabbled for purchase on her parka,
 but the fabric was too slippery,
 it was designed to shed water and he couldn't get a grip
@@ -10880,27 +10873,21 @@ Edson had to shout to be heard over the wind in their ears.
 Iffy shouted back.
 "We'll have to walk after that."
 
-The snow field below her looked exactly like a sim but was completely different.
-She finally understood why people wrote poetry about flying,
-and why they said that of all the machines had taken away from humanity,
-this was the loss that hurt the most.
-
 The makeshift motor burned out the next time they tried to use it,
 but lasted long enough for them to catch the wind.
 Antarctica rolled away behind them.
 Iffy's shoulders began to ache,
 then to burn.
-The straps they were tangled in dug in to her triceps.
-She'd have bruises,
+She'd have bruises where the straps dug in to her triceps,
 but whatever else happened,
 she swore she would find a way to fly again.
 
 After one last lift from a thermal rising off a stretch of exposed rock
-they began a long, slow descent.
+they began a long, slow descentc
 "Get ready!" Edson shouted.
 Iffy grabbed the strap with one numb hand and let go with the other
 so that she was half beside and half behind him.
-The parawing's little motors whined in protest as they reshaped it
+The parawing's little motors whined in protest it reshaped itself
 to adjust for the shift in weight.
 Ten seconds…
 Five…
@@ -10918,9 +10905,6 @@ C'mon,
 we gotta keep movin'."
 
 Two snack bars and several mouthfuls of lukewarm water later,
-they reached the nearest of the enormous machines.
-Edson put a reverent hand on its tread.
-
 they reached an outcropping of rock too regular to be natural.
 Edson ran his hands over the pipe shafts drilled into its laser-cut top.
 "Looks like it was salvaged a long time gone."
@@ -10943,14 +10927,14 @@ She pulled off her glove,
 scraped some dried blood out of her nostril,
 and stuck her finger in one of the drill holes.
 The rock thought for a second and then opened with a faint click
-to reveal a space the size of the toilet stall on the *Guinevere*.
+to reveal a space the size of the *Guinevere*'s pilot house.
 A wraparound shelf held tools,
 a rifle connected to a flimsy jumpsuit,
 and a medical kit.
 The center of the floor was taken up by a circular hatch.
 
 She grinned at Edson.
-"Welcome to my secret lair."
+"Welcome to *my* secret lair."
 
 Whatever he might have said in reply was cut off by a low rumble.
 She whirled around and froze as a white-furred head lifted off the snow three strides away.
