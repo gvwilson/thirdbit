@@ -81,6 +81,134 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/11/21/simulating-rework/">
+      Simulating Rework
+    </a>
+  </h2>
+  <p><time datetime="2025-11-21" class="post-date">2025-11-21</time></p>
+  <p>In <a href="../2025/11/20/making-sense-of-simulation/">yesterday&rsquo;s post</a> we started collecting data from our simulation,
+and discovered that our metrics will always give us numbers,
+but those numbers might be garbage if we&rsquo;re measuring the wrong things or the wrong way.
+In this post we&rsquo;ll make the simulation more realistic
+by taking into account the fact that most first attempts to fix a bug
+either don&rsquo;t fix it or introduce new bugs.</p>
+<h2>Rework</h2>
+<p>Let&rsquo;s introduce a new parameter to specify
+the probability that a task needs to be re-done.
+For the moment,
+we&rsquo;ll assume this probability doesn&rsquo;t depend on
+how many attempts have been made to finish the task so far.
+While we&rsquo;re at it,
+we&rsquo;ll introduce another parameter to specify
+how many times we want to run the simulation:</p>
+<div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="err">…</span><span class="n">previous</span> <span class="n">parameters</span><span class="err">…</span>
+    <span class="s2">&quot;rework_probability&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+    <span class="s2">&quot;num_simulations&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Next, we introduce a loop in <code>simulate_task</code>.
+Each time around the loop,
+we get a developer,
+spend some time on the task,
+and then check if we&rsquo;re done.
+If we are,
+we mark the task as completed and break out of the loop;
+if not,
+we go around the loop again.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task flowing through the system.&quot;&quot;&quot;</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">developers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">req</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;rework_probability&quot;</span><span class="p">]:</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">completed</span><span class="p">()</span>
+                <span class="k">break</span>
+</code></pre></div>
+<p>If we run our simulation a few times for 100,000 timesteps with two developers,
+we complete an average of 14,550 tasks,
+which works out to about 13.7 timesteps per task.
+That&rsquo;s about 40% of the 36,000 tasks we complete in the same time without rework,
+and gives us a baseline against which to compare
+a more interesting variation on this model.</p>
+<h2>Keeping the Same Developer</h2>
+<p>When a task needs to be redone,
+the code shown above always grabs the next available developer.
+In most development teams,
+though,
+the same developer would keep working on the task.</p>
+<p>We need to make two changes to the simulation to capture this.
+First,
+we create a <code>FilterStore</code> instead of a <code>Resource</code> to represent
+our pool of developers:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">developers</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">FilterStore</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_developers&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>The difference between the two is that <code>FilterStore</code> allows us to specify
+a test or check that a resource has to satisfy when we claim it.
+Here&rsquo;s the modified <code>simulate_task</code> that makes use of that:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task being re-worked by the same developer.&quot;&quot;&quot;</span>
+
+    <span class="n">dev</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dev</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dev</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">developers</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dev</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">developers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">_id</span> <span class="o">==</span> <span class="n">dev</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span>
+        <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
+        <span class="n">developers</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+        <span class="n">task</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;rework_probability&quot;</span><span class="p">]:</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">completed</span><span class="p">()</span>
+            <span class="k">break</span>
+</code></pre></div>
+<p>Initially,
+the task isn&rsquo;t associated with a developer
+so <code>dev</code> is set to <code>None</code>.
+The first time around the loop,
+we use <code>developers.get()</code> without a test to claim a developer.
+After that,
+we always re-claim the same developer
+by passing a function to <code>developers.get()</code> that says,
+&ldquo;The only developer we want is the one with the same ID.&rdquo;
+We then do some work,
+put the developer back in the pool,
+and check to see if we&rsquo;re done with this task or not.</p>
+<h2>Does It Make a Difference?</h2>
+<p>So here&rsquo;s our question:
+does this policy change the total number of tasks completed or not?
+On the one hand we could argue that it would
+because we wouldn&rsquo;t be taking full advantage of idle developers.
+On the other hand,
+our developers are currently working almost 100% of the time,
+so there aren&rsquo;t actually idle cycles going to waste.</p>
+<p>The answer is that <em>under the assumptions baked into our simulation</em>
+this change in policy doesn&rsquo;t have an impact on the total number of tasks that are completed.
+If we increase the number of developers
+and lower the rate at which new tasks arrive,
+though,
+that answer changes:
+if developers <em>do</em> have idle cycles,
+having developers &ldquo;own&rdquo; tasks is less efficient
+than allowing whoever&rsquo;s free to work on whatever needs done.</p>
+<p>Of course,
+that model doesn&rsquo;t take into account the ramp-up time
+that real developers need to familiarize themselves with new problems.
+(Putting it another way,
+it doesn&rsquo;t account for the time saved by having someone who understands the problem
+go back to it.)
+We could add another parameter to our model and another few lines of code to capture this,
+but before we do that,
+we need to put some better analysis machinery in place.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/11/20/making-sense-of-simulation/">
       Making Sense of Simulation
     </a>
@@ -815,23 +943,6 @@ and I hope someone creates that.</p>
 <div class="center">
   <img src="../files/books/heemstra-leadership.jpg" alt="cover of Heemstra's 'Labwork to Leadership'">
 </div>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/10/07/story-dice/">
-      Story Dice
-    </a>
-  </h2>
-  <p><time datetime="2025-10-07" class="post-date">2025-10-07</time></p>
-  <p>My daughter gave me a set of story dice for Christmas a couple of years ago.
-One of them has gone missing,
-which makes me wonder if there are now stories I&rsquo;m no longer able to tell.</p>
-<div class="center">
-  <img src="../files/2025/story-dice.jpg" alt="three red and two green story dice" width="50%">
-</div>
-
-<p>Time to make another cup of tea. If you came in peace, be welcome.</p>
 </article>
 
 

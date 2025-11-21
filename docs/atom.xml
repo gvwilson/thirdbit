@@ -3,12 +3,138 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-11-20T00:00:00Z</updated>
+ <updated>2025-11-21T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Simulating Rework</title>
+   <link href="https://third-bit.com/2025/11/21/simulating-rework/"/>
+   <updated>2025-11-21T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/11/21/simulating-rework/</id>
+   <content type="html">&lt;p&gt;In &lt;a href=&#34;https://third-bit.com/2025/11/20/making-sense-of-simulation/&#34;&gt;yesterday&amp;rsquo;s post&lt;/a&gt; we started collecting data from our simulation,
+and discovered that our metrics will always give us numbers,
+but those numbers might be garbage if we&amp;rsquo;re measuring the wrong things or the wrong way.
+In this post we&amp;rsquo;ll make the simulation more realistic
+by taking into account the fact that most first attempts to fix a bug
+either don&amp;rsquo;t fix it or introduce new bugs.&lt;/p&gt;
+&lt;h2&gt;Rework&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s introduce a new parameter to specify
+the probability that a task needs to be re-done.
+For the moment,
+we&amp;rsquo;ll assume this probability doesn&amp;rsquo;t depend on
+how many attempts have been made to finish the task so far.
+While we&amp;rsquo;re at it,
+we&amp;rsquo;ll introduce another parameter to specify
+how many times we want to run the simulation:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;PARAMS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;previous&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameters&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;
+    &lt;span class=&#34;s2&#34;&gt;&amp;quot;rework_probability&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;s2&#34;&gt;&amp;quot;num_simulations&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Next, we introduce a loop in &lt;code&gt;simulate_task&lt;/code&gt;.
+Each time around the loop,
+we get a developer,
+spend some time on the task,
+and then check if we&amp;rsquo;re done.
+If we are,
+we mark the task as completed and break out of the loop;
+if not,
+we go around the loop again.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;simulate_task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Simulate a task flowing through the system.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_duration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;uniform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;rework_probability&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;completed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If we run our simulation a few times for 100,000 timesteps with two developers,
+we complete an average of 14,550 tasks,
+which works out to about 13.7 timesteps per task.
+That&amp;rsquo;s about 40% of the 36,000 tasks we complete in the same time without rework,
+and gives us a baseline against which to compare
+a more interesting variation on this model.&lt;/p&gt;
+&lt;h2&gt;Keeping the Same Developer&lt;/h2&gt;
+&lt;p&gt;When a task needs to be redone,
+the code shown above always grabs the next available developer.
+In most development teams,
+though,
+the same developer would keep working on the task.&lt;/p&gt;
+&lt;p&gt;We need to make two changes to the simulation to capture this.
+First,
+we create a &lt;code&gt;FilterStore&lt;/code&gt; instead of a &lt;code&gt;Resource&lt;/code&gt; to represent
+our pool of developers:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FilterStore&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;capacity&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;num_developers&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The difference between the two is that &lt;code&gt;FilterStore&lt;/code&gt; allows us to specify
+a test or check that a resource has to satisfy when we claim it.
+Here&amp;rsquo;s the modified &lt;code&gt;simulate_task&lt;/code&gt; that makes use of that:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;simulate_task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Simulate a task being re-worked by the same developer.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;lambda&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_duration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;uniform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;rework_probability&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;completed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Initially,
+the task isn&amp;rsquo;t associated with a developer
+so &lt;code&gt;dev&lt;/code&gt; is set to &lt;code&gt;None&lt;/code&gt;.
+The first time around the loop,
+we use &lt;code&gt;developers.get()&lt;/code&gt; without a test to claim a developer.
+After that,
+we always re-claim the same developer
+by passing a function to &lt;code&gt;developers.get()&lt;/code&gt; that says,
+&amp;ldquo;The only developer we want is the one with the same ID.&amp;rdquo;
+We then do some work,
+put the developer back in the pool,
+and check to see if we&amp;rsquo;re done with this task or not.&lt;/p&gt;
+&lt;h2&gt;Does It Make a Difference?&lt;/h2&gt;
+&lt;p&gt;So here&amp;rsquo;s our question:
+does this policy change the total number of tasks completed or not?
+On the one hand we could argue that it would
+because we wouldn&amp;rsquo;t be taking full advantage of idle developers.
+On the other hand,
+our developers are currently working almost 100% of the time,
+so there aren&amp;rsquo;t actually idle cycles going to waste.&lt;/p&gt;
+&lt;p&gt;The answer is that &lt;em&gt;under the assumptions baked into our simulation&lt;/em&gt;
+this change in policy doesn&amp;rsquo;t have an impact on the total number of tasks that are completed.
+If we increase the number of developers
+and lower the rate at which new tasks arrive,
+though,
+that answer changes:
+if developers &lt;em&gt;do&lt;/em&gt; have idle cycles,
+having developers &amp;ldquo;own&amp;rdquo; tasks is less efficient
+than allowing whoever&amp;rsquo;s free to work on whatever needs done.&lt;/p&gt;
+&lt;p&gt;Of course,
+that model doesn&amp;rsquo;t take into account the ramp-up time
+that real developers need to familiarize themselves with new problems.
+(Putting it another way,
+it doesn&amp;rsquo;t account for the time saved by having someone who understands the problem
+go back to it.)
+We could add another parameter to our model and another few lines of code to capture this,
+but before we do that,
+we need to put some better analysis machinery in place.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Making Sense of Simulation</title>
@@ -1475,41 +1601,6 @@ how regulatory capture works,
 why Americans keep shooting one another,
 and what can we learn about big tech by studying drug cartels.&lt;/p&gt;
 &lt;/blockquote&gt;</content>
- </entry>
- 
- <entry>
-   <title>Some Testing Answers</title>
-   <link href="https://third-bit.com/2025/05/19/some-testing-answers/"/>
-   <updated>2025-05-19T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/05/19/some-testing-answers/</id>
-   <content type="html">&lt;p&gt;A month ago I &lt;a href=&#34;https://third-bit.com/2025/04/20/a-testing-question/&#34;&gt;asked for advice&lt;/a&gt; on testing a little piece of Python
-that fills a grid using a random walk.
-&lt;a href=&#34;https://stochasticsolutions.com/&#34;&gt;Nick Radcliffe&lt;/a&gt;,
-a former colleague who is writing a book on test-driven data analysis,
-suggested that one way to test the code is to put move generation in a function of its own,
-call that function a few hundred times,
-and check that the results are evenly distributed
-(e.g., each of the four moves appears 20-30% of the time).
-If not,
-double the number of moves generated,
-check again,
-and repeat until either the distribution converges
-or you decide that it&amp;rsquo;s not going to.
-This approach ensures that tests run quickly most of the time,
-and it did indeed catch a bug when I moved from 4-way steps to 8-way (i.e., allowed diagonal moves).&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://nathanfurnal.xyz/&#34;&gt;Nathan Furnal&lt;/a&gt; suggested a similar approach.
-If we generate 30 moves,
-the probability of never seeing one of the four possible moves is less than 0.02%.
-If we increase the number of moves to 100 (which only takes 61 microseconds on my five-year-old laptop)
-the odds of not seeing one of the moves drop to one in 10&lt;sup&gt;13&lt;/sup&gt;.
-If we&amp;rsquo;re running the tests 1000 times a day,
-we can expect one false positive every ten million years or so.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ve added both tests to my test suite,
-but would appreciate suggestions for others.
-Testing in the face of randomness is more common and more important in (data) science
-than in commercial software development;
-as more and more applications incorporate small household spirits (i.e., genAI),
-we&amp;rsquo;re going to have to figure out how to do this well.&lt;/p&gt;</content>
  </entry>
  
 </feed>

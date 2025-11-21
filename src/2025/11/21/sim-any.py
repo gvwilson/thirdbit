@@ -7,6 +7,7 @@ import sys
 import simpy
 
 PARAMS = {
+    "num_simulations": 1,
     "max_task_duration": 10.0,
     "rework_probability": 0.6,
     "task_arrival_rate": 2.0,
@@ -30,6 +31,10 @@ class Task:
     @staticmethod
     def duration(params):
         return random.uniform(1, params["max_task_duration"])
+
+    @staticmethod
+    def reset():
+        Task._all = []
 
     def __init__(self, params):
         self._id = next(Task._id)
@@ -118,9 +123,12 @@ def update_params(params, args):
     for arg in args:
         fields = arg.split("=")
         assert len(fields) == 2 and all(len(f) > 0 for f in fields)
-        key, value = fields[0], float(fields[1])
+        key, value = fields[0], fields[1]
         assert key in params
-        params[key] = value
+        if isinstance(params[key], int):
+            params[key] = int(value)
+        else:
+            params[key] = float(value)
 
 
 def main(params):
@@ -128,11 +136,13 @@ def main(params):
 
     update_params(params, sys.argv[1:])
     random.seed(params["random_seed"])
-    env = simpy.Environment()
-    developers = simpy.Resource(env, capacity=params["num_developers"])
-    env.process(generate_tasks(params, env, developers))
-    env.run(until=params["simulation_duration"])
-    write_log(params, sys.stdout, ("task", Task))
+    for _ in range(params["num_simulations"]):
+        Task.reset()
+        env = simpy.Environment()
+        developers = simpy.Resource(env, capacity=params["num_developers"])
+        env.process(generate_tasks(params, env, developers))
+        env.run(until=params["simulation_duration"])
+        write_log(params, sys.stdout, ("task", Task))
 
 
 if __name__ == "__main__":
