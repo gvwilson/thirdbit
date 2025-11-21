@@ -9576,7 +9576,7 @@ nurtures it at home instead.*
 
 <section markdown="1">
 
-## Chapter 12: The New World
+## Chapter 12
 
 They slept in their sleeve tents in the lee of the boulders.
 The herd was waiting for them when they woke.
@@ -9588,7 +9588,7 @@ we're just two more musk ox goin' about their business."
 
 They followed the herd toward the foothills of the massif.
 The animals snorted and farted and grumbled around them,
-strong white teeth nipping the summer growth.
+strong white teeth nipping the last of the summer growth.
 Iffy didn't see any bots on their backs.
 In return,
 the musk ox barely seemed to notice them,
@@ -9598,10 +9598,11 @@ as a cow would be to a half-grown calf.
 Two hours of walking,
 fifteen minutes of rest.
 Two hours,
-fifteen minutes to eat and give each other a minute or two of privacy.
+fifteen minutes to eat and give each other a minute or two
+of chilly but necessary privacy.
 Two more hours of walking,
-a long fifteen minutes to catch their breath,
-and one final, shorter hike before Edson called a halt.
+another break,
+and one final hike before Edson called a halt.
 
 They didn't set up their tents this time.
 Instead,
@@ -9610,10 +9611,10 @@ and lay down head-to-toe
 on the flattest patch of ground they could find.
 The musk ox settled down beside them in clumps,
 shoulder-to-shoulder for warmth.
-Iffy fell asleep with their thick, wet smell in her nostrils.
+Iffy fell asleep with their thick, wet mug in her nostrils.
 
 The next day began the same way,
-but soon the ground began to rise and rise again.
+but soon the ground began to rise more steeply.
 Their boots crunched on gravel
 as the tundra gave way to bare rock exposed by retreating ice a century ago
 but not yet colonized by anything bigger than lichen
@@ -9623,7 +9624,7 @@ They finally reached a slope so steep that the musk ox paused,
 grumbled to each other,
 and began to amble away.
 Iffy felt exposed,
-as if a passing ship had caught her sunning herself in a t-shirt on the deck of the *Guinevere*.
+as if a passing ship had caught her sunning herself on the deck of the *Guinevere*.
 Edson just shrugged when she asked about drones.
 "I think they're all busy watchin' each other right now.
 An' anyway,
@@ -9641,7 +9642,7 @@ not in person,
 but—why?"
 
 Edson grinned.
-"I got somethin' t' show you."
+"You're gonna love this."
 
 There was a trail on the other side of the ridge,
 an actual trail with cutbacks and slab steps in its steepest parts.
@@ -9768,7 +9769,7 @@ he said quietly as they made their way to the nearest greenhouse.
 she asked after a few steps.
 
 He shook his head.
-"Not here,
+"No,
 but if you want to plant some,
 we'd be proud to have 'em."
 He squeezed her hand before letting it go.
@@ -9799,7 +9800,7 @@ but didn't take off her coat or boots.
 "What kind o' work?"
 
 "Saints' work," Edson said.
-"Been a month since anyone was here, maybe more.
+"Been a couple o' months since anyone was here, maybe more.
 There's trees 'n' all to re-pot,
 a couple o' composters to turn over,
 pipes to check—th' bots could do it all,
@@ -9856,9 +9857,10 @@ met the cold of the outside world.
 It took her a moment to realize that the ticklish feeling on her temples was tears.
 She was in a forest—an actual *forest*—but she missed the sea.
 The hell with what the machines wanted
-or the governors and their politics.
+or Doctor Johel and Johnson Wales and the governors.
 She just wanted to see Aunt Naggie and Honesty again,
-and Jeep and everyone else in Halley,
+and Jeep,
+and the *Guinevere*,
 and flip through her picture book and go to sleep on her own mattress.
 
 Her eyelids were just starting to lose their battle with gravity
@@ -9902,7 +9904,7 @@ Iffy held his gaze.
 "You do what you gotta do,"
 she said,
 hoping she sounded braver than she felt.
-"We can sort out th' compost 'n' all that some other time."
+"We can sort out th' compost when it's over."
 
 Two minutes later she was on a bicycle
 pedalling hard and breathing harder.
@@ -9911,7 +9913,7 @@ She was pretty sure her foster mother's "in case"
 hadn't included fleeing from Marines in the backayonder,
 but there was no time to think about that,
 no time to think about whether Edson had a plan
-because even downhill on the world's best highway
+because even going downhill on the world's best road
 there was no way they could move as fast as what was coming for them.
 
 Up, down, up again—the forest dropped out of sight
@@ -9922,14 +9924,14 @@ and a heart-stopping moment of panic
 each time the bike hit a pothole or a particularly large rock
 and nearly but never actually sent her tumbling onto sharp gravel.
 
-Edson skidded to a stop as they reached the top of the ridge
-and swung around to look back.
+Edson skidded to a stop as they reached the lip of the valley
+and pulled an app out of his jacket.
 Iffy stopped beside him,
 lungs heaving.
 "Wha— wha's happenin'?"
 she gasped as he pulled his app out of his coat.
 
-He stared at it, stricken.
+He stared at the app, stricken.
 "They're killin' 'em.
 Affin' griefers, they're killin' the herd!"
 
@@ -9955,7 +9957,7 @@ blurred but visible as its camouflage struggled to match the ground beneath it.
 "Who th' hell is that?"
 Edson demanded.
 
-"Dunno, but they brought a friend."
+"Dunno, but it brought a friend."
 Iffy pointed at a dot in the sky
 flying parallel to the hovercraft's course.
 
@@ -9981,8 +9983,8 @@ the Ecologist asked.
 
 Navy blue dots moved across a map in pairs and threes,
 each cluster surrounded by a scattering of green dots.
-"The Marines are in the valley.
-They're almost at the greenhouses."
+"The Marines are in th' valley.
+They're almost at th' greenhouses."
 
 A red dot appeared on the map,
 blinked,
@@ -9996,7 +9998,7 @@ as one geothermal drill hole after another hit critical pressure and exploded.
 "Saints and their mercies," Iffy whispered.
 
 The distant thunder became a steady rumble.
-The green dots swarmed the remaining blue dots.
+Green dots appeared out of nowhere and swarmed the remaining blue dots.
 Gunfire rattled and whined in the distance,
 but the ballistic shots and EMP pulses that snuffed out the green dots in waves
 weren't enough to turn the tide.
@@ -10098,7 +10100,7 @@ That is,
 if you got some other way for us to go?"
 
 Moments later they were on their bikes
-skidding down the ridge as the hovercraft raced toward Rothera.
+skidding down the ridge as the hovercraft changed course for Bharati.
 The cold air stung Iffy's cheeks,
 and if the bumps and potholes on the climb up the ridge had been frightening,
 going over them downhill at three times the speed was terrifying.
@@ -10149,7 +10151,6 @@ He started to rise.
 Iffy grabbed his arm and pulled him back down.
 "How 'bout you keep yours down for a change?"
 She closed her eyes.
-The toy that she and Wales had built on the *Guinevere* had been beautiful.
 *I'm sorry,* she thought,
 even though she knew the drone's core was far too simple to be aware of itself.
 
@@ -10220,10 +10221,10 @@ and hauled them to their feet.
 
 One Marine carried Iffy despite her protests.
 Another kept a metal-gloved hand on Edson's shoulder,
-while the third and fourth carried their bicycles down the slope to meet the hovercraft.
+while two more carried their bicycles down the slope to meet the hovercraft.
 A hatch opened on its leading edge just as they reached it.
 Something bulbous poked out.
-Iffy thought it was another bot,
+Iffy thought it was a bot,
 but then she removed her helmet.
 
 "Well,"
@@ -10267,7 +10268,7 @@ Whatever secrets or access codes you have will remain yours and yours alone."
 "Yeah."
 Edson sighed.
 "I wish I believed you,
-but your record ain't exactly positive,
+but your record ain't that great,
 an' you just havin' been kicked outta your home,
 well,
 that's gotta make you a little desperate."
