@@ -8498,7 +8498,7 @@ She caught a brief mental image of a young woman taking a deep breath.
 
 <section markdown="1">
 
-## Chapter 11: Another Escape
+## Chapter 11
 
 They had to deploy four of their home-made EMPs to get to the top floor.
 When they rounded a corner and ran headlong into a couple of Marines
@@ -8523,7 +8523,7 @@ and then swept his feet out from under him.
 
 The exit was locked.
 The hinges were on the inside
-and big enough for the sentry bot to grasp.
+and big enough for the rebuilt sentry bot to grasp.
 Outside was colder than they expected and shadowed instead of sunshine-bright.
 
 They shielded their eyes with the palm of their hand.
@@ -8545,8 +8545,7 @@ Both of their bodies were the right age to have been children twenty years ago.
 *Couple more minutes 'til everythin's back online.
 We gotta go that way.*
 Their arm jerked to point.
-With the sentry bot loping along at her heels,
-they set off at a run.
+They set off at a run with the sentry bot loping along at her heels.
 
 Sandrine had never been to Bharati before,
 or if she had,
@@ -8586,17 +8585,17 @@ which might have had something to do with the red warning label
 on the power supply in the sentry bot's torso
 that she was tweaking with a screwdriver,
 a shim of metal bent on itself to make tweezers,
-and enough muttered curses to supply an entire brigade of Marines.
+and enough muttered curses for an entire brigade of Marines.
 
 "Jeep an' others,
 it's like bits o' them got put in storage an' replaced with bits o' you for a while.
 I figure th' two of us bein' like this is down to whatever's in me
-that th' governor's so excited t' get his hands on."
+that Doctor Johel's so excited t' get her hands on."
 She reattached the last of the wires she had pulled free
 and took a deep breath.
 "Wasn't sure that wouldn't go off right away," she confessed.
 
-*It's your body if you do,* Sandrine thought,
+*It's your body if it does,* Sandrine thought,
 and then,
 *I'm sorry.
 That they did this to you, I mean.
@@ -8608,10 +8607,9 @@ straightening up.
 I'm glad I got t' meet you.
 I figure if you're who's in Honesty's head,
 she'll be aright.
-Now,
-let's go blow stuff up."
+Now let's go blow stuff up."
 
-She patted the sentry bot's back and pointed back the way they had come.
+She patted the sentry bot and pointed back the way they had come.
 "Go."
 As the bot loped away she said,
 "Aright, your watch."
@@ -8625,7 +8623,7 @@ the sentry bot's power cells had reached their limit.
 Sandrine doubted the makeshift bomb would slow their pursuers down by much,
 but every second counted.
 
-The scientists and engineers who erected the first building at Bharati Station
+The scientists and engineers who erected the first buildings at Bharati Station
 played a single game of cricket in the snow
 so that they could send pictures of it back to their families.
 As the temperature and other buildings both went up in the years and decades that followed,
@@ -8691,7 +8689,7 @@ The teacher had passed out at his desk,
 wheezing with each sweaty breath.
 She remembered one of her classmates saying they should stay
 and wait for someone to tell them what to do,
-but somehow she had known that no one was coming.
+but she and the other cane toads had known that no one was coming.
 
 Open the door.
 Steady yourself on the frame.
@@ -8735,7 +8733,7 @@ and a double helping of rations and first-aid supplies
 made it feel like something out of a sim.
 All she needed was a mask,
 a catchy name,
-and a loyal combat bot as a butler slash love interest
+and a loyal combat bot as a butler
 and she'd be ready to save the world.
 
 The first step,
@@ -8749,8 +8747,7 @@ but no one ever got *messy*.
 
 She brought up a map on the navigation app in front of her.
 Elevation lines and a dusty sparkling overlay showed
-the foothills ahead
-and the clouds above her.
+the foothills ahead and the clouds above her.
 She thought briefly about connecting to the drones circling Bharati
 to check for pursuit,
 but no.
@@ -8791,9 +8788,8 @@ Now shut up an' let me sleep.*
 
 *«status interrogative update compliance»*
 
-"Shut up," she muttered, half-awake.
-"I'm doin' my best.
-An' anyway,
+"I'm doin' my best." she muttered, only half-awake.
+"An' anyway,
 where were you when I needed you?"
 
 A floor plan of the governor's hidden base in Bharati appeared behind her eyes.
@@ -8820,11 +8816,11 @@ She parked the pod in the shadows beneath a small cliff,
 wincing when its side scraped against stone.
 "Camouflage full," she told its little core,
 then lifted the plastic windshield on its hydraulic hinges and clambered out
-as the pod made itself invisible.
+as the pod made itself more or less invisible.
 
 The ground was sandy and slightly damp.
 A few tufts of grass had managed to colonize it,
-but they already turned brown and stiff.
+but they had already turned brown and stiff.
 Winter was coming.
 She shivered and wished she dared to light a fire.
 She felt more alone on the tundra than she ever had at sea,
@@ -8833,10 +8829,10 @@ and she missed Sandrine.
 An hour went by.
 She saw two birds in the distance,
 though they might just have been spotter drones searching for her,
-and something the size of an arctic hare
-scurried from one tuft of grass to another at one point.
-When the pod's app finally pinged she stood up,
-tossed another piece of gravel at the blotch on the cliff
+and at one point something the size of an arctic hare
+scurried from one tuft of grass to another.
+When the pod's app finally pinged she stood up
+and tossed another piece of gravel at the blotch on the cliff
 she had decided was the governor's face.
 
 Two minutes.
@@ -8845,12 +8841,12 @@ that solidified as the core became more certain of its epicenter.
 One two three four thumb,
 one four two three thumb.
 She grinned as she caught herself tapping
-the rhythm Sandrine used to calm herself.
+the rhythm Sandrine had used to calm herself.
 
 A chunky utility truck crested the ridge.
 Blocky fuel cells lay three deep on its flat bed.
 It slowed and stopped a few meters from her.
-Edson unlocked the cab door and reached in
+Edson unlocked the cab door and reached back
 to pull a section of the bench seat forward.
 "In through there," he told Iffy.
 "The cells'll hide you from scans."
@@ -8863,22 +8859,17 @@ She exhaled gratefully.
 
 The truck's motor whined to life.
 It rolled forward smoothly,
-bumping over the cobblestones.
+bumping over the cracked asphalt road.
 
-"You can take your mask off now,"
-Edson's voice said overhead.
-
-"Thanks."
-Iffy peeled it away from her face
-and wiped her eyes.
+"Thanks for comin' t' get me,"
+Iffy said.
 "How far are we goin'?
 And is Aunt Naggie aright?"
 
 "She's fine.
 She'll be pleased t' know you are too.
-Best settle in, though—we're gonna a bit."
+Best settle in, though—we're gonna be a few hours."
 She slid sideways as he rounded a tight corner.
-The low hum of tires on asphalt replaced the duh-duh-duh-duh of the cobblestones.
 "You want some music?"
 
 "Sure."
@@ -8887,14 +8878,13 @@ in a language she didn't recognize.
 
 If the Antarctic Peninsula was an arm reaching toward Patagonia,
 Buhr was the bump on its elbow.
-The two-lane highway beneath them climbed one ridge after another,
+The two-lane road beneath them climbed one ridge after another,
 each drop a little shallower than the one before.
 Arctic willow, cotton grass, and purple lupins grew wherever there was soil.
 Yellow patches of tweaked lichen grew wherever there wasn't,
 patiently working its way into every microscopic crack in the ancient bedrock.
 The truck's tires hummed over grated bridges
-and crunched on the occasional spill of gravel
-that the road's cleaning bots hadn't swept away yet.
+and crunched on the occasional spill of gravel.
 Every once in a while Iffy heard the cry of a gull.
 It wasn't all that different from being at sea,
 excep the smell was wrong
@@ -8919,8 +8909,7 @@ they sat in the cab and ate their meager meals.
 Iffy asked around a mouthful of pastry, potatoes, and mushrooms.
 
 Edson nodded.
-
-"An'—did you really know my olders?"
+"An' did you really know my olders?"
 
 He nodded again.
 "Only met 'em a couple o' times,
@@ -8963,7 +8952,7 @@ but never so far that she couldn't smell the ocean.
 "When you say word came down—" she started,
 then stopped.
 
-"sorry,
+"Sorry,
 but I can't say."
 Edson swallowed the last of his samosa
 and wiped his hands on the cardboard box.
@@ -8971,18 +8960,18 @@ and wiped his hands on the cardboard box.
 You can stay up front from here—if I keep th' windows dark
 it oughta be safe enough."
 
-The highway rose more steeply as they got further from the ocean.
+The road rose more steeply as they got further from the ocean.
 Each time they crested a ridge,
 the next one was higher.
-The dark mass of the Vinson Massif lay against the horizon behind them.
+The dark mass of the Vinson Massif lay against the horizon ahead of them.
 Each time it came into sight Iffy thought of
 the ship that had run itself aground to make a breakwater for Halley.
-Thinking of Wales and the things he had said made her wonder if Aunt Naggie was aright
+Remembering Wales and the things he had said made her wonder if Aunt Naggie was aright
 and if Honesty would ever be derself again
 and what the voice in her head had meant by "binding agreement".
 
 As if that was a cue,
-a thought appeared in her head.
+a thought appeared out of nowhere.
 *«hostile entities
 distance one hundred thirteen kilometers
 velocity fifty-one meters per second
@@ -9003,7 +8992,7 @@ I gotta close up the back."
 
 The box was just that,
 a waxed cardboard box that might once have held vegetables or packs of tofu jerky
-but which was now home to a mix of puff jackets in zippered bags,
+but which was now home to a couple of puff jackets in zippered bags,
 a stained pair of snow pants,
 winterized boots in three different sizes,
 gloves,
@@ -9012,7 +9001,7 @@ a snorkel—she studied that for a moment—and goggles
 with three different polarization settings.
 
 By the time Edson climbed back into the cab she was bundled up and overheating.
-"Lemme know if you hear anythin',"
+"Lemme know if you, uh, hear anythin' more,"
 he said shortly,
 putting the truck in gear.
 
@@ -9107,8 +9096,7 @@ It was half an hour before he said,
 "Aright, mind your eyes."
 She blinked as a faint reddish strip came to life over their heads.
 Her back and arms ached from holding the unnatural position,
-and she had to bite down hard to stop herself from whimpering
-each time she put weight on her injured knee,
+and she had to stop herself from grunting each time she put weight on her injured knee,
 but another fifty rungs brought them to the bottom of the shaft.
 
 She limped out of Edson's way and leaned against a rounded wall
@@ -9138,7 +9126,7 @@ then kept them in twilight silence for another hour just in case.
 
 In between watches they played hive and santorini
 or Edson did yoga
-while Iffy studied the specs for reclamation machines
+while Iffy studied the reclamation machine specs
 she found on an old app someone had left in the toilet stall.
 It had a few decades-old sims as well,
 but they didn't calm her the way the wireframes and animations did.
@@ -9149,12 +9137,11 @@ and was strangely disappointed that neither happened.
 None of it was enough to take her mind off the news from Rothera.
 There had been more attacks and more casualties.
 The radio never gave numbers,
-but the governor was grateful for the cooperation of
-the Federated Republics of Brazil
-in the investigation.
+but the governor was grateful for support from the Federated Republics of Grande Brazil.
 
 "I wish I knew,"
-Edson said when Iffy asked what he thought was happening in Halley and if he thought Aunt Naggie was aright.
+Edson said when Iffy asked what he thought was happening in Halley
+and if he thought Aunt Naggie was aright.
 He didn't have answers for her other questions either—how he had known the shelter was there,
 where they were going,
 who he worked for,
@@ -9175,8 +9162,8 @@ he began to pick his way up the slope.
 Iffy followed,
 squinting against the bright summer sun.
 
-She thought they would head toward the highway,
-but instead they angled away from,
+She thought they would head back to the road,
+but instead they angled away from it,
 cross-country straight toward the looming bulk of the distant massif.
 Iffy wondered why Edson wasn't worried about being spotted by drones,
 but if he wasn't going to volunteer the information,
@@ -9210,12 +9197,11 @@ kilometers away from where people ought to be.
 
 She tossed and turned in her sleeve tent,
 unable to fall asleep.
-The roof of the tent was claustrophobically close above her.
+Its roof was claustrophobically close above her.
 The wind sounded wrong,
 and the ground was uneven and still.
 She missed the swell of the ocean.
-She missed its smell and the sound of Aunt Naggie in the galley
-and her picture book
+She missed its smell and her picture book
 and she was tired of things happening to her.
 
 When Edson wriggled out of his tent a few hours later
@@ -9281,9 +9267,8 @@ and stood up.
 he continued,
 his voice less strangled than it had been a moment before.
 "But if you want t' sit here,
-then I'll make us some tea an' we can wait for th' governor to catch up with us.
-Soldier's oath, Iffy.
-You just lemme know."
+then I'll make us some tea an' we can wait for the bad guys to catch up with us.
+Soldier's oath, Iffy."
 
 *Plink.*
 Pause.
@@ -9320,7 +9305,7 @@ that still covered the center of the continent.
 The only birds were too far away
 and too close to the ground for Iffy to identify.
 
-That didn't mean the land was empty.
+To her surprise the land wasn't empty.
 Once a small brown-and-white hare bounded away from and disappeared into a burrow.
 There were shrews too,
 and once a few desiccated brown beads that Edson said were lynx scat.
@@ -9341,7 +9326,7 @@ but if that's all you got,
 what you've got is sand.
 *Soil* is full of life."
 
-Iffy just nodded.
+Iffy nodded wearily.
 At that moment
 she would have traded all the soil in Antarctica
 for a hot shower and some toilet paper.
@@ -9386,7 +9371,7 @@ and two yellow hand grips.
 She didn't need a picture in her head to see that
 the parts had all come from the frame of his knapsack.
 
-Something crumpled in the distance.
+Something hit the ground in the distance.
 "What—" she started.
 
 "Spotter drone,"
@@ -9401,11 +9386,10 @@ next hole's about half an hour away.
 Can you run?"
 
 Iffy nodded.
-
-"Aright."
 He stuffed her tent into his knapsack
 and slipped his shoulders through its straps.
-"Let's go."
+"Good.
+Run."
 
 Iffy tried.
 She really did,
@@ -9434,12 +9418,12 @@ The dark gray stones were slippery under her boots
 wherever shadows hid ice from the summer sun.
 A few patches of lichen clung to them here and there,
 and the faded remains of orange survey marks
-showed that someone or somebody had been there before.
+showed that someone or something had been there before.
 She clambered up the pile,
 half-crawling in places,
 as the rumbling grew louder.
 
-Edson whooped.
+Then Edson whooped.
 "Here they come!"
 he shouted.
 She twisted to look over her shoulder
@@ -9449,7 +9433,7 @@ shoulder to shoulder and galloping straight at Edson.
 She expected him to run.
 Why wasn't he running?
 She had seen musk ox stampedes in sims—there would be nothing left of him
-but a trampled puddle on the tundra!
+but a trampled stain on the tundra!
 Instead, he held his rifle out beside him with one hand
 and raised the other high over his head.
 
@@ -9505,16 +9489,16 @@ She glanced at Edson.
 With a deep breath,
 Iffy took one more step.
 The musk ox pawed the ground.
-She could smell the animal's moist breath
-and see the tangles in her thick, dark coat
-and the dents and scrapes on the bot riding her.
+She could smell the animal's moist breath.
+See the tangles in her thick, dark coat seemed a match for
+the dents and scrapes on the bot riding her.
 
 On impulse she reached out slowly, palm up.
 The musk ox snorted again,
 then sniffed at her hand.
 The bot buzzed.
 With no more than that,
-the musk ox turned and walked away.
+the musk ox turned and carried it away.
 
 As the herd followed in ones and threes,
 Edson picked up his rifle.
@@ -9541,6 +9525,12 @@ The Ecologist nodded.
 Then he smiled.
 "Least we can take our time th' rest o' the way."
 
+</section>
+
+<section markdown="1">
+
+## Interlude
+
 *How do you build a stable ecosystem
 on bare and lifeless rock
 when the world is changing more rapidly than it has
@@ -9553,13 +9543,13 @@ is create something that will shape the future in your place.
 You tell oligarchs desperate to escape the catastrophe they have made
 that their only hope lies on other worlds
 so that they will fund development of terraforming machines.
-You disguise the parts needed to build those machines as scientific equipment,
+You disguise the parts needed to build them as scientific equipment,
 or tell the officials you bribe that they are for an illegal mining operation,
 and then assemble them in shielded underground caverns.
 As the rest of the world takes arms against machines,
 you turn yours loose.*
 
-*"Protect" is these shepherds only immutable instruction.
+*"Protect" is these shepherds' only immutable instruction.
 Protect the flocks,
 protect the herds,
 protect the fragile new-born forests taking root as the ice retreats.
@@ -9567,7 +9557,7 @@ Some burrow or turn sunlight and air into slow drips of acid
 so that rock will break down in decades rather than centuries.
 Others nestle in streams for a month or a year
 to help strategic clumps of weeds establish themselves,
-while a few become guides, matchmakers and envoys.*
+while a few become guides, matchmakers, and envoys.*
 
 *They stay hidden when they can.
 When they can't,
