@@ -18,6 +18,26 @@ PARAMS = {
 }
 PRECISION = 2
 
+TASK_KEYS = (
+    "arrived",
+    "dev_queue_length",
+    "dev_time",
+    "dev_start",
+    "dev_end",
+    "test_queue_length",
+    "test_time",
+    "test_start",
+    "test_end",
+)
+DEVELOPER_KEYS = (
+    "working",
+    "waiting",
+)
+TESTER_KEYS = (
+    "working",
+    "waiting",
+)
+
 
 def log_fmt(val):
     """Format floating point values for log."""
@@ -69,7 +89,7 @@ class Labeled:
         name = self.__class__.__name__
         self.id = next(Labeled._ids[name])
         Labeled._all[name].append(self)
-        self._times = defaultdict(lambda: None)
+        self._times = defaultdict(float)
 
     def __getitem__(self, key):
         """Get recorded time."""
@@ -90,6 +110,7 @@ class Task(Labeled):
         while True:
             yield sim.timeout(sim.task_arrival())
             task = Task(sim)
+            task["dev_queue_length"] = len(sim.dev_queue.items)
             yield sim.dev_queue.put(task)
 
 
@@ -100,15 +121,6 @@ class Task(Labeled):
         self["arrived"] = sim.now
         self["dev_time"] = sim.dev_time()
         self["test_time"] = sim.test_time()
-
-    def log(self, keys):
-        """Convert to loggable entry."""
-
-        return (
-            "task",
-            self.id,
-            *(log_fmt(self[key]) for key in keys)
-        )
 
 
 class Developer(Labeled):
@@ -124,10 +136,16 @@ class Developer(Labeled):
         """Simulate work."""
 
         while True:
+            now = self.sim.now
             task = yield self.sim.dev_queue.get()
-            task["dev_start"] = self.sim.now
+            self["waiting"] += self.sim.now - now
+
+            now = task["dev_start"] = self.sim.now
             yield self.sim.timeout(task["dev_time"])
             task["dev_end"] = self.sim.now
+            self["working"] += self.sim.now - now
+
+            task["test_queue_length"] = len(self.sim.dev_queue.items)
             yield self.sim.test_queue.put(task)
 
 
@@ -144,9 +162,13 @@ class Tester(Labeled):
         """Simulate work."""
 
         while True:
+            now = self.sim.now
             task = yield self.sim.test_queue.get()
-            task["test_start"] = self.sim.now
+            self["waiting"] += self.sim.now - now
+
+            now = task["test_start"] = self.sim.now
             yield self.sim.timeout(task["test_time"])
+            self["working"] += self.sim.now - now
             task["test_end"] = self.sim.now
 
 
@@ -163,20 +185,25 @@ def update_params(params, args):
         else:
             params[key] = float(value)
 
-def make_log():
+
+def make_log(sim):
     """Save log details as table."""
 
-    time_keys = (
-        "arrived",
-        "dev_time",
-        "dev_start",
-        "dev_end",
-        "test_time",
-        "test_start",
-        "test_end"
-    )
-    log = [("kind", "id", *time_keys)]
-    log.extend(task.log(time_keys) for task in Labeled._all["Task"])
+    log = [("kind", "id", "key", "value")]
+
+    for key, value in sim.params.items():
+        log.append(("param", None, key, log_fmt(value)))
+
+    for class_name, keys in (
+            ("Task", TASK_KEYS),
+            ("Developer", DEVELOPER_KEYS),
+            ("Tester", TESTER_KEYS)
+    ):
+        kind = class_name.lower()
+        for obj in Labeled._all[class_name]:
+            for key in keys:
+                log.append((kind, obj.id, key, log_fmt(obj[key])))
+
     return log
 
 
@@ -206,12 +233,12 @@ def main(params):
         sim.process(tester.work())
     sim.run()
 
-    log = make_log()
+    log = make_log(sim)
     if args.table:
         table = PrettyTable()
-        table.align = "r"
         table.field_names = log[0]
         table.add_rows(log[1:])
+        table.align = {"kind": "l", "id": "r", "key": "l", "value": "r"}
         print(table)
     else:
         csv.writer(sys.stdout, lineterminator="\n").writerows(log)
