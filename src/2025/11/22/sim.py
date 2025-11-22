@@ -35,18 +35,18 @@ class Simulation:
     def run(self):
         self.env.run(until=self.params["simulation_duration"])
 
-    def task_arrival(self):
-        return random.expovariate(1.0 / self.params["task_arrival_rate"])
-
-    def task_duration(self):
-        return random.uniform(1, self.params["max_task_duration"])
-
     def timeout(self, duration):
         return self.env.timeout(duration)
 
     @property
     def now(self):
         return self.env.now
+
+    def task_arrival(self):
+        return random.expovariate(1.0 / self.params["task_arrival_rate"])
+
+    def task_duration(self):
+        return random.uniform(1, self.params["max_task_duration"])
 
 
 class Labeled:
