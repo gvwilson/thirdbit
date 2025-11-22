@@ -5019,12 +5019,73 @@ which is why I'm going to break us out of here."
 
 <section markdown="1">
 
-## The Chance to Find Out
+## Escape (Again)
 
 Finner hadn't memorized *Yuen's Guide to Mechanical Locks (Abridged)*
 during his stay in the subway.
 He had read the first four chapters quite carefully,
 though,
 and a quick examination of the front door convinced him that would be enough.
+
+The next step was to volunteer for scavenging.
+"The Elfabot seems to be able to have Santazilla under control,"
+he told Gran-Granna Tumbly when she said it would be dangerous.
+
+"That's not the kind of danger I mean,"
+she replied darkly,
+eyeing Captain Abacus.
+The captain raised her tea cup in acknowledgment,
+then went back to her crossword puzzle.
+
+Finner rolled his eyes.
+Every time he tried to talk to Captain Abacus about something innocuous,
+Gran-Granna Tumbly found an excuse to get between them.
+And if he so much as mentioned making or fixing things,
+his great-grandmother launched into a lecture on ho-ho-ho'ing
+or asked pointedly if he had thought about trying to find a chimney to practice on.
+
+They scavenged in threes and fours
+with a robot to watch over each group.
+Each team had a mix of flips and tinsels,
+which Finner quickly learned was
+(a) what flips called prisoners who shared Gran-Granna Tumbly's views
+and (b) a word best used sparingly, if at all.
+Since the areas near Flump Street had been cleaned out,
+each scavenging expedition required a long walk through ruined streets.
+After filling their sacks and wagons for an hour or two,
+they took a few minutes to rest before starting back.
+It was tiring,
+and his parka soon began to smell like a raccoon had been sleeping in it,
+but it gave him a chance to learn his way around
+and move a few things into place.
+
+The only excitement came a couple of days after their capture.
+Captain Abacus had volunteered to bake cookies with some oats and chili flakes Finner had found,[^cookies]
+and was checking her watch every few minutes to see if they were done.
+"Perfectly good timer on the stove," Gran-Granna Tumbly muttered.
+
+[^cookies]: Santas and elves argued endlessly whether baking counted as making. On the one hand, obviously it did. On the other hand, if so, then what about making tea? Only the laziest and most imperious santas tried to insist that was elves' work.
+
+Whatever the captain might have pointedly *not* said in return was cut off by a window-rattling roar.
+Finner jumped up,
+ran to the door,
+and pulled it open
+just in time to hear Santazilla bellow another challenge.
+
+"Eleven, twelve, thirteen…" Captain Abacus counted behind him.
+Jars rattled on shelves as the giant santasaurus began to move.
+"Eighteen, nineteen, *twenty*."
+It roared again, then fell silent.
+
+"I presume that was your lot come to rescue you?"
+Gran-Granna Tumbly sniffed.
+
+Captain Abacus shrugged.
+"Just a quick reconnoiter."
+
+"Mm."
+The old santa didn't speak again except for a curt,
+"No thank you,"
+when Captain Abacus offered her a cookie an hour later.
 
 </section>
