@@ -2,7 +2,7 @@ import argparse
 from collections import defaultdict
 import csv
 from itertools import count
-from prettytable import PrettyTable
+from prettytable import PrettyTable, TableStyle
 import random
 import sys
 import simpy
@@ -37,6 +37,7 @@ TESTER_KEYS = (
     "working",
     "waiting",
 )
+TABLE_ALIGNMENT = {"kind": "l", "id": "r", "key": "l", "value": "r"}
 
 
 def log_fmt(val):
@@ -192,7 +193,7 @@ def make_log(sim):
     log = [("kind", "id", "key", "value")]
 
     for key, value in sim.params.items():
-        log.append(("param", None, key, log_fmt(value)))
+        log.append(("parameter", None, key, log_fmt(value)))
 
     for class_name, keys in (
             ("Task", TASK_KEYS),
@@ -219,10 +220,12 @@ def parse_args():
 def main(params):
     """Main driver."""
 
+    # Handle command-line arguments and parameters.
     args = parse_args()
     update_params(params, args.params)
     random.seed(params["random_seed"])
 
+    # Create and run the simulation and its processes.
     sim = Simulation(params)
     sim.process(Task.generate(sim))
     for _ in range(params["num_developers"]):
@@ -233,12 +236,14 @@ def main(params):
         sim.process(tester.work())
     sim.run()
 
+    # Report results.
     log = make_log(sim)
     if args.table:
         table = PrettyTable()
         table.field_names = log[0]
         table.add_rows(log[1:])
-        table.align = {"kind": "l", "id": "r", "key": "l", "value": "r"}
+        table.align = TABLE_ALIGNMENT
+        table.set_style(TableStyle.MARKDOWN)
         print(table)
     else:
         csv.writer(sys.stdout, lineterminator="\n").writerows(log)

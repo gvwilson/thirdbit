@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Simulating Multiple Stages</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Simulating Multiple Stages</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/11/22/refactoring-the-simulation/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-11-23" class="post-date">2025-11-23</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>After <a href="../../../../2025/11/22/refactoring-the-simulation/">yesterday&rsquo;s refactoring</a>,
+we&rsquo;re ready to make the simulation a bit more realistic
+by adding a second stage: testing.
+Our updated default parameters will be:</p>
+<div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;max_dev_time&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="s2">&quot;max_test_time&quot;</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span>        <span class="c1"># new</span>
+    <span class="s2">&quot;num_developers&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;num_testers&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>            <span class="c1"># new</span>
+    <span class="s2">&quot;random_seed&quot;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
+    <span class="s2">&quot;simulation_time&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">&quot;task_arrival_rate&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>which will control simulation of this system:</p>
+<div class="highlight"><pre><span></span><code>+----------------+    +-----------+    +------------+    +------------+    +---------+
+| task generator | -&gt; | dev queue | -&gt; | developers | -&gt; | test queue | -&gt; | testers |
++----------------+    +-----------+    +------------+    +------------+    +---------+
+</code></pre></div>
+<p>Before we start, let&rsquo;s make a prediction.
+Development times and testing times are uniformly distributed,
+so the mean for each are 5.5 and 4.5 respectively (i.e., (1+10)/2 and (1+8)/2).
+With two developers,
+we should be able to process one task every 2.75 timesteps;
+with three testers,
+we should be able to process one task every 1.5 timesteps.
+We should therefore see tasks piling up in the test queue
+because the testers can take them out
+faster than the developers can put them in.</p>
+<h2>The <code>Simulation</code> Class</h2>
+<p>The first step is to modify the <code>Simulation</code> class that holds all our assets
+to create two queues instead of one:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+</code></pre></div>
+<h2>The <code>Task</code> Class</h2>
+<p>As described <a href="../../../../2025/11/22/refactoring-the-simulation/">yesterday</a>,
+<code>Task</code> is basically a bag full of properties.
+For convenience,
+we have made the task generator a static method of this class
+rather than a free-standing function.
+In order to test our hypothesis about where tasks are going to pile up,
+we will record the length of the waiting-for-development queue in each task
+when it is created:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Task</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A single (passive) task.&quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">sim</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate tasks and add to the development queue.&quot;&quot;&quot;</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">task_arrival</span><span class="p">())</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+            <span class="n">task</span><span class="p">[</span><span class="s2">&quot;dev_queue_length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;arrived&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;dev_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">dev_time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;test_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">test_time</span><span class="p">()</span>
+</code></pre></div>
+<h2>The <code>Developer</code> Class</h2>
+<p>The only changes to the <code>Developer</code> are
+(a) putting the task in the testing queue once development is finished
+and (b) recording more information,
+such as the total time this developer has spent working:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Developer</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A single developer.&quot;&quot;&quot;</span>
+
+    <span class="err">…</span><span class="n">constructor</span><span class="err">…</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate work.&quot;&quot;&quot;</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;waiting&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
+
+            <span class="n">now</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s2">&quot;dev_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;dev_time&quot;</span><span class="p">])</span>
+            <span class="n">task</span><span class="p">[</span><span class="s2">&quot;dev_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;working&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
+
+            <span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_queue_length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</code></pre></div>
+<p>Deciding what information to record was
+the hardest part of writing this version of the simulation.
+Should each developer keep a list of the time spent per task
+rather than just summing it up?
+That felt redundant,
+given that we&rsquo;re recording development time in each task.
+But what about recording which developers do which tasks?
+Or keeping track of how much time each developer spent waiting for a task to appear?
+In the end we decided to record the latter but not the former.</p>
+<p>Each of these decisions constrains what questions we can ask about our development process.
+One of the reasons to use a tool like <a href="https://www.swarmia.com/">Swarmia</a> is that
+they have thought through these questions
+and figured out what to collect in order to get useful answers.</p>
+<h2>The <code>Tester</code> Class</h2>
+<p>Each tester takes jobs from the testing queue,
+spends some time working on them,
+and records a few statistics.
+The code is almost the same as that for a developer,
+but after reorganizing it a couple of times
+we decided that two separate classes would be easier to understand
+than one class with a couple of <code>if</code> statements to control behavior:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A single (active) tester.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span> <span class="o">=</span> <span class="n">sim</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate work.&quot;&quot;&quot;</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;waiting&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
+
+            <span class="n">now</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_time&quot;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;working&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">now</span>
+            <span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+</code></pre></div>
+<h2>The Main Driver</h2>
+<p>We haven&rsquo;t shown <code>main</code> in a while,
+so here is what it has become:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main driver.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Handle command-line arguments and parameters.</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">update_params</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;random_seed&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Create and run the simulation and its processes.</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">Simulation</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">Task</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">sim</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_developers&quot;</span><span class="p">]):</span>
+        <span class="n">dev</span> <span class="o">=</span> <span class="n">Developer</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+        <span class="n">sim</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">dev</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_testers&quot;</span><span class="p">]):</span>
+        <span class="n">tester</span> <span class="o">=</span> <span class="n">Tester</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+        <span class="n">sim</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">tester</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+    <span class="c1"># Report results.</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">make_log</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">table</span><span class="p">:</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">()</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">field_names</span> <span class="o">=</span> <span class="n">log</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">(</span><span class="n">log</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="n">table</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="n">TABLE_ALIGNMENT</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">lineterminator</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+</code></pre></div>
+<h2>The Output, and Why</h2>
+<p>Running the simulation with the default parameters shown earlier
+produces this output:</p>
+<div class="highlight"><pre><span></span><code>kind,id,key,value
+parameter,,max_dev_time,10.0
+parameter,,max_test_time,8.0
+parameter,,num_developers,2
+parameter,,num_testers,3
+parameter,,random_seed,12345
+parameter,,simulation_time,20
+parameter,,task_arrival_rate,2.0
+task,0,arrived,1.08
+task,0,dev_queue_length,0
+task,0,dev_time,1.09
+task,0,dev_start,1.08
+task,0,dev_end,2.17
+task,0,test_queue_length,0
+task,0,test_time,6.78
+task,0,test_start,2.17
+task,0,test_end,8.95
+task,1,arrived,1.79
+task,1,dev_queue_length,0
+task,1,dev_time,4.32
+…
+…many more lines here…
+…
+task,13,test_time,6.77
+task,13,test_start,0.0
+task,13,test_end,0.0
+developer,0,working,16.01
+developer,0,waiting,2.37
+developer,1,working,8.51
+developer,1,waiting,1.89
+tester,0,working,6.78
+tester,0,waiting,7.53
+tester,1,working,9.58
+tester,1,waiting,8.53
+tester,2,working,5.74
+tester,2,waiting,13.8
+</code></pre></div>
+<p>which is much easier to read as a table:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">kind</th>
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">key</th>
+<th style="text-align: right;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">parameter</td>
+<td style="text-align: right;">None</td>
+<td style="text-align: left;">max_dev_time</td>
+<td style="text-align: right;">10.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">parameter</td>
+<td style="text-align: right;">None</td>
+<td style="text-align: left;">max_test_time</td>
+<td style="text-align: right;">8.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">parameter</td>
+<td style="text-align: right;">None</td>
+<td style="text-align: left;">num_developers</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">parameter</td>
+<td style="text-align: right;">None</td>
+<td style="text-align: left;">num_testers</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">parameter</td>
+<td style="text-align: right;">None</td>
+<td style="text-align: left;">random_seed</td>
+<td style="text-align: right;">12345</td>
+</tr>
+<tr>
+<td style="text-align: left;">parameter</td>
+<td style="text-align: right;">None</td>
+<td style="text-align: left;">simulation_time</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;">parameter</td>
+<td style="text-align: right;">None</td>
+<td style="text-align: left;">task_arrival_rate</td>
+<td style="text-align: right;">2.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">arrived</td>
+<td style="text-align: right;">1.08</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">dev_queue_length</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">dev_time</td>
+<td style="text-align: right;">1.09</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">dev_start</td>
+<td style="text-align: right;">1.08</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">dev_end</td>
+<td style="text-align: right;">2.17</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">test_queue_length</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">test_time</td>
+<td style="text-align: right;">6.78</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">test_start</td>
+<td style="text-align: right;">2.17</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">test_end</td>
+<td style="text-align: right;">8.95</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">arrived</td>
+<td style="text-align: right;">1.79</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">dev_queue_length</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">dev_time</td>
+<td style="text-align: right;">4.32</td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: right;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: right;">…</td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: right;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: right;">…</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">test_time</td>
+<td style="text-align: right;">6.77</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">test_start</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">task</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">test_end</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">developer</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">working</td>
+<td style="text-align: right;">16.01</td>
+</tr>
+<tr>
+<td style="text-align: left;">developer</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">waiting</td>
+<td style="text-align: right;">2.37</td>
+</tr>
+<tr>
+<td style="text-align: left;">developer</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">working</td>
+<td style="text-align: right;">8.51</td>
+</tr>
+<tr>
+<td style="text-align: left;">developer</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">waiting</td>
+<td style="text-align: right;">1.89</td>
+</tr>
+<tr>
+<td style="text-align: left;">tester</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">working</td>
+<td style="text-align: right;">6.78</td>
+</tr>
+<tr>
+<td style="text-align: left;">tester</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">waiting</td>
+<td style="text-align: right;">7.53</td>
+</tr>
+<tr>
+<td style="text-align: left;">tester</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">working</td>
+<td style="text-align: right;">9.58</td>
+</tr>
+<tr>
+<td style="text-align: left;">tester</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">waiting</td>
+<td style="text-align: right;">8.53</td>
+</tr>
+<tr>
+<td style="text-align: left;">tester</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">working</td>
+<td style="text-align: right;">5.74</td>
+</tr>
+<tr>
+<td style="text-align: left;">tester</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">waiting</td>
+<td style="text-align: right;">13.8</td>
+</tr>
+</tbody>
+</table>
+<p>This is not the most readable way to format the output for human consumption:
+it would be more natural to store the simulation parameters in a two-column table,
+then use another table with ten columns for tasks
+(one for the ID, the others for arrival time, queue lengths, development time, and so on).
+However,
+there isn&rsquo;t a standard format for storing multiple tables in a single text file.
+Our options are therefore:</p>
+<ol>
+<li>Create multiple output files for each simulation,
+    which would be a pain to manage.</li>
+<li>Use JSON or YAML,
+    which would be even less readable than the four-column output shown above.</li>
+<li>Create a multi-sheet spreadsheet or use a binary format like SQLite or HDF5,
+    none of which play nicely with version control.</li>
+</ol>
+<p>Having all the output in a single file will make it relatively easy to build analysis tools:
+we can load all the data from a single simulation into a single dataframe,
+then filter to pull out data for tasks, developers, and testers,
+and finally pivot it to create a wide table for each.
+We&rsquo;ll tackle that tomorrow,
+and then see if our hypothesis about developers being a bottleneck is true.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  None of the material on this site may be used to train AI models without the express prior permission of the author.
+</footer>
+  </body>
+</html>
