@@ -5049,9 +5049,9 @@ with a robot to watch over each group.
 Each team had a mix of flips and tinsels,
 which Finner quickly learned was
 (a) what flips called prisoners who shared Gran-Granna Tumbly's views
-and (b) a word best used sparingly, if at all.
+and (b) a word best used sparingly unless one was looking for a fight.
 Since the areas near Flump Street had been cleaned out,
-each scavenging expedition required a long walk through ruined streets.
+each expedition required a long walk through ruined streets.
 After filling their sacks and wagons for an hour or two,
 they took a few minutes to rest before starting back.
 It was tiring,
@@ -5081,11 +5081,80 @@ It roared again, then fell silent.
 Gran-Granna Tumbly sniffed.
 
 Captain Abacus shrugged.
-"Just a quick reconnoiter."
+"Just a quick reconnoiter, I expect."
 
 "Mm."
 The old santa didn't speak again except for a curt,
 "No thank you,"
 when Captain Abacus offered her a cookie an hour later.
+
+Three weeks to the day after his arrival,
+Finner was ready to make his move.
+He debated inviting Captain Abacus to come with him,
+or leaving a note for Gran-Granna Tumbly,
+but eventually decided that he didn't want to get the former in trouble
+and didn't know what to say to the latter.
+He thought about telling Captain Clausbeard his plans as well,
+but after he and some of his crew tried to dismantle one of the Elfabot's minions,
+they were put under double watch.
+
+He felt strangely calm as he laced up his boots and donned his parka,
+his tools tucked snugly into his trousers with his shirt pulled down on top of them.
+He couldn't bear to leave any of them behind,
+though if all went well he would only need a screwdriver and a wrench.
+
+"How about we take another look at that cheese shop?"
+he suggested to his teammates as casually as he could.
+He started to walk without waiting for their answer,
+trusting or at least hoping that they and the guard robot would fall in behind him.
+
+An hour later they were back at
+the cobblestoned plaza they had visited two days earlier.
+"I'll see if there's anything in the basement,"
+Finner said.
+"Why don't you two check the upstairs?"
+
+"Don't remember putting *you* in charge,"
+one of the tinsels grumbled,
+but started up the stairs anyway.
+The other caught Finner's eye,
+studying him for a moment before nodding slowly and following der teammate.
+
+The door to the basement had a lock.
+A quick twist of his mittened wrist set it to snib into place behind him.
+He hurried down the stairs into the gloom,
+picked his way through the boxes and rubble,
+and opened the door he had discovered on the far side,
+wincing as the hinges squeaked in protest.
+
+Eight steps brought him back to street level in the narrow alley behind the shop.
+Unzipping his parka and pulling out his tools,
+he set to work on the odds and ends he had left piled there.
+Two screws: check.
+Tighten the first nut: check.
+Tighten the second: check.
+Try and fail to ignore the itch between his shoulder blades
+or the urge to whirl around in case the robot had snuck up on him:
+check.
+
+Now for the hard part.
+He carried the ungainly bicycle he had just reassembled to the mouth of the alley,
+glanced around the corner to make sure the street was empty,
+and then hurried across it as quickly as he could.
+Three flights of metal stairs brought him to a platform
+where people had waited for the train in less apocalyptic times.
+
+As he reached the top he saw the tinsel who had caught his eye
+through a window in the top of the cheese shop.
+De raised a hand in salute.
+Finner shifted the bicycle to wave back,
+then set its tireless wheels on the nearest rail of the track.
+He grinned:
+it was nearly a perfect fit.
+
+"All right,"
+he said out loud.
+Settling himself on the seat,
+he began to pedal.
 
 </section>
