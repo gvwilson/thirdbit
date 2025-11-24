@@ -3,7 +3,7 @@ import random
 import simpy
 import sys
 
-NUM = 100000
+NUM = 10000
 DELAY = 1
 
 def create(env, which, queue):

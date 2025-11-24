@@ -81,6 +81,78 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/11/24/analyzing-simulation/">
+      Analyzing the Simulation
+    </a>
+  </h2>
+  <p><time datetime="2025-11-24" class="post-date">2025-11-24</time></p>
+  <p><a href="../2025/11/23/simulating-multiple-stages/">Yesterday&rsquo;s post</a> added a second stage to the simulation,
+and made a prediction about where work would pile up.
+Today,
+we&rsquo;re going to check whether that prediction is correct.
+As a reminder,
+our system is:</p>
+<div class="highlight"><pre><span></span><code>+----------------+    +-----------+    +------------+    +------------+    +---------+
+| task generator | -&gt; | dev queue | -&gt; | developers | -&gt; | test queue | -&gt; | testers |
++----------------+    +-----------+    +------------+    +------------+    +---------+
+</code></pre></div>
+<p>Tasks arrive every 2.0 timesteps.
+It takes each of our two developers an average of 5.5 timesteps to complete a task,
+while each of our three testers needs an average of 4.5 timesteps to test the result.
+This means that developers should complete one task every 2.75 timesteps,
+and testers should be able to complete one every 1.5 timesteps.
+We should therefore see work piling up in the development queue,
+while the test queue should be more or less empty most of the time.</p>
+<h2>Yup</h2>
+<p>It only takes a few lines of code
+to produce time-series line chart using <a href="https://pola.rs/">Polars</a> and <a href="https://plotly.com/python/plotly-express/">Plotly Express</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+
+
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;usage: analyze.py csvfile plotfile&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> \
+       <span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;kind&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;dev_queue&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;kind&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;test_queue&quot;</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;kind&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">write_image</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+<p>Sure enough,
+the queue of tasks waiting for a developer&rsquo;s attention grows and grows,
+while tasks only wait occasionally (and briefly) for testing:</p>
+<div class="center">
+  <img src="../files/2025/11/24/queues.svg" alt="time-series chart of queue lengths">
+</div>
+
+<p>A little bit more analysis confirms that yes,
+our testers are spending a lot of their time waiting for work
+while our developers are busy nearly 100% of the time:</p>
+<div class="center">
+  <img src="../files/2025/11/24/times.svg" alt="time-series chart of developer and tester time">
+</div>
+
+<h2>Little&rsquo;s Law</h2>
+<p>One of the most useful results from queueing theory is
+a generalization of the quick-and-dirty math we did at the start of this post
+that predicted where jobs would pile up.
+<a href="https://en.wikipedia.org/wiki/Little%27s_law">Little&rsquo;s Law</a> states that L = λW, where:</p>
+<ul>
+<li>L is the average number of tasks in the system,</li>
+<li>λ is the average arrival rate, and</li>
+<li>W is the average time each task spends in the system.</li>
+</ul>
+<p>For example,
+if tasks arrive at a rate of λ = 2 per day
+and each spends W = 5 days being worked on,
+then on average L = 10 tasks are being worked on at any time.
+If each worker does one task at a time, we can infer there are 10 workers.
+Most software development teams don&rsquo;t track <em>any</em> of these three numbers;
+I hope this series of posts is convincing you that it&rsquo;s worth doing.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/11/23/simulating-multiple-stages/">
       Simulating Multiple Stages
     </a>
@@ -1636,26 +1708,6 @@ The next post in this series will look at two things:</p>
 <p>These questions are equally important because
 there&rsquo;s no point building something whose results we can&rsquo;t understand (and check).
 Stay tuned…</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/11/11/end-of-life-ideas/">
-      End of Life Ideas
-    </a>
-  </h2>
-  <p><time datetime="2025-11-11" class="post-date">2025-11-11</time></p>
-  <p>Years ago, <a href="https://exple.tive.org/blarg/2025/11/11/historical-reasons-2/">Mike Hoye suggested</a> that we should retire Unix usernames
-in the way that sports teams retire jersey numbers,
-and for the same reasons.
-I was reminded of this while doing interviews with people about how projects end;
-a couple of other ideas that have come up are adding a <code>-eol</code> (end-of-life) modified to semantic versioning
-similar to the <code>-beta</code> modifier,
-so that <code>1.2.3-eol</code> would mean &ldquo;this is the last release this project is going to do&rdquo;,
-and holding wakes for projects so that people can celebrate the contributions they <em>did</em> make
-and the impact they <em>did</em> have.
-If you have other suggestions or rituals,
-please <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
 </article>
 
 
