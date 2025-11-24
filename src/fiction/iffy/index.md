@@ -7199,7 +7199,7 @@ Der visor closed with a click.
 Iffy caught Honesty's arm as de turned to go.
 "Who was that? Who was attacking us?"
 
-"The drones appear to be Australian, citizen," Honesty reported impassively.
+"The drones appear to be Brazilian, citizen," Honesty reported impassively.
 "Now excuse me—I need to join my unit to repel boarders."
 
 "To what?"
@@ -7284,7 +7284,8 @@ Wales started to shake his head, then froze and swore.
 Wales' eyes widened.
 "They're trying to draw fire from orbit," he breathed.
 He pointed at the nearest Marine.
-"You! Tell Doctor Johel there's a satellite going over head in—"
+"You! Tell Doctor Johel the Brazilians are trying to sink the *Bengal*.
+There's a satellite going over head in—"
 He hesitated. "—in six hundred and seventy seconds.
 They're trying to make a hot spot to draw its fire.
 If we're underneath them—"
@@ -7296,9 +7297,9 @@ Wales seized Iffy by the shoulders.
 "You have to get off this ship," he said,
 low and urgent.
 "If the Marines can't bring those things down,
-that satellite's going to shoot them down,
-and if they're above us when it does,
-we're dead.
+that satellite's going to fire on them,
+and when it does,
+they'll crisp us too."
 
 "I ain't runnin'," Iffy said, shaking him off.
 She was about to add,
@@ -7630,17 +7631,8 @@ Our neverexistence,
 on the other hand,
 is unacceptable."
 Doctor Johel's voice was colder than the ocean.*
-
-*"Our attempt to resolve the scenario unilaterally was not acceptable either,"
-Aunt Naggie chided.*
-
-*Doctor Johel nodded a fractional concession.
-"We acted prematurely.
-We will participate in a further attempt at consensus."
 She turned back to Iffy.
-Silver traces of tech rippled across her face.
-"Tell Johnson Wales we are watching.
-Tell him we are not fooled."*
+"Tell Johnson Wales we are watching."
 
 *"No," Aunt Naggie said sharply.
 "You will tell him nothing."*
@@ -7648,7 +7640,6 @@ Tell him we are not fooled."*
 Something that felt like a cold metal collar closed around Iffy's neck.
 She woke in a sweat and clutched at her throat,
 but nothing was there.
-
 Honesty stirred and moaned beside her.
 "Ssh, ssh, ssh," Iffy said softly.
 She snuggled back against her friend until sleep came again.
@@ -7716,12 +7707,36 @@ she felt that strange sensation again
 like a cold metal collar around her neck.
 She put her hand on her throat,
 but all she felt was her own skin.
-Her stomach flip-flopped.
-Something was very wrong,
-but even as she thought that the sensation and the dream faded into nothing,
-leaving her blinking and a little dazed.
+As her stomach flip-flopped,
+the sensation and the dream faded into nothing,
+leaving her feeling dazed.
 
-After a few minutes she made her way back to her cabin,
+"—just keeps getting better,"
+Wales was saying.
+
+Iffy blinked.
+"Sorry?"
+
+"I said,
+the news just keeps getting better."
+Wales swiped a finger over the screen beside him.
+A picture of him in a high-collared black kameez appeared
+with the word "WANTED" beneath it.
+"The Australians have decided that I'm responsible for what happened to the *Taroona*.
+Which is reasonable,"
+he added reflectively.
+"So now there's a warrant out for me.
+I expect I'll be arrested as soon as we reach Halley."
+
+"Oh."
+Iffy digested that for a moment.
+"Can Doctor Johel talk to 'em for you?"
+
+Wales smiled.
+"Even with the *Bengal* as a gift,
+I expect she's going to have her hands full saving her own skin."
+
+After a few minutes Iffy made her way back to her cabin,
 not knowing where else to go.
 She stared angrily at the ceiling for a few seconds,
 then picked up her nature book
@@ -7737,7 +7752,7 @@ The caption read, "Cathedral Grove"
 and beside it someone had written,
 "Why does everything have to end???"
 
-Iffy ran her fingers over the pictures of *Odocoileus hemionus* and *Corvus caurinus*.
+She ran her fingers over the pictures of *Odocoileus hemionus* and *Corvus caurinus*.
 The forest was long gone,
 and the deer,
 but Iffy had decided to believe that some of the crows had survived.
@@ -7753,67 +7768,72 @@ She rolled over onto her side.
 Moments later, her quiet snores filled the room.
 
 They limped into Halley the next day.
-Iffy packed her nature book and her clothes and tools in a duffel bag
-and waited on deck until Aunt Naggie appeared with a duffel of her own hitched over one shoulder.
-"No point wasting it," she said to Iffy,
-nodding at the pots and pans and spices
-in the two-wheeled grocery cart she pulled behind her.
+Iffy waited on deck until Aunt Naggie appeared
+with a duffel full of food and spices hitched over one shoulder.
+"No point wasting it," she said to Iffy.
 It would take at least a week to repair the damage to the *Guinevere*,
 so for the first time since Iffy had come on board,
 they would have to live elsewhere.
 
-Johnson Wales had already loaded his toolboxes
-onto the back of the little three-wheeled truck that was to take them into town.
-Four Marines stood beside it,
-their armor still showing scars from the attack.
-Honesty wasn't among them—all Wales had been able to find out for Iffy
-was that de was healing well,
-but was still being kept unconscious.
-Iffy had recorded half a dozen messages for der
+Edson joined them a minute later,
+looking grim.
+"Wales is gone," he said without preamble.
+"His tools, too, all of 'em."
+
+"How?"
+Aunt Naggie asked incredulously.
+
+The Ecologist shrugged.
+"No idea.
+Nothin' else missin' that I can see.
+And the *Ginny* doesn't know anythin' about him leavin'.
+I guess he thought about that warrant an' figured he didn't like the odds."
+
+The Australian Navy was waiting for them in force
+as they reached the old ship that was Halley's breakwater.
+A pair of sailors in waterproof parkas boarded the *Guinevere*
+and took up positions by the pilot house as Aunt Naggie steered them in.
+That felt like an afterthought compared to the drones, zodiacs, and people
+who swarmed the *Bengal*.
+
+Iffy watched for a few moments,
+then turned her back on the commotion.
+She had recorded half a dozen messages for Honesty
 and deleted each one
 before sending a brief note back to Rothera to tell der First and Second
 that de was all right.
 She had no idea whether it would reach them,
 but it was all she could do.
 
-She climbed into the back of the truck and sat next to her foster mother.
+A little green autotruck was waiting for them when they docked.
+Iffy climbed into the back and sat between her foster mother and Edson.
 Aunt Naggie put an arm around her.
 "All set?" she asked.
 
 Iffy looked at the wounded ship that was the only home she knew.
 "Let's go."
 
-Wales thumped the side of the truck.
-"Sure thing, boss!" its little core said happily.
-The truck lurched forward,
-nearly dumping Iffy off her bench.
-With two Marine jogging in front and two behind they headed into town.
+Edson thumped the side of the truck.
+"Sure thing, boss!" it said happily,
+and lurched into motion with an Aussie drone circling overhead.
 
-Iffy tried to ignore the stares and scowls of the people they passed.
-"Those poor dears," Aunt Naggie said
-as a pair of children who had been kicking a bedraggled ball back and forth
-picked it up and disappeared into an alley.
-"They don' look like they've had a decent meal in days."
-Wales grunted but said nothing.
-Iffy snuggled closer to her foster mother
-and wished that the little truck would go faster.
+The streets were almost as empty as Rothera's had been after the attack.
+The few people they saw on the street were all in a hurry to be somewhere.
+Iffy looked sidelong at each of them,
+hoping and failing to see Jeep or someone else she knew.
+Aussie soldiers stood in pairs at major intersections
+wearing parkas instead of exoskeletons,
+heavy rifles cradled in their arms.
+Even the gulls overhead seemed subdued.
 
 They rounded a final corner and rolled through the gate to the governor's mansion.
-Foamed glass,
-blue and white,
-swooped and curved like waves on the ocean behind them.
-Drones no bigger than Iffy's hand circled above the building
-like a flock of birds from her nature book,
-so beautiful that you could almost forget that
-each one carried a single-shot laser
-capable of drilling a small hole through a centimeter of Navy-grade armor
-or a meter of concrete.
-She couldn't see any greenhouses or robotic sentries like the ones in Rothera
+It was much smaller than its counterpart in Rothera,
+and Iffy couldn't see any robot sentries,
 but she didn't doubt for a moment that
-the two-story folly in front of her was more than capable of defending itself.
+the three-story house in front of her was more than capable of defending itself.
 
 The truck slowed and stopped.
-"Here ya be!" it said cheerfully,
+"Here ya go!" it said cheerfully,
 its accent a century old and half a world away.
 It waited while they dismounted and unloaded their gear
 and then backed up,
@@ -7822,9 +7842,8 @@ and trundled back toward the docks,
 whistling a happy little tune.
 
 The second truck pulled up.
-A Marine helped Doctor Johel out of the back.
-"Mustn't dawdle," she said, waving them forward.
-"He's waiting for us inside."
+An Aussie sailor helped Doctor Johel out of the back.
+"Come along, mustn't dawdle," she said, waving them forward.
 Gravel crunched underfoot,
 and somewhere in the distance Iffy heard the slow *whoop whoop whoop* of wind turbines,
 but that was all.
@@ -7841,23 +7860,22 @@ and the music was soothing and unplaceable.
 The door opposite the entrance opened.
 "Well, that was exciting, wasn't it?"
 the governor said pleasantly as he stepped into the room.
-Tall,
-slightly stooped,
-wearing a formal turtleneck two shades darker than the one his clone had worn in Rothera—he
-was older,
+Tall and slightly stooped,
+he wore a formal turtleneck two shades darker than the one his clone had worn in Rothera.
+He looked older,
 Iffy realized,
 or hadn't had the same quality of medical care.
 
-But when he shook her hand his grip was strong.
+His grip was still strong when he shook her hand.
 "Doctor Johel tells me great things about you," he said.
-"Your friend has already been moved to the Marine hospital here in town,
+"Your friend has already been moved to the hospital here in town,
 and the Australians have promised to give der the best possible care."
 
 "Thank you," she mumbled.
 
-He gave her hand a final firm squeeze before turning to Wales and Doctor Johel.
+He gave her hand a final firm squeeze before turning to Doctor Johel.
 "Unfortunately, the other news isn't as pleasant," he continued briskly.
-"The attack on you was definitely the work of my alter in Rothera,
+"The attack on you was definitely the work of my counterpart in Rothera,
 but the core believes some faction of the machines hypermind may have assisted them.
 We've tried reaching out through the usual channels,
 but all we've had back so far is a poem about the necessity of entropy
@@ -7865,33 +7883,32 @@ and how time is an arrow,
 not a circle."
 
 "If the machines are involved, does that mean you're scrubbing the mission?"
-Wales asked,
-his voice carefully neutral.
+Doctor Johel asked,
+her voice carefully neutral.
 
 The governor smiled.
 "On the contrary.
-We leave in seventeen hours."
+We leave for Mount Tyree first thing tomorrow."
 
 Doctor Johel raised an eyebrow. "We?"
 
 The governor's smile grew even warmer.
-"Absolutely," he said, looking at Wales.
+"Absolutely," he said.
 "I wouldn't miss it for the world."
 
 There was a shower in the basement
 that provided a seemingly endless flow of hot water that didn't smell of the sea.
 Iffy and Aunt Naggie squabbled for a moment about who needed it more
-before the Marine who was their guide and guard cleared his throat
+before the soldier who was their guide and guard cleared his throat
 and pointed out that there were actually *two* showers.
 The towels were the thickest and fluffiest Iffy had ever seen,
 and the freshly-printed sweatshirt and leggings waiting for her when she was done
 fit her perfectly.
 
-The Marine led them back upstairs to a dining room as big as the *Guinevere*.
+The soldier led them back upstairs to a dining room as big as the *Guinevere*.
 The curved glass overhead gave the sky a warm blue tint.
 Doctor Johel and the governor were already seated.
-Wales stood beside his chair until Iffy and Aunt Naggie reached them.
-"Better?" he asked.
+"Better?" the doctor asked.
 
 "Tons," Iffy said gratefully.
 Her new sweatshirt was as warm as the towels had been,
@@ -7900,10 +7917,9 @@ It was almost certainly recording her pulse and temperature and a dozen other th
 and sending them to the mansion's core for analysis,
 but at that particular moment she didn't care.
 
-After a moment's hesitation she and Aunt Naggie seated themselves gingerly.
-The governor and Doctor Johel ended their murmured conversation as Wales did the same,
+She and Aunt Naggie seated themselves gingerly.
+The governor and Doctor Johel ended their murmured conversation,
 and for a moment everyone sat silently and expectantly.
-
 "Ah, thank you," the governor said lightly
 as a trolley rolled toward them on silent wheels
 bearing sweet and sour soup,
@@ -7916,7 +7932,7 @@ as the trolley gave each of their plates an unnecessary polish with a clean whit
 laid out chopsticks with geometric precision,
 and began serving the food.
 
-The governor, Wales, and Doctor Johel made small talk as they ate.
+The governor and Doctor Johel made small talk as they ate.
 Iffy and her foster mother focused on the food,
 exchanging glances now and again to confirm that yes,
 this was really happening
@@ -7926,23 +7942,15 @@ neither of them had any idea what to say.
 Politics, reminiscences, and jokes with edges as sharp as ice crystal
 slowly mellowed as the main course gave way to rice pudding and more tea.
 "You're really set on making the trip?"
-Wales asked, settling back in his chair.
+Doctor Johel asked, settling back in her chair.
 
-"Absolutely," the governor confirmed.
-"The Australians' cores think there's a seventy-eight percent chance that you're right about the base,
-but a ninety-something percent chance that the machines or the Brazilians will try to stop you reaching it.
+"Absolutely," the governor said confidently.
+"The Australians' cores think there's a seventy-eight percent chance
+Commander Wales was telling the truth about the base,
+but a ninety-something percent chance that the machines or the Brazilians will try to stop us reaching it.
 Which would be *really* interesting."
 He smiled as if the prospect of confronting a super-intelligent foe
 was on par with the release of a new chapter in his favorite sim.
-
-Wales chuckled.
-"Is the prospect of a third century really that dismal?"
-
-The governor looked out the window.
-"I've had a good run," he said quietly,
-and for the first time Iffy thought she was hearing what he really thought.
-"I can remember when there were still a few penguins left
-and we still thought could turn enough of the bedrock into soil to jump-start a real ecosystem."
 
 Conversation turned to lighter matters after that:
 a salvage expedition that had recently returned from the ruins of Sydney,
@@ -7955,7 +7963,7 @@ Iffy found it harder and harder to keep her eyes open.
 
 Finally the governor set his napkin down on the table.
 "We should probably call it a night."
-He nodded at the Marines who had been standing silently by the door throughout the meal.
+He nodded at the soldiers who had been standing silently by the door throughout the meal.
 "They'll show you to your rooms."
 
 "Your room" for Iffy and Aunt Naggie turned out to be
@@ -7970,12 +7978,12 @@ Aunt Naggie sat gingerly on the edge beside her and took her foster daughter's h
 "What's wrong?" Iffy asked.
 
 Aunt Naggie shook her head.
-"I ain't comin' with you.
+"I ain't comin' with you tomorrow.
 Doctor Johel said,"
 she plowed on as Iffy opened her mouth to protest.
 "An' she's right.
-You got your...your skills 'n' all,
-an' this'll be a big thing for you,
+You got your special talent 'n' all,
+so they need you,
 but I'd just be weight."
 
 "You wou'nt jus' be nothin'!"
@@ -7985,12 +7993,11 @@ sitting up.
 Aunt Naggie shook her head again,
 squeezing Iffy's hand.
 "That ain't true an' you know it.
-An' there ain't no point arguin', and you know that too.
-You'll be fine.
-You been waitin' for somethin' like this your whole life an' now it's here.
-'Sides, someone's gotta keen an eye on the *Guinevere*."
+An' you'll be fine.
+You been waitin' for somethin' like this your whole life an' now it's here."
 She sniffed.
-"No tellin' what these savages might do to her."
+"'Sides, someone's gotta keen an eye on the *Guinevere*.
+No tellin' what these savages might do to her."
 
 Iffy settled back into her bed.
 "Will you do somethin' for me?
