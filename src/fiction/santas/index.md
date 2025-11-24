@@ -5203,10 +5203,10 @@ The cans of paint were sorted by color and size,
 the boxes of screws were stacked in perfect layers,
 and there wasn't a speck of sawdust or a single stray metal filing to be seen.
 
-"Well hello," a familiar voice said.
+"Well hello," said a voice that was both familiar and strange.
 He turned around,
 dreading what he would see.
 
-A robotic version of Shady Ann raised a tentative hand.
+A robotic version of himself raised a tentative hand.
 
 </section>
