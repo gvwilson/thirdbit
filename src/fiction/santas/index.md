@@ -2365,10 +2365,11 @@ turned a second key in another lock,
 and swung the door open.
 
 "Wow," Finner said.
-The workroom in front of him was as clean as the subway behind him wasn't.
+The workroom in front of him was as clean as the subway behind him wasn't,
+but as messy as his bedroom on a weekend.
 A double dozen workbenches lined the walls,
 each one bearing lathes, saws, drills, and shelves of spare parts.
-Cans of paint and oil were stacked neatly between them,
+Cans of paint and oil were stacked haphazardly between them,
 but he didn't see any of that,
 not at first,
 because standing in the center of the room was a red and white subway train.
@@ -2431,7 +2432,7 @@ the whole truth seemed ill-advised.
 So if I could just use yours to get home, I'd really appreciate it."
 
 "I'm afraid that will be rather difficult,"
-the Elfabot said,
+Elfabot said,
 poking its head out from underneath the train's engine.
 "You see,
 the only one left in this world is in the factory that Santazilla is guarding."
@@ -2470,7 +2471,7 @@ They never talked about the fact that they were santas.
 They never talked about the santa's persistent cough,
 either,
 or the fact that whenever she needed something heavy lifted,
-the Elfabot did it for her.
+Elfabot did it for her.
 She wheezed faintly when she took her afternoon nap,
 and the bags under her eyes seemed to get darker by the day.
 
@@ -2483,7 +2484,7 @@ He needed to find out more about this world,
 and the only way to do that was to break into the only room that the santa kept locked.
 
 He spent several surreptitious hours studying *Yuen's Guide to Mechanical Locks (Abridged)*,
-then waited until the Elfabot was out on a scavenging expedition and the santa was asleep.
+then waited until Elfabot was out on a scavenging expedition and the santa was asleep.
 It took less time to pick the room's lock than he expected.[^lock-picking]
 When it clicked he took a deep breath and slowly opened the door,
 wincing at a slight squeak.
@@ -2518,7 +2519,7 @@ shifting his grip a moment later to get the thigh out of his face.[^thigh-face]
 [^thigh-face]: If you ever pick up a leg to wave at someone, please remember that it bends at the knee.
 
 "Please put that back,"
-the Elfabot said politely.
+Elfabot said politely.
 "Quietly, please—she needs her rest."
 
 Finner set the leg down meekly.
@@ -2564,7 +2565,7 @@ She shook her head as she climbed onto the sleigh's bench seat beside him.
 No,
 this is in case we run into anyone who isn't glad to see us.
 Shall we?"
-she continued to the Elfabot.
+she continued to Elfabot.
 
 The robot stepped between the sleigh's front shafts,
 grabbed hold with both hands,
@@ -2586,7 +2587,7 @@ as Finner passed him a box.
 
 "Ho ho ho," Finner replied weakly.
 The man's arms and jaw had mechanical joints,
-and his eyes were lightbulbs like the Elfabot's.
+and his eyes were lightbulbs like Elfabot's.
 Finner glanced sidelong at the santa,
 but she had sunk into her parka,
 and the shadows under her eyes were even deeper and darker
@@ -2594,7 +2595,7 @@ than when they left the subway station.
 
 They made half a dozen stops after that,
 and were met each time by someone cheerful and mechanical.
-When Finner finally worked up the courage to point this out to the Elfabot,
+When Finner finally worked up the courage to point this out to Elfabot,
 its response was,
 "It's best she doesn't know."
 
@@ -2660,7 +2661,7 @@ The Elfabot made cup after cup of tea,
 dosing it with something that made Finner's eyes water.
 
 He had so many questions to ask that he started writing a list,
-only to have the Elfabot tear it up.
+only to have Elfabot tear it up.
 "She will tell you what she wants to tell you when she wants to tell you,"
 it told him when he protested.
 It waited until he nodded,
@@ -2682,7 +2683,7 @@ Shady Ann smiled back wanly.
 "Something like that."
 
 It took them another week to finish fixing the subway train.
-Finner enjoyed it despite worrying about what the Elfabot might do.
+Finner enjoyed it despite worrying about what Elfabot might do.
 He bashed his thumb with a mallet at one point,
 which really hurt,
 and he was frustrated over and over again by how little he knew,
@@ -2699,7 +2700,7 @@ oiled pistons,
 and cleaned the grime out of window jambs
 so that the sashes slid up and down with only a faint *ssh*.
 
-Every once in a while the Elfabot bleeped a warning.
+Every once in a while Elfabot bleeped a warning.
 Finner held his breath while heavy steps thudded on the ground above their heads.
 None of them moved until the sound had receded into the distance.
 
@@ -2724,7 +2725,7 @@ Finner interrupted.
 "Oh yes."
 She tapped the map with a grimy finger.
 "It wouldn't be at all safe to stop.
-But don't worry, the Elfabot says the snowbank is quite deep."
+But don't worry, Elfabot says the snowbank is quite deep."
 
 When the time came to leave,
 she was too weak to drive.
@@ -2752,7 +2753,7 @@ It was heavy,
 but the weight was welcome.
 
 "All set?"
-the Elfabot asked as Finner closed the subway door behind himself.
+Elfabot asked as Finner closed the subway door behind himself.
 
 "No," Finner said.
 He through the window at Shady Ann,
@@ -2770,7 +2771,7 @@ like the ones I made of the others.
 I think a copy would just make me feel lonely."
 
 Before Finner could ask any of questions that prompted,
-the Elfabot pulled first one lever and then another.
+Elfabot pulled first one lever and then another.
 The subway car vibrated faintly as the engine came to life.
 The robot slowly pressed a pedal down with a booted foot.
 At first nothing happened,
@@ -2789,16 +2790,16 @@ so as not to reveal the work to Santazilla.
 They hurtled past its hard work in moments.
 Finner whooped as they shot out of the darkness into the gray light of an overcast day.
 
-"Here we go," the Elfabot said unnecessarily
-as they crested the top of the track and hurtled down into a corkscrew section.
+"Here we go," Elfabot said unnecessarily
+as they crested the top of the track and hurtled down into a roller coaster section.
 Half the lights on the control panel were red.[^panel-lights]
 Finner tightened his grip on the overhead bar and put his other hand over his mouth.
-He was upside down,
-right-side up,
-upside down again,
+He went up,
+down,
+up again,
 and—nope,
-now he was sideways as they rocketed around an impossibly tight turn,
-or at least his body was sideways,
+now he was almost sideways as they rocketed around an impossibly tight turn,
+or at least it felt like his body was sideways,
 he wasn't sure where the cold beans he'd had for breakfast were going.
 
 [^panel-lights]: Most of the others had either given up or were too scared to do anything.
@@ -2809,7 +2810,7 @@ The few shards of glass left in their windows looked like jagged teeth in hungry
 Then a windowless tower a few blocks away lifted, swung forward, and came down
 with a thud that made the train shiver on the tracks.
 "Oh dear,"
-the Elfabot said.
+Elfabot said.
 
 "It's trying to cut us off!" Finner shouted.
 
@@ -2840,7 +2841,7 @@ and punched it with a fist.
 *Clunk!*
 The hitch connecting the caboose snapped open.
 As the rest of the train pulled away from it,
-the Elfabot counted,
+Elfabot counted,
 "One smelly reindeer, two smelly reindeer…"
 At "five"
 the car exploded
@@ -2856,7 +2857,7 @@ you would probably express your annoyance with a earth-shaking roar
 and knock over a building or two.
 
 "Now!"
-the Elfabot shouted as Santazilla struggled back to its feet.
+Elfabot shouted as Santazilla struggled back to its feet.
 "Jump *now*!"
 
 Finner jumped.
@@ -3193,7 +3194,7 @@ glancing at Santa Hood.
 [^everything-hour]: Fun fact: if could talk approximately 120,094,200,000,000 times faster than normal, you could tell someone everything that had happened to a single subatomic particle since the beginning of the universe.
 
 Gran-Granna Tumbly's habitual scowl deepened
-as Finner described his rescue by the Elfabot,
+as Finner described his rescue by Elfabot,
 the subway workshop,
 and Shady Ann's deliveries.
 "At least she hasn't gone completely flip,"
@@ -4709,7 +4710,7 @@ he added to Finner.
 a familiar voice finished.
 
 Finner whirled around.
-"Hello," the Elfabot said,
+"Hello," Elfabot said,
 its cheerful tone at odds with the rather large ray gun it was pointing at Captain Clausbeard.
 Half a dozen other bots stood beside with similar weaponry pointed in similar directions.
 Some still wore the human faces Finner had seen when doing deliveries,
@@ -4717,7 +4718,7 @@ but had dispensed with the parkas and gloves that had hidden their steel frames.
 Others had discarded part or all of their faces,
 revealing skull-like grins that were more terrifying than the angry santasaurus's teeth.
 
-"Please don't," the Elfabot continued calmly
+"Please don't," Elfabot continued calmly
 as Captain Clausbeard's hand twitched toward his own ray gun.
 "We've done our best to adjust these to stun,
 but our calculations are obviously not precise.
@@ -4734,7 +4735,7 @@ one of the other robots volunteered.
 these attractive modern buildings have been topped up with—"
 
 "Thank you,"
-the Elfabot cut in.
+Elfabot cut in.
 "I'm sure you'll find them quite comfortable.
 At least I hope you will,
 because I expect you're going to be there for the rest of your lives."
@@ -4780,7 +4781,7 @@ more certain with every block that this *was* his fault.
 At one point their path took them beneath a raised track.
 A shallow crater and the remains of a subway car,
 both lightly dusted with snow,
-were evidence of Finner and the Elfabot's previous encounter with Santazilla.
+were evidence of Finner and Elfabot's previous encounter with Santazilla.
 He paused for a moment as if to catch his breath[^catch-breath]
 and looked back along the tracks.
 There:
@@ -4792,7 +4793,7 @@ before one of the robots waved its ray gun to show that he should keep moving.
 A few minutes later they turned a corner and he stopped short.
 One of the pirates said a bad word.
 Another shushed her.
-"Welcome to Flump Street," the Elfabot said brightly.
+"Welcome to Flump Street," Elfabot said brightly.
 
 The short street in front of them was as clean and well-kept
 as the rest of the city wasn't.
@@ -4806,7 +4807,7 @@ and was that *chocolate* that Finner could smell,
 chocolate and cinnamon?
 
 "And this one is yours,"
-the Elfabot said,
+Elfabot said,
 as cheerful as ever.
 It waved Finner and Captain Abacus through a wrought iron gate
 decorated with holly.
@@ -4892,7 +4893,7 @@ Captain Abacus said quietly.
 "But that doesn't explain why the robot is replacing people."
 
 "I'm trying to give you a chance to learn how to get along with each other,"
-the reindeer rocking horse said in the Elfabot's voice.
+the reindeer rocking horse said in Elfabot's voice.
 Gran-Granna Tumbly rolled her eyes
 as Captain Abacus's hand flew to the cutlass that wasn't on her belt.
 "It's what she wanted most in all the wide worlds,
@@ -5011,7 +5012,7 @@ and I'm *sure* she'd rather not have to constantly be biting her tongue."
 
 Finner leaned back far enough to see the reindeer in the living room.
 He really hoped that the lack of light in its eyes meant that
-the Elfabot's attention was elsewhere.
+Elfabot's attention was elsewhere.
 "That's what I thought,
 which is why I'm going to break us out of here."
 
@@ -5095,7 +5096,7 @@ or leaving a note for Gran-Granna Tumbly,
 but eventually decided that he didn't want to get the former in trouble
 and didn't know what to say to the latter.
 He thought about telling Captain Clausbeard his plans as well,
-but after he and some of his crew tried to dismantle one of the Elfabot's minions,
+but after he and some of his crew tried to dismantle one of Elfabot's minions,
 they were put under double watch.
 
 He felt strangely calm as he laced up his boots and donned his parka,
@@ -5122,7 +5123,8 @@ studying him for a moment before nodding slowly and following der teammate.
 
 The door to the basement had a lock.
 A quick twist of his mittened wrist set it to snib into place behind him.
-He hurried down the stairs into the gloom,
+He turned on his flashlight,
+hurried down the stairs into the gloom,
 picked his way through the boxes and rubble,
 and opened the door he had discovered on the far side,
 wincing as the hinges squeaked in protest.
@@ -5148,7 +5150,7 @@ As he reached the top he saw the tinsel who had caught his eye
 through a window in the top of the cheese shop.
 De raised a hand in salute.
 Finner shifted the bicycle to wave back,
-then set its tireless wheels on the nearest rail of the track.
+then set the grooves of its tireless wheels on the nearest rail of the track.
 He grinned:
 it was nearly a perfect fit.
 
@@ -5156,5 +5158,55 @@ it was nearly a perfect fit.
 he said out loud.
 Settling himself on the seat,
 he began to pedal.
+
+The rail was slippery with ice in places,
+and he hadn't included freezing sideways gusts of wind in his plan.
+He still couldn't stop himself from grinning as he picked up speed.
+Somewhere behind him he heard a mechanical shout
+as his robot warder realized he was escaping.
+He started to raise his hand to make a rude gesture,[^rude-gesture]
+but hastily grabbed the bicycle's handlebar again as it wobbled alarmingly.
+
+[^rude-gesture]: Which would have been completely wasted given that he was wearing mittens.
+
+By the time he reached the first bend in the track
+he was drenched in sweat and puffing like a locomotive.
+*Keep going,* he told himself,
+not daring to look back for fear that if he did he would catch Santazilla's eye.
+Another bend,
+a slight dip too shallow for him to have noticed while he was riding the subway with Elfabot,
+the overgrown park,
+the towering buildings whose broken windows looked like mouths full of jagged teeth
+and then the stretch he had been dreading
+where the track went up and down, up and down like a roller coaster.
+
+He slowed, stopped, and dismounted.[^dismount]
+His cheeks were frozen,
+and he could already feel the muscles in his legs stiffening up,
+but there wasn't time for any of that.
+He climbed down off the track and hurried toward the mouth of the subway tunnel.
+Just as he reached it he heard an enormous, furious bellow behind him.
+The earth shook and dust rained down from the brick archway over his head
+as he plunged into the gloom.
+
+[^dismount]: Falling clumsily to one side is technically a form of dismounting.
+
+The subway station looked just as it had when he last saw it.
+He pulled off a mitten to type the code into the panel beside the heavy metal door,
+swung it open,
+and stepped into Shady Ann's workroom.
+
+"Oh," he said quietly.
+"Oh, no."
+The warm chaos had been transformed into tidy, sterile order.
+The cans of paint were sorted by color and size,
+the boxes of screws were stacked in perfect layers,
+and there wasn't a speck of sawdust or a single stray metal filing to be seen.
+
+"Well hello," a familiar voice said.
+He turned around,
+dreading what he would see.
+
+A robotic version of Shady Ann raised a tentative hand.
 
 </section>
