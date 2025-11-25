@@ -8,9 +8,10 @@ import simpy
 
 PARAMS = {
     "max_dev_time": 10.0,
-    "max_test_time": 8.0,
+    "min_test_fraction": 0.5,
+    "max_test_fraction": 1.5,
     "num_developers": 2,
-    "num_testers": 3,
+    "num_testers": 2,
     "random_seed": 12345,
     "simulation_time": 1000,
     "task_arrival_rate": 2.0,
@@ -72,8 +73,10 @@ class Simulation:
     def dev_time(self):
         return random.uniform(1, self.params["max_dev_time"])
 
-    def test_time(self):
-        return random.uniform(1, self.params["max_test_time"])
+    def test_time(self, task):
+        return task["dev_time"] * random.uniform(
+            self.params["min_test_fraction"], self.params["max_test_fraction"]
+        )
 
 
 class Labeled:
@@ -115,14 +118,13 @@ class Task(Labeled):
             Task._dev_queue.append((sim.now, len(sim.dev_queue.items)))
             yield sim.dev_queue.put(task)
 
-
     def __init__(self, sim):
         """Construct."""
 
         super().__init__()
         self["arrived"] = sim.now
         self["dev_time"] = sim.dev_time()
-        self["test_time"] = sim.test_time()
+        self["test_time"] = sim.test_time(self)
 
 
 class Developer(Labeled):
@@ -194,19 +196,18 @@ def make_log(sim):
     log = {}
 
     for name, entries in (
-            ("dev_queue", Task._dev_queue),
-            ("test_queue", Task._test_queue),
+        ("dev_queue", Task._dev_queue),
+        ("test_queue", Task._test_queue),
     ):
         log[name] = [
-            {"time": log_fmt(time), "count": length}
-            for (time, length) in entries
+            {"time": log_fmt(time), "count": length} for (time, length) in entries
         ]
 
     time_log = [("kind", "id", "key", "value")]
     for class_name, keys in (
-            ("Task", TASK_KEYS),
-            ("Developer", DEVELOPER_KEYS),
-            ("Tester", TESTER_KEYS)
+        ("Task", TASK_KEYS),
+        ("Developer", DEVELOPER_KEYS),
+        ("Tester", TESTER_KEYS),
     ):
         name = class_name.lower()
         log[name] = [
@@ -245,6 +246,7 @@ def main(params):
     # Report results.
     log = make_log(sim)
     json.dump(log, sys.stdout)
+
 
 if __name__ == "__main__":
     main(PARAMS)

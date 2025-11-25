@@ -10,7 +10,7 @@ PARAMS = {
     "max_dev_time": 10.0,
     "max_test_time": 8.0,
     "num_developers": 2,
-    "num_testers": 3,
+    "num_testers": 2,
     "random_seed": 12345,
     "simulation_time": 1000,
     "task_arrival_rate": 2.0,

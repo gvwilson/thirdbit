@@ -81,6 +81,82 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/11/25/you-cant-tell/">
+      You Can't Tell
+    </a>
+  </h2>
+  <p><time datetime="2025-11-25" class="post-date">2025-11-25</time></p>
+  <p><a href="../2025/11/24/analyzing-simulation/">Yesterday&rsquo;s post</a> checked our prediction
+about where work would pile up.
+As a reminder,
+here are plots showing the lengths of the development and testing queues
+and how much time developers and testers spend working and waiting:</p>
+<div class="row">
+  <div class="col-6 center">
+    <img src="../files/2025/11/24/queues.svg" alt="time-series chart of queue lengths" width="90%">
+  </div>
+  <div class="col-6 center">
+    <img src="../files/2025/11/24/times.svg" alt="time-series chart of developer and tester time" width="90%">
+  </div>
+</div>
+
+<p>Let&rsquo;s change a single parameter and re-run the simulation.
+We see a few jobs waiting in the testing queue more often,
+and more importantly,
+that testers are spending most of their time working instead of waiting:</p>
+<div class="row">
+  <div class="col-6 center">
+    <img src="../files/2025/11/25/two-testers-queues.svg" alt="time-series chart of queue lengths" width="90%">
+  </div>
+  <div class="col-6 center">
+    <img src="../files/2025/11/25/two-testers-times.svg" alt="time-series chart of developer and tester time" width="90%">
+  </div>
+</div>
+
+<p>Here&rsquo;s the key question,
+and the main point of this series of posts:</p>
+<div class="center">
+<p><em>Can you tell from these graphs alone which parameter changed?</em></p>
+</div>
+<p>The answer is &ldquo;no&rdquo;.
+It&rsquo;s clear that <em>something</em> has changed,
+but our two-plot dashboard doesn&rsquo;t give us enough insight for us to know what.
+In this case the answer is that we cut the number of testers on the team from 3 to 2
+while leaving both developers in place.
+Testing still takes an average of 4.5 timesteps,
+while development takes an average of 5.5 timesteps,
+so the developers still can&rsquo;t keep the testers busy all the time,
+but <em>you can&rsquo;t tell this from these plots</em>.</p>
+<p>Let&rsquo;s stick to two developers and two testers and make one more change.
+The testers are now busy almost all the time,
+and the testing queue always seems to have a backlog,
+but that backlog doesn&rsquo;t appear to grow over time:</p>
+<div class="row">
+  <div class="col-6 center">
+    <img src="../files/2025/11/25/queues.svg" alt="time-series chart of queue lengths" width="90%">
+  </div>
+  <div class="col-6 center">
+    <img src="../files/2025/11/25/times.svg" alt="time-series chart of developer and tester time" width="90%">
+  </div>
+</div>
+
+<p>Again,
+you can&rsquo;t tell from these plots alone what changed.
+In this case it isn&rsquo;t just a parameter:
+instead of the testing time being completely independent of the development time,
+we&rsquo;re multiplying the development time by a random number between 0.5 and 1.5
+to determine the testing time,
+on the theory that things that take longer to develop
+usually take longer to test as well.
+This is a fundamental change to the model,
+but if we didn&rsquo;t have access to the simulation and its parameters
+(which we wouldn&rsquo;t in the real world),
+we would need to look collect different data and look at it more closely
+to figure out what the hell was going on.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/11/24/analyzing-simulation/">
       Analyzing the Simulation
     </a>
@@ -1495,218 +1571,6 @@ And what does it tell us about how long tasks take to complete
 and how busy developers are?
 To answer those questions,
 we need to collect some data and do a bit of analysis.
-Stay tuned…</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/11/18/starting-to-simulate/">
-      Starting to Simulate
-    </a>
-  </h2>
-  <p><time datetime="2025-11-18" class="post-date">2025-11-18</time></p>
-  <p>Inspired in part by <a href="https://sim.curiousduck.io/">the software development simulator</a>
-that Elisabeth Hendrickson and friends built,
-I&rsquo;ve been toying with the idea of using <a href="https://simpy.readthedocs.io/">SimPy</a> to create something
-that could be used in a half-day workshop to
-(a) show people how powerful discrete event simulation can be, and
-(b) demonstrate why simple measurements of developers&rsquo; work are almost always misleading.
-It&rsquo;s been thirty-five years since I did this kind of simulation,
-SimPy uses some features of Python that I haven&rsquo;t kept up with,
-and I&rsquo;ve never taught this topic before,
-so I&rsquo;m planning to do a few blog posts about how it works and what I&rsquo;m learning.</p>
-<h2>Generators</h2>
-<p>A <em>generator</em> is a Python function that creates an object
-which uses its stack to maintain persistent state.
-That probably doesn&rsquo;t make any sense unless you already understand it,
-so here&rsquo;s an example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gen_char_from_string</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-</code></pre></div>
-<p>The magic is the keyword <code>yield</code>,
-which tells Python that this function creates a generator.
-(I think the code would be easier to understand
-if a keyword like <code>gen</code> had to be used instead of <code>def</code>,
-but that ship sailed a long time ago.)
-We can use our generator like this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">gen</span> <span class="o">=</span> <span class="n">gen_char_from_string</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">ch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ended by exception&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>As this code shows,
-calling <code>gen_char_from_string</code> creates an object rather than immediately returning a value.
-Each time we call <code>next</code> on that object,
-it advances to the next <code>yield</code>.
-The generator object preserves its stack,
-so the local variables <code>text</code> and <code>i</code> persist from one invocation to the next.
-When execution reaches the end of the generator,
-Python thows a <code>StopIteration</code> exception to tell us it&rsquo;s done.</p>
-<p>Why go to all this trouble?
-First,
-<code>for</code> loops understand how to interact with generators,
-so we can rewrite the snippets above as:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gen_char_from_string</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">ch</span>
-
-<span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="n">ch</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">gen_char_from_string</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;result as list: </span><span class="si">{</span><span class="n">characters</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>Second,
-we can do things like create &ldquo;infinite&rdquo; generators:</p>
-<p><div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gen_infinite</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">text</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
-        <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-
-
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">gen_infinite</span><span class="p">(</span><span class="s2">&quot;three&quot;</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>0 t
-1 h
-2 r
-3 e
-4 e
-5 t
-6 h
-7 r
-8 e
-9 e
-</code></pre></div></p>
-<p>or generate the cross-product of two arbitrary collections:</p>
-<p><div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gen_combinations</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">left_item</span> <span class="ow">in</span> <span class="n">left</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">right_item</span> <span class="ow">in</span> <span class="n">right</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="p">(</span><span class="n">left_item</span><span class="p">,</span> <span class="n">right_item</span><span class="p">)</span>
-
-
-<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">gen_combinations</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>(&#39;a&#39;, 1)
-(&#39;a&#39;, 2)
-(&#39;a&#39;, 3)
-(&#39;b&#39;, 1)
-(&#39;b&#39;, 2)
-(&#39;b&#39;, 3)
-(&#39;c&#39;, 1)
-(&#39;c&#39;, 2)
-(&#39;c&#39;, 3)
-</code></pre></div></p>
-<p>We can even store our generators in a list (after all, they&rsquo;re just objects)
-and then use them however we want:</p>
-<p><div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">alternate</span><span class="p">(</span><span class="n">processes</span><span class="p">):</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">proc</span> <span class="ow">in</span> <span class="n">processes</span><span class="p">:</span>
-                <span class="k">yield</span> <span class="nb">next</span><span class="p">(</span><span class="n">proc</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-            <span class="k">break</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">v</span>
-
-<span class="n">sequences</span> <span class="o">=</span> <span class="p">[</span><span class="n">seq</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">),</span> <span class="n">seq</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)]</span>
-<span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">alternate</span><span class="p">(</span><span class="n">sequences</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>a
-1
-b
-2
-</code></pre></div></p>
-<h2>Discrete Event Simulation</h2>
-<p><em>Discrete event simulation</em> models a system as a series of events,
-each of which occurs at a particular instant in time.
-We can simulate such a system by advancing the clock one tick at a time,
-but it&rsquo;s more efficient to have each <em>process</em> tell us when it&rsquo;s next going to do something
-and then jump ahead to the least of those times.</p>
-<blockquote>
-<p>Note: we&rsquo;re using the word &ldquo;process&rdquo; to mean &ldquo;something active&rdquo;
-rather than &ldquo;an operating system process&rdquo;.
-I prefer the word &ldquo;actor&rdquo;,
-but &ldquo;process&rdquo; is pretty deeply embedded in discrete event simulation terminology.</p>
-</blockquote>
-<p>SimPy handles all these details for us.
-All we have to do is:</p>
-<ol>
-<li>Create an <em>environment</em> that stores all the SimPy-ish stuff
-    like the list of running processes.</li>
-<li>Give it some processes to run.</li>
-<li>Tell it to run the simulation until all the processes are done.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">simpy</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">job_time</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">job_time</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simulation completed at T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>The key thing here is that <code>worker</code> <em>isn&rsquo;t</em> a normal function call.
-Instead of handing a value to <code>env.process</code>,
-it creates a generator for the environment to run.
-That generator yields <code>env.timeout(delay)</code> to tell SimPy
-that it wants to wait for a certain length of time,
-e.g.,
-to simulate being busy.
-(Processes can yield other things as well—we&rsquo;ll see some in future posts.)</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">worker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">,</span> <span class="n">num_jobs</span><span class="p">,</span> <span class="n">job_time</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Actor with fixed-time jobs.&quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> starts&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">job_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_jobs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> starts job </span><span class="si">{</span><span class="n">job_num</span><span class="si">}</span><span class="s2"> duration </span><span class="si">{</span><span class="n">job_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">job_time</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> finishes job </span><span class="si">{</span><span class="n">job_num</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T=</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2"> worker </span><span class="si">{</span><span class="n">worker_id</span><span class="si">}</span><span class="s2"> finishes&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>Here&rsquo;s the output:</p>
-<div class="highlight"><pre><span></span><code>T=0 worker 1 starts
-T=0 worker 1 starts job 0 duration 2
-T=0 worker 2 starts
-T=0 worker 2 starts job 0 duration 3
-T=2 worker 1 finishes job 0
-T=2 worker 1 starts job 1 duration 2
-T=3 worker 2 finishes job 0
-T=3 worker 2 starts job 1 duration 3
-T=4 worker 1 finishes job 1
-T=4 worker 1 starts job 2 duration 2
-T=6 worker 2 finishes job 1
-T=6 worker 2 starts job 2 duration 3
-T=6 worker 1 finishes job 2
-T=6 worker 1 finishes
-T=9 worker 2 finishes job 2
-T=9 worker 2 finishes
-Simulation completed at T=9
-</code></pre></div>
-<h2>Next Steps</h2>
-<p>A couple of workers doing fixed-size jobs, completely independently,
-isn&rsquo;t a particularly interesting scenario.
-The next post in this series will look at two things:</p>
-<ol>
-<li>How do we make a more realistic simulation?</li>
-<li>How do we create more comprehensible output?</li>
-</ol>
-<p>These questions are equally important because
-there&rsquo;s no point building something whose results we can&rsquo;t understand (and check).
 Stay tuned…</p>
 </article>
 
