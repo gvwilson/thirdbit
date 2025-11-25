@@ -7888,13 +7888,22 @@ her voice carefully neutral.
 
 The governor smiled.
 "On the contrary.
-We leave for Mount Tyree first thing tomorrow."
+We leave for Mount Tyree the day after tomorrow."
 
 Doctor Johel raised an eyebrow. "We?"
 
 The governor's smile grew even warmer.
 "Absolutely," he said.
-"I wouldn't miss it for the world."
+"I wouldn't miss it for the world.
+It's just a shame Commander Wales wasn't able to join us.
+I don't suppose you'd know anything about that?"
+
+Doctor Johel shook her head.
+"Believe me,
+I'm as annoyed as you are.
+And as puzzled.
+I can only assume that he had some assistance."
+She very pointedly didn't look at Iffy as she spoke.
 
 There was a shower in the basement
 that provided a seemingly endless flow of hot water that didn't smell of the sea.
@@ -8014,9 +8023,98 @@ I don't figure there'll be much time for it once you're on your way."
 
 <section markdown="1">
 
-## Chapter 9: The Puppet Master
+## Chapter 9
 
-FIXME
+Iffy took another shower in the morning,
+wondering as she did so what it would be like
+to be the sort of person who could shower every single day.
+She made and discarded half a dozen plans for sneaking out
+as she let the hot water pummel her,
+only to find a note on her app from Doctor Johel after she toweled off.
+Apparently she was free to do whatever she wanted
+as long as she stayed in Halley and didn't try to re-board the *Guinevere*.
+
+She showed the note to Aunt Naggie and Edson.
+"I s'pose you'll want to go along by the hospital,"
+her foster mother said.
+
+"An' see Jeep an' Mister Mishra,"
+Iffy said through a mouthful of sweetened porridge.
+"Might do that first."
+
+Edson scraped the last of his own porridge out of his bowl
+and set it aside.
+Unlike Iffy and Aunt Naggie,
+he seemed unbothered by the empty tables in the mansion's dining hall.
+"We're goin' along by the Sandhus.
+For groceries an' gossip,"
+he added,
+glancing at the ceiling.
+
+Someone or something had cleaned Iffy's coat and boots while she slept,
+which felt creepy in a way the hot shower and empty dining hall hadn't.
+The Aussie sailors on guard by the mansion's front door nodded to her as she left,
+then went back to looking ominous.
+The only sounds as she walked through the gate were her boots crunching on gravel
+and the whine of a saw cutting stone somewhere in the distance.
+
+Halley itself wasn't as quiet as it had been the day before,
+but still had the eerie emptiness of the morning after Midsummer's Day.
+Shops were closed or had their curtains drawn.
+All three of the town's cafés were open,
+but the only people in them were wearing uniforms.
+Some stopped to watch Iffy trudge past.
+Others just glanced at her before going back to
+talking more loudly than was necessary.
+
+No one answered when she knocked on the door of Mister Mishra's workshop.
+She dithered for a moment,
+then pulled her app out of her pocket.
+
+- `hey`
+
+Jeep answered almost immediately.
+
+- `hey is that you`
+
+- `ya`
+
+- `sec`
+
+A lock clicked, then another.
+A chain rattled.
+Jeep opened the door a crack,
+looked her up and down,
+then pulled it open just enough for her to slip through.
+
+"Y'aright?" she asked.
+
+He shook his head.
+"Abba's gone.
+Soldiers took 'im.
+My amma's along by her sister's."
+
+"Soldiers?
+You mean Aussies?
+Why'd they take your da?"
+
+Jeep scowled.
+"'Cuz his arm.
+They affled everyone with tech in 'em.
+Couple a been let go,
+they're still vettin' the rest."
+
+"I'm sorry," Iffy said,
+wondering again as she did so why she was being allowed to wander free
+when Doctor Johel knew at least some of what was in her head.
+
+Jeep shrugged.
+"Ain't your fault.
+You an' your aunt aright?"
+
+Iffy snorted.
+"No quick answer to that.
+Brew some an' I'll catch you up?"
 
 </section>
 
