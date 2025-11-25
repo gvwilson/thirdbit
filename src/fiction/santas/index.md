@@ -2523,7 +2523,7 @@ Elfabot said politely.
 "Quietly, please—she needs her rest."
 
 Finner set the leg down meekly.
-The Elfabot stepped aside to let him pass.
+Elfabot stepped aside to let him pass.
 As he did so,
 he caught a glimpse of a framed photograph on the wall next to the door
 of two middle-aged women in red-and-white coats holding hands.
@@ -2555,7 +2555,7 @@ His thighs were burning from trips up and down the broken escalator
 by the time the santa said,
 "Right, that's the last of it."
 
-The Elfabot gave him a parka that was only a couple of sizes too large.
+Elfabot gave him a parka that was only a couple of sizes too large.
 The santa put on a one-piece survival suit.
 "In case we run into Santazilla?" Finner asked
 as the santa checked and holstered a ray gun.
@@ -2574,7 +2574,7 @@ The sleigh lurched forward,
 then began to slide across the hard-packed snow.
 
 Their first stop came half an hour later.
-The Elfabot pulled the sleigh under an overhang
+Elfabot pulled the sleigh under an overhang
 in front of a tall building that Finner guessed had once been a hotel.
 Two figures in heavy coats and ski masks came out
 and took the boxes that Finner passed to them
@@ -2657,7 +2657,7 @@ The delivery trip exhausted Shady Ann.
 She spent all of the next day in bed,
 coughing when she was awake
 and wheezing when she was asleep.
-The Elfabot made cup after cup of tea,
+Elfabot made cup after cup of tea,
 dosing it with something that made Finner's eyes water.
 
 He had so many questions to ask that he started writing a list,
@@ -2733,7 +2733,7 @@ she was too weak to drive.
 she said,
 waving Finner away as he tried to help her down onto her couch.
 "Just need to rest for a bit.
-The Elfabot will get you there.
+Elfabot will get you there.
 But here,
 you should take this."
 She handed him a flat case held closed by a pair of snaps.
@@ -2784,7 +2784,7 @@ He grabbed a bar overhead to steady himself as Shady Ann waved one last time.
 Faster and faster they went,
 out of the workshop and into the tunnel.
 The train's headlamp came on as it raced along the tracks.
-The Elfabot had spent hours clearing debris from them,
+Elfabot had spent hours clearing debris from them,
 stacking fallen pieces of tile and masonry on a handcart to dump in side passages
 so as not to reveal the work to Santazilla.
 They hurtled past its hard work in moments.
@@ -2804,7 +2804,7 @@ he wasn't sure where the cold beans he'd had for breakfast were going.
 
 [^panel-lights]: Most of the others had either given up or were too scared to do anything.
 
-The Elfabot pedalled pedals and pulled levers
+Elfabot pedalled pedals and pulled levers
 as the ruined buildings around them grew taller.
 The few shards of glass left in their windows looked like jagged teeth in hungry mouths.
 Then a windowless tower a few blocks away lifted, swung forward, and came down
@@ -2814,7 +2814,7 @@ Elfabot said.
 
 "It's trying to cut us off!" Finner shouted.
 
-The Elfabot pulled another lever.
+Elfabot pulled another lever.
 Steam whistled from the control panel as they picked up even more speed.
 "Well then it's a good thing I took the safeties off the engine, isn't it?
 Otherwise it would shut down to stop from exploding!"
@@ -2824,14 +2824,14 @@ Finner twisted around.
 Santazilla had broken into a trot,
 each step eating up half a city block.
 
-The Elfabot tugged on Finner's sleeve.
+Elfabot tugged on Finner's sleeve.
 "Get ready!"
 
 Finner looked back again.
 The giant santasaurus was closing fast.
 "We're not going to make it!"
 
-The Elfabot's eyes flashed rapidly.
+Elfabot's eyes flashed rapidly.
 "That depends on whether it likes its presents or not."
 It flipped the safety cover off a big red button[^red-button]
 and punched it with a fist.
@@ -2870,7 +2870,7 @@ Finner jumped.
 
 Long-dead branches scratched his face as he landed in
 the bush next to the one he had been aiming for.
-The Elfabot rang the engine's bell for good luck as it accelerated,
+Elfabot rang the engine's bell for good luck as it accelerated,
 or possibly to try to get Santazilla to follow it.
 
 Santazilla ignored the train and roared again.
@@ -3203,7 +3203,7 @@ she muttered.
 "I think she's just trying to help,"
 Finner offered.
 "She feels pretty guilty about whatever happened.
-The Elfabot's actually not very good at making things."
+Elfabot's actually not very good at making things."
 *Not as good as I am,*
 he finished in his head.
 He had decided even before her interrogation started
@@ -4817,7 +4817,7 @@ decorated with holly.
 the captain said evenly.
 
 "Ha. Ha. Ha."
-The Elfabot and the robots around it laughed in unison,
+Elfabot and the robots around it laughed in unison,
 which instantly won first place for "creepiest thing that had happened to Finner recently".
 He swallowed,
 glanced at Captain Abacus,
@@ -5029,7 +5029,7 @@ though,
 and a quick examination of the front door convinced him that would be enough.
 
 The next step was to volunteer for scavenging.
-"The Elfabot seems to be able to have Santazilla under control,"
+"Elfabot seems to be able to have Santazilla under control,"
 he told Gran-Granna Tumbly when she said it would be dangerous.
 
 "That's not the kind of danger I mean,"
@@ -5203,10 +5203,64 @@ The cans of paint were sorted by color and size,
 the boxes of screws were stacked in perfect layers,
 and there wasn't a speck of sawdust or a single stray metal filing to be seen.
 
-"Well hello," said a voice that was both familiar and strange.
+"Hello," said a voice that was both familiar and strange.
 He turned around,
 dreading what he would see.
 
-A robotic version of himself raised a tentative hand.
+A robotic version of himself raised a hand.
+Finner waved back uncertainly.
+The robot wore the face he he saw in the mirror every morning,
+and its arms had skin,
+but its torso and legs were just metal plates, gears, and cables.
+
+"Is she expecting you?" the robot asked.
+
+"Is she—yes.
+Yes, she is," Finner improvised hastily.
+Did the robot not recognize him?
+
+It smiled.
+"Oh good.
+Visitors always cheer her up.
+It's like getting a present!"
+
+The ground shook slightly as Finner was trying to think of a reply.
+Robo-Finner's smile widened.
+"Don't worry," it said cheerfully.
+"It hasn't found us yet,
+and if it does,
+I'm sure it will gobble you up really quickly."
+
+"I'm sure it will,"
+Finner said.
+
+Shady Ann was asleep,
+and judging from the stale smell of the blankets piled on top of her,
+Finner guessed it had been a while since she had left her room.
+He moved a bag of knitting off the stool beside her bed and sat down.
+"Would you like me to—" Robo-Finner started.
+
+"Ssh!"
+Finner raised a finger to his lips.
+The robot mirrored his gesture,
+then looked at its finger with a puzzled expression on its face
+before lowering its hand.
+
+He watched Shady Ann long enough to convince himself that she was actually breathing,
+even if it was slow and shallow.
+He was just about to stand and leave when she coughed,
+opened her eyes,
+and looked at him muzzily.
+"You're finished."
+
+"It's me,"
+Finner said gently.
+
+"Nuh?"
+She blinked and looking from him to the robot standing behind him and back.
+"How—oh no.
+No no no."
+She tried weakly to sit up.
+"No, you can't be here."
 
 </section>
