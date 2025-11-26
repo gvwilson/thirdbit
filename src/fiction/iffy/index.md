@@ -4018,7 +4018,7 @@ Iffy sometimes thought of doing things like that,
 but was always afraid that it would just look silly on her.
 
 "But what happened?
-I mean real happened, not just pravda happened?"
+I mean real happened, not just pravda?"
 Honesty slipped der arm through Iffy's as if it was the most natural thing in the world
 and steered her toward der family's shed.
 
@@ -8115,6 +8115,77 @@ You an' your aunt aright?"
 Iffy snorted.
 "No quick answer to that.
 Brew some an' I'll catch you up?"
+
+The kettle next to Mister Mishra's rolling press had come with him from Bharati,
+but the teapot beside it had the matte finish of freshly-printed ceramic.
+"Birthday present," Jeep said casually as he
+measured a spoonful of leaves into it.
+"bought it with my first zag."
+
+"You got a job?" Iffy asked,
+then immediately added,
+"Sorry, din't mean it to sound like that."
+
+Jeep almost smiled.
+"'Saright.
+Abba 'n' amma said th' same thing.
+But yeah,
+I took along by a crew doin' refits on jelly dredgers.
+It ain't regular yet,
+but…"
+He shrugged, proud and awkward at the same time.
+
+"Well, bonna for you," Iffy said.
+"You gotta be right chuffed, aye?"
+
+"It ain't all that."
+He hesitated.
+"An' some o' the work is for the Aussies.
+Some o' their ships 'n' all been tore up.
+They don't ever tell us how,
+but anyone who won't help fix 'em up
+ain't allowed dockside."
+
+It was Iffy's turn to shrug.
+"Ain't nothin' to me, if that's what you're wonderin'.
+Aussies an' governors an' Zillions—it ain't our fight.
+We'd all be tay bangle if they'd shove off an' leave us be."
+
+When Jeep nodded,
+relief written on his face,
+Iffy said,
+"Now, how about that tea to celebrate you gettin' wage?"
+
+As he turned back to the teapot,
+Iffy closed her eyes.
+*Can you hear me?* she thought.
+
+*«yes / confirm / of course»*
+
+*Am I bein' surveilled?
+Like, is the governor or the Aussies or anyone else listenin' in to what I say?*
+
+*«no / current moment / visual»*
+
+*What?
+Oh,
+they're not listenin' but they got somethin' to watch where I go?*
+
+*«yes / confirm»*
+She suddenly remembered
+an image of herself from above
+as she walked up to the door of Mister Mishra's workshop a few minutes earlier.
+It was almost immediately replaced by Doctor Johel's face.
+Was that the machines' way of telling her who was keeping an eye on her?
+
+Before she could chase the thought any further,
+Jeep handed her a mug of chai.
+"No milk," he said apologetically.
+
+"No bother,"
+Iffy replied.
+Something in her chest that she hadn't realized was frozen thawed ever so slightly
+as she took a scalding sip and returned his smile.
 
 </section>
 
