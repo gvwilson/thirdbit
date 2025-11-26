@@ -5253,14 +5253,49 @@ opened her eyes,
 and looked at him muzzily.
 "You're finished."
 
-"It's me,"
-Finner said gently.
+"No I'm not,"
+Finner said gently,
+blinking away the warmth welling up in his eyes.
+"It's really me."
 
 "Nuh?"
 She blinked and looking from him to the robot standing behind him and back.
 "How—oh no.
 No no no."
 She tried weakly to sit up.
-"No, you can't be here."
+"No, you can't be here.
+You can't…"
+She collapsed back onto her bed in a fit of coughing.
+
+"You have upset her,"
+Robo-Finner said,
+the earlier cheer gone from its voice.
+"I will remove you now."
+
+"No!"
+Shady Ann waved the robot away.
+"It *cough* it's all right.
+I should talk to him.
+Why don't you go make some tea?"
+
+"Of course.
+Everything is better with tea!"
+
+As soon as the door closed behind the robot,
+Shady Ann sat up,
+the bleariness gone from her eyes.
+"What are you *doing* here?"
+
+Finner shrugged.
+"Trying to get home.
+Trying to figure out how to stop all of this."
+
+"Trying to be a hero?"
+she asked pointedly.
+
+Finner shook his head.
+"I'm not a hero.
+Santa Greenwood was.
+You were too, once upon a time, you and gran-granna both."
 
 </section>
