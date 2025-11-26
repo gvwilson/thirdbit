@@ -81,6 +81,59 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/11/26/malice-and-randomness/">
+      Malice and Randomness
+    </a>
+  </h2>
+  <p><time datetime="2025-11-26" class="post-date">2025-11-26</time></p>
+  <p>The main point of <a href="../2025/11/25/you-cant-tell/">yesterday&rsquo;s post</a> was that
+any simple view of a complex system can be interpreted in several ways.
+Is work piling up?
+That&rsquo;s good to know
+(quick, do you have a plot of how much your backlog has grown over the last year?),
+but figuring out <em>why</em> requires usually close investigation.</p>
+<p>Here&rsquo;s another example.
+Suppose you&rsquo;re keeping track of the development and testing backlog over time,
+and you get a graph like this:</p>
+<div class="center">
+  <img src="../files/2025/11/26/queue-1k.svg" alt="queue lengths over time">
+</div>
+
+<p>Your first question is going to be,
+&ldquo;What changed around t=3000 that made the development backlog get five times larger?&rdquo;
+Your second will be,
+&ldquo;And what changed around t=5000 to bring it back down again?&rdquo;
+You might even ask what happened between t=1000 and t=3000 to cause a smaller spike;
+was that an early warning that you missed?
+Or did the same thing go wrong at t=1000 and t=3000,
+but for some reason it was caught and fixed earlier the first time?</p>
+<p><a href="https://en.wikipedia.org/wiki/Hanlon%27s_razor">Hanlon&rsquo;s Razor</a> states,
+&ldquo;Never attribute to malice that which is adequately explained by stupidity.&rdquo;
+The statistical equivalent is,
+&ldquo;Never attribute to human action that which is adequately explained by random variation.&rdquo;
+The truth is that <em>nothing remarkable happened</em> to cause the two humps shown in the plot above.
+They are just random variations in a random system.
+We can see more of this if we run the simulation for 10,000 timesteps instead of 1000:</p>
+<div class="center">
+  <img src="../files/2025/11/26/queue-10k.svg" alt="queue lengths over time">
+</div>
+
+<p>It <em>looks</em> like the development backlog is slowly increasing,
+and that the testing backlog is following that increase with a bit of a lag,
+but how confident are you of this?
+If we run the simulation even longer,
+would you be surprised if the backlogs decreased again?</p>
+<p>The data we collect and the dashboards we build
+can help us identify things that might need to be explained,
+but we have to interpret them in order to create those explanations.
+As Elisabeth Hendrickson and Joel Tosi point out in their upcoming book
+<em><a href="https://signalsandlevers.com/book/">Signals &amp; Levers</a></em>,
+something as simple as a <a href="https://en.wikipedia.org/wiki/Shewhart_individuals_control_chart">Shewhart chart</a>
+can help you distinguish normal variation from things you might need to worry about.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/11/25/you-cant-tell/">
       You Can't Tell
     </a>
@@ -1374,204 +1427,6 @@ what I&rsquo;m measuring is measuring what I want to.</p>
 right now,
 I&rsquo;m just waving my hands and hoping you won&rsquo;t notice that I glossed over that.</p>
 </blockquote>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/11/19/simulating-a-developer-pool/">
-      Simulating a Developer Pool
-    </a>
-  </h2>
-  <p><time datetime="2025-11-19" class="post-date">2025-11-19</time></p>
-  <p>Following <a href="../2025/11/18/starting-to-simulate/">yesterday&rsquo;s post</a>
-about using <a href="https://simpy.readthedocs.io/">SimPy</a> for discrete event simulation,
-let&rsquo;s have a look at a slightly more interesting scenario:
-a pool of developers,
-all of whom work at the same speed,
-handling tasks of varying duration that arrive at random intervals.</p>
-<h2>Overall Structure</h2>
-<p>The main function of the simulation takes a dictionary of parameter values,
-creates a SimPy environment,
-does a little bit of magic,
-and then simulates the system for a specified length of time:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run simulation.&quot;&quot;&quot;</span>
-
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;random_seed&quot;</span><span class="p">])</span>
-    <span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-    <span class="n">developers</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_developers&quot;</span><span class="p">])</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">generate_tasks</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">))</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;simulation_duration&quot;</span><span class="p">])</span>
-</code></pre></div>
-<p>The &ldquo;magic&rdquo; referred to earlier has two parts:</p>
-<ol>
-<li>Since the developers are all the same (for now),
-    we can model them using a SimPy <code>Resource</code> with a fixed capacity.
-    This basically acts as a pile of things:
-    our processes can take a thing if one is available,
-    but will be suspended if one is not.</li>
-<li>We then call <code>generate_tasks</code> to create the generator that adds new tasks to the system
-    and give that generator to <code>env.process</code> to run.</li>
-</ol>
-<h2>Generating Tasks</h2>
-<p>OK, what does <code>generate_tasks</code> do?</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_tasks</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates tasks at random intervals.&quot;&quot;&quot;</span>
-
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;task_arrival_rate&quot;</span><span class="p">]))</span>
-    <span class="n">task</span> <span class="o">=</span> <span class="n">TaskUniform</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">simulate_task</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">))</span>
-</code></pre></div>
-<p>Each time around the loop,
-it calls <code>env.timeout</code> to create an object representing a delay
-and uses <code>yield</code> to hand that to SimPy,
-which suspends the process until that much simulated time has passed.
-When it resumes,
-the generator creates a new <code>TaskUniform</code> object (we&rsquo;ll look at that in a moment)
-and then calls <code>simulate_task</code> to create a new process (i.e., a new generator)
-to simulate the execution of that task.
-(The <code>while True</code> in this function is a bit misleading:
-this generator hands control back to SimPy each time it encounters the <code>yield</code> statement,
-and only resumes if SimPy reschedules it,
-so it only runs as long as SimPy wants it to.)</p>
-<blockquote>
-<p>When I first started working with SimPy,
-I found it a bit counter-intuitive to represent tasks as processes
-rather than using processes for the workers.
-It&rsquo;s possible to do the latter,
-but the code turns out to be simpler if we treat developers as a passive resource.
-Read into that what you will…</p>
-</blockquote>
-<h2>What Kind of Randomness?</h2>
-<p>At this point we need to talk about math,
-because <code>random.expovariate</code> is anything but intuitive.
-Suppose that the probability of a task arriving at any moment is fixed
-and completely independent of when the previous task arrived.
-This is called a <em>memoryless</em> system,
-and it turns out that the time between arrivals in such a system has an exponential distribution:
-if the average arrival rate is λ events per unit time,
-then the time between arrivals is an exponential random variable with mean 1/λ.
-Real-world arrival rates are rarely this tidy,
-but it&rsquo;s a good starting point.</p>
-<h2>Representing Tasks</h2>
-<p>We now have two bits of code to explore:
-the <code>TaskUniform</code> class that represents a task
-and the <code>simulate_task</code> function that models its behavior.
-The former just stores a unique ID and a duration,
-and knows how to represent itself as a string for printing:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TaskUniform</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Task with uniformly-distributed durations.&quot;&quot;&quot;</span>
-
-    <span class="n">_id</span> <span class="o">=</span> <span class="n">count</span><span class="p">()</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">TaskUniform</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_duration</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;max_task_duration&quot;</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;task-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_duration</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
-</code></pre></div>
-<p>Note that we&rsquo;ve decided to model task durations as uniformly distributed
-between 1.0 and some maximum value.
-This might win a prize for &ldquo;least realistic assumption&rdquo;,
-but we&rsquo;ll come back and adjust it later.</p>
-<h2>Simulating a Task</h2>
-<p>Finally,
-we get to actually simulating a task.
-As before,
-the fact that this function uses <code>yield</code> means that it creates a generator;
-I think that would have been clearer if a keyword like <code>gen</code> had been introduced in place of <code>def</code>,
-but it is what it is:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task flowing through the system.&quot;&quot;&quot;</span>
-
-    <span class="n">available</span> <span class="o">=</span> <span class="n">developers</span><span class="o">.</span><span class="n">capacity</span> <span class="o">-</span> <span class="n">developers</span><span class="o">.</span><span class="n">count</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> arrives, </span><span class="si">{</span><span class="n">available</span><span class="si">}</span><span class="s2"> available&quot;</span><span class="p">)</span>
-    <span class="n">request_start</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
-    <span class="k">with</span> <span class="n">developers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">req</span>
-        <span class="n">delay</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">request_start</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> starts after delay </span><span class="si">{</span><span class="n">delay</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> finishes&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>Going through this phrase by phrase:</p>
-<ol>
-<li>The task starts by reporting how many developers are available.
-    (Remember, <code>developers</code> is a <code>Resource</code> with a fixed capacity;
-    its <code>.count</code> tells us how much of that resource is currently being used.)</li>
-<li>The task then records the time at which it starts running.
-    We don&rsquo;t have to do this right at the start of the function
-    (before checking the number of available developers)
-    because we&rsquo;re not checking the computer&rsquo;s actual clock:
-    <code>env.now</code> gives us the current simulated time in the SimPy environment,
-    and that time only advances when processes tell the framework
-    that they want it to.</li>
-<li>We then ask for a developer using <code>developer.request()</code>.
-    This method gives us an object that we store in <code>req</code>,
-    which we immediately <code>yield</code> to tell SimPy what we want.
-    If the request can be satisfied right away,
-    SimPy immediately reschedules this process;
-    if the resource is already at capacity,
-    SimPy suspends this process until a developer is available.</li>
-<li>…which means that as soon as execution passes the <code>yield req</code> line,
-    we know that a resource is available.
-    We print a message to report how long the task had to wait for a developer…</li>
-<li>…and then <code>yield</code> the object created by calling <code>env.timeout</code> with the task&rsquo;s duration
-    to tell SimPy that the task needs that much time to complete.</li>
-<li>Finally,
-    we print another message to report when the task finished…</li>
-<li>…and give the developer back to the developer pool.
-    <em>This isn&rsquo;t visible in the code</em>:
-    it&rsquo;s done automatically when we reach the end of the <code>with</code> block,
-    in the same way that a file opened in a <code>with</code> is automatically closed at the block&rsquo;s end.</li>
-</ol>
-<h2>A Sample Run</h2>
-<p>Let&rsquo;s run the simulation with the following parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;max_task_duration&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
-    <span class="s2">&quot;task_arrival_rate&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
-    <span class="s2">&quot;num_developers&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">&quot;simulation_duration&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">&quot;random_seed&quot;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>The output is:</p>
-<div class="highlight"><pre><span></span><code>1.08: task-0/1.09 arrives, 2 developers available
-1.08: task-0/1.09 starts after delay 0.00
-2.17: task-0/1.09 finishes
-4.57: task-1/3.69 arrives, 2 developers available
-4.57: task-1/3.69 starts after delay 0.00
-5.49: task-2/2.74 arrives, 1 developers available
-5.49: task-2/2.74 starts after delay 0.00
-7.15: task-3/2.46 arrives, 0 developers available
-7.42: task-4/4.90 arrives, 0 developers available
-8.23: task-2/2.74 finishes
-8.23: task-3/2.46 starts after delay 1.07
-8.25: task-1/3.69 finishes
-8.25: task-4/4.90 starts after delay 0.83
-9.07: task-5/2.57 arrives, 0 developers available
-10.68: task-6/4.19 arrives, 0 developers available
-10.68: task-3/2.46 finishes
-10.68: task-5/2.57 starts after delay 1.61
-13.15: task-4/4.90 finishes
-13.15: task-6/4.19 starts after delay 2.47
-13.25: task-5/2.57 finishes
-17.03: task-7/1.82 arrives, 1 developers available
-17.03: task-7/1.82 starts after delay 0.00
-17.34: task-6/4.19 finishes
-18.85: task-7/1.82 finishes
-</code></pre></div>
-<p>Things are certainly happening:
-tasks are arriving and either starting immediately
-or waiting until a developer is available.
-But is our code correct?
-And what does it tell us about how long tasks take to complete
-and how busy developers are?
-To answer those questions,
-we need to collect some data and do a bit of analysis.
-Stay tuned…</p>
 </article>
 
 
