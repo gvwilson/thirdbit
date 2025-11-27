@@ -3,14 +3,14 @@ from pathlib import Path
 from shutil import copyfile
 
 
-@ark.events.register(ark.events.Event.INIT_BUILD)
-def load_projects():
-    """Load project snippets."""
-    for section, keys in ark.site.config["projects"].items():
-        ark.site.config["projects"][section] = {
-            key: Path(ark.site.home(), "projects", f"{key}.html").read_text()
-            for key in keys
-        }
+# @ark.events.register(ark.events.Event.INIT_BUILD)
+# def load_projects():
+#     """Load project snippets."""
+#     for section, keys in ark.site.config["projects"].items():
+#         ark.site.config["projects"][section] = {
+#             key: Path(ark.site.home(), "projects", f"{key}.html").read_text()
+#             for key in keys
+#         }
 
 
 @ark.events.register(ark.events.Event.EXIT_BUILD)
