@@ -14,7 +14,7 @@ PARAMS = {
     "random_seed": 12345,
     "simulation_time": 10,
     "task_arrival_rate": 2,
-    "task_priorities": [0.15, 0.35, 0.5],
+    "task_priorities": [0.4, 0.4, 0.2],
 }
 PRECISION = 2
 

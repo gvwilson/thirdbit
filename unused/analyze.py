@@ -5,37 +5,15 @@ import polars as pl
 import plotly.express as px
 
 
-assert len(sys.argv) in {1, 3}, "usage: analyze-queue.py [queue_plot time_plot]"
+assert 1 <= len(sys.argv) <= 2, "usage: analyze-queue.py [queue_plot]"
 
 data = json.load(sys.stdin)
 
-# Queue lengths
-dev = pl.from_dicts(data["dev_queue"]).with_columns(pl.lit("dev").alias("kind"))
-test = pl.from_dicts(data["test_queue"]).with_columns(pl.lit("test").alias("kind"))
-df = pl.concat([dev, test])
-fig = px.line(df, x="time", y="count", color="kind")
-if len(sys.argv) == 3:
+df = pl.from_dicts(data["queue"]).with_columns(
+    pl.concat_str(["queue", "priority"], separator="-").alias("which")
+).sort("which")
+fig = px.line(df, x="time", y="count", color="which")
+if len(sys.argv) == 2:
     fig.write_image(sys.argv[1])
-else:
-    fig.show()
-
-# Times
-dev = pl.from_dicts(data["developer"])
-test = pl.from_dicts(data["tester"])
-df = (
-    pl.concat([dev, test])
-    .unpivot(
-        on=["working", "waiting"],
-        index=["name", "id"],
-        variable_name="kind",
-        value_name="value",
-    )
-    .group_by(["name", "kind"])
-    .agg(pl.mean("value"))
-    .sort("name", "kind")
-)
-fig = px.bar(df, x="name", y="value", color="kind")
-if len(sys.argv) == 3:
-    fig.write_image(sys.argv[2])
 else:
     fig.show()
