@@ -7778,7 +7778,9 @@ they would have to live elsewhere.
 Edson joined them a minute later,
 looking grim.
 "Wales is gone," he said without preamble.
-"His tools, too, all of 'em."
+"His tools, too,
+all of 'em,
+an' that antenna from the front deck."
 
 "How?"
 Aunt Naggie asked incredulously.
@@ -8105,7 +8107,7 @@ Couple a been let go,
 they're still vettin' the rest."
 
 "I'm sorry," Iffy said,
-wondering again as she did so why she was being allowed to wander free
+wondering again as she did so why she was being allowed to roam free
 when Doctor Johel knew at least some of what was in her head.
 
 Jeep shrugged.
@@ -8172,6 +8174,7 @@ Oh,
 they're not listenin' but they got somethin' to watch where I go?*
 
 *«yes / confirm»*
+
 She suddenly remembered
 an image of herself from above
 as she walked up to the door of Mister Mishra's workshop a few minutes earlier.
@@ -8184,8 +8187,82 @@ Jeep handed her a mug of chai.
 
 "No bother,"
 Iffy replied.
-Something in her chest that she hadn't realized was frozen thawed ever so slightly
+Something in her chest that she hadn't realized was frozen thawed slightly
 as she took a scalding sip and returned his smile.
+
+The Aussie sailors at the hospital wouldn't let her in to see Honesty.
+For a moment she thought they were going to arrest her just for asking,
+but then one nudged the other and swiped something sideways from der app to his.
+"I'm sorry, Citizen Kwan,"
+de said while der partner scrolled and scowled.
+"Essential personnel only right now.
+Maybe try tomorrow?"
+
+*But I'm gonna be __gone__ tomorrow,*
+she thought but didn't say.
+Whatever list her name and face were on,
+she doubted it gave her the authority to order Aussie sailors around.
+
+Not knowing what she would do if she returned to the governor's mansion,
+she let her feet carry her through Halley's familiar streets to the harbor.
+The *Whitstable*, "the *Peacock*, and the *Reculver*
+were tied up bow to stern along one pier.
+The *Watney Breach* lay alongside its other side
+with the *Guinevere* behind her.
+All of them looked small and shabby compared to the sleek Aussie warships
+anchored between the docks and the breakwater.
+
+Iffy raised a hand in greeting
+as the two old barnacle farmers trudged toward her,
+one with buckets hanging from a pole balanced across her shoulders,
+the other pulling a two-wheeled cart stacked with grubby plastic sheets.
+"How goes?" she asked.
+
+The woman pulling the carts 
+stopped long enough to dig something out of her teeth with a fingernail and flick it away.
+"Said there was gonna be trouble soon as the *Taroona* showed up.
+Hate bein' right."
+The woman carrying the buckets just shook her head.
+
+Iffy didn't know where to go or what to do after that.
+She wasn't used to having time to fill:
+there had always been chores on the *Guinevere*,
+or lessons to catch up with,
+or machines to tinker with.
+She could see if Aunt Naggie and Edson were still at the Sandhus' store,
+but that felt pointless too,
+so instead she wandered toward the new machine shop.
+
+The quarantine blockhouse had been repaired,
+and fresh cobblestones laid down to replace those torn up in the jammer
+when Wales had retrieved his toolboxes.
+Someone had hung a jaunty "Opening Soon!" banner across the machine shop,
+but one corner had come untied.
+It flapped limply in the breeze,
+perfectly matching Iffy's sour mood.
+
+She walked up the street,
+turned right into a side alley to cut back toward the main street,
+and stopped in her tracks.
+The raccoon sitting on its haunches in the middle of the alley
+cocked its head and chirrupped at her.
+
+*«follow / assist»*
+
+The thought appeared in her head
+as clearly as if she had just heard someone speak.
+
+"Uh uh," she said aloud.
+"I'm bein' surveilled.
+An' I don't need any more trouble than I got."
+
+*«binding agreement / exchange of value / limited window of opportunity»*
+
+"No."
+She tried to sound like Aunt Naggie did
+when she had done all the haggling she was going to do
+with a shopkeeper.
+"Whatever it is, it'll have to wait."
 
 </section>
 
