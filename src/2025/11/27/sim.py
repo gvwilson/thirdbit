@@ -12,7 +12,7 @@ PARAMS = {
     "num_developers": 2,
     "num_testers": 2,
     "random_seed": 12345,
-    "simulation_time": 10,
+    "simulation_time": 1000,
     "task_arrival_rate": 2,
     "task_priorities": [0.4, 0.4, 0.2],
 }
