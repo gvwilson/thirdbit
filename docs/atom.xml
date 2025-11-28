@@ -3,12 +3,65 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-11-27T00:00:00Z</updated>
+ <updated>2025-11-28T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>What Changed?</title>
+   <link href="https://third-bit.com/2025/11/28/what-changed/"/>
+   <updated>2025-11-28T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/11/28/what-changed/</id>
+   <content type="html">&lt;p&gt;Your company brought in a new CEO,
+and she believes that you can&amp;rsquo;t manage what you don&amp;rsquo;t measure.
+One of the first things she does is dig up historical data
+on how long developers and testers have spent fixing bugs over the past year.
+When she plots the data quarter by quarter,
+she gets the following plots:&lt;/p&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-6 center&#34;&gt;
+    &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-0.0.svg&#34; alt=&#34;no rework&#34; width=&#34;90%&#34;&gt;
+    &lt;br&gt;
+    First Quarter
+  &lt;/div&gt;
+  &lt;div class=&#34;col-6 center&#34;&gt;
+    &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-0.1.svg&#34; alt=&#34;10% rework&#34; width=&#34;90%&#34;&gt;
+    &lt;br&gt;
+    Second Quarter
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;row&#34;&gt;
+  &lt;div class=&#34;col-6 center&#34;&gt;
+    &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-0.3.svg&#34; alt=&#34;30% rework&#34; width=&#34;90%&#34;&gt;
+    &lt;br&gt;
+    Third Quarter
+  &lt;/div&gt;
+  &lt;div class=&#34;col-6 center&#34;&gt;
+    &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-0.5.svg&#34; alt=&#34;50% rework&#34; width=&#34;90%&#34;&gt;
+    &lt;br&gt;
+    Fourth Quarter
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The number of bugs taking more than 20 hours to close is clearly going up over time,
+but why?
+There hasn&amp;rsquo;t been any turnover in the team,
+or a major rewrite of the product.
+What has changed?&lt;/p&gt;
+&lt;p&gt;After a bit of digging,
+she discovers that developers were reporting time in 10-hour blocks in Q1,
+so that sharp cutoff is an accounting artifact.
+However,
+that doesn&amp;rsquo;t explain why the number of issues taking more than 10 hours
+has slowly but steadily been creeping up from Q2 to the end of the year.
+I&amp;rsquo;ll post the reason tomorrow;
+for today,
+see what theories you can come up with
+and what data you would need to confirm or refute them.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Not Created Equal</title>
@@ -2194,75 +2247,6 @@ This workshop therefore caters to two learner personas.&lt;/p&gt;
     but has a young family at home
     and doesn&amp;rsquo;t dare risk being unemployed.&lt;/li&gt;
 &lt;/ul&gt;</content>
- </entry>
- 
- <entry>
-   <title>Mastodon and Webbly</title>
-   <link href="https://third-bit.com/2025/09/05/mastodon-and-webbly/"/>
-   <updated>2025-09-05T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/09/05/mastodon-and-webbly/</id>
-   <content type="html">&lt;p&gt;I was going to title this post &amp;ldquo;Two Great Tastes That Taste Great Together&amp;rdquo;,
-but I expect most of my readers are too young to get the reference,
-so I&amp;rsquo;ll just dive right in:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Glitch gave literally millions of people a chance to build something on the web
-    without having to wrestle with NPM or webpack
-    or set up a server
-    or deal with any of the other crap that Sumana Harihareswara has dubbed
-    &lt;a href=&#34;https://www.harihareswara.net/posts/2016/inessential-weirdnesses-in-open-source-software-oscon-2016/&#34;&gt;inessential weirdness&lt;/a&gt;.
-    It was beautiful and useful,
-    but it wasn&amp;rsquo;t profitable enough for Fastly to keep it alive.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;But the idea of a low-overhead in-the-browser way for the 99% to build things
-    didn&amp;rsquo;t start with Glitch
-    and hasn&amp;rsquo;t died with it either.
-    Projects like &lt;a href=&#34;https://make.webblythings.com/&#34;&gt;Webbly&lt;/a&gt; (source &lt;a href=&#34;https://github.com/pomax/make-webbly-things&#34;&gt;here&lt;/a&gt;)
-    are still trying to let people use the web to build the web.
-    However,
-    someone has to host these things somewhere:
-    who&amp;rsquo;s going to do that, and where?
-    More specifically,
-    can we construct a hosting solution that isn&amp;rsquo;t tied to a particular company
-    and therefore doesn&amp;rsquo;t have a singular point of failure?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Well,
-    what about &lt;a href=&#34;https://en.wikipedia.org/wiki/Mastodon_(social_network)&#34;&gt;Mastodon&lt;/a&gt;?
-    Its authors and users are deeply committed to decentralization and federation,
-    and more people are running servers for particular communities every day.
-    What if (wait, hear me out)
-    what if Webbly was bundled with Mastodon
-    so that Mastodon site admins could provide an in-the-browser page-building experience to their users
-    simply by saying &amp;ldquo;yes&amp;rdquo; to one configuration option?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Why would they do that?
-    My answer is,
-    &amp;ldquo;Take a look at Mastodon&amp;rsquo;s default browser interface.&amp;rdquo;
-    It lets you add a couple of pictures and a few links to your profile,
-    but that&amp;rsquo;s less than &lt;a href=&#34;https://en.wikipedia.org/wiki/Myspace&#34;&gt;MySpace&lt;/a&gt; offered twenty years ago.
-    I am 100% certain that if Mastodon came with an easy in-browser page builder,
-    people would use it to create all sorts of wonderful things.
-    (Awful ones too, of course, but Mastodon site admins already have to grapple with content admin.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule&#34;&gt;Greenspun&amp;rsquo;s Tenth Rule&lt;/a&gt; is that every sufficiently complicated program
-contains a mediocre implementation of Lisp.
-Equally,
-I think every useful web-based tool is trying to be
-what Visual Basic was in the 1990s
-and WordPress was to the early web:
-useful, right there, and a gradual ramp for new users rather than a cliff to climb.
-I think the sort of people who built useful little things with Glitch
-would do amazing things with Webbly
-if it was married to their social media.
-I also think that allowing people to create custom home pages
-or tweak their feeds
-would draw a lot of new users away from fragile, centralized systems like X and Bluesky.
-I know that I&amp;rsquo;ve been wrong far more often than I&amp;rsquo;ve been right,
-but this really does feel promising.&lt;/p&gt;</content>
  </entry>
  
 </feed>

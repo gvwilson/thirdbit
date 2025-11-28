@@ -5,7 +5,7 @@ import polars as pl
 import plotly.express as px
 
 
-assert 1 <= len(sys.argv) <= 2, "usage: analyze-queue.py [queue_plot]"
+assert 1 <= len(sys.argv) <= 2, "usage: analyze.py [queue_plot]"
 
 data = json.load(sys.stdin)
 

@@ -13,10 +13,13 @@ PARAMS = {
     "prob_rework": 0.5,
     "random_seed": 12345,
     "simulation_time": 10,
-    "task_arrival_rate": 2,
+    "task_arrival_rate": 3,
     "test_fraction": [0.5, 1.5],
 }
 PRECISION = 2
+
+PRI_REWORK = 0
+PRI_NEW = 1
 
 
 class Simulation:
@@ -25,8 +28,8 @@ class Simulation:
     def __init__(self, params):
         self.params = params
         self.env = simpy.Environment()
-        self.dev_queue = simpy.Store(self.env)
-        self.test_queue = simpy.Store(self.env)
+        self.dev_queue = simpy.PriorityStore(self.env)
+        self.test_queue = simpy.PriorityStore(self.env)
 
     def process(self, proc):
         self.env.process(proc)
@@ -78,14 +81,17 @@ class Labeled:
 
     def __getitem__(self, key):
         """Get recorded time."""
+
         return self._vals[key]
 
     def __setitem__(self, key, value):
         """Record a time."""
+
         self._vals[key] = value
 
     def __str__(self):
         """Printable representation."""
+
         name = self.__class__.__name__.lower()
         return f"{name}-{self.id}"
 
@@ -100,14 +106,16 @@ class Task(Labeled):
         while True:
             yield sim.timeout(sim.task_arrival())
             task = Task(sim)
-            print(f"creating {task} at {sim.now:.2f}")
-            yield sim.dev_queue.put(task)
+            yield sim.dev_queue.put(simpy.PriorityItem(PRI_NEW, task))
 
     def __init__(self, sim):
         """Construct."""
 
         super().__init__(sim)
         self["dev_time"] = sim.dev_time()
+        self["test_time"] = sim.test_time(self)
+        self["time_dev"] = 0
+        self["time_test"] = 0
 
 
 class Developer(Labeled):
@@ -122,11 +130,12 @@ class Developer(Labeled):
         """Simulate work."""
 
         while True:
-            task = yield self.sim.dev_queue.get()
-            print(f"{self} starts {task} at {self.sim.now:.2f}")
+            item = yield self.sim.dev_queue.get()
+            priority, task = item
+            start = self.sim.now
             yield self.sim.timeout(task["dev_time"])
-            print(f"{self} completes {task} at {self.sim.now:.2f}")
-            yield self.sim.test_queue.put(task)
+            task["time_dev"] += (self.sim.now - start)
+            yield self.sim.test_queue.put(item)
 
 
 class Tester(Labeled):
@@ -141,13 +150,13 @@ class Tester(Labeled):
         """Simulate work."""
 
         while True:
-            task = yield self.sim.test_queue.get()
-            print(f"{self} starts {task} at {self.sim.now:.2f}")
+            item = yield self.sim.test_queue.get()
+            priority, task = item
+            start = self.sim.now
             yield self.sim.timeout(task["test_time"])
-            print(f"{self} completes {task} at {self.sim.now:.2f}")
+            task["time_test"] += (self.sim.now - start)
             if self.sim.task_rework():
-                print(f"...{self} asks for rework on {task}")
-                self.sim.dev_queue.put(task)
+                self.sim.dev_queue.put(simpy.PriorityItem(PRI_REWORK, task))
 
 
 def update_params(params, args):
@@ -172,6 +181,22 @@ def parse_args():
     return parser.parse_args()
 
 
+def log_fmt(val):
+    """Format floating point values for log."""
+
+    return None if val is None else round(val, PRECISION)
+
+
+def make_log():
+    """Create report of results."""
+    return {
+        "task": [
+            {"id": t.id, "dev": log_fmt(t["time_dev"]), "test": log_fmt(t["time_test"])}
+            for t in Labeled._all["Task"]
+        ]
+    }
+
+
 def main(params):
     """Main driver."""
 
@@ -188,6 +213,10 @@ def main(params):
     for _ in range(params["num_testers"]):
         sim.process(Tester(sim).work())
     sim.run()
+
+    # Report results.
+    log = make_log()
+    json.dump(log, sys.stdout)
 
 
 if __name__ == "__main__":
