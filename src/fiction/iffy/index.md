@@ -7984,8 +7984,11 @@ and while the window wasn't real,
 the mattress and blankets were.
 
 Iffy stripped to her underwear and slid into her bed with a grateful sigh.
-Aunt Naggie sat gingerly on the edge beside her and took her foster daughter's hand.
+It was firm without being hard
+but somehow also soft without being squishy.
+She instantly decided that she could get used to it.
 
+Aunt Naggie sat gingerly on the edge beside her and took her foster daughter's hand.
 "What's wrong?" Iffy asked.
 
 Aunt Naggie shook her head.
@@ -8089,9 +8092,10 @@ Jeep opened the door a crack,
 looked her up and down,
 then pulled it open just enough for her to slip through.
 
-"Y'aright?" she asked.
+"Y'aright?" she asked
+as they wound their way through the lathes and presses.
 
-He shook his head.
+Jeep shook his head.
 "Abba's gone.
 Soldiers took 'im.
 My amma's along by her sister's."
@@ -8100,7 +8104,7 @@ My amma's along by her sister's."
 You mean Aussies?
 Why'd they take your da?"
 
-Jeep scowled.
+He scowled.
 "'Cuz his arm.
 They affled everyone with tech in 'em.
 Couple a been let go,
@@ -8108,7 +8112,7 @@ they're still vettin' the rest."
 
 "I'm sorry," Iffy said,
 wondering again as she did so why she was being allowed to roam free
-when Doctor Johel knew at least some of what was in her head.
+when Doctor Johel knew at least something about what was in her head.
 
 Jeep shrugged.
 "Ain't your fault.
@@ -8142,11 +8146,9 @@ He shrugged, proud and awkward at the same time.
 
 "It ain't all that."
 He hesitated.
-"An' some o' the work is for the Aussies.
-Some o' their ships 'n' all been tore up.
-They don't ever tell us how,
-but anyone who won't help fix 'em up
-ain't allowed dockside."
+"Some o' the work is for the Aussies.
+Their ships 'n' all come in sometimes all tore up.
+Anyone who won't help fix 'em up ain't allowed dockside."
 
 It was Iffy's turn to shrug.
 "Ain't nothin' to me, if that's what you're wonderin'.
@@ -8189,6 +8191,38 @@ Jeep handed her a mug of chai.
 Iffy replied.
 Something in her chest that she hadn't realized was frozen thawed slightly
 as she took a scalding sip and returned his smile.
+
+It took half the mug for her to tell him everything that had happened—everything
+except her visions and being able to talk to machines in her head.
+She got as far as Wales disappearing from the *Guinevere*
+before the anger on his face made her grind to a halt.
+"Y'aright?" she asked tentatively.
+
+"Affin' governors."
+For a moment he sounded as scornful as Uncle Jack.
+"Abba never talks t' me 'bout Bharati,
+but I heard him an' amma once after we been down the harbor t' set a wreath,
+an' abba said everyone knew the fire wasn't just an accident."
+
+The chai went cold in Iffy's stomach.
+"You don't think—they wouldn't do somethin' like that t' Hally, would they?"
+
+Jeep stared past her.
+"They aready blew up half o' Rothera, din't they?"
+He emptied his mug in one big gulp and stood up.
+He had shoulders now,
+she noticed,
+and the fuzz on his lip had turned into an actual mustache.
+
+They talked a bit more after that
+about teenagers Iffy half-remembered from long-ago classes and awkward play-dates.
+This one had joined the Marines full-time after their induction
+and was off somewhere in the backayonder.
+That one was apprenticing as a teacher,
+and Akumé had pretty much taken over running her mother's swap-n-shop.
+Eventually they said an awkward "see ya".
+When the workshop door closed behind her,
+Iffy felt that she had left something undefinable behind.
 
 The Aussie sailors at the hospital wouldn't let her in to see Honesty.
 For a moment she thought they were going to arrest her just for asking,
@@ -8253,16 +8287,51 @@ The thought appeared in her head
 as clearly as if she had just heard someone speak.
 
 "Uh uh," she said aloud.
-"I'm bein' surveilled.
-An' I don't need any more trouble than I got."
+"I don't need any more trouble than I got."
 
-*«binding agreement / exchange of value / limited window of opportunity»*
+*«binding agreement / exchange of value»*
 
 "No."
-She tried to sound like Aunt Naggie did
-when she had done all the haggling she was going to do
-with a shopkeeper.
-"Whatever it is, it'll have to wait."
+She tried to sound as firm as Aunt Naggie did
+when she had done all the haggling she was going to do over a bag of onions.
+She lowered her voice to a loud whisper.
+"I'm bein' surveilled."
+
+The raccoon lowered itself to all fours and scampered away,
+disappearing behind a pair of rotting crates stacked against the wall.
+Iffy sighed,
+wondering again why everything had to be so complicated.
+
+She spent the rest of the day doing homework
+on the very comfortable bed in the governor's mansion.
+After an hour of math and ecology she switched to history.
+There had originally been four governors,
+all clones of the UN Emergency Authority's last representative on the continent.
+One had died in the machine wars,
+and the second had perished in the fire in Bharati.
+She scrolled through reports,
+taking notes as if writing a summary
+in a flimsy attempt to deflect attention from what she was doing.
+
+She was about to close her app and take yet another hot shower
+when something caught her eye.
+She scrolled back and zoomed in.
+For security,
+the governors were never all in the same place at the same time,
+but back when there were three of them
+they did still occasionally visit one another.
+A few months before the fire,
+Governor Stern Rothera had made the trip to Bharati.
+There had been a dinner,
+of course,
+in a room not unlike the dining hall in the Halley mansion,
+and someone had posted pictures.
+
+Iffy stared at the one on her app.
+Two copies of the governor beamed at the photographer.
+Sitting beside the one from Bharati,
+with his arm around her shoulder,
+a younger version of Doctor Johel smiled at her through the years.
 
 </section>
 
