@@ -20,7 +20,7 @@ PRECISION = 2
 
 PRI_REWORK = 0
 PRI_NEW = 1
-
+PROB_REWORK = [0.0, 0.1, 0.3, 0.5]
 
 class Simulation:
     """Store simulation artifacts."""
@@ -51,7 +51,8 @@ class Simulation:
         return random.uniform(0, 1) < self.params["prob_rework"]
 
     def dev_time(self):
-        return random.uniform(1, self.params["max_dev_time"])
+        median = (1 + self.params["max_dev_time"]) / 2.0
+        return random.lognormvariate(0, 1) * median
 
     def test_time(self, task):
         return task["dev_time"] * random.uniform(*self.params["test_fraction"])
@@ -71,6 +72,11 @@ class Labeled:
         result = next(Labeled._ids[name])
         Labeled._all[name].append(obj)
         return result
+
+    @staticmethod
+    def reset():
+        Labeled._ids = defaultdict(count)
+        Labeled._all = defaultdict(list)
 
     def __init__(self, sim):
         """Construct."""
@@ -187,14 +193,13 @@ def log_fmt(val):
     return None if val is None else round(val, PRECISION)
 
 
-def make_log():
+def make_log(quarter):
     """Create report of results."""
-    return {
-        "task": [
-            {"id": t.id, "dev": log_fmt(t["time_dev"]), "test": log_fmt(t["time_test"])}
-            for t in Labeled._all["Task"]
-        ]
-    }
+    print(quarter, len(list(t for t in Labeled._all["Task"] if t["time_test"] > 0)), file=sys.stderr)
+    return [
+        {"quarter": quarter, "id": t.id, "dev": log_fmt(t["time_dev"]), "test": log_fmt(t["time_test"])}
+        for t in Labeled._all["Task"]
+    ]
 
 
 def main(params):
@@ -205,17 +210,20 @@ def main(params):
     update_params(params, args.params)
     random.seed(params["random_seed"])
 
-    # Create and run the simulation.
-    sim = Simulation(params)
-    sim.process(Task.generate(sim))
-    for _ in range(params["num_developers"]):
-        sim.process(Developer(sim).work())
-    for _ in range(params["num_testers"]):
-        sim.process(Tester(sim).work())
-    sim.run()
+    # Run simulations.
+    log = []
+    for quarter, prob in enumerate(PROB_REWORK):
+        Labeled.reset()
+        sim = Simulation({**params, "prob_rework": prob})
+        sim.process(Task.generate(sim))
+        for _ in range(params["num_developers"]):
+            sim.process(Developer(sim).work())
+        for _ in range(params["num_testers"]):
+            sim.process(Tester(sim).work())
+        sim.run()
+        log.extend(make_log(quarter + 1))
 
     # Report results.
-    log = make_log()
     json.dump(log, sys.stdout)
 
 

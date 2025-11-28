@@ -17,46 +17,51 @@
    <id>https://third-bit.com/2025/11/28/what-changed/</id>
    <content type="html">&lt;p&gt;Your company brought in a new CEO,
 and she believes that you can&amp;rsquo;t manage what you don&amp;rsquo;t measure.
-One of the first things she does is dig up historical data
-on how long developers and testers have spent fixing bugs over the past year.
+One of the first things she does is look at historical data
+on how long developers have spent fixing bugs over the past year.
 When she plots the data quarter by quarter,
-she gets the following plots:&lt;/p&gt;
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-0.0.svg&#34; alt=&#34;no rework&#34; width=&#34;90%&#34;&gt;
-    &lt;br&gt;
-    First Quarter
-  &lt;/div&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-0.1.svg&#34; alt=&#34;10% rework&#34; width=&#34;90%&#34;&gt;
-    &lt;br&gt;
-    Second Quarter
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-0.3.svg&#34; alt=&#34;30% rework&#34; width=&#34;90%&#34;&gt;
-    &lt;br&gt;
-    Third Quarter
-  &lt;/div&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-0.5.svg&#34; alt=&#34;50% rework&#34; width=&#34;90%&#34;&gt;
-    &lt;br&gt;
-    Fourth Quarter
-  &lt;/div&gt;
+she gets the following:&lt;/p&gt;
+&lt;div class=&#34;center&#34;&gt;
+  &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-linear.svg&#34; alt=&#34;linear-scale time plot&#34; width=&#34;90%&#34;&gt;
 &lt;/div&gt;
 
-&lt;p&gt;The number of bugs taking more than 20 hours to close is clearly going up over time,
+&lt;p&gt;The change over time is easier to see when we scale the Y axis logarithmically:&lt;/p&gt;
+&lt;div class=&#34;center&#34;&gt;
+  &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-log.svg&#34; alt=&#34;log-scale time plot&#34; width=&#34;90%&#34;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The number of bugs taking more than 100 hours to close is clearly going up over time,
 but why?
-There hasn&amp;rsquo;t been any turnover in the team,
+And why has the number of bugs closed per quarter been dropping:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: right;&#34;&gt;quarter&lt;/th&gt;
+&lt;th style=&#34;text-align: right;&#34;&gt;number&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2222&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1912&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;3&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1525&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;993&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;There hasn&amp;rsquo;t been any turnover in the team,
 or a major rewrite of the product.
-What has changed?&lt;/p&gt;
-&lt;p&gt;After a bit of digging,
-she discovers that developers were reporting time in 10-hour blocks in Q1,
-so that sharp cutoff is an accounting artifact.
-However,
-that doesn&amp;rsquo;t explain why the number of issues taking more than 10 hours
-has slowly but steadily been creeping up from Q2 to the end of the year.
+What has changed?
 I&amp;rsquo;ll post the reason tomorrow;
 for today,
 see what theories you can come up with
