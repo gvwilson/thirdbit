@@ -509,8 +509,6 @@ The two teenagers followed him into it.
 as Gumption plopped himself down in his usual chair,
 then winced at a twinge in his ribs.
 
-<div class="change" markdown="1">
-
 "Very well,"
 the old tortoise said.
 He fished a small metal-rimmed rectangle of black glass out of his pocket.
@@ -532,8 +530,6 @@ they looked as solid as the salt shaker on the table.
 "I looked it up,"
 Special Leaf said.
 "They're called 'holograms', and they're very rare."
-
-</div>
 
 "That's great," Gumption said when Maddy didn't respond.
 Sindy was one of those rare people with no tail,
@@ -2400,8 +2396,6 @@ depending on their inclination and body shape.
 Thoughtful said from her chair.
 "But it sure ain't the smartest."
 
-<div class="change" markdown="1">
-
 Special Blazes nodded.
 "We'll send word back to your folks as soon as we get to Sandy Bend.
 They must be worried sick.
@@ -2425,8 +2419,6 @@ Thoughtful nodded slowly.
 "Ah. Right."
 She stood up and shouldered her rifle.
 "After you."
-
-</div>
 
 A sign stood in front of the domed building,
 but time and weather had long since erased whatever it had once said.
@@ -2658,8 +2650,6 @@ It tumbled,
 righted itself with spindly mis-matched arms,
 and raced toward them again.
 
-<div class="change" markdown="1">
-
 "Hey boss—who are these guys?"
 the rabbit yelled.
 
@@ -2668,8 +2658,6 @@ Special Blazes yelled back.
 He braced himself,
 brought his hands together,
 and *pushed*.
-
-</div>
 
 The lead crab tank braked hard but couldn't dodge the enormous white fireball.
 The impact knocked the bot onto its side.
@@ -2789,8 +2777,6 @@ and then Special Blazes lowered his fists.
 "Can you do anything for it?"
 he asked curtly, gesturing at Able.
 
-<div class="change" markdown="1">
-
 "No.
 There is nothing anyone can do for it now."
 Dockety's tone sent a shiver down Gumption's spine.
@@ -2814,8 +2800,6 @@ then get yourself hitched to the wagon
 so we can get out of here."
 Special Blazes kicked the burned-out crab bot nearest the wagon.
 "Who in the Makers' names *are* they?"
-
-</div>
 
 That was when Gumption heard Sindy scream,
 "Maddy!"
@@ -3738,8 +3722,6 @@ the rabbit asked.
 the tiger replied confidently.
 "And if he does, who's going to believe a fuddled old turtle?"
 
-<div class="change" markdown="1">
-
 "I hope you're right,"
 Thoughtful sighed.
 "You figger out yet who that second lot were?"
@@ -3749,8 +3731,6 @@ For the first time Maddy heard something less than certainty
 in Special Blazes' voice.
 "They were too ragged to be Central's.
 Probably just rogues, but—"
-
-</div>
 
 The screen went silent.
 Maddy felt sick.
@@ -4384,8 +4364,6 @@ but that it felt strangely distant,
 as if his feelings were in his mother's treasured cake pan
 and he was looking at them through its glass lid.
 
-<div class="change" markdown="1">
-
 He looked down at himself and blinked with half-felt surprise.
 If he squinted he could just make out the armor and his fur
 beneath what looked like a smoothly polished metal carapace.
@@ -4393,8 +4371,6 @@ It was some trick of light,
 he realized.
 Hologram—that was the word Special Leaf had used.
 He was inside a hologram.
-
-</div>
 
 "Oh, don't worry about *thanking* me,"
 the Tailor said peevishly.
@@ -4462,8 +4438,6 @@ Dockety replied.
 This one just hopes to feel them more some day,
 but even small feelings are worth fighting for."
 
-<div class="change" markdown="1">
-
 As they stepped out of the tunnel
 Dockety raised an arm to block Gumption's way.
 "One request.
@@ -4478,8 +4452,6 @@ It took Gumption a moment to understand what the bot meant.
 Dockety buzzed.
 "We believe those words belong to the Makers.
 Now come—we must move quickly."
-
-</div>
 
 Gumption climbed on Dockety's back once again when they reached the road.
 The armor made it awkward,
@@ -4519,16 +4491,12 @@ but Gumption straightened up and said,
 "Well,
 fancy meeting you here."
 
-<div class="change" markdown="1">
-
 Patient cocked its head at him,
 then skittered a quarter-turn to face Dockety.
 "You seem to have a new friend.
 Do you no longer find your old companion entertaining,
 or do you find this one's polish more attractive
 than the dents and scratches on the GX-470?"
-
-</div>
 
 "*Crusher* had other matters to attend to,"
 Dockety buzzed,
@@ -5669,8 +5637,6 @@ She had been in her bedroom.
 No,
 in the school with Miz Nabbles and a purple girl…
 
-<div class="change" markdown="1">
-
 Her strange dream came rushing back to her,
 and with it the realization that her head was pounding.
 She looked around blearily.
@@ -5683,8 +5649,6 @@ but at least there was a door.
 All she had to do was figure out how to get her body back under control,
 wake up her father,
 and escape.
-
-</div>
 
 As if prompted by the thought,
 the door slid open and a trio of identical bots walked in.
@@ -5718,8 +5682,6 @@ Mouse bleeped in the bot's arms.
 We incorporated it into us almost without conflict."
 Mouse bleeped in agreement.
 `happy` scrolled across its little screen.
-
-<div class="change" markdown="1">
 
 "So what happens now?"
 Maddy demanded.
@@ -5782,8 +5744,6 @@ more than she had ever wanted anything in her life,
 just so she could slap the tiger.
 "What about *her* safety?" she raged.
 
-</div>
-
 Thoughtful looked away,
 her guilt plain on her face,
 but Special Blazes met Maddy's eyes without flinching.
@@ -5800,16 +5760,12 @@ but my conscience is clear."
 you're just going to let them kill her?"
 Maddy demanded.
 
-<div class="change" markdown="1">
-
 "Our programming will not let us kill her," Central said in three-part unison.
 "However, it is unlikely she will survive our experiments."
 
 And that was when the door slid open again
 and a bot that looked brand new stepped in and shouted "Freeze!"
 in Gumption's voice.
-
-</div>
 
 </section>
 
@@ -5854,8 +5810,6 @@ and for a moment Gumption heard years of silent, lonely struggle beneath its mad
 Be assured that your sacrifice will have furthered a great cause."
 And with that,
 it froze just as Dockety had.
-
-<div class="change" markdown="1">
 
 "Great," Gumption muttered,
 wishing he had his pike.
@@ -6075,15 +6029,11 @@ We have *triumphed*!"
 Gumption's heart sank.
 They were all speaking with Patient's voice.
 
-</div>
-
 </section>
 
 <section markdown="1">
 
 ## Finally
-
-<div class="change" markdown="1">
 
 As if summoned by the thought,
 the door opened and Patient stepped through
@@ -6348,8 +6298,6 @@ We should—"
 She pulled him close and kissed him.
 Somewhere under his fur his heart started to beat again.
 
-</div>
-
 </section>
 
 <section markdown="1">
@@ -6429,8 +6377,6 @@ Maybe Blazes will too some day."
 "I'm not holding my breath,"
 Maddy shot back.
 
-<div class="change" markdown="1">
-
 Furious at Thoughtful's betrayal,
 and at Bee Six Vee for siding with her,
 Blazes had stormed off as soon as they were out of Heck.
@@ -6446,8 +6392,6 @@ but it could have,
 I don't know,
 moved itself into some other bot like it did with those two in the lab.
 We ought to—"
-
-</div>
 
 Gumption squeezed her hand hard enough to stop her mid-sentence.
 "Hey.

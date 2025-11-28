@@ -1,0 +1,58 @@
+---
+title: "The Makers Return"
+template: page
+fiction: true
+---
+
+- Final book in the trilogy (will be a good opportunity for me to practice endings)
+- Major points
+  - The last of the Makers' ships returns
+  - Only a couple of adults have survived: the other passengers are all children
+  - They think the bots and "brids" (hybrids) are meant to serve them
+  - Blazes and other hard-line Operators want to go to war
+  - The bots are split as well (uneasy alliance)
+- Story is told from two points of view
+  - Sindy has never felt like she fits in
+  - Violet has spoken with several imprisoned brids over the years
+  - Sindy: "I'm not one of them, but I'm not one of you either."
+  - Violet (later): "I'm not one of them, but I'm not one of you any more."
+- Moment of crisis: Patient restores itself from a backup copy
+  - Is furious that the Makers aren't what it expected
+  - Wants to blow up their ship (and the whole valley with it)
+  - In the end, Dockety takes what's left of Patient to the Tailor for mending
+  - And the remaining children are woken up into a strange new world
+- Characters
+  - Rusty Bridge
+    - Sindy (co-protagonist)
+    - Gumption and Maddy
+    - Mama and Papa Roo
+    - Mayor Lupus
+    - Miz Nabbles (annoyance)
+    - Dockety, Crusher, Mouse, and Bee Six Vee (now "Beevy")
+    - Bravo and Bluster
+  - Operators
+    - Special Blazes and his new partner Nash (an alligator)
+  - Makers
+    - Violet
+    - André (her schoolmate, whom she calls "Dan-dan" to annoy him)
+    - Doctor Meadows and Sergeant Lawson (the only surviving adults, but both quite young)
+    - Z40 and Z44 (non-verbal combat bots)
+- Plot
+  - Chapter 1
+    - Open with Special Leaf's funeral
+      - Foreshadow the Makers' grief when they realize how few have survived
+    - People tell Sindy that it wasn't her fault but she still feels guilty
+      - Foreshadow the survivors' guilt that Violet feels
+    - Talk about the strange "falling star" and Papa Roo's strange dreams
+    - Sindy doesn't want to admit that she's been having them too
+    - Faces and voices she can't quite remember when she wakes up
+  - Chapter 2
+    - Violet wakes up and is cold
+    - Doctor Meadows is there to look after her
+    - André is awake as well (they spar reflexively)
+    - Violet asks "What about the others?"
+    - Sergeant Lawson: "not yet"
+    - He is worried by the lack of response to their hails and the degraded infrastructure
+    - But systems are failing: they have to land
+    - What was farmland near the launch paid is now a swamp
+    - but there are other fields around a small town nearby
