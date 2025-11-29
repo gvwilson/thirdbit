@@ -4,23 +4,27 @@ template: page
 fiction: true
 ---
 
-- Final book in the trilogy (will be a good opportunity for me to practice endings)
+- Final book in the trilogy
+  - Will be a good opportunity for me to practice endings
 - Major points
   - The last of the Makers' ships returns
   - Only a couple of adults have survived: the other passengers are all children
-  - They think the bots and "brids" (hybrids) are meant to serve them
+  - They think bots and "brids" (hybrids) are meant to serve them
   - Blazes and other hard-line Operators want to go to war
-  - The bots are split as well (uneasy alliance)
+  - The bots are split as well: form an uneasy alliance with the Operators
+  - A child from each side must work together to prevent war
 - Story is told from two points of view
   - Sindy has never felt like she fits in
-  - Violet has spoken with several imprisoned brids over the years
-  - Sindy: "I'm not one of them, but I'm not one of you either."
-  - Violet (later): "I'm not one of them, but I'm not one of you any more."
-- Moment of crisis: Patient restores itself from a backup copy
+  - Violet's whole world is gone
+  - But Violet has spoken with several imprisoned brids over the years
+    - Refer back to "In Heck" encounter with Maddy
+  - Sindy: "I'm not one of them (meaning hybrids), but I'm not one of you either (meaning human)."
+  - Violet (later, to the adult humans): "I'm not one of them (meaning hybrids), but I'm not one of you any more."
+- Big bang at the end
+  - Patient restores itself from a backup copy
   - Is furious that the Makers aren't what it expected
-  - Wants to blow up their ship (and the whole valley with it)
-  - In the end, Dockety takes what's left of Patient to the Tailor for mending
-  - And the remaining children are woken up into a strange new world
+  - So it wants to blow up their ship (and the whole valley with it)
+  - Sindy and Violet are the only ones who realize it is back
 - Characters
   - Rusty Bridge
     - Sindy (co-protagonist)
@@ -35,24 +39,78 @@ fiction: true
   - Makers
     - Violet
     - André (her schoolmate, whom she calls "Dan-dan" to annoy him)
-    - Doctor Meadows and Sergeant Lawson (the only surviving adults, but both quite young)
+    - Doctor Meadows and Captain Lawson (the only surviving adults, but both quite young)
     - Z40 and Z44 (non-verbal combat bots)
 - Plot
-  - Chapter 1
-    - Open with Special Leaf's funeral
+  - Chapter 1: Sindy
+    - Special Leaf's funeral
       - Foreshadow the Makers' grief when they realize how few have survived
     - People tell Sindy that it wasn't her fault but she still feels guilty
       - Foreshadow the survivors' guilt that Violet feels
-    - Talk about the strange "falling star" and Papa Roo's strange dreams
-    - Sindy doesn't want to admit that she's been having them too
-    - Faces and voices she can't quite remember when she wakes up
-  - Chapter 2
+    - They talk about the strange moving star in the sky
+      - And Papa Roo's dreamy statement at the end of "In Heck" about the Makers returning
+      - Faces and voices he can't quite remember when he wakes up (post-traumatic stress)
+    - See Maddy and Gumption happy together
+    - Sindy is helping tidy up Special Leaf's things when she finds a communicator (but doesn't know what it is)
+      - Puts it in her pocket without realizing she has activated it
+  - Chapter 2: Violet
     - Violet wakes up and is cold
     - Doctor Meadows is there to look after her
-    - André is awake as well (they spar reflexively)
+    - André is awake as well (they spar out of habit)
     - Violet asks "What about the others?"
-    - Sergeant Lawson: "not yet"
+    - Captain Lawson: "not yet"
     - He is worried by the lack of response to their hails and the degraded infrastructure
     - But systems are failing: they have to land
     - What was farmland near the launch paid is now a swamp
-    - but there are other fields around a small town nearby
+    - But there is a signal coming from a small town near it (ref. to Sindy's beacon)
+  - Chapter 3: Sindy
+    - Sindy is back in Miz Nabbles' classroom feeling more isolated than ever
+      - Miz Nabbles picks on her a bit in class
+      - Other kids make a point of not inviting her to play hide and seek
+      - She wishes she had a hobby like Maddy's drawing or Gumption's mechanics
+    - She goes to visit Mouse in Bots' End
+      - The little bot is excited to finally have a voice (but still uses its screen as well)
+      - She tries to play hide and seek with it, but the game doesn't work
+    - Goes home, disconsolate
+    - In her room, talks to herself, is surprised when the communicator answers
+  - Chapter 4: Violet
+    - Doctor Meadows and Captain Lawson are making preparations for landing
+      - Takes a while to check out all the systems, many of which are damaged
+      - "We've been asleep a lot longer than we planned" (but never specify exactly how long)
+    - Violet is bored, but every time she tries to play with André it ends in squabbling
+      - Mirrors the isolation that Sindy feels
+    - André retreats to the virtual world they had access to while they were in cryo
+      - Violet has had enough of that
+      - Remembers meeting hybrids, but they were all upset or bewildered
+      - Doctor Meadows clearly knows they were real, but is uncomfortable discussing it
+    - Wakes up in the middle of the "night" and goes and sits in the captain's chair to play make-believe
+      - Hears Sindy's voice
+      - Starts a conversation and only belatedly realizes she's *not* talking to the computer
+    - Tells Sindy that they're going to land the next day
+    - Captain Lawson comes in and turns off the comms (angry)
+  - Chapter 5: Sindy
+    - Tries to get people to believe that the star is a ship and is coming
+      - Bluster and Bravo make fun of her
+    - Everyone is distracted by the arrival of Special Blazes and his new partner Nash
+      - Tense scenes with the mayor and the bots (Dockety and Beevy)
+    - Then the ship lands
+  - Chapter 6: Violet
+    - Describe the landing from her point of view
+      - A moment when she and André are both frightened and he's *not* a jerk
+    - Engine misfire puts them in the Mire
+    - Thing with tentacles seizes the ship
+  - Chapter 7: Sindy
+  - Chapter 8: Violet
+  - Chapter 9: Sindy
+  - Chapter 10: Violet
+  - Chapter 11: Sindy
+  - Chapter 12: Violet
+  - Chapter 13: Sindy
+  - Chapter 14: Violet
+  - Chapter 15: Sindy
+  - Chapter 16: Violet
+  - Chapter 17: Sindy
+  - Chapter 18: Violet
+  - Epilog
+    - Dockety takes what's left of Patient to the Tailor for mending
+    - And the remaining children are woken up into a strange new world
