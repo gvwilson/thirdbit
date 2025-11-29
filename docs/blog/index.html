@@ -81,6 +81,105 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/11/29/what-changed-revisited/">
+      What Changed Revisited
+    </a>
+  </h2>
+  <p><time datetime="2025-11-29" class="post-date">2025-11-29</time></p>
+  <p>Let&rsquo;s take another look at the log-scaled version of [yesterday&rsquo;s chart][what-changed]:</p>
+<div class="center">
+  <img src="../files/2025/11/28/times-log.svg" alt="log-scale time plot" width="90%">
+</div>
+
+<p>There hasn&rsquo;t been any turnover in the team or a major rewrite of the product,
+so why has the number of bugs that take more than 100 hours to close
+been creeping up slowly but steadily?
+Luckily,
+we have access to the source code of the simulation,
+so we can get a definitive answer.
+(Yes, this is cheating…)</p>
+<p>The first difference is that
+the development and testing queues are priority queues:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+</code></pre></div>
+<p>We have also added constants to define two priority levels—remember,
+a lower number is a higher priority:</p>
+<div class="highlight"><pre><span></span><code><span class="n">PRI_REWORK</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">PRI_NEW</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+<p>We have also made a small but crucial change to
+the class that simulates a tester:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">priority</span><span class="p">,</span> <span class="n">task</span> <span class="o">=</span> <span class="n">item</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_time&quot;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">task_rework</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">simpy</span><span class="o">.</span><span class="n">PriorityItem</span><span class="p">(</span><span class="n">PRI_REWORK</span><span class="p">,</span> <span class="n">task</span><span class="p">))</span>
+</code></pre></div>
+<p>The last two lines of <code>work</code> say,
+&ldquo;If testing reveals that this task needs to be re-done,
+put it back in the development queue with high priority.&rdquo;
+If you&rsquo;ll excuse a bit more ASCII art,
+this change means that our simulation is now:</p>
+<div class="highlight"><pre><span></span><code>+----------------+    +-----------+    +------------+    +------------+    +---------+
+| task generator | -&gt; | dev queue | -&gt; | developers | -&gt; | test queue | -&gt; | testers |
++----------------+    +-----------+    +------------+    +------------+    +---------+
+                            ^                                                   |
+                            |                                                   |
+                            +---------------------------------------------------+
+</code></pre></div>
+<p>From quarter to quarter,
+the probability of QA revealing that a task needs to be re-done
+has gone from 0% to 50%.
+As noted yesterday,
+we see a corresponding decrease in the total number of tasks completed each quarter:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">quarter</th>
+<th style="text-align: right;">number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2222</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1912</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1525</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">993</td>
+</tr>
+</tbody>
+</table>
+<p>What these numbers don&rsquo;t tell us is <em>why</em>.
+Are our testers getting better at finding bugs?
+Are our developers making more mistakes because they&rsquo;re burning out?
+Or has there been some sort of change in how work is being tracked?
+(0% rework in the first quarter seems suspicious…)
+Once again,
+data can draw our attention to things that need to be explained,
+but we still have to find the explanation.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/11/28/what-changed/">
       What Changed?
     </a>
@@ -1215,134 +1314,6 @@ while working on the earlier versions.
 The real test is whether <em>you</em>, the reader, find it easier or harder to follow.
 If you have an opinion,
 please <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/11/21/simulating-rework/">
-      Simulating Rework
-    </a>
-  </h2>
-  <p><time datetime="2025-11-21" class="post-date">2025-11-21</time></p>
-  <p>In <a href="../2025/11/20/making-sense-of-simulation/">yesterday&rsquo;s post</a> we started collecting data from our simulation,
-and discovered that our metrics will always give us numbers,
-but those numbers might be garbage if we&rsquo;re measuring the wrong things or the wrong way.
-In this post we&rsquo;ll make the simulation more realistic
-by taking into account the fact that most first attempts to fix a bug
-either don&rsquo;t fix it or introduce new bugs.</p>
-<h2>Rework</h2>
-<p>Let&rsquo;s introduce a new parameter to specify
-the probability that a task needs to be re-done.
-For the moment,
-we&rsquo;ll assume this probability doesn&rsquo;t depend on
-how many attempts have been made to finish the task so far.
-While we&rsquo;re at it,
-we&rsquo;ll introduce another parameter to specify
-how many times we want to run the simulation:</p>
-<div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="err">…</span><span class="n">previous</span> <span class="n">parameters</span><span class="err">…</span>
-    <span class="s2">&quot;rework_probability&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
-    <span class="s2">&quot;num_simulations&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Next, we introduce a loop in <code>simulate_task</code>.
-Each time around the loop,
-we get a developer,
-spend some time on the task,
-and then check if we&rsquo;re done.
-If we are,
-we mark the task as completed and break out of the loop;
-if not,
-we go around the loop again.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task flowing through the system.&quot;&quot;&quot;</span>
-
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">developers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">req</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="n">req</span>
-            <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
-            <span class="n">task</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;rework_probability&quot;</span><span class="p">]:</span>
-                <span class="n">task</span><span class="o">.</span><span class="n">completed</span><span class="p">()</span>
-                <span class="k">break</span>
-</code></pre></div>
-<p>If we run our simulation a few times for 100,000 timesteps with two developers,
-we complete an average of 14,550 tasks,
-which works out to about 13.7 timesteps per task.
-That&rsquo;s about 40% of the 36,000 tasks we complete in the same time without rework,
-and gives us a baseline against which to compare
-a more interesting variation on this model.</p>
-<h2>Keeping the Same Developer</h2>
-<p>When a task needs to be redone,
-the code shown above always grabs the next available developer.
-In most development teams,
-though,
-the same developer would keep working on the task.</p>
-<p>We need to make two changes to the simulation to capture this.
-First,
-we create a <code>FilterStore</code> instead of a <code>Resource</code> to represent
-our pool of developers:</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">developers</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">FilterStore</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_developers&quot;</span><span class="p">])</span>
-</code></pre></div>
-<p>The difference between the two is that <code>FilterStore</code> allows us to specify
-a test or check that a resource has to satisfy when we claim it.
-Here&rsquo;s the modified <code>simulate_task</code> that makes use of that:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_task</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">developers</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a task being re-worked by the same developer.&quot;&quot;&quot;</span>
-
-    <span class="n">dev</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">dev</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">dev</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">developers</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">dev</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">developers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">_id</span> <span class="o">==</span> <span class="n">dev</span><span class="o">.</span><span class="n">_id</span><span class="p">)</span>
-        <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">_duration</span><span class="p">)</span>
-        <span class="n">developers</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
-        <span class="n">task</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;rework_probability&quot;</span><span class="p">]:</span>
-            <span class="n">task</span><span class="o">.</span><span class="n">completed</span><span class="p">()</span>
-            <span class="k">break</span>
-</code></pre></div>
-<p>Initially,
-the task isn&rsquo;t associated with a developer
-so <code>dev</code> is set to <code>None</code>.
-The first time around the loop,
-we use <code>developers.get()</code> without a test to claim a developer.
-After that,
-we always re-claim the same developer
-by passing a function to <code>developers.get()</code> that says,
-&ldquo;The only developer we want is the one with the same ID.&rdquo;
-We then do some work,
-put the developer back in the pool,
-and check to see if we&rsquo;re done with this task or not.</p>
-<h2>Does It Make a Difference?</h2>
-<p>So here&rsquo;s our question:
-does this policy change the total number of tasks completed or not?
-On the one hand we could argue that it would
-because we wouldn&rsquo;t be taking full advantage of idle developers.
-On the other hand,
-our developers are currently working almost 100% of the time,
-so there aren&rsquo;t actually idle cycles going to waste.</p>
-<p>The answer is that <em>under the assumptions baked into our simulation</em>
-this change in policy doesn&rsquo;t have an impact on the total number of tasks that are completed.
-If we increase the number of developers
-and lower the rate at which new tasks arrive,
-though,
-that answer changes:
-if developers <em>do</em> have idle cycles,
-having developers &ldquo;own&rdquo; tasks is less efficient
-than allowing whoever&rsquo;s free to work on whatever needs done.</p>
-<p>Of course,
-that model doesn&rsquo;t take into account the ramp-up time
-that real developers need to familiarize themselves with new problems.
-(Putting it another way,
-it doesn&rsquo;t account for the time saved by having someone who understands the problem
-go back to it.)
-We could add another parameter to our model and another few lines of code to capture this,
-but before we do that,
-we need to put some better analysis machinery in place.</p>
 </article>
 
 

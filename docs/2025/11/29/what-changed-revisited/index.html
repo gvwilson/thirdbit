@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: What Changed Revisited</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>What Changed Revisited</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/11/28/what-changed/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-11-29" class="post-date">2025-11-29</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Let&rsquo;s take another look at the log-scaled version of [yesterday&rsquo;s chart][what-changed]:</p>
+<div class="center">
+  <img src="../../../../files/2025/11/28/times-log.svg" alt="log-scale time plot" width="90%">
+</div>
+
+<p>There hasn&rsquo;t been any turnover in the team or a major rewrite of the product,
+so why has the number of bugs that take more than 100 hours to close
+been creeping up slowly but steadily?
+Luckily,
+we have access to the source code of the simulation,
+so we can get a definitive answer.
+(Yes, this is cheating…)</p>
+<p>The first difference is that
+the development and testing queues are priority queues:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+</code></pre></div>
+<p>We have also added constants to define two priority levels—remember,
+a lower number is a higher priority:</p>
+<div class="highlight"><pre><span></span><code><span class="n">PRI_REWORK</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">PRI_NEW</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+<p>We have also made a small but crucial change to
+the class that simulates a tester:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">priority</span><span class="p">,</span> <span class="n">task</span> <span class="o">=</span> <span class="n">item</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_time&quot;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">task_rework</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">simpy</span><span class="o">.</span><span class="n">PriorityItem</span><span class="p">(</span><span class="n">PRI_REWORK</span><span class="p">,</span> <span class="n">task</span><span class="p">))</span>
+</code></pre></div>
+<p>The last two lines of <code>work</code> say,
+&ldquo;If testing reveals that this task needs to be re-done,
+put it back in the development queue with high priority.&rdquo;
+If you&rsquo;ll excuse a bit more ASCII art,
+this change means that our simulation is now:</p>
+<div class="highlight"><pre><span></span><code>+----------------+    +-----------+    +------------+    +------------+    +---------+
+| task generator | -&gt; | dev queue | -&gt; | developers | -&gt; | test queue | -&gt; | testers |
++----------------+    +-----------+    +------------+    +------------+    +---------+
+                            ^                                                   |
+                            |                                                   |
+                            +---------------------------------------------------+
+</code></pre></div>
+<p>From quarter to quarter,
+the probability of QA revealing that a task needs to be re-done
+has gone from 0% to 50%.
+As noted yesterday,
+we see a corresponding decrease in the total number of tasks completed each quarter:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">quarter</th>
+<th style="text-align: right;">number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2222</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1912</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1525</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">993</td>
+</tr>
+</tbody>
+</table>
+<p>What these numbers don&rsquo;t tell us is <em>why</em>.
+Are our testers getting better at finding bugs?
+Are our developers making more mistakes because they&rsquo;re burning out?
+Or has there been some sort of change in how work is being tracked?
+(0% rework in the first quarter seems suspicious…)
+Once again,
+data can draw our attention to things that need to be explained,
+but we still have to find the explanation.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  None of the material on this site may be used to train AI models without the express prior permission of the author.
+</footer>
+  </body>
+</html>
