@@ -2,6 +2,7 @@
 title: "Iffy"
 template: page
 fiction: true
+quotes: «»
 ---
 
 <ol id="toc"></ol>
@@ -6062,7 +6063,7 @@ You can't take her 'til she's sixteen!"
 
 "We can do whatever is necessary when there is evidence of contamination or collaboration,"
 Doctor Johel said implacably.
-"We know Miz Kwan has been in direct communication with the machines.
+"We know Citizen Kwan has been in direct communication with the machines.
 It doesn't matter if she initiated it or not.
 She is a threat,
 and inducting her is the safest way to contain that threat."
@@ -8331,7 +8332,78 @@ Iffy stared at the one on her app.
 Two copies of the governor beamed at the photographer.
 Sitting beside the one from Bharati,
 with his arm around her shoulder,
-a younger version of Doctor Johel smiled at her through the years.
+a slightly younger version of Doctor Johel smiled at her through the years.
+
+The governor didn't join them for dinner that evening,
+and neither did Doctor Johel.
+The trolley apologized for their absence in a rich tenor voice,
+then served squash and lentil soup.
+The herbs in it had Edson and Aunt Naggie making appreciative noises,
+but it just tasted oddly sweet to Iffy.
+She didn't tell them about the picture of Doctor Johel with Bharati's governor.
+She didn't know if it meant anything,
+and anyway,
+the trolley was right there and undoubtedly listening.
+
+"So what time are you leavin' tomorrow?"
+Aunt Naggie asked Iffy
+as the trolley cleared their empty bowls.
+
+"Oh,
+the expedition's departure has been delayed,"
+the trolley said before Iffy could say that she didn't know.
+"Some other matters came up
+and Governor Stern felt more time was needed to prepare.
+I'm sure everything will be sorted out in short order.
+Now,
+who would like some mango sorbet?"
+
+Back in her room,
+Iffy closed her eyes and opened her nature book.
+"'Course it'd be you," she muttered to the blobfish that looked back at her.
+She slammed the book closed tossed it back on the bedside table.
+She didn't know if she had been looking forward to the trip to Mount Tyree or not,
+but she definitely wasn't looking forward to trying to fill another day in Halley,
+especially not when Aunt Naggie and Edson clearly wanted time to themselves.
+She needed to *do* something or *make* something or—
+
+*«help»*
+
+She stiffened as the thought appeared in her head.
+
+*«help / immediate / survival»*
+
+The thought broke into pieces like a glass portrait shattering as it hit the floor
+and each shard was a picture no not a picture but the world seen through a pair of frightened eyes
+scurrying through an abandoned room that smelled of coal and grease
+and following behind a black and gray tail in the same room the same smell
+and in a cobblestoned alley hunched behind a barrel too afraid to move
+and on the other side of that alley looking from the barrel to the sky
+afraid that one of the shapes high above was a drone rather than a gull
+and—
+
+*Stop!*
+Iffy squeezed her eyes shut.
+*It's too much.
+Just tell me what's happenin'.*
+
+*«hunted / quarry / prey»*
+
+Looking through yet another pair of eyes,
+Iffy saw two young raccoons running awkwardly across a yard filled with furniture
+that someone probably meant to repair some day.
+A moment later something angular and metallic trotted after them.
+It looked like a smaller version of the sentry bots
+that had attacked the governor's mansion in Rothera.
+A small flag on its side marked it as the property of the Australian Navy.
+
+Anger welled up inside her.
+Was this the "other matters" that the trolley had mentioned?
+People grumbled about tweaked animals stealing bits of hardware and scraps of food,
+and kids sometimes threw stones at them to shoo them away,
+but hunting them as if they were rogue machines?
+
+*«help»*
 
 </section>
 
