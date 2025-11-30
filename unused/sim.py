@@ -165,7 +165,7 @@ class Log:
         now = self.sim.now
         for t in Labeled._all[Task]:
             self.snapshot["tasks"].append(
-                {"time": now, "kind": "task", "id": t.id, "state": str(t.state)}
+                {"time": now, "id": t.id, "state": str(t.state)}
             )
         for name, queue in (("dev", self.sim.dev_queue), ("test", self.sim.test_queue)):
             self.snapshot["queues"].append(
@@ -301,12 +301,12 @@ class Developer(Worker):
             task = yield self.sim.dev_queue.get()
 
             with WorkLog(
-                    self,
-                    (Worker.State.BUSY, Worker.State.IDLE),
-                    task,
-                    (Task.State.DEV, Task.State.WAIT_TEST),
-                    "n_dev",
-                    "t_dev",
+                self,
+                (Worker.State.BUSY, Worker.State.IDLE),
+                task,
+                (Task.State.DEV, Task.State.WAIT_TEST),
+                "n_dev",
+                "t_dev",
             ):
                 yield self.sim.timeout(task.required_dev)
 
@@ -323,12 +323,12 @@ class Tester(Worker):
             task = yield self.sim.test_queue.get()
 
             with WorkLog(
-                    self,
-                    (Worker.State.BUSY, Worker.State.IDLE),
-                    task,
-                    (Task.State.TEST, None),
-                    "n_test",
-                    "t_test"
+                self,
+                (Worker.State.BUSY, Worker.State.IDLE),
+                task,
+                (Task.State.TEST, None),
+                "n_test",
+                "t_test",
             ):
                 yield self.sim.timeout(task.required_test)
 

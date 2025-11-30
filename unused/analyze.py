@@ -7,41 +7,38 @@ import sys
 def main():
     data = json.load(sys.stdin)
     params = data["params"]
-    log = (
-        pl.from_dicts(data["log"])
-        .unpivot(index=["time"], variable_name="key", value_name="value")
-        .sort(["time"])
-    )
-    tasks = pl.from_dicts(data["tasks"]).sort(["id"])
-    developers = pl.from_dicts(data["developers"]).sort(["id"])
-    testers = pl.from_dicts(data["testers"]).sort(["id"])
 
-    fig = px.line(
-        log.filter(pl.col("key").str.starts_with("task_")).with_columns(
-            pl.col("value").alias("length")
-        ),
-        x="time",
-        y="length",
-        color="key",
+    # Task states over time.
+    df = (
+        pl.from_dicts(data["snapshot"]["tasks"])
+        .group_by(["time", "state"])
+        .agg(pl.len())
+        .sort("time")
     )
+    fig = px.line(df, x="time", y="len", color="state")
+    manage(fig, "tasks")
+
+    # Queue lengths.
+    df = pl.from_dicts(data["snapshot"]["queues"])
+    fig = px.line(df, x="time", y="length", color="name")
     manage(fig, "queues")
 
-    temp = tasks.filter(pl.col("state") == "task_complete").with_columns(
-        pl.col("n_dev").alias("num_iterations"),
-        (pl.col("t_dev") + pl.col("t_test")).alias("total_time"),
+    # Worker states.
+    df = (
+        pl.from_dicts(data["snapshot"]["workers"])
+        .with_columns(
+            pl.concat_str([pl.col("kind"), pl.col("state")], separator="_").alias(
+                "kind_state"
+            )
+        )
+        .group_by(["time", "kind_state"])
+        .agg(pl.len())
+        .sort("time")
+        .pivot(index="time", on="kind_state", values="len")
+        .fill_null(0)
+        .unpivot(index="time", variable_name="kind_state", value_name="count")
     )
-    fig = px.scatter(temp, x="num_iterations", y="total_time")
-    fig.update_traces(marker={"size": 12})
-    manage(fig, "time")
-
-    temp = pl.concat(
-        [
-            developers.with_columns(pl.lit("developer").alias("kind")),
-            testers.with_columns(pl.lit("tester").alias("kind")),
-        ]
-    ).with_columns((100 * pl.col("busy") / params["sim_time"]).alias("busy"))
-    fig = px.scatter(temp, x="n_task", y="busy", color="kind")
-    fig.update_yaxes(range=[0, 100]).update_traces(marker={"size": 12})
+    fig = px.line(df, x="time", y="count", color="kind_state")
     manage(fig, "workers")
 
 
