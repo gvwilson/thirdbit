@@ -5637,24 +5637,24 @@ She pulled her arm away from Wales and—
 
 *The world slowed down.
 Angles and vectors and trajectories painted crisp colored lines
-across wireframe renderings of the ship and the pier.
+across wireframe renderings of the ship and the pier.*
 
-/ the drone RTHDR172 was banking to attack
+*/ the drone RTHDR172 was banking to attack*
 
-/ the railgun RTHFG1343 was fully operational
+*/ the railgun RTHFG1343 was fully operational*
 
-/ the other drone RTHDR206's impact had knocked RTHFG1343 out of position by 1.7 meters
+*/ the other drone RTHDR206's impact had knocked RTHFG1343 out of position by 1.7 meters*
 
-/ but it was still upright capacitors intact and pivoting as it acquired another target
+*/ but it was still upright capacitors intact and pivoting as it acquired another target*
 
-/ human unarmored bearing ninety-seven degrees elevation thirty-eight point four degrees range twenty-one point two two meters
+*/ human unarmored bearing ninety-seven degrees elevation thirty-eight point four degrees
+range twenty-one point two two meters*
 
-/ negligible lateral velocity
+*/ negligible lateral velocity*
 
-/ no need to compensate for the slight obstruction of the ship's taffrail
+*/ no need to compensate for the slight obstruction of the ship's taffrail*
 
-"No!" she screamed.
-
+"No!" Iffy screamed.
 Her command struck the railgun's tiny core
 with more force than the drone had struck its housing.
 Five redundant security systems toppled over,
@@ -8059,7 +8059,9 @@ glancing at the ceiling.
 
 Someone or something had cleaned Iffy's coat and boots while she slept,
 which felt creepy in a way the hot shower and empty dining hall hadn't.
-The Aussie sailors on guard by the mansion's front door nodded to her as she left,
+The Aussie sailors on guard by the mansion's front door
+glanced at the apps on their sleeves to check her face,
+nodded to her,
 then went back to looking ominous.
 The only sounds as she walked through the gate were her boots crunching on gravel
 and the whine of a saw cutting stone somewhere in the distance.
@@ -8216,7 +8218,8 @@ she noticed,
 and the fuzz on his lip had turned into an actual mustache.
 
 They talked a bit more after that
-about teenagers Iffy half-remembered from long-ago classes and awkward play-dates.
+about teenagers Iffy half-remembered from long-ago classes and awkward play-dates,
+though mostly Jeep talked while Iffy nodded.
 This one had joined the Marines full-time after their induction
 and was off somewhere in the backayonder.
 That one was apprenticing as a teacher,
@@ -8280,7 +8283,7 @@ She walked up the street,
 turned right into a side alley to cut back toward the main street,
 and stopped in her tracks.
 The raccoon sitting on its haunches in the middle of the alley
-cocked its head and chirrupped at her.
+cocked its head and chirruped at her.
 
 *«follow / assist»*
 
@@ -8404,6 +8407,104 @@ and kids sometimes threw stones at them to shoo them away,
 but hunting them as if they were rogue machines?
 
 *«help»*
+
+Something she thought was supposed to be a map appeared in her mind.
+*I can't make sense o' that,* she thought,
+scrambling to her feet and grabbing her coat.
+The map was a raccon's eye view of Halley,
+full of rarely-used basements with smells for signposts
+and twisty little paths that she presumed kept them out of sight of people.
+But the streets and shops she knew were mostly blank no-go areas,
+so when she looked at what *wasn't* shown she could orient herself.
+
+She knocked on the door next to hers.
+"I'm gonna go see if they'll let me talk to Honesty,"
+she said,
+hurrying off without waiting for a reply.
+She said the same thing to the Aussie sailors at the mansion's door,
+careful not to look up to see if she could spot
+the drone she was certain would be following her.
+
+The sun was closer to the horizon than it had been,
+but still behind a scattering of high, thin clouds.
+She stumbled as another view of Halley superimposed itself
+on the ice-rimed cobblestones beneath her.
+Half a dozen green dots marked the raccoons' locations,
+which meant the four red ones were their hunters.
+Blue dots appeared, moved, and disappeared:
+were they sailors who had joined the hunt?
+No,
+that one was her,
+and that pair were the captain of the *Watney Breach* and his husband,
+who had just nodded to her
+before stepping into the café on the other side of the street.
+
+The Halley Bakery ("Best in the Peninsula!")
+smelled as warm and as comforting as it always did.
+Iffy squeezed through the narrow alley that separated it
+from the tackle mender's next door.
+The grimy courtyard behind them had three stories of blank concrete on all sides
+and the neglected air of somewhere that everyone thought belonged to someone else.
+
+She paused to give her eyes a moment to adjust to the shadows,
+then jumped when a raccoon emerged from behind a broken crate
+and scrambled across the broken pavement.
+The tech under the fur on its skull twinkled slightly in the gloom
+as it dodged past her legs to hide behind her.
+
+"What—" she started,
+and then jumped again as the hunter bot appeared.
+Its feet clicked menacingly as it advanced,
+its head snapping from side to side like a curious bird's.
+
+"You there!"
+The voice from its speaker had an Aussie accent.
+"Get away from that vermin!"
+
+Iffy crossed her arms and glared at the bot.
+"Who're you callin' vermin?"
+
+"Not you, daffy, the dodger behind you!
+Those things are loaded with viruses and all kinds.
+We got orders to clean 'em up,
+so you stand aside now, aright?"
+
+"Clean 'em up?"
+She put all the outrage into her voice that she could muster.
+"That's mine!
+Her name's—her name's Giraffe,
+an' I've had her since I was little!
+Ain't that right, Gee-gee?"
+The raccoon pressed against the backs of her legs
+made a sound that might have meant anything.
+
+"Wait—that scruffy thing's a pet?
+Then what's it doing wandering around getting into everything?"
+
+"It wasn't wanderin' around.
+It was runnin' away from you 'cuz you were chasin' it!"
+She glared at the bot,
+hoping its cameras could pick up her facial expression.
+"You better not be after the rest of 'em.
+I'll be on with the governor if you are,
+just you see."
+
+There was a moment of silence,
+during which she hoped whoever was behind the bot's eyes
+was looking her up
+and seeing whatever the sailors at the governor's mansion had seen.
+"They're worth a pile o' money,"
+she warned.
+
+"All right, all right,"
+the Aussie voice grumbled.
+"Didn't know they belonged to anyone.
+You keep them indoors for now, aright?"
+
+"I'll think about it."
+She kept her arms crossed as the hunter bot trotted away,
+then took a deep breath and turned to look down at her new friend.
+"Hope you got somewhere to hole up."
 
 </section>
 
