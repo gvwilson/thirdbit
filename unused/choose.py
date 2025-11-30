@@ -6,11 +6,13 @@ import sys
 NUM = 10000
 DELAY = 1
 
+
 def create(env, which, queue):
     for i in range(NUM):
         item = f"{which}"
         yield queue.put(item)
         yield env.timeout(DELAY)
+
 
 def consume(env, left, right, seen):
     for _ in range(2 * NUM):
@@ -30,6 +32,7 @@ def consume(env, left, right, seen):
             item = result[right_get]
             left_get.cancel()
         seen[item] += 1
+
 
 if len(sys.argv) > 1:
     random.seed(int(sys.argv[1]))

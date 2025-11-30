@@ -4,21 +4,28 @@ import argparse
 from collections import defaultdict
 from enum import Enum
 from itertools import count
+import json
 import random
 import simpy
+import sys
 
 
 PARAMS = {
     "log_interval": 1,
-    "num_dev": 1,
-    "num_tester": 1,
+    "num_dev": 3,
+    "num_tester": 3,
     "median_dev_time": 5.0,
     "median_test_time": 4.0,
+    "prob_rework": 0.5,
     "rng_seed": 12345,
     "sim_time": 10,
-    "task_arrival": 3,
+    "task_arrival": 4.0,
 }
 PREC = 2
+PRI_HIGH = 0
+PRI_LOW = 1
+TASK_KEYS = ("t_create", "n_dev", "t_dev", "n_test", "t_test")
+WORKER_KEYS = ("busy", "n_task")
 
 
 class ValueEnum(Enum):
@@ -76,6 +83,10 @@ class Simulation:
         """Development time."""
         return random.lognormvariate(0, 1) * self.params["median_dev_time"]
 
+    def rework(self, task):
+        """Does this task need to be reworked?"""
+        return random.uniform(0, 1) < self.params["prob_rework"]
+
     def task_arrival(self):
         """Task arrival time."""
         return random.expovariate(1.0 / self.params["task_arrival"])
@@ -105,14 +116,20 @@ class Log:
             "params": self.sim.params,
             "log": self.log,
             "tasks": [
-                {"id": obj.id, "dev": obj["dev_time"], "test": obj["test_time"], "state": str(obj.state)}
+                {
+                    "id": obj.id,
+                    "state": str(obj.state),
+                    **{key: round(obj[key], PREC) for key in TASK_KEYS},
+                }
                 for obj in Labeled._all[Task]
             ],
             "developers": [
-                {"id": obj.id, "busy": round(obj["busy"], PREC)} for obj in Labeled._all[Developer]
+                {"id": obj.id, **{key: round(obj[key], PREC) for key in WORKER_KEYS}}
+                for obj in Labeled._all[Developer]
             ],
             "testers": [
-                {"id": obj.id, "busy": round(obj["busy"], PREC)} for obj in Labeled._all[Tester]
+                {"id": obj.id, **{key: round(obj[key], PREC) for key in WORKER_KEYS}}
+                for obj in Labeled._all[Tester]
             ],
         }
 
@@ -143,24 +160,30 @@ class Log:
         )
 
 
-class Elapsed:
+class WorkLog:
     """Context manager to keep track of elapsed time."""
 
-    def __init__(self, obj, key):
+    def __init__(self, worker, task, key_n, key_t):
         """Construct."""
 
-        self.obj = obj
-        self.key = key
+        self.worker = worker
+        self.task = task
+        self.key_n = key_n
+        self.key_t = key_t
         self.start = None
 
     def __enter__(self):
         """Start the clock."""
-        self.start = self.obj.sim.now
+        self.start = self.worker.sim.now
 
     def __exit__(self, exc_type, exc_value, traceback):
         """Stop the clock."""
 
-        self.obj[self.key] += self.obj.sim.now - self.start
+        elapsed = self.worker.sim.now - self.start
+        self.worker["busy"] += elapsed
+        self.worker["n_task"] += 1
+        self.task[self.key_n] += 1
+        self.task[self.key_t] += elapsed
         return False
 
 
@@ -211,9 +234,10 @@ class Task(Labeled):
 
         super().__init__(sim)
         self.state = Task.State.WAIT_DEV
-        self.priority = 0
-        self["t_dev"] = self.sim.dev_time()
-        self["t_test"] = self.sim.test_time()
+        self.priority = PRI_LOW
+        self.required_dev = self.sim.dev_time()
+        self.required_test = self.sim.test_time()
+        self["t_create"] = self.sim.now
 
     def __lt__(self, other):
         return self.priority < other.priority
@@ -228,8 +252,8 @@ class Developer(Labeled):
         while True:
             task = yield self.sim.dev_queue.get()
             task.state = Task.State.DEV
-            with Elapsed(self, "busy"):
-                yield self.sim.timeout(task["t_dev"])
+            with WorkLog(self, task, "n_dev", "t_dev"):
+                yield self.sim.timeout(task.required_dev)
             task.state = Task.State.WAIT_TEST
             yield self.sim.test_queue.put(task)
 
@@ -243,9 +267,14 @@ class Tester(Labeled):
         while True:
             task = yield self.sim.test_queue.get()
             task.state = Task.State.TEST
-            with Elapsed(self, "busy"):
-                yield self.sim.timeout(task["t_test"])
-            task.state = Task.State.COMPLETE
+            with WorkLog(self, task, "n_test", "t_test"):
+                yield self.sim.timeout(task.required_test)
+            if self.sim.rework(task):
+                task.priority = PRI_HIGH
+                task.state = Task.State.WAIT_DEV
+                self.sim.dev_queue.put(task)
+            else:
+                task.state = Task.State.COMPLETE
 
 
 def parse_args():
@@ -283,7 +312,7 @@ def main(params):
     sim.run()
 
     # Report.
-    print(sim.logger.get_log())
+    json.dump(sim.logger.get_log(), sys.stdout)
 
 
 if __name__ == "__main__":
