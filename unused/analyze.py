@@ -17,7 +17,9 @@ def main():
     testers = pl.from_dicts(data["testers"]).sort(["id"])
 
     fig = px.line(
-        log.filter(pl.col("key").str.starts_with("task_")).with_columns(pl.col("value").alias("length")),
+        log.filter(pl.col("key").str.starts_with("task_")).with_columns(
+            pl.col("value").alias("length")
+        ),
         x="time",
         y="length",
         color="key",

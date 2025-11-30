@@ -10,6 +10,7 @@ import simpy
 import sys
 
 
+# Simulation parameters.
 PARAMS = {
     "log_interval": 1,
     "num_dev": 3,
@@ -21,9 +22,11 @@ PARAMS = {
     "sim_time": 10,
     "task_arrival": 4.0,
 }
+
+# Floating-point rounding precision.
 PREC = 2
-PRI_HIGH = 0
-PRI_LOW = 1
+
+# Summary values to save.
 TASK_KEYS = ("t_create", "n_dev", "t_dev", "n_test", "t_test")
 WORKER_KEYS = ("busy", "n_task")
 
@@ -59,10 +62,11 @@ class Simulation:
         return self.env.now
 
     def generate(self):
-        """Generate tasks at random intervals."""
+        """Generate tasks at random intervals starting at t=0."""
 
+        yield self.dev_queue.put(Task(self))
         while True:
-            yield self.timeout(self.task_arrival())
+            yield self.timeout(self.rand_task_arrival())
             yield self.dev_queue.put(Task(self))
 
     def process(self, proc):
@@ -79,21 +83,21 @@ class Simulation:
                 self.process(w.work())
         self.env.run(until=self.params["sim_time"])
 
-    def dev_time(self):
+    def rand_dev_time(self):
         """Development time."""
         return random.lognormvariate(0, 1) * self.params["median_dev_time"]
+
+    def rand_task_arrival(self):
+        """Task arrival time."""
+        return random.expovariate(1.0 / self.params["task_arrival"])
+
+    def rand_test_time(self):
+        """Testing time."""
+        return random.lognormvariate(0, 1) * self.params["median_test_time"]
 
     def rework(self, task):
         """Does this task need to be reworked?"""
         return random.uniform(0, 1) < self.params["prob_rework"]
-
-    def task_arrival(self):
-        """Task arrival time."""
-        return random.expovariate(1.0 / self.params["task_arrival"])
-
-    def test_time(self):
-        """Testing time."""
-        return random.lognormvariate(0, 1) * self.params["median_test_time"]
 
     def timeout(self, time):
         """Shortcut for delaying a fixed time."""
@@ -107,30 +111,45 @@ class Log:
         """Construct."""
 
         self.sim = sim
-        self.log = []
+        self.snapshot = {
+            "tasks": [],
+            "queues": [],
+            "workers": [],
+        }
 
     def get_log(self):
-        """Make a log entry."""
+        """Get entire log."""
 
+        # Summarize tasks.
+        tasks = [
+            {
+                "id": obj.id,
+                "state": str(obj.state),
+                **{key: round(obj[key], PREC) for key in TASK_KEYS},
+            }
+            for obj in Labeled._all[Task]
+        ]
+
+        # Summarize developrs and testers.
+        workers = []
+        for kind, cls in (("dev", Developer), ("test", Tester)):
+            for w in Labeled._all[cls]:
+                workers.append(
+                    {
+                        "id": w.id,
+                        "kind": "dev",
+                        **{key: round(w[key], PREC) for key in WORKER_KEYS},
+                    }
+                )
+
+        # Entire log.
         return {
             "params": self.sim.params,
-            "log": self.log,
-            "tasks": [
-                {
-                    "id": obj.id,
-                    "state": str(obj.state),
-                    **{key: round(obj[key], PREC) for key in TASK_KEYS},
-                }
-                for obj in Labeled._all[Task]
-            ],
-            "developers": [
-                {"id": obj.id, **{key: round(obj[key], PREC) for key in WORKER_KEYS}}
-                for obj in Labeled._all[Developer]
-            ],
-            "testers": [
-                {"id": obj.id, **{key: round(obj[key], PREC) for key in WORKER_KEYS}}
-                for obj in Labeled._all[Tester]
-            ],
+            "snapshot": self.snapshot,
+            "summary": {
+                "tasks": tasks,
+                "workers": workers,
+            },
         }
 
     def work(self):
@@ -143,47 +162,56 @@ class Log:
     def _record(self):
         """Record a log entry at a particular moment."""
 
-        # States of all tasks.
-        task_states = {state: 0 for state in Task.State}
+        now = self.sim.now
         for t in Labeled._all[Task]:
-            task_states[t.state] += 1
-        task_states = {str(key): value for key, value in task_states.items()}
-
-        # Add log entry.
-        self.log.append(
-            {
-                "time": round(self.sim.now, PREC),
-                "dev_queue": len(self.sim.dev_queue.items),
-                "test_queue": len(self.sim.test_queue.items),
-                **task_states,
-            }
-        )
+            self.snapshot["tasks"].append(
+                {"time": now, "kind": "task", "id": t.id, "state": str(t.state)}
+            )
+        for name, queue in (("dev", self.sim.dev_queue), ("test", self.sim.test_queue)):
+            self.snapshot["queues"].append(
+                {"time": now, "name": name, "length": len(queue.items)}
+            )
+        for kind, cls in (("dev", Developer), ("test", Tester)):
+            for w in Labeled._all[cls]:
+                self.snapshot["workers"].append(
+                    {"time": now, "kind": kind, "id": w.id, "state": str(w.state)}
+                )
 
 
 class WorkLog:
     """Context manager to keep track of elapsed time."""
 
-    def __init__(self, worker, task, key_n, key_t):
+    def __init__(self, worker, worker_states, task, task_states, key_num, key_time):
         """Construct."""
 
         self.worker = worker
+        self.worker_states = worker_states
         self.task = task
-        self.key_n = key_n
-        self.key_t = key_t
+        self.task_states = task_states
+        self.key_num = key_num
+        self.key_time = key_time
         self.start = None
 
     def __enter__(self):
         """Start the clock."""
         self.start = self.worker.sim.now
+        self.worker.state = self.worker_states[0]
+        self.task.state = self.task_states[0]
 
     def __exit__(self, exc_type, exc_value, traceback):
         """Stop the clock."""
 
         elapsed = self.worker.sim.now - self.start
+
+        self.worker.state = self.worker_states[1]
         self.worker["busy"] += elapsed
         self.worker["n_task"] += 1
-        self.task[self.key_n] += 1
-        self.task[self.key_t] += elapsed
+
+        if self.task_states[1] is not None:
+            self.task.state = self.task_states[1]
+        self.task[self.key_num] += 1
+        self.task[self.key_time] += elapsed
+
         return False
 
 
@@ -220,30 +248,50 @@ class Labeled:
 class Task(Labeled):
     """A task."""
 
+    # Task priorities.
+    PRI_HIGH = 0
+    PRI_LOW = 1
+
     class State(ValueEnum):
         """Task states."""
 
-        WAIT_DEV = "task_wait_dev"
-        DEV = "task_dev"
-        WAIT_TEST = "task_wait_test"
-        TEST = "task_test"
-        COMPLETE = "task_complete"
+        WAIT_DEV = "wait_dev"
+        DEV = "dev"
+        WAIT_TEST = "wait_test"
+        TEST = "test"
+        COMPLETE = "complete"
 
     def __init__(self, sim):
         """Construct."""
 
         super().__init__(sim)
         self.state = Task.State.WAIT_DEV
-        self.priority = PRI_LOW
-        self.required_dev = self.sim.dev_time()
-        self.required_test = self.sim.test_time()
+        self.priority = Task.PRI_LOW
+        self.required_dev = self.sim.rand_dev_time()
+        self.required_test = self.sim.rand_test_time()
         self["t_create"] = self.sim.now
 
     def __lt__(self, other):
         return self.priority < other.priority
 
 
-class Developer(Labeled):
+class Worker(Labeled):
+    """A generic worker."""
+
+    class State(ValueEnum):
+        """Task states."""
+
+        IDLE = "idle"
+        BUSY = "busy"
+
+    def __init__(self, sim):
+        """Construct."""
+
+        super().__init__(sim)
+        self.state = Worker.State.IDLE
+
+
+class Developer(Worker):
     """A developer."""
 
     def work(self):
@@ -251,14 +299,21 @@ class Developer(Labeled):
 
         while True:
             task = yield self.sim.dev_queue.get()
-            task.state = Task.State.DEV
-            with WorkLog(self, task, "n_dev", "t_dev"):
+
+            with WorkLog(
+                    self,
+                    (Worker.State.BUSY, Worker.State.IDLE),
+                    task,
+                    (Task.State.DEV, Task.State.WAIT_TEST),
+                    "n_dev",
+                    "t_dev",
+            ):
                 yield self.sim.timeout(task.required_dev)
-            task.state = Task.State.WAIT_TEST
+
             yield self.sim.test_queue.put(task)
 
 
-class Tester(Labeled):
+class Tester(Worker):
     """A tester."""
 
     def work(self):
@@ -266,11 +321,19 @@ class Tester(Labeled):
 
         while True:
             task = yield self.sim.test_queue.get()
-            task.state = Task.State.TEST
-            with WorkLog(self, task, "n_test", "t_test"):
+
+            with WorkLog(
+                    self,
+                    (Worker.State.BUSY, Worker.State.IDLE),
+                    task,
+                    (Task.State.TEST, None),
+                    "n_test",
+                    "t_test"
+            ):
                 yield self.sim.timeout(task.required_test)
+
             if self.sim.rework(task):
-                task.priority = PRI_HIGH
+                task.priority = Task.PRI_HIGH
                 task.state = Task.State.WAIT_DEV
                 self.sim.dev_queue.put(task)
             else:
