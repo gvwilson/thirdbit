@@ -93,14 +93,48 @@ fiction: true
       - Bluster and Bravo make fun of her
     - Everyone is distracted by the arrival of Special Blazes and his new partner Nash
       - Tense scenes with the mayor and the bots (Dockety and Beevy)
-    - Then the ship lands
+    - Then the ship starts to come down in a ball of fire
   - Chapter 6: Violet
     - Describe the landing from her point of view
       - A moment when she and André are both frightened and he's *not* a jerk
     - Engine misfire puts them in the Mire
-    - Thing with tentacles seizes the ship
+    - Tentacles seize the ship
   - Chapter 7: Sindy
+    - Special Blazes takes charge and assembles Rusty Bridge's militia to investigate
+    - Gumption is allowed to go (scene with him and Maddy) but Sindy is not and neither is Dockety
+    - She and Dockety go to Bots' End to collect Beevy and Mouse
+    - The foursome gets to the Mire in time to see tentacles wrapping around the ship
+      - Steam still coming from the swamp because of the heat of re-entry
+    - Sindy hears a male voice calling for help on the communicator in her pocket
+      - "It's not responding to standard protocols!"
+    - Tells the militia party that there are people in the ship
+      - They all think it's Central
+    - Special Blazes thinks the voice is a trick but Mayor Lupus believes it
+    - Sindy panics and yells "No!"
+      - Yells it into the communicator without realizing that's what she's doing
+    - The tentacles withdraw
+    - She falls to the ground unconscious
   - Chapter 8: Violet
+    - Captain Lawson trying to restart the engines as the ship shakes
+      - Yelling orders through the ship's communicator
+    - Violet hears her unknown friend's voice yell "No!"
+      - Picked up by the other comms and the tentacles obey
+    - Lawson and Meadows study the militia party through the viewer
+      - Recognize Beevy as a heavily modified defense bot
+      - "And the one with legs looks like… I don't know what it looks like."
+    - They spot Sindy and feel relief that humans are here after all
+      - "Some other ship? Or someone stayed behind after all?"
+      - "Hardly seems worth taking the shuttle"
+      - "But I don't feel like going for a swim, and it'll impress them"
+      - Meadows expects the 'brids to be deferential, Lawson isn't so confident
+    - André has been injured (not badly) in all the shaking
+      - Captain Lawson wants to go alone
+      - Violet says that she recognized the voice
+      - He eventually gives in (feels they'll look less threatening)
+      - Brings Z40 and Z44 (which makes Violet uneasy)
+    - They board the shuttle, take off, circle, and land
+    - Bots leave the shuttle first
+    - Immediately come under fire
   - Chapter 9: Sindy
   - Chapter 10: Violet
   - Chapter 11: Sindy
