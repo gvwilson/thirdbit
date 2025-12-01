@@ -181,11 +181,10 @@ class Log:
 class WorkLog:
     """Context manager to keep track of elapsed time."""
 
-    def __init__(self, worker, worker_states, task, task_states, key_num, key_time):
+    def __init__(self, worker, task, task_states, key_num, key_time):
         """Construct."""
 
         self.worker = worker
-        self.worker_states = worker_states
         self.task = task
         self.task_states = task_states
         self.key_num = key_num
@@ -195,7 +194,7 @@ class WorkLog:
     def __enter__(self):
         """Start the clock."""
         self.start = self.worker.sim.now
-        self.worker.state = self.worker_states[0]
+        self.worker.state = Worker.State.BUSY
         self.task.state = self.task_states[0]
 
     def __exit__(self, exc_type, exc_value, traceback):
@@ -203,7 +202,7 @@ class WorkLog:
 
         elapsed = self.worker.sim.now - self.start
 
-        self.worker.state = self.worker_states[1]
+        self.worker.state = Worker.State.IDLE
         self.worker["busy"] += elapsed
         self.worker["n_task"] += 1
 
@@ -213,6 +212,32 @@ class WorkLog:
         self.task[self.key_time] += elapsed
 
         return False
+
+
+class DeveloperLog(WorkLog):
+    """Log a developer's work."""
+
+    def __init__(self, developer, task):
+        super().__init__(
+            developer,
+            task,
+            (Task.State.DEV, Task.State.WAIT_TEST),
+            "n_dev",
+            "t_dev",
+        )
+
+
+class TesterLog(WorkLog):
+    """Log a tester's work."""
+
+    def __init__(self, tester, task):
+        super().__init__(
+            tester,
+            task,
+            (Task.State.TEST, None),
+            "n_test",
+            "t_test",
+        )
 
 
 class Labeled:
@@ -300,14 +325,7 @@ class Developer(Worker):
         while True:
             task = yield self.sim.dev_queue.get()
 
-            with WorkLog(
-                self,
-                (Worker.State.BUSY, Worker.State.IDLE),
-                task,
-                (Task.State.DEV, Task.State.WAIT_TEST),
-                "n_dev",
-                "t_dev",
-            ):
+            with DeveloperLog(self, task,):
                 yield self.sim.timeout(task.required_dev)
 
             yield self.sim.test_queue.put(task)
@@ -322,14 +340,7 @@ class Tester(Worker):
         while True:
             task = yield self.sim.test_queue.get()
 
-            with WorkLog(
-                self,
-                (Worker.State.BUSY, Worker.State.IDLE),
-                task,
-                (Task.State.TEST, None),
-                "n_test",
-                "t_test",
-            ):
+            with TesterLog(self, task):
                 yield self.sim.timeout(task.required_test)
 
             if self.sim.rand_rework():
