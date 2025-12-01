@@ -8504,7 +8504,89 @@ You keep them indoors for now, aright?"
 "I'll think about it."
 She kept her arms crossed as the hunter bot trotted away,
 then took a deep breath and turned to look down at her new friend.
-"Hope you got somewhere to hole up."
+"Hope you an' your friends got somewhere t' hole up."
+
+A third Aussie sailor was waiting for her at the governor's mansion
+beside the two who had been standing guard when she left.
+"Miz Kwan?
+Doctor Johel would like to speak with you.
+Now, please,"
+he added before she could protest.
+Neither of the other sailors looked at her as she followed him through the door.
+
+She practiced and discarded half a dozen stories about where she'd been
+as she tried to match the sailor's brisk pace.
+A door opened onto a flight of whitewashed concrete stairs
+that echoed as they went down and down into a sub-basement.
+Another door,
+heavier than the one at ground level,
+let them into a corridor whose pipes and lettered walls
+reminded her uncomfortably of the one beneath the mansion in Rothera.
+
+The sailor knocked on yet another door,
+then opened it without waiting for a response.
+"Thank you,"
+Doctor Johel said,
+rising from the chair in which she had been waiting.
+"Please wait outside."
+
+"Yes, ma'am."
+The door made an ominous click as it closed behind Iffy.
+
+She shifted uncomfortably while Doctor Johel studied her
+as if she were a dodgy plate of leftovers
+that had been in a fridge a day too long.
+"So what does it feel like?" Doctor Johel asked without preamble.
+
+"What?"
+She put all the innocense she could into the question.
+"What does what feel like?"
+
+Doctor Johel brushed the question away with an impatient gesture.
+"Please.
+We're long past that and short on time."
+Another gesture brought the wall beside them to life.
+There was Iffy,
+seen from overhead as she made her way through the alley.
+A colored blob showing the raccoon's body heat scrambled through the outlines of buildings
+before resolving into a sharp-edged picture as it came into view.
+
+The image froze.
+A second wall came to life,
+this one showing her lying on her bed looking at her nature book.
+Text and numbers suddenly began to scroll past,
+too dense for her to read.
+
+"I know you can talk to them,"
+Doctor Johel said quietly.
+"What I don't know is what it feels like.
+What I *really* want to know is what Johnson is planning,
+but I thought it would be more polite to start with something simpler."
+
+*You had no right to surveil me*
+and *That's a funny notion of polite*
+flashed through Iffy's mind.
+What she said aloud was,
+"It feels like rememberin' somethin' you meant to do
+but forgot about for a moment.
+Like all of a sudden the whole thought is there all at once."
+
+Doctor Johel raised her wispy eyebrows.
+"Interesting," she mused.
+"Most direct interface survivors talk about it as a kaleidoscope,
+or say that they felt like they were drowning.
+It seems the machines are learning to be a little more careful."
+
+Her eyebrows lowered and her voice became brisk once again.
+"Now,
+about our mutual friend.
+It appears that he persuaded an Australian reconnaissance drone
+to pick him up from your ship.
+He also somehow managed to blind the *Bengal* for a few crucial minutes,
+which I wouldn't have thought possible.
+Did you help?
+Or rather,
+did your friends?"
 
 </section>
 
