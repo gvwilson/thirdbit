@@ -95,7 +95,7 @@ class Simulation:
         """Testing time."""
         return random.lognormvariate(0, 1) * self.params["median_test_time"]
 
-    def rework(self, task):
+    def rand_rework(self):
         """Does this task need to be reworked?"""
         return random.uniform(0, 1) < self.params["prob_rework"]
 
@@ -332,7 +332,7 @@ class Tester(Worker):
             ):
                 yield self.sim.timeout(task.required_test)
 
-            if self.sim.rework(task):
+            if self.sim.rand_rework():
                 task.priority = Task.PRI_HIGH
                 task.state = Task.State.WAIT_DEV
                 self.sim.dev_queue.put(task)

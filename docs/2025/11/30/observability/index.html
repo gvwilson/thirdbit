@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Observability</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Observability</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/11/29/what-changed-revisited/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-11-30" class="post-date">2025-11-30</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>So far we&rsquo;ve been collecting whatever data we want
+whenever something significant happens in the simulation,
+but we can&rsquo;t do that in the real world.
+Since we need to tidy up the simulation a bit,
+let&rsquo;s  data collection a little more realistic as well.</p>
+<h2>The Overall Simulation</h2>
+<p>As before,
+we&rsquo;re going to store the major pieces of the simulation in a <code>Simulation</code> object
+so that we don&rsquo;t have to pass lots of bits and pieces to every function and method.
+This class holds:</p>
+<ul>
+<li>the simulation parameters;</li>
+<li>the <a href="https://simpy.readthedocs.io/">SimPy</a> <code>Environment</code>;</li>
+<li>the developers (represented as <code>Developer</code> objects);</li>
+<li>the queue of tasks waiting for a developer;</li>
+<li>the testers (represeented as <code>Tester</code> objects) and the queue of tasks waiting for them;
+    and</li>
+<li>an instance of a new <code>Log</code> class that will collect data about the state of the simulation.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Overall simulation.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">developers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Developer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_dev&quot;</span><span class="p">])]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">testers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Tester</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;num_tester&quot;</span><span class="p">])]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">Log</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div>
+<p>As before,
+we provide some convenience methods to get at useful properties
+of the underlying <code>Environment</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">now</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Shortcut for current time.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proc</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Shortcut for running a process.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">proc</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Shortcut for delaying a fixed time.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+</code></pre></div>
+<p>and put all the randomization here as well:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">rand_task_arrival</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Task arrival time.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;task_arrival&quot;</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">rand_test_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Testing time.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">lognormvariate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;median_test_time&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">rand_rework</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Does this task need to be reworked?&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;prob_rework&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">rand_dev_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Development time.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">lognormvariate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;median_dev_time&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Finally,
+we provide one method to generate new tasks
+and one to launch all the active processes in the simulation:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate tasks at random intervals starting at t=0.&quot;&quot;&quot;</span>
+
+        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Task</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rand_task_arrival</span><span class="p">())</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Task</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run the whole simulation.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">generate</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">workers</span> <span class="ow">in</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">developers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">testers</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">workers</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;sim_time&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>Two things to note in the code above:</p>
+<ol>
+<li>
+<p>We always generate the first task at time 0.
+    We don&rsquo;t have to do this,
+    but it always felt weird looking at the statistics
+    to have a small delay at the start before anything happened.</p>
+</li>
+<li>
+<p>The logger is an active process,
+    just like the developers, testers, and task generator.
+    We&rsquo;ll look at it in more detail in a bit.</p>
+</li>
+</ol>
+<h2>Developers</h2>
+<p>Earlier posts in this series showed
+how we give each developer (and tester) a unique ID
+and how we automatically create lists of them.
+We won&rsquo;t repeat that code here,
+since the most interesting thing about a developer is the work she does:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Developer</span><span class="p">(</span><span class="n">Worker</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+            <span class="k">with</span> <span class="n">WorkLog</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">Worker</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">BUSY</span><span class="p">,</span> <span class="n">Worker</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">IDLE</span><span class="p">),</span>
+                <span class="n">task</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">Task</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">DEV</span><span class="p">,</span> <span class="n">Task</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">WAIT_TEST</span><span class="p">),</span>
+                <span class="s2">&quot;n_dev&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;t_dev&quot;</span><span class="p">,</span>
+            <span class="p">):</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">required_dev</span><span class="p">)</span>
+
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</code></pre></div>
+<p>If we ignore <code>WorkLog</code> for a moment,
+we can see that <code>Developer.work</code> is:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">required_dev</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</code></pre></div>
+<p>i.e.,
+wait to a get a take from the development queue,
+pause for a while to do the work,
+and then put the task in the testing queue.</p>
+<h2>Recording Work</h2>
+<p>So what is <code>WorkLog</code>?
+It&rsquo;s a <em>context manager</em>,
+i.e.,
+a class that does something at the start of a block
+and then automatically does some cleanup at the end of the block.
+In our case,
+what it does at the start is record the start time of the work
+and change the state flags of the worker and task:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">WorkLog</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Context manager to keep track of elapsed time.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worker</span><span class="p">,</span> <span class="n">worker_states</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="n">task_states</span><span class="p">,</span> <span class="n">key_num</span><span class="p">,</span> <span class="n">key_time</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker</span> <span class="o">=</span> <span class="n">worker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker_states</span> <span class="o">=</span> <span class="n">worker_states</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="n">task</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_states</span> <span class="o">=</span> <span class="n">task_states</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key_num</span> <span class="o">=</span> <span class="n">key_num</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key_time</span> <span class="o">=</span> <span class="n">key_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start the clock.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p>At the end of the block—i.e.,
+after the simulated work is done—the context manager
+records how long the worker spent and how many tasks it has processed,
+then changes the states of the task and worker again:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">WorkLog</span><span class="p">:</span>
+    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Stop the clock.&quot;&quot;&quot;</span>
+
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="p">[</span><span class="s2">&quot;busy&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">elapsed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">worker</span><span class="p">[</span><span class="s2">&quot;n_task&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">key_num</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">key_time</span><span class="p">]</span> <span class="o">+=</span> <span class="n">elapsed</span>
+
+        <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+<p>Using <code>WorkLog</code> adds eight lines to what was a three-line simulation loop,
+but we&rsquo;ve learned the hard way as this code evolves
+that keeping the record keeping for developers and testers in sync is error-prone.
+Putting that code in a class,
+and ensuring that the end-of-work record keeping is always done,
+speeds up development.</p>
+<h2>Testers</h2>
+<p>The <code>Tester</code> class is similar to the <code>Developer</code> class:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="p">(</span><span class="n">Worker</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+            <span class="k">with</span> <span class="n">WorkLog</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">Worker</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">BUSY</span><span class="p">,</span> <span class="n">Worker</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">IDLE</span><span class="p">),</span>
+                <span class="n">task</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">Task</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">TEST</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                <span class="s2">&quot;n_test&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;t_test&quot;</span><span class="p">,</span>
+            <span class="p">):</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">required_test</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">rand_rework</span><span class="p">():</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">PRI_HIGH</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">WAIT_DEV</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">COMPLETE</span>
+</code></pre></div>
+<p>This class gets work from the ready-to-test queue,
+and then decides once the work is done
+whether the task needs to be re-developed or not.
+If it does,
+it goes back into the ready-to-develop queue with high priority
+to ensure that tasks needing rework are done before tasks that haven&rsquo;t been touched yet.
+Without this rule,
+far fewer tasks are completed,
+and far more tasks are half-done at the simulation&rsquo;s end.</p>
+<h2>Logging</h2>
+<p>It&rsquo;s finally time to look at the <code>Log</code> class that records data.
+Its constructor makes space to record snapshots of
+the states of all the tasks in the system,
+the lengths of all the queues,
+and what the developers and testers are doing:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Log</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Keep a log of interesting things.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span> <span class="o">=</span> <span class="n">sim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">snapshot</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;tasks&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">&quot;queues&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">&quot;workers&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="p">}</span>
+</code></pre></div>
+<p>The generator that does the active work is simplicity itself:
+record the state of the simulation,
+then wait a fixed interval
+(which we will initially set to one clock tick):</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_record</span><span class="p">()</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;log_interval&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>The code to record the simulation state is a bit messy,
+because it depends on the implementations of various classes,
+but in brief it creates records for:</p>
+<ol>
+<li>
+<p>the state of every task in the system;</p>
+</li>
+<li>
+<p>the lengths of the two queues; and</p>
+</li>
+<li>
+<p>the state of each developer and tester.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_record</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Record a log entry at a particular moment.&quot;&quot;&quot;</span>
+
+        <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">Labeled</span><span class="o">.</span><span class="n">_all</span><span class="p">[</span><span class="n">Task</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">snapshot</span><span class="p">[</span><span class="s2">&quot;tasks&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">now</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">state</span><span class="p">)}</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">queue</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">snapshot</span><span class="p">[</span><span class="s2">&quot;queues&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">now</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">items</span><span class="p">)}</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">kind</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="n">Developer</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">Tester</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">Labeled</span><span class="o">.</span><span class="n">_all</span><span class="p">[</span><span class="bp">cls</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">snapshot</span><span class="p">[</span><span class="s2">&quot;workers&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">now</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="n">kind</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">w</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">state</span><span class="p">)}</span>
+                <span class="p">)</span>
+</code></pre></div>
+<h2>What Have We Learned?</h2>
+<p>The first thing we learned from this refactoring is that
+roughly half the code is devoted to collecting data.
+This won&rsquo;t come as a surprise to anyone who has ever built a monitoring tool:
+figuring out what&rsquo;s going on is often as hard as making things happen,
+and sometimes harder.</p>
+<p>The second thing we&rsquo;ve learned is that our simulation can still surprise us.
+The graph on the left shows the lengths of the develpment and testing queues over time,
+while the one on the right shows how many tasks are in each of the possible states:</p>
+<div class="row">
+  <div class="col-6 center">
+    <img src="../../../../files/2025/11/30/sample_queues.svg" alt="queue lengths" width="90%">
+    <br>
+    Queue Lengths
+  </div>
+  <div class="col-6 center">
+    <img src="../../../../files/2025/11/30/sample_tasks.svg" alt="task states" width="90%">
+    <br>
+    Task States
+  </div>
+</div>
+
+<p>The steady growth in the number of tasks waiting for a developer makes sense:
+we&rsquo;re generating new ones faster than they can be completed.
+But why does the length of the testing queue rise and then fall?
+Is it just random variation?
+Or is it revealing some unexpected property of our development process?
+That question will have to wait for tomorrow.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  None of the material on this site may be used to train AI models without the express prior permission of the author.
+</footer>
+  </body>
+</html>
