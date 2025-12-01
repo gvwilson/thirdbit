@@ -41,7 +41,7 @@ fiction: true
     - André (her schoolmate, whom she calls "Dan-dan" to annoy him)
     - Doctor Meadows and Captain Lawson (the only surviving adults, but both quite young)
     - Z40 and Z44 (non-verbal combat bots)
-- Plot
+- Plot (average 1500 words/chapter)
   - Chapter 1: Sindy
     - Special Leaf's funeral
       - Foreshadow the Makers' grief when they realize how few have survived
@@ -134,9 +134,32 @@ fiction: true
       - Brings Z40 and Z44 (which makes Violet uneasy)
     - They board the shuttle, take off, circle, and land
     - Bots leave the shuttle first
-    - Immediately come under fire
+    - Immediately fired upon
   - Chapter 9: Sindy
+    - Sees the shuttle lift off from the downed ship, circle, and land
+    - Special Blazes orders everyone away while Nash sets up a ray gun on a tripod
+      - Mayor Lupus insists that there be no shooting unless she says so
+      - Blazes says "There won't be time for chit-chat"
+    - Robots disembark
+      - Blazes: "Those are war machines!"
+      - Nash fires
+      - Robots retreat instead of firing back
+    - Lupus is furious
+      - Blazes doesn't apologize but is also furious at Nash for being trigger-happy
+    - Sindy is watching all this and hears Violet on the communicator
+      - She thinks about how brave Maddy was
+      - Then leaves her hiding place in the trees and walks toward the shuttle
+    - Dockety and the grown-ups yell at her to come back
+      - She tells Violet "They're just afraid. You gotta show them that they got nothing to be afraid of."
+    - Violet and Major Lawson come out
+      - Sindy gapes at her: "You're a throwback!"
+      - Violet (bewildered): "I don't know what that is. I'm human just like you."
   - Chapter 10: Violet
+    - Open with Violet hearing "They're just afraid"
+      - Major Lawson is listening in
+      - He grimly says: "We don't have a choice. We can't take off again."
+    - They go out
+      - Replay Violet and Sindy's "throwback/human" exchange
   - Chapter 11: Sindy
   - Chapter 12: Violet
   - Chapter 13: Sindy
@@ -145,6 +168,8 @@ fiction: true
   - Chapter 16: Violet
   - Chapter 17: Sindy
   - Chapter 18: Violet
+  - Chapter 19: Violet
+  - Chapter 20: Violet
   - Epilog
     - Dockety takes what's left of Patient to the Tailor for mending
     - And the remaining children are woken up into a strange new world
