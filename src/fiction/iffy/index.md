@@ -3714,7 +3714,7 @@ and twenty milligrams of tactical antimatter in his luggage?"
 Wales pushed the medic's hands away.
 "The sort of man who can change the world for you."
 
-Governor Stern pivoted to face him.
+Governor Stern Rothera pivoted to face him.
 "Really?"
 His eyes had the same sparkle as Doctor Johel's,
 but it seemed ominous instead of magical.
@@ -3756,7 +3756,7 @@ The governor pursed his lips.
 
 Wales closed his eyes and reeled off a list of coordinates.
 The numbers meant nothing to Iffy,
-but from the looks on Governor Stern's and Doctor Johel's faces
+but from the looks on Governor Stern Rothera's and Doctor Johel's faces
 it was clear they recognized at least some of them.
 "I can bring up your drones, too,"
 Wales said when he was done.
@@ -3776,7 +3776,7 @@ The medic looked at the governor.
 Oxygen uptake, metabolic efficiency, chromatin structure—it'll
 take a while to sort it all out."
 
-Governor Stern cocked his head to the side.
+Governor Stern Rothera cocked his head to the side.
 Every third person in Antarctica had inherited some minor tweak
 from grandparents or great-grandparents
 who had wanted a more efficient body,
@@ -8356,7 +8356,7 @@ as the trolley cleared their empty bowls.
 the expedition's departure has been delayed,"
 the trolley said before Iffy could say that she didn't know.
 "Some other matters came up
-and Governor Stern felt more time was needed to prepare.
+and the governor felt more time was needed to prepare.
 I'm sure everything will be sorted out in short order.
 Now,
 who would like some mango sorbet?"
@@ -8508,7 +8508,7 @@ then took a deep breath and turned to look down at her new friend.
 
 A third Aussie sailor was waiting for her at the governor's mansion
 beside the two who had been standing guard when she left.
-"Miz Kwan?
+"Citizen Kwan?
 Doctor Johel would like to speak with you.
 Now, please,"
 he added before she could protest.
@@ -8586,7 +8586,110 @@ He also somehow managed to blind the *Bengal* for a few crucial minutes,
 which I wouldn't have thought possible.
 Did you help?
 Or rather,
-did your friends?"
+did your *other* friends?"
+
+Iffy looked Doctor Johel straight in the eyes.
+"I din't have anythin' to do with Mister Wales gettin' off the *Ginny*.
+I don't know how he did or why,
+an' to be honest,
+I don't much care.
+You can believe that or not as you see fit."
+
+Tech sparkled briefly in the doctor's eyes.
+She pinched the bridge of her nose
+as the scenes on the walls disappeared.
+"Citizen Kwan,
+I really would like to believe you,
+but I can't afford to.
+The machines are up to something,
+and instead of preparing for it
+the governors are acting like spoiled children."
+
+"I say, that's a bit harsh, isn't it?"
+The air behind Doctor Johel shimmered and solidified.
+Governor Stern Halley's smile was no less menacing
+than the small pistol in his hand.
+
+Doctor Johel didn't flinch.
+"Spoiled. Little. Children,"
+she said,
+each word dripping with scorn.
+
+The governor's smile slipped.
+"You knew this day was coming, Gayathri.
+Please don't pretend you didn't."
+
+"Um,
+if you two wanna talk this out,
+I can just…"
+Iffy gestured toward the door.
+
+The governor chuckled.
+"You really are quite extraordinary, you know.
+If circumstances were different I would probably offer you a job."
+He chuckled.
+"Though if I did,
+I suspect that I would be working for *you* in rather short order."
+
+When Iffy didn't answer,
+he sighed.
+"Things are getting worse,
+Miss Kwan.
+Every time we think we've patched a hole in the world,
+entropy breaks through in a dozen other places.
+Commander Wales and your pet Ecologist think they can save enough to start over,
+but simulation after simulation says they're wrong.
+Even the machines seem to be afraid these days,
+though what they seem to be afraid of most,
+surprisingly,
+is you."
+
+He glanced at Doctor Johel,
+then raised the gun to aim at Iffy's head.
+"For what it's worth,
+I'm sorry.
+I just can't take the chance that—"
+
+"Twenty-nine indigo ribcage."
+Doctor Johel raised her voice to cut the governor off.
+His eyes widened in shock,
+and then his face went slack and his arm fell to his side.
+
+Before Iffy could say anything,
+Doctor Johel grabbed her arm and pulled her close.
+"Stay quiet,"
+she hissed in Iffy's ear.
+"Not a single word, do you understand?
+Not 'til he's gone."
+
+Frightened,
+Iffy nodded.
+The old woman released her arm and turned to the governor.
+"Are you ready for upload?" she ask.
+
+"I'm ready," the governor replied dully.
+
+Doctor Johel put gentle hands on his face
+and spread her fingers to make sure his eyes were wide open.
+"Uploading now."
+The tech in her eyes sparkled.
+Iffy held her breath
+as tiny flecks of light danced behind the governor's eyes in response.
+
+Whatever was happening only lasted a few moments.
+When the sparkling stopped,
+Doctor Johel lowered her hands and stepped back.
+The governor blinked, then raised his hand as if to rub his eyes.
+"Oh dear, what…?"
+He looked at his pistol bemusedly
+before tucking it into his pocket.
+
+"Well, I'll leave you to it then, shall I?"
+he said brightly,
+his smile back in place.
+"Doctor, Citizen Kwan."
+He nodded to each of them politely and then left,
+closing the door quietly behind him.
 
 </section>
 
