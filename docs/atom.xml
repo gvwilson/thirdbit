@@ -3,12 +3,120 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-11-30T00:00:00Z</updated>
+ <updated>2025-12-03T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>In Search of Sturdiness</title>
+   <link href="https://third-bit.com/2025/12/03/in-search-of-sturdiness/"/>
+   <updated>2025-12-03T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/12/03/in-search-of-sturdiness/</id>
+   <content type="html">&lt;p&gt;I took a break from this series of posts for a couple of days
+to focus on &lt;a href=&#34;https://third-bit.com/2025/11/21/looking-for-work/&#34;&gt;looking for a new role&lt;/a&gt;
+and because I&amp;rsquo;ve hit a bit of a roadblock.
+In the most recent version of the simulation,
+testers can bounce work back to the development queue if they find bugs:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;+----------------+    +-----------+    +------------+    +------------+    +---------+
+| task generator | -&amp;gt; | dev queue | -&amp;gt; | developers | -&amp;gt; | test queue | -&amp;gt; | testers |
++----------------+    +-----------+    +------------+    +------------+    +---------+
+                            ^                                                   |
+                            |                                                   |
+                            +---------------------------------------------------+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tasks that have been sent back for more work always have higher priority than new tasks,
+but that&amp;rsquo;s not realistic.
+What I&amp;rsquo;d like to model is a system in which re-work is done by
+the same developer who did the initial work.
+I can do this by creating a re-work queue for each developer,
+and use &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt;&amp;rsquo;s &lt;code&gt;AnyOf&lt;/code&gt; operator to select from either queue:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Developer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Worker&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;work&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;rework_get&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rework_queue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;new_get&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_queue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AnyOf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rework_get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;new_get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rework_get&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;events&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rework_get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;new_get&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cancel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;new_get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notice that the &amp;ldquo;get&amp;rdquo; request for the new-work queue is canceled
+when there&amp;rsquo;s re-work to be done.
+Doing this takes care of the case in which items were available in &lt;em&gt;both&lt;/em&gt; queues
+(which turns out to be very common);
+I found by trial and error that canceling a &amp;ldquo;get&amp;rdquo; request has no effect
+if the request is still pending,
+which simplifies the logic a little bit.&lt;/p&gt;
+&lt;p&gt;So here&amp;rsquo;s my problem:
+when there is re-work to be done &lt;em&gt;and&lt;/em&gt; the developer is working on a new task,
+I&amp;rsquo;d like to interrupt the developer and have them do re-work,
+then resume their previous task;
+in other words,
+I&amp;rsquo;d like re-work to take &lt;em&gt;immediate&lt;/em&gt; precedence over new work.
+However,
+if the developer is already doing re-work,
+I don&amp;rsquo;t want to interrupt them.&lt;/p&gt;
+&lt;p&gt;SimPy supports interrupts:
+if you have a process &lt;code&gt;p&lt;/code&gt;, you can call &lt;code&gt;p.interrupt()&lt;/code&gt; to throw an exception into it.
+The process can catch this and do whatever it wants:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;normal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;operation&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Interrupt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interrupt&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So now what?
+As near as I can figure,
+when a developer is interrupted,
+it checks to see whether it&amp;rsquo;s already doing re-work or not.
+If it is,
+it puts the task associated with the re-work interrupt in its re-work queue.
+If not,
+it puts the (new) task it&amp;rsquo;s working on in the re-work queue
+and switches tasks.
+Hm,
+that means the developer&amp;rsquo;s queue has to be a priority queue
+so that re-work takes precedence over new work.
+And we need to keep track of time spent so far on each task.
+And there&amp;rsquo;s probably at least one corner case I haven&amp;rsquo;t thought of yet,
+because this is a concurrent system with interrupts
+and there are &lt;em&gt;always&lt;/em&gt; corner cases.&lt;/p&gt;
+&lt;p&gt;A few final thoughts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The title of this post is &amp;ldquo;In Search of Sturdiness&amp;rdquo;
+    because I think that word best sums up what I&amp;rsquo;m looking for.
+    I don&amp;rsquo;t care all that much if a solution is elegant or graceful or clever;
+    I want something sturdy because I want to make more changes to the simulation
+    and I don&amp;rsquo;t want to have to come back and re-design this part.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AI tools aren&amp;rsquo;t much help here,
+    at least not the ones I&amp;rsquo;ve tried.
+    They&amp;rsquo;re good at generating plausible answers,
+    but this situation needs one that&amp;rsquo;s right as well.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;This is where I&amp;rsquo;d like to make use of a tool like &lt;a href=&#34;https://alloytools.org/&#34;&gt;Alloy&lt;/a&gt; or &lt;a href=&#34;https://en.wikipedia.org/wiki/TLA%2B&#34;&gt;TLA+&lt;/a&gt;,
+    but they aren&amp;rsquo;t already part of my repertoire,
+    and I don&amp;rsquo;t have time for a three-month side quest to master one of them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I&amp;rsquo;ve tried to find an experienced SimPy user, without luck.
+    If you are one,
+    and are willing to offer some design advice,
+    I&amp;rsquo;d be very grateful if you would &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;reach out&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content>
+ </entry>
  
  <entry>
    <title>Observability</title>
@@ -2492,20 +2600,6 @@ which makes me wonder if there are now stories I&amp;rsquo;m no longer able to t
   &lt;img src=&#34;https://third-bit.com/files/2025/story-dice.jpg&#34; alt=&#34;three red and two green story dice&#34; width=&#34;50%&#34;&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Time to make another cup of tea. If you came in peace, be welcome.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Loading the Dishwasher</title>
-   <link href="https://third-bit.com/2025/10/05/loading-the-dishwasher/"/>
-   <updated>2025-10-05T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/10/05/loading-the-dishwasher/</id>
-   <content type="html">&lt;p&gt;My daughter was profligate in her use of kitchenware:
-she would always grab a fresh glass for water instead of re-using the one that she had just emptied,
-and never used three saucepans to cook when she could use five.
-Now that she has left home,
-I only need to load the dishwasher once a day.&lt;/p&gt;
-&lt;p&gt;But I wish I still had to load it twice.&lt;/p&gt;
 &lt;p&gt;Time to make another cup of tea. If you came in peace, be welcome.&lt;/p&gt;</content>
  </entry>
  

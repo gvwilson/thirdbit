@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: In Search of Sturdiness</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>In Search of Sturdiness</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/11/30/observability/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-12-03" class="post-date">2025-12-03</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>I took a break from this series of posts for a couple of days
+to focus on <a href="../../../../2025/11/21/looking-for-work/">looking for a new role</a>
+and because I&rsquo;ve hit a bit of a roadblock.
+In the most recent version of the simulation,
+testers can bounce work back to the development queue if they find bugs:</p>
+<div class="highlight"><pre><span></span><code>+----------------+    +-----------+    +------------+    +------------+    +---------+
+| task generator | -&gt; | dev queue | -&gt; | developers | -&gt; | test queue | -&gt; | testers |
++----------------+    +-----------+    +------------+    +------------+    +---------+
+                            ^                                                   |
+                            |                                                   |
+                            +---------------------------------------------------+
+</code></pre></div>
+<p>Tasks that have been sent back for more work always have higher priority than new tasks,
+but that&rsquo;s not realistic.
+What I&rsquo;d like to model is a system in which re-work is done by
+the same developer who did the initial work.
+I can do this by creating a re-work queue for each developer,
+and use <a href="https://simpy.readthedocs.io/">SimPy</a>&rsquo;s <code>AnyOf</code> operator to select from either queue:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Developer</span><span class="p">(</span><span class="n">Worker</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">rework_get</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rework_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">new_get</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">yield</span><span class="p">(</span><span class="n">simpy</span><span class="o">.</span><span class="n">AnyOf</span><span class="p">(</span><span class="n">rework_get</span><span class="p">,</span> <span class="n">new_get</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">rework_get</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+                <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">rework_get</span><span class="p">]</span>
+                <span class="n">new_get</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">new_get</span><span class="p">]</span>
+</code></pre></div>
+<p>Notice that the &ldquo;get&rdquo; request for the new-work queue is canceled
+when there&rsquo;s re-work to be done.
+Doing this takes care of the case in which items were available in <em>both</em> queues
+(which turns out to be very common);
+I found by trial and error that canceling a &ldquo;get&rdquo; request has no effect
+if the request is still pending,
+which simplifies the logic a little bit.</p>
+<p>So here&rsquo;s my problem:
+when there is re-work to be done <em>and</em> the developer is working on a new task,
+I&rsquo;d like to interrupt the developer and have them do re-work,
+then resume their previous task;
+in other words,
+I&rsquo;d like re-work to take <em>immediate</em> precedence over new work.
+However,
+if the developer is already doing re-work,
+I don&rsquo;t want to interrupt them.</p>
+<p>SimPy supports interrupts:
+if you have a process <code>p</code>, you can call <code>p.interrupt()</code> to throw an exception into it.
+The process can catch this and do whatever it wants:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">p</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="err">…</span><span class="n">normal</span> <span class="n">operation</span><span class="err">…</span>
+        <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span><span class="p">:</span>
+            <span class="err">…</span><span class="n">interrupt</span> <span class="n">handler</span><span class="err">…</span>
+</code></pre></div>
+<p>So now what?
+As near as I can figure,
+when a developer is interrupted,
+it checks to see whether it&rsquo;s already doing re-work or not.
+If it is,
+it puts the task associated with the re-work interrupt in its re-work queue.
+If not,
+it puts the (new) task it&rsquo;s working on in the re-work queue
+and switches tasks.
+Hm,
+that means the developer&rsquo;s queue has to be a priority queue
+so that re-work takes precedence over new work.
+And we need to keep track of time spent so far on each task.
+And there&rsquo;s probably at least one corner case I haven&rsquo;t thought of yet,
+because this is a concurrent system with interrupts
+and there are <em>always</em> corner cases.</p>
+<p>A few final thoughts:</p>
+<ol>
+<li>
+<p>The title of this post is &ldquo;In Search of Sturdiness&rdquo;
+    because I think that word best sums up what I&rsquo;m looking for.
+    I don&rsquo;t care all that much if a solution is elegant or graceful or clever;
+    I want something sturdy because I want to make more changes to the simulation
+    and I don&rsquo;t want to have to come back and re-design this part.</p>
+</li>
+<li>
+<p>AI tools aren&rsquo;t much help here,
+    at least not the ones I&rsquo;ve tried.
+    They&rsquo;re good at generating plausible answers,
+    but this situation needs one that&rsquo;s right as well.</p>
+</li>
+<li>
+<p>This is where I&rsquo;d like to make use of a tool like <a href="https://alloytools.org/">Alloy</a> or <a href="https://en.wikipedia.org/wiki/TLA%2B">TLA+</a>,
+    but they aren&rsquo;t already part of my repertoire,
+    and I don&rsquo;t have time for a three-month side quest to master one of them.</p>
+</li>
+<li>
+<p>I&rsquo;ve tried to find an experienced SimPy user, without luck.
+    If you are one,
+    and are willing to offer some design advice,
+    I&rsquo;d be very grateful if you would <a href="mailto:gvwilson@third-bit.com">reach out</a>.</p>
+</li>
+</ol><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  None of the material on this site may be used to train AI models without the express prior permission of the author.
+</footer>
+  </body>
+</html>
