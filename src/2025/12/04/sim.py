@@ -12,15 +12,15 @@ import sys
 
 # Simulation parameters.
 PARAMS = {
-    "log_interval": 1,
-    "num_dev": 3,
-    "num_tester": 3,
-    "median_dev_time": 5.0,
-    "median_test_time": 4.0,
-    "prob_rework": 0.5,
+    "n_dev": 3,
+    "n_tester": 3,
+    "p_rework": 0.5,
     "rng_seed": 12345,
-    "sim_time": 10,
-    "task_arrival": 4.0,
+    "t_arrival": 4.0,
+    "t_dev": 5.0,
+    "t_log": 5,
+    "t_sim": 20,
+    "t_test": 4.0,
 }
 
 # Floating-point rounding precision.
@@ -48,11 +48,11 @@ class Simulation:
         self.params = params
         self.env = simpy.Environment()
 
-        self.developers = [Developer(self) for _ in range(params["num_dev"])]
-        self.dev_queue = simpy.PriorityStore(self.env)
+        self.developers = [Developer(self) for _ in range(params["n_dev"])]
+        self.dev_queue = simpy.Store(self.env)
 
-        self.testers = [Tester(self) for _ in range(params["num_tester"])]
-        self.test_queue = simpy.PriorityStore(self.env)
+        self.testers = [Tester(self) for _ in range(params["n_tester"])]
+        self.test_queue = simpy.Store(self.env)
 
         self.logger = Log(self)
 
@@ -61,17 +61,21 @@ class Simulation:
         """Shortcut for current time."""
         return self.env.now
 
+    def process(self, proc):
+        """Shortcut for running a process."""
+        self.env.process(proc)
+
+    def timeout(self, time):
+        """Shortcut for delaying a fixed time."""
+        return self.env.timeout(time)
+
     def generate(self):
         """Generate tasks at random intervals starting at t=0."""
 
         yield self.dev_queue.put(Task(self))
         while True:
-            yield self.timeout(self.rand_task_arrival())
+            yield self.timeout(self.t_arrival())
             yield self.dev_queue.put(Task(self))
-
-    def process(self, proc):
-        """Shortcut for running a process."""
-        self.env.process(proc)
 
     def run(self):
         """Run the whole simulation."""
@@ -81,27 +85,23 @@ class Simulation:
         for workers in (self.developers, self.testers):
             for w in workers:
                 self.process(w.work())
-        self.env.run(until=self.params["sim_time"])
+        self.env.run(until=self.params["t_sim"])
 
-    def rand_dev_time(self):
+    def t_dev(self):
         """Development time."""
-        return random.lognormvariate(0, 1) * self.params["median_dev_time"]
+        return random.lognormvariate(0, 1) * self.params["t_dev"]
 
-    def rand_task_arrival(self):
+    def t_arrival(self):
         """Task arrival time."""
-        return random.expovariate(1.0 / self.params["task_arrival"])
+        return random.expovariate(1.0 / self.params["t_arrival"])
 
-    def rand_test_time(self):
+    def t_test(self):
         """Testing time."""
-        return random.lognormvariate(0, 1) * self.params["median_test_time"]
+        return random.lognormvariate(0, 1) * self.params["t_test"]
 
-    def rand_rework(self):
+    def p_rework(self):
         """Does this task need to be reworked?"""
-        return random.uniform(0, 1) < self.params["prob_rework"]
-
-    def timeout(self, time):
-        """Shortcut for delaying a fixed time."""
-        return self.env.timeout(time)
+        return random.uniform(0, 1) < self.params["p_rework"]
 
 
 class Log:
@@ -157,7 +157,7 @@ class Log:
 
         while True:
             self._record()
-            yield self.sim.timeout(self.sim.params["log_interval"])
+            yield self.sim.timeout(self.sim.params["t_log"])
 
     def _record(self):
         """Record a log entry at a particular moment."""
@@ -292,9 +292,10 @@ class Task(Labeled):
         super().__init__(sim)
         self.state = Task.State.WAIT_DEV
         self.priority = Task.PRI_LOW
-        self.required_dev = self.sim.rand_dev_time()
-        self.required_test = self.sim.rand_test_time()
+        self.required_dev = self.sim.t_dev()
+        self.required_test = self.sim.t_test()
         self["t_create"] = self.sim.now
+        self.developer = None
 
     def __lt__(self, other):
         return self.priority < other.priority
@@ -319,16 +320,38 @@ class Worker(Labeled):
 class Developer(Worker):
     """A developer."""
 
+    def __init__(self, sim):
+        """Construct."""
+
+        super().__init__(sim)
+        self.rework_queue = simpy.Store(self.sim.env)
+
     def work(self):
         """Simulate."""
 
         while True:
-            task = yield self.sim.dev_queue.get()
+            req_dev = self.sim.dev_queue.get()
+            req_rework = self.rework_queue.get()
+            result = yield (req_dev | req_rework)
+            task = self.choose(result, req_dev, req_rework)
 
-            with DeveloperLog(self, task,):
+            with DeveloperLog(self, task):
                 yield self.sim.timeout(task.required_dev)
 
+            task.developer = self
             yield self.sim.test_queue.put(task)
+
+    def choose(self, result, req_dev, req_rework):
+        """Choose a task and cancel other request."""
+        if req_rework in result:
+            task = result[req_rework]
+            req_dev.cancel()
+        elif req_dev in result:
+            task = result[req_dev]
+            req_rework.cancel()
+        else:
+            assert False, "how did we get here?"
+        return task
 
 
 class Tester(Worker):
@@ -343,10 +366,11 @@ class Tester(Worker):
             with TesterLog(self, task):
                 yield self.sim.timeout(task.required_test)
 
-            if self.sim.rand_rework():
+            if self.sim.p_rework():
+                assert task.developer is not None
                 task.priority = Task.PRI_HIGH
                 task.state = Task.State.WAIT_DEV
-                yield self.sim.dev_queue.put(task)
+                yield task.developer.rework_queue.put(task)
             else:
                 task.state = Task.State.COMPLETE
 
