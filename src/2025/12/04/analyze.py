@@ -6,17 +6,18 @@ import sys
 
 def main():
     data = read_raw()
+
     df_tasks = build_df(data, "tasks")
+    plot_task_count(df_tasks, "state")
+
     df_workers = build_df(data, "workers")
-    print(df_tasks)
-    print(df_workers)
-    plot(df_workers, "n_dev")
-    plot(df_workers, "n_rework")
+    plot_dev(df_workers, "n_dev")
+    plot_dev(df_workers, "n_rework")
 
 
 def build_df(data, key):
     df = None
-    for ((needed, chosen), raw) in data.items():
+    for (needed, chosen), raw in data.items():
         temp = pl.from_dicts(raw[key]).with_columns(
             pl.lit(needed).alias("needed"),
             pl.lit(chosen).alias("chosen"),
@@ -39,8 +40,33 @@ def read_raw():
     return data
 
 
-def plot(df, key):
-    df = df.filter(pl.col("kind") == "dev").group_by(["needed", "chosen"]).agg(pl.col(key).sum())
+def plot_task_count(df, key):
+    df = (
+        df.group_by(["needed", "chosen", key])
+        .agg(pl.len().alias("count"))
+        .sort(["needed", "chosen"])
+    )
+    fig = px.bar(
+        df,
+        x="state",
+        y="count",
+        facet_row="needed",
+        facet_col="chosen",
+        category_orders={
+            "state": ["wait_dev", "dev", "wait_test", "test", "complete"],
+        },
+    )
+    for annotation in fig["layout"]["annotations"]:
+        annotation["textangle"] = 0
+    fig.write_image("states.svg")
+
+
+def plot_dev(df, key):
+    df = (
+        df.filter(pl.col("kind") == "dev")
+        .group_by(["needed", "chosen"])
+        .agg(pl.col(key).sum())
+    )
     fig = px.scatter(df, x="needed", y="chosen", size=key, title=key)
     fig.write_image(f"{key}.svg")
 

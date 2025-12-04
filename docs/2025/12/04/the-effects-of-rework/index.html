@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: The Effects of Rework</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>The Effects of Rework</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/12/03/you-have-to-cancel/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2025-12-04" class="post-date">2025-12-04</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Having <a href="../../../../2025/12/03/you-have-to-cancel/">solved yesterday&rsquo;s bug</a>,
+we can get back to looking at the effect of re-work on throughput.
+As a reminder,
+our workflow looks like this:</p>
+<div class="highlight"><pre><span></span><code>+----------------+    +-----------+    +------------+    +------------+    +---------+
+| task generator | -&gt; | dev queue | -&gt; | developers | -&gt; | test queue | -&gt; | testers |
++----------------+    +-----------+    +------------+    +------------+    +---------+
+                            ^                                                   |
+                            |                                                   |
+                            +---------------------------------------------------+
+</code></pre></div>
+<p>The two parameters that affect re-work are <code>p_rework_needed</code>,
+which is the probability that a tester is going to send a task back for more work,
+and <code>p_rework_chosen</code>,
+which is the probability that a developer will choose something from her re-work queue
+rather than starting fresh work
+when both are available.
+The extreme cases are:</p>
+<ul>
+<li><code>p_rework_needed</code> = 0.0, meaning no tasks are ever sent back.</li>
+<li><code>p_rework_needed</code> = 1.0, meaning every task is always sent back.
+    (Note that this means no task will ever be finished:
+    instead,
+    tasks will circulate endlesslesly between development and testing,
+    and yes,
+    sometimes it does feel like that happens in real life.)</li>
+<li><code>p_rework_chosen</code> = 0.0, in which case
+    developers only re-do tasks when there is no new work queued up.
+    (We know from previous simulations that there are almost always
+    new tasks waiting to be started.)</li>
+<li><code>p_rework_chosen</code> = 1.0, in which case
+    developers only start new tasks when nothing needs to be re-done.</li>
+</ul>
+<p>Finally,
+this version of the simulation always sends tasks back to
+the developers who originally worked on them
+rather than allowing the first available developer
+to re-do someone else&rsquo;s work.</p>
+<h2>Final States</h2>
+<p>The figure below shows the number of tasks in each of the five possible states
+at the end of the simulation
+as a function of <code>p_rework_needed</code> and <code>p_rework_chosen</code>:</p>
+<div class="center">
+  <img src="../../../../files/2025/12/04/states.svg" alt="final task states" width="90%">
+</div>
+
+<p>As expected,
+lots of tasks are in the <code>complete</code> state when there is never any need for re-work,
+while none are when re-work is always needed.
+This finding may seem obvious,
+but this simple check uncovered a couple of bugs in the simulation.</p>
+<p>A more interesting finding is that
+how developers choose tasks doesn&rsquo;t seem to have much effect
+on how many they get done:
+while there is some variation,
+the bars stay more or less the same height when we look at each row.</p>
+<p>We can reach the same conclusion by looking at
+the number of times tasks were developed and re-worked.
+The sizes of the circles in the plots below reflect these counts:</p>
+<div class="row">
+  <div class="col-6 center">
+    <img src="../../../../files/2025/12/04/n_dev.svg" alt="development count" width="90%">
+  </div>
+  <div class="col-6 center">
+    <img src="../../../../files/2025/12/04/n_rework.svg" alt="re-work count" width="90%">
+  </div>
+</div>
+
+<p>Again,
+the probability of needing re-work has an obvious impact,
+while the probability of choosing new work vs. re-work doesn&rsquo;t seem to.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2025 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  None of the material on this site may be used to train AI models without the express prior permission of the author.
+</footer>
+  </body>
+</html>
