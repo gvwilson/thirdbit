@@ -6769,7 +6769,7 @@ And if you're going to do all of that,
 why not put some tech in their heads so that they can talk to their ships?"
 
 Wales kept his eyes on the *Guinevere*'s displays as he spoke.
-"Gayathri's grandfather was the lead scientist on the program.
+"Gayathri's father was the lead scientist on the program.
 He made half a dozen of us before the government cut off his funding.
 We were everything he'd promised,
 but the water was rising and people were going hungry,
@@ -8637,7 +8637,7 @@ he sighed.
 Miss Kwan.
 Every time we think we've patched a hole in the world,
 entropy breaks through in a dozen other places.
-Commander Wales and your pet Ecologist think they can save enough to start over,
+Commander Wales and your pet Ecologist think they can save enough for us to re-start,
 but simulation after simulation says they're wrong.
 Even the machines seem to be afraid these days,
 though what they seem to be afraid of most,
@@ -8688,8 +8688,88 @@ before tucking it into his pocket.
 he said brightly,
 his smile back in place.
 "Doctor, Citizen Kwan."
-He nodded to each of them politely and then left,
-closing the door quietly behind him.
+He nodded to each of them politely and left,
+humming under his breath.
+
+Iffy waited until the door closed before exploding.
+"What th' hell was that?"
+
+"That was necessary,"
+Doctor Johel said curtly.
+"My father designed the governors' mods when they were first cloned.
+Their first wanted them to be able to share memories with each other.
+It turned out there was no way to do that without essentially imprinting them,
+but the upload capability was never removed."
+
+The look she gave Iffy was colder than an Antarctic winter.
+"I hope I don't have to tell you not to speak of this to anyone, ever."
+
+Iffy crossed her arms.
+"No, you don't."
+
+"Good.
+Now,
+I'm sure your foster mother must be wondering where you've gone."
+
+Aunt Naggie's door was closed.
+Iffy thought about knocking,
+but suspected that she would be interrupting if she did,
+so she went back to her room,
+kicked off her boots,
+dropped her coat on the floor,
+and threw herself on her bed.
+It really had been a blobfish of a day.
+
+She surfaced from troubled dreams a few hours later.
+Her room was completely dark
+except for the faint red glow of the small sign above the door
+proclaiming "emergency exit".
+For a moment she thought she was back on the *Guinevere*,
+but the bed was too soft
+and nothing smelled right.
+
+*«danger / immediate»*
+
+"Nooo…" she groaned.
+She just wanted to sleep.
+
+*«danger / you / immediate»*
+
+The urgency in the foreign thought made her roll over.
+"Me?"
+
+*«danger / you / trapped»*
+
+The thought was followed by a memory of voices
+heard through a ventilation grate.
+(She couldn't see the grate,
+but she remembered clutching its slats with her paws.)
+"…take her first thing in the morning,"
+said a male voice with an old-fashioned accent.
+"And we're not to let the Australians know."
+
+"Yes, sir.
+Anything special we have to worry about?"
+The second voice was female,
+but had the same imprinted accent.
+
+"No offensive modifications as far as I'm aware,
+but she does appear to have a knack with machinery."
+
+The second voice swore softly.
+"So in other words,
+be prepared for anything.
+What about the other two?"
+
+"Not our concern unless they get in the way.
+In which case…"
+
+The raccoon who had overheard the conversation
+hadn't seen the first Marine's gesture,
+but Iffy could guess his meaning.
+Her gut turned cold.
+She could guess what "take her" meant,
+and didn't want to stick around to find out if she was right.
 
 </section>
 
@@ -12459,7 +12539,7 @@ and—
 And there,
 in the bottom row,
 was Commander Johnson Wales,
-another man named Surjinder Johel that Iffy guessed was Doctor Johel's grandfather,
+another man named Surjinder Johel that Iffy guessed was Doctor Johel's father,
 and an older version of herself labeled Suhailah Kwan.
 
 There were no other recordings,
