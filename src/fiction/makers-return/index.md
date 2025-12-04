@@ -160,7 +160,28 @@ fiction: true
       - He grimly says: "We don't have a choice. We can't take off again."
     - They go out
       - Replay Violet and Sindy's "throwback/human" exchange
+    - Blazes, Lupus, and Dockety confer and then come forward
+      - Describe them through Violet's eyes
+    - Mayor Lupus acts as if spaceships falling out of the sky is an everyday occurrence
+    - Major Lawson is cagy but eventually asks who's in charge
+      - Simultaneous "I am" from Lupus and Blazes (*not* Dockety) is clearly not an acceptable answer
+    - Lawson becomes even cagier after Dockety speaks up
+      - Clearly suspicious of free bots
+    - All the while, Violet and Sindy are eyeing each other
+    - Conversation cut short by the tentacles reappearing
   - Chapter 11: Sindy
+    - The thing with tentacles attacks the shuttle
+      - Lawson thinks that it's an ambush and that Dockety is responsible
+    - Z40 and Z44 reappear and do battle with the tentacles
+      - Beevy joins them
+    - Lawson grabs Sindy and pulls her onto the shuttle with Violet
+      - Z40 and Z44 cover their withdrawal
+    - The shuttle fires on the thing with tentacles, which retreats
+    - Lawson circles around as if to attack the party from Rusty Bridge
+      - Sindy screams at him not to
+      - He changes course to fly over Rusty Bridge (reconnaissance)
+      - Tells Doctor Meadows that they've been attacked and to put the ship in defensive mode
+    - As they fly over Bots' End, Crusher throws a boulder and clips the shuttle
   - Chapter 12: Violet
   - Chapter 13: Sindy
   - Chapter 14: Violet
