@@ -12,6 +12,7 @@ import sys
 
 # Simulation parameters.
 PARAMS = {
+    "nolog": 0,
     "n_dev": 3,
     "n_tester": 3,
     "p_rework_chosen": 0.5,
@@ -81,8 +82,9 @@ class Simulation:
     def run(self):
         """Run the whole simulation."""
 
+        if not self.params["nolog"]:
+            self.process(self.logger.work())
         self.process(self.generate())
-        self.process(self.logger.work())
         for workers in (self.developers, self.testers):
             for w in workers:
                 self.process(w.work())
