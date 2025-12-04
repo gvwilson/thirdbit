@@ -14,7 +14,8 @@ import sys
 PARAMS = {
     "n_dev": 3,
     "n_tester": 3,
-    "p_rework": 0.5,
+    "p_rework_chosen": 0.5,
+    "p_rework_needed": 0.5,
     "rng_seed": 12345,
     "t_arrival": 4.0,
     "t_dev": 5.0,
@@ -28,7 +29,7 @@ PREC = 2
 
 # Summary values to save.
 TASK_KEYS = ("t_create", "n_dev", "t_dev", "n_test", "t_test")
-WORKER_KEYS = ("busy", "n_task")
+WORKER_KEYS = ("busy", "n_task", "n_both", "n_dev", "n_rework")
 
 
 class ValueEnum(Enum):
@@ -99,9 +100,13 @@ class Simulation:
         """Testing time."""
         return random.lognormvariate(0, 1) * self.params["t_test"]
 
-    def p_rework(self):
+    def p_rework_chosen(self):
+        """Will the developer choose rework over new development?"""
+        return random.uniform(0, 1) < self.params["p_rework_chosen"]
+
+    def p_rework_needed(self):
         """Does this task need to be reworked?"""
-        return random.uniform(0, 1) < self.params["p_rework"]
+        return random.uniform(0, 1) < self.params["p_rework_needed"]
 
 
 class Log:
@@ -137,7 +142,7 @@ class Log:
                 workers.append(
                     {
                         "id": w.id,
-                        "kind": "dev",
+                        "kind": kind,
                         **{key: round(w[key], PREC) for key in WORKER_KEYS},
                     }
                 )
@@ -343,14 +348,27 @@ class Developer(Worker):
 
     def choose(self, result, req_dev, req_rework):
         """Choose a task and cancel other request."""
-        if req_rework in result:
-            task = result[req_rework]
-            req_dev.cancel()
+        if len(result.events) == 2:
+            choice = "rework" if self.sim.p_rework_chosen() else "dev"
+            self["n_both"] += 1
         elif req_dev in result:
-            task = result[req_dev]
-            req_rework.cancel()
+            choice = "dev"
+            self["n_dev"] += 1
+        elif req_rework in result:
+            choice = "rework"
+            self["n_rework"] += 1
         else:
             assert False, "how did we get here?"
+
+        if choice == "dev":
+            task = result[req_dev]
+            req_rework.cancel()
+        elif choice == "rework":
+            task = result[req_rework]
+            req_dev.cancel()
+        else:
+            assert False, "how did we get here?"
+
         return task
 
 
@@ -366,7 +384,7 @@ class Tester(Worker):
             with TesterLog(self, task):
                 yield self.sim.timeout(task.required_test)
 
-            if self.sim.p_rework():
+            if self.sim.p_rework_needed():
                 assert task.developer is not None
                 task.priority = Task.PRI_HIGH
                 task.state = Task.State.WAIT_DEV

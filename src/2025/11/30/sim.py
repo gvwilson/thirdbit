@@ -137,7 +137,7 @@ class Log:
                 workers.append(
                     {
                         "id": w.id,
-                        "kind": "dev",
+                        "kind": kind,
                         **{key: round(w[key], PREC) for key in WORKER_KEYS},
                     }
                 )
