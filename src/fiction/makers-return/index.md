@@ -179,10 +179,36 @@ fiction: true
     - The shuttle fires on the thing with tentacles, which retreats
     - Lawson circles around as if to attack the party from Rusty Bridge
       - Sindy screams at him not to
-      - He changes course to fly over Rusty Bridge (reconnaissance)
+      - He changes course to fly over Rusty Bridge
       - Tells Doctor Meadows that they've been attacked and to put the ship in defensive mode
     - As they fly over Bots' End, Crusher throws a boulder and clips the shuttle
   - Chapter 12: Violet
+    - Sees Crusher throw the boulder and has a flashback to fleeing from rogue bots to reach the ship
+      - And something else: a memory of a voice while she was sleeping and dreaming (foreshadow Patient)
+    - Rock clips the shuttle
+    - Lawson: "We have to set down"
+    - Lands the shuttle in a field near a small abandoned farmhouse
+      - Violet is afraid
+      - Sindy squeezes her hand and says, "Don't worry, this kind of thing happens to me a lot."
+    - Lawson, Z40, and Z44 go out to inspect the damage and their surroundings
+    - Violet and Sindy talk
+      - Violet (thinking of Lawson) doesn't want to give too much away
+      - But does reveal they've been in frozen sleep for a long time
+      - And that she had dreams sometimes as part of being plugged into a virtual world
+    - Sindy tells her a bit about her encounter with Central
+      - "I think it wanted to end. I think it wanted all the other bots to be free."
+    - Leads to Sindy talking about how she's different ("a throwback")
+    - Which leads to her talking about Maddy (who's "normal")
+      - Violet half-remembers encountering Maddy, but isn't sure it wasn't a dream so says nothing
+    - Lawson returns, asks Sindy if she knows anything about the farmhouse
+      - Sindy doesn't know anything specific, just that there are places that didn't work out
+      - Sometimes the soil won't grow stuff, sometimes raiders, sometimes just bad luck
+      - She warns that it might be haunted
+      - Lawson scoffs, Sindy says she means by old hardware
+    - Lawson talks to Doctor Meadows, who will try to send a drone to help repair the shuttle
+      - Lawson tells her to hurry: it won't be long before the locals find them
+    - Meadows asks what he's going to do about the girl
+      - Lawson looks at Sindy and says, "She'll be safer here for now."
   - Chapter 13: Sindy
   - Chapter 14: Violet
   - Chapter 15: Sindy
