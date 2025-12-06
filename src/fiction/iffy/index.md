@@ -8707,13 +8707,14 @@ The look she gave Iffy was colder than an Antarctic winter.
 Iffy crossed her arms.
 "No, you don't."
 
-"Good.
-Now,
-I'm sure your foster mother must be wondering where you've gone."
+"Good."
+The doctor straightened and gestured toward the door.
+"I have work to do,
+and I'm sure your foster mother must be wondering where you've gone."
 
 Aunt Naggie's door was closed.
 Iffy thought about knocking,
-but suspected that she would be interrupting if she did,
+but suspected she might be interrupting something if she did,
 so she went back to her room,
 kicked off her boots,
 dropped her coat on the floor,
@@ -8744,7 +8745,7 @@ The thought was followed by a memory of voices
 heard through a ventilation grate.
 (She couldn't see the grate,
 but she remembered clutching its slats with her paws.)
-"…take her first thing in the morning,"
+"…take her tonight while everyone's asleep,"
 said a male voice with an old-fashioned accent.
 "And we're not to let the Australians know."
 
@@ -8764,12 +8765,74 @@ What about the other two?"
 "Not our concern unless they get in the way.
 In which case…"
 
+Iffy's gut turned cold.
 The raccoon who had overheard the conversation
 hadn't seen the first Marine's gesture,
-but Iffy could guess his meaning.
-Her gut turned cold.
-She could guess what "take her" meant,
-and didn't want to stick around to find out if she was right.
+but she could guess its meaning,
+and didn't want to find out if she was right.
+All of a sudden she missed the days when
+all she had to worry about was staying out of Uncle Jack's way
+and making sure the *Guinevere* wasn't swallowed up by a sea boil.
+
+She didn't have anything to pack except her app and her nature book.
+She didn't dare take the first—even powered off,
+Doctor Johel might be able to track it—and
+she would just have to trust Aunt Naggie to look after the second.
+She didn't dare ask the raccoons for help either,
+not if it might trigger another hunt.
+She was going to have to do this herself.
+
+It only took a minute to retrace her steps
+to the whitewashed concrete stairs that led down to the sub-basement.
+She sent half a prayer to the gods of good fortune
+when the heavy door at the bottom opened,
+then stood and studied the pipes, cables, and other hardware
+that clung to the corridor's wall.
+"C'mon, c'mon, c'mon," she muttered.
+Doctor Johel must have been told by now that she had left her room.
+Marines or Aussie sailors or some of the sentry bots
+would surely be on their way.
+Why couldn't she—
+
+There.
+That junction,
+right there.
+She could see how data flowed through it,
+and the cascade of failures that would follow if that flow was interrupted.
+The brackets holding it in place were solid enough,
+but someone had patched a break in the cable twenty-two years earlier.
+She mentally brushed away the work log,
+dug her fingers under the cable,
+and pulled.
+
+Nothing happened.
+She braced one foot against the wall and pulled harder.
+The cable shifted slightly.
+Both feet on the wall and all her weight,
+but she might as well have been trying to pull a taffrail off the *Guinevere*.
+
+"Oh come *on*," she said aloud.
+The brackets pinching the cable to the wall wouldn't let it budge.
+If she had one of Mister Mishra's saws she could cut through it in seconds.
+
+Footsteps echoed in the stairwell.
+She didn't have seconds.
+She closed her eyes and swam through a schematic of the basements and tunnels around her.
+Her heart sank.
+The only exit was the one behind her,
+and there wasn't anywhere to hide,
+just rooms like the one where she and Doctor Johel had spoken.
+
+Pushing her panic back down into her belly
+she hurried to the nearest door and yanked its handle.
+It was no more willing to budge than the cable had been.
+The next one was no more cooperative,
+and then the heavy door behind her opened.
+
+The Marine who entered as she turned around didn't bother to say anything.
+He just raised a small dart pistol and fired.
+She felt a sting in her leg,
+and then the world went away.
 
 </section>
 
