@@ -3,7 +3,7 @@ title: "Remembrance"
 date: 2017-12-06
 ---
 <p>
-  <img src="@root/files/2016/12/montreal.jpg" alt="The 14" class="centered">
+  <img src="@root/files/dec-6.png" alt="The 14" class="centered">
 </p>
 <p>
   Jamais plus.

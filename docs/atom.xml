@@ -3,12 +3,27 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-12-04T00:00:00Z</updated>
+ <updated>2025-12-06T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Remembrance</title>
+   <link href="https://third-bit.com/2025/12/06/remembrance/"/>
+   <updated>2025-12-06T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/12/06/remembrance/</id>
+   <content type="html">&lt;p&gt;Jamais plus.&lt;/p&gt;
+&lt;div class=&#34;center&#34;&gt;
+  &lt;img src=&#34;https://third-bit.com/files/dec-6.png&#34; alt=&#34;victims of the Dec 6 massacre&#34; width=&#34;90%&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;center&#34;&gt;
+  &lt;img src=&#34;https://third-bit.com/files/dec-6-plaque.png&#34; alt=&#34;plaque for victims the Dec 6 massacre&#34; width=&#34;90%&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>The Effects of Rework</title>
@@ -2901,52 +2916,6 @@ cannot legally be held accountable for their users&amp;rsquo; actions.&lt;/p&gt;
 &lt;p&gt;If you are currently teaching an undergraduate course that covers cases like these,
 please &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;get in touch&lt;/a&gt;:
 I&amp;rsquo;d be grateful for a chance to learn from you.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>One Small Command</title>
-   <link href="https://third-bit.com/2025/10/18/one-small-command/"/>
-   <updated>2025-10-18T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/10/18/one-small-command/</id>
-   <content type="html">&lt;blockquote&gt;
-&lt;p&gt;Please note that I am suffering from jet lag and recovering from a bad cold while writing this,
-which means my proposal may well be garbage.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I&amp;rsquo;ve had a lot of conversations over the years about
-the differences in how software engineers and data scientists work.
-One example is how they manage software:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Software engineers regard duplicated code as sinful and refactor to avoid it.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Data scientists routinely copy a notebook or a script and make small changes to do a new data analysis.
-    After many years,
-    I have accepted that they are right to do so:
-    their analyses are often exploratory one-offs,
-    so copy-and-modify is more efficient than generalize-and-parameterize.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The problem is that software engineers build tools for software engineers,
-which means they don&amp;rsquo;t automatically support data scientists&amp;rsquo; workflows.
-Continuing the refactor-versus-copy example,
-Git doesn&amp;rsquo;t have a way to explicitly say &amp;ldquo;this file started as a copy of that one&amp;rdquo;.
-Git has a way to say &amp;ldquo;this file was moved or renamed&amp;rdquo; (&lt;code&gt;git mv&lt;/code&gt;),
-but there isn&amp;rsquo;t a corresponding &lt;code&gt;git cp&lt;/code&gt; command
-because software engineers believe that you shouldn&amp;rsquo;t be doing that.
-You can ask Git to guess which files were copied in each commit:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git log --find-copies --diff-filter=C --stat
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;but (a) you probably didn&amp;rsquo;t know this existed,
-(b) you&amp;rsquo;re not going to remember it,
-and (c) Git&amp;rsquo;s heuristics often produce incorrect answers.&lt;/p&gt;
-&lt;p&gt;So let&amp;rsquo;s add &lt;code&gt;git cp&lt;/code&gt; so that the log records copying events explicitly.
-That will allow us to trace the lineage of copied-and-modified notebooks and scripts
-(and the copied-and-modified configuration files that software engineers create
-because they don&amp;rsquo;t think of YAML and TOML as code).
-Doing this won&amp;rsquo;t solve all our traceability problems,
-but I think it will solve some of them,
-and we&amp;rsquo;ll learn something useful from its failure if it doesn&amp;rsquo;t.&lt;/p&gt;</content>
  </entry>
  
 </feed>
