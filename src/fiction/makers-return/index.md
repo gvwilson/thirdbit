@@ -40,7 +40,7 @@ fiction: true
     - Violet
     - André (her schoolmate, whom she calls "Dan-dan" to annoy him)
     - Doctor Meadows and Captain Lawson (the only surviving adults, but both quite young)
-    - Z40 and Z44 (non-verbal combat bots)
+    - Z40 and Z51 (non-verbal combat bots)
 - Plot (average 1500 words/chapter)
   - Chapter 1: Sindy
     - Special Leaf's funeral
@@ -131,7 +131,7 @@ fiction: true
       - Captain Lawson wants to go alone
       - Violet says that she recognized the voice
       - He eventually gives in (feels they'll look less threatening)
-      - Brings Z40 and Z44 (which makes Violet uneasy)
+      - Brings Z40 and Z51 (which makes Violet uneasy)
     - They board the shuttle, take off, circle, and land
     - Bots leave the shuttle first
     - Immediately fired upon
@@ -172,10 +172,10 @@ fiction: true
   - Chapter 11: Sindy
     - The thing with tentacles attacks the shuttle
       - Lawson thinks that it's an ambush and that Dockety is responsible
-    - Z40 and Z44 reappear and do battle with the tentacles
+    - Z40 and Z51 reappear and do battle with the tentacles
       - Beevy joins them
     - Lawson grabs Sindy and pulls her onto the shuttle with Violet
-      - Z40 and Z44 cover their withdrawal
+      - Z40 and Z51 cover their withdrawal
     - The shuttle fires on the thing with tentacles, which retreats
     - Lawson circles around as if to attack the party from Rusty Bridge
       - Sindy screams at him not to
@@ -187,10 +187,11 @@ fiction: true
       - And something else: a memory of a voice while she was sleeping and dreaming (foreshadow Patient)
     - Rock clips the shuttle
     - Lawson: "We have to set down"
-    - Lands the shuttle in a field near a small abandoned farmhouse
+    - Lands the shuttle in a field near an abandoned bunker
       - Violet is afraid
       - Sindy squeezes her hand and says, "Don't worry, this kind of thing happens to me a lot."
-    - Lawson, Z40, and Z44 go out to inspect the damage and their surroundings
+      - But she is also afraid (flashback to encounter with Patient)
+    - Lawson, Z40, and Z51 go out to inspect the damage and their surroundings
     - Violet and Sindy talk
       - Violet (thinking of Lawson) doesn't want to give too much away
       - But does reveal they've been in frozen sleep for a long time
@@ -200,16 +201,36 @@ fiction: true
     - Leads to Sindy talking about how she's different ("a throwback")
     - Which leads to her talking about Maddy (who's "normal")
       - Violet half-remembers encountering Maddy, but isn't sure it wasn't a dream so says nothing
-    - Lawson returns, asks Sindy if she knows anything about the farmhouse
-      - Sindy doesn't know anything specific, just that there are places that didn't work out
-      - Sometimes the soil won't grow stuff, sometimes raiders, sometimes just bad luck
+    - Lawson returns, asks Sindy if she knows anything about the bunker
       - She warns that it might be haunted
       - Lawson scoffs, Sindy says she means by old hardware
+      - Tells him a bit about Patient in Darkness
+      - Lawson asks why they tolerate bots like the one that attacked the shuttle
+      - Sindy bridles: "They're my friends"
     - Lawson talks to Doctor Meadows, who will try to send a drone to help repair the shuttle
       - Lawson tells her to hurry: it won't be long before the locals find them
+      - André makes a snarky remark about Violet in the background
     - Meadows asks what he's going to do about the girl
-      - Lawson looks at Sindy and says, "She'll be safer here for now."
+      - Lawson: "I think it's best she stays with us for now."
   - Chapter 13: Sindy
+    - Lawson's line about her staying immediately confirms her plan to escape
+      - When she said this kind of thing happens to her a lot, she didn't mean she *liked* it
+      - Debates taking Violet with her, but doesn't really know her
+      - Hopes there will be some old tech in the bunker she can use
+      - Realizes it's not much of a plan
+    - Z-bots check out the bunker, then Lawson takes the girls
+      - Sindy casually tries to take control of Z40
+      - Feels something stir, but isn't successful
+      - Attempt triggers an alarm: Lawson thinks something in the bunker is hostile (foreshadowing)
+    - Bunker is similar enough to Patient's lair to give Sindy the creeps
+      - Z51 sounds an alarm
+      - Lawson goes to check
+      - Sindy sees her chance
+      - Pulls lever
+      - Violet protests, but nothing happens
+    - As Violet berates her, the bunker door closes and the one behind them opens
+    - The bot that appears has four legs and two tentacles
+    - Patient's voice: "I should have known it would be you"
   - Chapter 14: Violet
   - Chapter 15: Sindy
   - Chapter 16: Violet
