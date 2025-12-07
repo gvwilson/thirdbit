@@ -12417,6 +12417,72 @@ as the polar bear rosed to its feet.
 
 <section markdown="1">
 
+## Interlude
+
+*Suppose the world is ending
+and you want to build a secret research facility:
+a place completely cut off from what's left of the world's governments
+and their artificial minions
+so that you can create or study things you shouldn't
+without being interrupted.
+You might think that the first step was to choose a location,
+but it's not.
+The actual first step is to pick a cover story
+that gives you a plausible reason to imprint prisoners and indentured laborers
+with the skills you need
+and then erase their memories afterward.
+(In theory you will only erase their memories of where they were and what they did.
+In practice the process is sometimes imprecise,
+particularly if you want to err on the side of caution,
+but if you're the sort of person who needs a secret research facility,
+you're probably also the sort who believes that
+nothing worth having comes without some kind of price.)*
+
+*If your cover story is something to do with reforesting ravaged rainforests
+you will probably build your base in Africa or Indonesia.
+You might consider Brazil,
+but even before the war with the machines
+it has become a complicated place as nationalism,
+macumba,
+and apocalyptic ecology hybridize in ever-more-strident ways.
+If your cover story is related to climate engineering,
+on the other hand,
+no one will raise an eyebrow if your site is somewhere formerly arctic.
+The Melt hit the poles first and hardest,
+and most of those mad enough to believe that the damage can be undone
+by scattering megatons of absorbent catalysts over thousands of square kilometers
+naturally congregate there.*
+
+*The poles are exactly the wrong place to go
+if you want people to believe that you plan to launch something into orbit,
+but in a way that works in your favor.
+Everyone expects you to lie about what you're actually doing,
+so telling part of the truth is a good way to hide the part left unsaid.
+A ground station for a network of microsatellites
+flung into orbit by an automated factory located somewhere on the far side of the Moon?
+You are so obviously courting condemnation for adding to the already catastrophic volume of space junk
+that no one will suspect that's what your base is actually for.
+Or rather,
+everyone (and everything) will suspect it,
+but only as one of a thousand low-probability possibitilies.*
+
+*To finish throwing them off the scent,
+you can build a dozen safe havens in a circle around your base.
+To keep the workers safe,
+your public relations bot explains to anyone who cares to pay attention.
+Antarctica's storms have been growing in frequency and severity for decades,
+and it will only be a matter of time before tornadoes appear.
+You may not be able to guarantee that your laborers will return with their memories intact,
+but you will of course do your utmost to ensure that they do return.
+Deeply dug and well provisioned,
+your bunkers will allow them to wait out the worst the southern continent can throw at them in comfort.*
+
+*Assuming, that is, that nothing goes wrong…*
+
+</section>
+
+<section markdown="1">
+
 ## Chapter 14
 
 For a heart-stopping moment Iffy *knew* that this was where and how her story would end,
