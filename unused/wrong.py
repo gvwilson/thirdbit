@@ -34,7 +34,10 @@ class Simulation:
         self.env = simpy.Environment()
         self.dev_queue = simpy.Store(self.env)
         self.developers = [Developer(self) for _ in range(params["n_dev"])]
-        self.log = []
+        self._log = []
+
+    def log(self, author, msg):
+        self._log.append(f"{self.now:.2f} {author}: {msg}")
 
     @property
     def now(self):
