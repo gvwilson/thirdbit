@@ -12417,7 +12417,7 @@ as the polar bear rosed to its feet.
 
 <section markdown="1">
 
-## Chapter 14: The Labyrinth
+## Chapter 14
 
 For a heart-stopping moment Iffy *knew* that this was where and how her story would end,
 but then she saw the familiar silver sheen of tech beneath the bear's fur.
@@ -12429,7 +12429,7 @@ but then she saw the familiar silver sheen of tech beneath the bear's fur.
 "No kidding," Edson muttered.
 "Don't suppose it's offerin' to help with that?"
 
-As if on cue a second bear and then a third ambled around the outcropping.
+As if on cue two more bears ambled around the outcropping.
 One of them stopped next to the first.
 The other took a tentative step forward,
 only to hesitate and withdraw when the first bear growled at it.
@@ -12459,9 +12459,9 @@ he said accusingly.
 *«undesired»*
 Ideas emerged in Iffy's mind,
 bumping into each other like ice floes.
-She shook her head to clear it.
+She shook her head to clear them away.
 
-"I think it wants me on my own,"
+"It wants me on my own,"
 she told Edson.
 Without waiting for his reply she bent over and grabbed the handwheel herself.
 When nothing happened she pulled it,
@@ -12509,7 +12509,8 @@ With a deep breath,
 she turned around and started her descent.
 
 Iffy was halfway down the ladder when her nose told her something was wrong.
-The smell wasn't rank like the week-dead seagull she had once found in a dumpster behind the Sandhus' store,
+The smell wasn't rank like the week-dead seagull
+she had once found in a dumpster behind the Sandhus' store,
 trapped when the lid closed as it scrounged for scraps.
 Instead,
 it was tired and a little bit sad.
@@ -12520,7 +12521,7 @@ Whoever he had been,
 he'd had long dark hair and a beard.
 His parka was silvered like hers,
 but unlike hers,
-had a bullet hole in the back surrounded by an old, dark stain.
+had a bullet hole in the back surrounded by the crust of an old, dark stain.
 
 She shook herself.
 "Well," she said out loud.
@@ -12538,7 +12539,7 @@ One of its side panels was folded back to reveal its motors and cables.
 Another tarp revealed a second bot with the same bulky body and limbs
 but a cluster of cameras and antennas where its head should have been.
 The mod had clearly been made in haste:
-the welds joining the additions to the bot's neck looked messy and unfinished,
+the welds joining the additions to the bot's neck were messy and unfinished,
 and a handful of string-thin optical cables dangled from the opening.
 
 Iffy looked around the room a second time.
@@ -12552,7 +12553,7 @@ A single icon appeared,
 waiting patiently to be tapped.
 
 She studied it for a moment.
-It could a trap—malware designed to mesmerize anyone who looked it,
+It could a malware designed to mesmerize anyone who looked it,
 or any of a hundred other scenarios from sims,
 but what choice did she have?
 
@@ -12576,7 +12577,7 @@ if she cycled the shielding rapidly enough,
 but I think she just wanted to be with Georgia."
 
 "I tried to disable the guard robots,
-but some of them are still loose in the auxiliary tunnels."
+but some of them are still loose in the tunnels."
 The voice paused.
 I know we all agreed that the project needed a failsafe,
 but I never thought we'd need it.
@@ -12603,28 +12604,26 @@ And there,
 in the bottom row,
 was Commander Johnson Wales,
 another man named Surjinder Johel that Iffy guessed was Doctor Johel's father,
-and an older version of herself labeled Suhailah Kwan.
+and an older version of herself labeled Suhailah Yuen.
 
 There were no other recordings,
 at least not that Iffy could find,
 but there were maps showing a network of maintenance tunnels
 just big enough for raccoons or slinky bots,
 some running for kilometers.
-She would be able to fit her arm into one of them,
+She would be able to fit her head into them,
 but no more.
 
 There were other tunnels,
 though,
 big enough for people and heavy equipment.
-Some were dense with red flags that showed collapse,
-flooding,
-or chronic instability.
+Some were dense with red flags that showed collapse or flooding.
 She puzzled over that for a second before dismissing it.
 
 It took her a few minutes to realize that
 the web of tunnels wasn't centered on the Niobium base.
 Instead,
-its heart was a kilometer further south.
+its heart was a couple of kilometers further south.
 That wasn't what made Iffy chew her lips as she studied the accompanying schematics, though.
 She could think of a hundred uses for a superconducting ring
 large enough to sail the *Guinevere* through,
@@ -12658,7 +12657,7 @@ The bot took a step toward her,
 hesitated,
 and crouched beside its twin.
 
-Iffy didn't know if anyone had ever built a chariot to be pulled by two sentry robots,
+Iffy didn't know if anyone had ever built a chariot to be pulled by sentry robots,
 but if so,
 she was pretty sure they hadn't made it out of a heavy-duty dolly and fiber optic cables.
 She nudged it skeptically with her boot.
@@ -12683,7 +12682,7 @@ She thumbed a handlight and pointed it ahead of them.
 "Increase speed to one half."
 The dolly's wheels made a sizzling sound as they rolled faster into the unknown.
 
-After half an hour her back was aching and her backside had gone numb.
+After ten minutes her back was aching and her backside had gone numb.
 She was about to order the bots to stop when they pulled up short.
 "Whoa!" she squawked as the dolly smacked hard into their hind legs.
 
@@ -12696,11 +12695,10 @@ and something stubby and lethal looking popped up.
 She swore under her breath.
 The gun on the bot's back spun around to point at her.
 "Take it easy," she said,
-her heart suddenly pounding.
+her heart suddenly racing.
 
 Metal clicked on concrete somewhere in the darkness ahead of them.
 The bot's gun spun around again.
-
 Iffy closed her eyes and tried to slow her breathing.
 Nothing:
 no images flashed into her mind
@@ -12715,18 +12713,15 @@ Light reflected off three—no, four—bots
 like the pair that had been pulling the dolly.
 One was missing part of a foreleg.
 Another's side was deeply dented
-as if something had tried to punch right through it,
-and all four bore more scratches and scars than Iffy could count.
+as if something had tried to punch through it,
+and all four bore scratches and scars.
 
 The lead bot took one more step and halted.
 Struck by a sudden thought,
-she reached into the crate of tools she had packed earlier.
-An adjustable wrench,
-a screw jack that might be able to outdent the bot's side—what she really needed
-was Mister Mishra's shop and Johnson Wales' toolbox,
-but these would have to do.
-
-She turned around to face the bots and held the tools out.
+she reached into the crate of tools she had packed earlier
+and grabbed an adjustable wrench and a screw jack.
+Turning to face the bots,
+she held the tools out.
 "Aright?" she asked.
 
 None of the bots moved.
@@ -12738,7 +12733,7 @@ The bots had been built to be scouts and guards and weapons.
 The blunt claws on the ends of their legs could pick up a rock
 or grab hold of someone's arm,
 but were no good for delicate work.
-Scratches and dents on the bot's inner frame showed
+Scratches on the bot's inner frame showed
 where they had tried to repair each other anyway.
 
 Wire,
@@ -12753,7 +12748,7 @@ The bot stood,
 braced its legs,
 and shivered through a rapid self-test.
 When the reflex capacitor that Iffy had just wired into place didn't rattle
-it made a soft, incongruous *ping*
+the bot made a soft, incongruous *ping*
 and stepped aside to make room for another member of its pack.
 
 Iffy put her tools back in the crate and stood.
@@ -12796,7 +12791,7 @@ then sighed when it didn't move.
 "Aright,
 stay there if you want to—I'll get a better view up front anyway."
 A moment later she was rolling through the tunnel once again
-with three of the new bots following single file behind her.
+with her three new friends following single file behind her.
 
 Iffy leaned back gingerly against the crippled bot.
 It rotated its head to study her.
@@ -12807,7 +12802,7 @@ but it was somehow more comforting.
 Against all odds her eyes began to close.
 She snapped out of her doze when the bots pulled up short.
 "Shad!"
-The dolly smacked hard into the hind legs of the ones in front.
+The dolly smacked hard into the hind legs of the pair pulling it.
 Six boxy clusters of sensors and cameras swivelled
 to point back the way they had come.
 That's when Iffy heard the rhythmic *clunk clunk clunk* of exoskeletoned feet on concrete.
@@ -12829,7 +12824,6 @@ There was no telling what strange loops might have formed in its core
 as it patrolled these abandoned tunnels.
 For all she knew it would take one look at the Marines
 and decide they were its true masters.
-
 But the bot took a step forward and to butted her gently with its head,
 then turned and disappeared into the darkness
 with its two companions at its heels.
@@ -12841,7 +12835,7 @@ but Iffy imagined that if it could have whined it would have.
 she told it as she took her seat on the dolly,
 wishing she believed her own words.
 
-The first explosion echoed through the tunnel a few minutes later.
+The first explosion echoed through the tunnel a few moments later.
 "Full speed!"
 she ordered the harnessed bots.
 Gunfire chattered behind them—Iffy couldn't tell how far away—and then
@@ -12853,8 +12847,6 @@ its body swaying slightly as its algorithms steadied its misbalanced weight
 atop the dolly.
 
 "I said—affin' heck!"
-Iffy ducked
-as the bot jumped over her.
 The dolly slewed wildly,
 skidded,
 and straightened out.
@@ -12865,7 +12857,7 @@ she wasn't sure she had seen it.
 A second followed,
 then a third with a six-digit number stenciled next to it,
 and then the tunnel leveled out and automatic lights came on over her head,
-turning everything the dark red she associated with night watches.
+turning everything the blood red she associated with night watches.
 
 The bots slowed and stopped
 as the dolly rolled into a dimly-lit space several times larger
@@ -12878,14 +12870,13 @@ She had arrived.
 "*Acendé luz?*
 *Lampo roshan kon?*"
 
-Clinically-white strips in the walls and ceiling obediently lit up.
+Clinically-white strips in the walls and ceiling came to life.
 Iffy squinted, then sucked in her breath.
-She had hoped they would find a workshop
-and feared it would be a graveyard,
-but this—she hadn't expected this.
+She had hoped for a workshop and feared it would be a graveyard,
+but she hadn't expected this.
 
 A thick cylinder lay on its side surrounded by pipes and machinery.
-A bulky mass made of meter-square bricks loomed in the background.
+A bulky mass of meter-square blocks loomed in the background.
 The three-armed logo painted on its side was redundant:
 even before schematics took shape in her head
 she recognized the reactor for what it was.
@@ -12922,12 +12913,6 @@ Wales' voice said.
 "All you have to do is talk to the machines for me
 and we'll all get a happy ending."
 
-</section>
-
-<section markdown="1">
-
-## Chapter 15: The End of the World
-
 Iffy pulled a wrench out of the tool crate.
 "Iffy, please,"
 Wales' voice chided.
@@ -12942,10 +12927,9 @@ The second caught it off-center and sent it spinning across the floor.
 
 The tunnel at the other end of the bunker had a blast door
 to match the one behind them.
-Iffy closed her eyes.
-There.
-She traced a shape on a contact pad beside the door,
-then gasped as it slid open to reveal a pair of Marines.
+Iffy closed her eyes,
+but before she could talk it into locking itself
+it slid open to reveal a pair of Marines.
 
 "Iffy, please,"
 Wales' voice said through a speaker on one of their exoskeletons.
@@ -12985,8 +12969,7 @@ She didn't know if she had said the words out loud or not.
 
 *«inspection»*
 
-Without warning she was suspended beside a schematic of herself,
-alone in a pocket universe constructed solely for this temporary purpose.
+She floated beside a schematic of herself.
 The fractalized patches of cells scattered through her body glistened blue-white,
 but there and there and there they were red,
 red for danger,
@@ -13017,7 +13000,7 @@ Wales replied.
 Strong mechanical hands took her weight and supported her back.
 She swung her legs over the edge of the workbench she was lying on and rubbed her eyes.
 Doctor Johel smiled at her,
-looking even smaller encased in the bulk of a Marine exoskeleton.
+looking small encased in the bulk of a Marine exoskeleton.
 "How are you feeling?"
 
 Iffy worked her tongue,
@@ -13039,5 +13022,200 @@ he said,
 gesturing at the bandage on her abdomen.
 "Targeting shouldn't have—"
 He stopped his apology mid-sentence at her look.
+
+"Not this time,"
+Iffy said coldly.
+"No fairy tales."
+
+The corner of Wales' mouth quirked up.
+"It's my story,
+I'll tell it the way I want to."
+He closed the lid of his toolbox and sat down on it,
+patting a spot beside him.
+Iffy just glared at him.
+
+Wales shrugged and leaned forward to put his elbows on his knees.
+"Once upon a time the world was falling apart.
+Where there wasn't flood there was drought,
+and both brought hunger and disease.
+Forests were burning,
+the oceans were rising,
+species were disappearing every day,
+and no matter what people did,
+their models kept making the same dark predictions."
+
+"The people responsible suffered less than most,
+of course,
+but they still suffered.
+Some lost themselves in sims.
+Others built walls to protect their little kingdoms,
+and others still threw their wealth at impossible schemes like moving to other worlds.
+As things got worse,
+a few of us managed to convince some of them
+that the only solution was to move to Hell."
+
+"Upload themselves?"
+Iffy scoffed.
+"An' then what,
+you take their money while they're all bein' torn apart by malware?"
+
+Wales shook his head.
+"No.
+I mean,
+I wouldn't have cried if that happened.
+Trust me,
+anyone that rich makes the governors look like saints.
+No,
+the idea was that we would imprint ourselves on the entire global network
+so that we could fix the things no one else could.
+People had tried it before,
+but…"
+He shrugged.
+"We thought we had a couple of new angles,
+and we were desperate."
+
+He stared past her at the horizon.
+"So we did the whole mad scientist thing with a secret underground lair
+and a double-secret lab underneath that
+and locked the door behind us.
+Nothing in, nothing out, just two dozen of the smartest human beings alive
+and enough equipment to settle on Mars."
+He chuckled and pointed at his chest.
+"Did I ever tell you that's actually what I was supposed to do?
+All my genetic tweaks and this stuff in my head—it's all left over
+from some previous bunch of mad scientists and *their* plan for saving the world."
+
+"So what happened?"
+Iffy asked despite herself after a few moments of silence.
+
+"We had a vote,"
+Wales said bleakly.
+"We weren't ready,
+but honestly,
+we didn't know if we ever would be,
+and things were getting worse faster than anyone had predicted.
+We argued for a couple of days
+and finally decided to go for it and hope for the best.
+Everyone listened to their favorite music one last time
+or had one last cup of coffee
+and made jokes about seeing each other in the next life,
+and then we climbed into our capsules and closed our eyes.
+The next thing I knew I was on the floor of Beta Station
+and everyone else was dead.
+Everyone except you."
+
+Iffy stared at him.
+"Me?"
+she asked,
+but somehow she already knew what he was going to say next.
+
+"Mm hm."
+He took a small app out of his pocket and swiped,
+then turned it around and held it out.
+An older version of her own face looked back at her.
+"Her name wasn't Ang Kwan,"
+he said quietly.
+"It was Suhailah Yuen.
+And while all of us were working on our project
+she somehow found a way to work on one of her own.
+She's the only other person from the team who survived.
+Your First was a tweaked clone of her,
+and I think she's the reason the machines woke up."
+
+She burst out laughing.
+After a moment Wales began to chuckle too.
+"Well, it's not quite the reaction I was expecting,"
+he started.
+
+"You—you—"
+Iffy hiccupped.
+"You're skew.
+D'you seriously 'spect me t' b'lieve that?"
+She lowered her voice.
+"Oh, Iffy, you're th' chosen one.
+Only you can save th' world."
+
+"Your First said pretty much the same thing before she shot me,"
+Wales observed drily,
+tapping his chest with one finger.
+"It took me twenty years to track her down.
+I don't know how she got to Cape Town or what happened to Sue.
+All I know is that she had the same talent you do.
+Somehow she could—"
+He took a deep breath.
+"Somehow *you* can talk to them and get them to talk back.
+Not just trade deals and warnings about no-go zones but actual conversations."
+
+"So that makes th' machine wars my fault?"
+Iffy shot back angrily.
+
+Wales cocked his head.
+"How old were you when you started seeing things?
+Eight?
+Nine?
+If your First got her abilities at the same age,
+that would be almost exactly the time the machines woke up.
+It's quite a coincidence."
+
+"And there's another thing,"
+he continued as she opened her mouth to protest.
+"I'm good with tech—really good by most people's standards—and
+the people and cores working for the governors are at least as good.
+We should have been able to track you and your elders down in minutes,
+but somehow you all managed to stay hidden."
+
+He looked up at the sky as if he could see the machines' satellites orbiting overhead.
+For all Iffy knew, he actually could.
+"Someone up there likes you, Iffy.
+Someone or something has been looking out for you your whole life."
+
+A lifetime of hurt and anger boiled up inside Iffy.
+"Go t' hell,"
+she spat.
+"Wasn't anyone lookin' out for th' *Rushin Doll* when she went under
+an' everyone drowned.
+Wasn't anyone lookin' out for me 'cept Aunt Naggie when we were in dock
+an' th' other kids knocked me around 'cuz I was bad luck.
+What I got,
+I got 'cuz o' *me*,
+not some— some—"
+She wiped her sleeve angrily across her face.
+
+"I'm sorry,"
+Wales said for the third time.
+"I wish I'd been there."
+
+For a minute the only sound was the wind and the distant *skee-rawk* of a lonely gull.
+"Why'd she shoot you?"
+Iffy finally asked.
+
+Wales shrugged.
+"I didn't give her a chance to get to know me
+before I dumped the whole save-the-world thing on her shoulders.
+And when she said no,
+I tried to make her do it anyway.
+That was a mistake."
+
+Something clicked in Iffy's head.
+"So bumpin' into me at th' Sandhu's…"
+
+"Wasn't exactly by chance, no.
+But the drugs you've been getting?
+Those are straight from the machines.
+I stole a few grains once when you were younger, and—"
+He shrugged again.
+"Like I said, I'm pretty good with tech,
+but I have no idea what it does or how the tweaks inside you work.
+All I know is that I'm a hundred and forty-one years old
+and I'm tired of making things worse."
+
+He patted the toolbox.
+"What happens now is up to you.
+If you want my help, it's yours.
+If you want me to walk away and let you do this yourself,
+I'll do that instead.
+People like me and Gayathri and the governors,
+we've had our chance.
+It's your turn now."
 
 </section>
