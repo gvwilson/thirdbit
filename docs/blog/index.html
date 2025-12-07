@@ -81,6 +81,262 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/12/07/handling-interruptions/">
+      Handling Interruptions
+    </a>
+  </h2>
+  <p><time datetime="2025-12-07" class="post-date">2025-12-07</time></p>
+  <p>The <a href="../2025/12/04/the-effects-of-rework/">previous post in this series</a> looked at the effects of re-work on throughput.
+Its version of the simulation assumed that
+a task that needed to be re-done was given back to the developer who had originally worked on it,
+and that she would tackle that task once she finished whatever she was doing at the time.
+In reality,
+though,
+developers (and testers) often interrupt what they&rsquo;re doing,
+switch to another task,
+and then switch back.
+This post looks at how to simulate that in <a href="https://simpy.readthedocs.io/">SimPy</a>.</p>
+<h2>A Simpler Model</h2>
+<p>To start with,
+let&rsquo;s go back to a simpler model in which one process adds new tasks to a queue at random intervals,
+while developers take tasks,
+work on them,
+and then mark them as done.
+While we&rsquo;re building it,
+we&rsquo;ll use these parameters:</p>
+<div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;n_dev&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>          <span class="c1"># number of developers</span>
+    <span class="s2">&quot;rng_seed&quot;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>   <span class="c1"># random number generation seed</span>
+    <span class="s2">&quot;t_arrival&quot;</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span>    <span class="c1"># mean task arrival time</span>
+    <span class="s2">&quot;t_dev&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>        <span class="c1"># median development time</span>
+    <span class="s2">&quot;t_interrupt&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>  <span class="c1"># time between interrupts</span>
+    <span class="s2">&quot;t_sim&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>         <span class="c1"># length of simulation</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>As before,
+we define a <code>Simulation</code> class to hold all our bits and pieces.
+Its constructor caches the parameters,
+then creates the SimPy <code>Environment</code>,
+the development queue,
+and the developers.
+It also creates a simple list called <code>.log</code> to store log messages:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Overall simulation.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">developers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Developer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_dev&quot;</span><span class="p">])]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div>
+<p>For lack of anywhere better to put it,
+we define the task generator as a method of <code>Simulation</code>.
+The order of statements in the <code>while</code> loop ensures that
+the first task is generated at t=0:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate tasks at random intervals starting at t=0.&quot;&quot;&quot;</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Task</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_arrival</span><span class="p">())</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proc</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Shortcut for running a process.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">proc</span><span class="p">)</span>
+</code></pre></div>
+<p>As before,
+we also give <code>Simulation</code> some convenience methods like <code>.process</code>
+so that we can type <code>sim.process(…)</code> rather than <code>sim.env.process(…)</code>.</p>
+<h2>Creating Interrupts</h2>
+<p>What&rsquo;s new in this simulation is another process
+whose only purpose is to interrupt developers.
+It does this by choosing a random developer <code>dev</code> every few clock ticks
+and then calling <code>dev.proc.interrupt()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
+    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">annoy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate annoying interruptions.&quot;&quot;&quot;</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;t_interrupt&quot;</span><span class="p">])</span>
+            <span class="n">dev</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">developers</span><span class="p">)</span>
+            <span class="n">dev</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">interrupt</span><span class="p">()</span>
+</code></pre></div>
+<p><code>dev.proc.interrupt()</code> only makes sense once we have looked at
+the constructor for the <code>Developer</code> class:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Developer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A generic worker.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Construct.&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span> <span class="o">=</span> <span class="n">sim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="err">…</span><span class="n">the</span> <span class="n">generator</span> <span class="n">simulating</span> <span class="n">a</span> <span class="n">developer</span><span class="s1">&#39;s behavior…</span>
+</code></pre></div>
+<p>Here&rsquo;s what&rsquo;s going on:</p>
+<ol>
+<li>
+<p><code>Developer.work</code> is (going to be) a generator that simulates
+    an individual developer&rsquo;s behavior.</p>
+</li>
+<li>
+<p>Calling it as <code>self.work()</code> in <code>Developer.__init__</code> <em>doesn&rsquo;t</em> start a process.
+    Instead, that call creates a generator object.</p>
+</li>
+<li>
+<p>We pass that generator object to <code>self.sim.process()</code>,
+    which gives it to the SimPy <code>Environment</code> to run.
+    Doing this means that developers start running as soon as they are created.</p>
+</li>
+<li>
+<p>Finally,
+    <code>self.sim.process(…)</code> returns the generator object that was passed into it.
+    We save this in the <code>Developer</code> object as <code>self.proc</code>
+    so that we can access it later.
+    (This step was the one that initially confused me.
+    <code>Developer</code> isn&rsquo;t a SimPy process:
+    the generator object created by calling <code>Developer.work</code> is the process.
+    If we want to interrupt the process,
+    we need to get at the generator object,
+    and the logical place to store a reference to it is
+    in the object that defines its behavior.)</p>
+</li>
+</ol>
+<p>So let&rsquo;s jump back to <code>Simulation.annoy</code>. It contains the lines:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">dev</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">developers</span><span class="p">)</span>
+    <span class="n">dev</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">interrupt</span><span class="p">()</span>
+</code></pre></div>
+<p>which mean:</p>
+<ol>
+<li>
+<p>Choose a developer at random.</p>
+</li>
+<li>
+<p>Get a reference to that developer&rsquo;s generator object <code>dev.proc</code>.</p>
+</li>
+<li>
+<p>Call the object&rsquo;s <code>.interrupt</code> method.</p>
+</li>
+</ol>
+<p>The last of those steps injects a <code>simpy.Interrupt</code> exception into the process,
+so let&rsquo;s take a look at how we handle that.</p>
+<h2>Handling Interrupts</h2>
+<p>Here&rsquo;s a simple version of a developer that can handle interrupts:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Developer</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
+    <span class="err">…</span><span class="n">constructor</span><span class="err">…</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">req</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">req</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">dev_required</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">req</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">req</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+</code></pre></div>
+<p>This developer does the following each time it goes around the <code>while</code> loop:</p>
+<ol>
+<li>
+<p>Create a request to get a task from the development queue.</p>
+</li>
+<li>
+<p><code>yield</code> that request,
+    which hands the request to the SimPy <code>Environment</code>
+    and suspends this process until the request can be satisfied.</p>
+</li>
+<li>
+<p>The result of yielding the request is a task from the development queue,
+    so wait a while to simulate working on that task.</p>
+</li>
+<li>
+<p><em>Unless</em> a <code>simpy.Interrupt</code> exception occurs,
+    in which case the developer cancels the request for a task
+    and goes around the loop again.</p>
+</li>
+</ol>
+<p>We have run into <a href="../2025/12/03/you-have-to-cancel/">the need to cancel</a> before.
+In the first version of this code,
+I assumed that interrupts would only occur while a developer was working on a task,
+so the body of the <code>except</code> block was just <code>pass</code>:</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1"># This version is wrong!</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">req</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">req</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">dev_required</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">pass</span>
+</code></pre></div>
+<p>What I found was that if the interrupt occurred while the developer was waiting on the queue,
+and I <em>didn&rsquo;t</em> cancel the request,
+subsequent requests were never satisfied.
+In other words,
+once a developer had been interrupted,
+she would never get any more work.</p>
+<h2>How It Behaves</h2>
+<p>I won&rsquo;t bother to show the code that adds log messages to <code>Simulation.log</code>
+or collects the states of all the tasks when the simulation is done,
+but here&rsquo;s the JSON output from a typical short run:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;params&quot;: {
+    …as shown earlier…
+  },
+  &quot;messages&quot;: [
+    &quot;developer-0 0.00 start task-0&quot;,
+    &quot;developer-0 3.00 interrupted in task-0&quot;,
+    &quot;developer-0 6.00 interrupted in None&quot;,
+    &quot;developer-0 9.00 interrupted in None&quot;,
+    &quot;developer-0 12.00 interrupted in None&quot;,
+    &quot;developer-0 13.95 start task-1&quot;,
+    &quot;developer-0 15.00 interrupted in task-1&quot;,
+    &quot;developer-0 15.01 start task-2&quot;,
+    &quot;developer-0 16.68 complete task-2&quot;,
+    &quot;developer-0 18.00 interrupted in None&quot;
+  ],
+  &quot;tasks&quot;: [
+    {
+      &quot;id&quot;: 0,
+      &quot;created&quot;: 0,
+      &quot;dev_required&quot;: 4.33,
+      &quot;state&quot;: [&quot;dev_queue&quot;, &quot;dev&quot;, &quot;interrupted&quot;]
+    },
+    {
+      &quot;id&quot;: 1,
+      &quot;created&quot;: 13.95,
+      &quot;dev_required&quot;: 5.72,
+      &quot;state&quot;: [&quot;dev_queue&quot;, &quot;dev&quot;, &quot;interrupted&quot;]
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;created&quot;: 15.01,
+      &quot;dev_required&quot;: 1.67,
+      &quot;state&quot;: [&quot;dev_queue&quot;, &quot;dev&quot;, &quot;complete&quot;]
+    }
+  ]
+}
+</code></pre></div>
+<p>As you can see,
+the first two tasks are interrupted and discarded while they&rsquo;re being worked on,
+while the developer manages to finish the third task before she&rsquo;s interrupted.
+The next step will be to resume tasks rather than just throwing them away.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/12/06/remembrance/">
       Remembrance
     </a>
@@ -1087,117 +1343,6 @@ I&rsquo;ll post the reason tomorrow;
 for today,
 see what theories you can come up with
 and what data you would need to confirm or refute them.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/11/27/not-created-equal/">
-      Not Created Equal
-    </a>
-  </h2>
-  <p><time datetime="2025-11-27" class="post-date">2025-11-27</time></p>
-  <p><a href="../2025/11/26/malice-and-randomness/">Yesterday&rsquo;s post</a> pointed out that
-it can be hard to distinguish cause and effect from random variation.
-One way to tell them apart is to vary the simulation parameters systematically
-to see when various phenomena appear and disappear.
-For example,
-suppose we modify the simulation to account for the fact that
-not all tasks are created equal.
-Some bugs and features have higher priority than others,
-and our team will generally work on more important items before they work on less important ones.</p>
-<p>Alongside the <code>Store</code> we have been using to model our work queue,
-<a href="https://simpy.readthedocs.io/">SimPy</a> offers a <code>PriorityStore</code> that keeps items sorted in priority order.
-(The lower the item&rsquo;s score, the higher its priority.)
-Let&rsquo;s modify the <code>Simulation</code> class to make the development and testing queues priority stores:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">test_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">queue_log</span> <span class="o">=</span> <span class="p">[]</span>
-</code></pre></div>
-<p>and then add a new parameter <code>task_priorities</code>
-whose value is a list of probabilities:</p>
-<div class="highlight"><pre><span></span><code><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
-    <span class="s2">&quot;task_priorities&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">],</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>The list shown above tells us that there&rsquo;s a 10% chance of a new task having priority 0,
-a 30% chance of it having priority 1,
-and a 60% chance of it having priority 2.
-When we create a task,
-we assign it a priority at random with these weights:</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">task_priority</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span>
-            <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;task_priorities&quot;</span><span class="p">]))),</span>
-            <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;task_priorities&quot;</span><span class="p">],</span>
-            <span class="n">k</span><span class="o">=</span><span class="mi">1</span>
-        <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</code></pre></div>
-<p>(We need the <code>[0]</code> at the end because <code>random.choices</code> always returns a list of choices,
-even when we tell it we only want one value.)
-Finally,
-when we&rsquo;re adding a new task to the development queue
-we wrap it in a <code>PriorityItem</code>
-to pair the task with its priority:</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">sim</span><span class="p">):</span>
-
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">task_arrival</span><span class="p">())</span>
-            <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
-            <span class="k">yield</span> <span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">simpy</span><span class="o">.</span><span class="n">PriorityItem</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;priority&quot;</span><span class="p">],</span> <span class="n">task</span><span class="p">))</span>
-</code></pre></div>
-<div class="row">
-  <div class="col-6 center">
-    <img src="../files/2025/11/27/queues-136.svg" alt="10/30/60" width="90%">
-    <br>
-    Queue lengths: 10/30/60
-  </div>
-  <div class="col-6 center">
-    <img src="../files/2025/11/27/queues-334.svg" alt="30/30/40" width="90%">
-    <br>
-    Queue lengths: 30/30/40
-  </div>
-</div>
-<div class="row">
-  <div class="col-6 center">
-    <img src="../files/2025/11/27/queues-433.svg" alt="40/30/30" width="90%">
-    <br>
-    Queue lengths: 40/30/30
-  </div>
-  <div class="col-6 center">
-    <img src="../files/2025/11/27/queues-442.svg" alt="40/40/20" width="90%">
-    <br>
-    Queue lengths: 40/40/20
-  </div>
-</div>
-
-<p>The top (green) line in these four charts is the number of priority-2 tasks
-waiting in the development queue.
-It grows steadily because developers are basically busy at all times with higher-priority tasks;
-it&rsquo;s only when 80% or more of tasks are higher priority that
-we start to see a backlog of priority-1 tasks build up.
-I don&rsquo;t know if I expected this or not,
-but I certainly <em>didn&rsquo;t</em> expect that the testers would always be able to keep up
-with tasks of all priorities.</p>
-<p>These curves look familiar to me.
-In my previous role at <a href="https://plot.ly/">Plotly</a>,
-I was responsible for managing the backlog of bug reports and feature requests
-for the open source libraries.
-When I started in April 2025,
-nobody had gone through them for several years;
-over that summer,
-I cleared out enough stale and duplicated items
-to get the three main repositories from about 7000 issues down to about 1700.
-I then watched as the number grew slowly but steadily over the next twelve months.
-Everyone on the team was working hard,
-but if your library, tool, or application is useful,
-there will <em>always</em> be more work to do than people to do it.
-The only &ldquo;solution&rdquo; is to be ruthless about labeling
-so that you don&rsquo;t get demoralized.</p>
 </article>
 
 

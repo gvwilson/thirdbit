@@ -12,25 +12,19 @@ import sys
 # Simulation parameters.
 PARAMS = {
     "n_dev": 1,
-    "n_tester": 1,
     "rng_seed": 12345,
     "t_arrival": 8.0,
     "t_dev": 5.0,
+    "t_interrupt": 3.0,
     "t_sim": 20,
-    "t_test": 4.0,
 }
 
 # What to save for tasks.
-TASK_KEYS = ("id", "created", "state", "dev_required", "test_required")
+TASK_KEYS = ("id", "created", "state", "dev_required")
 
 # What to save for workers.
-WORKER_KEYS = ("id", "kind")
+WORKER_KEYS = ("id",)
 
-# Round or leave alone.
-def r(val):
-    if isinstance(val, float):
-        return round(val, 2)
-    return val
 
 class Simulation:
     """Overall simulation."""
@@ -40,13 +34,9 @@ class Simulation:
 
         self.params = params
         self.env = simpy.Environment()
-
         self.dev_queue = simpy.Store(self.env)
-        self.test_queue = simpy.Store(self.env)
-
         self.developers = [Developer(self) for _ in range(params["n_dev"])]
-        self.testers = [Tester(self) for _ in range(params["n_tester"])]
-        self.workers = self.developers + self.testers
+        self.log = []
 
     @property
     def now(self):
@@ -64,15 +54,23 @@ class Simulation:
     def generate(self):
         """Generate tasks at random intervals starting at t=0."""
 
-        yield self.dev_queue.put(Task(self))
         while True:
-            yield self.timeout(self.t_arrival())
             yield self.dev_queue.put(Task(self))
+            yield self.timeout(self.t_arrival())
+
+    def annoy(self):
+        """Generate annoying interruptions."""
+
+        while True:
+            yield self.timeout(self.params["t_interrupt"])
+            dev = random.choice(self.developers)
+            dev.proc.interrupt()
 
     def run(self):
         """Run the whole simulation."""
 
         self.process(self.generate())
+        self.process(self.annoy())
         self.env.run(until=self.params["t_sim"])
 
     def t_dev(self):
@@ -82,10 +80,6 @@ class Simulation:
     def t_arrival(self):
         """Task arrival time."""
         return random.expovariate(1.0 / self.params["t_arrival"])
-
-    def t_test(self):
-        """Testing time."""
-        return random.lognormvariate(0, 1) * self.params["t_test"]
 
 
 class Labeled:
@@ -118,46 +112,38 @@ class Task(Labeled):
         super().__init__(sim)
         self.created = self.sim.now
         self.dev_required = self.sim.t_dev()
-        self.test_required = self.sim.t_test()
         self.state = ["dev_queue"]
 
 
-class Worker(Labeled):
+class Developer(Labeled):
     """A generic worker."""
 
     def __init__(self, sim):
         """Construct."""
 
         super().__init__(sim)
-        self.kind = self.__class__.__name__.lower()
         self.proc = self.sim.process(self.work())
 
-
-class Developer(Worker):
-    """A developer."""
-
     def work(self):
         """Simulate."""
 
         while True:
-            task = yield self.sim.dev_queue.get()
-            task.state.append("dev")
-            yield self.sim.timeout(task.dev_required)
-            task.state.append("test_queue")
-            yield self.sim.test_queue.put(task)
-
-
-class Tester(Worker):
-    """A tester."""
-
-    def work(self):
-        """Simulate."""
-
-        while True:
-            task = yield self.sim.test_queue.get()
-            task.state.append("test")
-            yield self.sim.timeout(task.test_required)
-            task.state.append("complete")
+            task = None
+            req = None
+            try:
+                req = self.sim.dev_queue.get()
+                task = yield req
+                self.sim.log.append(f"{self} {self.sim.now:.2f} start {task}")
+                task.state.append("dev")
+                yield self.sim.timeout(task.dev_required)
+                self.sim.log.append(f"{self} {self.sim.now:.2f} complete {task}")
+                task.state.append("complete")
+            except simpy.Interrupt as exc:
+                self.sim.log.append(f"{self} {self.sim.now:.2f} interrupted in {task}")
+                if req is not None:
+                    req.cancel()
+                if task is not None:
+                    task.state.append("interrupted")
 
 
 def parse_args():
@@ -185,12 +171,16 @@ def update_params(params, args):
 def get_log(sim):
     """Get log."""
 
+    def r(val):
+        return round(val, 2) if isinstance(val, float) else val
+
     tasks = [{k: r(getattr(t, k)) for k in TASK_KEYS} for t in Labeled._all[Task]]
-    workers = [{k: r(getattr(w, k)) for k in WORKER_KEYS} for w in sim.workers]
+    devs = [{k: r(getattr(w, k)) for k in WORKER_KEYS} for w in Labeled._all[Developer]]
     return {
         "params": sim.params,
+        "messages": sim.log,
         "tasks": tasks,
-        "workers": workers,
+        "devs": devs,
     }
 
 
