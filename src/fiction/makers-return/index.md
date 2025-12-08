@@ -232,7 +232,42 @@ fiction: true
     - The bot that appears has four legs and two tentacles
     - Patient's voice: "I should have known it would be you"
   - Chapter 14: Violet
+    - Patient's appearance is Violet's worst nightmare
+      - She wants to flee, but other bots appear with Lawson
+      - Including Z40 and Z51, which have been taken over by Patient
+      - Patient croons about its sleek new bodies
+    - Villainous monologue about how it survived the demise of its bodies in Heck
+    - Sindy tells it the humans it has captured are Makers
+      - Patient doesn't believe her
+      - Believes they must be thieves who have stolen tech
+    - Captives are taken underground
+      - Girls are separated from Lawson
+      - Violet tells Sindy about her memories of bots trying to get on the fleeing ships
+      - Sindy is angry that the humans left the bots behind
+      - "And everyone else—all those people!"
+      - Violet doesn't believe brids are people
+      - Sindy: "My mama is a brid! And my sister, and my dad, and just about everyone I know!"
+      - Violet: "They can't be! They must have adopted you or something! Brids can't have human children!"
+    - Argument is cut short by Mouse showing up
+      - Frightens Violet, who kicks it away
   - Chapter 15: Sindy
+    - Hears Violet say "Brids can't have human children!" and has a sinking feeling in her gut
+      - She has always suspected something like that
+    - Mouse shows up, Violet kicks it away
+      - Sindy rushes over and comforts it
+      - It tells her that a rescue party has found them, but the bunker is too well defended
+      - Sindy tells it that Patient is back
+      - Mouse is frightened but brave
+    - Mouse gets the door open and the girls escape
+      - Violet insists on saving Captain Lawson
+      - Sindy is grudgingly impressed by her bravery
+    - They find a lab and Captain Lawson hooked up to machines
+      - The screens show Captain Lawson's memories
+    - Patient discovers them
+      - It has been reviewing Captain Lawson's memories
+      - It realizes that he and Violet really are Makers
+      - And it is bitterly disappointed
+      - In a rage, it promises to destroy the ship and end this nonsense
   - Chapter 16: Violet
   - Chapter 17: Sindy
   - Chapter 18: Violet
