@@ -12492,8 +12492,8 @@ but then she saw the familiar silver sheen of tech beneath the bear's fur.
 
 "It says trouble's comin'," Iffy relayed.
 
-"No kidding," Edson muttered.
-"Don't suppose it's offerin' to help with that?"
+"No sand," Edson muttered.
+"Don't suppose it's offerin' to help?"
 
 As if on cue two more bears ambled around the outcropping.
 One of them stopped next to the first.
@@ -12690,21 +12690,11 @@ It took her a few minutes to realize that
 the web of tunnels wasn't centered on the Niobium base.
 Instead,
 its heart was a couple of kilometers further south.
-That wasn't what made Iffy chew her lips as she studied the accompanying schematics, though.
-She could think of a hundred uses for a superconducting ring
-large enough to sail the *Guinevere* through,
-but why put a cage for lab rats at its center?
-And if you had a yottahertz laser capable of vaporizing steel from orbit,
-why would you point it directly at an identical laser,
-and why would you leave just enough space between them for
-an adult with arctic-rated camping equipment
-and a month's worth of high-energy rations?
-
 She sat back,
 stretched,
 and yawned so widely that her jaw clicked.
 As tired as she was,
-she needed to get moving.
+it looked like she needed to get moving.
 *Any suggestions?* she thought,
 but her voices were still silent.
 
@@ -12863,7 +12853,7 @@ Iffy leaned back gingerly against the crippled bot.
 It rotated its head to study her.
 After a moment she draped an arm over its back to steady herself.
 It wasn't actually more comfortable than just sitting upright,
-but it was somehow more comforting.
+but somehow it was more comforting.
 
 Against all odds her eyes began to close.
 She snapped out of her doze when the bots pulled up short.
@@ -12912,7 +12902,7 @@ The three-legged bot had risen to its feet again,
 its body swaying slightly as its algorithms steadied its misbalanced weight
 atop the dolly.
 
-"I said—affin' heck!"
+"I said—whoa!"
 The dolly slewed wildly,
 skidded,
 and straightened out.
@@ -12936,20 +12926,17 @@ She had arrived.
 "*Acendé luz?*
 *Lampo roshan kon?*"
 
-Clinically-white strips in the walls and ceiling came to life.
-Iffy squinted, then sucked in her breath.
-She had hoped for a workshop and feared it would be a graveyard,
-but she hadn't expected this.
-
-A thick cylinder lay on its side surrounded by pipes and machinery.
-A bulky mass of meter-square blocks loomed in the background.
+Clinically-white strips in the walls and ceiling came to life
+to reveal a workshop that bore the same relationship to Mister Mishra's
+that the *Bengal* did to the *Guinevere*.
+Iffy sucked in her breath.
+A bulky mass of meter-square blocks hulked against the wall.
 The three-armed logo painted on its side was redundant:
 even before schematics took shape in her head
-she recognized the reactor for what it was.
+she recognized the micro-reactor for what it was.
 
 The crippled bot on the dolly surged to its feet.
-The panel on its back flipped open.
-A stubby needle gun popped up.
+The panel on its back flipped open and a stubby needle gun popped up.
 Its targeting laser drew a thin red line through the air
 to a squat four-wheeled service bot
 that had just rolled into view from somewhere further back in the chamber.
@@ -12975,13 +12962,12 @@ she asked the empty air.
 
 The service bot pivoted on its wheels to face her.
 "The way out is simple, Iffy,"
-Wales' voice said.
-"All you have to do is talk to the machines for me
-and we'll all get a happy ending."
+it said in Doctor Johel's voice.
+"All you have to do is talk to the machines for me."
 
 Iffy pulled a wrench out of the tool crate.
-"Iffy, please,"
-Wales' voice chided.
+"Please, don't be childish,"
+Doctor Johel chided.
 "That's not going to—"
 
 "Target!"
@@ -12989,22 +12975,18 @@ Iffy snapped,
 pointing the wrench at the service bot.
 The gun on the back of the sentry bot beside barked twice.
 The first shot punched a hole through the other bot.
-The second caught it off-center and sent it spinning across the floor.
-
-The tunnel at the other end of the bunker had a blast door
-to match the one behind them.
-Iffy closed her eyes,
-but before she could talk it into locking itself
-it slid open to reveal a pair of Marines.
+The second caught it off-center and sent it spinning.
+As it tumbled to the floor,
+a door opened near the reactor to reveal a pair of exoskeletoned Marines.
 
 "Iffy, please,"
-Wales' voice said through a speaker on one of their exoskeletons.
+the doctor's voice said through a speaker on one.
 "I really didn't want to have to do this."
 
 Iffy felt rather than saw the three-legged bot move.
 "No!" she shouted.
-Its gun fired twice
-but it was already falling as the Marines' auto-targeted shots brought it down.
+Even as its gun fired,
+the Marines' auto-targeted shots brought it down.
 
 She was falling too.
 Something had knocked the breath out of her.
@@ -13044,10 +13026,12 @@ They would heal—the tweaks in her genes were quadruply redundant to make sure 
 healing would take time
 and that was something she/they/the world didn't have enough of right now.
 
-"Sh sh sh," the Marine said softly.
-An armored hand took her by the chin and gently turned her head to the side.
-Her last thought before all her thoughts went away was,
-*Doctor Johel?*
+"Serves you bloody right,"
+the Marine said in an Australian accent.
+He raised his visor and looked at her
+as if she was a barnacle to be scraped off the side of a ship.
+Her last thought before the drugs took her away was,
+"Captain Kerse?"
 
 She woke up feeling nauseous and slightly detached from the world.
 Yawning triggered a dull ache in her side,
@@ -13057,10 +13041,10 @@ She let her eyes open and pressed a hand gingerly against the epicenter of the b
 Whoever had done it had opened her jacket but cut away part of her shirt.
 
 "She's with us,"
-Doctor Johel's voice said.
+Kerse's voice said.
 
 "Thank you,"
-Wales replied.
+Doctor Johel replied.
 "Help her sit up."
 
 Strong mechanical hands took her weight and supported her back.
@@ -13077,31 +13061,33 @@ Doctor Johel passed her a water bottle.
 "Don't worry, it's just water."
 
 Iffy studied it for a second,
-then set it down without drinking and twisted,
-wincing,
-until she could see Johnson Wales.
-He looked up from a bulky app cabled to the machine next to him,
-then set it aside and stood.
+then set it down without drinking.
+"What's he doing here?" she asked hoarsely,
+nodding at Captain Kerse.
 
-"Sorry about that,"
-he said,
-gesturing at the bandage on her abdomen.
-"Targeting shouldn't have—"
-He stopped his apology mid-sentence at her look.
+He looked up from the piece of exoskeleton lying in his lap.
+"Sorry about shooting you,"
+he said without remorse.
+"Must've been a targeting glitch."
 
-"Not this time,"
-Iffy said coldly.
+Doctor Johel sighed gently.
+"Why don't you go and see if you can get the main door open?"
+she suggested.
+"Citizen Kwan and I need to talk."
+
+He grunted,
+clipped the armor back on his forearm,
+and walked away.
+Doctor Johel sighed again.
+"Once upon a time," she started.
+
+"No."
+Iffy put as much force into the word as she could.
 "No fairy tales."
 
-The corner of Wales' mouth quirked up.
-"It's my story,
-I'll tell it the way I want to."
-He closed the lid of his toolbox and sat down on it,
-patting a spot beside him.
-Iffy just glared at him.
-
-Wales shrugged and leaned forward to put his elbows on his knees.
-"Once upon a time the world was falling apart.
+"Once up on a time,"
+Doctor Johel continued,
+"The world was falling apart.
 Where there wasn't flood there was drought,
 and both brought hunger and disease.
 Forests were burning,
@@ -13117,81 +13103,75 @@ Some lost themselves in sims.
 Others built walls to protect their little kingdoms,
 and others still threw their wealth at impossible schemes like moving to other worlds.
 As things got worse,
-a few of us managed to convince some of them
+my father and a few others managed to convince some of them
 that the only solution was to move to Hell."
 
 "Upload themselves?"
 Iffy scoffed.
 "An' then what,
-you take their money while they're all bein' torn apart by malware?"
+take their money while they're bein' torn apart by malware?"
 
-Wales shook his head.
+Doctor Johel shook her head.
 "No.
 I mean,
-I wouldn't have cried if that happened.
+nobody would have cried if that happened.
 Trust me,
 anyone that rich makes the governors look like saints.
 No,
-the idea was that we would imprint ourselves on the entire global network
-so that we could fix the things no one else could.
+my father and his colleagues wanted to would imprint themselves on the entire global network
+so that they could fix the things no one else could.
 People had tried it before,
-but…"
-He shrugged.
-"We thought we had a couple of new angles,
-and we were desperate."
+but they had a couple of new angles,
+and they were desperate."
 
-He stared past her at the horizon.
-"So we did the whole mad scientist thing with a secret underground lair
-and a double-secret lab underneath that
-and locked the door behind us.
+She looked past Iffy at some long-ago memory.
+"So they built this and locked the door behind them.
 Nothing in, nothing out, just two dozen of the smartest human beings alive
 and enough equipment to settle on Mars."
-He chuckled and pointed at his chest.
-"Did I ever tell you that's actually what I was supposed to do?
-All my genetic tweaks and this stuff in my head—it's all left over
+She chuckled.
+"Did Johnson ever tell you that's actually what he was supposed to be for?
+All his genetic tweaks and the tech in my head—it was all left over
 from some previous bunch of mad scientists and *their* plan for saving the world."
 
 "So what happened?"
 Iffy asked despite herself after a few moments of silence.
 
-"We had a vote,"
-Wales said bleakly.
-"We weren't ready,
+"They failed,"
+Doctor Johel said bleakly.
+"They weren't ready,
 but honestly,
-we didn't know if we ever would be,
+they didn't know if they ever would be,
 and things were getting worse faster than anyone had predicted.
-We argued for a couple of days
+They argued for a couple of days
 and finally decided to go for it and hope for the best.
 Everyone listened to their favorite music one last time
 or had one last cup of coffee
 and made jokes about seeing each other in the next life,
-and then we climbed into our capsules and closed our eyes.
-The next thing I knew I was on the floor of Beta Station
-and everyone else was dead.
-Everyone except you."
+and then they climbed into their capsules.
+The next thing we knew they were all dead.
+All of them except you and Johnson."
 
-Iffy stared at him.
+Iffy stared at her.
 "Me?"
 she asked,
-but somehow she already knew what he was going to say next.
+but somehow she already knew what was coming.
 
 "Mm hm."
-He took a small app out of his pocket and swiped,
-then turned it around and held it out.
-An older version of her own face looked back at her.
+Doctor Johel swiped the arm of her exoskeleton to bring up an image.
+An older version of Iffy's face looked back at her.
 "Her name wasn't Ang Kwan,"
-he said quietly.
+she said quietly.
 "It was Suhailah Yuen.
-And while all of us were working on our project
+And while the rest of us were working on *their* project,
 she somehow found a way to work on one of her own.
-She's the only other person from the team who survived.
+She and Johnson were the only people from the team who survived.
 Your First was a tweaked clone of her,
 and I think she's the reason the machines woke up."
 
-She burst out laughing.
-After a moment Wales began to chuckle too.
+Iffy burst out laughing.
+Doctor Johel blinked.
 "Well, it's not quite the reaction I was expecting,"
-he started.
+she started.
 
 "You—you—"
 Iffy hiccupped.
@@ -13201,87 +13181,45 @@ She lowered her voice.
 "Oh, Iffy, you're th' chosen one.
 Only you can save th' world."
 
-"Your First said pretty much the same thing before she shot me,"
-Wales observed drily,
-tapping his chest with one finger.
-"It took me twenty years to track her down.
-I don't know how she got to Cape Town or what happened to Sue.
-All I know is that she had the same talent you do.
-Somehow she could—"
-He took a deep breath.
-"Somehow *you* can talk to them and get them to talk back.
-Not just trade deals and warnings about no-go zones but actual conversations."
-
-"So that makes th' machine wars my fault?"
-Iffy shot back angrily.
-
-Wales cocked his head.
-"How old were you when you started seeing things?
-Eight?
-Nine?
-If your First got her abilities at the same age,
-that would be almost exactly the time the machines woke up.
-It's quite a coincidence."
+"Your First said pretty much the same thing when Johnson and I tracked her down,"
+Doctor Johel said drily.
+"It took us twenty years.
+I don't know how she got to Cape Town or what happened to Suhailah.
+All I know is that your First had the same talent you do.
+Somehow you can talk to them—really talk,
+not just trade deals and warnings about no-go zones but actual conversations."
 
 "And there's another thing,"
-he continued as she opened her mouth to protest.
-"I'm good with tech—really good by most people's standards—and
+the doctor continued as Iffy opened her mouth to protest.
+"I'm rather good with technology—really good by most people's standards—and
 the people and cores working for the governors are at least as good.
 We should have been able to track you and your elders down in minutes,
 but somehow you all managed to stay hidden."
-
-He looked up at the sky as if he could see the machines' satellites orbiting overhead.
-For all Iffy knew, he actually could.
-"Someone up there likes you, Iffy.
-Someone or something has been looking out for you your whole life."
+She spread her hands.
+"Someone likes you, Iffy.
+Someone or something has been looking out for you."
 
 A lifetime of hurt and anger boiled up inside Iffy.
-"Go t' hell,"
+"Wasn't anyone lookin' out for th' *Rushin Doll* when she went under an' everyone drowned,"
 she spat.
-"Wasn't anyone lookin' out for th' *Rushin Doll* when she went under
-an' everyone drowned.
-Wasn't anyone lookin' out for me 'cept Aunt Naggie when we were in dock
-an' th' other kids knocked me around 'cuz I was bad luck.
-What I got,
-I got 'cuz o' *me*,
-not some— some—"
+"Wasn't anyone lookin' out for me 'cept Aunt Naggie when we were in dock
+an' th' other kids knocked me around 'cuz I was bad luck."
 She wiped her sleeve angrily across her face.
 
 "I'm sorry,"
-Wales said for the third time.
-"I wish I'd been there."
-
-For a minute the only sound was the wind and the distant *skee-rawk* of a lonely gull.
-"Why'd she shoot you?"
-Iffy finally asked.
-
-Wales shrugged.
-"I didn't give her a chance to get to know me
-before I dumped the whole save-the-world thing on her shoulders.
-And when she said no,
-I tried to make her do it anyway.
-That was a mistake."
+Doctor Johel said.
+"I wish I had been there to help.
+I truly do."
 
 Something clicked in Iffy's head.
-"So bumpin' into me at th' Sandhu's…"
+"So Mister Wales bumpin' into me at th' Sandhu's…"
 
 "Wasn't exactly by chance, no.
 But the drugs you've been getting?
 Those are straight from the machines.
-I stole a few grains once when you were younger, and—"
-He shrugged again.
-"Like I said, I'm pretty good with tech,
-but I have no idea what it does or how the tweaks inside you work.
-All I know is that I'm a hundred and forty-one years old
-and I'm tired of making things worse."
-
-He patted the toolbox.
-"What happens now is up to you.
-If you want my help, it's yours.
-If you want me to walk away and let you do this yourself,
-I'll do that instead.
-People like me and Gayathri and the governors,
-we've had our chance.
-It's your turn now."
+Johnson gave me a sample in Rothera,
+and after banging my head against several walls
+I have no idea what it does or how your modifications work.
+All I know is that I'm a hundred and forty-one years old and running out of time."
 
 </section>
