@@ -118,16 +118,19 @@ class Task(Labeled):
     """A task."""
 
     # What to save for tasks.
-    LOG_KEYS = ("id", "created", "state", "dev_required")
+    LOG_KEYS = ("id", "created", "started", "completed", "developer_id", "state", "dev_required", "dev_done")
 
     def __init__(self, sim):
         """Construct."""
 
         super().__init__(sim)
         self.created = self.sim.now
+        self.started = None
+        self.completed = None
         self.dev_required = self.sim.t_dev()
         self.dev_done = 0.0
         self.state = []
+        self.developer_id = None
 
     def is_done(self):
         """Is this task complete?"""
@@ -159,16 +162,17 @@ class Developer(Labeled):
             req = None
             try:
                 if interrupt_delay is not None:
-                    self.sim.log(self, f"start interrupt delay {round(interrupt_delay, PREC)}")
+                    self.sim.log(self, f"start interrupt {round(interrupt_delay, PREC)}")
                     yield self.sim.timeout(interrupt_delay)
-                    self.sim.log(self, f"…end interrupt delay {round(interrupt_delay, PREC)}")
+                    self.sim.log(self, f"…end interrupt {round(interrupt_delay, PREC)}")
                     interrupt_delay = None
                 else:
-                    self.sim.log(self, f"no interrupt delay, task is {task}")
                     if task is None:
                         self.sim.log(self, "start wait for new task")
                         req = self.sim.dev_queue.get()
                         task = yield req
+                        task.developer_id = self.id
+                        task.started = self.sim.now
                         self.n_start += 1
                         self.sim.log(self, f"…end wait for new task {task}")
                     self.sim.log(self, f"start work {task} ({task.dev_done:.2f} / {task.dev_required:.2f})")
@@ -179,6 +183,7 @@ class Developer(Labeled):
                     if task.is_done():
                         self.sim.log(self, f"complete {task} ({task.dev_done:.2f} / {task.dev_required:.2f})")
                         self.n_complete += 1
+                        task.completed = self.sim.now
                         task.state.append("complete")
                         task = None
             except simpy.Interrupt as exc:
