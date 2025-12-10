@@ -261,18 +261,33 @@ fiction: true
     - Mouse gets the door open and the girls escape
       - Violet insists on saving Captain Lawson
       - Sindy is grudgingly impressed by her bravery
-    - They find a lab and Captain Lawson hooked up to machines
-      - The screens show Captain Lawson's memories
-    - Patient discovers them
+    - They find a lab with some chairs
+      - Captain Lawson hooked up to machines the way Sindy was in Heck
+      - The screens show Captain Lawson's jumbled memories flashing past
+    - Patient's voice comes over the speakers
       - It has been reviewing Captain Lawson's memories
       - It realizes that he and Violet really are Makers
       - And it is bitterly disappointed
-      - In a rage, it promises to destroy the ship and end this nonsense
+      - It vows to destroy the ship and end this nonsense
   - Chapter 16: Violet
+    - Patient's villainous monologue triggers her memories of fleeing to the ship
+      - But then she looks on the screen showing Captain Lawson's memories and sees the same scenes
+    - Before she can process that, Sindy takes the chair next to Lawson and says, "You gotta hook me up"
+      - When Violet protests, Sindy says, "This is how I beat it last time" and asks if she has a better plan
+    - Violet: "Yeah, I do" and puts the helmet on her own head
+      - She recognized the helmet's design from the ship
+      - The weight feels familiar and she wonders if she's remembering it from cold sleep
+    - She has only a few moments to unlock doors before Patient finds her in virtual
+      - Pursuit through madcap virtual worlds
+    - She escapes virtual and throws up on the floor
+      - Sindy helps her up: "That was dumb. But pretty brave too."
+    - Violet: "We have to get out *now*."
+    - Sindy (pointing at Lawson): "What about your friend?"
+    - Violet: "You don't understand. We have to get back to the ship or the mad bot is going to blow it up!"
   - Chapter 17: Sindy
   - Chapter 18: Violet
-  - Chapter 19: Violet
+  - Chapter 19: Sindy
   - Chapter 20: Violet
   - Epilog
     - Dockety takes what's left of Patient to the Tailor for mending
-    - And the remaining children are woken up into a strange new world
+    - And the remaining human children wake up into a strange new world
