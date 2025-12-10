@@ -12593,11 +12593,11 @@ She shook herself.
 "Well," she said out loud.
 "Let's see what we got."
 
-The answer turned out to be weapons,
+The answer turned out to be a workbench,
 dried food that had either spoiled or mummified like the corpse,
-several snowsuits with boots and breathing masks
+two silvery spacesuits complete with breathing masks
 (she puzzled over this for a bit),
-and a small workshop stocked with tools and spare parts that made her hands itch.
+and a workbench with tools and spare parts that made her hands itch.
 She turned a laser cutter over in her hands,
 then pulled a tarp off something that looked like
 an oversized version of the sentry bots from the governor's mansion.
@@ -12608,43 +12608,31 @@ The mod had clearly been made in haste:
 the welds joining the additions to the bot's neck were messy and unfinished,
 and a handful of string-thin optical cables dangled from the opening.
 
-Iffy looked around the room a second time.
-Something didn't make sense.
-How were the bots going get out?
-They wouldn't have been able to climb the ladder.
-
 She sat down and put her elbows on the workbench.
 It hummed faintly and came to life.
-A single icon appeared,
-waiting patiently to be tapped.
+A single icon appeared and waited patiently.
 
-She studied it for a moment.
-It could a malware designed to mesmerize anyone who looked it,
+She puffed out her cheeks.
+It could a malware designed to brainlock anyone who looked it,
 or any of a hundred other scenarios from sims,
 but what choice did she have?
 
 A faint scum of dust felt gritty under her finger as she swiped its top.
-"User recognized," a soft voice said.
-Iffy blinked in surprise as the icon folded in on itself.
-
+The icon folded in on itself with a soft ping and a voice began to speak.
 "—a chance to hear this,
 but if you do,
 I'm sorry.
 I'm so, so sorry."
-The recorded voice was a man,
-and sounded tired and frightened and brave all at once.
-"We thought we could fix things,
-but we've only made them worse."
-
-The voice chuckled or choked back a sob—it was impossible to tell which.
-"Suyin went back in this morning while the rest of us were asleep.
+The man speaking to her across the years
+sounded weary and frightened and brave all at once.
+"Lin went back in this morning while the rest of us were asleep.
 Her note said she thought she be able to make it to the machine
 if she cycled the shielding rapidly enough,
 but I think she just wanted to be with Georgia."
 
+He paused as if to rub his eyes.
 "I tried to disable the guard robots,
-but some of them are still loose in the tunnels."
-The voice paused.
+but some of them are still loose in the tunnels.
 I know we all agreed that the project needed a failsafe,
 but I never thought we'd need it.
 I never thought—oh shit."
@@ -12655,13 +12643,12 @@ A moment later metal clicked on concrete,
 and then the recording ended with a soft, cheerful *ding*.
 
 The screen filled with icons and images like those in Iffy's app.
-Two dozen smiling, confident faces were arranged on the app
-in eight rows of three.
+Two dozen smiling, confident faces were arranged in eight rows of three.
 The top row contained a man with long dark hair and a beard
-and two women who looked like clones of each other.
+and two women who looked identical except for their haircuts.
 "Doctor Arno Severin,"
 she read aloud.
-The names below other images identified Suyin and Georgia.
+The names below the women identified Lin and Georgia Boghosian.
 The others were all of a similar age,
 all smiling,
 and—
@@ -12683,13 +12670,21 @@ but no more.
 There were other tunnels,
 though,
 big enough for people and heavy equipment.
-Some were dense with red flags that showed collapse or flooding.
-She puzzled over that for a second before dismissing it.
-
-It took her a few minutes to realize that
+Some were dense with red flags marked "collapse" or "chronic instability".
+She puzzled over the second of those before suddenly realizing that
 the web of tunnels wasn't centered on the Niobium base.
 Instead,
 its heart was a couple of kilometers further south.
+
+A tap brought up a floor plan.
+She stared at it,
+wishing it would spin around and make sense.
+She could think of a hundred uses for a superconducting ring
+large enough to sail the *Guinevere* through,
+but if you had a pair of terahertz lasers capable of vaporizing steel from orbit,
+why would you point them at each other?
+And why would you put a chair between them?
+
 She sat back,
 stretched,
 and yawned so widely that her jaw clicked.
@@ -12935,6 +12930,13 @@ The three-armed logo painted on its side was redundant:
 even before schematics took shape in her head
 she recognized the micro-reactor for what it was.
 
+The superconducting ring was as thick as her thigh
+and twice as wide as the draft of the *Guinevere*.
+A bright pink plastic chair waited on a simple block of concrete in its center
+between two complicated shapes wrapped in cooling coils
+that she guessed were the lasers.
+Someone had painted the names "Sam" and "Frodo" on their sides.
+
 The crippled bot on the dolly surged to its feet.
 The panel on its back flipped open and a stubby needle gun popped up.
 Its targeting laser drew a thin red line through the air
@@ -13066,14 +13068,14 @@ then set it down without drinking.
 nodding at Captain Kerse.
 
 He looked up from the piece of exoskeleton lying in his lap.
-"Sorry about shooting you,"
+"Sorry about that,"
 he said without remorse.
 "Must've been a targeting glitch."
 
-Doctor Johel sighed gently.
-"Why don't you go and see if you can get the main door open?"
-she suggested.
-"Citizen Kwan and I need to talk."
+"Must have been,"
+Doctor Johel said drily.
+"Now, why don't you go and see if you can get the main door open?
+Citizen Kwan and I need to talk."
 
 He grunted,
 clipped the armor back on his forearm,
@@ -13118,10 +13120,10 @@ nobody would have cried if that happened.
 Trust me,
 anyone that rich makes the governors look like saints.
 No,
-my father and his colleagues wanted to would imprint themselves on the entire global network
+my father and his colleagues wanted to imprint themselves on the entire global network
 so that they could fix the things no one else could.
 People had tried it before,
-but they had a couple of new angles,
+but they had some new ideas about how to make it work,
 and they were desperate."
 
 She looked past Iffy at some long-ago memory.
@@ -13129,9 +13131,8 @@ She looked past Iffy at some long-ago memory.
 Nothing in, nothing out, just two dozen of the smartest human beings alive
 and enough equipment to settle on Mars."
 She chuckled.
-"Did Johnson ever tell you that's actually what he was supposed to be for?
-All his genetic tweaks and the tech in my head—it was all left over
-from some previous bunch of mad scientists and *their* plan for saving the world."
+"Did Johnson ever tell you that's where he comes from?
+He's left over from some previous bunch of mad scientists' plan for saving the world."
 
 "So what happened?"
 Iffy asked despite herself after a few moments of silence.
@@ -13144,8 +13145,8 @@ they didn't know if they ever would be,
 and things were getting worse faster than anyone had predicted.
 They argued for a couple of days
 and finally decided to go for it and hope for the best.
-Everyone listened to their favorite music one last time
-or had one last cup of coffee
+I imagine they listened to their favorite music one last time
+or had one last cup of real coffee
 and made jokes about seeing each other in the next life,
 and then they climbed into their capsules.
 The next thing we knew they were all dead.
@@ -13162,11 +13163,13 @@ An older version of Iffy's face looked back at her.
 "Her name wasn't Ang Kwan,"
 she said quietly.
 "It was Suhailah Yuen.
-And while the rest of us were working on *their* project,
-she somehow found a way to work on one of her own.
-She and Johnson were the only people from the team who survived.
-Your First was a tweaked clone of her,
-and I think she's the reason the machines woke up."
+And while my father and his team were working on *their* project,
+she was working on one of her own.
+She and Johnson were the only people from the team who survived,
+and your First was a tweaked clone of her.
+I think she found a way to make my father's plan work.
+I think she managed to talk to the machines,
+and I think you can do the same."
 
 Iffy burst out laughing.
 Doctor Johel blinked.
@@ -13179,15 +13182,15 @@ Iffy hiccupped.
 D'you seriously 'spect me t' b'lieve that?"
 She lowered her voice.
 "Oh, Iffy, you're th' chosen one.
-Only you can save th' world."
+That's dreck."
 
 "Your First said pretty much the same thing when Johnson and I tracked her down,"
 Doctor Johel said drily.
 "It took us twenty years.
 I don't know how she got to Cape Town or what happened to Suhailah.
-All I know is that your First had the same talent you do.
+All I know is that your First had the same ability you do.
 Somehow you can talk to them—really talk,
-not just trade deals and warnings about no-go zones but actual conversations."
+not just trade deals and cryptic warnings about no-go zones but actual conversations."
 
 "And there's another thing,"
 the doctor continued as Iffy opened her mouth to protest.
@@ -13212,14 +13215,23 @@ Doctor Johel said.
 I truly do."
 
 Something clicked in Iffy's head.
-"So Mister Wales bumpin' into me at th' Sandhu's…"
+"So Mister Wales bumpin' into me at th' Sandhu's
+was part o' some grand plan o' yours?"
 
-"Wasn't exactly by chance, no.
-But the drugs you've been getting?
-Those are straight from the machines.
-Johnson gave me a sample in Rothera,
-and after banging my head against several walls
-I have no idea what it does or how your modifications work.
-All I know is that I'm a hundred and forty-one years old and running out of time."
+She sighed.
+"Not quite.
+Johnson and I had a falling out some years back.
+I thought our best hope was to try to preserve what we could here in Antarctica.
+He—well, he always was a bit of an idealist."
+
+Iffy crossed her arms.
+"So now you want me to go an' talk th' machines into leavin' you to it?"
+
+Doctor Johel shook her head and gestured at the ring,
+the lasers,
+and the incongruous pink chair.
+"Not quite.
+Not *now*.
+I want you to talk to them a hundred and forty years ago."
 
 </section>
