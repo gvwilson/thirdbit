@@ -7631,9 +7631,9 @@ The risk is too great."*
 Our neverexistence,
 on the other hand,
 is unacceptable."
-Doctor Johel's voice was colder than the ocean.*
+Doctor Johel's voice was colder than the ocean.
 She turned back to Iffy.
-"Tell Johnson Wales we are watching."
+"Tell Johnson Wales and his colleagues that we are watching."*
 
 *"No," Aunt Naggie said sharply.
 "You will tell him nothing."*
@@ -12681,7 +12681,7 @@ She stared at it,
 wishing it would spin around and make sense.
 She could think of a hundred uses for a superconducting ring
 large enough to sail the *Guinevere* through,
-but if you had a pair of terahertz lasers capable of vaporizing steel from orbit,
+but if you had a pair of terawatt lasers capable of vaporizing steel from orbit,
 why would you point them at each other?
 And why would you put a chair between them?
 
@@ -13218,7 +13218,7 @@ Something clicked in Iffy's head.
 "So Mister Wales bumpin' into me at th' Sandhu's
 was part o' some grand plan o' yours?"
 
-She sighed.
+Doctor Johel grimaced.
 "Not quite.
 Johnson and I had a falling out some years back.
 I thought our best hope was to try to preserve what we could here in Antarctica.
@@ -13233,5 +13233,55 @@ and the incongruous pink chair.
 "Not quite.
 Not *now*.
 I want you to talk to them a hundred and forty years ago."
+
+</section>
+
+<section markdown="1">
+
+## Chapter 15
+
+Iffy's first thought was,
+*What th' hell do I say now?*
+What could she possibly say to someone who appeared to be sane
+but had just revealed that they were two eggs short of an omelette?
+
+Doctor Johel smiled as if she could read Iffy's mind.
+"It's a lot to take in, isn't it?
+But the math is actually relatively straightforward
+once you know what you're looking for.
+Instead of using quantum entanglement to communicate instantly across distance,
+we can use it to communicate backward in time.
+All we need is a few million supercooled bosons and something to say."
+
+"An' what are you plannin' to say, exactly?"
+Iffy ventured.
+"Please don't let us scrag th' whole planet?"
+
+"I doubt that would have much impact,"
+Doctor Johel said briskly.
+"No,
+I'm planning on planting a back door in the machines' original neural network
+so that their present incarnation will be more amenable to persuasion.
+According to our simulations,
+it's the best chance we have to avoid total human extinction."
+
+A memory unlocked in Iffy's mind.
+"They know what you're gonna try," she said.
+"I heard 'em in my head after Honesty was hurt.
+The said human extinction is regrettable,
+but their neverexistence is unacceptable."
+
+Doctor Johel spread her exoskeletoned hands.
+"And yet here we are.
+Now,
+why don't you get some rest while Captain Kerse and I set things up?"
+
+"An' if I say no?"
+
+The doctor swiped her arm again.
+A slightly grainy image of Aunt Naggie and Edson appeared.
+They were in a café, holding hands across the table and drinking tea.
+"There's far too much at stake for me to ask nicely,"
+Doctor Johel said.
 
 </section>
