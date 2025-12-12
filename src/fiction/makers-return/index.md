@@ -277,14 +277,30 @@ fiction: true
     - Violet: "Yeah, I do" and puts the helmet on her own head
       - She recognized the helmet's design from the ship
       - The weight feels familiar and she wonders if she's remembering it from cold sleep
-    - She has only a few moments to unlock doors before Patient finds her in virtual
-      - Pursuit through madcap virtual worlds
+    - She has only a few moments to unlock the doors before Patient finds her in virtual
+      - Pursuit through madcap virtual worlds reminds her of playing games with André before cold sleep
+      - She sees Patient's plan laid out in one of the virtual rooms
     - She escapes virtual and throws up on the floor
       - Sindy helps her up: "That was dumb. But pretty brave too."
     - Violet: "We have to get out *now*."
     - Sindy (pointing at Lawson): "What about your friend?"
     - Violet: "You don't understand. We have to get back to the ship or the mad bot is going to blow it up!"
   - Chapter 17: Sindy
+    - Open with Violet's warning about Patient blowing up the ship
+      - Plans to put its consciousness in Z40 and Z51 to get aboard the ship
+      - Violet explains that the explosion will destroy the whole valley
+    - They get outside
+      - Can't take the shuttle: it's still broken
+      - Sindy says she has a plan, but Violet isn't going to like it
+    - Leads Violet and Mouse into the forest
+      - Gets Mouse to call some of the Tailor's free bots
+      - Explains the danger
+      - Bots carry them back to Bots' End but won't go further
+    - Sindy explains the situation to Crusher (abbreviated version of explanation above)
+      - Dockety and Beevy arrive
+      - They can't defeat Patient's forces on their own
+      - Go into Rusty Bridge to join up with the mayor and Blazes
+      - Who don't believe Violet
   - Chapter 18: Violet
   - Chapter 19: Sindy
   - Chapter 20: Violet
