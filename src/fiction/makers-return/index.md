@@ -295,13 +295,29 @@ fiction: true
     - Leads Violet and Mouse into the forest
       - Gets Mouse to call some of the Tailor's free bots
       - Explains the danger
-      - Bots carry them back to Bots' End but won't go further
+      - Free bots carry them back to Bots' End but won't go further
+      - They want to flee because they don't think much of the breathers' chances
     - Sindy explains the situation to Crusher (abbreviated version of explanation above)
       - Dockety and Beevy arrive
       - They can't defeat Patient's forces on their own
       - Go into Rusty Bridge to join up with the mayor and Blazes
-      - Who don't believe Violet
+      - Who don't believe that Patient has returned until bots attack
   - Chapter 18: Violet
+    - Rusty Bridge militia, Blazes, and Dockety's bots versus Z40, Z51, and other bots
+    - Violet wants to run away
+    - Sindy drags her to Special Leaf's house through the chaos
+    - Sindy breaks in and grabs some of Special Leaf's tech
+    - Expects Violet to be able to make it work because she's an original
+      - But it doesn't
+    - Sindy triggers a piece of tech with a recorded message for her from Special Leaf
+      - Tells her that her parents called him in when she was born (allays her fears about being adopted)
+      - Tells her how proud he is of her
+      - And that the house and its belongings are hers
+      - Including what's behind his bookcase
+    - Violet and Sindy find and open Special Leaf's secret stash
+      - Violet recognizes some of the tech
+      - She picks up a piece and it *does* work for her
+    - They decide to return to the fight
   - Chapter 19: Sindy
   - Chapter 20: Violet
   - Epilog
