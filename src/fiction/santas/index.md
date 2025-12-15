@@ -5249,56 +5249,54 @@ The robot mirrored his gesture,
 then looked at its finger with a puzzled expression on its face
 before lowering its hand.
 
-He watched Shady Ann long enough to convince himself that she was actually breathing,
-even if it was slow and shallow.
-He was about to stand and leave when she coughed,
+He watched Shady Ann long enough to convince himself that she was actually breathing.
+"How about you give us some time to ourselves?"
+he said to the robot without turning his head.
+
+"Of course!" it whispered loudly.
+"Do you want some tea?
+Everything is better with tea!"
+
+"Thank you.
+I'll come and join you when we're done, okay?"
+
+"Okay!"
+He heard the door open and close.
+
+A few moments later Shady Ann coughed,
 opened her eyes,
 and looked at him muzzily.
 "You're finished."
 
-"No I'm not,"
+"Not really,"
 Finner said gently,
 blinking away the warmth welling up in his eyes.
-"It's really me."
+"How are you feeling?"
 
-"Nuh?"
-She blinked and looking from him to the robot standing behind him and back.
-"How—oh no.
-No no no."
-She tried weakly to sit up.
-"No, you can't be here.
-You can't…"
-She collapsed back onto her bed in a fit of coughing.
+"Much better."
+She tried weakly to sit up,
+but collapsed back on her bed in a fit of coughing.
 
-"You have upset her,"
-Robo-Finner said,
-the earlier cheer gone from its voice.
-"I will remove you now."
+He sat on the stool beside her and took her hand.
+"You're not really feeling better, are you?"
 
-"No!"
-Shady Ann waved the robot away.
-"It *cough* it's all right.
-I should talk to him.
-Why don't you go make some tea?"
+She shook her head.
+"No, not really.
+I'm sorry.
+I'm so sorry."
 
-"Of course.
-Everything is better with tea!"
+He squeezed her hand.
+"You have nothing to be sorry about.
+You've helped a lot of people."
+He took a deep breath.
+"And now I need you to help one more time."
 
-As soon as the door closed behind the robot,
-Shady Ann sat up,
-the bleariness gone from her eyes.
-"What are you *doing* here?"
+</section>
 
-Finner shrugged.
-"Trying to get home.
-Trying to figure out how to stop all of this."
+<section markdown="1">
 
-"Trying to be a hero?"
-she asked pointedly.
+## Together or Not At All
 
-Finner shook his head.
-"I'm not a hero.
-Santa Greenwood was.
-You were too, once upon a time, you and gran-granna both."
+FIXME
 
 </section>
