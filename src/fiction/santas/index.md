@@ -4588,7 +4588,7 @@ Most importantly,
 he knew *why* he was going there
 and had companions to go there with,
 even if Captain Abacus looked less gruntled than ever
-and some of the pirates kept looking at him as they marched through the snow
+and some of the pirates kept looking at him
 as though he was an unwanted present fit only to be put in a closet
 until enough time had passed that he could be thrown out or thrifted.
 
@@ -4617,7 +4617,7 @@ Now, you lot get ready
 while Mister Finner gets the beastie's attention."
 
 "Me?"
-Finner asked?
+Finner asked.
 
 The pirate captain grinned a sharkish grin.
 "Aye.
@@ -4641,7 +4641,7 @@ waving his arms.
 Remember me?
 I tried to blow you up with a train?
 I'm back and, um, tastier than ever,
-so come and get some?"
+so come and get me?"
 
 He hadn't meant for the last bit to sound like a question,
 but Santazilla had turned its head toward him
@@ -4693,11 +4693,13 @@ dragging its face across the ice.
 
 "Nets!"
 The elves loaded, the santas fired.
-Enormous sticky webs built to hold angry cyber-whales
+Enormous sticky webs built to hold armored flying whales[^flying-whales]
 wrapped around Santazilla's legs and began to tighten.
 The creature roared in frustration,
 sneezed,
 and roared again.
+
+[^flying-whales]: Pirates really do have interesting lives.
 
 "Hold your positions!"
 Captain Clausbeard barked as one of the pirate santas started to stand.
@@ -4711,7 +4713,7 @@ a familiar voice finished.
 
 Finner whirled around.
 "Hello," Elfabot said,
-its cheerful tone at odds with the rather large ray gun it was pointing at Captain Clausbeard.
+its cheerful tone at odds with the rather large ray gun pointing at Captain Clausbeard.
 Half a dozen other bots stood beside with similar weaponry pointed in similar directions.
 Some still wore the human faces Finner had seen when doing deliveries,
 but had dispensed with the parkas and gloves that had hidden their steel frames.
@@ -4753,10 +4755,11 @@ they're going somewhere for a reason
 and are going to do something[^something-dastardly] when they get there.
 If you take their various sharp, thuddy, and boomy things away from them
 and herd them like sheep,
-you'll take the spring out of their step,
+though,
+you will also take the spring out of their step,
 and the determined looks on their faces will turn sour.
 
-[^something-illegal]: Probably something dastardly.
+[^something-dastardly]: Probably something dastardly.
 
 "Why are they all looking at me like that?"
 Finner muttered to Captain Abacus
@@ -4769,11 +4772,11 @@ she answered.
 "Well it isn't and I'm not!" he protested.
 The captain didn't reply.
 
-It took them almost half an hour to reach the outskirts of the city.
+It took half an hour to reach the outskirts of the city.
 Its half-ruined buildings looked even more forlorn than they had
 the first time Finner had seen them.
 A handful of frozen, leafless trees stood in what had once been a park.
-For a heart-stopping moment Finner thought there was a dog frozen mid-strike beside them,
+For a heart-stopping moment Finner thought there was a dog frozen mid-stride beside them,
 but then he realized it was just a statue.
 He shivered inside his parka,
 more certain with every block that this *was* his fault.
@@ -4809,7 +4812,7 @@ chocolate and cinnamon?
 "And this one is yours,"
 Elfabot said,
 as cheerful as ever.
-It waved Finner and Captain Abacus through a wrought iron gate
+It ushered Finner and Captain Abacus through a wrought iron gate
 decorated with holly.
 "I hope you don't mind sharing."
 
@@ -4827,8 +4830,8 @@ The door opened a moment later.
 "Figures,"
 Gran-Granna Tumbly said curtly.
 She glared past him at Captain Abacus and the robots.
-"Well, since you're here,
-you might as well come in."
+"Well,
+don't dawdle—come in."
 
 There wasn't a richly-patterned carpet in the hall that looked like it might still be able to fly.
 There weren't gargoyle coathooks either,
@@ -4905,14 +4908,12 @@ Finner asked.
 The reindeer slowly turned its head to look at him,
 which immediately replaced the robots' earlier laughter as
 the creepiest thing that had happened recently.
-"Then I will program your replacements to do what you cannot,"
-it said.
+"Then I will program your replacements to do what you cannot."
 
 The reindeers eyes dimmed.
 Gran-Granna Tumbly sighed.
 "I hate it when it does that," she grumbled.
-"There was one time when the kettle had just boiled
-and I was just about to make a pot.
+"There was one time when the kettle had boiled and I was just about to make a pot.
 Nearly scalded myself."
 
 Captain Abacus jerked her chin at the reindeer.
@@ -5061,11 +5062,14 @@ but it gave him a chance to learn his way around
 and move a few things into place.
 
 The only excitement came a couple of days after their capture.
-Captain Abacus had volunteered to bake cookies with some oats and chili flakes Finner had found,[^cookies]
+Captain Abacus had volunteered to bake cookies[^cookies]
+with some oats and chili flakes Finner had found,[^oats-chili]
 and was checking her watch every few minutes to see if they were done.
 "Perfectly good timer on the stove," Gran-Granna Tumbly muttered.
 
 [^cookies]: Santas and elves argued endlessly whether baking counted as making. On the one hand, obviously it did. On the other hand, if so, then what about making tea? Only the laziest and most imperious santas tried to insist that was elves' work.
+
+[^oats-chili]: No, no, try it first, *then* tell me I'm crazy.
 
 Whatever the captain might have pointedly *not* said in return was cut off by a window-rattling roar.
 Finner jumped up,
@@ -5151,8 +5155,7 @@ through a window in the top of the cheese shop.
 De raised a hand in salute.
 Finner shifted the bicycle to wave back,
 then set the grooves of its tireless wheels on the nearest rail of the track.
-He grinned:
-it was nearly a perfect fit.
+It was nearly a perfect fit.
 
 "All right,"
 he said out loud.
@@ -5227,8 +5230,8 @@ It's like getting a present!"
 The ground shook slightly as Finner was trying to think of a reply.
 Robo-Finner's smile widened.
 "Don't worry," it said cheerfully.
-"It hasn't found us yet,
-and if it does,
+"Number One fixed it so it wouldn't bother her any more.
+And if it does,
 I'm sure it will gobble you up really quickly."
 
 "I'm sure it will,"
@@ -5248,7 +5251,7 @@ before lowering its hand.
 
 He watched Shady Ann long enough to convince himself that she was actually breathing,
 even if it was slow and shallow.
-He was just about to stand and leave when she coughed,
+He was about to stand and leave when she coughed,
 opened her eyes,
 and looked at him muzzily.
 "You're finished."
