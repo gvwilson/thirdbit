@@ -4537,7 +4537,8 @@ The crew slung rope ladders over the ship's starboard gunwale.
 The two captains and Finner took up positions on the forward ladder
 while three pirates clambered down each of the others.
 "Ready?"
-Captain Clausbeard asked.
+Captain Clausbeard asked,
+taking a bulky control with an extensible antenna out of his pocket.
 
 "Sure,"
 Finner lied.
@@ -4545,12 +4546,11 @@ Finner lied.
 "Good lad.
 Let's go get m' boy back.
 Bosun!
-Do the thing!"
+Call to quarters!"
 
-A whistle shrilled on deck.
-Somewhere in the belly of the ship
-a bald pirate with the constellations tattooed on his scalp
-turned the dials on the *Dancing Marmot*'s wherever.
+A bald pirate with the constellations tattooed on their scalp
+blew three shrill notes on a whistle.
+Captain Clausbeard typed a code and turned a dial.
 The universes sighed inaudibly[^sighed-inaudibly]
 and moved *this* from *here* to *there*.
 
@@ -5282,14 +5282,12 @@ He sat on the stool beside her and took her hand.
 
 She shook her head.
 "No, not really.
-I'm sorry.
-I'm so sorry."
+I'm sorry."
 
 He squeezed her hand.
 "You have nothing to be sorry about.
-You've helped a lot of people."
-He took a deep breath.
-"And now I need you to help one more time."
+You've helped a lot of people.
+You can rest now."
 
 </section>
 
@@ -5297,6 +5295,99 @@ He took a deep breath.
 
 ## Together or Not At All
 
-FIXME
+Finner closed the door quietly behind him.
+"Thank you,"
+he said to his robo-self as it handed him a mug of cold water
+with a tea bag slowly leaching into it.
+
+"I hope you like it,"
+the robot said anxiously.
+
+Finner took a sip and tried not to make a face.
+"It's lovely," he lied.
+"Now, are you ready for your upgrades?"
+
+"My upgrades?
+Oh, I love upgrades!"
+
+The excitement in its voice made Finner feel guilty.
+He cleared his throat.
+"Yes, upgrades.
+Um,
+how about you sit in this chair right here.
+Good.
+Now,
+I'll just get these straps around your wrists like this…
+Excellent.
+And some more around your ankles… good.
+All right,
+can you move?
+No?
+Great.
+This should only take a moment."
+
+As he reached for the back of the robot's head to turn it off,
+it froze for a second,
+and then something changed in its posture.
+Somehow,
+he knew that the machinery in front of him was now under Elfabot's control.
+
+"Well,"
+it said,
+looking him up and down.
+"This is a bit of a surprise.
+I expected you to be long gone by now."
+
+Finner shrugged.
+"Where would I go?
+Really, I'm just embarrased I didn't figure it out sooner.
+The santasaurus,"
+he went on as Elfabot cocked its head,
+hoping he sounded more confident than he felt.
+"It wouldn't be able to survive the cold for long.
+Someone had to be bringing it in and out of this world.
+And then Captain Clausbeard used a wherever to move the *Marmot*, and…"
+He spread his hands.
+
+"Well done,"
+Elfabot said approvingly.
+"None of the others seem to have put the pieces together."
+
+Finner shrugged again.
+"They just want to get home.
+I have bigger plans than that."
+And before Elfabot could say anything else,
+Finner's fingers found the switch on the back of the robot's head and flipped it.
+
+Its eyes flickered, but only for a moment.
+"Did you really think that would work?"
+
+"Not really," Finner admitted.
+"That's what the straps are for."
+
+Elfabot looked down
+as if only now realizing its arms and legs were fastened to the chair.
+As it struggled to free itself,
+Finner opened drawers and boxes and more drawers and toolboxes and even more boxes.
+"Ah ha!"
+He held up a blocky control like Captain Clausbeard's.
+
+"Wait!"
+Elfabot said as Finner turned toward the door.
+"How can I look after her if I can't get out of this chair?"
+
+Finner paused.
+"I'm sorry,"
+he said quietly.
+"She doesn't need looking after any more."
+And then the heavy metal door opened and he stepped out into the cold.
+
+Santazilla was two blocks away,
+sniffing an overturned bus suspiciously.
+"Hey!"
+Finner shouted,
+waving his arms.
+"Remember me?
+I tried to blow you up with—uh oh."
 
 </section>
