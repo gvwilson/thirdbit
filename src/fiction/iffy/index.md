@@ -13254,8 +13254,8 @@ we can use it to communicate backward in time.
 All we need is a few million supercooled bosons and something to say."
 
 "An' what are you plannin' to say, exactly?"
-Iffy ventured.
-"Please don't let us scrag th' whole planet?"
+Iffy said as scathingly as she could.
+"Please stop us before we scrag the whole world?"
 
 "I doubt that would have much impact,"
 Doctor Johel said briskly.
@@ -13263,7 +13263,7 @@ Doctor Johel said briskly.
 I'm planning on planting a back door in the machines' original neural network
 so that their present incarnation will be more amenable to persuasion.
 According to our simulations,
-it's the best chance we have to avoid total human extinction."
+it's the best chance we have to take back control of our planet."
 
 A memory unlocked in Iffy's mind.
 "They know what you're gonna try," she said.
@@ -13271,17 +13271,94 @@ A memory unlocked in Iffy's mind.
 The said human extinction is regrettable,
 but their neverexistence is unacceptable."
 
-Doctor Johel spread her exoskeletoned hands.
-"And yet here we are.
+Doctor Johel nodded.
+"I expected they would anticipate this,
+but here we are.
 Now,
-why don't you get some rest while Captain Kerse and I set things up?"
+why don't you get some rest?
+Captain Kerse will keep an eye on you while I set things up."
 
 "An' if I say no?"
 
 The doctor swiped her arm again.
-A slightly grainy image of Aunt Naggie and Edson appeared.
-They were in a café, holding hands across the table and drinking tea.
-"There's far too much at stake for me to ask nicely,"
+A slightly grainy image of Aunt Naggie appeared.
+She was in the café around the corner from the Sandhus' grocery store
+with a mug of chai in front of her
+and a wistful look on her face.
+"I'm afraid there's too much at stake for me to ask nicely,"
 Doctor Johel said.
+
+Captain Kerse's idea of keeping an eye on her consisted of
+warning her that he would shoot her again
+if she moved more than three steps from the workbench
+and then ignoring her
+as he went through targeting drills in his exoskeleton.
+Iffy caught Doctor Johel scowling at him a couple of times
+when the noise distracted her from her work,
+but apart from that she stayed focused on her app.
+
+"All right,"
+Doctor Johel finally said,
+standing with a grimace.
+"I think that's the best I can do.
+Let's get you hooked up.
+Captain?"
+
+The Australian nodded,
+raised his arm,
+and fired just as Iffy swung her legs down off the workbench.
+The dart stung her thigh.
+She managed one futile step before her knees gave way.
+Once again a pair of exoskeletoned arms picked her up,
+but this time she was conscious as she was carried to the pink plastic chair.
+Captain Kerse lowered her into it more gently than she expected,
+using a pair of black plastic straps to fasten down her arms.
+
+She wanted to struggle,
+but her body wouldn't pay attention to her.
+She had a moment to wonder if she was going to wet herself,
+and then the status lights on the superconducting ring came on
+and the ring began to hum a deep bass tone.
+
+"You'd best get to a safe distance before the field tears your armor apart,"
+Doctor Johel warned the captain as the tone went from bass to baritone to tenor.
+He nodded and strode out of the ring
+as Doctor Johel extricated herself from her own exoskeleton.
+
+Iffy barely noticed.
+The ring was doing something to her head.
+Speckles chased one another across her field of vision
+as a vise slowly tightened around her temples.
+She felt something shift in her gut—no,
+in her *everything*
+as the magnetic field tugged at fractal patches of cells woven scattered through her body.
+Was her nose bleeding?
+If it wasn't, it felt like it would be soon.
+
+The humming climbed through alto and soprano into a range too high for Iffy to hear.
+Through blurry eyes she saw Doctor Johel open a case and take out a small plastic syringe.
+"Give her all of it,"
+she ordered Captain Kerse,
+who had stripped off his exoskeleton
+and was standing on the concrete floor in bare feet and a skinsuit.
+
+He glanced at Iffy.
+"Why can't you do it?"
+
+"Because I can't go inside the ring,"
+Doctor Johel said testily.
+"It'll tear my mods right out of my head."
+
+Captain Kerse grunted,
+stepped back into the ring,
+and jammed the needle into Iffy's leg.
+"This is for my crew," he hissed.
+She whimpered as the squirming feeling inside her suddenly intensified.
+
+"Two minutes starting…now," Doctor Johel said.
+Captain Kerse nodded,
+pull the needle out of Iffy's leg,
+turned,
+and fell backward to lie unmoving on the floor with a neat hole smoking in his chest.
 
 </section>
