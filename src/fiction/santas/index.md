@@ -5380,7 +5380,7 @@ Finner paused.
 "I'm sorry,"
 he said quietly.
 "She doesn't need looking after any more."
-And then the heavy metal door opened and he stepped out into the cold.
+And then he opened the heavy metal door and stepped out into the cold.
 
 Santazilla was two blocks away,
 sniffing an overturned bus suspiciously.
@@ -5389,5 +5389,113 @@ Finner shouted,
 waving his arms.
 "Remember me?
 I tried to blow you up with—uh oh."
+
+The santasaurus roared and kicked the bus out of its way.[^kicked-bus]
+Every mammalian fiber of Finner's being wanted desperately to run and hide
+as it strode toward him,
+its fetid breath steaming from its nostrils,
+but he stood his ground.
+If the collar around its neck wasn't what he thought it was,
+this was going to be the briefest day of his life.
+
+[^kicked-bus]: It would later realize that it had broken a freshly-manicured claw doing this, and feel somewhat embarrassed by its petulance.
+
+Not yet…
+Not yet…
+*Now!*
+He ran toward the giant reptile.
+As it opened its jaws and lowered its head,
+he pressed the button on the control in his hand.
+
+The universe blooped and morbled.
+Santazilla's foot squished into the soft mud at the bottom of a pond.
+For a moment Finner thought it would stumble and fall,
+but it managed to stay upright.
+
+Upright,
+and just outside the fence surrounding The Building.
+
+An alarm began to blare.
+"Hey!"
+Finner shouted,
+waving his arms once again.
+"Over here!
+Come and get me!"
+
+The santasaurus bellowed,
+lumbered forward,
+and seized the fence in its jaws.
+With a single disdainful jerk it tore a section out of the ground
+and tossed it away.
+More or less simultaneously
+a door burst open behind Finner.
+Two burly santas stepped out,
+took one look at the scene in front of them,
+and immediately retreated.
+A moment later,
+all of The Building's other alarms began to bleat and wail.
+
+Finner threw himself through the door.
+"Code splunge!" he yelled at the guards.
+"This is a category one teacup!
+Hold it off as long as you can!
+I'll get the splorble!"
+He clapped the nearest one on the shoulder and sprinted down the corridor
+before they could ask inconvenient questions about grammar, vocabulary,
+or exactly who he was.
+
+Left.
+Right.
+Right again.
+Through a cafeteria full of not-yet-panicked people.
+"Hi, Zubi!" he called out,
+waving without slowing down.
+Up the stairs,
+left,
+and there:
+the only door he had ever seen in The Building with a little window in it.
+
+He dropped his mittens on the carpeted floor,
+pulled his tools out of his pocket,
+and crouched down.
+Left.
+Right.
+Wiggle.
+Left again.
+No,
+not that much.
+
+There.
+The lock clicked.
+He yanked the door open and ducked as a chair sailed over his head.
+
+"Be off with you!" Santa Greenwood bellowed
+loudly enough to do Santazilla proud.
+"I'll not be fallin' for your scurvy tricks again!"
+
+"Wait! It's not a trick!"
+Finner stood and raised his hands.
+
+"You damn crayon-snuffling robots!"
+Santa Greenwood grabbed the lamp beside his narrow cot.
+"I'll show you tricks!"
+
+"Steve!" Finner shouted desperately.
+"It's me!
+The real me, not the robot me!"
+
+Santa Greenwood hesitated.
+He looked haggard, Finner realized,
+like a plant that hadn't had enough sunlight.
+"I figured out where the robots are coming from.
+Your dad helped me,
+but we have to go *now*.
+Please!"
+
+"Go?"
+a familiar voice said behind Finner.
+"But you just got here."
+
+He turned to face the robot replica of Gran-Granna Tumbly.
 
 </section>
