@@ -30,8 +30,8 @@ fiction: true
 *You probably think this is a Christmas story because of the santas,
 but it's not:
 it's about right and wrong and figuring out who you are.
-There are many footnotes and explosions but only one kiss,
-and if you need someone to hold your hand during the scary bits
+There are many footnotes and explosions and narrow escapes,
+but if you need someone to hold your hand during the scary bits
 you're out of luck.
 I'm just a book, and we don't have hands.*
 
@@ -5407,7 +5407,7 @@ He ran toward the giant reptile.
 As it opened its jaws and lowered its head,
 he pressed the button on the control in his hand.
 
-The universe blooped and morbled.
+The universe blooped.
 Santazilla's foot squished into the soft mud at the bottom of a pond.
 For a moment Finner thought it would stumble and fall,
 but it managed to stay upright.
@@ -5453,7 +5453,7 @@ waving without slowing down.
 Up the stairs,
 left,
 and there:
-the only door he had ever seen in The Building with a little window in it.
+the room he had been "allowed" to stay in after his first escape attempt.
 
 He dropped his mittens on the carpeted floor,
 pulled his tools out of his pocket,
@@ -5496,6 +5496,145 @@ Please!"
 a familiar voice said behind Finner.
 "But you just got here."
 
-He turned to face the robot replica of Gran-Granna Tumbly.
+He turned to face the robot replica of Gran-Granna Tumbly,
+completely unsurprised by the rather large ray gun in her hand.
+The floor shook slightly beneath their feet
+as Santazilla did to The Building
+what monsters have done to buildings
+for as long as both have existed.
+"It'll tear this whole place down if you don't let me get back to it,"
+Finner said.
+
+Robo-Tumbly scowled.
+"We'll just build another one."
+
+"Then we'll tear that one down too,"
+Finner replied.
+"And the one after that,
+and the one after that.
+Every prison you build,
+every cage you make,
+every time anyone tells someone else
+they can't be who they really are,
+someone will set them free."
+
+Whatever the robot might have said in reply was interrupted
+by a bedside table hurtling past Finner to knock her to the floor.
+"That was a lovely speech,"
+Santa Greenwood said,
+"But you were takin' too long to get to th' point."
+
+A few moments later they were back in the cafeteria.
+"Listen up!"
+Santa Greenwood bellowed at its definitely-now-panicking occupants.
+"The lad has something you need to hear!"
+
+Finner stepped onto a chair.
+"Anyone who wants to stay can stay,"
+he said as loudly as he could.
+"But if you want to leave,
+come with me."
+
+"You're not authorized to—never mind."
+The guard who had started to speak took a step back
+as Santa Greenwood turned his glare on her.
+
+Finner hopped down from the chair and scanned the small crowd for Zubi.
+"Coming?" he asked.
+
+De smiled tentatively.
+"Sure."
+
+Finner grinned,
+but only for a moment.
+"All right!" he said.
+"Follow me!"
+
+Left.
+Left again.
+Right,
+and suddenly they were in a room whose outer wall was missing.
+A couple of people yelped, turned around, and fled
+when they realized that Finner was leading them straight at the santasaurus.
+"Stick together!" he shouted.
+"Steve, keep them together!
+Ready?"
+
+Santazilla spat out a length of fence,
+turned back toward The Building,
+and growled.
+"Steady!" Finner gripped the control.
+
+Santazilla opened its jaws and began to lower its head.
+"Now!"
+Finner pressed the button.
+The universes blooped
+and they were surrounded by lush greenery instead of cheerfully-painted concrete.
+
+"There you are!"
+a warm voice hissed.
+A human-sized version of the santasaurus stepped out from behind a bush.
+It was wearing a red jacket and a jaunty red hat with a white pom-pom,
+and a pair of spectacles wered perched on its snout.
+"Now where did you get off to—oh, hello!"
+
+"Hi,"
+Finner said.
+He gestured at Santazilla.
+"I take it this belongs to you?"
+
+"Quite, quite," the smaller santasaurus said.
+"Keeps vanishing for some reason.
+Deucedly inconvenient.
+Takes forever to train them to pull a sleigh, you know."
+
+"I imagine.
+Here."
+Finner handed it the control.
+"If you hang onto that,
+I bet its disappearing days will be over."
+
+"Ah, jolly good."
+The santasaurus pushed its spectacles up its nose with a clawed finger
+and looked at the santas and elves huddled awkwardly behind Finner.
+"Rather a lot of you, aren't there?"
+
+"We're just passing through,"
+Finner promised.
+"That is,
+if we can use your wherever?
+Please?"
+
+A few hours later he sipped the tea that Santa Hotep had brewed for him and sighed.
+"So what… now?" the mummy asked.
+
+Finner shrugged.
+"Figure out how to rescue everyone from Shady Ann's world.
+And what to do with the robots.
+And then…"
+He shrugged again.
+"And then try to find a way
+to talk to Gran-Granna Tumbly and people like her."
+
+"That will…
+probably be…
+the hardest part,"
+Santa Hotep warned.
+"It's hard…
+to make people…
+see things…
+in new ways."
+
+Finner smiled.
+"That's okay.
+I like making things."
+
+*Like I said at the start,
+this isn't really a Christmas story:
+it's about right and wrong and figuring out who you are.
+I'm just a book,
+so I can't hold your hand while you do that,
+but whatever world you're in,
+I hope you have someone who can.*
 
 </section>
