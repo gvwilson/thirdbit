@@ -6261,7 +6261,7 @@ Nothing.
 
 She flopped down onto the cot and buried her face in the thin pillow.
 She wanted to scream or cry or punch something.
-Was this what her olders had felt like
+Was this how her olders had felt
 when they'd realized there was nothing they could do to save themselves?
 Was this how Aunt Naggie felt,
 knowing that Iffy was going to leave one day?
@@ -13011,14 +13011,6 @@ She floated inside her own body as if it was a warm bath
 while the Marine sliced open her parka with a very sharp knife
 and squeezed cold pink goo into the hole in her side that the needle gun had made.
 
-*«unanticipated / unforeseen»*
-
-*Oh there you are.*
-She didn't know if she had said the words out loud or not.
-*Don't suppose you could lend a hand?*
-
-*«inspection»*
-
 She floated beside a schematic of herself.
 The fractalized patches of cells scattered through her body glistened blue-white,
 but there and there and there they were red,
@@ -13064,7 +13056,7 @@ Doctor Johel passed her a water bottle.
 
 Iffy studied it for a second,
 then set it down without drinking.
-"What's he doing here?" she asked hoarsely,
+"What's he doin' here?" she asked hoarsely,
 nodding at Captain Kerse.
 
 He looked up from the piece of exoskeleton lying in his lap.
@@ -13074,7 +13066,7 @@ he said without remorse.
 
 "Must have been,"
 Doctor Johel said drily.
-"Now, why don't you go and see if you can get the main door open?
+"Now, why don't you go and see what you can do about that sentry drone?
 Citizen Kwan and I need to talk."
 
 He grunted,
@@ -13292,7 +13284,7 @@ Captain Kerse's idea of keeping an eye on her consisted of
 warning her that he would shoot her again
 if she moved more than three steps from the workbench
 and then ignoring her
-as he went through targeting drills in his exoskeleton.
+as he made repairs to the three-legged sentry bot he had shot.
 Iffy caught Doctor Johel scowling at him a couple of times
 when the noise distracted her from her work,
 but apart from that she stayed focused on her app.
@@ -13315,7 +13307,7 @@ Captain Kerse lowered her into it more gently than she expected,
 using a pair of black plastic straps to fasten down her arms.
 
 She wanted to struggle,
-but her body wouldn't pay attention to her.
+but nothing below her neck would pay attention to her.
 She had a moment to wonder if she was going to wet herself,
 and then the status lights on the superconducting ring came on
 and the ring began to hum a deep bass tone.
@@ -13360,5 +13352,105 @@ Captain Kerse nodded,
 pull the needle out of Iffy's leg,
 turned,
 and fell backward to lie unmoving on the floor with a neat hole smoking in his chest.
+
+The air behind Doctor Johel shimmered and solidified.
+Johnson Wales' sad smile somehow made the small pistol pointing at Doctor Johel
+look even more menacing.
+"I'm sorry, Gayathri," he said.
+"I can't let you do this."
+
+Doctor Johel lifted her hands a few centimers off her app
+but otherwise didn't move.
+"It's a bit late for a change of heart, isn't it?"
+
+Wales shrugged apologetically.
+"I had some time to think.
+And to check some of our old simulations.
+The odds of your father's plan working are—"
+
+"My *father's* plan?"
+Doctor Johel snapped.
+"It was *our* plan, Johnson,
+yours and mine as much as his.
+And yes,
+I know the odds,
+but what other choice do we have?"
+
+"T minus sixty seconds," a melodious mechanical voice said.
+Iffy felt a single drop of blood slide down her upper lip.
+The pressure around her temples had stopped getting worse,
+but her arms and legs and torso felt like
+jelly wobbling in an earthquake.
+
+"Turn it off," Wales ordered.
+
+Doctor Johel took a slow step back from her app
+and lowered her arms to her sides.
+Wales gestured with the pistol.
+"I mean it, Gayathri."
+
+She smiled,
+her eyes fierce.
+"What's that you always say?
+Oh yes.
+Sixteen orange kneecap."
+
+*Look out!* Iffy tried to yell
+as the three-legged sentry bot that Captain Kerse had repaired
+surged to its feet
+and launched itself at Johnson Wales.
+He spun around.
+His pistol barked,
+but the shot pinged off the bot
+and then Wales was down,
+both arms hugging the bot
+as the gun on its back snapped from side to side,
+unable to find a shot.
+
+"T minus thirty seconds," the mechanical voice announced.
+Doctor Johel was back at her app,
+fingers flying as she made final corrections to her program
+or maybe tried to take manual control of the sentry bot,
+Iffy couldn't tell,
+she just knew that her nose was bleeding
+and every muscle and organ in her body was juddering
+and the pressure around her temples was back.
+Was she going to die?
+Was this how her olders had felt
+when they'd realized there was nothing they could do to save themselves?
+Would Aunt Naggie and Honesty and Jeep and Edson
+spend the rest of their lives wondering what had happened to her?
+
+With a mighty heave,
+Wales pushed the sentry bot off him
+just as the bot's simple core finally found its target.
+"Gayathri!" Wales shouted as Doctor Johel crumpled to the floor.
+He jammed his pistol into the hole left by the bot's missing leg
+and fired over and over again until the bot stopped struggling.
+
+Wales scrambled over to the fallen doctor.
+Through blurry eyes,
+Iffy saw him press two fingers against her neck for a moment,
+then bow his head.
+"T minus fifteen seconds," the mechanical voice announced.
+
+He stood and took a step toward the superconducting ring.
+The lights in his temple flared like fireworks,
+sending him to his knees.
+He locked eyes with Iffy,
+the anguish in his a counterpoint to the fear in hers.
+"I'm sorry,"
+he said.
+"I'm sorry, Sue, I can't stop it."
+
+"T minus five."
+Warning lights came to life on the bulky lasers on either side of Iffy .
+"Minus four.
+Minus three.
+Minus two.
+Minus one.
+Time."
+
+The whole world went white.
 
 </section>
