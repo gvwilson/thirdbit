@@ -81,6 +81,69 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2025/12/19/the-year-that-was/">
+      The Year That Was
+    </a>
+  </h2>
+  <p><time datetime="2025-12-19" class="post-date">2025-12-19</time></p>
+  <p>Another year, another &ldquo;where did the time go?&rdquo; post…</p>
+<ul>
+<li>
+<p>My daughter left home to start university.
+    She had a wonderful first semester,
+    but <a href="../2025/10/05/loading-the-dishwasher/">I miss her in all sorts of ways</a>.</p>
+</li>
+<li>
+<p>I supervised <a href="../2025/04/09/congratulations-to-this-terms-students/">some student projects</a> at the University of Toronto
+    for the first time in fifteen years.
+    I really enjoyed working with them,
+    and I hope they had fun as well,
+    but it brought me face-to-face with how bad the job market is right now
+    for newcomers in tech.</p>
+</li>
+<li>
+<p>I was <a href="../2025/11/21/looking-for-work/">laid off</a> for the third time in eight years,
+    which has brought me face-to-face with how bad the job market is right now
+    for oldcomers in tech.</p>
+</li>
+<li>
+<p>The refugee that my spouse and I helped sponsor through <a href="https://www.rainbowrailroad.org/">Rainbow Railroad</a>
+    finally arrived in Canada,
+    and has settled in well.</p>
+</li>
+<li>
+<p>I ran <a href="https://gvwilson.github.io/change/">a workshop on organizational change</a> at
+    the <a href="https://www.embl.org/">European Molecular Biology Lab</a> in Heidelberg
+    and gave a talk on <a href="../talks/sdgc/">cocaine and Conway&rsquo;s Law</a> at
+    <a href="https://www.uzh.ch/en.html">the University of Zurich</a>
+    (<a href="https://www.youtube.com/watch?v=f86KBeJ7e2M">video here</a>).</p>
+</li>
+<li>
+<p>I contributed to a paper called &ldquo;<a href="https://arxiv.org/abs/2505.06484">10 Quick Tips for Making Your Software Outlive Your Job</a>&rdquo;,
+    which was motivated in large part by the Trump administration&rsquo;s hack-and-slash attacks on science.</p>
+</li>
+<li>
+<p>I started building <a href="https://gvwilson.github.io/sim/">a tutorial</a> on how to simulate software development processes.</p>
+</li>
+<li>
+<p>I played jazz in public for the first time in twenty-three years.</p>
+</li>
+<li>
+<p>One wedding, no funerals.</p>
+</li>
+<li>
+<p>I finally finished (first complete drafts of) three pieces of fiction
+    that I&rsquo;ve been working on for longer than I want to admit.
+    I don&rsquo;t know if there&rsquo;s a market for any of them right now,
+    but it felt pretty good to finally write &ldquo;The End&rdquo;.</p>
+</li>
+</ul>
+<p>Time for the day&rsquo;s last cup of tea.
+If you came in peace, be welcome.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2025/12/08/the-real-hardest-problem/">
       The Real Hardest Problem
     </a>
@@ -1339,105 +1402,6 @@ But why does the length of the testing queue rise and then fall?
 Is it just random variation?
 Or is it revealing some unexpected property of our development process?
 That question will have to wait for tomorrow.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/11/29/what-changed-revisited/">
-      What Changed Revisited
-    </a>
-  </h2>
-  <p><time datetime="2025-11-29" class="post-date">2025-11-29</time></p>
-  <p>Let&rsquo;s take another look at the log-scaled version of [yesterday&rsquo;s chart][what-changed]:</p>
-<div class="center">
-  <img src="../files/2025/11/28/times-log.svg" alt="log-scale time plot" width="90%">
-</div>
-
-<p>There hasn&rsquo;t been any turnover in the team or a major rewrite of the product,
-so why has the number of bugs that take more than 100 hours to close
-been creeping up slowly but steadily?
-Luckily,
-we have access to the source code of the simulation,
-so we can get a definitive answer.
-(Yes, this is cheating…)</p>
-<p>The first difference is that
-the development and testing queues are priority queues:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dev_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">test_queue</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">PriorityStore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-</code></pre></div>
-<p>We have also added constants to define two priority levels—remember,
-a lower number is a higher priority:</p>
-<div class="highlight"><pre><span></span><code><span class="n">PRI_REWORK</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">PRI_NEW</span> <span class="o">=</span> <span class="mi">1</span>
-</code></pre></div>
-<p>We have also made a small but crucial change to
-the class that simulates a tester:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">item</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">test_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="n">priority</span><span class="p">,</span> <span class="n">task</span> <span class="o">=</span> <span class="n">item</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;test_time&quot;</span><span class="p">])</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">task_rework</span><span class="p">():</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">simpy</span><span class="o">.</span><span class="n">PriorityItem</span><span class="p">(</span><span class="n">PRI_REWORK</span><span class="p">,</span> <span class="n">task</span><span class="p">))</span>
-</code></pre></div>
-<p>The last two lines of <code>work</code> say,
-&ldquo;If testing reveals that this task needs to be re-done,
-put it back in the development queue with high priority.&rdquo;
-If you&rsquo;ll excuse a bit more ASCII art,
-this change means that our simulation is now:</p>
-<div class="highlight"><pre><span></span><code>+----------------+    +-----------+    +------------+    +------------+    +---------+
-| task generator | -&gt; | dev queue | -&gt; | developers | -&gt; | test queue | -&gt; | testers |
-+----------------+    +-----------+    +------------+    +------------+    +---------+
-                            ^                                                   |
-                            |                                                   |
-                            +---------------------------------------------------+
-</code></pre></div>
-<p>From quarter to quarter,
-the probability of QA revealing that a task needs to be re-done
-has gone from 0% to 50%.
-As noted yesterday,
-we see a corresponding decrease in the total number of tasks completed each quarter:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">quarter</th>
-<th style="text-align: right;">number</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2222</td>
-</tr>
-<tr>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1912</td>
-</tr>
-<tr>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1525</td>
-</tr>
-<tr>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">993</td>
-</tr>
-</tbody>
-</table>
-<p>What these numbers don&rsquo;t tell us is <em>why</em>.
-Are our testers getting better at finding bugs?
-Are our developers making more mistakes because they&rsquo;re burning out?
-Or has there been some sort of change in how work is being tracked?
-(0% rework in the first quarter seems suspicious…)
-Once again,
-data can draw our attention to things that need to be explained,
-but we still have to find the explanation.</p>
 </article>
 
 
