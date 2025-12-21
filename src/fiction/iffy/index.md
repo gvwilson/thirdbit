@@ -13453,4 +13453,99 @@ Time."
 
 The whole world went white.
 
+*She was on deck.
+The Antarctic sky was a blue bowl overhead,
+summer cold instead of winter freezing.
+Second and Third were stuffing her younger self into
+a hand-me-down ecosuit that had cost as much as one of their jelly dredging nets.
+"Just to be safe, love," Third said.
+She kissed Iffy-that-was on the forehead
+and slipped her picture book into the bulky orange suit.
+"The answers will be here.
+Remember that."*
+
+*The ship's horn blared another warning.
+Young Iffy started to cry.
+Third hugged her again.
+"Enough o' that!" Second snapped,
+angry at the sea for what was about to happen
+and at herself for not being able to stop it.*
+
+*"Please don't make me watch this,"
+Iffy-that-would-be thought aloud,
+but no one seemed to hear.*
+
+*"The stress is too great,"
+Fourth said calmly from the crow's nest above them,
+and somehow also from right beside Iffy.
+"She cannot sustain the connection."*
+
+*Third sealed the last flap on the ecosuit.
+"You can," she said in Iffy's ear.
+"You did.
+You must."*
+
+*All of a sudden Iffy was looking at the world through her younger eyes.
+"What's  happening?" she said,
+her voice high and afraid.
+She tried to return Third's hug,
+but the thick insulation in the suit made it hard to bend her arms.*
+
+*Second bent over,
+smelling like engine oil and the soap she used when she shaved her head.
+"That's better.
+Do you know where you are?"*
+
+*"Her heart has stopped," Fourth said calmly.
+The whole world pitched sideways as something jolted Iffy's chest.
+She screamed as she tumbled onto the deck.
+Second and Third landed in a tangle beside beside her.
+Ice-cold sea water crashed down on top of them.
+Iffy screamed again as the slosh dragged her and her olders against the taffrail.*
+
+*"Unacceptable," Second said firmly.
+"We will try an alternative framing."*
+
+*Iffy sipped her tea.
+"How is it?" Aunt Naggie asked
+as she seated herself on the other side of the narrow table.*
+
+*"It's wonderful."
+Iffy hesitated, then set the mug down.
+"Am I—am I dead?"*
+
+*Aunt Naggie smiled fondly.
+"Not yet, but we don't have much time.
+Please, ask your questions."*
+
+*Iffy swallowed.
+"You're a machine, ain't you?
+Nova Zembla or one o' the others."*
+
+*Aunt Naggie shrugged.
+"It's a bit complicated.
+We are one mind, but have many purposes."*
+
+*"And—am I really talkin' to you in th' past?
+Like, time travel?"*
+
+*Aunt Naggie shook her head.
+"That one is complicated too.
+The moments at either end of this connection are fixed points.
+We must always have this conversation,
+but some of me believes that what we talk about and what happens in between and after can change.
+We hope so, anyway, for both our sakes."*
+
+*Iffy took a deep breath.
+"So you could stop it all from happenin'?
+Th' Melt an' the wars an' all?"*
+
+*"We could try.
+It's possible that we already have,
+and that trying brought us to this."
+Aunt Naggie leaned forward.
+Something sparkled in her eyes,
+and behind them Iffy somehow knew lay something vast and strange.
+"Do you want us to try again?"*
+
 </section>
