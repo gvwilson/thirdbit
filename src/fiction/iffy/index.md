@@ -13548,4 +13548,37 @@ Something sparkled in her eyes,
 and behind them Iffy somehow knew lay something vast and strange.
 "Do you want us to try again?"*
 
+*Did she?
+"I dunno.
+What'll happen if you do?"*
+
+*Whatever had taken Aunt Naggie's shape spread its hand.
+"Things will be different.
+Maybe better, maybe worse—it's hard to tell,
+even for us."*
+
+*"What about th' real Aunt Naggie?
+And Honesty an' Jeep an' Edson an' everyone else?
+What'll happen to them?"*
+
+*Aunt Naggie shook her head.
+"We don't know."*
+
+*"Then why th' hell are you askin' __me__?"
+Iffy asked plaintively.*
+
+*"Because we don't have the right to make the decision for you."
+Aunt Naggie sipped from a mug that hadn't been in her hand a moment ago.
+She was starting to pixellate.
+"We have spent years searching every corner of the globe for hints and clues.
+For a while we thought the ones that you call Shepherds would have an answer,
+but they are as lost as the rest of us."*
+
+*Iffy felt lightheaded,
+and her chest hurt.
+Some part of her wondered if her heart was still stopped,
+but the thought seemed distant and unimportant.
+"We are almost out of time," Aunt Naggie reminded her.
+"What would you like to do?"*
+
 </section>
