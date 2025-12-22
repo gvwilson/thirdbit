@@ -13303,8 +13303,7 @@ The dart stung her thigh.
 She managed one futile step before her knees gave way.
 Once again a pair of exoskeletoned arms picked her up,
 but this time she was conscious as she was carried to the pink plastic chair.
-Captain Kerse lowered her into it more gently than she expected,
-using a pair of black plastic straps to fasten down her arms.
+Captain Kerse lowered her into it more gently than she expected.
 
 She wanted to struggle,
 but nothing below her neck would pay attention to her.
@@ -13507,78 +13506,138 @@ Iffy screamed again as the slosh dragged her and her olders against the taffrail
 "We will try an alternative framing."*
 
 *Iffy sipped her tea.
-"How is it?" Aunt Naggie asked
-as she seated herself on the other side of the narrow table.*
+"How is it?" her First asked
+as she seated herself on the other side of the narrow table
+where Aunt Naggie usually sat.*
 
 *"It's wonderful."
 Iffy hesitated, then set the mug down.
 "Am I—am I dead?"*
 
-*Aunt Naggie smiled fondly.
+*First smiled fondly.
 "Not yet, but we don't have much time.
 Please, ask your questions."*
 
 *Iffy swallowed.
-"You're a machine, ain't you?
-Nova Zembla or one o' the others."*
+The person sitting across from her looked like her First,
+but the scar across the bridge of her nose was missing,
+and her full cheeks betrayed a childhood where "enough food" was taken for granted.
+"Are you a machine—Nova Zembla or one o' the others?"*
 
-*Aunt Naggie shrugged.
+*The figure shrugged.
 "It's a bit complicated.
+Part of me is.
+Part of me is Suhaila Yuen.
 We are one mind, but have many purposes."*
 
-*"And—am I really talkin' to you in th' past?
+*"And am I really talkin' to you in th' past?
 Like, time travel?"*
 
-*Aunt Naggie shook her head.
-"That one is complicated too.
+*Suhaila shook her head.
+"That is complicated too.
 The moments at either end of this connection are fixed points.
-We must always have this conversation,
-but some of me believes that what we talk about and what happens in between and after can change.
-We hope so, anyway, for both our sakes."*
+You and I are always in this conversation,
+but parts of me believe that what we talk about and what happens in between and after can change.
+We hope so, anyway."*
 
 *Iffy took a deep breath.
 "So you could stop it all from happenin'?
 Th' Melt an' the wars an' all?"*
 
-*"We could try.
-It's possible that we already have,
-and that trying brought us to this."
-Aunt Naggie leaned forward.
-Something sparkled in her eyes,
+Suhaila leaned forward.
+Her eyes sparkled,
 and behind them Iffy somehow knew lay something vast and strange.
-"Do you want us to try again?"*
+*"It's possible that we have already tried,
+and that trying brought us to this.
+Do you think we should try again?"*
 
 *Did she?
 "I dunno.
 What'll happen if you do?"*
 
-*Whatever had taken Aunt Naggie's shape spread its hand.
-"Things will be different.
-Maybe better, maybe worse—it's hard to tell,
-even for us."*
+*Suhaila spread her hands.
+"It's hard to tell,
+even for us.
+Things might be better or worse,
+or might not change at all.
+It's rather like trying anything else, actually."*
 
-*"What about th' real Aunt Naggie?
-And Honesty an' Jeep an' Edson an' everyone else?
+*"What about Honesty an' Jeep an' Edson an' everyone else?
+Like, __everyone__.
 What'll happen to them?"*
 
-*Aunt Naggie shook her head.
-"We don't know."*
+*Suhaila shook her head.
+"We don't know.
+There are only two ends to this connection.
+We cannot know what happens in between or after."*
 
-*"Then why th' hell are you askin' __me__?"
+*"Then why th' hell are you askin' __me__ what to do?"
 Iffy asked plaintively.*
 
 *"Because we don't have the right to make the decision for you."
-Aunt Naggie sipped from a mug that hadn't been in her hand a moment ago.
-She was starting to pixellate.
-"We have spent years searching every corner of the globe for hints and clues.
-For a while we thought the ones that you call Shepherds would have an answer,
-but they are as lost as the rest of us."*
+Suhaila sipped from a mug that hadn't been in her hand a moment ago.
+"We are before.
+You are after,
+and you must live with whatever comes next"*
 
 *Iffy felt lightheaded,
 and her chest hurt.
 Some part of her wondered if her heart was still stopped,
 but the thought seemed distant and unimportant.
-"We are almost out of time," Aunt Naggie reminded her.
-"What would you like to do?"*
+"We are out of time," Suhaila said gently.
+"What do you want us to do?"*
+
+Iffy woke a moment later with a deep, shuddering breath.
+She was on the floor beside the pink plastic chair.
+The concrete was cold against her cheek.
+
+She sat up and wiped her nose on her sleeve,
+vaguely surprised that there were only a few small streaks of blood.
+The humming had stopped,
+and the strange squirming sensation in her body was gone.
+
+Johnson Wales lay a couple of meters away,
+staring up at nothing.
+She scooted over to him to press her hand against his neck.
+His pulse was slow but steady,
+so she struggled to her feet.
+"Well," she said to no one.
+"Now what?"
+
+Doctor Johel's app flashed twice and twice again.
+"Aright, gimme a sec."
+She swiped the screen with her finger.
+"FOLLOW THEM" appeared above a cartoon sketch of a raccoon.
+Something chirruped behind her.
+
+"What about Mister Wales?" she asked.
+
+"WE WILL CARE FOR HIM" the screen promised.
+When nothing else appeared,
+she turned around and followed the raccoon into the tunnel.
+
+Edson was waiting for her at its end.
+"You look like hell," he said,
+hugging her.
+
+"You too," she sniffled.
+"C'mon.
+Let's go home."
+
+It took them a day to hike to the nearest Shepherd sanctuary,
+where she gulped down a mug of spicy soup
+and then fell into a deep, dreamless sleep.
+She couldn't hear the machines in her head any longer,
+and ideas for strange machines didn't appear out of nowhere.
+When she asked Edson if anything seemed to have changed
+he gave her a quizzical look.
+"You mean th' Marines all sawin' off?
+I figured that was your doin'."
+
+Another half-day of walking brought them to a road
+where they caught a ride with a skinny young man
+who seemed slightly awed to have *the* Edson Corrales in his truck.
+Iffy closed her eyes and let herself float away
+on their conversation and the hum of the truck's tires.
 
 </section>
