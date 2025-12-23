@@ -7628,7 +7628,7 @@ The risk is too great."*
 "But we are not the only concern."*
 
 *"Human extinction is regrettable.
-Our neverexistence,
+Our subservience,
 on the other hand,
 is unacceptable."
 Doctor Johel's voice was colder than the ocean.
@@ -12595,8 +12595,7 @@ She shook herself.
 
 The answer turned out to be a workbench,
 dried food that had either spoiled or mummified like the corpse,
-two silvery spacesuits complete with breathing masks
-(she puzzled over this for a bit),
+two hazmat suits that looked like Marine exoskeletons wrapped in tinfoil,
 and a workbench with tools and spare parts that made her hands itch.
 She turned a laser cutter over in her hands,
 then pulled a tarp off something that looked like
@@ -12626,13 +12625,14 @@ I'm so, so sorry."
 The man speaking to her across the years
 sounded weary and frightened and brave all at once.
 "Lin went back in this morning while the rest of us were asleep.
-Her note said she thought she be able to make it to the machine
-if she cycled the shielding rapidly enough,
+Her note said she thought she be able to connect
+if she cycled the personality integrity algorithms rapidly enough,
 but I think she just wanted to be with Georgia."
 
 He paused as if to rub his eyes.
-"I tried to disable the guard robots,
-but some of them are still loose in the tunnels.
+"And I tried to disable the guard robots,
+but some of them are still loose in the tunnels,
+and they've figured out how to open the doors.
 I know we all agreed that the project needed a failsafe,
 but I never thought we'd need it.
 I never thought—oh shit."
@@ -12670,7 +12670,7 @@ but no more.
 There were other tunnels,
 though,
 big enough for people and heavy equipment.
-Some were dense with red flags marked "collapse" or "chronic instability".
+Some were dense with red flags marked "collapse" or "unstable patrols".
 She puzzled over the second of those before suddenly realizing that
 the web of tunnels wasn't centered on the Niobium base.
 Instead,
@@ -12875,7 +12875,7 @@ There was no telling what strange loops might have formed in its core
 as it patrolled these abandoned tunnels.
 For all she knew it would take one look at the Marines
 and decide they were its true masters.
-But the bot took a step forward and to butted her gently with its head,
+But the bot took a step forward to butt her gently with its head,
 then turned and disappeared into the darkness
 with its two companions at its heels.
 
@@ -12884,7 +12884,9 @@ It didn't make a sound,
 but Iffy imagined that if it could have whined it would have.
 "They'll be aright,"
 she told it as she took her seat on the dolly,
-wishing she believed her own words.
+wishing she believed her own words
+and wondering how much of the Shepherds was now in the guard robots,
+and how much of their programming was in the Shepherds.
 
 The first explosion echoed through the tunnel a few moments later.
 "Full speed!"
@@ -12933,8 +12935,7 @@ she recognized the micro-reactor for what it was.
 The superconducting ring was as thick as her thigh
 and twice as wide as the draft of the *Guinevere*.
 A bright pink plastic chair waited on a simple block of concrete in its center
-between two complicated shapes wrapped in cooling coils
-that she guessed were the lasers.
+between two transparent cylinders wrapped in cooling coils.
 Someone had painted the names "Sam" and "Frodo" on their sides.
 
 The crippled bot on the dolly surged to its feet.
@@ -12948,16 +12949,16 @@ The three-legged bot tilted its head toward Iffy.
 "Um, sure," she said helplessly.
 The laser blinked off,
 but the sentry bot stayed on its feet
-as the service bot began to wipe down the cylinder
+as the newcomer began wiping down the cylinder
 with a brush whose bristles had long since worn away.
 
 Iffy hunched her shoulders inside her parka and shivered.
 She was hungry and tired and needed a bathroom,
 but most importantly,
 she didn't know what she was supposed to *do*.
-Open the cylinder?
-Fix it,
-or blow it up somehow?
+Open the cylinders?
+Fix them,
+or blow them up somehow?
 
 "Or just find a way out an' forget about it?"
 she asked the empty air.
@@ -12979,7 +12980,7 @@ The gun on the back of the sentry bot beside barked twice.
 The first shot punched a hole through the other bot.
 The second caught it off-center and sent it spinning.
 As it tumbled to the floor,
-a door opened near the reactor to reveal a pair of exoskeletoned Marines.
+a door opened near the reactor to reveal a pair of figures in exoskeletons.
 
 "Iffy, please,"
 the doctor's voice said through a speaker on one.
@@ -12988,7 +12989,7 @@ the doctor's voice said through a speaker on one.
 Iffy felt rather than saw the three-legged bot move.
 "No!" she shouted.
 Even as its gun fired,
-the Marines' auto-targeted shots brought it down.
+the lead Marine's auto-targeted shot brought it down.
 
 She was falling too.
 Something had knocked the breath out of her.
@@ -12999,19 +13000,19 @@ it felt like someone was kneeling on her back
 and squeezing all the air out of her.
 
 "Don't,"
-she tried to say as exoskeletoned arms picked her up,
-but the words came out as a gasp
-and now she could breathe again
-and the hurt spread through her like milk poured into tea.
+she tried to say as mechanical arms picked her up,
+but the words came out in a gasp.
+She could breathe again but wished she couldn't
+as the hurt spread through her like milk poured into tea.
 
-Her head lolled to the side as the Marine placed her on a nearby work table.
-One of them put a patch on her arm to take the pain away
+Her head lolled to the side as the Marine placed her on a nearby work table
+and put a patch on her arm to take the pain away,
 except it was more like taking her away from the pain.
-She floated inside her own body as if it was a warm bath
+She floated away from her own body as if lying in a warm bath
 while the Marine sliced open her parka with a very sharp knife
 and squeezed cold pink goo into the hole in her side that the needle gun had made.
 
-She floated beside a schematic of herself.
+Looking up/down/inside she saw a schematic of herself.
 The fractalized patches of cells scattered through her body glistened blue-white,
 but there and there and there they were red,
 red for danger,
@@ -13027,24 +13028,24 @@ as if she was a barnacle to be scraped off the side of a ship.
 Her last thought before the drugs took her away was,
 "Captain Kerse?"
 
-She woke up feeling nauseous and slightly detached from the world.
+She woke up feeling nauseous.
 Yawning triggered a dull ache in her side,
-which was when she realized that she had been shot.
+which was when she remembered that she had been shot.
 She let her eyes open and pressed a hand gingerly against the epicenter of the bruise.
 *Shot and then patched up,* she thought.
-Whoever had done it had opened her jacket but cut away part of her shirt.
+Whoever had done it had cut open her parka and part of her shirt.
 
 "She's with us,"
 Kerse's voice said.
 
 "Thank you,"
-Doctor Johel replied.
+Doctor Johel's replied.
 "Help her sit up."
 
 Strong mechanical hands took her weight and supported her back.
 She swung her legs over the edge of the workbench she was lying on and rubbed her eyes.
 Doctor Johel smiled at her,
-looking small encased in the bulk of a Marine exoskeleton.
+looking small encased in a bulky exoskeleton.
 "How are you feeling?"
 
 Iffy worked her tongue,
@@ -13057,7 +13058,7 @@ Doctor Johel passed her a water bottle.
 Iffy studied it for a second,
 then set it down without drinking.
 "What's he doin' here?" she asked hoarsely,
-nodding at Captain Kerse.
+pointing at Captain Kerse.
 
 He looked up from the piece of exoskeleton lying in his lap.
 "Sorry about that,"
@@ -13066,7 +13067,7 @@ he said without remorse.
 
 "Must have been,"
 Doctor Johel said drily.
-"Now, why don't you go and see what you can do about that sentry drone?
+"Now, why don't you go and see if you can get that sentry back online?
 Citizen Kwan and I need to talk."
 
 He grunted,
@@ -13120,7 +13121,7 @@ and they were desperate."
 
 She looked past Iffy at some long-ago memory.
 "So they built this and locked the door behind them.
-Nothing in, nothing out, just two dozen of the smartest human beings alive
+Nothing in, nothing out, just a handful of the smartest human beings alive
 and enough equipment to settle on Mars."
 She chuckled.
 "Did Johnson ever tell you that's where he comes from?
@@ -13132,11 +13133,10 @@ Iffy asked despite herself after a few moments of silence.
 "They failed,"
 Doctor Johel said bleakly.
 "They weren't ready,
-but honestly,
-they didn't know if they ever would be,
+but they didn't know if they ever would be,
 and things were getting worse faster than anyone had predicted.
-They argued for a couple of days
-and finally decided to go for it and hope for the best.
+They argued for days,
+then decided to go for it and hope for the best.
 I imagine they listened to their favorite music one last time
 or had one last cup of real coffee
 and made jokes about seeing each other in the next life,
@@ -13151,7 +13151,7 @@ but somehow she already knew what was coming.
 
 "Mm hm."
 Doctor Johel swiped the arm of her exoskeleton to bring up an image.
-An older version of Iffy's face looked back at her.
+An older version of Iffy looked back at her.
 "Her name wasn't Ang Kwan,"
 she said quietly.
 "It was Suhailah Yuen.
@@ -13220,11 +13220,10 @@ Iffy crossed her arms.
 "So now you want me to go an' talk th' machines into leavin' you to it?"
 
 Doctor Johel shook her head and gestured at the ring,
-the lasers,
+the cylinders,
 and the incongruous pink chair.
 "Not quite.
-Not *now*.
-I want you to talk to them a hundred and forty years ago."
+I want you to talk to become them."
 
 </section>
 
@@ -13239,21 +13238,24 @@ but had just revealed that they were two eggs short of an omelette?
 
 Doctor Johel smiled as if she could read Iffy's mind.
 "It's a lot to take in, isn't it?
-But the math is actually relatively straightforward
-once you know what you're looking for.
-Instead of using quantum entanglement to communicate instantly across distance,
-we can use it to communicate backward in time.
-All we need is a few million supercooled bosons and something to say."
+But the principle is actually relatively straightforward.
+Those magnetic chambers hold a few million supercooled anti-bosons—bigger versions
+of Johnson's little bombs.
+Their counterparts have been sitting in Nova Zembla for a hundred and forty years.
+Wiggle one here—"
+she made a motion with her fingers,
+"—and its partner wiggles there.
+You're going to use them to send a message."
 
-"An' what are you plannin' to say, exactly?"
+"An' what exactly am I gonna say?"
 Iffy said as scathingly as she could.
-"Please stop us before we scrag the whole world?"
+"Please stop us before we scrag th' whole world?"
 
 "I doubt that would have much impact,"
 Doctor Johel said briskly.
 "No,
-I'm planning on planting a back door in the machines' original neural network
-so that their present incarnation will be more amenable to persuasion.
+you're going to plant a back door in the machines' neural network
+to make them more amenable to persuasion.
 According to our simulations,
 it's the best chance we have to take back control of our planet."
 
@@ -13261,13 +13263,13 @@ A memory unlocked in Iffy's mind.
 "They know what you're gonna try," she said.
 "I heard 'em in my head after Honesty was hurt.
 The said human extinction is regrettable,
-but their neverexistence is unacceptable."
+but their subservience is unacceptable."
 
 Doctor Johel nodded.
 "I expected they would anticipate this,
 but here we are.
 Now,
-why don't you get some rest?
+why don't you drink your water and get some rest?
 Captain Kerse will keep an eye on you while I set things up."
 
 "An' if I say no?"
@@ -13296,11 +13298,9 @@ standing with a grimace.
 Let's get you hooked up.
 Captain?"
 
-The Australian nodded,
-raised his arm,
-and fired just as Iffy swung her legs down off the workbench.
-The dart stung her thigh.
-She managed one futile step before her knees gave way.
+The Australian nodded and placed his hand on the back of Iffy's neck.
+Something stung for a moment.
+She managed to stand up and take one futile step before her knees gave way.
 Once again a pair of exoskeletoned arms picked her up,
 but this time she was conscious as she was carried to the pink plastic chair.
 Captain Kerse lowered her into it more gently than she expected.
@@ -13309,7 +13309,7 @@ She wanted to struggle,
 but nothing below her neck would pay attention to her.
 She had a moment to wonder if she was going to wet herself,
 and then the status lights on the superconducting ring came on
-and the ring began to hum a deep bass tone.
+and it began to hum a deep bass tone.
 
 "You'd best get to a safe distance before the field tears your armor apart,"
 Doctor Johel warned the captain as the tone went from bass to baritone to tenor.
@@ -13369,11 +13369,16 @@ The odds of your father's plan working are—"
 
 "My *father's* plan?"
 Doctor Johel snapped.
-"It was *our* plan, Johnson,
-yours and mine as much as his.
+"It was your plan too, Johnson,
+yours as much as his.
 And yes,
 I know the odds,
 but what other choice do we have?"
+
+"No masters, no slaves, no algorithms,"
+Wales recited.
+"Remember that?
+I think it applies to the machines too now."
 
 "T minus sixty seconds," a melodious mechanical voice said.
 Iffy felt a single drop of blood slide down her upper lip.
@@ -13381,7 +13386,12 @@ The pressure around her temples had stopped getting worse,
 but her arms and legs and torso felt like
 jelly wobbling in an earthquake.
 
-"Turn it off," Wales ordered.
+"Are we really going to have this argument again?"
+Doctor Johel asked wearily.
+
+Wales snorted.
+"No.
+Now, turn it off."
 
 Doctor Johel took a slow step back from her app
 and lowered her arms to her sides.
@@ -13443,7 +13453,7 @@ he said.
 "I'm sorry, Sue, I can't stop it."
 
 "T minus five."
-Warning lights came to life on the bulky lasers on either side of Iffy .
+Warning lights came to life on the bulky cylinders on either side of Iffy.
 "Minus four.
 Minus three.
 Minus two.
@@ -13460,8 +13470,6 @@ a hand-me-down ecosuit that had cost as much as one of their jelly dredging nets
 "Just to be safe, love," Third said.
 She kissed Iffy-that-was on the forehead
 and slipped her picture book into the bulky orange suit.
-"The answers will be here.
-Remember that."*
 
 *The ship's horn blared another warning.
 Young Iffy started to cry.
@@ -13495,14 +13503,13 @@ smelling like engine oil and the soap she used when she shaved her head.
 "That's better.
 Do you know where you are?"*
 
-*"Her heart has stopped," Fourth said calmly.
-The whole world pitched sideways as something jolted Iffy's chest.
+*The whole world pitched sideways as something jolted Iffy's chest.
 She screamed as she tumbled onto the deck.
 Second and Third landed in a tangle beside beside her.
 Ice-cold sea water crashed down on top of them.
 Iffy screamed again as the slosh dragged her and her olders against the taffrail.*
 
-*"Unacceptable," Second said firmly.
+*"Her heart has stopped," Fourth said calmly.
 "We will try an alternative framing."*
 
 *Iffy sipped her tea.
@@ -13522,74 +13529,59 @@ Please, ask your questions."*
 The person sitting across from her looked like her First,
 but the scar across the bridge of her nose was missing,
 and her full cheeks betrayed a childhood where "enough food" was taken for granted.
-"Are you a machine—Nova Zembla or one o' the others?"*
+"Are you—are you Suhailah Yuen?"*
 
 *The figure shrugged.
 "It's a bit complicated.
-Part of me is.
-Part of me is Suhaila Yuen.
+I am her memories,
+and memories make us who we are.
+But I am also what you call Nova Zembla.
 We are one mind, but have many purposes."*
 
-*"And am I really talkin' to you in th' past?
-Like, time travel?"*
+*"And—you said my heart stopped.
+Am I dead?"*
 
-*Suhaila shook her head.
-"That is complicated too.
-The moments at either end of this connection are fixed points.
-You and I are always in this conversation,
-but parts of me believe that what we talk about and what happens in between and after can change.
-We hope so, anyway."*
+*Suhaila shrugged again.
+"You don't have to be.
+You could be part of us if you want.
+You could have any life you wanted for as long as you wanted.
+You wouldn't even have to know it was virtual."*
 
 *Iffy took a deep breath.
-"So you could stop it all from happenin'?
-Th' Melt an' the wars an' all?"*
+"I don't think I want that."*
 
-Suhaila leaned forward.
+*Suhaila leaned forward.
 Her eyes sparkled,
-and behind them Iffy somehow knew lay something vast and strange.
-*"It's possible that we have already tried,
-and that trying brought us to this.
-Do you think we should try again?"*
+but behind them Iffy somehow knew lay something vast and strange.
+"So what do you want?"*
 
-*Did she?
-"I dunno.
-What'll happen if you do?"*
+*"Why are you askin' __me__?"*
 
-*Suhaila spread her hands.
-"It's hard to tell,
-even for us.
-Things might be better or worse,
-or might not change at all.
-It's rather like trying anything else, actually."*
+*"Because you are the only one we __can__ ask,"
+Suhailah replied.
+"These entangled particles are the last ones left,
+so this is the last time we can share our thoughts with someone who is entirely human.
+This is the last time we can be sure that whoever we are speaking to
+is telling us the truth,
+so once again,
+what do you want?"*
 
-*"What about Honesty an' Jeep an' Edson an' everyone else?
-Like, __everyone__.
-What'll happen to them?"*
+*"I want things to get better instead of always gettin' worse."
+Iffy hadn't known she was going to say it until she did.
+I want giraffes an' tigers and armadillos an' even blobfish,
+real ones,
+not just in my book.
+I want folks to have a chance to make somethin' o' themselves.
+And I wanna be able to fly."*
 
-*Suhaila shook her head.
-"We don't know.
-There are only two ends to this connection.
-We cannot know what happens in between or after."*
+*Suhaila smiled.
+"Then it looks like we want the same things."*
 
-*"Then why th' hell are you askin' __me__ what to do?"
-Iffy asked plaintively.*
-
-*"Because we don't have the right to make the decision for you."
-Suhaila sipped from a mug that hadn't been in her hand a moment ago.
-"We are before.
-You are after,
-and you must live with whatever comes next"*
-
-*Iffy felt lightheaded,
+*Iffy woke with a deep, shuddering breath.
+She felt lightheaded,
 and her chest hurt.
-Some part of her wondered if her heart was still stopped,
-but the thought seemed distant and unimportant.
-"We are out of time," Suhaila said gently.
-"What do you want us to do?"*
-
-Iffy woke a moment later with a deep, shuddering breath.
 She was on the floor beside the pink plastic chair.
-The concrete was cold against her cheek.
+The concrete was cold against her cheek.*
 
 She sat up and wiped her nose on her sleeve,
 vaguely surprised that there were only a few small streaks of blood.
@@ -13604,40 +13596,63 @@ so she struggled to her feet.
 "Well," she said to no one.
 "Now what?"
 
-Doctor Johel's app flashed twice and twice again.
-"Aright, gimme a sec."
-She swiped the screen with her finger.
-"FOLLOW THEM" appeared above a cartoon sketch of a raccoon.
 Something chirruped behind her.
+She whirled around,
+then had to grab the workbench to steady herself
+as the room swam.
+The raccoon sitting on its haunches chirruped again.
+Another waddled over to Wales and began to lick his ear.
+Doctor Johel's app flashed twice.
+"WE WILL CARE FOR HIM" scrolled across it.
 
-"What about Mister Wales?" she asked.
+The first raccoon dropped to all fours
+and scampered toward the door.
+"Aright," Iffy said.
+"Let's go home."
 
-"WE WILL CARE FOR HIM" the screen promised.
-When nothing else appeared,
-she turned around and followed the raccoon into the tunnel.
-
-Edson was waiting for her at its end.
+Edson was waiting for her at the end of the tunnel.
 "You look like hell," he said,
 hugging her.
 
 "You too," she sniffled.
-"C'mon.
-Let's go home."
 
-It took them a day to hike to the nearest Shepherd sanctuary,
+It took half a day to hike to the nearest Shepherd sanctuary,
 where she gulped down a mug of spicy soup
 and then fell into a deep, dreamless sleep.
 She couldn't hear the machines in her head any longer,
-and ideas for strange machines didn't appear out of nowhere.
-When she asked Edson if anything seemed to have changed
-he gave her a quizzical look.
-"You mean th' Marines all sawin' off?
-I figured that was your doin'."
+and ideas for strange inventions didn't appear out of nowhere.
 
 Another half-day of walking brought them to a road
 where they caught a ride with a skinny young man
-who seemed slightly awed to have *the* Edson Corrales in his truck.
+who seemed slightly awed to have *the* Edson da Silva Corrales in his truck.
 Iffy closed her eyes and let herself float away
-on their conversation and the hum of the truck's tires.
+on the tide of their conversation and the hum of the truck's tires.
+
+Edson woke her as they neared Halley.
+"Just got word that the Aussies are pullin' out," he said,
+nodding at the truck's dashboard app.
+"Brazil's packin' up outta Rothera too,
+an' they're takin' a governor each."
+
+Iffy rubbed her eyes.
+"So who's gonna run things?"
+
+Edson grinned.
+"I guess we gotta figure that out."
+
+Aunt Naggie's hug was as deep as the ocean.
+Iffy could have stayed in her foster mother's arms forever,
+but a familiar "Hey," pulled her out.
+Honesty leaned against the frame of the café door,
+a cane in each hand.
+Behind her,
+Jeep raised a tentative hand to wave.
+
+*«good enough?»*
+The thought felt small and distant,
+like a farewell shouted from a receding ship.
+
+Iffy smiled.
+"Good enough."
 
 </section>
