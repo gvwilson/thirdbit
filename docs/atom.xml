@@ -3,12 +3,29 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2025-12-19T00:00:00Z</updated>
+ <updated>2025-12-30T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Discrete Events</title>
+   <link href="https://third-bit.com/2025/12/30/discrete-events/"/>
+   <updated>2025-12-30T00:00:00Z</updated>
+   <id>https://third-bit.com/2025/12/30/discrete-events/</id>
+   <content type="html">&lt;p&gt;My work log tells me I&amp;rsquo;ve spent 54 hours since mid-November
+building &lt;a href=&#34;https://gvwilson.github.io/sim/&#34;&gt;this discrete event simulation&lt;/a&gt;,
+which works out to a little over an hour a day.
+I&amp;rsquo;ve learned a few things about &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt; and &lt;a href=&#34;https://pola.rs/&#34;&gt;Polars&lt;/a&gt; along the way,
+and depending on what happens with my job search,
+I may run an online workshop in 2026 to walk people through it.
+For now,
+though,
+I need to put this aside and concentrate on completing a couple of small contracts
+and revising some of the fiction &lt;a href=&#34;https://third-bit.com/2025/12/19/the-year-that-was/&#34;&gt;I finally &amp;ldquo;finished&amp;rdquo;&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>The Year That Was</title>
@@ -2915,202 +2932,6 @@ what I&amp;rsquo;m measuring is measuring what I want to.&lt;/p&gt;
 right now,
 I&amp;rsquo;m just waving my hands and hoping you won&amp;rsquo;t notice that I glossed over that.&lt;/p&gt;
 &lt;/blockquote&gt;</content>
- </entry>
- 
- <entry>
-   <title>Simulating a Developer Pool</title>
-   <link href="https://third-bit.com/2025/11/19/simulating-a-developer-pool/"/>
-   <updated>2025-11-19T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/11/19/simulating-a-developer-pool/</id>
-   <content type="html">&lt;p&gt;Following &lt;a href=&#34;https://third-bit.com/2025/11/18/starting-to-simulate/&#34;&gt;yesterday&amp;rsquo;s post&lt;/a&gt;
-about using &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt; for discrete event simulation,
-let&amp;rsquo;s have a look at a slightly more interesting scenario:
-a pool of developers,
-all of whom work at the same speed,
-handling tasks of varying duration that arrive at random intervals.&lt;/p&gt;
-&lt;h2&gt;Overall Structure&lt;/h2&gt;
-&lt;p&gt;The main function of the simulation takes a dictionary of parameter values,
-creates a SimPy environment,
-does a little bit of magic,
-and then simulates the system for a specified length of time:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Run simulation.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-    &lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;random_seed&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Resource&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;capacity&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;num_developers&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;generate_tasks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;until&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;simulation_duration&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The &amp;ldquo;magic&amp;rdquo; referred to earlier has two parts:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Since the developers are all the same (for now),
-    we can model them using a SimPy &lt;code&gt;Resource&lt;/code&gt; with a fixed capacity.
-    This basically acts as a pile of things:
-    our processes can take a thing if one is available,
-    but will be suspended if one is not.&lt;/li&gt;
-&lt;li&gt;We then call &lt;code&gt;generate_tasks&lt;/code&gt; to create the generator that adds new tasks to the system
-    and give that generator to &lt;code&gt;env.process&lt;/code&gt; to run.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Generating Tasks&lt;/h2&gt;
-&lt;p&gt;OK, what does &lt;code&gt;generate_tasks&lt;/code&gt; do?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;generate_tasks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Generates tasks at random intervals.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expovariate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1.0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;task_arrival_rate&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TaskUniform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;simulate_task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Each time around the loop,
-it calls &lt;code&gt;env.timeout&lt;/code&gt; to create an object representing a delay
-and uses &lt;code&gt;yield&lt;/code&gt; to hand that to SimPy,
-which suspends the process until that much simulated time has passed.
-When it resumes,
-the generator creates a new &lt;code&gt;TaskUniform&lt;/code&gt; object (we&amp;rsquo;ll look at that in a moment)
-and then calls &lt;code&gt;simulate_task&lt;/code&gt; to create a new process (i.e., a new generator)
-to simulate the execution of that task.
-(The &lt;code&gt;while True&lt;/code&gt; in this function is a bit misleading:
-this generator hands control back to SimPy each time it encounters the &lt;code&gt;yield&lt;/code&gt; statement,
-and only resumes if SimPy reschedules it,
-so it only runs as long as SimPy wants it to.)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;When I first started working with SimPy,
-I found it a bit counter-intuitive to represent tasks as processes
-rather than using processes for the workers.
-It&amp;rsquo;s possible to do the latter,
-but the code turns out to be simpler if we treat developers as a passive resource.
-Read into that what you will…&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;What Kind of Randomness?&lt;/h2&gt;
-&lt;p&gt;At this point we need to talk about math,
-because &lt;code&gt;random.expovariate&lt;/code&gt; is anything but intuitive.
-Suppose that the probability of a task arriving at any moment is fixed
-and completely independent of when the previous task arrived.
-This is called a &lt;em&gt;memoryless&lt;/em&gt; system,
-and it turns out that the time between arrivals in such a system has an exponential distribution:
-if the average arrival rate is λ events per unit time,
-then the time between arrivals is an exponential random variable with mean 1/λ.
-Real-world arrival rates are rarely this tidy,
-but it&amp;rsquo;s a good starting point.&lt;/p&gt;
-&lt;h2&gt;Representing Tasks&lt;/h2&gt;
-&lt;p&gt;We now have two bits of code to explore:
-the &lt;code&gt;TaskUniform&lt;/code&gt; class that represents a task
-and the &lt;code&gt;simulate_task&lt;/code&gt; function that models its behavior.
-The former just stores a unique ID and a duration,
-and knows how to represent itself as a string for printing:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;TaskUniform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Task with uniformly-distributed durations.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-    &lt;span class=&#34;n&#34;&gt;_id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TaskUniform&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_duration&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;uniform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;max_task_duration&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__str__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;task-&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_id&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_duration&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.2f&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Note that we&amp;rsquo;ve decided to model task durations as uniformly distributed
-between 1.0 and some maximum value.
-This might win a prize for &amp;ldquo;least realistic assumption&amp;rdquo;,
-but we&amp;rsquo;ll come back and adjust it later.&lt;/p&gt;
-&lt;h2&gt;Simulating a Task&lt;/h2&gt;
-&lt;p&gt;Finally,
-we get to actually simulating a task.
-As before,
-the fact that this function uses &lt;code&gt;yield&lt;/code&gt; means that it creates a generator;
-I think that would have been clearer if a keyword like &lt;code&gt;gen&lt;/code&gt; had been introduced in place of &lt;code&gt;def&lt;/code&gt;,
-but it is what it is:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;simulate_task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Simulate a task flowing through the system.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-    &lt;span class=&#34;n&#34;&gt;available&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;capacity&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;count&lt;/span&gt;
-    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.2f&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; arrives, &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;available&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; available&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;request_start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;delay&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;request_start&lt;/span&gt;
-        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.2f&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; starts after delay &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.2f&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_duration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.2f&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; finishes&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Going through this phrase by phrase:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The task starts by reporting how many developers are available.
-    (Remember, &lt;code&gt;developers&lt;/code&gt; is a &lt;code&gt;Resource&lt;/code&gt; with a fixed capacity;
-    its &lt;code&gt;.count&lt;/code&gt; tells us how much of that resource is currently being used.)&lt;/li&gt;
-&lt;li&gt;The task then records the time at which it starts running.
-    We don&amp;rsquo;t have to do this right at the start of the function
-    (before checking the number of available developers)
-    because we&amp;rsquo;re not checking the computer&amp;rsquo;s actual clock:
-    &lt;code&gt;env.now&lt;/code&gt; gives us the current simulated time in the SimPy environment,
-    and that time only advances when processes tell the framework
-    that they want it to.&lt;/li&gt;
-&lt;li&gt;We then ask for a developer using &lt;code&gt;developer.request()&lt;/code&gt;.
-    This method gives us an object that we store in &lt;code&gt;req&lt;/code&gt;,
-    which we immediately &lt;code&gt;yield&lt;/code&gt; to tell SimPy what we want.
-    If the request can be satisfied right away,
-    SimPy immediately reschedules this process;
-    if the resource is already at capacity,
-    SimPy suspends this process until a developer is available.&lt;/li&gt;
-&lt;li&gt;…which means that as soon as execution passes the &lt;code&gt;yield req&lt;/code&gt; line,
-    we know that a resource is available.
-    We print a message to report how long the task had to wait for a developer…&lt;/li&gt;
-&lt;li&gt;…and then &lt;code&gt;yield&lt;/code&gt; the object created by calling &lt;code&gt;env.timeout&lt;/code&gt; with the task&amp;rsquo;s duration
-    to tell SimPy that the task needs that much time to complete.&lt;/li&gt;
-&lt;li&gt;Finally,
-    we print another message to report when the task finished…&lt;/li&gt;
-&lt;li&gt;…and give the developer back to the developer pool.
-    &lt;em&gt;This isn&amp;rsquo;t visible in the code&lt;/em&gt;:
-    it&amp;rsquo;s done automatically when we reach the end of the &lt;code&gt;with&lt;/code&gt; block,
-    in the same way that a file opened in a &lt;code&gt;with&lt;/code&gt; is automatically closed at the block&amp;rsquo;s end.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;A Sample Run&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s run the simulation with the following parameters:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;PARAMS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;max_task_duration&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;10.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;task_arrival_rate&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;2.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;num_developers&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;simulation_duration&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;random_seed&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;12345&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The output is:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;1.08: task-0/1.09 arrives, 2 developers available
-1.08: task-0/1.09 starts after delay 0.00
-2.17: task-0/1.09 finishes
-4.57: task-1/3.69 arrives, 2 developers available
-4.57: task-1/3.69 starts after delay 0.00
-5.49: task-2/2.74 arrives, 1 developers available
-5.49: task-2/2.74 starts after delay 0.00
-7.15: task-3/2.46 arrives, 0 developers available
-7.42: task-4/4.90 arrives, 0 developers available
-8.23: task-2/2.74 finishes
-8.23: task-3/2.46 starts after delay 1.07
-8.25: task-1/3.69 finishes
-8.25: task-4/4.90 starts after delay 0.83
-9.07: task-5/2.57 arrives, 0 developers available
-10.68: task-6/4.19 arrives, 0 developers available
-10.68: task-3/2.46 finishes
-10.68: task-5/2.57 starts after delay 1.61
-13.15: task-4/4.90 finishes
-13.15: task-6/4.19 starts after delay 2.47
-13.25: task-5/2.57 finishes
-17.03: task-7/1.82 arrives, 1 developers available
-17.03: task-7/1.82 starts after delay 0.00
-17.34: task-6/4.19 finishes
-18.85: task-7/1.82 finishes
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Things are certainly happening:
-tasks are arriving and either starting immediately
-or waiting until a developer is available.
-But is our code correct?
-And what does it tell us about how long tasks take to complete
-and how busy developers are?
-To answer those questions,
-we need to collect some data and do a bit of analysis.
-Stay tuned…&lt;/p&gt;</content>
  </entry>
  
 </feed>
