@@ -84,12 +84,11 @@ Later,
 when I was a baby,
 I cried whenever my mother or father left the room
 because I couldn't *drome* that they were just around the corner.
-And when I was older—*la*, but I will speak of that in its time.
 
 No one knows why the Aphsi are what they are.
 Some people think we have always been that way.
 Others blame it on the great spells of the Pilots' last war,
-and and others—well, I will speak of that in time too.
+and others—well, I will speak of that in time.
 
 Let me first tell you what it was like to grow up *nif* among children who could *drome*.
 They—the other children my age in Medef—used to play a game with me called "surprise".
@@ -100,7 +99,7 @@ I would jump, and they would all laugh.
 They couldn't imagine what it was like to not know that someone was behind them.
 (Did I mention that Aphsi make good guards as well as good thieves?)
 
-To tell the truth, I didn't always mind the game:
+I didn't always mind being surprised:
 at least it meant the other children were paying attention to me.
 Mostly, though, it just made me angry.
 I would tell them to stop, or run to my mother and get her to tell them.
@@ -142,8 +141,9 @@ A beaded scar ran from his elbow to his wrist like a worm track on his skin.
 I sat up there for, *la*, it must have been hours, just watching people come and go."
 
 He laughed.
-"It was so peaceful that I fell asleep! And *hup*, down I fell.
-I broke my arm so badly, they had to give me poppy juice and cut it open to straighten out the bones."
+"It was so peaceful that I fell asleep!
+And *hup*, down I fell and broke my arm.
+They had to give me poppy juice and cut it open to straighten out the bones."
 
 "I'd break my arm myself if it would stop Hediyeh and the others from playing stupid tricks on me," I grumbled.
 I picked up a black pawn, put my hands behind my back, then held my fists out to him.
@@ -157,7 +157,7 @@ I knew that tone of voice, and the look in his eyes.
 All of a sudden I was even angrier than I had been when I cut my thumb.
 What right did he have to pity me?
 He was as *nif* as I was!
-"Well, are you going to choose or not?" I asked, waving my fists above the board.
+"Are you going to choose or not?" I asked, waving my fists above the board.
 
 He reached out as if to choose a hand, then grabbed my wrists.
 "Open up," he ordered.
@@ -186,11 +186,12 @@ Look at pocket mice.
 They can't *drome* either, but have you ever tried to sneak up on one?
 They're always listening, always sniffing the air.
 If you listen that hard, and learn to pay attention, no-one will ever be able to sneak up on you.
-And if you learn to be as still inside as a piece of glass, then one day maybe you will be able to sneak up on them."
+And if you learn to be as still inside as a piece of glass,
+then one day maybe you will be able to sneak up on them."
 
-"But how?" I was so frustrated that my voice broke.
+"But *how*?" I was so frustrated that my voice broke.
 
-Razi shrugged his shoulders and twisted his right hand around, all in one smooth motion.
+Razi shrugged his shoulders and twisted his right hand around.
 Just like that he had a short, sharp knife in his hand.
 The blade was blackened, but sunlight glinted on its edge.
 "I can teach you, if you want,"
@@ -216,14 +217,14 @@ And I brought date bread for lunch.
 
 He nodded.
 "Good."
-He took one of the sand-brown feathers from the balance and trimmed it with his knife.
+He took a sand-brown feather from the balance and trimmed it with his knife.
 "Canteens are in the tent.
 We'll need one each, and a spare."
 The balance leveled.
-Razi set the feather aside, then removed another one from the bag beside him.
+Razi set the feather aside, then removed another from the bag beside him.
 
 By the time I had filled the canteens and returned,
-Razi had trimmed a dozen feathers to exactly the same weight.
+he had trimmed a dozen feathers to exactly the same weight.
 He laid them flat in a folded square of paper so that they wouldn't be crushed.
 "Finish those later," he said, standing and stretching.
 He stooped and pulled his bow case from his tent.
@@ -264,8 +265,9 @@ It was a tenth the size of Medef, just thirty families living around a spring th
 I wanted to see Ossisswe, and Ruuda, and Ini Bantang, and, oh, the whole world.
 I wanted to see what a city looked like, a city full of *nif* like me.
 I wanted to have adventures
-so that I could come back to Medef to tell stories and have girls like Hediyeh blush and giggle when I walked by,
-the way they blushed and giggled around the *nif* traders when they passed through.
+so that I could come back to Medef to tell stories
+and have girls like Hediyeh blush and giggle when I walked by,
+the way they blushed and giggled when *nif* traders passed through.
 
 I put one foot in front of the other, taking four steps for every three of Razi's.
 The sun was half-way to noon when Razi turned east.
@@ -314,11 +316,11 @@ She didn't start flying right away.
 Instead,
 she plummeted earthward down the side of the tower for a moment to build up speed,
 then snapped her wings open with a *crack*
-and began spiralling back into the sky on a warm updraft.
+and began spiralling back into the sky on an updraft.
 
 I crouched behind the eroded remains of an old wall and slipped my bow out of its case.
 I had waxed its string that morning when I was unable to sleep.
-There, in the moment, I cursed the faint honey smell that still lingered.
+There, in the moment, I cursed the faint smell of honey that still lingered.
 I slipped one loop into the catch at the bottom end of the bow,
 braced it against my foot,
 then bent it and hooked the other end of the string in place in a single motion
@@ -332,7 +334,8 @@ so that my sleeves and pantlegs wouldn't catch on anything.
 
 The second female launched herself from the tower.
 As she rose to follow the first one
-I slipped around the end of the ruined wall and sprinted to the candelilla bush I'd chosen as my next patch of cover.
+I slipped around the end of the ruined wall
+and sprinted to the candelilla bush I'd chosen as my next patch of cover.
 I had hunted jackrabbits and sand gulls this way,
 watching for the moments when my prey looked away,
 inching closer a few paces each time.
@@ -363,7 +366,7 @@ leading her,
 time and distance made reflex by long hours of practice.
 
 Razi ran again toward the tower again.
-The second female swooped across his path to cut him off.
+The second female cut across his path to cut him off.
 He checked himself so that she overshot,
 but the male was right behind her.
 Razi jabbed at him with his bow.
@@ -380,8 +383,7 @@ There was blood on Razi's face.
 He had two arrows out himself, one in his teeth, one strung.
 As the first female dove a second time, he fired, drew, fired again.
 The second shot hit her shoulder, cutting some vital muscle or tendon.
-Her wing crumpled.
-She tumbled sideways.
+She tumbled sideways as her wing crumpled.
 
 The male bellowed five stories above Razi's head.
 I drew, exhaled, and let fly.
@@ -414,7 +416,8 @@ I whirled around.
 The female that Razi had shot had struggled to her feet.
 Her right wing hung uselessly at her side.
 She chittered,
-clutching feebly at the arrow that had passed through the complicated double joint where arm and wing joined body.
+clutching feebly at the arrow that had passed through the complicated double joint
+where arm and wing joined body.
 
 Razi wiped some more blood from his face.
 "Here, give me that."
