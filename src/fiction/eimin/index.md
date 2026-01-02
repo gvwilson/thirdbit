@@ -426,3 +426,308 @@ The female just stood there on her short, bandy legs and watched with all-too-hu
 as Razi sighted carefully and put an arrow through her heart.
 
 </section>
+
+<section markdown="1">
+
+## Chapter 3
+
+We walked back to the lemon grove in somber silence,
+leaving the gargoyles' bodies where they were to feed the desert.
+They had been taking Grappa Uzman's goats.
+He had suggested building a fire in the base of the tower to drive them away,
+but Razi had said no,
+they would just come back when the smoke was gone.
+And anyway,
+how would we fuel the fire?
+Nothing near the tower would burn—did *sri* Uzman really want
+to spend a week carrying loads of dried camel dung?
+
+If someone else had asked that,
+Grappa Uzman would have puffed up his chest and said yes,
+he would do it.
+Then one of his daughters would put her hand on his arm and gentled him
+the way he gentled his goats when storms came.
+But somehow,
+coming from Razi,
+the words made the idea seem so silly that they both laughed.
+I was trying to figure out how Razi did that,
+but it was proving harder to learn than the bow.
+
+The sun was down by the time we reached the hill above the palace.
+The moon hung low over the Sea of Glass,
+a mottled diamond whose light turned the frozen waves into irregular bands of light and shadow.
+Beneath us, the Pilots' ancient stronghold glistened
+as if it had been painted with teardrops.
+Music still rose faintly from its walls
+a thousand years and more after its builders had destroyed themselves.
+
+"Look," Razi said, pointing.
+At first I didn't see anything,
+but then motion caught my eye.
+A sandy desert hare stood on his haunches,
+sniffing the wind,
+while its tribe snuffled and nibbled among the eucalyptus trees that grew next to the palace walls.
+I saw a splash in the aqueduct behind them as a fish jumped for a night fly.
+The hares froze,
+ready to scatter,
+then returned to their search for dinner,
+the moment already forgotten.
+
+"Do you want help?" I asked,
+gesturing at the bandage wrapped around Razi's head.
+He nodded, and we started down the hill.
+
+The aqueduct ran from the center of the palace all the way to the village.
+It was rough-edged sandstone,
+human work,
+and seemed half-finished compared to the smooth curved sparkle of the palace.
+A square pool bulged out of the aqueduct's side every hundred strides or so.
+I filled our canteens at the first of these
+as Razi unwrapped his bandage and handed it to me.
+Splashing some water on its end, I dabbed at the gash the gargoyle had given him,
+jumping only slightly when another little fish went *ploop* beside us.
+
+"*La*, that will do," Razi eventually said.
+He fingered the gash's edges gingerly.
+"How does it look?"
+
+"Like someone tried to open up your head."
+I rolled up the bandage—we would boil it clean later—and yawned.
+
+Razi grinned. "It is past your bedtime."
+
+I nodded.
+It had been a long day.
+We picked up our gear and trudged up to Razi's tent in the lemon grove.
+Their blossoms gave the air a sharp,
+clean edge.
+
+A clay pot held closed with twine sat in wait.
+Undoing the knot, Razi lifted the lid and sniffed.
+"Mm."
+Goat stew with chilis and pomegranates—one of Grappa Uzman's many daughters or granddaughters
+must have brought it as payment for the day's work.
+Razi held it out to me.
+
+I shook my head.
+"*Umma* will be waiting."
+My mother always stayed up when I was out with Razi.
+I knew because our neighbors complained that her worrying kept them awake.
+
+Razi set the pot down and raised his palms to me.
+"You did well today."
+
+"Not well enough."
+The whole way home,
+I'd been thinking about missing my first shot.
+
+He clapped me on the shoulder.
+"Yes, well enough.
+Now *la*, get some sleep.
+We'll talk tomorrow."
+He pushed me gently toward home.
+
+I read once that the name "Aphsi" comes from
+an old Thindi phrase *aph e sessi*, meaning, "the quiet people".
+If you were to walk through Medef after dark,
+you would understand why.
+Most of the conversations people surround themselves with
+don't really convey any information.
+Their purpose is reassurance:
+you are safe, your friends are here.
+
+Aphsi don't need that.
+They can *drome* whether all is well or not.
+There was a drum in the village square to sound the alarm
+in case of bandits or fire,
+but most of the villagers would never think to use it.
+The only sounds that night as I walked home were the goats,
+the birds,
+and Jephel playing the flute.
+
+He and Mureya were sitting on an old palm log people used as a bench.
+He broke off when he caught sight of me and waved.
+I waved back,
+not breaking stride,
+but then he asked,
+"How did it go?"
+
+I sighed under my breath.
+"All right."
+He shuffled sideways to make room for me,
+not noticing the uncomfortable look on Mureya's face.
+She could *drome* that I didn't want to stop and talk—not with Jephel, anyway..
+
+But Jephel was *nif* like me, and he wanted to know the details.
+There had been three?
+And we'd killed them all?
+Oh, but Razi was hurt?
+He spoke so slowly that I couldn't help but interrupt every third sentence.
+He didn't seem to mind,
+but Jephel never seemed to mind anything:
+not his chores,
+or the teasing of the other children,
+or the names they had called him when his parents apprenticed him to the village butcher.
+The only time I'd ever seen him angry was
+when Hediyeh and some of the other girls teased Mureya for holding his hand.
+I don't know what they *dromed*,
+but they never did it again.
+
+I finally ran out of patience.
+"I'm sorry," I said,
+"But it's been a long day, and *umma* will be wondering where I am."
+
+"Of course, of course."
+He ducked his head.
+"I'm sure everyone will be pleased that you took care of it."
+He laughed.
+"It's not like I could have."
+
+"Thanks."
+I raised a hand and hurried away.
+Behind me,
+he started playing again,
+a slow love song that the girls always asked for.
+
+My mother was waiting for me at the door with a soft smile on her face.
+"We got them," I said unnecessarily.
+She nodded and held up my festival *deel*
+to show me that she had finished sewing new cuffs on the sleeves,
+then set it aside to give me a quick hug.
+
+I dropped my gear and sat on a pillow on the floor,
+reaching up to take the bowl of rice and peppers she handed me.
+Ten minutes later I was asleep on the slat bed
+in the curtained alcove that had been mine since I turned ten.
+My mother had put fresh sprigs of mint and lemon under my pillow.
+I think I dreamed of desert hares, and of moonlight on the Sea of Glass,
+but after so many years it is hard to remember.
+
+My mother shook me awake.
+"Razi wants you."
+Her voice was soft and urgent.
+"Now."
+
+It was an hour before dawn.
+I dipped my fingers in the washbowl and ran them through my hair,
+slipped my *deel* over my head,
+and hurried out the door with my sandals still in my hand.
+A moment later I doubled back to grab my bow
+and the pack I had carried the day before.
+
+A dayglass lantern cast dull orange light over two dozen people
+in the village square.
+I didn't need to be able to *drome* to know they were worried.
+Razi had taken the bandage off his head.
+The gash was already scabbed over,
+and not for the first time,
+I wondered about how quickly he healed.
+"What's happening?"
+
+He pointed at a bald man in the center of the crowd
+I had never seen before.
+"He says he is from a caravan heading to Ossisswe for the examination fair.
+They were attacked by bandits,
+and lost half of their livestock and most of their water."
+
+"The lion?"
+
+Razi gave a quick, angry jerk of his head.
+"*La*, that is my thought also.
+They need help to round up what's left of their animals."
+
+"Which would empty out the village."
+
+Razi nodded again.
+"*La*, just so."
+
+Grappa Uzman broke off talking to the stranger and beckoned us over.
+Jephel was there,
+and Yassen the butcher,
+and Yassen's brother Kirash who did whatever chores people would give him
+and drank too much—all the village *nif*.
+"Here is Mogen ay Egen a Dudir," Grappa Uzman said,
+introducing the stranger to us in the formal way:
+Dudir, the son of Mogen the mother and Eben the father.
+
+"I am Razibendra uy-Ossisswe," Razi replied, raising his palms.
+Up close,
+the stranger was younger than I had thought—no more than eighteen.
+His head was shaved,
+not bald,
+and his bare arms were as thick as my thighs.
+
+Dudir raised his palms in return,
+then grasped Razi's hand in the city way.
+"My father told me to look for you.
+He said you could help."
+
+"*La*, if I can."
+Razi turned to Grappa Uzman and raised his voice so everyone could hear.
+"With your leave, grappa, I will take Kirash and half a dozen to find their animals.
+Everyone else should stay here and keep watch."
+
+"Half a dozen?" Dudir's dismay made him sound angry.
+"We lost two hundred goats last night!
+We'll never find them all with just half a dozen people!"
+
+Razi grinned. "Half a dozen *Aphsi*," he corrected.
+
+Two minutes later they were on their way out of the village
+and Yassen, Jephel, and I were on the roof of the bakery.
+Yassen had fetched his bow—like me, he had been taught to use it when he was young.
+Jephel had been taught too,
+but had never amounted to more than a danger to himself.
+There was nothing wrong with his eyes,
+though,
+or with his patience.
+If the lion and her bandits came within a hundred strides of any villager, they would know.
+Our job was to spot them if they didn't.
+
+Yassen nudged me with his elbow and passed me a stoppered jug of lemon water.
+I took a sip and passed it to Jephel,
+my eyes on the hills south and east of the village.
+The sun was just coming up,
+casting long autumn shadows tinged green-blue at the edges.
+If anything moved, we would—
+
+"There," Yassen said flatly, pointing.
+I looked north.
+Nothing, nothing…I saw it,
+a dark outline that changed shape as it moved.
+I counted three, four, and then a fifth,
+larger,
+on four legs instead of two.
+It was the lion.
+
+"Pass me a rag," Yassen ordered.
+Silently,
+Jephel handed him a scrap of cotton cloth.
+As Yassen wound it around the head of an arrow,
+Jephel uncorked the brown bottle Yassen had "borrowed" from his brother.
+The sharp smell that came from it was the evil twin of the lemon water's tang.
+
+Yassen splashed some of the alcohol on the rag, then cursed.
+"Didn't bring any matches."
+
+I had some, wrapped in waxed paper in my *deel*,
+along with a sewing needle and a toothpick.
+A scratch and a touch later,
+the rag on the arrow was alight.
+
+Yassen set it carefully on the string, drew, and let fly.
+The flame fluttered and died before the arrow arced down
+to strike an innocent patch of candelilla.
+
+"Do you think they saw it?" Jephel asked.
+
+The morning shadows were already shorter than they had been,
+but knowing where to look,
+I saw the bandits slipping away into the desert.
+"She saw it," I said.
+Lions only attack when they have the element of surprise.
+We would stay on the roof and watch
+in case she and her humans were desperate enough to try without that,
+but the excitement was over.
+
+</section>
