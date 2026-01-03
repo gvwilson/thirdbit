@@ -626,7 +626,7 @@ I wondered about how quickly he healed.
 
 He pointed at a bald man in the center of the crowd
 I had never seen before.
-"He says he is from a caravan heading to Ossisswe for the examination fair.
+"He says he is from a caravan heading to Ossisswe.
 They were attacked by bandits,
 and lost half of their livestock and most of their water."
 
@@ -729,5 +729,127 @@ Lions only attack when they have the element of surprise.
 We would stay on the roof and watch
 in case she and her humans were desperate enough to try without that,
 but the excitement was over.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 4
+
+The caravan straggled into Medef an hour later,
+trailing an ochre plume of dust.
+From the bakery roof,
+I counted ten carts and thirty people:
+eleven on camels,
+six in carts,
+and the rest on foot.
+A short string of pack camels trailed behind the last cart
+in brightly-colored harnesses.
+As I watched,
+the knots holding a round-cornered box on one camel's back came loose.
+It tumbled to the ground and broke open,
+spilling dark cloth bags holding buttons or spices onto the trail.
+A woman in a red and gray *deel* rushed over
+and beat the camel's flank with her palms to get it to stop,
+cursing when it didn't even break stride.
+
+One cart stood out from the rest.
+It was drawn by a pair of burros
+instead of one of the humpless camels the other carters used,
+and its spoked wheels would have come up to my armpits.
+Whatever occupied it was securely wrapped in dark blue canvas
+held in place with enough rope to rig a tents.
+Its driver sat with his back against his cargo
+and the burros' reins loose in his hand.
+He wore darkly-patterned *deel* and a bright yellow turban,
+which meant either that he was from Ossisswe,
+or that he was a scholar,
+or that he liked the color yellow.
+
+I nudged Yassen with my elbow.
+He sat up and scratched his beard with both hands.
+Jephel glanced at him,
+then at me,
+then went back to watching the hills where we had seen the lion and her thieves.
+
+"Sorry looking bunch, aren't they?" Yassen said sourly.
+He was right:
+when Razi had said "caravan",
+I had expected fifty carts or more.
+Medef saw two that size each year,
+one for the examination festival in Ossisswe,
+the other three months later
+when merchants from the Salt Coast who were willing to risk the deep desert
+came through on their way to Coriandel.
+They brought dayglass, chocolate, silk, mace, coral, fine leather, and books.
+Looking at the tired faces below me,
+I wondered if anyone in this "caravan" could even read.
+
+Yassen stood and stretched.
+The sun was a handspan past noon,
+and the heat made the bakery roof feel like the ovens beneath us.
+"I need to fiss," he grumbled,
+lifting the palmed roof-hatch 
+and clambering down the ladder into the cool dark below.
+
+"Can we get some water?" Jephel asked.
+He held up his canteen and shook it to show it was empty.
+
+"I'll send some up."
+The closing hatch muffled his words.
+
+Jephel sighed.
+"No he won't," he said philosophically,
+long accustomed to people forgetting about him.
+
+"Here."
+I tossed my canteen at him.
+Being thirsty would be better than listening to him not complain.
+
+As the caravan approached,
+a handful of villagers busied themselves in the posting yard.
+Palm tree logs stood in a rough grid, twelve strides to a side.
+Ropes were quickly strung on the pulleys hanging from their tops.
+Squares of canvas,
+each big enough to cover the roof I was sitting on,
+were laid across the ropes and hauled into place
+to form a single great awning over the fairground.
+The southern and eastern sides were blocked by more canvas
+to keep out the hot afternoon wind.
+
+A hundred strides away,
+four men strained to raise the sluice gate at the end of the aqueduct.
+Anywhere else in the Karaband,
+they would have chanted, "*Heph…ho!*" to stay in time.
+But they were Aphsi,
+so they worked in silence.
+
+The sluice gate finally gave in with a screech of stone on stone.
+Water poured from the aqueduct into the pipe that led to the fairground,
+where it splashed into a short trough that in turn spilled into a longer one.
+People would wash their hands and food in the first,
+while animals would drink from the second.
+
+Two sharp whistles cut through the bustle.
+I shielded my eyes with my hand
+as Razi and the villagers who had gone with him
+came over the horizon in the midst of a hundred or more goats.
+There wouldn't be any stragglers:
+if a goat was alive,
+an Aphsi would have *dromed* it and brought it in.
+
+The caravan's lead cart reached the stone gate that marked the edge of Medef.
+Its driver was the bald man who had come for help that morning.
+Beside him sat an older man with the same brawny arms,
+eagle-beak nose,
+and shaven head.
+Grappa Uzman and Granna Efiyeh raised their palms to the pair in welcome.
+A few strides further on,
+Hediyeh and some of the other girls stood in a cluster,
+their hands tucked politely in their sleeves
+and their faces shadowed by the hoods of their *deels*.
+I watched Hediyeh's head turn to follow the cart as it passed her.
+As the carter's son turned to look back,
+something prickled up my spine.
 
 </section>
