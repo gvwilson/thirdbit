@@ -1138,7 +1138,7 @@ and well kept,
 but people only went through its front door
 at the beginning and end of their lives.
 For every other visit they went around to the back
-and waited on the spacious, shady porch
+and waited on the spacious porch
 until they were invited in.
 
 Gumption and Maddy jumped to their feet
@@ -1153,19 +1153,19 @@ she said quietly.
 "And I expect he'll still be with us tomorrow,
 but he's going to have to stay here for quite some time.
 And that burn on his shell…"
-She blew on her classes and seated them on her face once again.
+She blew on her glasses and then settled them on the curve of her snout.
 "Don't suppose you know if he has people somewhere we could write to?"
 
 Gumption reached for Maddy's hand,
-then stuffed his hand back into his pocket when she hugged herself.
-"Can we see him?"
+then stuffed his own back into his pocket when she hugged herself
+instead of taking it.
+"Can we see him?" he asked.
 
 The doctor nodded.
 "He's been asking for you.
 Just a minute or two, mind—he needs to rest."
 
-Inside,
-the house smelled like flowers,
+The house smelled like flowers,
 with an undertone of the extra-strong vinegar
 that the doctor used as disinfectant.
 Doc Whinny's husband nodded at the two teenagers,
@@ -1176,10 +1176,10 @@ the doctor repeated as Gumption and Maddy climbed the stairs.
 Someone,
 years ago,
 had cut away most of the wall between two small bedrooms
-to make one larger room.
-The morning light pouring through its twin windows
-made the whitewashed walls glow,
-and Gumption thought that under other circumstances
+to make one large room.
+Morning light poured through its twin windows,
+making the whitewashed walls glow.
+Under other circumstances Gumption thought that
 Maddy would have insisted on pulling out her sketch book
 and trying to capture the flowers on the little table beside the bed.
 
@@ -1198,7 +1198,7 @@ This time Gumption *did* take her hand and squeeze it.
 swallowing the catch in his throat.
 
 The old tortoise nodded,
-his eyes fluttering.
+his eyelids fluttering.
 "Mostly.
 Close run thing, though."
 He coughed.
@@ -1224,12 +1224,12 @@ Gumption said.
 "Special Blazes already said that what happened ain't her fault.
 Didn't sound like they were gonna lock her up or anythin'."
 
-Special Leaf coughed and shook his head.
+Special Leaf coughed again and shook his head.
 "That's—that's not it.
 They'll take her.
 They'll take her if they can.
 You mustn't let them…
-Not again…"
+Not this time…"
 
 His voice trailed off.
 Gumption exchanged a worried look with Maddy.
@@ -1237,20 +1237,17 @@ Gumption exchanged a worried look with Maddy.
 Special, you aright?"
 
 "No, he's not,"
-Doc Whinny said,
+Doc Whinny said curtly,
 pushing past them and putting her hand on the tortoise's forehead.
 "That's as much as he can do right now.
 You two are welcome to come back tomorrow,
 but we have to let him rest."
 
-Gumption put his hand on Maddy's shoulder.
-"Let's go," he said quietly.
-
-She shook him off,
-wiped her face on her sleeve,
+"Let's go," Gumption said quietly.
+Maddy wiped her face on her sleeve,
 and turned and left without a word.
 After one last look at Special Leaf,
-Gumption followed her.
+he followed her.
 
 His heart sank as he stepped outside.
 Of *course* Miz Nabbles just happened to be walking past the doctor's house
@@ -1283,7 +1280,7 @@ Maddy snapped.
 "It was an accident!"
 
 Miz Nabbles sniffed.
-"Of course,
+"Well yes,
 of course it was an accident,
 but she's the one who caused it, isn't she?
 Not that anyone is really surprised.
@@ -1316,7 +1313,7 @@ Gumption said hastily.
 
 Maddy rounded on him ten steps and a corner later.
 "Well *that* went well," she said,
-her voice full of vinegar.
+her voice full of acid.
 
 Gumption sighed.
 "You know how she is."
@@ -1337,16 +1334,16 @@ is there anything you *will* stand up for?"
 but didn't say.
 They walked the rest of the way to the mayor's house in silence.
 
-The ground floor of the mayor's house was one big open room.
+The ground floor of the mayor's house was one open room.
 "Big enough for all my friends," Mayor Lupus was fond of saying.
 "But not enough for your opinion of yourself,"
 Miz Nabbles had once been heard to mutter.
+
 Gumption had been in the room once a year for the end-of-school celebration,
 but had never been upstairs before.
 Climbing the stairs felt like going from morning to evening.
 Dark wood instead of brightly-painted walls,
-portraits of previous mayors with serious looks on their faces
-(he wondered if any had been painted by Papa Roo),
+portraits of previous mayors with serious looks on their faces,
 and actual carpets on the floor—it made him wish he'd had a bath that morning,
 or at least the day before.
 
@@ -1366,14 +1363,13 @@ The questions started immediately.
 How long had the teens known about Sindy's ability?
 Had Special Leaf known?
 Had she ever controlled *his* tech?
-Or anything else?
 What about Dockety and the other bots—did they know about this?
 
 Growing up in a large family had given Gumption
 a lot of opportunities to practice playing dumb.
 Maddy wasn't nearly as good at dodging questions,
 but the only time he tried to take one for her
-she gave him a glare that would have curdled vinegar.
+she gave him a glare that would have curdled milk.
 Yes, they'd known,
 but not that she could do *this*.
 No,
@@ -1388,7 +1384,7 @@ he rumbled,
 "But we can't help her if we don't know what help she needs."
 
 "So you're going to help her now?"
-Maddy muttered.
+Maddy demanded.
 
 "Maddy Roo, your manners,"
 Mama Roo said curtly.
@@ -1401,7 +1397,7 @@ Special Blazes exchanged a look with the mayor.
 I don't think we have much choice.
 We're going to have to take Sindy to headquarters at Sandy Bend for testing.
 No, no, hear me out, please."
-He raised a paw to cut off the Roos' objections.
+He raised his paw to cut off the Roos' objections.
 "It isn't up to me, or the mayor, or you either.
 It's regulations.
 Any time someone shows special abilities,
@@ -1446,7 +1442,7 @@ Come on, Maddy."
 She squeezed her daughter's shoulders.
 
 Gumption half-hoped Maddy would invite him to come with them,
-but she just said,
+but all she said was,
 "See you tomorrow,"
 so he nodded and said,
 "See ya,"
@@ -1468,7 +1464,7 @@ the home that Dockety and its fellow bots had built.
 Was "camp" the right word for buildings with concrete floors and proper roofs?
 Gumption had overheard some people refer to it as "Bots' End",
 and he hoped the name would stick.
-It was just a a dozen structures ranging in size
+It was just a dozen structures ranging in size
 from a garden shed to half the size of the Roos' house,
 all arranged in a circle around a black charging post—but
 Rusty Bridge was just a place too.
@@ -1525,7 +1521,7 @@ It hesitated.
 "Innocuous,"
 it finally said.
 
-Gumption straightened up patted Crusher's side.
+Gumption straightened up and patted Crusher's side.
 "That's a good idea,
 but I can't afford any kind o' Sandy Bend school."
 
