@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Next Steps for Simulation</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Next Steps for Simulation</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2025/12/30/discrete-events/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-01-05" class="post-date">2026-01-05</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>I&rsquo;ve filed <a href="https://github.com/gvwilson/sim/issues">a few issues</a>
+in the <a href="https://github.com/gvwilson/sim">GitHub repository</a>
+for my <a href="https://gvwilson.github.io/sim/">discrete event simulation</a> of a small software development team
+in order to map out future work.
+The goal is to move away from what <a href="https://www.drcathicks.com/">Cat Hicks</a> calls
+the &ldquo;brains in jars&rdquo; conception of programmers by including things like this:</p>
+<ul>
+<li><a href="https://github.com/gvwilson/sim/issues/5">Rushing work</a> should increase the chance that re-work will be needed.</li>
+<li>If programmers don&rsquo;t ever get a break, they <a href="https://github.com/gvwilson/sim/issues/6">burn out</a>,
+    which increases both their bug rate and the time needed to do the next task.</li>
+<li>Too many meetings slows things down,
+    but <a href="https://github.com/gvwilson/sim/issues/8">too few meetings</a> increases the chance of re-work being needed
+    because of faulty or absent communication.</li>
+</ul>
+<p>In order to implement these,
+though,
+I&rsquo;ll need a way to simulate activities that multiple people are working on at the same time.
+This would be easy to do if all but the last person to join the activity
+sat idle waiting for it to start,
+but that&rsquo;s not realistic.
+I could instead model it as a multi-person interrupt,
+but <a href="https://gvwilson.github.io/sim/interrupts/">interrupts are hard</a>.
+If you have enough experience with <a href="https://simpy.readthedocs.io/">SimPy</a> to offer examples,
+I&rsquo;d be grateful.
+And if you&rsquo;re a professor looking for capstone projects for students,
+please give me a shout:
+I think that a discrete event simulation framework based on <code>async</code>/<code>await</code> instead of <code>yield</code>
+would be just about the right size.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+  </body>
+</html>
