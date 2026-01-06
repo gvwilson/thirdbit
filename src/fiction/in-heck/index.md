@@ -67,7 +67,7 @@ she said conversationally.
 She rapped her gnarlywood cane against her mechanical leg.
 "Fightin' bots is a lot easier when you have a few on your side."
 
-Miz Nabbles's mane twitched at the rebuke
+Miz Nabbles' mane twitched at the rebuke
 as if to shoo away a fly.
 She had put herself forward for election the year before,
 but had garnered even fewer votes than the mayor's previous challenger.
@@ -2036,7 +2036,7 @@ and nobody ever talks about the smell,"
 Gumption agreed.
 
 "The what?"
-A moment later she hissed, "Eww!
+A moment later she hissed, "Ew!
 Gumption Goat, you're disgusting!"
 
 "Sorry," he whispered cheerfully.
@@ -2083,7 +2083,7 @@ So don't worry—we'll make sure Sindy's aright,
 an' then we'll figure out what to do about your pa."
 
 He lay back down.
-When Maddy said, "Eww!" again a moment later,
+When Maddy said, "Ew!" again a moment later,
 he smiled in the darkness.
 
 Bee Six Vee pulled the wagon off the road just before mid-day.
@@ -3468,7 +3468,7 @@ It turned to Gumption.
 
 "Please—"
 
-"I heard, but eww, no."
+"I heard, but ew, no."
 Gumption shook his head.
 "Why can't you do it?"
 
@@ -3489,7 +3489,7 @@ he said.
 Dockety replied coldly.
 "And does not wish to resemble an Operator."
 
-The storkbot plucked the mechanical eye from Gumptions' hand
+The storkbot plucked the mechanical eye from Gumption's hand
 and passed it to one of the other bots in the circle.
 "The flyer took your companion to a disused observation post,"
 they said.
@@ -3712,7 +3712,7 @@ Maddy let out a breath she hadn't realized she was holding.
 At least Sindy was safe.
 
 As if on cue,
-Special Blazes's voice boomed all around her.
+Special Blazes' voice boomed all around her.
 "—about her sister."
 
 "Damn shame,"
@@ -5474,7 +5474,7 @@ Can't you talk to us when we wake up?"
 "You're not frozen like us,
 so you just die."
 
-She stood up before Maddie could react to what she had said.
+She stood up before Maddy could react to what she had said.
 "Come on.
 I'll take to you to meet the bit of Central that runs this place.
 It's *so* much better at explaining things than I am.
