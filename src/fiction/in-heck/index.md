@@ -6324,7 +6324,7 @@ Somewhere under his fur his heart started to beat again.
 
 Moonlight dappled the Roos' porch.
 Gumption shifted in his chair,
-resisting the urge to scratch the spot on his waist
+resisting the urge to scratch the spots
 where the armor had rubbed his fur away.
 For want of anything else to wear,
 he had left it on as Bee Six Vee hauled them back to Rusty Bridge.
@@ -6361,7 +6361,7 @@ picking up his iced tea and slurping it.
 Inside,
 Mama Roo asked a question and Papa Roo haltingly replied.
 His mind still wandered,
-but getting sharper every day.
+but was getting sharper every day.
 "Just thinkin' about—about all of it."
 
 Maddy ruffled his fur.
@@ -6371,7 +6371,7 @@ She put her hand back on the bench between them.
 He took it,
 marvelling at how natural that felt.
 "Went by Special Leaf's earlier.
-Doc Whinny says he'll back on his feet soon."
+Doc Whinny says he'll be back on his feet soon."
 
 Maddy nodded.
 "Hope so.
@@ -6386,15 +6386,14 @@ but everyone deserves a chance to make up for 'em."
 
 "Even Blazes?"
 
-Gumption shrugged again.
-"Thoughtful came around.
-Maybe Blazes will too some day."
+"Thoughtful came around,"
+Gumption said.
+"Maybe Blazes will too some day."
 
 "I'm not holding my breath,"
 Maddy shot back.
 
-Furious at Thoughtful's betrayal,
-and at Bee Six Vee for siding with her,
+Furious at Thoughtful and Bee Six Vee,
 Blazes had stormed off as soon as they were out of Heck.
 Thoughtful had just shrugged when Maddy asked her if she was afraid of the angry tiger.
 "I'm a rabbit,"
@@ -6412,14 +6411,14 @@ We ought to—"
 Gumption squeezed her hand hard enough to stop her mid-sentence.
 "Hey.
 We don't have to solve all the world's problems tonight.
-You just write down what all happened for the newspaper and do the pictures they want
+You just write down what happened for the newspaper and do the pictures they want
 so I can be famous when I go off to that fancy mechanics' school."
 
 Before Maddy could reply,
 Mama Roo stepped onto the porch
 with a fresh pitcher of tea and her husband behind her.
 "Beautiful evening,"
-she said as she and Papa Roo sat.
+she said as she and Papa Roo sat down.
 
 "It is that," Gumption said,
 then pointed at the sky.
