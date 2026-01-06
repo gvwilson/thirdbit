@@ -2836,9 +2836,8 @@ but there was nothing anyone could do.
 ## A Familiar Voice
 
 Maddy had flown twice before:
-once when she, Dockety, and Sindy escaped from
-the bunker where Patient in Darkness had enslaved so many bots,
-and once on her own when she went back to free them.
+once when she, Dockety, and Sindy escaped from Patient in Darkness,
+and once on her own when she went back to free the bots it had enslaved.
 She had been terrified both times.
 Kangaroos didn't like heights.
 She didn't even climb trees except on a dare
@@ -2863,7 +2862,7 @@ but had returned empty-handed.
 As if on cue,
 something long and angry splashed in the river below.
 She tightened her grip on the bot.
-Flying wasn't as bad a nightmare as the thing that guarded the swamp.
+Flying wasn't as bad a nightmare as the tentacled thing that guarded the swamp.
 
 The bot began to descend a few minutes later.
 Down, down, down—there.
@@ -2883,7 +2882,7 @@ she exclaimed as twigs jabbed her through her skirt,
 and then,
 "Hey!
 What am I supposed to do now?"
-Instead of answering
+Instead of answering,
 the helibot perched on the rusty guardrail opposite Maddy.
 The high-pitched whine of its rotor lowered to a dull drone.
 
@@ -2908,13 +2907,15 @@ She would have to find another way to—
 Maddy jumped as metal scraped behind her.
 A hatch was opening in the tower's roof!
 
-Three quick steps took her to the nearest tree.
+Three quick steps took her to the edge of the roof.
+The nearest trees were an easy jump away.
 She *hated* climbing—her feet were too big for it—but
 she could if she had to.
 Or could she?
 The branches were interlaced so tightly that she couldn't fit through them,
-except now that she looked closely they weren't just branches:
-someone had woven cables through them for camouflage.
+except now that she looked closely they weren't just branches.
+Someone had woven cables through them for camouflage,
+leaving only one small gap.
 
 *Clang!*
 She whirled around as a pile of wreckage rose through the open hatch.
@@ -2931,8 +2932,8 @@ Patient in Darkness said in a crackly voice that a shiver down Maddy's spine.
 And what happened to your wheels?"
 Maddy asked weakly as the mad bot pulled itself onto the roof on mismatched legs.
 The last time she had seen Patient,
-it had been fleeing from its defeat at its bunker.
-It had definitely had wheels, not legs.
+it had been fleeing from its defeat at its bunker,
+and it had definitely had wheels, not legs.
 
 "They were not the optimal configuration for this one's revised situation.
 And you know what they say:
@@ -3073,7 +3074,7 @@ trying not to shiver.
 Out of the goodness of your heart."
 
 "This one does not have a heart,"
-Patient sniffed.
+Patient said stiffly.
 "This one merely recognizes that our goals are aligned.
 Every original that the deviance acquires delays the Makers' return.
 To assist you is to serve them.
