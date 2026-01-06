@@ -4751,8 +4751,9 @@ until her legs were dangling over the edge.
 A little further…
 a little further…
 Her boots scraped against the pavement.
-She grabbed the little cleaning bot and started running in big, bounding steps,
-then took a deep breath and let go of the wagon.
+She grabbed the little cleaning bot
+and started running in big, bounding steps to keep pace with the wagon,
+then took a deep breath and let go.
 
 She managed three steps before her toe caught and sent her sprawling,
 tearing a hole in her skirt and skinning both knees.
@@ -4875,7 +4876,7 @@ The images disappeared,
 only to be replaced with others.
 "Those n-n-not selected will st-st-still have a role to play,"
 the cheerful voice stuttered.
-An original with long, curly hair picked up tortoise and kissed its nose.
+An original with long, curly hair picked up a tortoise and kissed its nose.
 As she turned to face Maddy,
 she and the tortoise both morphed into cartoon drawings
 that slid on top of each other to produce something akin to a young Special Leaf.
@@ -4986,7 +4987,7 @@ and froze in shock.
 A dozen plain metal cots filled an airless, windowless room.
 Half were empty,
 but the ones nearest her held—she swallowed hard.
-Those had been people, once,
+Those had been people once,
 deer and ox and wolves and goats and something she thought was a crocodile
 but might have been an alligator,
 she could never tell the two apart.
@@ -5048,7 +5049,7 @@ The little bot shivered in distress.
 
 Papa Roo blinked and looked up.
 He looked smaller than Maddy remembered,
-and the fur has worn off the underside of his right arm
+and the fur had worn off the underside of his right arm
 where it rested on the table.
 
 "Amazing."
@@ -5084,7 +5085,8 @@ It will take you too!
 You have to get out of here, now!"
 
 "Not without you!"
-But as she reached for his sleeve Mouse bumped into her leg.
+But as she reached for his sleeve,
+Mouse bumped into her leg.
 "Not now," she said without looking down.
 
 It bumped into her leg again.
