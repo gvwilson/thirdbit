@@ -4369,8 +4369,8 @@ while he was lost in the story.
 "What—" he started,
 then stopped.
 Shouldn't he be worried or afraid or, or *something*?
-As he had the thought he realized that he was,
-but that it felt strangely distant,
+He was,
+but it felt strangely distant,
 as if his feelings were in his mother's treasured cake pan
 and he was looking at them through its glass lid.
 
@@ -4442,7 +4442,7 @@ Perhaps what you are experiencing is similar, but in reverse."
 Gumption digested that for a few steps.
 "So if you don't feel things, why do you do anything?"
 
-"This one does feel things,"
+"This one does feel some things,"
 Dockety replied.
 "This one feels loyalty and anger and curiosity.
 This one just hopes to feel them more some day,
@@ -4463,7 +4463,7 @@ Dockety buzzed.
 "We believe those words belong to the Makers.
 Now come—we must move quickly."
 
-Gumption climbed on Dockety's back once again when they reached the road.
+Gumption climbed back on Dockety when they reached the road.
 The armor made it awkward,
 particularly the part he had decided to think of as a cast-iron bathing suit,
 but the extra weight didn't seem to slow the bot down.
@@ -4478,10 +4478,8 @@ Gumption asked as he dismounted and stretched.
 "Almost,"
 Dockety buzzed.
 "This one can feel Central.
-It is still faint,
-but its pull will become harder to resist as we get closer.
-The longer we are near it,
-the stronger it will be."
+It is faint,
+but its pull will become harder to resist as we get closer."
 
 "Much harder,"
 a familiar voice cackled.
@@ -4497,7 +4495,7 @@ Its body was a battered cylinder decorated with twists of metal and glued-on pic
 Gadgets and loose wires sprouted at odd angles,
 and its mismatched legs would have been more at home on something twice its size.
 It should have been the stuff of nightmares,
-but Gumption straightened up and said,
+but Gumption straightened and said,
 "Well,
 fancy meeting you here."
 
@@ -4559,7 +4557,7 @@ Gumption uncrossed his arms.
 Patient lunged forward a step.
 "We are all susceptible.
 Some of us are just able to resist,
-and this one does not believe you have mastered that art."
+and this one does not believe you are capable of that."
 
 Gumption turned to Dockety.
 "Can you feel it right now?"
@@ -4657,7 +4655,7 @@ He turned and beckoned.
 A bot with studded tricycle wheels and sturdy arms rolled into view
 towing a trailer cage like the one Patient's minions had used
 in their raid on Rusty Bridge.
-Gumption felt Dockety's hand on his arm again
+Gumption felt Dockety's hand on his arm
 as Special Blazes and Thoughtful picked Sindy up
 and placed her in the cart.
 
