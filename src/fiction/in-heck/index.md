@@ -2546,9 +2546,8 @@ she said urgently, pointing.
 
 Special Blazes put two fingers in his mouth and whistled loudly.
 "Power up," he ordered Bee Six Vee.
-"We got work to do."
-
-"And you,"
+"We got work to do.
+And you,"
 he continued,
 rounding on Sindy, Maddy, and Gumption.
 "You get into the trees and keep your heads down.
@@ -2566,14 +2565,14 @@ The tiger and Thoughtful exchanged looks.
 "This isn't a story, son,"
 the rabbit said,
 a hardness in her voice that hadn't been there a moment before.
-"You stay with your friends and keep outta trouble."
 But then she reached under the wagon's bench seat
 to pull out a squat wide-mouthed gun and pass it to the young goat.
 
 "You know how to use this?"
 she asked.
 
-"Yes'm," Gumption said.
+"Yes'm," Gumption said,
+hoping he sounded more confident than he felt.
 "Point it at the bad guy and pull the trigger."
 
 Special Blazes shrugged out of his uniform jacket.
@@ -2583,13 +2582,14 @@ he ordered.
 
 Crouching behind a stand of larch trees a few moments later,
 Gumption could smell the dry earth under his feet,
-the soap that Mama Roo used on her children,
+the pine soap that the Roo family used,
 and the sweat in his armpits.
 Beside him,
 Maddy put an arm around her sister's shoulders and squeezed.
 
 "Here they come,"
-Gumption said as half a dozen dark dots in a vee zoomed closer.
+Gumption said,
+his heart pounding as half a dozen dark dots in a vee zoomed closer.
 
 The helibots' rotors whined and then shrieked as they dove at the camp.
 White sparks danced across their bellies.
@@ -2634,7 +2634,7 @@ we can worry about it then."
 Gumption shook her off angrily.
 "Lemme go!"
 
-But even as he said it Able bleated,
+But even as he said it Able squeaked,
 "Oh no! Look!"
 
 A fresh wave of bots had appeared on the far side of the clearing
@@ -2683,7 +2683,9 @@ grabbing Sindy's arm.
 
 *Uh uh,*
 Gumption thought grimly.
-He raised the gun that Thoughtful had given him and fired.
+He raised the gun that Thoughtful had given him,
+squinted the way he had seen the older members of the militia do in practice sessions,
+and fired.
 
 *Boom!*
 A wire spiderweb burst wide in the air and wrapped around the scout bot.
@@ -2691,6 +2693,9 @@ The wires sparked and sizzled.
 The bot careened off course,
 crashed into a tree,
 and toppled over on its side to lie still.
+
+"Wow," Gumption breathed.
+He'd scored a hit with his first-ever shot!
 
 *Szzt!*
 Special Blazes' fireball found its target,
@@ -2724,7 +2729,7 @@ tangling another scout bot.
 "Help me!"
 Gumption yelled at Able,
 sprinting into the clearing.
-He kicked the blocks away from its rear wheels,
+He kicked the blocks away from the wagon's rear wheels,
 put his shoulder against the backboard,
 and pushed.
 
@@ -2801,10 +2806,9 @@ Bee Six Vee insisted.
 the tiger snapped.
 "Look, I'm sorry—it had a good singing voice,
 but we have work to do.
-Now make sure the rest of this lot are out of commission,
-then get yourself hitched to the wagon
-so we can get out of here."
-Special Blazes kicked the burned-out crab bot nearest the wagon.
+Make sure the rest of them are out of commission.
+Bee—get yourself hitched to the wagon so we can get out of here."
+He kicked the burned-out crab bot nearest the wagon.
 "Who in the Makers' names *are* they?"
 
 That was when Gumption heard Sindy scream,
@@ -2812,7 +2816,7 @@ That was when Gumption heard Sindy scream,
 He whirled around just in time to see
 one of the helibots that had escaped earlier
 rise into the air
-with the older Roo sister dangling in its claws.
+with the older Roo sister struggling in its claws.
 
 Thoughtful raised her rifle.
 "No!"
