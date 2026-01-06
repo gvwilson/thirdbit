@@ -5105,14 +5105,17 @@ before an electric shock ran all the way up her spine.
 
 ## It Will Win or Lose
 
-Several bots floated silently through the air as they approached
+Several bots floated silently through the air
+as Gumption, Dockety, and Patient approached
 a second gate set into a concrete wall three stories high.
-*Here goes nothing,* Gumption thought as they passed through it.
+*Here goes nothing,* Gumption thought.
 
-The wall that curved away on either side loomed over windowless buildings
+Inside,
+the wall loomed over windowless buildings
 connected by pipes, walkways, and conveyor belts.
 Bots bigger than any Gumption had ever seen rolled through the broad paved streets,
-but—he blinked.
+but—he blinked,
+feeling a distant sense of surprise.
 If he looked closely,
 he could see through them.
 They were holograms,
@@ -5228,7 +5231,7 @@ We will continue our search."
 
 The cots in the next room were empty.
 So were the ones in the room after that,
-but when the entered next one a bleary-eyed boar looked up at them.
+but in the third room a bleary-eyed boar looked up at them from its desk.
 "Dropping off or picking up?"
 it asked in a gravelly voice.
 
@@ -5272,7 +5275,7 @@ as it raced down the stairs and back into the street.
 "Where are we going?" he puffed.
 
 "To the central laboratory!"
-it snapped.
+Patient snapped.
 "Were you not listening?
 Must this one do your thinking for you?
 Must this one do *everyone's* thinking!?
@@ -5329,7 +5332,7 @@ Patient hissed.
 "The central laboratory.
 The center of Central's deviance.
 And look—we are just in time."
-It clutched Gumption's arm to stop him stepping foward
+It clutched Gumption's arm
 as Special Blazes, Thoughtful,
 and a wheeled bot hauling a cage cart with Sindy inside
 came into sight
