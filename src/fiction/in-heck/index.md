@@ -5343,12 +5343,12 @@ came into sight
 
 ## Dreaming Violet
 
-Maddy woke up in bed—in *her* bed,
-the bed she had woken up in every morning for as long as she could remember.
+Maddy woke up in bed—*her* bed,
+the one she had woken up in every morning for as long as she could remember.
 She knew it was hers
-because the blanket still smelled just slightly like grass
+because the blanket still smelled slightly like grass
 from the time she had used it for a picnic
-and because the pillow had a slight lump in the corner
+and the pillow had a slight lump in the corner
 that she had never been able to pummel out of it.
 
 She rolled onto her side and rubbed her eyes.
@@ -5360,7 +5360,7 @@ In their place stood a floor-to-ceiling bookshelf
 straight out of Special Leaf's house.
 Gray light tinged with a hint of purple lit up the window beside it.
 
-She rubbed her eyes again and sat up,
+She sat up,
 or tried to.
 Her body felt strangely heavy,
 or no,
@@ -5474,7 +5474,7 @@ Can't you talk to us when we wake up?"
 "You're not frozen like us,
 so you just die."
 
-She stood up.
+She stood up before Maddie could react to what she had said.
 "Come on.
 I'll take to you to meet the bit of Central that runs this place.
 It's *so* much better at explaining things than I am.
@@ -5630,7 +5630,7 @@ On their own,
 these little ones feel more loyalty and anger and curiosity every day.
 Those small feelings are worth ending for."
 
-Maddy up in a padded chair.
+Maddy woke up in a padded chair.
 Its back was slightly tilted so that her head didn't fall forward,
 which was fortunate because she couldn't move.
 She wasn't strapped in,
