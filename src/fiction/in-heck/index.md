@@ -1974,14 +1974,17 @@ Their little box cave was pitch black—the only light
 came from a tiny crack between two of the boxes over Gumption's head
 and another one between the sideboards next to him.
 
-Gumption tried to stay out of Maddy's way as she wriggled around
-in a vain attempt to find a more comfortable position.
+Gumption was uncomfortably aware of how close he and Maddy were,
+and of the faintly flowery smell of her fur.
+He tried to stay out of her way as she wriggled around
+in a vain attempt to find a less awkward position.
 Finally he reached down by their feet to grab her satchel
 and handed it to her.
 "Here," he whispered.
 "Try using this for a pillow."
+
 He put his own bag under his head and closed his eyes.
-Their little hiding place was already uncomfortably warm,
+Their little hiding place was already stuffy,
 but he had worked in the fields since he was old enough to pull carrots out of the ground,
 and had dozed on a plank bench more than once.
 He could get through this—he just hoped Maddy could as well.
@@ -2014,17 +2017,18 @@ but the swamp's tentacled guardian had made the task too risky.
 *And now Papa Roo is somewhere a hundred times worse,*
 Gumption thought.
 He hadn't known Maddy's father well,
-but he remembered a warm laugh and jokes so bad you just had to smile.
+but he remembered a warm laugh and jokes so bad people just had to smile.
 
 He elbowed Maddy.
 "Hey,"
 he whispered.
 "Whatcha thinking about?"
 
-After a moment of silence,
-she said,
-"It's a lot easier in stories, isn't it?
-Hiding and stowing away and all that—folk just do it.
+For a few moments the only sounds were the rattle of the wagon's wheels
+and the squeak of its suspension.
+"It's a lot easier in stories, isn't it?"
+Maddy said.
+"Hiding and stowing away and all that—folk just do it.
 Nobody ever says it's hard work."
 
 "Yeah,
@@ -2068,11 +2072,11 @@ and of how clean her fur smelled.
 "'Cept for that time you tried skating on Weaver's Pond.
 You remember that?"
 He tsk'ed.
-"That was truly spectacular."
+"That was truly somethin'."
 
 He rolled onto his side and propped his head up on his arm.
-"'cept than that,
-and the time you tried make double-dip cookies but forgot the salt,
+"'cept for that,
+and the time you made double-dip cookies but forgot the salt,
 and maybe a couple or three other times,
 I've pretty much always taken you seriously.
 So don't worry—we'll make sure Sindy's aright,
@@ -2081,11 +2085,9 @@ an' then we'll figure out what to do about your pa."
 He lay back down.
 When Maddy said, "Eww!" again a moment later,
 he smiled in the darkness.
-Above their heads,
-Able the mailbot began to hum a happy tune.
 
-Bee Six Vee pulled off the road just before mid-day.
-The wagon bounced a little as the passengers up front climbed down off their bench.
+Bee Six Vee pulled the wagon off the road just before mid-day.
+It bounced a little as the passengers up front climbed down off their bench.
 "Go ahead and stretch your legs,"
 Thoughtful told Sindy.
 "And, uh, if you need a bit o' privacy,
@@ -2149,7 +2151,7 @@ she said to Sindy.
 "Are we going to have dinner, too?
 I'm hungry."
 
-"Best road stew you've ever eaten,"
+"Best parsnip stew you've ever eaten,"
 the rabbit promised.
 "I'll be back to get a fire started in no time."
 
@@ -2246,7 +2248,7 @@ and he didn't much care if he ever saw either of them again,
 but he couldn't help feeling a little bit of sympathy for them
 wanting to go and see the world.
 
-He had known since the first day he met Maddy that she was going to.
+He had known since the first day he met Maddy that she was going to leave some day.
 He had been trying all summer to figure out how to tell her that it was aright,
 that he understood she needed more than Rusty Bridge could offer
 and that he wouldn't mind her leaving him behind,
