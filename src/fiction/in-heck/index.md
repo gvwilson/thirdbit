@@ -5809,7 +5809,7 @@ This one will do that while you occupy them."
 "What?"
 
 "Are your auditory processors as defective as your reasoning?
-This one will stand here.
+This one will stand guard here.
 You will enter the laboratory."
 
 Gumption crossed his arms and glared at the bot.
@@ -5839,8 +5839,7 @@ Papa Roo, Maddy, and Sindy were side by side in padded chairs.
 Maddy's eyes were open,
 but Papa Roo's and Sindy's were closed.
 He didn't like the look of the helmet on Sindy's head,
-but at that particular moment it wasn't at the top of his "don't like" list.
-It wasn't even in the top five.
+but at that particular moment it wasn't even in the top five of his "don't like" list.
 
 "Uh uh, don't do it," he warned Thoughtful
 as her hand twitched toward the rifle slung over her shoulder.
@@ -5873,7 +5872,7 @@ You really don't want to find out what this one can do."
 Special Blazes scratched under his eyepatch with one clawed finger.
 "So you're one of the missing Mattock sisters?
 Seems unlikely—as I recall, they were buffalo, not bots.
-Doesn't mean you dn't have something fancy-dance that these guys don't recognize."
+Doesn't mean you don't have something fancy-dance that these guys don't recognize."
 He jerked his thumb at the bots.
 "But I'm willing to take that chance."
 
@@ -5887,10 +5886,10 @@ She looked straight at him and mouthed "Gumption?"
 
 "Perhaps you should ask your captured special about taking chances,"
 he said,
-raising his voice slightly.
+raising his voice.
 "She might know more than you think."
 
-The tiger's smile widened to show sharp white teeth.
+The tiger's smile widened to reveal sharp white teeth.
 "Well, I know a fair bit about tech myself.
 Enough to recognize a hologram when I see one.
 And I think I recognize the voice, too.
@@ -5933,7 +5932,8 @@ The tiger's eyes widened with shock.
 
 *Crack!*
 Thoughtful's shot hit one of the bots in its chest.
-As it crumpled to the floor she pumped the action on the rifle to reload,
+As it crumpled to the floor,
+she pumped the action on the rifle to reload,
 yelping as Mouse rammed her ankle
 and a second bot seized the rifle's barrel.
 
@@ -5955,7 +5955,7 @@ but the shot had gone off too soon to do more than sizzle in the air.
 He grabbed Maddy's upper arms and rolled to the side,
 dragging her out of the chair into a heap on the floor beside him.
 She pushed him away,
-her eyes widening as she realized that she had control of her body again.
+her eyes widening as she realized that she had regained control of her body.
 They scrambled to their feet as another fireball burst out of Special Blazes' ruined shirt.
 
 One bot wrestled Thoughtful for the rifle.
@@ -5963,7 +5963,7 @@ The other clamped its hands around the tiger's arm.
 Both pairs spun around as they wrestled,
 banging into machinery and knocking boxes off shelves
 while Mouse zipped back and forth between their feet
-trying to trip the Operators or just because there was nothing else it could do.
+trying to trip the Operators.
 
 "Get Sindy!" Maddy shouted,
 bounding over to her sister.
@@ -5974,7 +5974,7 @@ Sindy shouted back.
 Get Papa first!"
 
 Gumption grabbed Maddy and pulled her out of the way
-as the lab bot wrestling with Thoughtful spun around and threw her across the room.
+as the lab bot wrestling with Thoughtful twisted around and threw her across the room.
 The other bot grabbed the tech on Special Blazes chest with both manipulators and pulled.
 
 "No!"
@@ -5998,7 +5998,7 @@ What is happening?
 Wh-wh-what is happ—
 is happ—"
 
-The bots froze just as Dockety and Patient had.
+The bots froze.
 *Uh oh,* Gumption thought.
 "Sindy?
 Are you doing that?"
@@ -6010,7 +6010,7 @@ Gumption heard the panic in her voice.
 "It's trying—Maddy, help me!
 It's trying to—
 It's t-t-trying to—"
-And then she froze just as the bots had.
+And then she froze too.
 
 "Boss?"
 Thoughtful had gotten back on her feet and picked up her rifle.
