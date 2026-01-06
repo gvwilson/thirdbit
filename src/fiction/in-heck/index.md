@@ -4130,8 +4130,7 @@ and you know what'll happen then."
 She held her breath until it added `how hide`
 
 She held out the discombobulator.
-The cleaning bot rolled forward,
-for all the world as if it was sniffing the small device.
+The cleaning bot rolled forward as if to sniff the small device.
 `not understand`
 
 "I've already tested it,"
@@ -4140,9 +4139,8 @@ Maddy said.
 
 The bot beeped,
 turned,
-and rolled over to the wall opposite the entrance.
-A panel slid aside in its top.
-A delicate arm unfolded,
+and rolled to the wall opposite the entrance.
+A delicate arm unfolded from the top of the bot,
 pulled open a cover plate,
 and punched a code into the keypad behind it.
 With a scrape that spoke of long disuse,
@@ -4208,15 +4206,15 @@ After a moment's hesitation the bot rolled forward and let her pick it up.
 `tickles`
 
 It was heavier than she had expected,
-and too big for the pockets in her dress,
-so in the end she held it against her chest and climbed the ladder one-handed.
+and too big for the pockets in her dress.
+In the end she held it against her chest and climbed the ladder one-handed.
 Each time she reached for the next rung
 she had to squelch a moment of panic.
 Would anyone ever find her if she fell?
 Anyone except Patient or one of its minions?
 
 The hatch at the top of the ladder scraped aside automatically as she reached it.
-The smell and the trees told her that she was still in the swamp,
+The trees and the smell of wet vegetation told her that she was still in the swamp,
 but when she poked her head up cautiously,
 the Makers' road was just three hops away.
 A black glass recharging pillar stood beside it.
@@ -4238,7 +4236,7 @@ The wagon slowed and stopped next to the recharging pillar.
 The rabbit dismounted,
 then reached up to help Sindy climb down as well.
 
-"We got fifteen minutes, then we gotta keep moving,"
+"We have fifteen minutes, then we have to keep moving,"
 Special Blazes said from his seat.
 "We don't want to be on this road after dark."
 
@@ -4266,8 +4264,8 @@ She heard Sindy's voice raised in a question
 and Thoughtful's calming reply,
 but couldn't make out the words.
 
-The trip lasted only another hour.
-Peering through the sideboards,
+The trip lasted only a hour.
+Peering through the sideboards once again,
 Maddy watched the landscape slowly dry out.
 Willows gave way to tall grass,
 which in turn gave way to hard-packed dirt sprinkled with weeds.
@@ -4325,7 +4323,7 @@ The wagon jostled again as he stood up.
 Maddy couldn't take any more.
 The cleaning bot whirred at her
 as she pushed the tailgate open with her feet and slid out.
-Peeking cautiously around the wagon's back corner
+Peeking cautiously around the wagon's back corner,
 she saw Sindy with her hands on her hips
 looking up belligerently at an angry Special Blazes.
 
