@@ -1390,7 +1390,7 @@ Maddy demanded.
 Mama Roo said curtly.
 
 Maddy scowled.
-"Sorry, mama."
+"Sorry, Mama."
 
 Special Blazes exchanged a look with the mayor.
 "Well,
@@ -1557,10 +1557,10 @@ His conversation with Dockety had given him an idea.
 ## Tears in the Kitchen
 
 Maddy, Sindy, and Mama Roo sat in their usual chairs in the kitchen.
-Gumption leaned against the frame of the door.
+Gumption leaned against the door frame.
 Maddy hadn't exactly invited him,
 but she hadn't told him to leave either,
-even though she was half-minded to.
+even though she had half a mind to.
 
 "Everyone was talking about how they wanted to be Operators,
 and I thought—"
@@ -1581,7 +1581,7 @@ Maddy said firmly.
 
 "But they're gonna take me *away*!"
 She jumped out of her chair and wrapped her arms around her mother.
-"I have to go to and be tested
+"I have to go to Sandy Bend to be tested
 and they're going to find out about,"
 hiccup,
 "About *everything*."
@@ -1648,7 +1648,7 @@ They're not paying me for it,
 but maybe if I go and show them what else I can do
 they'll take me on or give me piecework,
 and you know we can use the money,
-and that Sindy won't have to—"
+and then Sindy won't have to—"
 
 Mama Roo shook her head.
 "No.
@@ -1666,20 +1666,21 @@ The Operators will take care of her."
 
 It sounded more like a wish in Maddy's ears than a prediction.
 She hesitated.
-Should she tell mer mother Special Leaf's warning?
+Should she tell her mother Special Leaf's warning?
 But if she did,
 what exactly would she say?
 
-So instead she said, "Yes, mama,"
-and got the carrots out of the vegetable box
-and started peeling them
-as if they were kindling to be chopped.
+So instead she replied, "Yes, Mama,"
+got the carrots out of the vegetable box,
+and started chopping them as if they were kindling for the fire.
 
 Mama Roo tried her best to be cheerful during dinner.
 Maddy tried to play along,
 but all the while her thoughts were elsewhere.
 Once dishes were washed
-and her mother and sister lying side-by-side in Sindy's narrow bed,
+her mother and sister lay down side-by-side in Sindy's narrow bed,
+just as they had when she was a baby.
+
 Maddy closed the door to her tiny bedroom and began to pack her bag.
 Her sketchbook and two pencils,
 clean underwear,
@@ -1709,7 +1710,7 @@ she hissed.
 The young goat's face fell.
 "I'm just tryin' to help."
 
-Maddy sighed again.
+Maddy sighed.
 "I know.
 I just—I can't let her go off on her own,
 not after what Special Leaf said."
@@ -1766,12 +1767,11 @@ Aright?"
 She nodded and then punched his shoulder,
 feeling a weight lift from hers.
 
-Maddy woke to the sound of her sister's tears
+Maddy woke the next morning to the sound of her sister's tears
 and her mother's soothing voice.
 She rubbed the sleep from her eyes and dressed quickly,
 cursing the knots in her fur as she tried to brush them out.
 She hadn't put a brush in her knapsack,
-she realized,
 or a bar of soap,
 but there wasn't time for that now.
 
@@ -1787,9 +1787,9 @@ A handful of people had gathered to see the Operators off.
 when she spotted Miz Nabbles,
 who sniffed and then ignored her.
 Mayor Lupus was there too,
-listening patiently as Able chatted happily
-about how nice it would be to have company on the road,
-but at least Bluster and Bravo had stayed away.
+listening patiently as Able chatted
+about how nice it would be to have company on the road.
+At least Bluster and Bravo had stayed away.
 
 "Aright,"
 Thoughtful said loudly,
@@ -1803,7 +1803,7 @@ while the Operators slung their bags and Sindy's beneath the wagon's bench seat.
 the rabbit reassured Sindy.
 "And it's fast, too.
 We'll be in Sandy Bend in time for lunch tomorrow,
-and I know a place along by the river that'll do you the best milkshake in the world."
+and I know a place by the river that'll do you the best milkshake in the world."
 
 After one final hug from her mother,
 Sindy climbed onto the seat between the two Operators.
@@ -1911,14 +1911,15 @@ he said hurriedly before Special Blazes could reply.
 Just ask folk, they'll tell you.
 And I ain't scared o' bots or nothin'."
 
-"Huh,"
+"Hmph,"
 Sindy snorted.
 "What about your brother?
 Never seen you do anything without his say-so.
 You think you'll be all right without him around to tell you what to do?"
 
 Bravo lowered his hands, glowering.
-"This ain't none o' your business, Sindy Roo."
+"Don't you be gettin' all bossy like your sister, Sindy Roo.
+This ain't none o' your business."
 
 "Might not be hers, but it sure is mine,"
 Bluster Goat said angrily,
