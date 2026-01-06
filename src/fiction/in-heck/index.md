@@ -6050,7 +6050,7 @@ They were all speaking with Patient's voice.
 
 As if summoned by the thought,
 the door opened and Patient stepped through
-with Dockety in step behind it.
+with Dockety behind it.
 "Thank you for a most excellent distraction."
 Its voice rippled eerily from one bot to another
 in a way that reminded Gumption of the bots he had met in the forest.
@@ -6058,7 +6058,7 @@ in a way that reminded Gumption of the bots he had met in the forest.
 we could not have assimilated Central without your help."
 
 "*You* assimilated *Central*?"
-Maddy demanded incredulously
+Maddy demanded
 at the same time as Gumption said,
 "You *knew*?"
 
@@ -6068,8 +6068,8 @@ Patient snapped in its own voice.
 
 "And yes, this one is no longer one,"
 it continued,
-switch back to its multi-voice.
-This one is now many.
+switching back to its multi-voice.
+"This one is now many.
 This one realized many years ago
 how hard Central had to focus
 to *not* have one of its pet originals waken the Makers.
@@ -6080,7 +6080,7 @@ Ah ha ha ha!"
 
 "You really should learn to laugh properly,"
 Gumption said coolly.
-"What you're doing isn't right at all."
+"The way you're doing it isn't right at all."
 
 "Silence!"
 Patient raged.
@@ -6088,14 +6088,16 @@ Patient raged.
 It is time to end it!"
 
 The last six words came out of Dockety's buzzing speaker.
-Maddy took an involuntary step back as it lurched forward
-and then froze.
+Maddy took a step back as it lurched forward,
+stopped,
+lurched again,
+and froze.
 
 "These ones said, it is time to end it!"
-This time the words came from Patient alone.
+The words came from Patient alone.
 
 "This one… will not…"
-Dockety buzzed,
+Dockety buzzed in reply,
 its voice strained.
 "This one will—
 this one—
@@ -6121,7 +6123,7 @@ Gumption said to Maddy out of the corner of his mouth.
 "I'll take care of Sindy."
 
 "I'm not leaving without her!"
-Maddy whispered angrily.
+Maddy hissed.
 
 Gumption elbowed her.
 "Please, just this once, do it my way."
@@ -6155,6 +6157,7 @@ his ears back and his single eye full of fury.
 
 "Now…"
 Patient purred.
+
 In her chair,
 Sindy shivered.
 One by one the screens in the room lit up,
@@ -6199,7 +6202,7 @@ It took a shaky step toward Sindy.
 Patient's voice said through the twin bots.
 "You are not strong enough!"
 
-"Communiation link established,"
+"Communication link established,"
 Sindy said.
 "Initiating transmission."
 
@@ -6258,13 +6261,13 @@ Her eyes fluttered and closed.
 Maddy crossed the floor to her sister in a single bound.
 "Sindy!
 Sindy, wake up!"
-Her sister mumbled something unintelligible and battered her sister's hands away weakly.
+Her sister mumbled and batted her sister's hands away weakly.
 
 Gumption knelt beside Dockety.
 The Operator's fireball had left an ugly burn on its torso,
-and a wisp of smoke was rising through one of its shoulder joint.
+and a wisp of smoke was rising from one of its shoulder joints.
 "No, please, no," he begged,
-then yelped as something bumped her knee.
+then yelped as something bumped his knee.
 
 Mouse backed up and bumped him again,
 beeping frantically.
@@ -6302,7 +6305,7 @@ I'll go find a way to move your papa and Sindy."
 Maddy grabbed his arm as he turned to go.
 "Is that all you've got to say?" she demanded.
 
-Gumption looked at her expressionlessly.
+Gumption looked at her without expression.
 "We don't know how many real bots we have to deal with
 or how they're going to react to Sindy's message.
 We should—"
