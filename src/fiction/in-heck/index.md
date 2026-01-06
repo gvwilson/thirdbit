@@ -3519,9 +3519,8 @@ Fine—what about your clothes?
 Even if they are,
 how could you see anything if light just passed through your eyes?
 
-Or has something hidden you from sight or made you unnoticeable?
-Great:
-does it muffle the sound of you panting
+Or has something somehow hidden you from sight?
+Great—does it muffle the sound of you panting
 as you run along an overgrown path through a swamp filled with your worst nightmares?
 Does it conceal the footsteps you leave in the mud,
 or stop branches and tall grass from swaying as you brush against them?
@@ -3561,7 +3560,7 @@ its readout told her.
 "Great,"
 she muttered.
 She had no idea which way the observatory was.
-She wasn't even sure which way Rusty Bridge,
+She wasn't even sure which way Rusty Bridge was,
 and which direction would take her to Heck instead.
 The only thing she *did* know was—
 
@@ -3570,7 +3569,8 @@ It was a crazy idea,
 but she had played hide and seek with Sindy and Gumption often enough to know that
 where you hid didn't matter as much as where people went looking for you.
 
-She counted down the minutes.
+She counted down the minutes,
+each of which seemed longer than the one before it.
 Ten…
 Five…
 The readout on the discombobulator showed just two minutes remaining
@@ -3605,14 +3605,13 @@ The discombobulator vibrated on her wrist.
 She pressed the button just as the bot tensed
 and charged into the bushes on her left.
 While it thrashed the innocent weeds in disappointment
-she bounded across the Makers' road and back along the trail to Patient's tower,
-desperately hoping that she wouldn't run headlong into
+she bounded across the Makers' road and back along the trail to Patient's tower.
+She could only hope that she wouldn't run headlong into
 whatever other minions the mad bot had sent after her.
 
 A few minutes later she stood in front of the tower's stained concrete base.
-The rusty metal door in front of her looked enough like
-the one that had led to the underground bunker where she had first encountered Patient
-to keep her heart racing.
+The rusty metal door in front of her looked just like
+the one that had led to Patient's underground bunker.
 The sign above it read "DANGER",
 but she already knew that.
 
@@ -3627,13 +3626,12 @@ Inside the tower was a single large, empty room.
 The walls and roof were bare concrete blocks,
 and the air was damp and still.
 Where the entrance to Patient's bunker had been blanketed with dried mud and blown leaves,
-though,
 this room had been swept clean.
 
 Dim light through the door revealed a rust-streaked sign on the wall that read,
 "Data Acquisition Network: Genetic Enhancement Research".
 Maddy had no idea what that meant,
-but a black glass panel and a keyhole lay in the wall beside the door
+but a black glass panel and a keyhole lay in the wall
 next to a pair of sturdy levers and an open door.
 
 Pushing aside her memories of what had happened the last time she had been in a place like this,
@@ -3651,12 +3649,15 @@ She had expected a warren of tunnels like Patient's previous lair.
 Instead,
 she quickly found herself at another heavy door
 that slid aside at her touch to reveal a circular room with a domed ceiling.
-Four reclining chairs waited in the center of the room,
-none of them holding a skeleton.
+Four reclining chairs waited in the center of the room.
+To Maddy's relief,
+none of them held a skeleton.
 
 A lonely light blinked in the arm of one of the chairs.
 "Sure, why not?"
 Maddy muttered.
+It wasn't like there were other options…
+
 She lowered herself into the chair,
 wriggled a bit to make herself more comfortable,
 and placed her hands on the control panels,
@@ -3676,12 +3677,12 @@ The scene dimmed
 and was replaced with a grainy picture of her sitting in a reclining chair.
 As she opened her mouth to say,
 "Very funny,"
-the picture zoomed out to become a floor plan of the room she was in
+the image zoomed out to become a floor plan of the room she was in
 and half a dozen others connected by corridors.
 It zoomed out again until the underground complex was just a blinking square.
 Stippled green marked the Mire.
 A meandering blue line was the river,
-and a straighter black one must be the Makers' road.
+so the straighter black one beside it must be the Makers' road.
 
 "Show me where Patient is,"
 she ordered.
@@ -3690,19 +3691,19 @@ Not the flying one,
 the—oh.
 Thank you."
 
-The picture above her had been taken through willow branches,
-but was definitely Patient in Darkness.
+The image above her was half-filled with willow branches,
+but Patient in Darkness was clear behind them.
 A blinking line connected it to a white circle south of her.
-Images of other bots popped up in a circle it:
+Images of other bots popped up in a circle around Patient:
 some built to fly,
 others to crawl,
 others obviously intended for battle.
 
-A blue circle appeared north and west of her,
+A blue circle appeared northwest of her,
 then split in two unequal pieces.
 One moved toward the Makers' road.
 A moment later,
-the other began heading more slowly in the opposite direction.
+the other began to move more slowly in the opposite direction.
 Pictures popped up beside them.
 The smaller circle was Dockety and Gumption—they must be looking for her!
 That meant the larger one was the Operators and Sindy on their way to Sandy Bend.
@@ -3715,7 +3716,7 @@ Special Blazes's voice boomed all around her.
 "—about her sister."
 
 "Damn shame,"
-Thoughtful agreed.
+Thoughtful's voice agreed.
 "Roundin' up throwbacks is wearin' enough
 without other folk gettin' caught up in it.
 The sooner we deliver this one,
@@ -3728,7 +3729,7 @@ Special Blazes scoffed.
 Not like that old fool Leaf."
 
 "What if he gets it into his head to tell tales like Meribeth did?"
-the rabbit asked.
+Maddy heard the rabbit asked.
 
 "He won't,"
 the tiger replied confidently.
