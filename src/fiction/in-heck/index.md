@@ -3171,9 +3171,9 @@ up the overgrown path toward the Makers' road.
 ## A Meeting in the Trees
 
 "Maddy!" Sindy screamed.
-Gumption whirled around just in time to see
+Gumption whirled around to see
 the helibot that had escaped earlier
-shoot into the sky with Maddy dangling beneath it.
+shoot into the sky with Maddy struggling beneath it.
 
 Thoughtful raised her rifle and took aim.
 "No!" Gumption shouted,
@@ -3202,7 +3202,7 @@ Gumption and Sindy argued with Special Blazes.
 
 Finally the tiger exploded.
 "Are you even listening to yourselves?" he demanded.
-"If she isn't in Heck already she will be soon.
+"If she isn't in Heck already, she will be soon.
 We go after her,
 folks'll be burning candles for all of us instead of just her."
 
@@ -3211,8 +3211,7 @@ Gumption started for the fifth time.
 
 "I said *no*."
 Blazes jabbed a clawed finger at him.
-"What happened here is your fault,
-yours and hers.
+"What happened here is your fault—yours and hers.
 Nobody made you sneak onto the wagon.
 Nobody made you put yourselves in harm's way."
 
@@ -3232,17 +3231,19 @@ it continued as Special Blazes opened his mouth.
 its battery would already have been depleted by the time it reached us.
 There is at least a chance it would have to land and recharge.
 If it did,
-Maddy might have escaped"
+Maddy might have escaped."
 
 The tiger studied him.
 "And if you get caught?"
 
-Dockety's lenses rotated and then rotated back.
+Dockety turned its head to Gumption.
+When he nodded,
+the bot said,
 "That is a chance we are willing to take."
 
 "Hey boss,
 can I talk to you for a sec?"
-Thoughtful said as Special Blazes started to object.
+asked Thoughtful as Special Blazes started to object.
 The two Operators put their heads together.
 All Gumption could make out was, "…make things a lot easier…"
 before Special Blazes nodded and they straightened up.
@@ -3254,7 +3255,7 @@ He didn't trust the Operators,
 but the idea that Maddy would be held prisoner in Heck
 like her father—he shook his head.
 He had realized long ago that knowledge could be as powerful as gravity.
-Just knowing something could tug at you and leave you no choice but falling.
+Just knowing something could leave you no choice but to fall.
 
 He put his hands on Sindy's shoulders
 the way he had seen Maddy do.
@@ -3276,19 +3277,19 @@ Two minutes later Gumption tied the top of his knapsack shut.
 he promised Sindy,
 giving the young Roo a hug.
 
-She squeezed him back so tightly that his injured ribs twinged,
-but when she let go her eyes were dry.
+She squeezed him back so tightly that his injured ribs twinged.
+When she let go, her eyes were dry.
 "If anyone can find her, you can,"
 she repeated.
 
-"Good luck," Special Blazes said gruffly
-as Gumption nodded and climbed onto Dockety's back.
+"Good luck," Special Blazes said gruffly.
+Gumption nodded and climbed onto Dockety's back.
 Thoughtful touched the brim of her hat in salute.
 
 *Do actual adventures always feel like this?*
 he wondered.
-Did real heroes always have a sick knot in their stomach
-from thinking about all the things that could go wrong
+Did real heroes get a sick knot in their stomach
+thinking about all the things that could go wrong
 that could never be put right?
 "I'm ready," he lied.
 
@@ -3306,10 +3307,10 @@ at least once a week.
 For another,
 his father had climbed the stairs in a steady rhythm that helped rock his son to sleep.
 Clinging to the bot as it bumped over small chunks of broken paving
-and swerved to dodge larger ones and potholes
+and swerved to dodge potholes
 was about as relaxing as a game of dodgeball.
 
-Dockety slowed and stopped as they reached the Makers' road.
+Dockety halted when they reached the Makers' road.
 "Oww…" Gumption moaned,
 sliding off the bot's back
 and twisting until his spine made a satisfying crunch.
@@ -3323,7 +3324,7 @@ There is another one near here that may be able to provide information,
 or even assist us."
 
 "But?"
-Gumption prompted.
+Gumption prompted when the robot hesitated.
 
 "They may instead choose to dismantle us,"
 Dockety admitted.
@@ -3358,7 +3359,7 @@ that the bots used for recharging.
 
 "Now we wait.
 Quietly,"
-the bot added as Gumption opened his mouth.
+the bot added before Gumption could ask another question.
 
 The minutes dragged by.
 When Gumption slapped at a mosquito,
@@ -3371,8 +3372,9 @@ Gumption didn't realize his eyelids were drooping until they snapped open
 when something scuttled out of the undergrowth
 and froze a few steps away from him.
 *Well hello there,* he thought.
-The flat, square bot looked like the little cleaning bot that Maddy had met in Patient's bunker,
-but had crab legs instead of wheels.
+The flat, square bot looked like the little cleaning bot
+that Maddy had met in Patient's bunker,
+but with crab legs instead of wheels.
 
 The little bot clicked its forelegs together in a rapid staccato pattern,
 paused,
@@ -3492,14 +3494,13 @@ and passed it to one of the other bots in the circle.
 "The flyer took your companion to a disused observation post,"
 they said.
 "The tower's current occupant controls several such bots.
-It is unpleasant, and we avoid it."
-
-"However,"
-they went on as Gumption opened his mouth,
+It is unpleasant, and we avoid it.
+However,"
+they went on before Gumption could interrupt,
 "She was able to escape."
 
 "Great,"
-he said.
+Gumption said.
 "So where is she now?"
 
 The storkbot clacked its metal beak.
