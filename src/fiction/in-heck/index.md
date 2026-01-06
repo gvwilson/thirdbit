@@ -3767,9 +3767,9 @@ The storkbot clacked its metal beak.
 it said.
 "And in danger."
 
-And with those words,
-Gumption felt a familiar fear squeeze his chest once again.
-He hadn't ever talked to anyone about it:
+With those words,
+Gumption felt a familiar fear squeeze his chest.
+He had never talked to anyone about it:
 it wasn't the kind of thing
 a teenage goat would discuss with his parents.
 He *definitely* couldn't talk about it with Maddy,
@@ -3777,12 +3777,12 @@ even though she was his best friend,
 because he hoped that maybe, some day, she would be something more.
 He didn't know what would happen if she found out how much he worried about her.
 He had been hurt in the attack on Rusty Bridge,
-but she could have *died*,
-and whenever his thoughts got close to that,
+but she could have *died*.
+Whenever his thoughts got close to that,
 his mind seized up like a saw blade getting snagged on green wood.
 
 "So what are we waiting for?"
-he demanded angrily.
+he demanded.
 "You've got Dockety's eye—let's go help her!"
 
 A rustle ran through the circle of bots.
@@ -3790,7 +3790,7 @@ A rustle ran through the circle of bots.
 Retrieval will not be possible without stealth.
 These must prepare you."
 
-Gumption held his breath for a count of three and then let it out slowly,
+Gumption held his breath for a count of three and then exhaled slowly,
 just as he had seen Special Leaf teach Sindy to do
 when a piece of tech misbehaved.
 "What does *that* mean?"
@@ -3801,7 +3801,7 @@ With no more warning than that,
 the assembled bots surged forward.
 
 "Stop! Wait! Let me go!"
-Gumption shouted as a motley dozen clamps, manipulators, and tentacles seized him.
+Gumption shouted as a motley mix of clamps, manipulators, and tentacles seized him.
 "Dockety! Dockety, help!"
 
 His companion's single remaining lens rotated.
@@ -3811,7 +3811,7 @@ You must let them disguise you."
 
 Gumption struggled and swore as the bots carried him through the forest.
 Low-hanging branches scratched his face,
-and at one point his head was lower than his feet as they surged up a hill.
+and at one point his head was lower than his feet as they rushed up a hill.
 All he could think about was
 a particularly creepy scene from one of Special Leaf's story books
 about a raccoon who was turned into a bot and sent back to spy on the breathing.
@@ -3821,24 +3821,24 @@ trying vainly to get free.
 
 Suddenly there was a dirty gray ceiling over them.
 The squelch of treads and mechanical feet on swampy ground
-gave way to the click and clatter of metal on concrete.
+gave way to their click and clatter on concrete.
 The last of the daylight vanished as they turned a corner
 in whatever tunnel they had entered.
 
 Gumption's heart hammered as they hurried forward in darkness.
-After what felt like forever but was probably only a few seconds
+After a few seconds that seemed much longer,
 the darkness lightened.
-Something heavy and metallic clanged up ahead.
+Something heavy clanged metallically up ahead.
 
 The bots dropped him unceremoniously on the concrete
 and scuttled, slithered, or rolled away.
-He scrambled angrily to his feet.
-"Thanks for your help," he muttered as Dockety came up beside him.
+Gumption scrambled angrily to his feet.
+"Thanks for your help," he muttered to Dockety.
 
 "This one did not feel help was necessary,"
 the bot replied.
 
-The room was a workshop lit by a pair of dull orange light panels.
+They were in a workshop lit by a pair of dull orange light panels.
 Mismatched tables stood against the walls,
 each piled high with salvaged parts and scraps of metal.
 Pulleys hung from the ceiling on cables and chains above band saws,
@@ -3850,9 +3850,9 @@ One of the furnaces turned around.
 
 Gumption stepped back involuntarily and swallowed hard.
 "Uh, hi."
-The bot had a leg on one side
-and a heavy spoked wheel where the other would have been,
-with two skinny arms on the leg's side and a single heavy one above the wheel.
+The bot he had mistaken for a furnace had a leg on one side
+and a heavy spoked wheel where the other would have been.
+Two skinny arms hung down on the leg's side and a single heavy one above the wheel.
 Someone or something had painted an incongruous smile on it ages ago.
 A few drips of paint,
 long since dried,
@@ -3881,8 +3881,7 @@ if you would lie down here?"
 "Why do you want me to—"
 
 "No questions!"
-the Tailor snapped,
-its patience suddenly exhausted.
+the Tailor snapped.
 "What this one does goes beyond mere fabrication.
 It is *art*!
 Central is cunning,"
@@ -3893,16 +3892,16 @@ Gumption was sure it would have glanced around for dramatic effect.
 yes,
 but Central would still hear your breathing—your heartbeat.
 To conceal that requires technology of the highest order and skill to match,
-skill that this one now possesses!
+skill that only this one now possesses!
 Now *lie down*!"
 
 "You should comply,"
-Dockety buzzed as Gumption opened his mouth once again.
+Dockety buzzed before Gumption could object.
 "We have no other options."
 
 Reluctantly,
 Gumption sat on the edge of the workbench.
-"Do you want me to take my boots off?" he asked.
+"Do you want me to take my boots off?"
 
 "Your boots, your uniform, everything,"
 the Tailor ordered.
@@ -3913,7 +3912,7 @@ Gumption muttered.
 Boots, overall, shirt and undershirt—finally his underwear,
 which he stuffed into one of his boots along with his socks.
 He swung his legs up onto the workbench and lay back,
-trying and failing not to feel naked.
+trying and failing not to feel embarrassed by his nakedness.
 
 "This one will be right here,"
 Dockety said.
@@ -3925,7 +3924,7 @@ I'm ready."
 Which was a lie,
 but felt like the sort of thing someone who was actually brave would say.
 
-The light panels on the walls brightened and brightened again.
+The light panels on the walls brightened.
 He squeezed his eyes shut,
 but that just made the glare orange-red through his eyelids
 instead of blinding white.
