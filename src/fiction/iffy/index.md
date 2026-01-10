@@ -8901,8 +8901,7 @@ The old woman nodded.
 "Completely understandable.
 And it's 'doctor', by the way,
 Doctor Johel,
-and you're in Bharati,
-in Antarctica.
+and you're in Antarctica.
 It's been a little over a hundred years since you were transcribed,
 so you'll have a lot to catch up on.
 There's an app on the table there,
