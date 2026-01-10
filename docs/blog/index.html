@@ -81,6 +81,166 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/01/10/introducing-asimpy/">
+      Introducing asimpy
+    </a>
+  </h2>
+  <p><time datetime="2026-01-10" class="post-date">2026-01-10</time></p>
+  <p>I put <a href="https://gvwilson.github.io/sim/">the tutorial on discrete event simulation</a> on hold a couple of days ago
+and spent a few hours building
+<a href="https://gvwilson.github.io/asimpy/">a small discrete event simulation framework of my own</a>
+using <code>async</code>/<code>await</code> instead of <code>yield</code>.
+As I hoped,
+I learned a few things along the way.</p>
+<p>First,
+Python&rsquo;s <code>await</code> is just a layer on top of its iterator machinery
+(for an admittedly large value of &ldquo;just&rdquo;).
+When Python encounters <code>await obj</code> it does something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">iterator</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="fm">__await__</span><span class="p">()</span>  <span class="c1"># get an iterator</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>  <span class="c1"># run to the first yield</span>
+<span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>         <span class="c1"># get the result</span>
+</code></pre></div>
+<p>Breaking this down:</p>
+<ol>
+<li>Call the object&rsquo;s <code>__await__()</code> method to get an iterator.</li>
+<li>It then advances that iterator to its first <code>yield</code> to get a value.</li>
+<li>If the iterator doesn&rsquo;t <code>yield</code>, the result is whatever the iterator returns.
+    (That value arrives as the <code>.value</code> field of the <code>StopIteration</code> exception.)</li>
+</ol>
+<p>We can simulate these steps as follows:</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Define a class whose instances can be awaited.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Thing</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;before yield&quot;</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="s2">&quot;pause&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;after yield&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;result&quot;</span>
+
+<span class="c1"># Get the __await__ iterator directly</span>
+<span class="n">awaitable</span> <span class="o">=</span> <span class="n">Thing</span><span class="p">()</span>
+<span class="nb">iter</span> <span class="o">=</span> <span class="n">awaitable</span><span class="o">.</span><span class="fm">__await__</span><span class="p">()</span>  <span class="c1"># this is an iterator</span>
+
+<span class="c1"># run to first yield</span>
+<span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iterator yielded:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># Step 2: resume until completion</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;final result:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>before yield
+iterator yielded: pause
+after yield
+final result: result
+</code></pre></div></p>
+<p><code>asimpy</code> builds on this by requiring processes to be derived from a <code>Process</code> class
+and to have an <code>async</code> method called <code>run</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Process</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Sleeper</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>We can then create an instance of <code>Sleeper</code> and pass it to the environment,
+which calls its <code>run()</code> method to get a coroutine
+and schedules that coroutine for execution:</p>
+<div class="highlight"><pre><span></span><code><span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Sleeper</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">immediate</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p><code>Environment.run</code> then pulls processes from its run queue until it hits a time limit
+or runs out of things to execute:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Environment</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_queue</span><span class="p">:</span>
+            <span class="n">pending</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_queue</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">until</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">pending</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;</span> <span class="n">until</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">=</span> <span class="n">pending</span><span class="o">.</span><span class="n">time</span>
+            <span class="n">proc</span> <span class="o">=</span> <span class="n">pending</span><span class="o">.</span><span class="n">proc</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">awaited</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">_coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                <span class="n">awaited</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">proc</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                <span class="k">continue</span>
+</code></pre></div>
+<p>The two key lines are in the <code>try</code> block:</p>
+<ol>
+<li>Send <code>None</code> to the process&rsquo;s coroutine to resume its execution.</li>
+<li>Get something back the next time it calls <code>await</code>.</li>
+<li>Run that something&rsquo;s <code>act()</code> method.</li>
+</ol>
+<p>For example,
+here&rsquo;s how <code>sleep</code> works:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Environment</span><span class="p">:</span>
+    <span class="c1"># …as above…</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_Sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">_Sleep</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delay</span> <span class="o">=</span> <span class="n">delay</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delay</span><span class="p">,</span> <span class="n">proc</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="bp">self</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+<ol>
+<li><code>Environment.sleep()</code> returns an instance of <code>_Sleep</code>,
+    so <code>await self.env.sleep(t)</code> inside a process
+    gives the environment an object that says, &ldquo;Wait for <em>t</em> ticks.&rdquo;</li>
+<li>When the environment calls that object&rsquo;s <code>act()</code> method,
+    it reschedules the process that created the <code>_Sleep</code> object
+    to run again in <em>t</em> ticks.</li>
+</ol>
+<p>It is a bit convoluted—the environment asks the process for an object
+that in turn manipulates the environment—but so far
+it seems to be able to handle shared resources, job queues, and gates.
+Interrupts were harder to implement (<a href="../2025/12/08/the-real-hardest-problem/">interrupts are always hard</a>),
+but <a href="https://github.com/gvwilson/asimpy/">they are in the code as well</a>.</p>
+<p>Was this worth building?
+It only has a fraction of <a href="https://simpy.readthedocs.io/">SimPy</a>&rsquo;s features,
+and while I haven&rsquo;t benchmarked it yet,
+I&rsquo;m certain that <code>asimpy</code> is much slower.
+On the other hand,
+I learned a few things along the way,
+and it gave me an excuse to try out <a href="https://docs.astral.sh/ty/">ty</a> and <a href="https://github.com/taskipy/taskipy">taskipy</a> for the first time.
+It was also a chance to practice using an LLM as a coding assistant:
+I wouldn&rsquo;t call what I did &ldquo;vibe coding&rdquo;,
+but ChatGPT&rsquo;s explanation of how <code>async</code>/<code>await</code> works was helpful,
+as was its diagnosis of a couple of bugs.
+I&rsquo;ve <a href="https://pypi.org/project/asimpy/">published <code>asimpy</code> on PyPI</a>,
+and if a full-time job doesn&rsquo;t materialize some time soon,
+I might come back and polish it a bit more.</p>
+<blockquote>
+<p>What I cannot create, I do not understand.</p>
+<p>— Richard Feynman</p>
+</blockquote>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/01/05/next-steps-for-simulation/">
       Next Steps for Simulation
     </a>
@@ -704,312 +864,6 @@ The sizes of the circles in the plots below reflect these counts:</p>
 <p>Again,
 the probability of needing re-work has an obvious impact,
 while the probability of choosing new work vs. re-work doesn&rsquo;t seem to.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/12/03/you-have-to-cancel/">
-      You Have to Cancel
-    </a>
-  </h2>
-  <p><time datetime="2025-12-03" class="post-date">2025-12-03</time></p>
-  <p>It has taken me almost three hours to answer <a href="../2025/12/03/in-search-of-sturdiness/">my earlier question</a> about <a href="https://simpy.readthedocs.io/">SimPy</a>,
-and once I recover,
-I&rsquo;m going to submit a couple of PRs for their documentation.
-To recap,
-the most recent version of the simulation
-all testers to bounce work back to the development queue if they find bugs:</p>
-<div class="highlight"><pre><span></span><code>+----------------+    +-----------+    +------------+    +------------+    +---------+
-| task generator | -&gt; | dev queue | -&gt; | developers | -&gt; | test queue | -&gt; | testers |
-+----------------+    +-----------+    +------------+    +------------+    +---------+
-                            ^                                                   |
-                            |                                                   |
-                            +---------------------------------------------------+
-</code></pre></div>
-<p>I&rsquo;m going to walk through the code I wrote,
-the problem I had,
-and the solution I (think I&rsquo;ve) found step by step.
-If there&rsquo;s a simpler way,
-or if this <em>is</em> documentation clearly somewhere,
-please <a href="mailto:gvwilson@third-bit.com">let me know</a>.</p>
-<h2>Tasks</h2>
-<p>A <code>Task</code> has a unique ID and keeps track of how many times it has been worked on:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Task</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ident</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ident</span> <span class="o">=</span> <span class="n">ident</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;task-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ident</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span>
-</code></pre></div>
-<h2>The Overall Simulation</h2>
-<p>Since I don&rsquo;t want to have to pass a whole bunch of parameters around,
-<code>Simulation</code> stores the SimPy <code>Environment</code>,
-our single developer,
-our single tester,
-and the three queues:
-one for new tasks,
-one for tasks that need to be reworked,
-and one for tasks that are ready for testing:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Environment.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-
-        <span class="c1"># One developer and one tester.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">developer</span> <span class="o">=</span> <span class="n">Developer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tester</span> <span class="o">=</span> <span class="n">Tester</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-
-        <span class="c1"># Queues for new development work, rework, and testing.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">q_dev</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">q_rework</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">q_test</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Store</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
-</code></pre></div>
-<p><code>Simulation</code> also defines the generator that creates new tasks
-and puts them in the ready-to-develop queue:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
-    <span class="err">…</span><span class="n">previous</span> <span class="n">code</span><span class="err">…</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> create </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_dev</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">T_GEN</span><span class="p">)</span>
-</code></pre></div>
-<p>Finally,
-<code>Simulation</code> defines a convenience method that runs everything:</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">generate</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">developer</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tester</span><span class="o">.</span><span class="n">work</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">T_SIM</span><span class="p">)</span>
-</code></pre></div>
-<p>For testing,
-the parameters are:</p>
-<div class="highlight"><pre><span></span><code><span class="n">N_TASK</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># number of tasks to create</span>
-<span class="n">T_GEN</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># time between tasks</span>
-<span class="n">T_DEV</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># time to do development</span>
-<span class="n">T_TEST</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># time to do testing</span>
-<span class="n">T_SIM</span> <span class="o">=</span> <span class="mi">4</span>   <span class="c1"># how long to run the whole simulation</span>
-</code></pre></div>
-<h2>Workers</h2>
-<p>A generic <code>Worker</code> (either a developer or a tester)
-caches the object that holds the overall simulation
-and provides a couple of convenience methods for getting the current time
-and for printing itself:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Worker</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sim</span> <span class="o">=</span> <span class="n">sim</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">now</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
-</code></pre></div>
-<h2>Testers</h2>
-<p>The tester gets a task from the testing queue,
-waits a tick to simulate work,
-increments the task&rsquo;s internal count of how many times it has gone around the loop,
-and then puts it in the rework queue:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tester</span><span class="p">(</span><span class="n">Worker</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="c1"># Get a task from the testing queue.</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: wait for task(s)&quot;</span><span class="p">)</span>
-            <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_test</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-            <span class="c1"># Do testing.</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">T_TEST</span><span class="p">)</span>
-            <span class="n">task</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-
-            <span class="c1"># Always put the task in the rework queue.</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_rework</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: put </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> in rework queue&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h2>Developers (the wrong version)</h2>
-<p><strong>This code is wrong, but will be fixed below.</strong></p>
-<p>My original <code>Developer</code> waited until a task was available in <em>either</em>
-the development queue or the rework queue,
-then selected one of those tasks (giving priority to rework),
-waited a tick to simulate work,
-and put the task in the testing queue:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DeveloperWrong</span><span class="p">(</span><span class="n">Worker</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="c1"># Get either a task for development or a task for rework.</span>
-            <span class="n">req_dev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_dev</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="n">req_rework</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_rework</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: wait for task(s)&quot;</span><span class="p">)</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">simpy</span><span class="o">.</span><span class="n">AnyOf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="p">[</span><span class="n">req_dev</span><span class="p">,</span> <span class="n">req_rework</span><span class="p">])</span>
-
-            <span class="c1"># Give priority to rework.</span>
-            <span class="k">if</span> <span class="n">req_rework</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-                <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">req_rework</span><span class="p">]</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> from rework with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">)</span><span class="si">}</span><span class="s2"> events&quot;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">req_dev</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-                <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">req_dev</span><span class="p">]</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> from dev with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">)</span><span class="si">}</span><span class="s2"> events&quot;</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;how did we get here?&quot;</span>
-
-            <span class="c1"># Do development.</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">T_DEV</span><span class="p">)</span>
-
-            <span class="c1"># Put the task in the testing queue.</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_test</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: put </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> in testing queue&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>According to the documentation,
-<code>simpy.AnyOf</code> creates an object that means &ldquo;give me any of the following&rdquo;.
-Its result is a dictionary-like object
-whose keys are the requests
-and whose values are items from one or more of the queues being waited on:
-&ldquo;or more&rdquo; because it&rsquo;s possible for items to be available in multiple queues simultaneously.</p>
-<h2>Output from the Buggy Version</h2>
-<p>Here&rsquo;s the output using the <code>DeveloperWrong</code> class shown above:</p>
-<div class="highlight"><pre><span></span><code>0.00 create task-0/0
-DeveloperWrong/0.00: wait for task(s)
-Tester/0.00: wait for task(s)
-DeveloperWrong/0.00 got task-0/0 from dev with 1 events
-1.00 create task-1/0
-DeveloperWrong/1.00: put task-0/0 in testing queue
-DeveloperWrong/1.00: wait for task(s)
-Tester/1.00: got task-0/0
-DeveloperWrong/1.00 got task-1/0 from dev with 1 events
-2.00 create task-2/0
-Tester/2.00: put task-0/1 in rework queue
-Tester/2.00: wait for task(s)
-DeveloperWrong/2.00: put task-1/0 in testing queue
-DeveloperWrong/2.00: wait for task(s)
-Tester/2.00: got task-1/0
-DeveloperWrong/2.00 got task-2/0 from dev with 1 events
-3.00 create task-3/0
-Tester/3.00: put task-1/1 in rework queue
-Tester/3.00: wait for task(s)
-DeveloperWrong/3.00: put task-2/0 in testing queue
-DeveloperWrong/3.00: wait for task(s)
-Tester/3.00: got task-2/0
-DeveloperWrong/3.00 got task-3/0 from dev with 1 events
-</code></pre></div>
-<p>A lot is going on in those 23 lines,
-so let&rsquo;s look at what the developer got from where:</p>
-<div class="highlight"><pre><span></span><code>DeveloperWrong/0.00 got task-0/0 from dev with 1 events
-DeveloperWrong/1.00 got task-1/0 from dev with 1 events
-DeveloperWrong/2.00 got task-2/0 from dev with 1 events
-DeveloperWrong/3.00 got task-3/0 from dev with 1 events
-</code></pre></div>
-<p>Hm:
-the developer is never taking tasks from the rework queue.
-Is the tester putting them in?</p>
-<div class="highlight"><pre><span></span><code>Tester/0.00: wait for task(s)
-Tester/1.00: got task-0/0
-Tester/2.00: put task-0/1 in rework queue
-Tester/2.00: wait for task(s)
-Tester/2.00: got task-1/0
-Tester/3.00: put task-1/1 in rework queue
-Tester/3.00: wait for task(s)
-Tester/3.00: got task-2/0
-</code></pre></div>
-<p>So what&rsquo;s going on?</p>
-<h2>A Corrected Developer</h2>
-<p>Here&rsquo;s the skeleton of the corrected developer&rsquo;s <code>work</code> method:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">DeveloperRight</span><span class="p">(</span><span class="n">Worker</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">which</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
-        <span class="n">take</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="c1"># Get either a task for development or a task for rework.</span>
-            <span class="n">req_dev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_dev</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="n">req_rework</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_rework</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: wait for task(s)&quot;</span><span class="p">)</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">simpy</span><span class="o">.</span><span class="n">AnyOf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="p">[</span><span class="n">req_dev</span><span class="p">,</span> <span class="n">req_rework</span><span class="p">])</span>
-
-            <span class="err">…</span><span class="n">magic</span> <span class="n">happens</span> <span class="n">here</span><span class="err">…</span>
-
-            <span class="c1"># Do development.</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">T_DEV</span><span class="p">)</span>
-
-            <span class="c1"># Put the task in the testing queue.</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">q_test</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: put </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2"> in testing queue&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>The bit of magic in the middle is that as far as I can tell,
-all of the requests that <em>weren&rsquo;t</em> selected have to be canceled,
-even if there wasn&rsquo;t something in the queue at the time for the developer to take.
-For example,
-the first time the developer gets a task from the development queue,
-the rework queue is guaranteed to be empty,
-but we still have to cancel the request for something from it.</p>
-<p>In order to demonstrate this,
-I&rsquo;ve filled in the magic portion of <code>work</code> with code that alternates between
-taking work from the development queue (if available)
-and taking work from the rework queue (ditto).
-Of course,
-if there is only one event in the result from <code>AnyOf</code>,
-the code uses that,
-but <em>still cancels the other request</em>:</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">which</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
-        <span class="n">take</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="err">…</span><span class="n">get</span> <span class="n">either</span> <span class="n">a</span> <span class="n">task</span> <span class="k">for</span> <span class="n">development</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">task</span> <span class="k">for</span> <span class="n">rework</span><span class="err">…</span>
-
-            <span class="c1"># Pick one.</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...got two events&quot;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s2">&quot;dev&quot;</span><span class="p">:</span>
-                    <span class="n">take</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
-                    <span class="n">which</span> <span class="o">=</span> <span class="s2">&quot;rework&quot;</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">take</span> <span class="o">=</span> <span class="s2">&quot;rework&quot;</span>
-                    <span class="n">which</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
-            <span class="k">elif</span> <span class="n">req_dev</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...got dev&quot;</span><span class="p">)</span>
-                <span class="n">take</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
-            <span class="k">elif</span> <span class="n">req_rework</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...got rework&quot;</span><span class="p">)</span>
-                <span class="n">take</span> <span class="o">=</span> <span class="s2">&quot;rework&quot;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;how did we get here?&quot;</span>
-
-            <span class="c1"># Now take it.</span>
-            <span class="k">if</span> <span class="n">take</span> <span class="o">==</span> <span class="s2">&quot;dev&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...taking dev&quot;</span><span class="p">)</span>
-                <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">req_dev</span><span class="p">]</span>
-                <span class="n">req_rework</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
-            <span class="k">elif</span> <span class="n">take</span> <span class="o">==</span> <span class="s2">&quot;rework&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">: ...taking rework&quot;</span><span class="p">)</span>
-                <span class="n">task</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">req_rework</span><span class="p">]</span>
-                <span class="n">req_dev</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;how did we get here?&quot;</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-            <span class="err">…</span><span class="n">do</span> <span class="n">development</span> <span class="ow">and</span> <span class="n">put</span> <span class="n">the</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">testing</span> <span class="n">queue</span><span class="err">…</span>
-</code></pre></div>
-<p>Here are the relevant bits of output when the simulation is run for 10 ticks instead of just 4:</p>
-<div class="highlight"><pre><span></span><code>DeveloperRight/0.00: ...taking dev
-DeveloperRight/1.00: ...taking dev
-DeveloperRight/2.00: ...taking dev
-DeveloperRight/3.00: ...taking rework
-DeveloperRight/4.00: ...taking dev
-DeveloperRight/5.00: ...taking rework
-DeveloperRight/6.00: ...taking dev
-DeveloperRight/7.00: ...taking rework
-DeveloperRight/8.00: ...taking dev
-DeveloperRight/9.00: ...taking rework
-</code></pre></div>
-<p>As I said at the outset,
-I&rsquo;m going to submit some PRs for SimPy&rsquo;s documentation
-to shout loudly and clearly that outstanding requests need to be canceled
-(or possibly recycled: I haven&rsquo;t tried that yet).
-Meanwhile,
-I can now get back to playing with the impact of rework fractions on throughput.</p>
 </article>
 
 

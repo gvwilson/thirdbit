@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Introducing asimpy</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Introducing asimpy</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/01/05/next-steps-for-simulation/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-01-10" class="post-date">2026-01-10</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>I put <a href="https://gvwilson.github.io/sim/">the tutorial on discrete event simulation</a> on hold a couple of days ago
+and spent a few hours building
+<a href="https://gvwilson.github.io/asimpy/">a small discrete event simulation framework of my own</a>
+using <code>async</code>/<code>await</code> instead of <code>yield</code>.
+As I hoped,
+I learned a few things along the way.</p>
+<p>First,
+Python&rsquo;s <code>await</code> is just a layer on top of its iterator machinery
+(for an admittedly large value of &ldquo;just&rdquo;).
+When Python encounters <code>await obj</code> it does something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">iterator</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="fm">__await__</span><span class="p">()</span>  <span class="c1"># get an iterator</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>  <span class="c1"># run to the first yield</span>
+<span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>         <span class="c1"># get the result</span>
+</code></pre></div>
+<p>Breaking this down:</p>
+<ol>
+<li>Call the object&rsquo;s <code>__await__()</code> method to get an iterator.</li>
+<li>It then advances that iterator to its first <code>yield</code> to get a value.</li>
+<li>If the iterator doesn&rsquo;t <code>yield</code>, the result is whatever the iterator returns.
+    (That value arrives as the <code>.value</code> field of the <code>StopIteration</code> exception.)</li>
+</ol>
+<p>We can simulate these steps as follows:</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Define a class whose instances can be awaited.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Thing</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;before yield&quot;</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="s2">&quot;pause&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;after yield&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;result&quot;</span>
+
+<span class="c1"># Get the __await__ iterator directly</span>
+<span class="n">awaitable</span> <span class="o">=</span> <span class="n">Thing</span><span class="p">()</span>
+<span class="nb">iter</span> <span class="o">=</span> <span class="n">awaitable</span><span class="o">.</span><span class="fm">__await__</span><span class="p">()</span>  <span class="c1"># this is an iterator</span>
+
+<span class="c1"># run to first yield</span>
+<span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iterator yielded:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># Step 2: resume until completion</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;final result:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>before yield
+iterator yielded: pause
+after yield
+final result: result
+</code></pre></div></p>
+<p><code>asimpy</code> builds on this by requiring processes to be derived from a <code>Process</code> class
+and to have an <code>async</code> method called <code>run</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Process</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Sleeper</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>We can then create an instance of <code>Sleeper</code> and pass it to the environment,
+which calls its <code>run()</code> method to get a coroutine
+and schedules that coroutine for execution:</p>
+<div class="highlight"><pre><span></span><code><span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Sleeper</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">immediate</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p><code>Environment.run</code> then pulls processes from its run queue until it hits a time limit
+or runs out of things to execute:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Environment</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_queue</span><span class="p">:</span>
+            <span class="n">pending</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_queue</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">until</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">pending</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;</span> <span class="n">until</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">=</span> <span class="n">pending</span><span class="o">.</span><span class="n">time</span>
+            <span class="n">proc</span> <span class="o">=</span> <span class="n">pending</span><span class="o">.</span><span class="n">proc</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">awaited</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">_coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                <span class="n">awaited</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">proc</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                <span class="k">continue</span>
+</code></pre></div>
+<p>The two key lines are in the <code>try</code> block:</p>
+<ol>
+<li>Send <code>None</code> to the process&rsquo;s coroutine to resume its execution.</li>
+<li>Get something back the next time it calls <code>await</code>.</li>
+<li>Run that something&rsquo;s <code>act()</code> method.</li>
+</ol>
+<p>For example,
+here&rsquo;s how <code>sleep</code> works:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Environment</span><span class="p">:</span>
+    <span class="c1"># …as above…</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_Sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">_Sleep</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delay</span> <span class="o">=</span> <span class="n">delay</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">proc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delay</span><span class="p">,</span> <span class="n">proc</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="bp">self</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+<ol>
+<li><code>Environment.sleep()</code> returns an instance of <code>_Sleep</code>,
+    so <code>await self.env.sleep(t)</code> inside a process
+    gives the environment an object that says, &ldquo;Wait for <em>t</em> ticks.&rdquo;</li>
+<li>When the environment calls that object&rsquo;s <code>act()</code> method,
+    it reschedules the process that created the <code>_Sleep</code> object
+    to run again in <em>t</em> ticks.</li>
+</ol>
+<p>It is a bit convoluted—the environment asks the process for an object
+that in turn manipulates the environment—but so far
+it seems to be able to handle shared resources, job queues, and gates.
+Interrupts were harder to implement (<a href="../../../../2025/12/08/the-real-hardest-problem/">interrupts are always hard</a>),
+but <a href="https://github.com/gvwilson/asimpy/">they are in the code as well</a>.</p>
+<p>Was this worth building?
+It only has a fraction of <a href="https://simpy.readthedocs.io/">SimPy</a>&rsquo;s features,
+and while I haven&rsquo;t benchmarked it yet,
+I&rsquo;m certain that <code>asimpy</code> is much slower.
+On the other hand,
+I learned a few things along the way,
+and it gave me an excuse to try out <a href="https://docs.astral.sh/ty/">ty</a> and <a href="https://github.com/taskipy/taskipy">taskipy</a> for the first time.
+It was also a chance to practice using an LLM as a coding assistant:
+I wouldn&rsquo;t call what I did &ldquo;vibe coding&rdquo;,
+but ChatGPT&rsquo;s explanation of how <code>async</code>/<code>await</code> works was helpful,
+as was its diagnosis of a couple of bugs.
+I&rsquo;ve <a href="https://pypi.org/project/asimpy/">published <code>asimpy</code> on PyPI</a>,
+and if a full-time job doesn&rsquo;t materialize some time soon,
+I might come back and polish it a bit more.</p>
+<blockquote>
+<p>What I cannot create, I do not understand.</p>
+<p>— Richard Feynman</p>
+</blockquote><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+  </body>
+</html>

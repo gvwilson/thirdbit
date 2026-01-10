@@ -3,12 +3,170 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-01-05T00:00:00Z</updated>
+ <updated>2026-01-10T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Introducing asimpy</title>
+   <link href="https://third-bit.com/2026/01/10/introducing-asimpy/"/>
+   <updated>2026-01-10T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/01/10/introducing-asimpy/</id>
+   <content type="html">&lt;p&gt;I put &lt;a href=&#34;https://gvwilson.github.io/sim/&#34;&gt;the tutorial on discrete event simulation&lt;/a&gt; on hold a couple of days ago
+and spent a few hours building
+&lt;a href=&#34;https://gvwilson.github.io/asimpy/&#34;&gt;a small discrete event simulation framework of my own&lt;/a&gt;
+using &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt; instead of &lt;code&gt;yield&lt;/code&gt;.
+As I hoped,
+I learned a few things along the way.&lt;/p&gt;
+&lt;p&gt;First,
+Python&amp;rsquo;s &lt;code&gt;await&lt;/code&gt; is just a layer on top of its iterator machinery
+(for an admittedly large value of &amp;ldquo;just&amp;rdquo;).
+When Python encounters &lt;code&gt;await obj&lt;/code&gt; it does something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;iterator&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__await__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# get an iterator&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;iterator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# run to the first yield&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;StopIteration&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;         &lt;span class=&#34;c1&#34;&gt;# get the result&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Breaking this down:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Call the object&amp;rsquo;s &lt;code&gt;__await__()&lt;/code&gt; method to get an iterator.&lt;/li&gt;
+&lt;li&gt;It then advances that iterator to its first &lt;code&gt;yield&lt;/code&gt; to get a value.&lt;/li&gt;
+&lt;li&gt;If the iterator doesn&amp;rsquo;t &lt;code&gt;yield&lt;/code&gt;, the result is whatever the iterator returns.
+    (That value arrives as the &lt;code&gt;.value&lt;/code&gt; field of the &lt;code&gt;StopIteration&lt;/code&gt; exception.)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We can simulate these steps as follows:&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;c1&#34;&gt;# Define a class whose instances can be awaited.&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Thing&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__await__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;before yield&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;pause&amp;quot;&lt;/span&gt;
+        &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;after yield&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;result&amp;quot;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Get the __await__ iterator directly&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;awaitable&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Thing&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;iter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;awaitable&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__await__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# this is an iterator&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# run to first yield&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;iter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;iterator yielded:&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Step 2: resume until completion&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;iter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;StopIteration&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;final result:&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;before yield
+iterator yielded: pause
+after yield
+final result: result
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;asimpy&lt;/code&gt; builds on this by requiring processes to be derived from a &lt;code&gt;Process&lt;/code&gt; class
+and to have an &lt;code&gt;async&lt;/code&gt; method called &lt;code&gt;run&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;
+
+    &lt;span class=&#34;nd&#34;&gt;@abstractmethod&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt;
+
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Sleeper&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can then create an instance of &lt;code&gt;Sleeper&lt;/code&gt; and pass it to the environment,
+which calls its &lt;code&gt;run()&lt;/code&gt; method to get a coroutine
+and schedules that coroutine for execution:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Sleeper&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;immediate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;Environment.run&lt;/code&gt; then pulls processes from its run queue until it hits a time limit
+or runs out of things to execute:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;until&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_queue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;pending&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;heapq&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;heappop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_queue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;until&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pending&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;until&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+
+            &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pending&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pending&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt;
+
+            &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;awaited&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_coro&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;awaited&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;act&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+            &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;StopIteration&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;continue&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The two key lines are in the &lt;code&gt;try&lt;/code&gt; block:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Send &lt;code&gt;None&lt;/code&gt; to the process&amp;rsquo;s coroutine to resume its execution.&lt;/li&gt;
+&lt;li&gt;Get something back the next time it calls &lt;code&gt;await&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Run that something&amp;rsquo;s &lt;code&gt;act()&lt;/code&gt; method.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For example,
+here&amp;rsquo;s how &lt;code&gt;sleep&lt;/code&gt; works:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;# …as above…&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_Sleep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;_Sleep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_env&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_delay&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;delay&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;act&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;schedule&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;now&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_delay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__await__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Environment.sleep()&lt;/code&gt; returns an instance of &lt;code&gt;_Sleep&lt;/code&gt;,
+    so &lt;code&gt;await self.env.sleep(t)&lt;/code&gt; inside a process
+    gives the environment an object that says, &amp;ldquo;Wait for &lt;em&gt;t&lt;/em&gt; ticks.&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;When the environment calls that object&amp;rsquo;s &lt;code&gt;act()&lt;/code&gt; method,
+    it reschedules the process that created the &lt;code&gt;_Sleep&lt;/code&gt; object
+    to run again in &lt;em&gt;t&lt;/em&gt; ticks.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It is a bit convoluted—the environment asks the process for an object
+that in turn manipulates the environment—but so far
+it seems to be able to handle shared resources, job queues, and gates.
+Interrupts were harder to implement (&lt;a href=&#34;https://third-bit.com/2025/12/08/the-real-hardest-problem/&#34;&gt;interrupts are always hard&lt;/a&gt;),
+but &lt;a href=&#34;https://github.com/gvwilson/asimpy/&#34;&gt;they are in the code as well&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Was this worth building?
+It only has a fraction of &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt;&amp;rsquo;s features,
+and while I haven&amp;rsquo;t benchmarked it yet,
+I&amp;rsquo;m certain that &lt;code&gt;asimpy&lt;/code&gt; is much slower.
+On the other hand,
+I learned a few things along the way,
+and it gave me an excuse to try out &lt;a href=&#34;https://docs.astral.sh/ty/&#34;&gt;ty&lt;/a&gt; and &lt;a href=&#34;https://github.com/taskipy/taskipy&#34;&gt;taskipy&lt;/a&gt; for the first time.
+It was also a chance to practice using an LLM as a coding assistant:
+I wouldn&amp;rsquo;t call what I did &amp;ldquo;vibe coding&amp;rdquo;,
+but ChatGPT&amp;rsquo;s explanation of how &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt; works was helpful,
+as was its diagnosis of a couple of bugs.
+I&amp;rsquo;ve &lt;a href=&#34;https://pypi.org/project/asimpy/&#34;&gt;published &lt;code&gt;asimpy&lt;/code&gt; on PyPI&lt;/a&gt;,
+and if a full-time job doesn&amp;rsquo;t materialize some time soon,
+I might come back and polish it a bit more.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What I cannot create, I do not understand.&lt;/p&gt;
+&lt;p&gt;— Richard Feynman&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+ </entry>
  
  <entry>
    <title>Next Steps for Simulation</title>
@@ -2716,69 +2874,6 @@ go back to it.)
 We could add another parameter to our model and another few lines of code to capture this,
 but before we do that,
 we need to put some better analysis machinery in place.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Looking for Work</title>
-   <link href="https://third-bit.com/2025/11/21/looking-for-work/"/>
-   <updated>2025-11-21T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/11/21/looking-for-work/</id>
-   <content type="html">&lt;p&gt;I was laid off by Plotly a few weeks ago,
-so I&amp;rsquo;m looking for something new.
-I would prefer to work in education, developer experience, open source, or scientific computing,
-and I&amp;rsquo;m open to part-time, full-time, or contracting positions,
-either in Toronto or remote.
-There&amp;rsquo;s more about me at &lt;a href=&#34;https://third-bit.com/about/&#34;&gt;https://third-bit.com/about/&lt;/a&gt;;
-if you&amp;rsquo;d like to chat,
-please give me a shout.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;Later: a couple of people have asked me what I&amp;rsquo;d like most to do.
-My answer has evolved a bit since I wrote &lt;a href=&#34;https://third-bit.com/2024/02/25/my-last-to-dont-list/&#34;&gt;this post&lt;/a&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Build and deliver a workshop on &lt;a href=&#34;https://gvwilson.github.io/change/&#34;&gt;organizational change&lt;/a&gt;
-    for people working in open source and open science.
-    I&amp;rsquo;m really tired of watching everyone
-    &lt;a href=&#34;https://third-bit.com/2022/08/07/sisyphus/&#34;&gt;roll the same rocks up the same hills&lt;/a&gt;
-    year after year;
-    if we don&amp;rsquo;t change the system,
-    that&amp;rsquo;s never going to get better.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;I want to say &amp;ldquo;teach scientists how to build their own software and manage their data&amp;rdquo;,
-    because that&amp;rsquo;s the most rewarding thing I&amp;rsquo;ve ever done professionally,
-    but what I &lt;em&gt;really&lt;/em&gt; want is to do a multi-year study of the impact that this training has.
-    Back when I was a professor,
-    I asked &lt;a href=&#34;https://www.nserc-crsng.gc.ca/&#34;&gt;NSERC&lt;/a&gt; to fund some &lt;a href=&#34;https://carpentries.org&#34;&gt;Carpentries&lt;/a&gt;-style workshops
-    for &lt;a href=&#34;https://www.nserc-crsng.gc.ca/students-etudiants/ug-pc/usra-brpc_eng.asp&#34;&gt;undergraduates who are spending a summer in a research lab&lt;/a&gt;
-    and then ask (a) whether it helped them immediately and
-    (b) whether they were then more likely to go on to graduate school.
-    NSERC said no,
-    but maybe someone else would see the value.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;I miss coding—I realized a while back that
-    nothing I&amp;rsquo;ve written is still in production use anywhere in the world.
-    I&amp;rsquo;d be proud and grateful for a chance to help build something related to climate crisis resilience,
-    defending human rights,
-    or making open source development a sustainable career choice.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;There are lots of other things I&amp;rsquo;d enjoy working on,
-including a tower defense game in which the player is trying to &lt;em&gt;help&lt;/em&gt; the travellers on the road
-instead of kill them,
-a mod for &lt;a href=&#34;https://www.stardewvalley.net/&#34;&gt;Stardew Valley&lt;/a&gt; that turns it into a cozy murder mystery game,
-a &lt;a href=&#34;https://third-bit.com/talks/sdgc/&#34;&gt;new kind undergraduate software engineering course&lt;/a&gt;,
-or any of &lt;a href=&#34;https://third-bit.com/ideas/not-on-the-shelves/2024/&#34;&gt;these books&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;What I want most of all, though,
-is to do whatever I do next with a group of people I enjoy hanging out with.
-I still miss some of my colleagues from the Carpentries, RStudio, and Deep Genomics,
-and I&amp;rsquo;m sure I&amp;rsquo;m going to miss a lot of the folks I worked with at Plotly;
-if I&amp;rsquo;ve learned anything in sixty-two years,
-it&amp;rsquo;s that in the long run,
-the &amp;ldquo;who&amp;rdquo; matters at least as much as the &amp;ldquo;what&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;Time for another cup of tea.
-If you came in peace, be welcome.&lt;/p&gt;</content>
  </entry>
  
 </feed>
