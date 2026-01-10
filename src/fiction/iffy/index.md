@@ -7768,6 +7768,12 @@ She and Honesty were going to go and find out some day, she decided sleepily.
 She rolled over onto her side.
 Moments later, her quiet snores filled the room.
 
+</section>
+
+<section markdown="1">
+
+## Chapter 9
+
 They limped into Halley the next day.
 Iffy waited on deck until Aunt Naggie appeared
 with a duffel full of food and spices hitched over one shoulder.
@@ -8022,12 +8028,6 @@ Aunt Naggie squeezed her hand again.
 She leaned forward and kissed Iffy's forehead.
 "Now you get some sleep.
 I don't figure there'll be much time for it once you're on your way."
-
-</section>
-
-<section markdown="1">
-
-## Chapter 9
 
 Iffy took another shower in the morning,
 wondering as she did so what it would be like
