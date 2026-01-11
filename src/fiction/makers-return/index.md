@@ -25,6 +25,11 @@ fiction: true
     -   Is furious that the Makers aren't what it expected
     -   So it wants to blow up their ship (and the whole valley with it)
 
+## To Do
+
+-   Patient is lonely (echoes Sindy and Violet's loneliness)
+    -   Achieved what it wanted for so many years, only to find it hollow
+
 ## Characters
 
 -   Rusty Bridge
@@ -329,13 +334,13 @@ fiction: true
 -   Open with Violet's warning about Patient blowing up the ship
     -   Plans to put its consciousness in Z40 and Z51 to get aboard the ship
     -   Violet explains that the explosion will destroy the whole valley
--   They get outside
+-   They leave Lawson and make their way outside
     -   Can't take the shuttle: it's still broken
     -   Sindy says she has a plan, but Violet isn't going to like it
 -   Leads Violet and Mouse into the forest
     -   Gets Mouse to call some of the Tailor's free bots
     -   Explains the danger
-    -   Free bots carry them back to Bots' End but won't go further
+    -   Free bots carry them to Bots' End but won't help further
     -   They want to flee because they don't think much of the breathers' chances
 -   Sindy explains the situation to Crusher (abbreviated version of explanation above)
     -   Dockety and Beevy arrive
@@ -346,16 +351,16 @@ fiction: true
 ### Chapter 18: Violet
 
 -   Rusty Bridge militia, Blazes, and Dockety's bots versus Z40, Z51, and other bots
--   Violet wants to run away
+    -   Bluster and Bravo fight well (minor redemption arc)
+-   Violet feels guilty about leaving Lawson but wants to run away
 -   Sindy drags her to Special Leaf's house through the chaos
 -   Sindy breaks in and grabs some of Special Leaf's tech
 -   Expects Violet to be able to make it work because she's an original
     -   But it doesn't
--   Sindy triggers a piece of tech with a recorded message for her from Special Leaf
+-   Sindy accidentally triggers a piece of tech with a recorded message for her from Special Leaf
     -   Tells her that her parents called him in when she was born (allays her fears about being adopted)
-    -   Tells her how proud he is of her
-    -   And that the house and its belongings are hers
-    -   Including what's behind his bookcase
+    -   Tells her how proud he is of her, and that the house and its belongings are hers
+    -   Including what's hidden behind his bookcase
 -   Violet and Sindy find and open Special Leaf's secret stash
     -   Violet recognizes some of the tech
     -   She picks up a piece and it *does* work for her
@@ -373,22 +378,30 @@ fiction: true
     -   Knocks over the schoolhouse (which Sindy doesn't mind)
 -   Sindy taunts Patient and gets the bot to chase her
 -   Beevy, Dockety, Blazes, and Nash bring it down
--   Then Nash takes the robot control helmet from Violet
--   Uses it to revive Z40 and Z51 and head for the downed ship
+-   Then Nash knocks out Blazes
+    -   Takes the robot control helmet from Violet
+    -   Uses it to revive Z40 and Z51
+    -   Plans to destroy the Makers in order to ensure that the hybrids will remain free
+    -   Heads for the downed ship riding Z40
 
 ### Chapter 20: Violet
 
--   Dockety gives Violet a ride to the ship (chasing Nash and the war machines)
+-   Dockety gives Violet a ride to the ship (chasing Nash and Z40/Z51)
 -   Violet boards the ship while Dockety distracts Nash and Z40/Z51
--   Warns Doctor Meadows
--   Discovers that the doctor is an AI
+-   Warns Doctor Meadows, only to discover that the doctor is an AI
     -   Only she and Lawson actually woke up
     -   André is still frozen and in virtual
 -   Doctor Meadows takes over the thing with the tentacles
-    -   A one-way trip
--   Defeats Nash and Z40/Z51
+-   Defeats Nash and Z40/Z51, but loses "herself" in the process due to its countermeasures
+    -   Last words are, "I'm so proud of you."
 
 ### Epilog
 
--   Dockety takes what's left of Patient to the Tailor for mending
+-   Dockety has taken what's left of Patient to the Tailor for mending
+    -   "We mend broken things if we can."
+-   Lawson is retrieved
+    -   He, Sindy, Violet, and Mayor Lupus are together on the bridge of the ark
+    -   Lawson says it was so confused in the end: people fighting each other, AIs, hybrids
+    -   He hopes they can do better this time
+    -   He doesn't know how many other ships are still out there, but they'll start with this one
 -   André and the other human children wake up into a strange new world
