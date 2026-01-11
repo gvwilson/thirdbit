@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<!-- <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script> -->
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Trying to Understand asimpy</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Trying to Understand asimpy</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/01/10/introducing-asimpy/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-01-11" class="post-date">2026-01-11</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>As a follow-on to <a href="../../../../2026/01/10/introducing-asimpy/">yesterday&rsquo;s post</a>,
+I&rsquo;m trying to figure out why the code in the <code>tracing-sleeper</code> branch of <a href="https://github.com/gvwilson/asimpy">https://github.com/gvwilson/asimpy</a>
+actually works.
+The files that actually matter for the moment are:</p>
+<ul>
+<li><code>src/asimpy/environment.py</code>:
+    the simulation environment with the main event loop and the <code>_Sleep</code> action (described below).</li>
+<li><code>src/asimpy/actions.py</code>:
+    the base class for actions (described below).</li>
+<li><code>src/asimpy/process.py</code>:
+    the base class for active processes.</li>
+<li><code>examples/sleep.py</code>:
+    an example of a process sleeping.</li>
+</ul>
+<p>I&rsquo;ve added lots of print statements to <code>sleep.py</code> and the three files in the package that it relies on.
+To run the code:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:gvwilson/asimpy
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>asimpy
+$<span class="w"> </span>uv<span class="w"> </span>venv
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+$<span class="w"> </span>uv<span class="w"> </span>sync
+$<span class="w"> </span>python<span class="w"> </span>examples/sleep.py
+</code></pre></div>
+<p>Inside <code>src/asimpy/actions.py</code> there&rsquo;s a class called <code>BaseAction</code>
+that the framework uses as the base of all awaitable objects.
+When a process does something like sleep,
+or try to get something from a queue,
+or anything else that requires synchronization,
+it creates an instance of a class derived from <code>BaseAction</code>
+(such as the <code>_Sleep</code> class defined in <code>src/asimpy/environment.py</code>).</p>
+<p>Now,
+if I understand the protocol correctly,
+when Python encounters &lsquo;await obj&rsquo;, it does the equivalent of:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">iter</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="fm">__await__</span><span class="p">()</span>  <span class="c1"># get an iterator</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span>  <span class="c1"># run to the first yield</span>
+<span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>     <span class="c1"># get the result </span>
+</code></pre></div>
+<p>After stripping out docs, typing, and print statements,
+<code>BaseAction</code>&rsquo;s implementation of <code>__await__()</code> is just:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">yield</span> <span class="bp">self</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+<p>Looking at the printed output,
+both lines are <em>always</em> executed, and I don&rsquo;t understand why.
+Inside <code>Environment.run()</code>, the awaitable is advanced by calling:</p>
+<div class="highlight"><pre><span></span><code><span class="n">awaited</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">_coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>(where <code>proc</code> is the object derived from <code>Process</code>
+and <code>proc._coro</code> is the iterator created by invoking the process&rsquo;s <code>async</code> <code>run()</code> method).
+My mental model is that <code>value</code> should be set to <code>self</code>
+because that&rsquo;s what the first line of <code>__await__()</code> yields;
+I don&rsquo;t understand why execution ever proceeds after that,
+but my print statements show that it does.</p>
+<p>And I know execution <em>must</em> proceed because (for example)
+<code>BaseQueue.get()</code> in <code>src/asimpy/queue.py</code> successfully returns an object from the queue.
+This happens in the second line of that file&rsquo;s <code>_Get.__await__()</code>,
+and the more I think about this the more confused I get.</p>
+<p>I created this code by imitating what&rsquo;s in <a href="https://simpy.readthedocs.io/">SimPy</a>,
+reasoning through what I could,
+and asking ChatGPT how to fix a couple of errors late at night.
+It did all make sense at one point,
+but as I try to write the tutorial to explain it to others,
+I realize I&rsquo;m on shaky ground.
+ChatGPT&rsquo;s explanations aren&rsquo;t helping;
+if I find something or someone that does,
+I&rsquo;ll update this blog post.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a>
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+  </body>
+</html>

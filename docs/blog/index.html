@@ -81,6 +81,84 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/01/11/trying-to-understand-asimpy/">
+      Trying to Understand asimpy
+    </a>
+  </h2>
+  <p><time datetime="2026-01-11" class="post-date">2026-01-11</time></p>
+  <p>As a follow-on to <a href="../2026/01/10/introducing-asimpy/">yesterday&rsquo;s post</a>,
+I&rsquo;m trying to figure out why the code in the <code>tracing-sleeper</code> branch of <a href="https://github.com/gvwilson/asimpy">https://github.com/gvwilson/asimpy</a>
+actually works.
+The files that actually matter for the moment are:</p>
+<ul>
+<li><code>src/asimpy/environment.py</code>:
+    the simulation environment with the main event loop and the <code>_Sleep</code> action (described below).</li>
+<li><code>src/asimpy/actions.py</code>:
+    the base class for actions (described below).</li>
+<li><code>src/asimpy/process.py</code>:
+    the base class for active processes.</li>
+<li><code>examples/sleep.py</code>:
+    an example of a process sleeping.</li>
+</ul>
+<p>I&rsquo;ve added lots of print statements to <code>sleep.py</code> and the three files in the package that it relies on.
+To run the code:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:gvwilson/asimpy
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>asimpy
+$<span class="w"> </span>uv<span class="w"> </span>venv
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+$<span class="w"> </span>uv<span class="w"> </span>sync
+$<span class="w"> </span>python<span class="w"> </span>examples/sleep.py
+</code></pre></div>
+<p>Inside <code>src/asimpy/actions.py</code> there&rsquo;s a class called <code>BaseAction</code>
+that the framework uses as the base of all awaitable objects.
+When a process does something like sleep,
+or try to get something from a queue,
+or anything else that requires synchronization,
+it creates an instance of a class derived from <code>BaseAction</code>
+(such as the <code>_Sleep</code> class defined in <code>src/asimpy/environment.py</code>).</p>
+<p>Now,
+if I understand the protocol correctly,
+when Python encounters &lsquo;await obj&rsquo;, it does the equivalent of:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">iter</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="fm">__await__</span><span class="p">()</span>  <span class="c1"># get an iterator</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span>  <span class="c1"># run to the first yield</span>
+<span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>     <span class="c1"># get the result </span>
+</code></pre></div>
+<p>After stripping out docs, typing, and print statements,
+<code>BaseAction</code>&rsquo;s implementation of <code>__await__()</code> is just:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">yield</span> <span class="bp">self</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+<p>Looking at the printed output,
+both lines are <em>always</em> executed, and I don&rsquo;t understand why.
+Inside <code>Environment.run()</code>, the awaitable is advanced by calling:</p>
+<div class="highlight"><pre><span></span><code><span class="n">awaited</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">_coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>(where <code>proc</code> is the object derived from <code>Process</code>
+and <code>proc._coro</code> is the iterator created by invoking the process&rsquo;s <code>async</code> <code>run()</code> method).
+My mental model is that <code>value</code> should be set to <code>self</code>
+because that&rsquo;s what the first line of <code>__await__()</code> yields;
+I don&rsquo;t understand why execution ever proceeds after that,
+but my print statements show that it does.</p>
+<p>And I know execution <em>must</em> proceed because (for example)
+<code>BaseQueue.get()</code> in <code>src/asimpy/queue.py</code> successfully returns an object from the queue.
+This happens in the second line of that file&rsquo;s <code>_Get.__await__()</code>,
+and the more I think about this the more confused I get.</p>
+<p>I created this code by imitating what&rsquo;s in <a href="https://simpy.readthedocs.io/">SimPy</a>,
+reasoning through what I could,
+and asking ChatGPT how to fix a couple of errors late at night.
+It did all make sense at one point,
+but as I try to write the tutorial to explain it to others,
+I realize I&rsquo;m on shaky ground.
+ChatGPT&rsquo;s explanations aren&rsquo;t helping;
+if I find something or someone that does,
+I&rsquo;ll update this blog post.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/01/10/introducing-asimpy/">
       Introducing asimpy
     </a>
@@ -784,86 +862,6 @@ The next step will be to resume tasks rather than just throwing them away.</p>
 <div class="center">
   <img src="../files/dec-6-plaque.png" alt="plaque for victims the Dec 6 massacre" width="90%>
 </div>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/12/04/the-effects-of-rework/">
-      The Effects of Rework
-    </a>
-  </h2>
-  <p><time datetime="2025-12-04" class="post-date">2025-12-04</time></p>
-  <p>Having <a href="../2025/12/03/you-have-to-cancel/">solved yesterday&rsquo;s bug</a>,
-we can get back to looking at the effect of re-work on throughput.
-As a reminder,
-our workflow looks like this:</p>
-<div class="highlight"><pre><span></span><code>+----------------+    +-----------+    +------------+    +------------+    +---------+
-| task generator | -&gt; | dev queue | -&gt; | developers | -&gt; | test queue | -&gt; | testers |
-+----------------+    +-----------+    +------------+    +------------+    +---------+
-                            ^                                                   |
-                            |                                                   |
-                            +---------------------------------------------------+
-</code></pre></div>
-<p>The two parameters that affect re-work are <code>p_rework_needed</code>,
-which is the probability that a tester is going to send a task back for more work,
-and <code>p_rework_chosen</code>,
-which is the probability that a developer will choose something from her re-work queue
-rather than starting fresh work
-when both are available.
-The extreme cases are:</p>
-<ul>
-<li><code>p_rework_needed</code> = 0.0, meaning no tasks are ever sent back.</li>
-<li><code>p_rework_needed</code> = 1.0, meaning every task is always sent back.
-    (Note that this means no task will ever be finished:
-    instead,
-    tasks will circulate endlesslesly between development and testing,
-    and yes,
-    sometimes it does feel like that happens in real life.)</li>
-<li><code>p_rework_chosen</code> = 0.0, in which case
-    developers only re-do tasks when there is no new work queued up.
-    (We know from previous simulations that there are almost always
-    new tasks waiting to be started.)</li>
-<li><code>p_rework_chosen</code> = 1.0, in which case
-    developers only start new tasks when nothing needs to be re-done.</li>
-</ul>
-<p>Finally,
-this version of the simulation always sends tasks back to
-the developers who originally worked on them
-rather than allowing the first available developer
-to re-do someone else&rsquo;s work.</p>
-<h2>Final States</h2>
-<p>The figure below shows the number of tasks in each of the five possible states
-at the end of the simulation
-as a function of <code>p_rework_needed</code> and <code>p_rework_chosen</code>:</p>
-<div class="center">
-  <img src="../files/2025/12/04/states.svg" alt="final task states" width="90%">
-</div>
-
-<p>As expected,
-lots of tasks are in the <code>complete</code> state when there is never any need for re-work,
-while none are when re-work is always needed.
-This finding may seem obvious,
-but this simple check uncovered a couple of bugs in the simulation.</p>
-<p>A more interesting finding is that
-how developers choose tasks doesn&rsquo;t seem to have much effect
-on how many they get done:
-while there is some variation,
-the bars stay more or less the same height when we look at each row.</p>
-<p>We can reach the same conclusion by looking at
-the number of times tasks were developed and re-worked.
-The sizes of the circles in the plots below reflect these counts:</p>
-<div class="row">
-  <div class="col-6 center">
-    <img src="../files/2025/12/04/n_dev.svg" alt="development count" width="90%">
-  </div>
-  <div class="col-6 center">
-    <img src="../files/2025/12/04/n_rework.svg" alt="re-work count" width="90%">
-  </div>
-</div>
-
-<p>Again,
-the probability of needing re-work has an obvious impact,
-while the probability of choosing new work vs. re-work doesn&rsquo;t seem to.</p>
 </article>
 
 
