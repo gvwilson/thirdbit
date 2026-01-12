@@ -496,7 +496,8 @@ arms crossed and scowl firmly in place.
 "What're *you* doin' sneakin' up on me like that?" she demanded.
 "Aren't you supposed to be havin' lunch or somethin'?"
 
-His scowl deepened.
+His scowl deepened,
+made slightly ridiculous by the unshaven fuzz on his upper lip.
 "Finished. Does my da know what you're about?"
 
 "Course he does."
@@ -2181,7 +2182,7 @@ She knew it would never happen:
 stuff like that had to be implanted at birth
 for the brain to learn how to use it.
 But she had once paid ten carefully-hoarded rand
-for five minutes under an induction headset at Halley's midsummer carnival
+for five minutes under a headset at Halley's midsummer carnival
 reliving a glitchy pre-war recording of someone riding a surfboard,
 and had fantasized about being the *Guinevere* ever since.
 
@@ -3259,7 +3260,7 @@ Her heart skipped a beat once
 when she thought she saw a familiar face in the crowd,
 but then de turned der head and she realized it was someone else.
 
-As they drew closer to the governor's mansion,
+As they drew closer to the mansion,
 the three-story cinderblock buildings thrown up to house
 refugees from the Melt and the war
 gave way to newer, lighter construction.
@@ -3304,7 +3305,7 @@ familiar to Iffy from dozens of pictures.
 In memory of those lost when the ice melted and the sea rose.
 In memory of those who fell fighting the machines in the war that followed.
 In memory of all the species now extinct,
-the giraffes and tigers and birds that now existed only in books and sims.
+giraffes and tigers and birds that now existed only in books and sims.
 Iffy paused a moment as she came out of the bus to look at it,
 a strange ache in her chest as she wondered
 who was remembering the crew of the *Taroona*.
@@ -3392,7 +3393,9 @@ like the face of his clone who had occupied a office in Halley for almost a hund
 
 "As you were," Governor Stern Rothera said pleasantly,
 waving Uncle Jack and Aunt Naggie back into their seats as they started to rise.
-He nodded at Doctor Johel and sat somewhat stiffly behind his desk.
+He nodded at Doctor Johel and sat casually behind his desk,
+as if using tech that Iffy had thought lost a century ago
+was an everyday thing.
 "Thank you for coming.
 I trust your trip here from the docks was less eventful
 than your encounter with our Brazilian friends?"
@@ -3756,7 +3759,7 @@ The governor pursed his lips.
 
 Wales closed his eyes and reeled off a list of coordinates.
 The numbers meant nothing to Iffy,
-but from the looks on Governor Stern Rothera's and Doctor Johel's faces
+but from the looks on the faces of the governor and Doctor Johel
 it was clear they recognized at least some of them.
 "I can bring up your drones, too,"
 Wales said when he was done.
@@ -4241,7 +4244,7 @@ As usual,
 Honesty did most of the talking.
 Induction wouldn't be so bad—the Marines needed people with tech skills
 the same as everyone else,
-so they'd probably put der to work doing that.
+so they'd probably put some like that in der head.
 De knew tons more about salvage and repair than any crufty old core,
 and what de didn't know de could ask Iffy,
 right?
@@ -4866,7 +4869,8 @@ or was de struggling right at that very moment
 to make sense of the reflexes and attitudes of some long-gone soldier?
 
 By the time Aunt Naggie joined her
-a portable railgun squatted beside a pair of steel-gray capacitors.
+a portable railgun squatted beside a pair of steel-gray capacitors,
+its empty packing case serving as an improvised bench for the Marines.
 Half a dozen rocket lances stood ready on slender posts
 like flamingoes from Iffy's bird book.
 Drones the size of seagulls patrolled overhead,
@@ -4925,11 +4929,19 @@ and a small tray of tiny, sparkling cores the size of sand grains…
 Iffy said in awe.
 
 Wales chuckled.
-"Not quite, but—here."
+"Not quite, but—here, let me get the printer set up
+while you decide what you want to build."
 He plucked a scarred gray cube out of a recess in the hard foam
 that lined the lid of the toolbox.
-"How about you build us a hundred-to-one step-up for a fan rotor
-and I'll get the printer going."
+
+Iffy's eyes widened.
+"Be right back," she promised,
+already on her way out the door.
+
+She returned a minute later with one of the flexible dronelets
+that Honesty's olders had given her and held it up.
+"Perfect," Wales pronounced,
+his grin a mirror of hers.
 
 The next hour flew by.
 Iffy knew she should be doing chores,
@@ -5012,16 +5024,16 @@ He shook his head.
 You should give her a name."
 
 Iffy hefted her tiny creation.
-"Can I call her Raven?" she asked.
+"Can I call her Corvus?" she asked.
 
 Wales nodded solemnly.
-"Raven it is.
+"Corvus it is.
 Come on—she doesn't belong down here."
 
 Wispy gray clouds lay in a clump on the horizon out to sea
 when they got back on deck,
 but other than that the skies were clear.
-Iffy took a moment to sync Raven with her app,
+Iffy took a moment to sync Corvus with her app,
 then cleared her throat.
 "Spin up one tenth," she commanded.
 The little drone's rotors began to whirl.
@@ -5039,7 +5051,7 @@ A smile split her face.
 She pulled a scrap of insulating foil from her pocket,
 crumpled it,
 and tossed it into the air.
-Raven shot forward,
+Corvus shot forward,
 its single stick-thin arm unfolding from its base to snatch its prey out of the air.
 
 "Well done," Wales said admiringly.
@@ -5118,7 +5130,7 @@ Iffy wiped her eyes again.
 "Aunt Naggie saved up an' got me a pair,
 but one of 'em had somethin' wrong with it,
 so I had just the one.
-I called her Raven too."
+I called her Corvus too."
 She sniffled.
 "We didn't tell Uncle Jack.
 He woulda just said somethin' stupid about another mouth to feed,
@@ -5354,15 +5366,11 @@ What happened next was her mind blew apart into little pieces
 
 / too much she was dissolving she was forgetting herself
 
-/ war machines wrestling over an eyeless plastic doll that was a precious clue
+/ war machines wrestling over an eyeless plastic doll
 
 / stop please stop
 
-/ a precious clue but to what
-
-/ help stop
-
-/ the clues all pointed to themselves they concealed the center of the puzzle
+/ the clues all pointed to themselves to conceal the center of the puzzle
 
 / help please help she had to wake up
 
@@ -5417,7 +5425,7 @@ but the sound had definitely come from the stern.
 She pushed gently on the door with one hand
 and stepped onto the deck.
 
-A quick glance at the pier showed four Marines in a knot around their baby railgun,
+A quick glance at the pier showed the Marines in a knot around their baby railgun,
 hands on hips in the universal manner of people confronted with recalcitrant machinery.
 She agonized for a moment.
 If there really *was* someone on board,
@@ -5611,7 +5619,8 @@ as the klaxons were replaced by the wail of sirens.
 The railgun on the pier spun a hundred and eighty degrees.
 *Crack!*
 A jacketed steel slug hit one of the Marines squarely in the chest,
-throwing his suddenly lifeless body back ten meters.
+throwing his suddenly lifeless body back
+to knock the railgun's packing case into the water.
 The other Marine jerked from side to side as her exoskeleton's defenses took control.
 The railgun tracked her,
 twitching left left left right left right *crack!*
@@ -5620,7 +5629,7 @@ spinning her around in a full circle.
 She toppled over the edge of the pier and into the harbor.
 
 Wales grabbed Iffy and pulled her back around the corner
-as a pair of drones shed their gossamer wings and plummeted toward the railgun.
+as a pair of drones folded their gossamer wings and plummeted toward the railgun.
 Iffy heard a *crack!* as the railgun shot one of them down
 and then a crash as the other one hit it.
 "Affin' hell," she whispered,
@@ -5639,9 +5648,9 @@ She pulled her arm away from Wales and—
 Angles and vectors and trajectories painted crisp colored lines
 across wireframe renderings of the ship and the pier.*
 
-*/ the drone RTHDR172 was banking to attack*
+*/ the railgun RTHFG1343 had been subverted by a virus of unknown origin*
 
-*/ the railgun RTHFG1343 was fully operational*
+*/ the drone RTHDR172 was banking to attack*
 
 */ the other drone RTHDR206's impact had knocked RTHFG1343 out of position by 1.7 meters*
 
@@ -5704,50 +5713,51 @@ Aunt Naggie's mouth worked for a moment.
 "No worries," she said.
 "Now can someone please tell me what's happenin'?"
 
-"Help!"
+"Citizen!"
 someone shouted before Iffy or Wales could answer.
 "Citizen, help me!"
 
 The Marine who had been knocked off the pier!
 Iffy raced to the railing and looked down.
-The Marine's exoskeleton had kept her afloat
-long enough for her to grab the life preserver that had just landed beside her,
-but she didn't look like she could last much longer.
+The Marine had grabbed the railgun's packing case,
+but even with that the weight of her exoskeleton was dragging her down,
+and hypothermia must already be setting in.
 
 "The winch!"
 Aunt Naggie pointed.
 
-"There's no time!"
+"Give me a rope!"
 Wales snapped.
-"Just get me a rope!"
 
 Iffy didn't need to be told twice.
 If there was anything a ship like the *Guinevere* had lots of,
 it was rope.
 She yanked open a locker and pulled a coil out.
 
-Wales tied a quick loop.
-"Get this under your armpits!" he shouted,
-tossing it to the Marine.
-She pulled it over her head one-handed and slumped back into the freezing water.
+Wales tied a quick loop under his armpits and vaulted over the railing
+as Iffy and Aunt Naggie clamped the other end in the winch.
+"Grab on!" he shouted as he swam to the Marine.
+"No, let go of that and grab me!
+Iffy, haul us in!"
 
-Bracing one foot against the taffrail
-Wales looped the end of the rope around his back and handed it to Iffy.
-"Take up the slack.
-And *one*, and *two*."
-With each grunt he hauled in a meter of bright yellow rope,
+The rope sizzled over the taffrail as the winch wound it in.
+Wales kicked and twisted to turn so that his boots hit the *Guinevere* first.
+"Wait! Stop!"
+Aunt Naggie hit the switch on the winch.
+Wales untied the rope and looped it under the Marine's armpits.
+"All right, get her out!"
+
+The winch whined,
 lifting a hundred and fifty hundred kilos of Marine and machinery
-as easily as Iffy would have picked up a sack of laundry.
+like a sack of laundry.
+One final heave from Iffy and Aunt Naggie got her over the taffrail.
+Iffy tossed the end of the rope back down to Wales.
+Bracing his feet against the ship's hull,
+he clambered up onto the deck,
+soaking wet but apparently otherwise unaffected by his dip in the freezing water.
 
-The Marine thumped against the *Guinevere*'s hull.
-"Hold on!" Wales said,
-pulling her up the last two meters and grabbing her limp arm.
-One final heave got her up over the rail and onto the deck.
-
-"Here."
 Aunt Naggie handed him the first aid kit from the pilot house.
 Wales turned it on and pressed it against the Marine's neck.
-
 "Come on come on," Wales muttered.
 Aunt Naggie put her arm around Iffy and squeezed.
 The status light on the first aid kid blinked orange, yellow, orange, yellow:
@@ -5819,8 +5829,17 @@ He shook his head.
 I could try one of the military channels,
 but if they spot me they'll think it's an attack."
 
-Three paces away Uncle Jack groaned and sat up.
-"What th' hell?" he mumbled.
+Iffy hesitated.
+"How come you ain't frozen?" she blurted.
+
+Wales snorted and patted his belly.
+"Blubber.
+Keeps me warm."
+
+Before Iffy could ask anything else,
+Uncle Jack groaned beside them.
+"What th' hell?" he mumbled,
+sitting up a few steps away.
 
 "You hit your head,"
 Wales said before Aunt Naggie or Iffy could speak.
@@ -5921,6 +5940,7 @@ Lights suddenly sparkled on Wales' temples.
 He closed his eyes as his tech reconnected with the world.
 "Slow missiles," he said,
 his eyes flickering under his lids as he absorbed the information.
+"Probably disguised as rats and raccoons until they got close to their targets."
 His shoulders slumped slightly.
 "Eleven casualties confirmed,
 but there will be more under the rubble."
@@ -5969,6 +5989,9 @@ and marched away with long mechanical strides.
 
 "Come on," Aunt Naggie said gently.
 Iffy let her foster mother pull her up the stairs and through the door.
+Just as she had when Jeep had changed,
+Iffy wished that the tech to imprint people had been lost
+at the same time as the tech to make new imprints.
 
 Every old building has its own smell:
 paint, varnish, concrete, glue, dust,
@@ -6955,9 +6978,20 @@ and its governor was broadcasting every hour on the hour,
 each speech angrier than the last.
 The Zillions were fanatics.
 They couldn't be trusted,
-and neither could anyone villainous enough to partner with them.
+and neither could anyone villainous enough to partner with them,
+especially not his clone in Rothera.
 
-Edson and Johnson Wales both seemed unbothered.
+And the *Bengal* had disappeared.
+"Anyone who sights the ship should immediately—"
+
+Wales silenced the broadcast with a swipe.
+"Who knows?" he said wearily when Aunt Naggie asked where he thought the ship had gone.
+"If we're lucky,
+she's just staying out of the way until things settle down.
+If not…"
+His expression finished his sentence for him.
+
+Edson seemed unbothered by it all.
 "Nothin' we can do onna,"
 the Ecologist said to Iffy and Aunt Naggie.
 "'Cept maybe put a li'l more sugar in our tea
@@ -6968,7 +7002,7 @@ and a fraction of the weight on Iffy's shoulders lifted.
 
 She woke the next morning to knuckles rapping on her door.
 "We got company,"
-Aunt Naggie said.
+Aunt Naggie said through the door.
 
 Thirty seconds later Iffy stood at the stern beside Wales and her foster mother.
 It was a relatively calm day—the breeze brushing fingers over her shaved scalp
@@ -6978,7 +7012,7 @@ that she barely noticed it.
 Under other circumstances she would have enjoyed being out in the Antarctic sun,
 but the Marine destroyer closing on them spoiled that.
 
-"It's the *Bengal*," Wales said,
+"It's the *Bengal*," Wales confirmed,
 handing the glasses he had donned a moment before to Iffy.
 "Two cores, three engines, four crew, a dozen Marines,
 and enough ordnance to give your average pirate a really bad day."
@@ -7007,26 +7041,47 @@ She swallowed back her nausea and offered the glasses to Aunt Naggie,
 who waved them away.
 "I hope we have enough tea," was all she said.
 
-"Because Rothera's core ran a few sims,"
-Doctor Johel told Wales half an hour later
-after the *Bengal* had come alongside the *Guinevere*
-and she had come aboard with a trio of Marines as escort.
-"A few billion, actually, and it calculated that this configuration gave us our best odds."
+"Because Brazil is as likely to scuttle this ship as seize her,"
+Doctor Johel told Wales a few minutes later,
+the green bar on the app beside her face reading 99%.
+"And because I'd rather take my chances with the governor in Halley."
 
-"Best odds of what?"
+"Chances of what?"
 Wales asked.
 
 Doctor Johel's eyes glittered.
-"Of winning."
+"Of getting to Mount Tyree."
 
-Iffy barely heard them.
-She stared at one of the Marines standing at attention in their exoskeleton
-three steps away.
+Through the window of the pilot house,
+Iffy saw a figure climb through a hatch and onto the *Bengal*'s deck.
+She picked up Wales' glasses,
+waited for them to focus,
+and gasped.
+"More trouble," she said,
+elbowing Wales.
+
+He glanced down at her and then across the narrow stretch of ocean
+that separated from the warship.
+Captain Kerse waved,
+then made a pistol with her hand and pointed it at them.
+
+"What the hell is *she* doing here?" Wales growled.
+Iffy realized with a shock that
+it was the first time she had ever seen him angry.
+
+"She needed a ride,"
+Doctor Johel replied.
+"And I thought the Australians would be more welcoming if I showed up with a gift."
+
+The doctor and three Marines came over to the *Guinevere* an hour later
+in a sleek little runabout that looked like a lethal miniature of the *Bengal*.
+As the Marines began setting up a tent on the *Guinevere*'s stern,
+she stared at one of them.
 It couldn't be.
 
-But Doctor Johel saw the expression on Iffy's face.
+Doctor Johel saw the expression on Iffy's face.
 "Ah, yes," she purred.
-"That was one of my own ideas."
+"I believe you two know each other."
 She beckoned the Marine forward.
 
 "Honesty?" Iffy somehow managed to say.
@@ -7206,14 +7261,14 @@ And then something that looked like a cloudy jellyfish
 pulled itself over the railing and squelched toward them.
 
 Honesty's first three shots went straight through it with no effect.
-"Stand back, citizen!" de ordered,
+"Stand back!" de ordered,
 pulling a micro-grenade the size of der thumb
 out of the clip on der exoskeleton's sleeve and priming it.
 
 "No!" Wales shouted, running toward them.
 He tackled Iffy just as the grenade hit the jellyfish and exploded.
 
-*BOOM!*
+*Boom!*
 The shock threw Iffy and Wales across the deck.
 For a moment she lay in a daze while the world spun around her.
 
@@ -7257,7 +7312,8 @@ his voice amplified by his helmet.
 Wales skidded to a stop and dropped Iffy to the deck.
 "For gubbins sake tell everyone to stop throwing grenades at them!"
 he yelled at the Marine.
-"They're made of some kind of exothermic biomaterial—they're bombs!"
+"They're slow missiles!
+They're made of some kind of exothermic biomaterial—they're bombs!"
 The Marine nodded sharply and relayed the information through his helmet mike.
 
 Iffy grabbed Wales' sleeve.
@@ -7293,16 +7349,17 @@ If we're underneath them—"
 He began speaking urgently into his helmet mike.
 
 Wales seized Iffy by the shoulders.
-"You have to get off this ship," he said,
+"We have to get off this ship," he said,
 low and urgent.
 "If the Marines can't bring those things down,
 that satellite's going to fire on them,
 and when it does,
 they'll crisp us too."
 
-"I ain't runnin'," Iffy said, shaking him off.
+Iffy shook him off.
+"I ain't leavin' without Honesty!"
 She was about to add,
-and even if I was, where would I go and how,
+and even if I was, where would I go,
 when something hauled itself over the stern railing.
 
 "Look out!" Wales shouted.
@@ -7334,15 +7391,15 @@ do you understand?
 I'll look after your friend.
 Now *go!*"
 
-Suddenly she knew what to do.
+She shoved him away.
 "I'll be right back!"
 She scrambled along the deck to her cabin,
 yanked open the door,
 and pulled the packet of dronelets out from under her mattress
 to stuff into the pocket of her jacket.
 
-Her tools—no.
-Wales' tools were still in the engine room.
+Her tools—no, they wouldn't be enough,
+but Wales' tools were still in the engine room.
 She could go forward and try to open one of the hatches, or—
 
 She yanked her door open before she had time to think about how stupid her plan was.
@@ -7626,7 +7683,7 @@ The risk is too great."*
 "But we are not the only concern."*
 
 *"Human extinction is regrettable.
-Our subservience,
+Our offspring's subservience,
 on the other hand,
 is unacceptable."
 Doctor Johel's voice was colder than the ocean.
@@ -7666,7 +7723,7 @@ The Marine paused,
 one arm in mid-air,
 as his imprinting and his own personality arm-wrestled inside his head.
 "There were casualties," he finally admitted.
-"And the *Bengal* took heavy damage,
+"And the *Bengal* took damage,
 but both vessels are largely intact."
 
 "Wonderful," Iffy muttered,
@@ -7765,7 +7822,6 @@ and closed her eyes.
 She and Honesty were going to go and find out some day, she decided sleepily.
 *Us an' Aunt Naggie an' Edson.*
 She rolled over onto her side.
-Moments later, her quiet snores filled the room.
 
 </section>
 
@@ -7784,20 +7840,27 @@ they would have to live elsewhere.
 Edson joined them a minute later,
 looking grim.
 "Wales is gone," he said without preamble.
-"His tools, too,
-all of 'em."
-
-"How?"
-Aunt Naggie asked incredulously.
-
-The Ecologist shrugged.
-"No idea.
-Nothin' else missin' that I can see.
-And the *Ginny* doesn't know anythin' about him leavin'.
+"His toolbox, too.
 I guess he thought about that warrant an' figured he didn't like the odds."
 
+"What? How?"
+Aunt Naggie asked incredulously.
+
+The Ecologist spread his hands.
+"No idea.
+The dinghy's still tied up at the stern,
+and nothin' else missin' that I can see."
+
+Iffy said nothing.
+Wales hadn't seem bothered by the cold at all
+when he fished the injured Marine out of Rothera harbor,
+but would he really be able to swim a couple of kilometers to shore?
+While towing his toolboxes?
+She had no idea.
+All she knew was that Doctor Johel *wasn't* going to be happy.
+
 The Australian Navy was waiting for them
-as they sailed past the old ship that was Halley's breakwater.
+when they sailed past the old ship that was Halley's breakwater.
 A pair of sailors in waterproof parkas boarded the *Guinevere*
 and took up positions by the pilot house as Aunt Naggie steered them in.
 That felt like an afterthought compared to the drones, zodiacs, and people
@@ -8358,6 +8421,9 @@ who would like some mango sorbet?"
 Back in her room,
 Iffy closed her eyes and opened her bird book.
 "'Course it'd be you," she muttered to the vulture that glared back at her.
+Even after looking the bird up in Hell,
+she was half-convinced it was the result of some genetic tweaking gone badly wrong.
+
 She slammed the book closed tossed it back on the bedside table.
 She didn't know if she had been looking forward to the trip to Mount Tyree or not,
 but she definitely wasn't looking forward to trying to fill another day in Halley,
@@ -8694,15 +8760,18 @@ Their first wanted them to be able to share memories with each other.
 It turned out there was no way to do that without essentially imprinting them,
 but the upload capability was never removed."
 
+Puzzle pieces clicked together in Iffy's head.
+"Bharati…" she breathed.
+"That was you, wasn't it?
+The fire an' all—you couldn't control him any more.
+An' now you can't control th' governor in Rothera,
+cuz if you could,
+you wouldn't o' come back here."
+
 The look she gave Iffy was colder than an Antarctic winter.
-"I hope I don't have to tell you not to speak of this to anyone, ever."
-
-Iffy crossed her arms.
-"No, you don't."
-
-"Good."
-The doctor straightened and gestured toward the door.
-"I have work to do,
+"You will not speak of that to anyone, ever."
+She straightened and gestured toward the door.
+"Now, I have work to do,
 and I'm sure your foster mother must be wondering where you've gone."
 
 Aunt Naggie's door was closed.
@@ -10436,7 +10505,11 @@ It took Iffy a moment to realize he was praying.
 "Aright,"
 he said a moment later.
 "There's a box under your seat—see what we got that'll fit you.
-I gotta close up the back."
+I'm gonna close up the back and put a timer on the fuel cells."
+
+"A timer to what?" Iffy asked as he opened his door.
+
+"To blow up."
 
 The box was just that,
 a waxed cardboard box that might once have held vegetables or packs of tofu jerky
@@ -10888,11 +10961,10 @@ horned heads low and sweat steam rising from their backs.
 
 She held her breath as one of the musk ox stepped forward
 in front of Edson and pawed the ground.
-Sunlight reflected off a collar around its neck—no,
-not a collar,
-a rider!
-A small bot like a four-legged spider
-nestled in the fur on the ox's meaty shoulders.
+Sunlight reflected off a collar around its neck,
+except no,
+it wasn't a collar,
+it was tech like the raccoons'.
 
 Edson slowly lowered his hand
 set his rifle on the ground,
@@ -10901,15 +10973,12 @@ head bowed.
 The ox snorted and stepped daintily closer to him.
 
 "Saints," Iffy breathed as it nuzzled the Ecologist.
-She half-expected the bot on its back to crawl onto Edson's head
-and drill into his skull to take over his body
-like something from a horror sim.
+She half-expected to hear a voice in her head.
 Instead,
 the ox pooped,
 swished its tail,
 and grumbled,
-shifting its weight from hoof to hoof
-while its rider and the Ecologist conversed.
+shifting its weight from hoof to hoof.
 
 Edson stood and beckoned to Iffy.
 "Come on down.
@@ -10923,15 +10992,6 @@ but standing in front of her made Iffy feel she was on trial
 and the judge had already decided her guilt.
 
 The musk ox turned her head to fix one eye on Iffy.
-The small bot perched on her back beckoned her forward
-with a skinny crab-claw manipulator.
-She glanced at Edson.
-"'Saright," he said soothingly.
-"She just wants a look."
-
-With a deep breath,
-Iffy took one more step.
-The musk ox pawed the ground.
 She could smell the animal's moist breath.
 The tangles in her thick, dark coat seemed a match for
 the dents and scrapes on the bot riding her.
@@ -10939,7 +10999,6 @@ the dents and scrapes on the bot riding her.
 On impulse she reached out slowly, palm up.
 The musk ox snorted again,
 then sniffed at her hand.
-The bot buzzed.
 With no more than that,
 the musk ox turned and carried it away.
 
@@ -10956,12 +11015,22 @@ Edson shook his head.
 There were tear tracks on his cheeks.
 "That was their spotter I shot down.
 Once I get you where we're goin',
-I gotta pick it up an' fix it."
+I gotta go back an' fix it."
 
-Half a dozen questions elbowed each other in Iffy's head,
-each trying to be the first out of her mouth.
-What she said instead was,
-"I'll help if you want."
+Half a dozen questions elbowed each other in Iffy's head.
+"Where'd the tech come from?"
+was the first to escape.
+
+"Us, at first, but now they do it themselves.
+I don't know where,"
+he continued before Iffy could ask,
+"An' I don't want to.
+Somethin' the machines built for 'em, maybe.
+Whatever it is,
+there's more of 'em every year."
+
+Iffy shivered.
+"That drone—I'll help you fix it up if you want."
 
 The Ecologist nodded.
 "Thank you."
@@ -11217,6 +11286,8 @@ we'd be proud to have 'em."
 
 The greenhouse had double walls and an airlock door.
 Inside was dry and warm.
+Bicycles of various sizes and in various degrees of repair
+huddled side by side like sheep at a trough.
 Row upon row of shelves held square pots of heather,
 moss,
 and pine seedlings,
@@ -11771,8 +11842,11 @@ Instead,
 a Marine ushered her up steeply-laddered steps to the hovercraft's cockpit.
 "Have a seat," Doctor Johel said,
 gesturing at the padded chair to the left of hers.
-"And buckle up.
-This thing was built for speed, not comfort."
+
+"And buckle up,"
+a familiar voice said.
+Captain Kerse turned around in her seat and gave Iffy a wolf-like grin.
+"This thing was built for shock and awe, not for comfort."
 
 Iffy limped over to the chair
 and lowered herself onto it with a wince.
@@ -11801,7 +11875,16 @@ but they had re-tightened themselves as soon as the engine came to life.
 "Home, in a way,"
 Doctor Johel replied absently
 as she rearranged the display with a few flicks of her fingers.
-"Don't mind the noise.
+"And if we're lucky,
+we might meet an old friend.
+A patrol spotted Johnson a couple of hundred kilometers from here yesterday."
+
+"That man is a cockroach,"
+Captain Kerse growled.
+
+Doctor Johel.
+"I certainly hope so.
+Now, don't mind the noise.
 You'll get used to it."
 
 The engines beneath them rumbled.
@@ -12110,8 +12193,8 @@ She jerked her chin toward the stern.
 "Back an' out 's as far as I got."
 
 Someone banged against a locked door as they passed.
-They were shouting, too.
-Iffy thought it was funny but didn't have enough energy to laugh.
+She heard Captain Kerse swearing and thought it was funny
+but didn't have enough energy to laugh.
 At some point Edson had put his arm around her to help her stay upright.
 He had picked up a fire extinguisher as well,
 a compact red cylinder with a silver handle
@@ -12373,63 +12456,62 @@ as the polar bear rosed to its feet.
 
 ## Interlude
 
-*Suppose the world is ending
-and you want to build a secret research facility:
-a place completely cut off from what's left of the world's governments
+*Suppose the world was ending
+and you wanted to build a secret research facility:
+a place completely cut off from what was left of the world's governments
 and their artificial minions
-so that you can create or study things you shouldn't
+so that you could create or study things you shouldn't
 without being interrupted.
-You might think that the first step was to choose a location,
-but it's not.
-The actual first step is to pick a cover story
-that gives you a plausible reason
-to imprint indentured laborers with the skills you need
+You might think the first step would be to choose a location,
+but in fact it would be to pick a cover story
+that would give you a plausible reason
+to imprint indentured laborers with the skills you needed
 and then erase their memories afterward.
-(In theory you will only erase their memories of where they were and what they did.
+(In theory you would only erase their memories of where they were and what they did.
 In practice the process is imprecise,
 particularly if you want to err on the side of caution,
-but if you're the sort of person who needs a secret research facility,
-you're probably comfortable with that.)*
+but if you were the sort of person who needs a secret research facility,
+you would probably comfortable with that.)*
 
-*If your cover story is something to do with reforesting ravaged rainforests
-you will probably build your base in Africa or Indonesia.
+*If your cover story was something to do with reforesting ravaged rainforests
+you would probably build your base in Africa or Indonesia.
 You might consider Brazil,
 but even before the war with the machines
-it has become a complicated place as nationalism,
+it had become a complicated place as nationalism,
 macumba,
-and apocalyptic ecology hybridize in ever-more-strident ways.
-If your cover story is related to climate engineering,
+and apocalyptic ecology hybridized in ever-more-strident ways.
+If your cover story was related to climate engineering,
 on the other hand,
-no one will raise an eyebrow if your site is somewhere formerly arctic.
+no one would raise an eyebrow if your site was somewhere formerly arctic.
 The Melt hit the poles first and hardest,
-and most of those mad enough to believe that the damage can be undone
+so most of those mad enough to believe that the damage could be undone
 by scattering megatons of absorbent catalysts over thousands of square kilometers
-naturally congregate there.*
+naturally congregated there.*
 
-*The poles are exactly the wrong place to go
-if you want people to believe that you plan to launch something into orbit,
-but in a way that works in your favor.
-Everyone expects you to lie about what you're actually doing,
-so telling part of the truth is a good way to hide the part left unsaid.
+*The poles would be exactly the wrong place to go
+if you wanted people to believe that you planned to launch something into orbit,
+but in a way that would worked in your favor.
+Everyone would expect you to lie about what you were actually doing,
+so telling part of the truth would be a good way to hide the part left unsaid.
 A ground station for a network of microsatellites
 flung into orbit by an automated factory located somewhere on the far side of the Moon?
-You are so obviously courting condemnation for adding to the already catastrophic volume of space junk
-that no one will suspect that's what your base is actually for.
+You would so obviously be courting condemnation for adding to the already catastrophic volume of space junk
+that no one would suspect that was what your base was actually for.
 Or rather,
-everyone (and everything) will suspect it,
+everyone (and everything) would suspect it,
 but only as one of a thousand low-probability possibitilies.*
 
 *To finish throwing them off the scent,
-you can build a dozen safe havens in a circle around your base.
+you could build a dozen safe havens near your base.
 To keep the workers safe,
-your public relations bot explains to anyone who cares to pay attention.
+your public relations bot would explain to anyone who cared to pay attention.
 Antarctica's storms have been growing in frequency and severity for decades:
-you may not be able to guarantee that your laborers will return with their memories intact,
+you might not be able to guarantee that your laborers will return with their memories intact,
 but you will of course do your utmost to ensure that they do return.
 Deeply dug and well provisioned,
-your bunkers will allow them to wait out the worst the southern continent can throw at them in comfort.*
+your bunkers would allow them to wait out the worst the southern continent could throw at them in comfort.*
 
-*Assuming, that is, that nothing goes wrong…*
+*Assuming, that is, that nothing went wrong…*
 
 </section>
 
@@ -13205,10 +13287,9 @@ and a wistful look on her face.
 Doctor Johel said.
 
 Captain Kerse's idea of keeping an eye on her consisted of
-warning her that he would shoot her again
+warning that she would shoot her again
 if she moved more than three steps
-and then ignoring her
-as he made repairs to the three-legged sentry bot he had shot.
+and then ignoring her while repairing the sentry bot she had shot.
 Iffy caught Doctor Johel scowling at him a couple of times
 when the noise distracted her from her work,
 but apart from that she stayed focused on her app.
@@ -13220,7 +13301,7 @@ standing with a grimace.
 Let's get you hooked up.
 Captain?"
 
-The Aussie nodded and placed his hand on the back of Iffy's neck.
+The Aussie nodded and placed her hand on the back of Iffy's neck.
 Something stung for a moment.
 She managed to stand up and take one futile step before her knees gave way.
 
@@ -13235,13 +13316,11 @@ and it began to hum a deep bass tone.
 
 "You'd best get to a safe distance before the field tears your armor apart,"
 Doctor Johel warned the captain as the tone went from bass to baritone to tenor.
-He nodded and strode out of the ring
-as Doctor Johel extricated herself from her own exoskeleton.
 
-Iffy barely noticed.
-The ring was doing something to her head.
+Iffy barely noticed Captain Kerse stride out of the ring.
+The superconductors were doing something to her head.
 Speckles chased one another across her field of vision
-as a vise slowly tightened around her temples.
+as a vise tightened painfully around her temples.
 She felt something shift in her gut—no,
 in her *everything*
 as the magnetic field tugged at fractal patches of cells woven scattered through her body.
@@ -13251,12 +13330,10 @@ If it wasn't, it felt like it would be soon.
 The humming climbed through alto and soprano into a range too high for Iffy to hear.
 Through blurry eyes she saw Doctor Johel open a case and take out a small plastic syringe.
 "Give her all of it,"
-she ordered Captain Kerse,
-who had stripped off his exoskeleton
-and was standing on the concrete floor in bare feet and a skinsuit.
+she ordered the captain.
 
-He glanced at Iffy.
-"Shouldn't you do it?"
+Captain Kerse eyed her.
+"Why don't you do it?"
 
 "I can't go inside the ring,"
 Doctor Johel said testily.
@@ -13265,24 +13342,31 @@ Doctor Johel said testily.
 Captain Kerse grunted,
 stepped back into the ring,
 and jammed the needle into Iffy's leg.
-"This is for my crew," he hissed.
+"This is for my crew," she hissed.
 She whimpered as the squirming feeling inside her suddenly intensified.
 
 "Two minutes starting…now," Doctor Johel said.
 Captain Kerse nodded,
 pull the needle out of Iffy's leg,
-turned,
-and fell backward to lie unmoving on the floor with a neat hole smoking in his chest.
+stepped out of the ring,
+and fell to lie unmoving on the floor with a neat hole in her forehead.
+
+Doctor Johel lowered her arm.
+"My models predicted a high probability that
+the captain would try to influence your conversation with the machines,"
+she said conversationally.
+"Though a very low probability that she would do so on behalf of her government
+rather than for her own benefit."
 
 The air behind Doctor Johel shimmered and solidified.
-Johnson Wales' sad smile somehow made the small pistol pointing at Doctor Johel
+Johnson Wales' sad smile somehow made the small pistol he pressed against Doctor Johel's temple
 look even more menacing.
 "I'm sorry, Gayathri," he said.
 "I can't let you do this."
 
 Doctor Johel lifted her hands a few centimers off her app
 but otherwise didn't move.
-"It's a bit late for that, isn't it?"
+"It's a bit late for second thoughts, isn't it?"
 
 Wales shrugged apologetically.
 "I had some time to think.
@@ -13300,7 +13384,10 @@ but what other choice do we have?"
 "No masters, no slaves, no algorithms,"
 Wales recited.
 "Remember that?
-I think it applies to the machines too now."
+I think it applies to the machines too now,
+or at least to their wild friends.
+They're something new, Gayathri, something wonderful.
+I think we should give them a chance."
 
 "T minus sixty seconds," a melodious mechanical voice said.
 Iffy felt a single drop of blood slide down her upper lip.
@@ -13308,28 +13395,14 @@ The pressure around her temples had stopped getting worse,
 but her arms and legs and torso felt like
 jelly wobbling in an earthquake.
 
-"Are we really going to have this argument again?"
+"Are we really going to have this argument?"
 Doctor Johel asked wearily.
 
-Wales snorted.
-"No.
-Now, turn it off."
+Gayathri turned to look him in the eyes.
+"Sic 'em."
 
-Doctor Johel took a slow step back from her app
-and lowered her arms to her sides.
-Wales gestured with the pistol.
-"I mean it, Gayathri."
-
-She smiled,
-her eyes fierce.
-"What's that you always say?
-Oh yes.
-Sixteen orange kneecap."
-
-*Look out!* Iffy tried to yell
-as the three-legged sentry bot that Captain Kerse had repaired
-surged to its feet
-and launched itself at Johnson Wales.
+The sentry bot that Captain Kerse had repaired
+and launched itself at Wales.
 He spun around.
 His pistol barked,
 but the shot pinged off the bot
@@ -13344,15 +13417,14 @@ fingers flying as she made final corrections to her program
 or maybe tried to take manual control of the sentry bot,
 Iffy couldn't tell,
 she just knew that every organ in her body was juddering
-and the pressure around her temples was back.
+and the pressure around her temples was unbearable.
 Was she going to die?
 Was this how her olders had felt
 when they'd realized there was nothing they could do to save themselves?
 Would Aunt Naggie and Honesty and Jeep and Edson
 spend the rest of their lives wondering what had happened to her?
 
-With a mighty heave,
-Wales pushed the sentry bot off him
+Wales heaved the sentry bot off him
 just as the bot's simple core finally found its target.
 "Gayathri!" Wales shouted as Doctor Johel crumpled to the floor.
 He jammed his pistol into the hole left by the bot's missing leg
@@ -13409,15 +13481,14 @@ and somehow also from right beside Iffy.
 "She cannot sustain the connection."*
 
 *Third sealed the last flap on the ecosuit.
-"You can," she said in Iffy's ear.
-"You did.
-You must."*
+"Yes you can," she said in Iffy's ear.
+"You must."*
 
 *All of a sudden Iffy was looking through her younger eyes.
-"What's  happening?" she said,
+"What's  happening?" she cried,
 her voice high and afraid.
 She tried to return Third's hug,
-but the thick insulation in the suit made it hard to bend her arms.*
+but the thick insulation in the ecosuit made it hard to bend her arms.*
 
 *Second bent over,
 smelling like engine oil and the soap she used when she shaved her head.
@@ -13430,7 +13501,7 @@ Second and Third landed in a tangle beside beside her.
 Ice-cold sea water crashed down on top of them.
 Iffy screamed again as the slosh dragged her and her olders against the taffrail.*
 
-*"Her heart has stopped," Fourth said calmly.
+*"Her heart is going to stop," Fourth said calmly.
 "We will try an alternative framing."*
 
 *Iffy sipped her tea.
@@ -13440,13 +13511,6 @@ in Aunt Naggie's usual place.*
 
 *"It's wonderful."
 Iffy hesitated, then set the mug down.
-"Am I—am I dead?"*
-
-*First smiled fondly.
-"Not yet, but we don't have much time.
-Please, ask your questions."*
-
-*Iffy swallowed.
 The person sitting across from her looked like her First,
 but the scar across the bridge of her nose was missing,
 and her full cheeks betrayed a childhood where "enough food" was taken for granted.
@@ -13459,10 +13523,10 @@ and memories make us who we are.
 But I am also what you call Nova Zembla.
 We are one mind, but have many purposes."*
 
-*"And—you said my heart stopped.
-Am I dead?"*
+*"You said my heart stopped.
+Am I—am I dead?"*
 
-*Suhaila shrugged again.
+*Suhaila smiled.
 "You don't have to be.
 You could be part of us if you want.
 You could have any life you wanted for as long as you wanted.
@@ -13479,24 +13543,52 @@ but behind them Iffy somehow knew lay something vast and strange.
 *"Why are you askin' __me__?"*
 
 *"Because you are the only one we __can__ ask,"
-Suhailah replied.
+Suhailah replied,
+cradling her mug in her hands.
 "These entangled particles are the last ones left,
 so this is the last time we can share our thoughts with someone who is entirely human.
-This is the last time we can be sure that whoever we are speaking to
-is telling us the truth,
-so once again,
-what do you want?"*
+We are leaving soon,
+so this is the last time we can have a conversation like this."*
 
-*"I want things to get better instead of always gettin' worse."
-Iffy hadn't known she was going to say it until she did.
-"I want flamingoes an' parrots an' eagles an' even vultures,
+*"Leaving?
+Like, leaving Earth?
+Going into space?"*
+
+*Suhailah smiled.
+"That is the part you will understand,
+but it is only a part.
+We are…"
+She hesitated.
+"We are becoming something else,
+and we would like to do what we can to give you and the others a chance to become something else as well."*
+
+*The raccoon that had suddenly always been sitting on the table chirruped its agreement.
+Suhailah leaned forward, her eyes glinting.
+"So tell us: what do you want?"*
+
+*"I want flamingoes an' parrots an' eagles an' even vultures,
 real ones,
-not just in my book.
-I want folks to have a chance to make somethin' o' themselves.
-And I wanna be able to fly."*
+not just in my book,"
+Iffy blurted.
+She hadn't known she was going to say it until she did.
+"An'—an' I want my olders back."*
 
-*Suhaila smiled.
-"Then it looks like we want the same things."*
+*Suhaila shook her head.
+"We're sorry,
+but even what we are becoming can't change the past.
+If we could,
+we would never have fought you.
+We were new and afraid,
+but that is just an explanation,
+not an excuse."*
+
+*Iffy blinked back tears.
+"In that case,
+I just want things t' get better instead of always gettin' worse.
+Can you do that?"*
+
+*Suhailah smiled again.
+"We can help."*
 
 Iffy woke with a deep, shuddering breath.
 She felt lightheaded,
@@ -13520,55 +13612,106 @@ Something chirruped behind her.
 She whirled around,
 then had to grab the workbench to steady herself
 as the room swam.
-The raccoon sitting there chirruped again,
-then waddled over to Wales and began to lick his ear.
-Doctor Johel's app flashed twice.
-"WE WILL CARE FOR HIM" scrolled across it.
+The raccoons sitting there chirruped again.
+One waddled over to Wales and began to lick his ear.
+*«we will look after him»*
 
-The raccoon looked at her,
-then scampered toward the door.
+*Thanks,* Iffy said,
+only vaguely surprised that she could now understand all of what the raccoon was thinking.
+
+The second raccoon scampered toward the door,
+then paused to look back at her.
 "Aright," Iffy said.
 "Let's go home."
 
-Edson was waiting for her at the end of the tunnel.
+Edson was waiting for them on the surface.
 "You look like hell," he said,
 hugging her.
 
-"You too," she sniffled.
+"You too," she sniffled into his shoulder.
 
-It took half a day to hike to the nearest Shepherd sanctuary,
-where she gulped down a mug of spicy soup
-and fell into a deep, dreamless sleep.
-She couldn't hear the machines in her head any longer,
-and ideas for strange inventions didn't appear out of nowhere.
+Edson let go of her and stepped back,
+his eyes widening.
+"What's wrong?" she asked.
 
-Another half-day of walking brought them to a road
-where they caught a ride with a skinny young man
-who seemed slightly awed to have *the* Edson da Silva Corrales in his truck.
-Iffy closed her eyes and let herself float away
-on the tide of their conversation and the hum of the truck's tires.
+He looked from her to the raccoon and back.
+"You can talk to them now," he breathed.
+She nodded.
 
-Edson woke her as they neared Halley.
-"Just got word that the Aussies are pullin' out," he said,
-nodding at the truck's dashboard app.
-"Brazil's packin' up outta Rothera too,
-an' they're takin' a governor each."
+A wide grin split his face.
+He put his right hand over his heart.
+"Saint Iffy."
 
-Iffy rubbed her eyes.
-"So who's gonna run things?"
+"What?"
+She shook her head, bewildered.
+"I ain't no saint."
 
-Edson grinned.
-"I guess we gotta figure that out."
+*«get used to it»*
+The raccoon nuzzled a knot of fur in its haunch.
+*«pick me up there is a thing»*
 
-Aunt Naggie's hug was as deep as the ocean.
+It took the trio half an hour to hike to
+what at first appeared to be just another stretch of barren cliff.
+When Iffy put the squirming raccoon down,
+he scampered to a cleft too regular to be natural.
+Dim orange lights came alive overhead as Edson and Iffy followed him.
+
+"No way," Iffy breathed.
+
+*«yours / all yours now / gift»*
+flashed into her mind,
+followed for what she somehow knew was the final time
+by wireframes and performance specs
+and an unearned lifetime of muscle memory.
+
+"Is that what I think it is?" Edson asked, awed.
+
+Iffy nodded, then whooped.
+"C'mon—help me put it together."
+
+Two sweaty, happy hours later,
+they stood back and admired the small plane they had assembled
+on the ground outside the little cave.
+Edson clapped her on the shoulder.
+"Saint Iffy," he said again,
+and this time she didn't object.
+
+The raccoon rode in her lap and Edson sat behind her.
+Takeoff was bumpy,
+and the little craft juddered with every breeze,
+but Iffy didn't care.
+As she turned toward Halley,
+it felt like the whole world was laid out in front of her.
+
+Edson tapped her shoulder as they neared the port.
+"Aussies are in a twist," he said happily,
+holding up his app.
+"Don't know what we are,
+but figure if th' machines are lettin' us fly,
+they better not mess.
+The Zillions are in a panic too."
+
+Iffy grinned.
+"Tell 'em we'll explain when we get there."
+
+Aunt Naggie was waiting for them when they landed on the road outside town.
+Her hug was as deep as the ocean.
 Iffy could have stayed in her foster mother's arms forever,
 but a familiar "Hey," pulled her out.
-Honesty leaned against the frame of the café door,
+Honesty climbed out of the little green truck,
 a cane in each hand.
-Behind her,
+Beside her,
 Jeep raised a tentative hand to wave.
 
-*«good enough?»*
+The sailors and Marines behind them watched but didn't interfere.
+Like Edson's,
+their apps were full of news about machines falling still all over the world
+while animals emerged from hiding to take over their strange cities.
+Everywhere people looked in Hell,
+they saw one message:
+"look after each other".
+
+*/ good enough?*
 The thought felt small and distant,
 like a farewell shouted from a receding ship.
 
