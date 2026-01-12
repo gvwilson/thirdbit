@@ -116,12 +116,12 @@ if Aunt Naggie hadn't misplaced it until it slipped his mind.
 It had belonged to Third when she was Iffy's age,
 and to Second before that,
 and came from a time when people made books out of paper
-and there were still whales and tigers and giraffes.
+and there were still parrots and eagles and flamingoes.
 Iffy re-read it every night no matter how tired she was from chores.
 She drew the pictures from memory on her app when she was bored by school,
 and took it out on those rare occasions when another child came on board to play with her
-and told them all about *orcinus orca* and *panthera tigris*
-and her favorite, *giraffa camelopardalis*.
+and told them all about *psittacus galgulus* and *aquila chrysaetos*
+and her favorite, *phoenicopterus ruber*.
 
 "They were too real!" she said fiercely whenever anyone expressed any doubts.
 "Real as gulls and jellies!"
@@ -137,15 +137,15 @@ The noise was her foster mother's way of letting her know that Uncle Jack was aw
 and that she should be up on deck doing something useful
 before he stumbled out into the light looking for someone to yell at.
 
-She closed her eyes and opened her nature book at random.
+She closed her eyes and opened her bird book at random.
 It was ridiculous—Jeep had made fun of her for a month
 when he found out—but…
 
 "Figures," she muttered when she opened her eyes.
-The armadillo wasn't the worst animal in the book,
+The raven wasn't the worst bird in the book,
 but it wasn't her favorite.
 Still,
-an armadillo day was better than a blobfish day.
+a raven day was better than a vulture day.
 She tucked the book back under her mattress,
 yawned,
 rubbed the stubble on her scalp,
@@ -1755,12 +1755,12 @@ Still smiling,
 her foster mother pulled her into a hug and kissed the shaven top of her head,
 then gently closed the door of the storage locker behind her.
 
-Iffy took her nature book out from under her mattress
+Iffy took her bird book out from under her mattress
 and lay on her stomach to page through it.
-The orca, the tiger, the gorilla…
+The flamingo, the puffin, the lorikeet…
 She ran her fingers over the pictures,
 sounding out the handwritten comments beside them.
-*Mom took us to see the baby giraffes today,* said one.
+*Mom took us to see the baby flamingoes today,* said one.
 *There are three of them.
 They are clones and they live in a big dome because of the virus.
 Mom says they have been tweaked to be immune to it.*
@@ -1771,9 +1771,9 @@ Mom says there isn't money to try again.*
 And then there was a sad cartoon face,
 one of several scattered through the book.
 
-Iffy browsed the other animals,
+Iffy browsed the other birds,
 wondering what it would have been like to live in a world
-that had so many different kinds of creatures.
+that had so many beautiful creatures.
 She stubbornly tried to keep her eyelids from closing
 until she couldn't remember why they shouldn't.
 When she finally dozed, she dreamed.
@@ -2145,8 +2145,8 @@ She spent another five minutes wondering if she should message Honesty,
 but "Howzit goin?" felt too flippant
 and "We're comin' early" made it sound like she was expecting something.
 
-She tossed her app aside and pulled out her nature book.
-The giraffe, the tiger, the wolf with his sad, intelligent eyes…
+She tossed her app aside and pulled out her bird book.
+The albatross, the grouse, the crow with his sad, intelligent eyes…
 Someone had written *Looks like Grandad!* beside it in tiny curving script.
 Iffy had long ago decided that the writer had been a girl about her own age
 who had a family and a whole pack of friends.
@@ -2223,7 +2223,7 @@ with only a couple of weeks a year tied up or idle,
 made for almost a hundred and twenty five thousand thumb presses and bleeps.
 
 She had read the highlights
-almost as often as she had read her nature book.
+almost as often as she had read her bird book.
 Storms, storms, and more storms as the planet warmed up,
 some hurling waves taller than the ship's fully-extended mast across the *Guinevere*'s decks.
 Births and deaths and shipboard weddings—Aunt Naggie's parents
@@ -2714,7 +2714,7 @@ One.
 He bowed his head as if in prayer.
 The image on the screen steadied as the drone slowed and stopped.
 The Aussie ship drew closer,
-gray and single-purposed like the shark in Iffy's nature book.
+as single-purposed and menacing as the vulture in Iffy's bird book.
 
 The map on the control panel tilted to show depth.
 The ridge on the sea floor lay directly beneath the drone,
@@ -3304,7 +3304,7 @@ familiar to Iffy from dozens of pictures.
 In memory of those lost when the ice melted and the sea rose.
 In memory of those who fell fighting the machines in the war that followed.
 In memory of all the species now extinct,
-the giraffes and tigers and all the others that now existed only in books and sims.
+the giraffes and tigers and birds that now existed only in books and sims.
 Iffy paused a moment as she came out of the bus to look at it,
 a strange ache in her chest as she wondered
 who was remembering the crew of the *Taroona*.
@@ -3943,7 +3943,7 @@ and radical political ideas.
 After a couple of unsuccessful attempts to oust them,
 Rothera's governor and core had thrown up their physical and digital hands
 and let anyone who could pay a few rand a month set up a stall.
-The result reminded Iffy of the picture in her nature book of an anthill.
+The result reminded Iffy of the picture in her bird book of the inside of a chicken coop.
 
 Aunt Naggie squared her shoulders
 and tapped her money on the reader at the entrance to pay her admission.
@@ -4185,7 +4185,7 @@ and set it on the to-do rack that lined the wall behind the workbench.
 
 The flat box de passed to Iffy opened to reveal
 four squares woven from carbon fiber,
-each the size of her nature book but as paper-thin.
+each the size of her bird book but paper-thin.
 It took her a second to realize that
 the grommets patterned across the squares were rotors,
 and that each square was some kind of flexible dronelet.
@@ -4607,7 +4607,7 @@ She waited a moment for a reply,
 wishing as she always did that people didn't always have to go so soon.
 When none came,
 she set her app aside,
-pulled out her nature book,
+pulled out her bird book,
 flipped through a few pages without seeing them,
 and then waved the lights off and closed her eyes.
 
@@ -4868,7 +4868,7 @@ to make sense of the reflexes and attitudes of some long-gone soldier?
 By the time Aunt Naggie joined her
 a portable railgun squatted beside a pair of steel-gray capacitors.
 Half a dozen rocket lances stood ready on slender posts
-like flamingoes from Iffy's nature book.
+like flamingoes from Iffy's bird book.
 Drones the size of seagulls patrolled overhead,
 making the actual seagulls squawk in protest.
 
@@ -5012,16 +5012,16 @@ He shook his head.
 You should give her a name."
 
 Iffy hefted her tiny creation.
-"Can I call her Giraffe?" she asked.
+"Can I call her Raven?" she asked.
 
 Wales nodded solemnly.
-"Giraffe it is.
+"Raven it is.
 Come on—she doesn't belong down here."
 
 Wispy gray clouds lay in a clump on the horizon out to sea
 when they got back on deck,
 but other than that the skies were clear.
-Iffy took a moment to sync Giraffe with her app,
+Iffy took a moment to sync Raven with her app,
 then cleared her throat.
 "Spin up one tenth," she commanded.
 The little drone's rotors began to whirl.
@@ -5039,7 +5039,7 @@ A smile split her face.
 She pulled a scrap of insulating foil from her pocket,
 crumpled it,
 and tossed it into the air.
-Giraffe shot forward,
+Raven shot forward,
 its single stick-thin arm unfolding from its base to snatch its prey out of the air.
 
 "Well done," Wales said admiringly.
@@ -5114,11 +5114,11 @@ wiping her eyes on her sleeve as Wales handed her a paper towel.
 
 Wales sat back and waited.
 Iffy wiped her eyes again.
-"I had a raccoon," she said quietly.
+"I had a bird," she said quietly.
 "Aunt Naggie saved up an' got me a pair,
 but one of 'em had somethin' wrong with it,
 so I had just the one.
-I called her Giraffe too."
+I called her Raven too."
 She sniffled.
 "We didn't tell Uncle Jack.
 He woulda just said somethin' stupid about another mouth to feed,
@@ -7083,7 +7083,7 @@ She bit her lip.
 I will tell them you said gday.`
 She hit send before she could lose her courage.
 
-Iffy had spent hours gazing at the pictures in her older's nature book
+Iffy had spent hours gazing at the pictures in her older's bird book
 that showed blue tropical oceans full of fish and coral.
 The ocean that the *Guinevere* and the *Bengal* sailed through
 looked nothing like that.
@@ -7350,7 +7350,7 @@ Up and down the ship went,
 waves booming beneath them.
 As the *Guinevere* rose again she threw herself face-forward onto the deck
 and slid toward the bomb hole,
-looking for all the world like one of the long-ago penguins in her nature book,
+looking for all the world like one of the long-ago penguins in her bird book,
 except they had been black and white instead of dirty orange
 and hadn't screamed in terror as they slid.
 
@@ -7740,7 +7740,7 @@ I expect she's going to have her hands full saving her own skin."
 After a few minutes Iffy made her way back to her cabin,
 not knowing where else to go.
 She stared angrily at the ceiling for a few seconds,
-then picked up her nature book
+then picked up her bird book
 and turned to the page she had wondered about most
 ever since she was old enough to read
 without a prompter murmuring in her ear to help.
@@ -7753,9 +7753,8 @@ The caption read, "Cathedral Grove"
 and beside it someone had written,
 "Why does everything have to end???"
 
-She ran her fingers over the pictures of *Odocoileus hemionus* and *Corvus caurinus*.
+She ran her fingers over the pictures of *Corvus caurinus*.
 The forest was long gone,
-and the deer,
 but Iffy had decided to believe that some of the crows had survived.
 Maybe they'd been able to fly away when the fires came
 or when people grew desperate enough to cut down the last of those ancient giants.
@@ -8357,8 +8356,8 @@ Now,
 who would like some mango sorbet?"
 
 Back in her room,
-Iffy closed her eyes and opened her nature book.
-"'Course it'd be you," she muttered to the blobfish that looked back at her.
+Iffy closed her eyes and opened her bird book.
+"'Course it'd be you," she muttered to the vulture that glared back at her.
 She slammed the book closed tossed it back on the bedside table.
 She didn't know if she had been looking forward to the trip to Mount Tyree or not,
 but she definitely wasn't looking forward to trying to fill another day in Halley,
@@ -8466,7 +8465,7 @@ so you stand aside now, aright?"
 "Clean 'em up?"
 She put all the outrage into her voice that she could muster.
 "That's mine!
-Her name's—her name's Giraffe,
+Her name's—her name's Goofy,
 an' I've had her since I was little!
 Ain't that right, Gee-gee?"
 The raccoon pressed against the backs of her legs
@@ -8547,7 +8546,7 @@ before resolving into a sharp-edged picture as it came into view.
 
 The image froze.
 A second wall came to life,
-this one showing her lying on her bed looking at her nature book.
+this one showing her lying on her bed looking at her bird book.
 Text and numbers suddenly began to scroll past,
 too dense for her to read.
 
@@ -8768,7 +8767,7 @@ All of a sudden she missed the days when
 all she had to worry about was staying out of Uncle Jack's way
 and making sure the *Guinevere* wasn't swallowed up by a sea boil.
 
-She didn't have anything to pack except her app and her nature book.
+She didn't have anything to pack except her app and her bird book.
 She didn't dare take the first—even powered off,
 Doctor Johel might be able to track it—and
 she would just have to trust Aunt Naggie to look after the second.
@@ -9336,7 +9335,7 @@ She was the proudest and saddest thing Sandrine had ever seen.
 *Yes she was,*
 Sandrine thought.
 
-*didja ever see a giraffe?*
+*didja ever see an eagle?*
 
 *No,
 but I think there were still a few somewhere.*
@@ -9612,7 +9611,7 @@ Here, let me show you."
 She took it and cranked its cardboard tail around and around,
 then set it down.
 With one slow, swinging step after another,
-the cardboard giraffe began striding toward the edge of the desk,
+the cardboard ostrich began striding toward the edge of the desk,
 its head bobbing in counterpoint each time a leg swung forward.
 
 "Well done.
@@ -9626,7 +9625,7 @@ Doctor Johel sat back and steepled her fingers under her chin.
 *I wish she'd stop doing that,*
 Sandrine thought.
 Five steps, ten—when it reached the edge of the desk
-the giraffe put one foot into empty air and stopped.
+the ostrich put one foot into empty air and stopped.
 Its head continued bobbing up and down,
 but its legs no longer propelled it forward.
 
@@ -9645,7 +9644,7 @@ Doctor Johel wiggled her fingers in the air.
 "Yes, ma'am."
 
 "Well."
-Doctor Johel picked up the giraffe,
+Doctor Johel picked up the ostrich,
 turned it over,
 and held it out to Sandrine.
 "For good luck,"
@@ -9663,7 +9662,7 @@ Please do check with him before making any modifications—we really would like 
 any misunderstandings."
 
 "Of course, ma'am."
-She tapped her fingers on the giraffe's cardboard body,
+She tapped her fingers on the ostrich's cardboard body,
 one two three four thumb,
 one four two three thumb.
 "May I ask what I'll be making, ma'am?"
@@ -10647,7 +10646,7 @@ Its roof was claustrophobically close above her.
 The wind sounded wrong,
 and the ground was uneven and still.
 She missed the swell of the ocean.
-She missed its smell and her picture book
+She missed its smell and her bird book
 and she was tired of things happening to her.
 
 When Edson wriggled out of his tent a few hours later
@@ -11102,7 +11101,7 @@ Edson crouched down and set his rifle on the ground beside him.
 That's a bee."
 
 "Right," Iffy snorted.
-"An' I'm a giraffe."
+"An' I'm an ostrich."
 
 The Ecologist stretched out his hand,
 then hesitated and withdrew it.
@@ -11303,7 +11302,7 @@ The hell with Doctor Johel and Johnson Wales and the governors.
 She just wanted to see Aunt Naggie and Honesty again,
 and Jeep,
 and the *Guinevere*,
-and flip through her picture book and go to sleep on her own mattress.
+and flip through her bird book and go to sleep on her own mattress.
 
 Her eyelids were just starting to lose their battle with gravity
 when an alarm began to bleat.
@@ -13391,7 +13390,7 @@ Second and Third were stuffing her younger self into
 a hand-me-down ecosuit that had cost as much as one of their jelly dredging nets.
 "Just to be safe, love," Third said.
 She kissed Iffy-that-was on the forehead
-and slipped her picture book into the bulky orange suit.*
+and slipped her bird book into the bulky orange suit.*
 
 *The ship's horn blared another warning.
 Young Iffy started to cry.
@@ -13490,7 +13489,7 @@ what do you want?"*
 
 *"I want things to get better instead of always gettin' worse."
 Iffy hadn't known she was going to say it until she did.
-"I want giraffes an' tigers and armadillos an' even blobfish,
+"I want flamingoes an' parrots an' eagles an' even vultures,
 real ones,
 not just in my book.
 I want folks to have a chance to make somethin' o' themselves.
