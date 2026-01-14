@@ -56,7 +56,7 @@ def chapters(filename, text, previous):
             pass
 
     if previous is None:
-        print(f"{total:6d} ({int(total/number)})")
+        print(f"{total:6d} ({int(total/(number-1))})")
     else:
         increase = total - previous
         print(f"{total:6d} ({increase})")

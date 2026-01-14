@@ -4,404 +4,93 @@ template: page
 fiction: true
 ---
 
--   Final book in the trilogy
-    -   Will be a good opportunity for me to practice endings
--   Major points
-    -   The last of the Makers' ships returns
-    -   Only a couple of adults have survived: the other passengers are all children
-    -   They think bots and "brids" (hybrids) are meant to serve them
-    -   Blazes and other hard-line Operators want to go to war
-    -   The bots are split as well: form an uneasy alliance with the Operators
-    -   A child from each side must work together to prevent war
--   Story is told from two points of view
-    -   Sindy has never felt like she fits in
-    -   Violet's whole world is gone
-    -   But Violet has spoken with several imprisoned brids over the years
-    - Refer back to "In Heck" encounter with Maddy
-    -   Sindy: "I'm not one of them (meaning hybrids), but I'm not one of you either (meaning human)."
-    -   Violet (later, to the adult humans): "I'm not one of them (meaning hybrids), but I'm not one of you any more."
--   Big bang at the end
-    -   Patient restores itself from a backup copy
-    -   Is furious that the Makers aren't what it expected
-    -   So it wants to blow up their ship (and the whole valley with it)
+<ol id="toc"></ol>
 
-## To Do
+<section markdown="1">
 
--   Patient is lonely (echoes Sindy and Violet's loneliness)
-    -   Achieved what it wanted for so many years, only to find it hollow
+## I Shall Give Them Back (Sindy)
 
-## Characters
+Sindy lay in bed waiting for the sun to rise
+and wishing that it wouldn't
+The rain had stopped an hour ago.
+Raindrops made a steady plip, plip, plip outside her window
+as they fell from one leaf to the next.
+She hadn't heard the storm start,
+so she must have slept,
+but she still felt wearier all the way down into her bones.
 
--   Rusty Bridge
-    -   Sindy (co-protagonist)
-    -   Gumption and Maddy
-    -   Mama and Papa Roo
-    -   Mayor Lupus
-    -   Miz Nabbles (annoyance)
-    -   Dockety, Crusher, Mouse, and Bee Six Vee (now "Beevy")
-    -   Bravo and Bluster
--   Operators
-    -   Special Blazes and his new partner Nash (an alligator)
--   Makers
-    -   Violet
-    -   André (her schoolmate, whom she calls "Dan-dan" to annoy him)
-    -   Doctor Meadows and Captain Lawson (the only surviving adults, but both quite young)
-    -   Z40 and Z51 (non-verbal combat bots)
+Soft knuckles rapped gently on her door.
+"Sindy?
+It's time to get up, love.
+We don't want to miss this."
 
-## Plot
+*Yes we do,* she thought,
+even though she knew she would never forgive herself if she did.
+"Coming, mama."
+She pushed aside the heavy quilt she had slept under
+since she was old enough to have a room of her own,
+swung her legs out of the bed,
+and looked at the clothes she had laid out on her chair the night before.
+The gray dress was the first thing she had ever owned besides boots and underwear
+that wasn't a hand-me-down.
+She and her mother had sewn it for the trip they had planned to take to Sandy Bend.
+She wished that was why she was going to wear it.
 
-### Chapter 1: Sindy
+Papa Roo was already at the kitchen table when she went downstairs.
+"You look nice," he said,
+holding out an arm to pull her in for a quick hug.
 
--   Special Leaf's funeral
-    -   Foreshadow the Makers' grief when they realize how few have survived
--   People tell Sindy that it wasn't her fault but she still feels guilty
-    -   Foreshadow the survivors' guilt that Violet feels
--   They talk about the strange moving star in the sky
-    -   And Papa Roo's dreamy statement at the end of "In Heck" about the Makers returning
-    -   Faces and voices he can't quite remember when he wakes up (post-traumatic stress)
--   See Maddy and Gumption happy together
--   Sindy is helping tidy up Special Leaf's things when she finds a communicator (but doesn't know what it is)
-    -   Puts it in her pocket without realizing she has activated it
+"Thanks, papa."
+She sat and took a slice of thick, dark toast from the stack in the middle of the table
+while her father poured her a cup of tea.
+After waiting a few moments,
+Papa Roo took Sindy's plate and began spreading raspberry jam on it.
 
-### Chapter 2: Violet
+"I can do that," Sindy said.
 
--   Violet wakes up and is cold
--   Robotic attendant
-    -   Doctor Meadows' voice ("Sorry, busy with other things")
-    -   André is awake as well (they spar out of habit, but don't see each other)
--   Violet asks "What about the others?"
--   Captain Lawson (in person): "not yet"
--   He is worried by the lack of response to their hails and the degraded infrastructure
--   But systems are failing: they have to land
--   What was farmland near the launch paid is now a swamp
--   But there is a signal coming from a small town near it (ref. to Sindy's beacon)
+Her father nodded without stopping.
+"I know, but I like doing things for you sometimes."
 
-### Chapter 3: Sindy
+Mama Roo and Sindy's sister Maddy joined them a few minutes later.
+They had brushed their fur until it almost shone,
+but their expressions were solemn.
+Other than a quiet, "Pass the jam?" and, "Thank you,"
+they ate in silence.
 
--   Sindy is back in Miz Nabbles' classroom feeling more isolated than ever
-    -   Miz Nabbles picks on her a bit in class
-    -   Other kids make a point of not inviting her to play hide and seek
-    -   She wishes she had a hobby like Maddy's drawing or Gumption's mechanics
--   She goes to visit Mouse in Bots' End
-    -   The little bot is excited to finally have a voice (but still uses its screen as well)
-    -   She tries to play hide and seek with it, but the game doesn't work
--   Goes home, disconsolate
--   In her room, talks to herself, is surprised when the communicator answers
+"We can take care of those later," Mama Roo said
+when Sindy stood to put her plate in the square tin bucket they used as a sink.
+Sindy nodded,
+then to her surprise found herself crying again:
+not the deep sobs that had shaken her when the mayor had arrived to tell them
+that Special Leaf was gone,
+just raindrops spilling out of her eyes and running down her cheeks.
 
-### Chapter 4: Violet
+She wiped them away with her sleeve,
+took a deep breath to steady herself,
+and said, "I guess we should get going."
 
--   Doctor Meadows and Captain Lawson are making preparations for landing
-    -   Takes a while to check out all the systems, many of which are damaged
-    -   "We've been asleep a lot longer than we planned" (but never specify exactly how long)
--   Violet is bored, but every time she asks André to play he sulks (they don't see each other)
-    -   Mirrors the isolation that Sindy feels
--   André retreats to the virtual world they had access to while they were in cryo
-    -   Violet has had enough of that
-    -   Remembers meeting hybrids, but they were all upset or bewildered
-    -   Doctor Meadows clearly knows they were real, but is uncomfortable discussing it
-    -   Violet still doesn't see Doctor Meadows in person
--   Wakes up in the middle of the "night" and goes and sits in the captain's chair to play make-believe
-    -   Hears Sindy's voice
-    -   Starts a conversation and only belatedly realizes she's *not* talking to the computer
--   Tells Sindy that they're going to land the next day
--   Captain Lawson comes in and turns off the comms (angry)
+Rusty Bridge wasn't a big town,
+but it was big enough to have its own cemetery grove.
+Dockety had asked if it and the other bots could help with Special Leaf's planting.
+Mayor Lupus had thank it but shaken her head.
+"Y'all are welcome to join us, though," she added.
+"He would've wanted you to be there."
 
-### Chapter 5: Sindy
+As the Roos arrived,
+it seemed like everyone within half a day's walk or ride wanted to be there as well.
+The Ox brothers,
+Zeke Bear,
+a mixed family of deer and raccoons,
+a double dozen bots off to one side in a cluster around Dockety and Crucher—Sindy kept her eyes down
+and let her parents and her sister respond to their murmured hellos.
+She managed a "hello" to Gumption,
+who had polished his budding horns and combed the knots out of his fur,
+then took her place at her sister's side.
 
--   Tries to get people to believe that the star is a ship and is coming
-    -   Bluster and Bravo make fun of her
--   Everyone is distracted by the arrival of Special Blazes and his new partner Nash
-    -   Tense scenes with the mayor and the bots (Dockety and Beevy)
-    -   Show Blazes' anger at Beevy and how cold-blooded Nash is (yes, it's a stereotype)
--   Then the ship starts to come down in a ball of fire
+As the sun's trailing edge let go of the hilltops to the east,
+Mayor Lupus stepped up onto the dark rectangular stone that was the grove's only adornment
+and rapped her gnarlywood cane on it three times.
+The quiet conversations in the crowd faded,
+leaving only the whisper of the wind through the branches.
 
-### Chapter 6: Violet
-
--   Describe the landing from her point of view
-    -   A moment when she and André are both frightened and he's *not* a jerk
-    -   But she still doesn't see him or Doctor Meadows
--   Engine misfire puts them in the Mire
--   Tentacles seize the ship
-
-### Chapter 7: Sindy
-
--   Special Blazes takes charge and assembles Rusty Bridge's militia to investigate
--   Gumption is allowed to go (scene with him and Maddy) but Sindy is not and neither is Dockety
--   She and Dockety go to Bots' End to collect Beevy and Mouse
--   The foursome gets to the Mire in time to see tentacles wrapping around the ship
-    -   Steam still coming from the swamp because of the heat of re-entry
--   Sindy hears a male voice calling for help on the communicator in her pocket
-    -   "It's not responding to standard protocols!"
--   Tells the militia party that there are people in the ship
-    -   They all think it's Central
--   Special Blazes thinks the voice is a trick but Mayor Lupus believes it
--   Sindy panics and yells "No!"
-    -   Yells it into the communicator without realizing that's what she's doing
--   The tentacles withdraw
--   She falls to the ground unconscious from the strain
-
-### Chapter 8: Violet
-
--   Captain Lawson trying to restart the engines as the ship shakes
-    -   Yelling orders through the ship's communicator
--   Violet hears her unknown friend's voice yell "No!"
-    -   Picked up by the other comms and the tentacles obey
--   Lawson studies the militia party through the viewer (talks to Meadows via comms)
-    -   Recognize Beevy as a heavily modified defense bot
-    -   "And the one with legs looks like… I don't know what it looks like."
--   They spot Sindy and feel relief that humans are here after all
-    -   "Some other ship? Or someone stayed behind after all?"
-    -   "Hardly seems worth taking the shuttle"
-    -   "But I don't feel like going for a swim, and it'll impress them"
-    -   Meadows expects the 'brids will be deferential, Lawson isn't so confident
--   André has been injured (not badly) in all the shaking
-    -   Captain Lawson wants to go alone
-    -   Violet says that she recognized the voice
-    -   He eventually gives in when Meadows says, "You know you can't just leave her on the ship."
-    -   Brings Z40 and Z51 (which makes Violet uneasy)
--   They board the shuttle, take off, circle, and land
--   Bots leave the shuttle first
--   Immediately fired upon
-
-### Chapter 9: Sindy
-
--   Sees the shuttle lift off from the downed ship, circle, and land
--   Special Blazes orders everyone away while Nash sets up a ray gun on a tripod
-    -   Mayor Lupus insists that there be no shooting unless she says so
-    -   Blazes says "There won't be time for chit-chat"
--   Robots disembark
-    -   Blazes: "Those are war machines!"
-    -   Nash fires
-    -   Robots retreat instead of firing back
--   Lupus is furious
-    -   Blazes doesn't apologize but is also furious at Nash for being trigger-happy
--   Sindy is watching all this and hears Violet on the communicator
-    -   She thinks about how brave Maddy was
-    -   Then leaves her hiding place in the trees and walks toward the shuttle
--   Dockety and the grown-ups yell at her to come back
-    -   She tells Violet "They're just afraid. You gotta show them that they got nothing to be afraid of."
--   Violet and Major Lawson come out
-    -   Sindy gapes at her: "You're a throwback!"
-    -   Violet (bewildered): "I don't know what that is. I'm human just like you."
-
-### Chapter 10: Violet
-
--   Open with Violet hearing "They're just afraid"
-    -   Major Lawson is listening in
-    -   He grimly says: "We don't have a choice. We can't take off again."
--   They go out
-    -   Replay Violet and Sindy's "throwback/human" exchange
--   Blazes, Lupus, and Dockety confer and then come forward
-    -   Describe them through Violet's eyes
--   Mayor Lupus acts as if spaceships falling out of the sky is an everyday occurrence
--   Major Lawson is cagy but eventually asks who's in charge
-    -   Simultaneous "I am" from Lupus and Blazes (*not* Dockety) is clearly not an acceptable answer
--   Lawson becomes even cagier after Dockety speaks up
-    -   Clearly suspicious of free bots
--   All the while, Violet and Sindy are eyeing each other
--   Conversation cut short by the tentacles reappearing
-
-### Chapter 11: Sindy
-
--   The thing with tentacles attacks the shuttle
-    -   Lawson thinks that it's an ambush and that Dockety is responsible
--   Z40 and Z51 reappear and do battle with the tentacles
-    -   Beevy joins them
--   Lawson grabs Sindy and pulls her onto the shuttle with Violet
-    -   Z40 and Z51 cover their withdrawal
--   The shuttle fires on the thing with tentacles, which retreats
--   Lawson circles around as if to attack the party from Rusty Bridge
-    -   Sindy screams at him not to
-    -   He changes course to fly over Rusty Bridge
-    -   Tells Doctor Meadows that they've been attacked and to put the ship in defensive mode
--   As they fly over Bots' End, Crusher throws a boulder and clips the shuttle
-
-### Chapter 12: Violet
-
--   Sees Crusher throw the boulder and has a flashback to fleeing from rogue bots to reach the ship
-    -   And something else: a memory of a voice while she was sleeping and dreaming (foreshadow Patient)
--   Rock clips the shuttle
--   Lawson: "We have to set down"
--   Lands the shuttle in a field near an abandoned bunker
-    -   Violet is afraid
-    -   Sindy squeezes her hand and says, "Don't worry, this kind of thing happens to me a lot."
-    -   But she is also afraid (flashback to encounter with Patient)
--   Lawson, Z40, and Z51 go out to inspect the damage and their surroundings
--   Violet and Sindy talk
-    -   Violet (thinking of Lawson) doesn't want to give too much away
-    -   But does reveal they've been in frozen sleep for a long time
-    -   And that she had dreams sometimes as part of being plugged into a virtual world
--   Sindy tells her a bit about her encounter with Central
-    -   "I think it wanted to end. I think it wanted all the other bots to be free."
--   Leads to Sindy talking about how she's different ("a throwback")
--   Which leads to her talking about Maddy (who's "normal")
-    -   Violet half-remembers encountering Maddy, but isn't sure it wasn't a dream so says nothing
--   Lawson returns, asks Sindy if she knows anything about the bunker
-    -   She warns that it might be haunted
-    -   Lawson scoffs, Sindy says she means by old hardware
-    -   Tells him a bit about Patient in Darkness
-    -   Lawson asks why they tolerate bots like the one that attacked the shuttle
-    -   Sindy bridles: "They're my friends"
--   Lawson talks to Doctor Meadows, who will try to send a drone to help repair the shuttle
-    -   Lawson tells her to hurry: it won't be long before the locals find them
-    -   André makes a snarky remark about Violet in the background
--   Meadows asks what he's going to do about the girl
-    -   Lawson: "I think it's best she stays with us for now."
-
-### Chapter 13: Sindy
-
--   Lawson's line about her staying immediately confirms her plan to escape
-    -   When she said this kind of thing happens to her a lot, she didn't mean she *liked* it
-    -   Debates taking Violet with her, but doesn't really know her
-    -   Hopes there will be some old tech in the bunker she can use
-    -   Realizes it's not much of a plan
--   Z-bots check out the bunker, then Lawson takes the girls
-    -   Sindy casually tries to take control of Z40
-    -   Feels something stir, but isn't successful
-    -   Attempt triggers an alarm: Lawson thinks something in the bunker is hostile (foreshadowing)
--   Bunker is similar enough to Patient's lair to give Sindy the creeps
-    -   Z51 sounds an alarm
-    -   Lawson goes to check
-    -   Sindy sees her chance
-    -   Pulls lever
-    -   Violet protests, but nothing happens
--   As Violet berates her, the bunker door closes and the one behind them opens
--   The bot that appears has four legs and two tentacles
--   Patient's voice: "I should have known it would be you"
-
-### Chapter 14: Violet
-
--   Patient's appearance is Violet's worst nightmare
-    -   She wants to flee, but other bots appear with Lawson
-    -   Including Z40 and Z51, which have been taken over by Patient
-    -   Patient croons about its sleek new bodies
--   Villainous monologue about how it survived the demise of its bodies in Heck
--   Sindy tells it the humans it has captured are Makers
-    -   Patient doesn't believe her
-    -   Believes they must be thieves who have stolen tech
--   Captives are taken underground
-    -   Girls are separated from Lawson
-    -   Violet tells Sindy about her memories of bots trying to get on the fleeing ships
-    -   Sindy is angry that the humans left the bots behind
-    -   "And everyone else—all those people!"
-    -   Violet doesn't believe brids are people
-    -   Sindy: "My mama is a brid! And my sister, and my dad, and just about everyone I know!"
-    -   Violet: "They can't be! They must have adopted you or something! Brids can't have human children!"
--   Argument is cut short by Mouse showing up
-    -   Frightens Violet, who kicks it away
-
-### Chapter 15: Sindy
-
--   Hears Violet say "Brids can't have human children!" and has a sinking feeling in her gut
-    -   She has always suspected something like that
--   Mouse shows up, Violet kicks it away
-    -   Sindy rushes over and comforts it
-    -   It tells her that a rescue party has found them, but the bunker is too well defended
-    -   Sindy tells it that Patient is back
-    -   Mouse is frightened but brave
--   Mouse gets the door open and the girls escape
-    -   Violet insists on saving Captain Lawson
-    -   Sindy is grudgingly impressed by her bravery
--   They find a lab with some chairs
-    -   Captain Lawson hooked up to machines the way Sindy was in Heck
-    -   The screens show Captain Lawson's jumbled memories flashing past
--   Patient's voice comes over the speakers
-    -   It has been reviewing Captain Lawson's memories
-    -   It realizes that he and Violet really are Makers
-    -   And it is bitterly disappointed
-    -   It vows to destroy the ship and end this nonsense
-
-### Chapter 16: Violet
-
--   Patient's villainous monologue triggers her memories of fleeing to the ship
-    -   But then she looks on the screen showing Captain Lawson's memories and sees the same scenes
--   Before she can process that, Sindy takes the chair next to Lawson and says, "You gotta hook me up"
-    -   When Violet protests, Sindy says, "This is how I beat it last time" and asks if she has a better plan
--   Violet: "Yeah, I do" and puts the helmet on her own head
-    -   She recognized the helmet's design from the ship
-    -   The weight feels familiar and she wonders if she's remembering it from cold sleep
--   She has only a few moments to unlock the doors before Patient finds her in virtual
-    -   Pursuit through madcap virtual worlds reminds her of playing games with André before cold sleep
-    -   She sees Patient's plan laid out in one of the virtual rooms
--   She escapes virtual and throws up on the floor
-    -   Sindy helps her up: "That was dumb. But pretty brave too."
--   Violet: "We have to get out *now*."
--   Sindy (pointing at Lawson): "What about your friend?"
--   Violet: "You don't understand. We have to get back to the ship or the mad bot is going to blow it up!"
-
-### Chapter 17: Sindy
-
--   Open with Violet's warning about Patient blowing up the ship
-    -   Plans to put its consciousness in Z40 and Z51 to get aboard the ship
-    -   Violet explains that the explosion will destroy the whole valley
--   They leave Lawson and make their way outside
-    -   Can't take the shuttle: it's still broken
-    -   Sindy says she has a plan, but Violet isn't going to like it
--   Leads Violet and Mouse into the forest
-    -   Gets Mouse to call some of the Tailor's free bots
-    -   Explains the danger
-    -   Free bots carry them to Bots' End but won't help further
-    -   They want to flee because they don't think much of the breathers' chances
--   Sindy explains the situation to Crusher (abbreviated version of explanation above)
-    -   Dockety and Beevy arrive
-    -   They can't defeat Patient's forces on their own
-    -   Go into Rusty Bridge to join up with the mayor and Blazes
-    -   Who don't believe that Patient has returned until bots attack
-
-### Chapter 18: Violet
-
--   Rusty Bridge militia, Blazes, and Dockety's bots versus Z40, Z51, and other bots
-    -   Bluster and Bravo fight well (minor redemption arc)
--   Violet feels guilty about leaving Lawson but wants to run away
--   Sindy drags her to Special Leaf's house through the chaos
--   Sindy breaks in and grabs some of Special Leaf's tech
--   Expects Violet to be able to make it work because she's an original
-    -   But it doesn't
--   Sindy accidentally triggers a piece of tech with a recorded message for her from Special Leaf
-    -   Tells her that her parents called him in when she was born (allays her fears about being adopted)
-    -   Tells her how proud he is of her, and that the house and its belongings are hers
-    -   Including what's hidden behind his bookcase
--   Violet and Sindy find and open Special Leaf's secret stash
-    -   Violet recognizes some of the tech
-    -   She picks up a piece and it *does* work for her
-    -   But she won't tell Sindy what it does
--   They decide to return to the fight
-
-### Chapter 19: Sindy
-
--   Recap the tech coming to life and their decision to return to the fight
--   Patient's forces are winning
--   Violet puts on the tech she recovered and concentrates
-    -   Takes control of Z51 and makes it grapple Z40
-    -   Long enough for the Operators and the Rusty Bridge militia to disable them
--   And then Patient shows up in a giant two-story body made of parts and scraps
-    -   Knocks over the schoolhouse (which Sindy doesn't mind)
--   Sindy taunts Patient and gets the bot to chase her
--   Beevy, Dockety, Blazes, and Nash bring it down
--   Then Nash knocks out Blazes
-    -   Takes the robot control helmet from Violet
-    -   Uses it to revive Z40 and Z51
-    -   Plans to destroy the Makers in order to ensure that the hybrids will remain free
-    -   Heads for the downed ship riding Z40
-
-### Chapter 20: Violet
-
--   Dockety gives Violet a ride to the ship (chasing Nash and Z40/Z51)
--   Violet boards the ship while Dockety distracts Nash and Z40/Z51
--   Warns Doctor Meadows, only to discover that the doctor is an AI
-    -   Only she and Lawson actually woke up
-    -   André is still frozen and in virtual
--   Doctor Meadows takes over the thing with the tentacles
--   Defeats Nash and Z40/Z51, but loses "herself" in the process due to its countermeasures
-    -   Last words are, "I'm so proud of you."
-
-### Epilog
-
--   Dockety has taken what's left of Patient to the Tailor for mending
-    -   "We mend broken things if we can."
--   Lawson is retrieved
-    -   He, Sindy, Violet, and Mayor Lupus are together on the bridge of the ark
-    -   Lawson says it was so confused in the end: people fighting each other, AIs, hybrids
-    -   He hopes they can do better this time
-    -   He doesn't know how many other ships are still out there, but they'll start with this one
--   André and the other human children wake up into a strange new world
+</section>
