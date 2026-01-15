@@ -8,7 +8,7 @@ fiction: true
 
 <section markdown="1">
 
-## I Shall Give Them Back (Sindy)
+## My Thanks To Those I Loved (Sindy)
 
 Sindy lay in bed waiting for the sun to rise
 and wishing that it wouldn't
