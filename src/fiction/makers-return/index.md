@@ -271,8 +271,7 @@ when handling any of the Makers' ancient tech.
 
 "Sindy?
 Where have you—oh, there you are."
-Sindy slipped the cylinder into her pocket as Mama Roo
-joined her in the kitchen
+Mama Roo joined her in the kitchen
 and took the kettle off the stove.
 "Papa and I were just talking about getting lunch at the Wayside as a treat.
 That would be nice, wouldn't it?"
@@ -280,5 +279,7 @@ That would be nice, wouldn't it?"
 "Sure, I guess."
 All of a sudden Sindy wanted to be anywhere but in Special Leaf's house without him.
 "Yeah, let's go."
+She slipped the cylinder into her pocket as she followed her mother into the hallway,
+not noticing the little green light that had started blinking on its end.
 
 </section>
