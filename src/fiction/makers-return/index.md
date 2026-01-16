@@ -11,7 +11,7 @@ fiction: true
 ## My Thanks To Those I Loved (Sindy)
 
 Sindy lay in bed waiting for the sun to rise
-and wishing that it wouldn't
+and wishing that it wouldn't.
 The rain had stopped an hour ago.
 Raindrops made a steady plip, plip, plip outside her window
 as they fell from one leaf to the next.
@@ -281,5 +281,128 @@ All of a sudden Sindy wanted to be anywhere but in Special Leaf's house without 
 "Yeah, let's go."
 She slipped the cylinder into her pocket as she followed her mother into the hallway,
 not noticing the little green light that had started blinking on its end.
+
+</section>
+
+<section markdown="1">
+
+## What About the Others? (Violet)
+
+Violet lay in her pod waiting for the lid to open,
+wishing that she was still in virtual.
+The wake-up program had finished its cycle an hour ago.
+Moisture made a quiet plip, plip, plip
+as it dripped off the inside of the pod's lid.
+She didn't remember what world she had been in,
+but she was sure that being back in the real wouldn't be nearly as much fun.
+
+She shivered despite the warmth when the lid finally hissed open.
+Step one: sit up.
+Step two: wait for the world to stop spinning.
+Doctor Meadows said it was something to do with her inner ears,
+but that didn't make it any better.
+Step three was to grope around on the table beside her pod
+to make sure her robe was there.
+André had only hidden it once,
+but her cheeks still burned when she thought about how embarrassed she had been.
+
+She tied the robe's belt at her waist,
+wiped her face with its sleeve,
+and drained the glass of water that had been waiting beside the robe.
+The artificial orange flavor made her wince,
+but at least it covered up the taste of the vitamins and minerals.
+
+The door to her pod room slid open.
+A service bot rolled in,
+one wheel squeaking slightly.
+"Good morning, Violet," it said cheerfully.
+
+"Mmph."
+She rolled her head from side to side until something clicked in her neck.
+"Is it really morning?"
+
+"It is morning somewhere,"
+the bot replied.
+"You have a message from Doctor Meadows.
+Shall I play it now?"
+
+"Sure."
+She sat on the now-closed lid of her pod and yawned.
+
+"Message begins.
+Good morning, Violet."
+Between one sentence and the next there was a soft *click*
+as the bot's voice changed
+from a generic mechanical twang to something older, warmer, and female.
+
+"Morning, Doctor Meadows,"
+Violet replied dutifully.
+"How are you today?"
+
+"I'm supposed to ask you that."
+Violet could hear the smile in the doctor's voice.
+"How's the dizziness?"
+
+"Fine."
+Violet yawned again.
+"Why'd you wake me up?"
+
+"I'll let Captain Lawson explain that.
+He's waiting for you on the bridge."
+
+*click*
+
+"Hey clumsy.
+Trip over yourself yet or are you still in your pod?"
+
+Violet rolled her eyes as the bot's voice changed again.
+"Good morning, André.
+Please tell me you had nightmares again."
+
+"Nightmares are for little kids,"
+the voice scoffed.
+"I was hunting dragons.
+How about you?
+Decorating your bedroom again?
+Or making cookies?"
+He dragged the word out.
+
+"End conversation,"
+Violet told the bot wearily.
+She had tried being friends with André,
+and sometimes it almost seemed like it was working,
+but sooner or later—usually sooner—every conversation turned to sneers and insults.
+If anyone else their age was ever awake she would just block him,
+but the most important word in that sentence was "if".
+
+At least the ark's showers were working.
+They hadn't been,
+once,
+so she had told Doctor Meadows that she didn't ever want to wake up again
+unless there was hot water.
+She let it pummel her,
+turning slowly,
+and tried to remember what she had been dreaming about in virtual.
+Someone had come to visit,
+someone who looked like…a kangaroo?
+
+She frowned and ran her fingers through her hair
+to tease out the knots that somehow always formed while she slept.
+There had definitely been a kangaroo,
+and she had a vague sense that Central had been there too,
+but she couldn't remember what they had said or done.
+It wasn't important:
+the people she met in virtual were never there for long.
+
+Another service bot brought her clothes when she finally finished her shower.
+Soft gray pants,
+a matching hoodie with a built-in breathing mask in case of an emergency,
+gloves for her hands and feet:
+she had worn the same outfit in ever-larger sizes for as long as she could remember.
+"When you're older," Doctor Meadows and Captain Lawson said
+when she asked them if she could have a uniform like theirs.
+She sighed,
+dressed,
+and headed for the bridge.
 
 </section>
