@@ -286,7 +286,7 @@ not noticing the little green light that had started blinking on its end.
 
 <section markdown="1">
 
-## What About the Others? (Violet)
+## Robots Don't Eat Potatoes (Violet)
 
 Violet lay in her pod waiting for the lid to open,
 wishing that she was still in virtual.
@@ -347,7 +347,7 @@ Violet could hear the smile in the doctor's voice.
 Violet yawned again.
 "Why'd you wake me up?"
 
-"I'll let Captain Lawson explain that.
+"I'll let Captain Leung explain that.
 He's waiting for you on the bridge."
 
 *click*
@@ -399,10 +399,166 @@ Soft gray pants,
 a matching hoodie with a built-in breathing mask in case of an emergency,
 gloves for her hands and feet:
 she had worn the same outfit in ever-larger sizes for as long as she could remember.
-"When you're older," Doctor Meadows and Captain Lawson said
+"When you're older," Doctor Meadows and Captain Leung said
 when she asked them if she could have a uniform like theirs.
 She sighed,
 dressed,
 and headed for the bridge.
+
+The corridor smelled like bleach and cinnamon.
+One of the overhead lights wasn't working,
+and she counted three—no, four—doors that were stuck half-open.
+*Or half-closed,* she thought,
+trying not to let the most recent signs of the ark's decay dampen her mood.
+The bots did their best and fixed what they could,
+but every time she came out of virtual,
+it seemed like something new was falling apart.
+
+She pushed the thought away as she climbed the ladder toward the bridge.
+After one floor, she felt lighter.
+After two,
+she no longer needed to use her feet at all.
+She paused briefly at the third floor to do a somersault,
+wishing that the feeling of weightlessness still made her giggle
+the way it had when she was little,
+then grabbed the nearest run and continued on her way.
+
+"Good morning, Violet,"
+Captain Leung said as she joined him on the bridge.
+"How was your virtual?"
+
+"Fine."
+She didn't bother to mention the kangaroo—if it wasn't critical
+to keeping the ark flying,
+the captain wouldn't be interested.
+"One of the lights is out in 1-C."
+
+He nodded without taking his eyes off the displays in front of him.
+There was more gray in his hair,
+she noticed,
+and judging from the smudge of beard on his cheeks
+he had been awake for at least a couple of days.
+
+She sat in her usual chair and buckled herself in.
+"How long was I asleep?" she asked
+after waiting a few minutes for him to say something.
+
+Captain Leung glanced at one of the displays.
+"Sixteen years, twenty-nine days.
+That's almost a new record for you."
+
+"Yay."
+Her stomach rumbled suddenly,
+as if suddenly aware that she hadn't eaten in well over a decade.
+"Are André and I the only ones awake again?"
+
+"For now."
+Doctor Meadows' voice came through a speaker.
+"And I'm sorry,
+but I want to keep André in isolation a little longer,
+just to be safe.
+His white cell count is improving, though."
+
+"Go white cells,"
+André's voice said,
+heavy with sarcasm.
+
+Violet pouted.
+It felt like ages since someone other than the captain
+had been awake at the same time as her,
+and he was about as much fun as the service bots.
+
+She swiped her own display to bring up the exterior cameras.
+The stars looked as cold and as clean as they always did.
+Another swipe and she could see the blue dot where she was born.
+She could zoom in if she wanted,
+but what was the point?
+She was going to wander the ark's empty corridors for a couple of days,
+trade barbs with André,
+say, "Yes, Captain Leung," and, "Yes, Doctor Meadows," a few times,
+and then go back into her pod,
+just as she had so many times before.
+
+But then Captain Leung sat back and rubbed his eyes.
+"All right," he said to himself.
+"All right."
+
+"Captain?" Violet asked tentatively.
+
+He took a deep breath and turned to her,
+forcing an unconvincing smile.
+"Why don't we head down to the mess and talk for a bit?"
+
+Five minutes later Violet put her spoon back in her stew and said,
+"I don't understand."
+
+"Neither do I,"
+Captain Leung said,
+swallowing a mouthful of the warm beige goop the ark had made for them.
+"Our systems have suffered one minor breakdown after another,
+but we've always been able to patch things up.
+This time, though…"
+He shook his head.
+"We've never lost contact with Central before.
+I've been hailing it ever since I woke up,
+but it's not responding at all—not even a service ping."
+
+Violet didn't know what a service ping was,
+but the look on Captain Leung's face told her how worried her was.
+"I think Central spoke to me when I was in virtual,"
+she said hesitantly.
+"I asked it to wake me up whenever there was someone new,
+and…"
+She stirred her stew for a moment,
+her frown matching the captain's.
+"I'm sorry,
+that's all I can remember."
+
+Captain Leung shook his head.
+"It doesn't matter.
+I ran a full diagnostic just before you woke up,
+then double-checked it.
+We've been leaking deuterium for years.
+Just a little at a time, but it has added up.
+At this rate,
+we'll lose re-entry capability in less than a decade.
+We won't be able to go home,"
+he explained as Violet opened her mouth to ask.
+
+"Oh."
+Go home?
+The thought felt oddly foreign.
+The ark was home.
+
+"And there's another thing,"
+the captain continued.
+"We may have lost contact with Central,
+but we've picked up a comms beacon for the first time in what feels like forever.
+Here."
+
+He pushed his bowl aside and put a tablet on the table.
+Two taps brought up a map.
+"This is our original launch site.
+All this used to be farmland,
+but it flooded a few hundred years ago when the river changed course.
+It's hard to tell from this far out,
+but I imagine it's one big swamp by now.
+This, on the other hand…"
+
+Violet leaned in as he swiped the map sideways.
+"This looks like a village of some sort,
+and the signal is coming from right there.
+See the cleared patches around it?
+Those look like fields to me."
+
+"So you think there are people there?"
+Doctor Meadows' voice asked.
+
+Captain Leung nodded.
+"Robots don't eat potatoes."
+He studied the tablet a moment longer,
+then looked at Violet.
+"I don't think we have a choice.
+I think it's time to go home."
 
 </section>
