@@ -644,11 +644,10 @@ Razi nodded again.
 Grappa Uzman broke off talking to the stranger and beckoned us over.
 Jephel was there,
 and Yassen the butcher,
-and Yassen's brother Kirash who did whatever chores people would give him
+and Yassen's twin brother Kirash who did whatever chores people would give him
 and drank too much—all the village *nif*.
-"Here is Mogen ay Egen a Dudir," Grappa Uzman said,
+"Here is Dudir uy-Armaq," Grappa Uzman said,
 introducing the stranger to us in the formal way:
-Dudir, the son of Mogen the mother and Eben the father.
 
 "I am Razibendra uy-Ossisswe," Razi replied, raising his palms.
 Up close,
@@ -839,17 +838,140 @@ if a goat was alive,
 an Aphsi would have *dromed* it and brought it in.
 
 The caravan's lead cart reached the stone gate that marked the edge of Medef.
-Its driver was the bald man who had come for help that morning.
-Beside him sat an older man with the same brawny arms,
+Dudir sat on the front bench beside an older man with the same brawny arms,
 eagle-beak nose,
-and shaven head.
+and shaven head
+who I took to be his father.
 Grappa Uzman and Granna Efiyeh raised their palms to the pair in welcome.
+
 A few strides further on,
 Hediyeh and some of the other girls stood in a cluster,
 their hands tucked politely in their sleeves
 and their faces shadowed by the hoods of their *deels*.
 I watched Hediyeh's head turn to follow the cart as it passed her.
-As the carter's son turned to look back,
+As Dudir turned to look back,
 something prickled up my spine.
+I didn't have to be able to *drome* to recognize
+the calculating look in Hediyeh's eyes.
+
+Before I could think any more about it
+the cart with the strange cargo caught my eye again.
+Karabandi are proud of the fact that no two *deels* are exactly alike.
+We lengthen them, shorten them, add pockets in common or unlikely places,
+or reinforce the shoulders if we frequently carry heavy loads.
+Over time,
+every *deel* learns from its wearer how to do its job better,
+and every Karabandi learns how to read a person's life from their *deel*.
+
+The driver in the yellow turban
+wore a *deel* like none I had ever seen.
+The pattern on it was actually black and blue stains.
+A wide belt was sewn around the waist to support the weight of
+whatever jingled and clanked in the double pockets on each side.
+There were more small pockets on the sleeves,
+though these seemed empty.
+A long tear in the side had been carefully stitched shut.
+I knew Razi would ask me later what his trade was,
+but I had no idea.
+
+He chose a spot in the furthest corner of the tented market.
+Whatever was in his cart was obviously heavy:
+he had tied it securely right over the axle
+to stop its weight from tipping the cart.
+As he scratched his burros' ears
+and fed them handfuls of barley
+he noticed me studying him.
+
+"*La*, young sir," he said,
+tying the feed bag shut and tossing it onto the cart seat,
+"Will you help a traveler?"
+He spoke in a pleasant tenor,
+rolling his R's and slanting his Th's like an Ossisswean.
+When I nodded,
+he raised his voice.
+"Dudir? A moment, if you would?"
+The brawny young man I took to the be the lead carter's son ambled over.
+
+The man in the yellow turban turned back to me.
+"Here is Suresh ul-Ossisswe," he said, raising his palms.
+
+I raised mine.
+"Here is Eimin ul-Medef," I replied.
+He raised an eyebrow—at my age,
+I should have introduced myself as someone and someone's—but made no comment.
+Instead,
+he reached into the cart and began passing me cloth-wrapped packages
+to stack on the shelves behind me.
+
+I knew their wait instantly.
+They were books, dozens of them.
+My stomach suddenly rumbled.
+"Would you like me to unwrap them?" I asked.
+
+Suresh shook his head.
+"*La*, thank you, but no.
+I just want them out of the way so we can get the press off the cart."
+
+"The press?" I repeatedly stupidly.
+
+He pointed at the irregular shape squatting in his cart.
+"My printing press."
+The look on my face made him laugh good-naturedly.
+
+"So you're another one, are you?"
+Dudir said as he joined us.
+
+"Another what?" I asked.
+
+He snorted.
+"Never mind.
+Let's get this weeping thing on the ground."
+
+Getting it down meant chocking the wheels,
+undoing several knots,
+and then looping the ropes around the press again.
+With Dudir's weight on one harness post,
+and mine and Suresh's on the other,
+we tilted the cart back and paid out the ropes
+to get the press on solid ground.
+The whole process took about half an hour,
+by which time the sun was down
+and the smell of barbecued goat had turned my stomach into a hard knot of hunger.
+
+"Phah!"
+Dudir stretched until something in his back popped.
+"Glad that's done."
+He undid the broad belt of his *deel* and slipped it over his head
+to reveal a sleeveless shift and long, loose pants.
+
+I heard giggles behind me.
+Hediyeh and the other girls were supposed to be helping make the welcome dinner,
+but they had taken advantage of the bustle
+to slip away for an early look at what the caravaneers had brought.
+With so many *nif* about,
+it would be a while before their parents noticed they were gone.
+
+Dudir grinned at them as he shook out his *deel* and put it back on.
+He was as muscular as an ox.
+*And probably as smart,* I thought sourly.
+
+Suresh clapped him on the shoulder.
+"Thank you again," he said.
+"And you as well," he continued to me.
+He gestured at the bundles of books sitting patiently in the stall beside his cart.
+"If you'd like to borrow anything for the night…?"
+
+I heard another giggle.
+I'm sure the girls could *drome* how much I wanted
+to take them all back to my alcove and pore through them,
+sounding out the words I did not know and wondering about the people who had written them.
+"Thank you, but it is late," I said.
+"Perhaps tomorrow."
+
+He inclined his head.
+"*La*, as you wish."
+He clapped me on the shoulder and headed for the barbecue pit.
+I hesitated a moment,
+then turned for home.
 
 </section>
