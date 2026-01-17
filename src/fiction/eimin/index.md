@@ -975,3 +975,437 @@ I hesitated a moment,
 then turned for home.
 
 </section>
+
+<section markdown="1">
+
+## Chapter N-1
+
+I ran.
+I ran like a jackrabbit runs, like a hawk flies.
+I ran like I had never run before with cold sick fear churning in my gut.
+The moon was already half-way up the sky.
+*I'm not going to make it*,
+I thought,
+and ran even faster.
+
+I stumbled just before the top of the hill,
+scraping my hands and knees as I fell.
+I knelt there panting for a moment,
+then struggled back to my feet and kept going.
+The only sounds were my breathing and the steady crunch of my sandals.
+Razi's sword bumped against my hip every second step.
+
+I reached the top of the hill.
+The palace gleamed in the moonlight below.
+I could smell lemon trees and moist earth.
+There!
+Someone was standing in the shadows by the palace gate.
+No,
+there were two people,
+and they were kissing.
+It was Suresh and Hediyeh.
+
+She pushed him away,
+then grabbed his wrists and pulled him back.
+They kissed again.
+*Good,* I thought coldly.
+*As long as they're doing that, I don't have to worry about being seen.*
+
+The path dipped behind a shoulder of the hill.
+When I could see the palace again
+the gate was open and they were gone.
+Then I was running through rows of eucalyptus, neat and square.
+
+The trees stopped two dozen strides from the gate.
+I slowed to a walk,
+drawing Razi's sword.
+The quicksilver blade took shape with a soft gurgle,
+like water being poured from a jug.
+Heart pounding,
+I stepped through the gate.
+
+The palace music played softly around me.
+I let out my breath with a whoosh.
+It would have stopped if the spell had already been broken.
+There was still time.
+I closed my eyes.
+My heart was pounding in my chest.
+I imagined calming it,
+soothing it,
+as if it were a frightened pocket mouse.
+Suresh couldn't *drome*—at least,
+I hoped he couldn't—but Hediyeh certainly could.
+*Sh, be still, be still,* I thought.
+I imagined myself petting my heart gently,
+rubbing its ears,
+brushing its soft fur.
+I imagined it growing still under my hand until it did.
+
+I opened my eyes.
+My moonshadow was just two fingers wide.
+There wasn't much time left.
+I trotted across the outer courtyard on the balls of my feet
+and took the stairs two at a time.
+I was calm.
+I was certain.
+I was as clear as breath,
+a quiet stream flowing without a ripple or a wave.
+
+I pressed myself against the wall next to the open door,
+then craned my head to look into the greeting room.
+Empty.
+I slipped inside.
+They had probably gone through the inner courtyard to the pool.
+I ran the other way, to the audience room.
+A side door opened onto a narrow stairway
+that led up to a window set just below the roof.
+When the palace was in use,
+a servant would have stood there to watch for guests arriving.
+It didn't overlook the pool,
+but it was big enough for me to squeeze through.
+
+I pushed Razi's sword back into its bottle,
+corking it with the handle,
+then put both hands on the sill and hopped onto it.
+It wasn't quite tall enough for me to stand,
+so I leaned out,
+one hand on the wall for balance,
+the other reaching up for the edge of the roof.
+The stone was cool against my skin.
+I took a breath, let go of the wall, and stepped out.
+
+My whole weight hung from one hand for a heartbeat
+until my other hand found purchase.
+I pulled myself up onto the roof and drew Razi's sword once again.
+The stones were dark and discolored
+where the brief puddles left behind by occasional storms had dried.
+I hunched down and crept forward.
+
+Suresh and Hediyeh were already in the pool,
+laughing and splashing.
+Their clothes lay at the pool's edge.
+Suresh's body and legs were pale in the moonlight,
+though his hands and feet and face were bark brown.
+Hediyeh—Hediyeh was all one color.
+That's all I want to say.
+
+Suresh lunged forward, catching Hediyeh's foot.
+"Stop it! Stop it!" she squealed as he tickled her.
+He dove,
+swam beneath her,
+popped up behind her,
+and flicked water off his fingers into her eyes as she turned around.
+
+"Stop!" she giggled, wiping her face.
+"You swim so well.
+You're like a fish."
+
+"Thank you.
+I practically grew up in the water back home."
+He slipped around her, heading for his clothes.
+"Used to spend pretty much every summer in the lake, looking for treasure."
+
+"Treasure? Really?" Hediyeh dog-paddled after him.
+I shifted my weight.
+What was he doing?
+
+He glanced up at the moon, then back at Hediyeh.
+"I was, I don't know, seven, maybe eight,
+and there was this story about a boy who found a gold necklace and a helmet once.
+It was a true story, too."
+He reached out and pulled his clothes closer.
+
+"You're not getting out already, are you?" Hediyeh pouted.
+
+"What? No, no, I'm just…
+Anyway, the boy sold them in Ossisswe,
+then bought a whole herd of goats and lived happily ever after."
+Suresh pulled something out of the pocket of his trousers
+and turned back to Hediyeh.
+
+"So did you ever find anything?" she asked.
+
+"Mm hm."
+He held up the ring.
+It sparkled in the moonlight.
+
+"Oh! Let me see!"
+He held it out, then pulled it away just before she took it.
+
+"Come and get it," he grinned.
+He wriggled away,
+drawing her toward him,
+always out of reach.
+He was leading her closer to the waterstone beneath me.
+I tensed.
+
+"Oh, stop teasing!"
+Hediyeh paddled forward.
+I slipped my feet out of my sandals.
+Suresh was almost close enough.
+Almost…
+
+Suddenly he stopped backing away.
+He looked up at the sky.
+"It's time," he said,
+and slipped the ring onto his finger.
+
+Hediyeh screamed in shock as she *dromed* the ancient haunt flooding into Suresh.
+He lunged forward and grabbed her arm.
+"Let go! Let go!" she shrieked.
+She tried to pull away, but he was too strong.
+He pulled her close,
+spinning her around so that he could get his other arm around her neck.
+The ring throbbed with red light,
+making the water look like blood had already been spilled in it.
+
+I splashed into the pool an arm's length away,
+a shock running up my spine as my feet hit the bottom.
+Hediyeh screamed again.
+I raised my arm.
+Razi's quicksilver blade licked the night above us.
+"Let go of her!" I ordered.
+
+"Eimin!"
+Suresh tightened his grip on Hediyeh's neck,
+choking off her scream.
+"What are you—"
+
+"Let go!"
+I twisted in the water and feinted at him.
+The sword blade snapped like a whip just inches from his head.
+
+"Eimin, wait, listen to me.
+Listen!
+You have to let me do this.
+Eimin, it's for both of us."
+He glanced up at the moon again.
+"Please, Eimin, think!
+Think about what they did to you.
+Think about what they kept from you!
+Once I have the power that's in that stone,
+I can undo that.
+I can make you like everyone else.
+We can stop them from ever doing it to anyone ever again.
+Please,
+Eimin,
+I know what you're thinking,
+but it's the only way."
+
+"You don't know what I'm thinking," I said.
+I flicked the sword at him again to try to back him away from the stone.
+He didn't flinch this time.
+The blade caught his shoulder,
+leaving a thin red line that immediately started to drip.
+The ring brightened hungrily.
+
+"Is that it?
+Are you going to be a pawn all your life, when you could be a king?"
+Hediyeh pulled at his arm.
+Her mouth was open,
+her eyes bulged.
+She couldn't breathe.
+He was choking her while he talked to me.
+
+"I don't know what I'm going to be," I told him,
+flicking the sword again.
+"All I know is that you're a liar.
+Nobody did this to me.
+Nobody made me this way.
+My mother wouldn't let them."
+
+His face hardened.
+He took a deep breath.
+He was going to dive.
+Hediyeh had almost stopped struggling.
+He was going to dive and give her death to the stone.
+I was out of time.
+
+I lunged forward.
+Razi's sword went right through the joint of Hediyeh's shoulder
+and into Suresh's ribs.
+She couldn't scream,
+but he could,
+a scream was rage and pain
+and a thousand years of being trapped in a little shard of glass.
+
+He shouted a word and slapped the sword blade with the hand that wore the ring.
+The blade snapped like a dry twig.
+He rolled in the water and dove.
+I dropped the broken sword and went after him.
+
+His ring was so bright now that it cast red-tinged shadows.
+Hediyeh was limp in his arms.
+Dark blood made the water murky.
+He grabbed the corner of the waterstone with one hand to steady himself
+and held her down against it with the other.
+Air bubbled out of his mouth as he began the spell.
+
+I frog-kicked over to him and grabbed his arm.
+He tried to beat me away,
+but the water took the force of the blow away.
+I was already running out of air.
+The ring was blinding me.
+I let go of him,
+grabbed Hediyeh's arm,
+and planted my feet on the waterstone to try to pull her away.
+
+Cold…
+I had never felt cold like that.
+It was as if ice water was flooding into my veins.
+The waterstone *wanted*.
+Its hunger rose through my legs into my body.
+I pulled weakly at Hediyeh's arm.
+It was too late.
+The cold was in my heart, sucking all my strength away.
+I couldn't—
+
+With the last of my strength I twisted
+and jammed my fingers into Suresh's mouth to stop the spell.
+He bit them in surprise, then tried to pull his head away.
+He couldn't let go of the waterstone.
+He couldn't let go of Hediyeh.
+He couldn't get away from me,
+so he tried to spit them out,
+but I hung on.
+I was actually holding on to his bottom teeth for an instant.
+
+The red glow started to fade.
+He shook his head from side to side frantically.
+I was so cold.
+I couldn't feel my legs any more.
+The glow flickered and died.
+In the last of its light I caught a glimpse of Suresh's face.
+Whatever was in there looked back at me full of hate and despair and longing,
+and then it was gone.
+
+The next thing I remember I was lying on my back looking up at the stars.
+I didn't know where I was.
+I was cold,
+but I didn't have the energy to fetch a blanket.
+My mother would look in on me in a while.
+She could always *drome* when I was awake,
+when I was too hot or too cold.
+She'd take care of me.
+
+I blinked and turned my head as Suresh dragged Hediyeh out of the pool.
+I must have made a sound, because he looked at me.
+Our eyes met.
+He shook his head slowly and started to sob.
+I closed my eyes again.
+
+When I woke again, Razi was beside me.
+He had cut his shirt into strips to bandage Hediyeh's shoulder.
+Suresh was gone.
+
+"Cold…" I whispered.
+He nodded without looking at me,
+intent on his work.
+
+"*La*, I will build a fire as soon as I can.
+She has lost a lot of blood."
+He knotted another strip of shirt under her armpit,
+then sat back and rubbed his ankle.
+"What happened?"
+
+"Suresh…?"
+
+Razi shook his head.
+"Gone. But he left this."
+He held up the ring.
+It was just glass now.
+Whatever had been in it had missed its chance.
+
+I tried to sit up, but I was too weak.
+It was like one of those bad dreams where you're a puppet whose strings have been cut,
+so that you can see and hear but can't move.
+For some reason it seemed funny to me.
+I started to chuckle,
+but it turned into a wheeze.
+
+Razi turned the ring over in his hand,
+then tucked it into his pocket and struggled to his feet.
+"Now,
+where's my sword? If there's even a scratch on it…"
+
+In the end I went for help so that Razi could stay and look after Hediyeh.
+It wasn't a good idea.
+I only had to walk as far as the goat pasture,
+but it seemed to take as long as my trek out to the fleet.
+I stumbled lightheadedly straight into the arms of Grappa Uzman.
+I don't know how much sense he made of the story I told him,
+but it frightened him enough for him to send one of his grandsons to Medef for help.
+I fell asleep, shivering, as the sun came up.
+
+</section>
+
+<section markdown="1">
+
+## Epilog
+
+It was a month before my strength returned.
+I spent most of that time sleeping,
+or sitting on the roof watching the world go by.
+A pair of sand pigeons built a nest in the eucalyptus tree beside our house.
+Little Ashwara took her first steps.
+And somehow, Hediyeh became a hero.
+
+I'm still not sure how that happened.
+The waterstone had taken even more out of her than me,
+and for a few days the wound in her shoulder—the wound I'd given her—looked
+like it was going to go bad.
+Once she was well enough to sit up and talk,
+though,
+her room was never empty.
+Everyone wanted to hear the story from her,
+grownups and children alike.
+Or maybe they could just *drome* how much she enjoyed telling her version of it.
+
+Razi came to see me regularly.
+One morning he brought three people with him, two men and a woman.
+The two men asked me questions,
+drawing every little detail of the story out of me.
+The woman just listened and frowned.
+
+Razi came back into my room after they left
+and turned his hand over, palm up, palm down, meaning, "The Other Hand".
+I nodded.
+I had guessed as much.
+They didn't look like Razi,
+any more than any other Aphsi,
+but there was something in their eyes,
+sadness and patience and acceptance and watchfulness all at once.
+
+"They still haven't found Suresh," he told me.
+"Someone took water and food from the cache at Tin Point,
+but there's no trail.
+Lady Kembe tried a spell, but even she couldn't find him."
+
+"Do you think he's dead?" I asked.
+
+Razi shook his head.
+"Dead men can't hide that well.
+Oh, but here, I almost forgot.
+This is for you."
+He brought his arm out from behind his back
+and handed me a chessboard in a leather sleeve
+and a cloth bag full of pieces.
+
+"Thank you."
+I slipped the board out of its sleeve.
+"Do you have time for a game?"
+
+He grinned.
+"*La*, always."
+He pulled the little lopsided table I'd made over beside my hammock,
+sat on the stool on the other side,
+and poured the pieces onto the board.
+A moment later he held up two fists.
+"Choose."
+
+I laughed.
+"Either."
+He laughed too,
+then opened his hands to show me a pair of white pawns.
+
+</section>
