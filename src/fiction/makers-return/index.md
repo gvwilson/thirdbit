@@ -8,7 +8,7 @@ fiction: true
 
 <section markdown="1">
 
-## My Thanks To Those I Loved (Sindy)
+## Chapter 1: My Thanks To Those I Loved (Sindy)
 
 Sindy lay in bed waiting for the sun to rise
 and wishing that it wouldn't.
@@ -286,7 +286,7 @@ not noticing the little green light that had started blinking on its end.
 
 <section markdown="1">
 
-## Robots Don't Eat Potatoes (Violet)
+## Chapter 2: Robots Don't Eat Potatoes (Violet)
 
 Violet lay in her pod waiting for the lid to open,
 wishing that she was still in virtual.
@@ -560,5 +560,120 @@ He studied the tablet a moment longer,
 then looked at Violet.
 "I don't think we have a choice.
 I think it's time to go home."
+
+</section>
+
+<section markdown="1">
+
+## Chapter 3: Hide and Seek (Sindy)
+
+Sindy made a cheese and pickle sandwich to take to school the next morning,
+then went back upstairs to brush her hair a second time.
+Her bed was made,
+and all her clothes were put away,
+so as much as she wanted a reason to put off going to school,
+she was fresh out.
+
+She missed walking into Rusty Bridge with Maddy and Gumption.
+Her big sister had stopped holding her hand years ago,
+but even if they didn't talk much,
+her company had been comforting.
+Sindy hadn't realized how much that mattered to her until it ended.
+Now,
+the walk to school was just another reminder of how lonely she felt.
+
+She slipped into the one-room schoolhouse
+and slid into her usual seat near the back
+just moments before Miz Nabbles cleared her throat and said,
+"All right, everyone, let's quiet down and get started, shall we?
+Oh, good morning, Mister Goat—so nice of you to join us."
+
+Sindy didn't looked up as Bravo Goat muttered,
+"Sorry, Miz Nabbles,"
+and plopped himself in the seat next to hers.
+
+Miz Nabbles sniffed disapprovingly.
+"Will you brother be joining us today,
+or does he still have—what was it this time?"
+
+"A cold, Miz Nabbles.
+He's gettin' better, but he says he's still under it."
+Bravo didn't even try to make the excuse convincing.
+
+Someone snickered.
+Miz Nabbles sniffed again.
+"Well, I suppose we'll just have to muddle through without him.
+Now, who wants to share their answers for yesterday's arithmetic with the class?"
+
+She paused expectantly.
+"Anyone? No?
+What about you, Sindy?
+Do you have something for us?"
+
+"Kind of,"
+she said reluctantly.
+"I did all the questions about loans and interest,
+but the triggernometry—"
+
+"Tri<em>go</em>nometry," Miz Nabbles corrected.
+
+"—tri<em>go</em>nometry was really hard.
+I didn't even really know how to start,"
+Sindy confessed.
+
+Miz Nabbles flicked her tail.
+"Well, we went over it *twice* in class.
+It really shouldn't be that difficult,
+particularly not for someone with your special abilities."
+
+Sindy's ears burned.
+*Just 'cuz I can use tech doesn't mean I'm good at math,*
+she thought but didn't say.
+She actually had been able to do most of the problems,
+but when she had shown up last week with all her homework done,
+some of the other kids had called her a show-off.
+Sometimes it seemed like there were no right answers.
+
+Recess came exactly an hour and a half later.
+She pretended to be writing a note in her practice book
+until most of her classmates had poured out the door into the playground,
+then followed them.
+Bravo and some other boys her age had found long sticks
+and were practicing the pike drills
+they had seen the town's militia do.
+Melia Fox and two other girls were skipping rope—Sindy knew
+she wouldn't be welcome there—but
+a few of the younger children seemed to be organizing a game of freeze tag.
+
+She stood and waited on the edge of the group
+while they settled on the precise rules.
+After ignoring her for a few moments,
+Melia's younger sister glanced at her.
+"Sorry," she said insincerely,
+"But we've got too many people already."
+
+Sindy waited just long enough for the moment to become uncomfortable
+before saying,
+"Sure,"
+and turning away.
+Feeling more alone than ever,
+she walked slowly over to the toybox,
+took out three cloth balls,
+and started to practice juggling,
+just like she had every day last week.
+
+"It's not my fault," she wanted to say,
+except she didn't know who she would say it to.
+It wasn't her fault that she was a throwback.
+("Original," she heard Maddy correct her in her head.
+"The word is 'original'.")
+It wasn't her fault that the Operators had kidnapped her
+and tried to hand her over to the bots in Heck.
+(But the sidelong looks when she went into town told her
+exactly who was thinking that there had to have been a reason.)
+It wasn't her fault that Special Leaf had died.
+(But he wouldn't have been injured if she hadn't lost control,
+and no matter what Doc Whinny and Mayor Lupus and everyone said,
+that *had* to have weakened him.)
 
 </section>
