@@ -280,7 +280,7 @@ That would be nice, wouldn't it?"
 All of a sudden Sindy wanted to be anywhere but in Special Leaf's house without him.
 "Yeah, let's go."
 She slipped the cylinder into her pocket as she followed her mother into the hallway,
-not noticing the little green light that had started blinking on its end.
+not noticing when a little green light started blinking on its end.
 
 </section>
 
@@ -675,5 +675,127 @@ It wasn't her fault that Special Leaf had died.
 (But he wouldn't have been injured if she hadn't lost control,
 and no matter what Doc Whinny and Mayor Lupus and everyone said,
 that *had* to have weakened him.)
+
+Miz Nabbles set them free at noon.
+Sindy didn't bother to try to find someone to sit with for lunch.
+Instead,
+she took the shortcut between the lumber yard and Ox brothers' brewery
+to the dirt road that led out of town.
+She ate her sandwich as she walked,
+wishing with every dry mouthful that she had brought a water bottle as well.
+
+She needed a hobby, she decided,
+kicking a loose stone into the knee-high weeds at the side of the road.
+Maddy had her drawing and Gumption was learning to be a mechanic—she
+should find something she could do on her own
+that *didn't* involve the Makers' ancient tech.
+She had tried sewing and baking and singing and whittling and now juggling,
+but nothing ever held her interest more than a couple of weeks.
+
+Sindy kicked another rock into the weeds
+and tossed the last crust of her sandwich over her shoulder for luck.
+At least the bots would be happy to see her.
+
+"I am sorry,
+Sindy.
+I have promised to repair the Foxes' cart by sundown.
+Perhaps we can play tag some other time."
+The buzzing undertone of Dockety's voice hadn't changed,
+but Sindy still wasn't used to the bot referring to itself as "I".
+
+"Sure," she said,
+trying to to keep the disappointment out of her voice.
+Dockety's eyes rotated and rotated back in its equivalent of either a shrug or a smile,
+she was never sure which.
+It turned back to the cart in question,
+the back end of which was resting on a tree stump
+while the bot mended its rear axle.
+
+Crusher and Beevy were busy turning logs into planks,
+not that either would been much fun to play tag with.
+She didn't really know any of the other bots she could see
+well enough to ask them to play.
+*I should have just gone home,*
+she thought,
+then jumped and squeaked as something pinched her ankle.
+
+"Gotcha tee hee hee,"
+said a deep voice.
+The same words scrolled across the screen
+on the front of the little bot that had rolled up behind her.
+
+Sindy put her hands on her hips and scowled down at it.
+"That wasn't funny, Mouse."
+
+"Was too."
+The little bot flashed a pattern of sparkles on its screen.
+It zipped back and forth,
+pleased with itself.
+
+Sindy rolled her eyes.
+"Fine.
+Maybe it was a little funny.
+Hey,
+do you want to play tag?"
+
+It took her a minute to explain the rules.
+"You can be 'it' first," she finished.
+"Ready?
+Hey!"
+She yelped as Mouse poked her with its single skinny arm
+and immediately raced away,
+its four wheels bouncing over the stones and potholes of Bots' End's single short street.
+
+She gave chase,
+only for the little bot to disappear under the raised floor of a nearby building.
+"That's not fair! Come back out!"
+
+"Nope.
+Tee hee hee."
+
+Sindy crouched down.
+She could see sparkles of amusement on Mouse's screen,
+but she wouldn't be able to reach it unless she lay down and got dirt all over her dress.
+Even if she did,
+the bot could just roll back.
+
+She sat back on her haunches.
+"That's not you play tag, Mouse," she repeated.
+"You have to be somewhere the other person *could* catch you or it's no fun."
+
+There was a moment of silence,
+and then then Mouse rolled out from under the building.
+`you didn't say that was a rule` scrolled accusingly across its screen.
+
+"Sorry."
+Sindy had played with Mouse often enough to know that
+not using its voice was its way of showing its feelings were hurt.
+"How about we try again some other time?"
+
+Her mood and the sky darkened in time with each other as she walked home.
+The first few drops of rain began to spatter around her
+just as she reached her front door.
+"Fine," she said in answer to her father's question about how school had been.
+"I'm going to do homework."
+She trudged up the stairs without waiting for a response,
+closed the door behind her,
+and flopped on her bed.
+
+Staring at the ceiling didn't make her feel any better.
+Neither did re-doing the braid in her hair,
+and the books sitting on her side table
+just reminded her of Special Leaf.
+Papa Roo would play checkers with her if she asked him to,
+but she hated it when people did things because they felt sorry for her.
+
+She picked up the little gray cylinder she had found in Special Leaf's house
+and frowned at the little green light blinking on one end.
+It hadn't been doing that yesterday, had it?
+She turned it over,
+looking for a button or switch or anything else.
+"So what do you do?" she asked out loud.
+
+And froze as an unknown voice responded,
+"What do you mean, what do I do?"
 
 </section>
