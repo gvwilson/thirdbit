@@ -3,12 +3,23 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-01-18T00:00:00Z</updated>
+ <updated>2026-01-23T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Updating Snailz</title>
+   <link href="https://third-bit.com/2026/01/23/updating-snailz/"/>
+   <updated>2026-01-23T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/01/23/updating-snailz/</id>
+   <content type="html">&lt;p&gt;I have updated the &lt;a href=&#34;https://github.com/gvwilson/snailz&#34;&gt;synthetic data generator&lt;/a&gt; I built last year
+to generate datasets I can use in &lt;a href=&#34;https://third-bit.com/sql/&#34;&gt;my SQL tutorial&lt;/a&gt;.
+I might also use it as a running example
+if I ever teach a course on software design in Python to researchers.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>If Not Lessons, Then What?</title>
@@ -2038,76 +2049,6 @@ but if we didn&amp;rsquo;t have access to the simulation and its parameters
 (which we wouldn&amp;rsquo;t in the real world),
 we would need to look collect different data and look at it more closely
 to figure out what the hell was going on.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Analyzing the Simulation</title>
-   <link href="https://third-bit.com/2025/11/24/analyzing-simulation/"/>
-   <updated>2025-11-24T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/11/24/analyzing-simulation/</id>
-   <content type="html">&lt;p&gt;&lt;a href=&#34;https://third-bit.com/2025/11/23/simulating-multiple-stages/&#34;&gt;Yesterday&amp;rsquo;s post&lt;/a&gt; added a second stage to the simulation,
-and made a prediction about where work would pile up.
-Today,
-we&amp;rsquo;re going to check whether that prediction is correct.
-As a reminder,
-our system is:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;+----------------+    +-----------+    +------------+    +------------+    +---------+
-| task generator | -&amp;gt; | dev queue | -&amp;gt; | developers | -&amp;gt; | test queue | -&amp;gt; | testers |
-+----------------+    +-----------+    +------------+    +------------+    +---------+
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Tasks arrive every 2.0 timesteps.
-It takes each of our two developers an average of 5.5 timesteps to complete a task,
-while each of our three testers needs an average of 4.5 timesteps to test the result.
-This means that developers should complete one task every 2.75 timesteps,
-and testers should be able to complete one every 1.5 timesteps.
-We should therefore see work piling up in the development queue,
-while the test queue should be more or less empty most of the time.&lt;/p&gt;
-&lt;h2&gt;Yup&lt;/h2&gt;
-&lt;p&gt;It only takes a few lines of code
-to produce time-series line chart using &lt;a href=&#34;https://pola.rs/&#34;&gt;Polars&lt;/a&gt; and &lt;a href=&#34;https://plotly.com/python/plotly-express/&#34;&gt;Plotly Express&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;sys&lt;/span&gt;
-
-&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;polars&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;pl&lt;/span&gt;
-&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;plotly.express&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;px&lt;/span&gt;
-
-
-&lt;span class=&#34;k&#34;&gt;assert&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;usage: analyze.py csvfile plotfile&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;read_csv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; \
-       &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;kind&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;dev_queue&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pl&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;col&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;kind&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;test_queue&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;fig&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;kind&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;fig&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;write_image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Sure enough,
-the queue of tasks waiting for a developer&amp;rsquo;s attention grows and grows,
-while tasks only wait occasionally (and briefly) for testing:&lt;/p&gt;
-&lt;div class=&#34;center&#34;&gt;
-  &lt;img src=&#34;https://third-bit.com/files/2025/11/24/queues.svg&#34; alt=&#34;time-series chart of queue lengths&#34;&gt;
-&lt;/div&gt;
-
-&lt;p&gt;A little bit more analysis confirms that yes,
-our testers are spending a lot of their time waiting for work
-while our developers are busy nearly 100% of the time:&lt;/p&gt;
-&lt;div class=&#34;center&#34;&gt;
-  &lt;img src=&#34;https://third-bit.com/files/2025/11/24/times.svg&#34; alt=&#34;time-series chart of developer and tester time&#34;&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;Little&amp;rsquo;s Law&lt;/h2&gt;
-&lt;p&gt;One of the most useful results from queueing theory is
-a generalization of the quick-and-dirty math we did at the start of this post
-that predicted where jobs would pile up.
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Little%27s_law&#34;&gt;Little&amp;rsquo;s Law&lt;/a&gt; states that L = λW, where:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;L is the average number of tasks in the system,&lt;/li&gt;
-&lt;li&gt;λ is the average arrival rate, and&lt;/li&gt;
-&lt;li&gt;W is the average time each task spends in the system.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For example,
-if tasks arrive at a rate of λ = 2 per day
-and each spends W = 5 days being worked on,
-then on average L = 10 tasks are being worked on at any time.
-If each worker does one task at a time, we can infer there are 10 workers.
-Most software development teams don&amp;rsquo;t track &lt;em&gt;any&lt;/em&gt; of these three numbers;
-I hope this series of posts is convincing you that it&amp;rsquo;s worth doing.&lt;/p&gt;</content>
  </entry>
  
 </feed>

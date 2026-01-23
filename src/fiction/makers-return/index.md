@@ -799,3 +799,100 @@ And froze as an unknown voice responded,
 "What do you mean, what do I do?"
 
 </section>
+
+<section markdown="1">
+
+## Chapter 4: The Voice (Violet)
+
+*I think it's time to go home.*
+The sentence went around and around in Violet's head
+like the merry-go-round in the virtual funfair she still sometimes visited
+when she was feeling particularly lonely.
+What did "home" even mean?
+She remembered air that smelled like fresh flowers
+and the warmth of sunlight on her skin,
+but she also remembered people shouting
+and the final night-time rush to get to the ark
+and the feeling of being crushed into her seat as it launched.
+
+At first she thought they would return right away.
+Like everything involving adults,
+it turned out to be slower and more complicated.
+"We've been asleep a lot longer than we planned,"
+Doctor Meadows said.
+"We have double-check everything before we can even start planning re-entry."
+
+"Even then…" Captain Leung muttered under his breath,
+scowling at a display showing red bars
+that Violet was pretty sure were supposed to be green.
+He sat back in his chair to stretch,
+blinking as if suddenly remembering that Violet could overhear the conversation.
+
+"Don't worry,"
+he said with a smile Violet didn't actually find reassuring.
+"We'll sort it out."
+
+Sorting it out turned out to mean a space walk.
+Violet watched through half a dozen cameras as he climbed into
+a bulky yellow spacesuit.
+Doctor Meadows talked him through a checklist full of numbers and acronyms.
+Twice they stopped to trade a piece of equipment on his suit
+with its match from the other three suits hanging in the bay.
+
+"Think it'll be our turn some day?"
+Violet asked André.
+
+He blew a raspberry through the speaker.
+"Fat chance.
+They're lucky they can get even one suit working any more.
+By the time they let us try
+we'll be lucky if there's a pair of gloves left.
+Bet you something goes kablooie while he's out there.
+I saw that happen in virtual once.
+The guy's head swelled up and—"
+
+"André!"
+Doctor Meadows' voice cut in sharply.
+"Nothing's going to go wrong,
+and even if it did,
+people don't actually explode in space,
+so let's not give anyone a reason to have nightmares,
+all right?"
+
+"Sorry, doctor," he muttered.
+Violet heard a small *click* as he cut comms,
+leaving just the soft wheeze of the air circulation system
+and the intermittent beeping of the ship's displays
+for her to listen to.
+
+Captain Leung's excursion turned out to be
+less exciting than a ride on the virtual merry-go-round.
+She watched through the camera on his helmet
+as he swung out through the hatch,
+clipped a line to a guide wire,
+opened a panel,
+and replaced one nondescript rectangular bit of something or other
+with another that looked identical.
+That done,
+he closed the panel and clambered back through the hatch.
+
+He turned around and paused for a moment.
+"Quite the view, isn't it?" he said,
+his voice echoing slightly.
+
+"Yeah."
+A quarter circle of white-blue-green filled one corner of the hatch.
+The sun was about to set,
+but no,
+she could see that was wrong.
+The planet *rising* to block out the sky,
+or the ark was falling,
+down down down but moving so fast that it never hit the ground.
+It was beautiful and impossible and scary all at once,
+but "home"?
+
+Captain Leung closed the hatch.
+Violet swiped a fingertip across the display
+and then went to find some lunch.
+
+</section>

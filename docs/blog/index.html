@@ -81,6 +81,19 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/01/23/updating-snailz/">
+      Updating Snailz
+    </a>
+  </h2>
+  <p><time datetime="2026-01-23" class="post-date">2026-01-23</time></p>
+  <p>I have updated the <a href="https://github.com/gvwilson/snailz">synthetic data generator</a> I built last year
+to generate datasets I can use in <a href="../sql/">my SQL tutorial</a>.
+I might also use it as a running example
+if I ever teach a course on software design in Python to researchers.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/01/18/if-not-lessons-then-what/">
       If Not Lessons, Then What?
     </a>
@@ -484,161 +497,6 @@ and revising some of the fiction <a href="../2025/12/19/the-year-that-was/">I fi
 </ul>
 <p>Time for the day&rsquo;s last cup of tea.
 If you came in peace, be welcome.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2025/12/08/the-real-hardest-problem/">
-      The Real Hardest Problem
-    </a>
-  </h2>
-  <p><time datetime="2025-12-08" class="post-date">2025-12-08</time></p>
-  <blockquote>
-<p>There are only two hard things in computer science:
-cache invalidation and naming things.</p>
-<p>— Phil Karlton</p>
-</blockquote>
-<p>With respect,
-I think that handling interrupts is harder than either of these.
-<a href="../2025/12/07/handling-interruptions/">Yesterday&rsquo;s post</a> explained how <a href="https://simpy.readthedocs.io/">SimPy</a> does this.
-Today,
-after several near misses,
-we&rsquo;ll look at how to add it to our simulation.</p>
-<h2>A Quick Recap</h2>
-<p>Our <code>Simulation</code> class now includes a process
-that waits a random interval,
-chooses a random developer,
-and interrupts her by calling <code>.interrupt</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Simulation</span><span class="p">:</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">annoy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_interrupt_arrival</span><span class="p">())</span>
-            <span class="n">dev</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">developers</span><span class="p">)</span>
-            <span class="n">dev</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">interrupt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_interrupt_duration</span><span class="p">())</span>
-</code></pre></div>
-<p>When <code>.interrupt</code> is called,
-SimPy injects a <code>simpy.Interrupt</code> exception into the target process;
-the argument to <code>.interrupt</code> is attached to that exception object.
-If we&rsquo;re comfortable throwing away the task we&rsquo;re currently working on,
-the <code>Developer</code> process can catch the exception like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Developer</span><span class="p">(</span><span class="n">Labeled</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">req</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-                <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">req</span>
-                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">dev_required</span><span class="p">)</span>
-            <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">req</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">req</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
-</code></pre></div>
-<p>The trickiest part of this is canceling the outstanding request
-to get something from the development queue.
-As we discovered yesterday,
-if we <em>don&rsquo;t</em> do this,
-the developer won&rsquo;t ever get anything else from the queue.</p>
-<h2>Nearly Right</h2>
-<p>What if we <em>don&rsquo;t</em> want to throw away our current task when we&rsquo;re interrupted?
-What if instead we want to handle the interruption and then resume that task?
-Here&rsquo;s an implementation that&rsquo;s almost right:</p>
-<div class="highlight"><pre><span></span><code>    <span class="c1"># This code is wrong.</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">task</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">req</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">task</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-                    <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">req</span>
-                <span class="n">t_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span>
-                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">dev_required</span> <span class="o">-</span> <span class="n">task</span><span class="o">.</span><span class="n">dev_done</span><span class="p">)</span>
-                <span class="n">task</span><span class="o">.</span><span class="n">dev_done</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">t_start</span>
-                <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">is_done</span><span class="p">():</span>
-                    <span class="n">task</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">req</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">req</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
-                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">exc</span><span class="o">.</span><span class="n">cause</span><span class="p">)</span>
-</code></pre></div>
-<p>Inside the <code>try</code> block we get a task if we don&rsquo;t already have one,
-then try to wait for as much time as the task still requires.
-When we&rsquo;re done we add some time to the task and check if it&rsquo;s now complete.
-If we&rsquo;re interrupted,
-we cancel any outstanding request for a new task
-and then wait for as long as the interrupt tells us to.</p>
-<p>There are (at least) two things wrong with this code.
-The first and less important is that when we&rsquo;re interrupted,
-we throw away any work we&rsquo;ve done on the task during this iteration of the loop.
-That&rsquo;s relatively easy to fix:
-we just add some code to the <code>except</code> block to increment the <code>.dev_done</code> time in the task.</p>
-<p>The bigger problem,
-though,
-is that sooner or later this code fails because of an uncaught <code>Interrupt</code> exception.
-The problem is that we can be interrupted
-<em>inside our interrupt handler</em>.
-It isn&rsquo;t likely,
-which means it doesn&rsquo;t happen very often,
-but if we run the simulation often enough with different random seeds,
-it eventually falls over.</p>
-<h2>A Corrected Version</h2>
-<p>The &ldquo;fix&rdquo; (I&rsquo;ll explain the scare quotes around that word in a moment)
-is to move interrupt handling into the <code>try</code> block.
-To do that,
-we have to add another state variable <code>interrupt_delay</code>
-that tells the process if it&rsquo;s currently supposed to be handling an interruption delay:</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">task</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">interrupt_delay</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">req</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">interrupt_delay</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">interrupt_delay</span><span class="p">)</span>
-                    <span class="n">interrupt_delay</span> <span class="o">=</span> <span class="kc">None</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">task</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                        <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">dev_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-                        <span class="n">task</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">req</span>
-                    <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">dev_required</span> <span class="o">-</span> <span class="n">task</span><span class="o">.</span><span class="n">dev_done</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">is_done</span><span class="p">():</span>
-                        <span class="n">task</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="k">except</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Interrupt</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">req</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">req</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
-                <span class="n">interrupt_delay</span> <span class="o">=</span> <span class="n">exc</span><span class="o">.</span><span class="n">cause</span>
-</code></pre></div>
-<p>So why did I put scare quotes around the word &ldquo;fix&rdquo;?
-Because I&rsquo;m still not 100% sure this works.
-It hasn&rsquo;t failed yet,
-despite multiple runs with different seeds and parameters,
-but this code is now complex enough that I could well believe it contains
-a one-in-a-million edge case.
-I <em>think</em> the <code>except</code> block is now a critical region,
-i.e.,
-that no interrupts can occur within it
-because none of those three lines hands control back to SimPy,
-but I&rsquo;m not completely sure.</p>
-<p>And yes,
-this code still throws away any work the developer has done on a task
-during a particular loop iteration
-if an interrupt occurs;
-the interrupt handler should increment <code>task.dev_done</code>.
-And yes,
-it&rsquo;s possible for an interrupt to be interrupted:
-a more realistic implementation would stack interrupt delays,
-but honestly,
-if my boss interrupts me while I&rsquo;m being interrupted,
-I don&rsquo;t have any qualms about discarding the first interruption.</p>
-<h2>Yaks and More Yaks</h2>
-<p>My goal with this series of blog posts was
-to simulate the development process of a small software team.
-I&rsquo;ve spent most of the last week learning more about <a href="https://simpy.readthedocs.io/">SimPy</a>;
-it feels like <a href="https://en.wiktionary.org/wiki/yak_shaving">yak shaving</a>,
-but without it,
-I don&rsquo;t think I&rsquo;d have confidence in the code shown above
-(or be able to review its AI-generated equivalent).</p>
 </article>
 
 
