@@ -7203,9 +7203,19 @@ it seems we just tangle things up worse."
 Iffy watched the lumpy slick slide by for a second,
 then reached over and punched his shoulder.
 "For bein' so gloomy," she said firmly.
-"You're a lot more fun when you're all smiley an' such."
+"You're a lot more fun when you're all smiley an' such.
+Look at them—they don't seem t' be bothered."
 
-The sudden blare of the *Bengal*'s horn made her jump.
+She pointed at a trio of seagulls
+riding the up-and-down of the waves ten meters away.
+As she watched,
+another one joined them,
+then another.
+A flutter of wings behind her made her turn her head
+just in time to see two more land atop the pilot house.
+
+Just as she was about to comment on them,
+the sudden blare of the *Bengal*'s horn made her jump.
 *What now?* she thought.
 
 The horn's second blare was punctuated by the staccato chatter of gunfire.
@@ -7215,7 +7225,7 @@ For a moment all she could do was stare.
 *Somebody is shooting at us.*
 
 A dazzling streak of lightning half-blinded her.
-A moment later the smoking carcass of a military drone tumbled into the sea
+A moment later the smoking carcass of a swept-wing drone tumbled into the sea
 and exploded with a sharp *crack!*
 
 Boots thudded on the deck.
@@ -7232,7 +7242,7 @@ shielding Iffy with der body as a second drone whined overhead.
 Another brief burst of staccato and another streak of lightning,
 but the drone danced sideways just in time
 so that the plasma burst from the gun at the *Bengal*'s stern only singed it.
-It turned sharply and dove toward the ship.
+It banked sharply and dove toward the ship.
 
 The Marine spun around and pointed der arm at the incoming drone.
 The guns on der shoulders aimed and fired.
@@ -7257,36 +7267,38 @@ Iffy caught Honesty's arm as de turned to go.
 "Now excuse me—I need to join my unit to repel boarders."
 
 "To what?"
-And then something that looked like a cloudy jellyfish
-pulled itself over the railing and squelched toward them.
+Iffy asked,
+but her question was swept away by a gust of wind
+as the gulls that had landed on top of the pilot house
+hopped down onto the deck
+and turned their heads toward Honesty in unison.
 
-Honesty's first three shots went straight through it with no effect.
 "Stand back!" de ordered,
 pulling a micro-grenade the size of der thumb
 out of the clip on der exoskeleton's sleeve and priming it.
 
-"No!" Wales shouted, running toward them.
-He tackled Iffy just as the grenade hit the jellyfish and exploded.
+"No!" Wales shouted.
+He tackled Iffy just as the grenade hit the seagulls and exploded.
 
 *Boom!*
 The shock threw Iffy and Wales across the deck.
 For a moment she lay in a daze while the world spun around her.
 
 Something grabbed her arm.
-She shrieked, but it was Wales, not the jellyfish.
+She shrieked, but it was Wales, not the seagulls.
 "I can't hear you!" she yelled,
 her ears still ringing from the blast.
 
 He pulled her to her feet.
 *There's a hole in the ship,* she thought muzzily.
-It was right where the jellyfish had been
+It was right where the seagulls had been
 and big enough to swallow her.
 
 Where was Honesty?
 She looked around wildly,
 then shrieked again as another plasma burst lit up the gray sky over her head.
 
-"Come on!" Wales said, his voice muffled but audible.
+"Slow missiles!" Wales said, his voice muffled but audible.
 "We have to get out of here!"
 He pulled her toward the stern.
 
@@ -7310,10 +7322,10 @@ they had at least some chance of hitting something.
 his voice amplified by his helmet.
 
 Wales skidded to a stop and dropped Iffy to the deck.
-"For gubbins sake tell everyone to stop throwing grenades at them!"
+"For gubbins sake tell everyone to stop throwing grenades at the gulls!"
 he yelled at the Marine.
-"They're slow missiles!
-They're made of some kind of exothermic biomaterial—they're bombs!"
+"The gulls are slow missiles like the ones they used in Rothera!
+They're bombs!"
 The Marine nodded sharply and relayed the information through his helmet mike.
 
 Iffy grabbed Wales' sleeve.
@@ -7331,7 +7343,7 @@ Eight, ten—at least a dozen drones were circling in the *Guinevere*'s wake,
 buzzing the ship and dodging erratically to avoid fire from the Marines.
 
 "It's like they're waitin' fer somethin'," Iffy said.
-"More o' those jellyfish bombs maybe?"
+"More o' those seagull missile things maybe?"
 
 Wales started to shake his head, then froze and swore.
 "What?" Iffy demanded.
@@ -7781,7 +7793,7 @@ Wales swiped a finger over the screen beside him.
 A picture of him in a high-collared black kameez appeared
 with the word "WANTED" beneath it.
 "The Australians have decided that I'm responsible for what happened to the *Taroona*.
-Which is reasonable,"
+Which I suppose I am,"
 he added reflectively.
 "So now there's a warrant out for me.
 I expect I'll be arrested as soon as we reach Halley."
@@ -7822,6 +7834,67 @@ and closed her eyes.
 She and Honesty were going to go and find out some day, she decided sleepily.
 *Us an' Aunt Naggie an' Edson.*
 She rolled over onto her side.
+
+A knock on her door an hour later woke her, more or less.
+Her head felt like it was stuffed with dirty laundry,
+and her mouth—she really should have brushed her teeth.
+She pulled the door open and squinted against the light.
+
+Johnson Wales forced a smile.
+"Mind if I come in?"
+
+She wiped crust out of her eyes.
+"Huh?"
+
+He jerked his chin toward the inside of her cabin.
+"Sure."
+She stepped aside and closed the door behind him.
+
+There was barely enough space for him to stand between the mattress and the wall.
+He raised a finger to his lips,
+then tapped the tech in his temples.
+One, two, three…
+"All right," he said.
+"That's as much privacy as I can manage on short notice.
+How are you doing?"
+
+"About how you'd think,"
+Iffy said grumpily.
+"What's goin' on?"
+
+Wales put his hands in his pockets.
+"The Australians are going to arrest me for murder as soon as we reach Halley.
+If they do that,
+there's no way I'll get to Mount Tyree."
+
+Iffy wished she hadn't answered the door.
+"Is the stuff in your head gettin' worse?"
+
+Wales nodded.
+"That, and other things.
+We're going to be in Wilkie Sound in about an hour.
+We'll ony be a couple of kilometers from shore.
+It's risky,
+but if you don't want to risk being arrested as well…"
+
+He trailed off.
+Iffy tried to make sense of what he had said.
+"You gonna do a runner?" she finally asked.
+
+The corner of his mouth quirked up.
+"More of a swimmer."
+
+"In *that*?"
+Her wave toward the door took in the sub-zero water
+and the meter-high waves.
+
+He shrugged.
+"I was built for Mars, Iffy."
+
+"Well, I wasn't!
+An' I'm not leavin' Honesty or Aunt Naggie."
+She stepped onto her mattress and yanked the door open.
+After a moment Wales nodded and left.
 
 </section>
 
