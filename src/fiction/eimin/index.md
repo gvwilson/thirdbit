@@ -978,6 +978,141 @@ then turned for home.
 
 <section markdown="1">
 
+## Chapter 5
+
+Caravans never sell much in Medef.
+At least,
+they didn't when I was growing up,
+and I don't imagine it has changed since I left.
+The village does not have the bronze mines or dayglass quarries of other Aphsi villages,
+and while its lemons are delicious,
+they do not travel well.
+
+What it *does* have is clean, cool water.
+Thanks to the waterstone embedded in its floor,
+the pool that takes up one corner of the Pilots' palace is never empty.
+Magicians have argued for centuries about whether the stone makes water
+or somehow transports it from somewhere else.
+Thirsty caravaneers don't care.
+All that matters to them is that their animals can drink
+and they can refill their barrels
+no matter how bad the desert heat is.
+
+I found Suresh the next morning on the hill that divided the village from the palace.
+He was sitting in the shadow cast by a worn stone pillar
+with a stick of drawing charcoal in his hand and a notebook open in his lap.
+I had sketched the palace several times from almost the exact same spot.
+
+He smiled as I approached and gestured at the palace.
+"It is remarkable, isn't it?"
+
+I nodded the way Razi had taught me to.
+"Do you think they'll ever come back?" I asked,
+immediately regretting my abruptness.
+
+He chuckled.
+"*La*, who can say?
+Dead, sleeping underground, gone to the moon—I have books that claim all of these.
+There are even some who claim they never actually left,
+but rather walk among us."
+
+I squatted on my heels a couple of strides away from him.
+"Why would they do that?"
+
+His smile reminded me of Razi's.
+"Why did they do anything?"
+He scrambled to his feet (less elegantly than Razi would have)
+and tucked his notebook into his *deel*.
+"Would you like to give me a tour?"
+
+I had never been a tour guide before,
+but I did my best to remember what I had learned in the village school
+and later from Razi.
+Nothing was left of the Pilots' elaborate garden after so many centuries
+except the paths and stone benches.
+Some of the dayglass embedded in the walls had been pried out,
+but only some.
+Bad things tended to happen to people who disturbed
+what had once belonged to the Pilots,
+or so the stories said.
+
+Suresh stopped to admire a mosaic twice his height.
+"Have you ever drawn this?"
+
+I nodded, then caught myself.
+"What makes you think I draw?"
+
+He shrugged.
+"Your friend Hediyeh told me."
+
+"Oh."
+I digested that for a moment.
+
+"*La*, it reminds me of one in Ossisswe,"
+he continued,
+as if not noticing my silence.
+"Here, look."
+He took out his notebook,
+flipped through it,
+and then offered it to me.
+
+The paper was finer than any I had ever held,
+and the leather binding was as supple as my own skin.
+I didn't notice that right away, though.
+I was too entranced by the drawing.
+He had used three colors of charcoal and blended the results somehow
+to capture the shadow on the ground before a freestanding section of wall
+decorated with a mosaic whose angles and swirls were cousins of those beside us.
+I'm surprised my stomach didn't rumble at the sight.
+
+He laughed at the expression on my face,
+but his laugh didn't sting like those of Hediyeh and her friends.
+It was the laugh of someone who knew what it was to read a story
+or look at a drawing
+and want to be able to create something like it.
+"*La*, so let me offer you a bargain," he said,
+still smiling.
+"You tell me what it feels like to *drome*,
+and I'll show you how to shade colors like I did there."
+
+Everything I was feeling suddenly tasted like ashes in my mouth.
+"I can't," I said curtly,
+handing his book back to him.
+
+The smile dropped from his face.
+"My apologies if I have offended," he said,
+bowing his head slightly.
+"I merely wished to—"
+
+"I *can't*," I interrupted.
+"I'm *nif*.
+I can't drome any more than you can."
+
+"Ah."
+He gave me another slight bow,
+in sympathy rather than as an apology.
+"In that case,
+I apologize for being thoughtless.
+It must be difficult."
+
+"It's all right."
+All of a sudden I wanted to be somewhere else.
+"I should get back and do my chores."
+
+"Of course."
+He hesitated.
+"My offer stands.
+If you would like,
+I would be happy to show you how I did the shading in that sketch.
+Once your chores are done, of course."
+
+"Maybe.
+Thank you," I added belatedly.
+
+</section>
+
+<section markdown="1">
+
 ## Chapter N-1
 
 I ran.
