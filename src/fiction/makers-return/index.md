@@ -833,14 +833,23 @@ he said with a smile Violet didn't actually find reassuring.
 "We'll sort it out."
 
 Sorting it out turned out to mean a space walk.
+Doctor Meadows wanted to send one of the service bots,
+but Captain Leung insisted that he had to do it.
+"Have you forgotten why we had to launch in such a hurry?"
+he demanded.
+"If it's been compromised,
+it could cripple us or worse.
+And it's not like you can do it,
+or one of the children."
+
 Violet watched through half a dozen cameras as he climbed into
 a bulky yellow spacesuit.
 Doctor Meadows talked him through a checklist full of numbers and acronyms.
-Twice they stopped to trade a piece of equipment on his suit
-with its match from the other three suits hanging in the bay.
+Twice they stopped to swap a malfunctioning piece of equipment on his suit
+for its match from the other three suits hanging in the bay.
 
 "Think it'll be our turn some day?"
-Violet asked André.
+Violet asked André on their private channel.
 
 He blew a raspberry through the speaker.
 "Fat chance.
@@ -864,24 +873,28 @@ Violet heard a small *click* as he cut comms,
 leaving just the soft wheeze of the air circulation system
 and the intermittent beeping of the ship's displays
 for her to listen to.
+*So much for 'private channel',* she thought despondently.
+Maybe once the ark landed she would finally be able to do something
+without someone or something watching.
+She wondered if that would feel strange.
 
-Captain Leung's excursion turned out to be
-less exciting than a ride on the virtual merry-go-round.
+At first Captain Leung's excursion was less exciting
+than a ride on the virtual merry-go-round.
 She watched through the camera on his helmet
 as he swung out through the hatch,
-clipped a line to a guide wire,
+clipped a tether to a guide wire,
 opened a panel,
 and replaced one nondescript rectangular bit of something or other
 with another that looked identical.
 That done,
-he closed the panel and clambered back through the hatch.
-
-He turned around and paused for a moment.
+he closed the panel,
+turned around,
+and paused for a moment.
 "Quite the view, isn't it?" he said,
 his voice echoing slightly.
 
 "Yeah."
-A quarter circle of white-blue-green filled one corner of the hatch.
+A quarter circle of white-blue-green filled one corner of camera's view.
 The sun was about to set,
 but no,
 she could see that was wrong.
@@ -891,8 +904,237 @@ down down down but moving so fast that it never hit the ground.
 It was beautiful and impossible and scary all at once,
 but "home"?
 
-Captain Leung closed the hatch.
-Violet swiped a fingertip across the display
-and then went to find some lunch.
+Without warning half of the screens in front of Violet went red.
+`ERROR` flashed on some,
+`DANGER` on others.
+Wireframe schematics appeared, spun around, and zoomed in.
+Highlight arrows popped up,
+one three six a dozen.
+
+"Meadows! What's happening?"
+Captain Leung barked.
+
+"Overload in relay six.
+Checking…
+Correction, in relays six, seven, and nine."
+Doctor Meadows spoke quickly.
+"The optical conduit you just swapped in must have gone glassy."
+She paused.
+"Warning.
+The aft central vernier thruster is about to fire.
+Brace for maneuver."
+
+Captain Leung had time for a brief curse before
+a giant nudged the ship with its shoulder.
+Violet's heart leaped into her throat
+as the view through his helmet camera tumbled wildly.
+Another display showed his legs swing free of the ark's hull,
+making it look as though he was dangling from one hand beneath the ship.
+"Shut it down!
+Shut it down!"
+he shouted.
+
+"We're locked out," she replied,
+her voice as calm as ever.
+"Hang on a moment."
+
+"Was that meant to be funny?"
+the captain grunted,
+swinging around to grab his tether.
+
+The giant nudged the ark again,
+harder this time.
+Violet fumbled with the safety straps on her seat.
+"André?" she said,
+trying to keep the panic out of her voice.
+"André,
+are you all right?"
+He didn't answer.
+
+"Captain, I suggest we vent propellant from tank B,"
+Doctor Meadows said.
+"The thruster can't fire if it doesn't have any fuel."
+
+"No!"
+Captain Leung had wrapped a loop of the tether around his forearm
+and was trying to get his boots back on the hull.
+"We need that for re-entry."
+
+"If the thruster keeps firing,
+re-entry will no longer be an option."
+
+Captain Leung hesitated a moment longer.
+"Do it," he ordered crisply.
+
+One of the displays in front of Violet switched views
+to show a stretch of hull
+beneath a perfectly black sky decorated with tiny bright shards of diamond.
+She only had a second to take in the view
+before a white cloud erupted from the ship,
+the fuel instantly freezing into a million more sparkles.
+
+Another display flashed `FUEL EXPENDED`
+as the errant thruster tried to fire one last time.
+Captain Leung swore again.
+"That's going to make things interesting," he muttered.
+
+"We will figure it out,"
+Doctor Meadows replied.
+"We always do."
+
+Violet went down to the airlock and waited for it to cycle.
+Captain Leung barely glanced at her as he re-entered the ark,
+already on his way aft to inspect the damage.
+For the thousandth time,
+Violet wished she could do something useful.
+
+Hours later,
+she woke from a restless sleep
+to lie in her cot and listen to the quiet ever-present sounds
+of the machine that was her home.
+She knew right away that she wouldn't be able to get back to sleep.
+After half an hour of tossing and turning proved her right,
+she got up,
+scratched the stubble on her shaven head,
+and slipped her feet into her padded tabis.
+
+The lights in the corridor felt too bright,
+and she didn't think she could stomach another bowlful of goop,
+so she made her way to the bridge
+and sat in the captain's chair.
+She didn't exactly have permission to do that,
+but no one had ever actually told her that she couldn't,
+and anyway,
+none of the ark's critical systems would respond to her voice.
+
+She swiped the nearest display to bring up
+a video loop of a dozen different kinds of animals.
+Bears and bison,
+rabbits and raccoons,
+tigers and tortoises,
+kangaroos and crocodiles:
+a few looked cuddly,
+and others were a little bit frightening,
+but some of them seemed strangely familiar.
+
+She shook her head.
+The things she had met in virtual weren't real,
+but that didn't mean they weren't based on real things.
+The merry-go-round, for example—she (thought she) remembered
+actually riding one before the rush to the ark and the long sleep that followed.
+Had she spoken to a hybrid kangaroo when she was little,
+or had the ark's computer picked it out of her imagination
+and reflected it back to her?
+
+A light blinked next to one of the displays.
+It had been blinking for a while,
+she realized,
+wiping her eyes with her sleeve.
+She slapped the light angrily.
+
+"So what do you do?" a voice asked.
+
+"What do you mean, what do I do?"
+she answered without thinking.
+
+"Oh great, you can talk," the voice muttered
+as if speaking to herself.
+"I don't suppose you know any good jokes?"
+
+Violet rolled her eyes.
+Computers had *lousy* taste in jokes,
+but she could play along.
+"Knock knock."
+
+"Who's there?"
+
+"Banana."
+
+"Banana who?"
+
+"Knock knock," Violet repeated.
+
+She practically heard the voice roll her eyes.
+"I know this one.
+You say banana a couple of times,
+and then you say orange,
+and when I ask, orange who?
+you say—"
+
+"Orange you glad I didn't say banana?"
+Violet finished in unison with the voice.
+"Your turn."
+
+"Does it have to be a knock-knock joke?"
+the voice asked.
+
+Violet shrugged, already bored.
+"Whatever.
+What else do you have in your archive?"
+
+"My what?"
+
+"Your archive," Violet repeated impatiently.
+
+There was a moment of silence.
+"I don't have an archive."
+The voice sounded unsure of itself.
+"I'm a person, not a bot."
+
+Violet blinked.
+Computers were *never* allowed to pretend to be people,
+but if the ark's rockets could misfire,
+maybe other things were broken too.
+"If you're a person, what's your name?"
+
+"Sindy," the voice replied.
+"What's yours?"
+
+"I'm Violet.
+Don't you already know that?"
+
+There was another moment of silence.
+"Do you know my sister Maddy?
+She's a roo.
+She said—"
+The voice swallowed hard enough to be heard.
+"When we were in Heck,
+she was in some sort of computer thing,
+and she told me she met someone named Violet.
+Is that you?"
+
+Violet felt a pressure on her chest as if the ark was accelerating.
+"A roo?
+You mean, like a kangaroo?"
+
+"Yeah.
+She and mama and papa are all roos.
+I'm—I'm different."
+
+Violet felt her fingers dig into the arms of the captain's chair,
+but it was as if they belonged to someone else.
+"Are you—are you on the ground?
+Like,
+for real on the ground?"
+
+"No, I'm in my bedroom.
+Why?"
+
+Violet glanced up at the main display,
+which showed the planet below them.
+"Because I'm in space.
+I'm in an ark in space.
+I think I met your sister in virtual.
+We're going to land soon,"
+she added in a breathless rush.
+"Lots of things are broken and Central isn't talking to us any more
+so Captain Leung and Doctor Meadows decided we have to land and—"
+
+"Violet!
+Shut that down!"
+She jumped at the captain's voice
+and twisted around
+just as he reached past her and slapped the display
+to cut off the conversation.
 
 </section>
