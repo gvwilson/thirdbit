@@ -1109,6 +1109,102 @@ Once your chores are done, of course."
 "Maybe.
 Thank you," I added belatedly.
 
+I waved to Grappa Uzman as I walked back through the lemon grove.
+Medef was quiet:
+most people were inside to stay out of the heat,
+and the few who were out only spoke when necessary.
+The posting yard was quiet too,
+though I heard voices from the upper floor of the hostel
+where caravaneers and other travelers stayed.
+
+Razi was waiting for me at my house with two strangers.
+"*La*, there you are," he said,
+standing and straightening his *deel*.
+"I was starting to wonder if the lion had eaten you."
+
+"Sorry."
+I tried not to stare at his companions.
+One,
+a woman,
+had the same lean build and dark skin as Razi,
+but her face was round where his was narrow.
+The other was taller and broad-shouldered,
+with curiously light eyes.
+As he nodded in greeting,
+I noticed that he was missing part of his right ear.
+
+Razi waited a moment and then cleared his throat.
+"I believe your mother is at her sister's.
+Perhaps you could invite us in?"
+
+"Sorry," I repeated.
+I untied the door and held it open for them.
+
+Razi waved the others ahead of him and took me by the shoulder.
+"Just be yourself," he said quietly.
+
+*Who else would I be?* I wondered,
+but didn't have a chance to ask.
+
+They sat cross-legged on the carpet cushions while I made tea.
+The pot had been my father's wedding gift to my mother,
+and was the finest thing she owned.
+The mis-matched glass cups seemed slightly embarrassed to be set beside it,
+but I told myself I was the only one who cared.
+I poured,
+offered date sugar,
+and then cradled my cup between my palms
+as I waited for Razi to explain what in the saints' names this was about.
+
+He sipped his tea and set it down.
+"I have told my colleagues about your progress,"
+he started without preamble.
+"They wanted to meet you for themselves."
+
+I nodded as if I understood.
+If you are patient and quiet,
+the rabbit will come out of its burrow.
+
+The woman spoke first.
+Had I been enjoying my lessons?
+Why?
+What was the most useful thing I had learned?
+What had been the most surprising?
+Did I ever show the other children in the village things I had learned?
+
+"No."
+I shook my head at that one.
+"They would just make fun of me."
+Why had I said that out loud?
+And why did my tongue feel strange?
+
+I look down at my teacup,
+then at Razi.
+He met my gaze without blinking.
+
+The man with half an ear took over the questioning.
+What did I do when the others made fun of me?
+Did I ever think about getting back at them?
+Oh come, surely I must have.
+No?
+What about the other *nif* boy, Jephel—did I feel embarrassed being around him?
+
+I don't know what Razi put in my tea,
+or how he got it into my cup without me noticing,
+but I told them things I had never told anyone before.
+Razi stayed silent throughout,
+but watched me and his colleagues like a gargoyle.
+
+Finally,
+the woman looked at him and nodded.
+"I have heard enough."
+
+"I also,"
+the man said.
+"Thank you."
+They stood,
+bowed to me—proper bows, not just nods—and left without another word.
+
 </section>
 
 <section markdown="1">
