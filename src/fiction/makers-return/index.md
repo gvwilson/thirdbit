@@ -1127,8 +1127,12 @@ I'm in an ark in space.
 I think I met your sister in virtual.
 We're going to land soon,"
 she added in a breathless rush.
-"Lots of things are broken and Central isn't talking to us any more
-so Captain Leung and Doctor Meadows decided we have to land and—"
+"Like,
+tomorrow soon.
+Lots of things are broken and Central isn't talking to us any more
+so Captain Leung and Doctor Meadows decided we have to land and,
+and if this map is right,
+we're going to land right next to you!"
 
 "Violet!
 Shut that down!"
@@ -1136,5 +1140,113 @@ She jumped at the captain's voice
 and twisted around
 just as he reached past her and slapped the display
 to cut off the conversation.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 5: Unwelcome Guests (Sindy)
+
+"Violet!
+Shut that down!"
+Sindy jumped as a second voice,
+older and deeper,
+barked the order.
+The green light on the cylinder in her hand blinked twice,
+then went dark.
+
+"Hello?" she said tentatively.
+"Are you still there?"
+Nobody answered.
+
+For a moment she wanted to throw the cylinder out her window
+or stomp on it until it broke into a hundred useless pieces,
+except her window was closed
+and she was only wearing socks
+and it took a lot more than stomping to break anything the Makers had made.
+She settled for tossing it onto her side table
+and rolling over to bury her face in her pillow.
+Why couldn't the world just leave her alone for a while?
+
+She thumped her pillow with her forehead,
+then sat up with a sigh
+and made her way downstairs.
+Her father was sitting at the kitchen table
+drawing the outlines of letters on a piece of canvas
+that her mother would then turn into an awning.
+He looked up as she came in and smiled.
+"Homework all done?"
+
+"No."
+She put the cylinder on the table.
+
+"Oh, what's this?"
+He reached for it,
+then stopped himself and looked at her.
+
+"Go ahead,"
+she said grumpily.
+
+He picked it up and turned it over curiously.
+"What does it do?"
+
+"It talks.
+At least it did.
+It told me it's out in space
+but it met Maddy
+and it's going to land here tomorrow."
+
+Papa Roo studied her for a moment
+before setting it down and pushing his chair back.
+"I'll go get Mama."
+
+Sindy repeated the entire conversation as well as she could to her parents,
+then again half an hour later to Mayor Lupus in town.
+The old wolf scratched her ear doubtfully.
+"If anyone else told me this I'd ask 'em if they'd bumped their head,
+but after everythin' you've been through…"
+
+She leaned back in her chair.
+"You think this has anythin' to do with that shootin' star?"
+she asked Papa Roo.
+"And those dreams you've been havin'?"
+
+Sindy's father shifted uncomfortably.
+"I wish I knew.
+The dreams have stopped, mostly."
+Which Sindy knew was a lie.
+Papa Roo didn't lose track of who he was any more,
+or spend hours obsessively drawing the same simple figures over and over,
+but he still argued with himself in his sleep loudly enough to wake her sometimes.
+
+"Mm."
+Mayor Lupus straightened a pile of papers on her desk.
+"Well,
+if all we have is a voice tellin' us a story,
+I don't know that there's much we can do.
+I'm not sayin' I don't believe you,"
+she continued,
+raising a finger to cut Sindy off.
+"I'm just sayin' I don't know what move to make."
+
+She sighed.
+"I miss Leaf already.
+He always had somethin' to suggest at times like these."
+
+They had just stood up to leave when the mayor's grand-nephew burst in.
+"Aunty Lupus!
+Aunty Lupus!
+You gotta come see!"
+
+The mayor scowled.
+"Cody Wolf, what have I told you about knockin' when I've got folks in?
+You want to be my assistant,
+you got to—"
+
+"But aunty, he's back!"
+the young wolf said,
+his eyes wide.
+"Special Blazes!
+He's back!"
 
 </section>
