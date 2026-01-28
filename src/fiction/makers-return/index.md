@@ -1202,7 +1202,8 @@ before setting it down and pushing his chair back.
 
 Sindy repeated the entire conversation as well as she could to her parents,
 then again half an hour later to Mayor Lupus in town.
-The old wolf scratched her ear doubtfully.
+The old wolf studied the cylinder,
+then handed it back to Sindy and scratched her ear doubtfully.
 "If anyone else told me this I'd ask 'em if they'd bumped their head,
 but after everythin' you've been through…"
 
@@ -1247,6 +1248,202 @@ you got to—"
 the young wolf said,
 his eyes wide.
 "Special Blazes!
-He's back!"
+He's back!
+An' he brought a *crocodile*!"
+
+Mayor Lupus was out of her chair and at the window
+before Sindy could properly digest what Cody had said.
+"Well ain't that just peachy,"
+the old wolf muttered a moment later.
+"Nephew!
+Get yourself out to Bots' End an' tell Dockety and all them the news.
+No,
+use the back door.
+Lickety quick now."
+
+She turned to the Roos.
+"I expect this is gonna have somethin' to do with Special Leaf passin'.
+You folks want to be in the conversation,
+or do you want to make use of the back door as well?"
+
+Mama Roo straightened in her chair.
+"We have nothing to hide,
+especially not from him."
+
+Mayor Lupus nodded.
+"Figured you'd feel that way."
+Her grin showed teeth yellowed with age,
+but still sharp.
+
+Special Blazes was waiting for them
+when they stepped out onto the porch of the mayor's house.
+He had set a sturdy traveling pack on the bottom step,
+but stood two steps back on the cobblestones.
+His dark green uniform jacket was spotless,
+its collar and cuffs matching the black patch over his eye.
+
+His companion wore an identical uniform,
+but that was where the similarities ended.
+Sindy had seen reptiles before,
+but Special Leaf had been the only one who actually lived in Rusty Bridge.
+His skin had a pebbled texture,
+more gray than green,
+and his tail was even thicker than her father's.
+
+"Morning, Miz Mayor," Special Blazes said,
+lisping slightly around his fangs.
+"You look well."
+
+"Been doin' well, thank you,"
+the mayor replied levelly.
+"Must say I'm surprised t' see you here."
+
+"Well, I would have written ahead,
+but I figured the letter wouldn't get here much before me.
+This is Nash, by the way.
+He's my new deputy."
+
+The crocodile doffed his hat.
+"Miz Mayor."
+His voice was an octave lower than the tiger's.
+
+Mayor Lupus nodded curtly.
+"So now that we've made introductions,
+mind tellin' me what brings you back to these parts?"
+
+Special Blazes took an envelope from inside his jacket.
+"I have orders to inspect Special Leaf's home
+and secure any tech that might present a threat to the general populace."
+
+*You mean steal anything you think is useful,*
+Sindy thought angrily.
+Mama Roo's hand tightened slightly on her shoulder
+as if she could read her daughter's thoughts.
+
+The mayor's mechanical leg hummed slightly as she descended the steps
+to pluck the envelope from Special Blazes' hand.
+She unfolded the letter it contained and pursed her lips as she scanned it.
+"Seems to be in order," she allowed.
+"Of course,
+you'll need permission from the new owner."
+
+The tiger shook his head.
+"Actually, I don't," he said apologetically.
+"Special Leaf collected quite a few odds and ends during his career.
+Not all of them can be accounted for,
+so if you check paragraph three…"
+
+"Mm."
+The mayor held out the letter.
+It took Sindy a moment to realize it was for her.
+
+"Let me see that."
+Papa Roo took it
+and held it so that he and Mama Roo could puzzle over it together.
+
+Without warning the crocodile unshouldered his pack and whirled around.
+"Trash cans coming, boss."
+
+"I hear them,"
+the tiger replied calmly,
+and a moment later Sindy did too.
+
+Dockety and Beevy slowed to a stop as they came around the corner
+and retracted their wheels
+to walk the rest of the way across the town square.
+Nash's hand twitched toward the holster on his hip,
+but Special Blazes seemed unbothered by the bots' arrival.
+
+"Good morning, Special,"
+Dockety said,
+its voice buzzing slightly.
+"I am surprised to see you here."
+
+The tiger smiled.
+"Seems to be a common sentiment.
+Maybe I should come 'round more often."
+
+`UNNECESSARY` scrolled across
+the screen set into the front of Beevy's chassis.
+
+Special Blazes's smile widened.
+"Nice to see you too.
+Your new friends treating you well?"
+
+`AT LEAST THEY ARE FRIENDS`
+The tiger's smile slipped at that.
+Until a few months ago,
+Beevy had been Bee Six Vee,
+and part of Special Blazes' team.
+Sindy hoped the sight of the bot stung a little.
+
+"The Operators want to dig through Special Leaf's stuff,"
+the mayor explained in the silence that followed.
+She jerked a thumb at the letter that Mama and Papa Roo were holding.
+"It's all legal and what-not."
+
+"That is sensible,"
+Dockety buzzed.
+"Would you like our assistance?"
+
+"That won't be necessary," Nash rumbled.
+
+Special Blazes raised a hand.
+"Actually, a bit of help would be welcome.
+I trust you'll join us as well, Miz Roo?"
+
+Sindy met his gaze.
+"Of course."
+
+The cylinder in her pocket pinged softly.
+*Not now,* she thought,
+but it pinged again.
+"Are you there?" a muffled voice said.
+
+Special Blazes flicked an ear.
+"Something need your attention?"
+
+Sindy took out the cylinder.
+The green light on the end was glowing again.
+"Is anyone there?" the voice said.
+"Can you hear me?"
+
+"I can hear you," Sindy said.
+"Is this Violet?"
+
+"Yes, it's me, it's me,
+but it's happening,
+it's happening now.
+Captain Leung is about to start the re-entry burn.
+We're going to land.
+We're going to land *now*!"
+
+"Who is that?"
+Special Blazes demanded.
+
+Sindy shushed him with a wave.
+"What do you mean you're going to land?"
+
+"I mean the ark is going to land!
+I told you that!"
+The voice coming from the cylinder sounded frantic.
+"A whole bunch of stuff isn't working
+but the captain says it's just going to get worse if we wait
+so he's—oh no."
+
+Something rumbled so loudly that the cylinder vibrated in Sindy's hand.
+"Violet?
+Violet, can you hear me?"
+
+"What was *that* all about?"
+the mayor demanded in exasperation.
+
+Sindy looked at the now-silent cylinder.
+"That's who I was telling you about.
+She said she's in space right now but they're going to land."
+
+"That's the most ridiculous thing I've ever—what?"
+Special Blazes stopped mid-sentence as Nash elbowed him and pointed up.
+A gray streak was drawing itself across the sky.
 
 </section>
