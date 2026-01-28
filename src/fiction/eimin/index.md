@@ -1205,6 +1205,59 @@ the man said.
 They stood,
 bowed to me—proper bows, not just nods—and left without another word.
 
+Razi drew a small vial from the pocket of his *deel* and offered it to me.
+"*La*, put a drop in your tea.
+It will clear your head."
+
+"What did you do to me?"
+I managed.
+
+He shrugged.
+For the first time since I had met him he seemed uncomfortable.
+"I apologize,
+but we needed to be sure your answers were truthful."
+
+I drank,
+then waited for my head to clear.
+Once the strangeness had turned into a simple mild headache,
+I stood.
+"Do you need anything else?"
+I asked bitterly.
+"If not, I have chores to do."
+
+Razi sighed.
+"Eimin, have you ever wondered why people leave the Aphsi alone?
+Why Coriandel and Ossiswe and Armaq have never sent their armies to conquer us?"
+He gestured at the door.
+"They are the reason.
+*We* are the reason.
+And if you are willing,
+*la*,
+you will be part of the reason too."
+
+I stuffed my hands into my pockets but didn't reply.
+I was angry about what had just happened,
+and I had learned the hard way that
+speaking in anger just gave me more things to be angry about.
+
+Razi picked up his teacup and set it down again without drinking.
+"We are the Other Hand,"
+he said quietly.
+"Not the one you see,
+not the one you watch—we are the other one.
+We have an arrangement with Lady Kembe and some of her friends.
+They make sure we are left alone,
+and in exchange we do certain things for them."
+
+"What kind of—hey!"
+Without warning he threw the serving platter at me.
+I caught it without thinking.
+
+"Those kinds of things," he said.
+"That is what I have been training you for,
+and *la*,
+now it is time for you to decide if you want the job or not."
+
 </section>
 
 <section markdown="1">
