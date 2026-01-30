@@ -1429,7 +1429,7 @@ I told you that!"
 The voice coming from the cylinder sounded frantic.
 "A whole bunch of stuff isn't working
 but the captain says it's just going to get worse if we wait
-so he's—oh no."
+so he's—whoa!"
 
 Something rumbled so loudly that the cylinder vibrated in Sindy's hand.
 "Violet?
@@ -1443,7 +1443,124 @@ Sindy looked at the now-silent cylinder.
 She said she's in space right now but they're going to land."
 
 "That's the most ridiculous thing I've ever—what?"
-Special Blazes stopped mid-sentence as Nash elbowed him and pointed up.
-A gray streak was drawing itself across the sky.
+Special Blazes stopped mid-sentence as Nash elbowed him and pointed up,
+where a smoky gray streak had started to draw itself across the sky.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 6: Landing (Violet)
+
+"It's happening now!" Violet said.
+She could hear the fear in her voice.
+"Captain Leung is about to start the re-entry burn.
+We're going to land.
+We're going to land *now*!"
+
+"Who is that?"
+a gruff voice demanded,
+just as the person she had spoken to before asked,
+"What do you mean you're going to land?"
+
+"I mean the ark is going to land!
+I told you that!
+A whole bunch of stuff isn't working
+but the captain says it's just going to get worse if we wait
+so he's—whoa!"
+She grabbed the console in front of her as the ark shook,
+her hand accidentally hitting the "off" button on the comms.
+
+There wasn't time to worry about that now.
+She had to get back to the bridge before—
+
+"Violet!
+Where are you?
+Main burn is starting in three minutes!"
+
+"On my way, Captain!"
+She staggered on her way to the door
+as the deck shuddered beneath her.
+This wasn't virtual.
+This was *real*.
+
+She took the ladder to the bridge two rungs at a time.
+Her usual somersault was out of the question:
+even at the third floor,
+where she was usually weightless,
+she could feel herself being pressed back against the wall.
+
+Captain Leung shot an angry look her way
+as she buckled herself into her seat.
+"Where were you?"
+
+"I was just checking my pod,"
+she lied,
+but he had already turned back to the screens and controls in front of him.
+
+"Main burn in thirty seconds."
+Doctor Meadows might as well have been saying that
+the cafeteria was serving goop for lunch again.
+"Violet, are you strapped in?"
+
+She clicked the last buckle into place.
+"Yes, doctor."
+
+"Me too,"
+André said.
+"Thanks for asking."
+His voice,
+like the doctor's,
+came through the speaker next to Violet.
+
+"Save it,"
+Captain Leung snapped.
+"This is going to be a bumpy ride."
+
+"Ten seconds.
+Five.
+Four.
+Three.
+Two.
+One.
+Ignition."
+As Doctor Meadows reached the end of her countdown,
+an invisible giant hand pressed Violet back into her chair.
+Vibration rumbled up her spine,
+making her teeth chatter.
+
+The captain cursed under his breath.
+"Number two engine is stuttering."
+
+"I see it,"
+Doctor Meadows replied calmly.
+"Compensating now."
+
+An image appeared on the main screen in front of them.
+The dark blue bulk at the bottom was the planet below them.
+A dashed green curve marked the orbit they had been in,
+while a steeper solid curve projected their altered path.
+Dozens of thinner red lines marked the trajectories of long-dead satellites,
+fragments of booster rockets,
+and other space junk.
+
+*THUMP!*
+Captain Leung cursed again.
+"Meadows!
+What was that?"
+
+"A boot," she replied.
+"There was no way to avoid it.
+The hull appears undamaged.
+There's more debris ahead.
+I'm going to roll us to avoid it."
+
+Violet swallowed hard as her weight shifted to one side.
+The green curve of their descent bent a little more
+to avoid a cluster of red lines.
+She clutched the arms of her chair,
+feeling helpless.
+The space combat games she had sometimes played with André
+had never made her feel this helpless.
 
 </section>
