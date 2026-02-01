@@ -871,7 +871,7 @@ all right?"
 "Sorry, doctor," he muttered.
 Violet heard a small *click* as he cut comms,
 leaving just the soft wheeze of the air circulation system
-and the intermittent beeping of the ship's displays
+and the intermittent beeping of the ark's displays
 for her to listen to.
 *So much for 'private channel',* she thought despondently.
 Maybe once the ark landed she would finally be able to do something
@@ -925,11 +925,11 @@ The aft central vernier thruster is about to fire.
 Brace for maneuver."
 
 Captain Leung had time for a brief curse before
-a giant nudged the ship with its shoulder.
+a giant nudged the ark with its shoulder.
 Violet's heart leaped into her throat
 as the view through his helmet camera tumbled wildly.
 Another display showed his legs swing free of the ark's hull,
-making it look as though he was dangling from one hand beneath the ship.
+making it look as though he was dangling from one hand beneath the ark.
 "Shut it down!
 Shut it down!"
 he shouted.
@@ -970,7 +970,7 @@ One of the displays in front of Violet switched views
 to show a stretch of hull
 beneath a perfectly black sky decorated with tiny bright shards of diamond.
 She only had a second to take in the view
-before a white cloud erupted from the ship,
+before a white cloud erupted from the ark,
 the fuel instantly freezing into a million more sparkles.
 
 Another display flashed `FUEL EXPENDED`
@@ -1549,18 +1549,203 @@ Captain Leung cursed again.
 "Meadows!
 What was that?"
 
-"A boot," she replied.
+"A boot of some sort," she replied.
 "There was no way to avoid it.
 The hull appears undamaged.
 There's more debris ahead.
-I'm going to roll us to avoid it."
+I'm going to roll to avoid it."
 
 Violet swallowed hard as her weight shifted to one side.
 The green curve of their descent bent a little more
 to avoid a cluster of red lines.
-She clutched the arms of her chair,
-feeling helpless.
+She clutched the arms of her chair.
 The space combat games she had sometimes played with André
+when he refused to play anything she actually liked
 had never made her feel this helpless.
+
+"Avoiding" almost immediately turned out to mean
+"avoid as much big stuff as possible".
+Over the centuries,
+collisions between bits of space junk had produced a cascade of shrapnel.
+The individual pieces were still scattered,
+but at their speed that wasn't enough:
+the sound of bits of metal clattering on the hull grew louder with each passing minute.
+
+"I'm scared,"
+André said through the speaker in Violet's headrest.
+For once the sneer was missing from his voice.
+
+"Me too."
+She swallowed hard.
+"It'll be over soon."
+
+Red lines sprouted on the screen faster and faster
+until they were as thick as Violet's hair.
+The clatter on the hull rose to a crescendo,
+then abruptly stopped as the green line tracing the ark's descent
+dipped below the junk.
+Captain Leung sagged back in his seat and let his breath out with a whoosh.
+"So much for the easy part," he said.
+
+A quick swipe brought up a dozen views of the ark's hull.
+Violet swallowed again at the damage they showed.
+Some scratches were superficial,
+but here and there she saw jagged dents,
+one of which was spraying a razor line of vapor into space.
+
+"Meadows?"
+the captain snapped.
+
+"I'm sorry, captain.
+First contact with atmosphere is in twenty seconds.
+There's no way to repair it in time."
+
+Another swipe switched the view again.
+They were so close to the planet now that it filled the entire screen.
+White clouds looked like spilled paint on an ocean-blue background.
+A break revealed land,
+brown-gray instead of the green that Violet had imagined.
+
+"Is that where we're landing?"
+André asked, awed.
+
+Violet shook her head.
+"I don't think so.
+Wait—look!"
+The image in front of her was getting brighter.
+A delicate orange tinge washed over it.
+The ark began to rumble.
+
+"We've reached atmosphere,"
+Doctor Meadows said.
+"Captain?
+It's now or never."
+
+"Initiate re-entry."
+Violet heard the tension in his voice.
+"It's not like we have a choice."
+
+Once again an invisible giant hand pushed Violet back in her chair.
+Angles and velocities scrolled by on the screen
+as Captain Leung and Doctor Meadows traded terse instructions.
+Violet wondered if the people below could see them now.
+They would look like a meteor.
+They *were* a meteor, she realized.
+They were a giant lump of metal falling from the sky
+and no matter what happened,
+this was a one-way trip.
+
+Minutes ticked by in the corner of the screen.
+The rumbling slowly began to subside.
+"Glide path achieved," Doctor Meadows announced.
+"Ground speed is nominal.
+We did it."
+
+"Don't jinx it," Captain Leung warned with a shaky laugh.
+"How are you holding up?"
+
+It took Violet a moment to realize he was speaking to her.
+"I'm all right," she said.
+
+"Good.
+Let's have a look, shall we?"
+
+The view switched again,
+and this time Violet gasped.
+It *was* green,
+green and beautiful.
+A river carved a sinuous line across a broad grassy plain
+that turned into forest as she watched.
+The forest broke like a wave against snow-capped mountains,
+only to resume again on their far side.
+
+Another river appeared.
+Violet's weight shifted as the ark banked to follow its course.
+"Are *you* all right?" she asked André.
+
+"Course I am, dummy.
+Piece of cake."
+She rolled her eyes,
+relieved that he was back to being annoying.
+
+Without warning the deck fell away beneath her.
+She yelped as the whole ark dropped,
+then rumbled as the engines fired.
+"What the hell was that?" Captain Leung demanded.
+
+"Number two engine has failed,"
+Doctor Meadows announced calmly.
+"I'm trying to use the orbital thrusters to compensate,
+but—hold on."
+The ark plummeted again.
+"Thrusters are dry.
+We have to set down *now*."
+
+"Where?" the captain demanded
+even as his hands danced across the controls.
+"We can't land in a forest!"
+
+"There is clear ground ahead,
+two minutes short of our target area.
+I'll aim for that."
+
+"That's a swamp!"
+
+"Yes, but it's a *soft* swamp," Doctor Meadows replied.
+
+Violet knew they were still moving incredibly fast,
+but the ground seemed to crawl beneath them.
+The lower they got the faster it moved.
+There!
+That was a building,
+or it had been.
+A handful of others flashed past,
+all in ruins,
+then a road,
+a proper paved road like the ones she thought she remembered
+from when she was little.
+Down, down, down,
+trees rushing away,
+a flock of birds bursting into the air in terror,
+and then the green suddenly became darker.
+
+"Ten seconds.
+Five.
+Four.
+Three.
+Two.
+One.
+Contact."
+The ark didn't shudder this time.
+It shook and bounced,
+throwing Violet forward as it shed speed.
+
+Captain Leung whooped.
+"Touchdown!
+We made it!
+We made it!"
+
+"Don't jinx it," Captain Meadows replied.
+The captain laughed,
+and Violet realized she was laughing too,
+but crying too.
+They had done it.
+They had landed.
+
+The ark tilted slightly.
+"What's that?" Captain Leung demanded.
+"Are we taking on water?"
+
+"Checking.
+No."
+Doctor Meadows paused.
+"There's something underneath us."
+
+"What?
+What kind of something?"
+
+The image on the display answered his question before Doctor Meadows could.
+An enormous metal tentacle lifted out of the swamp below them.
+The hull rang as it draped itself over the ark.
 
 </section>
