@@ -1262,6 +1262,304 @@ now it is time for you to decide if you want the job or not."
 
 <section markdown="1">
 
+## Chapter 6
+
+
+
+</section>
+
+<section markdown="1">
+
+## Chapter Turning Point
+
+Suresh came to find me the next morning.
+I should have been practicing,
+but instead I was back in the lemon grove, sketching.
+I thought about leaving when he came over the hill—I didn't feel like talking to anyone,
+especially him—then was immediately angry at myself.
+I was done getting out of other people's way.
+Let them stay out of mine for a change.
+
+He trudged up the long rise to the foot of the lemon grove,
+stopped to wipe his brow with his sleeve,
+and waved at me.
+I raised one hand carelessly in reply.
+The sun had just cleared the big hill beside the palace.
+It gave the lemon trees long shadows,
+as if someone had smeared their hand across the page.
+My sketch didn't look anything like that.
+I snapped the book shut and leaned back against my tree.
+
+It stood a little apart from the others.
+I sometimes thought that someone must have spat out a seed
+and happened to hit good soil.
+It wasn't as tall or as straight as the ones in the grove,
+and its lemons were so thick-skinned and sour
+that even Grappa Uzman wouldn't eat them.
+But it had a good view.
+
+"Fair morning," Suresh said.
+
+I opened my eyes but didn't reply.
+
+He cleared his throat uncomfortably.
+"Listen, about last night.
+I didn't realize you and Hediyeh were…"
+His voice trailed off.
+
+I snorted.
+"We're not."
+And then, because I'd grown up among people who could *drome*,
+and there's no point not asking a question when everyone around you knows you want to ask it,
+I said, "Did you…?"
+
+He hesitated, then nodded.
+"I kissed her, if that's what you're asking."
+
+It was.
+I shrugged.
+"*La*, good for you."
+I tossed a pebble down the hillside.
+
+Suresh sat down a few feet away from me.
+"So what is it?
+Why are you so mad?"
+
+I scowled.
+"You're not my listener."
+
+He raised his hands, palms facing me, meaning,
+"I've heard what you said,"
+then lowered them again.
+
+We sat in silence for a few moments, looking at the trees.
+"It's just…"
+I shook my head. I could feel tears waiting to happen—tears, at sixteen.
+I opened my eyes wide to dry them and tried to finish my sentence.
+"It's just that you're not Aphsi,
+so being *nif* doesn't matter.
+But for me…"
+I spread my hands.
+
+"Ah."
+He nodded.
+"So when Hediyeh—"
+
+"It's not about Hediyeh!"
+I interrupted angrily.
+"It's—it's just everything."
+
+We sat in silence for a minute or more.
+A light breeze off the glass rustled the leaves over my head.
+Suresh cleared his throat.
+"Is that yours?"
+He nodded at the sword leaning against the tree.
+
+"Yeah.
+I'm supposed to be practicing."
+
+He stood up and brushed his hands on his shirt.
+"May I?"
+
+I shrugged.
+"If you want."
+
+He took the scabbard in one hand,
+hefting it for weight,
+then drew the blade.
+It wasn't much—two fingers wide at the base,
+narrowing slowly to a point,
+and sharp on both edges.
+The grip was wrapped with plain goat leather,
+with seed-sized grains of sand underneath to give it texture.
+The hilt was a simple crosspiece,
+slightly shorter on one side than the other.
+
+Suresh swung it back and forth,
+testing the balance,
+then dropped his left foot back and folded his left arm behind his back.
+"Not bad."
+He lunged at the air, stepped, lunged again, cut high,
+parried his invisible opponent,
+then straightened up.
+"How long have you had it?"
+
+I got to my feet so that I wouldn't have to look up his nose
+while talking to him.
+"About a year.
+I haven't really used it much—I'm a lot better with the bow."
+
+"Mm."
+He glanced at me.
+"But a bow's just a hunter's weapon, isn't it?
+And they want to see if you can be more than just a hunter."
+
+I leaned against the lemon tree.
+"What do you mean?"
+
+He sheathed the sword and handed the scabbard back to me.
+"I know about the Other Hand, Eimin."
+His eyes searched my face.
+"I know who they are,
+and what they're doing to you."
+
+I looked down at the scabbard in my hands to hide my confusion.
+"I don't know what you mean."
+On impulse,
+I drew the sword and fell into the stance Razi had taught me,
+turned sideways like Suresh had been,
+but with my left hand up and out for balance or to grab at my opponent.
+
+He pointed.
+"I mean like that.
+That's not for dueling.
+And no soldier would ever stand like that,
+not with another man at each shoulder.
+That's a brawler's stance.
+That's for bandits and nightwork.
+Eimin, do you know who Razi really is?"
+
+I cut left, cut right, stabbed, stepped back, cut right, stabbed, stepped back, cut left.
+Never the same pattern twice,
+Razi had told me,
+over and over again.
+Watch for your opponents' patterns,
+but never give them any.
+
+"Eimin!"
+Suresh stepped in front of me
+and knocked my blade sideways with a sweep of his forearm.
+"Do you know who Razi really is?"
+
+"I don't want to talk to you about this," I said.
+I felt—I don't know the words for what I felt.
+Angry? Panicked?
+Like I was standing on the edge of a cliff, looking down, with the wind tugging at me.
+
+"Eimin, he works for Lady Kembe, in Ossiswe.
+The magician.
+He's her hands in the world.
+Do you know that phrase?
+He does the things she can't do herself.
+He spies on people for her, and steals from them, and—"
+
+"What's any of that got to do with you?"
+I turned away from him and started another exercise,
+a fast one.
+
+"Eimin, stop.
+Stop! Listen to me.
+It isn't my business, not that part,
+but it is yours.
+Or it ought to be.
+How do you think she pays him back?"
+
+"Magic."
+I feinted and lunged, over and over,
+trying to make it one smooth motion,
+growing angrier by the second.
+"In case you hadn't noticed, there aren't any Aphsi magicians."
+
+"Yes, but do you know what kind of magic?
+Eimin, she makes *nif*."
+
+It took a moment for his words to sink in.
+I turned to him, the sword still in my hand.
+"What?"
+
+He raised his hands, palms facing me.
+"She makes people *nif*, Eimin.
+People like you.
+That's the deal.
+That's always been the deal.
+The Other Hand does her work in the world, and she—"
+
+Rage boiled up inside me.
+"Shut up!"
+I stepped toward him, raising the sword.
+
+He didn't flinch.
+He didn't even look at the blade.
+He just shook his head.
+"Think about it.
+The Aphsi need to have *nif*.
+They need people who can butcher and hunt and, and kill, like Razi sometimes kills.
+Maybe there are a few natural *nif*,
+but most of you are made that way before you're born.
+That's what the Aphsi get from magicians."
+
+"You're lying," I said coldly.
+I sheathed the sword and stooped to pick up my sketchbook.
+"I don't want to hear any more."
+
+"Eimin—Eimin, I used to work for a magician, in Ossisswe."
+His voice was almost pleading.
+"I was mending some old books for him,
+and he asked me if I would take everything from his storeroom and put it on the shelves.
+I dropped one of the boxes,
+and while I was picking up the papers that had fallen out,
+I saw some notes he'd written down about a spell to make people *drome*."
+
+"Hah!" I glared at him.
+"Now I know you're lying.
+Magic can't make people *drome*."
+
+He nodded.
+"I know.
+He hadn't been able to make the spell work.
+The point is,
+what he'd started with was an opposite spell,
+to make people *nif*.
+His notes said he'd learned it from Lady Kembe,
+who used it regularly.
+That's what the page said, Eimin.
+'Regularly'."
+
+"So you came running out here to tell us, right?"
+
+He hesitated, then shook he head.
+"No.
+That was three years ago.
+I just put the pages back in the box and put the box on the shelf.
+I didn't think it was any of my business.
+I don't even think I'd met any Aphsi back then.
+But…"
+He shook his head.
+"I just couldn't let go of it.
+Or it couldn't let go of me.
+I started asking questions, and reading.
+About a year ago I met a caravaneer who told me about the Other Hand,
+about what happened to bandits who tried to raid the Aphsi.
+And then I went to Razi's trial, and—"
+
+"What? What trial?"
+
+He searched my face again.
+"You don't know that either?
+Someone stole a glass turtle from Lord Mezeri.
+He's another magician in Ossisswe,
+Lady Kembe's main rival.
+The city guard took Razi for it,
+but couldn't prove it was him.
+That's why he's been here so much for the last year—Ossisswe wouldn't be healthy right now."
+
+"I don't believe you."
+I pushed past him.
+"I don't believe any of this."
+
+"Eimin. Eimin!" he called to my back.
+"It doesn't matter whether you believe it or not.
+You're not an accident, Eimin.
+None of this is an accident.
+They made you *nif*,
+and now they're making you into a sword."
+He fell silent.
+I didn't look back.
+
+</section>
+
+<section markdown="1">
+
 ## Chapter N-1
 
 I ran.
