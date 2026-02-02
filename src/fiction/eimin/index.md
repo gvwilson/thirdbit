@@ -1264,8 +1264,6 @@ now it is time for you to decide if you want the job or not."
 
 ## Chapter 6
 
-
-
 </section>
 
 <section markdown="1">
@@ -1555,6 +1553,305 @@ They made you *nif*,
 and now they're making you into a sword."
 He fell silent.
 I didn't look back.
+
+</section>
+
+<section markdown="1">
+
+## Chapter Hike
+
+I hiked out to Tin Point the next day.
+I kept my pack light:
+three canteens, my tent, some dry date bread, my knife, and my climbing rope.
+I don't know why I took the climbing rope.
+Or the knife, for that matter,
+but I took my sketchbook and charcoals as well.
+
+I skirted the pasture so that I wouldn't have to explain where I was going to Grappa Uzman.
+It's funny—when I was little,
+I loved to pet and feed his goats,
+and listen to his stories about chasing away gargoyles,
+or the time he went half-way to Ossisswe to sell one that had blue eyes.
+Now that I'm older,
+I'd love to hear those stories again.
+At sixteen,
+though,
+I thought the stories were as boring as the grownups who told them.
+Besides,
+he would probably ask me where I was going, and since he wasn't *nif*,
+I wouldn't be able to lie.
+
+The path ran along the hill overlooking the palace,
+then down past the gargoyles' watchtower to the old shoreline.
+The Sea of Glass was dazzling.
+I put on my sun goggles as I walked.
+The secret to traveling long distances,
+I'd discovered,
+was to create a rhythm in my head.
+My feet were its backbone:
+left, right, left, right.
+I imagined a little wordless tune on top of it,
+da-dum-di-dum-di-diddle, da-dum-di-dum-di-day.
+If I had my hands hooked through the shoulder straps of my pack,
+I tapped another little pattern with my fingers:
+first-fourth-second-third-thumb,
+then fourth-second-third-first-thumb.
+I could go a hundred paces or more with a single pattern.
+When I grew tired of that,
+I tried to see how many different words I could spell
+using just the letters from words like "eucalyptus" or "catastrophe".
+
+And I had conversations, lots of them.
+Sometimes they were things I didn't think of saying at the right time
+that would have been funny, or cutting, or made me seem wise.
+Other times I imagined myself rescuing someone from lions,
+or climbing down a sheer cliff to save a child who'd slipped and fallen.
+I fought duels with bandits in the middle of gritstorms,
+beat off whole flocks of gargoyles,
+and snuck in and out of magicians' palaces without leaving so much as my breath behind.
+
+*La*,
+you're laughing,
+but we've all had daydreams like that.
+I just wouldn't have told anybody about them when I was sixteen,
+any more than I would have stopped to talk to Grappa Uzman.
+
+I stopped for a drink and a mouthful of date bread when I reached the shore.
+On a whim,
+I dropped my pack and walked out fifty paces.
+The three fish Razi had once showed me were still there,
+frozen in the glass a double arm's length below me.
+The one in front was bent slightly,
+as if it had been about to turn when its world changed.
+I'd never noticed before,
+but a shallow depression had been worn into the glass above the fish.
+People had been coming to this spot for a thousand years.
+They were long gone,
+but the fish were still there.
+I felt a little foolish after a moment,
+so I walked back to the beach and kept going.
+
+I stayed on the trail after that.
+It would have been easier to walk on the glass—it was flatter,
+and there weren't any potholes—but I was going to spend the next two days doing that.
+I pulled a stubby leaf off a raspberry cactus as I walked
+and chewed it to a pulp to kill my thirst.
+
+There is life all around in the desert if you know where to look.
+There was a spider web on that cactus, for example.
+The spider might have been hiding from the sun down among the cactus's roots,
+but she was there.
+I saw finger lizards sunning themselves on rocks,
+and an S-curve across the road that some snake had left the night before.
+A shirrup followed me for half an hour or more,
+flitting from rock to bush to cactus,
+hoping for a crumb of date bread,
+or maybe just waiting to see
+if I would scare something tastier than finger lizards into breaking cover.
+
+I slept beneath an overhanging rock during the middle of the day.
+I allowed myself two mouthfuls of water before I closed my eyes—you
+sweat less when you're not moving,
+so my body would have a chance to soak it all up.
+I kept my knife in my hand as I dozed,
+as Razi had taught me.
+I'd been worried the first few times that I would cut myself in my sleep,
+but I never had.
+I still didn't do it when I was at home in my own hammock, though.
+
+I reached the cache at the end of Tin Point an hour before sundown.
+It was marked by a pile of rocks that came up to my waist.
+There were water bottles underneath them,
+and sealed jars of honeyed fruit, medicines, and bandages.
+I didn't take anything—they were for emergencies—but it was a good place to camp.
+
+I washed down a thick slice of date bread with what was left in my first canteen
+and pulled my sketchbook out of my bag.
+The sun had just touched the horizon,
+turning the Sea of Glass red and orange.
+I drew the lines of the frozen waves as quickly as I could,
+smudging them with my thumb to make shadows.
+The sea had been calm here when the great spell came.
+I thought it must have been a beautiful day.
+
+I stopped sketching when the creeping shadows reached me,
+yawning and rolling my shoulders to get out the kinks.
+After tucking my sketchbook in my pack,
+I wrapped myself in my traveling robe for warmth.
+Finally,
+as the small creatures of the evening began to stir,
+I couldn't avoid thinking about what Suresh had said any longer.
+
+There were a hundred reasons why it couldn't be true.
+Something like that could never be kept secret.
+
+But maybe it wasn't a secret.
+Maybe grownups just didn't talk about it around children.
+Maybe they were waiting until they could *drome* that I was ready to accept it.
+Maybe that was another of the Other Hand's tests.
+
+I realized suddenly that I was playing finger-patterns on the ground,
+one-four-three-two-thumb,
+thumb-four-one-three-two.
+I took a deep breath and relaxed.
+What if—just supposing it was true.
+Did my mother know?
+Had someone come to her and my father and said,
+"It has been decided"?
+Or was there some sort of lottery?
+Or had they volunteered?
+I thought about my mother,
+heavy and round like Hediyeh's mother had been when she was carrying the twins.
+A dark figure bowed its head and put its hand on her belly.
+The air tingled with power, and—
+
+I shook my head.
+It couldn't be true.
+Being *nif* was just bad luck,
+that was all.
+And anyway,
+if I'd been made *nif*,
+then Jephel must have been made that way too.
+I snorted.
+He was about as suitable for the Other Hand as a sack of lemons.
+
+I woke up as the sky started to pale.
+It only took me a moment to make water and shoulder my pack.
+Dawn is the best time to walk on glass.
+The glare is bad,
+but you miss the worst of the heat,
+so I put on my goggles and set off.
+
+Once I was on it,
+the surface didn't seem as calm as it had the evening before.
+The frozen waves were a couple of feet high,
+which meant my ankles always felt like they wanted to roll over.
+Every few paces,
+I had to step up onto the crest of the next wave.
+My thighs started to burn after a few hundred steps,
+but the feeling passed and I found my rhythm,
+step step step and up, over and over again.
+
+I waited until the sun was halfway to noon before putting up my umbrella.
+I was quite proud of it—it was made out of Bantangui bamboo,
+and I was always careful to roll the cloth rather than letting it fold,
+so it wasn't cracked or creased.
+Best of all,
+the handle slipped into a sock I'd sewn onto the side of my pack,
+so that I had my hands free while I walked.
+
+Nothing lives on the glass.
+Even the birds don't go very far from shore.
+Underneath is a different story:
+there are places where springs well up,
+and just enough light gets through the glass for life to bloom.
+Grappa Uzman told me once that there were places where the glass had cracked,
+and trees had sprouted,
+but he never said where,
+and from the smiles on other children's faces,
+I guessed they could *drome* it was just a story.
+
+I hiked until early in the afternoon,
+then pitched my tent with the silver side out to reflect away the sun.
+Lying inside was like being in an oven,
+but walking would have been worse.
+I drank some water and tried to take shallow breaths.
+I had been turning Suresh's words over in my head while I walked.
+What if?
+What if it was true?
+What if that was why my father had left?
+
+I closed my eyes and did something I hadn't done since I was little.
+I tried to *drome*.
+For a while I believed that if only I wanted it enough,
+if I really tried,
+somehow I'd be able to.
+Then I laughed at myself.
+The nearest living things were half a day's walk behind me.
+Even if I could suddenly *drome*, how would I tell?
+
+I crawled out of my tent late in the afternoon.
+If I walked until midnight,
+slept for three or four hours,
+then pushed myself hard,
+I'd be at the fishing fleet by mid-day.
+I wished that I had saved some of the raspberry cactus:
+I was going to have enough water,
+but I was thirsty whenever I let myself think about it.
+So I tried to think about other things,
+which meant about Suresh kissing Hediyeh,
+and Jephel dancing with Mureya,
+and how long it would be before someone found me if I slipped and broke my ankle on the glass.
+
+The sun went down,
+the stars came out,
+and my thoughts chased themselves around in my head.
+It could be true, I decided.
+That didn't mean it was, but it could be.
+Only a few Aphsi would have to know.
+My mother probably didn't.
+Even Razi might not.
+The Other Hand could just decide and have their magician cast the spell without telling anyone,
+then wait to see who worked out and who didn't.
+Somebody like Jephel would just grow up to be a butcher.
+Someone like me would be taught how to climb,
+how to move silently,
+how to become so still inside that even the most sensitive Aphsi in the world couldn't—
+
+That was it.
+All of the exercises Razi had given me,
+teaching me to quiet my thoughts and let go of my feelings.
+They weren't really to teach me how to hide my *deroma* from Aphsi.
+What would be the point of that?
+They were trying to see if I could control my anger enough
+to be told that being *nif* wasn't just bad luck.
+
+I stopped in my tracks.
+I had never felt anything like the cold, clear rage that filled me at that moment.
+I wanted to hurt somebody.
+I wanted to drag them out into the village square
+and tell the whole world what they'd done.
+I wanted to blind them,
+put out their ears, make them *nif* like me,
+and then leave them lying there, weeping.
+I didn't know who "they" were, but I was going to find out.
+
+I almost turned around to head straight back to Medef,
+but instead I stayed on my original course.
+"A fatal mistake can sometimes save you a few minutes of thought," Razi told me once.
+If I went back to Medef right away,
+everyone in the village would be able to *drome* how angry I was.
+I needed a plan,
+and I needed to be as clear inside as the glass beneath my feet.
+
+I reached the fishing fleet at dawn.
+There was nothing left of them above the glassline,
+not after a thousand years,
+but their hulls still lay perfectly preserved.
+Some of the fishermen had been thrown from deck onto the glass when the spell came
+and froze the sea beneath them.
+One had been up to his ankles in water:
+I found the two holes that showed where his friends had chipped him out of the glass.
+Their edges had been worn smooth by time,
+but I could still see where each toe had been.
+
+I looked around for a while to see if I could find any fish bones for good luck,
+but they were long gone.
+It felt eerie being there on my own,
+looking at the moment when everything changed.
+I knelt and ran my hand over a frozen bow wave,
+then brushed my fingers along the worn top of the ship's hull.
+There was grit there,
+carried by the wind.
+One day it would wear the waves themselves away.
+I slipped my pack from my shoulders and pitched my tent.
+
+Somehow I slept through the heat.
+When I woke,
+I tore a page out of my sketchbook,
+wrote, "Eimin the Nif was here" on it,
+and left it on the glass underneath an empty canteen.
+My shadow walked tall beside me until the sun went down.
 
 </section>
 
