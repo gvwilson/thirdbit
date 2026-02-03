@@ -9,7 +9,8 @@ fiction: true
 ## Chapter 1
 
 People believe many different things about what happens when you die.
-In the north, the Ruudians spent six hundred years fighting undead monsters who stripped the flesh from the bones of the living.
+In the north,
+the Ruudians spent six hundred years fighting undead monsters who stripped the flesh from the bones of the living.
 Sunshine and courage were often their only weapons,
 so I suppose it is not surprising that they believe the souls of the righteous dead rise up to fuel the sun
 so that it can shine down and keep us safe forever.
@@ -43,7 +44,8 @@ We Karabandi think it's important to know what our stories are going to be like 
 so every once in a while we go to someone and say,
 "This is the tale of me."
 Sometimes it is best if the listener is a once-met stranger.
-Other times the story will only make sense if the listener is someone in particular—a loved one who has been wronged
+Other times the story will only make sense
+if the listener is someone in particular—a loved one who has been wronged
 or someone who remembers the sour-sweet taste of a particular grandmother's date cookies.
 
 And sometimes,
@@ -106,7 +108,7 @@ I would tell them to stop, or run to my mother and get her to tell them.
 They would, but only long enough for me to go back to my ants or my letters
 so that they could sneak up behind me again.
 
-I still have a scar—here, on the ball of my thumb—from the time Hediyeh and her friends surprised me
+I still have a scar on the ball of my thumb from the time Hediyeh and her friends surprised me
 while I was carving a new pawn for Razi's chess set.
 I was ten,
 and the cut went right down to the bone.
@@ -145,8 +147,12 @@ He laughed.
 And *hup*, down I fell and broke my arm.
 They had to give me poppy juice and cut it open to straighten out the bones."
 
-"I'd break my arm myself if it would stop Hediyeh and the others from playing stupid tricks on me," I grumbled.
-I picked up a black pawn, put my hands behind my back, then held my fists out to him.
+"I'd break my arm myself
+if it would stop Hediyeh and the others from playing stupid tricks on me,"
+I grumbled.
+I picked up a black pawn,
+put my hands behind my back,
+then held my fists out to him.
 
 Razi didn't tap one.
 Instead, he snapped his fingers against bad luck.
@@ -1263,6 +1269,131 @@ now it is time for you to decide if you want the job or not."
 <section markdown="1">
 
 ## Chapter 6
+
+What do you do after a conversation like that?
+What do you do when you have thought of yourself as less for as long as you can remember,
+only to be told that there might be a place for you after all,
+a place more meaningful than butchering livestock?
+What do you do when someone tells you that your life has a purpose,
+but it is one you did not choose?
+
+I still do not have an answer.
+What I *do* know is that if everyone around you can *drome* how you are feeling,
+what you *shouldn't* do is be among them.
+
+After trying and failing to concentrate on washing the pots and mending a chair,
+I set my chores aside and headed for the posting yard.
+Evening was approaching,
+and the air was merely hot rather than stifling.
+Most people were still indoors.
+The few I passed gave me startled looks as they neared.
+
+A woman scowled at me as the baby tucked into her *deel* started to cry.
+"Sorry," I muttered.
+*It's not my fault,* I wanted to add,
+but it was.
+I stopped in the narrow shadow between the potter's shed and the bakery
+and took deep, slow breaths to still myself.
+Suddenly I snorted.
+I was doing exactly what Razi had trained me to do
+to hide myself from other Aphsi.
+
+Other Aphsi…
+Not *real* Aphsi.
+I turned that thought over in my head.
+Razi was respected and well-liked.
+Everyone was always glad to see him,
+not just my mother.
+Could I have that?
+
+"Bah!"
+I jumped and whirled around.
+
+Hediyeh snickered.
+I felt anger boil up inside me,
+but she didn't flinch or run away
+like other children had when I was younger.
+Instead,
+she smiled wickedly,
+blew me a kiss,
+and turned to walk away.
+
+"Going to say hello to Dudir?" I said to her back.
+
+"Maybe," she replied over her shoulder.
+"Bet he doesn't jump like a rabbit."
+
+I should explain about Hediyeh.
+Have you ever had very strong cheese,
+or the fermented fish that the Ruudians are so fond of?
+Both taste terrible at first,
+and even at second or third,
+but some people not only develop a liking for them,
+they come to savor them.
+
+Hediyeh was like that with other people's discomfort.
+I don't know where or why it started,
+but she took pleasure from the *deroma* of embarrassment or shame
+the way some people enjoy sucking on pickled lemons
+or chewing *sinachi* peppers.
+She used to tease Jephel as well as me,
+but once his voice deepened and his mustache started to come in,
+he stopped reacting to her tricks and taunts.
+That just left me as a target.
+
+I have met other people like her over the years.
+I wish I believed that none of their were happy,
+but they seemed to enjoy the stories of their lives as much as anyone else.
+
+I didn't follow Hediyeh to the posting yard.
+I just walked the same way because
+it would have been humiliating to go around the long way
+just because she had taken the shortcut that everyone in Medef used.
+Sure enough,
+Dudir was there under the canvas,
+stripped to the waist as he repaired something on his father's cart.
+
+At least,
+that's what I think he had been doing.
+By the time I got there he was talking to Hediyeh
+while Layla and Yareh looked on.
+The girls must have *dromed* me arriving,
+but none of them looked my way
+as I leaned against a post and pretended not to listen.
+
+It turned out that Dudir was quite a traveler.
+Coriandel, Ossisswe, Armaq: he knew them all.
+Oh,
+and he had been as far as Darp in the north and Thind to the east.
+He and his father could have been rich by now if they had been willing to settle down,
+but no, that wasn't for them.
+Who could imagine being stuck in one place after life on the road?
+It would be like prison.
+"No offense meant,"
+he added quickly.
+"I mean,
+I'm there's a lot to be said for putting down roots."
+
+"*La*, the poor man,"
+Suresh said as he came to stand beside me.
+"Does he not realize they can *drome* he's lying?"
+
+I shrugged.
+"They're used to it.
+Most *nif* tell little lies all the time,"
+I went on as he raised his eyebrows.
+"Sometimes they—we don't realize it,
+and most of the time we don't mean any harm by it,
+but Aphsi can always tell."
+
+"Hm."
+Suresh digested that for a moment.
+"I imagine that makes courtship quite complicated."
+
+"I wouldn't know," I said.
+I immediately regretted my tone,
+but Suresh just chuckled.
+I felt a little bit of my tension ease.
 
 </section>
 
