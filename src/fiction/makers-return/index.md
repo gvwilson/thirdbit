@@ -1963,7 +1963,7 @@ grabbing Sindy's arm.
 "Who is this?"
 
 "This is Captain Leung,"
-the voie replied.
+the voice replied.
 "And I say again,
 we're taking on water.
 Please,
@@ -2031,6 +2031,273 @@ putting everything she had behind the two words.
 The tentacles began slithering back down the side of the ark into the swamp.
 Sindy had just enough time to think,
 "Huh—it worked,"
-before her eyes rolled up and she collapsed unconscious on the ground.
+before she collapsed on the ground.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 8: The Twins (Violet)
+
+"I say again,
+we're taking on water.
+Please,
+shut down your defense system so our bots can make repairs."
+Violet could hear Captain Leung trying to keep his voice level
+even as another indicator on the screen in front of them went from green to red.
+The mechanical tentacles weren't just wrapped around the ark:
+one had forced its way in through a crack in the hull.
+
+"Your bots?"
+the voice coming through the communicator growled.
+
+"Yes, our service bots,"
+the captain replied impatiently.
+"Look,
+that's not important right now—just turn the damn thing off!"
+
+*Click.*
+`signal lost` appeared on the screen.
+Captain Leung slapped the panel in frustration.
+"I didn't mean the comms!
+Doctor—please, give me some good news."
+
+"I'm sorry, captain, I don't have any."
+Doctor Meadows sounded as calm as ever.
+"The main cargo bay is partially flooded,
+it will take at least thirty hours to synthesize enough fuel to take off,
+and our weapons are still inoperative."
+
+*We have weapons?*
+Violet had just a moment to wonder before the tentacles froze,
+then began slithering back down the hull into the swamp.
+The scraping sound grated through the bridge speakers for a few moments.
+
+Captain Leung wasted no time.
+His hands danced across the controls.
+The ark began rumbling,
+but the sounded stuttered almost immediately.
+"We don't have enough fuel, captain," Doctor Meadows said.
+
+"Worth a try," he muttered.
+"All right,
+let's see who we're dealing with."
+
+Camera views opened on the screen,
+panning across the people standing on the swamp's edge.
+Violet blinked.
+"They're all 'brids," she said.
+Some had canine muzzles,
+while others had horns or antlers or even scales.
+They were clothed,
+and they all seemed to be holding weapons of various sorts.
+
+All except one.
+A normal-looking girl was being helped to her feet
+by the strangest bot Violet had ever seen.
+The girl's dress was a size too large for her,
+and her curly black hair looked like a puffball around her dark face,
+but everything Violet could see seemed completely human.
+
+Captain Leung didn't seem to be looking at her, though.
+Instead,
+he had zoomed in on the bot that was helping her
+and on the one behind them.
+"That's a Z-model defender," he said.
+"Lots of modifications, but the basic chassis is a match.
+No idea what the other one is, though.
+It looks like someone took a pile of spare parts
+and put them together on a bet."
+
+"Perhaps it's some sort of personal assistant,"
+Doctor Meadows mused.
+"Do you see how its arms are mis-matched?
+The delicate one could be for medical work."
+
+"But what about the *girl*?" Violet burst out.
+
+"Hm."
+Captain Leung shifted the camera view.
+The girl looked shaken,
+but from the way she was shrugging free of the two-legged bot,
+Violet guessed she was all right.
+
+"Another ark?" Doctor Meadows suggested.
+"Or perhaps some people stayed behind after all."
+
+Captain Leung sat back in his seat, frowning.
+"Well," he said after a moment,
+"There's only one way to find out.
+Prep the shuttle—I'll go and say hello."
+
+"The shuttle?" Doctor Meadows asked doubtfully.
+
+The captain snorted.
+"Well,
+I don't feel like going for a swim,
+particularly not with that thing of theirs in the water.
+And anyway,
+it'll impress them."
+
+"That shouldn't be necessary,"
+the doctor assured him.
+"Even after this long,
+their conditioning should make them reasonably docile."
+
+Captain Leung panned the camera across the crowd again.
+Some had long poles with hooks on the ends.
+Others had nets or short-barrelled hand cannons with wide mouths,
+and the pitchfork thing that the large lizard was aiming at them
+was all the more frightening for being unrecognizable.
+"I don't think we should count on that," he said.
+"Get Z40 and Z51 online.
+I'll take them with me."
+
+"And me," Violet said.
+"I want to come."
+
+"No."
+"All right."
+The captain and Doctor Meadows spoke over each other.
+Captain Leung glanced up at the nearest speaker.
+"Are you serious?"
+
+"She *has* been talking to one of them,"
+the doctor reminded him.
+"And given the state of the ship,
+I think she will be safer with you than she will be on board."
+
+Captain Leung chewed his lip for a moment.
+"All right.
+On one condition,"
+he added,
+turning to Violet.
+"You will do *exactly* what I say, when I say it.
+Understood?"
+
+"Yes, captain,"
+she said,
+but what she thought was,
+*I'm going outside!*
+
+"It's not fair,"
+André groused a few moments later.
+"How come I have to stay in my pod and you get to go fight monsters?"
+
+"They're not monsters," she corrected,
+mentally adding,
+*At least I hope they're not.*
+"And you have to stay inside because you're sick.
+You know that."
+
+"Still isn't fair.
+Don't screw it up, all right?"
+
+Their first stop was the airlock that held the space suits.
+It was the first time Violet had worn one in real life,
+and she was surprised by how light and stiff the fabric was.
+And by how it smelled:
+underneath the sharp sting of cleaning fluid
+she could make out a whiff of ancient sweat.
+
+"Keep the visor up,"
+was all Captain Leung said when she commented on it.
+He swapped its gloves for another pair and muttered something about spare parts,
+but finally stepped back and said that would have to do.
+
+Violet's legs swished against each other as she followed him to the central ladder.
+Her weight stayed the same the whole way down,
+and for the first time she wondered if they were doing the right thing
+or whether they should have stayed in space.
+They had been attacked,
+and everyone waiting to greet them seemed to have weapons—everyone except the girl,
+who Violet really hoped was the person she had been talking to.
+
+She climbed awkwardly through the shuttle's hatch, then froze.
+Two large gray bots she had never seen before filled the back half of the cabin.
+"Z40" was stencilled on the front of one and "Z51" on the other.
+Their legs were folded beneath them,
+and their arms were tucked against their sides,
+but even so she could see they had the same overall design
+as the bigger of the two bots waiting outside.
+These hadn't been built to do repairs or look after people.
+These had been built to fight.
+
+Captain Leung must have seen the look on her face.
+"Don't worry,
+they have a dozen different firewalls to keep them on our side.
+And if those don't work, I have this."
+He pointed at one of the controls set into the chest of his suit.
+
+Violet nodded,
+not feeling reassured in the least,
+and took her seat.
+She nodded again when the captain asked if she was ready.
+
+The shuttle's takeoff was as bumpy as the ark's landing,
+but only lasted a second.
+It took her a moment to realize that the view in front of her wasn't a screen.
+She was looking through a windshield,
+and that was actual sunlight making her squint.
+Those were real trees in the distance,
+and the blue overhead was the actual sky.
+She wasn't in virtual.
+This wasn't a simulation,
+and she wasn't seeing what a camera chose to show her.
+This was the world,
+and she was in it.
+
+Captain Leung gently eased the control stick to the side.
+The shuttle tilted obediently
+and drifted toward the edge of the swamp.
+Violet saw the people scurry back out of their flight path
+before her view was cut off by the shuttle's bulk.
+
+"All right, here goes nothing,"
+the captain said to himself.
+The rumble of the shuttle's engine quieted slightly
+as they began to descend.
+
+The shuttle's landing was as gentle as the ark's had been rough.
+One moment they were in the air,
+the next a trio of lights on the control panel showed that
+all three of the shuttle's feet were on solid ground.
+Captain Leung idled the engine for a moment,
+then shut it down.
+
+Sitting back,
+he looked at Violet.
+"You sure you want to come with me?"
+
+She nodded and forced a smile.
+"All right," he said,
+clapping her on the shoulder.
+"Let's get this over with.
+Z40!
+Z51!
+Up and at it!"
+
+Violet stumbled back a step as the two bots lurched to their feet.
+Captain Leung palmed a switch to open the hatch and waved them forward.
+
+Metal clanked on metal as Z40 made its way to the exit,
+tilted,
+and disappeared down the steps.
+Z51 was just about to do the same when someone shouted something outside.
+The air crackled,
+and a bright flash lit up the hatchway,
+dazzling Violet.
+
+Captain Leung swore.
+"Back up! Back up!"
+He pushed Violet to the side to make room for Z51.
+A moment later Z40 scrambled backward into the shuttle.
+
+"What's happening?" Violet asked
+as the hatch closed.
+
+Captain Leung glared through the windshield.
+"They're shooting at us,
+that's what."
 
 </section>
