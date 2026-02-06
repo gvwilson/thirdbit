@@ -1099,13 +1099,13 @@ those years."
 
 He reached for a small volume bound in faded red leather and set it in
 front of Erileine.  "*Unprofitable Speculations*," she haltingly read
-aloud.  "By His Balance, Eimin di Cuayaçedil."
+aloud.  "By His Balance, Eimin ul-Medef."
 
-"It is better pronounced '*Quay*-ya-se-*deel*'," the bookster
-corrected.  He opened the book to a spot marked by a colored thread.
-"Here.  The original text is on the left, in Arañese.  The translation
-is on the right.  It is perhaps a little loftier than you are used to,
-but *la*, see what you can make of it."
+"It is better pronounced '*Meh*-def'," the bookster corrected.  He
+opened the book to a spot marked by a colored thread.  "Here.  The
+original text is on the left, in Arañese.  The translation is on the
+right.  It is perhaps a little loftier than you are used to, but *la*,
+see what you can make of it."
 
 Erileine scanned the first few lines.  "And among the---Bantangui?"
 Razi nodded.  "Among the Bantangui, they believe that when people die,

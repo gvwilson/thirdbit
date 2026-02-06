@@ -1393,7 +1393,124 @@ Suresh digested that for a moment.
 "I wouldn't know," I said.
 I immediately regretted my tone,
 but Suresh just chuckled.
-I felt a little bit of my tension ease.
+I felt a bit of the tension between my shoulders ease.
+
+"*La*, come," he said,
+clapping me on the shoulder.
+"Let's see what I have that you haven't seen."
+
+The answer turned out to be "everything".
+There must have been two hundred books on the shelves beside his cart,
+of which I had only ever met two or three.
+A two-volume history of Thind,
+a third volume devoted entirely to its sculpture,
+five copies of a guide to the diseases of cattle,
+a surgeon's handbook whose illustrations looked like
+grown-up versions of the butchering notes that Jephel was painstakingly assembling,
+and wonder of wonders,
+a collection of hand-tinted architectural drawings of Coriandel
+that was probably worth more than any two houses in Medef.
+
+Suresh elbowed me.
+"You have an audience," he murmured.
+I glanced at Dudir's stall.
+He and Hediyeh were still talking
+(or rather, he was still talking at Hediyeh),
+but Layla and Yareh were looking at me and suppressing giggles
+as they *dromed* my wonder and hunger.
+
+I snapped the book of drawings closed and moved to replace it on the shelf.
+Suresh put his hand out to stop me.
+"*La*, you can borrow it if you want.
+No, please—it's a pleasure to find someone who appreciates it."
+
+I hesitated a moment before shaking my head.
+"Thank you, but I should get back to my chores."
+I hesitated again.
+"Could I come look at it again tomorrow?"
+
+Once again his smile reminded me of Razi's.
+"Of course."
+
+The sun had just set by the time my mother got home.
+I had washed the pots,
+mended the chair,
+swept our tiled floor,
+and pulled half a dozen inepche beetles off the peppers growing in pots
+in the little courtyard behind our house.
+She handed me a trio of flatbreads
+and some eggplants to slice, oil, and lay out on the hotstone.
+I dressed them with basil and a little garlic
+as she brushed flour out of her close-cropped hair.
+We didn't talk:
+she was tired,
+and didn't need *droming* to know that I had things to say but wasn't ready to say them.
+
+Once we were seated with our dinner and a fresh pot of mint tea
+I told her about my day,
+leaving out what Razi had told me about the Other Hand.
+She nodded as she listened,
+as she had learned to do that when I was little
+so that I would know she was listening.
+
+"Girls are like that," she observed
+when I reached the part about Hediyeh and the others in the posting yard.
+
+I wiped the last of the oil and basil off my plate with a scrap of flatbread.
+"Were you?"
+
+She smiled.
+"Of course.
+Your father was so eager to impress me.
+He knew I knew, but that didn't stop him.
+Or Kirash."
+
+She laughed as what she *dromed* in me.
+"Yes, Kirash.
+He gave me flowers once,
+and asked if he could dance with me.
+I said yes,
+just to tease your father.
+He wasn't always like he is now,"
+she added.
+
+I shrugged and took her plate.
+"Have you asked the bookster if he wants an apprentice?"
+she asked suddenly.
+
+"What?"
+I blinked at her.
+
+Her expression was fond and sad at the same time.
+"You're not happy here.
+Sometimes, yes, when you're with Razi,
+but most of the time you are lonely and frustrated.
+You love books.
+It would be good for you."
+
+I felt as though I had just looked down and realized I was on the edge of a cliff.
+"But what about you?"
+
+She stood up and came over to me.
+"I just want you to be happy," she said,
+going on her tiptoes to kiss my forehead.
+
+I stood there for a moment feeling like a little child again.
+"I miss *appa*," I blurted.
+
+She nodded.
+"Me too.
+How about you make some more tea and we'll go sit for a bit?"
+
+The stars were tiny bright sparks over our heads
+as we reclined in the canvas *ouref* seats on the roof.
+A few neighbors were on their roofs as well.
+Someone in the hostel started playing an oudh,
+and then I heard Suresh singing
+about how the cool mountain breeze reminded him of long-lost love.
+My mother started humming along.
+I joined in a moment later,
+wishing with all my heart that the world would some day make sense.
 
 </section>
 
