@@ -2283,14 +2283,17 @@ Captain Leung palmed a switch to open the hatch and waved them forward.
 Metal clanked on metal as Z40 made its way to the exit,
 tilted,
 and disappeared down the steps.
-Z51 was just about to do the same when someone shouted something outside.
-The air crackled,
-and a bright flash lit up the hatchway,
+Z51 was just about to do the same when someone outside shouted,
+"Those are combat units!"
+
+The air crackled.
+A bright flash lit up the hatchway,
 dazzling Violet.
 
 Captain Leung swore.
 "Back up! Back up!"
-He pushed Violet to the side to make room for Z51.
+He pushed Violet to the side to make room for Z51
+as the hatchway lit up again.
 A moment later Z40 scrambled backward into the shuttle.
 
 "What's happening?" Violet asked
@@ -2299,5 +2302,113 @@ as the hatch closed.
 Captain Leung glared through the windshield.
 "They're shooting at us,
 that's what."
+
+</section>
+
+<section markdown="1">
+
+Chapter 9: You Just Gotta Show Them (Sindy)
+
+"Sindy?
+Sindy, are you damaged?"
+
+She opened her eyes and looked up at Dockety's familiar metal face.
+Why was the sky behind him?
+Oh—she was on the ground.
+Her tongue felt thick, and her head was throbbing.
+Had she fallen out of a tree again?
+
+She grabbed the manipulator Dockety offered her
+and let the bot help her to her feet.
+The spaceship was still floating in the swamp,
+but the tentacles were gone.
+Had she done that?
+
+"'m aright," she mumbled unconvincingly.
+
+`DO YOU NEED A RIDE?` scrolled across Beevy's screen.
+
+She shook her head, immediately regretting it.
+"I'm aright," she repeated.
+"What happened?"
+
+Dockety's eyes rotated.
+"I was hoping you could tell us."
+
+"Look! Topside!"
+Gumption said a few meters away,
+pointing.
+A gasp ran through the townspeople
+as something the size of a large wagon rose from the top of the spaceship
+on a blue-white haze too bright to look at directly.
+
+"Here we go,"
+Nash said with relish,
+aiming the pitchford gun he had set up.
+
+"No!"
+Mayor Lupus barked.
+"Nobody does anythin' unless *I* say so.
+You got that?"
+
+The crocodile glanced at her,
+then at Special Blazes.
+"Boss?"
+
+The tiger's ears were flat against his head.
+"Keep your cool,
+but keep finger on the trigger.
+There may not be time for chit-chat, Miz Mayor,"
+he added.
+
+The small craft made a half-circle overhead
+like a bird inspecting a discarded crust of bread
+before settling to the ground fifty meters away from the townspeople.
+The light beneath it dimmed, hummed, and went out.
+"Now what?" Sindy whispered.
+
+Dockety clicked the fingers of its manipulator together in a rapid staccato.
+"I don't know."
+It was nervous,
+Sindy realized with a shock.
+She had never seen Dockety nervous before,
+not even in battle.
+
+Moments passed.
+"What're they waiting for?" Nash hissed.
+
+As if in answer,
+a hatch opened on the small craft's side
+and swung down silently to become a short flight of steps.
+A gasp ran through the townspeople
+as something large and rectangular appeared in the opening,
+tilted,
+and began to clamber down on four sturdy mechanical legs.
+A second identical shape appeared behind it.
+
+Sindy's heart went into her throat.
+The two bots looked like Beevy,
+but brand new instead of scarred and patched and repaired.
+
+"Those are combat units!"
+Special Blazes snarled.
+
+"On it!"
+Nash aimed his pitchfork at the lead bot and fired.
+The air crackled as lightning sliced the air and struck its target.
+
+"Stop! Stop shooting, you idiot!"
+Mayor Lupus shouted as Nash fired a second time.
+She grabbed his shoulder and tried to pull him away from the pitchfork gun,
+only for him to knock her to the ground.
+
+*Thump!*
+The crocodile hissed with rage as a net tangled around him,
+sending him to the ground beside the mayor.
+"Whoops," Gumption said coolly.
+
+"Everybody just *stop*!" Special Blazes bellowed.
+A moment later the hatch on the small craft closed with a clang
+behind the two retreating bots.
 
 </section>
