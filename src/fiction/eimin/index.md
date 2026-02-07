@@ -642,6 +642,7 @@ Razi gave a quick, angry jerk of his head.
 "*La*, that is my thought also.
 They need help to round up what's left of their animals."
 
+Fear and anger bloomed and twined together in my gut.
 "Which would empty out the village."
 
 Razi nodded again.
@@ -704,6 +705,8 @@ I counted three, four, and then a fifth,
 larger,
 on four legs instead of two.
 It was the lion.
+From this distance I couldn't see the scar on her shoulder,
+but I knew it was her.
 
 "Pass me a rag," Yassen ordered.
 Silently,
@@ -730,7 +733,9 @@ The morning shadows were already shorter than they had been,
 but knowing where to look,
 I saw the bandits slipping away into the desert.
 "She saw it," I said.
-Lions only attack when they have the element of surprise.
+Lions,
+even Gifted ones,
+only attack when they have the element of surprise.
 We would stay on the roof and watch
 in case she and her humans were desperate enough to try without that,
 but the excitement was over.
@@ -1128,7 +1133,8 @@ Razi was waiting for me at my house with two strangers.
 standing and straightening his *deel*.
 "I was starting to wonder if the lion had eaten you."
 
-"Sorry."
+*That's not funny,* I thought,
+but, "Sorry," was what I said.
 I tried not to stare at his companions.
 One,
 a woman,
@@ -1510,7 +1516,86 @@ and then I heard Suresh singing
 about how the cool mountain breeze reminded him of long-lost love.
 My mother started humming along.
 I joined in a moment later,
-wishing with all my heart that the world would some day make sense.
+wishing with all my heart that the world would make sense some day.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 7
+
+Granna Ferouz thumped our door drum the next morning.
+The horizon was red, orange, and gold,
+and the whippet larks that nested in the lemon grove
+were trilling to each other from the rooftops,
+enjoying the last few moments of night-time coolness.
+
+"What's wrong?"
+my mother asked as I rubbed sleep from my eyes.
+
+"Storm," she said.
+"My knee tells me it'll be here by noon."
+Medef's weatherwife didn't need to say any more.
+My mother could *drome* how worried she was.
+
+"Does Grappa Uzman need a hand with the goats?" I asked,
+stifling a yawn.
+
+Granna Ferouz shook her head.
+"Help the caravaneers."
+
+The air was absolutely still as I trudged to the posting yard
+with a bowl of cold *belila* in my stomach.
+A dozen men and women were already at work,
+taking down canvas awnings and tying them over wagons.
+Wind-blown sand would still get into awkward places,
+but at least there wouldn't be piles of it.
+
+Somehow I wound up paired with Jephel.
+He worked steadily and without complaint,
+even though his bulk made him sweaty.
+When I stopped to wipe my brow he nudged me and jerked his chin at one of the stalls.
+"What do you think of those?"
+
+I glanced at the bead necklaces the stallholder was stuffing back in padded sacks.
+"They look kind of cheap to me," I said.
+
+"Oh."
+He sounded disappointed.
+"I was thinking of getting one for Mureya.
+I don't have a *nowruz* present for her yet."
+
+"Give her a chicken," I grunted,
+lifting a roll of canvas.
+
+He shook his head.
+"I did that last year."
+
+"So do it again."
+I dropped the canvas in the back of the nearest wagon
+and started unrolling it.
+
+Jephel snorted.
+"Doesn't work like that."
+
+"I wouldn't know," I said,
+echoing what I had told Suresh the day before.
+Jephel chuckled,
+then held the other side of the canvas so I could tie it off.
+
+The wind was humming through the stay lines by the time we were done.
+Squinting against the dust,
+we found seats in the trading hall that took up the ground floor of the hostel.
+With the shutters closed,
+the only light came from mismatched dayglass lamps.
+
+Some people pillowed their heads in their arms and closed their eyes.
+Others clustered around a hive board to watch Yassen and Dudir's father play
+or took out knitting or mending to pass the time.
+Granna Ferouz said that storms were stronger and more frequent
+than they had been in her youth.
+I didn't know if that was true.
+All I knew was that I had several hours to fill.
 
 </section>
 
