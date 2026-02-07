@@ -2037,7 +2037,7 @@ before she collapsed on the ground.
 
 <section markdown="1">
 
-## Chapter 8: The Twins (Violet)
+## Chapter 8: Quite Formidable (Violet)
 
 "I say again,
 we're taking on water.
@@ -2284,7 +2284,7 @@ Metal clanked on metal as Z40 made its way to the exit,
 tilted,
 and disappeared down the steps.
 Z51 was just about to do the same when someone outside shouted,
-"Those are combat units!"
+"Those are combat bots!"
 
 The air crackled.
 A bright flash lit up the hatchway,
@@ -2390,7 +2390,7 @@ Sindy's heart went into her throat.
 The two bots looked like Beevy,
 but brand new instead of scarred and patched and repaired.
 
-"Those are combat units!"
+"Those are combat bots!"
 Special Blazes snarled.
 
 "On it!"
@@ -2410,5 +2410,177 @@ sending him to the ground beside the mayor.
 "Everybody just *stop*!" Special Blazes bellowed.
 A moment later the hatch on the small craft closed with a clang
 behind the two retreating bots.
+
+Mayor Lupus rounded on the two Operators.
+"I said nobody does anything 'til *I say so*!"
+Her fury was as white-hot as the lightning Nash had fired at the bots.
+
+Special Blazes stepped between her and Nash.
+"Those were war machines.
+Do you understand?
+Keeping you safe from bots like that is our whole job!"
+
+"Really?" the mayor spat.
+"I thought your job was kidnappin' kids!"
+She jerked a clawed thumb over her shoulder at Sindy.
+
+For a split second Sindy thought the tiger was going to throw a punch or a fireball,
+but instead he took a deep breath and shook his head.
+"I'm not going to apologize for that,
+not to you or anyone else."
+
+As the two argued over what to do next,
+Sindy turned to Dockety and Beevy.
+"You ever seen anything like them?
+Those two bots, I mean."
+
+`YES` Beevy scrolled.
+"Yes," Dockety said in its buzzing voice.
+"The Operator is correct.
+They were built for violent encounters,
+and appear unmodified.
+They would be quite formidable in a fight."
+It emitted a brief burst of static.
+Speckles of light danced across Beevy's screen in response.
+"Even Crusher would find it hard to defeat them."
+
+Something shifted deep inside Sindy.
+Her sister and Gumption had been brave so many times.
+Now it was her turn.
+
+Her jaw set.
+"Well then, we better make sure it doesn't come to that,"
+she said firmly.
+"Come on."
+
+The Mayor and Special Blazes were still arguing.
+Everyone else was too busy watching them
+to notice Sindy and the two bots quietly retreat into the trees.
+Damp soil yielded beneath them as they picked their way
+between drooping willow branches.
+Sindy kept thinking that they would be too late,
+that the little ship would take off again,
+but it stayed where it was.
+
+"Aright," she finally said.
+They weren't actually much closer to the ship,
+but they were far enough away from the militia
+that nobody would be able to hit her with a ball of glue
+or tangle her in a net.
+She had no idea what the range of Nash's lightning gun was.
+All she could do was hope he wouldn't use it on her.
+
+"Are you certain you want to do this?" Dockety asked.
+
+"Nope," Sindy said.
+She forced a grin and then stepped out of the trees
+and began walking toward the ship with her arms in the air.
+She really hoped Dockety and Beevy were behind her.
+"Hey!" she called.
+"Hi!
+Remember me?
+I'm the one you were talking to."
+
+"Sindy Roo, you get back here right now!"
+She ignored the mayor's shout.
+
+"Hey."
+She stopped and lowered her arms halfway to the little craft.
+"Um,
+I'm sorry about what happened back there.
+You just startled them, is all.
+We've never seen spaceships before.
+But look,
+we have bots too,
+see?"
+
+She half-turned and waved at Dockety and Beevy.
+Dockety raised a manipulator and waved.
+Beevy flashed `HELLO` on its screen.
+
+Sindy took another step toward the small craft.
+"If you want to come out and talk,
+I promise they won't shoot at you again."
+*I hope,* she added mentally.
+"Or if you just want to sit for a bit,
+that's aright too.
+You can't use the communicator thing to tell me, though.
+I don't have that any more."
+
+She stood and waited,
+not knowing what else to say.
+She felt like she did when she had to stand up and answer a question in Miz Nabbles' class,
+or when she heard other kids talking about a birthday party
+and she didn't know if she was going to be invited or not.
+
+"Look, they're just afraid."
+The words slipped out before she could think them through.
+"You just gotta show them that they got nothing to be afraid of."
+
+The hatch on the craft's side swung open.
+Nothing else for a moment,
+but then a figure in a bulky yellow suit appeared at the top step.
+Sindy's breath caught.
+Was it a person or a bot?
+It had two arms and two legs,
+but its head was as big and as round as a bucket,
+and its mirrored front gave no hint of its contents.
+
+The figure came down the steps slowly.
+A second, smaller one appeared behind it
+but stayed in the entrance.
+
+"Greetings."
+The voice seemed to come from the little ship.
+"We come in peace."
+
+Sindy raised one hand.
+"Us too."
+
+"Are you in command here?" the voice asked.
+It was deeper and older than the one she had heard through the communicator.
+
+"Me?
+Um, no, that would be the mayor."
+She waved at the townspeople fifty meters away.
+"Her name is Lupus—Mayor Lupus.
+I'm Sindy,
+and this is Dockety and Beevy."
+
+"I am Captain Leung,
+commander of Ark Nineteen.
+This is Violet."
+The lead figure gestured at the one waiting at the top of the steps.
+
+"Pleased to meet you," Sindy said.
+"Are you really from space?"
+
+"Not originally.
+Are you from the town we saw over that way?"
+The figure gestured in the direction of Rusty Bridge.
+
+"Yeah, that's us.
+The mayor,
+well,
+that's what she's the mayor of.
+And Dockety here,
+it's like the mayor for the bots."
+
+"For the bots," the voice repeated slowly.
+"Interesting."
+
+Before Sindy could think of what to say next,
+the smaller figure reached up and took its head off.
+At least that's what Sindy thought at first.
+It took her a moment to realize it was just a helmet,
+and that underneath it was the actual head of a girl about her own age
+with a narrow, dark face and curly black hair.
+
+Sindy gaped at her.
+"You're a throwback!" she exclaimed.
+
+The girl blinked.
+"I don't know what that is.
+I'm human, just like you."
 
 </section>
