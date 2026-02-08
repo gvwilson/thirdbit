@@ -2037,7 +2037,7 @@ before she collapsed on the ground.
 
 <section markdown="1">
 
-## Chapter 8: Quite Formidable (Violet)
+## Chapter 8: Ambush (Violet)
 
 "I say again,
 we're taking on water.
@@ -2517,9 +2517,9 @@ and she didn't know if she was going to be invited or not.
 The words slipped out before she could think them through.
 "You just gotta show them that they got nothing to be afraid of."
 
-The hatch on the craft's side swung open.
-Nothing else for a moment,
-but then a figure in a bulky yellow suit appeared at the top step.
+Nothing happened for a few moments.
+Then the hatch on the craft's side swung open
+and a figure in a bulky yellow suit appeared at the top step.
 Sindy's breath caught.
 Was it a person or a bot?
 It had two arms and two legs,
@@ -2582,5 +2582,167 @@ Sindy gaped at her.
 The girl blinked.
 "I don't know what that is.
 I'm human, just like you."
+
+</section>
+
+<section markdown="1">
+
+Chapter 9: Ambush (Violet)
+
+"Pleased to meet you," Sindy said.
+"Are you really from space?"
+
+"Not originally,"
+Captain Leung replied through the shuttle's speakers.
+He had warned Violet not to give too much away
+until they knew what they were up against.
+"Are you from the town we saw over that way?"
+
+"Yeah, that's us."
+Sindy spoke in a rush.
+"The mayor,
+well,
+that's what she's the mayor of.
+And Dockety here,
+it's like the mayor for the bots."
+
+"For the bots," Captain Leung repeated.
+"Interesting."
+
+All of a sudden Violet couldn't stand it any more.
+She had spent her whole life wondering what fresh air would smell like
+and what it would feel like to have grass under her feet—*real* grass,
+not simulated in virtual.
+She reached up,
+undid the clip that held her helmet in place,
+and took it off.
+
+Sindy gasped.
+"You're a throwback!"
+
+Violet blinked.
+"I don't know what that is.
+I'm human, just like you."
+
+"Violet!"
+André's voice came faint and tinny from the helmet in her arms.
+"Violet, what's happening?"
+
+"Sh," she hissed,
+trying to keep her smile in place.
+"I'll tell you later."
+
+"But Violet, I can't see!
+Put your—"
+*click*
+She thumbed the switch on her helmet to cut him off.
+
+Captain Leung took off his helmet.
+"Permission to come aboard?" he asked.
+
+"What?"
+Sindy blinked at him.
+
+"He means, may he come down off the steps?"
+the scrapwork two-legged bot behind her buzzed.
+
+"Oh, sure.
+Or, um, maybe you better wait and ask the mayor.
+If that would be aright?"
+she added hastily.
+
+Violet followed her eyes.
+Two 'brids had separated from the crowd and were walking toward them.
+One clearly had some tiger in its genes.
+The other—she couldn't decide if it was descended from a dog or a wolf,
+but it was clearly canine.
+
+*She,* Violet corrected herself as the pair neared.
+The wolf with the cane and cyborg leg was a she.
+The tiger was a he,
+and had a patch over one eye.
+His green-and-black jacket looked a lot like a uniform.
+
+Captain Leung waited,
+his helmet cradled in one arm.
+As the two 'brids neared,
+the scrapwork bot stepped forward to join them.
+The tiger gave it a dirty look, but said nothing.
+
+"Mornin'," the wolf said politely.
+"Seems you've come a long way.
+Sorry 'bout all the fuss earlier.
+Some folks were just feelin' a bit agitated, was all."
+
+"I understand," Captain Leung replied,
+his tone just as casual.
+"And no harm done—it takes a lot more than a bit of electricity
+to faze one of those Z-models.
+As I'm sure you know,"
+he added,
+nodding toward the larger bot standing behind the newcomers.
+"I take it you're the mayor?"
+
+The wolf straightened slightly.
+"I am."
+
+"Does that mean you're in charge here?"
+
+"It does."
+"No."
+The wolf and tiger spoke simultaneously.
+
+"What the mayor means," the tiger said,
+"Is that she's in charge of everything day-to-day.
+Special circumstances are my responsibility,
+and I think we can all agree that your ship there qualifies as 'special'."
+
+"I imagine it does,"
+Captain Leung said drily.
+"And how about your friend there?
+Your young friend said it's some kind of mayor for the local bots?"
+
+The tiger glanced at the wolf.
+"More or less.
+I'm Lupus, by the way, and this is Special Blazes.
+That's Dockety,
+and of course you've already met Sindy."
+
+"I'm Captain Leung,
+commander of Ark Nineteen,
+and this is Violet."
+He gestured toward her without taking his eyes off their visitors.
+"I must say,
+it's remarkable you've been able to keep your bot running.
+All those replacements and repairs must have required
+a great deal of ingenuity."
+
+"Can't take the credit for that," the mayor said.
+"Dockety an' the others,
+they take care of all their repairs an' upgrades themselves.
+We stay out o' the way as much as we can."
+
+Violet wouldn't have noticed Captain Leung stiffen slightly
+if she hadn't spent practically her whole life with him.
+"You allow them to make unsupervised self-modifications?"
+
+"Only some."
+Special Blazes cut in before Mayor Lupus could answer.
+"Making sure that doesn't get out of hand is one of my group's responsibilities."
+
+A few steps away from him,
+Sindy rolled her eyes.
+Violet suppressed a smile.
+She knew that "adults are talking nonsense" look.
+Why couldn't they all just stop talking for a minute
+so that she could take off her spacesuit and,
+and dig her fingers into the earth
+or climb one of the trees whose branches were swaying slightly in the breeze?
+They weren't particularly tall trees,
+and their branches didn't seem to be spaced conveniently
+like the ones in virtual always were,
+but that wasn't the point.
+She was three meters away from actually being *on the ground*
+and they were making her *wait*.
 
 </section>
