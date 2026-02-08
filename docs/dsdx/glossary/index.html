@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glossary</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<a href="../">Home</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../intro/">Introduction</a>
+<a href="../msgque/">A Publish-Subscribe Message Queue</a>
+<a href="../finale/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contributing/">Contributing</a>
+<a href="../bibliography/">Bibliography</a>
+<a href="../glossary/">Glossary</a>
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>Glossary</h1>
+<dl>
+<dt>ACID</dt>
+<dd>Properties of traditional database transactions: Atomicity (all-or-nothing), Consistency (valid state transitions), Isolation (concurrent transactions don't interfere), and Durability (committed changes persist).</dd>
+<dt>ACK (Acknowledgment)</dt>
+<dd>Packet sent by receiver confirming successful receipt of data. In TCP, cumulative ACKs indicate all data up to a sequence number has been received.</dd>
+<dt>anti-entropy</dt>
+<dd>Background process in distributed systems that compares replicas and repairs inconsistencies to ensure eventual convergence, often using techniques like Merkle trees.</dd>
+<dt>associativity</dt>
+<dd>Mathematical property where grouping doesn't affect the result: (A + B) + C = A + (B + C). Required for CRDT merge operations and MapReduce reduce functions.</dd>
+<dt>at-least-once delivery</dt>
+<dd>Message delivery guarantee ensuring every message is delivered one or more times. Requires acknowledgments and message redelivery on failure but may result in duplicates.</dd>
+<dt>at-most-once delivery</dt>
+<dd>Message delivery guarantee ensuring messages are delivered zero or one time, never duplicated but possibly lost. Simplest to implement but provides the weakest guarantee.</dd>
+<dt>authorization code</dt>
+<dd>In OAuth 2.0, a short-lived token issued to the client after user authentication and consent, which the client exchanges for an access token.</dd>
+<dt><span id="backoff-multiplier">backoff multiplier</span></dt>
+<dd>FIXME</dd>
+<dt><span id="backpressure">backpressure</span></dt>
+<dd>Mechanism to prevent overwhelming a system
+by signaling upstream components to slow down
+when downstream components cannot keep up.</dd>
+<dt>bitfield</dt>
+<dd>Compact data structure using individual bits to represent boolean states. In BitTorrent, indicates which pieces a peer possesses.</dd>
+<dt><span id="buffer">buffer</span></dt>
+<dd>FIXME</dd>
+<dt>CAP theorem</dt>
+<dd>States that a distributed system can provide at most two of three guarantees: Consistency (all nodes see same data), Availability (system responds to requests), and Partition tolerance (works despite network failures).</dd>
+<dt>causal delivery</dt>
+<dd>Message delivery order where if operation A happened-before operation B, then A is delivered before B. Required for operation-based CRDTs.</dd>
+<dt>choreography</dt>
+<dd>Saga implementation pattern where services communicate through events and each service decides its next action independently, without a central coordinator. Decentralized but harder to monitor.</dd>
+<dt>choking algorithm</dt>
+<dd>In BitTorrent, strategy where peers limit concurrent uploads to their best uploaders (typically 4-5) to maximize bandwidth efficiency by focusing on productive connections.</dd>
+<dt>combiner function</dt>
+<dd>In MapReduce, an optional local reduce operation that runs on mapper output before shuffling, reducing network traffic by pre-aggregating data.</dd>
+<dt>commutativity</dt>
+<dd>Mathematical property where order doesn't affect the result: A + B = B + A. Essential for CRDTs and enables operations to be applied in any order while achieving the same final state.</dd>
+<dt>compensating transaction</dt>
+<dd>Forward operation in a Saga that semantically undoes the effects of a previously completed transaction (e.g., refund payment, cancel reservation). Must be idempotent and retryable.</dd>
+<dt>conflict-free replicated data type (CRDT)</dt>
+<dd>Data structure designed so concurrent updates on different replicas can always be merged automatically without conflicts, guaranteeing eventual convergence.</dd>
+<dt>congestion control</dt>
+<dd>TCP mechanism that adapts sending rate to network capacity to prevent network collapse and ensure fair bandwidth sharing among flows.</dd>
+<dt>consensus</dt>
+<dd>Process by which distributed nodes agree on a single value or decision despite failures. Algorithms like Paxos and Raft provide consensus guarantees.</dd>
+<dt>consistent hashing</dt>
+<dd>Technique for distributing data across nodes where adding or removing nodes causes minimal data movement. Used in distributed hash tables and key-value stores.</dd>
+<dt><span id="consumer-group">consumer group/span&gt;</span></dt>
+<dd>A set of message queue subscribers that share the workload.
+Messages are distributed among group members rather than duplicated to each.</dd>
+<dt>context propagation</dt>
+<dd>Passing trace IDs, span IDs, and other metadata between services so operations can be correlated across service boundaries in distributed tracing.</dd>
+<dt>CmRDT (operation-based CRDT)</dt>
+<dd>CRDT variant where replicas send operations (deltas) that must commute. Requires reliable delivery but has lower network overhead than state-based CRDTs.</dd>
+<dt>CvRDT (state-based CRDT)</dt>
+<dd>CRDT variant where replicas send their entire state and merge states using operations that are commutative, associative, and idempotent.</dd>
+<dt>cumulative acknowledgment</dt>
+<dd>ACK indicating "I've received everything up to sequence number X" rather than acknowledging individual packets. Simplifies TCP acknowledgment logic.</dd>
+<dt><span id="dataclass">dataclass</span></dt>
+<dd>FIXME</dd>
+<dt>dead letter queue</dt>
+<dd>Queue for messages that cannot be processed successfully after multiple retry attempts, enabling later analysis and manual intervention.</dd>
+<dt><span id="decoupling">decoupling</span></dt>
+<dd>FIXME</dd>
+<dt>dirty read</dt>
+<dd>Reading data that has been modified but not yet committed by another transaction. In eventually consistent systems, transactions may see intermediate states from in-progress Sagas.</dd>
+<dt>distributed hash table (DHT)</dt>
+<dd>Decentralized system for storing key-value pairs across multiple nodes. In BitTorrent, enables peer discovery without central trackers using the Kademlia algorithm.</dd>
+<dt>distributed lock</dt>
+<dd>Mechanism ensuring only one process across multiple machines can hold a lock on a resource at any given time, coordinating access to shared resources.</dd>
+<dt>distributed tracing</dt>
+<dd>System for tracking requests as they flow through multiple services, creating a tree of spans that shows timing, dependencies, and performance bottlenecks.</dd>
+<dt>duplicate ACK</dt>
+<dd>When receiver sends multiple ACKs for the same sequence number, typically indicating packet loss or reordering. Used by fast retransmit.</dd>
+<dt>end game mode</dt>
+<dd>BitTorrent optimization where peers nearing completion aggressively request remaining pieces from multiple peers and cancel duplicates when received, preventing slow final pieces.</dd>
+<dt>ephemeral node</dt>
+<dd>ZooKeeper node that automatically deletes when the client session that created it ends, useful for implementing locks and leader election.</dd>
+<dt><span id="exponential-backoff">exponential backoff</span></dt>
+<dd>FIXME</dd>
+<dt>eventual consistency</dt>
+<dd>Guarantee that if no new updates are made, all replicas will eventually converge to the same state. Trades immediate consistency for availability and partition tolerance.</dd>
+<dt>exactly-once delivery</dt>
+<dd>Message delivery guarantee ensuring each message is processed exactly once. Difficult to achieve; requires idempotent operations and deduplication tracking.</dd>
+<dt><span id="fan-out">fan-out</span></dt>
+<dd>Pattern where one message or request triggers multiple downstream operations, such as publishing to multiple subscribers or calling multiple services in parallel.</dd>
+<dt>fast retransmit</dt>
+<dd>TCP optimization that retransmits a packet after receiving three duplicate ACKs, without waiting for retransmission timeout.</dd>
+<dt>fencing token</dt>
+<dd>Monotonically increasing number issued with each lock acquisition. Protected resources reject operations with older tokens, preventing split-brain scenarios where multiple processes believe they hold a lock.</dd>
+<dt>FIN (Finish)</dt>
+<dd>TCP packet type used in connection teardown to indicate no more data will be sent.</dd>
+<dt>flow control</dt>
+<dd>TCP mechanism preventing sender from overwhelming receiver by limiting the amount of unacknowledged data based on receiver's advertised window.</dd>
+<dt>fork/join</dt>
+<dd>Parallel programming pattern where tasks are recursively split (forked) into subtasks and results are combined (joined). Implemented efficiently using work-stealing schedulers.</dd>
+<dt>gossip protocol</dt>
+<dd>Communication pattern where nodes periodically exchange information with random peers, spreading updates epidemically through the cluster for failure detection and membership.</dd>
+<dt>grow-only counter (g-counter)</dt>
+<dd>CRDT that can only increment. Each replica maintains a vector of counters; the value is the sum of all counters; merge takes the maximum of each entry.</dd>
+<dt>happens-before</dt>
+<dd>Partial ordering of events in a distributed system. Event A happens-before event B if A could have causally influenced B, determined using vector clocks.</dd>
+<dt>hinted handoff</dt>
+<dd>Technique where writes intended for a temporarily unavailable node are stored on another node with a "hint" and replayed when the target node recovers.</dd>
+<dt>idempotence</dt>
+<dd>Property where applying an operation multiple times has the same effect as applying it once. Essential for retry logic and exactly-once semantics in distributed systems.</dd>
+<dt>inverted index</dt>
+<dd>Data structure mapping words to documents containing them, fundamental for search engines. Can be built efficiently using MapReduce.</dd>
+<dt>isolation</dt>
+<dd>Database property ensuring concurrent transactions don't interfere with each other. Eventual consistent systems sacrifice isolation for availability.</dd>
+<dt><span id="JSON">JSON</span></dt>
+<dd>FIXME</dd>
+<dt>last-write-wins (LWW)</dt>
+<dd>Conflict resolution strategy using timestamps where the write with the highest timestamp (or deterministic tiebreaker) wins. Simple but may lose concurrent updates.</dd>
+<dt>lease</dt>
+<dd>Time-limited permission to access a resource. If the holder fails to renew before expiration, the lease is automatically released, providing fault tolerance.</dd>
+<dt>leecher</dt>
+<dd>In BitTorrent, a peer that is downloading the file and does not yet have all pieces. Distinguished from seeders who have the complete file.</dd>
+<dt>Liskov Substitution Principle (LSP)</dt>
+<dd>Design principle stating that objects of a superclass should be replaceable with objects of subclasses without breaking the application.</dd>
+<dt>LWW-register</dt>
+<dd>CRDT register using last-write-wins conflict resolution based on timestamps and replica IDs for deterministic ordering.</dd>
+<dt>MapReduce</dt>
+<dd>Programming model for processing large datasets across distributed clusters. Map phase transforms input independently; reduce phase aggregates by key after shuffling.</dd>
+<dt>maximum segment size (MSS)</dt>
+<dd>Largest amount of data that can be sent in a single TCP segment, typically MTU minus IP and TCP header sizes.</dd>
+<dt>maximum transmission unit (MTU)</dt>
+<dd>Largest packet size that can be transmitted on a network. Typically 1500 bytes for Ethernet. TCP segments data to fit within MTU.</dd>
+<dt>Merkle tree</dt>
+<dd>Tree of cryptographic hashes where each non-leaf node is the hash of its children. Efficiently identifies differences between replicas for anti-entropy.</dd>
+<dt><span id="message-broker">message broker</span></dt>
+<dd>FIXME</dd>
+<dt>mutual exclusion</dt>
+<dd>Property ensuring only one process can access a critical section or resource at a time, fundamental requirement for distributed locks.</dd>
+<dt>Nagle's Algorithm</dt>
+<dd>TCP optimization that batches small writes into larger packets to reduce protocol overhead, trading slight latency for efficiency.</dd>
+<dt><span id="negative-feedback-loop">negative feedback loop</span></dt>
+<dd>FIXME</dd>
+<dt>OAuth</dt>
+<dd>Authorization framework enabling applications to obtain limited access to user accounts without exposing passwords, using tokens with specific scopes and lifetimes.</dd>
+<dt>observed-remove set (OR-Set)</dt>
+<dd>CRDT set where elements are tagged with unique identifiers. Add-wins semantics: concurrent add and remove results in element being present.</dd>
+<dt>OpenID Connect (OIDC)</dt>
+<dd>Identity layer built on OAuth 2.0 that adds user authentication through ID tokens, enabling single sign-on while OAuth provides API authorization.</dd>
+<dt>operation-based CRDT</dt>
+<dd>See CmRDT.</dd>
+<dt>optimistic locking</dt>
+<dd>Concurrency control method assuming conflicts are rare. Transactions proceed without locks but check for conflicts before committing, retrying if conflicts detected.</dd>
+<dt>optimistic unchoking</dt>
+<dd>BitTorrent strategy where peers periodically upload to a random peer regardless of contribution, giving new peers opportunity to participate and discovering faster peers.</dd>
+<dt>orchestration</dt>
+<dd>Saga implementation pattern where a central coordinator directs each service's actions, making the workflow easier to understand and monitor but creating a coordination point.</dd>
+<dt>out-of-order delivery</dt>
+<dd>When packets arrive in different order than sent due to network reordering. TCP's receive buffer handles this by holding segments until gaps are filled.</dd>
+<dt>partition</dt>
+<dd>Network failure where nodes are divided into groups that cannot communicate. Systems must choose between consistency and availability during partitions (CAP theorem).</dd>
+<dt>partition tolerance</dt>
+<dd>System's ability to continue operating despite network partitions. One of three properties in CAP theorem.</dd>
+<dt>path MTU discovery</dt>
+<dd>Process of determining the smallest MTU along the network path to avoid fragmentation.</dd>
+<dt>peer-to-peer (P2P)</dt>
+<dd>Network architecture where participants (peers) share resources directly with each other without requiring central servers. BitTorrent is a prominent example.</dd>
+<dt>pivot transaction</dt>
+<dd>Last transaction in a Saga that cannot be compensated (e.g., sending email, shipping goods). Sagas should be designed with risky operations early and irreversible operations last.</dd>
+<dt>Positive-Negative Counter (PN-Counter)</dt>
+<dd>CRDT supporting both increment and decrement using two G-Counters: one for increments, one for decrements. Value is increments minus decrements.</dd>
+<dt><span id="priority-queue">priority queue</span></dt>
+<dd>FIXME</dd>
+<dt>probabilistic sampling</dt>
+<dd>Tracing strategy where each trace has a random probability of being recorded (e.g., 10%), reducing overhead while maintaining statistical representativeness.</dd>
+<dt><span id="publish-subscribe">publish-subscribe</span></dt>
+<dd>Messaging pattern where publishers send messages to topics and subscribers receive all messages from topics they're interested in. Decouples senders from receivers.</dd>
+<dt>quorum</dt>
+<dd>Minimum number of nodes that must participate in an operation for it to succeed. Common pattern: for N replicas, read from R nodes and write to W nodes where R + W &gt; N ensures consistency.</dd>
+<dt>Raft</dt>
+<dd>Consensus algorithm designed for understandability. Nodes elect a leader who manages a replicated log, providing strong consistency through majority agreement.</dd>
+<dt>rarest first</dt>
+<dd>BitTorrent piece selection strategy prioritizing downloading the rarest pieces in the swarm first, ensuring piece diversity and swarm health.</dd>
+<dt>read repair</dt>
+<dd>Technique where inconsistencies detected during reads are immediately repaired by updating lagging replicas with the most recent version.</dd>
+<dt>receive window</dt>
+<dd>Buffer space advertised by receiver indicating how much data it can accept. Used for flow control.</dd>
+<dt>reduce</dt>
+<dd>MapReduce phase that aggregates values by key. Reduce functions must be associative and commutative to enable parallelization and fault tolerance.</dd>
+<dt>refresh token</dt>
+<dd>Long-lived OAuth token used to obtain new access tokens without user interaction when they expire, maintaining sessions without storing passwords.</dd>
+<dt>replication</dt>
+<dd>Maintaining copies of data on multiple nodes for fault tolerance and availability. Can be synchronous (waiting for acknowledgments) or asynchronous.</dd>
+<dt>replication factor</dt>
+<dd>Number of copies maintained for each piece of data. Higher replication increases availability and read throughput but requires more storage and write coordination.</dd>
+<dt>resource server</dt>
+<dd>In OAuth 2.0, the API server hosting protected resources that validates access tokens and enforces scope-based access control.</dd>
+<dt>retransmission</dt>
+<dd>Resending data when acknowledgment doesn't arrive within timeout period, recovering from packet loss.</dd>
+<dt>retransmission timeout (RTO)</dt>
+<dd>Time sender waits for acknowledgment before retransmitting. Adaptive in real TCP based on measured round-trip time.</dd>
+<dt><span id="round-robin-polling">round-robin polling</span></dt>
+<dd>FIXME</dd>
+<dt>round-trip time (RTT)</dt>
+<dd>Time for a packet to travel to destination and acknowledgment to return. Used to calculate appropriate retransmission timeout.</dd>
+<dt>saga</dt>
+<dd>Pattern for managing distributed transactions as a sequence of local transactions with compensating transactions for rollback, providing eventual consistency without distributed locks.</dd>
+<dt>sampling</dt>
+<dd>Recording only a fraction of traces in distributed tracing to manage overhead and storage costs while maintaining observability.</dd>
+<dt>scope</dt>
+<dd>In OAuth 2.0, specific permissions granted by an access token (e.g., "read:profile", "write:posts"), enabling fine-grained access control.</dd>
+<dt>seeder</dt>
+<dd>In BitTorrent, a peer that has downloaded the complete file and continues uploading to help others. Essential for swarm health.</dd>
+<dt>segment</dt>
+<dd>Unit of data in TCP, corresponding to a single packet with TCP header and payload.</dd>
+<dt>selective acknowledgment (SACK)</dt>
+<dd>TCP extension allowing receiver to acknowledge non-contiguous blocks of data, enabling efficient retransmission of only lost segments.</dd>
+<dt>semantic locking</dt>
+<dd>Preventing dirty reads during Saga execution by marking records as "pending" so users don't see intermediate states from incomplete transactions.</dd>
+<dt>sequence number</dt>
+<dd>Number assigned to each byte of data in TCP stream, enabling detection of loss, reordering, and duplicate delivery.</dd>
+<dt>shard</dt>
+<dd>Horizontal partition of a database where each partition contains a subset of data. Enables scaling by distributing load across multiple servers.</dd>
+<dt>shuffle</dt>
+<dd>MapReduce phase between map and reduce where intermediate key-value pairs are partitioned, sorted by key, and distributed to reduce workers.</dd>
+<dt>sliding window</dt>
+<dd>Flow control mechanism allowing sender to have multiple unacknowledged packets in flight, maintaining throughput despite round-trip latency.</dd>
+<dt>sloppy quorum</dt>
+<dd>Variant of quorum where any N healthy nodes can accept writes rather than requiring specific replicas, improving availability during failures.</dd>
+<dt>span</dt>
+<dd>Unit of work in distributed tracing representing a single operation with timing information, tags, logs, and parent-child relationships forming a tree.</dd>
+<dt>speculative execution</dt>
+<dd>MapReduce optimization launching backup copies of slow tasks (stragglers) on other workers. First copy to complete wins; others are discarded.</dd>
+<dt>split-brain</dt>
+<dd>Failure scenario where multiple nodes believe they are the leader or hold a lock simultaneously, potentially causing data corruption. Prevented using fencing tokens.</dd>
+<dt>state-based CRDT</dt>
+<dd>See CvRDT.</dd>
+<dt>strong eventual consistency</dt>
+<dd>CRDT guarantee that replicas receiving the same updates will be in the same state, regardless of delivery order or timing.</dd>
+<dt>swarm</dt>
+<dd>In BitTorrent, all peers participating in sharing a particular file, including both seeders and leechers.</dd>
+<dt>SYN (synchronize)</dt>
+<dd>TCP packet type used in connection establishment to synchronize sequence numbers between client and server.</dd>
+<dt>three-way handshake</dt>
+<dd>TCP connection establishment process using three packets (SYN, SYN-ACK, ACK) to synchronize state and sequence numbers.</dd>
+<dt>tit-for-tat</dt>
+<dd>BitTorrent incentive mechanism where peers upload to those who upload to them, encouraging cooperation without central enforcement.</dd>
+<dt>tombstone</dt>
+<dd>Marker indicating a deleted item. Used in CRDTs and eventually consistent systems to propagate deletions without losing information about what was deleted.</dd>
+<dt>torrent</dt>
+<dd>BitTorrent metadata file describing files to download, piece hashes for verification, and tracker URLs for peer discovery.</dd>
+<dt>trace</dt>
+<dd>Complete journey of a request through a distributed system, identified by a unique trace ID and composed of multiple spans forming a tree.</dd>
+<dt>tracker</dt>
+<dd>BitTorrent server coordinating peers by maintaining lists of participants in each swarm and facilitating peer discovery.</dd>
+<dt>two-phase commit (2PC)</dt>
+<dd>A distributed transaction protocol where a coordinator asks all participants to prepare, then either commits or aborts based on unanimous agreement. Provides strong consistency but can block resources and has availability limitations.</dd>
+<dt>vector clock</dt>
+<dd>Data structure tracking causality in distributed systems. Maps each replica to a counter; used to determine if events are concurrent or causally ordered.</dd>
+<dt>window scaling</dt>
+<dd>TCP option extending the 16-bit window size field to support larger windows on high-bandwidth networks.</dd>
+<dt>window size</dt>
+<dd>Number of unacknowledged packets (or bytes) sender can have in flight. Determines throughput and buffering requirements.</dd>
+<dt>work-stealing</dt>
+<dd>Scheduling strategy where each worker maintains a local task queue and idle workers "steal" tasks from others' queues, minimizing contention while balancing load.</dd>
+</dl>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../bibliography/">Bibliography</a>
+</div>
+<div class="col-6 center">
+<a href="../"></a>
+	  © 2025
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a> ⇒
+	</div>
+</div>
+</footer>
+</body>
+</html>

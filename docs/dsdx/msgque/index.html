@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Publish-Subscribe Message Queue</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<a href="../">Home</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../intro/">Introduction</a>
+<a href="../msgque/">A Publish-Subscribe Message Queue</a>
+<a href="../finale/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contributing/">Contributing</a>
+<a href="../bibliography/">Bibliography</a>
+<a href="../glossary/">Glossary</a>
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>A Publish-Subscribe Message Queue</h1>
+<p class="subtitle">loosely-coupled communication</p>
+<p>When a web server processes an order,
+it might need to notify the inventory system,
+trigger an email,
+update analytics,
+and log the transaction.
+If the web server calls each of these services directly,
+a failure in any one could block the entire operation.
+This is where message queues come in.</p>
+<p>Systems like <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://kafka.apache.org/">Apache Kafka</a>, and <a href="https://aws.amazon.com/sqs/">Amazon SQS</a>
+decouple message producers from consumers.
+A publisher sends messages to a named topic without knowing who (if anyone) will receive them.
+Subscribers express interest in topics and then receive messages asynchronously,
+processing them at their own pace.</p>
+<p>This lesson shows how to build a message delivery service using
+the <a href="../glossary/#publish-subscribe">publish-subscribe pattern</a>.
+The <a href="../glossary/#message-broker">message broker</a> keeps track of which subscribers are interested in which topics.
+When a message arrives,
+it delivers it to them.
+This is called <a href="../glossary/#fan-out">fan-out</a>:
+one message can reach many consumers.</p>
+<p>Publish-subscribe is popular because
+it <a href="../glossary/#decoupling">decouples</a> publishers and subscribers.
+They don't need to know about each other:
+they only share knowledge of topic names,
+which allows us to add more of either without modifying existing code.
+In addition,
+the broker provides <a href="../glossary/#buffer">buffering</a>:
+if consumers are slow or temporarily unavailable,
+messages wait rather than being lost.</p>
+<h2 id="msgque-impl">Our Implementation</h2>
+<p>Our first implementation has three main components:
+publishers that send messages,
+a broker that routes messages to topics,
+and subscribers that receive and process messages.
+We start by defining a <a href="../glossary/#dataclass">dataclass</a> to store a single message:</p>
+<div data-filter="inc=message" data-inc="message.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Message</span><span class="p">:</span>
+    <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">content</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span>
+</code></pre></div>
+</div>
+<p>Each message belongs to a topic like "orders" or "user-activity",
+and has some content, a unique ID, and a timestamp.
+Messages in a real system would contain structured data (e.g., as <a href="../glossary/#json">JSON</a>),
+but strings are sufficient for our example.</p>
+<p>The broker stores a dictionary called <code>topics</code> mapping topics to lists of queues:</p>
+<div data-filter="inc=broker" data-inc="broker.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MessageBroker</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A message broker that routes messages to topic subscribers."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">Queue</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_published</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+</div>
+<div class="callout">
+<p><code>MessageBroker</code> isn't an active <code>Process</code>,
+but it needs the <a href="https://asimpy.readthedocs.io/">asimpy</a> <code>Environment</code> to construct <code>Queue</code> objects.
+We have also given it counters to record the number of of messages published and delivered.</p>
+</div>
+<p>When someone wants to be notified of messages,
+it registers itself and gets a queue in return:</p>
+<div data-filter="inc=subscribe" data-inc="broker.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Queue</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create a queue for a subscriber to a topic."""</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queue</span>
+</code></pre></div>
+</div>
+<p>Using separate queues per subscriber ensures that a slow consumer doesn't block others,
+which is a key property of the pattern.
+Real-world message queue implementations would drop messages when queues fill up;
+we will look at this later.</p>
+<p>When a message is published,
+the broker looks up the topic and places the message in each subscriber's queue:</p>
+<div data-filter="inc=publish" data-inc="broker.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Publish a message to all subscribers of its topic."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_published</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">queues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div>
+</div>
+<p>To test this,
+let's create a publisher that sendss messages to a specific topic at some rate:</p>
+<div data-filter="inc=publisher" data-inc="publisher.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Publisher</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Publishes messages to topics."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">broker</span><span class="p">:</span> <span class="n">MessageBroker</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="o">=</span> <span class="n">broker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topic</span> <span class="o">=</span> <span class="n">topic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="n">interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">(</span>
+                <span class="n">topic</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span>
+                <span class="n">content</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Message </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">message_counter</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">message_counter</span><span class="p">,</span>
+                <span class="n">timestamp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> publishing: </span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Real publishers would react to external events (like HTTP requests or database changes),
+but timed generation works well for simulation.</p>
+<p>Notice that we inherit from <code>Process</code>, which is asimpy's base class for active components.
+As described in <a href="../asimpy/">the appendix</a>,
+the <code>init()</code> method is called during construction to set up our state,
+while <code>run()</code> creates the coroutine that defines the publisher's behavior.</p>
+<p>Finally, our simulated subscribers receive and process messages:</p>
+<div data-filter="inc=subscriber" data-inc="subscriber.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Subscriber</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Subscribes to topics and processes messages."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">broker</span><span class="p">:</span> <span class="n">MessageBroker</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">topics</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">processing_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="o">=</span> <span class="n">broker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topics</span> <span class="o">=</span> <span class="n">topics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processing_time</span> <span class="o">=</span> <span class="n">processing_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_received</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">queues</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">topics</span><span class="p">:</span>
+            <span class="n">queue</span> <span class="o">=</span> <span class="n">broker</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">queues</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span> <span class="o">=</span> <span class="n">queue</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># Wait for a message from any queue.</span>
+            <span class="n">get_operations</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">topic</span><span class="p">:</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="k">for</span> <span class="n">topic</span><span class="p">,</span> <span class="n">queue</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">}</span>
+            <span class="n">topic</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="k">await</span> <span class="n">FirstOf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">,</span> <span class="o">**</span><span class="n">get_operations</span><span class="p">)</span>
+
+            <span class="c1"># Report.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_received</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">latency</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">message</span><span class="o">.</span><span class="n">timestamp</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> received from '</span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">': "</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="si">}</span><span class="s2"> (latency: </span><span class="si">{</span><span class="n">latency</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)"</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Simulate processing time.</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processing_time</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="callout">
+<p><code>Subscriber</code> uses <a href="https://asimpy.readthedocs.io/">asimpy</a>'s <code>FirstOf</code> to wait on multiple queues simultaneously.
+Whichever queue has a message first will complete,
+and all other requests will be canceled.
+This is more elegant than <a href="../glossary/#round-robin-polling">round-robin polling</a>.
+Real implementations use event-driven APIs or threads,
+but <code>FirstOf</code> captures the same semantics.</p>
+</div>
+<h2 id="msgque-sim">Running a Simulation</h2>
+<p>Let's create a scenario with multiple publishers and subscribers to see the system in action:</p>
+<div data-filter="inc=simulate" data-inc="ex_simple.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_simulation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Run a simulation of the message queue system."""</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+    <span class="n">broker</span> <span class="o">=</span> <span class="n">MessageBroker</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+
+    <span class="c1"># Publishers.</span>
+    <span class="n">Publisher</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">broker</span><span class="p">,</span> <span class="s2">"OrderService"</span><span class="p">,</span> <span class="s2">"orders"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">Publisher</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">broker</span><span class="p">,</span> <span class="s2">"UserService"</span><span class="p">,</span> <span class="s2">"user-activity"</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+
+    <span class="c1"># Fast and slow subscribers.</span>
+    <span class="n">inventory</span> <span class="o">=</span> <span class="n">Subscriber</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">broker</span><span class="p">,</span> <span class="s2">"Inventory"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"orders"</span><span class="p">],</span> <span class="n">processing_time</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">Subscriber</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">broker</span><span class="p">,</span> <span class="s2">"Email"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"orders"</span><span class="p">],</span> <span class="n">processing_time</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+
+    <span class="c1"># Subscriber handling multiple topics.</span>
+    <span class="n">analytics</span> <span class="o">=</span> <span class="n">Subscriber</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="n">broker</span><span class="p">,</span> <span class="s2">"Analytics"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"orders"</span><span class="p">,</span> <span class="s2">"user-activity"</span><span class="p">],</span> <span class="n">processing_time</span><span class="o">=</span><span class="mf">1.0</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Run simulation and report.</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== Statistics ==="</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Messages published: </span><span class="si">{</span><span class="n">broker</span><span class="o">.</span><span class="n">num_published</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Messages delivered: </span><span class="si">{</span><span class="n">broker</span><span class="o">.</span><span class="n">num_delivered</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Inventory received: </span><span class="si">{</span><span class="n">inventory</span><span class="o">.</span><span class="n">num_received</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Email received: </span><span class="si">{</span><span class="n">email</span><span class="o">.</span><span class="n">num_received</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Analytics received: </span><span class="si">{</span><span class="n">analytics</span><span class="o">.</span><span class="n">num_received</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>The output shows being published and consumed asynchronously:</p>
+<div data-filter="head=10 + tail=6" data-inc="ex_simple.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] OrderService publishing: Message 1 from OrderService
+[0.0] UserService publishing: Message 1 from UserService
+[0.0] Inventory received from 'orders': Message 1 from OrderService (latency: 0.0)
+[0.0] Email received from 'orders': Message 1 from OrderService (latency: 0.0)
+[0.0] Analytics received from 'orders': Message 1 from OrderService (latency: 0.0)
+[1.5] UserService publishing: Message 2 from UserService
+[1.5] Analytics received from 'user-activity': Message 2 from UserService (latency: 0.0)
+[2.0] OrderService publishing: Message 2 from OrderService
+[2.0] Inventory received from 'orders': Message 2 from OrderService (latency: 0.0)
+[3.0] UserService publishing: Message 3 from UserService
+...more...
+=== Statistics ===
+Messages published: 25
+Messages delivered: 47
+Inventory received: 11
+Email received: 7
+Analytics received: 14
+</code></pre></div>
+</div>
+<p>Notice how the fast <code>Inventory</code> service keeps up with orders,
+while the slow <code>Email</code> service falls behind:
+this is the buffering we mentioned earlier.
+At the same time,
+the <code>Analytics</code> service receives messages from multiple topics,
+demonstrating how subscribers can aggregate different event streams.</p>
+<h2 id="msgque-back">Backpressure and Flow Control</h2>
+<p>So far, our broker uses unbounded queues that grow indefinitely.
+This works in simulation but fails in production:
+if publishers produce faster than subscribers consume,
+queues will eventually exhaust memory and crash the system.
+The solution is <a href="../glossary/#backpressure">backpressure</a>:
+a mechanism where slow consumers signal upstream components to slow down.
+Backpressure is fundamental to building robust distributed systems.
+Without it, a single slow consumer can cause cascading failures.</p>
+<p>There are several strategies for implementing backpressure:</p>
+<dl>
+<dt>Bounded queues with blocking</dt>
+<dd>Publishers block when queues are full, naturally slowing them down.
+This provides strong backpressure but can cause publishers to stall.</dd>
+<dt>Bounded queues with dropping</dt>
+<dd>When queues are full, new messages are dropped.
+This keeps the system running but loses data.
+This strategy is usually combined with metric collection and reporting
+so that operators know data is being lost.</dd>
+<dt>Adaptive rate limiting</dt>
+<dd>Publishers monitor queue sizes or delivery failures and dynamically adjust their publishing rate.
+This is more complex but provides smoother behavior under heavy load.</dd>
+<dt>Priority-based dropping</dt>
+<dd>When backpressure occurs, the system drops low-priority messages first
+in order to preserve critical data.</dd>
+</dl>
+<p>Let's implement bounded queues with message dropping and adaptive rate limiting.
+The constructor takes an extra parameter <code>max_queue_size</code>:</p>
+<div data-filter="inc=backpressure" data-inc="backpressure_broker.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BackpressureBroker</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A message broker with backpressure support."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">max_queue_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_queue_size</span> <span class="o">=</span> <span class="n">max_queue_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">Queue</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_published</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_dropped</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+</div>
+<p>It uses this value to initialize queues:</p>
+<div data-filter="inc=subscribe" data-inc="backpressure_broker.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Queue</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create a bounded queue for a subscriber to a topic."""</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">max_capacity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_queue_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queue</span>
+</code></pre></div>
+</div>
+<p>When a queue is full,
+<code>publish()</code> drops the message for that subscriber
+and returns <code>False</code> to signal backpressure to the publisher:</p>
+<div data-filter="inc=publish" data-inc="backpressure_broker.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Publish a message, applying backpressure if queues are full.</span>
+<span class="sd">        Returns True if message was delivered to all subscribers,</span>
+<span class="sd">        False if any queue was full and message was dropped.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_published</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">queues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">queue</span><span class="o">.</span><span class="n">is_full</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">num_dropped</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">all_delivered</span>
+</code></pre></div>
+</div>
+<p>Now we need a publisher that responds to backpressure.
+Its constructor needs two new parameters:
+a base interval to wait before re-trying a message,
+and a <a href="../glossary/#backoff-multiplier">backoff multiplier</a>
+that tells it how to increase the interval if repeated attempts to publish fail:</p>
+<div data-filter="inc=init" data-inc="backpressure_publisher.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BackpressurePublisher</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Publisher that adapts to backpressure signals."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">broker</span><span class="p">:</span> <span class="n">BackpressureBroker</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">base_interval</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">backoff_multiplier</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">broker</span> <span class="o">=</span> <span class="n">broker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topic</span> <span class="o">=</span> <span class="n">topic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_interval</span> <span class="o">=</span> <span class="n">base_interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">backoff_multiplier</span> <span class="o">=</span> <span class="n">backoff_multiplier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message_counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_interval</span> <span class="o">=</span> <span class="n">base_interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">backpressure_events</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+</div>
+<p>The publisher's <code>run()</code> method uses these two parameters to implement
+<a href="../glossary/#exponential-backoff">exponential backoff</a>,
+which is one of the most important concepts in distributed systems.
+If an attempt to publish a message fails,
+the publisher increases its interval between messages.
+If publishing succeeds,
+on the other hand,
+it gradually reduces the interval back to the base rate.
+This creates a <a href="../glossary/#negative-feedback-loop">negative feedback loop</a> that stabilizes the system under load.</p>
+<p>Let's see backpressure in action with one fast publisher,
+one that's slow,
+and and a deliberately small queue size:</p>
+<div data-filter="inc=sim" data-inc="ex_backpressure.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_backpressure_simulation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Demonstrate backpressure in action."""</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+
+    <span class="c1"># Small queue size to trigger backpressure quickly.</span>
+    <span class="n">broker</span> <span class="o">=</span> <span class="n">BackpressureBroker</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">max_queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="c1"># Fast publisher.</span>
+    <span class="n">fast_publisher</span> <span class="o">=</span> <span class="n">BackpressurePublisher</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="n">broker</span><span class="p">,</span> <span class="s2">"FastPublisher"</span><span class="p">,</span> <span class="s2">"events"</span><span class="p">,</span> <span class="n">base_interval</span><span class="o">=</span><span class="mf">0.5</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Slow subscriber creates backpressure.</span>
+    <span class="n">slow_subscriber</span> <span class="o">=</span> <span class="n">Subscriber</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="n">broker</span><span class="p">,</span> <span class="s2">"SlowSubscriber"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"events"</span><span class="p">],</span> <span class="n">processing_time</span><span class="o">=</span><span class="mf">2.0</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Run simulation.</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== Backpressure Statistics ==="</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Messages published: </span><span class="si">{</span><span class="n">broker</span><span class="o">.</span><span class="n">num_published</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Messages delivered: </span><span class="si">{</span><span class="n">broker</span><span class="o">.</span><span class="n">num_delivered</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Messages dropped: </span><span class="si">{</span><span class="n">broker</span><span class="o">.</span><span class="n">num_dropped</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Backpressure events: </span><span class="si">{</span><span class="n">fast_publisher</span><span class="o">.</span><span class="n">backpressure_events</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Final interval: </span><span class="si">{</span><span class="n">fast_publisher</span><span class="o">.</span><span class="n">current_interval</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Messages received: </span><span class="si">{</span><span class="n">slow_subscriber</span><span class="o">.</span><span class="n">num_received</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>The full output shows that the publisher starts fast
+but encounter backpressure as the slow subscriber's queue fills.
+The publisher adapts by slowing down,
+and the system reaches equilibrium where the publishing rate matches the consumption rate.</p>
+<div data-filter="head=10 + tail=7" data-inc="ex_backpressure.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] FastPublisher published: Message 1 from FastPublisher (interval: 0.5s)
+[0.0] SlowSubscriber received from 'events': Message 1 from FastPublisher (latency: 0.0)
+[0.5] FastPublisher published: Message 2 from FastPublisher (interval: 0.5s)
+[1.0] FastPublisher published: Message 3 from FastPublisher (interval: 0.5s)
+[1.5] FastPublisher published: Message 4 from FastPublisher (interval: 0.5s)
+[2.0] FastPublisher published: Message 5 from FastPublisher (interval: 0.5s)
+[2.0] SlowSubscriber received from 'events': Message 2 from FastPublisher (latency: 1.5)
+[2.5] FastPublisher published: Message 6 from FastPublisher (interval: 0.5s)
+[3.0] FastPublisher published: Message 7 from FastPublisher (interval: 0.5s)
+[3.5] FastPublisher BACKPRESSURE - slowing to 1.0s interval
+...more...
+=== Backpressure Statistics ===
+Messages published: 29
+Messages delivered: 20
+Messages dropped: 9
+Backpressure events: 9
+Final interval: 1.3s
+Messages received: 16
+</code></pre></div>
+</div>
+<h2 id="msgque-priority">Message Priority</h2>
+<p>In most real systems, not all messages are equal.
+As the system becomes overloaded,
+we might want to preserve high-priority messages while dropping low-priority ones.
+To implement this,
+we start by adding a <code>priority</code> field to our messages:</p>
+<div data-filter="inc=message" data-inc="priority_backpressure.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PriorityMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Message with priority level."""</span>
+
+    <span class="n">priority</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Lower number = higher priority</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Compare by priority for heap operations."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">priority</span>
+</code></pre></div>
+</div>
+<p>When we publish a message,
+we check queue-by-queue to see if there's room.
+If not,
+we either evict a lower-priority message or discard the one that just arrived:</p>
+<div data-filter="inc=publish" data-inc="priority_backpressure.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">PriorityMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Publish message to priority queues.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            True if message was accepted by all queues.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_published</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">queues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
+            <span class="n">all_delivered</span> <span class="o">=</span> <span class="n">all_delivered</span> <span class="ow">and</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">all_delivered</span>
+</code></pre></div>
+</div>
+<p>This implementation uses <a href="https://asimpy.readthedocs.io/">asimpy</a>'s <a href="../glossary/#priority-queue">priority queue</a> class
+to manage efficient eviction of low-priority messages.</p>
+<h2 id="msgque-delivery">Delivery Guarantees</h2>
+<p>Different message delivery systems provide different kinds of delivery guarantees:</p>
+<dl>
+<dt>At-most-once delivery</dt>
+<dd>This ensures that messages are delivered zero or one times,
+i.e., are never duplicated, but possibly lost.
+This is achieved by dropping messages when queues are full or when subscribers are unavailable.
+It's the weakest guarantee but the simplest and fastest to implement.</dd>
+<dt>At-least-once delivery</dt>
+<dd>This ensures every message is delivered, possibly multiple times.
+It acknowledgments: the broker keeps messages until subscribers confirm receipt.
+If a subscriber crashes before acknowledging,
+the broker redelivers to another subscriber or retries.</dd>
+<dt>Exactly-once delivery</dt>
+<dd>This is the strongest guarantee: each message is processed exactly once.
+It is surprisingly difficult to achieve in distributed systems due to failures and network issues.</dd>
+</dl>
+<p>We can extend our broker to support at-least-once delivery with acknowledgments.
+First,
+we add an acknowledgment ID field to each message:</p>
+<div data-filter="inc=message" data-inc="ack_broker.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AckMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Message that requires acknowledgment."""</span>
+
+    <span class="n">ack_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+</div>
+<p>Next,
+we have the broker keep track of how long to wait for acknowledgments
+and of outstanding acknowledgments:</p>
+<div data-filter="inc=broker" data-inc="ack_broker.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AckBroker</span><span class="p">(</span><span class="n">MessageBroker</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Broker with acknowledgment support."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">ack_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ack_timeout</span> <span class="o">=</span> <span class="n">ack_timeout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># ack_id -&gt; (message, timestamp, queue)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_ack_id</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+</div>
+<p>When a message is published, the broker schedules a callback to check if it was acknowledged.
+The lambda captures the acknowledgment ID and calls <code>_check_ack()</code> after the timeout:</p>
+<div data-filter="inc=publish" data-inc="ack_broker.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Publish with acknowledgment."""</span>
+        <span class="n">queues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
+            <span class="n">ack_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_ack_id</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_ack_id</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="n">ack_msg</span> <span class="o">=</span> <span class="n">AckMessage</span><span class="p">(</span>
+                <span class="n">topic</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span>
+                <span class="n">content</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">,</span>
+                <span class="nb">id</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="n">timestamp</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
+                <span class="n">ack_id</span><span class="o">=</span><span class="n">ack_id</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">[</span><span class="n">ack_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ack_msg</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="n">queue</span><span class="p">)</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">ack_msg</span><span class="p">)</span>
+
+            <span class="c1"># Schedule re-delivery</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ack_timeout</span><span class="p">,</span>
+                <span class="k">lambda</span> <span class="n">aid</span><span class="o">=</span><span class="n">ack_id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_ack</span><span class="p">(</span><span class="n">aid</span><span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_ack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ack_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Check if message needs redelivery (called by scheduler)."""</span>
+        <span class="k">if</span> <span class="n">ack_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">:</span>
+            <span class="n">msg</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">[</span><span class="n">ack_id</span><span class="p">]</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>A subscriber using this broker calls <code>broker.acknowledge(message.ack_id)</code>
+after successfully processing a message.
+Messages not acknowledged within the timeout are redelivered.</p>
+<div data-filter="inc=acknowledge" data-inc="ack_broker.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">acknowledge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ack_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Acknowledge receipt of a message."""</span>
+        <span class="k">if</span> <span class="n">ack_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">[</span><span class="n">ack_id</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<h2 id="msgque-balance">Consumer Groups and Load Balancing</h2>
+<p>In production systems,
+multiple instances of the same subscriber type often share the workload.
+This is called a <a href="../glossary/#consumer-group">consumer group</a>:
+messages on a topic are distributed among group members rather than duplicated to each.
+Here's a simple implementation:</p>
+<div data-filter="inc=consumer" data-inc="consumer_group.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ConsumerGroup</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Distribute messages among multiple consumers."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">broker</span><span class="p">:</span> <span class="n">MessageBroker</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">num_consumers</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="n">broker</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">consumers</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Create consumer queues for load balancing</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_consumers</span><span class="p">):</span>
+            <span class="n">consumer_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">consumers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">consumer_queue</span><span class="p">)</span>
+
+        <span class="c1"># Start distributor process</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_distributor</span> <span class="o">=</span> <span class="n">_Distributor</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">consumers</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_consumer_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Queue</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get queue for a specific consumer in the group."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">consumers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<p>It relies on helper process <code>_Distributor</code> to do the work:</p>
+<div data-filter="inc=distributor" data-inc="consumer_group.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">_Distributor</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Distribute messages round-robin to consumers."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span> <span class="n">destinations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Queue</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destinations</span> <span class="o">=</span> <span class="n">destinations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_dest</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Forward messages to consumers in round-robin order."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">dest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">destinations</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">next_dest</span><span class="p">]</span>
+            <span class="n">dest</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_dest</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">next_dest</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destinations</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>This consumer group receives messages from the broker on a single queue,
+then distributes them round-robin to individual consumers' queues.
+Each consumer in the group processes a subset of the messages in parallel with its peers.
+Real systems use more sophisticated load balancing algorithms,
+such as weighted distribution,
+least-loaded routing,
+or partition-based assignment.</p>
+<h2 id="msgque-summary">Summary</h2>
+<ol>
+<li>
+<p>The publish-subscribe pattern decouples system components,
+    enabling independent scaling and evolution.</p>
+</li>
+<li>
+<p>Routing messages through a broker enables buffering,
+    fan-out,
+    and fault tolerance.</p>
+</li>
+<li>
+<p>Backpressure ensures the system prevents cascading failures
+    when consumers can't keep up with producers.</p>
+</li>
+</ol>
+<h2 id="msgque-exercises">Exercises</h2>
+<p>FIXME: add exercises.</p>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../intro/">Introduction</a>
+</div>
+<div class="col-6 center">
+<a href="../"></a>
+	  © 2025
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale/">Conclusion</a> ⇒
+	</div>
+</div>
+</footer>
+</body>
+</html>

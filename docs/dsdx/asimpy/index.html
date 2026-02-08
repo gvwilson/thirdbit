@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Discrete Event Simulation with asimpy</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<a href="../">Home</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../intro/">Introduction</a>
+<a href="../msgque/">A Publish-Subscribe Message Queue</a>
+<a href="../finale/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contributing/">Contributing</a>
+<a href="../bibliography/">Bibliography</a>
+<a href="../glossary/">Glossary</a>
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>Discrete Event Simulation with asimpy</h1>
+<p class="subtitle">a short introduction to our toolbox</p>
+<p>Discrete event simulation (DES) simulates systems in which events occur at discrete points in time.
+The simulation maintains a virtual clock and executes events in chronological order.
+Unlike real-time systems,
+the simulation jumps directly from one event time to the next,
+skipping empty intervals.
+(Time steps are often referred to as "ticks".)</p>
+<h2>Async/Await</h2>
+<p>Python's <code>async</code>/<code>await</code> syntax enables cooperative multitasking without threads.
+Functions defined as <code>async def</code> return coroutine objects when called.
+These coroutines can be paused at <code>await</code> points and later resumed.
+More specifically,
+when a coroutine executes <code>value = await expr</code>, it:</p>
+<ol>
+<li>yields the awaited object <code>expr</code> to its caller;</li>
+<li>suspends execution at that point;</li>
+<li>resumes later when <code>send(value)</code> is called on it; an thend</li>
+<li>returns the value passed to <code>send()</code> as the result of the <code>await</code> expression
+    inside the resumed coroutine.</li>
+</ol>
+<p><a href="https://asimpy.readthedocs.io/">asimpy</a> uses this mechanism to pause and resume coroutines to simulate simultaneously execution.
+This is similar to the <code>yield</code>-based mechanism used in <a href="https://simpy.readthedocs.io/">SimPy</a>.</p>
+<h2><code>Environment</code>: Process and Event Management</h2>
+<p>The <code>Environment</code> class maintains the simulation state.
+<code>Environment.schedule(time, callback)</code> adds a callback to the queue,
+where it is given a serial number
+to ensure deterministic ordering when multiple events occur at the same time.</p>
+<p><code>Environment.run()</code> implements the main simulation loop:</p>
+<ol>
+<li>Extract the next pending event from the priority queue.</li>
+<li>If an <code>until</code> parameter is specified and the event time exceeds it, stop.</li>
+<li>Otherwise, execute the callback to perform the next simulated action.</li>
+</ol>
+<h2><code>Process</code>: Active Entities</h2>
+<p><code>Process</code> is the base class for simulation processes.
+(Unlike <a href="https://simpy.readthedocs.io/">SimPy</a>, <a href="https://asimpy.readthedocs.io/">asimpy</a> uses a class rather than bare coroutines.)
+Users define the behavior of their processes by implementing the <code>run()</code> method.
+When a <code>Process</code> is constructed, it:</p>
+<ol>
+<li>stores a reference to the simulation environment;</li>
+<li>calls <code>init()</code> for subclass-specific setup
+    (the default implementation of this method does nothing);</li>
+<li>creates a coroutine by calling <code>run()</code>; and</li>
+<li>schedules immediate execution of the process.</li>
+</ol>
+<div class="callout">
+<p>The word "process" can be confusing.
+These are <em>not</em> operating system processes with their own memory and permissions,
+but rather simulated entities.</p>
+</div>
+<div class="callout">
+<p>A process can <em>only</em> be interrupted at an <code>await</code> point.
+Exceptions <em>cannot</em> be raised from the outside at arbitrary points.</p>
+</div>
+<h2><code>Timeout</code>: Waiting Until</h2>
+<p>A <code>Timeout</code> object schedules a callback at a future time.
+Processes don't normally create these objects directly;
+instead,
+a class derived from <code>Process</code> can call <code>self.timeout(duration)</code>.</p>
+<h2><code>Queue</code> and <code>PriorityQueue</code>: Exchanging Data</h2>
+<p><code>Queue</code> enables processes to exchange data.
+It has two members:
+a list of items being passed between processes,
+and a list of processes waiting for items.
+The invariant for <code>Queue</code> is that one or the other list must be empty,
+i.e.,
+if there are processes waiting then there aren't any items to take,
+while if there are items waiting to be taken there aren't any waiting processes.</p>
+<p><code>Queue.put(item)</code> either adds an item to the queue
+or passes it to a waiting process.
+This a non-blocking operation,
+i.e.,
+it cannot be <code>await</code>ed.
+Conversely,
+<code>Queue.get()</code> either gets an item immediately
+or adds the calling process to the list of waiters.</p>
+<p><code>PriorityQueue</code> keeps queue items in priority order,
+which means items must be comparable (i.e., must implement <code>__lt__</code>).
+Note that lower values are higher priorities,
+i.e., <code>A&lt;B</code> means that <code>A</code> has a higher priority than <code>B</code>.</p>
+<p>When a queue is created,
+the creator can specify a maximum capacity.
+If someone tries to <code>put()</code> an item in a <code>Queue</code> that is full,
+the item is not added.
+If someone tries to add an item to a full <code>PriorityQueue</code>,
+it <em>is</em> added,
+and then the lowest-priority item is removed from the queue.</p>
+<h2><code>Resource</code>: Capacity-Limited Sharing</h2>
+<p>The <code>Resource</code> class simulates a shared resource with limited capacity.
+That capacity is the maximum number of concurrent users.
+If the resource <code>res</code> is below capacity when <code>res.acquire()</code> is called,
+it calls increments the internal count and immediately succeeds;
+otherwise,
+it adds the caller to the list of waiting processes.
+Similarly,
+<code>res.release()</code> decrements the count and then checks the list of waiting processes.
+If there are any,
+it calls <code>evt.succeed()</code> for the event representing the first waiting process.</p>
+<h2><code>Barrier</code>: Synchronizing Multiple Processes</h2>
+<p>A <code>Barrier</code> holds multiple processes until they are explicitly released,
+i.e.,
+it synchronizes multiple processes.</p>
+<ul>
+<li><code>wait()</code> adds the caller to the list of waiters.</li>
+<li><code>release()</code> releases all waiting processes and clears the list.</li>
+</ul>
+<h2>AllOf: Waiting for Multiple Events</h2>
+<p><code>AllOf</code> succeeds when all provided events complete.
+A process calls <code>AllOf</code> like this:</p>
+<div class="codehilite"><pre class=""><span></span><code><span class="k">await</span> <span class="n">AllOf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">b</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</code></pre></div>
+<p>The (eventual) result is a dictionary in which
+the name of the events are keys and the results of the events are values;
+in this case,
+the keys will be <code>"a"</code> and <code>"b"</code>.
+This gives callers an easy way to keep track of events,
+though it <em>doesn't</em> support waiting on all events in a list.</p>
+<div class="callout">
+<p><code>AllOf</code>'s interface would be tidier
+if it didn't require the simulation environment as its first argument.
+However,
+removing it made the implementation significantly more complicated.</p>
+</div>
+<h2>FirstOf: Racing Multiple Events</h2>
+<p><code>FirstOf</code> succeeds as soon as <em>any</em> of the provided events succeeds,
+and then cancels all of the other events.
+Its interface is similar to <code>AllOf</code>'s,
+except it returns a <code>(key, value)</code> tuple identify the winning event.</p>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../glossary/">Glossary</a>
+</div>
+<div class="col-6 center">
+<a href="../"></a>
+	  © 2025
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+</div>
+</div>
+</footer>
+</body>
+</html>
