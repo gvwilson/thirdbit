@@ -2307,7 +2307,7 @@ that's what."
 
 <section markdown="1">
 
-Chapter 9: You Just Gotta Show Them (Sindy)
+## Chapter 9: You Just Gotta Show Them (Sindy)
 
 "Sindy?
 Sindy, are you damaged?"
@@ -2587,7 +2587,7 @@ I'm human, just like you."
 
 <section markdown="1">
 
-Chapter 9: Ambush (Violet)
+## Chapter 10: Attack (Violet)
 
 "Pleased to meet you," Sindy said.
 "Are you really from space?"
@@ -2743,6 +2743,105 @@ and their branches didn't seem to be spaced conveniently
 like the ones in virtual always were,
 but that wasn't the point.
 She was three meters away from actually being *on the ground*
-and they were making her *wait*.
+and they were making her *wait* and—
+
+She had just a second to register the shocked look on Sindy's face
+before a young goat-like 'brid shouted, "Look out!"
+The rag-tag 'brid militia standing near the edge of the swamp raised their weapons.
+
+Captain Leung pointed a stiffened finger at the party standing in front of them.
+"What's happening?" he snapped.
+
+"I don't—" the mayor started,
+but was cut off by a snarl from the tiger.
+Something clanked behind Violet.
+She spun around as the tall shadow of a metal tentacle fell over her.
+
+"That ain't us! That ain't us!" Mayor Lupus shouted
+as the tiger unbuttoned his uniform jacket
+to reveal a crystalline piece of tech strapped across his furry chest.
+
+"Stay with me!"
+Captain Leung grabbed Violet's arm and pulled her down the steps
+just before the groping tentacle scraped across the hatch.
+
+Violet stumbled and went to her knees.
+Her helmet slipped from her arms and rolled onto the grass.
+She scrabbled for it.
+She would be in trouble if she lost it.
+
+Captain Leung pulled her to her feet and donned his helmet.
+"Z40! Z51! Contact topside authorization Leung one seven seven bravo!"
+he shouted into his chin mike.
+
+A second tentacle rose from the swamp and draped itself over the shuttle.
+Weeds fell from it as it rocked the little craft on its landing gear.
+Violet heard Doctor Meadows speaking urgently in her helmet
+but couldn't make out the words.
+
+"Nash!" the tiger bellowed.
+"What're you waiting for?"
+
+Lightning arced from the crocodile's gun,
+striking the upraised tentacle with a sound like
+oil sizzling in a hot pan.
+Violet shrieked as a fireball burst from the tech on Special Blazes' chest
+and splattered across the shuttle's side.
+
+"Stop!" Sindy cried out.
+"You're just making it angry!"
+But no one heard her except Violet,
+and she was too busy getting out of the way to pay attention.
+
+The two combat bots didn't bother with the stairs this time.
+They through themselves through the hatch and skidded across the grass,
+making deep gouges in the soil.
+Z40 reared up on its hind legs and clamped its foreclaws around the nearest tentacle.
+The tentacle dragged it toward the shuttle,
+then lifted it into the air.
+
+The combat bot that had arrived with the 'brids grabbed one of Z40's legs.
+Z51 grabbed the other.
+The tentacle bent with strain, but couldn't lift their combined weight.
+
+*Bzzzzap!*
+Lightning struck the tentacle.
+Sparks danced along it.
+The second tentacle let go of the shuttle and swung over Violet's head,
+knocking the three bots sideways.
+
+"Get back in the shuttle!" Captain Leung shouted,
+pushing Violet toward the stairs.
+As another fireball burst from the tiger's tech
+the captain lunged forward and grabbed Sindy's arm.
+
+"Hey! Let go!" Sindy yelled.
+The mayor swung her cane.
+Captain Leung blocked it with his arm and pointed his finger.
+A brilliant blue laser cut the heavy wooden stick in half.
+
+"Let *go!*" Sindy yelled again as Captain Leung picked her up
+and slung her over her shoulder.
+
+"Cover us!" the captain shouted.
+His boots clanged on the steps as he followed Violet into the shuttle.
+Behind him,
+Z40 and Z51 spun around and backed toward the hatch,
+their manipulators clacking menacingly.
+
+Captain Leung dropped Sindy into the seat beside his
+and pushed her down again when she tried to get up.
+"You gotta let me go!" she shouted at him.
+
+"What I… have to do… is get this bird… in the air," he grunted,
+strapping her in.
+
+"You don't understand!" Sindy shouted.
+"You're making it *mad!*"
+
+"Warning." Doctor Meadows voice came from four speakers at once.
+"Proximity alert."
+Metal clanged on metal once again as half a dozen tentacles erupted from the swamp
+and grabbed hold of the shuttle.
 
 </section>
