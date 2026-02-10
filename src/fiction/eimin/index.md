@@ -1599,32 +1599,31 @@ I didn't know if that was true.
 All I knew was that it would be several hours before stepping outside
 wouldn't feel like someone was scrubbing my skin with a rough brush.
 
-That's why I jumped a bit when someone thumped on the door drum.
-I wasn't the only one.
-Yassen's brother Kirash almost spilled his drink
-as he made a finger-sign against bad luck.
+There is only one sensible thing to do in a situation like that: sleep.
 
-The howl of the wind doubled briefly
-and the thick curtain hung in front of the door billowed inward.
-Razi pushed it aside and lowered his scarf.
-"It's the lion," he said without preamble.
-"She's after the goats again."
+I woke with a start when someone thumped on the door drum.
+The wind had died down while I dozed,
+but the thick curtain hung in front of the door still billowed inward
+as Razi pushed it aside.
+"It's the lion," he said,
+lowering the *keffiyeh* that protected his face.
+"She's coming for the goats."
 
 "In this?" Yassen said disbelievingly.
 
 "*La*, yes, in this."
-Razi tossed me a pair of goggles,
+Razi nodded to me as Yassen and I stood,
 then raised a hand as Jephel stood as well.
 Jephel sat again,
 relief and a hint of shame on his face.
 
-The storm wasn't as bad outside as it had sounded,
+The worst of the storm had passed
 but still,
 I was glad for my *deel* and Razi's spare goggles.
 Yassen kept his hand on my shoulder as we made our way to his house
 so that he could collect his own goggles.
-He didn't bother to get his bow:
-instead,
+He didn't bother with his bow.
+Instead,
 he took a pair of spears that were propped in the corner
 and handed one to me.
 When he raised his eyebrows,
@@ -1634,43 +1633,48 @@ Medef kept its goats in a fenced yard near the lemon grove.
 The caravan's goats were crowded in there now as well,
 perhaps eighty animals in total huddled against one another
 in two sturdy sheds.
-
-"What makes you think she's coming for the goats?"
-Yassen had to shout to make his voice heard over the wind.
+"What makes you think she's coming?"
+Yassen had to raise his voice to be heard over the wind.
 
 "*La*, just a feeling,"
 Razi shouted back.
 
 "You brought us out in this for a feeling?"
-Yassen demanded disbelievingly,
-but he stayed where he was.
+Yassen demanded disbelievingly.
 
-We spent a miserable few minutes huddled against the fence,
+Razi shrugged.
+"I have strong feelings."
+
+We huddled against the fence,
 which did nothing to stop the wind-blown sand stinging
-every exposed piece of skin on my body.
+every exposed piece of skin.
 I didn't move until Razi's hand tightened on my arm.
 I nudged Yassen.
 
 The lion slunk out of the lemon grove
-with two of her human thieves beside her.
+with two of her human minions beside her.
 They were bundled up like us.
 She moved as she always did,
 her limbs loose and her back swaying slightly.
 I had just a moment to be annoyed that the storm didn't seem to bother her
 before Razi drew his sword from the bottle at his side.
+
 It came out like honey syrup,
 shaping itself into a sharp-edged quicksilver whip.
+Under other circumstances I would have stopped to admire it,
+or more truly,
+to covet it.
 
 Razi stepped out from behind the fence.
 Yassen and I followed,
-our spears across our bodies.
+our spears raised.
 
 The lion and her thieves halted a dozen strides away.
 "Well," she growled,
 "Didn't expect to see you here."
 
-"*La*, yet here I am."
-Razi's strange blade bent from side to side
+"*La*, and yet here I am."
+Razi's strange blade swayed from side to side
 like a cobra trying to decide whether or not to strike.
 
 The taller of her thieves hefted his spear.
@@ -1684,7 +1688,92 @@ Razi suggested.
 "Can't do that," the lion rumbled.
 "Cubs are hungry.
 We all are."
-And then she charged.
+And then she charged,
+her thieves two steps behind her.
+
+Razi moved even as she did.
+His sword lashed out,
+stretching and thinning.
+She dodged his first cut,
+but his second caught her snout.
+She snarled and danced sideways.
+
+I was too busy parrying one of the thieves' spears with my own
+to see what happened next.
+He was taller than me,
+but not as strong or as well trained.
+I knocked his point aside and jabbed to force him back,
+then jabbed again before he could catch his balance.
+
+Yassen grunted on my left.
+I glanced at him just long enough to see that
+his opponent had scored a hit on his arm.
+I feinted at mine to keep him back,
+then lunged at the man opposite Yassen.
+As he turned to block my thrust,
+Yassen's slid across his ribs.
+
+The lion snarled again,
+unable to get past Razi's blade.
+"Out!" she ordered.
+She turned and ran,
+the two thieves behind her.
+
+The whole fight had lasted no longer than ten slow breaths.
+I let out my breath with a whoosh,
+feeling suddenly limp as I always did after such excitement.
+"Let me have a look at that," I told Yassen.
+
+He waved me off.
+"It's just a scratch."
+He spat on the ground, then looked at Razi.
+"They must really be desperate,
+coming into town like that."
+
+The goats' panicked bleating cut off whatever reply Razi might have made.
+His eyes widened.
+With his sword still in his hand,
+he swung himself over the fence and ran to the sheds.
+
+The cursing that followed was colorful and in at least three languages.
+"What? What's wrong?" Yassen demanded.
+
+"*La*, I am an idiot, that is what."
+Razi stalked back to the fence, stiff with anger.
+"She was only here to distract us.
+Someone else must have come over the other side of the fence."
+
+"Are we going after them?"
+I asked.
+
+Razi glanced at Yassen.
+"No.
+*La*, no, truly.
+You are injured,
+and we would most likely be walking into an ambush."
+
+"Another feeling?" Yassen grunted.
+He had clamped his left hand around the wound in his right arm
+to slow the bleeding.
+
+It was Razi's turn to spit.
+"I would rather not be a fool twice in one day."
+
+People *dromed* that something had gone wrong
+as soon as we got back to the hostel.
+Yassen's brother Kirash washed his wound with liquor and then bound it.
+Razi sat in a corner and glared at his tea.
+
+"You couldn't have known," I said,
+seating myself across from him.
+
+"*La*, I should have."
+He sighed.
+"I am getting old, Eimin.
+Old and stupid and slow."
+
+"Does that mean I can have your sword?" I asked.
+He just snorted.
 
 </section>
 
