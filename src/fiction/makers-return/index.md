@@ -2848,7 +2848,7 @@ and grabbed hold of the shuttle.
 
 <section markdown="1">
 
-## Chapter 11: Attack (Sindy)
+## Chapter 11: Is This What You Mean by Friendly? (Sindy)
 
 Captain Leung dropped Sindy into a padded seat
 and pushed her down again when she tried to get up.
@@ -2999,5 +2999,143 @@ Oh, that's just, you know, for machinery and all,"
 Sindy improvised hastily.
 "Stuff folk don't want in the middle of town,
 like mulch."
+
+"That doesn't look like mulch to me,"
+Captain Leung said levelly,
+slowing the shuttle to a crawl.
+Sindy's heart sank.
+Crusher had just rolled out of one of the sheds on its oversized treads
+with half a dozen logs in its manipulators.
+
+"That's just Crusher," she said weakly.
+"It's friendly."
+
+"Like that thing in the swamp was friendly?"
+Captain Leung jerked his chin at the windscreen.
+"Speaking of which…"
+
+Sindy's heart sank again.
+Dockety was speeding along the road below them on its single wheel.
+It must have followed them from the swamp.
+"They're just afraid," she said desperately.
+"You came out of nowhere and you've got all this tech and—"
+
+"And then your friend fired on us,"
+Captain Leung finished.
+"So we're going to land somewhere that *doesn't* have
+a robo-monster lurking nearby
+and wait for Doctor Meadows to tell us the ark is secure.
+You can go back home then if you want to."
+
+"'Course I want to!"
+Sindy said indignantly.
+"Why wouldn't I?"
+
+"I think we should let her go now,"
+Violet ventured.
+"She hasn't done anything wrong."
+
+Whatever Captain Leung might have said in reply
+was interrupted by a deafening *clang!*
+The whole cabin jerked sideways,
+the engine whining beneath them as it tried to compensate
+for the punch the shuttle had just taken.
+
+"What the—is this what you mean by 'friendly'?"
+the captain demanded,
+twisting the controls to slew the shuttle sideways.
+A log flew past its nose like an arrow.
+
+Crusher took aim below them and threw another log.
+Captain Leung dodged again,
+then turned the shuttle and accelerated away.
+
+Red lights began blinking on the panel in front of Sindy.
+The engine's thrum turned into a buzzsaw whine.
+"Warning," a flat mechanical voice said.
+"Thruster integrity compromised.
+Warning.
+Thruster integrity—"
+
+Captain Leung slapped a switch to cut the voice off,
+cursing under his breath in a language Sindy didn't recognize.
+"That's torn it.
+We have to set down *now*."
+He looked at Sindy.
+"Any suggestions?"
+
+She shook her head.
+The shuttle was shaking.
+She was pretty sure it wasn't supposed to do that.
+"Just stay away from the swamp.
+Oh, and Heck—the bots there don't much like people."
+
+"What's Heck?" Violet asked.
+
+"It's where Central used to live.
+Better stay out of Sandy Bend, too.
+That's where Special Blazes is from.
+I bet there's a bunch of people there that would shoot at you like Nash did."
+
+"Should have stayed in orbit,"
+Captain Leung muttered.
+"All right, I'm putting us down in that clearing.
+Hold on."
+
+Their landing was even bumpier than their takeoff had been.
+For a moment Sindy was sure they were going to crash,
+but the shuttle slowed,
+steadied,
+and dropped onto the ground with an audible thud.
+
+An abandoned farmhouse stood twenty meters away.
+The remains of its roof sagged wearily above its crumbling fieldstone walls.
+What had once been garden plots around it
+were now overgrown with weeds
+and home to saplings the same height as Sindy.
+Whoever had once lived here had clearly given up years ago.
+
+A wireframe image of the building appeared on the screen.
+Fuzzier lines formed beneath it.
+Captain Leung frowned.
+"That's quite the basement."
+
+"It's probably just an old bunker," Sindy volunteered.
+"There's lots of those around here.
+Sometimes feels like you can't go ten steps without tripping over one."
+
+The captain stood and put on his helmet.
+"All right, let's try this again.
+Z40, you take point.
+Z51, I want you twenty meters behind it.
+Violet—"
+He hesitated.
+"Z51, cancel previous order.
+You stay here with the children.
+Activate."
+
+The first combat bot was out the hatch even as the stairs were being lowered.
+Captain Leung followed.
+The hatch closed behind him with an ominous clunk.
+
+Sindy immediately tugged at the straps holding her in her seat.
+"Here, I'll do it."
+Violet came forward to sit in the captain's seat,
+leaned over,
+and began undoing the complicated buckles.
+
+"Thanks," Sindy said.
+"Nice to meet you in person, by the way."
+
+The other girl forced a smile.
+"Likewise.
+Sorry about…"
+She trailed off.
+
+"It's aright.
+It's not your fault.
+Besides,"
+Sindy added,
+"Stuff like this happens to me all the time."
 
 </section>
