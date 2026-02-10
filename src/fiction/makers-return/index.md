@@ -2845,3 +2845,159 @@ Metal clanged on metal once again as half a dozen tentacles erupted from the swa
 and grabbed hold of the shuttle.
 
 </section>
+
+<section markdown="1">
+
+## Chapter 11: Attack (Sindy)
+
+Captain Leung dropped Sindy into a padded seat
+and pushed her down again when she tried to get up.
+"You gotta let me go!" she shouted at him.
+
+"What I… have to do… is get this bird… in the air," he grunted.
+Behind him,
+the two combat bots scrambled through the hatch.
+
+"You don't understand!" Sindy shouted,
+struggling as he strapped her in.
+"You're making it *mad!*"
+She didn't know how,
+but she could feel the tentacled thing's simple-minded anger.
+It must be some kind of tech.
+
+"Warning."
+The calm female voice came from all around her.
+"Proximity alert."
+Metal clanged as half a dozen tentacles erupted from the swamp
+and fell across the hull.
+
+"Maybe—" Violet started to stay behind Sindy.
+
+"Hang on!"
+the captain snapped,
+throwing himself into the seat beside Sindy's
+and grabbing the controls.
+The little spaceship's engine rumbled below them
+and the craft lurched into the air.
+
+Metal scraped against metal as the tentacles tightened their grip.
+Captain Leung pushed the controls forward,
+then suddenly jerked them back and to the side.
+Sindy's stomach lurched as the little ship dipped and spun around.
+For a moment she thought they had managed to slip free,
+but no,
+the thing in the swamp still had them.
+
+"Meadows!
+A little help, please?"
+
+"I'm sorry, captain," the female voice said.
+"All of the ark's weapons are still offline."
+
+"Well, ours aren't,"
+Captain Leung muttered.
+A gloved hand flipped a cover off a red switch.
+Dipping and spinning again,
+he pointed the ship's nose at the swamp and fired.
+
+The flash was brighter than the one from Nash's lightning gun,
+so bright that the ship's windows darkened.
+
+The tentacles recoiled,
+tumbling the ship onto its side.
+Sindy shrieked,
+and heard a matching shriek from Violet behind her.
+
+Captain Leung pushed the controls forward.
+The ship shot into the air,
+corkscrewing to avoid one last attempt to grab it.
+A sharp pain stabbed Sindy's head,
+disappearing as quickly as it had arrived.
+
+"Meadows!
+What's the situation?"
+Captain Leung barked.
+
+"Buttoned down," the female voice replied.
+"I can't let you dock without letting that thing back in."
+
+"Understood."
+The ship banked,
+pushing Sindy back into her seat.
+"I'll find somewhere safe to set down and call you then."
+
+"Rusty Bridge!" Sindy said.
+"You'll be safe there, I promise!"
+
+The captain glanced at her.
+"That's the town we saw?
+That's where you're from?"
+
+"We're all from there except Special Blazes.
+Look,
+that thing in the swamp—that's not us.
+It wasn't Patient's or Central's, either.
+It just lives there and—"
+
+"You know about Central?" Violet asked from behind her.
+
+Sindy twisted around in her seat.
+"Of course.
+I was there when it shut down."
+
+"That's impossible,"
+Captain Leung said dismissively.
+"Central had backups of its backups.
+You'd have to destroy all of them at once to shut it down."
+
+"We didn't destroy anything,"
+Sindy said hotly.
+"It shut *itself* down.
+It said it was tired
+and it wanted all the other bots to have a chance to be free."
+
+"Impossible,"
+the captain repeated.
+Before Sindy could say no it's not,
+I was there,
+don't be such a grownup,
+he pointed.
+"Is that your town?"
+
+Sindy had only seen Rusty Bridge from the air once before,
+when she and Maddy and Dockety escaped from Patient's lair.
+Even without that,
+she would have instantly recognized its cobblestoned central square
+and the mayor's house
+and even Miz Nabbles' school.
+
+Her heart sank.
+People were running to get indoors.
+She couldn't blame them:
+if she saw a spaceship flying overhead
+an hour after the militia had gone to investigate something falling from outer space,
+she would run away too.
+
+Captain Leung banked the ship again.
+"At least that's still standing," he said.
+The bridge that gave the town its name had once spanned the Rusty River.
+The river had changed course hundreds of years ago,
+so now the bridge was surrounded by forest.
+Sindy had been to it with Maddy and Gumption.
+She didn't believe there was a troll bot under it
+who stole naughty children in the middle of the night,
+but one visit had still been enough.
+
+They circled the bridge,
+tilting to get a better view.
+"What's that?" Violet asked,
+pointing at a cluster of sheds and workshops
+halfway between the town and the bridge.
+
+"That?
+Oh, that's just, you know, for machinery and all,"
+Sindy improvised hastily.
+"Stuff folk don't want in the middle of town,
+like mulch."
+
+</section>
