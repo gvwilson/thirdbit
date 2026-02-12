@@ -3011,7 +3011,7 @@ with half a dozen logs in its manipulators.
 "It's friendly."
 
 "Like that thing in the swamp was friendly?"
-Captain Leung jerked his chin at the windscreen.
+Captain Leung jerked his chin at the windshield.
 "Speaking of which…"
 
 Sindy's heart sank again.
@@ -3137,5 +3137,117 @@ It's not your fault.
 Besides,"
 Sindy added,
 "Stuff like this happens to me all the time."
+
+</section>
+
+<section markdown="1">
+
+## Chapter 12: Normal (Violet)
+
+Violet's hard was still pounding as the shuttle set down
+near the abandoned farmhouse.
+The *clang!* of something hitting the hull had made her shriek,
+but neither the captain nor their passenger had noticed.
+And then the engine had started making a funny noise
+and the shuttle had started saying it was compromised
+and all she could think about was
+her fragmentary memories of fleeing to the ark
+in the middle of the night.
+
+She watched Z40 crawl out the hatch,
+and Captain Leung follow it.
+The combat bots scared her,
+but she was still glad that he had ordered Z51 to stay behind.
+
+When Sindy began tugging at her harness,
+Violet said,
+"Here, I'll do it,"
+and went forward to undo the buckles.
+
+"Thanks," Sindy said.
+"Nice to meet you in person, by the way."
+
+Violet forced a smile.
+"Likewise.
+Sorry about…"
+She trailed off.
+
+"It's aright.
+It's not your fault.
+Besides,"
+Sindy added,
+"Stuff like this happens to me all the time."
+
+"Really?"
+
+"Mm hm."
+Sindy wriggled her shoulders free of the harness.
+"Aren't many folks can say they've been kidnapped by bots twice."
+
+"Things like that only happen to me in virtual,"
+Violet said.
+"The ark's computer makes up all kinds of adventures,"
+she added when Sindy gave her a quizzical look.
+"And schoolwork."
+
+Sindy wrinkled her nose.
+"Ew.
+You have to go to school in space?"
+
+This time Violet's smile was real.
+"It's not so bad."
+Her smile slipped a little.
+"I think I spend most of the time asleep.
+Not regular sleep but, you know, frozen.
+I think I've been asleep for a lot longer than I realized."
+
+She sighed and looked longingly through the shuttle's windshield.
+"And now that I finally get somewhere,
+I'm stuck inside again."
+
+"Don't have to be,"
+Sindy said,
+standing.
+"The door's right there.
+Want some fresh air?"
+
+Violet shook her head.
+"Captain Leung said to stay inside."
+
+"Actually, he didn't," Sindy pointed out.
+"He just told your friend here to stay here with us.
+Come on,"
+she wheedled as Violet hesitated.
+"There ain't nobody around,
+and if there is,
+we can get right back inside and no harm done."
+
+For the second time that day Violet climbed down the shuttle's folding steps.
+This time,
+though,
+she carried her helmet instead of wearing it.
+The air smelled like—like *everything*.
+Virtual was good at sights and sounds,
+but taste and smell were always somehow flat.
+Even the goop in the cafeteria had more flavor than
+virtual candy or ice cream.
+
+Here, though,
+every breath she took was full of magic.
+Wet earth,
+grass,
+something sweet that she guessed came from
+the flowers growing among the weeds in the garden plots
+between them and the farmhouse—even the occasional whiff of sweat
+and laundry soap from Sindy was ten times more real than anything virtual.
+
+Sindy didn't seem to notice.
+She also didn't jump and squeak when something leaped out of the grass
+and flew away.
+"It's just a grasshopper," she said.
+"Here, watch."
+She picked up a stick and swatted a waist-high clump of weeds nearby.
+Violet started but stopped herself from squeaking
+as half a dozen more grasshoppers fled.
 
 </section>
