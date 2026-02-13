@@ -386,7 +386,7 @@ and tried to remember what she had been dreaming about in virtual.
 Someone had come to visit,
 someone who looked like…a kangaroo?
 
-She frowned and ran her fingers through her hair
+She frowned and ran her fingers through her purple hair
 to tease out the knots that somehow always formed while she slept.
 There had definitely been a kangaroo,
 and she had a vague sense that Central had been there too,
@@ -2574,7 +2574,7 @@ the smaller figure reached up and took its head off.
 At least that's what Sindy thought at first.
 It took her a moment to realize it was just a helmet,
 and that underneath it was the actual head of a girl about her own age
-with a narrow, dark face and curly black hair.
+with a narrow, dark face and curly purple hair.
 
 Sindy gaped at her.
 "You're a throwback!" she exclaimed.
@@ -2677,7 +2677,7 @@ Some folks were just feelin' a bit agitated, was all."
 "I understand," Captain Leung replied,
 his tone just as casual.
 "And no harm done—it takes a lot more than a bit of electricity
-to faze one of those Z-models.
+to faze one of those Z-units.
 As I'm sure you know,"
 he added,
 nodding toward the larger bot standing behind the newcomers.
@@ -2984,9 +2984,10 @@ The bridge that gave the town its name had once spanned the Rusty River.
 The river had changed course hundreds of years ago,
 so now the bridge was surrounded by forest.
 Sindy had been to it with Maddy and Gumption.
-She didn't believe there was a troll bot under it
+She didn't believe it was haunted,
+or that there was a troll bot under it
 who stole naughty children in the middle of the night,
-but one visit had still been enough.
+but one visit had been enough.
 
 They circled the bridge,
 tilting to get a better view.
@@ -3247,7 +3248,194 @@ and flew away.
 "It's just a grasshopper," she said.
 "Here, watch."
 She picked up a stick and swatted a waist-high clump of weeds nearby.
-Violet started but stopped herself from squeaking
-as half a dozen more grasshoppers fled.
+Half a dozen more grasshoppers fled,
+whining angrily.
+
+Something metallic the size of Violet's boot scuttled out of the bush
+and made a beeline for the farmhouse.
+"What was that?" Violet exclaimed.
+
+Sindy shrugged.
+"Some kind of bot.
+There's more of them about since Central went away.
+They're mostly harmless if you don't bother them.
+One of my best friends is a bot,"
+she added.
+"We call it Mouse.
+We met it the first time I was kidnapped.
+I'm trying to teach it how to play tag."
+
+"I see," Violet said weakly.
+She was starting to sweat inside her spacesuit.
+
+Sindy looked at her sidelong,
+clearly trying to think of how to ask something.
+"When you talk about virtual—was that the same as Central?
+Because my sister Maddy says that she met someone
+when she was hooked up to Central.
+She doesn't remember much,
+but she remembers her hair was purple like yours."
+
+Violet's eyes widened.
+"Your sister—does she look like a kangaroo?"
+
+Sindy nodded,
+her eyes just as wide.
+"Whole family is roos except me.
+I'm the only throwback."
+
+"You mean human?
+Like me?"
+Violet pointed at herself.
+
+Sindy shrugged.
+"I don't know that word, but yeah, like you.
+No tail, no fur, no feathers or scales—and these useless little claws."
+She held out her hands and wiggled her fingers.
+
+"Fingernails,"
+Violet said automatically.
+"They're called fingernails."
+
+Sindy lowered her hands and frowned.
+"Why?
+They don't look anything like real nails.
+Not half as useful, either."
+
+"That's just what they're called," Violet said helplessly.
+They looked at each other and started giggling.
+
+On impulse Violet set her helmet on the ground,
+undid the collar of her spacesuit,
+and wriggled out of it.
+When she was done she put her boots back on,
+rolled up the spacesuit,
+and stuffed it into her helmet.
+"I wish I had some proper clothes," she said,
+feeling half-dressed in her skinsuit
+in a way she never had aboard the ark.
+
+"I wish I had a spaceship," Sindy replied,
+which set them giggling again.
+
+When Captain Leung returned
+he found them sitting on the shuttle's bottom step.
+Sindy was showing Violet how to braid dandelions
+to make a bracelet.
+"Did you find anything?" Violet asked.
+
+The captain shook his head.
+His spacesuit had made him sweat too,
+she noticed with secret satisfaction.
+"No sign of anything bigger than a butterfly.
+I thought I saw something in the grass,
+but it got away before I could get a good look."
+
+"It was probably some kind of bot,"
+Violet volunteered,
+glancing at Sindy.
+"They're mostly harmless if you don't bother them."
+
+"If you say so."
+Captain Leung jerked his chin at Sindy.
+"You two seem to be getting along."
+
+"I guess," Violet said,
+focusing on the bracelet she was braiding.
+"Sindy was telling me about where she lives.
+There's a whole house full of books that used to belong to one of her friends.
+It sounds really nice."
+
+Captain Leung sighed.
+"I'm sure it is,
+and I hope you get to visit some time soon.
+Right now,
+though,
+we need to find somewhere safe for the ark."
+
+"Rusty Bridge is safe!" Sindy bridled.
+
+"Having trees thrown at me doesn't make me feel particularly safe,"
+Captain Leung shot back,
+then sighed again.
+"Sorry, I shouldn't snap at you.
+It's just been a long day."
+
+"Can't you bring the ark here?"
+Violet asked to break the silence that followed.
+
+Captain Leung scratched the side of his nose with a gloved finger.
+"I'm thinking about it,
+but I'm still worried about whatever might be in that bunker.
+You said there were lots like it around here?"
+he asked Sindy.
+
+She shrugged,
+looking at the braid in her lap,
+then nodded reluctantly.
+"Any idea what we might find in this one?"
+
+Sindy shrugged again.
+"Used to be a crazy bot in one of them named Patient,
+but it's gone.
+There's another bot called the Tailor,
+but it lives halfway to Heck."
+
+"You people seem pretty comfortable around bots,"
+Captain Leung observed.
+
+"We are too."
+Violet surprised herself by speaking up.
+"And some of them are her friends."
+
+"Hm."
+The captain was silent for a moment.
+"All right,
+let's check it out.
+I think you two should come with me this time.
+We'll be safer together,"
+he went on before either could object.
+
+*And you want Sindy there in case we run into anyone,*
+Violet thought but didn't say.
+
+Captain Leung insisted that they all use the shuttle's little toilet
+before setting out.
+As soon as Sindy went up the steps,
+he told Violet to put her helmet back on
+and clicked his own into place.
+"Doctor, are you there?"
+His voice sounded tinny in Violet's ears.
+
+"I'm here, Captain.
+There haven't been any more attacks,
+and repairs are going as well as can be expected.
+Violet, how are you doing?"
+
+"Yeah, how's it going?"
+André's voice was heavy with sarcasm.
+"Are you and your friend baking cookies yet?"
+
+"No."
+Violet didn't see any reason to tell him about the dandelion braid.
+
+"André, please," Captain Leung said sharply.
+Doctor, how long before you can send a drone to repair the shuttle?"
+
+"At least a few more hours, I'm afraid.
+Will you be all right until then?"
+
+Violet heard the captain's stubble rasp against the side of his helmet as he nodded.
+"We'll be fine.
+We're going to check out the structure I mentioned earlier.
+I'll put the shuttle in auto-defense mode and take both Z-units with me.
+Leung out."
+
+Violet undid her helmet just as Sindy stuck her head out of the shuttle.
+"How do I…?" she asked,
+obviously trying not to sound embarrassed.
+
+Violet smiled at her.
+"I'll come show you."
 
 </section>
