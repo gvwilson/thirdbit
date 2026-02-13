@@ -299,7 +299,7 @@ but she was sure that being back in the real wouldn't be nearly as much fun.
 She shivered despite the warmth when the lid finally hissed open.
 Step one: sit up.
 Step two: wait for the world to stop spinning.
-Doctor Meadows said it was something to do with her inner ears,
+Doctor Szego said it was something to do with her inner ears,
 but that didn't make it any better.
 Step three was to grope around on the table beside her pod
 to make sure her robe was there.
@@ -323,7 +323,7 @@ She rolled her head from side to side until something clicked in her neck.
 
 "It is morning somewhere,"
 the bot replied.
-"You have a message from Doctor Meadows.
+"You have a message from Doctor Szego.
 Shall I play it now?"
 
 "Sure."
@@ -335,7 +335,7 @@ Between one sentence and the next there was a soft *click*
 as the bot's voice changed
 from a generic mechanical twang to something older, warmer, and female.
 
-"Morning, Doctor Meadows,"
+"Morning, Doctor Szego,"
 Violet replied dutifully.
 "How are you today?"
 
@@ -378,7 +378,7 @@ but the most important word in that sentence was "if".
 At least the ark's showers were working.
 They hadn't been,
 once,
-so she had told Doctor Meadows that she didn't ever want to wake up again
+so she had told Doctor Szego that she didn't ever want to wake up again
 unless there was hot water.
 She let it pummel her,
 turning slowly,
@@ -399,7 +399,7 @@ Soft gray pants,
 a matching hoodie with a built-in breathing mask in case of an emergency,
 gloves for her hands and feet:
 she had worn the same outfit in ever-larger sizes for as long as she could remember.
-"When you're older," Doctor Meadows and Captain Leung said
+"When you're older," Doctor Szego and Captain Leung said
 when she asked them if she could have a uniform like theirs.
 She sighed,
 dressed,
@@ -453,7 +453,7 @@ as if suddenly aware that she hadn't eaten in well over a decade.
 "Are André and I the only ones awake again?"
 
 "For now."
-Doctor Meadows' voice came through a speaker.
+Doctor Szego' voice came through a speaker.
 "And I'm sorry,
 but I want to keep André in isolation a little longer,
 just to be safe.
@@ -475,7 +475,7 @@ She could zoom in if she wanted,
 but what was the point?
 She was going to wander the ark's empty corridors for a couple of days,
 trade barbs with André,
-say, "Yes, Captain Leung," and, "Yes, Doctor Meadows," a few times,
+say, "Yes, Captain Leung," and, "Yes, Doctor Szego," a few times,
 and then go back into her pod,
 just as she had so many times before.
 
@@ -552,7 +552,7 @@ See the cleared patches around it?
 Those look like fields to me."
 
 "So you think there are people there?"
-Doctor Meadows' voice asked.
+Doctor Szego' voice asked.
 
 Captain Leung nodded.
 "Robots don't eat potatoes."
@@ -819,7 +819,7 @@ At first she thought they would return right away.
 Like everything involving adults,
 it turned out to be slower and more complicated.
 "We've been asleep a lot longer than we planned,"
-Doctor Meadows said.
+Doctor Szego said.
 "We have double-check everything before we can even start planning re-entry."
 
 "Even then…" Captain Leung muttered under his breath,
@@ -833,7 +833,7 @@ he said with a smile Violet didn't actually find reassuring.
 "We'll sort it out."
 
 Sorting it out turned out to mean a space walk.
-Doctor Meadows wanted to send one of the service bots,
+Doctor Szego wanted to send one of the service bots,
 but Captain Leung insisted that he had to do it.
 "Have you forgotten why we had to launch in such a hurry?"
 he demanded.
@@ -844,7 +844,7 @@ or one of the children."
 
 Violet watched through half a dozen cameras as he climbed into
 a bulky yellow spacesuit.
-Doctor Meadows talked him through a checklist full of numbers and acronyms.
+Doctor Szego talked him through a checklist full of numbers and acronyms.
 Twice they stopped to swap a malfunctioning piece of equipment on his suit
 for its match from the other three suits hanging in the bay.
 
@@ -861,7 +861,7 @@ I saw that happen in virtual once.
 The guy's head swelled up and—"
 
 "André!"
-Doctor Meadows' voice cut in sharply.
+Doctor Szego' voice cut in sharply.
 "Nothing's going to go wrong,
 and even if it did,
 people don't actually explode in space,
@@ -911,13 +911,13 @@ Wireframe schematics appeared, spun around, and zoomed in.
 Highlight arrows popped up,
 one three six a dozen.
 
-"Meadows! What's happening?"
+"Szego! What's happening?"
 Captain Leung barked.
 
 "Overload in relay six.
 Checking…
 Correction, in relays six, seven, and nine."
-Doctor Meadows spoke quickly.
+Doctor Szego spoke quickly.
 "The optical conduit you just swapped in must have gone glassy."
 She paused.
 "Warning.
@@ -952,7 +952,7 @@ are you all right?"
 He didn't answer.
 
 "Captain, I suggest we vent propellant from tank B,"
-Doctor Meadows said.
+Doctor Szego said.
 "The thruster can't fire if it doesn't have any fuel."
 
 "No!"
@@ -979,7 +979,7 @@ Captain Leung swore again.
 "That's going to make things interesting," he muttered.
 
 "We will figure it out,"
-Doctor Meadows replied.
+Doctor Szego replied.
 "We always do."
 
 Violet went down to the airlock and waited for it to cycle.
@@ -1130,7 +1130,7 @@ she added in a breathless rush.
 "Like,
 tomorrow soon.
 Lots of things are broken and Central isn't talking to us any more
-so Captain Leung and Doctor Meadows decided we have to land and,
+so Captain Leung and Doctor Szego decided we have to land and,
 and if this map is right,
 we're going to land right next to you!"
 
@@ -1499,7 +1499,7 @@ she lied,
 but he had already turned back to the screens and controls in front of him.
 
 "Main burn in thirty seconds."
-Doctor Meadows might as well have been saying that
+Doctor Szego might as well have been saying that
 the cafeteria was serving goop for lunch again.
 "Violet, are you strapped in?"
 
@@ -1524,7 +1524,7 @@ Three.
 Two.
 One.
 Ignition."
-As Doctor Meadows reached the end of her countdown,
+As Doctor Szego reached the end of her countdown,
 an invisible giant hand pressed Violet back into her chair.
 Vibration rumbled up her spine,
 making her teeth chatter.
@@ -1533,7 +1533,7 @@ The captain cursed under his breath.
 "Number two engine is stuttering."
 
 "I see it,"
-Doctor Meadows replied calmly.
+Doctor Szego replied calmly.
 "Compensating now."
 
 An image appeared on the main screen in front of them.
@@ -1546,7 +1546,7 @@ and other space junk.
 
 *THUMP!*
 Captain Leung cursed again.
-"Meadows!
+"Szego!
 What was that?"
 
 "A boot of some sort," she replied.
@@ -1593,7 +1593,7 @@ Some scratches were superficial,
 but here and there she saw jagged dents,
 one of which was spraying a razor line of vapor into space.
 
-"Meadows?"
+"Szego?"
 the captain snapped.
 
 "I'm sorry, captain.
@@ -1617,7 +1617,7 @@ A delicate orange tinge washed over it.
 The ark began to rumble.
 
 "We've reached atmosphere,"
-Doctor Meadows said.
+Doctor Szego said.
 "Captain?
 It's now or never."
 
@@ -1627,7 +1627,7 @@ Violet heard the tension in his voice.
 
 Once again an invisible giant hand pushed Violet back in her chair.
 Angles and velocities scrolled by on the screen
-as Captain Leung and Doctor Meadows traded terse instructions.
+as Captain Leung and Doctor Szego traded terse instructions.
 Violet wondered if the people below could see them now.
 They would look like a meteor.
 They *were* a meteor, she realized.
@@ -1637,7 +1637,7 @@ this was a one-way trip.
 
 Minutes ticked by in the corner of the screen.
 The rumbling slowly began to subside.
-"Glide path achieved," Doctor Meadows announced.
+"Glide path achieved," Doctor Szego announced.
 "Ground speed is nominal.
 We did it."
 
@@ -1674,7 +1674,7 @@ then rumbled as the engines fired.
 "What the hell was that?" Captain Leung demanded.
 
 "Number two engine has failed,"
-Doctor Meadows announced calmly.
+Doctor Szego announced calmly.
 "I'm trying to use the orbital thrusters to compensate,
 but—hold on."
 The ark plummeted again.
@@ -1691,7 +1691,7 @@ I'll aim for that."
 
 "That's a swamp!"
 
-"Yes, but it's a *soft* swamp," Doctor Meadows replied.
+"Yes, but it's a *soft* swamp," Doctor Szego replied.
 
 Violet knew they were still moving incredibly fast,
 but the ground seemed to crawl beneath them.
@@ -1725,7 +1725,7 @@ Captain Leung whooped.
 We made it!
 We made it!"
 
-"Don't jinx it," Captain Meadows replied.
+"Don't jinx it," Captain Szego replied.
 The captain laughed,
 and Violet realized she was laughing too,
 but crying too.
@@ -1738,13 +1738,13 @@ The ark tilted slightly.
 
 "Checking.
 No."
-Doctor Meadows paused.
+Doctor Szego paused.
 "There's something underneath us."
 
 "What?
 What kind of something?"
 
-The image on the display answered his question before Doctor Meadows could.
+The image on the display answered his question before Doctor Szego could.
 An enormous metal tentacle lifted out of the swamp below them.
 The hull rang as it grabbed the side of the ark.
 
@@ -2063,7 +2063,7 @@ Captain Leung slapped the panel in frustration.
 Doctor—please, give me some good news."
 
 "I'm sorry, captain, I don't have any."
-Doctor Meadows sounded as calm as ever.
+Doctor Szego sounded as calm as ever.
 "The main cargo bay is partially flooded,
 it will take at least thirty hours to synthesize enough fuel to take off,
 and our weapons are still inoperative."
@@ -2077,7 +2077,7 @@ Captain Leung wasted no time.
 His hands danced across the controls.
 The ark began rumbling,
 but the sounded stuttered almost immediately.
-"We don't have enough fuel, captain," Doctor Meadows said.
+"We don't have enough fuel, captain," Doctor Szego said.
 
 "Worth a try," he muttered.
 "All right,
@@ -2110,7 +2110,7 @@ It looks like someone took a pile of spare parts
 and put them together on a bet."
 
 "Perhaps it's some sort of personal assistant,"
-Doctor Meadows mused.
+Doctor Szego mused.
 "Do you see how its arms are mis-matched?
 The delicate one could be for medical work."
 
@@ -2122,7 +2122,7 @@ The girl looked shaken,
 but from the way she was shrugging free of the two-legged bot,
 Violet guessed she was all right.
 
-"Another ark?" Doctor Meadows suggested.
+"Another ark?" Doctor Szego suggested.
 "Or perhaps some people stayed behind after all."
 
 Captain Leung sat back in his seat, frowning.
@@ -2130,7 +2130,7 @@ Captain Leung sat back in his seat, frowning.
 "There's only one way to find out.
 Prep the shuttle—I'll go and say hello."
 
-"The shuttle?" Doctor Meadows asked doubtfully.
+"The shuttle?" Doctor Szego asked doubtfully.
 
 The captain snorted.
 "Well,
@@ -2158,7 +2158,7 @@ I'll take them with me."
 
 "No."
 "All right."
-The captain and Doctor Meadows spoke over each other.
+The captain and Doctor Szego spoke over each other.
 Captain Leung glanced up at the nearest speaker.
 "Are you serious?"
 
@@ -2776,7 +2776,7 @@ he shouted into his chin mike.
 
 A second tentacle rose from the swamp and draped itself over the shuttle.
 Weeds fell from it as it rocked the little craft on its landing gear.
-Violet heard Doctor Meadows speaking urgently in her helmet
+Violet heard Doctor Szego speaking urgently in her helmet
 but couldn't make out the words.
 
 "Nash!" the tiger bellowed.
@@ -2839,7 +2839,7 @@ strapping her in.
 "You don't understand!" Sindy shouted.
 "You're making it *mad!*"
 
-"Warning." Doctor Meadows voice came from four speakers at once.
+"Warning." Doctor Szego voice came from four speakers at once.
 "Proximity alert."
 Metal clanged on metal once again as half a dozen tentacles erupted from the swamp
 and grabbed hold of the shuttle.
@@ -2888,7 +2888,7 @@ For a moment she thought they had managed to slip free,
 but no,
 the thing in the swamp still had them.
 
-"Meadows!
+"Szego!
 A little help, please?"
 
 "I'm sorry, captain," the female voice said.
@@ -2914,7 +2914,7 @@ corkscrewing to avoid one last attempt to grab it.
 A sharp pain stabbed Sindy's head,
 disappearing as quickly as it had arrived.
 
-"Meadows!
+"Szego!
 What's the situation?"
 Captain Leung barked.
 
@@ -3025,7 +3025,7 @@ It must have followed them from the swamp.
 Captain Leung finished.
 "So we're going to land somewhere that *doesn't* have
 a robo-monster lurking nearby
-and wait for Doctor Meadows to tell us the ark is secure.
+and wait for Doctor Szego to tell us the ark is secure.
 You can go back home then if you want to."
 
 "'Course I want to!"
