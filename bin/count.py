@@ -43,8 +43,7 @@ def chapters(filename, text, previous):
             if count > 0:
                 if title:
                     title = f": {title}"
-                if previous is None:
-                    print(f"{number:02d}){count:5d}{title}")
+                print(f"{number:02d}){count:5d}{title}")
                 total += count
             count = 0
             number += 1
@@ -55,11 +54,9 @@ def chapters(filename, text, previous):
         else:
             pass
 
-    if previous is None:
-        print(f"{total:6d} ({int(total/(number-1))})")
-    else:
-        increase = total - previous
-        print(f"{total:6d} ({increase})")
+    average = int(total/(number-1))
+    increase = "" if previous is None else f" ({total - previous})"
+    print(f"{total:6d} / {average}{increase}")
 
 
 def sections(filename, text, base):
