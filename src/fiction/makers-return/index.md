@@ -2677,7 +2677,7 @@ Some folks were just feelin' a bit agitated, was all."
 "I understand," Captain Leung replied,
 his tone just as casual.
 "And no harm done—it takes a lot more than a bit of electricity
-to faze one of those Z-units.
+to faze one of those Z-bots.
 As I'm sure you know,"
 he added,
 nodding toward the larger bot standing behind the newcomers.
@@ -3428,7 +3428,7 @@ Will you be all right until then?"
 Violet heard the captain's stubble rasp against the side of his helmet as he nodded.
 "We'll be fine.
 We're going to check out the structure I mentioned earlier.
-I'll put the shuttle in auto-defense mode and take both Z-units with me.
+I'll put the shuttle in auto-defense mode and take both Z-bots with me.
 Leung out."
 
 Violet undid her helmet just as Sindy stuck her head out of the shuttle.
@@ -3437,5 +3437,274 @@ obviously trying not to sound embarrassed.
 
 Violet smiled at her.
 "I'll come show you."
+
+</section>
+
+<section markdown="1">
+
+## Chapter 13: Normal (Sindy)
+
+"Stuff like this happens to me all the time,"
+Sindy said.
+*But that doesn't mean I like it,
+and it __sure__ doesn't mean I have to put up with it,*
+she added in her head.
+Violet seemed nice,
+but she didn't trust Captain Leung.
+He looked at her the way Special Blazes had
+before he handed her over to Central.
+
+Violet apologized twice
+as she showed Sindy how the toilet on the shuttle worked.
+"It's because it has to work in zero gravity,"
+she explained.
+Sindy didn't really understand what that meant,
+but smiled and nodded.
+
+She looked around the shuttle's cabin while Violet took her turn.
+The bases of the seats were clearly storage units,
+but their doors were locked.
+She couldn't see anything else that would help her escape.
+She hadn't really expected a flying suit to just be lying around,
+but it would have been handy.
+All she could do was hope there would be something useful in the farmhouse or the bunker.
+It wasn't much of a plan,
+but it was the best she had.
+
+Captain Leung led the way to the farmhouse with Z40 at his side.
+Z51 followed the girls,
+its front right leg squeaking slightly with each step.
+"Wait here while we give it another look,"
+the captain said when they reached the opening that had once held a door.
+The two girls peered through the hole beside it
+that was still edged with a few shards of glass.
+A broken chair,
+some animal's dried scat on the remains of a throw rug—Sindy shivered.
+Would her house look like this some day?
+
+"All clear,"
+Captain Leung called.
+Sindy and Violet did an awkward two-step at the door as they entered.
+Z51 followed somewhat more gracefully despite its bulk.
+
+Z40 had lifted a heavy hatch set into the floor of the farmhouse's back room.
+Sindy had expected a ladder,
+but instead saw concrete steps
+like the ones she remembered from Patient's lair in the Mire.
+She squashed the recollection firmly.
+Patient was gone,
+and even if she didn't trust Captain Leung,
+the two combat bots ought to be more than a match
+for anything that could fit down the stairs.
+
+Thinking about Patient's lair made her think about the thing with the tentacles.
+She still didn't understand how she had connected with it,
+but if it she could do that,
+maybe she could do it with the Z-bots too.
+
+She closed her eyes and concentrated on
+the feeling she got whenever she connected with ancient tech.
+Once again something stirred inside her.
+She could *feel* the two bots beside her
+and two smaller somethings that she guessed
+were Violet and Captain Leung's spacesuits.
+
+She took a breath and reached out for the nearest bot,
+then jumped as an alarm began bleating.
+"Subversion attempt detected," Z51 said in a flat mechanical voice
+that sent a chill up Sindy's spine.
+
+Violet's eyes widened.
+"Explain," Captain Leung snapped.
+
+"Subversion attempt detected," the bot repeated.
+
+Captain Leung raised a hand to forestall whatever Violet had been about to say.
+"What kind of attempt?" he demanded.
+
+"Unknown."
+The bot fell silent for a moment.
+"The attempt was transient.
+Self-check completed.
+This unit has not been compromised."
+
+Sindy didn't let herself whoosh with relief.
+That had been her,
+she was sure of it.
+So much for taking control of the combat bots.
+
+Captain Leung was looking down the stairs instead of at her.
+"Some automated system that still has power?" he wondered aloud,
+then shrugged.
+"Well, we've come this far.
+Stay close."
+
+Sindy had never talked much to her parents
+or the other children at school
+about what had happened in Patient's bunker.
+She hadn't needed to:
+Maddy had told the story for both of them.
+The same thing had happened after they came back from Heck with her father.
+Maddy was the one who'd been kidnapped by Patient's flying bot that time,
+and Gumption was the one who'd wound up wearing custom-made robot armor.
+All Sindy could say was that Special Blazes had handed her over to Central,
+and that she'd had some very strange dreams after that.
+
+She had talked to Special Leaf, though.
+She had gone to his house to practice handling tech several times a week,
+and had visited him every day when he was recuperating at Doc Whinny's
+and after he was allowed to go home.
+He had never asked her what happened,
+but she had to tell *someone*,
+and the old tortoise had been a very good listener.
+
+"Everything was cleaner than it should have been.
+The lights on the ceiling came on ahead of us,
+and went out behind us.
+And there was a room…"
+She had stopped then for a moment.
+Special Leaf had passed her a napkin to wipe her eyes with.
+
+"There was a room," she had continued.
+"It had big windows and desks and there were five people in it
+except they'd been dead for a long time.
+Patient locked 'em in when they would do what it wanted.
+I thought that was gonna happen to us."
+
+"But it didn't,"
+the tortoise had said gently.
+
+"But it could have," she had replied.
+
+The conversation flashed through her mind when the first light came on overhead.
+She slowed a pace to let Violet catch up to her,
+wishing that she was Maddy so that she could hold her hand.
+"Where's the power coming from?" Captain Leung wondered aloud.
+He looked back at Sindy as if she might be able to answer.
+
+She shrugged.
+"Dunno.
+But watch out for holes in the floor."
+She hoped that was the worst thing they'd have to worry about.
+
+The concrete passageway ended at an open door.
+Z40 lumbered through it,
+turned in a slow half-circle,
+then bleeped.
+Arm raised and laser finger extended,
+Captain Leung edged into the dimly-lit room.
+"All clear," he called over his shoulder.
+
+Sindy and Violet followed with Z51 behind them.
+A table stood near the door,
+the chair pulled under it as if someone had used it as a makeshift desk.
+Shelves lined two walls,
+heavy with moldering books, empty jars, and pieces of machinery,
+and a closed door waited patiently opposite the one they had come through.
+
+Sindy let out a breath.
+No bodies—that was good.
+She pointed at the lever on the wall beside the other door.
+"That'll open it," she said.
+"'Least, I think that's what it'll do."
+
+Captain Leung grunted.
+"Worth a shot."
+He grabbed it with a gloved hand.
+
+Sindy waited for him to pull it,
+but he didn't move.
+"What's wrong?" she asked.
+The captain didn't reply.
+
+Violet gasped.
+"Look!
+He's shaking!"
+
+Sindy's eyes widened.
+Violet was right.
+Captain Leung's whole body was shivering as if he had a sudden all-over chill.
+
+"The lever!"
+Violet reached to pull Captain Leung free.
+
+"No!"
+Sindy grabbed her arm.
+"What if it happens to you too?"
+
+Violet pulled free.
+"We have to do *something*!"
+
+"The bots!
+Get one of the bots to do it!"
+
+Violet swallowed hard.
+"Z40!
+Emergency command override.
+Grab Captain Leung and pull him free."
+
+The bot didn't move.
+"I said emergency command override!" Violet repeated,
+panic in her voice.
+
+Sindy closed her eyes and concentrated once again,
+then caught her breath.
+They were *surrounded* by tech.
+Above and below,
+on every side,
+she could feel it all around them.
+
+But that, there, had to be Z40.
+Instead of trying to take control,
+she imagined nudging it,
+just a little,
+the way her mama sometimes did to wake her up
+when she was drifting off in the big wicker chair
+on their front porch.
+Just a nudge…
+
+"Try again," she said to Violet without opening her eyes.
+
+"Z40, emergency command override,"
+Violet repeated in a calmer voice.
+"Grab Captain Leung and pull him away from the lever."
+
+The combat bot unfolded its manipulators,
+reached out,
+and took hold of Captain Leung's upper arms.
+For a moment Sindy thought it had been frozen too,
+but then it tugged sharply,
+pulling the captain's hand off the lever.
+
+Captain Leung collapsed on the floor like a pile of laundry.
+Violet rushed to him.
+"Captain! Captain, can you hear me?"
+She shook him gently.
+
+He didn't move.
+Violet looked up fearfully.
+"Is he breathing?" Sindy asked.
+
+"I think so."
+Violet shook him again.
+"Captain, please, wake up."
+
+"We have to get him out of here,"
+Sindy said.
+Her escape would just have to wait.
+
+*Clunk.*
+She whirled around.
+The door they had come through had closed.
+Before she could say something as obvious as, "We're trapped!"
+the one by the lever slid open.
+
+The bot that stepped into the room had a misshapen boxy body,
+four legs,
+two tentacles for arms,
+and no apparent head.
+"I should have known it would be you,"
+Patient in Darkness said sourly,
+its voice straight out of Sindy's nightmares.
 
 </section>
