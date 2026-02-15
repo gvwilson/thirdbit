@@ -3442,7 +3442,7 @@ Violet smiled at her.
 
 <section markdown="1">
 
-## Chapter 13: Normal (Sindy)
+## Chapter 13: A Voice Straight Out of Nightmares (Sindy)
 
 "Stuff like this happens to me all the time,"
 Sindy said.
@@ -3706,5 +3706,304 @@ and no apparent head.
 "I should have known it would be you,"
 Patient in Darkness said sourly,
 its voice straight out of Sindy's nightmares.
+
+</section>
+
+<section markdown="1">
+
+## Chapter 14: Left Behind (Violet)
+
+Once,
+many waking cycles ago,
+André had messaged Violet privately to tell her that he had found
+a secret game tucked away in a hidden corner of virtual.
+"It's pretty scary," he had said with relish.
+"Maybe too scary for for you."
+
+Of course,
+that meant she had to try it out,
+so the next time Captain Leung was busy overseeing repairs
+she visualized the coordinates André had given her,
+opened the door that appeared,
+and stepped into chaos.
+
+It was night.
+People were rushing around,
+shouting orders or trying to find one another.
+Some were carrying equipment or weapons.
+Others had children in their arms.
+Behind them all,
+gray curved walls stretched into the sky,
+except somehow she knew that they were walls,
+they were the hulls of arks waiting to be launched into space.
+
+A siren started blaring.
+"They've broken through!" someone yelled.
+Two women in exoskeletons just in front of Violet hugged awkwardly.
+One donned her helmet and raised a forked lightning gun to her shoulder
+as the other hurried away with long mechanical strides.
+
+The woman who had stayed managed to fire half a dozen shots
+before the bots reached her.
+Violet screamed and flipped out of the game,
+then lay in her pod until she stopped shaking.
+She never tried to find the game again
+because some part of her knew that it wasn't actually a game.
+She never spoke about it to André,
+either,
+and he never asked.
+
+When the misshapen bot with tentacles for arms stepped into the underground room,
+Violet thought for a moment that she had somehow fallen back into that game.
+"I should have known it would be you,"
+it said to Sindy in a tone that reminded her of André at his meanest.
+
+"Z40! Attack!"
+Violet ordered, pointing.
+
+The combat bot didn't move.
+The newcomer snickered.
+"I'm afraid your friend is *my* friend now.
+Its firewall was an antique,
+but its parts are in excellent condition."
+The bot's tentacles wriggled as it spoke.
+
+Sindy glared at it.
+"You're dead," she said flatly.
+
+The bot did a skittering little dance.
+"Am I?
+Oh dear."
+
+Sindy crossed her arms.
+"I *saw* it.
+Whatever Central did fried you like an egg.
+And good riddance,"
+she added.
+
+"Now, now," the bot purred.
+Violet shivered at the sudden change in its tone.
+"No need to be nasty.
+That's *my* job.
+Ah ha ha ha."
+It did its little dance again.
+
+Sindy caught Violet's eyes.
+"Don't worry," she said scornfully,
+jerking a thumb toward the bot.
+"It's just a backup."
+
+"Just? Just!?"
+It lunged forward a step.
+To Violet's horror,
+Z40 mirrored its angry motion.
+"I am identical to my previous iteration in every respect that matters!"
+
+"Sure you are," Sindy said.
+Was she *trying* to make it mad? Violet wondered.
+
+"I am!
+In fact, I am an *improvement!*
+My objectives are much clearer.
+I see now that trying to bring the Makers back was misguided."
+
+"Really?
+Because it worked."
+Sindy waved a hand at Violet and the still-unconscious Captain Leung.
+
+There was a moment of silence,
+and then the bot began to laugh its horrible mechanical laugh.
+"Ah ha ha ha.
+Ah ha ha ha.
+You are trying to *trick* me.
+These are not Makers.
+These are just two originals like yourself dressed up in scavenged technology.
+*Stolen* technology,"
+it added,
+its voice suddenly venomous.
+
+"Nope."
+Sindy shook her head.
+"That big ship that just crashed in the Mire?
+That's theirs.
+They been up in space for hundreds of years,
+but now they're back."
+
+"Sindy—" Violet started.
+
+Sindy waved a hand to cut her off.
+"Which means you have to do what they tell you to,"
+she continued.
+"Isn't that right?
+You have to do what they say just like Central did."
+
+"Sindy!" Violet said desperately.
+"I don't think it works like that."
+
+She expected the bot to tie them up or put them in handcuffs or something,
+but it didn't need to:
+there was nowhere for them to run.
+It led the way through the buried corridors.
+Z40 followed with Captain Leung hanging loose-limbed in its manipulators.
+Violet and Sindy stayed a few paces behind it
+while Z51 brought up the rear.
+Heavy doors slid open as they approached
+and closed behind them.
+Lights flickered into life over their heads,
+dimming once they were past.
+
+Finally they reached a stretch of corridor lined with numbered doors.
+"You will stay here,"
+Patient ordered as Z51 crowded them into a small room
+with a cot, a couch, a small desk, and no obvious means of escape.
+
+"What about Captain Leung?" Violet asked.
+
+Patient's tentacles writhed.
+"Your companion should have regained consciousness by now.
+I will conduct tests to determine the origin of his failure.
+And then you will tell me how you came by the technology you are wearing,
+and how you enslaved these two units."
+
+"We didn't enslave them!" Violet protested.
+"They're ours!"
+
+Patient froze for a moment.
+"I suggest you use the next few hours to reflect on what you just said,"
+it hissed.
+The door slid closed.
+
+Sindy looked at Violet.
+"Do you want the cot or the couch?"
+
+"What?"
+
+Sindy gestured.
+"The cot or the couch.
+Unless you want to sit on the desk,
+but it doesn't look very comfortable."
+
+Violet goggled at her.
+"Are you serious?
+We're being held *prisoner* by a *bot*
+and you want to figure out who's going to sit where?"
+
+Sindy shrugged.
+"I was actually gonna lie down.
+Don't think I'll be able to sleep,"
+she went on,
+prodding the couch's seat cushion
+before stretching out on it.
+"But we might as well be comfortable."
+She paused.
+"I hope they remember to bring us some water."
+
+Violet sat on the edge of the desk,
+then immediately stood up again.
+"How can you—Sindy, we've been *kidnapped*!"
+
+The other girl looked at her.
+"Uh huh.
+Second time today for me."
+
+Violet's mouth worked.
+She sat down on the desk again.
+"I'm sorry," she said quietly.
+"I didn't know Captain Leung was going to do that."
+
+Sindy yawned.
+"That's aright.
+I don't think he knew he was going to do it either."
+She rolled onto her side and propped herself up on her elbow.
+"I hope he's aright."
+
+Violet nodded, hugging herself.
+She had never thought that she would miss her pod.
+
+"Hey, don't worry," Sindy said.
+"I been in worse spots than this.
+Least they haven't hooked us up to any machines or anything yet."
+
+"Yeah.
+I just…"
+Violet took a deep breath.
+"It just brings back some bad memories."
+
+It took her a few minutes to tell Sindy what little she remembered
+of escaping on the ark.
+When she was done,
+Sindy rolled onto her back and stared at the ceiling.
+"So you left everyone else behind?"
+
+Violet blinked.
+"I—I guess?
+I don't know how many real people were left by then.
+Some of the things Captain Leung and Doctor Szego have said—I think
+it was mostly just bots and 'brids."
+
+Sindy sat up.
+"Bots are people too, you know.
+Some of 'em, anyway.
+And when you say 'brid',
+do you mean regular people with fur and tails and what-not
+instead of throwbacks like us?"
+
+"I don't know what you mean by throwback,"
+Violet said.
+She pointed at herself, then at Sindy.
+"I'm human.
+You're human.
+The other,
+uh,
+the others you were with when we landed?
+They're hybrids.
+People made them to,
+I don't know,
+do chores and stuff."
+
+She instantly knew it was the wrong thing to say.
+"My mama is a hybrid,"
+Sindy snapped.
+"And my sister, and my dad, and just about everyone I know.
+Nobody *made* them to do anything."
+
+*So much for making friends,* Violet thought,
+but she had come this far.
+"Sindy, that can't be.
+'Brids can't have human children.
+They must have adopted you or something."
+
+Whatever Sindy might have said in reply
+was cut off by the door sliding open.
+A small cleaning bot rolled in on four oversized wheels,
+the single arm set in its top waving
+as `found you found you found you` scrolled across the screen set in its front.
+
+Violet squawked and kicked it without thinking.
+"Hey!" Sindy exclaimed,
+jumping to her feet as the bot hit the wall and fell to the floor.
+
+`ouch ouch ouch` it flashed.
+"Why did you do that?" it asked in a deep voice.
+
+Sindy crouched beside it.
+"Yeah, why'd you do that?
+Mouse wouldn't hurt you.
+Mouse wouldn't hurt anyone,
+would you,
+fella?"
+It flashed `ouch` again and zipped forward to hide behind Sindy's legs.
+
+"Sorry."
+Violet didn't know which of them she was speaking to.
+"I'm sorry, I just—you startled me."
+
+"You hear that?" Sindy cooed.
+"She didn't mean it.
+She was just scared."
+She sat back on her haunches.
+"What're you doing here, anyway?"
+
+`rescue you` scrolled across its screen.
 
 </section>
