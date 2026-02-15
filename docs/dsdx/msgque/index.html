@@ -18,6 +18,8 @@
 <span class="dropdown-content" id="nav-lessons">
 <a href="../intro/">Introduction</a>
 <a href="../msgque/">A Publish-Subscribe Message Queue</a>
+<a href="../worksteal/">A Work-Stealing Scheduler</a>
+<a href="../tracing/">Distributed Tracing</a>
 <a href="../finale/">Conclusion</a>
 </span>
 </span>
@@ -326,12 +328,11 @@ and returns <code>False</code> to signal backpressure to the publisher:</p>
 
         <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">queue</span><span class="o">.</span><span class="n">is_full</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">num_dropped</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="k">return</span> <span class="n">all_delivered</span>
 </code></pre></div>
@@ -450,7 +451,7 @@ If not,
 we either evict a lower-priority message or discard the one that just arrived:</p>
 <div data-filter="inc=publish" data-inc="priority_backpressure.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">PriorityMessage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Publish message to priority queues.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns:</span>
 <span class="sd">            True if message was accepted by all queues.</span>
 <span class="sd">        """</span>
@@ -459,8 +460,10 @@ we either evict a lower-priority message or discard the one that just arrived:</
 
         <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
-            <span class="n">all_delivered</span> <span class="o">=</span> <span class="n">all_delivered</span> <span class="ow">and</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="n">all_delivered</span>
 </code></pre></div>
@@ -470,19 +473,19 @@ to manage efficient eviction of low-priority messages.</p>
 <h2 id="msgque-delivery">Delivery Guarantees</h2>
 <p>Different message delivery systems provide different kinds of delivery guarantees:</p>
 <dl>
-<dt>At-most-once delivery</dt>
+<dt><a href="../glossary/#exactly-once">Exactly-once</a> delivery</dt>
+<dd>This is the strongest guarantee: each message is processed exactly once.
+It is surprisingly difficult to achieve in distributed systems due to failures and network issues.</dd>
+<dt><a href="../glossary/#at-most-once">At-most-once</a> delivery</dt>
 <dd>This ensures that messages are delivered zero or one times,
 i.e., are never duplicated, but possibly lost.
 This is achieved by dropping messages when queues are full or when subscribers are unavailable.
 It's the weakest guarantee but the simplest and fastest to implement.</dd>
-<dt>At-least-once delivery</dt>
+<dt><a href="../glossary/#at-least-once">At-least-once</a> delivery</dt>
 <dd>This ensures every message is delivered, possibly multiple times.
 It acknowledgments: the broker keeps messages until subscribers confirm receipt.
 If a subscriber crashes before acknowledging,
 the broker redelivers to another subscriber or retries.</dd>
-<dt>Exactly-once delivery</dt>
-<dd>This is the strongest guarantee: each message is processed exactly once.
-It is surprisingly difficult to achieve in distributed systems due to failures and network issues.</dd>
 </dl>
 <p>We can extend our broker to support at-least-once delivery with acknowledgments.
 First,
@@ -530,15 +533,18 @@ The lambda captures the acknowledgment ID and calls <code>_check_ack()</code> af
 
             <span class="c1"># Schedule re-delivery</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ack_timeout</span><span class="p">,</span>
-                <span class="k">lambda</span> <span class="n">aid</span><span class="o">=</span><span class="n">ack_id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_ack</span><span class="p">(</span><span class="n">aid</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ack_timeout</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">aid</span><span class="o">=</span><span class="n">ack_id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_ack</span><span class="p">(</span><span class="n">aid</span><span class="p">)</span>
             <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_check_ack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ack_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Check if message needs redelivery (called by scheduler)."""</span>
         <span class="k">if</span> <span class="n">ack_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">:</span>
             <span class="n">msg</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">[</span><span class="n">ack_id</span><span class="p">]</span>
-            <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">queue</span><span class="o">.</span><span class="n">_getters</span><span class="p">:</span>
+                <span class="n">evt</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">_getters</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">evt</span><span class="o">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">queue</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>A subscriber using this broker calls <code>broker.acknowledge(message.ack_id)</code>
@@ -604,22 +610,6 @@ Real systems use more sophisticated load balancing algorithms,
 such as weighted distribution,
 least-loaded routing,
 or partition-based assignment.</p>
-<h2 id="msgque-summary">Summary</h2>
-<ol>
-<li>
-<p>The publish-subscribe pattern decouples system components,
-    enabling independent scaling and evolution.</p>
-</li>
-<li>
-<p>Routing messages through a broker enables buffering,
-    fan-out,
-    and fault tolerance.</p>
-</li>
-<li>
-<p>Backpressure ensures the system prevents cascading failures
-    when consumers can't keep up with producers.</p>
-</li>
-</ol>
 <h2 id="msgque-exercises">Exercises</h2>
 <p>FIXME: add exercises.</p>
 </main>
@@ -634,7 +624,7 @@ or partition-based assignment.</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../finale/">Conclusion</a> ⇒
+<a href="../worksteal/">A Work-Stealing Scheduler</a> ⇒
 	</div>
 </div>
 </footer>
