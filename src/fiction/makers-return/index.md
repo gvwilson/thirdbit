@@ -4010,7 +4010,7 @@ She sat back on her haunches.
 
 <section markdown="1">
 
-## Chapter 15: (Sindy)
+## Chapter 15: Memories (Sindy)
 
 "That can't be," Violet said.
 "'Brids can't have human children.
@@ -4279,6 +4279,7 @@ Sindy muttered.
 
 `escape!` it flashed,
 pointing at the double doors.
+`escape now!`
 
 "There is nothing for it,"
 Patient went on.
@@ -4286,5 +4287,104 @@ Patient went on.
 I must delete them so that I can start over.
 I must delete the Makers.
 Starting with these two."
+
+</section>
+
+<section markdown="1">
+
+## Chapter 16: A Thousand Worlds (Violet)
+
+"I must delete them so that I can start over,"
+the bot said.
+"I must delete the Makers.
+Starting with these two."
+And then the double doors behind them slid shut with a faint rumble.
+
+The little bot that Sindy called mouse waved its single little arm in panic.
+`oh no oh no` scrolled across its screen.
+"That's not good," it said simultaneously.
+
+Violet rushed to the keypad beside the doors
+and pressed her palm flat on top of it.
+"Open," she ordered.
+Nothing happened.
+"Open!" she repeated as firmly as she could,
+but the doors didn't budge.
+
+She whirled around.
+"We have to find another way out of here,"
+she said to Sindy.
+
+"You think?" the other girl shot back.
+She waved at the controls on the desk.
+"Can you do something with these?"
+
+"Let's find out."
+Violet sat down again and stared at the switches,
+screens,
+panels,
+and keyboards crowded together in front of her.
+If that one brought up a medical display for Captain Leung,
+then maybe *that* one would—
+
+*click*
+A section of the half-wall in front of them swung open.
+"Wait!"
+Violet said as Sindy hurried to it.
+"It could be a trap."
+
+"We're already *in* a trap,"
+Sindy replied,
+pulling the section of wall the rest of the way open.
+
+*Is everyone down here like this?*
+Violet wondered as she followed Sindy and the little bot she called Mouse
+into the lab.
+If so,
+and if they survived,
+life was going to be a *lot* more interesting than it had been on the ark.
+
+Captain Leung didn't move when Violet shook him.
+For a moment she thought about tearing off the wires attached to his body,
+but for all she knew they were keeping him alive.
+Now that she was close, though,
+she could see that the wires running to his head were attached to a helmet
+instead of being glued directly to his skin.
+Other helmets just like it hung on the backs of the other three chairs.
+They looked heavier than the one she wore in her pod,
+but was otherwise almost identical.
+
+Sindy was looking at the helmets as well.
+Their eyes met.
+"You thinking what I'm thinking?" Sindy asked.
+
+"If you're thinking about putting one of those on
+and using it to take control of the doors and the bots and everything
+so that we can escape,
+then yes,"
+Violet replied.
+Her spacesuit rustled as she sat gingerly on the edge of the nearest chair.
+Was she really going to do this?
+For all she knew,
+she would just wind up unconscious like Captain Leung.
+
+"I'll do it,"
+Sindy said,
+lifting the helmet off the back of the third seat
+and then sitting down with it in his arms.
+"I helped 'em beat Central and Patient last time.
+Oughta be easier now that it's just one of 'em."
+
+"Maybe,"
+Violet said,
+sitting back in her own chair.
+
+Sindy raised her eyebrows.
+"Do you have a better idea?"
+
+"I don't know if I'd call it better,"
+Violet replied,
+then lifted the helmet from her chair
+and snugged it into place on her head.
 
 </section>
