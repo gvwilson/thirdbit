@@ -4387,4 +4387,157 @@ Violet replied,
 then lifted the helmet from her chair
 and snugged it into place on her head.
 
+*"It's different for everyone,"
+Doctor Szego's voice said in Violet's ear.
+The pod's lid was open,
+and the doctor had already dimmed the room's lights,
+but Violet wasn't ready to go back into frozen sleep.
+She had started wondering if she might never wake up,
+and if not,
+whether she would realize that she wasn't going to.
+One thought had led to another,
+and then to questions.*
+
+*"Not completely different," the doctor continued patiently.
+"Someone might see something as bluish-green when you see it as greenish-blue,
+or find something salty when you find it bland.
+The important things stay the same, though.
+Places, events, what people say—those have to be created before your brain can interpret them.
+It's only the details that vary."*
+
+That answer had satisfied her younger self enough
+for her to say thank you and good night.
+She hadn't thought much about the "how" of virtual since then,
+but her question and Doctor Szego's answer came rushing back
+when she found herself standing
+in a room that looked exactly like the one she had just been in,
+except spotless and empty.
+
+The half-glass wall was in the same place,
+with a gap where the door had been.
+The double doors between the outer room and the corridor were gone as well.
+So were the light panels, she realized.
+She could see perfectly well,
+but had no idea where the light was coming from.
+
+Something creaked behind her.
+She whirled around.
+The concrete wall creaked again, bulging out slightly.
+She didn't know what it was,
+but something told her it wasn't good.
+
+Violet ran to the double doors.
+Here in virtual,
+the keypad was just an angled outcrop of concrete.
+There was nowhere to put her palm and no keys to press.
+She tried both just in case,
+then used one of the words Captain Leung wasn't supposed to use around her
+when nothing happened.
+
+The wall behind her creaked again.
+She glanced over her shoulder just as the concrete cracked.
+A mechanical tentacle extruded itself
+and began groping around the wall.
+It was Patient,
+or at least something with the same arms as it.
+She had to hurry.
+
+The keypad on the outer side of the door was just as useless as the one inside.
+*Think,* she told herself,
+trying to be calm the way Sindy seemed to manage.
+Wait—were the doors actually there?
+She slid her hand into the narrow gaps in the wall
+that they slid into.
+Her fingertips met no resistance.
+Either the doors were too deep for her to reach,
+or they were missing entirely.
+
+The crack in the wall of the lab opened wider.
+A second tentacle emerged.
+Violet hesitated only a moment before running down the corridor,
+back the way they had come.
+All the intersections were gone,
+and so were the numbered doors.
+
+She reached the stairs up to the farmhouse in what felt like seconds,
+clambered up them two at a time,
+and stopped abruptly at the top.
+The inside of the farmhouse was as clean as the lab had been,
+and just as empty except for a square pillar the same height as
+the lab's double doors.
+A matching pair of keypads stuck out from opposite sides of it.
+
+Did both control the double doors in the real world?
+Did neither?
+Or would one let them out and the other trap them?
+As she dithered,
+she heard the sound of mechanical feet
+echoing out of the hole in the floor.
+*Eeny meeny miney mo,* she thought,
+and pressed her hand on the nearest keypad.
+
+*blink*
+One moment the farmhouse was empty.
+The next,
+a see-through image floated in mid-air.
+It was the ark,
+still lying in the swamp,
+with some of Sindy's 'brid friends still standing guard nearby.
+At least there was no sign of giant tentacles.
+
+But wait:
+there was a timer counting down near the ark.
+Just before it reached zero,
+something arced through the sky to hit the giant ship.
+Her hand flew to her mouth as the scene shattered.
+`simulation complete: 100% success`
+took the place of the timer,
+and then it reset to three hours and started counting down again.
+
+Violet felt like she was going to throw up.
+Was Patient going to blow up the ark?
+Everyone she knew was on board!
+
+She pressed her hand firmly on the other keypad.
+The image of the ark disappeared,
+to be replaced by a black-and-white depiction of the lab,
+complete with her and Captain Leung in chairs
+and Sindy and Mouse nearby.
+The double doors flashed twice, then opened.
+She had done it!
+
+A tentacle came out of the hole in the floor.
+The ladder creaked beneath something heavy.
+"Found you," hissed a familiar, frightening voice.
+
+Violet closed her eyes and *pushed*.
+
+When she opened them she was back in the lab.
+"You did it!" Sindy said,
+immediately followed by, "Ew!"
+as Violet bent over the chair's arm and threw up on the floor.
+
+"Sorry,"
+Violet mumbled.
+She waited a moment to see if she was going to throw up again,
+then spat to get the taste out of her mouth.
+
+"That was pretty stupid of you,"
+Sindy said,
+helping her to her feet.
+"But pretty brave, too."
+
+"Thanks."
+Violet stopped herself from wiping her mouth with the sleeve of her spacesuit,
+then took Sindy's arm.
+"Come on—we have to get out of here."
+
+Sindy nodded at Captain Leung.
+"What about your friend?
+We can't just leave him here."
+
+"We have to,"
+Violet said grimly.
+"We have to get back to the ship or that crazy bot is going to blow it up!"
+
 </section>
