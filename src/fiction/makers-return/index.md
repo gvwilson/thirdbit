@@ -4047,7 +4047,7 @@ She sat back on her haunches.
 "What're you doing here, anyway?"
 
 `rescue you` scrolled across Mouse's screen.
-`Dockety Beevy outside but bad bots too`
+`rescue you from bad bots`
 
 Sindy nodded.
 "I know."
@@ -4292,7 +4292,7 @@ Starting with these two."
 
 <section markdown="1">
 
-## Chapter 16: A Thousand Worlds (Violet)
+## Chapter 16: An Empty world (Violet)
 
 "I must delete them so that I can start over,"
 the bot said.
@@ -4487,12 +4487,16 @@ At least there was no sign of giant tentacles.
 
 But wait:
 there was a timer counting down near the ark.
-Just before it reached zero,
-something arced through the sky to hit the giant ship.
-Her hand flew to her mouth as the scene shattered.
+As she watched,
+Z40 and Z51 marched up to the ark.
+A walkway extended from the ship's side,
+withdrawing again after the two bots were inside.
+
+A moment later the entire scene disappeared in a brilliant flash.
+The viewpoint zoomed out to show the blast wave racing across the entire valley.
+Violet's hand flew to her mouth as
 `simulation complete: 100% success`
-took the place of the timer,
-and then it reset to three hours and started counting down again.
+took the place of the timer.
 
 Violet felt like she was going to throw up.
 Was Patient going to blow up the ark?
@@ -4507,7 +4511,6 @@ The double doors flashed twice, then opened.
 She had done it!
 
 A tentacle came out of the hole in the floor.
-The ladder creaked beneath something heavy.
 "Found you," hissed a familiar, frightening voice.
 
 Violet closed her eyes and *pushed*.
@@ -4537,7 +4540,103 @@ Sindy nodded at Captain Leung.
 We can't just leave him here."
 
 "We have to,"
-Violet said grimly.
-"We have to get back to the ship or that crazy bot is going to blow it up!"
+Violet said,
+swallowing a burp.
+"We have to get back to the ark or that crazy bot is going to blow it up!"
 
 </section>
+
+<section markdown="1">
+
+## Chapter 17: Into the Forest (Sindy)
+
+"What about your friend?"
+Sindy asked.
+"We can't just leave him here."
+
+"We have to,"
+Violet said a little unsteadily.
+"We have to get back to the ark or that crazy bot is going to blow it up!"
+
+"What? How?"
+Sindy demanded.
+
+"He's going to use Z40 and Z51 to get on board
+except they're going to be carrying bombs or something,
+I don't know about that part,
+but they're going to blow up *inside* the ark,"
+Violet explained in rush.
+"And if that happens the ship's engine will blow up too
+and destroy *everything*!"
+
+Sindy only hesitated for a moment.
+"Aright.
+We'll come back for him later."
+*If there __is__ a later,* she added mentally.
+Why did things like this keep happening to her?
+
+She and Violet raced back through the corridor.
+Mouse zipping along behind them at top speed,
+tipping onto two wheels at corners.
+"Need help," it said when they reached the stairs.
+Sindy scooped up and took the steps two at a time.
+
+"Wait!" she said as Violet rushed for the door.
+She tiptoed to the empty window beside it and peeked around the edge of the frame.
+The shadows had grown longer,
+but other than that everything looked the same.
+She nodded at Violet.
+"Let's go."
+
+"Where?" Violet asked.
+"We can't fly the shuttle."
+
+"I know."
+Sindy took a deep breath.
+"I have a plan,
+but you aren't gonna like it."
+
+She crouched down.
+"Mouse?
+I need you to take us to the Tailor."
+
+She explained breathlessly once they were in the trees.
+How the Tailor had made a suit for Gumption that made bots think he was another bot.
+How it had taken in some of the bots from Heck after Central shut down,
+ones that didn't want to be as close to people as Dockety
+and the others who had settled in Bots' End.
+
+"Wait," Violet puffed.
+"It makes mods to other bots?
+On its own?
+That's crazy!"
+
+Sindy ducked under a juniper branch.
+The path Mouse was leading them on was little more than a suggestion in places,
+and she had to watch where she stepped to avoid twisting her ankle.
+"Why?
+They pretty much all fix themselves up.
+Mouse here gave itself a voice box just a few months ago,
+didn't you?"
+
+"But thats dangerous!"
+Violet protested.
+"That's how the bot rising started.
+Bots started modding themselves in all sorts of ways and,
+and changing their programming,
+and then nobody could control them any longer!"
+
+Sindy slowed to a walk and rubbed the stitch forming in her side.
+"Nobody controls bots like Dockety and Mouse,"
+she panted.
+"They're their own people.
+Only ones who didn't think that were Central and Patient,
+and they were bad guys."
+
+The look on Violet's face told her that the other girl wasn't convinced.
+"Come on," Sindy said,
+hurrying into a trot once again.
+"You'll see when we get there."
+
+</section>
+
