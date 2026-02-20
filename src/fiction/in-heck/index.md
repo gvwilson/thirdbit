@@ -3414,7 +3414,7 @@ but even that wasn't right.
 One hummed,
 another clicked,
 and another went *brr* at just the right moment
-for the sounds the made to form words
+for the sounds they made to form words
 that came from everywhere and nowhere in particular.
 
 "We're looking for a friend of ours,"

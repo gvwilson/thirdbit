@@ -4636,7 +4636,53 @@ and they were bad guys."
 The look on Violet's face told her that the other girl wasn't convinced.
 "Come on," Sindy said,
 hurrying into a trot once again.
-"You'll see when we get there."
+"You'll see when we get to the Tailor's, um, place."
+It didn't seem the right time to mention
+that Sindy had never been their herself.
+
+They never reached it.
+Instead,
+they followed Mouse around the end of a crumbling stone wall
+and found themselves face-to-face with a semi-circle of a dozen patchwork bots.
+One had what looked like mechanical shears for a head.
+Another seemed to be a tube with dozens of tiny legs on each side,
+each one ending in a small brush.
+
+Mouse stopped and flashed rapid patterns at them,
+bleeping and warbling as it did so.
+"Just wait,"
+Sindy whispered,
+putting her hand on Violet's arm
+to stop the other girl from speaking.
+
+"So this is a Maker?"
+The wild bots all spoke as one,
+but that wasn't quite right.
+One bot hummed,
+another clicked,
+and another went *brr* at just the right moment
+so that the sounds they made formed words
+that came from all of them together.
+
+"Yes,"
+Mouse said in its deep voice.
+
+Sindy and Violet both took a step backward
+as the centipede bot rippled forward
+and reared up to study them through a small telescoping lens.
+Sindy tightened her grip on Violet's arm.
+"I'm all right," Violet whispered,
+pulling free.
+"There's all sorts of bots on the ark."
+
+The centipede bot dropped back to the ground
+and wove through the grass and weeds back to its group.
+"What do you require?" the wild bots asked.
+
+"We need to speak to the Tailor,"
+Sindy said.
+"Patient is back,
+and is going to try to blow up the Makers' ark.
+We need to warn—well, everyone."
 
 </section>
-
