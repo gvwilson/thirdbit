@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conflict-Free Replicated Data Types</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav>
+<a href="../">Home</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../intro/">Introduction</a>
+<a href="../msgque/">A Publish-Subscribe Message Queue</a>
+<a href="../worksteal/">A Work-Stealing Scheduler</a>
+<a href="../tracing/">Distributed Tracing</a>
+<a href="../crdt/">Conflict-Free Replicated Data Types</a>
+<a href="../finale/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contributing/">Contributing</a>
+<a href="../bibliography/">Bibliography</a>
+<a href="../glossary/">Glossary</a>
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>Conflict-Free Replicated Data Types</h1>
+<p class="subtitle">scalable data structures</p>
+<p>When multiple people edit an online document simultaneously,
+the system ensures everyone eventually sees the same content.
+Similarly,
+when one person edits a document offline and the reconnects,
+their changes are merged into the online version.
+Traditional approaches to managing this require locking or complex transformations.
+<a href="../glossary/#crdt">Conflict-Free Replicated Data Types</a> (CRDTs),
+on the other hand,
+are designed so that concurrent updates on different replicas
+can always be merged automatically without conflicts,
+and all replicas eventually converge to the same state.
+Updates are always accepted immediately,
+and no locking or consensus protocol is needed.</p>
+<p>CRDTs guarantee <a href="../glossary/#strong-eventual-consistency">strong eventual consistency</a>,
+which means three things:</p>
+<ol>
+<li>Eventual delivery: every update reaches every replica eventually.</li>
+<li>Convergence: replicas that have received the same updates are in the same state.</li>
+<li>No conflicts: concurrent updates can always be merged automatically.</li>
+</ol>
+<p>The insight that CRDTs rely on
+is that some operations are <a href="../glossary/#commutativity">commutative</a> and <a href="../glossary/#associativity">associative</a>.
+The first property means that order doesn't matter,
+i.e., that A+B = B+A.
+The second means that group doesnt' matter,
+so (A+B)+C = A+(B+C).
+If the merge operation for the data type has these properties,
+replicas can receive updates in any order and still converge to the same state.
+Some approaches to implementing CRDTs also require operations to be <a href="../glossary/#idempotent">idempotent</a>,
+which means that the operation can be applied any number of times
+with the same cumulative effect
+(just as zero can be added to a number over and over).</p>
+<p>There are two approaches to building CRDTs.
+In a <a href="../glossary/#state-based-crdt">state-based CRDT</a>,
+replicas send their entire state and merge those states.
+State-based CRDTs are simpler to reason about,
+but have higher network cost because the entire state must be sent for each operation.
+They also require merge operations to be commutative, associate, <em>and</em> idempotent.</p>
+<p>In contrast,
+the replicas in <a href="../glossary/#op-based-crdt">operation-based CRDTs</a> send each other <em>changes</em> in state
+(sometimes called <a href="../glossary/#delta">deltas</a>).
+This reduces the network overhead,
+but requires exactly-once delivery of operations.
+Those operations must commute,
+but needn't be idempotent.
+We will implement both approaches to understand the trade-offs.</p>
+<h2 id="dxdx-lww">Last-Write-Wins Register</h2>
+<p>Let's start with the simplest CRDT:
+a <a href="../glossary/#lww-register">last-write-wins register</a>.
+For values that should be overwritten (like a user's profile name),
+we can use timestamps to determine which write wins.</p>
+<div data-filter="inc=lww" data-inc="lwwregister.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LWWRegister</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Last-Write-Wins register (state-based CRDT)."""</span>
+
+    <span class="n">value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Set the value with a timestamp."""</span>
+        <span class="c1"># Use timestamp to break ties, replica_id for determinism</span>
+        <span class="k">if</span> <span class="n">timestamp</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">timestamp</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="ow">and</span> <span class="n">replica_id</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">timestamp</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span> <span class="o">=</span> <span class="n">replica_id</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">"LWWRegister"</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Merge another register (keep higher timestamp)."""</span>
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">other</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="ow">and</span> <span class="n">other</span><span class="o">.</span><span class="n">replica_id</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">timestamp</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">replica_id</span>
+</code></pre></div>
+</div>
+<p>To see how this works,
+consider three replicas that randomly choose color values to share with peers:</p>
+<div data-filter="inc=replica" data-inc="ex_lwwregister.py"><div class="codehilite"><pre class=""><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
+<span class="n">VALUES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"green"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"yellow"</span><span class="p">]</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""A replica that writes to its local register and syncs with peers."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">register</span><span class="p">,</span> <span class="n">peers</span><span class="p">,</span> <span class="n">write_interval</span><span class="p">,</span> <span class="n">sync_interval</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register</span> <span class="o">=</span> <span class="n">register</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peers</span> <span class="o">=</span> <span class="n">peers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_interval</span> <span class="o">=</span> <span class="n">write_interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span> <span class="o">=</span> <span class="n">sync_interval</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Alternate between local writes and syncing with a random peer."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># Write a random value using simulation time as the timestamp.</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">VALUES</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: set '</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">write_interval</span><span class="p">)</span>
+
+            <span class="c1"># Sync with a random peer.</span>
+            <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">peer</span><span class="o">.</span><span class="n">register</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">register</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>If we run three replicas for 10 timesteps,
+the output is:</p>
+<div data-inc="ex_lwwregister.txt"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: set 'yellow'
+[0] Baemi: set 'yellow'
+[0] Chiti: set 'yellow'
+[2] Ahmed: synced with Chiti -&gt; 'yellow'
+[2] Baemi: synced with Ahmed -&gt; 'yellow'
+[2] Chiti: synced with Ahmed -&gt; 'yellow'
+[5] Ahmed: set 'yellow'
+[5] Baemi: set 'yellow'
+[5] Chiti: set 'green'
+[7] Ahmed: synced with Baemi -&gt; 'yellow'
+[7] Baemi: synced with Chiti -&gt; 'green'
+[7] Chiti: synced with Ahmed -&gt; 'green'
+[10] Ahmed: set 'red'
+[10] Baemi: set 'red'
+[10] Chiti: set 'green'
+
+--- Final State
+Ahmed: LWWRegister(value=red, ts=10.00)
+Baemi: LWWRegister(value=red, ts=10.00)
+Chiti: LWWRegister(value=green, ts=10.00)
+</code></pre></div>
+</div>
+<p>Chiti's final value is different because all three replicas wrote at time 10:
+Ahmed and Baemi set "red", while Chiti set "green".
+Since they all have the same timestamp,
+the register breaks ties by comparing replica IDs.
+If the simulation ran a little longer,
+all three copies would converg on "green"
+because Chiti &gt; Baemi &gt; Ahmed alphabetically.</p>
+<p>An LWW-Register has a weakness:
+concurrent writes to the same register result in one being lost
+(either the one with the earlier timestamp or with the lower replica ID).
+This is acceptable for some use cases (like "last edit wins" in a profile),
+but not for others.
+The key trade-off is simplicity versus data preservation.
+An LWW register never produces a conflict that needs manual resolution,
+but it also never preserves both sides of a concurrent update.
+This makes it a poor fit for situations where losing a write is costly,
+such as a shared to-do list where two people add items at the same time.</p>
+<h2 id="crdt-counter">Counters</h2>
+<p>Another CRDT is a <a href="../glossary/#grow-only-counter">grow-only counter</a>
+whose value can only increase.
+Each replica maintains a vector of counters, one per replica:</p>
+<div data-filter="inc=gcounter" data-inc="gcounter.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GCounter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Grow-only counter (state-based CRDT)."""</span>
+
+    <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">counts</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Increment this replica's counter."""</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">current</span> <span class="o">+</span> <span class="n">amount</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the total count across all replicas."""</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">"GCounter"</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Merge another counter's state by taking the max of each replica."""</span>
+        <span class="n">all_replicas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">counts</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">all_replicas</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="p">[</span><span class="n">replica</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">replica</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">other</span><span class="o">.</span><span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">replica</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"GCounter"</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create a copy of this counter."""</span>
+        <span class="k">return</span> <span class="n">GCounter</span><span class="p">(</span><span class="n">replica_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span><span class="p">,</span> <span class="n">counts</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<p>The G-Counter works by having each replica only modify its own entry in the vector.
+When merging,
+we take the maximum of each entry.
+This operation is commutative, associative, and idempotent,
+which guarantees convergence.</p>
+<p>A G-Counter solves the problem of counting across multiple replicas that can't always communicate.
+Imagine three servers tracking how many times a button has been clicked.
+Users hit whichever server is nearest, and the servers sync up when they can.
+A naive approach is to have each server keep a single integer and share its value with the other two,
+but this breaks because there's no way to tell whether a value Ahmed receives from Baemi
+already includes Ahmed's updates or not.</p>
+<p>In a G-Counter,
+each replica only increments its own entry:
+for example,
+Ahmed's server only ever touches <code>counts["Ahmed"]</code>.
+This ensures that there's never a conflict because no two replicas write to the same slot.
+When replicas sync,
+they can safely take the <code>max</code> of each slot,
+because a higher value always means that replica has done more increments.
+<code>max</code> is idempotent (applying the same sync twice is harmless),
+commutative (order doesn't matter),
+and associative (grouping doesn't matter),
+which makes it suitable for a CRDT.</p>
+<p>It's important to note that the overall value of the G-Counter is the sum of the individual values,
+not their maximum or any single local value.
+Again,
+each slot tracks how many increments that specific replica has performed,
+so the total is how many increments have happened across all replicas.</p>
+<p>To make it concrete, consider this output:</p>
+<div class="codehilite"><pre class=""><span></span><code><span class="n">Ahmed</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
+<span class="n">Baemi</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
+<span class="n">Chiti</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">7</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Chiti'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
+</code></pre></div>
+<p>Ahmed and Baemi have synced with each other,
+so they agree,
+but neither has synced recently with Chiti.
+Chiti has synced with them, though,
+so Chiti's view is more complete.
+Once all three sync,
+they'll all converge to:</p>
+<div class="codehilite"><pre class=""><span></span><code>counts={'Ahmed': 3, 'Baemi': 3, 'Chiti': 3}`
+</code></pre></div>
+<p>with the value 9.
+No increments are lost, regardless of sync order or timing.</p>
+<p>A grow-only counter is limited.
+What if we want to be able to decrement the value?
+A <a href="../glossary/#pn-counter">positive-negative counter</a>, or PN-Counter, uses two G-Counters:
+one for increments, one for decrements.
+This works because increments and decrements are tracked separately.
+Each remains monotonically increasing, so the G-Counter merge properties still apply.</p>
+<div data-filter="inc=pncounter" data-inc="pncounter.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PNCounter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Positive-Negative counter supporting increment and decrement."""</span>
+
+    <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">increments</span><span class="p">:</span> <span class="n">GCounter</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">GCounter</span><span class="p">(</span><span class="s2">""</span><span class="p">))</span>
+    <span class="n">decrements</span><span class="p">:</span> <span class="n">GCounter</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">GCounter</span><span class="p">(</span><span class="s2">""</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">increments</span><span class="o">.</span><span class="n">replica_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decrements</span><span class="o">.</span><span class="n">replica_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Increment the counter."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">increments</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">decrement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Decrement the counter."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decrements</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the current value (increments - decrements)."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">increments</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">decrements</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">"PNCounter"</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Merge another counter's state."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">increments</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">increments</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decrements</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">decrements</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"PNCounter"</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create a copy of this counter."""</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">PNCounter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">increments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">increments</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">decrements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decrements</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+</div>
+<h2 id="crdt-orset">Observed-Remove Set (OR-Set)</h2>
+<p>Sets are trickier to implement than counters.
+If Ahmed adds X and Baemi removes X concurrently, should X be in the final set?</p>
+<p>The OR-Set uses unique tags to track which adds have been observed by which removes.
+The key idea is that an element is in the set if there is an add tag that hasn't been removed.
+This gives "add-wins" semantics:
+concurrent add and remove operations result in the element being present.</p>
+<div data-filter="inc=orset" data-inc="orset.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ORSet</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Observed-Remove Set (state-based CRDT)."""</span>
+
+    <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">elements</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>  <span class="c1"># element -&gt; set of unique tags</span>
+    <span class="n">tag_counter</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Add an element with a unique tag."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tag_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tag_counter</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">element</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tag</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Remove an element (removes all observed tags)."""</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">element</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check if element is in the set."""</span>
+        <span class="k">return</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">element</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Get the current set of elements."""</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">elem</span> <span class="k">for</span> <span class="n">elem</span><span class="p">,</span> <span class="n">tags</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">tags</span><span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">"ORSet"</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Merge another set's state."""</span>
+        <span class="c1"># Union of all tags for each element</span>
+        <span class="n">all_elements</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">all_elements</span><span class="p">:</span>
+            <span class="n">self_tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+            <span class="n">other_tags</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+            <span class="n">merged_tags</span> <span class="o">=</span> <span class="n">self_tags</span> <span class="o">|</span> <span class="n">other_tags</span>
+            <span class="k">if</span> <span class="n">merged_tags</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_tags</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"ORSet"</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create a copy of this set."""</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">ORSet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">elements</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">tag_counter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tag_counter</span>
+        <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+</div>
+<p>This example shows an OR-set in operation:</p>
+<div data-filter="inc=replica" data-inc="ex_orset.py"><div class="codehilite"><pre class=""><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
+<span class="n">ITEMS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"cherry"</span><span class="p">]</span>
+<span class="n">P_REMOVE</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""A replica that adds/removes items and syncs with peers."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">orset</span><span class="p">,</span> <span class="n">peers</span><span class="p">,</span> <span class="n">update_interval</span><span class="p">,</span> <span class="n">sync_interval</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orset</span> <span class="o">=</span> <span class="n">orset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peers</span> <span class="o">=</span> <span class="n">peers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_interval</span> <span class="o">=</span> <span class="n">update_interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span> <span class="o">=</span> <span class="n">sync_interval</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Alternate between local updates and syncing with a random peer."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># Add or remove an item.</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">ITEMS</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="ow">and</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">P_REMOVE</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: remove '</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">' -&gt; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: add '</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">' -&gt; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_interval</span><span class="p">)</span>
+
+            <span class="c1"># Sync with a random peer.</span>
+            <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">peer</span><span class="o">.</span><span class="n">orset</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_orset.txt"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: add 'banana' -&gt; ['banana']
+[0] Baemi: add 'banana' -&gt; ['banana']
+[0] Chiti: add 'cherry' -&gt; ['cherry']
+[2] Ahmed: synced with Chiti -&gt; ['banana', 'cherry']
+[2] Baemi: synced with Chiti -&gt; ['banana', 'cherry']
+[2] Chiti: synced with Ahmed -&gt; ['banana', 'cherry']
+[5] Ahmed: add 'apple' -&gt; ['apple', 'banana', 'cherry']
+[5] Baemi: add 'cherry' -&gt; ['banana', 'cherry']
+[5] Chiti: add 'banana' -&gt; ['banana', 'cherry']
+[7] Ahmed: synced with Baemi -&gt; ['apple', 'banana', 'cherry']
+[7] Baemi: synced with Chiti -&gt; ['banana', 'cherry']
+[7] Chiti: synced with Ahmed -&gt; ['apple', 'banana', 'cherry']
+[10] Ahmed: remove 'apple' -&gt; ['banana', 'cherry']
+[10] Baemi: add 'apple' -&gt; ['apple', 'banana', 'cherry']
+[10] Chiti: add 'cherry' -&gt; ['apple', 'banana', 'cherry']
+
+--- Final State
+Ahmed: ['banana', 'cherry']
+Baemi: ['apple', 'banana', 'cherry']
+Chiti: ['apple', 'banana', 'cherry']
+</code></pre></div>
+</div>
+<h2 id="crdt-op">Operation-Based CRDTs</h2>
+<p>While state-based CRDTs send the full state between replicas
+operation-based CRDTs send just the operations.
+Let's implement an operation-based counter
+by defining a dataclass to represent a single operation:</p>
+<div data-filter="inc=op" data-inc="opbased_counter.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Operation</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""An operation on a CRDT."""</span>
+
+    <span class="n">op_type</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+</div>
+<p>and then a class to use it:</p>
+<div data-filter="inc=counter" data-inc="opbased_counter.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">OpBasedCounter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Operation-based PN-Counter."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span> <span class="o">=</span> <span class="n">replica_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">applied_ops</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># For deduplication</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Operation</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create increment operation."""</span>
+        <span class="k">return</span> <span class="n">Operation</span><span class="p">(</span><span class="n">op_type</span><span class="o">=</span><span class="s2">"increment"</span><span class="p">,</span> <span class="n">replica_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="n">amount</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">decrement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Operation</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create decrement operation."""</span>
+        <span class="k">return</span> <span class="n">Operation</span><span class="p">(</span><span class="n">op_type</span><span class="o">=</span><span class="s2">"decrement"</span><span class="p">,</span> <span class="n">replica_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">replica_id</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="n">amount</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">:</span> <span class="n">Operation</span><span class="p">,</span> <span class="n">op_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Apply an operation if not already applied."""</span>
+        <span class="k">if</span> <span class="n">op_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">applied_ops</span><span class="p">:</span>
+            <span class="k">return</span>  <span class="c1"># Already applied, skip (idempotence)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">applied_ops</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">op_id</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">op</span><span class="o">.</span><span class="n">op_type</span> <span class="o">==</span> <span class="s2">"increment"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="n">op</span><span class="o">.</span><span class="n">amount</span>
+        <span class="k">elif</span> <span class="n">op</span><span class="o">.</span><span class="n">op_type</span> <span class="o">==</span> <span class="s2">"decrement"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">-=</span> <span class="n">op</span><span class="o">.</span><span class="n">amount</span>
+</code></pre></div>
+</div>
+<p>Operation-based CRDTs require reliable broadcast
+to ensure that every operation reaches every replica exactly once.
+In practice,
+this means tracking which operations have been delivered and handling duplicates,
+which is what the <code>applied_ops</code> member of the <code>OpBasedCounter</code> class above does.</p>
+<p>The <code>Replica</code> class below exercises this counter:</p>
+<div data-filter="inc=replica" data-inc="ex_opbased_counter.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""A replica that creates operations and broadcasts them to peers."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">peer_record</span><span class="p">,</span> <span class="n">all_peers</span><span class="p">,</span> <span class="n">interval</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span> <span class="o">=</span> <span class="n">peer_record</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span> <span class="o">=</span> <span class="n">all_peers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="n">interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Create operations, apply locally, and broadcast to peers."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># Create an operation.</span>
+            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">P_DECREMENT</span><span class="p">:</span>
+                <span class="n">op</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">decrement</span><span class="p">()</span>
+                <span class="n">label</span> <span class="o">=</span> <span class="s2">"decrement"</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">op</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+                <span class="n">label</span> <span class="o">=</span> <span class="s2">"increment"</span>
+
+            <span class="c1"># Generate a unique ID and apply locally.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">op_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">op_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">op_counter</span><span class="si">}</span><span class="s2">"</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">op_id</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+            <span class="c1"># Broadcast to all peers' inboxes.</span>
+            <span class="k">for</span> <span class="n">peer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">peer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="p">:</span>
+                    <span class="n">peer</span><span class="o">.</span><span class="n">inbox</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">op</span><span class="p">,</span> <span class="n">op_id</span><span class="p">))</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+
+            <span class="c1"># Process any operations received from peers.</span>
+            <span class="k">for</span> <span class="n">op</span><span class="p">,</span> <span class="n">op_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="o">.</span><span class="n">inbox</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">op_id</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="o">.</span><span class="n">inbox</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: applied inbox -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Unlike the state-based examples that sync by merging full state,
+each replica creates an increment or decrement operation with a unique ID,
+applies it locally,
+and then broadcasts it to all the other replicates.
+The replica then drains its inbox and applies received operations,
+skipping duplicates via <code>op_id</code>.
+As the output below shows,
+all replicas converge to the same value
+because every operation is delivered to every replica exactly once:</p>
+<div data-inc="ex_opbased_counter.txt"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: increment -&gt; 1
+[0] Baemi: increment -&gt; 1
+[0] Chiti: increment -&gt; 1
+[2] Ahmed: applied inbox -&gt; 3
+[2] Baemi: applied inbox -&gt; 3
+[2] Chiti: applied inbox -&gt; 3
+[4] Ahmed: decrement -&gt; 2
+[4] Baemi: decrement -&gt; 2
+[4] Chiti: increment -&gt; 4
+[6] Ahmed: applied inbox -&gt; 2
+[6] Baemi: applied inbox -&gt; 2
+[6] Chiti: applied inbox -&gt; 2
+[8] Ahmed: increment -&gt; 3
+[8] Baemi: decrement -&gt; 1
+[8] Chiti: decrement -&gt; 1
+[10] Ahmed: applied inbox -&gt; 1
+[10] Baemi: applied inbox -&gt; 1
+[10] Chiti: applied inbox -&gt; 1
+
+--- Final State
+OpCounter(id=Ahmed, value=1)
+OpCounter(id=Baemi, value=1)
+OpCounter(id=Chiti, value=1)
+</code></pre></div>
+</div>
+<h2 id="crdt-partition">Network Partition Simulation</h2>
+<p>A <a href="../glossary/#network-partition">network partition</a> happens
+when nodes in a distributed system temporarily can't communicate,
+which causes them to form isolated groups.
+As a result,
+messages sent from one part of the system may not reach another,
+effectively splitting the system into disconnected segments.</p>
+<p>One of CRDTs' key benefits is <a href="../glossary/#partition-tolerance">partition tolerance</a>.
+Let's simulate a network partition using the <code>GCounter</code> class defined earlier.
+First,
+we create a simple dataclass to represent peers in the network:</p>
+<div data-filter="inc=peer" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Peer</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">counter</span><span class="p">:</span> <span class="n">GCounter</span>
+    <span class="n">partitioned_from</span><span class="p">:</span> <span class="nb">set</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">set</span><span class="p">)</span>
+<span class="c1"># mccole</span>
+
+
+<span class="c1"># mccole: replica</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""A replica that increments and syncs, respecting partitions."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">peer_record</span><span class="p">,</span> <span class="n">all_peers</span><span class="p">,</span> <span class="n">interval</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span> <span class="o">=</span> <span class="n">peer_record</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span> <span class="o">=</span> <span class="n">all_peers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="n">interval</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: increment -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+
+            <span class="c1"># Try to sync with a random peer.</span>
+            <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">peer</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="o">.</span><span class="n">partitioned_from</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: cannot reach </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">peer</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+<span class="c1"># mccole: /replica</span>
+
+
+<span class="c1"># mccole: partition</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PartitionController</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Create and heal a network partition between two peers."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">peer_a</span><span class="p">,</span> <span class="n">peer_b</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span> <span class="o">=</span> <span class="n">peer_a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span> <span class="o">=</span> <span class="n">peer_b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** partition: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;-/-&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** healed: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;---&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># mccole: /partition</span>
+
+
+<span class="c1"># mccole: sim</span>
+<span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_simulation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Show that GCounters converge after a partition heals."""</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+    <span class="n">peers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Peer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">GCounter</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">NAMES</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">peers</span><span class="p">:</span>
+        <span class="n">Replica</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">counter</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">peers</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Partition Ahmed from Baemi between time 3 and time 8.</span>
+    <span class="n">PartitionController</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">peers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">peers</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Final State"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">peers</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+<span class="c1"># mccole: /sim</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">run_simulation</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<p>Next,
+we define a <code>Replica</code> process that repeatedly tries to synchronize
+with a randomly-selected peer:</p>
+<div data-filter="inc=replica" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""A replica that increments and syncs, respecting partitions."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">peer_record</span><span class="p">,</span> <span class="n">all_peers</span><span class="p">,</span> <span class="n">interval</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span> <span class="o">=</span> <span class="n">peer_record</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span> <span class="o">=</span> <span class="n">all_peers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="n">interval</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: increment -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+
+            <span class="c1"># Try to sync with a random peer.</span>
+            <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">peer</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="o">.</span><span class="n">partitioned_from</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: cannot reach </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">peer</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>We then create a partition controller that creates and heals a partition:</p>
+<div data-filter="inc=partition" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PartitionController</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Create and heal a network partition between two peers."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">peer_a</span><span class="p">,</span> <span class="n">peer_b</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span> <span class="o">=</span> <span class="n">peer_a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span> <span class="o">=</span> <span class="n">peer_b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** partition: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;-/-&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** healed: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;---&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Finally,
+we create three replicas and force a break in the network
+at a particular time and for a particular duration:</p>
+<div data-filter="inc=sim" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_simulation</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Show that GCounters converge after a partition heals."""</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+    <span class="n">peers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Peer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">GCounter</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">NAMES</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">peers</span><span class="p">:</span>
+        <span class="n">Replica</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">counter</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">peers</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Partition Ahmed from Baemi between time 3 and time 8.</span>
+    <span class="n">PartitionController</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">peers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">peers</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Final State"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">peers</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>As the output shows,
+the counter recovers from the partitioning:</p>
+<div data-inc="ex_partition.txt"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: increment -&gt; 1
+[0] Baemi: increment -&gt; 1
+[0] Chiti: increment -&gt; 1
+[2] Ahmed: synced with Chiti -&gt; 2
+[2] Baemi: synced with Chiti -&gt; 2
+[2] Chiti: synced with Baemi -&gt; 2
+[3] *** partition: Ahmed &lt;-/-&gt; Baemi
+[4] Ahmed: increment -&gt; 3
+[4] Baemi: increment -&gt; 3
+[4] Chiti: increment -&gt; 3
+[6] Ahmed: synced with Chiti -&gt; 5
+[6] Baemi: cannot reach Ahmed
+[6] Chiti: synced with Ahmed -&gt; 5
+[8] Ahmed: increment -&gt; 6
+[8] Baemi: increment -&gt; 4
+[8] Chiti: increment -&gt; 6
+[10] Ahmed: synced with Chiti -&gt; 7
+[10] Baemi: synced with Chiti -&gt; 8
+[10] Chiti: synced with Ahmed -&gt; 7
+[11] *** healed: Ahmed &lt;---&gt; Baemi
+[12] Ahmed: increment -&gt; 8
+[12] Baemi: increment -&gt; 9
+[12] Chiti: increment -&gt; 8
+[14] Ahmed: synced with Baemi -&gt; 11
+[14] Baemi: synced with Chiti -&gt; 11
+[14] Chiti: synced with Ahmed -&gt; 12
+
+--- Final State
+GCounter(id=Ahmed, value=11, counts={'Ahmed': 4, 'Chiti': 3, 'Baemi': 4})
+GCounter(id=Baemi, value=11, counts={'Baemi': 4, 'Chiti': 4, 'Ahmed': 3})
+GCounter(id=Chiti, value=12, counts={'Chiti': 4, 'Baemi': 4, 'Ahmed': 4})
+</code></pre></div>
+</div>
+<h2 id="crdt-exercises">Exercises</h2>
+<p>FIXME: add exercises.</p>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../tracing/">Distributed Tracing</a>
+</div>
+<div class="col-6 center">
+<a href="../"></a>
+	  © 2025
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale/">Conclusion</a> ⇒
+	</div>
+</div>
+</footer>
+</body>
+</html>

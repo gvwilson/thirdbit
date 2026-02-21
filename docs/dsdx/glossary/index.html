@@ -20,6 +20,7 @@
 <a href="../msgque/">A Publish-Subscribe Message Queue</a>
 <a href="../worksteal/">A Work-Stealing Scheduler</a>
 <a href="../tracing/">Distributed Tracing</a>
+<a href="../crdt/">Conflict-Free Replicated Data Types</a>
 <a href="../finale/">Conclusion</a>
 </span>
 </span>
@@ -40,6 +41,10 @@
 <h1>Glossary</h1>
 <h2>A</h2>
 <dl>
+<dt><span id="associativity">associativity</span></dt>
+<dd>FIXME</dd>
+<dt><span id="async-context-vars">async context variables</span></dt>
+<dd>FIXME</dd>
 <dt><span id="at-least-once">at-least-once delivery</span></dt>
 <dd>Message delivery guarantee ensuring every message is delivered one or more times.
 Requires acknowledgments and message redelivery on failure but may result in duplicates.</dd>
@@ -63,6 +68,10 @@ when downstream components cannot keep up.</dd>
 <dl>
 <dt><span id="cache-miss">cache miss</span></dt>
 <dd>FIXME</dd>
+<dt><span id="commutativity">commutativity</span></dt>
+<dd>FIXME</dd>
+<dt><span id="crdt">conflict-free replicated data type</span> (CRDT)</dt>
+<dd>FIXME</dd>
 <dt><span id="consumer-group">consumer group/span&gt;</span></dt>
 <dd>A set of message queue subscribers that share the workload.
 Messages are distributed among group members rather than duplicated to each.</dd>
@@ -76,7 +85,11 @@ so that operations can be correlated in distributed tracing.</dd>
 <dl>
 <dt><span id="dataclass">dataclass</span></dt>
 <dd>FIXME</dd>
+<dt><span id="decorator">decorator</span></dt>
+<dd>FIXME</dd>
 <dt><span id="decoupling">decoupling</span></dt>
+<dd>FIXME</dd>
+<dt><span id="delta">delta</span></dt>
 <dd>FIXME</dd>
 <dt><span id="deque">double-ended queue</span> (deque)</dt>
 <dd>FIXME</dd>
@@ -103,12 +116,19 @@ such as publishing to multiple subscribers or calling multiple services in paral
 <dl>
 <dt><span id="granularity">granulaty</span></dt>
 <dd>FIXME</dd>
+<dt><span id="grow-only-counter">grow-only counter</span></dt>
+<dd>FIXME</dd>
 </dl>
 <h2>H</h2>
 <dl>
 <dt><span id="http-header">HTTP header</span></dt>
 <dd>FIXME</dd>
 <dt><span id="http-status-code">HTTP status code</span></dt>
+<dd>FIXME</dd>
+</dl>
+<h2>I</h2>
+<dl>
+<dt><span id="idempotent">idempotent</span></dt>
 <dd>FIXME</dd>
 </dl>
 <h2>J</h2>
@@ -118,6 +138,8 @@ such as publishing to multiple subscribers or calling multiple services in paral
 </dl>
 <h2>L</h2>
 <dl>
+<dt><span id="lww-register">last-write-wins register</span></dt>
+<dd>FIXME</dd>
 <dt><span id="livelock">livelock</span></dt>
 <dd>FIXME</dd>
 <dt><span id="load-balancing">load balancing</span></dt>
@@ -134,9 +156,20 @@ such as publishing to multiple subscribers or calling multiple services in paral
 <dl>
 <dt><span id="negative-feedback-loop">negative feedback loop</span></dt>
 <dd>FIXME</dd>
+<dt><span id="network-partition">network partition</span></dt>
+<dd>FIXME</dd>
+</dl>
+<h2>O</h2>
+<dl>
+<dt><span id="op-based-crdt">operation-based CRDT</span></dt>
+<dd>FIXME</dd>
 </dl>
 <h2>P</h2>
 <dl>
+<dt><span id="partition-tolerance">partition tolerance</span></dt>
+<dd>FIXME</dd>
+<dt><span id="pn-counter">positive-negative counter</span></dt>
+<dd>FIXME</dd>
 <dt><span id="priority-queue">priority queue</span></dt>
 <dd>FIXME</dd>
 <dt><span id="publish-subscribe">publish-subscribe</span></dt>
@@ -146,6 +179,8 @@ This pattern decouples senders from receivers.</dd>
 </dl>
 <h2>R</h2>
 <dl>
+<dt><span id="root-span">root span</span></dt>
+<dd>FIXME</dd>
 <dt><span id="round-robin-polling">round-robin polling</span></dt>
 <dd>FIXME</dd>
 </dl>
@@ -154,14 +189,26 @@ This pattern decouples senders from receivers.</dd>
 <dt><span id="sampling">sampling</span></dt>
 <dd>Recording only a fraction of traces in distributed tracing
 to reduce overhead and storage requirements.</dd>
+<dt><span id="schema">schema</span></dt>
+<dd>FIXME</dd>
+<dt><span id="singleton">singleton</span></dt>
+<dd>FIXME</dd>
 <dt><span id="span">span</span></dt>
+<dd>FIXME</dd>
+<dt><span id="state-based-crdt">state-based CRDT</span></dt>
+<dd>FIXME</dd>
+<dt><span id="strong-eventual-consistency">strong eventual consistency</span></dt>
 <dd>FIXME</dd>
 </dl>
 <h2>T</h2>
 <dl>
+<dt><span id="thread-local-storage">thread-local storage</span></dt>
+<dd>FIXME</dd>
 <dt><span id="trace">trace</span></dt>
 <dd>The complete journey of a request through a distributed system,
 identified by a unique trace ID and composed of multiple spans forming a tree.</dd>
+<dt><span id="trace-collector">trace collector</span></dt>
+<dd>FIXME</dd>
 </dl>
 <h2>W</h2>
 <dl>
