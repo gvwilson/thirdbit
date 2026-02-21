@@ -4292,7 +4292,7 @@ Starting with these two."
 
 <section markdown="1">
 
-## Chapter 16: An Empty world (Violet)
+## Chapter 16: An Empty World (Violet)
 
 "I must delete them so that I can start over,"
 the bot said.
@@ -4671,9 +4671,11 @@ Sindy and Violet both took a step backward
 as the centipede bot rippled forward
 and reared up to study them through a small telescoping lens.
 Sindy tightened her grip on Violet's arm.
-"I'm all right," Violet whispered,
-pulling free.
-"There's all sorts of bots on the ark."
+"I'm all right," Violet whispered.
+"There's all sorts of bots on the ark.
+I'm not afraid of them."
+But she didn't pull her arm free,
+Sindy noticed.
 
 The centipede bot dropped back to the ground
 and wove through the grass and weeds back to its group.
@@ -4681,8 +4683,156 @@ and wove through the grass and weeds back to its group.
 
 "We need to speak to the Tailor,"
 Sindy said.
-"Patient is back,
-and is going to try to blow up the Makers' ark.
-We need to warn—well, everyone."
+
+"The Tailor is not here,"
+the wild bots said.
+"Would you like to leave a message?"
+
+"No—I mean, yes.
+We need to tell it that Patient is back.
+It's going to blow up the Makers' ark,
+and if it does that,
+it'll blow up *everything!*"
+Mouse buzzed and chirped a staccato confirmation.
+
+The wild bots fell silent.
+Sindy didn't really understand how they were all one mind.
+She had asked Special Leaf if it was like a beehive or an anthill,
+but he had said no,
+they had queens.
+Bots like this were more like a hedge
+where all the plants were twined together,
+or like the neurons in her own brain.
+He had taken a book from his shelves to explain what neurons were,
+and then—
+
+"We have given your message to the Tailor,"
+the wild bots said.
+"It agrees that total destruction is undesirable.
+We will help you.
+We will *all* help you."
+
+The bushes rustled around them.
+More bots emerged:
+big ones and little ones,
+some with legs and some with wheels,
+a few that looked so new they must have come from Heck
+and others that had clearly assembled themselves
+from whatever scraps they had been able to find.
+Sindy watched wide-eyed as they grasped hold of one another
+to form a three-wheeled cart.
+
+"Sit," Mouse said,
+adding, "Please," when the two girls hesitated.
+
+Sindy and Violet looked at each other.
+"I will if you will," Violet said.
+
+Sindy would tell people afterward that the ride was really bumpy.
+That was an understatement.
+Her seat was the crossed arms of two different bots.
+There was no padding and no seatbelt.
+The only things keeping her from bouncing into the air
+each time they hit a bump or pothole
+were her knees wedged under the body of the bot
+that made up the cart's nose
+and her terrified iron grip on whatever came to hand.
+
+They burst out of the forest,
+careened across a weed-strewn field,
+and accelerated down a dirt road.
+Clods of dirt thrown up by the front wheel made her splutter
+each time one stung her face.
+
+The cart skidded to a stop just short of
+the big shed that marked one side of Bots' End.
+"Here," Mouse said,
+detaching itself from the cart.
+
+Sindy struggled to her feet.
+Her back felt like one big bruise,
+and her butt felt worse.
+"Thank you," she told the bots
+as Violet staggered a few steps,
+put her hands on her hips,
+and bent over,
+trying not to throw up again.
+
+The cart's parts chirped and buzzed.
+It backed up,
+turned around,
+and sped back the way they had come.
+"Wait!" Sindy called after it.
+"Where are you going?"
+
+Mouse nudged her ankle.
+`they help others get away` scrolled across its screen.
+
+"But they could help us stop Patient!"
+
+`they do not think we can` Mouse replied.
+It bumped her ankle again,
+spun around,
+and rolled into Bots' End.
+
+Sindy was explaining what had happend to Crusher for the second time
+when Dockety and Beevy arrived.
+"I am glad you are undamaged,"
+Dockety buzzed.
+Mouse flashed sparkles on its screen in reply.
+
+"And you too," the bot added to Sindy.
+"If Patient truly has survived,
+and has taken control of the combat units,
+the situation is very serious."
+
+"What do you mean 'if'?
+Don't you believe me?"
+Sindy demanded hotly.
+Her back really was sore.
+
+Dockety's eyes rotated.
+"Another bot could be pretending to be a backup of Patient.
+But that is irrelevant.
+What matters is its plan to destroy the Makers' ship
+and everything in the valley.
+We must seek assistance in Rusty Bridge."
+
+Dockety carried her on its back and Mouse in its manipulators.
+Violet lay on Beevy's back,
+her eyes squeezed shut.
+At least the trip was shorter.
+
+Mayor Lupus and Special Blazes were glaring at each other
+in front of the mayor's house
+when they reached Rusty Bridge.
+A handful of militia were standing about,
+not sure if they were supposed to stay or if they could go home.
+Nash and Gumption were nowhere to be seen—Sindy guessed they were still at the ark.
+
+Everyone stopped talking and stared at them when they arrived.
+"Oww," Sindy whimpered as Dockety let her down.
+She *really* wanted to go and lie in a hot bath,
+but that would have to wait.
+
+"Is this who I think it is?" the mayor growled,
+nodding at Violet.
+
+"Probably, but that's not important right now."
+Sindy took a deep breath.
+"Patient is back.
+We saw it at the farmhouse.
+It's got control of a bunch of other bots,
+and it's going to use them to blow up the ark!"
+
+The mayor and Special Blazes exchanged looks.
+"Is it now?" the tiger said skeptically.
+
+"Yes!
+Violet saw it!
+And if it does, it'll blow up the whole valley!"
+
+Before Sindy could say anything more,
+the alarm bell in the belfry above them began to ring.
 
 </section>
