@@ -4836,3 +4836,240 @@ Before Sindy could say anything more,
 the alarm bell in the belfry above them began to ring.
 
 </section>
+
+<section markdown="1">
+
+## Chapter 18: This Is Not a Game (Violet)
+
+Violet jumped when a bell began to ring overhead.
+A young wolfish 'brid stuck his out out of window two stories above the crowd and shouted,
+"Bots! There's bots comin'! A whole mess of 'em!"
+
+"Now what?" Mayor Lupus demanded in exasperation.
+"Dockety, is this your folk?"
+
+"No," the bot replied, its voice buzzing.
+"I think it is an attack."
+
+"Cody!" the mayor shouted up through cupped paws.
+"Which way they comin'?"
+
+"'Long by Pickleberry Street!" the young wolf shouted back.
+"There's a couple of 'em look like Beevy!"
+
+"It's Patient!" Sindy exclaimed.
+"I told you, it's got control of the Maker bots!"
+
+The handful of militia in the little cobblestoned square
+looked at each other.
+One young goat 'brid elbowed another, who shushed the first.
+Most of the town's defenders were still by the ark,
+Violet realized with a sinking feeling.
+
+"All right, ears to me," the tiger snapped.
+"You two with the net guns, get over by the water trough.
+You lot with the pikes, stay to either side of them."
+He pointed as he spoked,
+shaping order out of indecision.
+
+"What about us?"
+one of the twin goat 'brids asked plaintively
+once everyone else was hurrying into position.
+
+"You're with me," the tiger grunted,
+unbuttoning his uniform jacket.
+
+The goats exchanged wide-eyed looks.
+Violet had just a moment to wonder why in the world they were grinning
+when the young wolf above shouted,
+"Here they come!"
+
+"Aim for its legs!" the tiger shouted as Z40 charged into the square.
+Two net guns fired in quick succession.
+One went high,
+but the second tangled around the combat bot's front legs.
+It fell forward
+just in time to be struck by
+a fireball from the tech on the tiger's chest.
+
+Behind it,
+a hodge-podge of other bots swarmed into the square.
+Some looked like the service bots from the ark,
+others were completely new to Violet.
+All had patches and modifications:
+a saw blade in place of an arm,
+a tire three sizes too large for its frame,
+and others she didn't have time to digest
+before they and the militia met.
+
+"With me, boys!" the tiger shouted, charging forward.
+The two young goats lowered their pikes and raced after him.
+
+Sindy grabbed Violet's arm.
+"Come on!"
+
+"Where are we going?" she asked
+as the other girl pulled her into a narrow alley.
+
+"To get help!" Sindy shot over her shoulder.
+
+The alley opened onto a narrow street.
+Their feet drummed on its planked sidewalk.
+A couple of 'brids shouted questions at them,
+but Sindy didn't slow down to answer so Violet didn't either,
+not until they reached the steps of a tidy two-story house
+with a small porch and narrow windows on either side of its front door.
+
+The inside was cool
+and smelled faintly of tea and warm fires
+and something else Violet couldn't identify.
+Shelves packed with books lined the walls.
+Others lay in neat piles on side tables,
+some with slips of paper stuck in them.
+
+"I thought we were getting help?" Violet asked,
+following Sindy into a kitchen
+that had clearly also doubled as a dining room.
+
+"We are."
+Sindy took a sturdy brown case off the counter and upended it.
+Its contents clattered onto the kitchen table.
+She tossed the case aside and looked at Violet expectantly.
+"Well? Recognize any of this?"
+
+Violet looked at the jumble of crystal, metals, and cables.
+"No. What is it?"
+
+"It's tech!" Sindy said impatiently.
+"Look, this one makes pictures."
+She picked up a strangely-shaped piece of glass and frowned with concentration.
+A hologram of palm trees on a beach appeared above it, rotating slowly.
+"And these change color."
+The beads Sindy grabbed next obediently cycled through a rainbow.
+
+Violet shook her head.
+"I've never seen any of this.
+There's all sorts of different devices on the ark,"
+she continue defensively in response to Sindy's scowl.
+"But they're mostly, you know, inside things, not just lying around in pieces.
+Like that."
+She pointed at the playback screen hanging by the sink.
+
+Sindy glanced at it.
+"That? That's just a mirror."
+
+"No it's not.
+Here."
+Violet stepped around her,
+took it down from its hook,
+and said,
+"Playback."
+
+The image in the mirror rippled.
+Her face and Sindy's were replaced by that of a bald reptilian hybrid
+wearing glasses, a sweater, and a colorful scarf.
+"Hello Sindy," he said.
+
+Sindy gasped.
+The hybrid straightened his glasses and smiled.
+"If you're watching this,
+then I'm guessing I'm no longer able to share a cup of tea with you.
+I want you to know that's aright.
+I've had a long life, and many adventures.
+Meeting you was one of the best,
+so I want you to have this house and everything in it."
+The hybrid looked over his shoulder at the cupboard behind him.
+"Everything," he repeated.
+"I hope it all brings you as much joy as you have brought me."
+
+The image froze, then blinked out.
+Violet swallowed the lump in her throat.
+"Are you all right?" she asked Sindy.
+
+Sindy wiped her eyes with her sleeve and shook her head.
+"No.
+I—I just miss him."
+
+Violet handed her the playback.
+Not knowing what else to do,
+she opened the cupboard the reptile had looked at in the recording.
+Four mis-matched plates,
+four bowls,
+and four mugs waited patiently
+for an owner who was never going to return.
+
+She frowned and ran her fingers over the undersides of the shelves.
+There had been something like this in *The Adventure of the Grave Robber's Tomb*,
+or maybe in *The Adventure of the Tomb Robber's Grave*,
+she couldn't remember which.
+What she did remember was the look on André's face
+when she found the hidden latch that—
+
+*click*
+She drew a sharp breath of surprise,
+then swung the whole cupboard away from the wall
+to reveal a second, shallower set of shelves.
+"Sindy!"
+
+Side by side they looked at the hidden treasure.
+"Do you think it's a trap?" Violet whispered.
+There were *always* traps in games.
+
+Sindy shook her head.
+"Special Leaf wouldn't—"
+She stopped for a moment.
+"He wouldn't *have* set a trap for me."
+
+She reached forward to pick up something that looked like
+a large coiled spring with bobbles on the end,
+frowned at it,
+and then shook her head.
+"No idea.
+You?"
+
+Violet shook her head in return.
+"Sorry."
+She took a thick disk with notches on its edges and turned it over in her hands.
+It thrummed softly.
+She squeaked and dropped it,
+but it didn't fall.
+Instead,
+it just floated in the air,
+turning slowly.
+
+"There has to be *something* here we can use,"
+Sindy muttered in frustration a few moments later.
+"He wouldn't have hid 'em if they were just toys."
+
+"I'm sorry," Violet said again.
+She jumped as something went *bang!* in the distance,
+rattling the windows.
+
+A crystal bead fell from the shelf onto the floor.
+She picked it up,
+then looked at the pile on the kitchen table.
+"Hang on."
+
+The bead was a match for the ones that changed color.
+In fact,
+now that she had it she could see where it was supposed to fit.
+She clicked it in place and yelped
+as the whole necklace lit up.
+"Scanning," a voice said.
+"Subject is female and one hundred percent human.
+Would you like a complete medical scan?"
+
+She and Sindy stared at each other.
+The hidden pieces were parts that Special Leaf had taken out for safekeeping!
+
+Violet grabbed a stiff tangle of wires from the cupboard
+and the oversized black glove that lay on the table.
+It took her a moment to figure out how they fit together,
+but sure enough
+the wires clicked into the back of the glove.
+She put it on and felt a familiar tingle.
+"I know what this is!"
+she said excitedly.
+"Come on!"
+
+</section>
