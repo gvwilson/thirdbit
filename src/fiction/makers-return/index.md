@@ -5073,3 +5073,84 @@ she said excitedly.
 "Come on!"
 
 </section>
+
+<section markdown="1">
+
+## Chapter 19: Tag (Sindy)
+
+Violet clicked the wires she had taken from Special Leaf's hidden stash
+into the glove
+and then pulled it on.
+Her eyes widened.
+"I know what this is!"
+she said excitedly.
+"Come on!"
+
+"Wait!" Sindy said,
+but Violet was already running for the door.
+Sindy gave the hidden cupboard a despairing look
+and ran after her.
+
+She caught up the visitor from space in the alley by the mayor's house.
+Together they peered around the corner.
+Sindy's heart sank.
+Patient's bots had driven the militia back.
+Their net guns were exhausted,
+so all they could do was fend off the attackers with their pikes.
+
+Z40 and Z51 fought side by side in the center of Patient's forces.
+Beevy, Dockety, and Special Blazes were doing their best to keep them occupied,
+but their best clearly wasn't good enough.
+One of Dockety's manipulators dangled from its shoulder,
+held on by a single cable,
+and Special Blazes was favoring his right leg.
+
+Even as Sindy watched,
+Bluster and Bravo Goat charged something that looked like
+a water tank balanced on two thick legs.
+Bluster feinted.
+As the bot lunged to trap his weapon beneath its foot,
+Bravo jabbed his pike at its ankle.
+The bot stumbled.
+Bluster whooped and thrust at its knee joint,
+only for the bot to pivot and send him flying across the cobblestones.
+
+"All right," Violet muttered.
+"Let's see if this does what I think it does."
+She made a fist with her gloved hand,
+then splayed her fingers wide as she pointed at Z40.
+
+The combat bot froze mid-stride.
+"Gotcha!" Violet said triumphantly.
+She clenched her hand back into a fist.
+Z40 collapsed to the pavement as its legs curled up beneath it.
+
+Z51 pivoted toward its twin,
+shrugging off the sputtering fireball that Special Blazes threw at it.
+As it reached for Z40,
+the fallen bot grabbed hold of it with both of its manipulators.
+Z51 reared back,
+dragging the other bot across the cobblestones.
+
+Beevy seized its chance.
+It charged at Z51,
+slamming into it and knocking it onto its side.
+Two of the militia fell on its before it could regain its footing,
+pinning it to the ground with their pikes.
+
+"Get the other one!" Violet shouted,
+her hand still clenched.
+"I can't hold it forever!"
+
+Sindy pelted across the cobblestones,
+shouting,
+"Dockety! Dockety, you gotta pin 'em both!"
+
+They almost did it.
+As Z51 scrabbled at the cobblestones and half a dozen pikes thrust at Z40,
+the other bots started falling back,
+leaving metal parts and injured people lying side by side.
+
+But then the ground shook under Sindy's feet.
+
+</section>
