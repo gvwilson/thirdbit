@@ -5076,7 +5076,7 @@ she said excitedly.
 
 <section markdown="1">
 
-## Chapter 19: Tag (Sindy)
+## Chapter 19: Catch Me If You Can (Sindy)
 
 Violet clicked the wires she had taken from Special Leaf's hidden stash
 into the glove
@@ -5114,6 +5114,7 @@ Bravo jabbed his pike at its ankle.
 The bot stumbled.
 Bluster whooped and thrust at its knee joint,
 only for the bot to pivot and send him flying across the cobblestones.
+"Bluster!" his brother shouted.
 
 "All right," Violet muttered.
 "Let's see if this does what I think it does."
@@ -5146,11 +5147,234 @@ Sindy pelted across the cobblestones,
 shouting,
 "Dockety! Dockety, you gotta pin 'em both!"
 
-They almost did it.
-As Z51 scrabbled at the cobblestones and half a dozen pikes thrust at Z40,
+Z51 scrabbled at the cobblestones.
+As half a dozen pikes thrust at Z40,
 the other bots started falling back,
 leaving metal parts and injured people lying side by side.
+Kneeling beside his brother,
+Bravo caught Sindy's eye.
+The expression on his face made her heart skip a beat.
 
-But then the ground shook under Sindy's feet.
+Before she could take a step,
+the ground shook beneath her feet.
+*Thud.*
+The ground shook again.
+The alarm bell above them rang furiously,
+and then Cody started howling as well.
+
+A shadow fell across the square,
+cast by the biggest bot Sindy had ever seen.
+Its body was as large as Crusher,
+but two stories off the ground.
+Its arms and legs were as thick as trees,
+and steam spurted from the motors in its joints.
+
+It stepped over a house and swung at the belfry.
+"Get outta there!" Mayor Lupus shouted
+just before its fist slammed into the wooden walls,
+splintering it.
+The alarm bell clanged one last time
+as the giant's second swing sent the top of the belfry crashing down
+into the street below.
+
+"Ah ha ha ha," its voice boomed.
+"Ah ha ha ha.
+Finally, this will end!"
+
+"It's Patient!"
+Sindy grabbed Violet's arm.
+"Can you grab it or whatever?"
+
+Violet nodded,
+took a deep breath,
+and reached for the giant bot with her gloved hand.
+Nothing happened.
+She thrust her arm as if to push the bot backward,
+but she might as well have been blowing raspberries.
+
+"Ah ha," the giant's voice boomed again.
+"*There* you are!"
+
+Sindy and Violet screamed as the giant took a huge step toward them,
+bending awkwardly to reach for them.
+"Come on!"
+Sindy pulled Violet back into the alley
+moments before a rust-stained three-fingered hand the size of a cart
+slammed down on the cobblestones where they had been standing.
+
+*Think think think!* Sindy told herself frantically as they ran.
+Squeeze through the hole in Papa Cartmuddle's fence.
+Duck under the underclothes hanging from his laundry line.
+Put out an arm to block Violet from running across the street
+because that would put her out in the open
+where Patient could see her.
+Point at the shed Zeke Bear was forever promising to convert to a proper pottery studio.
+Sidle toward its door,
+backs against the wall,
+and duck inside.
+
+*Thud. Thud. Thud.*
+"Come out, come out, wherever you are,"
+Patient said,
+its voice making windows rattle in their frames.
+
+"Does it think this is a *game*?" Violet squeaked.
+
+Sindy looked at her wide-eyed.
+"That's it!"
+She pushed Violet toward the back of the shed.
+"You stay here.
+And don't use that thing 'til it's outta the way!"
+she added,
+pointing at the glove.
+
+"What do you mean, out of the way?
+Hey, where are you going?"
+But Sindy was already out the door.
+
+She ran into the middle of the street and waved her arms.
+"Hey!
+Over here!
+Think you can catch me,
+you big stupid pile of rusty scraps?"
+Without waiting for an answer,
+she ran as she had never run before.
+
+She had never told her parents about the times the other children had chased her,
+but she had never forgotten them either.
+She knew ever shortcut and back way in Rusty Bridge.
+She had ever created a couple of them,
+like the board that just happened to lie across a ditch that was too wide for her to jump
+or the three bricks stacked in just the right place
+to help her clamber over a wall.
+
+Rusty Bridge was only so big, though.
+It only took her a couple of minutes to reach
+the schoolhouse on the edge of town.
+Under other circumstances she might have whooped or laughed
+at the sound of the giant bot's foot coming down on the school's roof,
+but she couldn't slow for that,
+not now.
+
+The forest waited on the other side of the schoolyard.
+She raced between the trees,
+trusting that they and the muddy ground would slow Patient down.
+She splashed through the little stream
+where she and Maddy and Gumption had collected tadpoles when she was little.
+*That'll make a mess of my boots,* she thought giddily.
+
+The footpath became a track became a graveled road.
+She rounded the last corner and there it was,
+the ark,
+still sitting in the swamp.
+And there *they* were,
+the militia,
+yelling and pointing past her at the giant coming toward them.
+
+"Shoot it!" she yelled at Nash.
+
+The crocodile was already aiming its lightning gun over her head.
+"Which bit?" he yelled back.
+
+"Anything! Just shoot!"
+
+*Thud. Thud. Thud.*
+Sindy tripped and sprawled face-first in the weeds,
+skinning her knees.
+The lightning gun made a single sharp *crack!*
+The whole world was so bright for an instant
+that she could see it through her closed eyes.
+
+She scrambled to her fit.
+The giant bot still stood,
+but was shivering as if it was cold.
+"Wh-wh-wh-" Patient stuttered.
+
+"Look out!"
+one of the militia yelled.
+The giant bot tipped forward and came crashing down.
+
+People began cheering.
+"Good shot," Sindy told Nash breathlessly.
+He touched a finger to the rim of his hat.
+
+"Sindy!"
+She spun around to see Violet and Special Blazes arrive on Beevy's back.
+Dockety rolled beside them,
+its arm still dangling by one cable.
+
+Special Blazes slid off Beevy's back and strode over to Nash.
+"Good shot," he said,
+clapping the other Operator on the shoulder.
+The crocodile's smile showed far too many teeth,
+but Sindy didn't care.
+They'd won!
+
+Violet rushed over to her.
+"Are you all right?"
+she asked anxiously.
+"When you ran out there I was *sure* it was going to get you!"
+
+"Us Roos are pretty fast," Sindy said.
+
+"And clever," Special Blazes added.
+"Mind me asking how you got those two bots back in the square to turn on each other?
+We'd have been sunk if you hadn't done that."
+
+"That wasn't me."
+Sindy jerked her chin at Violet.
+"She's the one who saved you."
+
+"It wasn't really me either," Violet said,
+holding up her hand.
+"It was this."
+
+The tiger frowned.
+"May I have a look at that?
+Please?"
+he added.
+
+Violet looked at Sindy.
+When Sindy shrugged,
+she took off the glove and handed it to Special Blazes.
+He studied it for a moment,
+then slipped it on.
+
+"Oh," he breathed,
+his fur standing on end.
+"That's…different."
+And then he pointed at Dockety and made a fist.
+
+The bot collapsed as if it were a puppet whose strings had been cut.
+"Now now," Special Blazes said,
+pointing at Beevy as the other bot took a step forward.
+It froze,
+one leg in the air.
+
+"What are you doing?" Sindy demanded as Special Blazes climbed back on top of Beevy.
+
+"What needs to be done,"
+the Operator replied.
+He nodded toward the ark.
+"Never thought I'd agree with a bot,
+but your friend Patient had the right idea.
+The Makers aren't ever going to see us as people,
+and we aren't ever going to be able to stand up to their tech,
+so…"
+He shrugged.
+"Best time to solve tomorrow's problem is today."
+He shifted sideways to make room for Nash,
+who had taken his lightning gun off its tripod and shouldered it.
+
+"Wait!" Sindy said.
+"What do you mean, solve?"
+
+Special Blazes looked at her,
+then at Violet,
+then back at her.
+There was no anger in his eyes,
+just weariness.
+"No Makers, no problem."
+He turned Beevy toward the ark.
 
 </section>
