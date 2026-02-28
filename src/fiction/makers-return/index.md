@@ -5373,8 +5373,362 @@ Special Blazes looked at her,
 then at Violet,
 then back at her.
 There was no anger in his eyes,
-just weariness.
+just the weary resolve of someone faced with an unpleasant chore.
 "No Makers, no problem."
 He turned Beevy toward the ark.
 
 </section>
+
+<section markdown="1">
+
+## Chapter 20: Goodbye (Violet)
+
+"Wait!" Sindy said.
+Her dress was splotched with mud and she had skinned her knees,
+but she still looked as fierce as the tiger she was facing.
+"What do you mean, solve?"
+
+The tiger looked at Sindy,
+then at Violet,
+then back at Sindy.
+"No Makers, no problem,"
+he said.
+With a sweeping gesture he pointed the modified combat bot he was riding
+toward the ark.
+
+Patient's simulation flashed through Violet's mind.
+Was the tiger going to *blow up* the ark?
+"He'll kill us all," she breathed.
+
+Sindy nodded grimly.
+"Yup.
+So we gotta stop him.
+Gumption!"
+she shouted.
+She ran to a teenage goat holding a wide-mouthed net gun.
+Violet groaned and chased after her.
+
+"—seen it!" Sindy said as Violet caught up with her.
+"Patient was gonna use her bots,
+but Blazes is gonna do it with Beevy!"
+
+The boy she was speaking to didn't hesitate.
+He raised his net gun,
+aimed,
+and fired at the Operators.
+
+*Bzzzzap!*
+A single shot from the crocodile's lightning gun
+turned the spinning net into a sizzling mess.
+The other militia exclaimed in surprise,
+stepping back as the crocodile swung his gun almost lazily in their direction.
+
+Violet grabbed Sindy's arm.
+"We have to warn Doctor Szego," she said urgently.
+"She can stop them from inside the ship."
+
+"How?
+He took the communicator thingy!"
+
+Violet looked at the ark that had been her home
+for almot as long as she could remember.
+"There," she said, pointing.
+"If I can up to that hatch, I can get in."
+*I hope,* she added mentally.
+She didn't know if the ark's defenses were still online,
+or if they would recognize her,
+but what other choice did they have?
+
+"You're gonna *climb* up there?" Sindy asked skeptically.
+
+"She will not need to," Dockety buzzed,
+tramping up behind them.
+
+Violet had played ball games in virtual plenty of times.
+She had even played one in real life once with one of the service bots,
+which had been a lot more challenging than virtual had led her to expect.
+Throwing was hard.
+Throwing *accurately* was even harder.
+
+She had never expected to be the ball.
+"Ready," she lied,
+and then Dockety flung her into the air with all its might.
+It had promised her that its calculations were accurate,
+and that the only reasons she might not land where she was supposed to
+were a sudden gust of wind or slippery ground beneath its feet
+or twenty-nine other factors that were statistically less likely.
+
+She had one long giddy moment to think
+*I wish André could see this*
+before she hit the top of the ark shoulder-first with an *ooph*.
+She scrambled to her feet,
+slipping on the wet metal and very nearly tumbling into the swamp below.
+"Made it!" she shouted, waving.
+
+*Bzzzzap!*
+Lightning splattered against the hull a story below her.
+She squawked,
+dropping to her hands and knees
+and crawling to the airlock hatch nearby.
+
+She exhaled with relief when it opened at her touch.
+She slipped inside,
+standing awkwardly on the tilted floor.
+The airlocks on the side would be vertical, she realized.
+They had been built for space, not for gravity.
+
+"Hello, Violet.
+Welcome home."
+She jumped as Doctor Szego's voice came through
+a speaker next to the inner hatch at her feet.
+
+She knelt beside it
+"Doctor—doctor, can you hear me?"
+
+"Of course I can hear you, Violet."
+Doctor Szego sounded as calm as ever.
+"What seems to be the problem?"
+
+"There's people coming—well, hybrids,
+but they've got a bot and they're going to use it to blow up the ark!
+You have to stop them!"
+
+"That's very troubling.
+Let me have a look."
+The speaker hummed for a moment.
+"Yes, I can see them.
+Unfortunately, I don't think I'm going to be able to stop them.
+They have the communicator you were using,
+and it has access codes for all external entry points."
+
+Violet stared at the speaker.
+"What?
+Just, I don't know, just don't let them in!"
+
+"I can't do that, Violet,"
+Doctor Szego replied.
+"If they have the access codes,
+I have to open the hatch for them."
+
+"But—" Violet started.
+
+"There is something you should see,"
+the doctor said.
+The hatch at Violet's feet opened with a hiss.
+
+Two minutes later Violet stood in a hibernation bay
+looking down at a pod
+with a hairline crack in its lid.
+The woman was inside was frozen,
+but her skin was gray and papery.
+Somehow Violet knew that there would be no point trying to revive her.
+
+Two pods over,
+a round-faced boy with a shaven head lay on his back,
+his eyes closed.
+"That's André, isn't it?"
+Violet said quietly.
+
+"Yup,"
+André's voice said.
+
+"And he's been asleep this whole time?"
+
+"Yup."
+André,
+or the sim she had thought was André,
+didn't sound at all embarrassed to admit the deception.
+"You and the captain are the only ones who've been awake since we launched."
+
+Violet felt her hands clench.
+"Why us?"
+
+"Mission protocol required Captain Leung to reconfirm our status periodically,"
+Doctor Szego said.
+"We calculated a much higher probability of him staying focused
+if someone else was awake
+to remind him of the mission's purpose."
+
+Violet took a deep breath and rubbed her eyes with the heels of her hands.
+"All right.
+All right,
+let's worry about that later.
+Can you close the hatch so those idiots don't blow us all up?"
+
+"My programming doesn't allow me to do that,"
+Doctor Szego said.
+"But there may be another way.
+You'll have to get to the control room, though."
+
+The ark felt wrong with gravity.
+All the floors and walls were tilted,
+and she couldn't float next to the ladder.
+It all felt like a dream on the verge of turning into a nightmare.
+
+"I'm here,"
+Violet said,
+collapsing into Captain Leung's chair.
+
+"Good.
+One moment."
+The screens in front of her came to life,
+Three showed different views of the Operators and Beevy.
+Others were focused on the militia and on the swamp around them.
+
+"Do you see the large red button in the center of the panel?"
+Doctor Szego asked.
+
+"Hard to miss,"
+Violet muttered.
+
+"I need you to press that."
+
+Violet hesitated.
+"What does it do?"
+
+"It suspends some of my safety interlocks,"
+the doctor said.
+
+Violet hesitated a moment,
+then reached out and pressed the button.
+Nothing happened.
+"Did it work?" she asked a moment later.
+
+Doctor Szego didn't reply.
+"Hello?
+Is it working?"
+
+Something stirred on the screens showing the swamp.
+In another view,
+Sindy and the militia scrambled backward
+as a pair of tentacles lifted from the swamp.
+Violet saw the crocodile take aim
+as the tiger urged Beevy forward.
+
+They were so focused on the two tentacles they could see
+that they didn't notice the third one snaking across the ground
+until it was too late.
+It knocked the crocodile's lightning gun out of his hands
+with a motion that reminded Violet of someone flicking a crumb off their sleeve.
+It flew through the air,
+splashing into the swamp just as the tentacle coiled around Special Blazes.
+
+The tiger struggled futilely
+as the tentacle swung him over to Sindy.
+No sound came through the screen,
+but from the expression on his face,
+Violet guessed he was using words she wasn't supposed to know.
+
+Sindy scrambled back a few steps,
+but stopped when the tentacle did.
+Violet saw her eyes widen.
+She reached up and pulled the glove off Special Blazes' hand
+and handed it to Dockety.
+With a swing abrupt swing,
+the bot threw it far into the swamp.
+
+The tentacle dropped Special Blazes onto the grass
+and slithered back into the swamp.
+"That was…difficult," Doctor Szego's voice said,
+sounding strangely mechanical.
+
+"Are you all right?"
+Violet asked anxiously.
+
+"No.
+Processing."
+A sudden burst of static from the speakers made Violet jump.
+"The entity in the swamp has infected me.
+This was an-an-anticipated.
+E-e-mergency shutdown protocols ac-ac-activated.
+Goodbye, Violet."
+
+"Wait!
+Where are you going?"
+
+"I am shut-shut-shutting down to p-p-protect my p-p-passengers."
+Another burst of static nearly deafened Violet,
+but in it she heard,
+"I am so proud of you."
+
+And then there was silence.
+
+</section>
+
+<section markdown="1">
+
+## Epilog
+
+*One week later…*
+
+"I'm always going to worry a little bit,"
+Captain Leung admitted,
+adding,
+"Thank you,"
+as Papa Roo passed him a cup of tea.
+
+"Bots have been repairing each other for a long time,"
+Sindy said.
+"Isn't that right, Mouse?"
+
+"Yes."
+The little bot's voice was no longer bass-deep.
+Sindy wasn't sure why it had decided to change it,
+but she supposed it had something to do with
+all the time Mouse was spending with Z40 and Z51.
+
+"I suppose,"
+the captain said skeptically,
+blowing on his tea.
+"I guess I just don't think Patient deserves another chance to…"
+He finished the sentence with a shrug.
+
+"We mend broken things if we can,"
+Dockety buzzed,
+raising its new arm.
+"The Tailor will be careful."
+
+"I suppose," Captain Leung repeated.
+He brightened as Violet joined them on the porch,
+collapsing onto the seat next to Sindy's.
+"How's it going in there?"
+
+"He's making *such a mess," Violet complained.
+"Honestly,
+we should have just left him in his pod."
+
+"I heard that,"
+André called from inside.
+
+Violet and Sindy exchanged grins.
+Real baking was a lot messier than virtual,
+but a lot more satisfying.
+And if André's first batch of muffins were a little dry and floury,
+well,
+he could always make another.
+
+"So are you looking forward to school tomorrow?"
+Papa Roo asked,
+ruffling his daughter's hair.
+
+Sindy rolled her eyes.
+"No."
+
+"Yes you are."
+Violet nudged her with her shoulder.
+"All those new kids to boss around?
+You're going to love it."
+
+She was,
+Sindy realized.
+Captain Leung was still trying to figure out
+how many other arks were still out there
+and how to call them home,
+and the mayor was fretting about how the town was going to look after
+all the children who were waking up one by one into a strange new world,
+but they could figure that all out later.
+Tomorrow,
+she was going to teach them how to play tag.
+
+</section>
+
