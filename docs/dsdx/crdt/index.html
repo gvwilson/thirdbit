@@ -8,7 +8,6 @@
 <link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
@@ -18,6 +17,7 @@
 <a href="#">Lessons</a>
 <span class="dropdown-content" id="nav-lessons">
 <a href="../intro/">Introduction</a>
+<a href="../mapreduce/">MapReduce</a>
 <a href="../msgque/">A Publish-Subscribe Message Queue</a>
 <a href="../worksteal/">A Work-Stealing Scheduler</a>
 <a href="../tracing/">Distributed Tracing</a>
@@ -34,6 +34,7 @@
 <a href="../contributing/">Contributing</a>
 <a href="../bibliography/">Bibliography</a>
 <a href="../glossary/">Glossary</a>
+<a href="../theory/">A Bit of Theory</a>
 <a href="../asimpy/">Discrete Event Simulation with asimpy</a>
 </span>
 </span>
@@ -125,6 +126,7 @@ consider three replicas that randomly choose color values to share with peers:</
 <div data-filter="inc=replica" data-inc="ex_lwwregister.py"><div class="codehilite"><pre class=""><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
 <span class="n">VALUES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"green"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"yellow"</span><span class="p">]</span>
 
+
 <span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""A replica that writes to its local register and syncs with peers."""</span>
 
@@ -148,7 +150,9 @@ consider three replicas that randomly choose color values to share with peers:</
             <span class="c1"># Sync with a random peer.</span>
             <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">register</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">peer</span><span class="o">.</span><span class="n">register</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">register</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">register</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">'"</span>
+            <span class="p">)</span>
 
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span><span class="p">)</span>
 </code></pre></div>
@@ -326,7 +330,9 @@ concurrent add and remove operations result in the element being present.</p>
 <span class="w">    </span><span class="sd">"""Observed-Remove Set (state-based CRDT)."""</span>
 
     <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">elements</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>  <span class="c1"># element -&gt; set of unique tags</span>
+    <span class="n">elements</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span>
+    <span class="p">)</span>  <span class="c1"># element -&gt; set of unique tags</span>
     <span class="n">tag_counter</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -376,6 +382,7 @@ concurrent add and remove operations result in the element being present.</p>
 <span class="n">ITEMS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"cherry"</span><span class="p">]</span>
 <span class="n">P_REMOVE</span> <span class="o">=</span> <span class="mf">0.3</span>
 
+
 <span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""A replica that adds/removes items and syncs with peers."""</span>
 
@@ -393,17 +400,23 @@ concurrent add and remove operations result in the element being present.</p>
             <span class="n">item</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">ITEMS</span><span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="ow">and</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">P_REMOVE</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: remove '</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">' -&gt; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: remove '</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">' -&gt; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
+                <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: add '</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">' -&gt; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: add '</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">' -&gt; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
+                <span class="p">)</span>
 
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_interval</span><span class="p">)</span>
 
             <span class="c1"># Sync with a random peer.</span>
             <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">peer</span><span class="o">.</span><span class="n">orset</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">orset</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
 
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span><span class="p">)</span>
 </code></pre></div>
@@ -574,6 +587,8 @@ we create a simple dataclass to represent peers in the network:</p>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">counter</span><span class="p">:</span> <span class="n">GCounter</span>
     <span class="n">partitioned_from</span><span class="p">:</span> <span class="nb">set</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">set</span><span class="p">)</span>
+
+
 <span class="c1"># mccole</span>
 
 
@@ -595,13 +610,19 @@ we create a simple dataclass to represent peers in the network:</p>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
 
             <span class="c1"># Try to sync with a random peer.</span>
-            <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="p">])</span>
+            <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="p">]</span>
+            <span class="p">)</span>
             <span class="k">if</span> <span class="n">peer</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="o">.</span><span class="n">partitioned_from</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: cannot reach </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">peer</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+                <span class="p">)</span>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+
+
 <span class="c1"># mccole: /replica</span>
 
 
@@ -619,12 +640,16 @@ we create a simple dataclass to represent peers in the network:</p>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** partition: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;-/-&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** partition: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;-/-&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
 
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** healed: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;---&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
 <span class="c1"># mccole: /partition</span>
 
 
@@ -632,7 +657,7 @@ we create a simple dataclass to represent peers in the network:</p>
 <span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">run_simulation</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Show that GCounters converge after a partition heals."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
     <span class="n">peers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Peer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">GCounter</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">NAMES</span><span class="p">]</span>
@@ -646,13 +671,13 @@ we create a simple dataclass to represent peers in the network:</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Final State"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">peers</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+
+
 <span class="c1"># mccole: /sim</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="n">run_simulation</span><span class="p">()</span>
+    <span class="n">dsdx</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>Next,
@@ -675,12 +700,16 @@ with a randomly-selected peer:</p>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
 
             <span class="c1"># Try to sync with a random peer.</span>
-            <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="p">])</span>
+            <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_peers</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="p">]</span>
+            <span class="p">)</span>
             <span class="k">if</span> <span class="n">peer</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_record</span><span class="o">.</span><span class="n">partitioned_from</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: cannot reach </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">peer</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+                <span class="p">)</span>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
 </code></pre></div>
 </div>
@@ -698,7 +727,9 @@ with a randomly-selected peer:</p>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** partition: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;-/-&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** partition: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;-/-&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
 
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -712,7 +743,7 @@ at a particular time and for a particular duration:</p>
 <div data-filter="inc=sim" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">run_simulation</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Show that GCounters converge after a partition heals."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
     <span class="n">peers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Peer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">GCounter</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">NAMES</span><span class="p">]</span>
@@ -773,7 +804,7 @@ GCounter(id=Chiti, value=12, counts={'Chiti': 4, 'Baemi': 4, 'Ahmed': 4})
 </div>
 <div class="col-6 center">
 <a href="../"></a>
-	  © 2025
+	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">

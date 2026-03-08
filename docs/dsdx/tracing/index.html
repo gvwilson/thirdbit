@@ -8,7 +8,6 @@
 <link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
@@ -18,6 +17,7 @@
 <a href="#">Lessons</a>
 <span class="dropdown-content" id="nav-lessons">
 <a href="../intro/">Introduction</a>
+<a href="../mapreduce/">MapReduce</a>
 <a href="../msgque/">A Publish-Subscribe Message Queue</a>
 <a href="../worksteal/">A Work-Stealing Scheduler</a>
 <a href="../tracing/">Distributed Tracing</a>
@@ -34,6 +34,7 @@
 <a href="../contributing/">Contributing</a>
 <a href="../bibliography/">Bibliography</a>
 <a href="../glossary/">Glossary</a>
+<a href="../theory/">A Bit of Theory</a>
 <a href="../asimpy/">Discrete Event Simulation with asimpy</a>
 </span>
 </span>
@@ -174,6 +175,7 @@ or <a href="../glossary/#async-context-vars">async context variables</a> to stor
     <span class="k">def</span><span class="w"> </span><span class="nf">get_collector</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BaseCollector</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">Storage</span><span class="o">.</span><span class="n">_current_collector</span>
 
+
 <span class="n">Storage</span> <span class="o">=</span> <span class="n">_StorageClass</span><span class="p">()</span>
 </code></pre></div>
 </div>
@@ -236,7 +238,7 @@ but all of the steps are fairly straightforward:</p>
                 <span class="n">span</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
                 <span class="n">collector</span> <span class="o">=</span> <span class="n">Storage</span><span class="o">.</span><span class="n">get_collector</span><span class="p">()</span>
                 <span class="k">if</span> <span class="n">collector</span><span class="p">:</span>
-                    <span class="n">collector</span><span class="o">.</span><span class="n">span_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">span</span><span class="p">)</span>
+                    <span class="k">await</span> <span class="n">collector</span><span class="o">.</span><span class="n">span_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">span</span><span class="p">)</span>
 
                 <span class="c1"># Restore old context</span>
                 <span class="n">Storage</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="n">old_context</span><span class="p">)</span>
@@ -294,7 +296,9 @@ and to mark the span as completed:</p>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">add_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">fields</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Add log entry to span."""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"message"</span><span class="p">:</span> <span class="n">message</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="o">**</span><span class="n">fields</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">"message"</span><span class="p">:</span> <span class="n">message</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">:</span> <span class="n">Environment</span><span class="o">.</span><span class="n">sim_time</span><span class="p">(),</span> <span class="o">**</span><span class="n">fields</span><span class="p">}</span>
+        <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">finish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">end_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Mark span as complete."""</span>
@@ -440,7 +444,7 @@ tracing a microservice is relatively straightforward:</p>
         <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_data</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">payload</span><span class="p">)</span>
 
         <span class="c1"># Send response</span>
-        <span class="n">request</span><span class="o">.</span><span class="n">response_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+        <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">response_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
             <span class="n">ServiceResponse</span><span class="p">(</span><span class="n">request_id</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">request_id</span><span class="p">,</span> <span class="n">success</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
         <span class="p">)</span>
 
@@ -507,13 +511,13 @@ and error handling is automatic.</p>
             <span class="n">response_queue</span><span class="o">=</span><span class="n">response_queue</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
         <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
         <span class="c1"># Finish root span</span>
         <span class="n">root_span</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
         <span class="n">root_span</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="s2">"success"</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">success</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">collector</span><span class="o">.</span><span class="n">span_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">root_span</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">collector</span><span class="o">.</span><span class="n">span_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">root_span</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>The output shows that we are capturing what we wanted to:</p>
@@ -526,8 +530,8 @@ and error handling is automatic.</p>
 [3.3] Client: Starting request req_2
 [3.3] OrderService: Processing Request(req_2)
 
-[5.1] Client: Starting request req_3
-[5.1] OrderService: Processing Request(req_3)
+[5.2] Client: Starting request req_3
+[5.2] OrderService: Processing Request(req_3)
 
 ============================================================
 Decorator-Based Tracing Results:
@@ -535,59 +539,59 @@ Decorator-Based Tracing Results:
 Traces completed: 9
 Spans received: 9
 
-Trace(trace_15..., 1 spans, 0.076s)
-  Duration: 0.076s
+Trace(trace_79..., 1 spans, 0.142s)
+  Duration: 0.142s
   Spans: 1
   Operations:
-    - process_data (0.076s)
+    - process_data (0.142s)
 
-Trace(trace_15..., 1 spans, 0.335s)
-  Duration: 0.335s
+Trace(trace_79..., 1 spans, 0.339s)
+  Duration: 0.339s
   Spans: 1
   Operations:
-    - handle_request (0.335s)
+    - handle_request (0.339s)
 
-Trace(trace_15..., 1 spans, 0.335s)
-  Duration: 0.335s
+Trace(trace_79..., 1 spans, 0.339s)
+  Duration: 0.339s
   Spans: 1
   Operations:
-  - Client.make_request (0.335s)
+  - Client.make_request (0.339s)
 
-Trace(trace_85..., 1 spans, 0.067s)
-  Duration: 0.067s
+Trace(trace_84..., 1 spans, 0.109s)
+  Duration: 0.109s
   Spans: 1
   Operations:
-    - process_data (0.067s)
+    - process_data (0.109s)
 
-Trace(trace_85..., 1 spans, 0.249s)
-  Duration: 0.249s
+Trace(trace_84..., 1 spans, 0.354s)
+  Duration: 0.354s
   Spans: 1
   Operations:
-    - handle_request (0.249s)
+    - handle_request (0.354s)
 
-Trace(trace_85..., 1 spans, 0.249s)
-  Duration: 0.249s
+Trace(trace_84..., 1 spans, 0.354s)
+  Duration: 0.354s
   Spans: 1
   Operations:
-  - Client.make_request (0.249s)
+  - Client.make_request (0.354s)
 
-Trace(trace_11..., 1 spans, 0.147s)
-  Duration: 0.147s
+Trace(trace_13..., 1 spans, 0.086s)
+  Duration: 0.086s
   Spans: 1
   Operations:
-    - process_data (0.147s)
+    - process_data (0.086s)
 
-Trace(trace_11..., 1 spans, 0.342s)
-  Duration: 0.342s
+Trace(trace_13..., 1 spans, 0.212s)
+  Duration: 0.212s
   Spans: 1
   Operations:
-    - handle_request (0.342s)
+    - handle_request (0.212s)
 
-Trace(trace_11..., 1 spans, 0.342s)
-  Duration: 0.342s
+Trace(trace_13..., 1 spans, 0.212s)
+  Duration: 0.212s
   Spans: 1
   Operations:
-  - Client.make_request (0.342s)
+  - Client.make_request (0.212s)
 </code></pre></div>
 </div>
 <h2 id="tracing-useful">Useful Data</h2>
@@ -639,7 +643,7 @@ a simple example like the one below produces over 300 lines of pretty-printed ou
             <span class="n">response_queue</span><span class="o">=</span><span class="n">response_queue</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
         <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">response</span>
@@ -667,12 +671,12 @@ a simple example like the one below produces over 300 lines of pretty-printed ou
           },
           "spans": [
             {
-              "traceId": "trace_7952713",
-              "spanId": "span_8629030",
+              "traceId": "trace_7994353",
+              "spanId": "span_2023936",
               "name": "process_data",
               "kind": 1,
-              "startTimeUnixNano": 1659043996,
-              "endTimeUnixNano": 1715460553,
+              "startTimeUnixNano": 1697180675,
+              "endTimeUnixNano": 1839280880,
               "attributes": [
                 {
                   "key": "service.name",
@@ -690,7 +694,7 @@ a simple example like the one below produces over 300 lines of pretty-printed ou
               "status": {
                 "code": 1
               },
-              "parentSpanId": "span_2664154"
+              "parentSpanId": "span_9155677"
             }
           ]
         }
@@ -712,7 +716,7 @@ but (hopefully) everything needed to track down problems is there.</p>
 </div>
 <div class="col-6 center">
 <a href="../"></a>
-	  © 2025
+	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">

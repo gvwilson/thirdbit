@@ -8,7 +8,6 @@
 <link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
@@ -18,6 +17,7 @@
 <a href="#">Lessons</a>
 <span class="dropdown-content" id="nav-lessons">
 <a href="../intro/">Introduction</a>
+<a href="../mapreduce/">MapReduce</a>
 <a href="../msgque/">A Publish-Subscribe Message Queue</a>
 <a href="../worksteal/">A Work-Stealing Scheduler</a>
 <a href="../tracing/">Distributed Tracing</a>
@@ -34,6 +34,7 @@
 <a href="../contributing/">Contributing</a>
 <a href="../bibliography/">Bibliography</a>
 <a href="../glossary/">Glossary</a>
+<a href="../theory/">A Bit of Theory</a>
 <a href="../asimpy/">Discrete Event Simulation with asimpy</a>
 </span>
 </span>
@@ -236,7 +237,7 @@ in order to spread the load as evenly as possible:</p>
 </code></pre></div>
 </div>
 <p>We can create a simple simulation with load imbalance to see it in action:</p>
-<div data-filter="inc=sim" data-inc="ex_basic_ws.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_basic_simulation</span><span class="p">():</span>
+<div data-filter="inc=sim" data-inc="ex_basic_ws.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Basic work-stealing simulation."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
@@ -336,7 +337,7 @@ we can create a task generator:</p>
 </code></pre></div>
 </div>
 <p>Our simulation looks similar to our first one:</p>
-<div data-filter="inc=sim" data-inc="ex_spawning.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_spawning_simulation</span><span class="p">():</span>
+<div data-filter="inc=sim" data-inc="ex_spawning.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Demonstrate nested task spawning."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
@@ -395,7 +396,9 @@ that steals tasks from the largest of its peers' queues:</p>
 <div data-filter="inc=worker" data-inc="adaptive_worker.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AdaptiveWorker</span><span class="p">(</span><span class="n">Worker</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Worker with adaptive target selection."""</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">:</span> <span class="s2">"WorkStealingScheduler"</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">:</span> <span class="s2">"WorkStealingScheduler"</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">worker_id</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">steal_attempts</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">failed_steals</span> <span class="o">=</span> <span class="mi">0</span>
@@ -528,7 +531,7 @@ and use exponential backoff rather than spinning continuously when trying to ste
 </div>
 <div class="col-6 center">
 <a href="../"></a>
-	  © 2025
+	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">

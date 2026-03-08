@@ -8,7 +8,6 @@
 <link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
@@ -18,6 +17,7 @@
 <a href="#">Lessons</a>
 <span class="dropdown-content" id="nav-lessons">
 <a href="../intro/">Introduction</a>
+<a href="../mapreduce/">MapReduce</a>
 <a href="../msgque/">A Publish-Subscribe Message Queue</a>
 <a href="../worksteal/">A Work-Stealing Scheduler</a>
 <a href="../tracing/">Distributed Tracing</a>
@@ -34,6 +34,7 @@
 <a href="../contributing/">Contributing</a>
 <a href="../bibliography/">Bibliography</a>
 <a href="../glossary/">Glossary</a>
+<a href="../theory/">A Bit of Theory</a>
 <a href="../asimpy/">Discrete Event Simulation with asimpy</a>
 </span>
 </span>
@@ -124,7 +125,7 @@ the broker looks up the topic and places the message in each subscriber's queue:
         <span class="bp">self</span><span class="o">.</span><span class="n">num_published</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">queues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="p">[])</span>
         <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
-            <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div>
 </div>
@@ -214,7 +215,7 @@ but <code>FirstOf</code> captures the same semantics.</p>
 </div>
 <h2 id="msgque-sim">Running a Simulation</h2>
 <p>Let's create a scenario with multiple publishers and subscribers to see the system in action:</p>
-<div data-filter="inc=simulate" data-inc="ex_simple.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_simulation</span><span class="p">():</span>
+<div data-filter="inc=simulate" data-inc="ex_simple.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Run a simulation of the message queue system."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
     <span class="n">broker</span> <span class="o">=</span> <span class="n">MessageBroker</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
@@ -248,18 +249,18 @@ but <code>FirstOf</code> captures the same semantics.</p>
 [0.0] Inventory received from 'orders': Message 1 from OrderService (latency: 0.0)
 [0.0] Email received from 'orders': Message 1 from OrderService (latency: 0.0)
 [0.0] Analytics received from 'orders': Message 1 from OrderService (latency: 0.0)
+[1.0] Analytics received from 'user-activity': Message 1 from UserService (latency: 1.0)
 [1.5] UserService publishing: Message 2 from UserService
-[1.5] Analytics received from 'user-activity': Message 2 from UserService (latency: 0.0)
 [2.0] OrderService publishing: Message 2 from OrderService
 [2.0] Inventory received from 'orders': Message 2 from OrderService (latency: 0.0)
-[3.0] UserService publishing: Message 3 from UserService
+[2.0] Analytics received from 'orders': Message 2 from OrderService (latency: 0.0)
 ...more...
 === Statistics ===
 Messages published: 25
 Messages delivered: 47
 Inventory received: 11
 Email received: 7
-Analytics received: 14
+Analytics received: 21
 </code></pre></div>
 </div>
 <p>Notice how the fast <code>Inventory</code> service keeps up with orders,
@@ -330,7 +331,8 @@ and returns <code>False</code> to signal backpressure to the publisher:</p>
 
         <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">queue</span><span class="o">.</span><span class="n">is_full</span><span class="p">():</span>
+                <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">num_dropped</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -377,7 +379,7 @@ This creates a <a href="../glossary/#negative-feedback-loop">negative feedback l
 <p>Let's see backpressure in action with one fast publisher,
 one that's slow,
 and and a deliberately small queue size:</p>
-<div data-filter="inc=sim" data-inc="ex_backpressure.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_backpressure_simulation</span><span class="p">():</span>
+<div data-filter="inc=sim" data-inc="ex_backpressure.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Demonstrate backpressure in action."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
@@ -462,10 +464,18 @@ we either evict a lower-priority message or discard the one that just arrived:</
 
         <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">queue</span><span class="o">.</span><span class="n">is_full</span><span class="p">():</span>
+                <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="c1"># Displace lowest priority item if new message has higher priority</span>
+                <span class="n">bisect</span><span class="o">.</span><span class="n">insort</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">_items</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+                <span class="n">kept</span> <span class="o">=</span> <span class="n">message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">queue</span><span class="o">.</span><span class="n">_items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">queue</span><span class="o">.</span><span class="n">_items</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">_items</span><span class="p">[:</span> <span class="n">queue</span><span class="o">.</span><span class="n">_max_capacity</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">kept</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">all_delivered</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="n">all_delivered</span>
 </code></pre></div>
@@ -531,7 +541,7 @@ The lambda captures the acknowledgment ID and calls <code>_check_ack()</code> af
             <span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">[</span><span class="n">ack_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ack_msg</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="n">queue</span><span class="p">)</span>
-            <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">ack_msg</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">ack_msg</span><span class="p">)</span>
 
             <span class="c1"># Schedule re-delivery</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span>
@@ -601,7 +611,7 @@ Here's a simple implementation:</p>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">message</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
             <span class="n">dest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">destinations</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">next_dest</span><span class="p">]</span>
-            <span class="n">dest</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">dest</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">next_dest</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">next_dest</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destinations</span><span class="p">)</span>
 </code></pre></div>
 </div>
@@ -618,11 +628,11 @@ or partition-based assignment.</p>
 <footer>
 <div class="row">
 <div class="col-3 left">
-	  ⇐ <a href="../intro/">Introduction</a>
+	  ⇐ <a href="../mapreduce/">MapReduce</a>
 </div>
 <div class="col-6 center">
 <a href="../"></a>
-	  © 2025
+	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">

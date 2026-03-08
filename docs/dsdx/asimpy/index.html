@@ -8,7 +8,6 @@
 <link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
@@ -18,6 +17,7 @@
 <a href="#">Lessons</a>
 <span class="dropdown-content" id="nav-lessons">
 <a href="../intro/">Introduction</a>
+<a href="../mapreduce/">MapReduce</a>
 <a href="../msgque/">A Publish-Subscribe Message Queue</a>
 <a href="../worksteal/">A Work-Stealing Scheduler</a>
 <a href="../tracing/">Distributed Tracing</a>
@@ -34,6 +34,7 @@
 <a href="../contributing/">Contributing</a>
 <a href="../bibliography/">Bibliography</a>
 <a href="../glossary/">Glossary</a>
+<a href="../theory/">A Bit of Theory</a>
 <a href="../asimpy/">Discrete Event Simulation with asimpy</a>
 </span>
 </span>
@@ -99,34 +100,31 @@ Exceptions <em>cannot</em> be raised from the outside at arbitrary points.</p>
 Processes don't normally create these objects directly;
 instead,
 a class derived from <code>Process</code> can call <code>self.timeout(duration)</code>.</p>
-<h2><code>Queue</code> and <code>PriorityQueue</code>: Exchanging Data</h2>
+<h2><code>Queue</code>: Exchanging Data</h2>
 <p><code>Queue</code> enables processes to exchange data.
-It has two members:
+It has three members:
 a list of items being passed between processes,
-and a list of processes waiting for items.
-The invariant for <code>Queue</code> is that one or the other list must be empty,
-i.e.,
-if there are processes waiting then there aren't any items to take,
-while if there are items waiting to be taken there aren't any waiting processes.</p>
-<p><code>Queue.put(item)</code> either adds an item to the queue
-or passes it to a waiting process.
-This a non-blocking operation,
-i.e.,
-it cannot be <code>await</code>ed.
+a list of processes waiting to get items,
+and a list of processes waiting to add items.</p>
+<p><code>Queue.get()</code> either gets an item immediately
+or adds the calling process to the list of waiters.
 Conversely,
-<code>Queue.get()</code> either gets an item immediately
-or adds the calling process to the list of waiters.</p>
-<p><code>PriorityQueue</code> keeps queue items in priority order,
-which means items must be comparable (i.e., must implement <code>__lt__</code>).
+<code>Queue.put(item)</code> will:</p>
+<ul>
+<li>release a process waiting to get an item;</li>
+<li>suspend the process trying to put the item
+    until there is space for it in the queue;
+    or</li>
+<li>add the item to the queue.</li>
+</ul>
+<p><code>Queue</code> normally stores items in first-in/first-out (FIFO) order,
+but can instead be told to store items in priority order.
+For this to work,
+items must be comparable (i.e., must implement <code>__lt__</code>).
 Note that lower values are higher priorities,
-i.e., <code>A&lt;B</code> means that <code>A</code> has a higher priority than <code>B</code>.</p>
-<p>When a queue is created,
-the creator can specify a maximum capacity.
-If someone tries to <code>put()</code> an item in a <code>Queue</code> that is full,
-the item is not added.
-If someone tries to add an item to a full <code>PriorityQueue</code>,
-it <em>is</em> added,
-and then the lowest-priority item is removed from the queue.</p>
+i.e., <code>A&lt;B</code> means that <code>A</code> has a higher priority than <code>B</code>.
+Note also that if a queue is created with unlimited capacity,
+<code>put</code> will never block.</p>
 <h2><code>Resource</code>: Capacity-Limited Sharing</h2>
 <p>The <code>Resource</code> class simulates a shared resource with limited capacity.
 That capacity is the maximum number of concurrent users.
@@ -172,11 +170,11 @@ except it returns a <code>(key, value)</code> tuple identify the winning event.<
 <footer>
 <div class="row">
 <div class="col-3 left">
-	  ⇐ <a href="../glossary/">Glossary</a>
+	  ⇐ <a href="../theory/">A Bit of Theory</a>
 </div>
 <div class="col-6 center">
 <a href="../"></a>
-	  © 2025
+	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
