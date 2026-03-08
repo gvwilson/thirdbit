@@ -3,12 +3,89 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-02-08T00:00:00Z</updated>
+ <updated>2026-08-08T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Cognitive Pollution</title>
+   <link href="https://third-bit.com/2026/03/08/cognitive-pollution/"/>
+   <updated>2026-08-08T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/03/08/cognitive-pollution/</id>
+   <content type="html">&lt;p&gt;A couple of weeks ago,
+I used Claude to vibe code three formative assessment widgets to use in Jupyter and Marimo notebooks.
+It took less than two hours to get them working,
+and another 15 minutes to build a fourth.
+Given how rusty my JavaScript is,
+and how little I know about the AnyWidget protocol,
+I believe it would have taken at least a couple of frustrating days to write them by hand.
+I only have a high-level understanding of how they work (mumble mumble traitlets mumble mumble),
+but since they are exploratory proofs of concept,
+I&amp;rsquo;ve told myself that doesn&amp;rsquo;t really matter.&lt;/p&gt;
+&lt;p&gt;Two weeks from now,
+I will fly from Toronto to London, then to Edinburgh.
+By doing so,
+I will be responsible for the emission of approximately one tonne of CO2.
+That won&amp;rsquo;t do any measurable harm on its own,
+but when combined with the emissions of several billion other people,
+it will make the world my daughter inherits poorer and more dangerous in countless ways.
+I know that, but I&amp;rsquo;m still going to get on the plane.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s another analogy.
+Synthetic opioids have destroyed the lives of hundreds of thousands of people,
+and while low-level dealers are routinely incarcerated,
+none of the Sackler family has ever faced serious consequences.
+On the other hand,
+the only thing that made the last few months of my brother&amp;rsquo;s life bearable
+was a steady drip of those same drugs.
+I would fight hard against them being banned,
+but I would also fight hard against them being completely deregulated.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a third thought.
+My brother died of mesothelioma,
+a cancer that is caused by exposure to asbestos.
+We grew up in a logging town on Vancouver Island;
+he did cleanup work at the local sawmill as a teenager,
+but it took decades for the cancer to manifest.
+I expect it will similarly take years or decades for us to discover
+the effect chat bots tuned to maximize engagement have had
+on what young men believe about what women enjoy.&lt;/p&gt;
+&lt;p&gt;What ties all of this together for me is:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;AI is useful.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It is already causing harm.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Saying &amp;ldquo;just don&amp;rsquo;t use it&amp;rdquo; isn&amp;rsquo;t going to have any more effect than saying &amp;ldquo;just don&amp;rsquo;t fly&amp;rdquo;
+    (or preaching abstinence to teenagers).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The people driving the AI goldrush have proven that
+    they don&amp;rsquo;t care about anything except adulation and profit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We now recognize the ill effects of the cognitive pollution caused by social media.
+I believe current attempts to address them via age verification are naïve;
+I think it would be more effective to regulate or ban
+the use of algorithmic ranking based on personal data,
+but the truth is that &lt;em&gt;I don&amp;rsquo;t know&lt;/em&gt;.
+I don&amp;rsquo;t know enough about how safety standards became normal
+for the chemical, pharmaceutical, food, and transportation industries
+to feel that my opinions about regulating AI are worth listening to.
+What I do know is that people have devoted their careers to studying these things,
+and would probably be willing to explain them to us if we asked.&lt;/p&gt;
+&lt;p&gt;Looking back,
+I&amp;rsquo;m very glad that I took the time to learn a bit about evidence-based pedagogy
+before telling other people how they should teach.
+I therefore think that before we make recommendations about what anyone ought to do about AI,
+we ought to find out what has and hasn&amp;rsquo;t worked elsewhere.
+I&amp;rsquo;ve been thinking about this &lt;a href=&#34;https://third-bit.com/ideas/sdgc/&#34;&gt;for a long time&lt;/a&gt;,
+but I still don&amp;rsquo;t know how to make it happen.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>104 Days</title>
@@ -1960,115 +2037,6 @@ I&amp;rsquo;ll post the reason tomorrow;
 for today,
 see what theories you can come up with
 and what data you would need to confirm or refute them.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Not Created Equal</title>
-   <link href="https://third-bit.com/2025/11/27/not-created-equal/"/>
-   <updated>2025-11-27T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/11/27/not-created-equal/</id>
-   <content type="html">&lt;p&gt;&lt;a href=&#34;https://third-bit.com/2025/11/26/malice-and-randomness/&#34;&gt;Yesterday&amp;rsquo;s post&lt;/a&gt; pointed out that
-it can be hard to distinguish cause and effect from random variation.
-One way to tell them apart is to vary the simulation parameters systematically
-to see when various phenomena appear and disappear.
-For example,
-suppose we modify the simulation to account for the fact that
-not all tasks are created equal.
-Some bugs and features have higher priority than others,
-and our team will generally work on more important items before they work on less important ones.&lt;/p&gt;
-&lt;p&gt;Alongside the &lt;code&gt;Store&lt;/code&gt; we have been using to model our work queue,
-&lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt; offers a &lt;code&gt;PriorityStore&lt;/code&gt; that keeps items sorted in priority order.
-(The lower the item&amp;rsquo;s score, the higher its priority.)
-Let&amp;rsquo;s modify the &lt;code&gt;Simulation&lt;/code&gt; class to make the development and testing queues priority stores:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Simulation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_queue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PriorityStore&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;test_queue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PriorityStore&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;queue_log&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;and then add a new parameter &lt;code&gt;task_priorities&lt;/code&gt;
-whose value is a list of probabilities:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;PARAMS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;previous&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;task_priorities&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The list shown above tells us that there&amp;rsquo;s a 10% chance of a new task having priority 0,
-a 30% chance of it having priority 1,
-and a 60% chance of it having priority 2.
-When we create a task,
-we assign it a priority at random with these weights:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;task_priority&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;choices&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
-            &lt;span class=&#34;nb&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;task_priorities&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))),&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;weights&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;task_priorities&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-        &lt;span class=&#34;p&#34;&gt;)[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;(We need the &lt;code&gt;[0]&lt;/code&gt; at the end because &lt;code&gt;random.choices&lt;/code&gt; always returns a list of choices,
-even when we tell it we only want one value.)
-Finally,
-when we&amp;rsquo;re adding a new task to the development queue
-we wrap it in a &lt;code&gt;PriorityItem&lt;/code&gt;
-to pair the task with its priority:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;generate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-
-        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task_arrival&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_queue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PriorityItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;priority&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/11/27/queues-136.svg&#34; alt=&#34;10/30/60&#34; width=&#34;90%&#34;&gt;
-    &lt;br&gt;
-    Queue lengths: 10/30/60
-  &lt;/div&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/11/27/queues-334.svg&#34; alt=&#34;30/30/40&#34; width=&#34;90%&#34;&gt;
-    &lt;br&gt;
-    Queue lengths: 30/30/40
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/11/27/queues-433.svg&#34; alt=&#34;40/30/30&#34; width=&#34;90%&#34;&gt;
-    &lt;br&gt;
-    Queue lengths: 40/30/30
-  &lt;/div&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/11/27/queues-442.svg&#34; alt=&#34;40/40/20&#34; width=&#34;90%&#34;&gt;
-    &lt;br&gt;
-    Queue lengths: 40/40/20
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The top (green) line in these four charts is the number of priority-2 tasks
-waiting in the development queue.
-It grows steadily because developers are basically busy at all times with higher-priority tasks;
-it&amp;rsquo;s only when 80% or more of tasks are higher priority that
-we start to see a backlog of priority-1 tasks build up.
-I don&amp;rsquo;t know if I expected this or not,
-but I certainly &lt;em&gt;didn&amp;rsquo;t&lt;/em&gt; expect that the testers would always be able to keep up
-with tasks of all priorities.&lt;/p&gt;
-&lt;p&gt;These curves look familiar to me.
-In my previous role at &lt;a href=&#34;https://plot.ly/&#34;&gt;Plotly&lt;/a&gt;,
-I was responsible for managing the backlog of bug reports and feature requests
-for the open source libraries.
-When I started in April 2025,
-nobody had gone through them for several years;
-over that summer,
-I cleared out enough stale and duplicated items
-to get the three main repositories from about 7000 issues down to about 1700.
-I then watched as the number grew slowly but steadily over the next twelve months.
-Everyone on the team was working hard,
-but if your library, tool, or application is useful,
-there will &lt;em&gt;always&lt;/em&gt; be more work to do than people to do it.
-The only &amp;ldquo;solution&amp;rdquo; is to be ruthless about labeling
-so that you don&amp;rsquo;t get demoralized.&lt;/p&gt;</content>
  </entry>
  
 </feed>
