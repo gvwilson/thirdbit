@@ -1,6 +1,6 @@
 ---
 title: "Cognitive Pollution"
-date: 2026-08-08
+date: 2026-03-08
 ---
 
 A couple of weeks ago,
