@@ -1779,7 +1779,7 @@ He just snorted.
 
 <section markdown="1">
 
-## Chapter Turning Point
+## Chapter 14
 
 Suresh came to find me the next morning.
 I should have been practicing,
@@ -2069,7 +2069,7 @@ I didn't look back.
 
 <section markdown="1">
 
-## Chapter Hike
+## Chapter 15
 
 I hiked out to Tin Point the next day.
 I kept my pack light:
@@ -2368,7 +2368,7 @@ My shadow walked tall beside me until the sun went down.
 
 <section markdown="1">
 
-## Chapter N-1
+## Chapter 19
 
 I ran.
 I ran like a jackrabbit runs, like a hawk flies.
