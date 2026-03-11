@@ -25,6 +25,18 @@ this package adds a few features and provides a Python wrapper.
 -   [ReadTheDocs][chart-docs]
 -   [GitHub][chart-repo]
 
+## faw
+
+`faw` is a collection of formative assessment widgets
+for use in computational notebooks
+such as [Marimo][marimo] and [Jupyter][jupyter].
+While the package is distributed as Python,
+much of it is written in JavaScript.
+
+-   [PyPI][faw-pkg]
+-   [ReadTheDocs][faw-docs]
+-   [GitHub][faw-docs]
+
 ## mccole
 
 `mccole` is a simple static site generator
@@ -57,6 +69,11 @@ while learners can test their analysis pipelines using datasets they generate th
 [chart-docs]: https://chartxkcd.readthedocs.io/
 [chart-pkg]: https://pypi.org/project/chart-xkcd/
 [chart-repo]: https://github.com/gvwilson/chart.xkcd
+[faw-docs]: https://faw.readthedocs.io/
+[faw-pkg]: https://pypi.org/project/faw/
+[faw-repo]: https://github.com/gvwilson/faw
+[jupyter]: https://jupyter.org/
+[marimo]: https://marimo.io/
 [mccole-docs]: https://mccole.readthedocs.io/
 [mccole-pkg]: https://pypi.org/project/mccole/
 [mccole-repo]: https://github.com/gvwilson/mccole
