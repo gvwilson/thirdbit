@@ -8,6 +8,7 @@
 <link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
@@ -22,6 +23,14 @@
 <a href="../worksteal/">A Work-Stealing Scheduler</a>
 <a href="../tracing/">Distributed Tracing</a>
 <a href="../crdt/">Conflict-Free Replicated Data Types</a>
+<a href="../oauth/">OAuth</a>
+<a href="../distlock/">Distributed Locks</a>
+<a href="../torrent/">BitTorrent</a>
+<a href="../eventual/">Eventually Consistent Key-Value Store</a>
+<a href="../saga/">The Saga Pattern</a>
+<a href="../tcp/">TCP</a>
+<a href="../dns/">DNS</a>
+<a href="../ntp/">NTP</a>
 <a href="../finale/">Conclusion</a>
 </span>
 </span>
@@ -90,6 +99,10 @@ while unrelated operations may be observed in different orders on different node
 <dd>The property of an operation where the order of operands does not affect the result,
 i.e., a op b = b op a.
 Together with associativity, it allows operations to be applied in any order and combined safely.</dd>
+<dt><span id="compensation">compensation</span></dt>
+<dd>A corrective action taken to undo the effects of a previously completed step in a saga
+when a later step fails,
+restoring the system to a consistent state without requiring distributed transactions.</dd>
 <dt><span id="concurrency">concurrency</span></dt>
 <dd>The execution of multiple tasks that overlap in time,
 which may or may not run simultaneously on different processors.
@@ -114,6 +127,14 @@ so that operations can be correlated in distributed tracing.</dd>
 according to the CAP theorem,
 refusing to serve requests rather than returning potentially inconsistent data
 during network partitions.</dd>
+<dt><span id="critical-section">critical section</span></dt>
+<dd>A portion of code that accesses a shared resource and must not be executed
+by more than one process or thread at a time,
+requiring mutual exclusion to prevent data corruption.</dd>
+<dt><span id="csrf">cross-site request forgery</span> (CSRF)</dt>
+<dd>An attack where a malicious site tricks a user's browser into sending an authenticated request
+to another site without the user's knowledge,
+exploiting the browser's automatic inclusion of session cookies.</dd>
 </dl>
 <h2>D</h2>
 <dl>
@@ -139,6 +160,15 @@ combining the properties of a stack and a queue.</dd>
 <dd>An algorithm design strategy that breaks a problem into smaller subproblems,
 solves each independently, and combines the results.
 MapReduce applies this pattern to distributed data processing.</dd>
+<dt><span id="dns">Domain Name System</span> (DNS)</dt>
+<dd>A hierarchical, distributed database that translates human-readable domain names
+such as "www.example.com" into IP addresses.
+DNS is a critical internet infrastructure component
+that enables service mobility and scales by distributing authority across millions of servers.</dd>
+<dt><span id="dnssec">DNSSEC</span></dt>
+<dd>DNS Security Extensions, a suite of protocols that add cryptographic signatures to DNS records,
+allowing resolvers to verify that responses are authentic and have not been tampered with,
+thereby preventing spoofing and cache poisoning attacks.</dd>
 </dl>
 <h2>E</h2>
 <dl>
@@ -161,6 +191,10 @@ such as publishing to multiple subscribers or calling multiple services in paral
 <dt><span id="fault-tolerance">fault tolerance</span></dt>
 <dd>The ability of a system to continue operating correctly
 in the presence of failures of some of its components.</dd>
+<dt><span id="fencing-token">fencing token</span></dt>
+<dd>A monotonically increasing number issued with each lock grant
+that a protected resource uses to reject requests from stale lock holders,
+preventing split-brain data corruption.</dd>
 <dt><span id="future">future</span></dt>
 <dd>An object representing the result of an asynchronous computation that may not have completed yet.
 The result can be retrieved once the computation finishes,
@@ -197,7 +231,7 @@ and 500s indicate server errors.</dd>
 </dl>
 <h2>I</h2>
 <dl>
-<dt><span id="idempotent">idempotent</span></dt>
+<dt><span id="idempotence">idempotence</span></dt>
 <dd>Describing an operation that produces the same result whether applied once or multiple times.
 Idempotent operations are safe to retry in at-least-once delivery systems.</dd>
 </dl>
@@ -215,6 +249,13 @@ Widely used for data exchange between web services.</dd>
 <dd>A CRDT that resolves concurrent writes by keeping the value with the highest timestamp,
 discarding earlier writes.
 Simple to implement but may silently lose updates.</dd>
+<dt><span id="lease">lease</span></dt>
+<dd>A time-limited grant of a resource or lock that expires automatically
+if not renewed by the holder,
+allowing the system to recover from client failures without manual intervention.</dd>
+<dt><span id="lease-based-lock">lease-based lock</span></dt>
+<dd>A distributed lock that is held for a limited duration and must be periodically renewed,
+so that the lock is automatically released if the holder crashes or becomes unreachable.</dd>
 <dt><span id="linearizability">linearizability</span></dt>
 <dd>A strong consistency model where every operation appears to take effect instantaneously
 at some point between its start and completion,
@@ -242,9 +283,21 @@ It decouples senders from receivers and may provide durability, ordering, and fi
 <dd>An architectural style where an application is built as a collection of small,
 independently deployable services,
 each responsible for a specific business capability and communicating over a network.</dd>
+<dt><span id="mutex">mutex</span></dt>
+<dd>A synchronization primitive that grants exclusive access to a shared resource,
+allowing only one thread or process to hold it at a time
+and blocking others until it is released.</dd>
+<dt><span id="mutual-exclusion">mutual exclusion</span></dt>
+<dd>The guarantee that only one process or thread accesses a shared resource at any given time,
+preventing race conditions and data corruption in concurrent systems.</dd>
 </dl>
 <h2>N</h2>
 <dl>
+<dt><span id="negative-cache">negative cache</span></dt>
+<dd>A cache that stores records indicating that a lookup returned no result,
+such as a non-existent domain name,
+so that repeated queries for the same missing resource are answered locally
+rather than forwarded to authoritative servers.</dd>
 <dt><span id="negative-feedback-loop">negative feedback loop</span></dt>
 <dd>A control mechanism where a system's output feeds back to reduce its input,
 stabilizing the system around a target state.
@@ -253,9 +306,25 @@ Backpressure in distributed systems is an example of this pattern.</dd>
 <dd>A failure that splits a distributed system into two or more groups of nodes
 that cannot communicate with each other,
 forcing a choice between consistency and availability according to the CAP theorem.</dd>
+<dt><span id="ntp">Network Time Protocol</span> (NTP)</dt>
+<dd>A networking protocol for synchronizing clocks across computers on a network.
+NTP uses a hierarchy of time sources and adjusts for network delays
+to keep clocks accurate to within milliseconds.</dd>
+<dt><span id="ntp-stratum">NTP stratum</span></dt>
+<dd>A level in the NTP hierarchy indicating how many hops a clock is from a reference time source.
+Stratum 0 devices are high-precision clocks such as atomic clocks or GPS receivers;
+stratum 1 servers synchronize directly from them,
+and each subsequent stratum synchronizes from the level above.</dd>
 </dl>
 <h2>O</h2>
 <dl>
+<dt><span id="oauth-scope">OAuth scope</span></dt>
+<dd>A string that specifies the permissions an application is requesting from a user,
+limiting what the application can do with the access token it receives.</dd>
+<dt><span id="oauth-token">OAuth token</span></dt>
+<dd>A credential issued by an authorization server that grants an application
+limited access to a user's resources on another service
+without exposing the user's password.</dd>
 <dt><span id="op-based-crdt">operation-based CRDT</span></dt>
 <dd>A CRDT that replicates by broadcasting individual operations to all replicas.
 Requires operations to be commutative so they can be applied in any order.</dd>
@@ -284,6 +353,15 @@ This pattern decouples senders from receivers.</dd>
 <h2>Q</h2>
 <h2>R</h2>
 <dl>
+<dt><span id="recursive-resolver">recursive resolver</span></dt>
+<dd>A DNS server that accepts queries from clients and resolves them on the client's behalf
+by walking the DNS hierarchy from root servers down to authoritative name servers,
+caching responses to answer future queries more quickly.</dd>
+<dt><span id="root-server">root server</span></dt>
+<dd>One of the thirteen logical DNS servers at the top of the DNS hierarchy
+that know the authoritative name servers for each top-level domain.
+In practice, root servers are implemented as many physical servers
+distributed worldwide using anycast addressing.</dd>
 <dt><span id="root-span">root span</span></dt>
 <dd>The first span in a trace, representing the top-level operation that initiated the request
 and serving as the root of the trace's span tree.</dd>
@@ -293,6 +371,9 @@ giving each one a turn in order to distribute work or checks evenly.</dd>
 </dl>
 <h2>S</h2>
 <dl>
+<dt><span id="saga">saga</span></dt>
+<dd>A apttern in which a multi-step transaction is implemented as a sequence of local transactions,
+each with a compensating action to undo its effects if the overall transaction fails.</dd>
 <dt><span id="sampling">sampling</span></dt>
 <dd>Recording only a fraction of traces in distributed tracing
 to reduce overhead and storage requirements.</dd>
@@ -300,9 +381,17 @@ to reduce overhead and storage requirements.</dd>
 <dd>A formal description of the structure and types of data,
 used to validate that data conforms to an expected format.
 Common in databases and data interchange formats such as JSON and Avro.</dd>
+<dt><span id="semaphore">semaphore</span></dt>
+<dd>A synchronization primitive that controls access to a shared resource
+by maintaining a counter representing the number of available permits,
+allowing up to that many concurrent accessors.</dd>
 <dt><span id="sequential-consistency">sequential consistency</span></dt>
 <dd>A consistency model where all operations appear to execute in some total order
 that is consistent with the order seen by each individual process.</dd>
+<dt><span id="single-sign-on">single sign-on</span></dt>
+<dd>An authentication scheme that allows a user to log in once
+and gain access to multiple applications or services
+without re-entering credentials for each one.</dd>
 <dt><span id="singleton">singleton</span></dt>
 <dd>A design pattern that restricts a class to a single instance
 and provides a global access point to it.</dd>
@@ -313,6 +402,10 @@ Spans can be nested to form a tree that represents the full execution of a reque
 <dd>Running multiple instances of a task in parallel and using the result of whichever completes first,
 discarding the others,
 to reduce the impact of slow or failed workers.</dd>
+<dt><span id="split-brain">split-brain scenario</span></dt>
+<dd>A situation where two or more nodes in a distributed system each believe they hold exclusive control
+over a resource, typically caused by a network partition,
+leading to conflicting writes and data inconsistency.</dd>
 <dt><span id="state-based-crdt">state-based CRDT</span></dt>
 <dd>A CRDT that replicates by periodically sending the full state to other replicas,
 which merge it using a commutative, associative, and idempotent merge function.</dd>
@@ -329,6 +422,15 @@ regardless of the order in which those updates arrived.</dd>
 <dt><span id="thread-local-storage">thread-local storage</span></dt>
 <dd>A mechanism that provides each thread with its own private copy of a variable,
 preventing interference between threads without requiring synchronization.</dd>
+<dt><span id="ttl">time to live</span> (TTL)</dt>
+<dd>A value attached to a DNS record or cached entry that specifies
+how long it may be stored before it must be discarded and re-fetched.
+Low TTLs allow changes to propagate quickly but increase query load;
+high TTLs reduce load but slow propagation of updates.</dd>
+<dt><span id="tld">top-level domain</span></dt>
+<dd>The rightmost label in a domain name, such as <code>.com</code>, <code>.org</code>, or <code>.net</code>,
+managed by a dedicated set of DNS servers that know the authoritative name servers
+for every domain registered under that suffix.</dd>
 <dt><span id="total-order">total order</span></dt>
 <dd>A relation that is reflexive, antisymmetric, and transitive,
 and where every pair of elements is comparable.
@@ -340,6 +442,14 @@ identified by a unique trace ID and composed of multiple spans forming a tree.</
 <dd>A service that receives spans from instrumented applications,
 assembles them into complete traces,
 and stores or forwards them to a backend for analysis and visualization.</dd>
+<dt><span id="tcp">Transmission Control Protocol</span> (TCP)</dt>
+<dd>A network protocol that provides reliable, ordered delivery of data over the internet,
+built on top of the unreliable UDP protocol.
+TCP uses sequence numbers, acknowledgments, retransmission, and sliding windows
+to handle packet loss, reordering, and congestion automatically.</dd>
+<dt><span id="trust-anchor">trust anchor</span></dt>
+<dd>A certificate or public key that is trusted unconditionally
+and serves as the root from which the validity of other certificates in a chain is established.</dd>
 </dl>
 <h2>U</h2>
 <h2>V</h2>

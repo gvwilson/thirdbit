@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eventually Consistent Key-Value Store</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<nav>
+<a href="../">Home</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../intro/">Introduction</a>
+<a href="../mapreduce/">MapReduce</a>
+<a href="../msgque/">A Publish-Subscribe Message Queue</a>
+<a href="../worksteal/">A Work-Stealing Scheduler</a>
+<a href="../tracing/">Distributed Tracing</a>
+<a href="../crdt/">Conflict-Free Replicated Data Types</a>
+<a href="../oauth/">OAuth</a>
+<a href="../distlock/">Distributed Locks</a>
+<a href="../torrent/">BitTorrent</a>
+<a href="../eventual/">Eventually Consistent Key-Value Store</a>
+<a href="../saga/">The Saga Pattern</a>
+<a href="../tcp/">TCP</a>
+<a href="../dns/">DNS</a>
+<a href="../ntp/">NTP</a>
+<a href="../finale/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contributing/">Contributing</a>
+<a href="../bibliography/">Bibliography</a>
+<a href="../glossary/">Glossary</a>
+<a href="../theory/">A Bit of Theory</a>
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>Eventually Consistent Key-Value Store</h1>
+<p>The <a href="https://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> says that when network partitions occur,
+systems must choose between consistency (all nodes see the same data)
+and availability (the system continues to respond).
+Traditional databases choose consistency:
+they stop accepting writes during a partition to avoid conflicts.
+But for many applications,
+availability is more valuable than immediate consistency.</p>
+<p><a href="https://en.wikipedia.org/wiki/Amazon_DynamoDB">DynamoDB</a>,
+<a href="https://cassandra.apache.org/">Apache Cassandra</a>,
+and <a href="https://riak.com/">Riak</a> therefore take a different approach:
+they remain available during partitions and accept that replicas might temporarily disagree.
+They use techniques like vector clocks to track causality
+and quorum protocols to balance consistency and availability.</p>
+<p>This chapter builds a simplified eventually consistent key-value store to demonstrate these concepts.
+It shows how systems handle concurrent writes,
+detect conflicts using vector clocks,
+and use read repair to synchronize replicas.</p>
+<h2 id="eventual-cap">The CAP Theorem in Practice</h2>
+<p>Imagine a key-value store with three replicas of each key:</p>
+<ol>
+<li>Client A writes "X = 1" to replicas 1 and 2.</li>
+<li>A network partition separates replica 3.</li>
+<li>Client B writes "X = 2" to replicas 2 and 3.</li>
+<li>The partition heals.</li>
+</ol>
+<p>What is the value of X?
+Replica 1 has "X = 1", replica 2 saw both writes, and replica 3 has "X = 2",
+so there is a conflict.
+Traditional databases would have prevented this by requiring all replicas to agree before accepting a write,
+But that makes the system unavailable during the partition.</p>
+<p>Our system accepts both writes and uses version vectors to track that X has two concurrent versions.
+When a client reads X,
+we can either return both versions and let the application decide how to resolve the conflict,
+or use a simple rule like "last write wins" based on timestamps.</p>
+<h2 id="eventual-clock">Vector Clocks for Causality</h2>
+<p>Vector clocks let us determine if two events are causally related or concurrent.
+Each replica maintains a counter for every replica in the system:</p>
+<div data-filter="inc=vectorclock" data-inc="vector_clock.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">VectorClock</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Vector clock for tracking causality."""</span>
+
+    <span class="n">clocks</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Increment the clock for a replica."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clocks</span><span class="p">[</span><span class="n">replica_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">replica_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">"VectorClock"</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Merge with another vector clock (take max of each component)."""</span>
+        <span class="n">all_replicas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">all_replicas</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clocks</span><span class="p">[</span><span class="n">replica</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">replica</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">other</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">replica</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">happens_before</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">"VectorClock"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check if this clock happens before another."""</span>
+        <span class="c1"># self &lt;= other and self != other</span>
+        <span class="n">all_replicas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="n">at_least_one_less</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">all_replicas</span><span class="p">:</span>
+            <span class="n">self_val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">replica</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">other_val</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">replica</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">self_val</span> <span class="o">&gt;</span> <span class="n">other_val</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="n">self_val</span> <span class="o">&lt;</span> <span class="n">other_val</span><span class="p">:</span>
+                <span class="n">at_least_one_less</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="n">at_least_one_less</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">concurrent_with</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">"VectorClock"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check if this clock is concurrent with another."""</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">happens_before</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">other</span><span class="o">.</span><span class="n">happens_before</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"VectorClock"</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create a copy of this vector clock."""</span>
+        <span class="k">return</span> <span class="n">VectorClock</span><span class="p">(</span><span class="n">clocks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clocks</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<p>In our implementation,
+the vector clock is a dictionary mapping replica IDs to integers.
+When a replica performs an operation, it increments its own counter.
+When a recplica receives a message with a vector clock,
+it takes the maximum of each component with its local clock.
+The key insight is that if clock A happens-before clock B,
+then A's event causally precedes B's.
+If neither happens-before the other,
+the events are concurrent.</p>
+<h2 id="eventual-version">Versioned Values</h2>
+<p>Each value is stored with its vector clock:</p>
+<div data-filter="inc=versionedvalue" data-inc="versioned_value.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">VersionedValue</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A value with its vector clock."""</span>
+
+    <span class="n">value</span><span class="p">:</span> <span class="n">Any</span>
+    <span class="n">clock</span><span class="p">:</span> <span class="n">VectorClock</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># For last-write-wins conflict resolution</span>
+</code></pre></div>
+</div>
+<p>When storing multiple versions of a key,
+we keep only the ones that are concurrent (neither happens-before the other).
+If a new version happens-after an existing version,
+we can discard the old one.</p>
+<h2 id="eventual-storage">Storage Node</h2>
+<p>Storage nodes can exchange four kinds of messages:</p>
+<div data-filter="inc=messages" data-inc="messages.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ReadRequest</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Request to read a key."""</span>
+
+    <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">response_queue</span><span class="p">:</span> <span class="n">Queue</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WriteRequest</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Request to write a key."""</span>
+
+    <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">Any</span>
+    <span class="n">context</span><span class="p">:</span> <span class="n">VectorClock</span> <span class="o">|</span> <span class="kc">None</span>  <span class="c1"># Client's version context</span>
+    <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">response_queue</span><span class="p">:</span> <span class="n">Queue</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ReadResponse</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Response to a read request."""</span>
+
+    <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">versions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">VersionedValue</span><span class="p">]</span>  <span class="c1"># May have multiple concurrent versions</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WriteResponse</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Response to a write request."""</span>
+
+    <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">success</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">clock</span><span class="p">:</span> <span class="n">VectorClock</span>
+</code></pre></div>
+</div>
+<p>Each storage node maintains a replica of a subset of keys.
+The node's constructor sets up its data store and creates the queue it uses to receive requests:</p>
+<div data-filter="inc=storage_init" data-inc="storage_node.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StorageNode</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""A storage node that maintains replicas of keys."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span> <span class="o">=</span> <span class="n">node_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="c1"># Key -&gt; list of concurrent versioned values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">VersionedValue</span><span class="p">]]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span> <span class="o">=</span> <span class="n">VectorClock</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Process read and write requests."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">ReadRequest</span><span class="p">):</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_read</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+                <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">response_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">WriteRequest</span><span class="p">):</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_write</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+                <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">response_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>The <code>run</code> method dispatches reads and writes to dedicated handlers.
+<code>_handle_read</code> returns all stored versions of a key:</p>
+<div data-filter="inc=storage_read" data-inc="storage_node.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">ReadRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReadResponse</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Read all concurrent versions of a key."""</span>
+        <span class="n">versions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="si">}</span><span class="s2">: Read </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2"> -&gt; "</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span><span class="si">}</span><span class="s2"> version(s)"</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ReadResponse</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">versions</span><span class="o">=</span><span class="n">versions</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<p>The write handler is where causality is maintained.
+It increments the local clock,
+merges the client's causal context,
+and discards any stored versions superseded by the new value:</p>
+<div data-filter="inc=storage_write" data-inc="storage_node.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">WriteRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WriteResponse</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Write a value, handling concurrent versions."""</span>
+        <span class="c1"># Increment our clock</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">)</span>
+
+        <span class="c1"># If client provided context, merge it</span>
+        <span class="n">new_clock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">context</span><span class="p">:</span>
+            <span class="n">new_clock</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+            <span class="n">new_clock</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">)</span>
+
+        <span class="c1"># Create new versioned value</span>
+        <span class="n">new_version</span> <span class="o">=</span> <span class="n">VersionedValue</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">clock</span><span class="o">=</span><span class="n">new_clock</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Remove versions that this new version supersedes</span>
+        <span class="n">existing</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">new_versions</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">version</span> <span class="ow">in</span> <span class="n">existing</span><span class="p">:</span>
+            <span class="c1"># Keep version if it's concurrent with new version</span>
+            <span class="k">if</span> <span class="n">version</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">concurrent_with</span><span class="p">(</span><span class="n">new_clock</span><span class="p">):</span>
+                <span class="n">new_versions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">new_clock</span><span class="o">.</span><span class="n">happens_before</span><span class="p">(</span><span class="n">version</span><span class="o">.</span><span class="n">clock</span><span class="p">):</span>
+                <span class="c1"># The existing version supersedes the new one</span>
+                <span class="c1"># (shouldn't happen with proper client context)</span>
+                <span class="n">new_versions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+
+        <span class="c1"># Add the new version</span>
+        <span class="n">new_versions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_version</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_versions</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="si">}</span><span class="s2">: Wrote </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">key</span><span class="si">}</span><span class="s2"> = "</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> with clock </span><span class="si">{</span><span class="n">new_clock</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">WriteResponse</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">success</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">clock</span><span class="o">=</span><span class="n">new_clock</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>When writing a new version, we:</p>
+<ol>
+<li>increment our local clock,</li>
+<li>merge the client's context (if provided) to preserve causality,</li>
+<li>remove any existing versions that are superseded by the new version, and</li>
+<li>keep concurrent versions, creating a conflict.</li>
+</ol>
+<h2 id="eventual-coord">Coordinator with Quorum Protocol</h2>
+<p>The coordinator manages replication across storage nodes.
+It implements quorum reads and writes:
+for N replicas,
+we wait for R replicas to respond to a read and W replicas to respond to a write.
+R + W &gt; N guarantees that we see the latest write.</p>
+<p>The constructor takes the list of storage nodes and quorum parameters,
+and <code>_get_replicas</code> uses consistent hashing to choose which nodes store a given key:</p>
+<div data-filter="inc=coord_init" data-inc="coordinator.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Coordinator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Coordinates read/write operations across replicas."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
+        <span class="n">nodes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">StorageNode</span><span class="p">],</span>
+        <span class="n">replication_factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">read_quorum</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">write_quorum</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="n">nodes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">replication_factor</span> <span class="o">=</span> <span class="n">replication_factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">read_quorum</span> <span class="o">=</span> <span class="n">read_quorum</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_quorum</span> <span class="o">=</span> <span class="n">write_quorum</span>
+
+        <span class="c1"># Simple consistent hashing: hash key to determine replicas</span>
+        <span class="c1"># In production, use proper consistent hashing ring</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_replicas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">StorageNode</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Determine which nodes should store this key."""</span>
+        <span class="c1"># Hash key to starting position, then take N consecutive nodes</span>
+        <span class="n">hash_val</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+        <span class="n">replicas</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">replication_factor</span><span class="p">):</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">hash_val</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+            <span class="n">replicas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">replicas</span>
+</code></pre></div>
+</div>
+<p>A read sends requests to R replicas in parallel and merges their responses:</p>
+<div data-filter="inc=coord_read" data-inc="coordinator.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">VersionedValue</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Read from R replicas and return all versions."""</span>
+        <span class="n">replicas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_replicas</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="c1"># Send read requests to all replicas</span>
+        <span class="n">response_queues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">replicas</span><span class="p">:</span>
+            <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+            <span class="n">response_queues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_queue</span><span class="p">)</span>
+
+            <span class="n">request</span> <span class="o">=</span> <span class="n">ReadRequest</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">response_queue</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">replica</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="c1"># Wait for quorum of responses</span>
+        <span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read_quorum</span><span class="p">):</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response_queues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+        <span class="c1"># Merge all versions from all responses</span>
+        <span class="n">all_versions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+            <span class="n">all_versions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">versions</span><span class="p">)</span>
+
+        <span class="c1"># Remove duplicates and superseded versions</span>
+        <span class="n">merged_versions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_merge_versions</span><span class="p">(</span><span class="n">all_versions</span><span class="p">)</span>
+
+        <span class="c1"># Read repair: if we got different versions, update lagging replicas</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">responses</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">replicas</span><span class="p">):</span>
+            <span class="c1"># Some replicas didn't respond yet, but we can still do read repair</span>
+            <span class="k">pass</span>  <span class="c1"># Simplified: skip read repair for now</span>
+
+        <span class="k">return</span> <span class="n">merged_versions</span>
+</code></pre></div>
+</div>
+<p>A write sends the new value to W replicas,
+each of which updates its local clock.
+The coordinator merges those clocks to return a causal context to the client:</p>
+<div data-filter="inc=coord_write" data-inc="coordinator.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">VectorClock</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VectorClock</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Write to W replicas."""</span>
+        <span class="n">replicas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_replicas</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="c1"># Send write requests to all replicas</span>
+        <span class="n">response_queues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">replicas</span><span class="p">:</span>
+            <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+            <span class="n">response_queues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_queue</span><span class="p">)</span>
+
+            <span class="n">request</span> <span class="o">=</span> <span class="n">WriteRequest</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">response_queue</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">replica</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="c1"># Wait for quorum of responses</span>
+        <span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">write_quorum</span><span class="p">):</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response_queues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+        <span class="c1"># Return the highest clock</span>
+        <span class="n">clocks</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">clock</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">]</span>
+        <span class="n">merged_clock</span> <span class="o">=</span> <span class="n">clocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">clock</span> <span class="ow">in</span> <span class="n">clocks</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">merged_clock</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">clock</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">merged_clock</span>
+</code></pre></div>
+</div>
+<p><code>_merge_versions</code> resolves the list of all versions returned by replicas,
+discarding any version whose clock is dominated by another:</p>
+<div data-filter="inc=coord_merge" data-inc="coordinator.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_merge_versions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">versions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">VersionedValue</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">VersionedValue</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Merge versions, keeping only concurrent ones."""</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">versions</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="c1"># Remove duplicates (same clock)</span>
+        <span class="n">unique</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">versions</span><span class="p">:</span>
+            <span class="n">clock_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">clock</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">clock_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique</span><span class="p">:</span>
+                <span class="n">unique</span><span class="p">[</span><span class="n">clock_str</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+        <span class="n">versions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">unique</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+        <span class="c1"># Remove superseded versions</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">versions</span><span class="p">):</span>
+            <span class="n">superseded</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">v2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">versions</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">v1</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">happens_before</span><span class="p">(</span><span class="n">v2</span><span class="o">.</span><span class="n">clock</span><span class="p">):</span>
+                    <span class="n">superseded</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">superseded</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+</div>
+<p>The quorum protocol is the heart of tunable consistency.
+With N=3, R=2, W=2:</p>
+<ul>
+<li>Writes succeed after 2 nodes acknowledge (available even if 1 node is down).</li>
+<li>Reads query 2 nodes (at least one will have the latest write).</li>
+<li>R + W = 4 &gt; N = 3, ensuring reads see the latest writes.</li>
+</ul>
+<h2 id="eventual-client">Client Implementation</h2>
+<p>Clients read values, resolve conflicts, and write back.
+The client stores a causal context per key and works through a list of operations:</p>
+<div data-filter="inc=kv_init" data-inc="kv_client.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">KVClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Client that reads and writes to the key-value store."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">:</span> <span class="n">Coordinator</span><span class="p">,</span>
+        <span class="n">operations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+        <span class="n">initial_delay</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span> <span class="o">=</span> <span class="n">client_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span> <span class="o">=</span> <span class="n">coordinator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operations</span> <span class="o">=</span> <span class="n">operations</span>  <span class="c1"># list of (op, key, value) tuples</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_delay</span> <span class="o">=</span> <span class="n">initial_delay</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">VectorClock</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Track causality per key</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Execute operations."""</span>
+        <span class="c1"># Wait for initial delay if specified</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_delay</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_delay</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">op</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">operations</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">"write"</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Small delay between operations</span>
+            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s2">"read"</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>When reading, the client checks for conflicts.
+If a single version is returned there is no conflict.
+If multiple concurrent versions are returned,
+the client resolves them using last-write-wins and merges all their clocks:</p>
+<div data-filter="inc=kv_read" data-inc="kv_client.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Read a key and handle conflicts."""</span>
+        <span class="n">versions</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">versions</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="si">}</span><span class="s2">: Read </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> -&gt; NOT FOUND"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># No conflict</span>
+            <span class="n">version</span> <span class="o">=</span> <span class="n">versions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="si">}</span><span class="s2">: Read </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> -&gt; "</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">version</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> (clock: </span><span class="si">{</span><span class="n">version</span><span class="o">.</span><span class="n">clock</span><span class="si">}</span><span class="s2">)"</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">version</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Conflict: multiple concurrent versions</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="si">}</span><span class="s2">: Read </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> -&gt; "</span>
+                <span class="sa">f</span><span class="s2">"CONFLICT: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span><span class="si">}</span><span class="s2"> versions"</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">versions</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  - </span><span class="si">{</span><span class="n">v</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> (clock: </span><span class="si">{</span><span class="n">v</span><span class="o">.</span><span class="n">clock</span><span class="si">}</span><span class="s2">, ts: </span><span class="si">{</span><span class="n">v</span><span class="o">.</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+            <span class="c1"># Resolve conflict: last-write-wins based on timestamp</span>
+            <span class="n">latest</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">versions</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">timestamp</span><span class="p">)</span>
+
+            <span class="c1"># Merge all clocks to preserve causality</span>
+            <span class="n">merged_clock</span> <span class="o">=</span> <span class="n">versions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">versions</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="n">merged_clock</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">clock</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_clock</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="si">}</span><span class="s2">: Resolved to </span><span class="si">{</span><span class="n">latest</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">latest</span><span class="o">.</span><span class="n">value</span>
+</code></pre></div>
+</div>
+<p>When writing,
+the client passes its current causal context so that
+the coordinator can detect whether the write is concurrent with or follows previous writes:</p>
+<div data-filter="inc=kv_write" data-inc="kv_client.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Write a key with causal context."""</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="n">clock</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">clock</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="si">}</span><span class="s2">: Wrote </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>The client maintains a context (vector clock) for each key.
+When writing, it passes this context to preserve causality.
+When reading multiple versions (a conflict),
+it resolves using last-write-wins but merges all clocks to capture the complete causality.</p>
+<h2 id="eventual-sim">Running a Simulation</h2>
+<p>Let's create a scenario showing concurrent writes and conflict resolution:</p>
+<div data-filter="inc=basicexample" data-inc="ex_basic.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+
+    <span class="c1"># Create 3 storage nodes</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">StorageNode</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">"Node1"</span><span class="p">),</span>
+        <span class="n">StorageNode</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">"Node2"</span><span class="p">),</span>
+        <span class="n">StorageNode</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">"Node3"</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Create coordinator with R=2, W=2, N=3</span>
+    <span class="n">coordinator</span> <span class="o">=</span> <span class="n">Coordinator</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">replication_factor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">read_quorum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">write_quorum</span><span class="o">=</span><span class="mi">2</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Client 1: writes X=1, then X=2</span>
+    <span class="n">KVClient</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Client1"</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">"write"</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">"write"</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Client 2: reads X after a delay</span>
+    <span class="n">KVClient</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Client2"</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="n">initial_delay</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_basic.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Node2: Wrote X = 1 with clock {Node2:1}
+[0.0] Node3: Wrote X = 1 with clock {Node3:1}
+[0.0] Node1: Wrote X = 1 with clock {Node1:1}
+[0.0] Client1: Wrote X = 1
+[0.5] Node2: Wrote X = 2 with clock {Node2:3, Node3:1}
+[0.5] Node3: Wrote X = 2 with clock {Node2:1, Node3:3}
+[0.5] Node1: Wrote X = 2 with clock {Node1:3, Node2:1, Node3:1}
+[0.5] Client1: Wrote X = 2
+[3.0] Node2: Read X -&gt; 1 version(s)
+[3.0] Node3: Read X -&gt; 1 version(s)
+[3.0] Node1: Read X -&gt; 1 version(s)
+[3.0] Client2: Read X -&gt; CONFLICT: 2 versions
+  - 2 (clock: {Node2:3, Node3:1}, ts: 0.5)
+  - 2 (clock: {Node2:1, Node3:3}, ts: 0.5)
+[3.0] Client2: Resolved to 2
+</code></pre></div>
+</div>
+<p>Now let's create a more interesting scenario with concurrent conflicting writes:</p>
+<div data-filter="inc=conflictexample" data-inc="ex_conflict.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+
+    <span class="c1"># Create 5 storage nodes</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">StorageNode</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Node</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+
+    <span class="c1"># N=3, R=2, W=2</span>
+    <span class="n">coordinator</span> <span class="o">=</span> <span class="n">Coordinator</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">replication_factor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">read_quorum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">write_quorum</span><span class="o">=</span><span class="mi">2</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Client 1: writes cart=["item1"]</span>
+    <span class="n">KVClient</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Client1"</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">"write"</span><span class="p">,</span> <span class="s2">"cart"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"item1"</span><span class="p">]),</span>
+            <span class="p">(</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"cart"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Client 2: concurrently writes cart=["item2"]</span>
+    <span class="c1"># (without seeing client1's write due to timing)</span>
+    <span class="n">KVClient</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Client2"</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">"write"</span><span class="p">,</span> <span class="s2">"cart"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"item2"</span><span class="p">]),</span>
+        <span class="p">],</span>
+        <span class="n">initial_delay</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Client 3: reads the conflicted cart later</span>
+    <span class="n">KVClient</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Client3"</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"cart"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">"write"</span><span class="p">,</span> <span class="s2">"cart"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"item1"</span><span class="p">,</span> <span class="s2">"item2"</span><span class="p">]),</span>  <span class="c1"># Resolved value</span>
+        <span class="p">],</span>
+        <span class="n">initial_delay</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_conflict.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Node5: Wrote cart = ['item1'] with clock {Node5:1}
+[0.0] Node1: Wrote cart = ['item1'] with clock {Node1:1}
+[0.0] Node2: Wrote cart = ['item1'] with clock {Node2:1}
+[0.0] Client1: Wrote cart = ['item1']
+[0.2] Node5: Wrote cart = ['item2'] with clock {Node5:2}
+[0.2] Node1: Wrote cart = ['item2'] with clock {Node1:2}
+[0.2] Node2: Wrote cart = ['item2'] with clock {Node2:2}
+[0.2] Client2: Wrote cart = ['item2']
+[0.5] Node5: Read cart -&gt; 1 version(s)
+[0.5] Node1: Read cart -&gt; 1 version(s)
+[0.5] Node2: Read cart -&gt; 1 version(s)
+[0.5] Client1: Read cart -&gt; CONFLICT: 2 versions
+  - ['item2'] (clock: {Node5:2}, ts: 0.2)
+  - ['item2'] (clock: {Node1:2}, ts: 0.2)
+[0.5] Client1: Resolved to ['item2']
+[3.0] Node5: Read cart -&gt; 1 version(s)
+[3.0] Node1: Read cart -&gt; 1 version(s)
+[3.0] Node2: Read cart -&gt; 1 version(s)
+[3.0] Client3: Read cart -&gt; CONFLICT: 2 versions
+  - ['item2'] (clock: {Node5:2}, ts: 0.2)
+  - ['item2'] (clock: {Node1:2}, ts: 0.2)
+[3.0] Client3: Resolved to ['item2']
+[3.5] Node5: Wrote cart = ['item1', 'item2'] with clock {Node1:2, Node5:4}
+[3.5] Node1: Wrote cart = ['item1', 'item2'] with clock {Node1:4, Node5:2}
+[3.5] Node2: Wrote cart = ['item1', 'item2'] with clock {Node1:2, Node2:4, Node5:2}
+[3.5] Client3: Wrote cart = ['item1', 'item2']
+</code></pre></div>
+</div>
+<h2 id="eventual-partition">Handling Network Partitions</h2>
+<p>Let's simulate a network partition to see how the system maintains availability.
+<code>PartitionedCoordinator</code> extends the base coordinator with the ability to mark nodes as unreachable:</p>
+<div data-filter="inc=partition_init" data-inc="partitioned_coordinator.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PartitionedCoordinator</span><span class="p">(</span><span class="n">Coordinator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Coordinator that can simulate network partitions."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
+        <span class="n">nodes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">StorageNode</span><span class="p">],</span>
+        <span class="n">replication_factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">read_quorum</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">write_quorum</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">replication_factor</span><span class="p">,</span> <span class="n">read_quorum</span><span class="p">,</span> <span class="n">write_quorum</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">partitioned_nodes</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">partition_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Simulate network partition for a node."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">partitioned_nodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node_id</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] PARTITION: </span><span class="si">{</span><span class="n">node_id</span><span class="si">}</span><span class="s2"> is unreachable"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">heal_partition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Heal network partition for a node."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">partitioned_nodes</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">node_id</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] HEALED: </span><span class="si">{</span><span class="n">node_id</span><span class="si">}</span><span class="s2"> is reachable"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Reads skip any partitioned nodes.
+If fewer than R nodes are available the read fails;
+otherwise it proceeds with only the reachable replicas:</p>
+<div data-filter="inc=partition_read" data-inc="partitioned_coordinator.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">VersionedValue</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Read, skipping partitioned nodes."""</span>
+        <span class="n">replicas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_replicas</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">available_replicas</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">replicas</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">node_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">partitioned_nodes</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">available_replicas</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_quorum</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Read failed: insufficient replicas"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="c1"># Send to available replicas</span>
+        <span class="n">response_queues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">available_replicas</span><span class="p">[:</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_quorum</span><span class="p">]:</span>
+            <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+            <span class="n">response_queues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_queue</span><span class="p">)</span>
+
+            <span class="n">request</span> <span class="o">=</span> <span class="n">ReadRequest</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">response_queue</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">replica</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">response_queues</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+        <span class="n">all_versions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+            <span class="n">all_versions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">versions</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_merge_versions</span><span class="p">(</span><span class="n">all_versions</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Writes follow the same pattern, requiring W reachable replicas before proceeding:</p>
+<div data-filter="inc=partition_write" data-inc="partitioned_coordinator.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">VectorClock</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VectorClock</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Write, skipping partitioned nodes."""</span>
+        <span class="n">replicas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_replicas</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">available_replicas</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">replicas</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">node_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">partitioned_nodes</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">available_replicas</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_quorum</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Write failed: insufficient replicas"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># Send to available replicas</span>
+        <span class="n">response_queues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">available_replicas</span><span class="p">[:</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_quorum</span><span class="p">]:</span>
+            <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+            <span class="n">response_queues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_queue</span><span class="p">)</span>
+
+            <span class="n">request</span> <span class="o">=</span> <span class="n">WriteRequest</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">response_queue</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">replica</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">response_queues</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+        <span class="n">clocks</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">clock</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">]</span>
+        <span class="n">merged_clock</span> <span class="o">=</span> <span class="n">clocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">clock</span> <span class="ow">in</span> <span class="n">clocks</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">merged_clock</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">clock</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">merged_clock</span>
+</code></pre></div>
+</div>
+<p>Let's try it out:</p>
+<div data-filter="inc=partitionexample" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Demonstrate behavior during network partition."""</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+
+    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">StorageNode</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Node</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+    <span class="n">coordinator</span> <span class="o">=</span> <span class="n">PartitionedCoordinator</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">replication_factor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">read_quorum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">write_quorum</span><span class="o">=</span><span class="mi">2</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Initial write</span>
+    <span class="n">KVClient</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Client1"</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">"write"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">,</span> <span class="s2">"healthy"</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Client that writes after partition</span>
+    <span class="n">KVClient</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Client2"</span><span class="p">,</span>
+        <span class="n">coordinator</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">"write"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">,</span> <span class="s2">"degraded"</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="n">initial_delay</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create partition manager</span>
+    <span class="n">PartitionManager</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">)</span>
+
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="eventual-repair">Read Repair</h2>
+<p>A real system needs mechanisms to ensure all replicas eventually converge.
+Read repair happens during reads:
+if we detect replicas are out of sync,
+we push the latest version to lagging replicas.
+<code>CoordinatorWithReadRepair</code> overrides <code>read</code> to query all replicas rather than just a quorum
+so that it can identify which ones are behind:</p>
+<div data-filter="inc=repair_read" data-inc="coordinator_with_read_repair.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CoordinatorWithReadRepair</span><span class="p">(</span><span class="n">Coordinator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Coordinator that performs read repair."""</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">VersionedValue</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Read from R replicas and repair inconsistencies."""</span>
+        <span class="n">replicas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_replicas</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="c1"># Send read requests to ALL replicas (not just quorum)</span>
+        <span class="n">response_queues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">replicas</span><span class="p">:</span>
+            <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+            <span class="n">response_queues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_queue</span><span class="p">)</span>
+
+            <span class="n">request</span> <span class="o">=</span> <span class="n">ReadRequest</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">response_queue</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">replica</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+        <span class="c1"># Wait for quorum, but collect all responses for repair</span>
+        <span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read_quorum</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">response_queues</span><span class="p">))):</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response_queues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+        <span class="c1"># Collect remaining responses in background for read repair</span>
+        <span class="n">remaining_responses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read_quorum</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">response_queues</span><span class="p">)):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Non-blocking check if response available</span>
+                <span class="c1"># In real async, we'd use timeout or try_get</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">response_queues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="n">remaining_responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="n">all_responses</span> <span class="o">=</span> <span class="n">responses</span> <span class="o">+</span> <span class="n">remaining_responses</span>
+
+        <span class="c1"># Merge all versions</span>
+        <span class="n">all_versions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">all_responses</span><span class="p">:</span>
+            <span class="n">all_versions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">versions</span><span class="p">)</span>
+
+        <span class="n">merged_versions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_merge_versions</span><span class="p">(</span><span class="n">all_versions</span><span class="p">)</span>
+
+        <span class="c1"># Read repair: identify replicas that are missing versions</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">merged_versions</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_responses</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_perform_read_repair</span><span class="p">(</span>
+                <span class="n">key</span><span class="p">,</span> <span class="n">merged_versions</span><span class="p">,</span> <span class="n">replicas</span><span class="p">,</span> <span class="n">all_responses</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">merged_versions</span>
+</code></pre></div>
+</div>
+<p>After collecting all responses,
+<code>_perform_read_repair</code> compares each replica's set of versions against the merged result
+and writes missing versions back to any replica that is out of date:</p>
+<div data-filter="inc=repair_perform" data-inc="coordinator_with_read_repair.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_perform_read_repair</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">merged_versions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">VersionedValue</span><span class="p">],</span>
+        <span class="n">replicas</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">StorageNode</span><span class="p">],</span>
+        <span class="n">responses</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ReadResponse</span><span class="p">],</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Update lagging replicas."""</span>
+        <span class="c1"># Determine which replicas need updates</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">response</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">responses</span><span class="p">):</span>
+            <span class="n">replica</span> <span class="o">=</span> <span class="n">replicas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+            <span class="c1"># Check if this replica is missing any versions</span>
+            <span class="n">replica_clocks</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">clock</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">versions</span><span class="p">}</span>
+            <span class="n">merged_clocks</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">clock</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">merged_versions</span><span class="p">}</span>
+
+            <span class="k">if</span> <span class="n">replica_clocks</span> <span class="o">!=</span> <span class="n">merged_clocks</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] READ REPAIR: Updating </span><span class="si">{</span><span class="n">replica</span><span class="o">.</span><span class="n">node_id</span><span class="si">}</span><span class="s2"> "</span>
+                    <span class="sa">f</span><span class="s2">"for key </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span>
+                <span class="p">)</span>
+
+                <span class="c1"># Write missing versions to this replica</span>
+                <span class="k">for</span> <span class="n">version</span> <span class="ow">in</span> <span class="n">merged_versions</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">version</span><span class="o">.</span><span class="n">clock</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">replica_clocks</span><span class="p">:</span>
+                        <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+                        <span class="n">request</span> <span class="o">=</span> <span class="n">WriteRequest</span><span class="p">(</span>
+                            <span class="n">key</span><span class="p">,</span>
+                            <span class="n">version</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                            <span class="n">version</span><span class="o">.</span><span class="n">clock</span><span class="p">,</span>
+                            <span class="s2">"read-repair"</span><span class="p">,</span>
+                            <span class="n">response_queue</span><span class="p">,</span>
+                        <span class="p">)</span>
+                        <span class="k">await</span> <span class="n">replica</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+                        <span class="k">await</span> <span class="n">response_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<p>Read repair ensures that whenever we read a key,
+we fix any inconsistencies we discover.
+Over time, this brings all replicas into sync.</p>
+<h2 id="eventual-real">Real-World Considerations</h2>
+<p>Our implementation demonstrates core concepts, but production systems need additional features:</p>
+<ol>
+<li>
+<p>Hinted handoff:
+    when a node is temporarily down, writes intended for it are stored on another node with a hint.
+    When the node recovers, the hints are replayed.</p>
+</li>
+<li>
+<p>Gossip protocol:
+    nodes exchange information about cluster membership and failure detection through epidemic-style gossip.</p>
+</li>
+<li>
+<p>Compaction:
+    Nodes merge version history periodically to avoid unbounded growth.</p>
+</li>
+</ol>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../torrent/">BitTorrent</a>
+</div>
+<div class="col-6 center">
+<a href="../"></a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../saga/">The Saga Pattern</a> ⇒
+	</div>
+</div>
+</footer>
+</body>
+</html>

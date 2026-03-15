@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Building TCP on UDP</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<nav>
+<a href="../">Home</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../intro/">Introduction</a>
+<a href="../mapreduce/">MapReduce</a>
+<a href="../msgque/">A Publish-Subscribe Message Queue</a>
+<a href="../worksteal/">A Work-Stealing Scheduler</a>
+<a href="../tracing/">Distributed Tracing</a>
+<a href="../crdt/">Conflict-Free Replicated Data Types</a>
+<a href="../oauth/">OAuth</a>
+<a href="../distlock/">Distributed Locks</a>
+<a href="../torrent/">BitTorrent</a>
+<a href="../eventual/">Eventually Consistent Key-Value Store</a>
+<a href="../saga/">The Saga Pattern</a>
+<a href="../tcp/">TCP</a>
+<a href="../dns/">DNS</a>
+<a href="../ntp/">NTP</a>
+<a href="../finale/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contributing/">Contributing</a>
+<a href="../bibliography/">Bibliography</a>
+<a href="../glossary/">Glossary</a>
+<a href="../theory/">A Bit of Theory</a>
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>Building TCP on UDP</h1>
+<p>When you open a website, stream a video, or send an email,
+you're almost certainly using <a href="../glossary/#tcp">Transmission Control Protocol</a> (TCP).
+TCP provides reliable, ordered delivery of data over the internet,
+handling packet loss, reordering, and congestion automatically.
+But TCP itself runs on top of UDP,
+which only provides best-effort, unordered packet delivery with no guarantees.</p>
+<p>Building a simplified TCP on top of UDP
+demonstrates the core mechanisms that make reliable communication possible over unreliable networks:</p>
+<ul>
+<li>
+<p>Sequence numbers:
+    Each byte has a sequence number.
+    Receivers use these to detect missing data and reorder packets.</p>
+</li>
+<li>
+<p>Acknowledgments (ACKs):
+    Receivers send ACKs indicating what data they've received.
+    Senders use ACKs to know what to retransmit.</p>
+</li>
+<li>
+<p>Retransmission:
+    If an ACK doesn't arrive within a timeout, the sender retransmits the data.</p>
+</li>
+<li>
+<p>Cumulative ACKs:
+    ACKs indicate that the receiver has received everything up to a particular message,
+    which simplifies acknowledgment logic.</p>
+</li>
+<li>
+<p>Sliding windows:
+    Sender can have multiple unacknowledged packets in flight
+    to maintain throughput despite round-trip latency.</p>
+</li>
+</ul>
+<p>Our TCP-over-UDP implementation consists of:</p>
+<ol>
+<li><code>tcp_types.py</code>: core data structures.</li>
+<li><code>unreliable_network.py</code>: simulates packet loss, reordering, duplication.</li>
+<li><code>tcp_connection.py</code>: TCP connection with reliability mechanisms.</li>
+<li><code>tcp_applications.py</code>: client and server applications</li>
+</ol>
+<p>Let's examine each component in turn.</p>
+<h2 id="tcp-data">Data Structures</h2>
+<p>We start by defining the six types of packets our protocol will use:</p>
+<div data-filter="inc=packettypes" data-inc="tcp_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PacketType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Types of TCP packets."""</span>
+
+    <span class="n">SYN</span> <span class="o">=</span> <span class="s2">"SYN"</span>  <span class="c1"># Synchronize (connection establishment)</span>
+    <span class="n">SYN_ACK</span> <span class="o">=</span> <span class="s2">"SYN_ACK"</span>  <span class="c1"># Synchronize-Acknowledge</span>
+    <span class="n">ACK</span> <span class="o">=</span> <span class="s2">"ACK"</span>  <span class="c1"># Acknowledge</span>
+    <span class="n">DATA</span> <span class="o">=</span> <span class="s2">"DATA"</span>  <span class="c1"># Data packet</span>
+    <span class="n">FIN</span> <span class="o">=</span> <span class="s2">"FIN"</span>  <span class="c1"># Finish (connection teardown)</span>
+    <span class="n">FIN_ACK</span> <span class="o">=</span> <span class="s2">"FIN_ACK"</span>  <span class="c1"># Finish-Acknowledge</span>
+</code></pre></div>
+</div>
+<p>and the seven different states that a connection can be in:</p>
+<div data-filter="inc=connectionstate" data-inc="tcp_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ConnectionState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""TCP connection states."""</span>
+
+    <span class="n">CLOSED</span> <span class="o">=</span> <span class="s2">"CLOSED"</span>
+    <span class="n">SYN_SENT</span> <span class="o">=</span> <span class="s2">"SYN_SENT"</span>
+    <span class="n">SYN_RECEIVED</span> <span class="o">=</span> <span class="s2">"SYN_RECEIVED"</span>
+    <span class="n">ESTABLISHED</span> <span class="o">=</span> <span class="s2">"ESTABLISHED"</span>
+    <span class="n">FIN_WAIT</span> <span class="o">=</span> <span class="s2">"FIN_WAIT"</span>
+    <span class="n">CLOSE_WAIT</span> <span class="o">=</span> <span class="s2">"CLOSE_WAIT"</span>
+    <span class="n">CLOSING</span> <span class="o">=</span> <span class="s2">"CLOSING"</span>
+</code></pre></div>
+</div>
+<p>The <code>Packet</code> structure mirrors a real TCP/IP packet header with source and destination addressing,
+sequence and acknowledgment numbers,
+packet type,
+and payload data:</p>
+<div data-filter="inc=packet" data-inc="tcp_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Packet</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A network packet (simulating IP + TCP)."""</span>
+
+    <span class="n">src_addr</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">src_port</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">dst_addr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span>
+    <span class="n">dst_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>
+    <span class="n">seq_num</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">ack_num</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">packet_type</span><span class="p">:</span> <span class="n">PacketType</span>
+    <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">""</span>
+    <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">65535</span>
+</code></pre></div>
+</div>
+<h2 id="tcp-network">Unreliable Network Layer</h2>
+<p>Before building TCP, we need to simulate UDP's unreliable delivery.
+<code>UnreliableNetwork</code> tracks per-packet statistics
+and maintains a registry mapping address:port pairs to their receive queues:</p>
+<div data-filter="inc=network_init" data-inc="unreliable_network.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">UnreliableNetwork</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Simulates unreliable packet delivery (like UDP)."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">loss_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">reorder_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
+        <span class="n">duplicate_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">,</span>
+        <span class="n">delay_range</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_rate</span> <span class="o">=</span> <span class="n">loss_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reorder_rate</span> <span class="o">=</span> <span class="n">reorder_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duplicate_rate</span> <span class="o">=</span> <span class="n">duplicate_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delay_range</span> <span class="o">=</span> <span class="n">delay_range</span>
+
+        <span class="c1"># Network endpoints (address:port -&gt; queue)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Queue</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Statistics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packets_sent</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packets_lost</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packets_reordered</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packets_duplicated</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Network: Started (loss=</span><span class="si">{</span><span class="n">loss_rate</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"reorder=</span><span class="si">{</span><span class="n">reorder_rate</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Network doesn't have a main loop - just routes packets."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Sleep forever</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Register an endpoint to receive packets."""</span>
+        <span class="n">endpoint_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">[</span><span class="n">endpoint_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">queue</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Network: Registered </span><span class="si">{</span><span class="n">endpoint_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p><code>send_packet</code> applies the configured loss and duplication rates
+before calling <code>_deliver_packet</code>,
+which adds a random delay and optionally increases it to simulate reordering:</p>
+<div data-filter="inc=network_send" data-inc="unreliable_network.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">send_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Send packet with simulated unreliability."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packets_sent</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># Simulate packet loss</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_rate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">packets_lost</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Network: LOST </span><span class="si">{</span><span class="n">packet</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Simulate packet duplication</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">duplicate_rate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">packets_duplicated</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Network: DUPLICATING </span><span class="si">{</span><span class="n">packet</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deliver_packet</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+
+        <span class="c1"># Deliver the packet</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deliver_packet</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_deliver_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Deliver packet to destination."""</span>
+        <span class="c1"># Simulate network delay</span>
+        <span class="n">delay</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">delay_range</span><span class="p">)</span>
+
+        <span class="c1"># Simulate reordering by adding extra random delay</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">reorder_rate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">packets_reordered</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">delay</span> <span class="o">+=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+        <span class="c1"># Find destination endpoint</span>
+        <span class="n">endpoint_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">packet</span><span class="o">.</span><span class="n">dst_addr</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">packet</span><span class="o">.</span><span class="n">dst_port</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">if</span> <span class="n">endpoint_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">[</span><span class="n">endpoint_id</span><span class="p">]</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Network: No endpoint for </span><span class="si">{</span><span class="n">endpoint_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>This simulates the way packets in real networks can be lost, delayed, reordered, or duplicated.
+The network maintains a registry of endpoints and routes packets accordingly.</p>
+<h2 id="tcp-connection">TCP Connection</h2>
+<p>The TCP connection implements reliability over the unreliable network:</p>
+<div data-filter="inc=tcpinit" data-inc="tcp_connection.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TCPConnection</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""TCP connection with reliability over unreliable network."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">local_addr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">local_port</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">network</span><span class="p">:</span> <span class="s2">"UnreliableNetwork"</span><span class="p">,</span>
+        <span class="n">mtu</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1400</span><span class="p">,</span>
+        <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">local_addr</span> <span class="o">=</span> <span class="n">local_addr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">local_port</span> <span class="o">=</span> <span class="n">local_port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="n">network</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mtu</span> <span class="o">=</span> <span class="n">mtu</span>  <span class="c1"># Maximum transmission unit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span> <span class="o">=</span> <span class="n">window_size</span>  <span class="c1"># Sliding window size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rto</span> <span class="o">=</span> <span class="n">timeout</span>  <span class="c1"># Retransmission timeout</span>
+
+        <span class="c1"># Connection state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">CLOSED</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_addr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Sequence numbers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_seq</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">9999</span><span class="p">)</span>  <span class="c1"># Initial sequence number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recv_seq</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Send buffer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_buffer</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">SegmentBuffer</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_seq</span>  <span class="c1"># Oldest unacknowledged sequence</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_seq_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_seq</span>  <span class="c1"># Next sequence to use</span>
+
+        <span class="c1"># Receive buffer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recv_buffer</span> <span class="o">=</span> <span class="n">ReceiveBuffer</span><span class="p">()</span>
+
+        <span class="c1"># Queues</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recv_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>  <span class="c1"># Incoming packets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_ready</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>  <span class="c1"># Data for application</span>
+
+        <span class="c1"># Register with network</span>
+        <span class="n">network</span><span class="o">.</span><span class="n">register_endpoint</span><span class="p">(</span><span class="n">local_addr</span><span class="p">,</span> <span class="n">local_port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv_queue</span><span class="p">)</span>
+
+        <span class="c1"># Statistics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bytes_sent</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bytes_received</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packets_retransmitted</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">local_addr</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">local_port</span><span class="si">}</span><span class="s2">: "</span>
+            <span class="sa">f</span><span class="s2">"Created (ISN=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">send_seq</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<p>The connection maintains send and receive buffers.
+The send buffer holds unacknowledged segments for potential retransmission.
+The receive buffer handles out-of-order delivery by holding segments until gaps are filled.</p>
+<p>The <code>run</code> loop reads packets from the receive queue and dispatches each one through <code>handle_packet</code>,
+which routes SYN, SYN-ACK, ACK, and DATA packets to the appropriate handler:</p>
+<div data-filter="inc=tcp_run" data-inc="tcp_connection.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Main TCP loop: handle incoming packets."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">packet</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_packet</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Process incoming packet based on type."""</span>
+        <span class="k">if</span> <span class="n">packet</span><span class="o">.</span><span class="n">packet_type</span> <span class="o">==</span> <span class="n">PacketType</span><span class="o">.</span><span class="n">SYN</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_syn</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">packet</span><span class="o">.</span><span class="n">packet_type</span> <span class="o">==</span> <span class="n">PacketType</span><span class="o">.</span><span class="n">SYN_ACK</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Received SYN-ACK "</span>
+                <span class="sa">f</span><span class="s2">"(seq=</span><span class="si">{</span><span class="n">packet</span><span class="o">.</span><span class="n">seq_num</span><span class="si">}</span><span class="s2">, ack=</span><span class="si">{</span><span class="n">packet</span><span class="o">.</span><span class="n">ack_num</span><span class="si">}</span><span class="s2">)"</span>
+            <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">recv_seq</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">seq_num</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">recv_buffer</span><span class="o">.</span><span class="n">next_expected_seq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv_seq</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">send_base</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">ack_num</span>
+
+            <span class="c1"># Send final ACK</span>
+            <span class="n">ack</span> <span class="o">=</span> <span class="n">Packet</span><span class="p">(</span>
+                <span class="n">src_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_addr</span><span class="p">,</span>
+                <span class="n">dst_addr</span><span class="o">=</span><span class="n">packet</span><span class="o">.</span><span class="n">src_addr</span><span class="p">,</span>
+                <span class="n">src_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_port</span><span class="p">,</span>
+                <span class="n">dst_port</span><span class="o">=</span><span class="n">packet</span><span class="o">.</span><span class="n">src_port</span><span class="p">,</span>
+                <span class="n">seq_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">send_base</span><span class="p">,</span>
+                <span class="n">ack_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">recv_seq</span><span class="p">,</span>
+                <span class="n">packet_type</span><span class="o">=</span><span class="n">PacketType</span><span class="o">.</span><span class="n">ACK</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">send_packet</span><span class="p">(</span><span class="n">ack</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">ESTABLISHED</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Sent ACK, connection established"</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">packet</span><span class="o">.</span><span class="n">packet_type</span> <span class="o">==</span> <span class="n">PacketType</span><span class="o">.</span><span class="n">ACK</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">SYN_RECEIVED</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Received final ACK, connection established"</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">ESTABLISHED</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_ack</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">packet</span><span class="o">.</span><span class="n">packet_type</span> <span class="o">==</span> <span class="n">PacketType</span><span class="o">.</span><span class="n">DATA</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_data</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="tcp-handshake">Three-Way Handshake</h2>
+<p>TCP connection establishment uses three packets to synchronize state:</p>
+<div data-filter="inc=tcpconnect" data-inc="tcp_connection.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">remote_addr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">remote_port</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Initiate TCP connection (3-way handshake)."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_addr</span> <span class="o">=</span> <span class="n">remote_addr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_port</span> <span class="o">=</span> <span class="n">remote_port</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Starting connection to "</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">remote_addr</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">remote_port</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Send SYN</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">SYN_SENT</span>
+        <span class="n">syn</span> <span class="o">=</span> <span class="n">Packet</span><span class="p">(</span>
+            <span class="n">src_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_addr</span><span class="p">,</span>
+            <span class="n">dst_addr</span><span class="o">=</span><span class="n">remote_addr</span><span class="p">,</span>
+            <span class="n">src_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_port</span><span class="p">,</span>
+            <span class="n">dst_port</span><span class="o">=</span><span class="n">remote_port</span><span class="p">,</span>
+            <span class="n">seq_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">send_seq</span><span class="p">,</span>
+            <span class="n">ack_num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">packet_type</span><span class="o">=</span><span class="n">PacketType</span><span class="o">.</span><span class="n">SYN</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">send_packet</span><span class="p">(</span><span class="n">syn</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Sent SYN (seq=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">send_seq</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+        <span class="c1"># Wait for SYN-ACK with timeout</span>
+        <span class="n">timeout_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="mf">5.0</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">ESTABLISHED</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">&lt;</span> <span class="n">timeout_time</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">ESTABLISHED</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Connection ESTABLISHED</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Connection FAILED (timeout)</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">CLOSED</span>
+            <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+</div>
+<p>The handshake sequence is:</p>
+<ol>
+<li>Client → Server: SYN (seq=x)</li>
+<li>Server → Client: SYN-ACK (seq=y, ack=x+1)</li>
+<li>Client → Server: ACK (ack=y+1)</li>
+</ol>
+<p>This synchronizes sequence numbers and establishes bidirectional communication.</p>
+<p>The server side of the handshake is handled by <code>listen_and_accept</code>,
+which waits for a SYN packet and then delegates the response to <code>handle_syn</code>:</p>
+<div data-filter="inc=server_accept" data-inc="tcp_connection.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">listen_and_accept</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Listen for incoming connection (server side)."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">local_addr</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">local_port</span><span class="si">}</span><span class="s2">: Listening..."</span><span class="p">)</span>
+
+        <span class="c1"># Wait for SYN</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">packet</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">packet</span><span class="o">.</span><span class="n">packet_type</span> <span class="o">==</span> <span class="n">PacketType</span><span class="o">.</span><span class="n">SYN</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_syn</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+                <span class="k">break</span>
+
+        <span class="c1"># Wait for final ACK</span>
+        <span class="n">timeout_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="mf">5.0</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">ESTABLISHED</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span> <span class="o">&lt;</span> <span class="n">timeout_time</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">ESTABLISHED</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_syn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Handle incoming SYN."""</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Received SYN from "</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">packet</span><span class="o">.</span><span class="n">src_addr</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">packet</span><span class="o">.</span><span class="n">src_port</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_addr</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">src_addr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remote_port</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">src_port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recv_seq</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">seq_num</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recv_buffer</span><span class="o">.</span><span class="n">next_expected_seq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv_seq</span>
+
+        <span class="c1"># Send SYN-ACK</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">SYN_RECEIVED</span>
+        <span class="n">syn_ack</span> <span class="o">=</span> <span class="n">Packet</span><span class="p">(</span>
+            <span class="n">src_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_addr</span><span class="p">,</span>
+            <span class="n">dst_addr</span><span class="o">=</span><span class="n">packet</span><span class="o">.</span><span class="n">src_addr</span><span class="p">,</span>
+            <span class="n">src_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_port</span><span class="p">,</span>
+            <span class="n">dst_port</span><span class="o">=</span><span class="n">packet</span><span class="o">.</span><span class="n">src_port</span><span class="p">,</span>
+            <span class="n">seq_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">send_seq</span><span class="p">,</span>
+            <span class="n">ack_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">recv_seq</span><span class="p">,</span>
+            <span class="n">packet_type</span><span class="o">=</span><span class="n">PacketType</span><span class="o">.</span><span class="n">SYN_ACK</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">send_packet</span><span class="p">(</span><span class="n">syn_ack</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Sent SYN-ACK (seq=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">send_seq</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"ack=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">recv_seq</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="tcp-window">Sliding Window Protocol</h2>
+<p>The sliding window allows multiple packets in flight:</p>
+<div data-filter="inc=tcpsend" data-inc="tcp_connection.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Send data reliably using TCP."""</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">ESTABLISHED</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Cannot send - not connected"</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Split data into segments (respecting MTU)</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+            <span class="n">chunk</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">offset</span> <span class="p">:</span> <span class="n">offset</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">mtu</span><span class="p">]</span>
+
+            <span class="c1"># Wait if send window is full</span>
+            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">send_buffer</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_size</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+            <span class="c1"># Create and send segment</span>
+            <span class="n">seq_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_seq_num</span>
+            <span class="n">segment</span> <span class="o">=</span> <span class="n">Packet</span><span class="p">(</span>
+                <span class="n">src_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_addr</span><span class="p">,</span>
+                <span class="n">dst_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">remote_addr</span><span class="p">,</span>
+                <span class="n">src_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_port</span><span class="p">,</span>
+                <span class="n">dst_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">remote_port</span><span class="p">,</span>
+                <span class="n">seq_num</span><span class="o">=</span><span class="n">seq_num</span><span class="p">,</span>
+                <span class="n">ack_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">recv_buffer</span><span class="o">.</span><span class="n">next_expected_seq</span><span class="p">,</span>
+                <span class="n">packet_type</span><span class="o">=</span><span class="n">PacketType</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">chunk</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">send_packet</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span>
+
+            <span class="c1"># Add to send buffer for potential retransmission</span>
+            <span class="n">buffer_entry</span> <span class="o">=</span> <span class="n">SegmentBuffer</span><span class="p">(</span>
+                <span class="n">seq_num</span><span class="o">=</span><span class="n">seq_num</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">chunk</span><span class="p">,</span> <span class="n">sent_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">send_buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">buffer_entry</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_seq_num</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bytes_sent</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Sent DATA (seq=</span><span class="si">{</span><span class="n">seq_num</span><span class="si">}</span><span class="s2">, len=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+            <span class="c1"># Start retransmission timer for this segment</span>
+            <span class="n">RetransmissionTimer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">buffer_entry</span><span class="p">)</span>
+
+            <span class="n">offset</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>The sender can have <code>window_size</code> unacknowledged packets in flight.
+This maintains throughput even with high latency:
+new packets are being sent while waiting for ACKs from earlier packets.</p>
+<h2 id="tcp-retrans">Retransmission on Timeout</h2>
+<p>If an ACK doesn't arrive within the timeout period,
+the segment is retransmitted.
+We use a separate <code>Process</code> to simulate each retransmission timer:</p>
+<div data-filter="inc=retransmission" data-inc="tcp_connection.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RetransmissionTimer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Timer process for retransmitting unacknowledged segments."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">:</span> <span class="s2">"TCPConnection"</span><span class="p">,</span> <span class="n">segment</span><span class="p">:</span> <span class="n">SegmentBuffer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">segment</span> <span class="o">=</span> <span class="n">segment</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Wait for timeout, then retransmit if not acknowledged."""</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">rto</span><span class="p">)</span>
+
+        <span class="c1"># Check if still in send buffer (not yet acknowledged)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">send_buffer</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: TIMEOUT - Retransmitting "</span>
+                <span class="sa">f</span><span class="s2">"seq=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">seq_num</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">packets_retransmitted</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">retransmit_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">sent_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span>
+
+            <span class="c1"># Retransmit</span>
+            <span class="n">packet</span> <span class="o">=</span> <span class="n">Packet</span><span class="p">(</span>
+                <span class="n">src_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">local_addr</span><span class="p">,</span>
+                <span class="n">dst_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">remote_addr</span><span class="p">,</span>
+                <span class="n">src_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">local_port</span><span class="p">,</span>
+                <span class="n">dst_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">remote_port</span><span class="p">,</span>
+                <span class="n">seq_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">seq_num</span><span class="p">,</span>
+                <span class="n">ack_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">recv_buffer</span><span class="o">.</span><span class="n">next_expected_seq</span><span class="p">,</span>
+                <span class="n">packet_type</span><span class="o">=</span><span class="n">PacketType</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">send_packet</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+
+            <span class="c1"># Restart timer</span>
+            <span class="n">RetransmissionTimer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Each time we sent a segment, we create a <code>RetransmissionTimer</code>:</p>
+<div class="codehilite"><pre class=""><span></span><code><span class="c1"># In TCPConnection.send():</span>
+<span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">send_packet</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span>
+
+<span class="c1"># Add to send buffer</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">send_buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">buffer_entry</span><span class="p">)</span>
+
+<span class="c1"># Start retransmission timer</span>
+<span class="n">RetransmissionTimer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">buffer_entry</span><span class="p">)</span>
+</code></pre></div>
+<p>Each segment has its own timer <code>Process</code>.
+If the segment hasn't been acknowledged (i.e., is still in the send buffer)
+when the timer expires,
+it is retransmitted and a new timer starts.</p>
+<p>When a DATA packet arrives,
+<code>handle_data</code> adds it to the receive buffer,
+extracts any newly contiguous data to deliver to the application,
+and sends a cumulative ACK:</p>
+<div data-filter="inc=handle_data" data-inc="tcp_connection.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Handle DATA packet."""</span>
+        <span class="n">seq_num</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">seq_num</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">data</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Received DATA (seq=</span><span class="si">{</span><span class="n">seq_num</span><span class="si">}</span><span class="s2">, len=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+        <span class="c1"># Add to receive buffer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recv_buffer</span><span class="o">.</span><span class="n">add_segment</span><span class="p">(</span><span class="n">seq_num</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># Extract continuous data</span>
+        <span class="n">continuous_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv_buffer</span><span class="o">.</span><span class="n">get_continuous_data</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">continuous_data</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bytes_received</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">continuous_data</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_ready</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">continuous_data</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Delivered </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">continuous_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> "</span>
+                <span class="sa">f</span><span class="s2">"bytes to application"</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Send ACK</span>
+        <span class="n">ack</span> <span class="o">=</span> <span class="n">Packet</span><span class="p">(</span>
+            <span class="n">src_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_addr</span><span class="p">,</span>
+            <span class="n">dst_addr</span><span class="o">=</span><span class="n">packet</span><span class="o">.</span><span class="n">src_addr</span><span class="p">,</span>
+            <span class="n">src_port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">local_port</span><span class="p">,</span>
+            <span class="n">dst_port</span><span class="o">=</span><span class="n">packet</span><span class="o">.</span><span class="n">src_port</span><span class="p">,</span>
+            <span class="n">seq_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">next_seq_num</span><span class="p">,</span>
+            <span class="n">ack_num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">recv_buffer</span><span class="o">.</span><span class="n">next_expected_seq</span><span class="p">,</span>
+            <span class="n">packet_type</span><span class="o">=</span><span class="n">PacketType</span><span class="o">.</span><span class="n">ACK</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">send_packet</span><span class="p">(</span><span class="n">ack</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Sent ACK (ack=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">recv_buffer</span><span class="o">.</span><span class="n">next_expected_seq</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="tcp-order">Handling Out-of-Order Delivery</h2>
+<p>The receive buffer handles segments arriving out of order:</p>
+<div data-filter="inc=receivebuffer" data-inc="tcp_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ReceiveBuffer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Buffer for out-of-order received segments."""</span>
+
+    <span class="n">segments</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="n">next_expected_seq</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_segment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_num</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Add a segment to the receive buffer."""</span>
+        <span class="k">if</span> <span class="n">seq_num</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_expected_seq</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="n">seq_num</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_continuous_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Extract continuous data starting from next_expected_seq."""</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">""</span>
+        <span class="n">current_seq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_expected_seq</span>
+
+        <span class="k">while</span> <span class="n">current_seq</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">:</span>
+            <span class="n">segment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">current_seq</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">segment</span>
+            <span class="n">current_seq</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_expected_seq</span> <span class="o">=</span> <span class="n">current_seq</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">has_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check if buffer has any segments."""</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</code></pre></div>
+</div>
+<p>Segments are held until all gaps are filled.
+When a contiguous block of data is available,
+it's delivered to the application in order.</p>
+<h2 id="tcp-ack">Cumulative Acknowledgments</h2>
+<p>TCP uses cumulative ACKs,
+i.e.,
+each ACK indicates all data up to a sequence number has been received:</p>
+<div data-filter="inc=handleack" data-inc="tcp_connection.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_ack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Handle ACK packet."""</span>
+        <span class="n">ack_num</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">ack_num</span>
+
+        <span class="c1"># Remove acknowledged segments from send buffer</span>
+        <span class="n">acknowledged</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_buffer</span><span class="p">[:]:</span>
+            <span class="k">if</span> <span class="n">seg</span><span class="o">.</span><span class="n">seq_num</span> <span class="o">&lt;</span> <span class="n">ack_num</span><span class="p">:</span>
+                <span class="n">acknowledged</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">send_buffer</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">acknowledged</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">send_base</span> <span class="o">=</span> <span class="n">ack_num</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: ACK </span><span class="si">{</span><span class="n">ack_num</span><span class="si">}</span><span class="s2"> "</span>
+                <span class="sa">f</span><span class="s2">"(acknowledged </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">acknowledged</span><span class="p">)</span><span class="si">}</span><span class="s2"> segments)"</span>
+            <span class="p">)</span>
+</code></pre></div>
+</div>
+<p>A single ACK can acknowledge multiple segments.
+This is simpler than selective acknowledgments and works well when most data arrives in order.</p>
+<h2 id="tcp-basic">Basic Example</h2>
+<p>Let's see TCP in action:</p>
+<div data-filter="inc=basicexample" data-inc="ex_basic.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"## Basic TCP Demonstration"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Testing TCP reliability with:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  - 15% packet loss"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  - 10% packet reordering"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  - 5% packet duplication"</span><span class="p">)</span>
+
+    <span class="c1"># Create unreliable network</span>
+    <span class="n">network</span> <span class="o">=</span> <span class="n">UnreliableNetwork</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="n">loss_rate</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>  <span class="c1"># 15% packet loss</span>
+        <span class="n">reorder_rate</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>  <span class="c1"># 10% reordering</span>
+        <span class="n">duplicate_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># 5% duplication</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create server connection</span>
+    <span class="n">server_conn</span> <span class="o">=</span> <span class="n">TCPConnection</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="s2">"192.168.1.100"</span><span class="p">,</span> <span class="mi">8080</span><span class="p">,</span> <span class="n">network</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">1.5</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create client connection</span>
+    <span class="n">client_conn</span> <span class="o">=</span> <span class="n">TCPConnection</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="s2">"192.168.1.101"</span><span class="p">,</span> <span class="mi">9000</span><span class="p">,</span> <span class="n">network</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">1.5</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create applications</span>
+    <span class="n">TCPServer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">server_conn</span><span class="p">)</span>
+
+    <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"Hello from TCP client! This message will be delivered reliably "</span>
+        <span class="s2">"despite packet loss, reordering, and duplication. TCP ensures "</span>
+        <span class="s2">"that every byte arrives in the correct order through sequence "</span>
+        <span class="s2">"numbers, acknowledgments, and retransmission."</span>
+    <span class="p">)</span>
+
+    <span class="n">TCPClient</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">client_conn</span><span class="p">,</span> <span class="s2">"192.168.1.100"</span><span class="p">,</span> <span class="mi">8080</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+
+    <span class="c1"># Run simulation</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+    <span class="c1"># Print statistics</span>
+    <span class="n">network</span><span class="o">.</span><span class="n">print_statistics</span><span class="p">()</span>
+    <span class="n">client_conn</span><span class="o">.</span><span class="n">print_statistics</span><span class="p">()</span>
+    <span class="n">server_conn</span><span class="o">.</span><span class="n">print_statistics</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_basic.txt"><div class="codehilite"><pre class=""><span></span><code>## Basic TCP Demonstration
+Testing TCP reliability with:
+  - 15% packet loss
+  - 10% packet reordering
+  - 5% packet duplication
+[0.0] Network: Started (loss=15%, reorder=10%)
+[0.0] Network: Registered 192.168.1.100:8080
+[0.0] TCP 192.168.1.100:8080: Created (ISN=7830)
+[0.0] Network: Registered 192.168.1.101:9000
+[0.0] TCP 192.168.1.101:9000: Created (ISN=8964)
+[0.0] TCP 192.168.1.100:8080: Listening...
+
+[0.0] TCP: Starting connection to 192.168.1.100:8080
+[0.8] TCP: Sent SYN (seq=8964)
+[0.8] TCP: Received SYN from 192.168.1.101:9000
+[0.9] TCP: Sent SYN-ACK (seq=7830, ack=8965)
+[0.9] TCP: Received SYN-ACK (seq=7830, ack=8965)
+[0.9] Network: LOST Packet(ACK, seq=8965, ack=7831, len=0)
+[0.9] TCP: Sent ACK, connection established
+[1.0] TCP: Connection ESTABLISHED
+
+
+[1.0] Client: Sending message (232 bytes)
+  Message: 'Hello from TCP client! This message will be delive...'
+[1.0] Network: LOST Packet(DATA, seq=8964, ack=7831, len=232)
+[1.0] TCP: Sent DATA (seq=8964, len=232)
+[2.5] TCP: TIMEOUT - Retransmitting seq=8964
+[3.0] Client: Done sending
+[4.2] TCP: TIMEOUT - Retransmitting seq=8964
+[4.6] TCP: Received DATA (seq=8964, len=232)
+[5.2] TCP: Sent ACK (ack=8965)
+[5.2] TCP: ACK 8965 (acknowledged 1 segments)
+### Network Statistics:
+Packets sent: 7
+Packets lost: 2 (28.6%)
+Packets reordered: 2
+Packets duplicated: 0
+### TCP Connection Statistics (192.168.1.101:9000):
+Bytes sent: 232
+Bytes received: 0
+Packets retransmitted: 2
+Send buffer size: 0
+### TCP Connection Statistics (192.168.1.100:8080):
+Bytes sent: 0
+Bytes received: 0
+Packets retransmitted: 0
+Send buffer size: 0
+</code></pre></div>
+</div>
+<p>Despite 15% packet loss and reordering,
+TCP successfully delivers the complete message in order.</p>
+<h2 id="tcp-highloss">High Loss Scenario</h2>
+<p>Let's test TCP under extreme conditions:</p>
+<div data-filter="inc=highlossexample" data-inc="ex_loss_recovery.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"## High Loss TCP Scenario"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Testing TCP robustness with extreme conditions:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  - 40% packet loss (!!)"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  - 20% packet reordering"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  - 10% packet duplication"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  - Larger message requiring multiple segments"</span><span class="p">)</span>
+
+    <span class="c1"># Extremely unreliable network</span>
+    <span class="n">network</span> <span class="o">=</span> <span class="n">UnreliableNetwork</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="n">loss_rate</span><span class="o">=</span><span class="mf">0.40</span><span class="p">,</span>  <span class="c1"># 40% packet loss!</span>
+        <span class="n">reorder_rate</span><span class="o">=</span><span class="mf">0.20</span><span class="p">,</span>  <span class="c1"># 20% reordering</span>
+        <span class="n">duplicate_rate</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>  <span class="c1"># 10% duplication</span>
+        <span class="n">delay_range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># TCP with aggressive retransmission</span>
+    <span class="n">server_conn</span> <span class="o">=</span> <span class="n">TCPConnection</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"10.0.0.1"</span><span class="p">,</span>
+        <span class="mi">5000</span><span class="p">,</span>
+        <span class="n">network</span><span class="p">,</span>
+        <span class="n">window_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># Faster retransmit</span>
+    <span class="p">)</span>
+
+    <span class="n">client_conn</span> <span class="o">=</span> <span class="n">TCPConnection</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span> <span class="s2">"10.0.0.2"</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="n">network</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">1.0</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create applications</span>
+    <span class="n">TCPServer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">server_conn</span><span class="p">)</span>
+
+    <span class="c1"># Transfer larger message that will require multiple segments</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"This is a much longer message that will be split into multiple "</span>
+        <span class="s2">"TCP segments. Despite 40% packet loss - which is extremely high - "</span>
+        <span class="s2">"TCP will successfully deliver every byte through retransmission. "</span>
+        <span class="s2">"You'll see many timeouts and retransmissions, but eventually "</span>
+        <span class="s2">"the complete message arrives in perfect order. "</span>
+    <span class="p">)</span> <span class="o">*</span> <span class="mi">5</span>  <span class="c1"># Repeat 5 times</span>
+
+    <span class="n">TCPClient</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">client_conn</span><span class="p">,</span> <span class="s2">"10.0.0.1"</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+
+    <span class="c1"># Run simulation (longer time for high loss)</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+    <span class="c1"># Print statistics</span>
+    <span class="n">network</span><span class="o">.</span><span class="n">print_statistics</span><span class="p">()</span>
+    <span class="n">client_conn</span><span class="o">.</span><span class="n">print_statistics</span><span class="p">()</span>
+    <span class="n">server_conn</span><span class="o">.</span><span class="n">print_statistics</span><span class="p">()</span>
+
+    <span class="c1"># Verify delivery</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"## Verification:"</span><span class="p">)</span>
+    <span class="n">expected_bytes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">server_conn</span><span class="o">.</span><span class="n">bytes_received</span> <span class="o">==</span> <span class="n">expected_bytes</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Success: All </span><span class="si">{</span><span class="n">expected_bytes</span><span class="si">}</span><span class="s2"> bytes delivered correctly!"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Incomplete: </span><span class="si">{</span><span class="n">server_conn</span><span class="o">.</span><span class="n">bytes_received</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">expected_bytes</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_loss_recovery.txt"><div class="codehilite"><pre class=""><span></span><code>## High Loss TCP Scenario
+Testing TCP robustness with extreme conditions:
+  - 40% packet loss (!!)
+  - 20% packet reordering
+  - 10% packet duplication
+  - Larger message requiring multiple segments
+[0.0] Network: Started (loss=40%, reorder=20%)
+[0.0] Network: Registered 10.0.0.1:5000
+[0.0] TCP 10.0.0.1:5000: Created (ISN=7830)
+[0.0] Network: Registered 10.0.0.2:6000
+[0.0] TCP 10.0.0.2:6000: Created (ISN=8964)
+[0.0] TCP 10.0.0.1:5000: Listening...
+
+[0.0] TCP: Starting connection to 10.0.0.1:5000
+[0.9] TCP: Sent SYN (seq=8964)
+[0.9] TCP: Received SYN from 10.0.0.2:6000
+[1.1] TCP: Sent SYN-ACK (seq=7830, ack=8965)
+[1.1] TCP: Received SYN-ACK (seq=7830, ack=8965)
+[1.1] Network: LOST Packet(ACK, seq=8965, ack=7831, len=0)
+[1.1] TCP: Sent ACK, connection established
+[1.2] TCP: Connection ESTABLISHED
+
+
+[1.2] Client: Sending message (1510 bytes)
+  Message: 'This is a much longer message that will be split i...'
+[1.2] Network: LOST Packet(DATA, seq=8964, ack=7831, len=1400)
+[1.2] TCP: Sent DATA (seq=8964, len=1400)
+[1.2] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[1.2] TCP: Sent DATA (seq=10364, len=110)
+[2.2] TCP: TIMEOUT - Retransmitting seq=8964
+[2.2] TCP: TIMEOUT - Retransmitting seq=10364
+[2.7] TCP: Received DATA (seq=8964, len=1400)
+[2.7] Network: LOST Packet(ACK, seq=7830, ack=8965, len=0)
+[2.7] TCP: Sent ACK (ack=8965)
+[3.2] Client: Done sending
+[3.6] TCP: TIMEOUT - Retransmitting seq=10364
+[3.6] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[3.7] TCP: TIMEOUT - Retransmitting seq=8964
+[3.7] Network: LOST Packet(DATA, seq=8964, ack=7831, len=1400)
+[4.6] TCP: TIMEOUT - Retransmitting seq=10364
+[4.6] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[4.7] TCP: TIMEOUT - Retransmitting seq=8964
+[5.6] TCP: TIMEOUT - Retransmitting seq=10364
+[5.6] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[6.5] TCP: TIMEOUT - Retransmitting seq=8964
+[6.6] TCP: TIMEOUT - Retransmitting seq=10364
+[7.0] TCP: Received DATA (seq=8964, len=1400)
+[7.0] Network: LOST Packet(ACK, seq=7830, ack=8965, len=0)
+[7.0] TCP: Sent ACK (ack=8965)
+[8.0] TCP: TIMEOUT - Retransmitting seq=8964
+[8.3] TCP: Received DATA (seq=8964, len=1400)
+[8.5] TCP: TIMEOUT - Retransmitting seq=10364
+[8.5] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[9.1] TCP: Sent ACK (ack=8965)
+[9.1] TCP: ACK 8965 (acknowledged 1 segments)
+[9.5] TCP: TIMEOUT - Retransmitting seq=10364
+[11.3] TCP: TIMEOUT - Retransmitting seq=10364
+[11.3] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[12.3] TCP: TIMEOUT - Retransmitting seq=10364
+[13.1] TCP: Received DATA (seq=10364, len=110)
+[13.5] TCP: Sent ACK (ack=8965)
+[14.1] TCP: TIMEOUT - Retransmitting seq=10364
+[14.1] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[15.1] TCP: TIMEOUT - Retransmitting seq=10364
+[15.1] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[16.1] TCP: TIMEOUT - Retransmitting seq=10364
+[16.1] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[17.1] TCP: TIMEOUT - Retransmitting seq=10364
+[18.5] TCP: TIMEOUT - Retransmitting seq=10364
+[19.1] TCP: Received DATA (seq=10364, len=110)
+[19.1] Network: LOST Packet(ACK, seq=7830, ack=8965, len=0)
+[19.1] TCP: Sent ACK (ack=8965)
+[20.1] TCP: TIMEOUT - Retransmitting seq=10364
+[21.6] TCP: TIMEOUT - Retransmitting seq=10364
+[22.2] TCP: Received DATA (seq=10364, len=110)
+[22.5] TCP: Sent ACK (ack=8965)
+[23.2] TCP: TIMEOUT - Retransmitting seq=10364
+[24.8] TCP: TIMEOUT - Retransmitting seq=10364
+[24.8] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[25.8] TCP: TIMEOUT - Retransmitting seq=10364
+[25.8] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[26.8] TCP: TIMEOUT - Retransmitting seq=10364
+[26.8] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[27.8] TCP: TIMEOUT - Retransmitting seq=10364
+[28.9] TCP: Received DATA (seq=10364, len=110)
+[29.2] TCP: Sent ACK (ack=8965)
+[29.9] TCP: TIMEOUT - Retransmitting seq=10364
+[31.1] TCP: TIMEOUT - Retransmitting seq=10364
+[31.1] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[32.1] TCP: TIMEOUT - Retransmitting seq=10364
+[32.4] TCP: Received DATA (seq=10364, len=110)
+[32.4] Network: LOST Packet(ACK, seq=7830, ack=8965, len=0)
+[32.4] TCP: Sent ACK (ack=8965)
+[33.4] TCP: TIMEOUT - Retransmitting seq=10364
+[33.4] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[34.4] TCP: TIMEOUT - Retransmitting seq=10364
+[34.4] Network: LOST Packet(DATA, seq=10364, ack=7831, len=110)
+[35.4] TCP: TIMEOUT - Retransmitting seq=10364
+[36.9] TCP: TIMEOUT - Retransmitting seq=10364
+[38.0] TCP: Received DATA (seq=10364, len=110)
+[38.4] TCP: Sent ACK (ack=8965)
+[39.0] TCP: TIMEOUT - Retransmitting seq=10364
+### Network Statistics:
+Packets sent: 48
+Packets lost: 22 (45.8%)
+Packets reordered: 8
+Packets duplicated: 0
+### TCP Connection Statistics (10.0.0.2:6000):
+Bytes sent: 1510
+Bytes received: 0
+Packets retransmitted: 34
+Send buffer size: 1
+### TCP Connection Statistics (10.0.0.1:5000):
+Bytes sent: 0
+Bytes received: 0
+Packets retransmitted: 0
+Send buffer size: 0
+## Verification:
+Incomplete: 0/1510 bytes
+</code></pre></div>
+</div>
+<p>Even with 40% loss, TCP delivers the complete message:
+there are many retransmissions but eventual success.</p>
+<h2>Key TCP Concepts</h2>
+<p><strong>Sequence Number Space</strong>:
+Each byte transmitted has a unique sequence number.
+For a message "Hello":</p>
+<ul>
+<li>Byte 'H' might be seq=1000</li>
+<li>Byte 'e' is seq=1001</li>
+<li>Byte 'l' is seq=1002</li>
+<li>And so on...</li>
+</ul>
+<p>When acknowledging, the receiver sends back seq=1005,
+meaning, "I've received everything up to 1005."</p>
+<p><strong>Window Size and Throughput</strong>:
+The window size determines maximum throughput.
+With:</p>
+<ul>
+<li>Window size = 4 segments</li>
+<li>Segment size = 1000 bytes</li>
+<li>Round-trip time = 0.5 seconds</li>
+</ul>
+<p>the maximum throughput is approximately (4 × 1000) / 0.5 = 8000 bytes/second.
+Larger windows enable higher throughput but require more buffering.</p>
+<p><strong>Adaptive Retransmission</strong>:
+Our implementation uses a fixed timeout.
+Real TCP measures round-trip time and adapts the timeout:</p>
+<div class="codehilite"><pre class=""><span></span><code><span class="n">RTO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">smoothed_RTT</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="n">RTT_variance</span>
+</code></pre></div>
+<p>This balances responsiveness (short timeout) with avoiding spurious retransmissions (long timeout).</p>
+<p><strong>Fast Retransmit</strong>:
+An optimization not in our implementation
+is that if the sender receives three duplicate ACKs for the same sequence number,
+it immediately retransmits without waiting for timeout.
+This recovers from loss faster.</p>
+<h2>Real-World Considerations</h2>
+<p>Production TCP implementations include features we've omitted:</p>
+<ul>
+<li>
+<p><strong>Selective Acknowledgments (SACK)</strong> acknowledge non-contiguous blocks of data,
+    which allows efficient retransmission of only the missing segments.</p>
+</li>
+<li>
+<p><strong>Congestion Control</strong>:
+    Adapt sending rate to network capacity using algorithms like:</p>
+<ul>
+<li><strong>Slow Start</strong>: Exponentially increase window until loss detected</li>
+<li><strong>Congestion Avoidance</strong>: Linearly increase window</li>
+<li><strong>Fast Recovery</strong>: Reduce window on loss, then recover</li>
+</ul>
+</li>
+<li>
+<p><strong>Nagle's Algorithm</strong> batches small writes to reduce overhead.</p>
+</li>
+<li>
+<p><strong>Path MTU Discovery</strong>
+    determines maximum packet size without fragmentation by testing increasingly large packets.</p>
+</li>
+<li>
+<p><strong>Timestamp Options</strong>
+    improve RTT estimation and detect wrapped sequence numbers on high-speed networks.</p>
+</li>
+</ul>
+<h2>Performance Analysis</h2>
+<p>Let's analyze our TCP implementation's efficiency:
+With 15% loss and 4-segment window:</p>
+<ul>
+<li>approximately 15% of packets need retransmission;</li>
+<li>the window allows 4 segments in flight; and</li>
+<li>the average delay per segment is approximately RTT + (loss_rate × timeout)</li>
+</ul>
+<p>The throughput efficiency is therefore</p>
+<div class="codehilite"><pre class=""><span></span><code>efficiency = successful_transmission_rate / available_bandwidth
+           ≈ (1 - loss_rate) / (1 + loss_rate × retransmissions)
+</code></pre></div>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../saga/">The Saga Pattern</a>
+</div>
+<div class="col-6 center">
+<a href="../"></a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../dns/">DNS</a> ⇒
+	</div>
+</div>
+</footer>
+</body>
+</html>

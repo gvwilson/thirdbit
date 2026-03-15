@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BitTorrent Protocol</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<nav>
+<a href="../">Home</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../intro/">Introduction</a>
+<a href="../mapreduce/">MapReduce</a>
+<a href="../msgque/">A Publish-Subscribe Message Queue</a>
+<a href="../worksteal/">A Work-Stealing Scheduler</a>
+<a href="../tracing/">Distributed Tracing</a>
+<a href="../crdt/">Conflict-Free Replicated Data Types</a>
+<a href="../oauth/">OAuth</a>
+<a href="../distlock/">Distributed Locks</a>
+<a href="../torrent/">BitTorrent</a>
+<a href="../eventual/">Eventually Consistent Key-Value Store</a>
+<a href="../saga/">The Saga Pattern</a>
+<a href="../tcp/">TCP</a>
+<a href="../dns/">DNS</a>
+<a href="../ntp/">NTP</a>
+<a href="../finale/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contributing/">Contributing</a>
+<a href="../bibliography/">Bibliography</a>
+<a href="../glossary/">Glossary</a>
+<a href="../theory/">A Bit of Theory</a>
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>BitTorrent Protocol</h1>
+<p>When you download a large Linux distribution ISO, a game update, or a software package, you might be using BitTorrent without even knowing it. BitTorrent revolutionized file sharing by turning traditional client-server downloads upside down: instead of downloading from a single server, you download pieces from dozens of peers simultaneously. The more popular a file, the faster it downloads—a property called "swarming" that makes BitTorrent uniquely efficient for distributing large files.</p>
+<p>BitTorrent emerged in 2001 as a solution to a fundamental problem: how do you distribute large files to millions of people without overwhelming your servers? Traditional HTTP downloads create a bottleneck—the server's upload bandwidth limits how many people can download simultaneously. BitTorrent solves this by having downloaders help each other: as soon as you download a piece, you can share it with others. This creates a distributed system where upload capacity scales with demand.</p>
+<p>This pattern powers countless systems: Linux distributions use BitTorrent for ISO distribution, game companies use it for patches and updates, academic institutions share datasets, and content delivery networks use BitTorrent-inspired protocols for video streaming. Understanding BitTorrent reveals fundamental principles of peer-to-peer systems, incentive design, and distributed consensus.</p>
+<h2>The BitTorrent Architecture</h2>
+<p>BitTorrent involves several components working together:</p>
+<ol>
+<li><strong>Torrent file</strong>: Metadata describing the file(s) to download, including piece hashes and tracker URL</li>
+<li><strong>Tracker</strong>: Coordinates peers by providing lists of other peers in the swarm</li>
+<li><strong>Peers</strong>: Clients downloading and uploading pieces simultaneously</li>
+<li><strong>Seeders</strong>: Peers who have the complete file and only upload</li>
+<li><strong>Leechers</strong>: Peers who are still downloading</li>
+</ol>
+<p>The protocol works through these steps:</p>
+<ol>
+<li><strong>Obtain torrent file</strong>: Contains metadata and tracker URL</li>
+<li><strong>Contact tracker</strong>: Get list of peers in the swarm</li>
+<li><strong>Connect to peers</strong>: Establish TCP connections with multiple peers</li>
+<li><strong>Exchange piece information</strong>: Tell peers what you have, learn what they have</li>
+<li><strong>Download pieces</strong>: Request rarest pieces first to maximize availability</li>
+<li><strong>Upload to others</strong>: Share pieces you've downloaded to maintain good standing</li>
+<li><strong>Verify integrity</strong>: Check each piece against SHA-1 hash from torrent</li>
+<li><strong>Become seeder</strong>: Continue uploading after completing download</li>
+</ol>
+<p>The key insight is <strong>tit-for-tat</strong>: peers upload to those who upload to them. This creates incentives for cooperation without central enforcement.</p>
+<h2>Core Data Structures</h2>
+<p>Let's start with the fundamental types.
+The file types describe pieces and torrent metadata:</p>
+<div data-filter="inc=file_types" data-inc="bittorrent_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Piece</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A piece of the file being shared."""</span>
+
+    <span class="n">index</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span>
+    <span class="n">hash_value</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># SHA-1 hash for verification</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">verify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Verify piece integrity against hash."""</span>
+        <span class="n">computed_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">computed_hash</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">hash_value</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TorrentMetadata</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Metadata from .torrent file."""</span>
+
+    <span class="n">info_hash</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># Unique identifier for this torrent</span>
+    <span class="n">piece_length</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># Size of each piece in bytes</span>
+    <span class="n">total_pieces</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># Number of pieces</span>
+    <span class="n">piece_hashes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>  <span class="c1"># SHA-1 hash for each piece</span>
+    <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">file_size</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">tracker_url</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Torrent(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_pieces</span><span class="si">}</span><span class="s2"> pieces)"</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PeerInfo</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Information about a peer."""</span>
+
+    <span class="n">peer_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">ip_address</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">port</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Peer(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2">)"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_id</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">PeerInfo</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">peer_id</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">peer_id</span>
+</code></pre></div>
+</div>
+<p>The message types describe the protocol exchanges between peers and tracker:</p>
+<div data-filter="inc=message_types" data-inc="bittorrent_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TrackerRequest</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Request to tracker."""</span>
+
+    <span class="n">info_hash</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">peer_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">port</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">uploaded</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">downloaded</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">left</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># Bytes remaining to download</span>
+    <span class="n">event</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># "started", "completed", "stopped"</span>
+    <span class="n">response_queue</span><span class="p">:</span> <span class="n">Queue</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"TrackerReq(peer=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2">, event=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">event</span><span class="si">}</span><span class="s2">)"</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TrackerResponse</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Response from tracker."""</span>
+
+    <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># Seconds until next tracker request</span>
+    <span class="n">peers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PeerInfo</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"TrackerResp(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peers</span><span class="p">)</span><span class="si">}</span><span class="s2"> peers)"</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PeerMessage</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Message exchanged between peers."""</span>
+
+    <span class="n">msg_type</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># "choke", "unchoke", "interested", "have", "request", "piece"</span>
+    <span class="n">payload</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg_type</span> <span class="o">==</span> <span class="s2">"have"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"Have(piece=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg_type</span> <span class="o">==</span> <span class="s2">"request"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"Request(piece=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg_type</span> <span class="o">==</span> <span class="s2">"piece"</span><span class="p">:</span>
+            <span class="n">piece_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="p">,</span> <span class="n">Piece</span><span class="p">)</span> <span class="k">else</span> <span class="s2">"?"</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"Piece(index=</span><span class="si">{</span><span class="n">piece_idx</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Msg(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">msg_type</span><span class="si">}</span><span class="s2">)"</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BitfieldMessage</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Bitfield indicating which pieces a peer has."""</span>
+
+    <span class="n">bitfield</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span>  <span class="c1"># True if peer has piece at that index</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">has_piece</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check if peer has a specific piece."""</span>
+        <span class="k">return</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bitfield</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">bitfield</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bitfield</span> <span class="k">if</span> <span class="n">b</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Bitfield(</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bitfield</span><span class="p">)</span><span class="si">}</span><span class="s2"> pieces)"</span>
+</code></pre></div>
+</div>
+<p>These structures represent the protocol's messages and state. The bitfield is particularly important—it compactly represents which pieces a peer has.</p>
+<h2>Tracker Implementation</h2>
+<p>The tracker coordinates the swarm by maintaining a list of active peers.
+The class and its constructor set up the request queue and swarm registry:</p>
+<div data-filter="inc=tracker_init" data-inc="tracker.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tracker</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""BitTorrent tracker coordinating peers."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+
+        <span class="c1"># Track peers for each torrent (by info_hash)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">swarms</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Set</span><span class="p">[</span><span class="n">PeerInfo</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Track when peers were last seen</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_last_seen</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Tracker started"</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Main tracker loop."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>When a peer announces itself, <code>handle_request</code> updates the swarm and returns a list of known peers:</p>
+<div data-filter="inc=tracker_handle" data-inc="tracker.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">TrackerRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Handle tracker announce request."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Tracker: Received </span><span class="si">{</span><span class="n">request</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="c1"># Initialize swarm if needed</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">info_hash</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">swarms</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">swarms</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">info_hash</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="n">swarm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">swarms</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">info_hash</span><span class="p">]</span>
+
+        <span class="c1"># Create peer info</span>
+        <span class="n">peer</span> <span class="o">=</span> <span class="n">PeerInfo</span><span class="p">(</span>
+            <span class="n">peer_id</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">peer_id</span><span class="p">,</span> <span class="n">ip_address</span><span class="o">=</span><span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">port</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Handle different events</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">event</span> <span class="o">==</span> <span class="s2">"started"</span> <span class="ow">or</span> <span class="n">request</span><span class="o">.</span><span class="n">event</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+            <span class="n">swarm</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">peer</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">peer_last_seen</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">peer_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Tracker: Added </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2"> to swarm "</span>
+                <span class="sa">f</span><span class="s2">"(total: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">swarm</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span>
+            <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">event</span> <span class="o">==</span> <span class="s2">"stopped"</span><span class="p">:</span>
+            <span class="n">swarm</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">peer</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Tracker: Removed </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2"> from swarm"</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">event</span> <span class="o">==</span> <span class="s2">"completed"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">peer_last_seen</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">peer_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">now</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Tracker: </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2"> completed download"</span><span class="p">)</span>
+
+        <span class="c1"># Return list of other peers</span>
+        <span class="n">other_peers</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">swarm</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">peer_id</span> <span class="o">!=</span> <span class="n">request</span><span class="o">.</span><span class="n">peer_id</span><span class="p">]</span>
+
+        <span class="c1"># Limit to 50 peers (typical tracker behavior)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">other_peers</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="n">other_peers</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">other_peers</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">TrackerResponse</span><span class="p">(</span>
+            <span class="n">interval</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>  <span class="c1"># Re-announce every 30 seconds</span>
+            <span class="n">peers</span><span class="o">=</span><span class="n">other_peers</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">response_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Tracker: Sent </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">other_peers</span><span class="p">)</span><span class="si">}</span><span class="s2"> peers to "</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<p>The tracker is stateless—it just maintains the current list of peers. In production, trackers often use UDP for efficiency and can handle millions of peers.</p>
+<h2>Simplified Peer</h2>
+<p>The peer is the heart of BitTorrent—it downloads pieces, uploads to others, and manages connections.
+The constructor stores the peer's identity, piece inventory, and connections to other peers:</p>
+<div data-filter="inc=peer_init" data-inc="simplified_peer.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimplifiedPeer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Simplified peer for simulation purposes."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">peer_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="p">:</span> <span class="n">TorrentMetadata</span><span class="p">,</span>
+        <span class="n">tracker</span><span class="p">:</span> <span class="s2">"Tracker"</span><span class="p">,</span>
+        <span class="n">other_peers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">"SimplifiedPeer"</span><span class="p">],</span>
+        <span class="n">initial_pieces</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peer_id</span> <span class="o">=</span> <span class="n">peer_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span> <span class="o">=</span> <span class="n">tracker</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">other_peers</span> <span class="o">=</span> <span class="n">other_peers</span>
+
+        <span class="c1"># Which pieces we have (just indices for simplicity)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">have_pieces</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">initial_pieces</span><span class="p">)</span> <span class="k">if</span> <span class="n">initial_pieces</span> <span class="k">else</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="c1"># Statistics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">downloaded_pieces</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">have_pieces</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uploaded_pieces</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Peer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2">: Started with "</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">have_pieces</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">metadata</span><span class="o">.</span><span class="n">total_pieces</span><span class="si">}</span><span class="s2"> pieces"</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_complete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check if download is complete."""</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">have_pieces</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">total_pieces</span>
+</code></pre></div>
+</div>
+<p>The <code>run</code> method announces to the tracker, then loops through download rounds until all pieces are obtained:</p>
+<div data-filter="inc=peer_run" data-inc="simplified_peer.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Simplified download loop."""</span>
+        <span class="c1"># Announce to tracker</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">announce</span><span class="p">(</span><span class="s2">"started"</span><span class="p">)</span>
+
+        <span class="c1"># Download pieces</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_complete</span><span class="p">():</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_round</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Peer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2">: ✓ Download complete!"</span><span class="p">)</span>
+
+        <span class="c1"># Announce completion</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">announce</span><span class="p">(</span><span class="s2">"completed"</span><span class="p">)</span>
+
+        <span class="c1"># Continue seeding</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">announce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Simplified tracker announce."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Peer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2">: Announcing '</span><span class="si">{</span><span class="n">event</span><span class="si">}</span><span class="s2">' to tracker"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Each download round selects pieces to request using rarest-first ordering, then attempts to download from available peers:</p>
+<div data-filter="inc=peer_download_round" data-inc="simplified_peer.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">download_round</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Attempt to download pieces from peers."""</span>
+        <span class="n">needed</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">total_pieces</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">have_pieces</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">needed</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Rarest first</span>
+        <span class="n">piece_counts</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">peer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_peers</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">piece_idx</span> <span class="ow">in</span> <span class="n">peer</span><span class="o">.</span><span class="n">have_pieces</span><span class="p">:</span>
+                <span class="n">piece_counts</span><span class="p">[</span><span class="n">piece_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">piece_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">piece_idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="n">needed</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">idx</span><span class="p">:</span> <span class="n">piece_counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="c1"># Try to download rarest piece we need</span>
+        <span class="k">for</span> <span class="n">piece_idx</span> <span class="ow">in</span> <span class="n">needed</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+            <span class="c1"># Find peer with this piece</span>
+            <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">other_peers</span> <span class="k">if</span> <span class="n">piece_idx</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">have_pieces</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">candidates</span><span class="p">:</span>
+                <span class="n">peer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_piece_from</span><span class="p">(</span><span class="n">peer</span><span class="p">,</span> <span class="n">piece_idx</span><span class="p">)</span>
+                <span class="k">break</span>
+</code></pre></div>
+</div>
+<p><code>_download_from_peer</code> applies the tit-for-tat rule—only downloading from a peer if it has uploaded to us recently—and on success updates piece state and broadcasts a HAVE message:</p>
+<div data-filter="inc=peer_download_from" data-inc="simplified_peer.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">download_piece_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">peer</span><span class="p">:</span> <span class="s2">"SimplifiedPeer"</span><span class="p">,</span> <span class="n">piece_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Download a piece from a peer."""</span>
+        <span class="c1"># Simulate transfer time</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">have_pieces</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">piece_idx</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">downloaded_pieces</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">peer</span><span class="o">.</span><span class="n">uploaded_pieces</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Peer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2">: Downloaded piece </span><span class="si">{</span><span class="n">piece_idx</span><span class="si">}</span><span class="s2"> "</span>
+            <span class="sa">f</span><span class="s2">"from </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">have_pieces</span><span class="p">)</span><span class="si">}</span><span class="s2">/"</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">total_pieces</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<p>This simplified version captures the essence of BitTorrent without all the protocol complexity.</p>
+<h2>Basic Simulation</h2>
+<p>Let's see BitTorrent in action:</p>
+<div data-filter="inc=basicexample" data-inc="example_basic_bittorrent.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_basic_bittorrent</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Demonstrate basic BitTorrent operation."""</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+
+    <span class="c1"># Create tracker</span>
+    <span class="n">tracker</span> <span class="o">=</span> <span class="n">Tracker</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+
+    <span class="c1"># Create torrent metadata</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">TorrentMetadata</span><span class="p">(</span>
+        <span class="n">info_hash</span><span class="o">=</span><span class="s2">"abc123"</span><span class="p">,</span>
+        <span class="n">piece_length</span><span class="o">=</span><span class="mi">256</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">,</span>  <span class="c1"># 256 KB pieces</span>
+        <span class="n">total_pieces</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">piece_hashes</span><span class="o">=</span><span class="p">[</span><span class="s2">"hash"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
+        <span class="n">file_name</span><span class="o">=</span><span class="s2">"example.iso"</span><span class="p">,</span>
+        <span class="n">file_size</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">,</span>
+        <span class="n">tracker_url</span><span class="o">=</span><span class="s2">"http://tracker.example.com:8080/announce"</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Created </span><span class="si">{</span><span class="n">metadata</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="c1"># Create initial seeder with all pieces</span>
+    <span class="n">peers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SimplifiedPeer</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">seeder</span> <span class="o">=</span> <span class="n">SimplifiedPeer</span><span class="p">(</span>
+        <span class="n">env</span><span class="p">,</span>
+        <span class="s2">"Seeder"</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="p">,</span>
+        <span class="n">tracker</span><span class="p">,</span>
+        <span class="n">peers</span><span class="p">,</span>
+        <span class="n">initial_pieces</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span>  <span class="c1"># Has all pieces</span>
+    <span class="p">)</span>
+    <span class="n">peers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seeder</span><span class="p">)</span>
+
+    <span class="c1"># Create leechers with no pieces</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">peer</span> <span class="o">=</span> <span class="n">SimplifiedPeer</span><span class="p">(</span>
+            <span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Peer</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">tracker</span><span class="p">,</span> <span class="n">peers</span><span class="p">,</span> <span class="n">initial_pieces</span><span class="o">=</span><span class="p">[]</span>
+        <span class="p">)</span>
+        <span class="n">peers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">peer</span><span class="p">)</span>
+
+    <span class="c1"># Update peer lists</span>
+    <span class="k">for</span> <span class="n">peer</span> <span class="ow">in</span> <span class="n">peers</span><span class="p">:</span>
+        <span class="n">peer</span><span class="o">.</span><span class="n">other_peers</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">peers</span> <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">peer</span><span class="p">]</span>
+
+    <span class="c1"># Run simulation</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+    <span class="c1"># Print statistics</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="s1">'='</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Final Statistics:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">peer</span> <span class="ow">in</span> <span class="n">peers</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">peer_id</span><span class="si">}</span><span class="s2">: Downloaded=</span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">downloaded_pieces</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"Uploaded=</span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">uploaded_pieces</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<p>This shows how pieces propagate through the swarm—early peers help later peers, distributing the upload burden.</p>
+<h2>Key BitTorrent Concepts</h2>
+<h3>Rarest First</h3>
+<p>Peers prioritize downloading the rarest pieces in the swarm. This ensures piece diversity—if everyone downloads common pieces, rare pieces might disappear if the only seeder leaves.</p>
+<h3>Tit-for-Tat</h3>
+<p>Peers upload to those who upload to them. This creates incentive for cooperation without central enforcement. Peers who don't upload ("leechers") get poor download speeds.</p>
+<h3>Optimistic Unchoking</h3>
+<p>Periodically upload to a random peer who isn't uploading to you. This gives new peers a chance to join the ecosystem and discover faster peers.</p>
+<h3>Choking Algorithm</h3>
+<p>Peers limit uploads to their top 4-5 uploaders. This maximizes efficiency by focusing bandwidth on productive connections rather than spreading it thin.</p>
+<h3>End Game Mode</h3>
+<p>When almost complete, aggressively request remaining pieces from all peers. Cancel duplicate requests when pieces arrive. This prevents the last few pieces from taking disproportionately long.</p>
+<h2>DHT (Distributed Hash Table)</h2>
+<p>Modern BitTorrent doesn't require trackers. DHT creates a distributed database where peers can find other peers without a central server:</p>
+<ul>
+<li>Uses Kademlia algorithm</li>
+<li>Each peer stores information about nearby peers in ID space</li>
+<li>Provides tracker-like functionality in decentralized manner</li>
+<li>Resilient to tracker failures or censorship</li>
+</ul>
+<h2>Security and Privacy</h2>
+<p>BitTorrent has several security considerations:</p>
+<p><strong>Protocol Encryption</strong>: Obfuscates traffic to bypass ISP throttling</p>
+<p><strong>PEX (Peer Exchange)</strong>: Peers share peer lists directly, reducing tracker dependency</p>
+<p><strong>Magnet Links</strong>: Reference torrents by info hash without needing .torrent file</p>
+<p><strong>Private Trackers</strong>: Require authentication, track ratios, encourage seeding</p>
+<p><strong>Copyright Concerns</strong>: BitTorrent is neutral technology but can distribute copyrighted content</p>
+<h2>Real-World Applications</h2>
+<p>Beyond file sharing, BitTorrent's principles appear in:</p>
+<p><strong>Content Delivery</strong>: Twitter uses BitTorrent-inspired Murder for deploying code to servers</p>
+<p><strong>Software Distribution</strong>: Linux distributions, game updates, software patches</p>
+<p><strong>Live Streaming</strong>: Peer-assisted streaming reduces server load</p>
+<p><strong>Blockchain</strong>: Bitcoin and Ethereum use gossip protocols inspired by P2P systems</p>
+<p><strong>IPFS</strong>: InterPlanetary File System uses BitTorrent-like chunking and distribution</p>
+<h2>Conclusion</h2>
+<p>BitTorrent demonstrates how to build efficient distributed systems through clever incentive design. The key principles are:</p>
+<ol>
+<li><strong>Decentralization</strong>: No single point of failure or bottleneck</li>
+<li><strong>Swarming</strong>: More demand creates more supply</li>
+<li><strong>Incentive alignment</strong>: Tit-for-tat encourages cooperation</li>
+<li><strong>Piece verification</strong>: Cryptographic hashes ensure integrity</li>
+<li><strong>Rarest first</strong>: Maintains piece diversity in the swarm</li>
+</ol>
+<p>These patterns extend beyond file sharing to distributed databases, content delivery networks, and peer-to-peer systems generally. Understanding BitTorrent provides insight into how to coordinate distributed resources without central control—a fundamental challenge in distributed systems.</p>
+<p>Our simulation captures the essence of BitTorrent: pieces flowing through a swarm, rarest-first selection, and peers helping each other. While production BitTorrent adds complexity—TCP connection management, detailed choking algorithms, DHT—the core ideas we've demonstrated remain central to how BitTorrent achieves its remarkable efficiency.</p>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../distlock/">Distributed Locks</a>
+</div>
+<div class="col-6 center">
+<a href="../"></a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../eventual/">Eventually Consistent Key-Value Store</a> ⇒
+	</div>
+</div>
+</footer>
+</body>
+</html>

@@ -8,6 +8,7 @@
 <link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
@@ -22,6 +23,14 @@
 <a href="../worksteal/">A Work-Stealing Scheduler</a>
 <a href="../tracing/">Distributed Tracing</a>
 <a href="../crdt/">Conflict-Free Replicated Data Types</a>
+<a href="../oauth/">OAuth</a>
+<a href="../distlock/">Distributed Locks</a>
+<a href="../torrent/">BitTorrent</a>
+<a href="../eventual/">Eventually Consistent Key-Value Store</a>
+<a href="../saga/">The Saga Pattern</a>
+<a href="../tcp/">TCP</a>
+<a href="../dns/">DNS</a>
+<a href="../ntp/">NTP</a>
 <a href="../finale/">Conclusion</a>
 </span>
 </span>
@@ -70,7 +79,7 @@ The second means that group doesnt' matter,
 so (A+B)+C = A+(B+C).
 If the merge operation for the data type has these properties,
 replicas can receive updates in any order and still converge to the same state.
-Some approaches to implementing CRDTs also require operations to be <a href="../glossary/#idempotent">idempotent</a>,
+Some approaches to implementing CRDTs also require operations to be <a href="../glossary/#idempotence">idempotent</a>,
 which means that the operation can be applied any number of times
 with the same cumulative effect
 (just as zero can be added to a number over and over).</p>
@@ -587,8 +596,6 @@ we create a simple dataclass to represent peers in the network:</p>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">counter</span><span class="p">:</span> <span class="n">GCounter</span>
     <span class="n">partitioned_from</span><span class="p">:</span> <span class="nb">set</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">set</span><span class="p">)</span>
-
-
 <span class="c1"># mccole</span>
 
 
@@ -621,8 +628,6 @@ we create a simple dataclass to represent peers in the network:</p>
                     <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: synced with </span><span class="si">{</span><span class="n">peer</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="o">.</span><span class="n">value</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
                 <span class="p">)</span>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
-
-
 <span class="c1"># mccole: /replica</span>
 
 
@@ -648,8 +653,6 @@ we create a simple dataclass to represent peers in the network:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">partitioned_from</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">}</span><span class="s2">] *** healed: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_a</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;---&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peer_b</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-
 <span class="c1"># mccole: /partition</span>
 
 
@@ -671,8 +674,6 @@ we create a simple dataclass to represent peers in the network:</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Final State"</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">peers</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
-
-
 <span class="c1"># mccole: /sim</span>
 
 
@@ -808,7 +809,7 @@ GCounter(id=Chiti, value=12, counts={'Chiti': 4, 'Baemi': 4, 'Ahmed': 4})
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../finale/">Conclusion</a> ⇒
+<a href="../oauth/">OAuth</a> ⇒
 	</div>
 </div>
 </footer>

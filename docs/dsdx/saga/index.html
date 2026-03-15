@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Saga Pattern</title>
+<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<nav>
+<a href="../">Home</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../intro/">Introduction</a>
+<a href="../mapreduce/">MapReduce</a>
+<a href="../msgque/">A Publish-Subscribe Message Queue</a>
+<a href="../worksteal/">A Work-Stealing Scheduler</a>
+<a href="../tracing/">Distributed Tracing</a>
+<a href="../crdt/">Conflict-Free Replicated Data Types</a>
+<a href="../oauth/">OAuth</a>
+<a href="../distlock/">Distributed Locks</a>
+<a href="../torrent/">BitTorrent</a>
+<a href="../eventual/">Eventually Consistent Key-Value Store</a>
+<a href="../saga/">The Saga Pattern</a>
+<a href="../tcp/">TCP</a>
+<a href="../dns/">DNS</a>
+<a href="../ntp/">NTP</a>
+<a href="../finale/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contributing/">Contributing</a>
+<a href="../bibliography/">Bibliography</a>
+<a href="../glossary/">Glossary</a>
+<a href="../theory/">A Bit of Theory</a>
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>The Saga Pattern</h1>
+<p>When you book a flight, reserve a hotel, and rent a car in a single transaction,
+what happens if the car rental fails but the flight and hotel are already reserved?
+In a monolithic system you would roll back the entire transaction,
+but in a microservices architecture using separate databases for flights, hotels, and cars,
+traditional ACID transactions don't work.</p>
+<p>The <a href="../glossary/#saga">Saga pattern</a> solves this
+by breaking long-running transactions into a sequence of local transactions,
+each with a <a href="../glossary/#compensation">compensating action</a> to undo its effects if the overall transaction fails.
+This enables distributed transactions without distributed locks,
+maintaining eventual consistency while handling failures gracefully.</p>
+<p>The pattern is a response to the fact that distributed transactions using two-phase commit don't scale.
+Sagas trade immediate consistency for availability and fault tolerance,
+but as we'll see,
+bring constraints of their own.</p>
+<h2 id="saga-pattern">The Saga Pattern</h2>
+<p>A Saga is a sequence of local transactions,
+each of which updates a single service and publishes an event or message to trigger the next transaction.
+If a transaction fails,
+the Saga executes compensating transactions to undo the changes made by preceding transactions.</p>
+<p>Unlike two-phase commit,
+which uses prepare/commit phases and locks,
+Sagas commit each step immediately and use compensation to handle failures.
+The pattern can be implemented in one of two ways.</p>
+<ul>
+<li>
+<p>Orchestration:
+    a central coordinator tells each service what to do.
+    This is easier to understand and monitor,
+    but the coordinator is a coordination point.</p>
+</li>
+<li>
+<p>Choreography:
+    each service listens for events and decides what to do next.
+    Its decentralization makes it more scalable,
+    but also makes it harder to understand and monitor.</p>
+</li>
+</ul>
+<p>Whichever approach is used,
+each forward step must be define a backward compensation that is retryable and idempotent.
+The first requirement is self-explanatory;
+the second means that the compensation has the same effect on the system
+no matter how many times it is tried.
+(A simple example is multiplying a value by 1:
+it can be done any number of times, but always has the same result.)</p>
+<p>Compensations must be idempotent because it's possible for a workflow to go forward and backward several times.
+Compensations can be implemented as negative transitions,
+but it is often easier to implement them by saving the state before the transition,
+such as the account balance,
+and then restoring that state.
+These approaches can be mixed together in a single workflow
+depending on which is easiest to use with a particular external service.</p>
+<h2 id="saga-struct">Core Data Structures</h2>
+<p>Let's build a travel booking saga with flights, hotels, and car rentals.
+We start by defining the states that the saga as a whole
+and the individual transactions
+can be in:</p>
+<div data-filter="inc=enum" data-inc="saga_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SagaStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Status of a saga execution."""</span>
+
+    <span class="n">PENDING</span> <span class="o">=</span> <span class="s2">"pending"</span>
+    <span class="n">IN_PROGRESS</span> <span class="o">=</span> <span class="s2">"in_progress"</span>
+    <span class="n">COMPLETED</span> <span class="o">=</span> <span class="s2">"completed"</span>
+    <span class="n">COMPENSATING</span> <span class="o">=</span> <span class="s2">"compensating"</span>
+    <span class="n">FAILED</span> <span class="o">=</span> <span class="s2">"failed"</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TransactionStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Status of individual transaction."""</span>
+
+    <span class="n">PENDING</span> <span class="o">=</span> <span class="s2">"pending"</span>
+    <span class="n">COMPLETED</span> <span class="o">=</span> <span class="s2">"completed"</span>
+    <span class="n">FAILED</span> <span class="o">=</span> <span class="s2">"failed"</span>
+    <span class="n">COMPENSATED</span> <span class="o">=</span> <span class="s2">"compensated"</span>
+</code></pre></div>
+</div>
+<p>We then create structures to represent the saga's state  machine.
+Each step has a forward transaction and a backward compensation.</p>
+<div data-filter="inc=sagatypes" data-inc="saga_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SagaStep</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A step in the saga with transaction and compensation."""</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">service_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">transaction</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="nb">bool</span><span class="p">]</span>  <span class="c1"># Returns True if successful</span>
+    <span class="n">compensation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[],</span> <span class="nb">bool</span><span class="p">]]</span>  <span class="c1"># Returns True if successful</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Step(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">)"</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SagaExecution</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Tracks execution of a saga instance."""</span>
+
+    <span class="n">saga_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">steps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SagaStep</span><span class="p">]</span>
+    <span class="n">status</span><span class="p">:</span> <span class="n">SagaStatus</span> <span class="o">=</span> <span class="n">SagaStatus</span><span class="o">.</span><span class="n">PENDING</span>
+    <span class="n">current_step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">completed_steps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">failed_step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">context</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Saga(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">saga_id</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">, step </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_step</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BookingRequest</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Travel booking request."""</span>
+
+    <span class="n">booking_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">customer_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">flight_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">hotel_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">car_id</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Booking(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">booking_id</span><span class="si">}</span><span class="s2">)"</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SagaEvent</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Event in choreographed saga."""</span>
+
+    <span class="n">event_type</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># "flight_booked", "flight_failed", etc.</span>
+    <span class="n">saga_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Event(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">event_type</span><span class="si">}</span><span class="s2">)"</span>
+</code></pre></div>
+</div>
+<h2 id="saga-services">Service Implementations</h2>
+<p>We can now implement the three microservices involved in the saga.
+Each service manages its own local state
+and provides both forward (book) and backward (cancel) operations.
+The flight service manages seat availability;
+we have given it a 10% random failure rate to simulate real-world unreliability:</p>
+<div data-filter="inc=flight_service" data-inc="booking_services.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FlightService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Microservice for booking flights."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_seats</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] FlightService started (seats: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">available_seats</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Handle flight booking requests."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">book_flight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">booking_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">flight_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Book a flight (forward transaction)."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] FlightService: Booking flight </span><span class="si">{</span><span class="n">flight_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="c1"># Simulate occasional failures</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] FlightService: Booking FAILED - system error"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">available_seats</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] FlightService: Booking FAILED - no seats"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_seats</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">[</span><span class="n">booking_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"flight_id"</span><span class="p">:</span> <span class="n">flight_id</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"booked"</span><span class="p">,</span>
+            <span class="s2">"seats"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] FlightService: ✓ Flight booked "</span>
+            <span class="sa">f</span><span class="s2">"(remaining: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">available_seats</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">cancel_flight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">booking_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Cancel flight booking (compensation)."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] FlightService: COMPENSATING - canceling </span><span class="si">{</span><span class="n">booking_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">booking_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] FlightService: No booking to cancel"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="n">seats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">[</span><span class="n">booking_id</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"seats"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_seats</span> <span class="o">+=</span> <span class="n">seats</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">[</span><span class="n">booking_id</span><span class="p">][</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"canceled"</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] FlightService: ✓ Flight canceled "</span>
+            <span class="sa">f</span><span class="s2">"(available: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">available_seats</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+</div>
+<p>The hotel service follows the same pattern with a 15% failure rate and room inventory:</p>
+<div data-filter="inc=hotel_service" data-inc="booking_services.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HotelService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Microservice for booking hotels."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_rooms</span> <span class="o">=</span> <span class="mi">5</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] HotelService started (rooms: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">available_rooms</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Handle hotel booking requests."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">book_hotel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">booking_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">hotel_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Book a hotel (forward transaction)."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] HotelService: Booking hotel </span><span class="si">{</span><span class="n">hotel_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="c1"># Simulate occasional failures</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.15</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] HotelService: Booking FAILED - no rooms"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">available_rooms</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] HotelService: Booking FAILED - no rooms"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_rooms</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">[</span><span class="n">booking_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"hotel_id"</span><span class="p">:</span> <span class="n">hotel_id</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"booked"</span><span class="p">,</span>
+            <span class="s2">"rooms"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] HotelService: ✓ Hotel booked "</span>
+            <span class="sa">f</span><span class="s2">"(remaining: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">available_rooms</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">cancel_hotel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">booking_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Cancel hotel booking (compensation)."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] HotelService: COMPENSATING - canceling </span><span class="si">{</span><span class="n">booking_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">booking_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] HotelService: No booking to cancel"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="n">rooms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">[</span><span class="n">booking_id</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"rooms"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_rooms</span> <span class="o">+=</span> <span class="n">rooms</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">[</span><span class="n">booking_id</span><span class="p">][</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"canceled"</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] HotelService: ✓ Hotel canceled "</span>
+            <span class="sa">f</span><span class="s2">"(available: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">available_rooms</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+</div>
+<p>Finally,
+the car rental service has a 30% failure rate to demonstrate more frequent compensation:</p>
+<div data-filter="inc=car_service" data-inc="booking_services.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CarRentalService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Microservice for renting cars."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_cars</span> <span class="o">=</span> <span class="mi">3</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] CarRentalService started (cars: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">available_cars</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Handle car rental requests."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">book_car</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">booking_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">car_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Book a car (forward transaction)."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] CarRentalService: Booking car </span><span class="si">{</span><span class="n">car_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="c1"># Simulate higher failure rate for demonstration</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] CarRentalService: Booking FAILED - no cars"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">available_cars</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] CarRentalService: Booking FAILED - no cars"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_cars</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">[</span><span class="n">booking_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"car_id"</span><span class="p">:</span> <span class="n">car_id</span><span class="p">,</span> <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"booked"</span><span class="p">,</span> <span class="s2">"cars"</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] CarRentalService: ✓ Car booked "</span>
+            <span class="sa">f</span><span class="s2">"(remaining: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">available_cars</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">cancel_car</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">booking_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Cancel car rental (compensation)."""</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] CarRentalService: COMPENSATING - canceling </span><span class="si">{</span><span class="n">booking_id</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">booking_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] CarRentalService: No booking to cancel"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="n">cars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">[</span><span class="n">booking_id</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"cars"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_cars</span> <span class="o">+=</span> <span class="n">cars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bookings</span><span class="p">[</span><span class="n">booking_id</span><span class="p">][</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"canceled"</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] CarRentalService: ✓ Car canceled "</span>
+            <span class="sa">f</span><span class="s2">"(available: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">available_cars</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+</div>
+<p>Each service is autonomous:
+it manages its own database and can succeed or fail independently.</p>
+<h2 id="saga-orch">Orchestration-Based Saga</h2>
+<p>The orchestrator coordinates the sequence of transactions.
+It stores references to each service and processes requests from a queue:</p>
+<div data-filter="inc=orch_init" data-inc="saga_orchestrator.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SagaOrchestrator</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Centralized saga coordinator (orchestration pattern)."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">flight_service</span><span class="p">:</span> <span class="n">FlightService</span><span class="p">,</span>
+        <span class="n">hotel_service</span><span class="p">:</span> <span class="n">HotelService</span><span class="p">,</span>
+        <span class="n">car_service</span><span class="p">:</span> <span class="n">CarRentalService</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flight_service</span> <span class="o">=</span> <span class="n">flight_service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hotel_service</span> <span class="o">=</span> <span class="n">hotel_service</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">car_service</span> <span class="o">=</span> <span class="n">car_service</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">:</span> <span class="n">Queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_sagas</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SagaExecution</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Statistics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sagas_completed</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sagas_failed</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] SagaOrchestrator started</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Process booking requests."""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_saga</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>When a booking request arrives,
+<code>execute_saga</code> builds the list of steps and drives them forward,
+triggering compensation if any step fails:</p>
+<div data-filter="inc=orch_execute" data-inc="saga_orchestrator.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_saga</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">booking</span><span class="p">:</span> <span class="n">BookingRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Execute travel booking saga."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="s1">'='</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Starting saga for </span><span class="si">{</span><span class="n">booking</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="s1">'='</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="c1"># Define saga steps</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">SagaStep</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">"book_flight"</span><span class="p">,</span>
+                <span class="n">service_name</span><span class="o">=</span><span class="s2">"FlightService"</span><span class="p">,</span>
+                <span class="n">transaction</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">flight_service</span><span class="o">.</span><span class="n">book_flight</span><span class="p">(</span>
+                    <span class="n">booking</span><span class="o">.</span><span class="n">booking_id</span><span class="p">,</span> <span class="n">booking</span><span class="o">.</span><span class="n">flight_id</span>
+                <span class="p">),</span>
+                <span class="n">compensation</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">flight_service</span><span class="o">.</span><span class="n">cancel_flight</span><span class="p">(</span>
+                    <span class="n">booking</span><span class="o">.</span><span class="n">booking_id</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+            <span class="n">SagaStep</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">"book_hotel"</span><span class="p">,</span>
+                <span class="n">service_name</span><span class="o">=</span><span class="s2">"HotelService"</span><span class="p">,</span>
+                <span class="n">transaction</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">hotel_service</span><span class="o">.</span><span class="n">book_hotel</span><span class="p">(</span>
+                    <span class="n">booking</span><span class="o">.</span><span class="n">booking_id</span><span class="p">,</span> <span class="n">booking</span><span class="o">.</span><span class="n">hotel_id</span>
+                <span class="p">),</span>
+                <span class="n">compensation</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">hotel_service</span><span class="o">.</span><span class="n">cancel_hotel</span><span class="p">(</span>
+                    <span class="n">booking</span><span class="o">.</span><span class="n">booking_id</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+            <span class="n">SagaStep</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">"book_car"</span><span class="p">,</span>
+                <span class="n">service_name</span><span class="o">=</span><span class="s2">"CarRentalService"</span><span class="p">,</span>
+                <span class="n">transaction</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">car_service</span><span class="o">.</span><span class="n">book_car</span><span class="p">(</span>
+                    <span class="n">booking</span><span class="o">.</span><span class="n">booking_id</span><span class="p">,</span> <span class="n">booking</span><span class="o">.</span><span class="n">car_id</span>
+                <span class="p">),</span>
+                <span class="n">compensation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># Last step doesn't need compensation</span>
+            <span class="p">),</span>
+        <span class="p">]</span>
+
+        <span class="n">saga</span> <span class="o">=</span> <span class="n">SagaExecution</span><span class="p">(</span>
+            <span class="n">saga_id</span><span class="o">=</span><span class="n">booking</span><span class="o">.</span><span class="n">booking_id</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">SagaStatus</span><span class="o">.</span><span class="n">IN_PROGRESS</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_sagas</span><span class="p">[</span><span class="n">booking</span><span class="o">.</span><span class="n">booking_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">saga</span>
+
+        <span class="c1"># Execute forward transactions</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_forward</span><span class="p">(</span><span class="n">saga</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+            <span class="n">saga</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">SagaStatus</span><span class="o">.</span><span class="n">COMPLETED</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sagas_completed</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] ✓✓✓ Saga </span><span class="si">{</span><span class="n">saga</span><span class="o">.</span><span class="n">saga_id</span><span class="si">}</span><span class="s2"> COMPLETED ✓✓✓</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Execute compensations</span>
+            <span class="n">saga</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">SagaStatus</span><span class="o">.</span><span class="n">COMPENSATING</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_compensation</span><span class="p">(</span><span class="n">saga</span><span class="p">)</span>
+            <span class="n">saga</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">SagaStatus</span><span class="o">.</span><span class="n">FAILED</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sagas_failed</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] ✗✗✗ Saga </span><span class="si">{</span><span class="n">saga</span><span class="o">.</span><span class="n">saga_id</span><span class="si">}</span><span class="s2"> FAILED - compensated ✗✗✗</span><span class="se">\n</span><span class="s2">"</span>
+            <span class="p">)</span>
+</code></pre></div>
+</div>
+<p>The forward pass runs each step in sequence,
+stopping immediately on the first failure:</p>
+<div data-filter="inc=orch_forward" data-inc="saga_orchestrator.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">saga</span><span class="p">:</span> <span class="n">SagaExecution</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Execute forward transactions in sequence."""</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">saga</span><span class="o">.</span><span class="n">steps</span><span class="p">):</span>
+            <span class="n">saga</span><span class="o">.</span><span class="n">current_step</span> <span class="o">=</span> <span class="n">i</span>
+
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Orchestrator: Executing step </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/"</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">saga</span><span class="o">.</span><span class="n">steps</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">step</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Simulate network delay</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+            <span class="c1"># Execute transaction</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">transaction</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+                <span class="n">saga</span><span class="o">.</span><span class="n">completed_steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">step</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">saga</span><span class="o">.</span><span class="n">failed_step</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">name</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Orchestrator: Step </span><span class="si">{</span><span class="n">step</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> FAILED"</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+</div>
+<p>The compensation pass runs in reverse,
+undoing each completed step:</p>
+<div data-filter="inc=orch_compensate" data-inc="saga_orchestrator.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_compensation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">saga</span><span class="p">:</span> <span class="n">SagaExecution</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Execute compensating transactions in reverse order."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Orchestrator: Starting compensation..."</span><span class="p">)</span>
+
+        <span class="c1"># Compensate in reverse order</span>
+        <span class="k">for</span> <span class="n">step_name</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">saga</span><span class="o">.</span><span class="n">completed_steps</span><span class="p">):</span>
+            <span class="c1"># Find the step</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">saga</span><span class="o">.</span><span class="n">steps</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">step_name</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">step</span><span class="o">.</span><span class="n">compensation</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Orchestrator: Compensating </span><span class="si">{</span><span class="n">step_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+                <span class="c1"># Simulate network delay</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+                <span class="n">success</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">compensation</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Orchestrator: WARNING - "</span>
+                        <span class="sa">f</span><span class="s2">"Compensation </span><span class="si">{</span><span class="n">step_name</span><span class="si">}</span><span class="s2"> failed! Manual intervention needed."</span>
+                    <span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Basic Orchestration Example</h2>
+<p>Let's see orchestration in action:</p>
+<div data-filter="inc=orchestratedexample" data-inc="ex_saga.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+
+    <span class="c1"># Create services</span>
+    <span class="n">flight_service</span> <span class="o">=</span> <span class="n">FlightService</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="n">hotel_service</span> <span class="o">=</span> <span class="n">HotelService</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    <span class="n">car_service</span> <span class="o">=</span> <span class="n">CarRentalService</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+
+    <span class="c1"># Create orchestrator</span>
+    <span class="n">orchestrator</span> <span class="o">=</span> <span class="n">SagaOrchestrator</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">flight_service</span><span class="p">,</span> <span class="n">hotel_service</span><span class="p">,</span> <span class="n">car_service</span><span class="p">)</span>
+
+    <span class="c1"># Submit booking requests</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">BookingGenerator</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orch</span><span class="p">:</span> <span class="n">SagaOrchestrator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">orch</span> <span class="o">=</span> <span class="n">orch</span>
+
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+                <span class="n">booking</span> <span class="o">=</span> <span class="n">BookingRequest</span><span class="p">(</span>
+                    <span class="n">booking_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">"BOOK</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                    <span class="n">customer_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">"CUST</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                    <span class="n">flight_id</span><span class="o">=</span><span class="s2">"FL123"</span><span class="p">,</span>
+                    <span class="n">hotel_id</span><span class="o">=</span><span class="s2">"HTL456"</span><span class="p">,</span>
+                    <span class="n">car_id</span><span class="o">=</span><span class="s2">"CAR789"</span><span class="p">,</span>
+                <span class="p">)</span>
+
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">orch</span><span class="o">.</span><span class="n">request_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">booking</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+
+    <span class="n">BookingGenerator</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">orchestrator</span><span class="p">)</span>
+
+    <span class="c1"># Run simulation</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+    <span class="c1"># Print summary</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Final State:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Flight seats available: </span><span class="si">{</span><span class="n">flight_service</span><span class="o">.</span><span class="n">available_seats</span><span class="si">}</span><span class="s2">/10"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hotel rooms available: </span><span class="si">{</span><span class="n">hotel_service</span><span class="o">.</span><span class="n">available_rooms</span><span class="si">}</span><span class="s2">/5"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Cars available: </span><span class="si">{</span><span class="n">car_service</span><span class="o">.</span><span class="n">available_cars</span><span class="si">}</span><span class="s2">/3"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Completed sagas: </span><span class="si">{</span><span class="n">orchestrator</span><span class="o">.</span><span class="n">sagas_completed</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed sagas: </span><span class="si">{</span><span class="n">orchestrator</span><span class="o">.</span><span class="n">sagas_failed</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="ex_saga.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] FlightService started (seats: 10)
+[0.0] HotelService started (rooms: 5)
+[0.0] CarRentalService started (cars: 3)
+[0.0] SagaOrchestrator started
+
+[0.0] ============================================================
+[0.0] Starting saga for Booking(BOOK001)
+[0.0] ============================================================
+[0.0] Orchestrator: Executing step 1/3: book_flight
+[0.3] FlightService: Booking flight FL123
+[0.3] FlightService: ✓ Flight booked (remaining: 9)
+[0.3] Orchestrator: Executing step 2/3: book_hotel
+[0.6] HotelService: Booking hotel HTL456
+[0.6] HotelService: ✓ Hotel booked (remaining: 4)
+[0.6] Orchestrator: Executing step 3/3: book_car
+[0.9] CarRentalService: Booking car CAR789
+[0.9] CarRentalService: ✓ Car booked (remaining: 2)
+
+[0.9] ✓✓✓ Saga BOOK001 COMPLETED ✓✓✓
+
+[3.0] ============================================================
+[3.0] Starting saga for Booking(BOOK002)
+[3.0] ============================================================
+[3.0] Orchestrator: Executing step 1/3: book_flight
+[3.3] FlightService: Booking flight FL123
+[3.3] FlightService: Booking FAILED - system error
+[3.3] Orchestrator: Step book_flight FAILED
+
+[3.3] Orchestrator: Starting compensation...
+
+[3.3] ✗✗✗ Saga BOOK002 FAILED - compensated ✗✗✗
+
+[6.0] ============================================================
+[6.0] Starting saga for Booking(BOOK003)
+[6.0] ============================================================
+[6.0] Orchestrator: Executing step 1/3: book_flight
+[6.3] FlightService: Booking flight FL123
+[6.3] FlightService: Booking FAILED - system error
+[6.3] Orchestrator: Step book_flight FAILED
+
+[6.3] Orchestrator: Starting compensation...
+
+[6.3] ✗✗✗ Saga BOOK003 FAILED - compensated ✗✗✗
+
+[9.0] ============================================================
+[9.0] Starting saga for Booking(BOOK004)
+[9.0] ============================================================
+[9.0] Orchestrator: Executing step 1/3: book_flight
+[9.3] FlightService: Booking flight FL123
+[9.3] FlightService: ✓ Flight booked (remaining: 8)
+[9.3] Orchestrator: Executing step 2/3: book_hotel
+[9.6] HotelService: Booking hotel HTL456
+[9.6] HotelService: ✓ Hotel booked (remaining: 3)
+[9.6] Orchestrator: Executing step 3/3: book_car
+[9.9] CarRentalService: Booking car CAR789
+[9.9] CarRentalService: Booking FAILED - no cars
+[9.9] Orchestrator: Step book_car FAILED
+
+[9.9] Orchestrator: Starting compensation...
+[9.9] Orchestrator: Compensating book_hotel
+[10.1] HotelService: COMPENSATING - canceling BOOK004
+[10.1] HotelService: ✓ Hotel canceled (available: 4)
+[10.1] Orchestrator: Compensating book_flight
+[10.3] FlightService: COMPENSATING - canceling BOOK004
+[10.3] FlightService: ✓ Flight canceled (available: 9)
+
+[10.3] ✗✗✗ Saga BOOK004 FAILED - compensated ✗✗✗
+
+[12.0] ============================================================
+[12.0] Starting saga for Booking(BOOK005)
+[12.0] ============================================================
+[12.0] Orchestrator: Executing step 1/3: book_flight
+[12.3] FlightService: Booking flight FL123
+[12.3] FlightService: ✓ Flight booked (remaining: 8)
+[12.3] Orchestrator: Executing step 2/3: book_hotel
+[12.6] HotelService: Booking hotel HTL456
+[12.6] HotelService: ✓ Hotel booked (remaining: 3)
+[12.6] Orchestrator: Executing step 3/3: book_car
+[12.9] CarRentalService: Booking car CAR789
+[12.9] CarRentalService: Booking FAILED - no cars
+[12.9] Orchestrator: Step book_car FAILED
+
+[12.9] Orchestrator: Starting compensation...
+[12.9] Orchestrator: Compensating book_hotel
+[13.1] HotelService: COMPENSATING - canceling BOOK005
+[13.1] HotelService: ✓ Hotel canceled (available: 4)
+[13.1] Orchestrator: Compensating book_flight
+[13.3] FlightService: COMPENSATING - canceling BOOK005
+[13.3] FlightService: ✓ Flight canceled (available: 9)
+
+[13.3] ✗✗✗ Saga BOOK005 FAILED - compensated ✗✗✗
+
+
+============================================================
+Final State:
+============================================================
+Flight seats available: 9/10
+Hotel rooms available: 4/5
+Cars available: 2/3
+
+Completed sagas: 1
+Failed sagas: 4
+</code></pre></div>
+</div>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../eventual/">Eventually Consistent Key-Value Store</a>
+</div>
+<div class="col-6 center">
+<a href="../"></a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../tcp/">TCP</a> ⇒
+	</div>
+</div>
+</footer>
+</body>
+</html>
