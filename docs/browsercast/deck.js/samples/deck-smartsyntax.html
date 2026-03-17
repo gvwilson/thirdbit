@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            
+        <title>deck.smartsyntax.js test/demo</title>
+            
+        <meta name="description" content="deck.*.js">
+        <meta name="author" content="Rémi Emonet">
+        <!--meta name="viewport" content="width=1024, user-scalable=no"/-->
+            
+        <style type="text/css">
+            .deck-container>section.slide {padding:0;} /* as samples were originally designed with neon padding */
+            .deck-container>.slide {border: 1px dashed #333;} /* for the demo */
+            .slide ul ul {margin-bottom: 0.25em;} /* remove some big spacing with neon nested lists */
+            .deck-container > .slide .deck-before, .deck-container > .slide .deck-previous {opacity: 0.6;} /* <-- override darkish neon theme --> */
+            .slide h1 {font-size: 3em;}
+            .slide h1 b {color: #0F0;}
+            .slide h1 em {color: #445; text-shadow: none; font-size: .3em;}
+            .slide h1 em {color: #445; text-shadow: none; font-size: .3em; display: inline-block;}
+            .slide .smaller {text-shadow: none; font-size: .8em;}
+
+            .slide b {color: blue;}
+            .slide .highlight {color: red;}
+            .funny b {color: chartreuse}
+            .svgThatFloatsRight {float: right}
+
+            .slide .floatright {float:right;}
+            .slide div.svgitem {display: inline-block; vertical-align: middle;}
+
+        </style>
+
+	<script src="../extensions/includedeck/load.js"></script>
+        <script>
+            includedeck("profile-3 theme:neon", {
+               PREFIX: "../" // deck.js is in the parent folder for this presentation
+            })
+        </script>
+
+    </head>
+
+<body>
+<svg id="svg-image-blur">
+    <filter id="blur-effect-1">
+        <feGaussianBlur stdDeviation="5" />
+    </filter>
+</svg>
+
+<div class="deck-container">
+
+    <div class="deck-loading-splash" style="background: green; font-size: 30px; font-family: Arial;">
+    This is a splash, shown during loading (bundled with the "anim" extension).
+    </div>
+
+<section class="smart">
+    ==Getting started with deck.js:<br/><b>smartsyntax</b> extension<br/><em>use right arrow to move on</em>==[*no-status]#title-slide
+
+    =SmartSynt. ≃ Wiki Synt.=
+    * Easy bullet points (numbered or not)
+    * To learn smart syntax
+    ** Go through the current presentation<br/>to get an idea of what is possible
+    ** View the source of this page (Ctrl+U)
+
+    =SmartSynt. ≃ Wiki++=
+    * Easy class additions
+    *# on the slide itself (see next one)
+    *# on a bullet point (like this one who has a 'highlight' class)[highlight]
+    * Allow tags e.g. <b>this is inside a &lt;b> tag</b>
+    * NB
+    ** &lt;b> (bold) is styled in blue
+    ** 'highlight' class is styled in red
+
+    =Styled Slide=[funny]
+    * In the "smart syntax" source
+    ** this slide has the custom 'funny' class
+    * In the css of this page
+    ** &lt;b> tags within a 'funny' are styled in chartreuse (green)
+    ** (with <tt>.funny b {color: chartreuse}</tt>)
+    * and an example: <b>chartreuse is great!</b>, (<a href="http://duckduckgo.com/?q=chartreuse">learn more about chartreuse</a>)
+
+    =Deck.js Friendly=
+    * Friend with deck.js
+    ** creation of slides (<tt>&lt;section></tt> with a <tt>slide</tt> class)
+    * Friend with the theme conventions
+    ** title slides with a <tt>&lt;h1></tt> (using "<tt>==....==</tt>")
+    ** normal slides with a <tt>&lt;h2></tt> (using "<tt>=....=</tt>")
+
+    =Deck.*.js Friendly=
+    @svg: svgThatFloatsRight smiley.svg 150px 150px
+    * Friend with some deck.js extensions
+    ** SVG inclusion <br/>(smiley from <a href="http://openclipart.org/detail/77641/smiley-face-by-inky2010">inky2010</a>)
+    ** Latex maths using a pair of $$ signs
+    *** $E = mc^2$
+    *** $c = \sqrt{a^2+b^2}$
+    *** (use two consecutive dollar signs to output a dollar)[smaller]
+    ** more on next slide
+
+    =Animations Friendly=[deck-status-fake-end]
+    * Progressive display: use the <tt>slide</tt> class
+    * This has both <tt>slide</tt> and <tt>highlight</tt> classes[slide][highlight]
+    * Next: more things[slide]
+    @svg: svg,floatright smiley.svg 150px 300px
+    <video class="myvid" style="float:left" src="simple.ogv" height="200" width="200" onclick="this.paused ? this.play() : this.pause()" controls="true"></video>
+
+    @anim-appear:800: #bottom | #left + #right | .svg #reflect + -#bottom | @#zoom | @#far | #bottom
+    @anim-play: .myvid
+    @anim-pause: video
+    @anim-attribute:400: h2: font-size: .75em
+    @anim-attribute:400: h2: font-size: 2.5em
+</section>
+
+<!-- we can make stop the smartsyntax section and start another afterwards -->
+<section class="slide">
+    <h2>Browser support</h2>
+    <ul>
+        <li>Should be ok</li>
+    </ul>
+</section>
+
+<section class="smart">
+    =Additional Notes=
+    * Case insensitive… <tt><span class="s1">@ANIM-…</span> ≡ <span class="s2">@aNiM-…</span> ≡ <span class="s3">@anim-…</span></tt>
+    @ANIM-APPEAR:600: .s1
+    @aNiM-aPPear:600: .s2
+    @anim-appear:600: .s3
+    * No compilation phase[slide]
+    ** interpreted at loading time
+    ** faster development
+    * Backward compatible with old version[slide]
+
+</section>
+
+<!-- DEMO: smartsyntax -->
+
+<!-- deck.navigation snippet -->
+<!--a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a-->
+
+<!-- deck.progress snippet -->
+
+<!-- example: a bar taking up to the whole (screen) width, progressing continuously (ignoring fake-end) -->
+<div data-progress="left: 0 ; width: n / fullTotal * screen.width" class="deck-status" style="background: red; bottom:0; height: 2px;"> </div>
+
+<!-- even a built-in class for a font-size of 10px (in designSize terms) -->
+<p class="deck-status deck-progress-10">
+   <span class="deck-status-current"></span> / <span class="deck-status-total"></span>
+</p>
+
+</div>
+</body>
+</html>

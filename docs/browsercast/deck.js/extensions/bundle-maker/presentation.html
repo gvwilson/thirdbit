@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+        <!-- PROVIDE METADATA -->
+        <!-- ================ -->
+        <title>ZZZZ A Deck.js Presentation</title>
+        <meta name="author" content="ZZZZ Author">
+        <meta name="date" content="2099-12-31">
+            
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="deck.js/extensions/style-chunks/core.css">
+
+	<!-- Style theme. More available in deck.js/themes/style/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/style/swiss.css">
+
+	<!-- Transition, for your audience, use it only for short presentations, see deck.js/themes/transition -->
+	<!--link rel="stylesheet" href="deck.js/themes/transition/****.css"-->
+	
+	<!-- Required Modernizr file -->
+	<script src="deck.js/modernizr.custom.js"></script>
+        <!-- Required JS files. -->
+        <script src="deck.js/jquery.min.js"></script>
+        <script src="deck.js/core/deck.core.js"></script>
+
+        <!-- PROVIDE EXTENSIONS: JS and CSS files -->
+        <!-- ============================ -->
+        <!-- proper slide scaling (type 's' to disable) -->
+        <script src="deck.js/extensions/fit/deck.fit.js"></script>
+        <link rel="stylesheet" href="deck.js/extensions/fit/deck.fit-fs.css"> <!-- fit to window -->
+        <!-- animations, svg etc (better to include it after the 'status' extension... so see below) -->
+        <!-- smart syntax -->
+        <script src="deck.js/extensions/smartsyntax/deck.smartsyntax.js"></script>
+        <!-- math equations -->
+        <script src="deck.js/libs/display-latex2.user.js"></script>
+        <script src="deck.js/extensions/simplemath/deck.simplemath.js"></script>
+        <!-- clone by typing 'c'   (popups a slave presentation) (uses "clone snippet" at the end of the page) -->
+	<link rel="stylesheet" href="deck.js/extensions/clone/deck.clone.css">
+        <script src="deck.js/extensions/clone/deck.clone.js"></script>
+        <!-- goto by typing 'g' -->
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+        <script src="deck.js/extensions/goto/deck.goto.js"></script>
+        <!-- slide number indicator -->
+        <link rel="stylesheet" href="deck.js/extensions/progress/deck.progress.css">
+        <script src="deck.js/extensions/progress/deck.progress.js"></script>
+        <!-- navigation buttons   (uses "navigation snippet" at the end of the page) -->
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+        <script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+        <!-- slide selector by typing 'm' -->
+        <script src="deck.js/extensions/menu/deck.menu.js"></script>
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+        <!-- animations, svg etc (better to include it after the 'status' extension (to avoid huge fake slide numbers) -->
+        <script src="deck.js/extensions/step/deck.step.js"></script>
+        <script src="deck.js/extensions/events/deck.events.js"></script>
+        <script src="deck.js/extensions/anim/deck.anim.js"></script>
+        <script src="deck.js/libs/jquerysvg/jquery.svg.min.js"></script>
+        <script src="deck.js/libs/jquerysvg/jquery.svganim.min.js"></script>
+        <script src="deck.js/extensions/svg/deck.svg.js"></script>
+
+        <script src="deck.js/extensions/metadata/deck.metadata.js"></script>
+        <script src="deck.js/extensions/attribution/deck.attribution.js"></script>
+	<link rel="stylesheet" href="deck.js/extensions/attribution/deck.attribution.css">
+        <script src="deck.js/extensions/container-styling/deck.container-styling.js"></script>
+	<link rel="stylesheet" href="deck.js/extensions/timekeeper/deck.timekeeper.css">
+        <script src="deck.js/extensions/timekeeper/deck.timekeeper.js"></script>
+
+
+        <!-- Deck.js options (advanced) -->
+        <script>$(function() {$.deck({
+                 // fitMarginX:100, fitMarginY:100, // uncomment to tune margin
+                 // fitMode: "stretched", // uncomment to strech
+                 dummy:""
+            });});
+        </script>
+
+        <!-- override some style here if needed (or in an external file) -->
+        <style type="text/css">
+            .deck-container .title-slide {border: 1px solid red; font-size: 70%;}
+            .deck-container > .slide {border: 1px solid #EEE;}
+            .slide b {color: blue;}
+            .niceClass {border: 1px solid black;}
+
+            /* simple example for full screen images (could integrate in a theme or future extension) */
+            .deck-container.fsimg .slide {padding:0;}
+            /*.deck-container.fsimg {background: black;}*/
+            .fsimg h2 {display: none;}
+            .fsimg .deck-status {display: none;}
+            .fsimg img {min-width:800px; min-height:600px; position: absolute; left:0; top:0; margin:0; }
+            .fsimg .attribution-wrap {width:800px; height:600px;}
+        </style>
+    </head>
+
+
+<body>
+This text should not be displayed if everything goes well: use left/right arrow keys to browse the presentation.<br/>
+
+<div class="deck-container">
+    <!-- splash needs includedeck 
+    <div class="deck-loading-splash" style="background: white; color: blue;">
+        <span class="vcenter" style="font-size: 30px; font-family: Arial; ">Please wait, your deck is loading…</span>
+    </div>    -->
+
+
+<!-- this presentation uses smart syntax -->
+<section class="smart">
+
+==<span class="var-title"></span>==[title-slide][*no-status]
+
+=Metadata usage=
+* Title: <span class="var-title"/>
+* Author: <span class="var-author"/>
+* Date: <span class="var-date"/>
+
+=SVG + Animations=
+@svg:niceClass deck.js/samples/smiley.svg 700px 400px
+@anim-appear:300: #left | #right + #bottom | -#right
+
+=Attribution=[*no-status]
+<img src="deck.js/samples/snowcub-small.jpg" style="height: 400px" data-attribution="https://www.flickr.com/photos/immortel/7961300558/sizes/c/" data-attribution-content="CC by Immortel"/>
+
+==[*fsimg]
+<img src="deck.js/samples/snowcub-small.jpg" data-attribution="https://www.flickr.com/photos/immortel/7961300558/sizes/c/" data-attribution-content="CC by Immortel"/>
+
+==[*fsimg]
+<img src="deck.js/samples/snowcub-small.jpg" />
+
+==[*fsimg]
+<img src="deck.js/samples/smiley.svg" data-attribution="http://openclipart.org/detail/77641/smiley-face-by-inky2010" data-attribution-content="by inky2010"/>
+
+=Hello=
+* Hi, .....
+* Todo
+** Write you presentation
+** <b>Rehearse a little</b>
+* See also these links[slide]
+** <a href="http://home.heeere.com/tech-deckjs-ext.html">online samples</a>
+** <a href="deck.js/samples">local samples</a>
+
+==Thank you for your attention==[end-slide][*no-status]
+</section>
+
+<!-- end of the presentation -->
+
+
+
+<!-- progress bar -->
+<div data-progress-size=":spe.bottom(1, 0) ; left: slide.left+'px' ; height: designRatio+'px'" data-progress="width: detail.p * slide.width" style="background: #F88; position: absolute;"> </div>
+
+<!-- deck.status snippet -->
+<p class="deck-status deck-progress-10">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+    −
+    <span class="var-author"></span>
+    −
+    <span class="var-title"></span>
+</p>
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+
+
+</div> <!-- end of deck container -->
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+        <title>Pitching Browsercast</title>
+        <meta name="author" content="Greg Wilson">
+
+        <meta name="audio" content="pitch.ogg">
+        <meta name="timings" content="pitch.json">
+
+        <!-- override some style here if needed (or use an external file) -->
+	<script src="deck.js/extensions/includedeck/load.js"></script>
+        <script>
+            includedeck([
+                "profile-5",
+                "browsercast/popcorn.js",
+                "browsercast/deck.browsercast.js",
+                "browsercast/deck.browsercast.css",
+                "browsercast/player.css",
+                "theme.css"
+            ], {
+                PREFIX: "deck.js"
+            })
+        </script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="deck-container">
+            <section class="slide">
+                <img src="haiku.jpg" />
+                <p>The Japanese wrote haikus...</p>
+            </section>
+            
+            <section class="slide">
+                <img src="sonnet.jpg" />
+                <p>Shakespeare wrote sonnets...</p>
+            </section>
+            
+            <section class="slide">
+                <img src="worst-powerpoint.jpg" />
+                <p>And we... write PowerPoint</p>
+            </section>
+            
+            <section class="slide">
+                <img src="tufte.jpg" />
+                <p>A lot of people blame PowerPoint for bad presentations...</p>
+            </section>
+            
+            <section class="slide">
+                <img src="fountain-pen.jpg" />
+                <p>...but that's like blaming fountain pens for bad poetry.</p>
+            </section>
+            
+            <section class="slide">
+                <img src="powerpoint.png" />
+                <img src="libreoffice.png" />
+                <p>The <em>real</em> problem with tools like PowerPoint...</p>
+                <div class="slide" >
+                    <img src="internet-cat.jpg" style="margin-bottom:-.5em;"/>
+                    <p>...is that they aren't web-friendly.</p>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <img src="save-as-1.png" />
+                <img src="save-as-2.png" />
+                <p>When you export a slideshow to present on the web...</p>
+                <div class="slide">
+                    <img src="save-as-3.png" />
+                    <p>...what you actually get is a bunch of images.</p>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <p>There's no text, just pixels arranged in the shapes of letters.</p>
+                <img src="save-as-5.png" />
+                <p class="slide">No hyperlinks.</p>
+                <p class="slide">Nothing search engines or disability aids can read.</p>
+                <p class="slide">And remixing? Forget it.</p>
+            </section>
+            
+            <section class="slide">
+                <p>What's worse, if you want something people can replay<br/>you have to make a screencast...</p>
+                <img src="camtasia.jpg" />
+                <p class="slide">...which is just as opaque to search engines and disability aids...</p>
+                <p class="slide">...and probably hundreds of times larger than your original slides.</p>
+            </section>
+            
+            <section class="slide">
+                <p>Browsercast is our solution to this problem.</p>
+                <div class="slide">
+                    <img src="browsers.png" />
+                    <p>It replays an HTML5 slideshow in your browser with a voiceover.</p>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <p>The playback controls and slide controls are synchronized.</p>
+                <img src="controls.png" />
+            </section>
+            
+            <section class="slide">
+                <p>And "View Source" and search work as they should...</p>
+<pre>
+&lt;section class="slide"&gt;
+  &lt;img src="haiku.jpg" /&gt;
+  &lt;p&gt;The Japanese wrote haikus...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section class="slide">
+  &lt;img src="sonnet.jpg" /&gt;
+  &lt;p&gt;Shakespeare wrote sonnets...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section class="slide"&gt;
+  &lt;img src="worst-powerpoint.jpg" /&gt;
+  &lt;p&gt;And we... write PowerPoint&lt;/p&gt;
+&lt;/section&gt;
+</pre>
+                <div class="slide">
+	            <p>...because it's all still web-native HTML.</p>
+	        </div>
+            </section>
+            
+            <section class="slide">
+                <p><a href="https://software-carpentry.org" target="_blank">Links</a> work as they should too...</p>
+	        <div class="slide">
+	            <p>
+	                and you can restyle things using CSS.
+	            </p>
+		    <table>
+		      <tr>
+			<td width="30%">
+			  <div style="color:black; background-color:lavender; font-size:75%; text-shadow: 0px 0px; font-style: italic;">
+			    <p>The Japanese wrote haikus...</p>
+			    <p>Shakespeare wrote sonnets...</p>
+			    <p>And we... write PowerPoint</p>
+			  </div>
+			</td>
+			<td width="30%">
+			  <div style="color:black; background-color:khaki; font-size:75%; text-shadow: 0px 0px; font-weight: bold;">
+			    <p>The Japanese wrote haikus...</p>
+			    <p>Shakespeare wrote sonnets...</p>
+			    <p>And we... write PowerPoint</p>
+			  </div>
+			</td>
+			<td width="30%">
+			  <div style="color:black; background-color:plum; font-size:75%; text-shadow: 0px 0px;">
+			    <p>The Japanese wrote haikus...</p>
+			    <p>Shakespeare wrote sonnets...</p>
+			    <p>And we... write PowerPoint</p>
+			  </div>
+			</td>
+		      </tr>
+		    </table>
+	        </div>
+            </section>
+            
+            <section class="slide">
+                <p>What's more, since it's just text and audio...</p>
+	        <div class="slide">
+	            <img src="planets.png" />
+	            <p>...it's a fraction of the size of a regular screencast.</p>
+	        </div>
+            </section>
+            
+            <section class="slide">
+	        <img src="phone.jpg" />
+                <p>All this makes it ideal for mobile devices.</p>
+            </section>
+            
+            <section class="slide">
+                <p>Creating a browsercast is easy.</p>
+	        <div class="slide">
+	            <img src="typewriter.jpg" />
+	            <p>1. Write a deck.js slideshow.</p>
+	        </div>
+            </section>
+            
+            <section class="slide">
+                <p>Creating a browsercast is easy.</p>
+	        <img src="microphone.jpg" />
+	        <p>2. Record a soundtrack.</p>
+            </section>
+            
+            <section class="slide">
+                <p>Creating a browsercast is easy.</p>
+	        <img src="soundwave.png" />
+	        <p>3. Step through the slideshow in time to your soundtrack.</p>
+            </section>
+            
+            <section class="slide">
+                <p>Creating a browsercast is easy.</p>
+                <pre>{
+     "1":  0.00,
+     "2":  2.90,
+     "3":  5.15,
+     "4":  8.00,
+     "5": 12.20,
+     "6": 16.60,
+     "7": 19.85,
+     "8": 22.35,
+     "9": 26.25,
+     ...: ...
+}
+</pre>
+	        <p>4. Save the timings in a file.</p>
+            </section>
+            
+            <section class="slide">
+                <p>Creating a browsercast is easy.</p>
+                <pre>
+&lt;meta name="timings" content="timing-data.json"&gt;
+                </pre>
+                <p>5. Put a link to that file in the head of your slideshow.</p>
+            </section>
+            
+            <section class="slide">
+                <p>Browsercast is <a href="http://opensource.org/licenses/MIT">open source</a>.</p>
+	        <p class="slide">if you'd like to help us make it better, please <a href="https://github.com/twitwi/deck.browsercast.js">fork our repo</a>.</p>
+                <div class="slide" style="margin-top: 4em">
+                    <p>Thanks for listening.</p>
+                    <p><em>
+		            With thanks to David Seifried,
+		            <br/>Jeremy Banks,
+		            <br/>David Wolever,
+		            <br/>Gabriel Ivanica,
+		            <br/>and R&eacute;mi Emonet.
+	            </em></p>
+                </div>
+            </section>
+
+
+        </div> <!-- end of deck container -->
+    </body>
+</html>

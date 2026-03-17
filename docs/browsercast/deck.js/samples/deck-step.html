@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            
+        <title>deck.step.js test/demo</title>
+            
+        <meta name="description" content="deck.*.js">
+        <meta name="author" content="Rémi Emonet">
+        <!--meta name="viewport" content="width=1024, user-scalable=no"/-->
+
+        <style type="text/css">
+            .deck-container>section.slide {padding:0;} /* as samples were originally designed with neon padding */
+            .deck-container>.slide {border: 1px dashed #333;} /* for the demo */
+            .slide h1 {font-size: 3em;}
+            .slide h1 b {color: #0F0;}
+            .slide h1 em {color: #445; text-shadow: none; font-size: .3em;}
+            .slide .demo {font-size: .3em;}
+        </style>
+
+	<script src="../extensions/includedeck/load.js"></script>
+        <!-- includedeck is called at the end in this presentation (just to put the heavy demo-dedicated stuff at the end) -->
+    </head>
+
+<body>
+
+<div class="deck-container">
+
+<!-- Begin slides -->
+<section class="slide" id="title-slide">
+	<h1 title="use arrow keys to navigate">Getting started with deck.js:<br/><b>step</b> extension
+            <br/><em>use right arrow to move on</em>
+        </h1>
+</section>
+
+<section class="slide">
+    <h2>Nested deck.js slides</h2>
+    <ul>
+        <li>Not an extension (in core deck.js)</li>
+        <li>Just have an element with the “slide” class…</li>
+        <li>… and it will appear (hit the right arrow now)</li>
+        <li class="slide">Hey! I appeared! (go on)</li>
+        <li class="slide">The gray-ish style is part of the theme</li>
+    </ul>
+</section>
+<section class="slide">
+    <h2>Why the step extension?</h2>
+    <ul>
+        <li class="slide">
+        <span class="slide">Nested slides</span>
+        <span class="slide">are cool</span>
+        <span class="slide">and useful</span>
+        </li>
+        <li class="slide">But there is a problem</li>
+        <li class="slide">
+        <span class="slide">Navigating</span>
+        <span class="slide">is</span>
+        <span class="slide">annoying</span>
+        <span class="slide">with</span>
+        <span class="slide">nesting</span>
+        <span class="slide">!!!</span>
+        </li>
+        <li class="slide">Example:<br/> Try using the left arrow to go back to previous slide</li>
+        <li class="slide">Probably annoying!?</li>
+        <li class="slide">Now try hitting the up arrow</li>
+        <li class="slide">More on the next slide…</li>
+    </ul>
+</section>
+<section class="slide">
+    <h2>The “step” extension</h2>
+    <br/>
+    <ul>
+        <li>Adds new key shortcuts</li>
+        <ul>
+            <li>up arrow: previous top level slide</li>
+            <li>down arrow: next top level slide</li>
+        </ul>
+    </ul>
+</section>
+</section>
+<section class="slide">
+    <h2>More “step”<span class="demo"> </span></h2>
+    <br/>
+    <ul>
+        <li class="slide">Other stuff… not visible
+            <ul>
+                <li>Defaults to not counting nested slides<br/>   (if you use the status extension)</li>
+                <li>Add notifications events to nested slides when the parent gets activated (for animations)</li>
+                <li>(The title ends in "21", see why in the source)</li>
+            </ul>
+        </li>
+        <!-- demotoshow shows a message (specific to this page) -->
+        <div class="demotoshow1 slide"></div> <!-- any "slide" receives a notification when the toplevel gets shown -->
+        <div class="demotoshow2 onshowtoplevel"></div> <!-- "onshowtoplevel" is a second default class that gets inited -->
+        <!-- the first of these two is a "slide", so it will get activated when "right arrow" is pressed, and the previous part will get gray -->
+        <!-- the second one is not a "slide", so it won't influence the navigation at all -->
+    </ul>
+</section>
+<section class="slide">
+    <h2>Browser support</h2>
+    <ul>
+        <li>Should be ok</li>
+    </ul>
+</section>
+
+<!-- DEMO: step -->
+
+<!-- deck.navigation snippet -->
+<!--a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a-->
+
+<!-- deck.status snippet -->
+<p class="deck-status deck-progress-10"> <span class="deck-status-current"></span> / <span class="deck-status-total"></span> </p>
+
+<!-- Initialize the deck -->
+<script>
+            includedeck("profile-3 theme:neon", {
+               PREFIX: "../", // deck.js is in the parent folder for this presentation
+               AFTERINIT: function() {
+                  // we register the listeners before call the deck init
+                  $('.demotoshow1').bind('deck.toplevelBecameCurrent', function() {
+                     $(".demo").html($(".demo").html()+"1");
+                  });
+                  $('.demotoshow2').bind('deck.toplevelBecameCurrent', function() {
+                     $(".demo").html($(".demo").html()+"2");
+                  });
+               }
+            });
+</script>
+</div>
+</body>
+</html>
