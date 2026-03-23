@@ -7,7 +7,7 @@ I'm starting a new job as a software engineer with [Deep Genomics](https://www.d
 I'm looking forward to writing Python for a living again after a decade of doing other things,
 but hope I'll be able to wrap up these side projects soon as well:
 
-- running workshops on [Managing Research Software Projects](@root/mrsp/)
+- running workshops on Managing Research Software Projects
 
 - acting as client and product owner for some projects based on
   [*Software Design by Example Using JavaScript*](@root/sdxjs/)

@@ -83,4 +83,4 @@ we still don't know fairly basic things about software development.
 this post made the #8 spot on Hacker News.
 It must have been a slow day…
 
-<a href="@/files/2025/hacker-news-hardening.png"><img src="@/files/2025/hacker-news-hardening.png" alt="Hacker News" width="400px"></a>
+![Hacker News](@/files/2025/hacker-news-hardening.png)

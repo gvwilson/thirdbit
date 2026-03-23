@@ -7,7 +7,7 @@ I'm making slow but steady progress
 on the Python version of [*Software Design by Example*][sdxjs],
 and would be grateful for help with something
 that's been in the back of my mind for a while.
-Every one of my books has a [glossary][sdxjs-glossary] and an [index][sdxjs-index].
+Every one of my books has a glossary and an index.
 I create both by manually adding markup to the Markdown source files for each chapter,
 but I believe it should be possible to do the following:
 
@@ -60,7 +60,5 @@ please [reach out](mailto:gvwilson@third-bit.com).
 [nltk]: https://www.nltk.org/
 [progress]: @root/2023/06/04/slow-progress/
 [sdxjs]: https://third-bit.com/sdxjs/
-[sdxjs-glossary]: https://third-bit.com/sdxjs/glossary/
-[sdxjs-index]: https://third-bit.com/sdxjs/contents/
 [spacy]: https://spacy.io/
 [yak-shaving]: https://en.wiktionary.org/wiki/yak_shaving

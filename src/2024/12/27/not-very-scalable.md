@@ -7,7 +7,7 @@ I have been teaching some informal lessons to colleagues based on
 the Python version of [*Software Design by Example*][sdxpy],
 and one thing that has bothered me is the sizing of the diagrams.
 It's not too bad in a chapter like [this one][sdxpy-glob],
-but when those same SVG files are displayed in [slides like these][sdxpy-slides]
+but when those same SVG files are displayed in slides
 they are a bit hard to read.
 
 I thought the solution would be simple:
@@ -115,5 +115,4 @@ please check out [this repository][repo].
 [repo]: https://github.com/gvwilson/resize-demo
 [sdxpy]: @root/sdxpy/
 [sdxpy-glob]: @root/sdxpy/glob/
-[sdxpy-slides]: @root/sdxpy/glob/slides/#2
 [w3c-quote]: https://www.w3.org/TR/css-sizing-3/#cyclic-percentage-contribution
