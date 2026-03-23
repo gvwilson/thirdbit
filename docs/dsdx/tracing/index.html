@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Distributed Tracing</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -52,7 +52,7 @@
 <h1>Distributed Tracing</h1>
 <p>If a monolithic application is slow,
 we can profile a single process to find out why.
-In a <a href="../glossary/#microservice">microservices</a> architecture,
+In a <a class="gl-ref" href="../glossary/#microservice">microservices</a> architecture,
 however,
 a single request may touch many services,
 each of which may cause multiple database queries and external API calls.
@@ -68,24 +68,24 @@ and identify bottlenecks.</p>
 <p>Distributed tracing has two key elements:</p>
 <ul>
 <li>
-<p>A <a href="../glossary/#span">span</a> represents a single unit of work.
-    Spans form a tree with its origin in a <a href="../glossary/#root-span">root span</a>;
+<p>A <a class="gl-ref" href="../glossary/#span">span</a> represents a single unit of work.
+    Spans form a tree with its origin in a <a class="gl-ref" href="../glossary/#root-span">root span</a>;
     this tree represents the (distributed) call graph.</p>
 </li>
 <li>
-<p>A <a href="../glossary/#trace">trace</a> is complete journey of a request through the system,
+<p>A <a class="gl-ref" href="../glossary/#trace">trace</a> is complete journey of a request through the system,
     and is identified by a unique trace ID.
     A single trace may contain many spans.</p>
 </li>
 </ul>
-<p><a href="../glossary/#context-propagation">Context propagation</a> means
+<p><a class="gl-ref" href="../glossary/#context-propagation">Context propagation</a> means
 passing trace and span IDs between services so that they can be correlated.
-Trace and span IDs are often propagated using <a href="../glossary/#http-header">HTTP headers</a>:</p>
+Trace and span IDs are often propagated using <a class="gl-ref" href="../glossary/#http-header">HTTP headers</a>:</p>
 <div class="codehilite"><pre class=""><span></span><code>X-Trace-Id: abc123
 X-Span-Id: def456
 X-Parent-Span-Id: ghi789
 </code></pre></div>
-<p>Tracing systems often use <a href="../glossary/#sampling">sampling</a>
+<p>Tracing systems often use <a class="gl-ref" href="../glossary/#sampling">sampling</a>
 to record only a fraction of traces.
 Doing this means that some questions cannot be answered after the fact,
 but sampling reduces storage costs and,
@@ -93,8 +93,8 @@ more importantly,
 prevents the tracing system from overwhelming the network.</p>
 <p>Finally, tags and logs are metadata attached to spans for debugging.
 Tags are values used for filtering and searching,
-such as the <a href="../glossary/#http-status-code">HTTP status code</a>,
-while logs are timestamped events such as a <a href="../glossary/#cache-miss">cache miss</a>
+such as the <a class="gl-ref" href="../glossary/#http-status-code">HTTP status code</a>,
+while logs are timestamped events such as a <a class="gl-ref" href="../glossary/#cache-miss">cache miss</a>
 or retry attempt.</p>
 <h2 id="tracing-decorator">A Minimum Viable Decorator</h2>
 <p>Suppose we want to write a method <code>handle_request()</code>
@@ -133,7 +133,7 @@ we wind up with something like this:</p>
 </div>
 <p>That is 15 lines of tracing code for a simple function,
 and those lines would have to be copied into every function we want to trace.
-A better approach is to define a <a href="../glossary/#decorator">decorator</a>
+A better approach is to define a <a class="gl-ref" href="../glossary/#decorator">decorator</a>
 that adds tracing for us so that we can write:</p>
 <div data-filter="inc=service" data-inc="short_winded.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Service</span><span class="p">(</span><span class="n">GenericService</span><span class="p">):</span>
     <span class="nd">@traced</span><span class="p">(</span><span class="s2">"handle_request"</span><span class="p">)</span>
@@ -155,11 +155,11 @@ that adds tracing for us so that we can write:</p>
 <p>None of this is particularly hard,
 but it does require a fair bit of code.
 First,
-we create a <a href="../glossary/#singleton">singleton</a> to hold the active trace context
-and the <a href="../glossary/#trace-collector">collector</a> where completed spans are to be sent.
+we create a <a class="gl-ref" href="../glossary/#singleton">singleton</a> to hold the active trace context
+and the <a class="gl-ref" href="../glossary/#trace-collector">collector</a> where completed spans are to be sent.
 (In production,
-we would use <a href="../glossary/#thread-local-storage">thread-local storage</a>
-or <a href="../glossary/#async-context-vars">async context variables</a> to storage this data.)</p>
+we would use <a class="gl-ref" href="../glossary/#thread-local-storage">thread-local storage</a>
+or <a class="gl-ref" href="../glossary/#async-context-vars">async context variables</a> to storage this data.)</p>
 <div data-filter="inc=storage" data-inc="tracing_decorators.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">_StorageClass</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Record trace information."""</span>
 
@@ -530,7 +530,7 @@ and error handling is automatic.</p>
 </code></pre></div>
 </div>
 <p>The output shows that we are capturing what we wanted to:</p>
-<div data-inc="ex_decorators.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] OrderService started
+<div data-inc="ex_decorators.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] OrderService started
 [0.0] TraceCollector started
 
 [1.5] Client: Starting request req_1
@@ -611,7 +611,7 @@ which will summarize and reorganize it
 to make it comprehensible to human beings.
 To support that,
 we should always generate data in a structured format such as JSON,
-and use a standard <a href="../glossary/#schema">schema</a> instead of creating one of our own.</p>
+and use a standard <a class="gl-ref" href="../glossary/#schema">schema</a> instead of creating one of our own.</p>
 <p>The <a href="https://opentelemetry.io/">OpenTelemetry</a> standard defines such a schema,
 but it is notoriously complex.
 The simplified subset generated by <code>json_collector.py</code> has:</p>
@@ -659,7 +659,7 @@ a simple example like the one below produces over 300 lines of pretty-printed ou
 </code></pre></div>
 </div>
 <p>A sample clause of this JSON looks like this:</p>
-<div data-filter="head=52" data-inc="ex_json.txt"><div class="codehilite"><pre class=""><span></span><code>{
+<div data-filter="head=52" data-inc="ex_json.out"><div class="codehilite"><pre class=""><span></span><code>{
   "resourceSpans": [
     {
       "resource": {
@@ -715,8 +715,10 @@ a simple example like the one below produces over 300 lines of pretty-printed ou
 </div>
 <p>It isn't something anyone would browse for fun,
 but (hopefully) everything needed to track down problems is there.</p>
+<section class="exercises">
 <h2 id="tracing-exercises">Exercises</h2>
 <p>FIXME: add exercises.</p>
+</section>
 </main>
 <footer>
 <div class="row">
@@ -724,7 +726,7 @@ but (hopefully) everything needed to track down problems is there.</p>
 	  ⇐ <a href="../worksteal/">A Work-Stealing Scheduler</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

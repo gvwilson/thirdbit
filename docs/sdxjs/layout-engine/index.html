@@ -1,235 +1,67 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../mccole.css">
-  <link rel="stylesheet" href="../tango.css">
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['\\(', '\\)']]
-      }
-    };
-  </script>
-  <script
-    type="text/javascript"
-    id="MathJax-script"
-    async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  <script defer src="../mccole.js"></script>
-  <title>Software Design by Example: Layout Engine</title>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Layout Engine</title>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-
-  <body>
-    <div class="row">
-      <div class="sidebar">
-        <p>
-  
-  <a href="https://www.taylorfrancis.com/books/mono/10.1201/9781003317807/software-design-example-greg-wilson"><img src="../sdxjs-cover.png" alt="Book cover" width="80%" /></a>
-  
-</p>
-<ol class="toc-chapter">
-  
-  <li>
-    <a href="../introduction/">
-      Introduction
-    </a>
-  </li>
-  
-  <li>
-    <a href="../systems-programming/">
-      Systems Programming
-    </a>
-  </li>
-  
-  <li>
-    <a href="../async-programming/">
-      Asynchronous Programming
-    </a>
-  </li>
-  
-  <li>
-    <a href="../unit-test/">
-      Unit Testing
-    </a>
-  </li>
-  
-  <li>
-    <a href="../file-backup/">
-      File Backup
-    </a>
-  </li>
-  
-  <li>
-    <a href="../data-table/">
-      Data Tables
-    </a>
-  </li>
-  
-  <li>
-    <a href="../pattern-matching/">
-      Pattern Matching
-    </a>
-  </li>
-  
-  <li>
-    <a href="../regex-parser/">
-      Parsing Expressions
-    </a>
-  </li>
-  
-  <li>
-    <a href="../page-templates/">
-      Page Templates
-    </a>
-  </li>
-  
-  <li>
-    <a href="../build-manager/">
-      Build Manager
-    </a>
-  </li>
-  
-  <li>
-    <a href="../layout-engine/">
-      <strong>Layout Engine</strong>
-    </a>
-  </li>
-  
-  <li>
-    <a href="../file-interpolator/">
-      File Interpolator
-    </a>
-  </li>
-  
-  <li>
-    <a href="../module-loader/">
-      Module Loader
-    </a>
-  </li>
-  
-  <li>
-    <a href="../style-checker/">
-      Style Checker
-    </a>
-  </li>
-  
-  <li>
-    <a href="../code-generator/">
-      Code Generator
-    </a>
-  </li>
-  
-  <li>
-    <a href="../doc-generator/">
-      Documentation Generator
-    </a>
-  </li>
-  
-  <li>
-    <a href="../module-bundler/">
-      Module Bundler
-    </a>
-  </li>
-  
-  <li>
-    <a href="../package-manager/">
-      Package Manager
-    </a>
-  </li>
-  
-  <li>
-    <a href="../virtual-machine/">
-      Virtual Machine
-    </a>
-  </li>
-  
-  <li>
-    <a href="../debugger/">
-      Debugger
-    </a>
-  </li>
-  
-  <li>
-    <a href="../conclusion/">
-      Conclusion
-    </a>
-  </li>
-  
-</ol>
-<ol class="toc-appendix">
-  
-  <li>
-    <a href="../license/">
-      License
-    </a>
-  </li>
-  
-  <li>
-    <a href="../conduct/">
-      Code of Conduct
-    </a>
-  </li>
-  
-  <li>
-    <a href="../contributing/">
-      Contributing
-    </a>
-  </li>
-  
-  <li>
-    <a href="../bibliography/">
-      Bibliography
-    </a>
-  </li>
-  
-  <li>
-    <a href="../glossary/">
-      Glossary
-    </a>
-  </li>
-  
-  <li>
-    <a href="../contents/">
-      Index
-    </a>
-  </li>
-  
-</ol>
-
-<p><a href="../sdxjs-examples.zip" type="application/zip" alt="examples">download examples</a></p>
-
-
-      </div>
-      <div id="printable" class="contents bordered">
-        <main>
-          
-  <h1>Chapter 11: Layout Engine</h1>
-
-
-          
-            
-
-            
-
-            
-<p class="definitions">
-  Terms defined: <a class="gl-ref" href="../glossary/#attribute" markdown="1">attribute</a>, <a class="gl-ref" href="../glossary/#cache" markdown="1">cache</a>, <a class="gl-ref" href="../glossary/#confirmation_bias" markdown="1">confirmation bias</a>, <a class="gl-ref" href="../glossary/#design_by_contract" markdown="1">design by contract</a>, <a class="gl-ref" href="../glossary/#easy_mode" markdown="1">easy mode</a>, <a class="gl-ref" href="../glossary/#layout_engine" markdown="1">layout engine</a>, <a class="gl-ref" href="../glossary/#liskov_substitution_principle" markdown="1">Liskov Substitution Principle</a>, <a class="gl-ref" href="../glossary/#query_selector" markdown="1">query selector</a>, <a class="gl-ref" href="../glossary/#signature" markdown="1">signature</a>, <a class="gl-ref" href="../glossary/#z_buffering" markdown="1">z-buffering</a>
-</p>
-
-
-            <div class="page-toc"></div>
-            <p>You might be reading this as an HTML page,
+<body>
+<nav>
+<a href="../">Software Design by Example</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../introduction/">Introduction</a>
+<a href="../systems-programming/">Systems Programming</a>
+<a href="../async-programming/">Asynchronous Programming</a>
+<a href="../unit-test/">Unit Testing</a>
+<a href="../file-backup/">File Backup</a>
+<a href="../data-table/">Data Tables</a>
+<a href="../pattern-matching/">Pattern Matching</a>
+<a href="../regex-parser/">Parsing Expressions</a>
+<a href="../page-templates/">Page Templates</a>
+<a href="../build-manager/">Build Manager</a>
+<a href="../layout-engine/">Layout Engine</a>
+<a href="../file-interpolator/">File Interpolator</a>
+<a href="../module-loader/">Module Loader</a>
+<a href="../style-checker/">Style Checker</a>
+<a href="../code-generator/">Code Generator</a>
+<a href="../doc-generator/">Documentation Generator</a>
+<a href="../module-bundler/">Module Bundler</a>
+<a href="../package-manager/">Package Manager</a>
+<a href="../virtual-machine/">Virtual Machine</a>
+<a href="../debugger/">Debugger</a>
+<a href="../conclusion/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contributing/">Contributing</a>
+<a href="../bibliography/">Bibliography</a>
+<a href="../glossary/">Glossary</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>Layout Engine</h1>
+<p>You might be reading this as an HTML page,
 an e-book (which is basically the same thing),
 or on the printed page.
 In all three cases,
-a <span class="ix-entry" ix-key="layout engine" markdown="1"><a class="gl-ref" href="../glossary/#layout_engine" markdown="1">layout engine</a></span> took some text and some layout instructions
+a <a class="gl-ref" href="../glossary/#layout_engine">layout engine</a> took some text and some layout instructions
 and decided where to put each character and image.
 We will build a small layout engine in this chapter
-based on <span class="ix-entry" ix-key="Brubeck, Matt" markdown="1"><a href="https://limpet.net/mbrubeck/">Matt Brubeck&rsquo;s</a></span> <a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">tutorial</a>
+based on <a href="https://limpet.net/mbrubeck/">Matt Brubeck's</a> <a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html">tutorial</a>
 to explore how browsers decide what to put where.</p>
 <p>Our inputs will be a very small subset of HTML and an equally small subset of CSS.
 We will create our own classes to represent these
@@ -240,104 +72,46 @@ walk that tree to figure out where each visible element belongs,
 and then draw the result as text on the screen.</p>
 <div class="callout">
 <h3>Upside down</h3>
-<p>The <span class="ix-entry" ix-key="coordinate system" markdown="1">coordinate systems</span> for screens
+<p>The coordinate systems for screens
 puts (0, 0) in the upper left corner instead of the lower left.
 X increases to the right as usual,
 but Y increases as we go down, rather than up
-(<a class="fig-ref" href="../layout-engine/#layout-engine-coordinate-system">Figure 11.1</a>).
+(<a class="fig-ref" href="#f:layout-engine-coordinate-system">Figure 1</a>).
 This convention is a holdover from the days of teletype terminals
 that printed lines on rolls of paper;
-as <span class="ix-entry" ix-key="Hoye, Mike" markdown="1"><a href="http://exple.tive.org/blarg/">Mike Hoye</a></span> has <a href="http://exple.tive.org/blarg/2020/11/26/punching-holes/">repeatedly observed</a>,
+as <a href="http://exple.tive.org/blarg/">Mike Hoye</a> has <a href="http://exple.tive.org/blarg/2020/11/26/punching-holes/">repeatedly observed</a>,
 the past is all around us.</p>
 </div>
-<figure id="layout-engine-coordinate-system">
-  <img src="./coordinate-system.svg" alt="Coordinate system"/>
-  <figcaption markdown="1">Figure 11.1: Coordinate system with (0, 0) in the upper left corner.</figcaption>
+<figure id="f:layout-engine-coordinate-system">
+<img alt="Coordinate system" src="coordinate-system.svg"/>
+<figcaption>Figure 1: Coordinate system with (0, 0) in the upper left corner.</figcaption>
 </figure>
-
-<h2 id="layout-engine-size">Section 11.2: How can we size rows and columns?</h2>
-<p>Let&rsquo;s start on <a class="gl-ref" href="../glossary/#easy_mode" markdown="1">easy mode</a>
+<h2 id="layout-engine-size">How can we size rows and columns?</h2>
+<p>Let's start on <a class="gl-ref" href="../glossary/#easy_mode">easy mode</a>
 without margins, padding, line-wrapping, or other complications.
 Everything we can put on the screen is represented as a rectangular cell,
 and every cell is either a row, a column, or a block.
 A block has a fixed width and height:</p>
-<div class="code-sample lang-js" title="easy-mode.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">Block</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">width</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">height</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">getWidth</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">width</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">getHeight</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">height</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div data-filter="inc=block" data-inc="easy-mode.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>A row arranges one or more cells horizontally;
 its width is the sum of the widths of its children,
 while its height is the height of its tallest child
-(<a class="fig-ref" href="../layout-engine/#layout-engine-sizing">Figure 11.2</a>):</p>
-<div class="code-sample lang-js" title="easy-mode.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">Row</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(...</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">children</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">getWidth</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">child</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">()</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">getHeight</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">child</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">())</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+(<a class="fig-ref" href="#f:layout-engine-sizing">Figure 2</a>):</p>
+<div data-filter="inc=row" data-inc="easy-mode.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
-<figure id="layout-engine-sizing">
-  <img src="./sizing.svg" alt="Calculating sizes of fixed blocks"/>
-  <figcaption markdown="1">Figure 11.2: Calculating sizes of blocks with fixed width and height.</figcaption>
+<figure id="f:layout-engine-sizing">
+<img alt="Calculating sizes of fixed blocks" src="sizing.svg"/>
+<figcaption>Figure 2: Calculating sizes of blocks with fixed width and height.</figcaption>
 </figure>
-
 <p>Finally,
 a column arranges one or more cells vertically;
 its width is the width of its widest child
 and its height is the sum of the heights of its children.
 (Here and elsewhere we use the abbreviation <code>col</code> when referring to columns.)</p>
-<div class="code-sample lang-js" title="easy-mode.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">Col</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(...</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">children</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">getWidth</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">child</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">())</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">getHeight</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">child</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">()</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div data-filter="inc=col" data-inc="easy-mode.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>Rows and columns nest inside one another:
@@ -349,35 +123,34 @@ Given such a tree,
 we can calculate the width and height of each cell every time we need to.
 This is simple but inefficient:
 we could calculate both width and height at the same time
-and <span class="ix-entry" ix-key="cache!calculated values" markdown="1"><a class="gl-ref" href="../glossary/#cache" markdown="1">cache</a></span> those values to avoid recalculation,
-but we called this &ldquo;easy mode&rdquo; for a reason.</p>
+and <a class="gl-ref" href="../glossary/#cache">cache</a> those values to avoid recalculation,
+but we called this "easy mode" for a reason.</p>
 <p>As simple as it is,
 this code could still contain errors (and did during development),
-so we write some <span class="ix-entry" ix-key="Mocha" markdown="1"><a href="https://mochajs.org/">Mocha</a></span> tests to check that it works as desired
+so we write some <a href="https://mochajs.org/">Mocha</a> tests to check that it works as desired
 before trying to build anything more complicated:</p>
-<div class="code-sample lang-js" title="test-easy-mode.js">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;assert&#39;</span>
+<div data-inc="test/test-easy-mode.js"><div class="codehilite"><pre class=""><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'assert'</span>
 
 <span class="k">import</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">Block</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">Row</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">Col</span>
-<span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../easy-mode.js&#39;</span>
+<span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'../easy-mode.js'</span>
 
-<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;lays out in easy mode&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;lays out a single unit block&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'lays out in easy mode'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'lays out a single unit block'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">fixture</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">(),</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">fixture</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">(),</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
 <span class="w">  </span><span class="p">})</span>
 
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;lays out a large block&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'lays out a large block'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">fixture</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">(),</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">fixture</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">(),</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
 <span class="w">  </span><span class="p">})</span>
 
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;lays out a row of two blocks&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'lays out a row of two blocks'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Row</span><span class="p">(</span>
 <span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span>
 <span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
@@ -386,7 +159,7 @@ before trying to build anything more complicated:</p>
 <span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">fixture</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">(),</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
 <span class="w">  </span><span class="p">})</span>
 
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;lays out a column of two blocks&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'lays out a column of two blocks'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Col</span><span class="p">(</span>
 <span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span>
 <span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
@@ -395,7 +168,7 @@ before trying to build anything more complicated:</p>
 <span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">strictEqual</span><span class="p">(</span><span class="nx">fixture</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">(),</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span>
 <span class="w">  </span><span class="p">})</span>
 
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;lays out a grid of rows of columns&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'lays out a grid of rows of columns'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Col</span><span class="p">(</span>
 <span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Row</span><span class="p">(</span>
 <span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">),</span>
@@ -415,9 +188,8 @@ before trying to build anything more complicated:</p>
 <span class="p">})</span>
 </code></pre></div>
 </div>
-<div class="code-sample lang-out" title="test-easy-mode.out">
-<div class="highlight"><pre><span></span><code>&gt; stjs@1.0.0 test /u/stjs
-&gt; mocha */test/test-*.js &quot;-g&quot; &quot;easy mode&quot;
+<div data-inc="test-easy-mode.out"><div class="codehilite"><pre class=""><span></span><code>&gt; stjs@1.0.0 test /u/stjs
+&gt; mocha */test/test-*.js "-g" "easy mode"
 
 
 
@@ -432,7 +204,7 @@ before trying to build anything more complicated:</p>
   5 passing (7ms)
 </code></pre></div>
 </div>
-<h2 id="layout-engine-position">Section 11.3: How can we position rows and columns?</h2>
+<h2 id="layout-engine-position">How can we position rows and columns?</h2>
 <p>Now that we know how big each cell is
 we can figure out where to put it.
 Suppose we start with the upper left corner of the browser:
@@ -442,138 +214,62 @@ If the cell is a block, we place it there.
 If the cell is a row, on the other hand,
 we get its height
 and then calculate its lower edge as y1 = y0 + height.
-We then place the first child&rsquo;s lower-left corner at (x0, y1),
-the second child&rsquo;s at (x0 + width0, y1), and so on
-(<a class="fig-ref" href="../layout-engine/#layout-engine-layout">Figure 11.3</a>).
+We then place the first child's lower-left corner at (x0, y1),
+the second child's at (x0 + width0, y1), and so on
+(<a class="fig-ref" href="#f:layout-engine-layout">Figure 3</a>).
 Similarly,
 if the cell is a column
 we place the first child at (x0, y0),
 the next at (x0, y0 + height0),
 and so on.</p>
-<figure id="layout-engine-layout">
-  <img src="./layout.svg" alt="Laying out rows and columns"/>
-  <figcaption markdown="1">Figure 11.3: Laying out rows and columns of fixed-size blocks.</figcaption>
+<figure id="f:layout-engine-layout">
+<img alt="Laying out rows and columns" src="layout.svg"/>
+<figcaption>Figure 3: Laying out rows and columns of fixed-size blocks.</figcaption>
 </figure>
-
 <p>To save ourselves some testing we will derive the classes that know how to do layout
 from the classes we wrote before.
 Our blocks are:</p>
-<div class="code-sample lang-js" title="placed.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">PlacedBlock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Block</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">)</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">place</span><span class="w"> </span><span class="p">(</span><span class="nx">x0</span><span class="p">,</span><span class="w"> </span><span class="nx">y0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x0</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y0</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">report</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s1">&#39;block&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="p">,</span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">height</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div data-filter="inc=block" data-inc="placed.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
-<p class="continue">while our columns are:</p>
-<div class="code-sample lang-js" title="placed.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">PlacedCol</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Col</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(...</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">super</span><span class="p">(...</span><span class="nx">children</span><span class="p">)</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">place</span><span class="w"> </span><span class="p">(</span><span class="nx">x0</span><span class="p">,</span><span class="w"> </span><span class="nx">y0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x0</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y0</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">yCurrent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">child</span><span class="p">.</span><span class="nx">place</span><span class="p">(</span><span class="nx">x0</span><span class="p">,</span><span class="w"> </span><span class="nx">yCurrent</span><span class="p">)</span>
-<span class="w">      </span><span class="nx">yCurrent</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">()</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">report</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s1">&#39;col&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="p">,</span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">(),</span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">(),</span>
-<span class="w">      </span><span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">report</span><span class="p">())</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<p>while our columns are:</p>
+<div data-filter="inc=col" data-inc="placed.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
-<p class="continue">and our rows are:</p>
-<div class="code-sample lang-js" title="placed.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">PlacedRow</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">Row</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(...</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">super</span><span class="p">(...</span><span class="nx">children</span><span class="p">)</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">place</span><span class="w"> </span><span class="p">(</span><span class="nx">x0</span><span class="p">,</span><span class="w"> </span><span class="nx">y0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x0</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y0</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">()</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">xCurrent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x0</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">childY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">()</span>
-<span class="w">      </span><span class="nx">child</span><span class="p">.</span><span class="nx">place</span><span class="p">(</span><span class="nx">xCurrent</span><span class="p">,</span><span class="w"> </span><span class="nx">childY</span><span class="p">)</span>
-<span class="w">      </span><span class="nx">xCurrent</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">()</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">report</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s1">&#39;row&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="p">,</span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">(),</span>
-<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">(),</span>
-<span class="w">      </span><span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">report</span><span class="p">())</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<p>and our rows are:</p>
+<div data-filter="inc=row" data-inc="placed.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>Once again,
-we write and run some tests to check that everything is doing what it&rsquo;s supposed to:</p>
-<div class="code-sample lang-js" title="test-placed.js">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;assert&#39;</span>
+we write and run some tests to check that everything is doing what it's supposed to:</p>
+<div data-filter="exc=large" data-inc="test/test-placed.js"><div class="codehilite"><pre class=""><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'assert'</span>
 
 <span class="k">import</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">PlacedBlock</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Block</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">PlacedCol</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Col</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">PlacedRow</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Row</span>
-<span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../placed.js&#39;</span>
+<span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'../placed.js'</span>
 
-<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;places blocks&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;places a single unit block&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'places blocks'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'places a single unit block'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">place</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span>
 <span class="w">      </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">report</span><span class="p">(),</span>
-<span class="w">      </span><span class="p">[</span><span class="s1">&#39;block&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
+<span class="w">      </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
 <span class="w">    </span><span class="p">)</span>
 <span class="w">  </span><span class="p">})</span>
 
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;places a large block&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'places a large block'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">place</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span>
 <span class="w">      </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">report</span><span class="p">(),</span>
-<span class="w">      </span><span class="p">[</span><span class="s1">&#39;block&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">]</span>
+<span class="w">      </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">]</span>
 <span class="w">    </span><span class="p">)</span>
 <span class="w">  </span><span class="p">})</span>
 
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;places a row of two blocks&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'places a row of two blocks'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Row</span><span class="p">(</span>
 <span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span>
 <span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
@@ -581,19 +277,67 @@ we write and run some tests to check that everything is doing what it&rsquo;s su
 <span class="w">    </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">place</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span>
 <span class="w">      </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">report</span><span class="p">(),</span>
-<span class="w">      </span><span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span>
-<span class="w">        </span><span class="p">[</span><span class="s1">&#39;block&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">],</span>
-<span class="w">        </span><span class="p">[</span><span class="s1">&#39;block&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">]</span>
+<span class="w">      </span><span class="p">[</span><span class="s1">'row'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">]</span>
 <span class="w">      </span><span class="p">]</span>
 <span class="w">    </span><span class="p">)</span>
 <span class="w">  </span><span class="p">})</span>
 
+<span class="w">  </span><span class="c1">// [large]</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'places a column of two blocks'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Col</span><span class="p">(</span>
+<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span>
+<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">place</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span>
+<span class="w">      </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">report</span><span class="p">(),</span>
+<span class="w">      </span><span class="p">[</span><span class="s1">'col'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">]</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">})</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">'places a grid of rows of columns'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Col</span><span class="p">(</span>
+<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Row</span><span class="p">(</span>
+<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">),</span>
+<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
+<span class="w">      </span><span class="p">),</span>
+<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Row</span><span class="p">(</span>
+<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">),</span>
+<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">Col</span><span class="p">(</span>
+<span class="w">          </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">),</span>
+<span class="w">          </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">place</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span>
+<span class="w">      </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">report</span><span class="p">(),</span>
+<span class="w">      </span><span class="p">[</span><span class="s1">'col'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">14</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">'row'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span>
+<span class="w">          </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">],</span>
+<span class="w">          </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">]</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s1">'row'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">14</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span>
+<span class="w">          </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">],</span>
+<span class="w">          </span><span class="p">[</span><span class="s1">'col'</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">14</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span>
+<span class="w">            </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span><span class="s1">'block'</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">14</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">]</span>
+<span class="w">          </span><span class="p">]</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="c1">// [/large]</span>
 <span class="p">})</span>
 </code></pre></div>
 </div>
-<div class="code-sample lang-out" title="test-placed.out">
-<div class="highlight"><pre><span></span><code>&gt; stjs@1.0.0 test /u/stjs
-&gt; mocha */test/test-*.js &quot;-g&quot; &quot;places blocks&quot;
+<div data-inc="test-placed.out"><div class="codehilite"><pre class=""><span></span><code>&gt; stjs@1.0.0 test /u/stjs
+&gt; mocha */test/test-*.js "-g" "places blocks"
 
   places blocks
     ✓ places a single unit block
@@ -606,89 +350,40 @@ we write and run some tests to check that everything is doing what it&rsquo;s su
   5 passing (8ms)
 </code></pre></div>
 </div>
-<h2 id="layout-engine-render">Section 11.4: How can we render elements?</h2>
+<h2 id="layout-engine-render">How can we render elements?</h2>
 <p>We drew the blocks on a piece of graph paper
 in order to figure out the expected answers for the tests shown above.
-We can do something similar in software by creating a &ldquo;screen&rdquo; of space characters
+We can do something similar in software by creating a "screen" of space characters
 and then having each block draw itself in the right place.
 If we do this starting at the root of the tree,
 child blocks will overwrite the markings made by their parents,
 which will automatically produce the right appearance
-(<a class="fig-ref" href="../layout-engine/#layout-engine-draw-over">Figure 11.4</a>).
-(A more sophisticated version of this called <a class="gl-ref" href="../glossary/#z_buffering" markdown="1">z-buffering</a>
+(<a class="fig-ref" href="#f:layout-engine-draw-over">Figure 4</a>).
+(A more sophisticated version of this called <a class="gl-ref" href="../glossary/#z_buffering">z-buffering</a>
 keeps track of the visual depth of each pixel
 in order to draw things in three dimensions.)</p>
-<figure id="layout-engine-draw-over">
-  <img src="./draw-over.svg" alt="Children drawing over their parents"/>
-  <figcaption markdown="1">Figure 11.4: Render blocks by drawing child nodes on top of parent nodes.</figcaption>
+<figure id="f:layout-engine-draw-over">
+<img alt="Children drawing over their parents" src="draw-over.svg"/>
+<figcaption>Figure 4: Render blocks by drawing child nodes on top of parent nodes.</figcaption>
 </figure>
-
 <p>Our pretended screen is just an array of arrays of characters:</p>
-<div class="code-sample lang-js" title="render.js">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">makeScreen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">screen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">height</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">screen</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="nx">width</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">screen</span>
-<span class="p">}</span>
+<div data-filter="inc=makeScreen" data-inc="render.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>We will use successive lower-case characters to show each block,
 i.e.,
 the root block will draw itself using the letter a,
 while its children will use b, c, and so on.</p>
-<div class="code-sample lang-js" title="render.js">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">draw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="nx">node</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextFill</span><span class="p">(</span><span class="nx">fill</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">node</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="p">)</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;children&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">node</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">draw</span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="nx">child</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="p">)</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">fill</span>
-<span class="p">}</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">nextFill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">fill</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">fill</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
-<span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;a&#39;</span>
-<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">fill</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
-<span class="p">}</span>
+<div data-filter="inc=draw" data-inc="render.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>To teach each kind of cell how to render itself,
 we have to derive a new class from each of the ones we have
-and give the new class a <code>render</code> method with the same <span class="ix-entry" ix-key="signature!of function;function signature" markdown="1"><a class="gl-ref" href="../glossary/#signature" markdown="1">signature</a></span>:</p>
-<div class="code-sample lang-js" title="rendered.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">RenderedBlock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">PlacedBlock</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">render</span><span class="w"> </span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">drawBlock</span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">RenderedCol</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">PlacedCol</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">render</span><span class="w"> </span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">drawBlock</span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">RenderedRow</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">PlacedRow</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">render</span><span class="w"> </span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">drawBlock</span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">drawBlock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">screen</span><span class="p">,</span><span class="w"> </span><span class="nx">node</span><span class="p">,</span><span class="w"> </span><span class="nx">fill</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">ix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">ix</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">();</span><span class="w"> </span><span class="nx">ix</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">iy</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">getHeight</span><span class="p">();</span><span class="w"> </span><span class="nx">iy</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">screen</span><span class="p">[</span><span class="nx">node</span><span class="p">.</span><span class="nx">y0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">iy</span><span class="p">][</span><span class="nx">node</span><span class="p">.</span><span class="nx">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">ix</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fill</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+and give the new class a <code>render</code> method with the same <a class="gl-ref" href="../glossary/#signature">signature</a>:</p>
+<div data-filter="inc=keep" data-inc="rendered.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
-<p class="continue">These <code>render</code> methods do exactly the same thing,
+<p>These <code>render</code> methods do exactly the same thing,
 so we have each one call a shared function that does the actual work.
 If we were building a real layout engine,
 a cleaner solution would be to go back and create a class called <code>Cell</code> with this <code>render</code> method,
@@ -698,170 +393,66 @@ if two or more classes need to be able to do something,
 we should add a method to do that to their lowest common ancestor.</p>
 <p>Our simpler tests are a little easier to read once we have rendering in place,
 though we still had to draw things on paper to figure out our complex ones:</p>
-<div class="code-sample lang-js" title="test-rendered.js">
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;renders a grid of rows of columns&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Col</span><span class="p">(</span>
-<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Row</span><span class="p">(</span>
-<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">),</span>
-<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span>
-<span class="w">      </span><span class="p">),</span>
-<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Row</span><span class="p">(</span>
-<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">),</span>
-<span class="w">        </span><span class="ow">new</span><span class="w"> </span><span class="nx">Col</span><span class="p">(</span>
-<span class="w">          </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">),</span>
-<span class="w">          </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span>
-<span class="w">        </span><span class="p">)</span>
-<span class="w">      </span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">    </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">place</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span>
-<span class="w">      </span><span class="nx">render</span><span class="p">(</span><span class="nx">fixture</span><span class="p">),</span>
-<span class="w">      </span><span class="p">[</span>
-<span class="w">        </span><span class="s1">&#39;bddd&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;bddd&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;cddd&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;cddd&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;ehhh&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;ehhh&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;ehhh&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;ehhh&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;eiig&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;fiig&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;fiig&#39;</span>
-<span class="w">      </span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">  </span><span class="p">})</span>
+<div data-filter="inc=large" data-inc="test/test-rendered.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
-<p class="continue">The fact that we find our own tests difficult to understand
+<p>The fact that we find our own tests difficult to understand
 is a sign that we should do more testing.
 It would be very easy for us to get a wrong result
 and convince ourselves that it was actually correct;
-<span class="ix-entry" ix-key="confirmation bias" markdown="1"><a class="gl-ref" href="../glossary/#confirmation_bias" markdown="1">confirmation bias</a></span> of this kind
+<a class="gl-ref" href="../glossary/#confirmation_bias">confirmation bias</a> of this kind
 is very common in software development.</p>
-<h2 id="layout-engine-fit">Section 11.5: How can we wrap elements to fit?</h2>
+<h2 id="layout-engine-fit">How can we wrap elements to fit?</h2>
 <p>One of the biggest differences between a browser and a printed page
 is that the text in the browser wraps itself automatically as the window is resized.
-(The other, these days, is that the printed page doesn&rsquo;t spy on us,
+(The other, these days, is that the printed page doesn't spy on us,
 though someone is undoubtedly working on that.)</p>
 <p>To add wrapping to our layout engine,
 suppose we fix the width of a row.
-If the total width of the children is greater than the row&rsquo;s width,
+If the total width of the children is greater than the row's width,
 the layout engine needs to wrap the children around.
 This assumes that columns can be made as big as they need to be,
 i.e.,
 that we can grow vertically to make up for limited space horizontally.
-It also assumes that all of the row&rsquo;s children are no wider than the width of the row;
-we will look at what happens when they&rsquo;re not in the exercises.</p>
+It also assumes that all of the row's children are no wider than the width of the row;
+we will look at what happens when they're not in the exercises.</p>
 <p>Our layout engine manages wrapping by transforming the tree.
 The height and width of blocks are fixed,
 so they become themselves.
 Columns become themselves as well,
 but since they have children that might need to wrap,
 the class representing columns needs a new method:</p>
-<div class="code-sample lang-js" title="wrapped.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">WrappedBlock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">PlacedBlock</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">wrap</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">WrappedCol</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">PlacedCol</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">wrap</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">wrap</span><span class="p">())</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">PlacedCol</span><span class="p">(...</span><span class="nx">children</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div data-filter="inc=blockcol" data-inc="wrapped.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>Rows do all the hard work.
 Each original row is replaced with a new row that contains a single column with one or more rows,
-each of which is one &ldquo;line&rdquo; of wrapped cells
-(<a class="fig-ref" href="../layout-engine/#layout-engine-wrap">Figure 11.5</a>).
+each of which is one "line" of wrapped cells
+(<a class="fig-ref" href="#f:layout-engine-wrap">Figure 5</a>).
 This replacement is unnecessary when everything will fit on a single row,
-but it&rsquo;s easiest to write the code that does it every time;
+but it's easiest to write the code that does it every time;
 we will look at making this more efficient in the exercises.</p>
-<figure id="layout-engine-wrap">
-  <img src="./wrap.svg" alt="Wrapping rows"/>
-  <figcaption markdown="1">Figure 11.5: Wrapping rows by introducing a new row and column.</figcaption>
+<figure id="f:layout-engine-wrap">
+<img alt="Wrapping rows" src="wrap.svg"/>
+<figcaption>Figure 5: Wrapping rows by introducing a new row and column.</figcaption>
 </figure>
-
-<p>Our new wrappable row&rsquo;s constructor takes a fixed width followed by the children
+<p>Our new wrappable row's constructor takes a fixed width followed by the children
 and returns that fixed width when asked for its size:</p>
-<div class="code-sample lang-js" title="wrapped.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">WrappedRow</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">PlacedRow</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">super</span><span class="p">(...</span><span class="nx">children</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="nx">width</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">      </span><span class="s1">&#39;Need non-negative width&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">width</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">getWidth</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">width</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="p">}</span>
+<div data-filter="inc=row" data-inc="wrapped.js" data-omit="wrap"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
-<p class="continue">Wrapping puts the row&rsquo;s children into buckets,
+<p>Wrapping puts the row's children into buckets,
 then converts the buckets to a row of a column of rows:</p>
-<div class="code-sample lang-js" title="wrapped.js">
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">wrap</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">wrap</span><span class="p">())</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">currentRow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">currentX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
-
-<span class="w">    </span><span class="nx">children</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">child</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">childWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">child</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">()</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nx">currentX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">childWidth</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">currentRow</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">child</span><span class="p">)</span>
-<span class="w">        </span><span class="nx">currentX</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">childWidth</span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">rows</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">currentRow</span><span class="p">)</span>
-<span class="w">        </span><span class="nx">currentRow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">child</span><span class="p">]</span>
-<span class="w">        </span><span class="nx">currentX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">childWidth</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">    </span><span class="nx">rows</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">currentRow</span><span class="p">)</span>
-
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newRows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rows</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">row</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">PlacedRow</span><span class="p">(...</span><span class="nx">row</span><span class="p">))</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newCol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">PlacedCol</span><span class="p">(...</span><span class="nx">newRows</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">PlacedRow</span><span class="p">(</span><span class="nx">newCol</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
+<div data-filter="inc=wrap" data-inc="wrapped.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>Once again we bring forward all the previous tests
-and write some new ones to test the functionality we&rsquo;ve added:</p>
-<div class="code-sample lang-js" title="test-wrapped.js">
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;wrap a row of two blocks that do not fit on one row&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Row</span><span class="p">(</span>
-<span class="w">      </span><span class="mf">3</span><span class="p">,</span>
-<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span>
-<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">Block</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">wrapped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">wrap</span><span class="p">()</span>
-<span class="w">    </span><span class="nx">wrapped</span><span class="p">.</span><span class="nx">place</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span>
-<span class="w">      </span><span class="nx">wrapped</span><span class="p">.</span><span class="nx">report</span><span class="p">(),</span>
-<span class="w">      </span><span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
-<span class="w">        </span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
-<span class="w">          </span><span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">            </span><span class="p">[</span><span class="s1">&#39;block&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">]</span>
-<span class="w">          </span><span class="p">],</span>
-<span class="w">          </span><span class="p">[</span><span class="s1">&#39;row&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
-<span class="w">            </span><span class="p">[</span><span class="s1">&#39;block&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">      </span><span class="p">]</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">  </span><span class="p">})</span>
+and write some new ones to test the functionality we've added:</p>
+<div data-filter="inc=example" data-inc="test/test-wrapped.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
-<div class="code-sample lang-out" title="test-wrapped.out">
-<div class="highlight"><pre><span></span><code>&gt; stjs@1.0.0 test /u/stjs
-&gt; mocha */test/test-*.js &quot;-g&quot; &quot;wraps blocks&quot;
+<div data-inc="test-wrapped.out"><div class="codehilite"><pre class=""><span></span><code>&gt; stjs@1.0.0 test /u/stjs
+&gt; mocha */test/test-*.js "-g" "wraps blocks"
 
 
 
@@ -881,7 +472,7 @@ and write some new ones to test the functionality we&rsquo;ve added:</p>
 <div class="callout">
 <h3>The Liskov Substitution Principle</h3>
 <p>We are able to re-use tests like this because of
-the <span class="ix-entry" ix-key="Liskov Substitution Principle;software design!Liskov Substitution Principle" markdown="1"><a class="gl-ref" href="../glossary/#liskov_substitution_principle" markdown="1">Liskov Substitution Principle</a></span>,
+the <a class="gl-ref" href="../glossary/#liskov_substitution_principle">Liskov Substitution Principle</a>,
 which states that
 it should be possible to replace objects in a program
 with objects of derived classes
@@ -891,34 +482,38 @@ new code must handle the same set of inputs as the old code,
 though it may be able to process more inputs as well.
 Conversely,
 its output must be a subset of what the old code produced
-so that whatever is downstream from it won&rsquo;t be surprised.
+so that whatever is downstream from it won't be surprised.
 Thinking in these terms leads to a methodology called
-<span class="ix-entry" ix-key="design by contract;software design!design by contract" markdown="1"><a class="gl-ref" href="../glossary/#design_by_contract" markdown="1">design by contract</a></span>.</p>
+<a class="gl-ref" href="../glossary/#design_by_contract">design by contract</a>.</p>
 </div>
-<h2 id="layout-engine-css">Section 11.6: What subset of CSS will we support?</h2>
-<p>It&rsquo;s finally time to style pages that contain text.
+<h2 id="layout-engine-css">What subset of CSS will we support?</h2>
+<p>It's finally time to style pages that contain text.
 Our final subset of HTML has rows, columns, and text blocks as before.
 Each text block has one or more lines of text;
-the number of lines determines the block&rsquo;s height
+the number of lines determines the block's height
 and the length of the longest line determines its width.</p>
-<div class="pagebreak"></div>
-
-<p>Rows and columns can have <a class="gl-ref" href="../glossary/#attribute" markdown="1">attributes</a> just as they can in real HTML,
+<p>Rows and columns can have <a class="gl-ref" href="../glossary/#attribute">attributes</a> just as they can in real HTML,
 and each attribute must have a single value in quotes.
 Rows no longer take a fixed width:
 instead,
-we will specify that with our little subset of <span class="ix-entry" ix-key="CSS" markdown="1">CSS</span>.
+we will specify that with our little subset of CSS.
 Together,
 these three classes are just over 40 lines of code:</p>
-<div class="code-sample lang-js" title="micro-dom.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">DomBlock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">WrappedBlock</span><span class="w"> </span><span class="p">{</span>
+<div data-filter="exc=erase" data-inc="micro-dom.js"><div class="codehilite"><pre class=""><span></span><code><span class="c1">// [erase]</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">WrappedBlock</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">WrappedCol</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">WrappedRow</span>
+<span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./wrapped.js'</span>
+<span class="c1">// [/erase]</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">DomBlock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">WrappedBlock</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">lines</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">super</span><span class="p">(</span>
-<span class="w">      </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">lines</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">line</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">line</span><span class="p">.</span><span class="nx">length</span><span class="p">)),</span>
+<span class="w">      </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">lines</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'\n'</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">line</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">line</span><span class="p">.</span><span class="nx">length</span><span class="p">)),</span>
 <span class="w">      </span><span class="nx">lines</span><span class="p">.</span><span class="nx">length</span>
 <span class="w">    </span><span class="p">)</span>
 <span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lines</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;text&#39;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'text'</span>
 <span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">rules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
 <span class="w">  </span><span class="p">}</span>
 
@@ -931,7 +526,7 @@ these three classes are just over 40 lines of code:</p>
 <span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">attributes</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">super</span><span class="p">(...</span><span class="nx">children</span><span class="p">)</span>
 <span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">attributes</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;col&#39;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'col'</span>
 <span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">rules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
 <span class="w">  </span><span class="p">}</span>
 
@@ -945,7 +540,7 @@ these three classes are just over 40 lines of code:</p>
 <span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">attributes</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">children</span><span class="p">)</span>
 <span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">attributes</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;row&#39;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'row'</span>
 <span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">rules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
 <span class="w">  </span><span class="p">}</span>
 
@@ -957,29 +552,28 @@ these three classes are just over 40 lines of code:</p>
 </code></pre></div>
 </div>
 <p>We will use regular expressions to parse HTML
-(though as we explained in <a class="x-ref" href="../regex-parser/">Chapter 8</a>,
+(though as we explained in <a class="xref" href="../regex-parser/">Chapter 8</a>,
 <a href="https://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454">this is a sin</a>).
 The main body of our parser is:</p>
-<div class="code-sample lang-js" title="parse.js">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;assert&#39;</span>
+<div data-filter="exc=skip" data-inc="parse.js"><div class="codehilite"><pre class=""><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'assert'</span>
 
 <span class="k">import</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">DomBlock</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">DomCol</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">DomRow</span>
-<span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./micro-dom.js&#39;</span>
+<span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./micro-dom.js'</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">TEXT_AND_TAG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/^([^&lt;]*)(&lt;[^]+?&gt;)(.*)$/ms</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">TAG_AND_ATTR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/&lt;(\w+)([^&gt;]*)&gt;/</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">KEY_AND_VALUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/\s*(\w+)=&quot;([^&quot;]*)&quot;\s*/g</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">KEY_AND_VALUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/\s*(\w+)="([^"]*)"\s*/g</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">parseHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">chunks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">chunkify</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span>
 <span class="w">  </span><span class="nx">assert</span><span class="p">(</span><span class="nx">isElement</span><span class="p">(</span><span class="nx">chunks</span><span class="p">[</span><span class="mf">0</span><span class="p">]),</span>
-<span class="w">    </span><span class="s1">&#39;Must have enclosing outer node&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="s1">'Must have enclosing outer node'</span><span class="p">)</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">node</span><span class="p">,</span><span class="w"> </span><span class="nx">remainder</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">makeNode</span><span class="p">(</span><span class="nx">chunks</span><span class="p">)</span>
 <span class="w">  </span><span class="nx">assert</span><span class="p">(</span><span class="nx">remainder</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;Cannot have dangling content&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="s1">'Cannot have dangling content'</span><span class="p">)</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">node</span>
 <span class="p">}</span>
 
@@ -1002,18 +596,14 @@ The main body of our parser is:</p>
 <span class="p">}</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">isElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">chunk</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nx">chunk</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;&lt;&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">chunk</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nx">chunk</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'&lt;'</span><span class="p">)</span>
 <span class="p">}</span>
 
-
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">parseHTML</span>
-</code></pre></div>
-</div>
-<p class="continue">while the two functions that do most of the work are:</p>
-<div class="code-sample lang-js" title="parse.js">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">makeNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">chunks</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// [skip]</span>
+<span class="c1">// [makenode]</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">makeNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">chunks</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">assert</span><span class="p">(</span><span class="nx">chunks</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;Cannot make nodes without chunks&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="s1">'Cannot make nodes without chunks'</span><span class="p">)</span>
 
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">isElement</span><span class="p">(</span><span class="nx">chunks</span><span class="p">[</span><span class="mf">0</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="ow">new</span><span class="w"> </span><span class="nx">DomBlock</span><span class="p">(</span><span class="nx">chunks</span><span class="p">[</span><span class="mf">0</span><span class="p">]),</span><span class="w"> </span><span class="nx">chunks</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">)]</span>
@@ -1033,11 +623,10 @@ The main body of our parser is:</p>
 <span class="w">    </span><span class="sb">`Node with tag </span><span class="si">${</span><span class="nx">node</span><span class="p">.</span><span class="nx">tag</span><span class="si">}</span><span class="sb"> not closed`</span><span class="p">)</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">node</span><span class="p">,</span><span class="w"> </span><span class="nx">remainder</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">)]</span>
 <span class="p">}</span>
-</code></pre></div>
-</div>
-<p class="continue">and:</p>
-<div class="code-sample lang-js" title="parse.js">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">makeOpening</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// [/makenode]</span>
+
+<span class="c1">// [makeopening]</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">makeOpening</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">outer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">chunk</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">TAG_AND_ATTR</span><span class="p">)</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">outer</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">outer</span><span class="p">[</span><span class="mf">2</span><span class="p">].</span><span class="nx">trim</span><span class="p">().</span><span class="nx">matchAll</span><span class="p">(</span><span class="nx">KEY_AND_VALUE</span><span class="p">)]</span>
@@ -1046,15 +635,27 @@ The main body of our parser is:</p>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">obj</span>
 <span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{})</span>
 <span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">Cls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">tag</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;col&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">tag</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'col'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">Cls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DomCol</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">tag</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;row&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">tag</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'row'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">Cls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DomRow</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="nx">assert</span><span class="p">(</span><span class="nx">Cls</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">    </span><span class="sb">`Unrecognized tag name </span><span class="si">${</span><span class="nx">tag</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Cls</span><span class="p">(</span><span class="nx">attributes</span><span class="p">)</span>
 <span class="p">}</span>
+<span class="c1">// [/makeopening]</span>
+<span class="c1">// [/skip]</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">parseHTML</span>
+</code></pre></div>
+</div>
+<p>while the two functions that do most of the work are:</p>
+<div data-filter="inc=makenode" data-inc="parse.js"><div class="codehilite"><pre class=""><span></span><code>
+</code></pre></div>
+</div>
+<p>and:</p>
+<div data-filter="inc=makeopening" data-inc="parse.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>The next step is to define a generic class for CSS rules
@@ -1064,161 +665,67 @@ the three types of rules we support identify specific nodes via their ID,
 classes of nodes via their <code>class</code> attribute,
 and types of nodes via their element name.
 We keep track of which rules take precedence over which through the simple expedient of numbering the classes:</p>
-<div class="code-sample lang-js" title="micro-css.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CssRule</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">order</span><span class="p">,</span><span class="w"> </span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">styles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">order</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">selector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selector</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">styles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">styles</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div data-filter="inc=css" data-inc="micro-css.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
-<p>An ID rule&rsquo;s <span class="ix-entry" ix-key="query selector" markdown="1"><a class="gl-ref" href="../glossary/#query_selector" markdown="1">query selector</a></span> is written as <code>#name</code>
+<p>An ID rule's query selector is written as <code>#name</code>
 and matches HTML like <code>&lt;tag id="name"&gt;...&lt;/tag&gt;</code> (where <code>tag</code> is <code>row</code> or <code>col</code>):</p>
-<div class="code-sample lang-js" title="micro-css.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">IdRule</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">CssRule</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">styles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span>
-<span class="w">      </span><span class="sb">`ID rule </span><span class="si">${</span><span class="nx">selector</span><span class="si">}</span><span class="sb"> must start with # and have a selector`</span><span class="p">)</span>
-<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">IdRule</span><span class="p">.</span><span class="nx">ORDER</span><span class="p">,</span><span class="w"> </span><span class="nx">selector</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="nx">styles</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">match</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;attributes&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-<span class="w">      </span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">attributes</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-<span class="w">      </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">selector</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">IdRule</span><span class="p">.</span><span class="nx">ORDER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span>
+<div data-filter="inc=id" data-inc="micro-css.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
-<p>A class rule&rsquo;s query selector is written as <code>.kind</code> and matches HTML like <code>&lt;tag class="kind"&gt;...&lt;/tag&gt;</code>.
+<p>A class rule's query selector is written as <code>.kind</code> and matches HTML like <code>&lt;tag class="kind"&gt;...&lt;/tag&gt;</code>.
 Unlike real CSS,
 we only allow one class per node:</p>
-<div class="code-sample lang-js" title="micro-css.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">ClassRule</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">CssRule</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">styles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span>
-<span class="w">      </span><span class="sb">`Class rule </span><span class="si">${</span><span class="nx">selector</span><span class="si">}</span><span class="sb"> must start with . and have a selector`</span><span class="p">)</span>
-<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">ClassRule</span><span class="p">.</span><span class="nx">ORDER</span><span class="p">,</span><span class="w"> </span><span class="nx">selector</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="nx">styles</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">match</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;attributes&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-<span class="w">      </span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">attributes</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
-<span class="w">      </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="kd">class</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">selector</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">ClassRule</span><span class="p">.</span><span class="nx">ORDER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<div data-filter="inc=class" data-inc="micro-css.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>Finally,
 tag rules just have the name of the type of node they apply to without any punctuation:</p>
-<div class="code-sample lang-js" title="micro-css.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">TagRule</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">CssRule</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">styles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">super</span><span class="p">(</span><span class="nx">TagRule</span><span class="p">.</span><span class="nx">ORDER</span><span class="p">,</span><span class="w"> </span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">styles</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">match</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">selector</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">tag</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">TagRule</span><span class="p">.</span><span class="nx">ORDER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<div data-filter="inc=tag" data-inc="micro-css.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>We could build yet another parser to read a subset of CSS and convert it to objects,
 but this chapter is long enough,
 so we will write our rules as JSON:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="s1">&#39;row&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="s1">&#39;.kind&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="s1">&#39;#name&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="p">}</span>
+<div class="codehilite"><pre class=""><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s1">'row'</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="s1">'.kind'</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="s1">'#name'</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p class="continue">and build a class that converts this representation to a set of objects:</p>
-<div class="code-sample lang-js" title="micro-css.js">
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CssRuleSet</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">constructor</span><span class="w"> </span><span class="p">(</span><span class="nx">json</span><span class="p">,</span><span class="w"> </span><span class="nx">mergeDefaults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">rules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">jsonToRules</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">jsonToRules</span><span class="w"> </span><span class="p">(</span><span class="nx">json</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">json</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">selector</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">assert</span><span class="p">((</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">selector</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">),</span>
-<span class="w">        </span><span class="s1">&#39;Require non-empty string as selector&#39;</span><span class="p">)</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">IdRule</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">json</span><span class="p">[</span><span class="nx">selector</span><span class="p">])</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">selector</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ClassRule</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">json</span><span class="p">[</span><span class="nx">selector</span><span class="p">])</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TagRule</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">json</span><span class="p">[</span><span class="nx">selector</span><span class="p">])</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="nx">findRules</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">rules</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">rule</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">rule</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">node</span><span class="p">))</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">sorted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">matches</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">left</span><span class="p">.</span><span class="nx">order</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">right</span><span class="p">.</span><span class="nx">order</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">sorted</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<p>and build a class that converts this representation to a set of objects:</p>
+<div data-filter="inc=ruleset" data-inc="micro-css.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>Our CSS ruleset class also has a method for finding the rules for a given DOM node.
 This method relies on the precedence values we defined for our classes
 in order to sort them
 so that we can find the most specific.</p>
-<p>Here&rsquo;s our final set of tests:</p>
-<div class="code-sample lang-js" title="test-styled.js">
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;styles a tree of nodes with multiple rules&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s1">&#39;&lt;col id=&quot;name&quot;&gt;&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="s1">&#39;&lt;row class=&quot;kind&quot;&gt;first\nsecond&lt;/row&gt;&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="s1">&#39;&lt;row&gt;third\nfourth&lt;/row&gt;&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="s1">&#39;&lt;/col&gt;&#39;</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parseHTML</span><span class="p">(</span><span class="nx">html</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">rules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">CssRuleSet</span><span class="p">({</span>
-<span class="w">      </span><span class="s1">&#39;.kind&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="p">},</span>
-<span class="w">      </span><span class="s1">&#39;#name&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="p">},</span>
-<span class="w">      </span><span class="nx">row</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">    </span><span class="nx">dom</span><span class="p">.</span><span class="nx">findRules</span><span class="p">(</span><span class="nx">rules</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span><span class="nx">dom</span><span class="p">.</span><span class="nx">rules</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">IdRule</span><span class="p">(</span><span class="s1">&#39;#name&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="p">})</span>
-<span class="w">    </span><span class="p">])</span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span><span class="nx">dom</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">rules</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">ClassRule</span><span class="p">(</span><span class="s1">&#39;.kind&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="p">}),</span>
-<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">TagRule</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="p">})</span>
-<span class="w">    </span><span class="p">])</span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">deepStrictEqual</span><span class="p">(</span><span class="nx">dom</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mf">1</span><span class="p">].</span><span class="nx">rules</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="ow">new</span><span class="w"> </span><span class="nx">TagRule</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="p">})</span>
-<span class="w">    </span><span class="p">])</span>
-<span class="w">  </span><span class="p">})</span>
+<p>Here's our final set of tests:</p>
+<div data-filter="inc=test" data-inc="test/test-styled.js"><div class="codehilite"><pre class=""><span></span><code>
 </code></pre></div>
 </div>
 <p>If we were going on,
-we would override the cells&rsquo; <code>getWidth</code> and <code>getHeight</code> methods to pay attention to styles.
-We would also decide what to do with cells that don&rsquo;t have any styles defined:
+we would override the cells' <code>getWidth</code> and <code>getHeight</code> methods to pay attention to styles.
+We would also decide what to do with cells that don't have any styles defined:
 use a default,
 flag it as an error,
 or make a choice based on the contents of the child nodes.
 We will explore these possibilities in the exercises.</p>
 <div class="callout">
 <h3>Where it all started</h3>
-<p>This chapter&rsquo;s topic was one of the seeds from which this entire book grew
-(the other being debuggers discussed in <a class="x-ref" href="../debugger/">Chapter 20</a>).
-After struggling with <span class="ix-entry" ix-key="CSS!struggles with" markdown="1">CSS</span> for several years,
+<p>This chapter's topic was one of the seeds from which this entire book grew
+(the other being debuggers discussed in <a class="xref" href="../debugger/">Chapter 20</a>).
+After struggling with CSS for several years,
 I began wondering whether it really had to be so complicated.
 That question led to others,
 which eventually led to all of this.
 The moral is,
 be careful what you ask.</p>
 </div>
-<h2 id="layout-engine-exercises">Section 11.7: Exercises</h2>
-<h3 class="exercise">Refactoring the node classes</h3>
+<section class="exercises">
+<h2 id="layout-engine-exercises">Exercises</h2>
+<h3>Refactoring the node classes</h3>
 <p>Refactor the classes used to represent blocks, rows, and columns so that:</p>
 <ol>
 <li>
@@ -1228,13 +735,13 @@ be careful what you ask.</p>
 <p>All common behavior is defined in that parent (if only with placeholder methods).</p>
 </li>
 </ol>
-<h3 class="exercise">Handling rule conflicts</h3>
+<h3>Handling rule conflicts</h3>
 <p>Modify the rule lookup mechanism so that if two conflicting rules are defined,
 the one that is defined second takes precedence.
 For example,
 if there are two definitions for <code>row.bold</code>,
 whichever comes last in the JSON representation of the CSS wins.</p>
-<h3 class="exercise">Handling arbitrary tags</h3>
+<h3>Handling arbitrary tags</h3>
 <p>Modify the existing code to handle arbitrary HTML elements.</p>
 <ol>
 <li>
@@ -1245,40 +752,40 @@ whichever comes last in the JSON representation of the CSS wins.</p>
     there should be one class <code>Node</code> whose <code>tag</code> attribute identifies its type.</p>
 </li>
 </ol>
-<h3 class="exercise">Recycling nodes</h3>
+<h3>Recycling nodes</h3>
 <p>Modify the wrapping code so that new rows and columns are only created if needed.
 For example,
-if a row of width 10 contains a text node with the string &ldquo;fits&rdquo;,
+if a row of width 10 contains a text node with the string "fits",
 a new row and column are <em>not</em> inserted.</p>
-<h3 class="exercise">Rendering a clear background</h3>
+<h3>Rendering a clear background</h3>
 <p>Modify the rendering code so that only the text in block nodes is shown,
 i.e.,
 so that the empty space in rows and columns is rendered as spaces.</p>
-<h3 class="exercise">Clipping text</h3>
+<h3>Clipping text</h3>
 <ol>
 <li>
 <p>Modify the wrapping and rendering so that
     if a block of text is too wide for the available space
     the extra characters are clipped.
     For example,
-    if a column of width 5 contains a line &ldquo;unfittable&rdquo;,
-    only &ldquo;unfit&rdquo; appears.</p>
+    if a column of width 5 contains a line "unfittable",
+    only "unfit" appears.</p>
 </li>
 <li>
 <p>Extend your solution to break lines on spaces as needed
     in order to avoid clipping.</p>
 </li>
 </ol>
-<h3 class="exercise">Bidirectional rendering</h3>
+<h3>Bidirectional rendering</h3>
 <p>Modify the existing software to do either left-to-right or right-to-left rendering
 upon request.</p>
-<h3 class="exercise">Equal sizing</h3>
+<h3>Equal sizing</h3>
 <p>Modify the existing code to support elastic columns,
 i.e.,
 so that all of the columns in a row are automatically sized to have the same width.
 If the number of columns does not divide evenly into the width of the row,
 allocate the extra space as equally as possible from left to right.</p>
-<h3 class="exercise">Padding elements</h3>
+<h3>Padding elements</h3>
 <p>Modify the existing code so that:</p>
 <ol>
 <li>
@@ -1288,28 +795,28 @@ allocate the extra space as equally as possible from left to right.</p>
 <p>When the node is rendered, that many blank spaces are added on all four sides of the contents.</p>
 </li>
 </ol>
-<p class="continue">For example, the HTML <code>&lt;row&gt;text&lt;/row&gt;</code> would render as:</p>
-<div class="highlight"><pre><span></span><code>+------+
+<p>For example, the HTML <code>&lt;row&gt;text&lt;/row&gt;</code> would render as:</p>
+<div class="codehilite"><pre class=""><span></span><code>+------+
 |      |
 | text |
 |      |
 +------+
 </code></pre></div>
-<p class="continue">where the lines show the outer border of the rendering.</p>
-<h3 class="exercise">Drawing borders</h3>
+<p>where the lines show the outer border of the rendering.</p>
+<h3>Drawing borders</h3>
 <ol>
 <li>
 <p>Modify the existing code so that elements may specify <code>border: true</code> or <code>border: false</code>
     (with the latter being the default).
-    If an element&rsquo;s <code>border</code> property is <code>true</code>,
+    If an element's <code>border</code> property is <code>true</code>,
     it is drawn with a dashed border.
     For example,
     if the <code>border</code> property of <code>row</code> is <code>true</code>,
     then <code>&lt;row&gt;text&lt;/row&gt;</code> is rendered as:</p>
-<div class="highlight"><pre><span></span><code>+----+
-|text|
+<p><code>txt
 +----+
-</code></pre></div>
+|text|
++----+</code></p>
 </li>
 <li>
 <p>Extend your solution so that if two adjacent cells both have borders,
@@ -1317,18 +824,31 @@ allocate the extra space as equally as possible from left to right.</p>
     For example,
     if the <code>border</code> property of <code>col</code> is <code>true</code>,
     then:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">row</span><span class="p">&gt;&lt;</span><span class="nt">col</span><span class="p">&gt;</span>left<span class="p">&lt;/</span><span class="nt">col</span><span class="p">&gt;&lt;</span><span class="nt">col</span><span class="p">&gt;</span>right<span class="p">&lt;/</span><span class="nt">col</span><span class="p">&gt;&lt;/</span><span class="nt">row</span><span class="p">&gt;</span>
-</code></pre></div>
-<p class="continue">is rendered as:</p>
-<div class="highlight"><pre><span></span><code>+----+-----+
-|left|right|
+<p><code>html
+&lt;row&gt;&lt;col&gt;left&lt;/col&gt;&lt;col&gt;right&lt;/col&gt;&lt;/row&gt;</code></p>
+<p>is rendered as:</p>
+<p><code>txt
 +----+-----+
-</code></pre></div>
+|left|right|
++----+-----+</code></p>
 </li>
 </ol>
-          
-        </main>
-      </div>
-    </div>
-  </body>
+</section>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../build-manager/">Build Manager</a>
+</div>
+<div class="col-6 center">
+<a href="../">Software Design by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../file-interpolator/">File Interpolator</a> ⇒
+	</div>
+</div>
+</footer>
+</body>
 </html>

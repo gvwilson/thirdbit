@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Concurrency</title>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<nav>
+<a href="../">Software Design by Example</a>
+      ·
+      <span class="dropdown">
+<a href="#">Lessons</a>
+<span class="dropdown-content" id="nav-lessons">
+<a href="../intro/">Introduction</a>
+<a href="../oop/">Objects and Classes</a>
+<a href="../dup/">Finding Duplicate Files</a>
+<a href="../glob/">Matching Patterns</a>
+<a href="../parse/">Parsing Text</a>
+<a href="../test/">Running Tests</a>
+<a href="../interp/">An Interpreter</a>
+<a href="../func/">Functions and Closures</a>
+<a href="../protocols/">Protocols</a>
+<a href="../archive/">A File Archiver</a>
+<a href="../check/">An HTML Validator</a>
+<a href="../template/">A Template Expander</a>
+<a href="../lint/">A Code Linter</a>
+<a href="../layout/">Page Layout</a>
+<a href="../perf/">Performance Profiling</a>
+<a href="../persist/">Object Persistence</a>
+<a href="../binary/">Binary Data</a>
+<a href="../db/">A Database</a>
+<a href="../build/">A Build Manager</a>
+<a href="../pack/">A Package Manager</a>
+<a href="../ftp/">Transferring Files</a>
+<a href="../http/">Serving Web Pages</a>
+<a href="../viewer/">A File Viewer</a>
+<a href="../undo/">Undo and Redo</a>
+<a href="../vm/">A Virtual Machine</a>
+<a href="../debugger/">A Debugger</a>
+<a href="../observe/">Observers</a>
+<a href="../docgen/">Generating Documentation</a>
+<a href="../cache/">A File Cache</a>
+<a href="../concur/">Concurrency</a>
+<a href="../finale/">Conclusion</a>
+</span>
+</span>
+      ·
+      <span class="dropdown">
+<a href="#">Appendices</a>
+<span class="dropdown-content" id="nav-appendices">
+<a href="../bibliography/">Bibliography</a>
+<a href="../bonus/">Bonus Material</a>
+<a href="../syllabus/">Syllabus</a>
+<a href="../license/">License</a>
+<a href="../conduct/">Code of Conduct</a>
+<a href="../contrib/">Contributing</a>
+<a href="../glossary/">Glossary</a>
+</span>
+</span>
+</nav>
+<main>
+<h1>Concurrency</h1>
+<div class="syllabus">
+<ul>
+<li>FIXME</li>
+</ul>
+</div>
+<ul>
+<li><code>switch.py</code>: show task switching</li>
+<li><code>parent.py</code>: show greenlet ID and parentage</li>
+<li><code>classes.py</code>: use objects instead of bare functions<ul>
+<li>but <code>set_other</code> method is clumsy: how should we connect them?</li>
+</ul>
+</li>
+<li><code>scheduler.py</code>: a queue of runnable tasks is the parent of all tasks</li>
+<li><code>catch.py</code>: show that uncaught exceptions are caught by parent greenlet<ul>
+<li>error handling is the hardest part of concurrency</li>
+</ul>
+</li>
+<li><code>inject.py</code>: pass values into greenlets when resuming them<ul>
+<li>call to <code>.run</code> gets the first value passed in</li>
+<li><code>.switch</code> returns a value</li>
+<li>exercise: use <code>.throw</code> to raise an exception in a greenlet from the outside</li>
+</ul>
+</li>
+<li><code>resource.py</code>: busy-wait competition for shared resource<ul>
+<li>wasteful</li>
+</ul>
+</li>
+<li><code>wait.py</code>: resource keeps track of who is waiting and who is ready to run<ul>
+<li>all scheduling done by the scheduler</li>
+<li>if first attempt to acquire fails, acquire again when rescheduled</li>
+</ul>
+</li>
+</ul>
+</main>
+<footer>
+<div class="row">
+<div class="col-3 left">
+	  ⇐ <a href="../cache/">A File Cache</a>
+</div>
+<div class="col-6 center">
+<a href="../">Software Design by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale/">Conclusion</a> ⇒
+	</div>
+</div>
+</footer>
+</body>
+</html>

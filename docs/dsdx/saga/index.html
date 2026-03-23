@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>The Saga Pattern</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -55,9 +55,9 @@ what happens if the car rental fails but the flight and hotel are already reserv
 In a monolithic system you would roll back the entire transaction,
 but in a microservices architecture using separate databases for flights, hotels, and cars,
 traditional ACID transactions don't work.</p>
-<p>The <a href="../glossary/#saga">Saga pattern</a> solves this
+<p>The <a class="gl-ref" href="../glossary/#saga">Saga pattern</a> solves this
 by breaking long-running transactions into a sequence of local transactions,
-each with a <a href="../glossary/#compensation">compensating action</a> to undo its effects if the overall transaction fails.
+each with a <a class="gl-ref" href="../glossary/#compensation">compensating action</a> to undo its effects if the overall transaction fails.
 This enables distributed transactions without distributed locks,
 maintaining eventual consistency while handling failures gracefully.</p>
 <p>The pattern is a response to the fact that distributed transactions using two-phase commit don't scale.
@@ -571,7 +571,7 @@ undoing each completed step:</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed sagas: </span><span class="si">{</span><span class="n">orchestrator</span><span class="o">.</span><span class="n">sagas_failed</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_saga.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] FlightService started (seats: 10)
+<div data-inc="ex_saga.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] FlightService started (seats: 10)
 [0.0] HotelService started (rooms: 5)
 [0.0] CarRentalService started (cars: 3)
 [0.0] SagaOrchestrator started
@@ -682,7 +682,7 @@ Failed sagas: 4
 	  ⇐ <a href="../eventual/">Eventually Consistent Key-Value Store</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

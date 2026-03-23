@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>MapReduce Framework</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -50,7 +50,7 @@
 </nav>
 <main>
 <h1>MapReduce Framework</h1>
-<p><a href="../bibliography/#Dean2004">Dean2004</a> introduced the MapReduce framework,
+<p><a class="bib-ref" href="../bibliography/#Dean2004">Dean2004</a> introduced the MapReduce framework,
 which allowed programmers to perform many different data processing tasks
 by using two abstractions called (as you might guess) map and reduce.
 <a href="https://hadoop.apache.org/">Hadoop</a>, <a href="https://spark.apache.org/">Apache Spark</a>, and other tools
@@ -213,7 +213,7 @@ intermediate chunks will be reduced:</p>
 </div>
 <div class="callout">
 <p>The initial implementation of MapReduce contained a subtle bug.
-Python's built-in function <code>hash</code> generates a <a href="../glossary/#hash-code">hash code</a>
+Python's built-in function <code>hash</code> generates a <a class="gl-ref" href="../glossary/#hash-code">hash code</a>
 from a chunk of data.
 That value is partially randomized:
 it is the same within any run of a program,
@@ -563,7 +563,7 @@ Doing this can dramatically improve performance for operations like summation or
 MapReduce can accommodate this by launching backup copies of slow tasks.
 The first copy to complete wins,
 while others are discarded.
-This is called <a href="../glossary/#speculative-execution">speculative execution</a>,
+This is called <a class="gl-ref" href="../glossary/#speculative-execution">speculative execution</a>,
 and ensures that one slow worker doesn't delay the entire job.</p>
 <div data-inc="speculative_coordinator.py"><div class="codehilite"><pre class=""><span></span><code><span class="sd">"""MapReduce coordinator with speculative execution."""</span>
 
@@ -635,7 +635,7 @@ and ensures that one slow worker doesn't delay the entire job.</p>
 </code></pre></div>
 </div>
 <h2 id="mapreduce-fault">Fault Tolerance Simulation</h2>
-<p>A simple extension of speculative execution is <a href="../glossary/#fault-tolerance">fault tolerance</a>:
+<p>A simple extension of speculative execution is <a class="gl-ref" href="../glossary/#fault-tolerance">fault tolerance</a>:
 the framework automatically retries failed tasks,
 ensuring that computation completes despite failures.</p>
 <div data-inc="ex_fault_tolerance.py"><div class="codehilite"><pre class=""><span></span><code><span class="sd">"""Fault tolerance demonstration with worker failures."""</span>
@@ -752,7 +752,7 @@ so the examples produce the same output every time.</p>
 	  ⇐ <a href="../intro/">Introduction</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

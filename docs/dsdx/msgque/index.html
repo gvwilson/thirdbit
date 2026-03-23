@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>A Publish-Subscribe Message Queue</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -65,19 +65,19 @@ A publisher sends messages to a named topic without knowing who (if anyone) will
 Subscribers express interest in topics and then receive messages asynchronously,
 processing them at their own pace.</p>
 <p>This lesson shows how to build a message delivery service using
-the <a href="../glossary/#publish-subscribe">publish-subscribe pattern</a>.
-The <a href="../glossary/#message-broker">message broker</a> keeps track of which subscribers are interested in which topics.
+the <a class="gl-ref" href="../glossary/#publish-subscribe">publish-subscribe pattern</a>.
+The <a class="gl-ref" href="../glossary/#message-broker">message broker</a> keeps track of which subscribers are interested in which topics.
 When a message arrives,
 it delivers it to them.
-This is called <a href="../glossary/#fan-out">fan-out</a>:
+This is called <a class="gl-ref" href="../glossary/#fan-out">fan-out</a>:
 one message can reach many consumers.</p>
 <p>Publish-subscribe is popular because
-it <a href="../glossary/#decoupling">decouples</a> publishers and subscribers.
+it <a class="gl-ref" href="../glossary/#decoupling">decouples</a> publishers and subscribers.
 They don't need to know about each other:
 they only share knowledge of topic names,
 which allows us to add more of either without modifying existing code.
 In addition,
-the broker provides <a href="../glossary/#buffer">buffering</a>:
+the broker provides <a class="gl-ref" href="../glossary/#buffer">buffering</a>:
 if consumers are slow or temporarily unavailable,
 messages wait rather than being lost.</p>
 <h2 id="msgque-impl">Our Implementation</h2>
@@ -85,7 +85,7 @@ messages wait rather than being lost.</p>
 publishers that send messages,
 a broker that routes messages to topics,
 and subscribers that receive and process messages.
-We start by defining a <a href="../glossary/#dataclass">dataclass</a> to store a single message:</p>
+We start by defining a <a class="gl-ref" href="../glossary/#dataclass">dataclass</a> to store a single message:</p>
 <div data-filter="inc=message" data-inc="message.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Message</span><span class="p">:</span>
     <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span>
@@ -96,7 +96,7 @@ We start by defining a <a href="../glossary/#dataclass">dataclass</a> to store a
 </div>
 <p>Each message belongs to a topic like "orders" or "user-activity",
 and has some content, a unique ID, and a timestamp.
-Messages in a real system would contain structured data (e.g., as <a href="../glossary/#json">JSON</a>),
+Messages in a real system would contain structured data (e.g., as <a class="gl-ref" href="../glossary/#json">JSON</a>),
 but strings are sufficient for our example.</p>
 <p>The broker stores a dictionary called <code>topics</code> mapping topics to lists of queues:</p>
 <div data-filter="inc=broker" data-inc="broker.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MessageBroker</span><span class="p">:</span>
@@ -218,7 +218,7 @@ while <code>run()</code> creates the coroutine that defines the publisher's beha
 <p><code>Subscriber</code> uses <a href="https://asimpy.readthedocs.io/">asimpy</a>'s <code>FirstOf</code> to wait on multiple queues simultaneously.
 Whichever queue has a message first will complete,
 and all other requests will be canceled.
-This is more elegant than <a href="../glossary/#round-robin-polling">round-robin polling</a>.
+This is more elegant than <a class="gl-ref" href="../glossary/#round-robin-polling">round-robin polling</a>.
 Real implementations use event-driven APIs or threads,
 but <code>FirstOf</code> captures the same semantics.</p>
 </div>
@@ -253,7 +253,7 @@ but <code>FirstOf</code> captures the same semantics.</p>
 </code></pre></div>
 </div>
 <p>The output shows being published and consumed asynchronously:</p>
-<div data-filter="head=10 + tail=6" data-inc="ex_simple.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] OrderService publishing: Message 1 from OrderService
+<div data-filter="head=10 + tail=6" data-inc="ex_simple.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] OrderService publishing: Message 1 from OrderService
 [0.0] UserService publishing: Message 1 from UserService
 [0.0] Inventory received from 'orders': Message 1 from OrderService (latency: 0.0)
 [0.0] Email received from 'orders': Message 1 from OrderService (latency: 0.0)
@@ -283,7 +283,7 @@ demonstrating how subscribers can aggregate different event streams.</p>
 This works in simulation but fails in production:
 if publishers produce faster than subscribers consume,
 queues will eventually exhaust memory and crash the system.
-The solution is <a href="../glossary/#backpressure">backpressure</a>:
+The solution is <a class="gl-ref" href="../glossary/#backpressure">backpressure</a>:
 a mechanism where slow consumers signal upstream components to slow down.
 Backpressure is fundamental to building robust distributed systems.
 Without it, a single slow consumer can cause cascading failures.</p>
@@ -353,7 +353,7 @@ and returns <code>False</code> to signal backpressure to the publisher:</p>
 <p>Now we need a publisher that responds to backpressure.
 Its constructor needs two new parameters:
 a base interval to wait before re-trying a message,
-and a <a href="../glossary/#backoff-multiplier">backoff multiplier</a>
+and a <a class="gl-ref" href="../glossary/#backoff-multiplier">backoff multiplier</a>
 that tells it how to increase the interval if repeated attempts to publish fail:</p>
 <div data-filter="inc=init" data-inc="backpressure_publisher.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BackpressurePublisher</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Publisher that adapts to backpressure signals."""</span>
@@ -377,14 +377,14 @@ that tells it how to increase the interval if repeated attempts to publish fail:
 </code></pre></div>
 </div>
 <p>The publisher's <code>run()</code> method uses these two parameters to implement
-<a href="../glossary/#exponential-backoff">exponential backoff</a>,
+<a class="gl-ref" href="../glossary/#exponential-backoff">exponential backoff</a>,
 which is one of the most important concepts in distributed systems.
 If an attempt to publish a message fails,
 the publisher increases its interval between messages.
 If publishing succeeds,
 on the other hand,
 it gradually reduces the interval back to the base rate.
-This creates a <a href="../glossary/#negative-feedback-loop">negative feedback loop</a> that stabilizes the system under load.</p>
+This creates a <a class="gl-ref" href="../glossary/#negative-feedback-loop">negative feedback loop</a> that stabilizes the system under load.</p>
 <p>Let's see backpressure in action with one fast publisher,
 one that's slow,
 and and a deliberately small queue size:</p>
@@ -421,7 +421,7 @@ and and a deliberately small queue size:</p>
 but encounter backpressure as the slow subscriber's queue fills.
 The publisher adapts by slowing down,
 and the system reaches equilibrium where the publishing rate matches the consumption rate.</p>
-<div data-filter="head=10 + tail=7" data-inc="ex_backpressure.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] FastPublisher published: Message 1 from FastPublisher (interval: 0.5s)
+<div data-filter="head=10 + tail=7" data-inc="ex_backpressure.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] FastPublisher published: Message 1 from FastPublisher (interval: 0.5s)
 [0.0] SlowSubscriber received from 'events': Message 1 from FastPublisher (latency: 0.0)
 [0.5] FastPublisher published: Message 2 from FastPublisher (interval: 0.5s)
 [1.0] FastPublisher published: Message 3 from FastPublisher (interval: 0.5s)
@@ -489,20 +489,20 @@ we either evict a lower-priority message or discard the one that just arrived:</
         <span class="k">return</span> <span class="n">all_delivered</span>
 </code></pre></div>
 </div>
-<p>This implementation uses <a href="https://asimpy.readthedocs.io/">asimpy</a>'s <a href="../glossary/#priority-queue">priority queue</a> class
+<p>This implementation uses <a href="https://asimpy.readthedocs.io/">asimpy</a>'s <a class="gl-ref" href="../glossary/#priority-queue">priority queue</a> class
 to manage efficient eviction of low-priority messages.</p>
 <h2 id="msgque-delivery">Delivery Guarantees</h2>
 <p>Different message delivery systems provide different kinds of delivery guarantees:</p>
 <dl>
-<dt><a href="../glossary/#exactly-once">Exactly-once</a> delivery</dt>
+<dt><a class="gl-ref" href="../glossary/#exactly-once">Exactly-once</a> delivery</dt>
 <dd>This is the strongest guarantee: each message is processed exactly once.
 It is surprisingly difficult to achieve in distributed systems due to failures and network issues.</dd>
-<dt><a href="../glossary/#at-most-once">At-most-once</a> delivery</dt>
+<dt><a class="gl-ref" href="../glossary/#at-most-once">At-most-once</a> delivery</dt>
 <dd>This ensures that messages are delivered zero or one times,
 i.e., are never duplicated, but possibly lost.
 This is achieved by dropping messages when queues are full or when subscribers are unavailable.
 It's the weakest guarantee but the simplest and fastest to implement.</dd>
-<dt><a href="../glossary/#at-least-once">At-least-once</a> delivery</dt>
+<dt><a class="gl-ref" href="../glossary/#at-least-once">At-least-once</a> delivery</dt>
 <dd>This ensures every message is delivered, possibly multiple times.
 It acknowledgments: the broker keeps messages until subscribers confirm receipt.
 If a subscriber crashes before acknowledging,
@@ -580,7 +580,7 @@ Messages not acknowledged within the timeout are redelivered.</p>
 <h2 id="msgque-balance">Consumer Groups and Load Balancing</h2>
 <p>In production systems,
 multiple instances of the same subscriber type often share the workload.
-This is called a <a href="../glossary/#consumer-group">consumer group</a>:
+This is called a <a class="gl-ref" href="../glossary/#consumer-group">consumer group</a>:
 messages on a topic are distributed among group members rather than duplicated to each.
 Here's a simple implementation:</p>
 <div data-filter="inc=consumer" data-inc="consumer_group.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ConsumerGroup</span><span class="p">:</span>
@@ -631,8 +631,10 @@ Real systems use more sophisticated load balancing algorithms,
 such as weighted distribution,
 least-loaded routing,
 or partition-based assignment.</p>
+<section class="exercises">
 <h2 id="msgque-exercises">Exercises</h2>
 <p>FIXME: add exercises.</p>
+</section>
 </main>
 <footer>
 <div class="row">
@@ -640,7 +642,7 @@ or partition-based assignment.</p>
 	  ⇐ <a href="../mapreduce/">MapReduce</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

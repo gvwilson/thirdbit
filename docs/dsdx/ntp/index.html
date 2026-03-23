@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Network Time Protocol (NTP)</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -52,7 +52,7 @@
 <h1>Network Time Protocol (NTP)</h1>
 <p>In order for computers to coordinate actions,
 they must agree on what time it is.
-<a href="../glossary/#ntp">Network Time Protocol</a> (NTP) enables this
+<a class="gl-ref" href="../glossary/#ntp">Network Time Protocol</a> (NTP) enables this
 by giving computers a way to synchronize their clocks over a network with millisecond precision.
 NTP dates from 1985,
 but has survived largely unchanged because it works so well.</p>
@@ -102,7 +102,7 @@ delay = (t4 - t1) - (t3 - t2)
 <p>The offset tells you how to adjust your clock,
 while the delay tells you how reliable this measurement is
 (lower delays are more accurate).</p>
-<p>NTP organizes time servers into levels called <a href="../glossary/#ntp-stratum">strata</a>:
+<p>NTP organizes time servers into levels called <a class="gl-ref" href="../glossary/#ntp-stratum">strata</a>:
 Stratum 0 is reference clocks such as atomic clocks and GPS receivers.
 Stratum 1 includes servers directly connected to stratum 0, which act as primary time servers.
 Stratum 2 is servers that connect with stratum 1 servers, and so on.
@@ -343,7 +343,7 @@ which may differ from simulation time until synchronization occurs.</p>
 <p>The output shows clients starting with different clock offsets—some fast, some slow—and
 gradually converging toward the true time as they sync with the server.
 After a few iterations, all clients are within milliseconds of true time.</p>
-<div data-inc="ex_usage.txt"><div class="codehilite"><pre class=""><span></span><code>[5.000] client1.local: Sending sync request (local_time=7.500, offset=2.500)
+<div data-inc="ex_usage.out"><div class="codehilite"><pre class=""><span></span><code>[5.000] client1.local: Sending sync request (local_time=7.500, offset=2.500)
 [5.000] client2.local: Sending sync request (local_time=3.200, offset=-1.800)
 [5.101] time.example.com (stratum 1): Responding to request (t2=5.100, t3=5.101)
 [5.201] client1.local: Received response (offset=-2.500, delay=0.200)
@@ -574,7 +574,7 @@ which is perfectly adequate for log timestamps or cache expiration.</p>
 	  ⇐ <a href="../dns/">DNS</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

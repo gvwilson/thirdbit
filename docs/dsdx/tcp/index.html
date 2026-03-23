@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Building TCP on UDP</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -51,7 +51,7 @@
 <main>
 <h1>Building TCP on UDP</h1>
 <p>When you open a website, stream a video, or send an email,
-you're almost certainly using <a href="../glossary/#tcp">Transmission Control Protocol</a> (TCP).
+you're almost certainly using <a class="gl-ref" href="../glossary/#tcp">Transmission Control Protocol</a> (TCP).
 TCP provides reliable, ordered delivery of data over the internet,
 handling packet loss, reordering, and congestion automatically.
 But TCP itself runs on top of UDP,
@@ -698,7 +698,7 @@ This is simpler than selective acknowledgments and works well when most data arr
     <span class="n">server_conn</span><span class="o">.</span><span class="n">print_statistics</span><span class="p">()</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_basic.txt"><div class="codehilite"><pre class=""><span></span><code>## Basic TCP Demonstration
+<div data-inc="ex_basic.out"><div class="codehilite"><pre class=""><span></span><code>## Basic TCP Demonstration
 Testing TCP reliability with:
   - 15% packet loss
   - 10% packet reordering
@@ -815,7 +815,7 @@ TCP successfully delivers the complete message in order.</p>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Incomplete: </span><span class="si">{</span><span class="n">server_conn</span><span class="o">.</span><span class="n">bytes_received</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">expected_bytes</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_loss_recovery.txt"><div class="codehilite"><pre class=""><span></span><code>## High Loss TCP Scenario
+<div data-inc="ex_loss_recovery.out"><div class="codehilite"><pre class=""><span></span><code>## High Loss TCP Scenario
 Testing TCP robustness with extreme conditions:
   - 40% packet loss (!!)
   - 20% packet reordering
@@ -1018,7 +1018,7 @@ With 15% loss and 4-segment window:</p>
 	  ⇐ <a href="../saga/">The Saga Pattern</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

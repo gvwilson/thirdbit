@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Conflict-Free Replicated Data Types</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -57,14 +57,14 @@ Similarly,
 when one person edits a document offline and the reconnects,
 their changes are merged into the online version.
 Traditional approaches to managing this require locking or complex transformations.
-<a href="../glossary/#crdt">Conflict-Free Replicated Data Types</a> (CRDTs),
+<a class="gl-ref" href="../glossary/#crdt">Conflict-Free Replicated Data Types</a> (CRDTs),
 on the other hand,
 are designed so that concurrent updates on different replicas
 can always be merged automatically without conflicts,
 and all replicas eventually converge to the same state.
 Updates are always accepted immediately,
 and no locking or consensus protocol is needed.</p>
-<p>CRDTs guarantee <a href="../glossary/#strong-eventual-consistency">strong eventual consistency</a>,
+<p>CRDTs guarantee <a class="gl-ref" href="../glossary/#strong-eventual-consistency">strong eventual consistency</a>,
 which means three things:</p>
 <ol>
 <li>Eventual delivery: every update reaches every replica eventually.</li>
@@ -72,26 +72,26 @@ which means three things:</p>
 <li>No conflicts: concurrent updates can always be merged automatically.</li>
 </ol>
 <p>The insight that CRDTs rely on
-is that some operations are <a href="../glossary/#commutativity">commutative</a> and <a href="../glossary/#associativity">associative</a>.
+is that some operations are <a class="gl-ref" href="../glossary/#commutativity">commutative</a> and <a class="gl-ref" href="../glossary/#associativity">associative</a>.
 The first property means that order doesn't matter,
 i.e., that A+B = B+A.
 The second means that group doesnt' matter,
 so (A+B)+C = A+(B+C).
 If the merge operation for the data type has these properties,
 replicas can receive updates in any order and still converge to the same state.
-Some approaches to implementing CRDTs also require operations to be <a href="../glossary/#idempotence">idempotent</a>,
+Some approaches to implementing CRDTs also require operations to be <a class="gl-ref" href="../glossary/#idempotence">idempotent</a>,
 which means that the operation can be applied any number of times
 with the same cumulative effect
 (just as zero can be added to a number over and over).</p>
 <p>There are two approaches to building CRDTs.
-In a <a href="../glossary/#state-based-crdt">state-based CRDT</a>,
+In a <a class="gl-ref" href="../glossary/#state-based-crdt">state-based CRDT</a>,
 replicas send their entire state and merge those states.
 State-based CRDTs are simpler to reason about,
 but have higher network cost because the entire state must be sent for each operation.
 They also require merge operations to be commutative, associate, <em>and</em> idempotent.</p>
 <p>In contrast,
-the replicas in <a href="../glossary/#op-based-crdt">operation-based CRDTs</a> send each other <em>changes</em> in state
-(sometimes called <a href="../glossary/#delta">deltas</a>).
+the replicas in <a class="gl-ref" href="../glossary/#op-based-crdt">operation-based CRDTs</a> send each other <em>changes</em> in state
+(sometimes called <a class="gl-ref" href="../glossary/#delta">deltas</a>).
 This reduces the network overhead,
 but requires exactly-once delivery of operations.
 Those operations must commute,
@@ -99,7 +99,7 @@ but needn't be idempotent.
 We will implement both approaches to understand the trade-offs.</p>
 <h2 id="dxdx-lww">Last-Write-Wins Register</h2>
 <p>Let's start with the simplest CRDT:
-a <a href="../glossary/#lww-register">last-write-wins register</a>.
+a <a class="gl-ref" href="../glossary/#lww-register">last-write-wins register</a>.
 For values that should be overwritten (like a user's profile name),
 we can use timestamps to determine which write wins.</p>
 <div data-filter="inc=lww" data-inc="lwwregister.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
@@ -168,7 +168,7 @@ consider three replicas that randomly choose color values to share with peers:</
 </div>
 <p>If we run three replicas for 10 timesteps,
 the output is:</p>
-<div data-inc="ex_lwwregister.txt"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: set 'yellow'
+<div data-inc="ex_lwwregister.out"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: set 'yellow'
 [0] Baemi: set 'yellow'
 [0] Chiti: set 'yellow'
 [2] Ahmed: synced with Chiti -&gt; 'yellow'
@@ -208,7 +208,7 @@ but it also never preserves both sides of a concurrent update.
 This makes it a poor fit for situations where losing a write is costly,
 such as a shared to-do list where two people add items at the same time.</p>
 <h2 id="crdt-counter">Counters</h2>
-<p>Another CRDT is a <a href="../glossary/#grow-only-counter">grow-only counter</a>
+<p>Another CRDT is a <a class="gl-ref" href="../glossary/#grow-only-counter">grow-only counter</a>
 whose value can only increase.
 Each replica maintains a vector of counters, one per replica:</p>
 <div data-filter="inc=gcounter" data-inc="gcounter.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
@@ -286,7 +286,7 @@ they'll all converge to:</p>
 No increments are lost, regardless of sync order or timing.</p>
 <p>A grow-only counter is limited.
 What if we want to be able to decrement the value?
-A <a href="../glossary/#pn-counter">positive-negative counter</a>, or PN-Counter, uses two G-Counters:
+A <a class="gl-ref" href="../glossary/#pn-counter">positive-negative counter</a>, or PN-Counter, uses two G-Counters:
 one for increments, one for decrements.
 This works because increments and decrements are tracked separately.
 Each remains monotonically increasing, so the G-Counter merge properties still apply.</p>
@@ -430,7 +430,7 @@ concurrent add and remove operations result in the element being present.</p>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_orset.txt"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: add 'banana' -&gt; ['banana']
+<div data-inc="ex_orset.out"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: add 'banana' -&gt; ['banana']
 [0] Baemi: add 'banana' -&gt; ['banana']
 [0] Chiti: add 'cherry' -&gt; ['cherry']
 [2] Ahmed: synced with Chiti -&gt; ['banana', 'cherry']
@@ -555,7 +555,7 @@ skipping duplicates via <code>op_id</code>.
 As the output below shows,
 all replicas converge to the same value
 because every operation is delivered to every replica exactly once:</p>
-<div data-inc="ex_opbased_counter.txt"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: increment -&gt; 1
+<div data-inc="ex_opbased_counter.out"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: increment -&gt; 1
 [0] Baemi: increment -&gt; 1
 [0] Chiti: increment -&gt; 1
 [2] Ahmed: applied inbox -&gt; 3
@@ -581,13 +581,13 @@ OpCounter(id=Chiti, value=1)
 </code></pre></div>
 </div>
 <h2 id="crdt-partition">Network Partition Simulation</h2>
-<p>A <a href="../glossary/#network-partition">network partition</a> happens
+<p>A <a class="gl-ref" href="../glossary/#network-partition">network partition</a> happens
 when nodes in a distributed system temporarily can't communicate,
 which causes them to form isolated groups.
 As a result,
 messages sent from one part of the system may not reach another,
 effectively splitting the system into disconnected segments.</p>
-<p>One of CRDTs' key benefits is <a href="../glossary/#partition-tolerance">partition tolerance</a>.
+<p>One of CRDTs' key benefits is <a class="gl-ref" href="../glossary/#partition-tolerance">partition tolerance</a>.
 Let's simulate a network partition using the <code>GCounter</code> class defined earlier.
 First,
 we create a simple dataclass to represent peers in the network:</p>
@@ -762,7 +762,7 @@ at a particular time and for a particular duration:</p>
 </div>
 <p>As the output shows,
 the counter recovers from the partitioning:</p>
-<div data-inc="ex_partition.txt"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: increment -&gt; 1
+<div data-inc="ex_partition.out"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: increment -&gt; 1
 [0] Baemi: increment -&gt; 1
 [0] Chiti: increment -&gt; 1
 [2] Ahmed: synced with Chiti -&gt; 2
@@ -795,8 +795,10 @@ GCounter(id=Baemi, value=11, counts={'Baemi': 4, 'Chiti': 4, 'Ahmed': 3})
 GCounter(id=Chiti, value=12, counts={'Chiti': 4, 'Baemi': 4, 'Ahmed': 4})
 </code></pre></div>
 </div>
+<section class="exercises">
 <h2 id="crdt-exercises">Exercises</h2>
 <p>FIXME: add exercises.</p>
+</section>
 </main>
 <footer>
 <div class="row">
@@ -804,7 +806,7 @@ GCounter(id=Chiti, value=12, counts={'Chiti': 4, 'Baemi': 4, 'Ahmed': 4})
 	  ⇐ <a href="../tracing/">Distributed Tracing</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

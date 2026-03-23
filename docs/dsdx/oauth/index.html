@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>OAuth</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -54,7 +54,7 @@
 you're using <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>.
 This protocol has become the standard way for applications to access user data
 without ever seeing the user's password.
-Understanding it is essential for understanding <a href="../glossary/#single-sign-on">single sign-on</a>,
+Understanding it is essential for understanding <a class="gl-ref" href="../glossary/#single-sign-on">single sign-on</a>,
 API access control,
 and third-party integrations on the internet.</p>
 <p>OAuth solves a fundamental problem:
@@ -62,7 +62,7 @@ how do you give a third-party application limited access to your account without
 Before the protocol was developed,
 users had to give their username and password to every app,
 which created security nightmares.
-OAuth introduced the concept of time-limited credentials called <a href="../glossary/#oauth-token">tokens</a>
+OAuth introduced the concept of time-limited credentials called <a class="gl-ref" href="../glossary/#oauth-token">tokens</a>
 with specific scopes that can be revoked without changing your password.</p>
 <h2 id="oauth-flow">The OAuth Flow</h2>
 <p>OAuth involves four parties working together.
@@ -102,8 +102,8 @@ we need to understand the data types they exchange.</p>
 </div>
 <p>The six message dataclasses come in three request-response pairs,
 one for each phase of the protocol.
-<code>AuthorizationRequest</code> carries the client's identity, the desired <a href="../glossary/#oauth-scope">scope</a>,
-and a <code>state</code> token for <a href="../glossary/#csrf">cross-site request forgery</a> (CSRF) protection.
+<code>AuthorizationRequest</code> carries the client's identity, the desired <a class="gl-ref" href="../glossary/#oauth-scope">scope</a>,
+and a <code>state</code> token for <a class="gl-ref" href="../glossary/#csrf">cross-site request forgery</a> (CSRF) protection.
 <code>TokenRequest</code> carries the one-time code along with the client's own credentials
 so the authorization server can verify who it is talking to.
 <code>ResourceRequest</code> carries the access token so the resource server can check
@@ -226,7 +226,7 @@ Both have an <code>is_valid</code> method that encapsulates this check:</p>
 <p>The authorization code is short-lived (typically 10 minutes),
 while access tokens last longer (often 1 hour).</p>
 <h2 id="oauth-authserver">Authorization Server</h2>
-<p>The authorization server is the <a href="../glossary/#trust-anchor">trust anchor</a> of OAuth:
+<p>The authorization server is the <a class="gl-ref" href="../glossary/#trust-anchor">trust anchor</a> of OAuth:
 it verifies the user's identity, obtains consent, and issues tokens.
 Its <code>init</code> method creates two incoming queues and three dictionaries
 for tracking registered clients, issued codes, and active tokens:</p>
@@ -745,7 +745,7 @@ the user authentication pause,
 the code exchange,
 and finally the resource access attempts—including the denied request for <code>messages</code>,
 which the client was never granted permission to read.</p>
-<div data-inc="ex_basic_oauth.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Authorization Server started
+<div data-inc="ex_basic_oauth.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Authorization Server started
 [0.0] Resource Server started
 [0.0] Registered client: photo_app
 [0.0] Client 'photo_app' started
@@ -809,7 +809,7 @@ or a user can revoke a token in order to do things like sign out of all devices.
 	  ⇐ <a href="../crdt/">Conflict-Free Replicated Data Types</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

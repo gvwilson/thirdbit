@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Domain Name System (DNS)</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -53,7 +53,7 @@
 <p>Every time you visit a website or send an email,
 your computer translates a human-readable name like "www.example.com"
 into an IP addresses like "192.0.2.1".
-<a href="../glossary/#dns">Domain Name System</a> (DNS) is what makes this possible.
+<a class="gl-ref" href="../glossary/#dns">Domain Name System</a> (DNS) is what makes this possible.
 DNS is a distributed database,
 and is one of the internet's most critical infrastructure components.
 Among other things,
@@ -66,11 +66,11 @@ Instead of one central server knowing all domain names,
 which couldn't possibly scale,
 the work is distributed across millions of servers organized in a tree structure:</p>
 <ul>
-<li>13 <a href="../glossary/#root-server">root servers</a>
+<li>13 <a class="gl-ref" href="../glossary/#root-server">root servers</a>
     (though there are actually many more physical servers).</li>
-<li><a href="../glossary/#tld">Top-level domain</a> (TLD) servers for <code>.com</code>, <code>.org</code>, <code>.net</code>, etc.</li>
+<li><a class="gl-ref" href="../glossary/#tld">Top-level domain</a> (TLD) servers for <code>.com</code>, <code>.org</code>, <code>.net</code>, etc.</li>
 <li>Authoritative name servers specific to each domain like <code>example.com</code>.</li>
-<li><a href="../glossary/#recursive-resolver">Recursive resolvers</a>,
+<li><a class="gl-ref" href="../glossary/#recursive-resolver">Recursive resolvers</a>,
     such as your ISP's DNS server or public DNS like 8.8.8.8.</li>
 </ul>
 <p>When you look up <code>www.example.com</code>, your computer asks a recursive resolver, which may:</p>
@@ -86,7 +86,7 @@ Instead,
 each server knows its piece of the hierarchy and where to find the next level.</p>
 <p>DNS would be unusably slow if every lookup required multiple round-trips through the hierarchy.
 The solution is caching:
-resolvers remember answers for a period referred to as <a href="../glossary/#ttl">Time to Live</a> (TTL).
+resolvers remember answers for a period referred to as <a class="gl-ref" href="../glossary/#ttl">Time to Live</a> (TTL).
 Popular domains like wikipedia.org are cached at every level
 so that most queries are answered from cache in milliseconds.
 This ensures that root servers handle surprisingly few queries
@@ -508,7 +508,7 @@ and the cache hit rate improves as the simulation runs.
 In other words,
 the first user to look up a domain pays the full resolution cost,
 but subsequent users (or repeated lookups) get instant responses.</p>
-<div data-inc="ex_usage.txt"><div class="codehilite"><pre class=""><span></span><code>[0.000] client1.local: Looking up www.example.com (A)
+<div data-inc="ex_usage.out"><div class="codehilite"><pre class=""><span></span><code>[0.000] client1.local: Looking up www.example.com (A)
 [0.000] resolver.isp.net: Received query for www.example.com (A)
 [0.000] resolver.isp.net: Cache MISS for www.example.com
 [0.000] ns1.example.com: Query for www.example.com (A) -&gt; 0 record(s)
@@ -560,7 +560,7 @@ Its output shows how the cache hit rate increases over time as more domains get 
     Real clients choose among them.</p>
 </li>
 <li>
-<p><a href="../glossary/#negative-cache">Negative caching</a>:
+<p><a class="gl-ref" href="../glossary/#negative-cache">Negative caching</a>:
     DNS caches "this domain doesn't exist" responses to avoid repeatedly querying for non-existent domains.</p>
 </li>
 <li>
@@ -578,7 +578,7 @@ Its output shows how the cache hit rate increases over time as more domains get 
 however,
 is security.
 DNS was designed without it;
-<a href="../glossary/#dnssec">DNSSEC</a> adds cryptographic signatures to prevent spoofing and cache poisoning.</p>
+<a class="gl-ref" href="../glossary/#dnssec">DNSSEC</a> adds cryptographic signatures to prevent spoofing and cache poisoning.</p>
 </main>
 <footer>
 <div class="row">
@@ -586,7 +586,7 @@ DNS was designed without it;
 	  ⇐ <a href="../tcp/">TCP</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

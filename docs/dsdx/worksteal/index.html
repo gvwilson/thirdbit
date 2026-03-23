@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>A Work-Stealing Scheduler</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -55,15 +55,15 @@ When you have hundreds or thousands of tasks to execute and a handful of CPU cor
 A naïve approach is to use a single queue,
 but this creates a bottleneck,
 since every worker must compete for access to that queue.</p>
-<p>A <a href="../glossary/#work-stealing">work-stealing</a> scheduler solves this problem through decentralization.
-Each worker maintains a local <a href="../glossary/#deque">deque</a> of tasks.
+<p>A <a class="gl-ref" href="../glossary/#work-stealing">work-stealing</a> scheduler solves this problem through decentralization.
+Each worker maintains a local <a class="gl-ref" href="../glossary/#deque">deque</a> of tasks.
 Workers execute tasks from one end of their own deque,
 but if a worker runs out of tasks it can take some from the other end of another worker's deque.
-This design minimizes <a href="../glossary/#contention">contention</a> while providing some <a href="../glossary/#load-balancing">load balancing</a>,
+This design minimizes <a class="gl-ref" href="../glossary/#contention">contention</a> while providing some <a class="gl-ref" href="../glossary/#load-balancing">load balancing</a>,
 and appears throughout high-performance computing.
 <a href="https://golang.org/s/go11sched">Go's runtime scheduler</a> uses is to distribute goroutines across threads,
 Java's <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/forkjoin.html">fork/join framework</a> enables parallel divide-and-conquer algorithms,
-and <a href="https://tokio.rs/blog/2019-10-scheduler">Tokio</a> (Rust's async runtime) uses it to schedule <a href="../glossary/#future">futures</a> across worker threads.</p>
+and <a href="https://tokio.rs/blog/2019-10-scheduler">Tokio</a> (Rust's async runtime) uses it to schedule <a class="gl-ref" href="../glossary/#future">futures</a> across worker threads.</p>
 <h2 id="worksteal-pattern">The Work-Stealing Pattern</h2>
 <p>A work-stealing system has five parts:</p>
 <ol>
@@ -262,7 +262,7 @@ in order to spread the load as evenly as possible:</p>
 </div>
 <p>The output shows workers executing tasks and stealing from each other when they run out of local work.
 The steal rate shows how much load balancing occurred:</p>
-<div data-filter="head=10 + tail=7" data-inc="ex_basic_ws.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Submitted T1 to Worker 2
+<div data-filter="head=10 + tail=7" data-inc="ex_basic_ws.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Submitted T1 to Worker 2
 [0.0] Submitted T2 to Worker 2
 [0.0] Submitted T3 to Worker 0
 [0.0] Submitted T4 to Worker 1
@@ -284,7 +284,7 @@ Worker 2: executed=3, stolen=0, queue=0
 </div>
 <h2 id="worksteal-spawn">Nested Task Spawning</h2>
 <p>A common extension of work-stealing is
-to support <a href="../glossary/#divide-and-conquer">divide-and-conquer</a> algorithms
+to support <a class="gl-ref" href="../glossary/#divide-and-conquer">divide-and-conquer</a> algorithms
 by allowing tasks to spawn subtasks.
 To explore this,
 we can create a task generator:</p>
@@ -365,7 +365,7 @@ we can create a task generator:</p>
 </div>
 <p>Its output shows that spawning helps balance the load
 even with irregular task creation:</p>
-<div data-filter="head=20 + tail=8" data-inc="ex_spawning.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Submitted T1 to Worker 1
+<div data-filter="head=20 + tail=8" data-inc="ex_spawning.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Submitted T1 to Worker 1
 [0.1] Worker 0: Stole T1 from Worker 1
 [0.1] Worker 0: Executing T1
 [0.5] Submitted T2 to Worker 1
@@ -438,7 +438,7 @@ that steals tasks from the largest of its peers' queues:</p>
 </div>
 <p>Unsurprisingly,
 this leads to better load balancing:</p>
-<div data-filter="head=20 + tail=8" data-inc="ex_adaptive.txt"><div class="codehilite"><pre class=""><span></span><code>Initial load distribution:
+<div data-filter="head=20 + tail=8" data-inc="ex_adaptive.out"><div class="codehilite"><pre class=""><span></span><code>Initial load distribution:
   Worker 0: 12 tasks
   Worker 1: 1 tasks
   Worker 2: 2 tasks
@@ -470,13 +470,13 @@ Worker 3: executed=4, stolen=4, queue=0
 </code></pre></div>
 </div>
 <h2 id="worksteal-granularity">Task Granularity</h2>
-<p>The <a href="../glossary/#granularity">granularity</a> of tasks—i.e.,
+<p>The <a class="gl-ref" href="../glossary/#granularity">granularity</a> of tasks—i.e.,
 how much work is in each one—has a big impact on performance.
 Many small tasks create lots of scheduling overhead,
 while a few large tasks cause load imbalance.
 Using the code we have written so far,
 we can easily experiment with the effect of changing task size:</p>
-<div data-inc="ex_granularity.txt"><div class="codehilite"><pre class=""><span></span><code>=== Performance Analysis ===
+<div data-inc="ex_granularity.out"><div class="codehilite"><pre class=""><span></span><code>=== Performance Analysis ===
 Granularity: 0.1s
 Total work: 50.0s
 Wall time: 13.00s
@@ -528,10 +528,12 @@ Worker 3: executed=6, stolen=0, queue=0
 <p>Our implementations demonstrate the core concepts of work stealing,
 but production systems go further.
 In particular,
-they try to prevent <a href="../glossary/#livelock">livelock</a> by limiting how long a worker searches for victims,
+they try to prevent <a class="gl-ref" href="../glossary/#livelock">livelock</a> by limiting how long a worker searches for victims,
 and use exponential backoff rather than spinning continuously when trying to steal work.</p>
+<section class="exercises">
 <h2 id="worksteal-exercises">Exercises</h2>
 <p>FIXME: add exercises.</p>
+</section>
 </main>
 <footer>
 <div class="row">
@@ -539,7 +541,7 @@ and use exponential backoff rather than spinning continuously when trying to ste
 	  ⇐ <a href="../msgque/">A Publish-Subscribe Message Queue</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

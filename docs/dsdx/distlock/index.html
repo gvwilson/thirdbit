@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Distributed Lock Manager</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -58,10 +58,10 @@ not zero, and not two.
 Similarly,
 when multiple workers process jobs from a queue,
 each job should be handled by exactly one worker.</p>
-<p>These coordination problems all require <a href="../glossary/#mutual-exclusion">mutual exclusion</a>:
+<p>These coordination problems all require <a class="gl-ref" href="../glossary/#mutual-exclusion">mutual exclusion</a>:
 ensuring that only one process holds a lock at any given time.
 This is straightforward on a single machine,
-since operating systems provide <a href="../glossary/#mutex">mutexes</a> and <a href="../glossary/#semaphore">semaphores</a>.
+since operating systems provide <a class="gl-ref" href="../glossary/#mutex">mutexes</a> and <a class="gl-ref" href="../glossary/#semaphore">semaphores</a>.
 But a distributed system does not have shared memory,
 processes can fail independently,
 network messages can be delayed or lost,
@@ -88,16 +88,16 @@ to ensure lock state remains consistent across multiple lock servers.</p>
 <li>Process A wakes up, still believing it holds the lock.</li>
 <li>Both A and B now access the resource, violating mutual exclusion.</li>
 </ol>
-<p>This is called a <a href="../glossary/#split-brain">split-brain scenario</a>.
+<p>This is called a <a class="gl-ref" href="../glossary/#split-brain">split-brain scenario</a>.
 To prevent it,
 we'll build a distributed lock manager with three main components:</p>
 <ol>
 <li>Lock servers that maintain lock state and coordinate through consensus.</li>
 <li>Clients that acquire and release locks.</li>
-<li><a href="../glossary/#fencing-token">Fencing tokens</a> that prevent stale lock holders from accessing resources.</li>
+<li><a class="gl-ref" href="../glossary/#fencing-token">Fencing tokens</a> that prevent stale lock holders from accessing resources.</li>
 </ol>
-<p>Our system will use <a href="../glossary/#lease-based-lock">lease-based locks</a>:
-when a client acquires a lock, it receives a <a href="../glossary/#lease">lease</a> that expires after a timeout.
+<p>Our system will use <a class="gl-ref" href="../glossary/#lease-based-lock">lease-based locks</a>:
+when a client acquires a lock, it receives a <a class="gl-ref" href="../glossary/#lease">lease</a> that expires after a timeout.
 The client must periodically renew the lease to keep the lock.
 If it fails or becomes partitioned,
 its lease expires and the lock becomes available.</p>
@@ -235,7 +235,7 @@ then grants the lock or renews it if the same client is asking again:</p>
 </div>
 <h2 id="distlock-client">Lock Clients</h2>
 <p>Clients acquire locks,
-do work in <a href="../glossary/#critical-section">critical sections</a>,
+do work in <a class="gl-ref" href="../glossary/#critical-section">critical sections</a>,
 and release locks.
 The client class's constructor stores connection details and tracks the current fencing token:</p>
 <div data-filter="inc=client_init" data-inc="lock_client.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LockClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
@@ -333,7 +333,7 @@ The client class's constructor stores connection details and tracks the current 
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_basic.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Server1: Granted lock on database to Client1 (token 1)
+<div data-inc="ex_basic.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Server1: Granted lock on database to Client1 (token 1)
 [0.0] Client1: Starting critical section (token 1)
 [0.0] Client2: Failed to acquire lock
 [0.0] Client3: Failed to acquire lock
@@ -396,7 +396,7 @@ Let's create a client that fails on purpose:</p>
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_failure.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Server1: Granted lock on database to FailClient (token 1)
+<div data-inc="ex_failure.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Server1: Granted lock on database to FailClient (token 1)
 [0.0] FailClient: Starting work
 [0.0] Client2: Failed to acquire lock
 [1.0] FailClient: CRASHED!
@@ -580,7 +580,7 @@ the client passes the fencing token so the resource can reject stale requests:</
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_fencing.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Server1: Granted lock on db_lock to Client1 (token 1)
+<div data-inc="ex_fencing.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Server1: Granted lock on db_lock to Client1 (token 1)
 [0.0] Client1: Acquired lock (token 1)
 [0.0] Client1: Pausing for 5.0s
 [5.0] Client1: Resuming
@@ -727,7 +727,7 @@ The replicated manager holds references to all lock server replicas and a config
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_replicated.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Server1: Granted lock on resource to Client1 (token 1)
+<div data-inc="ex_replicated.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Server1: Granted lock on resource to Client1 (token 1)
 [0.0] Server2: Granted lock on resource to Client1 (token 1)
 [0.0] Server3: Granted lock on resource to Client1 (token 1)
 [0.0] Lock acquired by Client1 (3/3 servers, token 1)
@@ -779,7 +779,7 @@ but production distributed lock managers need additional features:</p>
 	  ⇐ <a href="../oauth/">OAuth</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>

@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Eventually Consistent Key-Value Store</title>
-<link href="../static/favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="../static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <nav>
-<a href="../">Home</a>
+<a href="../">Distributed Systems Design by Example</a>
       ·
       <span class="dropdown">
 <a href="#">Lessons</a>
@@ -566,7 +566,7 @@ it resolves using last-write-wins but merges all clocks to capture the complete 
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_basic.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Node2: Wrote X = 1 with clock {Node2:1}
+<div data-inc="ex_basic.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Node2: Wrote X = 1 with clock {Node2:1}
 [0.0] Node3: Wrote X = 1 with clock {Node3:1}
 [0.0] Node1: Wrote X = 1 with clock {Node1:1}
 [0.0] Client1: Wrote X = 1
@@ -633,7 +633,7 @@ it resolves using last-write-wins but merges all clocks to capture the complete 
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_conflict.txt"><div class="codehilite"><pre class=""><span></span><code>[0.0] Node5: Wrote cart = ['item1'] with clock {Node5:1}
+<div data-inc="ex_conflict.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Node5: Wrote cart = ['item1'] with clock {Node5:1}
 [0.0] Node1: Wrote cart = ['item1'] with clock {Node1:1}
 [0.0] Node2: Wrote cart = ['item1'] with clock {Node2:1}
 [0.0] Client1: Wrote cart = ['item1']
@@ -924,7 +924,7 @@ Over time, this brings all replicas into sync.</p>
 	  ⇐ <a href="../torrent/">BitTorrent</a>
 </div>
 <div class="col-6 center">
-<a href="../"></a>
+<a href="../">Distributed Systems Design by Example</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
