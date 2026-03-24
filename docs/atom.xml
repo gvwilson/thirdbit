@@ -3,12 +3,228 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-03-15T00:00:00Z</updated>
+ <updated>2026-03-24T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Accessibility Improvements</title>
+   <link href="https://third-bit.com/2026/03/24/accessibility-improvements/"/>
+   <updated>2026-03-24T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/03/24/accessibility-improvements/</id>
+   <content type="html">&lt;p&gt;I&amp;rsquo;ve made some improvements to the accessibility of
+&lt;a href=&#34;https://third-bit.com/dsdx/&#34;&gt;&lt;em&gt;Distributed Systems Design by Example&lt;/em&gt;&lt;/a&gt;
+and the &lt;a href=&#34;https://third-bit.com/sdxjs/&#34;&gt;JavaScript&lt;/a&gt; and &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;Python&lt;/a&gt; version of
+&lt;em&gt;Software Design by Example&lt;/em&gt;:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Link color contrast&lt;/dt&gt;
+&lt;dd&gt;Unvisited (&lt;code&gt;#0066ff&lt;/code&gt;) and visited (&lt;code&gt;#0000ff&lt;/code&gt;) link colors were nearly identical, and hover was the same as visited, giving users no visual feedback on link state.&lt;br&gt; Changed &lt;code&gt;--color-link-visited&lt;/code&gt; to &lt;code&gt;#6600cc&lt;/code&gt; (purple) — the conventional color for visited links — and added &lt;code&gt;text-decoration: underline&lt;/code&gt; on hover.&lt;/dd&gt;
+&lt;dt&gt;Keyboard focus indicator&lt;/dt&gt;
+&lt;dd&gt;No &lt;code&gt;:focus&lt;/code&gt; styles existed anywhere in the stylesheet, leaving keyboard and switch-device users with no visible indicator of the focused element.&lt;br&gt; Added &lt;code&gt;:focus-visible { outline: 2px solid var(--color-link-unvisited); outline-offset: 2px; }&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Dark mode support&lt;/dt&gt;
+&lt;dd&gt;The entire color palette was hardcoded for light mode, giving users with a dark-mode OS preference a jarring white background.&lt;br&gt; Added a &lt;code&gt;@media (prefers-color-scheme: dark)&lt;/code&gt; block overriding &lt;code&gt;--color-page&lt;/code&gt;, &lt;code&gt;--color-highlight&lt;/code&gt;, &lt;code&gt;--color-decorate&lt;/code&gt;, &lt;code&gt;--color-text&lt;/code&gt;, and both link colors. Also added two &lt;code&gt;&amp;lt;meta name=&#34;theme-color&#34;&amp;gt;&lt;/code&gt; tags to the template for browser chrome tinting.&lt;/dd&gt;
+&lt;dt&gt;Active page indicator in nav&lt;/dt&gt;
+&lt;dd&gt;The nav dropdown had no visual indication of the current page.&lt;br&gt; Added &lt;code&gt;.dropdown-content a.active { font-weight: bold; text-decoration: underline; }&lt;/code&gt;. The template and build context were updated to emit &lt;code&gt;class=&#34;active&#34;&lt;/code&gt; on the matching nav link (see template and build sections below).&lt;/dd&gt;
+&lt;dt&gt;Keyboard-inaccessible dropdowns&lt;/dt&gt;
+&lt;dd&gt;Nav dropdowns only opened on &lt;code&gt;:hover&lt;/code&gt;, making them unreachable by keyboard.&lt;br&gt; Added &lt;code&gt;.dropdown:focus-within .dropdown-content { display: block; }&lt;/code&gt; so dropdowns open when any descendant receives focus.&lt;/dd&gt;
+&lt;dt&gt;Justified table text&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;table { text-align: justify; }&lt;/code&gt; creates uneven word spacing harmful to readers with dyslexia (WCAG 1.4.8).&lt;br&gt; Changed to &lt;code&gt;text-align: left&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Blockquote visual differentiation&lt;/dt&gt;
+&lt;dd&gt;The blockquote left border used color alone to convey meaning (WCAG 1.4.1). Padding was also absent top and bottom.&lt;br&gt; Added &lt;code&gt;padding-top&lt;/code&gt;/&lt;code&gt;padding-bottom: var(--len-half)&lt;/code&gt; and &lt;code&gt;font-style: italic&lt;/code&gt; to provide a second non-color cue.&lt;/dd&gt;
+&lt;dt&gt;Callout/syllabus visual differentiation&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;div.callout&lt;/code&gt; and &lt;code&gt;div.syllabus&lt;/code&gt; used only a background color to distinguish them from prose; background color alone fails WCAG 1.4.1.&lt;br&gt; Added &lt;code&gt;border-left: solid var(--len-thick) var(--color-decorate)&lt;/code&gt; to both.&lt;/dd&gt;
+&lt;dt&gt;Figure caption alignment&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;figure { text-align: center; }&lt;/code&gt; cascaded to captions, making long caption text hard to read.&lt;br&gt; Added &lt;code&gt;figcaption { text-align: left; max-width: 90%; margin: 0 auto; }&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Images overflow on narrow viewports&lt;/dt&gt;
+&lt;dd&gt;No base &lt;code&gt;max-width&lt;/code&gt; rule on &lt;code&gt;img&lt;/code&gt; meant images could overflow their containers on narrow screens.&lt;br&gt; Added &lt;code&gt;img { max-width: 100%; height: auto; }&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Decorative border contrast&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;--color-decorate: #808080&lt;/code&gt; on &lt;code&gt;--color-page: #f8f8f8&lt;/code&gt; gives ~3.9:1 contrast — marginal for WCAG 1.4.11 (UI components require 3:1, but the margin was uncomfortably thin).&lt;br&gt; Darkened &lt;code&gt;--color-decorate&lt;/code&gt; to &lt;code&gt;#606060&lt;/code&gt; in light mode (~5.7:1 against &lt;code&gt;#f8f8f8&lt;/code&gt;).&lt;/dd&gt;
+&lt;dt&gt;Table caption placement&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;caption-side: bottom&lt;/code&gt; placed captions after the table visually but before it in DOM order, creating a mismatch between visual and screen-reader reading order.&lt;br&gt; Changed to &lt;code&gt;caption-side: top; text-align: left&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;List indentation too narrow&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;padding-left: 1rem&lt;/code&gt; (~16 px) left almost no visual separation between bullets and surrounding text, harming readability for users with cognitive disabilities.&lt;br&gt; Increased to &lt;code&gt;padding-left: 1.5rem&lt;/code&gt; for both &lt;code&gt;ol&lt;/code&gt; and &lt;code&gt;ul&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Weak focus ring on scrollable code blocks&lt;/dt&gt;
+&lt;dd&gt;The generic &lt;code&gt;:focus-visible&lt;/code&gt; rule gives a 2 px outline which can be hard to see against the &lt;code&gt;--color-highlight&lt;/code&gt; background of &lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; elements that also have &lt;code&gt;tabindex=&#34;0&#34;&lt;/code&gt;.&lt;br&gt; Added &lt;code&gt;pre:focus-visible { outline: 3px solid var(--color-link-unvisited); outline-offset: 2px; }&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Glossary link label visible to all users&lt;/dt&gt;
+&lt;dd&gt;The &lt;code&gt;a.gl-ref::after&lt;/code&gt; rule emitting &amp;ldquo;(glossary)&amp;rdquo; was visible to sighted users, cluttering inline text.&lt;br&gt; Applied the standard visually-hidden pattern (&lt;code&gt;position: absolute; width/height: 1px; clip: rect(0,0,0,0); clip-path: inset(50%); overflow: hidden; white-space: nowrap&lt;/code&gt;) so the label is present in the accessibility tree but not rendered visually.&lt;/dd&gt;
+&lt;dt&gt;Italic cascades into blockquote headings&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;blockquote { font-style: italic }&lt;/code&gt; cascaded to any &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;–&lt;code&gt;&amp;lt;h3&amp;gt;&lt;/code&gt; inside a blockquote, producing oddly-styled italic headings.&lt;br&gt; Added &lt;code&gt;blockquote h1, blockquote h2, blockquote h3 { font-style: normal; }&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Definition list (&lt;code&gt;&amp;lt;dd&amp;gt;&lt;/code&gt;) has no spacing&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;lt;dd&amp;gt;&lt;/code&gt; elements had no left indent or bottom margin, making definition lists read as a wall of text.&lt;br&gt; Added &lt;code&gt;dd { margin-left: 1.5rem; margin-bottom: var(--len-half); }&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Empty &lt;code&gt;section.exercises&lt;/code&gt; rule removed&lt;/dt&gt;
+&lt;dd&gt;The rule existed with no declarations, and &lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt; landmark elements had no accessible name.&lt;br&gt; Removed the empty rule. Section labelling is now handled in the build pipeline (see build section below).&lt;/dd&gt;
+&lt;dt&gt;Dark mode text color hardcoded&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;body { color: #e8e8e8 }&lt;/code&gt; was set directly in the dark-mode media query rather than via a variable, making the color system inconsistent and hard to override.&lt;br&gt; Added &lt;code&gt;--color-text: #1a1a1a&lt;/code&gt; to the light-mode &lt;code&gt;:root&lt;/code&gt; block, overridden to &lt;code&gt;#e8e8e8&lt;/code&gt; in the dark-mode block. &lt;code&gt;body&lt;/code&gt; now uses &lt;code&gt;color: var(--color-text)&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Skip-to-main-content link&lt;/dt&gt;
+&lt;dd&gt;Keyboard users had to tab through all navigation links on every page before reaching content.&lt;br&gt; Added &lt;code&gt;&amp;lt;a class=&#34;skip-link&#34; href=&#34;#main-content&#34;&amp;gt;Skip to main content&amp;lt;/a&amp;gt;&lt;/code&gt; as the first element in &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;, and &lt;code&gt;id=&#34;main-content&#34;&lt;/code&gt; on &lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt;. The &lt;code&gt;.skip-link&lt;/code&gt; is visually hidden until focused, at which point it slides into view.&lt;/dd&gt;
+&lt;dt&gt;Page title and active nav&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/code&gt; was always empty. Nav links had no indication of the current page.&lt;br&gt;
+- Title: &lt;code&gt;&amp;lt;title&amp;gt;{% if title %}{{ title }} · {% endif %}{{ book_title }}&amp;lt;/title&amp;gt;&lt;/code&gt;
+- Active nav: loop variable renamed from &lt;code&gt;slug&lt;/code&gt; to &lt;code&gt;s&lt;/code&gt;; &lt;code&gt;class=&#34;active&#34;&lt;/code&gt; emitted when &lt;code&gt;s == current_slug&lt;/code&gt;. Both &lt;code&gt;build.py&lt;/code&gt; and the template were updated.&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;&amp;lt;nav&amp;gt;&lt;/code&gt; landmark label&lt;/dt&gt;
+&lt;dd&gt;The &lt;code&gt;&amp;lt;nav&amp;gt;&lt;/code&gt; element had no &lt;code&gt;aria-label&lt;/code&gt;, making it indistinguishable from other nav regions in assistive technology landmark navigation.&lt;br&gt; Added &lt;code&gt;aria-label=&#34;Site navigation&#34;&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Nav separator read aloud&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;amp;middot;&lt;/code&gt; separators between nav items were read as &amp;ldquo;middle dot&amp;rdquo; by screen readers.&lt;br&gt; Wrapped each in &lt;code&gt;&amp;lt;span aria-hidden=&#34;true&#34;&amp;gt;&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Footer arrow decorations read aloud&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;amp;#8656;&lt;/code&gt; (⇐) and &lt;code&gt;&amp;amp;#8658;&lt;/code&gt; (⇒) in the footer prev/next links were read as &amp;ldquo;leftwards double arrow&amp;rdquo; / &amp;ldquo;rightwards double arrow&amp;rdquo;.&lt;br&gt; Wrapped each in &lt;code&gt;&amp;lt;span aria-hidden=&#34;true&#34;&amp;gt;&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Dropdown triggers are links, not buttons&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;lt;a href=&#34;#&#34;&amp;gt;&lt;/code&gt; navigates to the page top if activated (wrong semantic); buttons trigger actions. There was also no &lt;code&gt;aria-haspopup&lt;/code&gt; hint.&lt;br&gt; Changed both dropdown triggers to &lt;code&gt;&amp;lt;button aria-haspopup=&#34;true&#34;&amp;gt;&lt;/code&gt;. CSS was updated to reset button appearance and apply the same styles as the former &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; triggers.&lt;/dd&gt;
+&lt;dt&gt;Language attribute hardcoded&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;lt;html lang=&#34;en&#34;&amp;gt;&lt;/code&gt; was a literal string, making it impossible to publish a non-English book without manually editing the template.&lt;br&gt; Changed to &lt;code&gt;&amp;lt;html lang=&#34;{{ lang|default(&#39;en&#39;) }}&#34;&amp;gt;&lt;/code&gt;. &lt;code&gt;build.py&lt;/code&gt; now passes &lt;code&gt;lang&lt;/code&gt; from &lt;code&gt;config.get(&#34;lang&#34;, &#34;en&#34;)&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Footer landmark has no label&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt; had no &lt;code&gt;aria-label&lt;/code&gt;, giving screen reader users no context when navigating landmarks.&lt;br&gt; Added &lt;code&gt;aria-label=&#34;Page navigation&#34;&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Syllabus block has no semantic role&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;lt;div class=&#34;syllabus&#34;&amp;gt;&lt;/code&gt; held learning objectives but had no ARIA role or label.&lt;br&gt; Added &lt;code&gt;role=&#34;note&#34; aria-label=&#34;Learning objectives&#34;&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Missing meta description&lt;/dt&gt;
+&lt;dd&gt;No &lt;code&gt;&amp;lt;meta name=&#34;description&#34;&amp;gt;&lt;/code&gt; meant search engines and browser extensions had no page summary.&lt;br&gt; Added &lt;code&gt;&amp;lt;meta name=&#34;description&#34; content=&#34;{{ description|default(book_title) }}&#34;&amp;gt;&lt;/code&gt;. &lt;code&gt;build.py&lt;/code&gt; passes &lt;code&gt;description&lt;/code&gt; from page frontmatter, falling back to &lt;code&gt;book_title&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;No theme-color for mobile browsers&lt;/dt&gt;
+&lt;dd&gt;Without &lt;code&gt;theme-color&lt;/code&gt;, Android/iOS browser chrome used browser defaults, clashing with both light and dark mode page backgrounds.&lt;br&gt; Added two &lt;code&gt;&amp;lt;meta name=&#34;theme-color&#34;&amp;gt;&lt;/code&gt; tags with &lt;code&gt;media&lt;/code&gt; attributes for light (&lt;code&gt;#f8f8f8&lt;/code&gt;) and dark (&lt;code&gt;#1a1a1a&lt;/code&gt;) modes.&lt;/dd&gt;
+&lt;dt&gt;Current page slug in template context&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;_make_context&lt;/code&gt; now includes &lt;code&gt;&#34;current_slug&#34;: slug&lt;/code&gt; so the template can mark the active nav link.&lt;/dd&gt;
+&lt;dt&gt;Language code in template context&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;_make_context&lt;/code&gt; now includes &lt;code&gt;&#34;lang&#34;: config.get(&#34;lang&#34;, &#34;en&#34;)&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Page description in template context&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;_make_context&lt;/code&gt; now includes &lt;code&gt;&#34;description&#34;&lt;/code&gt;, sourced from page frontmatter and falling back to &lt;code&gt;book_title&lt;/code&gt;.&lt;/dd&gt;
+&lt;dt&gt;Scrollable code blocks need keyboard focus&lt;/dt&gt;
+&lt;dd&gt;Added &lt;code&gt;_patch_pre_accessibility&lt;/code&gt;: sets &lt;code&gt;tabindex=&#34;0&#34;&lt;/code&gt; on every &lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; element so keyboard users can scroll wide code blocks, and sets &lt;code&gt;data-lang&lt;/code&gt; from the element&amp;rsquo;s language class (e.g. &lt;code&gt;language-python&lt;/code&gt; → &lt;code&gt;data-lang=&#34;python&#34;&lt;/code&gt;) so the CSS language label is displayed.&lt;/dd&gt;
+&lt;dt&gt;Table headers missing &lt;code&gt;scope&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;Added &lt;code&gt;_patch_th_scope&lt;/code&gt;: sets &lt;code&gt;scope=&#34;col&#34;&lt;/code&gt; on &lt;code&gt;&amp;lt;th&amp;gt;&lt;/code&gt; elements inside &lt;code&gt;&amp;lt;thead&amp;gt;&lt;/code&gt; and &lt;code&gt;scope=&#34;row&#34;&lt;/code&gt; on &lt;code&gt;&amp;lt;th&amp;gt;&lt;/code&gt; elements inside &lt;code&gt;&amp;lt;tbody&amp;gt;&lt;/code&gt;, enabling screen readers to correctly associate headers with data cells.&lt;/dd&gt;
+&lt;dt&gt;Exercise section landmark labels&lt;/dt&gt;
+&lt;dd&gt;Added &lt;code&gt;_patch_exercise_labels&lt;/code&gt;: sets &lt;code&gt;aria-label=&#34;Exercises&#34;&lt;/code&gt; on every &lt;code&gt;&amp;lt;section class=&#34;exercises&#34;&amp;gt;&lt;/code&gt; element so screen reader landmark navigation can find exercise blocks by name.&lt;/dd&gt;
+&lt;dt&gt;Inline &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; has no visual background&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;code { font-size: 0.9em }&lt;/code&gt; was the only styling on inline code elements. The 10% size reduction alone does not reliably distinguish code from surrounding prose, particularly for readers with dyslexia or low vision.&lt;br&gt; Added &lt;code&gt;background-color: var(--color-highlight); padding: 0.1em 0.3em; border-radius: 3px&lt;/code&gt; to &lt;code&gt;code&lt;/code&gt;. Added a &lt;code&gt;pre code&lt;/code&gt; override to strip these styles back off inside code blocks, where they would double-apply.&lt;/dd&gt;
+&lt;dt&gt;Dropdown nav uses &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt; not &lt;code&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;lt;span class=&#34;dropdown-content&#34;&amp;gt;&lt;/code&gt; holding bare &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; elements gave no list semantics. Screen readers could not announce the item count or allow list-navigation shortcuts. This is a WCAG 1.3.1 Level A failure.&lt;br&gt; Changed both dropdown containers from &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt; to &lt;code&gt;&amp;lt;ul role=&#34;list&#34;&amp;gt;&lt;/code&gt;, each link wrapped in &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;. Added &lt;code&gt;ul.dropdown-content { list-style: none; padding-left: 0; margin-top: 0; }&lt;/code&gt; to CSS to reset the default list styling.&lt;/dd&gt;
+&lt;dt&gt;Dropdown link touch targets too small&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;.dropdown-content a&lt;/code&gt; had &lt;code&gt;padding-left/right: 4px&lt;/code&gt; and no vertical padding, producing touch targets well below the WCAG 2.5.8 minimum of 24×24px.&lt;br&gt; Changed to &lt;code&gt;padding: var(--len-half) var(--len-one)&lt;/code&gt; (8px top/bottom, 16px left/right).&lt;/dd&gt;
+&lt;dt&gt;Dropdown buttons missing &lt;code&gt;aria-controls&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;&amp;lt;button aria-haspopup=&#34;true&#34;&amp;gt;&lt;/code&gt; declared the existence of a popup but did not reference it, so assistive technology could not programmatically navigate to the controlled element.&lt;br&gt; Added &lt;code&gt;aria-controls=&#34;nav-lessons&#34;&lt;/code&gt; and &lt;code&gt;aria-controls=&#34;nav-appendices&#34;&lt;/code&gt; to the respective buttons.&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;h2&lt;/code&gt;/&lt;code&gt;h3&lt;/code&gt; top margin was 4px&lt;/dt&gt;
+&lt;dd&gt;&lt;code&gt;margin-top: var(--len-thick)&lt;/code&gt; = 4px gave almost no visual separation between sections, making the page difficult to scan — a particular barrier for users with cognitive disabilities (WCAG 1.4.8).&lt;br&gt; Changed to &lt;code&gt;margin-top: 1.5rem&lt;/code&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;WCAG References&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Fix&lt;/th&gt;
+&lt;th&gt;WCAG criterion&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Blockquote / callout / syllabus borders&lt;/td&gt;
+&lt;td&gt;1.4.1 Use of Color&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dark mode / text color variable&lt;/td&gt;
+&lt;td&gt;1.4.3 Contrast (Minimum)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dropdown &lt;code&gt;aria-controls&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;4.1.2 Name, Role, Value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dropdown button semantics&lt;/td&gt;
+&lt;td&gt;4.1.2 Name, Role, Value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dropdown keyboard access&lt;/td&gt;
+&lt;td&gt;2.1.1 Keyboard&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dropdown nav list semantics&lt;/td&gt;
+&lt;td&gt;1.3.1 Info and Relationships&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dropdown touch targets&lt;/td&gt;
+&lt;td&gt;2.5.8 Target Size (Minimum)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Exercise section label&lt;/td&gt;
+&lt;td&gt;1.3.6 Identify Purpose&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Focus indicators&lt;/td&gt;
+&lt;td&gt;2.4.7 Focus Visible, 2.4.11 Focus Appearance&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Footer landmark label&lt;/td&gt;
+&lt;td&gt;1.3.6 Identify Purpose&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Glossary link label&lt;/td&gt;
+&lt;td&gt;2.4.6 Headings and Labels&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Image overflow&lt;/td&gt;
+&lt;td&gt;1.4.10 Reflow&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Inline code background&lt;/td&gt;
+&lt;td&gt;1.4.1 Use of Color&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Justified text&lt;/td&gt;
+&lt;td&gt;1.4.8 Visual Presentation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Language attribute&lt;/td&gt;
+&lt;td&gt;3.1.1 Language of Page&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Link colors&lt;/td&gt;
+&lt;td&gt;1.4.1 Use of Color, 1.4.3 Contrast (Minimum)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;List indentation&lt;/td&gt;
+&lt;td&gt;1.4.8 Visual Presentation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Nav landmark label&lt;/td&gt;
+&lt;td&gt;1.3.6 Identify Purpose, 4.1.2 Name, Role, Value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Nav separators / footer arrows hidden&lt;/td&gt;
+&lt;td&gt;1.3.3 Sensory Characteristics&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Page title&lt;/td&gt;
+&lt;td&gt;2.4.2 Page Titled&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scrollable &lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; keyboard focus&lt;/td&gt;
+&lt;td&gt;2.1.1 Keyboard&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Section heading margin&lt;/td&gt;
+&lt;td&gt;1.4.8 Visual Presentation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Skip link&lt;/td&gt;
+&lt;td&gt;2.4.1 Bypass Blocks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table &lt;code&gt;scope&lt;/code&gt; attributes&lt;/td&gt;
+&lt;td&gt;1.3.1 Info and Relationships&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Table caption placement&lt;/td&gt;
+&lt;td&gt;1.3.2 Meaningful Sequence&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Theme color&lt;/td&gt;
+&lt;td&gt;(Mobile UX best practice)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;meta description&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;(SEO / best practice, not strictly WCAG)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</content>
+ </entry>
  
  <entry>
    <title>Distributed Systems Design by Example</title>
@@ -1899,103 +2115,6 @@ But why does the length of the testing queue rise and then fall?
 Is it just random variation?
 Or is it revealing some unexpected property of our development process?
 That question will have to wait for tomorrow.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>What Changed Revisited</title>
-   <link href="https://third-bit.com/2025/11/29/what-changed-revisited/"/>
-   <updated>2025-11-29T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/11/29/what-changed-revisited/</id>
-   <content type="html">&lt;p&gt;Let&amp;rsquo;s take another look at the log-scaled version of [yesterday&amp;rsquo;s chart][what-changed]:&lt;/p&gt;
-&lt;div class=&#34;center&#34;&gt;
-  &lt;img src=&#34;https://third-bit.com/files/2025/11/28/times-log.svg&#34; alt=&#34;log-scale time plot&#34; width=&#34;90%&#34;&gt;
-&lt;/div&gt;
-
-&lt;p&gt;There hasn&amp;rsquo;t been any turnover in the team or a major rewrite of the product,
-so why has the number of bugs that take more than 100 hours to close
-been creeping up slowly but steadily?
-Luckily,
-we have access to the source code of the simulation,
-so we can get a definitive answer.
-(Yes, this is cheating…)&lt;/p&gt;
-&lt;p&gt;The first difference is that
-the development and testing queues are priority queues:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Simulation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_queue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PriorityStore&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;test_queue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PriorityStore&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We have also added constants to define two priority levels—remember,
-a lower number is a higher priority:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;PRI_REWORK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;PRI_NEW&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We have also made a small but crucial change to
-the class that simulates a tester:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Tester&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Labeled&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;work&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;test_queue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;priority&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;item&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;test_time&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task_rework&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
-                &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_queue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PriorityItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PRI_REWORK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The last two lines of &lt;code&gt;work&lt;/code&gt; say,
-&amp;ldquo;If testing reveals that this task needs to be re-done,
-put it back in the development queue with high priority.&amp;rdquo;
-If you&amp;rsquo;ll excuse a bit more ASCII art,
-this change means that our simulation is now:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;+----------------+    +-----------+    +------------+    +------------+    +---------+
-| task generator | -&amp;gt; | dev queue | -&amp;gt; | developers | -&amp;gt; | test queue | -&amp;gt; | testers |
-+----------------+    +-----------+    +------------+    +------------+    +---------+
-                            ^                                                   |
-                            |                                                   |
-                            +---------------------------------------------------+
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;From quarter to quarter,
-the probability of QA revealing that a task needs to be re-done
-has gone from 0% to 50%.
-As noted yesterday,
-we see a corresponding decrease in the total number of tasks completed each quarter:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align: right;&#34;&gt;quarter&lt;/th&gt;
-&lt;th style=&#34;text-align: right;&#34;&gt;number&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align: right;&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align: right;&#34;&gt;2222&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align: right;&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align: right;&#34;&gt;1912&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align: right;&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align: right;&#34;&gt;1525&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align: right;&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align: right;&#34;&gt;993&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;What these numbers don&amp;rsquo;t tell us is &lt;em&gt;why&lt;/em&gt;.
-Are our testers getting better at finding bugs?
-Are our developers making more mistakes because they&amp;rsquo;re burning out?
-Or has there been some sort of change in how work is being tracked?
-(0% rework in the first quarter seems suspicious…)
-Once again,
-data can draw our attention to things that need to be explained,
-but we still have to find the explanation.&lt;/p&gt;</content>
  </entry>
  
 </feed>

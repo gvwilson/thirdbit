@@ -82,6 +82,224 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/03/24/accessibility-improvements/">
+      Accessibility Improvements
+    </a>
+  </h2>
+  <p><time datetime="2026-03-24" class="post-date">2026-03-24</time></p>
+  <p>I&rsquo;ve made some improvements to the accessibility of
+<a href="../dsdx/"><em>Distributed Systems Design by Example</em></a>
+and the <a href="../sdxjs/">JavaScript</a> and <a href="../sdxpy/">Python</a> version of
+<em>Software Design by Example</em>:</p>
+<dl>
+<dt>Link color contrast</dt>
+<dd>Unvisited (<code>#0066ff</code>) and visited (<code>#0000ff</code>) link colors were nearly identical, and hover was the same as visited, giving users no visual feedback on link state.<br> Changed <code>--color-link-visited</code> to <code>#6600cc</code> (purple) — the conventional color for visited links — and added <code>text-decoration: underline</code> on hover.</dd>
+<dt>Keyboard focus indicator</dt>
+<dd>No <code>:focus</code> styles existed anywhere in the stylesheet, leaving keyboard and switch-device users with no visible indicator of the focused element.<br> Added <code>:focus-visible { outline: 2px solid var(--color-link-unvisited); outline-offset: 2px; }</code>.</dd>
+<dt>Dark mode support</dt>
+<dd>The entire color palette was hardcoded for light mode, giving users with a dark-mode OS preference a jarring white background.<br> Added a <code>@media (prefers-color-scheme: dark)</code> block overriding <code>--color-page</code>, <code>--color-highlight</code>, <code>--color-decorate</code>, <code>--color-text</code>, and both link colors. Also added two <code>&lt;meta name="theme-color"&gt;</code> tags to the template for browser chrome tinting.</dd>
+<dt>Active page indicator in nav</dt>
+<dd>The nav dropdown had no visual indication of the current page.<br> Added <code>.dropdown-content a.active { font-weight: bold; text-decoration: underline; }</code>. The template and build context were updated to emit <code>class="active"</code> on the matching nav link (see template and build sections below).</dd>
+<dt>Keyboard-inaccessible dropdowns</dt>
+<dd>Nav dropdowns only opened on <code>:hover</code>, making them unreachable by keyboard.<br> Added <code>.dropdown:focus-within .dropdown-content { display: block; }</code> so dropdowns open when any descendant receives focus.</dd>
+<dt>Justified table text</dt>
+<dd><code>table { text-align: justify; }</code> creates uneven word spacing harmful to readers with dyslexia (WCAG 1.4.8).<br> Changed to <code>text-align: left</code>.</dd>
+<dt>Blockquote visual differentiation</dt>
+<dd>The blockquote left border used color alone to convey meaning (WCAG 1.4.1). Padding was also absent top and bottom.<br> Added <code>padding-top</code>/<code>padding-bottom: var(--len-half)</code> and <code>font-style: italic</code> to provide a second non-color cue.</dd>
+<dt>Callout/syllabus visual differentiation</dt>
+<dd><code>div.callout</code> and <code>div.syllabus</code> used only a background color to distinguish them from prose; background color alone fails WCAG 1.4.1.<br> Added <code>border-left: solid var(--len-thick) var(--color-decorate)</code> to both.</dd>
+<dt>Figure caption alignment</dt>
+<dd><code>figure { text-align: center; }</code> cascaded to captions, making long caption text hard to read.<br> Added <code>figcaption { text-align: left; max-width: 90%; margin: 0 auto; }</code>.</dd>
+<dt>Images overflow on narrow viewports</dt>
+<dd>No base <code>max-width</code> rule on <code>img</code> meant images could overflow their containers on narrow screens.<br> Added <code>img { max-width: 100%; height: auto; }</code>.</dd>
+<dt>Decorative border contrast</dt>
+<dd><code>--color-decorate: #808080</code> on <code>--color-page: #f8f8f8</code> gives ~3.9:1 contrast — marginal for WCAG 1.4.11 (UI components require 3:1, but the margin was uncomfortably thin).<br> Darkened <code>--color-decorate</code> to <code>#606060</code> in light mode (~5.7:1 against <code>#f8f8f8</code>).</dd>
+<dt>Table caption placement</dt>
+<dd><code>caption-side: bottom</code> placed captions after the table visually but before it in DOM order, creating a mismatch between visual and screen-reader reading order.<br> Changed to <code>caption-side: top; text-align: left</code>.</dd>
+<dt>List indentation too narrow</dt>
+<dd><code>padding-left: 1rem</code> (~16 px) left almost no visual separation between bullets and surrounding text, harming readability for users with cognitive disabilities.<br> Increased to <code>padding-left: 1.5rem</code> for both <code>ol</code> and <code>ul</code>.</dd>
+<dt>Weak focus ring on scrollable code blocks</dt>
+<dd>The generic <code>:focus-visible</code> rule gives a 2 px outline which can be hard to see against the <code>--color-highlight</code> background of <code>&lt;pre&gt;</code> elements that also have <code>tabindex="0"</code>.<br> Added <code>pre:focus-visible { outline: 3px solid var(--color-link-unvisited); outline-offset: 2px; }</code>.</dd>
+<dt>Glossary link label visible to all users</dt>
+<dd>The <code>a.gl-ref::after</code> rule emitting &ldquo;(glossary)&rdquo; was visible to sighted users, cluttering inline text.<br> Applied the standard visually-hidden pattern (<code>position: absolute; width/height: 1px; clip: rect(0,0,0,0); clip-path: inset(50%); overflow: hidden; white-space: nowrap</code>) so the label is present in the accessibility tree but not rendered visually.</dd>
+<dt>Italic cascades into blockquote headings</dt>
+<dd><code>blockquote { font-style: italic }</code> cascaded to any <code>&lt;h1&gt;</code>–<code>&lt;h3&gt;</code> inside a blockquote, producing oddly-styled italic headings.<br> Added <code>blockquote h1, blockquote h2, blockquote h3 { font-style: normal; }</code>.</dd>
+<dt>Definition list (<code>&lt;dd&gt;</code>) has no spacing</dt>
+<dd><code>&lt;dd&gt;</code> elements had no left indent or bottom margin, making definition lists read as a wall of text.<br> Added <code>dd { margin-left: 1.5rem; margin-bottom: var(--len-half); }</code>.</dd>
+<dt>Empty <code>section.exercises</code> rule removed</dt>
+<dd>The rule existed with no declarations, and <code>&lt;section&gt;</code> landmark elements had no accessible name.<br> Removed the empty rule. Section labelling is now handled in the build pipeline (see build section below).</dd>
+<dt>Dark mode text color hardcoded</dt>
+<dd><code>body { color: #e8e8e8 }</code> was set directly in the dark-mode media query rather than via a variable, making the color system inconsistent and hard to override.<br> Added <code>--color-text: #1a1a1a</code> to the light-mode <code>:root</code> block, overridden to <code>#e8e8e8</code> in the dark-mode block. <code>body</code> now uses <code>color: var(--color-text)</code>.</dd>
+<dt>Skip-to-main-content link</dt>
+<dd>Keyboard users had to tab through all navigation links on every page before reaching content.<br> Added <code>&lt;a class="skip-link" href="#main-content"&gt;Skip to main content&lt;/a&gt;</code> as the first element in <code>&lt;body&gt;</code>, and <code>id="main-content"</code> on <code>&lt;main&gt;</code>. The <code>.skip-link</code> is visually hidden until focused, at which point it slides into view.</dd>
+<dt>Page title and active nav</dt>
+<dd><code>&lt;title&gt;&lt;/title&gt;</code> was always empty. Nav links had no indication of the current page.<br>
+- Title: <code>&lt;title&gt;{% if title %}{{ title }} · {% endif %}{{ book_title }}&lt;/title&gt;</code>
+- Active nav: loop variable renamed from <code>slug</code> to <code>s</code>; <code>class="active"</code> emitted when <code>s == current_slug</code>. Both <code>build.py</code> and the template were updated.</dd>
+<dt><code>&lt;nav&gt;</code> landmark label</dt>
+<dd>The <code>&lt;nav&gt;</code> element had no <code>aria-label</code>, making it indistinguishable from other nav regions in assistive technology landmark navigation.<br> Added <code>aria-label="Site navigation"</code>.</dd>
+<dt>Nav separator read aloud</dt>
+<dd><code>&amp;middot;</code> separators between nav items were read as &ldquo;middle dot&rdquo; by screen readers.<br> Wrapped each in <code>&lt;span aria-hidden="true"&gt;</code>.</dd>
+<dt>Footer arrow decorations read aloud</dt>
+<dd><code>&amp;#8656;</code> (⇐) and <code>&amp;#8658;</code> (⇒) in the footer prev/next links were read as &ldquo;leftwards double arrow&rdquo; / &ldquo;rightwards double arrow&rdquo;.<br> Wrapped each in <code>&lt;span aria-hidden="true"&gt;</code>.</dd>
+<dt>Dropdown triggers are links, not buttons</dt>
+<dd><code>&lt;a href="#"&gt;</code> navigates to the page top if activated (wrong semantic); buttons trigger actions. There was also no <code>aria-haspopup</code> hint.<br> Changed both dropdown triggers to <code>&lt;button aria-haspopup="true"&gt;</code>. CSS was updated to reset button appearance and apply the same styles as the former <code>&lt;a&gt;</code> triggers.</dd>
+<dt>Language attribute hardcoded</dt>
+<dd><code>&lt;html lang="en"&gt;</code> was a literal string, making it impossible to publish a non-English book without manually editing the template.<br> Changed to <code>&lt;html lang="{{ lang|default('en') }}"&gt;</code>. <code>build.py</code> now passes <code>lang</code> from <code>config.get("lang", "en")</code>.</dd>
+<dt>Footer landmark has no label</dt>
+<dd><code>&lt;footer&gt;</code> had no <code>aria-label</code>, giving screen reader users no context when navigating landmarks.<br> Added <code>aria-label="Page navigation"</code>.</dd>
+<dt>Syllabus block has no semantic role</dt>
+<dd><code>&lt;div class="syllabus"&gt;</code> held learning objectives but had no ARIA role or label.<br> Added <code>role="note" aria-label="Learning objectives"</code>.</dd>
+<dt>Missing meta description</dt>
+<dd>No <code>&lt;meta name="description"&gt;</code> meant search engines and browser extensions had no page summary.<br> Added <code>&lt;meta name="description" content="{{ description|default(book_title) }}"&gt;</code>. <code>build.py</code> passes <code>description</code> from page frontmatter, falling back to <code>book_title</code>.</dd>
+<dt>No theme-color for mobile browsers</dt>
+<dd>Without <code>theme-color</code>, Android/iOS browser chrome used browser defaults, clashing with both light and dark mode page backgrounds.<br> Added two <code>&lt;meta name="theme-color"&gt;</code> tags with <code>media</code> attributes for light (<code>#f8f8f8</code>) and dark (<code>#1a1a1a</code>) modes.</dd>
+<dt>Current page slug in template context</dt>
+<dd><code>_make_context</code> now includes <code>"current_slug": slug</code> so the template can mark the active nav link.</dd>
+<dt>Language code in template context</dt>
+<dd><code>_make_context</code> now includes <code>"lang": config.get("lang", "en")</code>.</dd>
+<dt>Page description in template context</dt>
+<dd><code>_make_context</code> now includes <code>"description"</code>, sourced from page frontmatter and falling back to <code>book_title</code>.</dd>
+<dt>Scrollable code blocks need keyboard focus</dt>
+<dd>Added <code>_patch_pre_accessibility</code>: sets <code>tabindex="0"</code> on every <code>&lt;pre&gt;</code> element so keyboard users can scroll wide code blocks, and sets <code>data-lang</code> from the element&rsquo;s language class (e.g. <code>language-python</code> → <code>data-lang="python"</code>) so the CSS language label is displayed.</dd>
+<dt>Table headers missing <code>scope</code></dt>
+<dd>Added <code>_patch_th_scope</code>: sets <code>scope="col"</code> on <code>&lt;th&gt;</code> elements inside <code>&lt;thead&gt;</code> and <code>scope="row"</code> on <code>&lt;th&gt;</code> elements inside <code>&lt;tbody&gt;</code>, enabling screen readers to correctly associate headers with data cells.</dd>
+<dt>Exercise section landmark labels</dt>
+<dd>Added <code>_patch_exercise_labels</code>: sets <code>aria-label="Exercises"</code> on every <code>&lt;section class="exercises"&gt;</code> element so screen reader landmark navigation can find exercise blocks by name.</dd>
+<dt>Inline <code>&lt;code&gt;</code> has no visual background</dt>
+<dd><code>code { font-size: 0.9em }</code> was the only styling on inline code elements. The 10% size reduction alone does not reliably distinguish code from surrounding prose, particularly for readers with dyslexia or low vision.<br> Added <code>background-color: var(--color-highlight); padding: 0.1em 0.3em; border-radius: 3px</code> to <code>code</code>. Added a <code>pre code</code> override to strip these styles back off inside code blocks, where they would double-apply.</dd>
+<dt>Dropdown nav uses <code>&lt;span&gt;</code> not <code>&lt;ul&gt;&lt;li&gt;</code></dt>
+<dd><code>&lt;span class="dropdown-content"&gt;</code> holding bare <code>&lt;a&gt;</code> elements gave no list semantics. Screen readers could not announce the item count or allow list-navigation shortcuts. This is a WCAG 1.3.1 Level A failure.<br> Changed both dropdown containers from <code>&lt;span&gt;</code> to <code>&lt;ul role="list"&gt;</code>, each link wrapped in <code>&lt;li&gt;</code>. Added <code>ul.dropdown-content { list-style: none; padding-left: 0; margin-top: 0; }</code> to CSS to reset the default list styling.</dd>
+<dt>Dropdown link touch targets too small</dt>
+<dd><code>.dropdown-content a</code> had <code>padding-left/right: 4px</code> and no vertical padding, producing touch targets well below the WCAG 2.5.8 minimum of 24×24px.<br> Changed to <code>padding: var(--len-half) var(--len-one)</code> (8px top/bottom, 16px left/right).</dd>
+<dt>Dropdown buttons missing <code>aria-controls</code></dt>
+<dd><code>&lt;button aria-haspopup="true"&gt;</code> declared the existence of a popup but did not reference it, so assistive technology could not programmatically navigate to the controlled element.<br> Added <code>aria-controls="nav-lessons"</code> and <code>aria-controls="nav-appendices"</code> to the respective buttons.</dd>
+<dt><code>h2</code>/<code>h3</code> top margin was 4px</dt>
+<dd><code>margin-top: var(--len-thick)</code> = 4px gave almost no visual separation between sections, making the page difficult to scan — a particular barrier for users with cognitive disabilities (WCAG 1.4.8).<br> Changed to <code>margin-top: 1.5rem</code>.</dd>
+</dl>
+<h2>WCAG References</h2>
+<table>
+<thead>
+<tr>
+<th>Fix</th>
+<th>WCAG criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blockquote / callout / syllabus borders</td>
+<td>1.4.1 Use of Color</td>
+</tr>
+<tr>
+<td>Dark mode / text color variable</td>
+<td>1.4.3 Contrast (Minimum)</td>
+</tr>
+<tr>
+<td>Dropdown <code>aria-controls</code></td>
+<td>4.1.2 Name, Role, Value</td>
+</tr>
+<tr>
+<td>Dropdown button semantics</td>
+<td>4.1.2 Name, Role, Value</td>
+</tr>
+<tr>
+<td>Dropdown keyboard access</td>
+<td>2.1.1 Keyboard</td>
+</tr>
+<tr>
+<td>Dropdown nav list semantics</td>
+<td>1.3.1 Info and Relationships</td>
+</tr>
+<tr>
+<td>Dropdown touch targets</td>
+<td>2.5.8 Target Size (Minimum)</td>
+</tr>
+<tr>
+<td>Exercise section label</td>
+<td>1.3.6 Identify Purpose</td>
+</tr>
+<tr>
+<td>Focus indicators</td>
+<td>2.4.7 Focus Visible, 2.4.11 Focus Appearance</td>
+</tr>
+<tr>
+<td>Footer landmark label</td>
+<td>1.3.6 Identify Purpose</td>
+</tr>
+<tr>
+<td>Glossary link label</td>
+<td>2.4.6 Headings and Labels</td>
+</tr>
+<tr>
+<td>Image overflow</td>
+<td>1.4.10 Reflow</td>
+</tr>
+<tr>
+<td>Inline code background</td>
+<td>1.4.1 Use of Color</td>
+</tr>
+<tr>
+<td>Justified text</td>
+<td>1.4.8 Visual Presentation</td>
+</tr>
+<tr>
+<td>Language attribute</td>
+<td>3.1.1 Language of Page</td>
+</tr>
+<tr>
+<td>Link colors</td>
+<td>1.4.1 Use of Color, 1.4.3 Contrast (Minimum)</td>
+</tr>
+<tr>
+<td>List indentation</td>
+<td>1.4.8 Visual Presentation</td>
+</tr>
+<tr>
+<td>Nav landmark label</td>
+<td>1.3.6 Identify Purpose, 4.1.2 Name, Role, Value</td>
+</tr>
+<tr>
+<td>Nav separators / footer arrows hidden</td>
+<td>1.3.3 Sensory Characteristics</td>
+</tr>
+<tr>
+<td>Page title</td>
+<td>2.4.2 Page Titled</td>
+</tr>
+<tr>
+<td>Scrollable <code>&lt;pre&gt;</code> keyboard focus</td>
+<td>2.1.1 Keyboard</td>
+</tr>
+<tr>
+<td>Section heading margin</td>
+<td>1.4.8 Visual Presentation</td>
+</tr>
+<tr>
+<td>Skip link</td>
+<td>2.4.1 Bypass Blocks</td>
+</tr>
+<tr>
+<td>Table <code>scope</code> attributes</td>
+<td>1.3.1 Info and Relationships</td>
+</tr>
+<tr>
+<td>Table caption placement</td>
+<td>1.3.2 Meaningful Sequence</td>
+</tr>
+<tr>
+<td>Theme color</td>
+<td>(Mobile UX best practice)</td>
+</tr>
+<tr>
+<td><code>&lt;meta description&gt;</code></td>
+<td>(SEO / best practice, not strictly WCAG)</td>
+</tr>
+</tbody>
+</table>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/03/15/dsdx/">
       Distributed Systems Design by Example
     </a>
@@ -388,84 +606,6 @@ I think it works,
 but it is now so complicated that I&rsquo;d be surprised if subtle bugs weren&rsquo;t lurking in its corners.
 If you (or one of your grad students) want to try using formal verification tools on ~500 lines of Python,
 please <a href="mailto:gvwilson@third-bit.com">give me a shout</a>.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/01/11/trying-to-understand-asimpy/">
-      Trying to Understand asimpy
-    </a>
-  </h2>
-  <p><time datetime="2026-01-11" class="post-date">2026-01-11</time></p>
-  <p>As a follow-on to <a href="../2026/01/10/introducing-asimpy/">yesterday&rsquo;s post</a>,
-I&rsquo;m trying to figure out why the code in the <code>tracing-sleeper</code> branch of <a href="https://github.com/gvwilson/asimpy">https://github.com/gvwilson/asimpy</a>
-actually works.
-The files that actually matter for the moment are:</p>
-<ul>
-<li><code>src/asimpy/environment.py</code>:
-    the simulation environment with the main event loop and the <code>_Sleep</code> action (described below).</li>
-<li><code>src/asimpy/actions.py</code>:
-    the base class for actions (described below).</li>
-<li><code>src/asimpy/process.py</code>:
-    the base class for active processes.</li>
-<li><code>examples/sleep.py</code>:
-    an example of a process sleeping.</li>
-</ul>
-<p>I&rsquo;ve added lots of print statements to <code>sleep.py</code> and the three files in the package that it relies on.
-To run the code:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:gvwilson/asimpy
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>asimpy
-$<span class="w"> </span>uv<span class="w"> </span>venv
-$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-$<span class="w"> </span>uv<span class="w"> </span>sync
-$<span class="w"> </span>python<span class="w"> </span>examples/sleep.py
-</code></pre></div>
-<p>Inside <code>src/asimpy/actions.py</code> there&rsquo;s a class called <code>BaseAction</code>
-that the framework uses as the base of all awaitable objects.
-When a process does something like sleep,
-or try to get something from a queue,
-or anything else that requires synchronization,
-it creates an instance of a class derived from <code>BaseAction</code>
-(such as the <code>_Sleep</code> class defined in <code>src/asimpy/environment.py</code>).</p>
-<p>Now,
-if I understand the protocol correctly,
-when Python encounters &lsquo;await obj&rsquo;, it does the equivalent of:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">iter</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="fm">__await__</span><span class="p">()</span>  <span class="c1"># get an iterator</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span>  <span class="c1"># run to the first yield</span>
-<span class="k">except</span> <span class="ne">StopIteration</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">value</span>     <span class="c1"># get the result </span>
-</code></pre></div>
-<p>After stripping out docs, typing, and print statements,
-<code>BaseAction</code>&rsquo;s implementation of <code>__await__()</code> is just:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">yield</span> <span class="bp">self</span>
-    <span class="k">return</span> <span class="kc">None</span>
-</code></pre></div>
-<p>Looking at the printed output,
-both lines are <em>always</em> executed, and I don&rsquo;t understand why.
-Inside <code>Environment.run()</code>, the awaitable is advanced by calling:</p>
-<div class="highlight"><pre><span></span><code><span class="n">awaited</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">_coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-</code></pre></div>
-<p>(where <code>proc</code> is the object derived from <code>Process</code>
-and <code>proc._coro</code> is the iterator created by invoking the process&rsquo;s <code>async</code> <code>run()</code> method).
-My mental model is that <code>value</code> should be set to <code>self</code>
-because that&rsquo;s what the first line of <code>__await__()</code> yields;
-I don&rsquo;t understand why execution ever proceeds after that,
-but my print statements show that it does.</p>
-<p>And I know execution <em>must</em> proceed because (for example)
-<code>BaseQueue.get()</code> in <code>src/asimpy/queue.py</code> successfully returns an object from the queue.
-This happens in the second line of that file&rsquo;s <code>_Get.__await__()</code>,
-and the more I think about this the more confused I get.</p>
-<p>I created this code by imitating what&rsquo;s in <a href="https://simpy.readthedocs.io/">SimPy</a>,
-reasoning through what I could,
-and asking ChatGPT how to fix a couple of errors late at night.
-It did all make sense at one point,
-but as I try to write the tutorial to explain it to others,
-I realize I&rsquo;m on shaky ground.
-ChatGPT&rsquo;s explanations aren&rsquo;t helping;
-if I find something or someone that does,
-I&rsquo;ll update this blog post.</p>
 </article>
 
 
