@@ -5,50 +5,54 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>OAuth</title>
+<meta content="Distributed Systems Design by Example" name="description"/>
+<meta content="#f8f8f8" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<nav>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
 <a href="../">Distributed Systems Design by Example</a>
-      ·
-      <span class="dropdown">
-<a href="#">Lessons</a>
-<span class="dropdown-content" id="nav-lessons">
-<a href="../intro/">Introduction</a>
-<a href="../mapreduce/">MapReduce</a>
-<a href="../msgque/">A Publish-Subscribe Message Queue</a>
-<a href="../worksteal/">A Work-Stealing Scheduler</a>
-<a href="../tracing/">Distributed Tracing</a>
-<a href="../crdt/">Conflict-Free Replicated Data Types</a>
-<a href="../oauth/">OAuth</a>
-<a href="../distlock/">Distributed Locks</a>
-<a href="../torrent/">BitTorrent</a>
-<a href="../eventual/">Eventually Consistent Key-Value Store</a>
-<a href="../saga/">The Saga Pattern</a>
-<a href="../tcp/">TCP</a>
-<a href="../dns/">DNS</a>
-<a href="../ntp/">NTP</a>
-<a href="../finale/">Conclusion</a>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons" role="list">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
+<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
+<li><a href="../tracing/">Distributed Tracing</a></li>
+<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
+<li><a class="active" href="../oauth/">OAuth</a></li>
+<li><a href="../distlock/">Distributed Locks</a></li>
+<li><a href="../torrent/">BitTorrent</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../saga/">The Saga Pattern</a></li>
+<li><a href="../tcp/">TCP</a></li>
+<li><a href="../dns/">DNS</a></li>
+<li><a href="../ntp/">NTP</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
 </span>
-</span>
-      ·
-      <span class="dropdown">
-<a href="#">Appendices</a>
-<span class="dropdown-content" id="nav-appendices">
-<a href="../license/">License</a>
-<a href="../conduct/">Code of Conduct</a>
-<a href="../contributing/">Contributing</a>
-<a href="../bibliography/">Bibliography</a>
-<a href="../glossary/">Glossary</a>
-<a href="../theory/">A Bit of Theory</a>
-<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
-</span>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices" role="list">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../theory/">A Bit of Theory</a></li>
+<li><a href="../asimpy/">Discrete Event Simulation with asimpy</a></li>
+</ul>
 </span>
 </nav>
-<main>
+<main id="main-content">
 <h1>OAuth</h1>
 <p>When you use your identity on one site to sign in on another,
 you're using <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>.
@@ -94,7 +98,7 @@ designed for server-side applications.
 Before looking at the servers themselves,
 we need to understand the data types they exchange.</p>
 <p>The foundation is a helper function that generates random strings for codes and tokens:</p>
-<div data-filter="inc=token_func" data-inc="oauth_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_token</span><span class="p">(</span><span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tok"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div data-filter="inc=token_func" data-inc="oauth_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_token</span><span class="p">(</span><span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tok"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Generate a random token."""</span>
     <span class="n">random_part</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">16</span><span class="p">))</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">random_part</span><span class="si">}</span><span class="s2">"</span>
@@ -108,7 +112,7 @@ and a <code>state</code> token for <a class="gl-ref" href="../glossary/#csrf">cr
 so the authorization server can verify who it is talking to.
 <code>ResourceRequest</code> carries the access token so the resource server can check
 whether the caller is allowed to see the requested data:</p>
-<div data-filter="inc=message_types" data-inc="oauth_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<div data-filter="inc=message_types" data-inc="oauth_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">AuthorizationRequest</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Request for user authorization."""</span>
 
@@ -193,7 +197,7 @@ An <code>AuthorizationCode</code> tracks whether a code has already been used
 An <code>AccessToken</code> records which client owns it, what scopes it covers,
 and when it expires.
 Both have an <code>is_valid</code> method that encapsulates this check:</p>
-<div data-filter="inc=internal_types" data-inc="oauth_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<div data-filter="inc=internal_types" data-inc="oauth_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">AuthorizationCode</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Authorization code with metadata."""</span>
 
@@ -230,7 +234,7 @@ while access tokens last longer (often 1 hour).</p>
 it verifies the user's identity, obtains consent, and issues tokens.
 Its <code>init</code> method creates two incoming queues and three dictionaries
 for tracking registered clients, issued codes, and active tokens:</p>
-<div data-filter="inc=init" data-inc="authorization_server.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AuthorizationServer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-filter="inc=init" data-inc="authorization_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AuthorizationServer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""OAuth 2.0 authorization server."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -260,7 +264,7 @@ a shared secret, and a list of allowed redirect URIs.
 The redirect URI check is an important security constraint:
 it prevents an attacker from registering a lookalike app and
 redirecting authorization codes to a server they control:</p>
-<div data-filter="inc=register" data-inc="authorization_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">register_client</span><span class="p">(</span>
+<div data-filter="inc=register" data-inc="authorization_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">register_client</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">redirect_uris</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Register a new OAuth client."""</span>
@@ -274,7 +278,7 @@ redirecting authorization codes to a server they control:</p>
 <p>The server's event loop uses asimpy's <code>FirstOf</code> to wait on both queues simultaneously.
 Whichever queue receives a message first wins;
 the other request is automatically cancelled:</p>
-<div data-filter="inc=run" data-inc="authorization_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-filter="inc=run" data-inc="authorization_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Main server loop."""</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="c1"># Handle both authorization and token requests</span>
@@ -290,7 +294,7 @@ the other request is automatically cancelled:</p>
 </div>
 <p>When an authorization request arrives,
 <code>handle_authorization_request</code> delegates to two helpers and handles the user consent simulation in between:</p>
-<div data-filter="inc=handle_auth" data-inc="authorization_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_authorization_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">AuthorizationRequest</span><span class="p">):</span>
+<div data-filter="inc=handle_auth" data-inc="authorization_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_authorization_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">AuthorizationRequest</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Handle authorization request from client."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] AuthServer: Received </span><span class="si">{</span><span class="n">request</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
@@ -310,7 +314,7 @@ the other request is automatically cancelled:</p>
 <p><code>_validate_auth_request</code> checks that the client is registered and that the redirect URI is one the client pre-registered.
 Checking the redirect URI here is an important security constraint:
 without it, an attacker could register a lookalike application and redirect authorization codes to a server they control:</p>
-<div data-filter="inc=validate_auth" data-inc="authorization_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_auth_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">AuthorizationRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div data-filter="inc=validate_auth" data-inc="authorization_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_auth_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">AuthorizationRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Check that the client is registered and the redirect URI is allowed."""</span>
         <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">client_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">clients</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] AuthServer: Unknown client </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">client_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -326,7 +330,7 @@ without it, an attacker could register a lookalike application and redirect auth
 </div>
 <p><code>_issue_authorization_code</code> generates the code, records it in <code>auth_codes</code> with its expiry and scope,
 and sends it back through the response queue embedded in the request:</p>
-<div data-filter="inc=issue_code" data-inc="authorization_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_issue_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">AuthorizationRequest</span><span class="p">):</span>
+<div data-filter="inc=issue_code" data-inc="authorization_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_issue_authorization_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">AuthorizationRequest</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Generate, store, and return a one-time authorization code."""</span>
         <span class="n">code</span> <span class="o">=</span> <span class="n">generate_token</span><span class="p">(</span><span class="s2">"code"</span><span class="p">)</span>
         <span class="n">auth_code</span> <span class="o">=</span> <span class="n">AuthorizationCode</span><span class="p">(</span>
@@ -346,7 +350,7 @@ and sends it back through the response queue embedded in the request:</p>
 </div>
 <p>When the client then presents that code to exchange it for a token,
 <code>handle_token_request</code> is similarly short because all the checking is delegated:</p>
-<div data-filter="inc=handle_token" data-inc="authorization_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_token_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">TokenRequest</span><span class="p">):</span>
+<div data-filter="inc=handle_token" data-inc="authorization_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_token_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">TokenRequest</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Exchange authorization code for access token."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] AuthServer: Received </span><span class="si">{</span><span class="n">request</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
@@ -362,7 +366,7 @@ the client must exist, the secret must match, the code must exist and still be v
 and the client and redirect URI in the token request must exactly match those in the original authorization request.
 Any mismatch sends an error response and returns <code>None</code> so the caller can exit early.
 The method constructs the error response once at the top rather than repeating it at each branch:</p>
-<div data-filter="inc=validate_token" data-inc="authorization_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_validate_token_request</span><span class="p">(</span>
+<div data-filter="inc=validate_token" data-inc="authorization_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_validate_token_request</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">TokenRequest</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AuthorizationCode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Validate client credentials and authorization code; return code or None."""</span>
@@ -408,7 +412,7 @@ The method constructs the error response once at the top rather than repeating i
 This is the line that makes authorization codes one-time-only:
 re-using a code is one of the classic attack vectors against OAuth,
 so the flag must be set before the token is issued, not after:</p>
-<div data-filter="inc=issue_token" data-inc="authorization_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_issue_access_token</span><span class="p">(</span>
+<div data-filter="inc=issue_token" data-inc="authorization_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_issue_access_token</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">TokenRequest</span><span class="p">,</span> <span class="n">auth_code</span><span class="p">:</span> <span class="n">AuthorizationCode</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Mark the code used, generate an access token, store it, and send it."""</span>
@@ -439,7 +443,7 @@ so the flag must be set before the token is issued, not after:</p>
 Its <code>init</code> method takes a reference to the authorization server
 so it can look up tokens, and it stores a dictionary of protected resources
 where each entry specifies the required scope and the data to return:</p>
-<div data-filter="inc=init" data-inc="resource_server.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ResourceServer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-filter="inc=init" data-inc="resource_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ResourceServer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""OAuth 2.0 resource server (protected API)."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth_server</span><span class="p">:</span> <span class="n">AuthorizationServer</span><span class="p">):</span>
@@ -469,7 +473,7 @@ where each entry specifies the required scope and the data to return:</p>
 only about tokens and scopes.
 Its event loop is simpler than the authorization server's
 because it has only one incoming queue:</p>
-<div data-filter="inc=run" data-inc="resource_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-filter="inc=run" data-inc="resource_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Main server loop."""</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">request</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -478,7 +482,7 @@ because it has only one incoming queue:</p>
 </div>
 <p>When a request arrives, <code>handle_resource_request</code> delegates to two helpers
 and sends the successful response only if both pass:</p>
-<div data-filter="inc=handle_resource" data-inc="resource_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_resource_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">ResourceRequest</span><span class="p">):</span>
+<div data-filter="inc=handle_resource" data-inc="resource_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_resource_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">ResourceRequest</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Handle API request with access token."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] ResourceServer: Received </span><span class="si">{</span><span class="n">request</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
@@ -500,7 +504,7 @@ and sends the successful response only if both pass:</p>
 Because the resource server shares a reference to the authorization server,
 it can read <code>access_tokens</code> directly without a network call—a simplification that real deployments
 replace with a token introspection endpoint or a shared cache:</p>
-<div data-filter="inc=validate_token" data-inc="resource_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_validate_token</span><span class="p">(</span>
+<div data-filter="inc=validate_token" data-inc="resource_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_validate_token</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">ResourceRequest</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AccessToken</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Check that the token exists and has not expired; send error if not."""</span>
@@ -527,7 +531,7 @@ replace with a token introspection endpoint or a shared cache:</p>
 The token must cover all scopes the resource requires, but may cover more,
 so a token issued with <code>["profile", "photos"]</code> scope passes a check for a resource
 that requires only <code>["profile"]</code>:</p>
-<div data-filter="inc=check_access" data-inc="resource_server.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_check_resource_access</span><span class="p">(</span>
+<div data-filter="inc=check_access" data-inc="resource_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_check_resource_access</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">ResourceRequest</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="n">AccessToken</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Check that the resource exists and the token's scope covers it."""</span>
@@ -556,7 +560,7 @@ that requires only <code>["profile"]</code>:</p>
 <p>The OAuth client orchestrates the authorization flow.
 Its <code>init</code> method stores the client credentials and references to both servers,
 and initializes <code>access_token</code> to <code>None</code> since no token has been issued yet:</p>
-<div data-filter="inc=init" data-inc="oauth_client.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">OAuthClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-filter="inc=init" data-inc="oauth_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">OAuthClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""OAuth 2.0 client application."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -584,7 +588,7 @@ It requests authorization for the <code>profile</code> and <code>photos</code> s
 exchanges the resulting code for an access token,
 then uses that token to make three API calls,
 including one for <code>messages</code> that it was not granted access to:</p>
-<div data-filter="inc=run" data-inc="oauth_client.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-filter="inc=run" data-inc="oauth_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Demonstrate complete OAuth flow."""</span>
         <span class="c1"># Step 1: Request authorization</span>
         <span class="n">scopes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"profile"</span><span class="p">,</span> <span class="s2">"photos"</span><span class="p">]</span>
@@ -622,7 +626,7 @@ and the server echoes back in the response.
 The client checks that the echoed state matches the one it sent,
 which detects CSRF attacks where an attacker
 tricks a user's browser into sending a forged callback:</p>
-<div data-filter="inc=request_auth" data-inc="oauth_client.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">request_authorization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scopes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div data-filter="inc=request_auth" data-inc="oauth_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">request_authorization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scopes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Step 1: Request user authorization."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Client: Requesting authorization for </span><span class="si">{</span><span class="n">scopes</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
@@ -654,7 +658,7 @@ and sends the bundle to the token endpoint.
 The client must authenticate itself here—not just the user—because the token endpoint
 needs to confirm that the party asking for the token is the same one
 that originally registered with the server:</p>
-<div data-filter="inc=exchange_code" data-inc="oauth_client.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">exchange_code_for_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TokenResponse</span><span class="p">]:</span>
+<div data-filter="inc=exchange_code" data-inc="oauth_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">exchange_code_for_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TokenResponse</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Step 2: Exchange authorization code for access token."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Client: Exchanging code for token"</span><span class="p">)</span>
 
@@ -678,7 +682,7 @@ that originally registered with the server:</p>
 waits for the response.
 The client never stores the user's password at any point in this flow;
 it only ever handles codes and tokens:</p>
-<div data-filter="inc=access_resource" data-inc="oauth_client.py"><div class="codehilite"><pre class=""><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">access_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div data-filter="inc=access_resource" data-inc="oauth_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">access_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Step 3: Access protected resource with token."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Client: Accessing </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
@@ -707,7 +711,7 @@ it only ever handles codes and tokens:</p>
 <p>Putting it all together, the simulation creates an authorization server and resource server,
 registers a client application called <code>photo_app</code>,
 and then runs the complete three-step flow:</p>
-<div data-filter="inc=sim" data-inc="ex_basic_oauth.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-filter="inc=sim" data-inc="ex_basic_oauth.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Demonstrate basic OAuth 2.0 authorization code flow."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
@@ -745,7 +749,7 @@ the user authentication pause,
 the code exchange,
 and finally the resource access attempts—including the denied request for <code>messages</code>,
 which the client was never granted permission to read.</p>
-<div data-inc="ex_basic_oauth.out"><div class="codehilite"><pre class=""><span></span><code>[0.0] Authorization Server started
+<div data-inc="ex_basic_oauth.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Authorization Server started
 [0.0] Resource Server started
 [0.0] Registered client: photo_app
 [0.0] Client 'photo_app' started
@@ -778,7 +782,7 @@ which the client was never granted permission to read.</p>
 Refresh tokens allow clients to get new access tokens without user interaction.
 A <code>RefreshToken</code> has the same structure as an access token
 but is stored separately and used only to request a replacement:</p>
-<div data-filter="inc=refresh" data-inc="oauth_types.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<div data-filter="inc=refresh" data-inc="oauth_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">RefreshToken</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Refresh token for obtaining new access tokens."""</span>
 
@@ -803,10 +807,10 @@ They also need token management,
 so that a resource server can check token validity with an authorization server
 or a user can revoke a token in order to do things like sign out of all devices.</p>
 </main>
-<footer>
+<footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-	  ⇐ <a href="../crdt/">Conflict-Free Replicated Data Types</a>
+<span aria-hidden="true">⇐</span> <a href="../crdt/">Conflict-Free Replicated Data Types</a>
 </div>
 <div class="col-6 center">
 <a href="../">Distributed Systems Design by Example</a>
@@ -814,8 +818,8 @@ or a user can revoke a token in order to do things like sign out of all devices.
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../distlock/">Distributed Locks</a> ⇒
-	</div>
+<a href="../distlock/">Distributed Locks</a> <span aria-hidden="true">⇒</span>
+</div>
 </div>
 </footer>
 </body>

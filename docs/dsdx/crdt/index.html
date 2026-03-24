@@ -5,50 +5,54 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Conflict-Free Replicated Data Types</title>
+<meta content="Distributed Systems Design by Example" name="description"/>
+<meta content="#f8f8f8" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<nav>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
 <a href="../">Distributed Systems Design by Example</a>
-      ·
-      <span class="dropdown">
-<a href="#">Lessons</a>
-<span class="dropdown-content" id="nav-lessons">
-<a href="../intro/">Introduction</a>
-<a href="../mapreduce/">MapReduce</a>
-<a href="../msgque/">A Publish-Subscribe Message Queue</a>
-<a href="../worksteal/">A Work-Stealing Scheduler</a>
-<a href="../tracing/">Distributed Tracing</a>
-<a href="../crdt/">Conflict-Free Replicated Data Types</a>
-<a href="../oauth/">OAuth</a>
-<a href="../distlock/">Distributed Locks</a>
-<a href="../torrent/">BitTorrent</a>
-<a href="../eventual/">Eventually Consistent Key-Value Store</a>
-<a href="../saga/">The Saga Pattern</a>
-<a href="../tcp/">TCP</a>
-<a href="../dns/">DNS</a>
-<a href="../ntp/">NTP</a>
-<a href="../finale/">Conclusion</a>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons" role="list">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
+<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
+<li><a href="../tracing/">Distributed Tracing</a></li>
+<li><a class="active" href="../crdt/">Conflict-Free Replicated Data Types</a></li>
+<li><a href="../oauth/">OAuth</a></li>
+<li><a href="../distlock/">Distributed Locks</a></li>
+<li><a href="../torrent/">BitTorrent</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../saga/">The Saga Pattern</a></li>
+<li><a href="../tcp/">TCP</a></li>
+<li><a href="../dns/">DNS</a></li>
+<li><a href="../ntp/">NTP</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
 </span>
-</span>
-      ·
-      <span class="dropdown">
-<a href="#">Appendices</a>
-<span class="dropdown-content" id="nav-appendices">
-<a href="../license/">License</a>
-<a href="../conduct/">Code of Conduct</a>
-<a href="../contributing/">Contributing</a>
-<a href="../bibliography/">Bibliography</a>
-<a href="../glossary/">Glossary</a>
-<a href="../theory/">A Bit of Theory</a>
-<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
-</span>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices" role="list">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../theory/">A Bit of Theory</a></li>
+<li><a href="../asimpy/">Discrete Event Simulation with asimpy</a></li>
+</ul>
 </span>
 </nav>
-<main>
+<main id="main-content">
 <h1>Conflict-Free Replicated Data Types</h1>
 <p class="subtitle">scalable data structures</p>
 <p>When multiple people edit an online document simultaneously,
@@ -102,7 +106,7 @@ We will implement both approaches to understand the trade-offs.</p>
 a <a class="gl-ref" href="../glossary/#lww-register">last-write-wins register</a>.
 For values that should be overwritten (like a user's profile name),
 we can use timestamps to determine which write wins.</p>
-<div data-filter="inc=lww" data-inc="lwwregister.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<div data-filter="inc=lww" data-inc="lwwregister.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">LWWRegister</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Last-Write-Wins register (state-based CRDT)."""</span>
 
@@ -132,7 +136,7 @@ we can use timestamps to determine which write wins.</p>
 </div>
 <p>To see how this works,
 consider three replicas that randomly choose color values to share with peers:</p>
-<div data-filter="inc=replica" data-inc="ex_lwwregister.py"><div class="codehilite"><pre class=""><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
+<div data-filter="inc=replica" data-inc="ex_lwwregister.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
 <span class="n">VALUES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"green"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"yellow"</span><span class="p">]</span>
 
 
@@ -168,7 +172,7 @@ consider three replicas that randomly choose color values to share with peers:</
 </div>
 <p>If we run three replicas for 10 timesteps,
 the output is:</p>
-<div data-inc="ex_lwwregister.out"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: set 'yellow'
+<div data-inc="ex_lwwregister.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0] Ahmed: set 'yellow'
 [0] Baemi: set 'yellow'
 [0] Chiti: set 'yellow'
 [2] Ahmed: synced with Chiti -&gt; 'yellow'
@@ -211,7 +215,7 @@ such as a shared to-do list where two people add items at the same time.</p>
 <p>Another CRDT is a <a class="gl-ref" href="../glossary/#grow-only-counter">grow-only counter</a>
 whose value can only increase.
 Each replica maintains a vector of counters, one per replica:</p>
-<div data-filter="inc=gcounter" data-inc="gcounter.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<div data-filter="inc=gcounter" data-inc="gcounter.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">GCounter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Grow-only counter (state-based CRDT)."""</span>
 
@@ -269,7 +273,7 @@ Again,
 each slot tracks how many increments that specific replica has performed,
 so the total is how many increments have happened across all replicas.</p>
 <p>To make it concrete, consider this output:</p>
-<div class="codehilite"><pre class=""><span></span><code><span class="n">Ahmed</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">Ahmed</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
 <span class="n">Baemi</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
 <span class="n">Chiti</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">7</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Chiti'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
 </code></pre></div>
@@ -280,7 +284,7 @@ Chiti has synced with them, though,
 so Chiti's view is more complete.
 Once all three sync,
 they'll all converge to:</p>
-<div class="codehilite"><pre class=""><span></span><code>counts={'Ahmed': 3, 'Baemi': 3, 'Chiti': 3}`
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>counts={'Ahmed': 3, 'Baemi': 3, 'Chiti': 3}`
 </code></pre></div>
 <p>with the value 9.
 No increments are lost, regardless of sync order or timing.</p>
@@ -290,7 +294,7 @@ A <a class="gl-ref" href="../glossary/#pn-counter">positive-negative counter</a>
 one for increments, one for decrements.
 This works because increments and decrements are tracked separately.
 Each remains monotonically increasing, so the G-Counter merge properties still apply.</p>
-<div data-filter="inc=pncounter" data-inc="pncounter.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<div data-filter="inc=pncounter" data-inc="pncounter.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">PNCounter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Positive-Negative counter supporting increment and decrement."""</span>
 
@@ -334,7 +338,7 @@ If Ahmed adds X and Baemi removes X concurrently, should X be in the final set?<
 The key idea is that an element is in the set if there is an add tag that hasn't been removed.
 This gives "add-wins" semantics:
 concurrent add and remove operations result in the element being present.</p>
-<div data-filter="inc=orset" data-inc="orset.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<div data-filter="inc=orset" data-inc="orset.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ORSet</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Observed-Remove Set (state-based CRDT)."""</span>
 
@@ -387,7 +391,7 @@ concurrent add and remove operations result in the element being present.</p>
 </code></pre></div>
 </div>
 <p>This example shows an OR-set in operation:</p>
-<div data-filter="inc=replica" data-inc="ex_orset.py"><div class="codehilite"><pre class=""><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
+<div data-filter="inc=replica" data-inc="ex_orset.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
 <span class="n">ITEMS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"cherry"</span><span class="p">]</span>
 <span class="n">P_REMOVE</span> <span class="o">=</span> <span class="mf">0.3</span>
 
@@ -430,7 +434,7 @@ concurrent add and remove operations result in the element being present.</p>
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sync_interval</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_orset.out"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: add 'banana' -&gt; ['banana']
+<div data-inc="ex_orset.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0] Ahmed: add 'banana' -&gt; ['banana']
 [0] Baemi: add 'banana' -&gt; ['banana']
 [0] Chiti: add 'cherry' -&gt; ['cherry']
 [2] Ahmed: synced with Chiti -&gt; ['banana', 'cherry']
@@ -457,7 +461,7 @@ Chiti: ['apple', 'banana', 'cherry']
 operation-based CRDTs send just the operations.
 Let's implement an operation-based counter
 by defining a dataclass to represent a single operation:</p>
-<div data-filter="inc=op" data-inc="opbased_counter.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<div data-filter="inc=op" data-inc="opbased_counter.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Operation</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""An operation on a CRDT."""</span>
 
@@ -467,7 +471,7 @@ by defining a dataclass to represent a single operation:</p>
 </code></pre></div>
 </div>
 <p>and then a class to use it:</p>
-<div data-filter="inc=counter" data-inc="opbased_counter.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">OpBasedCounter</span><span class="p">:</span>
+<div data-filter="inc=counter" data-inc="opbased_counter.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">OpBasedCounter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Operation-based PN-Counter."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">replica_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
@@ -502,7 +506,7 @@ In practice,
 this means tracking which operations have been delivered and handling duplicates,
 which is what the <code>applied_ops</code> member of the <code>OpBasedCounter</code> class above does.</p>
 <p>The <code>Replica</code> class below exercises this counter:</p>
-<div data-filter="inc=replica" data-inc="ex_opbased_counter.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-filter="inc=replica" data-inc="ex_opbased_counter.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""A replica that creates operations and broadcasts them to peers."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">peer_record</span><span class="p">,</span> <span class="n">all_peers</span><span class="p">,</span> <span class="n">interval</span><span class="p">):</span>
@@ -555,7 +559,7 @@ skipping duplicates via <code>op_id</code>.
 As the output below shows,
 all replicas converge to the same value
 because every operation is delivered to every replica exactly once:</p>
-<div data-inc="ex_opbased_counter.out"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: increment -&gt; 1
+<div data-inc="ex_opbased_counter.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0] Ahmed: increment -&gt; 1
 [0] Baemi: increment -&gt; 1
 [0] Chiti: increment -&gt; 1
 [2] Ahmed: applied inbox -&gt; 3
@@ -591,7 +595,7 @@ effectively splitting the system into disconnected segments.</p>
 Let's simulate a network partition using the <code>GCounter</code> class defined earlier.
 First,
 we create a simple dataclass to represent peers in the network:</p>
-<div data-filter="inc=peer" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="nd">@dataclass</span>
+<div data-filter="inc=peer" data-inc="ex_partition.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Peer</span><span class="p">:</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">counter</span><span class="p">:</span> <span class="n">GCounter</span>
@@ -684,7 +688,7 @@ we create a simple dataclass to represent peers in the network:</p>
 <p>Next,
 we define a <code>Replica</code> process that repeatedly tries to synchronize
 with a randomly-selected peer:</p>
-<div data-filter="inc=replica" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-filter="inc=replica" data-inc="ex_partition.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Replica</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""A replica that increments and syncs, respecting partitions."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">peer_record</span><span class="p">,</span> <span class="n">all_peers</span><span class="p">,</span> <span class="n">interval</span><span class="p">):</span>
@@ -715,7 +719,7 @@ with a randomly-selected peer:</p>
 </code></pre></div>
 </div>
 <p>We then create a partition controller that creates and heals a partition:</p>
-<div data-filter="inc=partition" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PartitionController</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-filter="inc=partition" data-inc="ex_partition.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PartitionController</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Create and heal a network partition between two peers."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">peer_a</span><span class="p">,</span> <span class="n">peer_b</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
@@ -741,7 +745,7 @@ with a randomly-selected peer:</p>
 <p>Finally,
 we create three replicas and force a break in the network
 at a particular time and for a particular duration:</p>
-<div data-filter="inc=sim" data-inc="ex_partition.py"><div class="codehilite"><pre class=""><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
+<div data-filter="inc=sim" data-inc="ex_partition.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ahmed"</span><span class="p">,</span> <span class="s2">"Baemi"</span><span class="p">,</span> <span class="s2">"Chiti"</span><span class="p">]</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
@@ -762,7 +766,7 @@ at a particular time and for a particular duration:</p>
 </div>
 <p>As the output shows,
 the counter recovers from the partitioning:</p>
-<div data-inc="ex_partition.out"><div class="codehilite"><pre class=""><span></span><code>[0] Ahmed: increment -&gt; 1
+<div data-inc="ex_partition.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0] Ahmed: increment -&gt; 1
 [0] Baemi: increment -&gt; 1
 [0] Chiti: increment -&gt; 1
 [2] Ahmed: synced with Chiti -&gt; 2
@@ -795,15 +799,15 @@ GCounter(id=Baemi, value=11, counts={'Baemi': 4, 'Chiti': 4, 'Ahmed': 3})
 GCounter(id=Chiti, value=12, counts={'Chiti': 4, 'Baemi': 4, 'Ahmed': 4})
 </code></pre></div>
 </div>
-<section class="exercises">
+<section aria-label="Exercises" class="exercises">
 <h2 id="crdt-exercises">Exercises</h2>
 <p>FIXME: add exercises.</p>
 </section>
 </main>
-<footer>
+<footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-	  ⇐ <a href="../tracing/">Distributed Tracing</a>
+<span aria-hidden="true">⇐</span> <a href="../tracing/">Distributed Tracing</a>
 </div>
 <div class="col-6 center">
 <a href="../">Distributed Systems Design by Example</a>
@@ -811,8 +815,8 @@ GCounter(id=Chiti, value=12, counts={'Chiti': 4, 'Baemi': 4, 'Ahmed': 4})
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../oauth/">OAuth</a> ⇒
-	</div>
+<a href="../oauth/">OAuth</a> <span aria-hidden="true">⇒</span>
+</div>
 </div>
 </footer>
 </body>

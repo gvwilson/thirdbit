@@ -5,50 +5,54 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>A Bit of Theory</title>
+<meta content="Distributed Systems Design by Example" name="description"/>
+<meta content="#f8f8f8" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
 <script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
-<nav>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
 <a href="../">Distributed Systems Design by Example</a>
-      ·
-      <span class="dropdown">
-<a href="#">Lessons</a>
-<span class="dropdown-content" id="nav-lessons">
-<a href="../intro/">Introduction</a>
-<a href="../mapreduce/">MapReduce</a>
-<a href="../msgque/">A Publish-Subscribe Message Queue</a>
-<a href="../worksteal/">A Work-Stealing Scheduler</a>
-<a href="../tracing/">Distributed Tracing</a>
-<a href="../crdt/">Conflict-Free Replicated Data Types</a>
-<a href="../oauth/">OAuth</a>
-<a href="../distlock/">Distributed Locks</a>
-<a href="../torrent/">BitTorrent</a>
-<a href="../eventual/">Eventually Consistent Key-Value Store</a>
-<a href="../saga/">The Saga Pattern</a>
-<a href="../tcp/">TCP</a>
-<a href="../dns/">DNS</a>
-<a href="../ntp/">NTP</a>
-<a href="../finale/">Conclusion</a>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons" role="list">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../mapreduce/">MapReduce</a></li>
+<li><a href="../msgque/">A Publish-Subscribe Message Queue</a></li>
+<li><a href="../worksteal/">A Work-Stealing Scheduler</a></li>
+<li><a href="../tracing/">Distributed Tracing</a></li>
+<li><a href="../crdt/">Conflict-Free Replicated Data Types</a></li>
+<li><a href="../oauth/">OAuth</a></li>
+<li><a href="../distlock/">Distributed Locks</a></li>
+<li><a href="../torrent/">BitTorrent</a></li>
+<li><a href="../eventual/">Eventually Consistent Key-Value Store</a></li>
+<li><a href="../saga/">The Saga Pattern</a></li>
+<li><a href="../tcp/">TCP</a></li>
+<li><a href="../dns/">DNS</a></li>
+<li><a href="../ntp/">NTP</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
 </span>
-</span>
-      ·
-      <span class="dropdown">
-<a href="#">Appendices</a>
-<span class="dropdown-content" id="nav-appendices">
-<a href="../license/">License</a>
-<a href="../conduct/">Code of Conduct</a>
-<a href="../contributing/">Contributing</a>
-<a href="../bibliography/">Bibliography</a>
-<a href="../glossary/">Glossary</a>
-<a href="../theory/">A Bit of Theory</a>
-<a href="../asimpy/">Discrete Event Simulation with asimpy</a>
-</span>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices" role="list">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a class="active" href="../theory/">A Bit of Theory</a></li>
+<li><a href="../asimpy/">Discrete Event Simulation with asimpy</a></li>
+</ul>
 </span>
 </nav>
-<main>
+<main id="main-content">
 <h1>A Bit of Theory</h1>
 <p>When you run a program on a single machine,
 you can rely on events happening in a definite order
@@ -187,10 +191,10 @@ Modern systems often provide tunable consistency:
 a database might allow you to choose strong consistency for financial transactions
 and eventual consistency for analytics queries.</p>
 </main>
-<footer>
+<footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-	  ⇐ <a href="../glossary/">Glossary</a>
+<span aria-hidden="true">⇐</span> <a href="../glossary/">Glossary</a>
 </div>
 <div class="col-6 center">
 <a href="../">Distributed Systems Design by Example</a>
@@ -198,8 +202,8 @@ and eventual consistency for analytics queries.</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../asimpy/">Discrete Event Simulation with asimpy</a> ⇒
-	</div>
+<a href="../asimpy/">Discrete Event Simulation with asimpy</a> <span aria-hidden="true">⇒</span>
+</div>
 </div>
 </footer>
 </body>
