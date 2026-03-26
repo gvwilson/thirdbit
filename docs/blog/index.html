@@ -110,6 +110,71 @@ I believe that all research software can be classified as follows:</p>
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/03/26/feasible/">
+      Feasible
+    </a>
+  </h2>
+  <p><time datetime="2026-03-26" class="post-date">2026-03-26</time></p>
+  <p>A couple of years ago I wrote a list of student projects I&rsquo;d like to (co-)supervise.
+Some are now done and some others are under way,
+but my experiments with LLMs in the last couple of months
+have convinced me that I just might be able to do some of the others on my own.
+If I don&rsquo;t find a full-time job,
+I will think very seriously about tackling one or more of the projects below.</p>
+<h2>Unbreaking Software</h2>
+<p>Most programmers spend a large part of their time debugging, but
+most courses only show working code, and most textbooks don&rsquo;t
+discuss how to prevent, diagnose, and fix errors.  This tutorial
+will fill that gap by presenting dozens of case studies showing how
+to find and fix real-world problems.  Along the way, it will present
+examples of what programmers can do to handle errors gracefully,
+from data structure repair to automatically restarting servers.</p>
+<h2>Markdown to DOM</h2>
+<p><a href="https://python-markdown.github.io/">Python-Markdown</a>
+converts Markdown to HTML; if an application needs a DOM tree that
+it can check or manipulate, it must then parse the HTML using a
+library like <a href="https://beautiful-soup-4.readthedocs.io/">BeautifulSoup</a>,
+perform whatever operations it needs to, and then convert the DOM
+back to HTML. In this project, students will refactor
+Python-Markdown so that it can generate a Beautiful Soup-compatible
+DOM tree directly.</p>
+<h2>Identification of Variable Roles</h2>
+<p>Sajaniemi et al&rsquo;s work on
+<a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles of variables</a>
+identified and named ten small patterns in the way variables are used
+in novice programs. This project would build static and dynamic
+analysis tools to detect those patterns (and possibly others) in
+programs as an aid to teaching, debugging, and code review.</p>
+<h2>A Tower Support Game</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Tower_defense">tower defense game</a>
+is one in which the player builds fixed defenses against incoming waves of
+attackers. (<a href="https://en.wikipedia.org/wiki/Kingdom_Rush">Kingdom Rush</a>
+is a personal favorite.) The objective of this game is to prototype a simple
+tower <em>support</em> game, in which the player builds bridges, first aid
+stations, and so on to help travelers reach their destination.</p>
+<h2>A WYSIWYG Computational Notebook</h2>
+<p><a href="https://jupyter.org/">Jupyter</a> uses JSON as its storage format, while
+<a href="https://marimo.io/">Marimo</a>
+and <a href="https://quarto.org/">Quarto</a> use Python with
+embedded strings and Markdown with embedded code respectively. This
+project will explore a third option by building an
+<a href="https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions">extension</a>
+for <a href="https://www.libreoffice.org/">LibreOffice</a> using
+the <a href="https://jupyter-client.readthedocs.io/en/latest/">the
+Jupyter messaging protocol</a> so that people who prefer WYSIWYG
+editors can embed code and its output alongside diagrams, tables,
+and other media.</p>
+<h2>A Little WYSIWYG Editor</h2>
+<p>Panchekha and Harrelson&rsquo;s
+<a href="https://browser.engineering/"><em>Web Browser Engineering</em></a>
+builds a small but fully-functional web browser step by step to show
+students how real ones work. The aim of this project is to build an
+equally simple desktop WYSIWYG editor in Python that supports both
+styled text and embedded sketching.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/03/26/penguin-geography/">
       Penguin Geography
     </a>
@@ -564,109 +629,6 @@ and even harder to read non-fiction.
 I don&rsquo;t know if this is because I&rsquo;m distracted by personal and world events,
 or whether it&rsquo;s a stage of life,
 but I miss losing myself in someone else&rsquo;s prose for a few hours at a time.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/01/28/four-traditions-revisited/">
-      Four Traditions Revisited
-    </a>
-  </h2>
-  <p><time datetime="2026-01-28" class="post-date">2026-01-28</time></p>
-  <p>Tedre and Sutinen&rsquo;s paper &ldquo;<a href="https://doi.org/10.1080/08993400802332332">Three Traditions of Computing: What Educators Should Know</a>&rdquo;
-has shaped my thinking ever since I first read it.
-And this table (reproduced from the paper) summarizes their analysis:</p>
-<table class="centered">
-<tr>
-  <th valign="top"></th>
-  <th valign="top">Mathematical tradition</th>
-  <th valign="top">Engineering tradition</th>
-  <th valign="top">Scientific tradition</th>
-</tr>
-<tr>
-  <th valign="top">Assumptions</th>
-  <td valign="top">Programs (algorithms) are abstract objects, they are correct or incorrect, as well as more or less efficient – knowledge is a priori</td>
-  <td valign="top">Programs (processes) affect the world, they are more or less effective and reliable – knowledge is a posteriori</td>
-  <td valign="top">Programs can model information processes, models are more or less accurate – knowledge is a posteriori</td>
-</tr>
-<tr>
-  <th valign="top">Aims</th>
-  <td valign="top">Coherent theoretical structures and systems</td>
-  <td valign="top">Investigating and explaining phenomena, solving problems</td>
-  <td valign="top">Constructing useful, efficient, and reliable systems; solving problems</td>
-</tr>
-<tr>
-  <th valign="top">Strengths</th>
-  <td valign="top">Rigorous, results are certain, utilized in other traditions</td>
-  <td valign="top">Combines deduction and induction, cumulative</td>
-  <td valign="top">Able to work under great uncertainty, flexible, progress is tangible</td>
-</tr>
-<tr>
-  <th valign="top">Weaknesses</th>
-  <td valign="top">Incommensurability of results, uncertainty about what counts as proper science</td>
-  <td valign="top">Limited to axiomatic systems</td>
-  <td valign="top">Rarely follows rigid, preordained procedures; poor generalizability</td>
-</tr>
-<tr>
-  <th valign="top">Methods</th>
-  <td valign="top">Empirical, inductive, and deductive</td>
-  <td valign="top">Analytic, deductive (and inductive)</td>
-  <td valign="top">Empirical, constructive</td>
-</tr>
-</table>
-
-<p>As <a href="../2022/12/29/the-fourth-tradition/">I wrote three years ago</a>,
-I&rsquo;m struck now by what&rsquo;s <em>not</em> there.
-I think there should be a fourth column titled &ldquo;Humanist tradition&rdquo;
-that focuses on values,
-on how computing is used,
-and on how cognitive and social psychology support, shape, and limit
-what we can build and how we build it.</p>
-<p>I also now think that their distinction between the engineering and scientific traditions
-isn&rsquo;t particularly useful.
-In practice,
-they are nearly-identical attempts to turn software development into
-an engineering discipline on par with chemical or electrical engineering.
-UML,
-requirements engineering,
-the use of statistical models to predict bug rates:
-all are signs of &ldquo;engineering envy&rdquo;,
-and by and large,
-practitioners have voted with their feet and <em>not</em> adopted them.</p>
-<p>Instead,
-the overwhelming majority of the programmers I&rsquo;ve worked with
-fall into what I used to call a &ldquo;craft&rdquo; tradition,
-but which I now think has a lot more in common with
-<a href="../2017/12/17/consider-the-bicycle/">industrial design</a>.
-Using Tedre and Sutinen&rsquo;s categories:</p>
-<ul>
-<li>
-<p><strong>Assumptions</strong>: Programs are built by people who learn design and construction from examples.</p>
-</li>
-<li>
-<p><strong>Aims</strong>: Answer the questions, &ldquo;Does it do what it&rsquo;s supposed to?&rdquo; and &ldquo;Does its design facilitate its construction and maintenance?&rdquo;</p>
-</li>
-<li>
-<p><strong>Strengths</strong>: Matches most practitioners&rsquo; mental model of their work.</p>
-</li>
-<li>
-<p><strong>Weaknesses</strong>: Lacks a rigorous foundation. (Discussions of software design are intellectually shallow compared to discussions of the design of bicycles and teapots.)</p>
-</li>
-<li>
-<p><strong>Methods</strong>: Mentoring.</p>
-</li>
-</ul>
-<p>I think this analysis explains
-why practitioners and software engineering researchers mostly talk past one another.
-Most researchers subscribe to what Scott&rsquo;s book <em><a href="https://isbnsearch.org/isbn/9780300078152">Seeing Like a State</a></em>
-labelled &ldquo;high modernism&rdquo;:
-they believe comprehensibility and control will come from uniformity and formalism.
-Practitioners,
-on the other hand,
-are defending the local traditions in which they are personally invested.
-In my idle moments,
-I wonder where we&rsquo;d be if <a href="https://en.wikipedia.org/wiki/NATO_Software_Engineering_Conferences">that long-ago NATO conference</a>
-had adopted industrial design as a metaphor instead of engineering.</p>
 </article>
 
 

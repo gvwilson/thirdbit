@@ -37,6 +37,69 @@ I believe that all research software can be classified as follows:&lt;/p&gt;
  </entry>
  
  <entry>
+   <title>Feasible</title>
+   <link href="https://third-bit.com/2026/03/26/feasible/"/>
+   <updated>2026-03-26T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/03/26/feasible/</id>
+   <content type="html">&lt;p&gt;A couple of years ago I wrote a list of student projects I&amp;rsquo;d like to (co-)supervise.
+Some are now done and some others are under way,
+but my experiments with LLMs in the last couple of months
+have convinced me that I just might be able to do some of the others on my own.
+If I don&amp;rsquo;t find a full-time job,
+I will think very seriously about tackling one or more of the projects below.&lt;/p&gt;
+&lt;h2&gt;Unbreaking Software&lt;/h2&gt;
+&lt;p&gt;Most programmers spend a large part of their time debugging, but
+most courses only show working code, and most textbooks don&amp;rsquo;t
+discuss how to prevent, diagnose, and fix errors.  This tutorial
+will fill that gap by presenting dozens of case studies showing how
+to find and fix real-world problems.  Along the way, it will present
+examples of what programmers can do to handle errors gracefully,
+from data structure repair to automatically restarting servers.&lt;/p&gt;
+&lt;h2&gt;Markdown to DOM&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://python-markdown.github.io/&#34;&gt;Python-Markdown&lt;/a&gt;
+converts Markdown to HTML; if an application needs a DOM tree that
+it can check or manipulate, it must then parse the HTML using a
+library like &lt;a href=&#34;https://beautiful-soup-4.readthedocs.io/&#34;&gt;BeautifulSoup&lt;/a&gt;,
+perform whatever operations it needs to, and then convert the DOM
+back to HTML. In this project, students will refactor
+Python-Markdown so that it can generate a Beautiful Soup-compatible
+DOM tree directly.&lt;/p&gt;
+&lt;h2&gt;Identification of Variable Roles&lt;/h2&gt;
+&lt;p&gt;Sajaniemi et al&amp;rsquo;s work on
+&lt;a href=&#34;https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf&#34;&gt;roles of variables&lt;/a&gt;
+identified and named ten small patterns in the way variables are used
+in novice programs. This project would build static and dynamic
+analysis tools to detect those patterns (and possibly others) in
+programs as an aid to teaching, debugging, and code review.&lt;/p&gt;
+&lt;h2&gt;A Tower Support Game&lt;/h2&gt;
+&lt;p&gt;A &lt;a href=&#34;https://en.wikipedia.org/wiki/Tower_defense&#34;&gt;tower defense game&lt;/a&gt;
+is one in which the player builds fixed defenses against incoming waves of
+attackers. (&lt;a href=&#34;https://en.wikipedia.org/wiki/Kingdom_Rush&#34;&gt;Kingdom Rush&lt;/a&gt;
+is a personal favorite.) The objective of this game is to prototype a simple
+tower &lt;em&gt;support&lt;/em&gt; game, in which the player builds bridges, first aid
+stations, and so on to help travelers reach their destination.&lt;/p&gt;
+&lt;h2&gt;A WYSIWYG Computational Notebook&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://jupyter.org/&#34;&gt;Jupyter&lt;/a&gt; uses JSON as its storage format, while
+&lt;a href=&#34;https://marimo.io/&#34;&gt;Marimo&lt;/a&gt;
+and &lt;a href=&#34;https://quarto.org/&#34;&gt;Quarto&lt;/a&gt; use Python with
+embedded strings and Markdown with embedded code respectively. This
+project will explore a third option by building an
+&lt;a href=&#34;https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions&#34;&gt;extension&lt;/a&gt;
+for &lt;a href=&#34;https://www.libreoffice.org/&#34;&gt;LibreOffice&lt;/a&gt; using
+the &lt;a href=&#34;https://jupyter-client.readthedocs.io/en/latest/&#34;&gt;the
+Jupyter messaging protocol&lt;/a&gt; so that people who prefer WYSIWYG
+editors can embed code and its output alongside diagrams, tables,
+and other media.&lt;/p&gt;
+&lt;h2&gt;A Little WYSIWYG Editor&lt;/h2&gt;
+&lt;p&gt;Panchekha and Harrelson&amp;rsquo;s
+&lt;a href=&#34;https://browser.engineering/&#34;&gt;&lt;em&gt;Web Browser Engineering&lt;/em&gt;&lt;/a&gt;
+builds a small but fully-functional web browser step by step to show
+students how real ones work. The aim of this project is to build an
+equally simple desktop WYSIWYG editor in Python that supports both
+styled text and embedded sketching.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Penguin Geography</title>
    <link href="https://third-bit.com/2026/03/26/penguin-geography/"/>
    <updated>2026-03-26T00:00:00Z</updated>
@@ -1407,84 +1470,6 @@ The next step will be to resume tasks rather than just throwing them away.&lt;/p
 &lt;div class=&#34;center&#34;&gt;
   &lt;img src=&#34;https://third-bit.com/files/dec-6-plaque.png&#34; alt=&#34;plaque for victims the Dec 6 massacre&#34; width=&#34;90%&gt;
 &lt;/div&gt;</content>
- </entry>
- 
- <entry>
-   <title>The Effects of Rework</title>
-   <link href="https://third-bit.com/2025/12/04/the-effects-of-rework/"/>
-   <updated>2025-12-04T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/12/04/the-effects-of-rework/</id>
-   <content type="html">&lt;p&gt;Having &lt;a href=&#34;https://third-bit.com/2025/12/03/you-have-to-cancel/&#34;&gt;solved yesterday&amp;rsquo;s bug&lt;/a&gt;,
-we can get back to looking at the effect of re-work on throughput.
-As a reminder,
-our workflow looks like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;+----------------+    +-----------+    +------------+    +------------+    +---------+
-| task generator | -&amp;gt; | dev queue | -&amp;gt; | developers | -&amp;gt; | test queue | -&amp;gt; | testers |
-+----------------+    +-----------+    +------------+    +------------+    +---------+
-                            ^                                                   |
-                            |                                                   |
-                            +---------------------------------------------------+
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The two parameters that affect re-work are &lt;code&gt;p_rework_needed&lt;/code&gt;,
-which is the probability that a tester is going to send a task back for more work,
-and &lt;code&gt;p_rework_chosen&lt;/code&gt;,
-which is the probability that a developer will choose something from her re-work queue
-rather than starting fresh work
-when both are available.
-The extreme cases are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;p_rework_needed&lt;/code&gt; = 0.0, meaning no tasks are ever sent back.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;p_rework_needed&lt;/code&gt; = 1.0, meaning every task is always sent back.
-    (Note that this means no task will ever be finished:
-    instead,
-    tasks will circulate endlesslesly between development and testing,
-    and yes,
-    sometimes it does feel like that happens in real life.)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;p_rework_chosen&lt;/code&gt; = 0.0, in which case
-    developers only re-do tasks when there is no new work queued up.
-    (We know from previous simulations that there are almost always
-    new tasks waiting to be started.)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;p_rework_chosen&lt;/code&gt; = 1.0, in which case
-    developers only start new tasks when nothing needs to be re-done.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Finally,
-this version of the simulation always sends tasks back to
-the developers who originally worked on them
-rather than allowing the first available developer
-to re-do someone else&amp;rsquo;s work.&lt;/p&gt;
-&lt;h2&gt;Final States&lt;/h2&gt;
-&lt;p&gt;The figure below shows the number of tasks in each of the five possible states
-at the end of the simulation
-as a function of &lt;code&gt;p_rework_needed&lt;/code&gt; and &lt;code&gt;p_rework_chosen&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;center&#34;&gt;
-  &lt;img src=&#34;https://third-bit.com/files/2025/12/04/states.svg&#34; alt=&#34;final task states&#34; width=&#34;90%&#34;&gt;
-&lt;/div&gt;
-
-&lt;p&gt;As expected,
-lots of tasks are in the &lt;code&gt;complete&lt;/code&gt; state when there is never any need for re-work,
-while none are when re-work is always needed.
-This finding may seem obvious,
-but this simple check uncovered a couple of bugs in the simulation.&lt;/p&gt;
-&lt;p&gt;A more interesting finding is that
-how developers choose tasks doesn&amp;rsquo;t seem to have much effect
-on how many they get done:
-while there is some variation,
-the bars stay more or less the same height when we look at each row.&lt;/p&gt;
-&lt;p&gt;We can reach the same conclusion by looking at
-the number of times tasks were developed and re-worked.
-The sizes of the circles in the plots below reflect these counts:&lt;/p&gt;
-&lt;div class=&#34;row&#34;&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/12/04/n_dev.svg&#34; alt=&#34;development count&#34; width=&#34;90%&#34;&gt;
-  &lt;/div&gt;
-  &lt;div class=&#34;col-6 center&#34;&gt;
-    &lt;img src=&#34;https://third-bit.com/files/2025/12/04/n_rework.svg&#34; alt=&#34;re-work count&#34; width=&#34;90%&#34;&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Again,
-the probability of needing re-work has an obvious impact,
-while the probability of choosing new work vs. re-work doesn&amp;rsquo;t seem to.&lt;/p&gt;</content>
  </entry>
  
 </feed>
