@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: An E-Bike for the Mind</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../packages/">packages</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>An E-Bike for the Mind</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/03/27/another-modest-proposal/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-03-28" class="post-date">2026-03-28</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>As I wrote <a href="../../../../2026/03/26/feasible/">a couple of days ago</a>,
+Sajaniemi et al&rsquo;s work on <a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles of variables</a>
+identified and named ten patterns in the way variables are used in novice programs.
+These roles aren&rsquo;t just a way to analyze code.
+They&rsquo;re also useful for explaining code,
+because they provide a vocabulary to capture <em>intent</em>
+in a way that&rsquo;s complementary to type information like <code>int</code> or <code>Person</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed value</td>
+<td>Initialized once and not changed thereafter.</td>
+</tr>
+<tr>
+<td>Stepper</td>
+<td>Steps through a systematic, predictable succession of values (e.g., a loop counter).</td>
+</tr>
+<tr>
+<td>Walker</td>
+<td>Traverses a data structure element by element, where each new value depends on the previous position.</td>
+</tr>
+<tr>
+<td>Follower</td>
+<td>Always receives the previous value of some other variable (e.g., <code>prev = current</code> before <code>current</code> is updated).</td>
+</tr>
+<tr>
+<td>Most-recent holder</td>
+<td>Holds the latest value encountered in an unpredictable series, typically successive inputs.</td>
+</tr>
+<tr>
+<td>Most-wanted holder</td>
+<td>Holds the best value found so far (e.g., maximum or minimum).</td>
+</tr>
+<tr>
+<td>Gatherer</td>
+<td>Accumulates the combined effect of individual values (e.g., running sum or count).</td>
+</tr>
+<tr>
+<td>One-way flag</td>
+<td>A two-valued variable that, once changed from its initial value, never reverts (e.g., an error flag set to <code>True</code> and never reset).</td>
+</tr>
+<tr>
+<td>Temporary</td>
+<td>Holds a value for a very short time only, most commonly in a swap operation.</td>
+</tr>
+<tr>
+<td>Organizer</td>
+<td>A collection used only to rearrange its elements (e.g., sorted in place), never to add or remove them.</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>A collection whose elements are added and/or removed during the computation.</td>
+</tr>
+</tbody>
+</table>
+<p>It occurred to me during a workshop this week that
+variable roles might help when we are using LLMs in teaching.
+In order to understand a piece of software,
+I need to understand the purpose of each of its parts.
+Pattern names like Observer or Singleton help me do this
+because they compress complex chunks of code down to single concepts,
+which helps prevent cognitive overload.
+However,
+the classic design patterns are still too big for novices;
+would Sajaniemi&rsquo;s roles be more helpful?
+I.e.,
+can we prompt the LLM to explain things in terms of these roles
+while simultaneously teaching newcomers to think in terms of them,
+and if so,
+does it help?
+And if the answers are &ldquo;yes&rdquo;,
+are there other roles that Sajaniemi and his colleagues didn&rsquo;t identify
+that are worth adding to the table above?
+(I work with data scientists
+so the first that comes to mind is &ldquo;Dataframe&rdquo;,
+but that&rsquo;s not a role: that&rsquo;s a data type.)</p>
+<blockquote>
+<p>One way to think about roles is that types tell you about the variable&rsquo;s state at rest
+while roles tell you about the variable&rsquo;s state in motion.
+This duality is similar to the one Kerievsky described
+in his under-appreciated book <a href="https://isbnsearch.org/isbn/9780321630018"><em>Refactoring to Patterns</em></a>,
+which explored the duality between design patterns (code at rest)
+and refactorings (code in motion).</p>
+</blockquote>
+<p>In order to explore these ideas,
+I spent about three and a half hours prompting Claude to build <a href="https://github.com/gvwilson/jorma">jorma</a>,
+a small Python package that uses static and dynamic analysis
+to identify variables&rsquo; roles.
+At the time of writing it is about 1000 lines of Python (not including tests)
+and is able to process 145 source files taken from <a href="../../../../sdxpy/"><em>Software Design by Example</em></a>.
+I made a few small edits to the code manually,
+but almost all of what&rsquo;s in <code>src</code> and <code>tests</code> was written by Claude.
+I think it would have taken me four or five days of full-time work and frustration
+to get this far on my own,
+which means that I probably wouldn&rsquo;t have done it.</p>
+<p>That realization is what led to this post&rsquo;s title:
+if a computer is a bicycle for the mind,
+then LLMs are like e-bikes.
+They let a lot of people go distances and tackle hills that they couldn&rsquo;t before,
+and they&rsquo;re better for all of us than cars,
+but they&rsquo;re a menace to both pedestrians and traditional cyclists,
+more harmful to the environment than what they&rsquo;re replacing,
+and have given companies yet another way to hollow out local businesses.
+(Neighborhood restaurants know that cheap delivery services are killing them slowly,
+but if they don&rsquo;t play,
+they&rsquo;ll just die more quickly.)</p>
+<p>I wish I could write a tidy conclusion for this post,
+but I don&rsquo;t have one.
+Experiments like <a href="https://github.com/gvwilson/jorma">jorma</a> have convinced me that
+telling people not to use LLMs
+is going to be just as ineffective as telling teenagers not to have sex or use social media.
+I hope that this week&rsquo;s court decisions to hold Meta accountable for the harm it has caused
+is a first step toward dealing with <a href="../../../../2026/03/08/cognitive-pollution/">cognitive pollution</a> in general,
+for the same reason that I hope Toronto and other places will figure out
+how to make e-bikes a normal part of everyday life.
+Until then,
+if you&rsquo;d like to help me improve <a href="https://github.com/gvwilson/jorma">jorma</a>,
+please try it out or <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+  </body>
+</html>

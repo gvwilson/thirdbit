@@ -3,12 +3,143 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-03-27T00:00:00Z</updated>
+ <updated>2026-03-28T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>An E-Bike for the Mind</title>
+   <link href="https://third-bit.com/2026/03/28/e-bike-for-the-mind/"/>
+   <updated>2026-03-28T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/03/28/e-bike-for-the-mind/</id>
+   <content type="html">&lt;p&gt;As I wrote &lt;a href=&#34;https://third-bit.com/2026/03/26/feasible/&#34;&gt;a couple of days ago&lt;/a&gt;,
+Sajaniemi et al&amp;rsquo;s work on &lt;a href=&#34;https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf&#34;&gt;roles of variables&lt;/a&gt;
+identified and named ten patterns in the way variables are used in novice programs.
+These roles aren&amp;rsquo;t just a way to analyze code.
+They&amp;rsquo;re also useful for explaining code,
+because they provide a vocabulary to capture &lt;em&gt;intent&lt;/em&gt;
+in a way that&amp;rsquo;s complementary to type information like &lt;code&gt;int&lt;/code&gt; or &lt;code&gt;Person&lt;/code&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Role&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Fixed value&lt;/td&gt;
+&lt;td&gt;Initialized once and not changed thereafter.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stepper&lt;/td&gt;
+&lt;td&gt;Steps through a systematic, predictable succession of values (e.g., a loop counter).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Walker&lt;/td&gt;
+&lt;td&gt;Traverses a data structure element by element, where each new value depends on the previous position.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Follower&lt;/td&gt;
+&lt;td&gt;Always receives the previous value of some other variable (e.g., &lt;code&gt;prev = current&lt;/code&gt; before &lt;code&gt;current&lt;/code&gt; is updated).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Most-recent holder&lt;/td&gt;
+&lt;td&gt;Holds the latest value encountered in an unpredictable series, typically successive inputs.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Most-wanted holder&lt;/td&gt;
+&lt;td&gt;Holds the best value found so far (e.g., maximum or minimum).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gatherer&lt;/td&gt;
+&lt;td&gt;Accumulates the combined effect of individual values (e.g., running sum or count).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;One-way flag&lt;/td&gt;
+&lt;td&gt;A two-valued variable that, once changed from its initial value, never reverts (e.g., an error flag set to &lt;code&gt;True&lt;/code&gt; and never reset).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Temporary&lt;/td&gt;
+&lt;td&gt;Holds a value for a very short time only, most commonly in a swap operation.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Organizer&lt;/td&gt;
+&lt;td&gt;A collection used only to rearrange its elements (e.g., sorted in place), never to add or remove them.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Container&lt;/td&gt;
+&lt;td&gt;A collection whose elements are added and/or removed during the computation.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;It occurred to me during a workshop this week that
+variable roles might help when we are using LLMs in teaching.
+In order to understand a piece of software,
+I need to understand the purpose of each of its parts.
+Pattern names like Observer or Singleton help me do this
+because they compress complex chunks of code down to single concepts,
+which helps prevent cognitive overload.
+However,
+the classic design patterns are still too big for novices;
+would Sajaniemi&amp;rsquo;s roles be more helpful?
+I.e.,
+can we prompt the LLM to explain things in terms of these roles
+while simultaneously teaching newcomers to think in terms of them,
+and if so,
+does it help?
+And if the answers are &amp;ldquo;yes&amp;rdquo;,
+are there other roles that Sajaniemi and his colleagues didn&amp;rsquo;t identify
+that are worth adding to the table above?
+(I work with data scientists
+so the first that comes to mind is &amp;ldquo;Dataframe&amp;rdquo;,
+but that&amp;rsquo;s not a role: that&amp;rsquo;s a data type.)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One way to think about roles is that types tell you about the variable&amp;rsquo;s state at rest
+while roles tell you about the variable&amp;rsquo;s state in motion.
+This duality is similar to the one Kerievsky described
+in his under-appreciated book &lt;a href=&#34;https://isbnsearch.org/isbn/9780321630018&#34;&gt;&lt;em&gt;Refactoring to Patterns&lt;/em&gt;&lt;/a&gt;,
+which explored the duality between design patterns (code at rest)
+and refactorings (code in motion).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In order to explore these ideas,
+I spent about three and a half hours prompting Claude to build &lt;a href=&#34;https://github.com/gvwilson/jorma&#34;&gt;jorma&lt;/a&gt;,
+a small Python package that uses static and dynamic analysis
+to identify variables&amp;rsquo; roles.
+At the time of writing it is about 1000 lines of Python (not including tests)
+and is able to process 145 source files taken from &lt;a href=&#34;https://third-bit.com/sdxpy/&#34;&gt;&lt;em&gt;Software Design by Example&lt;/em&gt;&lt;/a&gt;.
+I made a few small edits to the code manually,
+but almost all of what&amp;rsquo;s in &lt;code&gt;src&lt;/code&gt; and &lt;code&gt;tests&lt;/code&gt; was written by Claude.
+I think it would have taken me four or five days of full-time work and frustration
+to get this far on my own,
+which means that I probably wouldn&amp;rsquo;t have done it.&lt;/p&gt;
+&lt;p&gt;That realization is what led to this post&amp;rsquo;s title:
+if a computer is a bicycle for the mind,
+then LLMs are like e-bikes.
+They let a lot of people go distances and tackle hills that they couldn&amp;rsquo;t before,
+and they&amp;rsquo;re better for all of us than cars,
+but they&amp;rsquo;re a menace to both pedestrians and traditional cyclists,
+more harmful to the environment than what they&amp;rsquo;re replacing,
+and have given companies yet another way to hollow out local businesses.
+(Neighborhood restaurants know that cheap delivery services are killing them slowly,
+but if they don&amp;rsquo;t play,
+they&amp;rsquo;ll just die more quickly.)&lt;/p&gt;
+&lt;p&gt;I wish I could write a tidy conclusion for this post,
+but I don&amp;rsquo;t have one.
+Experiments like &lt;a href=&#34;https://github.com/gvwilson/jorma&#34;&gt;jorma&lt;/a&gt; have convinced me that
+telling people not to use LLMs
+is going to be just as ineffective as telling teenagers not to have sex or use social media.
+I hope that this week&amp;rsquo;s court decisions to hold Meta accountable for the harm it has caused
+is a first step toward dealing with &lt;a href=&#34;https://third-bit.com/2026/03/08/cognitive-pollution/&#34;&gt;cognitive pollution&lt;/a&gt; in general,
+for the same reason that I hope Toronto and other places will figure out
+how to make e-bikes a normal part of everyday life.
+Until then,
+if you&amp;rsquo;d like to help me improve &lt;a href=&#34;https://github.com/gvwilson/jorma&#34;&gt;jorma&lt;/a&gt;,
+please try it out or &lt;a href=&#34;mailto:gvwilson@third-bit.com&#34;&gt;get in touch&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Another Modest Proposal</title>
@@ -1239,260 +1370,6 @@ it feels like &lt;a href=&#34;https://en.wiktionary.org/wiki/yak_shaving&#34;&gt
 but without it,
 I don&amp;rsquo;t think I&amp;rsquo;d have confidence in the code shown above
 (or be able to review its AI-generated equivalent).&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Handling Interruptions</title>
-   <link href="https://third-bit.com/2025/12/07/handling-interruptions/"/>
-   <updated>2025-12-07T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/12/07/handling-interruptions/</id>
-   <content type="html">&lt;p&gt;The &lt;a href=&#34;https://third-bit.com/2025/12/04/the-effects-of-rework/&#34;&gt;previous post in this series&lt;/a&gt; looked at the effects of re-work on throughput.
-Its version of the simulation assumed that
-a task that needed to be re-done was given back to the developer who had originally worked on it,
-and that she would tackle that task once she finished whatever she was doing at the time.
-In reality,
-though,
-developers (and testers) often interrupt what they&amp;rsquo;re doing,
-switch to another task,
-and then switch back.
-This post looks at how to simulate that in &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;A Simpler Model&lt;/h2&gt;
-&lt;p&gt;To start with,
-let&amp;rsquo;s go back to a simpler model in which one process adds new tasks to a queue at random intervals,
-while developers take tasks,
-work on them,
-and then mark them as done.
-While we&amp;rsquo;re building it,
-we&amp;rsquo;ll use these parameters:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;PARAMS&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;n_dev&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;# number of developers&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;rng_seed&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;12345&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# random number generation seed&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;t_arrival&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;8.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# mean task arrival time&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;t_dev&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;5.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;# median development time&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;t_interrupt&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;3.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# time between interrupts&lt;/span&gt;
-    &lt;span class=&#34;s2&#34;&gt;&amp;quot;t_sim&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;         &lt;span class=&#34;c1&#34;&gt;# length of simulation&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;As before,
-we define a &lt;code&gt;Simulation&lt;/code&gt; class to hold all our bits and pieces.
-Its constructor caches the parameters,
-then creates the SimPy &lt;code&gt;Environment&lt;/code&gt;,
-the development queue,
-and the developers.
-It also creates a simple list called &lt;code&gt;.log&lt;/code&gt; to store log messages:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Simulation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Overall simulation.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Construct.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_queue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Store&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Developer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;n_dev&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])]&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;log&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;For lack of anywhere better to put it,
-we define the task generator as a method of &lt;code&gt;Simulation&lt;/code&gt;.
-The order of statements in the &lt;code&gt;while&lt;/code&gt; loop ensures that
-the first task is generated at t=0:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Simulation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-    &lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;previous&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;generate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Generate tasks at random intervals starting at t=0.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_queue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Task&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;t_arrival&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Shortcut for running a process.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;As before,
-we also give &lt;code&gt;Simulation&lt;/code&gt; some convenience methods like &lt;code&gt;.process&lt;/code&gt;
-so that we can type &lt;code&gt;sim.process(…)&lt;/code&gt; rather than &lt;code&gt;sim.env.process(…)&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;Creating Interrupts&lt;/h2&gt;
-&lt;p&gt;What&amp;rsquo;s new in this simulation is another process
-whose only purpose is to interrupt developers.
-It does this by choosing a random developer &lt;code&gt;dev&lt;/code&gt; every few clock ticks
-and then calling &lt;code&gt;dev.proc.interrupt()&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Simulation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-    &lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;previous&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;annoy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Generate annoying interruptions.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;t_interrupt&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;choice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interrupt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;dev.proc.interrupt()&lt;/code&gt; only makes sense once we have looked at
-the constructor for the &lt;code&gt;Developer&lt;/code&gt; class:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Developer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;A generic worker.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Construct.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;
-        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;work&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;work&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-        &lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;generator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simulating&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;developer&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;s behavior…&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Here&amp;rsquo;s what&amp;rsquo;s going on:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Developer.work&lt;/code&gt; is (going to be) a generator that simulates
-    an individual developer&amp;rsquo;s behavior.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Calling it as &lt;code&gt;self.work()&lt;/code&gt; in &lt;code&gt;Developer.__init__&lt;/code&gt; &lt;em&gt;doesn&amp;rsquo;t&lt;/em&gt; start a process.
-    Instead, that call creates a generator object.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;We pass that generator object to &lt;code&gt;self.sim.process()&lt;/code&gt;,
-    which gives it to the SimPy &lt;code&gt;Environment&lt;/code&gt; to run.
-    Doing this means that developers start running as soon as they are created.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Finally,
-    &lt;code&gt;self.sim.process(…)&lt;/code&gt; returns the generator object that was passed into it.
-    We save this in the &lt;code&gt;Developer&lt;/code&gt; object as &lt;code&gt;self.proc&lt;/code&gt;
-    so that we can access it later.
-    (This step was the one that initially confused me.
-    &lt;code&gt;Developer&lt;/code&gt; isn&amp;rsquo;t a SimPy process:
-    the generator object created by calling &lt;code&gt;Developer.work&lt;/code&gt; is the process.
-    If we want to interrupt the process,
-    we need to get at the generator object,
-    and the logical place to store a reference to it is
-    in the object that defines its behavior.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;So let&amp;rsquo;s jump back to &lt;code&gt;Simulation.annoy&lt;/code&gt;. It contains the lines:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;choice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;developers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;proc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interrupt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;which mean:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Choose a developer at random.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Get a reference to that developer&amp;rsquo;s generator object &lt;code&gt;dev.proc&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Call the object&amp;rsquo;s &lt;code&gt;.interrupt&lt;/code&gt; method.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;The last of those steps injects a &lt;code&gt;simpy.Interrupt&lt;/code&gt; exception into the process,
-so let&amp;rsquo;s take a look at how we handle that.&lt;/p&gt;
-&lt;h2&gt;Handling Interrupts&lt;/h2&gt;
-&lt;p&gt;Here&amp;rsquo;s a simple version of a developer that can handle interrupts:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;Developer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Labeled&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-    &lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;…&lt;/span&gt;
-
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;work&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_queue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_required&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Interrupt&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                    &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cancel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This developer does the following each time it goes around the &lt;code&gt;while&lt;/code&gt; loop:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Create a request to get a task from the development queue.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;yield&lt;/code&gt; that request,
-    which hands the request to the SimPy &lt;code&gt;Environment&lt;/code&gt;
-    and suspends this process until the request can be satisfied.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The result of yielding the request is a task from the development queue,
-    so wait a while to simulate working on that task.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Unless&lt;/em&gt; a &lt;code&gt;simpy.Interrupt&lt;/code&gt; exception occurs,
-    in which case the developer cancels the request for a task
-    and goes around the loop again.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;We have run into &lt;a href=&#34;https://third-bit.com/2025/12/03/you-have-to-cancel/&#34;&gt;the need to cancel&lt;/a&gt; before.
-In the first version of this code,
-I assumed that interrupts would only occur while a developer was working on a task,
-so the body of the &lt;code&gt;except&lt;/code&gt; block was just &lt;code&gt;pass&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    &lt;span class=&#34;c1&#34;&gt;# This version is wrong!&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;work&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-            &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_queue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-                &lt;span class=&#34;n&#34;&gt;task&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;req&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sim&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;task&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev_required&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-            &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;simpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Interrupt&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-                &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;What I found was that if the interrupt occurred while the developer was waiting on the queue,
-and I &lt;em&gt;didn&amp;rsquo;t&lt;/em&gt; cancel the request,
-subsequent requests were never satisfied.
-In other words,
-once a developer had been interrupted,
-she would never get any more work.&lt;/p&gt;
-&lt;h2&gt;How It Behaves&lt;/h2&gt;
-&lt;p&gt;I won&amp;rsquo;t bother to show the code that adds log messages to &lt;code&gt;Simulation.log&lt;/code&gt;
-or collects the states of all the tasks when the simulation is done,
-but here&amp;rsquo;s the JSON output from a typical short run:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;{
-  &amp;quot;params&amp;quot;: {
-    …as shown earlier…
-  },
-  &amp;quot;messages&amp;quot;: [
-    &amp;quot;developer-0 0.00 start task-0&amp;quot;,
-    &amp;quot;developer-0 3.00 interrupted in task-0&amp;quot;,
-    &amp;quot;developer-0 6.00 interrupted in None&amp;quot;,
-    &amp;quot;developer-0 9.00 interrupted in None&amp;quot;,
-    &amp;quot;developer-0 12.00 interrupted in None&amp;quot;,
-    &amp;quot;developer-0 13.95 start task-1&amp;quot;,
-    &amp;quot;developer-0 15.00 interrupted in task-1&amp;quot;,
-    &amp;quot;developer-0 15.01 start task-2&amp;quot;,
-    &amp;quot;developer-0 16.68 complete task-2&amp;quot;,
-    &amp;quot;developer-0 18.00 interrupted in None&amp;quot;
-  ],
-  &amp;quot;tasks&amp;quot;: [
-    {
-      &amp;quot;id&amp;quot;: 0,
-      &amp;quot;created&amp;quot;: 0,
-      &amp;quot;dev_required&amp;quot;: 4.33,
-      &amp;quot;state&amp;quot;: [&amp;quot;dev_queue&amp;quot;, &amp;quot;dev&amp;quot;, &amp;quot;interrupted&amp;quot;]
-    },
-    {
-      &amp;quot;id&amp;quot;: 1,
-      &amp;quot;created&amp;quot;: 13.95,
-      &amp;quot;dev_required&amp;quot;: 5.72,
-      &amp;quot;state&amp;quot;: [&amp;quot;dev_queue&amp;quot;, &amp;quot;dev&amp;quot;, &amp;quot;interrupted&amp;quot;]
-    },
-    {
-      &amp;quot;id&amp;quot;: 2,
-      &amp;quot;created&amp;quot;: 15.01,
-      &amp;quot;dev_required&amp;quot;: 1.67,
-      &amp;quot;state&amp;quot;: [&amp;quot;dev_queue&amp;quot;, &amp;quot;dev&amp;quot;, &amp;quot;complete&amp;quot;]
-    }
-  ]
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;As you can see,
-the first two tasks are interrupted and discarded while they&amp;rsquo;re being worked on,
-while the developer manages to finish the third task before she&amp;rsquo;s interrupted.
-The next step will be to resume tasks rather than just throwing them away.&lt;/p&gt;</content>
  </entry>
  
 </feed>

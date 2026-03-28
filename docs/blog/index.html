@@ -82,6 +82,139 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/03/28/e-bike-for-the-mind/">
+      An E-Bike for the Mind
+    </a>
+  </h2>
+  <p><time datetime="2026-03-28" class="post-date">2026-03-28</time></p>
+  <p>As I wrote <a href="../2026/03/26/feasible/">a couple of days ago</a>,
+Sajaniemi et al&rsquo;s work on <a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles of variables</a>
+identified and named ten patterns in the way variables are used in novice programs.
+These roles aren&rsquo;t just a way to analyze code.
+They&rsquo;re also useful for explaining code,
+because they provide a vocabulary to capture <em>intent</em>
+in a way that&rsquo;s complementary to type information like <code>int</code> or <code>Person</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed value</td>
+<td>Initialized once and not changed thereafter.</td>
+</tr>
+<tr>
+<td>Stepper</td>
+<td>Steps through a systematic, predictable succession of values (e.g., a loop counter).</td>
+</tr>
+<tr>
+<td>Walker</td>
+<td>Traverses a data structure element by element, where each new value depends on the previous position.</td>
+</tr>
+<tr>
+<td>Follower</td>
+<td>Always receives the previous value of some other variable (e.g., <code>prev = current</code> before <code>current</code> is updated).</td>
+</tr>
+<tr>
+<td>Most-recent holder</td>
+<td>Holds the latest value encountered in an unpredictable series, typically successive inputs.</td>
+</tr>
+<tr>
+<td>Most-wanted holder</td>
+<td>Holds the best value found so far (e.g., maximum or minimum).</td>
+</tr>
+<tr>
+<td>Gatherer</td>
+<td>Accumulates the combined effect of individual values (e.g., running sum or count).</td>
+</tr>
+<tr>
+<td>One-way flag</td>
+<td>A two-valued variable that, once changed from its initial value, never reverts (e.g., an error flag set to <code>True</code> and never reset).</td>
+</tr>
+<tr>
+<td>Temporary</td>
+<td>Holds a value for a very short time only, most commonly in a swap operation.</td>
+</tr>
+<tr>
+<td>Organizer</td>
+<td>A collection used only to rearrange its elements (e.g., sorted in place), never to add or remove them.</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>A collection whose elements are added and/or removed during the computation.</td>
+</tr>
+</tbody>
+</table>
+<p>It occurred to me during a workshop this week that
+variable roles might help when we are using LLMs in teaching.
+In order to understand a piece of software,
+I need to understand the purpose of each of its parts.
+Pattern names like Observer or Singleton help me do this
+because they compress complex chunks of code down to single concepts,
+which helps prevent cognitive overload.
+However,
+the classic design patterns are still too big for novices;
+would Sajaniemi&rsquo;s roles be more helpful?
+I.e.,
+can we prompt the LLM to explain things in terms of these roles
+while simultaneously teaching newcomers to think in terms of them,
+and if so,
+does it help?
+And if the answers are &ldquo;yes&rdquo;,
+are there other roles that Sajaniemi and his colleagues didn&rsquo;t identify
+that are worth adding to the table above?
+(I work with data scientists
+so the first that comes to mind is &ldquo;Dataframe&rdquo;,
+but that&rsquo;s not a role: that&rsquo;s a data type.)</p>
+<blockquote>
+<p>One way to think about roles is that types tell you about the variable&rsquo;s state at rest
+while roles tell you about the variable&rsquo;s state in motion.
+This duality is similar to the one Kerievsky described
+in his under-appreciated book <a href="https://isbnsearch.org/isbn/9780321630018"><em>Refactoring to Patterns</em></a>,
+which explored the duality between design patterns (code at rest)
+and refactorings (code in motion).</p>
+</blockquote>
+<p>In order to explore these ideas,
+I spent about three and a half hours prompting Claude to build <a href="https://github.com/gvwilson/jorma">jorma</a>,
+a small Python package that uses static and dynamic analysis
+to identify variables&rsquo; roles.
+At the time of writing it is about 1000 lines of Python (not including tests)
+and is able to process 145 source files taken from <a href="../sdxpy/"><em>Software Design by Example</em></a>.
+I made a few small edits to the code manually,
+but almost all of what&rsquo;s in <code>src</code> and <code>tests</code> was written by Claude.
+I think it would have taken me four or five days of full-time work and frustration
+to get this far on my own,
+which means that I probably wouldn&rsquo;t have done it.</p>
+<p>That realization is what led to this post&rsquo;s title:
+if a computer is a bicycle for the mind,
+then LLMs are like e-bikes.
+They let a lot of people go distances and tackle hills that they couldn&rsquo;t before,
+and they&rsquo;re better for all of us than cars,
+but they&rsquo;re a menace to both pedestrians and traditional cyclists,
+more harmful to the environment than what they&rsquo;re replacing,
+and have given companies yet another way to hollow out local businesses.
+(Neighborhood restaurants know that cheap delivery services are killing them slowly,
+but if they don&rsquo;t play,
+they&rsquo;ll just die more quickly.)</p>
+<p>I wish I could write a tidy conclusion for this post,
+but I don&rsquo;t have one.
+Experiments like <a href="https://github.com/gvwilson/jorma">jorma</a> have convinced me that
+telling people not to use LLMs
+is going to be just as ineffective as telling teenagers not to have sex or use social media.
+I hope that this week&rsquo;s court decisions to hold Meta accountable for the harm it has caused
+is a first step toward dealing with <a href="../2026/03/08/cognitive-pollution/">cognitive pollution</a> in general,
+for the same reason that I hope Toronto and other places will figure out
+how to make e-bikes a normal part of everyday life.
+Until then,
+if you&rsquo;d like to help me improve <a href="https://github.com/gvwilson/jorma">jorma</a>,
+please try it out or <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/03/27/another-modest-proposal/">
       Another Modest Proposal
     </a>
@@ -544,85 +677,6 @@ people don&rsquo;t seem to read long-form technical writing any longer,
 and there several pieces of fiction that I want to get over the finish line.
 Still,
 I hope what&rsquo;s there is useful.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/03/08/cognitive-pollution/">
-      Cognitive Pollution
-    </a>
-  </h2>
-  <p><time datetime="2026-03-08" class="post-date">2026-03-08</time></p>
-  <p>A couple of weeks ago,
-I used Claude to vibe code three formative assessment widgets to use in Jupyter and Marimo notebooks.
-It took less than two hours to get them working,
-and another 15 minutes to build a fourth.
-Given how rusty my JavaScript is,
-and how little I know about the AnyWidget protocol,
-I believe it would have taken at least a couple of frustrating days to write them by hand.
-I only have a high-level understanding of how they work (mumble mumble traitlets mumble mumble),
-but since they are exploratory proofs of concept,
-I&rsquo;ve told myself that doesn&rsquo;t really matter.</p>
-<p>Two weeks from now,
-I will fly from Toronto to London, then to Edinburgh.
-By doing so,
-I will be responsible for the emission of approximately one tonne of CO2.
-That won&rsquo;t do any measurable harm on its own,
-but when combined with the emissions of several billion other people,
-it will make the world my daughter inherits poorer and more dangerous in countless ways.
-I know that, but I&rsquo;m still going to get on the plane.</p>
-<p>Here&rsquo;s another analogy.
-Synthetic opioids have destroyed the lives of hundreds of thousands of people,
-and while low-level dealers are routinely incarcerated,
-none of the Sackler family has ever faced serious consequences.
-On the other hand,
-the only thing that made the last few months of my brother&rsquo;s life bearable
-was a steady drip of those same drugs.
-I would fight hard against them being banned,
-but I would also fight hard against them being completely deregulated.</p>
-<p>Here&rsquo;s a third thought.
-My brother died of mesothelioma,
-a cancer that is caused by exposure to asbestos.
-We grew up in a logging town on Vancouver Island;
-he did cleanup work at the local sawmill as a teenager,
-but it took decades for the cancer to manifest.
-I expect it will similarly take years or decades for us to discover
-the effect chat bots tuned to maximize engagement have had
-on what young men believe about what women enjoy.</p>
-<p>What ties all of this together for me is:</p>
-<ol>
-<li>
-<p>AI is useful.</p>
-</li>
-<li>
-<p>It is already causing harm.</p>
-</li>
-<li>
-<p>Saying &ldquo;just don&rsquo;t use it&rdquo; isn&rsquo;t going to have any more effect than saying &ldquo;just don&rsquo;t fly&rdquo;
-    (or preaching abstinence to teenagers).</p>
-</li>
-<li>
-<p>The people driving the AI goldrush have proven that
-    they don&rsquo;t care about anything except adulation and profit.</p>
-</li>
-</ol>
-<p>We now recognize the ill effects of the cognitive pollution caused by social media.
-I believe current attempts to address them via age verification are naïve;
-I think it would be more effective to regulate or ban
-the use of algorithmic ranking based on personal data,
-but the truth is that <em>I don&rsquo;t know</em>.
-I don&rsquo;t know enough about how safety standards became normal
-for the chemical, pharmaceutical, food, and transportation industries
-to feel that my opinions about regulating AI are worth listening to.
-What I do know is that people have devoted their careers to studying these things,
-and would probably be willing to explain them to us if we asked.</p>
-<p>Looking back,
-I&rsquo;m very glad that I took the time to learn a bit about evidence-based pedagogy
-before telling other people how they should teach.
-I therefore think that before we make recommendations about what anyone ought to do about AI,
-we ought to find out what has and hasn&rsquo;t worked elsewhere.
-I&rsquo;ve been thinking about this <a href="../ideas/sdgc/">for a long time</a>,
-but I still don&rsquo;t know how to make it happen.</p>
 </article>
 
 
