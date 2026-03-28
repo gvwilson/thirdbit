@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JavaScript Fundamentals and the Browser</title>
+<meta content="Unbreaking Software" name="description"/>
+<meta content="#f8f8f8" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Unbreaking Software</a>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons" role="list">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a class="active" href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</span>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices" role="list">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</span>
+</nav>
+<main id="main-content">
+<h1>JavaScript Fundamentals and the Browser</h1>
+<h2>var Hoisting in Loops</h2>
+<p>A JavaScript function that collects form field values returns <code>undefined</code> for some
+fields; the bug is using <code>var</code> inside a loop, whose hoisting causes the variable
+to be shared across iterations. Teaches <code>var</code> hoisting, block scope, and why
+<code>let</code> and <code>const</code> are preferable.</p>
+<h2>Dead DOM Event Listener</h2>
+<p>A button click handler works once but stops working after the page is partially
+updated; the bug is attaching the event listener to a DOM element that is replaced
+by the update, so the listener is discarded. Teaches event delegation and the
+difference between live and dead DOM references.</p>
+<h2>this Binding in Callbacks</h2>
+<p>A function that updates a counter when a button is clicked increments by the wrong
+amount; the bug is that <code>this</code> inside the callback refers to the button element,
+not the object that owns the counter. Teaches <code>this</code> binding in JavaScript callbacks
+and how to use arrow functions or <code>.bind()</code> to preserve context.</p>
+<h2>Promise Not Awaited</h2>
+<p>A page that fetches data from an API on load displays stale data; the bug is that
+the fetch result is used before the Promise resolves (i.e., code runs synchronously
+after an async call). Teaches the JavaScript event loop, Promises, and <code>async/await</code>.</p>
+<h2>localStorage in Private Mode</h2>
+<p>A script that reads values from <code>localStorage</code> fails silently in private browsing
+mode; the bug is that <code>localStorage</code> throws a <code>SecurityError</code> in that context but
+the code has no try/catch. Teaches browser storage limitations and how to use the
+browser console and DevTools to observe thrown exceptions.</p>
+<h2>Missing Viewport Meta Tag</h2>
+<p>A page layout breaks on narrow screens even though the CSS looks correct; the bug
+is a missing <code>&lt;meta name="viewport"&gt;</code> tag that prevents mobile scaling. Teaches
+how to use browser DevTools' device emulation and inspect computed styles.</p>
+<h2>CORS Header Missing</h2>
+<p>A fetch request to a local API returns a CORS error in the browser but works from
+the command line; the bug is a missing <code>Access-Control-Allow-Origin</code> header on
+the server response. Teaches what CORS is, how to read network error messages in
+DevTools, and how to configure server headers.</p>
+<h2>Browser Caching Stale JavaScript</h2>
+<p>A page shows outdated content after a bug fix is deployed; the bug is that the
+browser is serving a cached version of the JavaScript file. Teaches cache-control
+headers, hard refresh vs. normal refresh, and how to use DevTools to disable the
+cache during development.</p>
+<h2>Missing Source Map</h2>
+<p>A JavaScript error is reported on a minified line number that does not correspond
+to the source; the bug is deploying a minified bundle without a source map.
+Teaches what source maps are, how to generate them, and how to load them in
+DevTools to see original source locations.</p>
+<h2>Content Security Policy Block</h2>
+<p>A web application works correctly in development but shows blank content in
+production; the bug is a Content Security Policy header that blocks an inline
+script. Teaches how to read CSP violation reports in the browser console, how CSP
+directives work, and how to move inline scripts to external files to comply.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../perfcon/">Performance and Concurrency</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../datasci/">Data Science</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

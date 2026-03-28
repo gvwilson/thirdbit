@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Intermediate Python</title>
+<meta content="Unbreaking Software" name="description"/>
+<meta content="#f8f8f8" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Unbreaking Software</a>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons" role="list">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a class="active" href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</span>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices" role="list">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</span>
+</nav>
+<main id="main-content">
+<h1>Intermediate Python</h1>
+<h2>Aliasing and In-Place Reversal</h2>
+<p>A function is supposed to reverse a list and return the reversed copy, but the
+original list is also reversed after the call; the bug is using <code>list.reverse()</code>
+(mutates in place) instead of <code>reversed()</code> or slicing. Teaches aliasing and the
+difference between in-place and copy operations.</p>
+<h2>Shared Mutable Class Attribute</h2>
+<p>A class that records the transaction history of a bank account shows every account's
+transactions in every other account; the bug is that <code>history = []</code> is defined at
+class level, so all instances share the same list object instead of each having
+their own. Teaches the difference between shared mutable class attributes and
+per-instance attributes initialized in <code>__init__</code>.</p>
+<h2>Floating-Point Equality</h2>
+<p>A program compares two floating-point results that should be equal but the
+comparison returns <code>False</code>; the bug is using <code>==</code> on floats computed by different
+routes. Teaches floating-point representation errors and how to use <code>math.isclose</code>.</p>
+<h2>Overly Broad Exception Handler</h2>
+<p>A web scraper wraps its fetch-and-parse loop in <code>try/except Exception: pass</code> to
+tolerate network timeouts, but silently stops processing after the first malformed
+URL because the <code>ValueError</code> raised by the URL parser is also caught and discarded.
+Teaches how overly broad exception handlers swallow unrelated bugs, and how to use
+<code>logging.exception</code> to record errors instead of ignoring them.</p>
+<h2>Commas Inside CSV Fields</h2>
+<p>A script reads a two-column CSV file of names and scores and reports the top scorer,
+but crashes with an <code>IndexError</code> on some rows; the bug is that names containing a
+comma (e.g., "Smith, John") cause <code>line.split(',')</code> to produce three fields instead
+of two, so the index used for the score points at the wrong element. Teaches why
+hand-rolled CSV parsing fails on real data and when to use the <code>csv</code> module.</p>
+<h2>Lexicographic vs. Numeric Sort</h2>
+<p>A function sorts filenames that contain embedded numbers (e.g., <code>file2.txt</code>,
+<code>file10.txt</code>, <code>file1.txt</code>) expecting numeric order, but the default <code>sort()</code> gives
+lexicographic order, placing <code>file10</code> before <code>file2</code>. Teaches the difference between
+lexicographic and numeric sort order and how to write a <code>key</code> function that extracts
+the embedded integer so the files sort as <code>file1</code>, <code>file2</code>, <code>file10</code>.</p>
+<h2>Exhausted Generator</h2>
+<p>A generator function is used twice in the same expression, but the second use
+produces no results; the bug is that generators are exhausted after one pass.
+Teaches that generators are single-use iterators and when to use lists instead.</p>
+<h2>Incomplete Cache Key</h2>
+<p>A caching decorator returns the same result for different inputs; the bug is that
+the cache key does not include all function arguments (e.g., ignores keyword
+arguments). Teaches how to construct correct cache keys and test with varied inputs.</p>
+<h2>Forgetting super().<strong>init</strong>()</h2>
+<p>A subclass calls a method that exists in the parent, but the parent's <code>__init__</code>
+is never called, leaving required attributes missing; the bug is forgetting
+<code>super().__init__()</code>. Teaches Python's method resolution order and how to
+use <code>super()</code> correctly.</p>
+<h2>File Not Closed on Exception</h2>
+<p>A function writes a processed summary to a file using <code>open()</code> without a <code>with</code>
+statement; when an unhandled exception occurs midway through, the output file is
+left partially written because the write buffer is never flushed and <code>close()</code> is
+never called. Teaches why context managers guarantee file cleanup even when
+exceptions occur, and how to use <code>with open(...) as f</code> to prevent data loss.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../basicpy/">Basic Python</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../diot/">Data, I/O, and Testing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

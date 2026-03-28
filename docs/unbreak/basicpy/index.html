@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Basic Python</title>
+<meta content="Unbreaking Software" name="description"/>
+<meta content="#f8f8f8" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Unbreaking Software</a>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons" role="list">
+<li><a href="../intro/">Introduction</a></li>
+<li><a class="active" href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</span>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices" role="list">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</span>
+</nav>
+<main id="main-content">
+<h1>Basic Python</h1>
+<h2>Off-by-One in Sliding Window</h2>
+<p>A function that builds all sliding windows of size k over a list returns one fewer
+window than expected; the bug is <code>range(len(data) - k)</code> instead of
+<code>range(len(data) - k + 1)</code>, so the last window is never produced. Teaches how to
+identify off-by-one errors in index arithmetic and how to verify boundary conditions
+with small, hand-checkable examples.</p>
+<h2>String Concatenation Instead of Addition</h2>
+<p>A script reads exam scores from a text file and computes the class average, but
+always reports a nonsensical total because the scores are accumulated with
+<code>total = total + line.strip()</code> (string concatenation) instead of converting each
+line to a number first. Teaches the difference between string <code>+</code> and numeric <code>+</code>,
+and how to check the type of a value at runtime using <code>type()</code> or <code>isinstance()</code>.</p>
+<h2>Boolean Logic in Validation</h2>
+<p>A function that validates whether a password meets length and character requirements
+always rejects valid passwords; the bug is joining the two conditions with <code>and</code>
+instead of <code>or</code> (requiring both to fail simultaneously, which almost never happens).
+Teaches how boolean logic errors cause silent misbehavior, and how a small truth
+table reveals which operator is correct.</p>
+<h2>Misremembered Conversion Formula</h2>
+<p>A function converts a geographic coordinate from degrees, minutes, and seconds to
+decimal degrees but gives wrong results because it divides seconds by 60 instead of
+3600 (a misremembered formula). Teaches how to verify formulas against known values
+(e.g., 1°30′0″ = 1.5°) and how to add assertion checks for values that must fall
+within a known range.</p>
+<h2>In-Place Sort Returns None</h2>
+<p>A script builds a list of squared numbers but the list is always empty; the bug
+is calling <code>list.sort()</code> (which returns <code>None</code>) and assigning the result. Teaches
+that many list methods mutate in place and return <code>None</code>.</p>
+<h2>Misindented Loop State Update</h2>
+<p>A function reads lines from a file and counts how many consecutive identical lines
+appear in each run, but counts every line as starting a new run; the bug is that
+the variable storing the previous line is updated outside (after) the while loop
+body due to a missing level of indentation. Teaches how indentation governs control
+flow in Python and how to step through a loop mentally to find where state is
+updated at the wrong time.</p>
+<h2>Missing Return Statement</h2>
+<p>A function filters negative numbers from a list but returns <code>None</code>; the bug is a
+missing <code>return</code> statement (the function builds the result but does not return it).
+Teaches that Python functions return <code>None</code> by default and how to spot missing
+<code>return</code> in control flow.</p>
+<h2>Numbers Read as Strings</h2>
+<p>A script reads a line from a file and tries to do arithmetic on it but raises a
+<code>TypeError</code>; the bug is using the string value directly instead of converting it
+with <code>int()</code> or <code>float()</code>. Teaches that all file I/O produces strings and how to
+read tracebacks to identify the failing operation.</p>
+<h2>KeyError in Word Counter</h2>
+<p>A function tallies word frequencies in a document but crashes with a <code>KeyError</code> on
+the first new word it encounters because it increments <code>counts[word]</code> without first
+checking whether the key exists. Teaches defensive dictionary access using
+<code>dict.get(key, 0)</code> or <code>collections.defaultdict</code>, and how to read a <code>KeyError</code>
+traceback to identify the missing key.</p>
+<h2>JSON Integers vs. String Input</h2>
+<p>A script reads a list of allowed user IDs from a JSON file and checks whether a
+login ID is permitted, but always reports "access denied" even for valid users;
+the bug is that the JSON file stores IDs as integers but the login ID arrives as
+a string from user input, and <code>"42" != 42</code> in Python. Teaches how JSON types map
+to Python types and why type conversion must happen explicitly at system boundaries.</p>
+<h2>Wrong Recursive Base Case</h2>
+<p>A recursive function computes factorials correctly for positive numbers but raises
+a <code>RecursionError</code> for zero; the bug is a base-case condition that uses <code>&gt;</code> instead
+of <code>&gt;=</code>. Teaches how to identify missing or incorrect base cases in recursion.</p>
+<h2>Mutable Default Argument</h2>
+<p>A function appends items to a result list but every call starts with leftover items
+from previous calls; the bug is a mutable default argument (<code>def f(result=[])</code>).
+Teaches Python's mutable default argument trap and why <code>None</code> is the correct default.</p>
+<h2>Invisible Trailing Whitespace</h2>
+<p>A script reads a pipe-delimited export from a spreadsheet and compares field values
+against expected strings, but matches always fail for rows exported from certain
+applications that pad fields with trailing spaces. Teaches that real-world data
+often contains invisible characters, and how <code>.strip()</code> and <code>repr()</code> help diagnose
+string comparison failures that look correct to the naked eye.</p>
+<h2>String Methods Return Copies</h2>
+<p>A function censors a list of words in a message by calling <code>message.replace(word,
+'***')</code> for each word, but the original message is unchanged at the end; the bug
+is that <code>str.replace</code> returns a new string and the return value is never assigned
+back. Teaches that string methods never mutate their argument, and that every
+string transformation must be captured in a variable.</p>
+<h2>Mutating a List During Iteration</h2>
+<p>A loop processes items from a list while removing some of them, and skips every
+other matching item; the bug is modifying a list while iterating over it. Teaches
+why mutating a collection during iteration causes unpredictable behavior.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../intro/">Introduction</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../interpy/">Intermediate Python</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Performance, Concurrency, and System Interaction</title>
+<meta content="Unbreaking Software" name="description"/>
+<meta content="#f8f8f8" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Unbreaking Software</a>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons" role="list">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a class="active" href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</span>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices" role="list">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</span>
+</nav>
+<main id="main-content">
+<h1>Performance, Concurrency, and System Interaction</h1>
+<h2>Repeated Scans</h2>
+<p>A function finds the most common word in a text file by calling <code>text.count(word)</code>
+for every unique word it encounters, re-scanning the entire text each time; on a
+file of 50,000 words it takes several seconds, while a single pass with
+<code>collections.Counter</code> is nearly instant. Teaches how to identify repeated-scan
+inefficiency with <code>cProfile</code> and how choosing the right data structure eliminates
+the need for multiple passes.</p>
+<h2>Subprocess Waiting for Input</h2>
+<p>A command-line tool that calls a subprocess hangs and never returns; the bug is
+that the subprocess is waiting for input on stdin that the parent never provides.
+Teaches how subprocess I/O streams work and how to use <code>communicate()</code> safely.</p>
+<h2>Race Condition in Shared Counter</h2>
+<p>A script that spawns several threads to update a shared counter produces wrong
+totals; the bug is a race condition caused by unsynchronized read-modify-write.
+Teaches what a race condition is, why it is hard to reproduce, and how to use
+<code>threading.Lock</code> to fix it.</p>
+<h2>Multiprocessing Memory Model</h2>
+<p>A program uses <code>multiprocessing</code> but child processes do not see changes made to a
+shared list; the bug is that each process has its own copy of memory (no shared
+state). Teaches the difference between threading and multiprocessing memory models.</p>
+<h2>Mock Patched at Wrong Location</h2>
+<p>A script that patches a function with <code>unittest.mock.patch</code> has no effect because
+the patch is applied to the wrong module; the bug is patching where the function
+is defined instead of where it is imported. Teaches how Python's import system
+works and where mocks must be applied.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../diot/">Data, I/O, and Testing</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../jsbrowser/">JavaScript Fundamentals</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

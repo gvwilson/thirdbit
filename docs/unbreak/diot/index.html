@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data, I/O, and Testing</title>
+<meta content="Unbreaking Software" name="description"/>
+<meta content="#f8f8f8" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Unbreaking Software</a>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons" role="list">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a class="active" href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</span>
+<span aria-hidden="true">·</span>
+<span class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices" role="list">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</span>
+</nav>
+<main id="main-content">
+<h1>Data, I/O, and Testing</h1>
+<h2>Quoted Fields in CSV Parsing</h2>
+<p>A CSV-parsing function misreads rows that contain commas inside quoted fields;
+the bug is using <code>line.split(',')</code> instead of the <code>csv</code> module. Teaches why
+hand-rolled parsers fail on real-world data and when to use standard library tools.</p>
+<h2>Wall Time vs. Monotonic Time</h2>
+<p>A function that measures elapsed time reports negative durations when the clock
+wraps; the bug is using <code>time.time()</code> without accounting for system clock
+adjustments. Teaches the difference between wall time and monotonic time and when
+to use <code>time.monotonic</code>.</p>
+<h2>Naive Datetime and Daylight Saving</h2>
+<p>A date-arithmetic function produces results that are off by one day around daylight
+saving time transitions; the bug is adding a <code>timedelta</code> to a naive datetime.
+Teaches the difference between naive and timezone-aware datetimes.</p>
+<h2>Missing Elements in HTML Parsing</h2>
+<p>A script that downloads a web page and parses it for prices fails silently on some
+pages; the bug is that the HTML structure varies and the selector matches zero
+elements without raising an error. Teaches how to handle missing data in HTML
+parsing and use assertions to catch unexpected input.</p>
+<h2>Overly Permissive Regular Expression</h2>
+<p>A regular expression meant to extract email addresses also matches invalid strings;
+the bug is a pattern that is too permissive (e.g., missing anchors or character
+class constraints). Teaches how to test regular expressions with both valid and
+invalid inputs.</p>
+<h2>Test with No Assertions</h2>
+<p>A unit test always passes even when the function is broken; the bug is that the
+test calls the function but never asserts anything about the result. Teaches that
+a test with no assertions is not a test and how to write assertions correctly.</p>
+<h2>Shared State Between Tests</h2>
+<p>A test suite that passes in isolation fails when run together; the bug is that one
+test modifies a module-level variable that another test depends on. Teaches test
+isolation, teardown, and the risks of shared global state.</p>
+<h2>Hardcoded Absolute Path</h2>
+<p>A function that reads a configuration file behaves differently on different
+machines; the bug is using a hardcoded absolute path instead of a path relative
+to the script's location. Teaches the difference between <code>__file__</code>-relative and
+working-directory-relative paths.</p>
+<p>Unserializable Datetime in JSON</p>
+<p>A program writes JSON output that cannot be parsed back in; the bug is that the
+data contains <code>datetime</code> objects, which are not JSON-serializable. Teaches how
+to identify serialization errors and write custom JSON encoders.</p>
+<h2>Wrong Logging Level</h2>
+<p>A logging call that should record errors never appears in the log file; the bug is
+that the log level is set to <code>WARNING</code> but the calls use <code>logger.debug()</code>. Teaches
+how Python's logging hierarchy works and how to verify the effective log level.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../interpy/">Intermediate Python</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../perfcon/">Performance and Concurrency</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
