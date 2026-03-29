@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Unix Shell</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Unbreaking Software</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a class="active" href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>The Unix Shell</h1>
+<h2 id="shell-numericsort">Numeric Sort</h2>
+<p>Run this script and look at the order of the numbers it prints. Is the smallest
+number first? What order would you expect?</p>
+<div data-inc="numericsort.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Print the numbers in numericsort.txt in ascending order.</span>
+
+sort<span class="w"> </span>numericsort.txt
+</code></pre></div>
+</div>
+<div data-inc="numericsort.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>10
+9
+2
+100
+7
+1
+50
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that sorts a list of numbers produces them in the wrong order; the bug is
+calling <code>sort</code> without the <code>-n</code> flag, which causes lexicographic (alphabetical)
+ordering so <code>10</code> appears before <code>2</code>. Teaches the difference between alphabetical
+and numeric sort and when to use <code>sort -n</code>.</p>
+</details>
+<h2 id="shell-overwrite">Redirect Overwrites</h2>
+<p>Run this script and then look at <code>summary.txt</code>. How many lines does it contain?
+How many did you expect?</p>
+<div data-inc="overwrite.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Collect the first (header) line of each .dat file into summary.txt.</span>
+
+<span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>overwrite_a.dat<span class="w"> </span>overwrite_b.dat<span class="w"> </span>overwrite_c.dat
+<span class="k">do</span>
+<span class="w">    </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span>summary.txt
+<span class="k">done</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A loop that is supposed to collect the first line of each data file into a single
+summary produces a file with only one entry; the bug is using <code>&gt;</code> inside the loop,
+which overwrites the file on every iteration instead of appending to it. Teaches
+the difference between <code>&gt;</code> (overwrite) and <code>&gt;&gt;</code> (append).</p>
+</details>
+<h2 id="shell-wideglob">Wildcard Too Broad</h2>
+<p>Look at the list of <code>.txt</code> files in the directory. Which files does <code>*.txt</code> match?
+Are all of them files you want to copy?</p>
+<div data-inc="wideglob.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Copy the monthly notes files to the archive directory.</span>
+<span class="c1"># Monthly notes are notes_jan.txt and notes_feb.txt.</span>
+<span class="c1"># notes_archive.txt is the running archive and should NOT be copied.</span>
+
+cp<span class="w"> </span>*.txt<span class="w"> </span>archive/
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script copies the monthly notes files to an archive directory but also copies the
+running archive file itself because <code>*.txt</code> matches every <code>.txt</code> file in the
+directory. Teaches how to check what a wildcard matches before using it in a
+destructive command, and how to narrow a pattern (e.g., <code>notes_???.txt</code>) to match
+only the intended files.</p>
+</details>
+<h2 id="shell-uniqsorted">Unsorted Input to <code>uniq</code></h2>
+<p>Run this script and check the count it reports. Then look at the species column in
+<code>species.csv</code>. How many distinct species are there, and does the count match?</p>
+<div data-inc="uniqsorted.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Count the number of distinct species recorded in species.csv.</span>
+
+cut<span class="w"> </span>-d,<span class="w"> </span>-f2<span class="w"> </span>species.csv<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</code></pre></div>
+</div>
+<div data-inc="species.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>date,species,count
+2024-03-01,sparrow,12
+2024-03-01,robin,5
+2024-03-02,sparrow,8
+2024-03-02,crow,3
+2024-03-03,robin,7
+2024-03-03,sparrow,10
+2024-03-04,crow,4
+2024-03-04,robin,6
+2024-03-05,sparrow,9
+2024-03-05,crow,2
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A pipeline that counts the number of distinct species in a CSV file gives a number
+that is too high; the bug is piping directly to <code>uniq</code> without sorting first, so
+only adjacent identical lines are collapsed and non-adjacent occurrences of the
+same species are counted separately. Teaches that <code>uniq</code> only removes adjacent
+duplicates and that <code>sort | uniq</code> is the correct pattern for counting distinct values.</p>
+</details>
+<h2 id="shell-quotedvar">Unquoted Loop Variable</h2>
+<p>Run this script with a filename that contains a space (e.g., <code>"field notes.txt"</code>).
+Does it process the file correctly?</p>
+<div data-inc="quotedvar.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Count the lines in each text file passed to this script.</span>
+
+<span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+<span class="k">do</span>
+<span class="w">    </span>wc<span class="w"> </span>-l<span class="w"> </span><span class="nv">$f</span>
+<span class="k">done</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A loop that counts lines in files fails when any filename contains a space; the
+bug is using <code>$f</code> without quotes, so the shell splits the filename on the space
+and passes the two halves as separate arguments to <code>wc</code>. Teaches why loop
+variables should always be quoted as <code>"$f"</code> and how spaces in filenames require
+consistent quoting throughout a script.</p>
+</details>
+<h2 id="shell-wrongarg">Wrong Positional Parameter</h2>
+<p>Run the script with a small input file and the name of an output file. Look at
+which file was created and which file was modified.</p>
+<div data-inc="wrongarg.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Usage: wrongarg.sh input_file output_file</span>
+<span class="c1"># Copy the first 20 lines of input_file into output_file.</span>
+
+head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that copies the first 20 lines of an input file to an output file reads
+from the output path and writes to the input path instead; the bug is that the
+arguments <code>$1</code> and <code>$2</code> are swapped. Teaches how to verify which argument is
+which by reading the usage comment, and how to use <code>echo</code> to print argument values
+before acting on them.</p>
+</details>
+<h2 id="shell-headtail"><code>head</code> Instead of <code>tail</code></h2>
+<p>Run this script and note which rows are printed. Are they from the beginning or
+end of the file?</p>
+<div data-inc="headtail.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Print the last 5 data rows of headtail.txt (excluding the header line).</span>
+
+head<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>headtail.txt
+</code></pre></div>
+</div>
+<div data-inc="headtail.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>experiment_id,temperature,pressure
+E001,22.1,101.3
+E002,23.4,100.8
+E003,21.9,102.1
+E004,24.0,99.5
+E005,22.8,101.7
+E006,23.1,100.2
+E007,21.5,102.8
+E008,24.3,99.1
+E009,22.6,101.4
+E010,23.9,100.5
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script intended to show the most recent entries in a data file shows the oldest
+entries instead; the bug is using <code>head</code> (which prints the first N lines) instead
+of <code>tail</code> (which prints the last N lines). Teaches the difference between <code>head</code>
+and <code>tail</code> and how to combine them — for example <code>tail -n 5</code> for the last 5, or
+<code>head -n 10 | tail -n 5</code> for lines 6–10.</p>
+</details>
+<h2 id="shell-dotdot">Too Many <code>..</code></h2>
+<p>Read the comment at the top of the script. Map out the expected directory structure
+on paper. How many levels up does <code>../..</code> go? Is that where <code>shared/</code> lives?</p>
+<div data-inc="dotdot.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Run this script from inside results/2024/.</span>
+<span class="c1"># Save a sorted copy of measurements.txt to the shared/ directory,</span>
+<span class="c1"># which is one level above the current directory (i.e., results/shared/).</span>
+
+sort<span class="w"> </span>-n<span class="w"> </span>measurements.txt<span class="w"> </span>&gt;<span class="w"> </span>../../shared/sorted.txt
+</code></pre></div>
+</div>
+<div data-inc="measurements.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>depth_m,temp_c,salinity
+0,18.4,35.1
+10,17.9,35.2
+20,17.1,35.4
+50,14.3,35.7
+100,10.8,36.0
+200,7.2,36.3
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that saves output to a sibling directory goes two levels up instead of
+one; the bug is writing <code>../..</code> when the target is only one level up (<code>..</code>).
+Teaches how to trace relative paths by counting directory levels, and how to
+use <code>pwd</code> and <code>ls ..</code> to verify the directory structure before running a script.</p>
+</details>
+<h2 id="shell-wcflag">Wrong <code>wc</code> Flag</h2>
+<p>Run this script and look at the numbers it prints. Do they match the number of
+lines (records) in the file?</p>
+<div data-inc="wcflag.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Report the number of observation records in wcflag.txt.</span>
+<span class="c1"># Each line is one record.</span>
+
+wc<span class="w"> </span>-w<span class="w"> </span>wcflag.txt
+</code></pre></div>
+</div>
+<div data-inc="wcflag.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>sparrow observed at grid B4
+robin observed at grid A2
+crow observed at grid C1
+sparrow observed at grid D3
+robin observed at grid B1
+crow observed at grid A4
+sparrow observed at grid C3
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that should count the number of records in a file prints a much larger
+number; the bug is using <code>wc -w</code> (count words) instead of <code>wc -l</code> (count lines).
+Teaches the difference between <code>wc</code> flags and how to use <code>wc --help</code> to check
+which flag produces which count.</p>
+</details>
+<h2 id="shell-findglob">Unquoted Glob in <code>find</code></h2>
+<p>Run this script from a directory that contains at least one <code>.csv</code> file. What
+arguments does <code>find</code> actually receive? Use <code>echo</code> in place of <code>find</code> to check.</p>
+<div data-inc="findglob.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Find all CSV files anywhere under the data/ directory.</span>
+
+find<span class="w"> </span>data<span class="w"> </span>-name<span class="w"> </span>*.csv
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A <code>find</code> command that should search a subdirectory for CSV files instead searches
+for files whose names match already-expanded filenames from the current directory;
+the bug is passing <code>*.csv</code> without quotes, so the shell expands the glob before
+<code>find</code> runs. Teaches that the shell expands unquoted wildcards before passing
+them to any command, and that patterns given to <code>find -name</code> must be quoted.</p>
+</details>
+<h2 id="shell-cutdelim">Wrong <code>cut</code> Delimiter</h2>
+<p>Run this script and examine the output. Does each output line contain just the
+family name, or does it contain the whole row?</p>
+<div data-inc="cutdelim.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Extract the family name (first column) from the tab-delimited roster.</span>
+
+cut<span class="w"> </span>-d,<span class="w"> </span>-f1<span class="w"> </span>cutdelim.txt
+</code></pre></div>
+</div>
+<div data-inc="cutdelim.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Smith	Jane	Biology
+Jones	Tom	Chemistry
+Garcia	Maria	Physics
+Chen	Wei	Biology
+Okafor	Amara	Chemistry
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that extracts one column from a tab-delimited file prints the entire line
+unchanged; the bug is specifying <code>-d,</code> (comma delimiter) when the file uses tabs.
+Since there are no commas, <code>cut</code> treats each line as a single field and returns it
+whole. Teaches how to identify the actual delimiter in a file (using <code>cat -A</code> to
+show invisible characters) and how to specify a tab with <code>-d$'\t'</code>.</p>
+</details>
+<h2 id="shell-grepinvert">Inverted <code>grep</code></h2>
+<p>Run this script and read the output. Do the lines shown contain the word you
+were searching for?</p>
+<div data-inc="grepinvert.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Print all lines in the log that contain the word "ERROR".</span>
+
+grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">"ERROR"</span><span class="w"> </span>grepinvert.txt
+</code></pre></div>
+</div>
+<div data-inc="grepinvert.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>2024-03-01 08:02 INFO  server started
+2024-03-01 08:15 ERROR disk usage above 90%
+2024-03-01 09:00 INFO  backup complete
+2024-03-01 09:47 ERROR connection timeout after 30s
+2024-03-01 10:30 INFO  request processed
+2024-03-01 11:15 ERROR out of memory in worker 3
+2024-03-01 12:00 INFO  daily report sent
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that should print error lines from a log file prints everything except the
+error lines; the bug is the <code>-v</code> flag, which inverts the match so <code>grep</code> shows
+lines that do not contain the pattern. Teaches what <code>-v</code> does and how to check
+the result of a <code>grep</code> command against a small known file to confirm it is
+filtering in the right direction.</p>
+</details>
+<h2 id="shell-missingarg">Missing Script Argument</h2>
+<p>Run this script with no arguments. Does it print useful output, produce an error,
+or do something else? Use <code>Ctrl-C</code> to stop it if it appears to hang.</p>
+<div data-inc="missingarg.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Usage: missingarg.sh filename</span>
+<span class="c1"># Print the filename and its line count.</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"File: </span><span class="nv">$1</span><span class="s2">"</span>
+wc<span class="w"> </span>-l<span class="w"> </span><span class="nv">$1</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that expects a filename as its first argument hangs when run with no
+arguments because <code>$1</code> expands to nothing and <code>wc -l</code> with no filename reads from
+standard input, waiting indefinitely for keystrokes. Teaches how positional
+parameters expand to empty strings when omitted, and how to check for missing
+arguments with <code>echo "Usage: ..."</code> before using them.</p>
+</details>
+<h2 id="shell-catorder">Wrong <code>cat</code> Order</h2>
+<p>Run this script and read the resulting <code>report.txt</code>. Does the report begin with
+the introduction, or with a different section?</p>
+<div data-inc="catorder.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Assemble the three sections of the report in order: introduction, methods, results.</span>
+
+cat<span class="w"> </span>section3.txt<span class="w"> </span>section1.txt<span class="w"> </span>section2.txt<span class="w"> </span>&gt;<span class="w"> </span>report.txt
+</code></pre></div>
+</div>
+<div data-inc="section1.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Introduction
+============
+This report summarises findings from the 2024 field season.
+Three sites were surveyed between January and March.
+</code></pre></div>
+</div>
+<div data-inc="section2.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Methods
+=======
+Samples were collected using standard protocols.
+Each site was visited on three consecutive days.
+Temperature and salinity were recorded at each visit.
+</code></pre></div>
+</div>
+<div data-inc="section3.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Results
+=======
+Site A showed elevated salinity compared to baseline.
+Site B was within normal range on all measures.
+Site C had anomalously low temperatures on day 2.
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that assembles a report from three section files produces them in the
+wrong order because the filenames are listed in the wrong sequence on the <code>cat</code>
+command line. Teaches that <code>cat</code> concatenates files in the order they are given,
+and how to verify the result with <code>head</code> before treating the output as correct.</p>
+</details>
+<h2 id="shell-loopclobber">Loop Clobbers on Re-run</h2>
+<p>Run this script once, then run it again. How many lines does <code>summary.txt</code> contain
+after the first run? After the second run?</p>
+<div data-inc="loopclobber.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Collect word counts for all .dat files into summary.txt.</span>
+<span class="c1"># Running this script a second time should produce the same summary,</span>
+<span class="c1"># not a file with doubled entries.</span>
+
+<span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.dat
+<span class="k">do</span>
+<span class="w">    </span>wc<span class="w"> </span>-w<span class="w"> </span><span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>summary.txt
+<span class="k">done</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that collects statistics into a summary file produces a file with double
+the expected entries when run a second time; the bug is using <code>&gt;&gt;</code> inside the loop
+without clearing the file first, so each run appends to whatever the previous run
+left. Teaches how to decide between <code>&gt;</code> and <code>&gt;&gt;</code>, and the pattern of redirecting
+the first write with <code>&gt;</code> or removing the output file before the loop begins.</p>
+</details>
+<h2 id="shell-sortn">Numeric Reverse Sort</h2>
+<p>Run this script in a directory that has files of different sizes. Compare the
+output to <code>ls -s | sort -rn | head -n 3</code>. Are the results the same?</p>
+<div data-inc="sortn.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># List the three largest files in the current directory by block size,</span>
+<span class="c1"># largest first.</span>
+
+ls<span class="w"> </span>-s<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A pipeline intended to show the three largest files lists them in the wrong order
+because <code>sort -r</code> reverses alphabetical order rather than numeric order; a file of
+size 100 blocks sorts as a smaller number than 8 because <code>"8"</code> comes after <code>"1"</code> in
+alphabetical order. Teaches that <code>-r</code> alone reverses the current sort order and
+that <code>-rn</code> is needed to sort numbers in descending order.</p>
+</details>
+<h2 id="shell-headcount"><code>head</code> Off by One</h2>
+<p>Run this script and count the data rows in the output. Then count the data rows
+in the original file. Are they the same?</p>
+<div data-inc="headcount.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Extract the header row plus the first 10 data rows from headcount.csv</span>
+<span class="c1"># (11 lines total: 1 header + 10 data).</span>
+
+head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>headcount.csv
+</code></pre></div>
+</div>
+<div data-inc="headcount.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>site,reading,value
+A,1,42.3
+A,2,38.9
+A,3,55.1
+B,1,31.7
+B,2,29.4
+B,3,33.8
+C,1,47.2
+C,2,51.0
+C,3,44.6
+D,1,28.3
+D,2,30.1
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that should extract a header and ten data rows produces only nine data
+rows; the bug is <code>head -n 10</code> when the header itself is one of the ten lines, so
+only nine data rows remain. Teaches how to account for header lines when counting
+with <code>head</code> and how to use <code>wc -l</code> to verify the actual line count of the output.</p>
+</details>
+<h2 id="shell-quotedall">Unquoted <code>$@</code></h2>
+<p>Run this script with a filename that contains a space. Does it process the file,
+or does it report an error about a non-existent file?</p>
+<div data-inc="quotedall.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Usage: quotedall.sh file1 file2 ...</span>
+<span class="c1"># Count the lines in each file passed as an argument.</span>
+
+<span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$@</span>
+<span class="k">do</span>
+<span class="w">    </span>wc<span class="w"> </span>-l<span class="w"> </span><span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span>
+<span class="k">done</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that loops over all its arguments fails when any argument contains a
+space; the bug is using <code>$@</code> without quotes, which causes word-splitting so each
+space-separated token is treated as a separate argument. Teaches the difference
+between <code>$@</code> and <code>"$@"</code>: the quoted form preserves each argument as a single
+token, even if it contains spaces.</p>
+</details>
+<h2 id="shell-findtype"><code>find</code> Missing <code>-type f</code></h2>
+<p>Create a directory whose name ends in <code>.log</code> (e.g., <code>mkdir debug.log</code>). Now run
+this script. Does the count include the directory?</p>
+<div data-inc="findtype.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Count all log files (and only log files) under the current directory.</span>
+
+find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*.log"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that counts log files includes directories whose names end in <code>.log</code> in
+the count; the bug is that <code>-name "*.log"</code> matches any filesystem entry, not just
+regular files. Teaches the use of <code>-type f</code> to restrict <code>find</code> results to regular
+files and <code>-type d</code> to restrict to directories.</p>
+</details>
+<h2 id="shell-cprecurse"><code>cp</code> Without <code>-r</code></h2>
+<p>Run this script. Does it copy the directory, or does it produce an error message?
+What does the error message say?</p>
+<div data-inc="cprecurse.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Back up the entire results/ directory to backup/results/.</span>
+
+cp<span class="w"> </span>results/<span class="w"> </span>backup/results/
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A script that backs up a directory fails with the message "omitting directory";
+the bug is calling <code>cp</code> without the <code>-r</code> flag, which is required to copy a
+directory and its contents recursively. Teaches the difference between copying a
+file and copying a directory, and how to read <code>cp --help</code> to find the right flag.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../datasci/">Data Science</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../sql/">SQL</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
