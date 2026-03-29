@@ -80,10 +80,9 @@ console output. Are all the field values captured and reported correctly?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A JavaScript function that collects form field values returns <code>undefined</code> for some
-fields; the bug is using <code>var</code> inside a loop, whose hoisting causes the variable
-to be shared across iterations. Teaches <code>var</code> hoisting, block scope, and why
-<code>let</code> and <code>const</code> are preferable.</p>
+<p>The bug is using <code>var</code> inside a loop. Hoisting causes the variable to be shared
+across iterations, so the function returns <code>undefined</code> for some fields. Teaches
+<code>var</code> hoisting, block scope, and why <code>let</code> and <code>const</code> are preferable.</p>
 </details>
 <h2 id="jsbrowser-deaddom">Dead DOM Event Listener</h2>
 <p>Open the page and click the button several times. Does it keep working after the
@@ -120,10 +119,10 @@ first click?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A button click handler works once but stops working after the page is partially
-updated; the bug is attaching the event listener to a DOM element that is replaced
-by the update, so the listener is discarded. Teaches event delegation and the
-difference between live and dead DOM references.</p>
+<p>The bug is attaching the event listener to a DOM element that is replaced by the
+update, so the listener is discarded and the button stops working after the first
+click. Teaches event delegation and the difference between live and dead DOM
+references.</p>
 </details>
 <h2 id="jsbrowser-thisbind"><code>this</code> Binding in Callbacks</h2>
 <p>Open the page and click the button several times. Does the counter increment by the
@@ -154,10 +153,10 @@ expected amount each time?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A function that updates a counter when a button is clicked increments by the wrong
-amount; the bug is that <code>this</code> inside the callback refers to the button element,
-not the object that owns the counter. Teaches <code>this</code> binding in JavaScript callbacks
-and how to use arrow functions or <code>.bind()</code> to preserve context.</p>
+<p>The bug is that <code>this</code> inside the callback refers to the button element rather than
+the object that owns the counter, so the counter increments by the wrong amount.
+Teaches <code>this</code> binding in JavaScript callbacks and how to use arrow functions or
+<code>.bind()</code> to preserve context.</p>
 </details>
 <h2 id="jsbrowser-unawaited">Promise Not Awaited</h2>
 <p>Open the page and check the data displayed against what the API returns. Is the
@@ -199,9 +198,9 @@ data correct on the first load, or does it appear stale or blank?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A page that fetches data from an API on load displays stale data; the bug is that
-the fetch result is used before the Promise resolves (i.e., code runs synchronously
-after an async call). Teaches the JavaScript event loop, Promises, and <code>async/await</code>.</p>
+<p>The bug is that the fetch result is used before the Promise resolves (code runs
+synchronously after an async call), so the page displays stale data. Teaches the
+JavaScript event loop, Promises, and <code>async/await</code>.</p>
 </details>
 <h2 id="jsbrowser-localstorage"><code>localStorage</code> in Private Mode</h2>
 <p>Open the page in a private browsing window. Does anything go wrong? Check the
@@ -225,10 +224,10 @@ browser console for errors.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that reads values from <code>localStorage</code> fails silently in private browsing
-mode; the bug is that <code>localStorage</code> throws a <code>SecurityError</code> in that context but
-the code has no try/catch. Teaches browser storage limitations and how to use the
-browser console and DevTools to observe thrown exceptions.</p>
+<p>The bug is that <code>localStorage</code> throws a <code>SecurityError</code> in private browsing mode but
+the code has no try/catch, so the script fails silently. Teaches browser storage
+limitations and how to use the browser console and DevTools to observe thrown
+exceptions.</p>
 </details>
 <h2 id="jsbrowser-viewport">Missing Viewport <code>meta</code> Tag</h2>
 <p>Open the page in a browser and use DevTools to simulate a narrow mobile screen.
@@ -263,8 +262,8 @@ Does the layout look correct?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A page layout breaks on narrow screens even though the CSS looks correct; the bug
-is a missing <code>&lt;meta name="viewport"&gt;</code> tag that prevents mobile scaling. Teaches
+<p>The bug is a missing <code>&lt;meta name="viewport"&gt;</code> tag that prevents mobile scaling, so
+the page layout breaks on narrow screens even though the CSS looks correct. Teaches
 how to use browser DevTools' device emulation and inspect computed styles.</p>
 </details>
 <h2 id="jsbrowser-cors">CORS Header Missing</h2>
@@ -335,10 +334,10 @@ request from the command line.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A fetch request to a local API returns a CORS error in the browser but works from
-the command line; the bug is a missing <code>Access-Control-Allow-Origin</code> header on
-the server response. Teaches what CORS is, how to read network error messages in
-DevTools, and how to configure server headers.</p>
+<p>The bug is a missing <code>Access-Control-Allow-Origin</code> header on the server response, so
+the fetch request returns a CORS error in the browser even though it works from the
+command line. Teaches what CORS is, how to read network error messages in DevTools,
+and how to configure server headers.</p>
 </details>
 <h2 id="jsbrowser-caching">Browser Caching Stale JavaScript</h2>
 <p>Make a change to the JavaScript file and reload the page normally. Does the change
@@ -373,8 +372,8 @@ file the browser is serving.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A page shows outdated content after a bug fix is deployed; the bug is that the
-browser is serving a cached version of the JavaScript file. Teaches cache-control
+<p>The bug is that the browser is serving a cached version of the JavaScript file, so
+the page shows outdated content after a bug fix is deployed. Teaches cache-control
 headers, hard refresh vs. normal refresh, and how to use DevTools to disable the
 cache during development.</p>
 </details>
@@ -420,10 +419,10 @@ shown?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A JavaScript error is reported on a minified line number that does not correspond
-to the source; the bug is deploying a minified bundle without a source map.
-Teaches what source maps are, how to generate them, and how to load them in
-DevTools to see original source locations.</p>
+<p>The bug is deploying a minified bundle without a source map, so JavaScript errors
+are reported on minified line numbers that do not correspond to the source. Teaches
+what source maps are, how to generate them, and how to load them in DevTools to see
+original source locations.</p>
 </details>
 <h2 id="jsbrowser-csp">Content Security Policy Block</h2>
 <p>Open the page in a browser. Does the inline script run? Check the console for any
@@ -451,10 +450,10 @@ policy-related messages.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A web application works correctly in development but shows blank content in
-production; the bug is a Content Security Policy header that blocks an inline
-script. Teaches how to read CSP violation reports in the browser console, how CSP
-directives work, and how to move inline scripts to external files to comply.</p>
+<p>The bug is a Content Security Policy header that blocks an inline script, so the
+application shows blank content in production even though it works in development.
+Teaches how to read CSP violation reports in the browser console, how CSP directives
+work, and how to move inline scripts to external files to comply.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">

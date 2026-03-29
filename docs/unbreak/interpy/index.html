@@ -63,10 +63,9 @@ Has the original list changed?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A function is supposed to reverse a list and return the reversed copy, but the
-original list is also reversed after the call; the bug is using <code>list.reverse()</code>
-(mutates in place) instead of <code>reversed()</code> or slicing. Teaches aliasing and the
-difference between in-place and copy operations.</p>
+<p>The bug is using <code>list.reverse()</code> (which mutates in place) instead of <code>reversed()</code>
+or slicing, so the original list is also reversed after the call. Teaches aliasing
+and the difference between in-place and copy operations.</p>
 </details>
 <h2 id="interpy-sharemut">Shared Mutable Class Attribute</h2>
 <p>Create two account objects, add different transactions to each, and then print the
@@ -98,11 +97,10 @@ transaction history of each. Does each account show only its own transactions?</
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A class that records the transaction history of a bank account shows every account's
-transactions in every other account; the bug is that <code>history = []</code> is defined at
-class level, so all instances share the same list object instead of each having
-their own. Teaches the difference between shared mutable class attributes and
-per-instance attributes initialized in <code>__init__</code>.</p>
+<p>The bug is that <code>history = []</code> is defined at class level, so all instances share the
+same list object instead of each having their own, and every account's transactions
+appear in every other account. Teaches the difference between shared mutable class
+attributes and per-instance attributes initialized in <code>__init__</code>.</p>
 </details>
 <h2 id="interpy-fpeq">Floating-Point Equality</h2>
 <p>Run this script and examine the two computed values. Are they exactly equal? Try
@@ -142,9 +140,9 @@ printing each value with many decimal places.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A program compares two floating-point results that should be equal but the
-comparison returns <code>False</code>; the bug is using <code>==</code> on floats computed by different
-routes. Teaches floating-point representation errors and how to use <code>math.isclose</code>.</p>
+<p>The bug is using <code>==</code> on floats computed by different routes, so the comparison
+returns <code>False</code> even when the values should be equal. Teaches floating-point
+representation errors and how to use <code>math.isclose</code>.</p>
 </details>
 <h2 id="interpy-broad">Overly Broad Exception Handler</h2>
 <p>Run the scraper with the provided URL list, which includes one malformed URL. Does
@@ -191,11 +189,11 @@ it process all the valid URLs? Check whether anything is silently discarded.</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A web scraper wraps its fetch-and-parse loop in <code>try/except Exception: pass</code> to
-tolerate network timeouts, but silently stops processing after the first malformed
-URL because the <code>ValueError</code> raised by the URL parser is also caught and discarded.
-Teaches how overly broad exception handlers swallow unrelated bugs, and how to use
-<code>logging.exception</code> to record errors instead of ignoring them.</p>
+<p>The bug is wrapping the fetch-and-parse loop in <code>try/except Exception: pass</code> to
+tolerate network timeouts. The <code>ValueError</code> raised by the URL parser is also caught
+and discarded, so the scraper silently stops processing after the first malformed
+URL. Teaches how overly broad exception handlers swallow unrelated bugs, and how to
+use <code>logging.exception</code> to record errors instead of ignoring them.</p>
 </details>
 <h2 id="interpy-commas">Commas Inside CSV Fields</h2>
 <p>Run the script with the provided CSV file and read the traceback. Which line in the
@@ -235,11 +233,11 @@ Diana Prince,79
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script reads a two-column CSV file of names and scores and reports the top scorer,
-but crashes with an <code>IndexError</code> on some rows; the bug is that names containing a
-comma (e.g., "Smith, John") cause <code>line.split(',')</code> to produce three fields instead
-of two, so the index used for the score points at the wrong element. Teaches why
-hand-rolled CSV parsing fails on real data and when to use the <code>csv</code> module.</p>
+<p>The bug is that names containing a comma (e.g., "Smith, John") cause
+<code>line.split(',')</code> to produce three fields instead of two, so the index used for the
+score points at the wrong element and the script crashes with an <code>IndexError</code>.
+Teaches why hand-rolled CSV parsing fails on real data and when to use the <code>csv</code>
+module.</p>
 </details>
 <h2 id="interpy-lexisort">Lexicographic vs. Numeric Sort</h2>
 <p>Run the sort function and examine the output order. Where does <code>file10</code> appear
@@ -261,11 +259,10 @@ relative to <code>file2</code>?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A function sorts filenames that contain embedded numbers (e.g., <code>file2.txt</code>,
-<code>file10.txt</code>, <code>file1.txt</code>) expecting numeric order, but the default <code>sort()</code> gives
-lexicographic order, placing <code>file10</code> before <code>file2</code>. Teaches the difference between
-lexicographic and numeric sort order and how to write a <code>key</code> function that extracts
-the embedded integer so the files sort as <code>file1</code>, <code>file2</code>, <code>file10</code>.</p>
+<p>The bug is using the default <code>sort()</code>, which gives lexicographic order and places
+<code>file10</code> before <code>file2</code>. Teaches the difference between lexicographic and numeric
+sort order and how to write a <code>key</code> function that extracts the embedded integer so
+the files sort as <code>file1</code>, <code>file2</code>, <code>file10</code>.</p>
 </details>
 <h2 id="interpy-exhaust">Exhausted Generator</h2>
 <p>Run the script and look at both outputs. Does each one produce the values you
@@ -293,9 +290,9 @@ expected?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A generator function is used twice in the same expression, but the second use
-produces no results; the bug is that generators are exhausted after one pass.
-Teaches that generators are single-use iterators and when to use lists instead.</p>
+<p>The bug is that generators are exhausted after one pass, so the second use of the
+generator in the same expression produces no results. Teaches that generators are
+single-use iterators and when to use lists instead.</p>
 </details>
 <h2 id="interpy-cachekey">Incomplete Cache Key</h2>
 <p>Call the cached function twice with the same positional argument but a different
@@ -327,9 +324,9 @@ keyword argument each time. Do both calls return the correct result?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A caching decorator returns the same result for different inputs; the bug is that
-the cache key does not include all function arguments (e.g., ignores keyword
-arguments). Teaches how to construct correct cache keys and test with varied inputs.</p>
+<p>The bug is that the cache key does not include all function arguments (e.g., ignores
+keyword arguments), so the decorator returns the same result for different inputs.
+Teaches how to construct correct cache keys and test with varied inputs.</p>
 </details>
 <h2 id="interpy-super">Forgetting <code>super().__init__()</code></h2>
 <p>Create an instance of the subclass and try to access an attribute that is set in
@@ -364,10 +361,9 @@ the parent's <code>__init__</code>. Does it exist?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A subclass calls a method that exists in the parent, but the parent's <code>__init__</code>
-is never called, leaving required attributes missing; the bug is forgetting
-<code>super().__init__()</code>. Teaches Python's method resolution order and how to
-use <code>super()</code> correctly.</p>
+<p>The bug is forgetting <code>super().__init__()</code>, so the parent's <code>__init__</code> is never
+called and required attributes are missing when a subclass method tries to use them.
+Teaches Python's method resolution order and how to use <code>super()</code> correctly.</p>
 </details>
 <h2 id="interpy-unclosed">File Not Closed on Exception</h2>
 <p>Run the script so that it raises an exception part-way through writing. Then open
@@ -414,11 +410,11 @@ fifth line
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A function writes a processed summary to a file using <code>open()</code> without a <code>with</code>
-statement; when an unhandled exception occurs midway through, the output file is
-left partially written because the write buffer is never flushed and <code>close()</code> is
-never called. Teaches why context managers guarantee file cleanup even when
-exceptions occur, and how to use <code>with open(...) as f</code> to prevent data loss.</p>
+<p>The bug is using <code>open()</code> without a <code>with</code> statement. When an unhandled exception
+occurs midway through, the output file is left partially written because the write
+buffer is never flushed and <code>close()</code> is never called. Teaches why context managers
+guarantee file cleanup even when exceptions occur, and how to use
+<code>with open(...) as f</code> to prevent data loss.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">

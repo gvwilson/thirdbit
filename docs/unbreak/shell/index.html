@@ -65,10 +65,9 @@ sort<span class="w"> </span>numericsort.txt
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that sorts a list of numbers produces them in the wrong order; the bug is
-calling <code>sort</code> without the <code>-n</code> flag, which causes lexicographic (alphabetical)
-ordering so <code>10</code> appears before <code>2</code>. Teaches the difference between alphabetical
-and numeric sort and when to use <code>sort -n</code>.</p>
+<p>The bug is calling <code>sort</code> without the <code>-n</code> flag, which causes lexicographic
+(alphabetical) ordering so <code>10</code> appears before <code>2</code>. Teaches the difference between
+alphabetical and numeric sort and when to use <code>sort -n</code>.</p>
 </details>
 <h2 id="shell-overwrite">Redirect Overwrites</h2>
 <p>Run this script and then look at <code>summary.txt</code>. How many lines does it contain?
@@ -84,10 +83,9 @@ How many did you expect?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A loop that is supposed to collect the first line of each data file into a single
-summary produces a file with only one entry; the bug is using <code>&gt;</code> inside the loop,
-which overwrites the file on every iteration instead of appending to it. Teaches
-the difference between <code>&gt;</code> (overwrite) and <code>&gt;&gt;</code> (append).</p>
+<p>The bug is using <code>&gt;</code> inside the loop, which overwrites the file on every iteration
+instead of appending to it, so the summary contains only one entry. Teaches the
+difference between <code>&gt;</code> (overwrite) and <code>&gt;&gt;</code> (append).</p>
 </details>
 <h2 id="shell-wideglob">Wildcard Too Broad</h2>
 <p>Look at the list of <code>.txt</code> files in the directory. Which files does <code>*.txt</code> match?
@@ -102,11 +100,11 @@ cp<span class="w"> </span>*.txt<span class="w"> </span>archive/
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script copies the monthly notes files to an archive directory but also copies the
-running archive file itself because <code>*.txt</code> matches every <code>.txt</code> file in the
-directory. Teaches how to check what a wildcard matches before using it in a
-destructive command, and how to narrow a pattern (e.g., <code>notes_???.txt</code>) to match
-only the intended files.</p>
+<p>The bug is that <code>*.txt</code> matches every <code>.txt</code> file in the directory, including the
+running archive file itself, so the script copies more than the monthly notes files.
+Teaches how to check what a wildcard matches before using it in a destructive
+command, and how to narrow a pattern (e.g., <code>notes_???.txt</code>) to match only the
+intended files.</p>
 </details>
 <h2 id="shell-uniqsorted">Unsorted Input to <code>uniq</code></h2>
 <p>Run this script and check the count it reports. Then look at the species column in
@@ -132,11 +130,11 @@ cut<span class="w"> </span>-d,<span class="w"> </span>-f2<span class="w"> </span
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A pipeline that counts the number of distinct species in a CSV file gives a number
-that is too high; the bug is piping directly to <code>uniq</code> without sorting first, so
-only adjacent identical lines are collapsed and non-adjacent occurrences of the
-same species are counted separately. Teaches that <code>uniq</code> only removes adjacent
-duplicates and that <code>sort | uniq</code> is the correct pattern for counting distinct values.</p>
+<p>The bug is piping directly to <code>uniq</code> without sorting first. Only adjacent identical
+lines are collapsed, so non-adjacent occurrences of the same species are counted
+separately and the reported count is too high. Teaches that <code>uniq</code> only removes
+adjacent duplicates and that <code>sort | uniq</code> is the correct pattern for counting
+distinct values.</p>
 </details>
 <h2 id="shell-quotedvar">Unquoted Loop Variable</h2>
 <p>Run this script with a filename that contains a space (e.g., <code>"field notes.txt"</code>).
@@ -152,11 +150,11 @@ Does it process the file correctly?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A loop that counts lines in files fails when any filename contains a space; the
-bug is using <code>$f</code> without quotes, so the shell splits the filename on the space
-and passes the two halves as separate arguments to <code>wc</code>. Teaches why loop
-variables should always be quoted as <code>"$f"</code> and how spaces in filenames require
-consistent quoting throughout a script.</p>
+<p>The bug is using <code>$f</code> without quotes, so the shell splits the filename on the space
+and passes the two halves as separate arguments to <code>wc</code>, causing the loop to fail
+for any filename that contains a space. Teaches why loop variables should always be
+quoted as <code>"$f"</code> and how spaces in filenames require consistent quoting throughout a
+script.</p>
 </details>
 <h2 id="shell-wrongarg">Wrong Positional Parameter</h2>
 <p>Run the script with a small input file and the name of an output file. Look at
@@ -170,11 +168,10 @@ head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that copies the first 20 lines of an input file to an output file reads
-from the output path and writes to the input path instead; the bug is that the
-arguments <code>$1</code> and <code>$2</code> are swapped. Teaches how to verify which argument is
-which by reading the usage comment, and how to use <code>echo</code> to print argument values
-before acting on them.</p>
+<p>The bug is that the arguments <code>$1</code> and <code>$2</code> are swapped, so the script reads from
+the output path and writes to the input path instead. Teaches how to verify which
+argument is which by reading the usage comment, and how to use <code>echo</code> to print
+argument values before acting on them.</p>
 </details>
 <h2 id="shell-headtail"><code>head</code> Instead of <code>tail</code></h2>
 <p>Run this script and note which rows are printed. Are they from the beginning or
@@ -200,11 +197,11 @@ E010,23.9,100.5
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script intended to show the most recent entries in a data file shows the oldest
-entries instead; the bug is using <code>head</code> (which prints the first N lines) instead
-of <code>tail</code> (which prints the last N lines). Teaches the difference between <code>head</code>
-and <code>tail</code> and how to combine them — for example <code>tail -n 5</code> for the last 5, or
-<code>head -n 10 | tail -n 5</code> for lines 6–10.</p>
+<p>The bug is using <code>head</code> (which prints the first N lines) instead of <code>tail</code> (which
+prints the last N lines), so the script shows the oldest entries instead of the most
+recent ones. Teaches the difference between <code>head</code> and <code>tail</code> and how to combine
+them — for example <code>tail -n 5</code> for the last 5, or <code>head -n 10 | tail -n 5</code> for
+lines 6–10.</p>
 </details>
 <h2 id="shell-dotdot">Too Many <code>..</code></h2>
 <p>Read the comment at the top of the script. Map out the expected directory structure
@@ -228,10 +225,10 @@ sort<span class="w"> </span>-n<span class="w"> </span>measurements.txt<span clas
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that saves output to a sibling directory goes two levels up instead of
-one; the bug is writing <code>../..</code> when the target is only one level up (<code>..</code>).
-Teaches how to trace relative paths by counting directory levels, and how to
-use <code>pwd</code> and <code>ls ..</code> to verify the directory structure before running a script.</p>
+<p>The bug is writing <code>../..</code> when the target is only one level up (<code>..</code>), so the
+script saves output two levels up instead of one. Teaches how to trace relative
+paths by counting directory levels, and how to use <code>pwd</code> and <code>ls ..</code> to verify the
+directory structure before running a script.</p>
 </details>
 <h2 id="shell-wcflag">Wrong <code>wc</code> Flag</h2>
 <p>Run this script and look at the numbers it prints. Do they match the number of
@@ -254,10 +251,10 @@ sparrow observed at grid C3
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that should count the number of records in a file prints a much larger
-number; the bug is using <code>wc -w</code> (count words) instead of <code>wc -l</code> (count lines).
-Teaches the difference between <code>wc</code> flags and how to use <code>wc --help</code> to check
-which flag produces which count.</p>
+<p>The bug is using <code>wc -w</code> (count words) instead of <code>wc -l</code> (count lines), so the
+script prints a much larger number than the number of records. Teaches the
+difference between <code>wc</code> flags and how to use <code>wc --help</code> to check which flag
+produces which count.</p>
 </details>
 <h2 id="shell-findglob">Unquoted Glob in <code>find</code></h2>
 <p>Run this script from a directory that contains at least one <code>.csv</code> file. What
@@ -270,11 +267,11 @@ find<span class="w"> </span>data<span class="w"> </span>-name<span class="w"> </
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A <code>find</code> command that should search a subdirectory for CSV files instead searches
-for files whose names match already-expanded filenames from the current directory;
-the bug is passing <code>*.csv</code> without quotes, so the shell expands the glob before
-<code>find</code> runs. Teaches that the shell expands unquoted wildcards before passing
-them to any command, and that patterns given to <code>find -name</code> must be quoted.</p>
+<p>The bug is passing <code>*.csv</code> without quotes, so the shell expands the glob before
+<code>find</code> runs and the command searches for files whose names match already-expanded
+filenames from the current directory. Teaches that the shell expands unquoted
+wildcards before passing them to any command, and that patterns given to
+<code>find -name</code> must be quoted.</p>
 </details>
 <h2 id="shell-cutdelim">Wrong <code>cut</code> Delimiter</h2>
 <p>Run this script and examine the output. Does each output line contain just the
@@ -294,11 +291,10 @@ Okafor	Amara	Chemistry
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that extracts one column from a tab-delimited file prints the entire line
-unchanged; the bug is specifying <code>-d,</code> (comma delimiter) when the file uses tabs.
-Since there are no commas, <code>cut</code> treats each line as a single field and returns it
-whole. Teaches how to identify the actual delimiter in a file (using <code>cat -A</code> to
-show invisible characters) and how to specify a tab with <code>-d$'\t'</code>.</p>
+<p>The bug is specifying <code>-d,</code> (comma delimiter) when the file uses tabs. Since there
+are no commas, <code>cut</code> treats each line as a single field and returns it whole. Teaches
+how to identify the actual delimiter in a file (using <code>cat -A</code> to show invisible
+characters) and how to specify a tab with <code>-d$'\t'</code>.</p>
 </details>
 <h2 id="shell-grepinvert">Inverted <code>grep</code></h2>
 <p>Run this script and read the output. Do the lines shown contain the word you
@@ -320,11 +316,10 @@ grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">"ERROR"</
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that should print error lines from a log file prints everything except the
-error lines; the bug is the <code>-v</code> flag, which inverts the match so <code>grep</code> shows
-lines that do not contain the pattern. Teaches what <code>-v</code> does and how to check
-the result of a <code>grep</code> command against a small known file to confirm it is
-filtering in the right direction.</p>
+<p>The bug is the <code>-v</code> flag, which inverts the match so <code>grep</code> shows lines that do not
+contain the pattern. The script prints everything except the error lines instead of
+just the error lines. Teaches what <code>-v</code> does and how to check the result of a <code>grep</code>
+command against a small known file to confirm it is filtering in the right direction.</p>
 </details>
 <h2 id="shell-missingarg">Missing Script Argument</h2>
 <p>Run this script with no arguments. Does it print useful output, produce an error,
@@ -339,11 +334,10 @@ wc<span class="w"> </span>-l<span class="w"> </span><span class="nv">$1</span>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that expects a filename as its first argument hangs when run with no
-arguments because <code>$1</code> expands to nothing and <code>wc -l</code> with no filename reads from
-standard input, waiting indefinitely for keystrokes. Teaches how positional
-parameters expand to empty strings when omitted, and how to check for missing
-arguments with <code>echo "Usage: ..."</code> before using them.</p>
+<p>The bug is that <code>$1</code> expands to nothing when no argument is given and <code>wc -l</code> with
+no filename reads from standard input, so the script hangs waiting indefinitely for
+keystrokes. Teaches how positional parameters expand to empty strings when omitted,
+and how to check for missing arguments with <code>echo "Usage: ..."</code> before using them.</p>
 </details>
 <h2 id="shell-catorder">Wrong <code>cat</code> Order</h2>
 <p>Run this script and read the resulting <code>report.txt</code>. Does the report begin with
@@ -376,10 +370,10 @@ Site C had anomalously low temperatures on day 2.
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that assembles a report from three section files produces them in the
-wrong order because the filenames are listed in the wrong sequence on the <code>cat</code>
-command line. Teaches that <code>cat</code> concatenates files in the order they are given,
-and how to verify the result with <code>head</code> before treating the output as correct.</p>
+<p>The bug is that the filenames are listed in the wrong sequence on the <code>cat</code> command
+line, so the sections appear in the wrong order. Teaches that <code>cat</code> concatenates
+files in the order they are given, and how to verify the result with <code>head</code> before
+treating the output as correct.</p>
 </details>
 <h2 id="shell-loopclobber">Loop Clobbers on Re-run</h2>
 <p>Run this script once, then run it again. How many lines does <code>summary.txt</code> contain
@@ -397,11 +391,11 @@ after the first run? After the second run?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that collects statistics into a summary file produces a file with double
-the expected entries when run a second time; the bug is using <code>&gt;&gt;</code> inside the loop
-without clearing the file first, so each run appends to whatever the previous run
-left. Teaches how to decide between <code>&gt;</code> and <code>&gt;&gt;</code>, and the pattern of redirecting
-the first write with <code>&gt;</code> or removing the output file before the loop begins.</p>
+<p>The bug is using <code>&gt;&gt;</code> inside the loop without clearing the file first, so each run
+appends to whatever the previous run left and the file contains double the expected
+entries after a second run. Teaches how to decide between <code>&gt;</code> and <code>&gt;&gt;</code>, and the
+pattern of redirecting the first write with <code>&gt;</code> or removing the output file before
+the loop begins.</p>
 </details>
 <h2 id="shell-sortn">Numeric Reverse Sort</h2>
 <p>Run this script in a directory that has files of different sizes. Compare the
@@ -415,11 +409,11 @@ ls<span class="w"> </span>-s<span class="w"> </span><span class="p">|</span><spa
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A pipeline intended to show the three largest files lists them in the wrong order
-because <code>sort -r</code> reverses alphabetical order rather than numeric order; a file of
-size 100 blocks sorts as a smaller number than 8 because <code>"8"</code> comes after <code>"1"</code> in
-alphabetical order. Teaches that <code>-r</code> alone reverses the current sort order and
-that <code>-rn</code> is needed to sort numbers in descending order.</p>
+<p>The bug is using <code>sort -r</code>, which reverses alphabetical order rather than numeric
+order. A file of size 100 blocks sorts as smaller than 8 because <code>"8"</code> comes after
+<code>"1"</code> in alphabetical order, so the three largest files are listed in the wrong
+order. Teaches that <code>-r</code> alone reverses the current sort order and that <code>-rn</code> is
+needed to sort numbers in descending order.</p>
 </details>
 <h2 id="shell-headcount"><code>head</code> Off by One</h2>
 <p>Run this script and count the data rows in the output. Then count the data rows
@@ -447,10 +441,10 @@ D,2,30.1
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that should extract a header and ten data rows produces only nine data
-rows; the bug is <code>head -n 10</code> when the header itself is one of the ten lines, so
-only nine data rows remain. Teaches how to account for header lines when counting
-with <code>head</code> and how to use <code>wc -l</code> to verify the actual line count of the output.</p>
+<p>The bug is <code>head -n 10</code> when the header itself is one of the ten lines, so only nine
+data rows remain instead of ten. Teaches how to account for header lines when
+counting with <code>head</code> and how to use <code>wc -l</code> to verify the actual line count of the
+output.</p>
 </details>
 <h2 id="shell-quotedall">Unquoted <code>$@</code></h2>
 <p>Run this script with a filename that contains a space. Does it process the file,
@@ -467,11 +461,10 @@ or does it report an error about a non-existent file?</p>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that loops over all its arguments fails when any argument contains a
-space; the bug is using <code>$@</code> without quotes, which causes word-splitting so each
-space-separated token is treated as a separate argument. Teaches the difference
-between <code>$@</code> and <code>"$@"</code>: the quoted form preserves each argument as a single
-token, even if it contains spaces.</p>
+<p>The bug is using <code>$@</code> without quotes, which causes word-splitting so each
+space-separated token is treated as a separate argument and the script fails for any
+argument that contains a space. Teaches the difference between <code>$@</code> and <code>"$@"</code>: the
+quoted form preserves each argument as a single token, even if it contains spaces.</p>
 </details>
 <h2 id="shell-findtype"><code>find</code> Missing <code>-type f</code></h2>
 <p>Create a directory whose name ends in <code>.log</code> (e.g., <code>mkdir debug.log</code>). Now run
@@ -484,10 +477,10 @@ find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </spa
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that counts log files includes directories whose names end in <code>.log</code> in
-the count; the bug is that <code>-name "*.log"</code> matches any filesystem entry, not just
-regular files. Teaches the use of <code>-type f</code> to restrict <code>find</code> results to regular
-files and <code>-type d</code> to restrict to directories.</p>
+<p>The bug is that <code>-name "*.log"</code> matches any filesystem entry, not just regular
+files, so directories whose names end in <code>.log</code> are included in the count. Teaches
+the use of <code>-type f</code> to restrict <code>find</code> results to regular files and <code>-type d</code> to
+restrict to directories.</p>
 </details>
 <h2 id="shell-cprecurse"><code>cp</code> Without <code>-r</code></h2>
 <p>Run this script. Does it copy the directory, or does it produce an error message?
@@ -500,10 +493,10 @@ cp<span class="w"> </span>results/<span class="w"> </span>backup/results/
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>A script that backs up a directory fails with the message "omitting directory";
-the bug is calling <code>cp</code> without the <code>-r</code> flag, which is required to copy a
-directory and its contents recursively. Teaches the difference between copying a
-file and copying a directory, and how to read <code>cp --help</code> to find the right flag.</p>
+<p>The bug is calling <code>cp</code> without the <code>-r</code> flag, which is required to copy a directory
+and its contents recursively, so the script fails with the message "omitting
+directory". Teaches the difference between copying a file and copying a directory,
+and how to read <code>cp --help</code> to find the right flag.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">
