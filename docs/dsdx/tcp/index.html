@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -98,7 +98,7 @@ demonstrates the core mechanisms that make reliable communication possible over 
 <p>Let's examine each component in turn.</p>
 <h2 id="tcp-data">Data Structures</h2>
 <p>We start by defining the six types of packets our protocol will use:</p>
-<div data-filter="inc=packettypes" data-inc="tcp_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PacketType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<div data-inc="tcp_types.py" data-mark="packettypes"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PacketType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Types of TCP packets."""</span>
 
     <span class="n">SYN</span> <span class="o">=</span> <span class="s2">"SYN"</span>  <span class="c1"># Synchronize (connection establishment)</span>
@@ -110,7 +110,7 @@ demonstrates the core mechanisms that make reliable communication possible over 
 </code></pre></div>
 </div>
 <p>and the seven different states that a connection can be in:</p>
-<div data-filter="inc=connectionstate" data-inc="tcp_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ConnectionState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<div data-inc="tcp_types.py" data-mark="connectionstate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ConnectionState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""TCP connection states."""</span>
 
     <span class="n">CLOSED</span> <span class="o">=</span> <span class="s2">"CLOSED"</span>
@@ -126,7 +126,7 @@ demonstrates the core mechanisms that make reliable communication possible over 
 sequence and acknowledgment numbers,
 packet type,
 and payload data:</p>
-<div data-filter="inc=packet" data-inc="tcp_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="tcp_types.py" data-mark="packet"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Packet</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""A network packet (simulating IP + TCP)."""</span>
 
@@ -145,7 +145,7 @@ and payload data:</p>
 <p>Before building TCP, we need to simulate UDP's unreliable delivery.
 <code>UnreliableNetwork</code> tracks per-packet statistics
 and maintains a registry mapping address:port pairs to their receive queues:</p>
-<div data-filter="inc=network_init" data-inc="unreliable_network.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">UnreliableNetwork</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="unreliable_network.py" data-mark="network_init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">UnreliableNetwork</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Simulates unreliable packet delivery (like UDP)."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -189,7 +189,7 @@ and maintains a registry mapping address:port pairs to their receive queues:</p>
 <p><code>send_packet</code> applies the configured loss and duplication rates
 before calling <code>_deliver_packet</code>,
 which adds a random delay and optionally increases it to simulate reordering:</p>
-<div data-filter="inc=network_send" data-inc="unreliable_network.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">send_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="unreliable_network.py" data-mark="network_send"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">send_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Send packet with simulated unreliability."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">packets_sent</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -232,7 +232,7 @@ which adds a random delay and optionally increases it to simulate reordering:</p
 The network maintains a registry of endpoints and routes packets accordingly.</p>
 <h2 id="tcp-connection">TCP Connection</h2>
 <p>The TCP connection implements reliability over the unreliable network:</p>
-<div data-filter="inc=tcpinit" data-inc="tcp_connection.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TCPConnection</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="tcp_connection.py" data-mark="tcpinit"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TCPConnection</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""TCP connection with reliability over unreliable network."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -291,7 +291,7 @@ The send buffer holds unacknowledged segments for potential retransmission.
 The receive buffer handles out-of-order delivery by holding segments until gaps are filled.</p>
 <p>The <code>run</code> loop reads packets from the receive queue and dispatches each one through <code>handle_packet</code>,
 which routes SYN, SYN-ACK, ACK, and DATA packets to the appropriate handler:</p>
-<div data-filter="inc=tcp_run" data-inc="tcp_connection.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="tcp_connection.py" data-mark="tcp_run"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Main TCP loop: handle incoming packets."""</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">packet</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -342,7 +342,7 @@ which routes SYN, SYN-ACK, ACK, and DATA packets to the appropriate handler:</p>
 </div>
 <h2 id="tcp-handshake">Three-Way Handshake</h2>
 <p>TCP connection establishment uses three packets to synchronize state:</p>
-<div data-filter="inc=tcpconnect" data-inc="tcp_connection.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">remote_addr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">remote_port</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div data-inc="tcp_connection.py" data-mark="tcpconnect"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">remote_addr</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">remote_port</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Initiate TCP connection (3-way handshake)."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">remote_addr</span> <span class="o">=</span> <span class="n">remote_addr</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">remote_port</span> <span class="o">=</span> <span class="n">remote_port</span>
@@ -390,7 +390,7 @@ which routes SYN, SYN-ACK, ACK, and DATA packets to the appropriate handler:</p>
 <p>This synchronizes sequence numbers and establishes bidirectional communication.</p>
 <p>The server side of the handshake is handled by <code>listen_and_accept</code>,
 which waits for a SYN packet and then delegates the response to <code>handle_syn</code>:</p>
-<div data-filter="inc=server_accept" data-inc="tcp_connection.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">listen_and_accept</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div data-inc="tcp_connection.py" data-mark="server_accept"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">listen_and_accept</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Listen for incoming connection (server side)."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">local_addr</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">local_port</span><span class="si">}</span><span class="s2">: Listening..."</span><span class="p">)</span>
 
@@ -441,7 +441,7 @@ which waits for a SYN packet and then delegates the response to <code>handle_syn
 </div>
 <h2 id="tcp-window">Sliding Window Protocol</h2>
 <p>The sliding window allows multiple packets in flight:</p>
-<div data-filter="inc=tcpsend" data-inc="tcp_connection.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="tcp_connection.py" data-mark="tcpsend"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Send data reliably using TCP."""</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">ConnectionState</span><span class="o">.</span><span class="n">ESTABLISHED</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] TCP: Cannot send - not connected"</span><span class="p">)</span>
@@ -495,7 +495,7 @@ new packets are being sent while waiting for ACKs from earlier packets.</p>
 <p>If an ACK doesn't arrive within the timeout period,
 the segment is retransmitted.
 We use a separate <code>Process</code> to simulate each retransmission timer:</p>
-<div data-filter="inc=retransmission" data-inc="tcp_connection.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RetransmissionTimer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="tcp_connection.py" data-mark="retransmission"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RetransmissionTimer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Timer process for retransmitting unacknowledged segments."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">:</span> <span class="s2">"TCPConnection"</span><span class="p">,</span> <span class="n">segment</span><span class="p">:</span> <span class="n">SegmentBuffer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -553,7 +553,7 @@ it is retransmitted and a new timer starts.</p>
 <code>handle_data</code> adds it to the receive buffer,
 extracts any newly contiguous data to deliver to the application,
 and sends a cumulative ACK:</p>
-<div data-filter="inc=handle_data" data-inc="tcp_connection.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="tcp_connection.py" data-mark="handle_data"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Handle DATA packet."""</span>
         <span class="n">seq_num</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">seq_num</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">data</span>
@@ -592,7 +592,7 @@ and sends a cumulative ACK:</p>
 </div>
 <h2 id="tcp-order">Handling Out-of-Order Delivery</h2>
 <p>The receive buffer handles segments arriving out of order:</p>
-<div data-filter="inc=receivebuffer" data-inc="tcp_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="tcp_types.py" data-mark="receivebuffer"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ReceiveBuffer</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Buffer for out-of-order received segments."""</span>
 
@@ -631,7 +631,7 @@ it's delivered to the application in order.</p>
 <p>TCP uses cumulative ACKs,
 i.e.,
 each ACK indicates all data up to a sequence number has been received:</p>
-<div data-filter="inc=handleack" data-inc="tcp_connection.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_ack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="tcp_connection.py" data-mark="handleack"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_ack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">Packet</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Handle ACK packet."""</span>
         <span class="n">ack_num</span> <span class="o">=</span> <span class="n">packet</span><span class="o">.</span><span class="n">ack_num</span>
 
@@ -654,7 +654,7 @@ each ACK indicates all data up to a sequence number has been received:</p>
 This is simpler than selective acknowledgments and works well when most data arrives in order.</p>
 <h2 id="tcp-basic">Basic Example</h2>
 <p>Let's see TCP in action:</p>
-<div data-filter="inc=basicexample" data-inc="ex_basic.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-inc="ex_basic.py" data-mark="basicexample"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">"## Basic TCP Demonstration"</span><span class="p">)</span>
@@ -755,7 +755,7 @@ Send buffer size: 0
 TCP successfully delivers the complete message in order.</p>
 <h2 id="tcp-highloss">High Loss Scenario</h2>
 <p>Let's test TCP under extreme conditions:</p>
-<div data-filter="inc=highlossexample" data-inc="ex_loss_recovery.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-inc="ex_loss_recovery.py" data-mark="highlossexample"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">"## High Loss TCP Scenario"</span><span class="p">)</span>

@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -110,7 +110,7 @@ depending on which is easiest to use with a particular external service.</p>
 We start by defining the states that the saga as a whole
 and the individual transactions
 can be in:</p>
-<div data-filter="inc=enum" data-inc="saga_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SagaStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<div data-inc="saga_types.py" data-mark="enum"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SagaStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Status of a saga execution."""</span>
 
     <span class="n">PENDING</span> <span class="o">=</span> <span class="s2">"pending"</span>
@@ -131,7 +131,7 @@ can be in:</p>
 </div>
 <p>We then create structures to represent the saga's state  machine.
 Each step has a forward transaction and a backward compensation.</p>
-<div data-filter="inc=sagatypes" data-inc="saga_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="saga_types.py" data-mark="sagatypes"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">SagaStep</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""A step in the saga with transaction and compensation."""</span>
 
@@ -192,7 +192,7 @@ Each service manages its own local state
 and provides both forward (book) and backward (cancel) operations.
 The flight service manages seat availability;
 we have given it a 10% random failure rate to simulate real-world unreliability:</p>
-<div data-filter="inc=flight_service" data-inc="booking_services.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FlightService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="booking_services.py" data-mark="flight_service"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FlightService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Microservice for booking flights."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -253,7 +253,7 @@ we have given it a 10% random failure rate to simulate real-world unreliability:
 </code></pre></div>
 </div>
 <p>The hotel service follows the same pattern with a 15% failure rate and room inventory:</p>
-<div data-filter="inc=hotel_service" data-inc="booking_services.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HotelService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="booking_services.py" data-mark="hotel_service"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">HotelService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Microservice for booking hotels."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -315,7 +315,7 @@ we have given it a 10% random failure rate to simulate real-world unreliability:
 </div>
 <p>Finally,
 the car rental service has a 30% failure rate to demonstrate more frequent compensation:</p>
-<div data-filter="inc=car_service" data-inc="booking_services.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CarRentalService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="booking_services.py" data-mark="car_service"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CarRentalService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Microservice for renting cars."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -380,7 +380,7 @@ it manages its own database and can succeed or fail independently.</p>
 <h2 id="saga-orch">Orchestration-Based Saga</h2>
 <p>The orchestrator coordinates the sequence of transactions.
 It stores references to each service and processes requests from a queue:</p>
-<div data-filter="inc=orch_init" data-inc="saga_orchestrator.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SagaOrchestrator</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="saga_orchestrator.py" data-mark="orch_init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SagaOrchestrator</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Centralized saga coordinator (orchestration pattern)."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -412,7 +412,7 @@ It stores references to each service and processes requests from a queue:</p>
 <p>When a booking request arrives,
 <code>execute_saga</code> builds the list of steps and drives them forward,
 triggering compensation if any step fails:</p>
-<div data-filter="inc=orch_execute" data-inc="saga_orchestrator.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_saga</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">booking</span><span class="p">:</span> <span class="n">BookingRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="saga_orchestrator.py" data-mark="orch_execute"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_saga</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">booking</span><span class="p">:</span> <span class="n">BookingRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Execute travel booking saga."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="s1">'='</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Starting saga for </span><span class="si">{</span><span class="n">booking</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -476,7 +476,7 @@ triggering compensation if any step fails:</p>
 </div>
 <p>The forward pass runs each step in sequence,
 stopping immediately on the first failure:</p>
-<div data-filter="inc=orch_forward" data-inc="saga_orchestrator.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">saga</span><span class="p">:</span> <span class="n">SagaExecution</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div data-inc="saga_orchestrator.py" data-mark="orch_forward"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">saga</span><span class="p">:</span> <span class="n">SagaExecution</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Execute forward transactions in sequence."""</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">saga</span><span class="o">.</span><span class="n">steps</span><span class="p">):</span>
             <span class="n">saga</span><span class="o">.</span><span class="n">current_step</span> <span class="o">=</span> <span class="n">i</span>
@@ -504,7 +504,7 @@ stopping immediately on the first failure:</p>
 </div>
 <p>The compensation pass runs in reverse,
 undoing each completed step:</p>
-<div data-filter="inc=orch_compensate" data-inc="saga_orchestrator.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_compensation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">saga</span><span class="p">:</span> <span class="n">SagaExecution</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="saga_orchestrator.py" data-mark="orch_compensate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_compensation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">saga</span><span class="p">:</span> <span class="n">SagaExecution</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Execute compensating transactions in reverse order."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Orchestrator: Starting compensation..."</span><span class="p">)</span>
 
@@ -530,7 +530,7 @@ undoing each completed step:</p>
 </div>
 <h2>Basic Orchestration Example</h2>
 <p>Let's see orchestration in action:</p>
-<div data-filter="inc=orchestratedexample" data-inc="ex_saga.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-inc="ex_saga.py" data-mark="orchestratedexample"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
     <span class="c1"># Create services</span>

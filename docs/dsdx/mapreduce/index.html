@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -168,7 +168,7 @@ The framework handles distribution, parallelization, and aggregation.</p>
 <h2 id="mapreduce-datastructures">Core Data Structures</h2>
 <p>Let's start with some dataclasses to represent the data flowing through the framework.
 Input will be split into chunks for the map phase:</p>
-<div data-filter="inc=map" data-inc="mr_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="mr_types.py" data-mark="map"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">MapTask</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""A map task to be executed."""</span>
 
@@ -177,7 +177,7 @@ Input will be split into chunks for the map phase:</p>
 </code></pre></div>
 </div>
 <p>Intermediate data will be partitioned for reducers:</p>
-<div data-filter="inc=intermediate" data-inc="mr_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="mr_types.py" data-mark="intermediate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">IntermediateData</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Intermediate key-value pairs from map phase."""</span>
 
@@ -206,7 +206,7 @@ Input will be split into chunks for the map phase:</p>
 </div>
 <p>And finally,
 intermediate chunks will be reduced:</p>
-<div data-filter="inc=reduce" data-inc="mr_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="mr_types.py" data-mark="reduce"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ReduceTask</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""A reduce task to be executed."""</span>
 
@@ -227,7 +227,7 @@ sent different chunks of data to different places,
 which in turn meant that runs weren't reproducible.
 To fix this,
 we introduced our own hashing function:</p>
-<div data-filter="inc=hash" data-inc="mr_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_stable_hash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div data-inc="mr_types.py" data-mark="hash"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_stable_hash</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Deterministic hash (not affected by PYTHONHASHSEED)."""</span>
 
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>
@@ -239,7 +239,7 @@ we introduced our own hashing function:</p>
 Each has a unique worker ID,
 a queue of incoming tasks,
 and a reference to the overall work coordinator:</p>
-<div data-filter="inc=worker" data-inc="mr_worker.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MapReduceWorker</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="mr_worker.py" data-mark="worker"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MapReduceWorker</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Worker that executes map and reduce tasks."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">coordinator</span><span class="p">:</span> <span class="s2">"MapReduceCoordinator"</span><span class="p">):</span>
@@ -263,7 +263,7 @@ we will use this last propery when we look at fault tolerance.</p>
 it repeatedly gets a task from its queue and executes it.
 If there's a simulated failure,
 the worker reports that back to the coordinator instead:</p>
-<div data-filter="inc=run" data-inc="mr_worker.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-inc="mr_worker.py" data-mark="run"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Main worker loop: fetch and execute tasks."""</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="c1"># Get task from queue</span>
@@ -287,7 +287,7 @@ For simplicity's sake we assume each record needs the same processing time,
 so after waiting that long,
 the worker partitions the results
 and sends them back to the coordinator:</p>
-<div data-filter="inc=map" data-inc="mr_worker.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">MapTask</span><span class="p">):</span>
+<div data-inc="mr_worker.py" data-mark="map"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">MapTask</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Execute a map task."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span> <span class="o">=</span> <span class="n">task</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">maps_executed</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -322,7 +322,7 @@ and sends them back to the coordinator:</p>
 </code></pre></div>
 </div>
 <p>Reducing works the same way:</p>
-<div data-filter="inc=reduce" data-inc="mr_worker.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">ReduceTask</span><span class="p">):</span>
+<div data-inc="mr_worker.py" data-mark="reduce"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">ReduceTask</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Execute a reduce task."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_task</span> <span class="o">=</span> <span class="n">task</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reduces_executed</span> <span class="o">+=</span> <span class="mi">1</span>

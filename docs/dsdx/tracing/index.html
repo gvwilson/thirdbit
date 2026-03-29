@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -106,7 +106,7 @@ that performs some work in <code>do_work()</code>
 in a traceable way.
 If we add the tracing code directly in <code>handle_request()</code>
 we wind up with something like this:</p>
-<div data-filter="inc=service" data-inc="long_winded.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Service</span><span class="p">(</span><span class="n">GenericService</span><span class="p">):</span>
+<div data-inc="long_winded.py" data-mark="service"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Service</span><span class="p">(</span><span class="n">GenericService</span><span class="p">):</span>
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
         <span class="c1"># Create span manually</span>
         <span class="n">span</span> <span class="o">=</span> <span class="n">Span</span><span class="p">(</span>
@@ -139,7 +139,7 @@ we wind up with something like this:</p>
 and those lines would have to be copied into every function we want to trace.
 A better approach is to define a <a class="gl-ref" href="../glossary/#decorator">decorator</a>
 that adds tracing for us so that we can write:</p>
-<div data-filter="inc=service" data-inc="short_winded.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Service</span><span class="p">(</span><span class="n">GenericService</span><span class="p">):</span>
+<div data-inc="short_winded.py" data-mark="service"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Service</span><span class="p">(</span><span class="n">GenericService</span><span class="p">):</span>
     <span class="nd">@traced</span><span class="p">(</span><span class="s2">"handle_request"</span><span class="p">)</span>
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
         <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_work</span><span class="p">()</span>
@@ -164,7 +164,7 @@ and the <a class="gl-ref" href="../glossary/#trace-collector">collector</a> wher
 (In production,
 we would use <a class="gl-ref" href="../glossary/#thread-local-storage">thread-local storage</a>
 or <a class="gl-ref" href="../glossary/#async-context-vars">async context variables</a> to storage this data.)</p>
-<div data-filter="inc=storage" data-inc="tracing_decorators.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">_StorageClass</span><span class="p">:</span>
+<div data-inc="tracing_decorators.py" data-mark="storage"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">_StorageClass</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Record trace information."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -195,7 +195,7 @@ or <a class="gl-ref" href="../glossary/#async-context-vars">async context variab
 <p>We can now define the tracing decorator itself.
 It's long,
 but all of the steps are fairly straightforward:</p>
-<div data-filter="inc=traced" data-inc="tracing_decorators.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">traced</span><span class="p">(</span><span class="n">operation_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div data-inc="tracing_decorators.py" data-mark="traced"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">traced</span><span class="p">(</span><span class="n">operation_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Decorator that automatically creates spans for functions."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
@@ -275,7 +275,7 @@ but all of the steps are fairly straightforward:</p>
 <h2 id="tracing-types">Data Types</h2>
 <p>We now need to double back and define the core types for distributed tracing.
 <code>TraceContext</code> propagates between services:</p>
-<div data-filter="inc=context" data-inc="tracing_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="tracing_types.py" data-mark="context"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">TraceContext</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Context propagated between services."""</span>
 
@@ -288,7 +288,7 @@ but all of the steps are fairly straightforward:</p>
 <p><code>Span</code> tracks individual operations,
 and has methods for adding tags and log entries
 and to mark the span as completed:</p>
-<div data-filter="inc=span" data-inc="tracing_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="tracing_types.py" data-mark="span"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Span</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Represents a unit of work in a trace."""</span>
 
@@ -321,7 +321,7 @@ and to mark the span as completed:</p>
 </div>
 <p>Finally, <code>Trace</code> aggregates spans,
 and has methods for adding spans and getting the overall duration of the trace:</p>
-<div data-filter="inc=trace" data-inc="tracing_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="tracing_types.py" data-mark="trace"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Trace</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Complete trace containing all spans."""</span>
 
@@ -360,7 +360,7 @@ and has methods for adding spans and getting the overall duration of the trace:<
 that receives spans from services and assembles them into traces.
 When it runs,
 it repeatedly gets a span from its incoming queue and processes it:</p>
-<div data-filter="inc=collector" data-inc="trace_collector.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TraceCollector</span><span class="p">(</span><span class="n">BaseCollector</span><span class="p">):</span>
+<div data-inc="trace_collector.py" data-mark="collector"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TraceCollector</span><span class="p">(</span><span class="n">BaseCollector</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Collects and aggregates spans into traces."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -386,7 +386,7 @@ the collector either adds it to an existing trace
 or creates a new one.
 If the trace is now complete,
 the collector moves it from the active set into the completed set:</p>
-<div data-filter="inc=process" data-inc="trace_collector.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">process_span</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">span</span><span class="p">:</span> <span class="n">Span</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="trace_collector.py" data-mark="process"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">process_span</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">span</span><span class="p">:</span> <span class="n">Span</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Process incoming span."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spans_received</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -420,7 +420,7 @@ the collector moves it from the active set into the completed set:</p>
 <h2 id="tracing-service">A Simple Service</h2>
 <p>With all this machinery in place,
 tracing a microservice is relatively straightforward:</p>
-<div data-filter="inc=simple" data-inc="simple_service.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimpleService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="simple_service.py" data-mark="simple"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimpleService</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Service instrumented with decorators."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">collector</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
@@ -473,7 +473,7 @@ tracing a microservice is relatively straightforward:</p>
 No spans are created manually,
 and error handling is automatic.</p>
 <p>The client creates the root span manually (since it initiates the trace):</p>
-<div data-filter="inc=client" data-inc="ex_decorators.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimpleClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="ex_decorators.py" data-mark="client"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimpleClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Client that initiates traced requests."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">service</span><span class="p">:</span> <span class="n">SimpleService</span><span class="p">,</span> <span class="n">collector</span><span class="p">:</span> <span class="n">TraceCollector</span><span class="p">):</span>
@@ -628,7 +628,7 @@ The simplified subset generated by <code>json_collector.py</code> has:</p>
 </ul>
 <p>Even with these simplifications,
 a simple example like the one below produces over 300 lines of pretty-printed output:</p>
-<div data-filter="inc=client" data-inc="ex_json.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimpleClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="ex_json.py" data-mark="client"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimpleClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Client that initiates traced requests."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">service</span><span class="p">:</span> <span class="n">SimpleService</span><span class="p">,</span> <span class="n">collector</span><span class="p">:</span> <span class="n">BaseCollector</span><span class="p">):</span>
@@ -663,7 +663,7 @@ a simple example like the one below produces over 300 lines of pretty-printed ou
 </code></pre></div>
 </div>
 <p>A sample clause of this JSON looks like this:</p>
-<div data-filter="head=52" data-inc="ex_json.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>{
+<div data-head="52" data-inc="ex_json.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>{
   "resourceSpans": [
     {
       "resource": {

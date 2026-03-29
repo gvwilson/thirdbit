@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -81,7 +81,7 @@
 <h2>Core Data Structures</h2>
 <p>Let's start with the fundamental types.
 The file types describe pieces and torrent metadata:</p>
-<div data-filter="inc=file_types" data-inc="bittorrent_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="bittorrent_types.py" data-mark="file_types"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Piece</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""A piece of the file being shared."""</span>
 
@@ -132,7 +132,7 @@ The file types describe pieces and torrent metadata:</p>
 </code></pre></div>
 </div>
 <p>The message types describe the protocol exchanges between peers and tracker:</p>
-<div data-filter="inc=message_types" data-inc="bittorrent_types.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="bittorrent_types.py" data-mark="message_types"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">TrackerRequest</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Request to tracker."""</span>
 
@@ -197,7 +197,7 @@ The file types describe pieces and torrent metadata:</p>
 <h2>Tracker Implementation</h2>
 <p>The tracker coordinates the swarm by maintaining a list of active peers.
 The class and its constructor set up the request queue and swarm registry:</p>
-<div data-filter="inc=tracker_init" data-inc="tracker.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tracker</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="tracker.py" data-mark="tracker_init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Tracker</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""BitTorrent tracker coordinating peers."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -219,7 +219,7 @@ The class and its constructor set up the request queue and swarm registry:</p>
 </code></pre></div>
 </div>
 <p>When a peer announces itself, <code>handle_request</code> updates the swarm and returns a list of known peers:</p>
-<div data-filter="inc=tracker_handle" data-inc="tracker.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">TrackerRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="tracker.py" data-mark="tracker_handle"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">TrackerRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Handle tracker announce request."""</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">] Tracker: Received </span><span class="si">{</span><span class="n">request</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
@@ -275,7 +275,7 @@ The class and its constructor set up the request queue and swarm registry:</p>
 <h2>Simplified Peer</h2>
 <p>The peer is the heart of BitTorrent—it downloads pieces, uploads to others, and manages connections.
 The constructor stores the peer's identity, piece inventory, and connections to other peers:</p>
-<div data-filter="inc=peer_init" data-inc="simplified_peer.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimplifiedPeer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="simplified_peer.py" data-mark="peer_init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SimplifiedPeer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Simplified peer for simulation purposes."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -309,7 +309,7 @@ The constructor stores the peer's identity, piece inventory, and connections to 
 </code></pre></div>
 </div>
 <p>The <code>run</code> method announces to the tracker, then loops through download rounds until all pieces are obtained:</p>
-<div data-filter="inc=peer_run" data-inc="simplified_peer.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="simplified_peer.py" data-mark="peer_run"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Simplified download loop."""</span>
         <span class="c1"># Announce to tracker</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">announce</span><span class="p">(</span><span class="s2">"started"</span><span class="p">)</span>
@@ -333,7 +333,7 @@ The constructor stores the peer's identity, piece inventory, and connections to 
 </code></pre></div>
 </div>
 <p>Each download round selects pieces to request using rarest-first ordering, then attempts to download from available peers:</p>
-<div data-filter="inc=peer_download_round" data-inc="simplified_peer.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">download_round</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="simplified_peer.py" data-mark="peer_download_round"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">download_round</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Attempt to download pieces from peers."""</span>
         <span class="n">needed</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">total_pieces</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">have_pieces</span>
@@ -362,7 +362,7 @@ The constructor stores the peer's identity, piece inventory, and connections to 
 </code></pre></div>
 </div>
 <p><code>_download_from_peer</code> applies the tit-for-tat rule—only downloading from a peer if it has uploaded to us recently—and on success updates piece state and broadcasts a HAVE message:</p>
-<div data-filter="inc=peer_download_from" data-inc="simplified_peer.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">download_piece_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">peer</span><span class="p">:</span> <span class="s2">"SimplifiedPeer"</span><span class="p">,</span> <span class="n">piece_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="simplified_peer.py" data-mark="peer_download_from"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">download_piece_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">peer</span><span class="p">:</span> <span class="s2">"SimplifiedPeer"</span><span class="p">,</span> <span class="n">piece_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Download a piece from a peer."""</span>
         <span class="c1"># Simulate transfer time</span>
         <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
@@ -381,7 +381,7 @@ The constructor stores the peer's identity, piece inventory, and connections to 
 <p>This simplified version captures the essence of BitTorrent without all the protocol complexity.</p>
 <h2>Basic Simulation</h2>
 <p>Let's see BitTorrent in action:</p>
-<div data-filter="inc=basicexample" data-inc="example_basic_bittorrent.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_basic_bittorrent</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="example_basic_bittorrent.py" data-mark="basicexample"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_basic_bittorrent</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Demonstrate basic BitTorrent operation."""</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 

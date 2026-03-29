@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -111,7 +111,7 @@ it rejects the request.
 This prevents a process with a stale lock from corrupting the resource.</p>
 <h2 id="distlock-server">Basic Lock Server</h2>
 <p>Let's start with a single lock server that manages locks for multiple resources:</p>
-<div data-filter="inc=lockclasses" data-inc="basic_lock_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
+<div data-inc="basic_lock_server.py" data-mark="lockclasses"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">LockRequest</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Request to acquire or release a lock."""</span>
 
@@ -142,7 +142,7 @@ This prevents a process with a stale lock from corrupting the resource.</p>
 </div>
 <p><code>LockServer</code> and its constructor set up the request queue and a dictionary of per-resource lock states.
 Its <code>run</code> loop dispatches each incoming request by operation type:</p>
-<div data-filter="inc=server_init" data-inc="basic_lock_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LockServer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="basic_lock_server.py" data-mark="server_init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LockServer</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""A single lock server managing multiple resources."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lease_duration</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">):</span>
@@ -170,7 +170,7 @@ Its <code>run</code> loop dispatches each incoming request by operation type:</p
 <p>When a client tries to acquire a lock,
 the server first checks whether the current lease has expired,
 then grants the lock or renews it if the same client is asking again:</p>
-<div data-filter="inc=handle_acquire" data-inc="basic_lock_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LockRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LockResponse</span><span class="p">:</span>
+<div data-inc="basic_lock_server.py" data-mark="handle_acquire"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LockRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LockResponse</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Try to acquire a lock."""</span>
         <span class="n">resource</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">resource</span>
 
@@ -217,7 +217,7 @@ then grants the lock or renews it if the same client is asking again:</p>
 </code></pre></div>
 </div>
 <p>Releasing a lock simply clears the holder if the request comes from the current holder:</p>
-<div data-filter="inc=handle_release" data-inc="basic_lock_server.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LockRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LockResponse</span><span class="p">:</span>
+<div data-inc="basic_lock_server.py" data-mark="handle_release"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LockRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LockResponse</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Release a lock."""</span>
         <span class="n">resource</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">resource</span>
 
@@ -242,7 +242,7 @@ then grants the lock or renews it if the same client is asking again:</p>
 do work in <a class="gl-ref" href="../glossary/#critical-section">critical sections</a>,
 and release locks.
 The client class's constructor stores connection details and tracks the current fencing token:</p>
-<div data-filter="inc=client_init" data-inc="lock_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LockClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="lock_client.py" data-mark="client_init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LockClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Client that acquires locks to access resources."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -262,7 +262,7 @@ The client class's constructor stores connection details and tracks the current 
 </code></pre></div>
 </div>
 <p>Its <code>run</code> method schedules repeated attempts to acquire the lock and do work:</p>
-<div data-filter="inc=client_run" data-inc="lock_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-inc="lock_client.py" data-mark="client_run"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Acquire lock, do work, release lock."""</span>
         <span class="c1"># Possibly delay start</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_delay</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -287,7 +287,7 @@ The client class's constructor stores connection details and tracks the current 
 </code></pre></div>
 </div>
 <p><code>acquire</code> sends a request to the lock server and waits for a response:</p>
-<div data-filter="inc=client_acquire" data-inc="lock_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div data-inc="lock_client.py" data-mark="client_acquire"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Request lock from server."""</span>
         <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
         <span class="n">request</span> <span class="o">=</span> <span class="n">LockRequest</span><span class="p">(</span>
@@ -307,7 +307,7 @@ The client class's constructor stores connection details and tracks the current 
 </code></pre></div>
 </div>
 <p><code>release</code> sends a release request when the client is done with the resource:</p>
-<div data-filter="inc=client_release" data-inc="lock_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">release_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-inc="lock_client.py" data-mark="client_release"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">release_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Release lock back to server."""</span>
         <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
         <span class="n">request</span> <span class="o">=</span> <span class="n">LockRequest</span><span class="p">(</span>
@@ -323,7 +323,7 @@ The client class's constructor stores connection details and tracks the current 
 </code></pre></div>
 </div>
 <p>Let's run a simple simulation where multiple clients compete for the same lock:</p>
-<div data-filter="inc=basicexample" data-inc="ex_basic.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-inc="ex_basic.py" data-mark="basicexample"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
     <span class="c1"># Create lock server</span>
@@ -352,7 +352,7 @@ only one client holds the lock at a time.</p>
 <p>What happens if a client crashes while holding a lock?
 Without lease expiration, the lock would be stuck forever.
 Let's create a client that fails on purpose:</p>
-<div data-filter="inc=failingclient" data-inc="failing_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FailingClient</span><span class="p">(</span><span class="n">LockClient</span><span class="p">):</span>
+<div data-inc="failing_client.py" data-mark="failingclient"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FailingClient</span><span class="p">(</span><span class="n">LockClient</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Client that crashes while holding a lock."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -384,7 +384,7 @@ Let's create a client that fails on purpose:</p>
 </code></pre></div>
 </div>
 <p>Now let's see what happens:</p>
-<div data-filter="inc=failureexample" data-inc="ex_failure.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-inc="ex_failure.py" data-mark="failureexample"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
     <span class="n">server</span> <span class="o">=</span> <span class="n">LockServer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">"Server1"</span><span class="p">,</span> <span class="n">lease_duration</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
@@ -424,7 +424,7 @@ Consider this sequence:</p>
 they have violated mutual exclusion.
 The solution is fencing tokens.</p>
 <p>Here's a protected resource that checks tokens:</p>
-<div data-filter="inc=protectedresource" data-inc="protected_resource.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ProtectedResource</span><span class="p">:</span>
+<div data-inc="protected_resource.py" data-mark="protectedresource"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ProtectedResource</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""A resource that validates fencing tokens."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
@@ -459,7 +459,7 @@ The solution is fencing tokens.</p>
 <p>Now let's create a client that uses fencing tokens.
 The fenced client stores the token it received when acquiring the lock
 and passes it with every resource access:</p>
-<div data-filter="inc=fenced_init" data-inc="fenced_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FencedClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="fenced_client.py" data-mark="fenced_init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FencedClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Client that uses fencing tokens when accessing resources."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -483,7 +483,7 @@ and passes it with every resource access:</p>
 </code></pre></div>
 </div>
 <p>Its <code>run</code> method follows the same lifecycle as the basic client:</p>
-<div data-filter="inc=fenced_run" data-inc="fenced_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-inc="fenced_client.py" data-mark="fenced_run"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Acquire lock and access resource with token."""</span>
         <span class="c1"># Potentially delay start</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_delay</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -512,7 +512,7 @@ and passes it with every resource access:</p>
 </code></pre></div>
 </div>
 <p>The acquire step is identical to the basic client but stores the token:</p>
-<div data-filter="inc=fenced_acquire" data-inc="fenced_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div data-inc="fenced_client.py" data-mark="fenced_acquire"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Acquire lock from server."""</span>
         <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
         <span class="n">request</span> <span class="o">=</span> <span class="n">LockRequest</span><span class="p">(</span>
@@ -537,7 +537,7 @@ and passes it with every resource access:</p>
 </div>
 <p>When accessing the resource,
 the client passes the fencing token so the resource can reject stale requests:</p>
-<div data-filter="inc=fenced_release" data-inc="fenced_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">release_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div data-inc="fenced_client.py" data-mark="fenced_release"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">release_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Release lock."""</span>
         <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="p">)</span>
         <span class="n">request</span> <span class="o">=</span> <span class="n">LockRequest</span><span class="p">(</span>
@@ -552,7 +552,7 @@ the client passes the fencing token so the resource can reject stale requests:</
 </code></pre></div>
 </div>
 <p>Now we can demonstrate split-brain prevention:</p>
-<div data-filter="inc=fencingexample" data-inc="ex_fencing.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-inc="ex_fencing.py" data-mark="fencingexample"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
     <span class="n">server</span> <span class="o">=</span> <span class="n">LockServer</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="s2">"Server1"</span><span class="p">,</span> <span class="n">lease_duration</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
@@ -611,7 +611,7 @@ When implementing full consensus using Raft or Paxos,
 a client must get agreement from a majority of servers before considering the lock acquired.</p>
 <p>Here's a simplified version with replicated lock servers.
 The replicated manager holds references to all lock server replicas and a configurable majority threshold:</p>
-<div data-filter="inc=replicated_init" data-inc="replicated_lock_manager.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ReplicatedLockManager</span><span class="p">:</span>
+<div data-inc="replicated_lock_manager.py" data-mark="replicated_init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ReplicatedLockManager</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Manages multiple lock servers with majority voting."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -628,7 +628,7 @@ The replicated manager holds references to all lock server replicas and a config
 </code></pre></div>
 </div>
 <p>To acquire a lock, the manager sends requests to all replicas and waits until a majority grant it:</p>
-<div data-filter="inc=replicated_acquire" data-inc="replicated_lock_manager.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<div data-inc="replicated_lock_manager.py" data-mark="replicated_acquire"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">acquire_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Try to acquire lock from majority of servers."""</span>
         <span class="n">responses</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">response_queues</span> <span class="o">=</span> <span class="p">[]</span>
@@ -671,7 +671,7 @@ The replicated manager holds references to all lock server replicas and a config
 </code></pre></div>
 </div>
 <p>Releasing a lock sends release requests to all replicas that acknowledged the acquire:</p>
-<div data-filter="inc=replicated_release" data-inc="replicated_lock_manager.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">release_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div data-inc="replicated_lock_manager.py" data-mark="replicated_release"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">release_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Release lock from all servers."""</span>
         <span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">servers</span><span class="p">:</span>
             <span class="n">response_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
@@ -686,7 +686,7 @@ The replicated manager holds references to all lock server replicas and a config
 </code></pre></div>
 </div>
 <p>This client uses the replicated manager:</p>
-<div data-filter="inc=replicatedclient" data-inc="replicated_lock_client.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ReplicatedLockClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
+<div data-inc="replicated_lock_client.py" data-mark="replicatedclient"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ReplicatedLockClient</span><span class="p">(</span><span class="n">Process</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Client using replicated lock manager."""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span>
@@ -718,7 +718,7 @@ The replicated manager holds references to all lock server replicas and a config
 </code></pre></div>
 </div>
 <p>And here's the whole system in action:</p>
-<div data-filter="inc=replicatedexample" data-inc="ex_replicated.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<div data-inc="ex_replicated.py" data-mark="replicatedexample"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
     <span class="c1"># Create manager with 3 servers</span>
