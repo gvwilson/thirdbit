@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -28,6 +28,7 @@
 <li><a href="../perfcon/">Performance and Concurrency</a></li>
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../sql/">SQL</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </span>
@@ -45,50 +46,408 @@
 </nav>
 <main id="main-content">
 <h1>Data, I/O, and Testing</h1>
-<h2>Quoted Fields in CSV Parsing</h2>
+<h2 id="diot-quotecsv">Quoted Fields in CSV Parsing</h2>
+<p>Run the parser with the provided CSV file. Do all rows produce the correct number
+of fields? Pay particular attention to rows that contain commas.</p>
+<div data-inc="quotecsv.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_scores</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a list of (name, city, score) triples from a CSV file."""</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># skip header</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">city</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">records</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"quotecsv.csv"</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">parse_scores</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="quotecsv.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name,city,score
+Alice,New York,95
+Bob,"Los Angeles, CA",87
+Carol,Chicago,92
+Dave,"Austin, TX",88
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A CSV-parsing function misreads rows that contain commas inside quoted fields;
 the bug is using <code>line.split(',')</code> instead of the <code>csv</code> module. Teaches why
 hand-rolled parsers fail on real-world data and when to use standard library tools.</p>
-<h2>Wall Time vs. Monotonic Time</h2>
+</details>
+<h2 id="diot-walltime">Wall Time vs. Monotonic Time</h2>
+<p>Run the benchmarking function several times and examine the elapsed time values.
+Do any of them look unusual?</p>
+<div data-inc="walltime.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">patch</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">measure</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (elapsed_seconds, return_value) for a call to func."""</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="n">result</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">():</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">"done"</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">elapsed</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">measure</span><span class="p">(</span><span class="n">work</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Normal:           </span><span class="si">{</span><span class="n">elapsed</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s  result=</span><span class="si">{</span><span class="n">result</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="n">call_count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stepped_back</span><span class="p">():</span>
+        <span class="n">call_count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="mf">1000.0</span> <span class="k">if</span> <span class="n">call_count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mf">999.7</span>
+
+    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">"time.time"</span><span class="p">,</span> <span class="n">stepped_back</span><span class="p">):</span>
+        <span class="n">elapsed</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">measure</span><span class="p">(</span><span class="n">work</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"After clock step: </span><span class="si">{</span><span class="n">elapsed</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s  result=</span><span class="si">{</span><span class="n">result</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"(time.monotonic() would never produce a negative duration)"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function that measures elapsed time reports negative durations when the clock
 wraps; the bug is using <code>time.time()</code> without accounting for system clock
 adjustments. Teaches the difference between wall time and monotonic time and when
 to use <code>time.monotonic</code>.</p>
-<h2>Naive Datetime and Daylight Saving</h2>
+</details>
+<h2 id="diot-daylight">Naive Datetime and Daylight Saving</h2>
+<p>Call the date arithmetic function with a date near a daylight saving transition.
+Compare the result from the naive datetime path with the result from the
+timezone-aware path.</p>
+<div data-inc="daylight.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_days</span><span class="p">(</span><span class="n">start_str</span><span class="p">,</span> <span class="n">days</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the wall-clock time `days` days after start_str (YYYY-MM-DD HH:MM)."""</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">start_str</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">days</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="s2">"2024-03-09 08:00"</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">add_days</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Start:          </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">  (America/New_York, pre-DST)"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"+ 1 naive day:  </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The naive result is 2024-03-10 08:00, which looks correct."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"But clocks sprang forward at 02:00, so only 23 hours elapsed."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"A timezone-aware calculation using zoneinfo or pytz would show"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"the gap and let you choose: 23 wall-clock hours or 24 absolute hours."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="c1"># Show what UTC-based arithmetic reveals</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+        <span class="n">tz</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">"America/New_York"</span><span class="p">)</span>
+        <span class="n">aware</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">tz</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Aware start UTC offset: </span><span class="si">{</span><span class="n">aware</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">()</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="n">aware</span><span class="o">.</span><span class="n">tzname</span><span class="p">()</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+        <span class="n">result_aware</span> <span class="o">=</span> <span class="n">aware</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Aware result UTC offset: </span><span class="si">{</span><span class="n">result_aware</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">()</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="n">result_aware</span><span class="o">.</span><span class="n">tzname</span><span class="p">()</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+        <span class="n">utc_hours</span> <span class="o">=</span> <span class="p">(</span><span class="n">result_aware</span><span class="o">.</span><span class="n">utctimetuple</span><span class="p">(),</span> <span class="n">aware</span><span class="o">.</span><span class="n">utctimetuple</span><span class="p">())</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">calendar</span>
+        <span class="n">start_utc</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="n">timegm</span><span class="p">(</span><span class="n">aware</span><span class="o">.</span><span class="n">utctimetuple</span><span class="p">())</span>
+        <span class="n">end_utc</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="n">timegm</span><span class="p">(</span><span class="n">result_aware</span><span class="o">.</span><span class="n">utctimetuple</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Actual elapsed seconds: </span><span class="si">{</span><span class="n">end_utc</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_utc</span><span class="si">}</span><span class="s2">  "</span>
+              <span class="sa">f</span><span class="s2">"(86400 = 24h; 82800 = 23h)"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Install Python 3.9+ for zoneinfo demonstration"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A date-arithmetic function produces results that are off by one day around daylight
 saving time transitions; the bug is adding a <code>timedelta</code> to a naive datetime.
 Teaches the difference between naive and timezone-aware datetimes.</p>
-<h2>Missing Elements in HTML Parsing</h2>
+</details>
+<h2 id="diot-missparse">Missing Elements in HTML Parsing</h2>
+<p>Run the script with the provided HTML file and check whether it finds all the
+expected elements. What happens when an element is not found?</p>
+<div data-inc="missparse.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_prices</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return all prices found in the HTML as a list of floats."""</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'&lt;span class="price"&gt;\$([\d.]+)&lt;/span&gt;'</span>
+    <span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">html</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">]</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"missparse.html"</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">prices</span> <span class="o">=</span> <span class="n">extract_prices</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">prices</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Prices: </span><span class="si">{</span><span class="n">prices</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total:  $</span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"No prices found."</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="missparse.html"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"product"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Widget<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"product-price"</span><span class="p">&gt;</span>$9.99<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"product"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Gadget<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"product-price"</span><span class="p">&gt;</span>$24.99<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"product"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Doohickey<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"product-price"</span><span class="p">&gt;</span>$4.99<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script that downloads a web page and parses it for prices fails silently on some
 pages; the bug is that the HTML structure varies and the selector matches zero
 elements without raising an error. Teaches how to handle missing data in HTML
 parsing and use assertions to catch unexpected input.</p>
-<h2>Overly Permissive Regular Expression</h2>
+</details>
+<h2 id="diot-overexp">Overly Permissive Regular Expression</h2>
+<p>Test the regular expression against a few valid email addresses and a few strings
+that look like email addresses but are not. Does it reject the invalid ones?</p>
+<div data-inc="overexp.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">EMAIL_PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\w+@\w+"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_emails</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return all email addresses found in text."""</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">EMAIL_PATTERN</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">"alice@example.com"</span><span class="p">,</span>        <span class="kc">True</span><span class="p">),</span>   <span class="c1"># valid</span>
+        <span class="p">(</span><span class="s2">"bob.smith@uni.edu"</span><span class="p">,</span>        <span class="kc">True</span><span class="p">),</span>   <span class="c1"># valid (but dots in local part missed)</span>
+        <span class="p">(</span><span class="s2">"not-an-email"</span><span class="p">,</span>             <span class="kc">False</span><span class="p">),</span>  <span class="c1"># should not match</span>
+        <span class="p">(</span><span class="s2">"foo@bar"</span><span class="p">,</span>                  <span class="kc">False</span><span class="p">),</span>  <span class="c1"># no TLD — should not match</span>
+        <span class="p">(</span><span class="s2">"user@host with spaces"</span><span class="p">,</span>    <span class="kc">False</span><span class="p">),</span>  <span class="c1"># malformed — should not match</span>
+        <span class="p">(</span><span class="s2">"x@y"</span><span class="p">,</span>                      <span class="kc">False</span><span class="p">),</span>  <span class="c1"># too short — should not match</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">text</span><span class="p">,</span> <span class="n">should_match</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="n">extract_emails</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">matched</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">found</span><span class="p">)</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">"OK  "</span> <span class="k">if</span> <span class="n">matched</span> <span class="o">==</span> <span class="n">should_match</span> <span class="k">else</span> <span class="s2">"FAIL"</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">text</span><span class="si">!r:</span><span class="s2">35s</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">found</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A regular expression meant to extract email addresses also matches invalid strings;
 the bug is a pattern that is too permissive (e.g., missing anchors or character
 class constraints). Teaches how to test regular expressions with both valid and
 invalid inputs.</p>
-<h2>Test with No Assertions</h2>
+</details>
+<h2 id="diot-noassert">Test with No Assertions</h2>
+<p>Run the test suite. Does it pass? Now deliberately break the function the test is
+testing. Does the test still pass?</p>
+<div data-inc="noassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the mean of a non-empty list of numbers."""</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_average_single</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">average</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_average_simple</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_average_known</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">average</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="p">[</span><span class="n">test_average_simple</span><span class="p">,</span> <span class="n">test_average_known</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">test</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PASS </span><span class="si">{</span><span class="n">test</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>   <span class="c1"># always prints PASS</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FAIL </span><span class="si">{</span><span class="n">test</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"average([2, 4, 6, 8]) = </span><span class="si">{</span><span class="n">average</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">])</span><span class="si">}</span><span class="s2">  (expected 5.0)"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A unit test always passes even when the function is broken; the bug is that the
 test calls the function but never asserts anything about the result. Teaches that
 a test with no assertions is not a test and how to write assertions correctly.</p>
-<h2>Shared State Between Tests</h2>
+</details>
+<h2 id="diot-shared">Shared State Between Tests</h2>
+<p>Run each test on its own. Then run both together. Do you get the same results both
+ways?</p>
+<div data-inc="shared.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Module-level registry — shared state that persists between tests</span>
+<span class="n">REGISTRY</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">REGISTRY</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">lookup</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">REGISTRY</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="c1"># --- tests ---</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_register</span><span class="p">():</span>
+    <span class="n">register</span><span class="p">(</span><span class="s2">"alpha"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">lookup</span><span class="p">(</span><span class="s2">"alpha"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_lookup_absent</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">lookup</span><span class="p">(</span><span class="s2">"absent"</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">REGISTRY</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_overwrite</span><span class="p">():</span>
+    <span class="n">register</span><span class="p">(</span><span class="s2">"alpha"</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">lookup</span><span class="p">(</span><span class="s2">"alpha"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">99</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="p">[</span><span class="n">test_register</span><span class="p">,</span> <span class="n">test_lookup_absent</span><span class="p">,</span> <span class="n">test_overwrite</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">test</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PASS </span><span class="si">{</span><span class="n">test</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FAIL </span><span class="si">{</span><span class="n">test</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A test suite that passes in isolation fails when run together; the bug is that one
 test modifies a module-level variable that another test depends on. Teaches test
 isolation, teardown, and the risks of shared global state.</p>
-<h2>Hardcoded Absolute Path</h2>
+</details>
+<h2 id="diot-abspath">Hardcoded Absolute Path</h2>
+<p>Run the script from a different working directory than the one where the script
+file is saved. Does it find its configuration file?</p>
+<div data-inc="abspath.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Load configuration from the project config file."""</span>
+    <span class="n">config_path</span> <span class="o">=</span> <span class="s2">"/Users/gvwilson/unbreak/diot/abspath.json"</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">load_config</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"threshold:   </span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">'threshold'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"max_retries: </span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">'max_retries'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"output_dir:  </span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">'output_dir'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="abspath.json"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"threshold"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"max_retries"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"output_dir"</span><span class="p">:</span><span class="w"> </span><span class="s2">"results"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function that reads a configuration file behaves differently on different
 machines; the bug is using a hardcoded absolute path instead of a path relative
 to the script's location. Teaches the difference between <code>__file__</code>-relative and
 working-directory-relative paths.</p>
-<p>Unserializable Datetime in JSON</p>
+</details>
+<h2 id="diot-jsondate">Unserializable Datetime in JSON</h2>
+<p>Run the script and read the error message. Which value in the data structure cannot
+be serialized?</p>
+<div data-inc="jsondate.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_report</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Build a report dict including the current timestamp."""</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"title"</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+        <span class="s2">"generated_at"</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
+    <span class="p">}</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">make_report</span><span class="p">(</span><span class="s2">"monthly_sales"</span><span class="p">,</span> <span class="mf">48291.75</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Report dict: </span><span class="si">{</span><span class="n">report</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Serializing to JSON..."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">report</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A program writes JSON output that cannot be parsed back in; the bug is that the
 data contains <code>datetime</code> objects, which are not JSON-serializable. Teaches how
 to identify serialization errors and write custom JSON encoders.</p>
-<h2>Wrong Logging Level</h2>
+</details>
+<h2 id="diot-loglevel">Wrong Logging Level</h2>
+<p>Run the script and then look at the log file. Are the messages you expected to see
+present?</p>
+<div data-inc="loglevel.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(levelname)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Double each item, logging progress at DEBUG level."""</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Starting process() with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span><span class="si">}</span><span class="s2"> items"</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  processing item </span><span class="si">{</span><span class="n">item</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Finished: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> results"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Output: </span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"(no debug messages shown — logger.debug() calls are silenced by WARNING level)"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Effective log level: </span><span class="si">{</span><span class="n">logging</span><span class="o">.</span><span class="n">getLevelName</span><span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">getEffectiveLevel</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A logging call that should record errors never appears in the log file; the bug is
 that the log level is set to <code>WARNING</code> but the calls use <code>logger.debug()</code>. Teaches
 how Python's logging hierarchy works and how to verify the effective log level.</p>
+</details>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">

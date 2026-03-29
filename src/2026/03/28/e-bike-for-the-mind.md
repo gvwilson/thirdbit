@@ -91,9 +91,12 @@ Until then,
 if you'd like to help me improve [jorma][jorma],
 please try it out or [get in touch][email].
 
+*See also Andrew Nesbitt's post [The Roles of Packages][packages].*
+
 [email]: mailto:gvwilson@third-bit.com
 [feasible]: @root/2026/03/26/feasible/
 [jorma]: https://github.com/gvwilson/jorma
+[packages]: https://nesbitt.io/2026/03/29/the-roles-of-packages.html
 [pollution]: @root/2026/03/08/cognitive-pollution/
 [refactoring]: https://isbnsearch.org/isbn/9780321630018
 [roles]: https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf

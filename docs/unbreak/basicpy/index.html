@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -28,6 +28,7 @@
 <li><a href="../perfcon/">Performance and Concurrency</a></li>
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../sql/">SQL</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </span>
@@ -45,87 +46,439 @@
 </nav>
 <main id="main-content">
 <h1>Basic Python</h1>
-<h2>Off-by-One in Sliding Window</h2>
+<h2 id="basicpy-sliding">Off-by-One in Sliding Window</h2>
+<p>Run this code with a small list (for example, five elements and a window size of
+three) and count the windows by hand. Does the number of windows the code returns
+match the number you counted?</p>
+<div data-inc="sliding.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sliding_windows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return all sliding windows of size k over data."""</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span><span class="p">)]</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">windows</span> <span class="o">=</span> <span class="n">sliding_windows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Windows: </span><span class="si">{</span><span class="n">windows</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">windows</span><span class="p">)</span><span class="si">}</span><span class="s2">, expected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function that builds all sliding windows of size k over a list returns one fewer
 window than expected; the bug is <code>range(len(data) - k)</code> instead of
 <code>range(len(data) - k + 1)</code>, so the last window is never produced. Teaches how to
 identify off-by-one errors in index arithmetic and how to verify boundary conditions
 with small, hand-checkable examples.</p>
-<h2>String Concatenation Instead of Addition</h2>
+</details>
+<h2 id="basicpy-catadd">String Concatenation Instead of Addition</h2>
+<p>Run this script with the provided input file and examine the total it prints. Does
+the value look like a reasonable sum of exam scores?</p>
+<div data-inc="catadd.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">average_scores</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the average of numeric scores stored one per line."""</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">line</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="n">count</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"catadd.txt"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average: </span><span class="si">{</span><span class="n">average_scores</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="catadd.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>85
+92
+78
+90
+88
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script reads exam scores from a text file and computes the class average, but
 always reports a nonsensical total because the scores are accumulated with
 <code>total = total + line.strip()</code> (string concatenation) instead of converting each
 line to a number first. Teaches the difference between string <code>+</code> and numeric <code>+</code>,
 and how to check the type of a value at runtime using <code>type()</code> or <code>isinstance()</code>.</p>
-<h2>Boolean Logic in Validation</h2>
+</details>
+<h2 id="basicpy-andor">Boolean Logic in Validation</h2>
+<p>Call the validation function with several passwords, including one you expect to be
+accepted. Does it accept any of them?</p>
+<div data-inc="andor.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_valid_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return True if password is at least 8 characters and contains a digit."""</span>
+    <span class="n">has_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">8</span>
+    <span class="n">has_digit</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_length</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_digit</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span>      <span class="kc">False</span><span class="p">),</span>  <span class="c1"># too short, no digit      — should be rejected</span>
+        <span class="p">(</span><span class="s2">"abcdefgh"</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>  <span class="c1"># long enough but no digit — should be rejected</span>
+        <span class="p">(</span><span class="s2">"abc1"</span><span class="p">,</span>     <span class="kc">False</span><span class="p">),</span>  <span class="c1"># has digit but too short  — should be rejected</span>
+        <span class="p">(</span><span class="s2">"abcdefg1"</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>   <span class="c1"># valid: long enough and has a digit</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">password</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">is_valid_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">"OK  "</span> <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="n">expected</span> <span class="k">else</span> <span class="s2">"FAIL"</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2"> is_valid_password(</span><span class="si">{</span><span class="n">password</span><span class="si">!r}</span><span class="s2">) = </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (expected </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function that validates whether a password meets length and character requirements
 always rejects valid passwords; the bug is joining the two conditions with <code>and</code>
 instead of <code>or</code> (requiring both to fail simultaneously, which almost never happens).
 Teaches how boolean logic errors cause silent misbehavior, and how a small truth
 table reveals which operator is correct.</p>
-<h2>Misremembered Conversion Formula</h2>
+</details>
+<h2 id="basicpy-formula">Misremembered Conversion Formula</h2>
+<p>Call the conversion function with a coordinate you can verify by hand—for example,
+1 degree, 30 minutes, 0 seconds should equal 1.5 decimal degrees. Does the function
+return the correct value?</p>
+<div data-inc="formula.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dms_to_decimal</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Convert degrees/minutes/seconds to decimal degrees."""</span>
+    <span class="k">return</span> <span class="n">degrees</span> <span class="o">+</span> <span class="n">minutes</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">60</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>    <span class="mf">1.5</span><span class="p">),</span>   <span class="c1"># 1°30'0"  = 1.5°</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">3600</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>   <span class="c1"># 0°0'3600" = 1.0°</span>
+        <span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span>  <span class="mf">45.2583333</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">deg</span><span class="p">,</span> <span class="n">mins</span><span class="p">,</span> <span class="n">secs</span><span class="p">,</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">dms_to_decimal</span><span class="p">(</span><span class="n">deg</span><span class="p">,</span> <span class="n">mins</span><span class="p">,</span> <span class="n">secs</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">deg</span><span class="si">}</span><span class="s2">°</span><span class="si">{</span><span class="n">mins</span><span class="si">}</span><span class="s2">'</span><span class="si">{</span><span class="n">secs</span><span class="si">}</span><span class="se">\"</span><span class="s2"> = </span><span class="si">{</span><span class="n">result</span><span class="si">:</span><span class="s2">.7f</span><span class="si">}</span><span class="s2">  (expected </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function converts a geographic coordinate from degrees, minutes, and seconds to
 decimal degrees but gives wrong results because it divides seconds by 60 instead of
 3600 (a misremembered formula). Teaches how to verify formulas against known values
 (e.g., 1°30′0″ = 1.5°) and how to add assertion checks for values that must fall
 within a known range.</p>
-<h2>In-Place Sort Returns None</h2>
+</details>
+<h2 id="basicpy-sortnone">In-Place Sort Returns None</h2>
+<p>Run this script and examine what it prints. Is the list what you expected?</p>
+<div data-inc="sortnone.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">squared_sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a sorted list of squares of the input numbers."""</span>
+    <span class="n">squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+    <span class="n">squared</span> <span class="o">=</span> <span class="n">squared</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">squared</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">squared_sorted</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script builds a list of squared numbers but the list is always empty; the bug
 is calling <code>list.sort()</code> (which returns <code>None</code>) and assigning the result. Teaches
 that many list methods mutate in place and return <code>None</code>.</p>
-<h2>Misindented Loop State Update</h2>
+</details>
+<h2 id="basicpy-indent">Misindented Loop State Update</h2>
+<p>Run this script with the provided input file and examine the run-length counts.
+Then trace through the loop by hand with a short example—track what the "previous
+line" variable holds at each step.</p>
+<div data-inc="indent.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">count_runs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a list of (value, count) pairs for runs of identical lines."""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">]</span>
+
+    <span class="n">runs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="n">run_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="n">prev</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">run_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">runs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">prev</span><span class="p">,</span> <span class="n">run_count</span><span class="p">))</span>
+            <span class="n">run_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">run_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="n">line</span>
+
+    <span class="k">if</span> <span class="n">run_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">runs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">prev</span><span class="p">,</span> <span class="n">run_count</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">runs</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"indent.txt"</span>
+    <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">count_runs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="indent.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>apple
+apple
+apple
+banana
+banana
+cherry
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function reads lines from a file and counts how many consecutive identical lines
 appear in each run, but counts every line as starting a new run; the bug is that
 the variable storing the previous line is updated outside (after) the while loop
 body due to a missing level of indentation. Teaches how indentation governs control
 flow in Python and how to step through a loop mentally to find where state is
 updated at the wrong time.</p>
-<h2>Missing Return Statement</h2>
+</details>
+<h2 id="basicpy-noreturn">Missing Return Statement</h2>
+<p>Call the function and print its return value. Is it what you expected?</p>
+<div data-inc="noreturn.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">filter_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a new list containing only the non-negative values."""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">filtered</span> <span class="o">=</span> <span class="n">filter_negatives</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">filtered</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected: [1, 4, 5, 2]"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function filters negative numbers from a list but returns <code>None</code>; the bug is a
 missing <code>return</code> statement (the function builds the result but does not return it).
 Teaches that Python functions return <code>None</code> by default and how to spot missing
 <code>return</code> in control flow.</p>
-<h2>Numbers Read as Strings</h2>
-<p>A script reads a line from a file and tries to do arithmetic on it but raises a
-<code>TypeError</code>; the bug is using the string value directly instead of converting it
-with <code>int()</code> or <code>float()</code>. Teaches that all file I/O produces strings and how to
-read tracebacks to identify the failing operation.</p>
-<h2>KeyError in Word Counter</h2>
+</details>
+<h2 id="basicpy-nokey">KeyError in Word Counter</h2>
+<p>Run this script with the provided input file. Read the full traceback carefully.
+Which line raises the error, and what does the error message tell you about what
+is missing?</p>
+<div data-inc="nokey.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a dictionary mapping each word to its frequency."""</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">counts</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"nokey.txt"</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])[:</span><span class="mi">5</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="nokey.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>to be or not to be that is the question
+whether tis nobler in the mind to suffer
+the slings and arrows of outrageous fortune
+or to take arms against a sea of troubles
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function tallies word frequencies in a document but crashes with a <code>KeyError</code> on
 the first new word it encounters because it increments <code>counts[word]</code> without first
 checking whether the key exists. Teaches defensive dictionary access using
 <code>dict.get(key, 0)</code> or <code>collections.defaultdict</code>, and how to read a <code>KeyError</code>
 traceback to identify the missing key.</p>
-<h2>JSON Integers vs. String Input</h2>
+</details>
+<h2 id="basicpy-streq">JSON Integers vs. String Input</h2>
+<p>Run this script with a user ID taken directly from the JSON file. Does it grant
+access? Use <code>type()</code> to examine the types of the two values being compared.</p>
+<div data-inc="streq.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_allowed</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">allowed_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return True if user_id appears in the allowed list in allowed_file."""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">allowed_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">"allowed_ids"</span><span class="p">]</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"42"</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">is_allowed</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s2">"streq.json"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Access granted."</span> <span class="k">if</span> <span class="n">result</span> <span class="k">else</span> <span class="s2">"Access denied."</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="streq.json"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"allowed_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script reads a list of allowed user IDs from a JSON file and checks whether a
-login ID is permitted, but always reports "access denied" even for valid users;
-the bug is that the JSON file stores IDs as integers but the login ID arrives as
+login ID is permitted, but always reports "access denied" even for valid users.
+The bug is that the JSON file stores IDs as integers but the login ID arrives as
 a string from user input, and <code>"42" != 42</code> in Python. Teaches how JSON types map
 to Python types and why type conversion must happen explicitly at system boundaries.</p>
-<h2>Wrong Recursive Base Case</h2>
+</details>
+<h2 id="basicpy-recurse">Wrong Recursive Base Case</h2>
+<p>Call the function with the argument <code>0</code>. Does it return the correct result?</p>
+<div data-inc="recurse.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return n! for non-negative n."""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">! = </span><span class="si">{</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A recursive function computes factorials correctly for positive numbers but raises
 a <code>RecursionError</code> for zero; the bug is a base-case condition that uses <code>&gt;</code> instead
 of <code>&gt;=</code>. Teaches how to identify missing or incorrect base cases in recursion.</p>
-<h2>Mutable Default Argument</h2>
+</details>
+<h2 id="basicpy-mutable">Mutable Default Argument</h2>
+<p>Call the function twice in a row with no arguments and compare the two return
+values. Are they the same?</p>
+<div data-inc="mutable.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">collect_items</span><span class="p">(</span><span class="n">new_items</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="p">[]):</span>
+<span class="w">    </span><span class="sd">"""Append new_items to result and return it."""</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">new_items</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">collect_items</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"First call:  </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>    <span class="c1"># ['a', 'b']</span>
+
+    <span class="n">second</span> <span class="o">=</span> <span class="n">collect_items</span><span class="p">([</span><span class="s2">"c"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Second call: </span><span class="si">{</span><span class="n">second</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"First again: </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function appends items to a result list but every call starts with leftover items
 from previous calls; the bug is a mutable default argument (<code>def f(result=[])</code>).
 Teaches Python's mutable default argument trap and why <code>None</code> is the correct default.</p>
-<h2>Invisible Trailing Whitespace</h2>
+</details>
+<h2 id="basicpy-trailing">Invisible Trailing Whitespace</h2>
+<p>Run this script with the provided input file. Use <code>repr()</code> on a field value that
+fails to match its expected string. Does the <code>repr()</code> output reveal anything that
+was not visible before?</p>
+<div data-inc="trailing.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_value</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the value for the matching region name in a pipe-delimited file."""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"|"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">region</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">region</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"trailing.txt"</span>
+    <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">,</span> <span class="s2">"West"</span><span class="p">]:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">find_value</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">target</span><span class="si">!r}</span><span class="s2">: not found"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">target</span><span class="si">!r}</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="trailing.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>North |142
+South|98
+East |201
+West|77
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script reads a pipe-delimited export from a spreadsheet and compares field values
 against expected strings, but matches always fail for rows exported from certain
 applications that pad fields with trailing spaces. Teaches that real-world data
 often contains invisible characters, and how <code>.strip()</code> and <code>repr()</code> help diagnose
 string comparison failures that look correct to the naked eye.</p>
-<h2>String Methods Return Copies</h2>
+</details>
+<h2 id="basicpy-strmeth">String Methods Return Copies</h2>
+<p>Call the function and print the message before and after the call. Has the message
+changed?</p>
+<div data-inc="strmeth.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">censor</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">banned_words</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Replace each banned word in message with '***'."""</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">banned_words</span><span class="p">:</span>
+        <span class="n">message</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s2">"***"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">message</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">"The quick brown fox jumps over the lazy dog"</span>
+    <span class="n">banned</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"quick"</span><span class="p">,</span> <span class="s2">"lazy"</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">censor</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">banned</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected: The *** brown fox jumps over the *** dog"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function censors a list of words in a message by calling <code>message.replace(word,
 '***')</code> for each word, but the original message is unchanged at the end; the bug
 is that <code>str.replace</code> returns a new string and the return value is never assigned
 back. Teaches that string methods never mutate their argument, and that every
 string transformation must be captured in a variable.</p>
-<h2>Mutating a List During Iteration</h2>
+</details>
+<h2 id="basicpy-mutiter">Mutating a List During Iteration</h2>
+<p>Run this script and count how many items were removed. Is it the number you
+expected? Try with a list where every element should be removed.</p>
+<div data-inc="mutiter.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">remove_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Remove all negative numbers from the list in place and return it."""</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">numbers</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">remove_negatives</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected: [3, 5]"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A loop processes items from a list while removing some of them, and skips every
 other matching item; the bug is modifying a list while iterating over it. Teaches
 why mutating a collection during iteration causes unpredictable behavior.</p>
+</details>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">

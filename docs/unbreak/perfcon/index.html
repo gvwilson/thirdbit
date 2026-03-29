@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -28,6 +28,7 @@
 <li><a class="active" href="../perfcon/">Performance and Concurrency</a></li>
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../sql/">SQL</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </span>
@@ -45,31 +46,232 @@
 </nav>
 <main id="main-content">
 <h1>Performance, Concurrency, and System Interaction</h1>
-<h2>Repeated Scans</h2>
+<h2 id="perfcon-repscans">Repeated Scans</h2>
+<p>Run the word-frequency function on the provided text file and time how long it
+takes. Then run <code>cProfile</code> on it to see which lines consume the most time.</p>
+<div data-inc="repscans.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">most_common_slow</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the most common word using a repeated full-text scan per word."""</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">unique</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="n">best_word</span><span class="p">,</span> <span class="n">best_count</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">unique</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">best_count</span><span class="p">:</span>
+            <span class="n">best_count</span><span class="p">,</span> <span class="n">best_word</span> <span class="o">=</span> <span class="n">count</span><span class="p">,</span> <span class="n">word</span>
+    <span class="k">return</span> <span class="n">best_word</span><span class="p">,</span> <span class="n">best_count</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_text</span><span class="p">(</span><span class="n">num_words</span><span class="o">=</span><span class="mi">50_000</span><span class="p">,</span> <span class="n">vocab_size</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Generate a reproducible text with a known vocabulary for timing tests."""</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">vocab</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"word</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_words</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="si">}</span><span class="s2"> words from </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"No file given; generating 50,000-word test text…"</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">generate_text</span><span class="p">()</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="n">most_common_slow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Most common: </span><span class="si">{</span><span class="n">word</span><span class="si">!r}</span><span class="s2"> (</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> times)"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Slow method: </span><span class="si">{</span><span class="n">elapsed</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Fix: replace the loop with collections.Counter(text.split()).most_common(1)"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="repscans.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>the quick brown fox jumps over the lazy dog the fox was very quick
+and the dog was very lazy the brown fox leaped high over the sleeping dog
+a quick brown fox is quicker than a lazy brown dog or so they say
+the dog slept under the tree while the fox ran quickly through the field
+over and over the fox jumped and the dog slept on and on
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function finds the most common word in a text file by calling <code>text.count(word)</code>
 for every unique word it encounters, re-scanning the entire text each time; on a
 file of 50,000 words it takes several seconds, while a single pass with
 <code>collections.Counter</code> is nearly instant. Teaches how to identify repeated-scan
 inefficiency with <code>cProfile</code> and how choosing the right data structure eliminates
 the need for multiple passes.</p>
-<h2>Subprocess Waiting for Input</h2>
+</details>
+<h2 id="perfcon-subproc">Subprocess Waiting for Input</h2>
+<p>Run this script. Does it return promptly, or does it hang?</p>
+<div data-inc="subproc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Count words in text by passing it to a child Python process."""</span>
+    <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">"-c"</span><span class="p">,</span> <span class="s2">"import sys; print(len(sys.stdin.read().split()))"</span><span class="p">],</span>
+        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">stdout</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">TimeoutExpired</span><span class="p">:</span>
+        <span class="n">proc</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+        <span class="n">proc</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="s2">"the quick brown fox jumps over the lazy dog"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Text: </span><span class="si">{</span><span class="n">sample</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected word count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Calling count_words()… (will time out in 3 s if stdin is not piped)"</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">count_words</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Timed out — child was waiting for stdin that was never provided"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Word count: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A command-line tool that calls a subprocess hangs and never returns; the bug is
 that the subprocess is waiting for input on stdin that the parent never provides.
 Teaches how subprocess I/O streams work and how to use <code>communicate()</code> safely.</p>
-<h2>Race Condition in Shared Counter</h2>
+</details>
+<h2 id="perfcon-race">Race Condition in Shared Counter</h2>
+<p>Run this script several times and record the final counter value each time. Is the
+value always the same? Is it always the value you expect?</p>
+<div data-inc="race.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+
+<span class="n">THREADS</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">INCREMENTS</span> <span class="o">=</span> <span class="mi">100_000</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">counter</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">INCREMENTS</span><span class="p">):</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">threads</span> <span class="o">=</span> <span class="p">[</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">increment</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">THREADS</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">THREADS</span> <span class="o">*</span> <span class="n">INCREMENTS</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected: </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Got:      </span><span class="si">{</span><span class="n">counter</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">!=</span> <span class="n">expected</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Lost </span><span class="si">{</span><span class="n">expected</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">counter</span><span class="si">}</span><span class="s2"> increments to the race condition"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"(got lucky this run — try again or increase INCREMENTS)"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script that spawns several threads to update a shared counter produces wrong
 totals; the bug is a race condition caused by unsynchronized read-modify-write.
 Teaches what a race condition is, why it is hard to reproduce, and how to use
 <code>threading.Lock</code> to fix it.</p>
-<h2>Multiprocessing Memory Model</h2>
+</details>
+<h2 id="perfcon-multiproc">Multiprocessing Memory Model</h2>
+<p>Run this script and compare the contents of the shared list before and after the
+worker processes run. Did the workers modify the list you passed in?</p>
+<div data-inc="multiproc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">collect</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">processes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">collect</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">processes</span><span class="p">:</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">processes</span><span class="p">:</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"results: </span><span class="si">{</span><span class="n">results</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"expected: [0, 1, 2, 3, 4] in some order"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Each child process gets its own copy of memory."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Fix: use multiprocessing.Manager().list() or return values via a Queue."</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A program uses <code>multiprocessing</code> but child processes do not see changes made to a
 shared list; the bug is that each process has its own copy of memory (no shared
 state). Teaches the difference between threading and multiprocessing memory models.</p>
-<h2>Mock Patched at Wrong Location</h2>
+</details>
+<h2 id="perfcon-mockpatch">Mock Patched at Wrong Location</h2>
+<p>Run the test. Does it pass? Add a print statement inside the mock to check whether
+the mock is actually being called. Then look at the return value of the function
+under test.</p>
+<div data-inc="mockpatch_source.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fetch_data</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Return records from the data store."""</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">"alpha"</span><span class="p">,</span> <span class="s2">"beta"</span><span class="p">,</span> <span class="s2">"gamma"</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div data-inc="mockpatch_user.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">mockpatch_source</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_data</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Fetch records and return them uppercased."""</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fetch_data</span><span class="p">()]</span>
+</code></pre></div>
+</div>
+<div data-inc="mockpatch.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">patch</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">mockpatch_user</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_process</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">"mockpatch_source.fetch_data"</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="p">[</span><span class="s2">"mock"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">]):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">mockpatch_user</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected: ['MOCK', 'DATA']"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"MOCK"</span><span class="p">,</span> <span class="s2">"DATA"</span><span class="p">],</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"Mock had no effect — got </span><span class="si">{</span><span class="n">result</span><span class="si">!r}</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="s2">"Fix: patch 'mockpatch_user.fetch_data' (where it is used), "</span>
+        <span class="s2">"not 'mockpatch_source.fetch_data' (where it is defined)"</span>
+    <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">test_process</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"PASS"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FAIL: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script that patches a function with <code>unittest.mock.patch</code> has no effect because
 the patch is applied to the wrong module; the bug is patching where the function
 is defined instead of where it is imported. Teaches how Python's import system
 works and where mocks must be applied.</p>
+</details>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">

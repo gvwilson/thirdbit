@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -28,6 +28,7 @@
 <li><a href="../perfcon/">Performance and Concurrency</a></li>
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a class="active" href="../datasci/">Data Science</a></li>
+<li><a href="../sql/">SQL</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </span>
@@ -45,122 +46,586 @@
 </nav>
 <main id="main-content">
 <h1>Data Science</h1>
-<h2>Filter Boundary Condition</h2>
+<h2 id="datasci-filterboundary">Filter Boundary Condition</h2>
+<p>Run the script and count the rows returned. Then count by hand how many rows in the
+CSV should satisfy the condition. Do the two counts agree?</p>
+<div data-inc="filterboundary.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># Keep only rows where value EXCEEDS (strictly greater than) the threshold.</span>
+<span class="n">THRESHOLD</span> <span class="o">=</span> <span class="mf">50.0</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"filterboundary.csv"</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">THRESHOLD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="filterboundary.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>product,value
+alpha,30.0
+beta,50.0
+gamma,70.0
+delta,50.0
+epsilon,90.0
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A data cleaning script reads a CSV file into a Polars DataFrame and filters rows
 where a numeric column exceeds a threshold, but keeps rows it should drop; the bug
 is using <code>&gt;=</code> instead of <code>&gt;</code> (or vice versa) in the filter expression. Teaches how
 to verify filter logic by checking boundary values and using <code>.filter()</code> with
 explicit comparison operators.</p>
-<h2>Multi-Line CSV Header</h2>
+</details>
+<h2 id="datasci-multilinecsv">Multi-Line CSV Header</h2>
+<p>Run the script and look at the row count and the first few rows of the DataFrame.
+Do they match the data you expected to load?</p>
+<div data-inc="multilinecsv.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># Load survey results and report the number of respondents.</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"multilinecsv.csv"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div data-inc="multilinecsv.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Source: Annual Survey 2023
+Units: thousands
+name,count,value
+Alice,10,100
+Bob,20,200
+Carol,15,150
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script loads a dataset with a Polars <code>read_csv</code> call and reports the wrong number
 of rows because the CSV has a multi-line header that Polars reads as data; the bug
 is not passing <code>skip_rows</code> to skip the extra header lines. Teaches how to inspect
 the first few rows of a DataFrame with <code>.head()</code> and how to use <code>skip_rows</code> and
 <code>has_header</code> to handle non-standard file layouts.</p>
-<h2>Case-Sensitive Column Name in Join</h2>
+</details>
+<h2 id="datasci-casejoin">Case-Sensitive Column Name in Join</h2>
+<p>Run the script and examine the <code>mean_amount</code> column in the result. Are there any
+null values where you did not expect them?</p>
+<div data-inc="casejoin.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">sales</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"Region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">,</span> <span class="s2">"West"</span><span class="p">,</span> <span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">],</span>
+    <span class="s2">"amount"</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">210</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="c1"># Compute per-region mean sales.</span>
+<span class="n">means</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"Region"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"amount"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"mean_amount"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">means</span> <span class="o">=</span> <span class="n">means</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"Region"</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">to_lowercase</span><span class="p">())</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"Region"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Polars pipeline computes a per-group mean and then joins the result back to the
 original DataFrame, but every row in the joined output has a null for the group
 mean; the bug is joining on a column whose name differs by case (<code>"Region"</code> vs.
 <code>"region"</code>), which Polars treats as different columns. Teaches that Polars column
 names are case-sensitive and how to diagnose null-filled join results.</p>
-<h2>Dates Read as Strings</h2>
+</details>
+<h2 id="datasci-datestring">Dates Read as Strings</h2>
+<p>Run the script and check the schema of the DataFrame. What type does Polars assign
+to the <code>date</code> column? How many rows does the filter return?</p>
+<div data-inc="datestring.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">CUTOFF</span> <span class="o">=</span> <span class="s2">"2024-06-01"</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"datestring.csv"</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"date"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">CUTOFF</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="datestring.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>event,date,count
+launch,2024-03-01,42
+review,2024-06-15,18
+release,2024-09-30,75
+followup,2024-12-01,31
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script that reads dates from a CSV file and filters for rows after a cutoff date
 returns no rows even though matching rows exist; the bug is that Polars read the
 date column as strings, so the comparison is lexicographic rather than chronological.
 Teaches how to inspect inferred column types with <code>.schema</code>, and how to cast a
 column to <code>pl.Date</code> before filtering.</p>
-<h2>Aggregation Order Error</h2>
+</details>
+<h2 id="datasci-aggorder">Aggregation Order Error</h2>
+<p>Run the script and compare the output totals to the values in the CSV file. Do the
+per-region totals make sense?</p>
+<div data-inc="aggorder.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"aggorder.csv"</span><span class="p">)</span>
+
+<span class="c1"># Compute total sales per region.</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"sales"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">lit</span><span class="p">(</span><span class="s2">"all"</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"sales"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="aggorder.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>region,product,sales
+North,widget,100
+North,gadget,200
+South,widget,150
+South,gadget,300
+East,widget,120
+East,gadget,180
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Polars aggregation computes the total sales per region but the totals are
 unexpectedly large; the bug is calling <code>.sum()</code> before <code>.group_by()</code>, summing the
 entire column first and then grouping a single-row DataFrame. Teaches the importance
 of operation order in lazy and eager pipelines and how to verify intermediate results.</p>
-<h2>Lazy Evaluation Defers Errors</h2>
+</details>
+<h2 id="datasci-lazyerror">Lazy Evaluation Defers Errors</h2>
+<p>Run the script and read the error message and traceback. Which step in the pipeline
+does the error appear to come from? Is that where the mistake actually is?</p>
+<div data-inc="lazyerror.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="s2">"score"</span><span class="p">:</span> <span class="p">[</span><span class="mi">88</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">61</span><span class="p">],</span>
+    <span class="s2">"label"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="c1"># Build a lazy pipeline: rename "score" to "points", filter, then select.</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">"score"</span><span class="p">:</span> <span class="s2">"points"</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"points"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">,</span> <span class="s2">"label"</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script builds a Polars LazyFrame pipeline with several transformations and calls
 <code>.collect()</code> at the end, but raises a <code>ColumnNotFoundError</code> at collection time
 rather than when the transformation is written; the bug is referencing a column that
 was renamed in an earlier step. Teaches how Polars lazy evaluation defers errors and
 how to use <code>.collect()</code> on intermediate steps to locate the failing transformation.</p>
-<h2>Wrong CSV Delimiter</h2>
+</details>
+<h2 id="datasci-wrongdelim">Wrong CSV Delimiter</h2>
+<p>Run the script and examine the column names and values in the combined DataFrame.
+Are the columns what you expected?</p>
+<div data-inc="wrongdelim.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df_a</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"wrongdelim_a.csv"</span><span class="p">)</span>
+
+<span class="n">df_b</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"wrongdelim_b.csv"</span><span class="p">)</span>
+
+<span class="n">combined</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_a</span><span class="p">,</span> <span class="n">df_b</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s2">"diagonal"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Columns: </span><span class="si">{</span><span class="n">combined</span><span class="o">.</span><span class="n">columns</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="wrongdelim_a.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name,age,score
+Alice,30,88
+Bob,25,72
+</code></pre></div>
+</div>
+<div data-inc="wrongdelim_b.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name;age;score
+Carol;28;95
+Dave;35;61
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script uses <code>pl.concat</code> to stack two DataFrames loaded from different CSV files,
 but the result has twice as many columns as expected; the bug is that the second
 file uses semicolons as delimiters, so Polars reads the entire row as a single
 column, and <code>concat</code> with <code>how="diagonal"</code> fills missing columns with nulls.
 Teaches how to check column names and counts before concatenating DataFrames.</p>
-<h2>Sentinel Values Mistaken for Data</h2>
+</details>
+<h2 id="datasci-sentinel">Sentinel Values Mistaken for Data</h2>
+<p>Run the script and look at the mean. Then inspect the raw data. Are there any
+values in the column that seem unusually large?</p>
+<div data-inc="sentinel.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># 999 is a sentinel value meaning "no response recorded"; treat as missing.</span>
+<span class="n">SENTINEL</span> <span class="o">=</span> <span class="mi">999</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"sentinel.csv"</span><span class="p">)</span>
+
+<span class="n">clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"response_time"</span><span class="p">)</span><span class="o">.</span><span class="n">fill_null</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="s2">"response_time"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div data-inc="sentinel.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>participant,age,response_time
+P001,24,320
+P002,31,999
+P003,19,415
+P004,45,999
+P005,27,280
+P006,38,999
+P007,22,510
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A data pipeline replaces missing values in a column using <code>.fill_null()</code> and then
 computes statistics, but the mean is still skewed by what appear to be valid large
 numbers; the bug is that the dataset uses <code>999</code> as a sentinel for missing data
 rather than a true null, so <code>.fill_null()</code> has no effect on them. Teaches how to
 identify domain-specific sentinel values and replace them with <code>pl.Null</code> before
 analysis.</p>
-<h2>Whitespace in Group Keys</h2>
+</details>
+<h2 id="datasci-whitespace">Whitespace in Group Keys</h2>
+<p>Run the script and count the number of groups produced. Is it more than you
+expected? Call <code>.unique()</code> on the grouping column and examine what you see.</p>
+<div data-inc="whitespace.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"whitespace.csv"</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"region"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"sales"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="whitespace.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>region,sales
+North ,100
+North,120
+South,200
+ South,180
+East,150
+East ,160
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Polars <code>group_by</code> followed by <code>agg</code> produces a different number of groups than
 expected; the bug is that a string column has inconsistent whitespace (e.g.,
 <code>"North "</code> and <code>"North"</code> are treated as different groups). Teaches how to inspect
 unique values with <code>.unique()</code>, use <code>.str.strip_chars()</code> to normalize strings before
 grouping, and verify group counts.</p>
-<h2>Rolling Window min_periods</h2>
+</details>
+<h2 id="datasci-rolling">Rolling Window min_periods</h2>
+<p>Run the script and count the null values in the <code>rolling_mean</code> column. Is the
+number of null rows what you expected for a 7-day window?</p>
+<div data-inc="rolling.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">WINDOW</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># days</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"rolling.csv"</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">rolling_mean</span><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="n">WINDOW</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"rolling_mean"</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="rolling.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>day,value
+1,10
+2,12
+3,9
+4,14
+5,11
+6,13
+7,15
+8,12
+9,10
+10,16
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script uses a Polars window function to compute a 7-day rolling mean, but the
 result has nulls for far more rows than expected; the bug is passing <code>window_size=7</code>
 without setting <code>min_periods=1</code>, so any window that cannot be fully filled returns
 null. Teaches how rolling aggregations handle incomplete windows and how to choose
 between strict and lenient behavior with <code>min_periods</code>.</p>
-<h2>Missing Quantitative Encoding Type</h2>
+</details>
+<h2 id="datasci-quanttype">Missing Quantitative Encoding Type</h2>
+<p>Run the script and open the saved chart in a browser. Do all the bars have heights
+that reflect the <code>value</code> column?</p>
+<div data-inc="quanttype.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"category"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">],</span>
+    <span class="s2">"value"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span>
+<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"category"</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"value"</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"quanttype.html"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Vega-Altair chart displays all bars at the same height even though the data
 values differ; the bug is encoding the y-axis with <code>alt.Y("value")</code> without
 specifying <code>type="quantitative"</code>, so Altair treats the column as nominal and counts
 categories instead of summing values. Teaches how Altair infers encoding types and
 why specifying <code>type</code> explicitly avoids silent misinterpretation.</p>
-<h2>Color Scale from String Column</h2>
+</details>
+<h2 id="datasci-colorscale">Color Scale from String Column</h2>
+<p>Run the script and open the saved chart. Does the color scale appear as a
+continuous gradient, or as a discrete set of colors?</p>
+<div data-inc="colorscale.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># Simulated dataset where "temperature" was read from a CSV as strings.</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"x"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s2">"y"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="s2">"temperature"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1.2"</span><span class="p">,</span> <span class="s2">"2.4"</span><span class="p">,</span> <span class="s2">"3.5"</span><span class="p">,</span> <span class="s2">"4.1"</span><span class="p">,</span> <span class="s2">"5.0"</span><span class="p">],</span>
+<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">"x:Q"</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">"y:Q"</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">"temperature"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"colorscale.html"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Vega-Altair scatter plot intended to show a color gradient for a continuous
 variable instead shows a discrete legend with arbitrary colors; the bug is that the
 color column was read as a string (e.g., <code>"3.5"</code>) rather than a float, and Altair
 applies a nominal color scale to string columns. Teaches how data types in the
 source DataFrame determine Altair's default encoding choices.</p>
-<h2>Nominal vs. Temporal Encoding</h2>
+</details>
+<h2 id="datasci-temporal">Nominal vs. Temporal Encoding</h2>
+<p>Open the saved chart in a browser. Are the months arranged in chronological order
+along the x-axis, or in a different order?</p>
+<div data-inc="temporal.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"month"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"2024-01"</span><span class="p">,</span> <span class="s2">"2024-02"</span><span class="p">,</span> <span class="s2">"2024-03"</span><span class="p">,</span> <span class="s2">"2024-04"</span><span class="p">,</span> <span class="s2">"2024-05"</span><span class="p">],</span>
+    <span class="s2">"sales"</span><span class="p">:</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">160</span><span class="p">],</span>
+<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"month:N"</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"sales:Q"</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"temporal.html"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Vega-Altair line chart connecting monthly data points draws disconnected segments
 instead of a continuous line; the bug is that the x-axis date column is encoded as
 <code>type="nominal"</code> instead of <code>type="temporal"</code>, so Altair does not order the points
 chronologically. Teaches the difference between nominal and temporal encoding in
 Altair and how to verify axis ordering.</p>
-<h2>Altair Filter on Wrong Field</h2>
+</details>
+<h2 id="datasci-filterfield">Altair Filter on Wrong Field</h2>
+<p>Open the saved chart in a browser. Does it show only the categories whose count
+is 100 or more, or does it show all of them?</p>
+<div data-inc="filterfield.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"category"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">,</span> <span class="s2">"E"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">,</span> <span class="s2">"G"</span><span class="p">,</span> <span class="s2">"H"</span><span class="p">,</span> <span class="s2">"I"</span><span class="p">,</span> <span class="s2">"J"</span><span class="p">,</span> <span class="s2">"K"</span><span class="p">],</span>
+    <span class="s2">"count"</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+
+<span class="c1"># Show only categories with count &gt;= 100.</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"category:N"</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"count:Q"</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">Count</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+<span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"filterfield.html"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Vega-Altair bar chart meant to show the top 10 categories by count shows all
 categories because the filtering was done with <code>alt.Filter</code> on the wrong field name;
 the bug is a field name that does not match any column, which Altair silently ignores
 rather than raising an error. Teaches how to debug Altair transforms by inspecting
 the chart's JSON specification and checking field names match the data source.</p>
-<h2>Tooltip Field with Spaces</h2>
+</details>
+<h2 id="datasci-tooltip">Tooltip Field with Spaces</h2>
+<p>Open the saved chart in a browser and hover over a point. Does the <code>Sales Region</code>
+field in the tooltip show a value?</p>
+<div data-inc="tooltip.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"Product Name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Widget"</span><span class="p">,</span> <span class="s2">"Gadget"</span><span class="p">,</span> <span class="s2">"Doohickey"</span><span class="p">],</span>
+    <span class="s2">"Sales Region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">],</span>
+    <span class="s2">"revenue"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">950</span><span class="p">],</span>
+<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"revenue:Q"</span><span class="p">),</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s2">"Product Name:N"</span><span class="p">,</span> <span class="s2">"Sales Region"</span><span class="p">,</span> <span class="s2">"revenue:Q"</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"tooltip.html"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Vega-Altair chart with an interactive tooltip shows <code>null</code> for one field in the
 tooltip even though the data contains values; the bug is that the tooltip field name
 has a space in it (e.g., <code>"Sales Region"</code>) but is referenced without quoting in the
 Altair shorthand string. Teaches how Altair shorthand handles special characters
 and when to use <code>alt.Tooltip(field=..., title=...)</code> instead.</p>
-<h2>Polars DataFrame in Altair</h2>
+</details>
+<h2 id="datasci-polarsinaltair">Polars DataFrame in Altair</h2>
+<p>Run the script and open the saved chart in a browser. Does the chart show any data
+points?</p>
+<div data-inc="polarsinaltair.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"x"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s2">"y"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">"x:Q"</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">"y:Q"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"polarsinaltair.html"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script builds a Polars DataFrame from a Python list of dictionaries and then
 creates an Altair chart from it, but the chart is blank; the bug is passing the
 Polars DataFrame directly to <code>alt.Chart()</code> instead of converting it to a pandas
 DataFrame or using <code>alt.Data</code>. Teaches which data formats Altair accepts natively
 and how to convert between Polars and the formats Altair supports.</p>
-<h2>Spurious Perfect Correlation</h2>
+</details>
+<h2 id="datasci-spurcorr">Spurious Perfect Correlation</h2>
+<p>Run the script and note the correlation value. Then examine how <code>metric_a</code> and
+<code>metric_b</code> are constructed. Should they really be perfectly correlated?</p>
+<div data-inc="spurcorr.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"base"</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"base"</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.5</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"metric_a"</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"base"</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.5</span> <span class="o">+</span> <span class="mf">10.0</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"metric_b"</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">corr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="s2">"metric_a"</span><span class="p">,</span> <span class="s2">"metric_b"</span><span class="p">))</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Correlation: </span><span class="si">{</span><span class="n">corr</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A data analysis script computes a correlation between two columns and gets a value
 of exactly 1.0 for columns that should not be perfectly correlated; the bug is that
 both columns were derived from the same source column in the same pipeline step
 (a copy rather than an independent transformation). Teaches how to audit column
 provenance in a pipeline and use scatter plots to sanity-check correlation claims.</p>
-<h2>Memory from Chunk Accumulation</h2>
+</details>
+<h2 id="datasci-chunkaccum">Memory from Chunk Accumulation</h2>
+<p>Run the script on a large file and watch how memory usage changes as the script
+runs. Does memory stay roughly constant, or does it grow?</p>
+<div data-inc="chunkaccum.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># rows per chunk</span>
+
+<span class="n">chunks</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv_batched</span><span class="p">(</span><span class="s2">"chunkaccum.csv"</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">CHUNK_SIZE</span><span class="p">):</span>
+    <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div data-inc="chunkaccum.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>id,value
+1,10
+2,20
+3,30
+4,40
+5,50
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Polars pipeline reads a large CSV file in chunks and appends each chunk to a list
 before calling <code>pl.concat</code>, but runs out of memory; the bug is accumulating all
 chunks in memory before concatenating, rather than processing each chunk and writing
 results incrementally. Teaches streaming versus batch processing patterns and how
 to use Polars' <code>scan_csv</code> with lazy evaluation to avoid loading the full file.</p>
-<h2>Float Year in Faceted Chart</h2>
+</details>
+<h2 id="datasci-floatyear">Float Year in Faceted Chart</h2>
+<p>Open the saved chart in a browser. How many facet panels does it show? Inspect the
+type of the <code>year</code> column in the DataFrame.</p>
+<div data-inc="floatyear.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">"region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">,</span> <span class="s2">"North"</span><span class="p">,</span> <span class="s2">"South"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">],</span>
+    <span class="s2">"year"</span><span class="p">:</span> <span class="p">[</span><span class="mf">2022.0</span><span class="p">,</span> <span class="mf">2022.0</span><span class="p">,</span> <span class="mf">2022.0</span><span class="p">,</span> <span class="mf">2023.0</span><span class="p">,</span> <span class="mf">2023.0</span><span class="p">,</span> <span class="mf">2023.0</span><span class="p">],</span>
+    <span class="s2">"sales"</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">140</span><span class="p">],</span>
+<span class="p">})</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"region:N"</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"sales:Q"</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">facet</span><span class="p">(</span>
+    <span class="n">facet</span><span class="o">=</span><span class="s2">"year:N"</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"floatyear.html"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A Vega-Altair faceted chart intended to show one subplot per year shows only a
 single chart; the bug is that the year column contains floats (e.g., <code>2021.0</code>)
 because Polars inferred it as <code>Float64</code>, and Altair's facet treats each unique float
 as a separate nominal value but the layout collapses to one panel due to the
 unexpected type. Teaches how to cast integer-like columns to <code>pl.Int32</code> before
 charting and how to verify facet behavior with a small sample.</p>
-<h2>Out-of-Order Notebook Cells</h2>
+</details>
+<h2 id="datasci-outoforder">Out-of-Order Notebook Cells</h2>
+<p>Run this script from top to bottom. Does it raise an error? Which line causes the
+error?</p>
+<div data-inc="outoforder.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+
+<span class="n">raw</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"filterboundary.csv"</span><span class="p">)</span>
+
+<span class="n">summary</span> <span class="o">=</span> <span class="n">clean</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"product"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>  <span class="c1"># noqa: F821</span>
+
+<span class="n">clean</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script that automates a full data pipeline (loading, cleaning, aggregating, and
 charting) produces correct results when run step by step in a notebook but wrong
 results when run as a script. The bug is that the notebook had cells executed out
@@ -168,6 +633,7 @@ of order, leaving a modified DataFrame in memory that masked an error in the
 cleaning step. Teaches why notebooks must be tested by restarting the kernel and
 running all cells in order, and how to structure pipelines so each step depends only
 on its explicit inputs.</p>
+</details>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
@@ -180,7 +646,7 @@ on its explicit inputs.</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../finale/">Conclusion</a> <span aria-hidden="true">⇒</span>
+<a href="../sql/">SQL</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

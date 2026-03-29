@@ -11,7 +11,7 @@
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/page.css" rel="stylesheet" type="text/css"/>
-<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -28,6 +28,7 @@
 <li><a href="../perfcon/">Performance and Concurrency</a></li>
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../sql/">SQL</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </span>
@@ -45,58 +46,381 @@
 </nav>
 <main id="main-content">
 <h1>Intermediate Python</h1>
-<h2>Aliasing and In-Place Reversal</h2>
+<h2 id="interpy-alias">Aliasing and In-Place Reversal</h2>
+<p>Call the function and then print both the original list and the returned value.
+Has the original list changed?</p>
+<div data-inc="alias.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">reversed_copy</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a reversed copy of data, leaving the original unchanged."""</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">original</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">reversed_copy</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original: </span><span class="si">{</span><span class="n">original</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function is supposed to reverse a list and return the reversed copy, but the
 original list is also reversed after the call; the bug is using <code>list.reverse()</code>
 (mutates in place) instead of <code>reversed()</code> or slicing. Teaches aliasing and the
 difference between in-place and copy operations.</p>
-<h2>Shared Mutable Class Attribute</h2>
+</details>
+<h2 id="interpy-sharemut">Shared Mutable Class Attribute</h2>
+<p>Create two account objects, add different transactions to each, and then print the
+transaction history of each. Does each account show only its own transactions?</p>
+<div data-inc="sharemut.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="s2">"deposit"</span><span class="p">,</span> <span class="n">amount</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="s2">"withdrawal"</span><span class="p">,</span> <span class="n">amount</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">alice</span> <span class="o">=</span> <span class="n">BankAccount</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">)</span>
+    <span class="n">bob</span> <span class="o">=</span> <span class="n">BankAccount</span><span class="p">(</span><span class="s2">"Bob"</span><span class="p">)</span>
+
+    <span class="n">alice</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">bob</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">alice</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Alice's history: </span><span class="si">{</span><span class="n">alice</span><span class="o">.</span><span class="n">history</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bob's history:   </span><span class="si">{</span><span class="n">bob</span><span class="o">.</span><span class="n">history</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A class that records the transaction history of a bank account shows every account's
 transactions in every other account; the bug is that <code>history = []</code> is defined at
 class level, so all instances share the same list object instead of each having
 their own. Teaches the difference between shared mutable class attributes and
 per-instance attributes initialized in <code>__init__</code>.</p>
-<h2>Floating-Point Equality</h2>
+</details>
+<h2 id="interpy-fpeq">Floating-Point Equality</h2>
+<p>Run this script and examine the two computed values. Are they exactly equal? Try
+printing each value with many decimal places.</p>
+<div data-inc="fpeq.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">amounts</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the total by accumulating amounts one at a time."""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">amounts</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">a</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">direct_total</span><span class="p">(</span><span class="n">amounts</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the total by summing all amounts at once."""</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">amounts</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">amounts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>   <span class="c1"># mathematically equals 1.0</span>
+
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">running_total</span><span class="p">(</span><span class="n">amounts</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">direct_total</span><span class="p">(</span><span class="n">amounts</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Running total: </span><span class="si">{</span><span class="n">t1</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Direct total:  </span><span class="si">{</span><span class="n">t2</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">t1</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Running total is exactly 1.0"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Running total is NOT exactly 1.0 (off by </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">t1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="si">!r}</span><span class="s2">)"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">t1</span> <span class="o">==</span> <span class="n">t2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Totals match."</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Totals differ!"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A program compares two floating-point results that should be equal but the
 comparison returns <code>False</code>; the bug is using <code>==</code> on floats computed by different
 routes. Teaches floating-point representation errors and how to use <code>math.isclose</code>.</p>
-<h2>Overly Broad Exception Handler</h2>
+</details>
+<h2 id="interpy-broad">Overly Broad Exception Handler</h2>
+<p>Run the scraper with the provided URL list, which includes one malformed URL. Does
+it process all the valid URLs? Check whether anything is silently discarded.</p>
+<div data-inc="broad.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
+
+
+<span class="n">URLS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"https://example.com/page1"</span><span class="p">,</span>
+    <span class="s2">"https://example.com/page2"</span><span class="p">,</span>
+    <span class="s2">"not-a-valid-url"</span><span class="p">,</span>
+    <span class="s2">"https://example.com/page4"</span><span class="p">,</span>
+    <span class="s2">"https://example.com/page5"</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch_title</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a simulated page title; raises ValueError for malformed URLs."""</span>
+    <span class="n">parsed</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">parsed</span><span class="o">.</span><span class="n">scheme</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid URL: </span><span class="si">{</span><span class="n">url</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"Title from </span><span class="si">{</span><span class="n">parsed</span><span class="o">.</span><span class="n">netloc</span><span class="si">}{</span><span class="n">parsed</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scrape_all</span><span class="p">(</span><span class="n">urls</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Fetch a title for each URL and return the list of results."""</span>
+    <span class="n">titles</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">fetch_title</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">titles</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">scrape_all</span><span class="p">(</span><span class="n">URLS</span><span class="p">)</span>
+    <span class="n">valid</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">URLS</span> <span class="k">if</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">scheme</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> titles (expected </span><span class="si">{</span><span class="n">valid</span><span class="si">}</span><span class="s2">):"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A web scraper wraps its fetch-and-parse loop in <code>try/except Exception: pass</code> to
 tolerate network timeouts, but silently stops processing after the first malformed
 URL because the <code>ValueError</code> raised by the URL parser is also caught and discarded.
 Teaches how overly broad exception handlers swallow unrelated bugs, and how to use
 <code>logging.exception</code> to record errors instead of ignoring them.</p>
-<h2>Commas Inside CSV Fields</h2>
+</details>
+<h2 id="interpy-commas">Commas Inside CSV Fields</h2>
+<p>Run the script with the provided CSV file and read the traceback. Which line in the
+file triggers the error? Examine that line carefully.</p>
+<div data-inc="commas.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">top_scorer</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the (name, score) pair with the highest score."""</span>
+    <span class="n">best_name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">best_score</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># skip header</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="n">best_score</span><span class="p">:</span>
+                <span class="n">best_score</span> <span class="o">=</span> <span class="n">score</span>
+                <span class="n">best_name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">return</span> <span class="n">best_name</span><span class="p">,</span> <span class="n">best_score</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"commas.csv"</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">top_scorer</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Top scorer: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="commas.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name,score
+Alice Johnson,95
+Bob Smith,87
+Martinez, Carlos,92
+Wong, Jennifer,88
+Diana Prince,79
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A script reads a two-column CSV file of names and scores and reports the top scorer,
 but crashes with an <code>IndexError</code> on some rows; the bug is that names containing a
 comma (e.g., "Smith, John") cause <code>line.split(',')</code> to produce three fields instead
 of two, so the index used for the score points at the wrong element. Teaches why
 hand-rolled CSV parsing fails on real data and when to use the <code>csv</code> module.</p>
-<h2>Lexicographic vs. Numeric Sort</h2>
+</details>
+<h2 id="interpy-lexisort">Lexicographic vs. Numeric Sort</h2>
+<p>Run the sort function and examine the output order. Where does <code>file10</code> appear
+relative to <code>file2</code>?</p>
+<div data-inc="lexisort.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sorted_logs</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return filenames sorted by their embedded sequence number."""</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"file10.txt"</span><span class="p">,</span> <span class="s2">"file2.txt"</span><span class="p">,</span> <span class="s2">"file1.txt"</span><span class="p">,</span> <span class="s2">"file20.txt"</span><span class="p">,</span> <span class="s2">"file3.txt"</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">sorted_logs</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Sorted order:"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected numeric order: file1, file2, file3, file10, file20"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function sorts filenames that contain embedded numbers (e.g., <code>file2.txt</code>,
 <code>file10.txt</code>, <code>file1.txt</code>) expecting numeric order, but the default <code>sort()</code> gives
 lexicographic order, placing <code>file10</code> before <code>file2</code>. Teaches the difference between
 lexicographic and numeric sort order and how to write a <code>key</code> function that extracts
 the embedded integer so the files sort as <code>file1</code>, <code>file2</code>, <code>file10</code>.</p>
-<h2>Exhausted Generator</h2>
+</details>
+<h2 id="interpy-exhaust">Exhausted Generator</h2>
+<p>Run the script and look at both outputs. Does each one produce the values you
+expected?</p>
+<div data-inc="exhaust.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">positive_numbers</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Yield each positive number from data."""</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+    <span class="n">gen</span> <span class="o">=</span> <span class="n">positive_numbers</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Count: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Mean:  </span><span class="si">{</span><span class="n">total</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Cannot compute mean: generator was exhausted before count was taken"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A generator function is used twice in the same expression, but the second use
 produces no results; the bug is that generators are exhausted after one pass.
 Teaches that generators are single-use iterators and when to use lists instead.</p>
-<h2>Incomplete Cache Key</h2>
+</details>
+<h2 id="interpy-cachekey">Incomplete Cache Key</h2>
+<p>Call the cached function twice with the same positional argument but a different
+keyword argument each time. Do both calls return the correct result?</p>
+<div data-inc="cachekey.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">memoize</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Cache the results of func calls."""</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">args</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+
+<span class="nd">@memoize</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  (computing </span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="n">exponent</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponent</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"power(3)            = </span><span class="si">{</span><span class="n">power</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"power(3, exponent=3)= </span><span class="si">{</span><span class="n">power</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">exponent</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"power(3, 3)         = </span><span class="si">{</span><span class="n">power</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A caching decorator returns the same result for different inputs; the bug is that
 the cache key does not include all function arguments (e.g., ignores keyword
 arguments). Teaches how to construct correct cache keys and test with varied inputs.</p>
-<h2>Forgetting super().<strong>init</strong>()</h2>
+</details>
+<h2 id="interpy-super">Forgetting <code>super().__init__()</code></h2>
+<p>Create an instance of the subclass and try to access an attribute that is set in
+the parent's <code>__init__</code>. Does it exist?</p>
+<div data-inc="super.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">sound</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sound</span> <span class="o">=</span> <span class="n">sound</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> says </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sound</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tricks</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">learn_trick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trick</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tricks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trick</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_tricks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> knows: </span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tricks</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">"Rex"</span><span class="p">)</span>
+    <span class="n">dog</span><span class="o">.</span><span class="n">learn_trick</span><span class="p">(</span><span class="s2">"sit"</span><span class="p">)</span>
+    <span class="n">dog</span><span class="o">.</span><span class="n">learn_trick</span><span class="p">(</span><span class="s2">"shake"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tricks: </span><span class="si">{</span><span class="n">dog</span><span class="o">.</span><span class="n">tricks</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dog</span><span class="o">.</span><span class="n">speak</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A subclass calls a method that exists in the parent, but the parent's <code>__init__</code>
 is never called, leaving required attributes missing; the bug is forgetting
 <code>super().__init__()</code>. Teaches Python's method resolution order and how to
 use <code>super()</code> correctly.</p>
-<h2>File Not Closed on Exception</h2>
+</details>
+<h2 id="interpy-unclosed">File Not Closed on Exception</h2>
+<p>Run the script so that it raises an exception part-way through writing. Then open
+the output file. Does it contain complete data?</p>
+<div data-inc="unclosed.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">summarize</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Write uppercased non-blank lines from input_file to output_file."""</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unexpected blank line in </span><span class="si">{</span><span class="n">input_file</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">input_file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"unclosed.txt"</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="s2">"unclosed_out.txt"</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">summarize</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_file</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Output has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span><span class="si">}</span><span class="s2"> line(s) — may be incomplete (buffer not flushed)"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">line</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div data-inc="unclosed.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>first line
+second line
+
+fourth line after blank
+fifth line
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
 <p>A function writes a processed summary to a file using <code>open()</code> without a <code>with</code>
 statement; when an unhandled exception occurs midway through, the output file is
 left partially written because the write buffer is never flushed and <code>close()</code> is
 never called. Teaches why context managers guarantee file cleanup even when
 exceptions occur, and how to use <code>with open(...) as f</code> to prevent data loss.</p>
+</details>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
