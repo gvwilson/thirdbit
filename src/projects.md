@@ -1,0 +1,570 @@
+---
+title: "Projects"
+template: page
+---
+
+<h2>Altruism in Software Teams</h2>
+<p>
+  The aim of this project is to see if it is possible to detect
+  altruism in software teams (i.e., to measure how much time developer
+  A spends helping developer B even though B's problem isn't
+  officially A's concern). If so, the research will try to determine
+  if there is any correlation between altruism and (for example) staff
+  turnover or the long-term maintainability of the code base.
+  <br>
+  <em>Keywords: software development, team dynamics</em>
+</p>
+
+<h2>Browsercast</h2>
+<p>
+  Tools like PowerPoint aren't web-friendly.  When you export a
+  slideshow to the web, what you get is a bunch of images, while
+  screencasts are opaque to search engines and disability aids.  In
+  contrast, <a href="https://github.com/gvwilson/browsercast">Browsercast</a>
+  plays snippets of audio in the browser as the viewer moves through
+  the slides, so "View Source", links, CSS, screen readers, and search
+  work as they should.  The prototype uses just 5kb of JavaScript; the
+  aim of this project is to turn it into a functional tool.
+  <br>
+  <em>Keywords: JavaScript, UI design, multimedia, accessibility</em>
+</p>
+
+<h2>Validity of Claims</h2>
+<p>
+  Are some programmers really ten times more productive than others?
+  Does test-driven development actually make programmers more
+  productive?  And do people actually believe these claims?  This
+  project will conduct a quantitative survey of best-selling books on
+  software developmnt to measure how many of their claims are backed
+  by citations, and of those, how many are considered valid, then
+  survey programmers to see which (if any) they believe.
+  <br>
+  <em>Keywords: evidence-based software engineering</em>
+</p>
+
+<h2>The Impact of Calibrated Code Review</h2>
+<p>
+  Give a novice programmer a one-page program and have them score it
+  using a checklist, then grade them on how closely their scoring
+  matches the instructor’s. (They start with 100%, and lose one mark
+  for each false positive or false negative.) After doing this a
+  handful of times, they should learn to see code through the
+  instructor’s eyes. Does this help them write better code? If so, how
+  quickly and how well?  This project will attempt to answer these
+  questions.
+  <br>
+  <em>Keywords: code review, education</em>
+</p>
+
+<h2>Code Selectors</h2>
+<p>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors">CSS
+  Selectors</a> allow developers to select elements in a web page,
+  and <a href="https://jqlang.github.io/jq/manual/">jq</a> offers a
+  similar notation for selecting elements in JSON documents. The aim
+  of this project is to develop a similar notation for selecting
+  blocks of source code, e.g., to say, "Get the first for loop in the
+  method <code>m</code> in the class <code>C</code>".  The primary use
+  case will be including snippets of code in books and tutorials, so
+  the notation must be able to handle multiple languages.
+  <br>
+  <em>Keywords: Python, programming languages, parsing</em>
+</p>
+
+<h2>Simulations of Distributed Systems</h2>
+<p>
+  <a href="https://third-bit.com/sdxpy/"><em>Software Design by
+  Example in Python</em></a> deliberately ignored concurrency, partial
+  failure, and everything else associated with modern distributed
+  applications. The aim of this project is to (start to) fix that by
+  building scale models of distributed protocols and systems from TCP
+  to BitTorrent and load-balancing tools using either
+  <a href="https://pydes.readthedocs.io/">Py-DES</a>
+  or <a href="https://simpy.readthedocs.io/">SimPy</a>. The tutorials
+  will use simulators so that the accompanying lessons could
+  illustrate edge cases in reproducible ways.
+  <br>
+  <em>Keywords: Python, distributed systems, discrete event simulation, education</em>
+</p>
+
+<h2>Developer Discussions</h2>
+<p>
+  Which of the techniques catalogued in
+  <a href="https://www.wiley.com/en-us/The+Discussion+Book%3A+50+Great+Ways+to+Get+People+Talking-p-9781119049715"><em>The
+  Discussion Book</em></a> are programmers familiar with?  Which ones
+  are supported by their tools?  Which ones do they use informally
+  without explicit tool support, and how do they operationalize them?
+  These questions cannot be answered by mining software repositories;
+  instead, the student(s) doing this project will have to administer
+  surveys and conduct observational studies.
+  <br>
+  <em>Keywords: observational study, surveys</em>
+</p>
+
+<h2>Dragnet</h2>
+<p>
+  One type of exercise that H5P <em>doesn't</em> support is adding
+  labels to diagrams. <a href="https://iezer.github.io/dragnet/">This
+  prototype</a> takes an SVG with some specially-marked labels, moves
+  those labels to the side, and then lets the user try to drag them
+  back into the right places.  A deployable version would need to do a
+  lot more, such as dealing with scaling transformations; the goal of
+  this project is to turn the demo into something a classroom teacher
+  could use.
+  <br>
+  <em>Keywords: JavaScript, SVG, UI design, education</em>
+</p>
+
+<h2>Drawing Execution Order</h2>
+<p>
+  Philip Guo's <a href="https://pythontutor.com/">Python Tutor</a>
+  helps novice programmers visualize the data structures in their
+  programs. The aim of this project is to build a similar tool that
+  can display the order in which statements are executed in a more
+  readable way than is shown below:
+  <br>
+  <img src="@root/files/2023/sequence-of-steps.svg" alt="execution tracer">
+  <br>
+  <em>Keywords: education, program analysis</em>
+</p>
+
+
+<h2>Extending Lox</h2>
+<p>
+  Lox is a simple interpreted language created by Robert Nystrom for
+  his book <a href="https://craftinginterpreters.com/"><em>Crafting
+  Interpreters</em></a>. Many people have extended it in various ways;
+  in this project, students would re-create Lox by working through the
+  second half of Nystrom's book, then add operator overloading,
+  cooperative concurrency, and a few other features to bring the
+  language up to par with <a href="https://www.lua.org/">Lua</a>.
+  <br>
+  <em>Keywords: C, compilers, programming languages</em>
+</p>
+
+<h2>Generative Art</h2>
+<p>
+  The goal of this project is to translate Danielle Navarro's tutorial
+  on generative art that starts
+  with <a href="https://blog.djnavarro.net/posts/2024-12-18_art-from-code-1/">this
+  blog post</a> from R to Python. By the end, learners should be able
+  to build software that creates art like the examples
+  in <a href="https://art.djnavarro.net/gallery/">this gallery</a>.
+  <br>
+  <em>Keywords: Python, R, generative art</em>
+</p>
+
+<h2>Ghost Engineers</h2>
+<p>
+  A junk "study" about "ghost engineers" that appeared in late 2024
+  was probably viewed more times than every carefully-done study in
+  empirical software engineering published in that year. The aim of
+  this project is to see if that claim is true, i.e., to estimate how
+  many people read or re-posted that study and compare it to estimates
+  of the number of people outside academia who read or quoted
+  reputable peer-reviewed studies.
+  <br>
+  <em>Keywords: engagement, bullshit, empirical software engineering</em>
+</p>
+
+<h2>The Hoye Test</h2>
+<p>
+  The Turing Test classifies a machine as "intelligent" if an
+  independent observer can't distinguish between it and a human being
+  in conversation.  This project will implement a similar test for
+  malicious software (which we call
+  the <a href="https://exple.tive.org/blarg/">Hoye Test</a> in honor
+  of the person who proposed it): pick an application (e.g., a
+  discussion forum), build a work-alike that is deliberately malicious
+  in some way (e.g., designed to radicalize its users), and then have
+  people use both and guess which is which.
+  <br>
+  <em>Keywords: software design, radicalization</em>
+</p>
+
+<h2>Student Adoption of IDE Tools</h2>
+<p>
+  Which features of integrated development environments (IDEs) do
+  students actually use? To find out, this project will have a set of
+  students record their screens while solving a set of programming and
+  debugging problems, then analyze those recordings to see whether and
+  when students use breakpointing debuggers, multiple cursors,
+  refactoring tools, and other features.
+  <br>
+  <em>Keywords: observational study, integrated development environments</em>
+</p>
+
+<h2>Marimo and H5P</h2>
+<p>
+  <a href="https://marimo.io/">Marimo</a> is a next-generation
+  computational notebook that enables data scientists to mix code,
+  discussion, and results in a reproducible way.  Its plugin system
+  relies on <a href="https://anywidget.dev/">AnyWidget</a>, which
+  specifies a simple contract between extensions and Marimo's
+  rendering and execution engine.  The aim of this project is to
+  design, build, and test a set of Marimo plugins that can be used for
+  classroom exercises similar to those in the
+  <a href="https://h5p.org/content-types-and-applications">H5P</a>
+  toolkit: multiple choice, fill in the blanks, and so on.
+  <br>
+  <em>Keywords: Python, JavaScript, computational notebooks, education</em>
+</p>
+
+<h2>Markdown to DOM</h2>
+<p>
+  <a href="https://python-markdown.github.io/">Python-Markdown</a>
+  converts Markdown to HTML; if an application needs a DOM tree that
+  it can check or manipulate, it must then parse the HTML using a
+  library like <a href="https://beautiful-soup-4.readthedocs.io/">BeautifulSoup</a>,
+  perform whatever operations it needs to, and then convert the DOM
+  back to HTML. In this project, students will refactor
+  Python-Markdown so that it can generate a Beautiful Soup-compatible
+  DOM tree directly.
+  <br>
+  <em>Keywords: Python, open source, parsing</em>
+</p>
+
+<h2>What "Business of Software" Doesn't Teach</h2>
+<p>
+  Many universities offer an undergraduate course on entrepreneurship
+  or the business of software. This project will survey these courses
+  to determine what they <em>don't</em> teach. For example, how many
+  of these courses (if any) devote time to labor rights? How many
+  discuss anti-trust legislation? And how does that vary by country
+  and by the nature of the institution?
+  <br>
+  <em>Keywords: business of software, entrepreneurship, lesson content</em>
+</p>
+
+<h2>Narwhals</h2>
+<p>
+  <a href="https://narwhals-dev.github.io/narwhals/">Narwhals</a> is a
+  Python package that provides compatibility between dataframe
+  libraries, allowing applications to use
+  <a href="https://pandas.pydata.org/">Pandas</a>, <a href="https://pola.rs/">Polars</a>,
+  and other libraries through a common API. Students working on this
+  project will contribute directly to Narwhals, and will be
+  responsible for fixing bugs, designing new features, and shepherding
+  their work through review into production.
+  <br>
+  <em>Keywords: Python, data science, open source</em>
+</p>
+
+<h2>Parallelizing Marimo Notebooks</h2>
+<p>
+  <a href="https://marimo.io/">Marimo</a> is a next-generation
+  computational notebook that (a) stores everything as Python source
+  code and (b) analyzes code to prevent out-of-order execution of
+  cells. <a href="https://dagster.io/">Dagster</a> and
+  <a href="https://metaflow.org/">Metaflow</a> are computational
+  workflow tools that allow users to add decorators to functions and
+  methods to specify computational chunks. The goal of this project is
+  to see if the two can be married, i.e., to see if it's possible to
+  add decorators to cell functions in Marimo to parallelize notebooks
+  directly.
+  <br>
+  <em>Keywords: Python, parallel computing, workflows, computational notebooks</em>
+</p>
+
+<h2>Software Design for Everyone</h2>
+<p>
+  Each lesson in this tutorial will present a "what if?" scenario and
+  then explores its implications for software design.  How would you
+  redesign a cell phone app if you had crippling arthritis (which you
+  can simulate by taping popsicle sticks to your fingers)?  What if
+  you thought your government might take a sharp turn to the right and
+  retroactively weaponize women's health records: (how) could you
+  satisfy doctors' need for information with patient safety? The
+  practical exercises will assume enough programming skill to build
+  simple web applications.
+  <br>
+  <em>Keywords: accessibility, UI design, education</em>
+</p>
+
+<h2>Software Design by Example in Gleam</h2>
+<p>
+  <a href="https://gleam.run/">Gleam</a> is a modern functional language that runs on the
+  <a href="https://www.erlang.org/">Erlang/OTP</a> platform (and can
+  also be compiled to JavaScript). The aim of this project is to
+  translate examples from <a href="@root/sdxpy/"><em>Software Design
+  by Example</em></a> into Gleam to help people coming from Python and
+  other mainstream languages understand how to use FP in practice.
+  <br>
+  <em>Keywords: Gleam, functional programming, software design, education</em>
+</p>
+
+<h2>Software Performance by Example</h2>
+<p>
+  Each lesson in this tutorial will take a simple application, analyze
+  its performance, and then make it faster. Along the way, the lessons
+  will present general tips for improving performance similar to those
+  in Jon Bentley's classic book <em>Writing Efficient Programs</em>,
+  update them, and show how to apply them in practice.
+  <br>
+  <em>Keywords: C, Python, JavaScript, SQL, distributed systems, performance</em>
+</p>
+
+<h2>Software Security by Example</h2>
+<p>
+  The first lesson in this tutorial will present a simple
+  implementation of a wiki designed for shared note-taking.  Each of
+  the following lessons will fix one of its security shortcomings (or
+  one of the shortcomings introduced by an earlier fix).  Some will be
+  vulnerabilities such as cross-site scripting or SQL injection;
+  others will be missing features such as basic authentication or
+  <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a>, role-based
+  access control, the kind of logging that every sys admin wishes they
+  had, static code analysis, and eventually the audit and emergency
+  response procedures that such tools are meant to support.
+  <br>
+  <em>Keywords: web programming, digital security, education</em>
+</p>
+
+<h2>Session Recording and Playback</h2>
+<p>
+  <a href="https://asciinema.org/">asciinema</a> and similar tools can
+  record a terminal window session and play it back in another
+  terminal or in a browser.
+  <a href="https://github.com/gvwilson/lanimret">This prototype</a>
+  adds audio recording and synchronized playback so that (for example)
+  an instructor can record a live coding session with a voiceover for
+  a learner to go through later. This project will extend that
+  prototype to replay sessions in the browser.
+  <br>
+  <em>Keywords: JavaScript, UI design, multimedia, accessibility</em>
+</p>
+projects = {
+    "ongoing": [
+        "browsercast",
+        "marimo-h5p",
+    ],
+    "programming": [
+        "execution-order",
+        "narwhals",
+        "markdown-dom",
+        "dragnet",
+        "wysiwyg-editor",
+        "xkcd-charts",
+        "extending-lox",
+        "testing-rse",
+        "parallel-marimo",
+        "tidyblocks",
+        "wysiwyg-notebook",
+        "code-selectors",
+        "session-recording",
+        "tower-support",
+    ],
+    "tutorials": [
+        "web-tutorial",
+        "generative-art",
+        "sdx-gleam",
+        "des-sim",
+        "sdx-security",
+        "sdx-everyone",
+        "unbreaking",
+        "sdx-performance",
+    ],
+    "research": [
+        "undergrad-textbooks",
+        "variable-roles",
+        "code-review",
+        "claim-validity",
+        "understanding-ethics",
+        "missing-lessons",
+        "slide-text",
+        "tooling-effort",
+        "developer-discussions",
+        "ide-adoption",
+        "ghost-engineers",
+        # "hoye-test",
+        # "altruism",
+    ]
+}
+
+<h2>Comparing Slideshow Tools</h2>
+<p>
+  Are slideshows written using HTML- or Markdown-based tools more
+  text-intensive than those written in PowerPoint?  Putting it another
+  way, are slides written in formats that version control understands
+  (text) less likely to use diagrams than slides written with GUI
+  tools? To answer this question, the student(s) doing this project
+  will have to develop ways to quantify how graphical or textful a
+  presentation is, and learn how to make work of this kind
+  reproducible.
+  <br>
+  <em>Keywords: slideshows, tools, reproducible research</em>
+</p>
+
+<h2>Testing Research Software</h2>
+<p>
+  The <a href="@root/sdxjs/">JavaScript</a> and
+  <a href="@root/sdxpy/">Python</a> versions of <em>Software Design by
+  Example</em> showed readers how to design programs by working
+  through scaled-down examples. In contrast, this project will develop
+  scaled-down versions of things like
+  <a href="https://lorenabarba.com/blog/cfd-python-12-steps-to-navier-stokes/">fluid
+  flow simulators</a> and data analysis pipelines, and then shows
+  readers how to test them.  Each lesson will open with a short recap
+  of the science and a walk-through of the untested code, then explore
+  how that code can be tested.
+  <br>
+  <em>Keywords: Python, computational science, software testing, education</em>
+</p>
+
+<h2>A Blocks-Based Data Science Tool</h2>
+<p>
+  <a href="https://github.com/tidyblocks/tidyblocks">TidyBlocks</a>
+  was a prototype of a
+  <a href="https://scratch.mit.edu/">Scratch</a>-like tool for
+  teaching introductory data ascience.  It turned out to be an
+  inappropriate visual paradigm, as there was no natural way to
+  represent join operations as nested blocks.  The aim of this project
+  is to explore an alternative using a node-and-connector model like
+  that of <a href="https://nodered.org/">Node-RED</a>
+  or <a href="https://en.wikipedia.org/wiki/Yahoo!_Pipes">Yahoo!
+  Pipes</a>.
+  <br>
+  <em>Keywords: JavaScript, UI design, programming tools, education</em>
+</p>
+
+<h2>Tooling Effort over Time</h2>
+<p>
+  How does the percentage of effort devoted to tooling and deployment
+  change as a project grows and/or ages?  And how has it changed as
+  we've moved from desktop applications to cloud-based applications?
+  Once a project reaches a certain size, does the amount of tooling
+  (measured by number of files or lines of configuration) level off?
+  Does the effort required to maintain the tooling grow as the code
+  base grows, or does it level off as well? Answering these questions
+  will give the student(s) a chance to learn how to mine software
+  repositories.
+  <br>
+  <em>Keywords: mining software repositories, tooling, reproducible research</em>
+</p>
+
+
+
+<h2>A Tower Support Game</h2>
+<p>
+  A <a href="https://en.wikipedia.org/wiki/Tower_defense">tower defense game</a>
+  is one in which the player builds fixed defenses against incoming waves of
+  attackers. (<a href="https://en.wikipedia.org/wiki/Kingdom_Rush">Kingdom Rush</a>
+  is a personal favorite.) The objective of this game is to prototype a simple
+  tower <em>support</em> game, in which the player builds bridges, first aid
+  stations, and so on to help travelers reach their destination.
+  <br>
+  <img src="@root/files/2024/Kingdom_Rush_Gameplay.jpg" alt="By Ironhide Game Studio - https://www.gamezebo.com/reviews/kingdom-rush-review/, Fair use, https://en.wikipedia.org/w/index.php?curid=74161297">
+  <br>
+  <em>Keywords: games, JavaScript</em>
+</p>
+
+<h2>Unbreaking Software</h2>
+<p>
+  Most programmers spend a large part of their time debugging, but
+  most courses only show working code, and most textbooks don't
+  discuss how to prevent, diagnose, and fix errors.  This tutorial
+  will fill that gap by presenting dozens of case studies showing how
+  to find and fix real-world problems.  Along the way, it will present
+  examples of what programmers can do to handle errors gracefully,
+  from data structure repair to automatically restarting servers.
+  <br>
+  <em>Keywords: software design, debugging, education</em>
+</p>
+
+<h2>Analysis of Undergrad Textbooks</h2>
+<p>
+  Most undergraduate computer science programs have a first- or
+  second-year course on data structures and algorithms.  What do these
+  courses actually teach, how has their content changed since
+  Wirth's <a href="https://en.wikipedia.org/wiki/Algorithms_%2B_Data_Structures_%3D_Programs">classic
+  book</a> appeared in 1976, and which of these algorithms and data
+  structures are used in upper-year courses? To answer these
+  questions, this project will assemble and apply tools to analyze the
+  text of several dozen textbooks; along the way, the students doing
+  the project will have to decide how to identify topics, how to count
+  them, and how to make their work reproducible.
+  <br>
+  <em>Keywords: natural language processing, education</em>
+</p>
+
+<h2>Understanding Ethics</h2>
+<p>
+  This project will start by creating a set of scenarios in which a
+  programmer needs to make an ethical decision, each with
+  multiple-choice options.  An expert will determine the best answer
+  for each; students and professionals will then be asked to answer
+  the same questions, and the results will be analyzed to see how well
+  each group matches the experts' opinions and whether practitioners'
+  opinions are any better than those of students.
+  <br>
+  <em>Keywords: ethics, professional development</em>
+</p>
+
+
+
+<h2>Identification of Variable Roles</h2>
+<p>
+  Sajaniemi et al's work
+  on <a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles
+  of variables</a> identified and named ten small patterns in the way
+  variables are used in novice programs. This project would build
+  static and dynamic analysis tools to detect those patterns (and
+  possibly others) in programs as an aid to teaching, debugging, and
+  code review.
+  <br>
+  <em>Keywords: program analysis, education</em>
+</p>
+
+<h2>Human-Scale Web Programming</h2>
+<p>
+  <a href="https://lessonomicon.github.io/webonomicon/">This
+  incomplete tutorial</a> is an introduction to web programming aimed
+  at scientists and others will little or no experience with
+  JavaScript, HTTP requests, and related technologies.  In this
+  project, a student (or team of students) with an interest in
+  teaching would fill it in and offer it at least once in order to
+  learn more about how to create and deliver high-quality lessons.
+  <br>
+  <em>Keywords: JavaScript, Python, web programming, education</em>
+</p>
+
+<h2>A Little WYSIWYG Editor</h2>
+<p>
+  Panchekha and Harrelson's
+  <a href="https://browser.engineering/"><em>Web Browser Engineering</em></a>
+  builds a small but fully-functional web browser step by step to show
+  students how real ones work. The aim of this project is to build an
+  equally simple desktop WYSIWYG editor in Python that supports both
+  styled text and embedded sketching.
+  <br>
+  <em>Keywords: Python, UI design</em>
+</p>
+
+<h2>A WYSIWYG Computational Notebook</h2>
+<p>
+  <a href="https://jupyter.org/">Jupyter</a> uses JSON as its storage format, while
+  <a href="https://marimo.io/">Marimo</a>
+  and <a href="https://quarto.org/">Quarto</a> use Python with
+  embedded strings and Markdown with embedded code respectively. This
+  project will explore a third option by building an
+  <a href="https://wiki.documentfoundation.org/Documentation/DevGuide/Extensions">extension</a>
+  for <a href="https://www.libreoffice.org/">LibreOffice</a> using
+  the <a href="https://jupyter-client.readthedocs.io/en/latest/">the
+  Jupyter messaging protocol</a> so that people who prefer WYSIWYG
+  editors can embed code and its output alongside diagrams, tables,
+  and other media.
+  <br>
+  <em>Keywords: Java, computational notebooks, UI design</em>
+</p>
+
+<h2>XKCD Charts</h2>
+<p>
+  <a href="https://timqian.com/chart.xkcd/">Chart.xkcd</a> is a
+  JavaScript library that displays charts in the sketchy hand-drawn
+  style of <a href="https://xkcd.com/">XKCD</a>. Its creator is no
+  longer maintaining it; this project will fork the original code, fix
+  outstanding issues, and add new features such as axis limits and
+  stable coloring schemes.
+  <br>
+  <em>Keywords: JavaScript, SVG, UI design, data visualization, open source</em>
+</p>
