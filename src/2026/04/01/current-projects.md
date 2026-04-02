@@ -3,9 +3,14 @@ title: "Current Projects"
 date: 2026-04-01
 ---
 
+Personal coding and teaching projects I'm currently using Claude to explore:
+
+<div align="center" markdown="1">
+
 | Name | Notes |
 | ---- | ----- |
 | [asimpy](https://github.com/gvwilson/asimpy/) | discrete event simulator using `async`/`await` |
+| [calls](https://github.com/gvwilson/calls/) | discrete event simulation of a call center |
 | [change](https://github.com/gvwilson/change/) | workshop on organizational change |
 | [chart.xkcd](https://github.com/gvwilson/chart.xkcd/) | XKCD-style charts in Python and JavaScript |
 | [datadrag](https://github.com/gvwilson/datadrag/) | drag-and-drop dataflow for data science |
@@ -16,3 +21,5 @@ date: 2026-04-01
 | [plumbing](https://github.com/gvwilson/plumbing/) | systems programming for data scientists |
 | [rsdtx](https://github.com/gvwilson/rsdtx/) | research software design and testing by example |
 | [unbreak](https://github.com/gvwilson/unbreak/) | example-driven debugging tutorial |
+
+</div>
