@@ -84,7 +84,8 @@ Her dream stopped then,
 just like it always did.
 She didn't remember the *Rushin Doll* going under.
 She didn't remember being hauled out of the sea in a jelly dredging net hours later,
-or standing on the deck of the *Guinevere* for the first time.
+or standing on the deck of the *Guinevere* for the first time,
+shivering and miserable.
 But she remembered how blue the sky was,
 and how it had felt to be alone for the first time in her life.
 
@@ -97,8 +98,8 @@ or the governors,
 or the co-ops that bought the jellyfish he and Aunt Naggie dredged out of the Weddell Sea,
 or passers-by who looked at him the wrong way
 or didn't have the decency to look at him at all.
-The docksiders in Rothera never understood why he didn't drop her on the pier and sail away.
-They wouldn't have believe that
+The docksiders in Rothera never understood why he didn't drop Iffy on the pier and sail away.
+They wouldn't have believed that
 his long-suffering wife had put her hands on her hips
 and told him that the child was staying or she was leaving,
 which was it going to be?
@@ -113,11 +114,11 @@ he snapped over her tearful protests when she found out it was gone.
 
 He would have gambled away the book tucked into the suit as well
 if Aunt Naggie hadn't misplaced it until it slipped his mind.
+It came from a time when people made books out of paper
+and there were still parrots and eagles and flamingoes.
 It had belonged to Third when she was Iffy's age,
 and to Second before that,
-and came from a time when people made books out of paper
-and there were still parrots and eagles and flamingoes.
-Iffy re-read it every night no matter how tired she was from chores.
+and Iffy re-read it every night no matter how tired she was from chores.
 She drew the pictures from memory on her app when she was bored by school,
 and took it out on those rare occasions when another child came on board to play with her
 and told them all about *psittacus galgulus* and *aquila chrysaetos*
@@ -127,7 +128,7 @@ and her favorite, *phoenicopterus ruber*.
 "Real as gulls and jellies!"
 As real as the handwritten comments in the book's margins that she spent hours deciphering.
 As real as being poor and lonely
-as Uncle Jack's business deals left them with a little less each season.
+as Uncle Jack's schemes and business deals left them with a little less each season.
 
 Iffy woke that morning to the sound of Aunt Naggie bustling about in the galley.
 She lay on the narrow foam packing slab she used as a mattress for one final precious moment
@@ -165,7 +166,7 @@ Others were newer:
 broad-beamed cargo haulers flying the Aussie stars
 or sleek Zillion-built clippers with bright kite sails furled around triple masts.
 Gulls wheeled overhead in their endless search for scraps,
-complaining to one another about that nobody threw away anything worth eating any more.
+complaining to one another that nobody threw away anything worth eating any more.
 
 The town watched the harbor like a grumpy old man watching children at play.
 Once upon a time,
@@ -173,7 +174,7 @@ Halley had been a research station where scientists studied the early signs of t
 As the ice disappeared and life back home became desperate
 they converted their labs into temporary houses.
 By the time their children were grown they had stopped calling the houses "temporary".
-They had stopped doing research too.
+They had stopped doing research, too.
 
 Two thousand people now made Halley their home under the governors' watchful eyes.
 During the summer blooms they dredged jellyfish out of the sea
@@ -189,7 +190,7 @@ but the third—the one Iffy looked at like a hungry gull looking at a scrap of 
 Shiploads of precious equipment had already been carted through its double-wide doors:
 forges,
 presses,
-a lathe with a spindle thicker than Iffy's leg,
+a lathe with a spindle as thick as Iffy's arm,
 and the prize of them all,
 a printer all the way from Nova Zembla.
 
@@ -205,7 +206,7 @@ would be the plans and raw materials people could give it.
 
 Iffy had seen some of those plans glowing softly on apps in Halley's three cafés.
 She had taken surreptitious notes on her own app instead of doing homework
-while mechanics and core techs argued about weights and tolerances and expansion coefficients,
+while engineers and mechanics argued about weights and tolerances and expansion coefficients,
 then spent hours looking up words she didn't know and figuring out how they fit together.
 
 She wanted to be part of those conversations so much it ached.
@@ -222,7 +223,7 @@ After a while she had stopped looking,
 afraid of who or what might notice.
 
 "Girl! Girl! Dammit, woman, where is that affin' girl?"
-Iffy jumped as Uncle Jack bellowed from below deck.
+Iffy jumped as Uncle Jack bellowed below deck.
 He had been out with his biffs the night before,
 which was Uncle Jack-speak for drinking more than he could handle
 and gambling more than they could afford.
@@ -232,7 +233,7 @@ and she couldn't remember the last time there had been any mention of new clothe
 or of replacing their frayed nets.
 
 "Girl!" Uncle Jack shouted again.
-"Get your affin' tail down here *now* or saints help me you'll be scrapin' barnacles for a *week*!"
+"Get your affin' tail along here *now* or saints help me you'll be scrapin' barnacles for a *week*!"
 His hand made a meaty *thud!* as he slapped the bulkhead for emphasis.
 
 With one last longing look at the machine shop,
@@ -251,9 +252,9 @@ then bluster to Aunt Naggie after they were gone
 about how the governors were going to sell them all to the Zillions
 as soon as they could get a decent price.
 
-"Your eggs'll be ready in a mo," Aunt Naggie cut in hurriedly
+"Your tofu will be ready in a mo," Aunt Naggie cut in hurriedly
 as Uncle Jack opened his mouth to unleash another bellow.
-"Do you want a bit o' curry on them?
+"Do you want a bit o' curry on it?
 I think I have—no, wait, not there…"
 She rummaged among the precious little jars
 that sat on the shelf beside the galley's two-loop stove.
@@ -261,9 +262,9 @@ that sat on the shelf beside the galley's two-loop stove.
 "Affin' right I want a bit o' curry," Uncle Jack grumbled,
 settling into a fold-up chair that squeaked under his weight.
 
-Iffy's stomach grumbled as the smell of eggs, turmeric, and cumin teased her nostrils.
+Iffy's stomach grumbled as the smell of hot oil, turmeric, and cumin teased her nostrils.
 Tilting her frying pan,
-Aunt Naggie slid two perfectly fried eggs into Uncle Jack's bowl.
+Aunt Naggie slid two perfectly fried squares of tofu into Uncle Jack's bowl.
 Without so much as a grunt of thanks
 her husband took the entire basket of naan from the center of table in one hand
 and his plate with the other
@@ -277,7 +278,7 @@ Aunt Naggie let out her breath and smiled at her foster daughter.
 lowering herself into the galley.
 
 "Course not. Here."
-She slipped a hard-boiled egg out of the pocket of her apron and handed it to Iffy.
+She slipped a piece of tofu wrapped in nori out of the pocket of her apron and handed it to Iffy.
 "An' here, this too."
 A piece of perfectly-browned naan,
 so fresh it was slightly sticky,
@@ -304,7 +305,7 @@ I could head over right now if you wanted."
 Aunt Naggie teased.
 "Well,
 if you're goin' that way,
-stop in at Sandhu's an' see what they want for eggs—those were our last.
+stop in at Sandhu's an' see what they want for tofu—that was the last of ours.
 I'll tell Jack you're off doin' chores once he's…"
 She finished her sentence with an apologetic shrug.
 
@@ -314,14 +315,14 @@ She climbed back onto deck and hurried aft as quietly as she could.
 The ship's toolbox rattled as she dragged it out from under the bench at the *Guinevere*'s stern,
 its contents so essential that even Uncle Jack wouldn't sell them.
 After a furtive glance over her shoulder,
-she reached up under the bench and unclipped the canvas bag that held *her* tools,
+she reached further back under the bench and unclipped the canvas bag that held *her* tools,
 the ones she had salvaged and mended
 or had been given in return for doing odd jobs for people around the harbor.
 She pushed the toolbox back into place and tucked her bag under her coat.
 
 It only took her a few moments to disengage the bent rod from the engine.
 Slipping it into her pocket,
-she closed the engine casing as gently as she could and hurried down the gangplank.
+she closed the engine casing as quietly as she could and hurried down the gangplank.
 The weight of life on the *Guinevere* lifted from her shoulders
 as her boots hit the pier.
 
@@ -331,11 +332,11 @@ An old couple had woken early
 to scrape tweaked barnacles off long strips of plastic they had hung from the pier months before.
 Hundreds of little shells glittered with tiny particles of metal they had filtered out of the water.
 Ground down and incinerated,
-they would yield a few milligrams of lanthanum or indium
+they would yield a milligram of manganese or indium
 that could keep some old piece of tech limping along for another season.
 
 One of the women straightened and raised a hand in greeting as Iffy went by.
-"Beautiful day," she said. "You headin' to town?"
+"Beautiful day," she said. "You headin' into town?"
 
 "Am that," Iffy nodded,
 not wanting to slow down for conversation.
@@ -355,11 +356,11 @@ Iffy didn't expect them to.
 Sailors were superstitious, and she was a sole survivor.
 Nobody looked at her sidelong
 the way they had when the loss of the *Rushin Doll* was still fresh,
-but over the yeras Iffy had found that
+but over the years Iffy had found that
 friends were mostly something that happened to other people.
 
 *Mishra & Co Fine Technical Work - No Job Too Small!*
-occupied a long shed that might have been the oldest building in Halley.
+occupied a long shed that its owner claimed was the oldest building in Halley.
 The sliding door that took up half its front wall hadn't opened since before she was born.
 Instead,
 she banged on the smaller door cut into it.
@@ -375,7 +376,7 @@ jerking his thumb over his shoulder and making just enough room for Iffy to sque
 
 The inside of the shed was a humid mug of long-ago fish,
 freshly singed metal,
-and the not-entirely-legal bricks of rendered jelly and coal dust
+and the not-quite-illegal bricks of rendered jelly and coal dust
 that Mister Mishra burned in the furnace
 to keep his equipment from freezing in the winter.
 Mismatched lights hung from the ceiling.
@@ -392,8 +393,7 @@ Pushing his safety goggles up onto his forehead,
 he tugged the calloused fingers of his real hand through the tangles in his beard.
 "Buy, sell, or trade?" he asked.
 
-"Trade," Iffy said.
-She held up the bent rod.
+"Trade," Iffy said, holding up the bent rod.
 "Tangled some flotsam comin' in from our last dredge.
 The engine over-spun before I could get to it.
 There's no cracks or nothin'," she added hastily as she handed it to him.
@@ -430,7 +430,7 @@ to say that lunch was ready but *amma* said he had to clean up first.
 as he spun the handwheel on the drill to lift the laser into its locking position.
 
 "No thanks—I brought," Iffy said,
-holding up the egg Aunt Naggie had given her.
+holding up the piece of tofu Aunt Naggie had given her.
 
 "Hm." Mister Mishra ran his fingers through his beard again.
 "Not much to grow on."
@@ -468,7 +468,7 @@ before Mister Mishra reached the door.
 Drilling holes wasn't hard—she'd mastered that long ago.
 The hard part was drilling them in the right place.
 After examining and discarding half a dozen pieces of scrap,
-she found one bent enough to be a challenge.
+she found one that was bent enough to be a challenge.
 
 The first hole only took a minute.
 It then took her another fifteen minutes to measure,
@@ -554,11 +554,11 @@ jerking his chin at a random patch of floor before turning and stalking away.
 The door banged behind him.
 
 Iffy emptied the dustpan into the trash and tossed her goggles into her toolbag.
-It wasn't fair—Jeep could use the equipment any time he wanted,
+It wasn't fair:
+Jeep could use the equipment any time he wanted,
 but all he ever did was complain and look for ways not to.
-
 The worst thing was,
-she knew it wasn't Jeep's fault.
+she knew it wasn't his fault.
 Like everyone else in Antarctica
 he had been inducted into the Marines when he turned sixteen.
 He'd only served a few months—just long enough to be sure that the imprinting had worked—but
@@ -570,8 +570,8 @@ his tone making it clear that she shouldn't bring it up again.
 
 The sky was the same relentless blue it had been an hour earlier when Iffy stepped outside,
 the mended reciprocating rod tucked inside her coat.
-She peeled her egg as she walked toward the grocery store,
-trying not to get grease on the rubbery white flesh.
+She gnawed on her breakfast as she walked toward the grocery store,
+trying not to get grease on the rubbery white tofu.
 A couple of Aunt Naggie's friends smiled or waved as she went by.
 She nodded back,
 ignoring the other people who tsk'ed to each other
@@ -587,7 +587,7 @@ and then glass broke on stone.
 The second man grunted acknowledgment.
 Iffy kept her eyes on the cobblestones and picked up her pace.
 
-Sandhu's grocery store was out of eggs.
+Sandhu's grocery store was out of tofu.
 They had onions,
 though,
 and a box of dried green peppers from somewhere carefully unspecified.
