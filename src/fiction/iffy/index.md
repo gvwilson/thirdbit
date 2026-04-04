@@ -1829,12 +1829,12 @@ It took her a long time to fall asleep again.
 
 ## Chapter 3
 
-It was four days to Rothera across the Weddell Sea.
+It was a four-day across the Weddell Sea to Rothera.
 Once upon a time they would have driven across a solid sheet of ice.
 During the Melt they would have had to thread their way through cakes and bergs,
 but those days were long gone.
-There was nothing between them and their destination except hungry gulls,
-floating plastic,
+There was nothing between them and their destination now except hungry gulls,
+floating bits of century-old plastic,
 and the faint but ever-present risk of the sea turning to foam beneath them.
 
 Halley quickly fell below the horizon.
@@ -1875,7 +1875,7 @@ Uncle Jack jerked a thumb at a panel highlighted in orange.
 "You get that backstay cable mended soonish if you want lunch."
 
 "Yessir," Iffy said obediently.
-He'd been drinking again, she realized.
+He'd been drinking, she realized.
 She could smell it on his breath,
 and from the way he clutched the wheel to hold himself steady
 she guessed he'd been at it for a while.
@@ -1903,7 +1903,7 @@ I was thinking about the *Landrieu*.
 The big ship back at Halley,"
 he continued as Iffy gave him a blank look.
 "The one the town uses as a breakwater.
-She was a marvel in her time.
+She was a marvel.
 Fractal carbon ribs,
 a foamed poly-composite hull,
 and a core smart enough to qualify for citizenship.
@@ -1929,7 +1929,7 @@ Iffy wanted to tell him that it wasn't her fault,
 but she bit back her words.
 There was no way she could say that without pointing the finger at Uncle Jack,
 and as much as she wanted him to think well of her,
-no self-respecting sailor would ever cast shade on her captain
+no self-respecting sailor would ever cast shade on their captain
 in front of a passenger.
 
 "All right," Wales said,
@@ -2003,6 +2003,7 @@ though,
 it always came down to the combination of clever hands,
 brute force,
 and improvisation that Iffy had used on the cable.
+
 She loved it.
 
 Wales worked beside her the whole time,
@@ -2045,7 +2046,7 @@ He hates ecos even worse'n he hates Zillions."
 
 Wales sighed again.
 "No, I'm not an Ecologist.
-Or Brazilian, for that matter.
+And I'm definitely not Brazilian.
 I just…"
 He squatted on his haunches and looked resignedly at the engine.
 "Come on. Let's get this done."
@@ -2115,11 +2116,11 @@ Aunt Naggie blushed.
 Her "knitting" consisted of two balls of yarn,
 a pair of needles,
 and an endless series of romance sims
-featuring dashing Zillion smugglers with smoldering eyes
+featuring dashing smugglers with smoldering eyes
 who didn't realize how empty their lives were until they met the right person,
 who was inevitably a poor but honest sailor.
 The stories were churned out by a core in Rothera
-that had spent the war crafting inspirational propaganda for soldiers and civilians.
+that had spent the war crafting inspirational propaganda.
 Their implausibility and steamy dialogue
 only added to the thrill Iffy felt
 whenever she managed to get an hour alone with Aunt Naggie's app.
@@ -2147,7 +2148,7 @@ She tossed her app aside and pulled out her bird book.
 The albatross, the grouse, the crow with his sad, intelligent eyes…
 Someone had written *Looks like Grandad!* beside it in tiny curving script.
 Iffy had long ago decided that the writer had been a girl about her own age
-who had a family and a whole pack of friends.
+who had a family and a whole flock of friends.
 She closed the book,
 tucked it back into her mattress,
 and squeezed her eyes shut.
@@ -2212,7 +2213,7 @@ After a moment's hesitation it bleeped and blinked green
 to confirm that the ship's core understood a different human was now in charge.
 
 Iffy had scrolled through the core's log many times.
-It had been almost sixty years since anyone had last reset it
+It had been almost sixty years since anyone had last cleared it
 (probably,
 she suspected,
 because the holds had been full of contraband instead of jellyfish at the time).
@@ -2241,11 +2242,13 @@ as Aunt Naggie trudged back to the cabin she still shared with her husband of tw
 then stared out at the sea.
 The endless light of the Antarctic summer
 cut sharp reflections into the waves.
-She toyed with the idea of playing a sim on the ship's core—a sea monster
-with tentacles the size of pier posts,
+She toyed with the idea of playing a sim on the ship's core:
+a sea monster with tentacles the size of pier posts,
 or a war-time training drill
-that would send her dodging and weaving through flocks of hostile drones—but
-instead she sighed and pulled up some homework.
+that would send her dodging and weaving through flocks of hostile drones.
+Instead,
+she sighed and pulled up some homework.
+
 Her classroom schooling had petered out when she turned ten.
 Since then her teachers had been tutoring programs
 that Aunt Naggie had salvaged, scrounged, or traded for,
@@ -2255,7 +2258,7 @@ her foster mother would sigh and look disappointed,
 and she'd rather face anything—even biology—than that.
 
 That evening, though, the subject was history.
-Iffy cranked the interaction speed to maximum as the sim unfolded.
+Iffy cranked the replay speed to maximum as the sim unfolded.
 People burned coal,
 then oil,
 then coal again even though they knew what it was doing to the world.
@@ -2306,9 +2309,8 @@ and then forgot they'd done it.
 Have you tried putting a twist coil inside the housing
 to rebalance the thermal bleed?"
 
-And as easily as that they slid into a conversation
-that leaped from
-the relative merits of fractal carbon versus foamed aluminum for masts
+And just like that they slid into a conversation
+that leaped from the relative merits of fractal carbon versus foamed aluminum for masts
 to tricks for keeping a drill press lined up and steady
 when the building it was in was shaking.
 Iffy was just about to ask when that would ever actually be an issue
@@ -2402,7 +2404,8 @@ but the ships themselves were worth enough
 for their captains to make a habit of sailing close to each other
 when strangers were near.
 And while Iffy didn't pay any more attention to politics than her homework required,
-she knew that the tension between the Aussies, the Zillions,
+she knew that the tension between the Aussies,
+the Zillions,
 and the governors who ran Antarctica
 was worse than it had ever been.
 
@@ -2545,7 +2548,7 @@ There was nothing around them but emptiness.
 
 "Have you sent a distress call?" Wales asked quietly.
 
-Uncle Jack scowled.
+Uncle Jack nodded, scowling.
 "Nearest shout I got back is a hundred kay east,
 but they're smaller than us an' too scared to fight.
 Halley wasn't much interested 'til I told them our friends looked military.
@@ -2748,7 +2751,7 @@ as the *Guinevere*'s core tried to predict what would happen next.
 "Oh hell," Wales said softly
 as a section of the sea ridge started sliding slowly into the depths.
 Blue fissure lines flashed along the edges of the mudslide like lightning,
-their bright lines connecting and spreading in a sudden spiderweb fracture.
+connecting and spreading in a sudden spiderweb fracture.
 
 "Come about," Wales snapped at Uncle Jack. "Now!"
 
