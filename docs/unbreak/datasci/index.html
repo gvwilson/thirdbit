@@ -27,9 +27,11 @@
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../web/">HTTP and APIs</a></li>
 <li><a class="active" href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
 <li><a href="../polars/">Polars</a></li>
 <li><a href="../shell/">The Unix Shell</a></li>
 <li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -72,7 +74,7 @@ epsilon,90.0
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>&gt;=</code> instead of <code>&gt;</code> (or vice versa) in the filter expression, so
-the script keeps rows it should drop. Teaches how to verify filter logic by checking
+the script keeps rows it should drop. Shows how to verify filter logic by checking
 boundary values and using <code>.filter()</code> with explicit comparison operators.</p>
 </details>
 <h2 id="datasci-multilinecsv">Multi-Line CSV Header</h2>
@@ -98,7 +100,7 @@ Carol,15,150
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is not passing <code>skip_rows</code> to skip the extra header lines, so Polars reads
-the multi-line header as data and reports the wrong number of rows. Teaches how to
+the multi-line header as data and reports the wrong number of rows. Shows how to
 inspect the first few rows of a DataFrame with <code>.head()</code> and how to use <code>skip_rows</code>
 and <code>has_header</code> to handle non-standard file layouts.</p>
 </details>
@@ -127,7 +129,7 @@ null values where you did not expect them?</p>
 <summary>Show explanation</summary>
 <p>The bug is joining on a column whose name differs by case (<code>"Region"</code> vs.
 <code>"region"</code>), which Polars treats as different columns, so every row in the joined
-output has a null for the group mean. Teaches that Polars column names are
+output has a null for the group mean. Shows that Polars column names are
 case-sensitive and how to diagnose null-filled join results.</p>
 </details>
 <h2 id="datasci-datestring">Dates Read as Strings</h2>
@@ -154,7 +156,7 @@ followup,2024-12-01,31
 <summary>Show explanation</summary>
 <p>The bug is that Polars read the date column as strings, so the comparison is
 lexicographic rather than chronological and the filter returns no rows even though
-matching rows exist. Teaches how to inspect inferred column types with <code>.schema</code>, and
+matching rows exist. Shows how to inspect inferred column types with <code>.schema</code>, and
 how to cast a column to <code>pl.Date</code> before filtering.</p>
 </details>
 <h2 id="datasci-aggorder">Aggregation Order Error</h2>
@@ -186,7 +188,7 @@ East,gadget,180
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is calling <code>.sum()</code> before <code>.group_by()</code>, which sums the entire column first
-and then groups a single-row DataFrame, producing unexpectedly large totals. Teaches
+and then groups a single-row DataFrame, producing unexpectedly large totals. Shows
 the importance of operation order in lazy and eager pipelines and how to verify
 intermediate results.</p>
 </details>
@@ -216,7 +218,7 @@ does the error appear to come from? Is that where the mistake actually is?</p>
 <summary>Show explanation</summary>
 <p>The bug is referencing a column that was renamed in an earlier step, so a
 <code>ColumnNotFoundError</code> is raised at <code>.collect()</code> time rather than when the
-transformation is written. Teaches how Polars lazy evaluation defers errors and how
+transformation is written. Shows how Polars lazy evaluation defers errors and how
 to use <code>.collect()</code> on intermediate steps to locate the failing transformation.</p>
 </details>
 <h2 id="datasci-wrongdelim">Wrong CSV Delimiter</h2>
@@ -248,7 +250,7 @@ Dave;35;61
 <p>The bug is that the second file uses semicolons as delimiters, so Polars reads the
 entire row as a single column. When <code>concat</code> is called with <code>how="diagonal"</code>, missing
 columns are filled with nulls and the result has twice as many columns as expected.
-Teaches how to check column names and counts before concatenating DataFrames.</p>
+Shows how to check column names and counts before concatenating DataFrames.</p>
 </details>
 <h2 id="datasci-sentinel">Sentinel Values Mistaken for Data</h2>
 <p>Run the script and look at the mean. Then inspect the raw data. Are there any
@@ -280,7 +282,7 @@ P007,22,510
 <summary>Show explanation</summary>
 <p>The bug is that the dataset uses <code>999</code> as a sentinel for missing data rather than a
 true null, so <code>.fill_null()</code> has no effect on them and the mean is skewed by what
-appear to be valid large numbers. Teaches how to identify domain-specific sentinel
+appear to be valid large numbers. Shows how to identify domain-specific sentinel
 values and replace them with <code>pl.Null</code> before analysis.</p>
 </details>
 <h2 id="datasci-whitespace">Whitespace in Group Keys</h2>
@@ -307,7 +309,7 @@ East ,160
 <summary>Show explanation</summary>
 <p>The bug is that a string column has inconsistent whitespace (e.g., <code>"North "</code> and
 <code>"North"</code> are treated as different groups), so <code>group_by</code> followed by <code>agg</code> produces
-more groups than expected. Teaches how to inspect unique values with <code>.unique()</code>,
+more groups than expected. Shows how to inspect unique values with <code>.unique()</code>,
 use <code>.str.strip_chars()</code> to normalize strings before grouping, and verify group
 counts.</p>
 </details>
@@ -345,7 +347,7 @@ number of null rows what you expected for a 7-day window?</p>
 <summary>Show explanation</summary>
 <p>The bug is passing <code>window_size=7</code> without setting <code>min_periods=1</code>, so any window
 that cannot be fully filled returns null and the result has far more nulls than
-expected. Teaches how rolling aggregations handle incomplete windows and how to
+expected. Shows how rolling aggregations handle incomplete windows and how to
 choose between strict and lenient behavior with <code>min_periods</code>.</p>
 </details>
 <h2 id="datasci-quanttype">Missing Quantitative Encoding Type</h2>
@@ -370,7 +372,7 @@ that reflect the <code>value</code> column?</p>
 <summary>Show explanation</summary>
 <p>The bug is encoding the y-axis with <code>alt.Y("value")</code> without specifying
 <code>type="quantitative"</code>, so Altair treats the column as nominal and counts categories
-instead of summing values, giving all bars the same height. Teaches how Altair
+instead of summing values, giving all bars the same height. Shows how Altair
 infers encoding types and why specifying <code>type</code> explicitly avoids silent
 misinterpretation.</p>
 </details>
@@ -399,7 +401,7 @@ continuous gradient, or as a discrete set of colors?</p>
 <summary>Show explanation</summary>
 <p>The bug is that the color column was read as a string (e.g., <code>"3.5"</code>) rather than a
 float, so Altair applies a nominal color scale and the scatter plot shows a discrete
-legend with arbitrary colors instead of a continuous gradient. Teaches how data types
+legend with arbitrary colors instead of a continuous gradient. Shows how data types
 in the source DataFrame determine Altair's default encoding choices.</p>
 </details>
 <h2 id="datasci-temporal">Nominal vs. Temporal Encoding</h2>
@@ -424,7 +426,7 @@ along the x-axis, or in a different order?</p>
 <summary>Show explanation</summary>
 <p>The bug is encoding the x-axis date column as <code>type="nominal"</code> instead of
 <code>type="temporal"</code>, so Altair does not order the points chronologically and the line
-chart draws disconnected segments instead of a continuous line. Teaches the
+chart draws disconnected segments instead of a continuous line. Shows the
 difference between nominal and temporal encoding in Altair and how to verify axis
 ordering.</p>
 </details>
@@ -454,7 +456,7 @@ is 100 or more, or does it show all of them?</p>
 <summary>Show explanation</summary>
 <p>The bug is a field name in <code>alt.Filter</code> that does not match any column. Altair
 silently ignores the filter rather than raising an error, so all categories are
-shown instead of just the top 10. Teaches how to debug Altair transforms by
+shown instead of just the top 10. Shows how to debug Altair transforms by
 inspecting the chart's JSON specification and checking field names match the data
 source.</p>
 </details>
@@ -481,9 +483,9 @@ field in the tooltip show a value?</p>
 <summary>Show explanation</summary>
 <p>The bug is that the tooltip field name has a space in it (e.g., <code>"Sales Region"</code>)
 but is referenced without quoting in the Altair shorthand string, so the tooltip
-shows <code>null</code> for that field even though the data contains values. Teaches how Altair
+shows <code>null</code> for that field even though the data contains values. Shows how Altair
 shorthand handles special characters and when to use
-<code>alt.Tooltip(field=..., title=...)</code> instead.</p>
+<code>alt.Tooltip(field=…, title=…)</code> instead.</p>
 </details>
 <h2 id="datasci-polarsinaltair">Polars DataFrame in Altair</h2>
 <p>Run the script and open the saved chart in a browser. Does the chart show any data
@@ -507,7 +509,7 @@ points?</p>
 <summary>Show explanation</summary>
 <p>The bug is passing the Polars DataFrame directly to <code>alt.Chart()</code> instead of
 converting it to a pandas DataFrame or using <code>alt.Data</code>, so the chart is blank.
-Teaches which data formats Altair accepts natively and how to convert between Polars
+Shows which data formats Altair accepts natively and how to convert between Polars
 and the formats Altair supports.</p>
 </details>
 <h2 id="datasci-spurcorr">Spurious Perfect Correlation</h2>
@@ -532,7 +534,7 @@ and the formats Altair supports.</p>
 <summary>Show explanation</summary>
 <p>The bug is that both columns were derived from the same source column in the same
 pipeline step (a copy rather than an independent transformation), so the correlation
-is exactly 1.0 for columns that should not be perfectly correlated. Teaches how to
+is exactly 1.0 for columns that should not be perfectly correlated. Shows how to
 audit column provenance in a pipeline and use scatter plots to sanity-check
 correlation claims.</p>
 </details>
@@ -563,7 +565,7 @@ runs. Does memory stay roughly constant, or does it grow?</p>
 <summary>Show explanation</summary>
 <p>The bug is accumulating all chunks in memory before concatenating rather than
 processing each chunk and writing results incrementally, so the pipeline runs out of
-memory on large files. Teaches streaming versus batch processing patterns and how to
+memory on large files. Shows streaming versus batch processing patterns and how to
 use Polars' <code>scan_csv</code> with lazy evaluation to avoid loading the full file.</p>
 </details>
 <h2 id="datasci-floatyear">Float Year in Faceted Chart</h2>
@@ -593,7 +595,7 @@ type of the <code>year</code> column in the DataFrame.</p>
 <p>The bug is that the year column contains floats (e.g., <code>2021.0</code>) because Polars
 inferred it as <code>Float64</code>. Altair's facet treats each unique float as a separate
 nominal value but the layout collapses to one panel due to the unexpected type.
-Teaches how to cast integer-like columns to <code>pl.Int32</code> before charting and how to
+Shows how to cast integer-like columns to <code>pl.Int32</code> before charting and how to
 verify facet behavior with a small sample.</p>
 </details>
 <h2 id="datasci-outoforder">Out-of-Order Notebook Cells</h2>
@@ -616,7 +618,7 @@ error?</p>
 <p>The bug is that the notebook had cells executed out of order, leaving a modified
 DataFrame in memory that masked an error in the cleaning step. The script produces
 correct results when run step by step in a notebook but wrong results when run as a
-script. Teaches why notebooks must be tested by restarting the kernel and running
+script. Shows why notebooks must be tested by restarting the kernel and running
 all cells in order, and how to structure pipelines so each step depends only on its
 explicit inputs.</p>
 </details>
@@ -632,7 +634,7 @@ explicit inputs.</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../polars/">Polars</a> <span aria-hidden="true">⇒</span>
+<a href="../dataviz/">Data Visualization</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

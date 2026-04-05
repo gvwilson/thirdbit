@@ -27,9 +27,11 @@
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../web/">HTTP and APIs</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
 <li><a class="active" href="../polars/">Polars</a></li>
 <li><a href="../shell/">The Unix Shell</a></li>
 <li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -68,7 +70,7 @@ have? How many columns did the original DataFrame have?</p>
 <summary>Show explanation</summary>
 <p>The bug is using <code>.select()</code> to add a new column. <code>.select()</code> returns only the
 columns listed in the call and drops all others, so <code>id</code> and <code>name</code> are lost.
-Teaches the difference between <code>.select()</code> (choose columns) and <code>.with_columns()</code>
+Shows the difference between <code>.select()</code> (choose columns) and <code>.with_columns()</code>
 (add or replace columns while keeping the rest).</p>
 </details>
 <h2 id="polars-nocollect">Lazy Frame Never Collected</h2>
@@ -94,7 +96,7 @@ something else? What type does <code>type(result)</code> report?</p>
 <summary>Show explanation</summary>
 <p>The bug is calling <code>.lazy()</code> to start a lazy pipeline but never calling <code>.collect()</code>
 at the end, so the result is a <code>LazyFrame</code> (a query plan) rather than a <code>DataFrame</code>.
-The filter and select have not executed. Teaches the difference between eager and
+The filter and select have not executed. Shows the difference between eager and
 lazy evaluation in Polars and when <code>.collect()</code> is required.</p>
 </details>
 <h2 id="polars-nullequal">Null Comparison with == None</h2>
@@ -115,31 +117,30 @@ lazy evaluation in Polars and when <code>.collect()</code> is required.</p>
 <summary>Show explanation</summary>
 <p>The bug is using <code>== None</code> to test for missing values. In Polars, any comparison
 involving null yields null rather than a boolean, so every row in the filtered
-result is null and the filter keeps nothing. Teaches null semantics in Polars and
+result is null and the filter keeps nothing. Shows null semantics in Polars and
 how to use <code>.is_null()</code> to correctly select rows where a value is missing.</p>
 </details>
-<h2 id="polars-castsilent">Silent Null on Cast Failure</h2>
-<p>Run the script and check the null count it prints. Did the cast raise an error for
-the row that contained <code>"N/A"</code>?</p>
+<h2 id="polars-castsilent">Float Cast Truncates Instead of Rounding</h2>
+<p>Run the script and compare the values in the <code>score</code> column to the expected rounded
+values printed below them. What happened to 88.7 and 95.6?</p>
 <div data-inc="castsilent.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-    <span class="s2">"value"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"10"</span><span class="p">,</span> <span class="s2">"20"</span><span class="p">,</span> <span class="s2">"N/A"</span><span class="p">,</span> <span class="s2">"40"</span><span class="p">],</span>
+    <span class="s2">"score"</span><span class="p">:</span> <span class="p">[</span><span class="mf">88.7</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mf">95.6</span><span class="p">,</span> <span class="mf">61.9</span><span class="p">],</span>
 <span class="p">})</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Int64</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"score"</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Int64</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"null count in value: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]</span><span class="o">.</span><span class="n">null_count</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"expected if rounded:"</span><span class="p">,</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">88.7</span><span class="p">,</span> <span class="mf">72.3</span><span class="p">,</span> <span class="mf">95.6</span><span class="p">,</span> <span class="mf">61.9</span><span class="p">]])</span>
 </code></pre></div>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is passing <code>strict=False</code> to <code>cast()</code>. This tells Polars to convert any value
-it cannot parse to null rather than raising an error, so the bad value <code>"N/A"</code>
-disappears into the data without warning. Teaches how to inspect null counts after a
-cast to detect silent data loss, and why removing <code>strict=False</code> (or setting
-<code>strict=True</code> explicitly) is safer when the input is expected to be clean.</p>
+<p>The bug is that <code>cast(pl.Int64)</code> truncates toward zero rather than rounding, so
+88.7 becomes 88 and 95.6 becomes 95 instead of 89 and 96. No error is raised.
+Shows that integer casting in Polars is a truncation operation, and how to use
+<code>.round(0).cast(pl.Int64)</code> when rounding behavior is intended.</p>
 </details>
 <h2 id="polars-overwindow">group_by Collapses Rows</h2>
 <p>Run the script. How many rows does the output have? How many rows did you expect?</p>
@@ -160,7 +161,7 @@ cast to detect silent data loss, and why removing <code>strict=False</code> (or 
 <summary>Show explanation</summary>
 <p>The bug is using <code>group_by().agg()</code> when the goal is to add a per-row column showing
 each employee's department mean. <code>group_by().agg()</code> collapses the DataFrame to one row
-per group. Teaches the difference between aggregation (which reduces rows) and window
+per group. Shows the difference between aggregation (which reduces rows) and window
 functions (which compute a value per row), and how to use <code>.over()</code> inside
 <code>.with_columns()</code> to attach group statistics to every row.</p>
 </details>
@@ -189,7 +190,7 @@ result. Which order is missing, and why?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using the default join, which is inner. Order 4 has a <code>customer_id</code> of 99
-that does not appear in the customers table, so it is silently dropped. Teaches the
+that does not appear in the customers table, so it is silently dropped. Shows the
 difference between inner and left joins, how to specify <code>how="left"</code> to retain all
 rows from the left table, and how to verify row counts before and after a join.</p>
 </details>
@@ -212,34 +213,32 @@ Which column was overwritten, and which column was supposed to be added?</p>
 <p>The bug is omitting <code>.alias()</code> on the expression. Without an explicit name, Polars
 assigns the column the name of the left operand (<code>"price"</code>), which silently replaces
 the original <code>price</code> column with the product values instead of adding a new <code>total</code>
-column. Teaches how Polars names unnamed expressions and why <code>.alias()</code> is needed
+column. Shows how Polars names unnamed expressions and why <code>.alias()</code> is needed
 whenever the result should have a different name from its inputs.</p>
 </details>
-<h2 id="polars-strptime">Wrong Date Format String</h2>
-<p>Run the script and check the null count it prints. How many dates were successfully
-parsed? Examine the format string and compare it to the actual date values.</p>
+<h2 id="polars-strptime">Day and Month Swapped in Date Format</h2>
+<p>Run the script and look at the parsed <code>date</code> column. Is <code>"03/04/2024"</code> shown as
+April 3rd or March 4th? What date was intended?</p>
 <div data-inc="strptime.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"event"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"launch"</span><span class="p">,</span> <span class="s2">"review"</span><span class="p">,</span> <span class="s2">"close"</span><span class="p">],</span>
-    <span class="s2">"date_str"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"2024-03-15"</span><span class="p">,</span> <span class="s2">"2024-04-01"</span><span class="p">,</span> <span class="s2">"2024-05-20"</span><span class="p">],</span>
+    <span class="s2">"event"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"conference"</span><span class="p">,</span> <span class="s2">"deadline"</span><span class="p">,</span> <span class="s2">"review"</span><span class="p">],</span>
+    <span class="s2">"date_str"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"03/04/2024"</span><span class="p">,</span> <span class="s2">"07/08/2024"</span><span class="p">,</span> <span class="s2">"11/12/2024"</span><span class="p">],</span>
 <span class="p">})</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"date_str"</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">to_date</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%d</span><span class="s2">/%m/%Y"</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"date"</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"date_str"</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">to_date</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"%m/</span><span class="si">%d</span><span class="s2">/%Y"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"date"</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"null dates: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span><span class="o">.</span><span class="n">null_count</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <details class="explanation">
 <summary>Show explanation</summary>
-<p>The bug is a format string that does not match the data. The dates are formatted as
-<code>YYYY-MM-DD</code> but the format string specifies <code>%d/%m/%Y</code> (day/month/year with
-slashes). Because <code>strict=False</code> is set, every parse fails silently and the result
-is a column of nulls with no error message. Teaches how to verify format strings
-against sample values and how removing <code>strict=False</code> (letting Polars raise on
-failure) catches this mistake immediately.</p>
+<p>The bug is a mismatch between the data order (day/month/year) and the format string
+(<code>%m/%d/%Y</code>, month/day/year). Because all day and month values are 12 or below,
+every date parses without error, but each one is wrong. Shows how ambiguous numeric
+date formats cause silent data corruption, and why checking a few parsed values
+against known inputs is necessary to confirm the format string is correct.</p>
 </details>
 <h2 id="polars-explodestring">explode on a String Column</h2>
 <p>Run the script and read the error message. What type does Polars report for the
@@ -259,7 +258,7 @@ failure) catches this mistake immediately.</p>
 <summary>Show explanation</summary>
 <p>The bug is calling <code>.explode()</code> on a column that contains plain strings rather than
 lists. Polars raises an <code>InvalidOperationError</code> because <code>.explode()</code> requires a
-list-type column. Teaches how to convert a delimited string column into a list
+list-type column. Shows how to convert a delimited string column into a list
 column with <code>.str.split()</code> before calling <code>.explode()</code>, and how to check column
 types with <code>.schema</code> before applying list operations.</p>
 </details>
@@ -285,7 +284,7 @@ Is that column present in the original DataFrame?</p>
 <p>The bug is referencing <code>discounted_price</code> in the same <code>.with_columns()</code> call where
 it is first computed. All expressions in a single <code>.with_columns()</code> call are
 evaluated against the original DataFrame, so <code>discounted_price</code> does not yet exist
-when <code>total</code> is computed, and Polars raises a <code>ColumnNotFoundError</code>. Teaches how
+when <code>total</code> is computed, and Polars raises a <code>ColumnNotFoundError</code>. Shows how
 Polars evaluates expressions in parallel within one call and how to chain two
 separate <code>.with_columns()</code> calls when one result depends on another.</p>
 </details>
@@ -293,7 +292,7 @@ separate <code>.with_columns()</code> calls when one result depends on another.<
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../datasci/">Data Science</a>
+<span aria-hidden="true">⇐</span> <a href="../dataviz/">Data Visualization</a>
 </div>
 <div class="col-6 center">
 <a href="../">Unbreaking Software</a>

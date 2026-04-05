@@ -27,9 +27,11 @@
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a class="active" href="../web/">HTTP and APIs</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
 <li><a href="../polars/">Polars</a></li>
 <li><a href="../shell/">The Unix Shell</a></li>
 <li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -83,7 +85,7 @@ line causes it? Is the problem in the line that fails or somewhere earlier?</p>
 <p>The bug is calling <code>.json()</code> without first checking <code>r.status_code</code>. A 404 response
 returns an HTML error page, not JSON, so <code>.json()</code> raises a <code>JSONDecodeError</code> at the
 parsing step rather than flagging the real problem, which is the failed request.
-Teaches how to check <code>r.status_code</code> or call <code>r.raise_for_status()</code> before reading
+Shows how to check <code>r.status_code</code> or call <code>r.raise_for_status()</code> before reading
 the response body.</p>
 </details>
 <h2 id="web-jsonparam">Form Encoding Instead of JSON</h2>
@@ -124,7 +126,7 @@ receiving? What content type did you intend to send?</p>
 <p>The bug is using <code>data=</code> instead of <code>json=</code> in the POST call. <code>data=</code> sends a
 form-encoded body with <code>content-type: application/x-www-form-urlencoded</code>, while
 most APIs expect <code>json=</code> which sends a JSON body with <code>content-type:
-application/json</code>. Teaches the difference between these two keyword arguments and
+application/json</code>. Shows the difference between these two keyword arguments and
 why the server may silently reject or misparse a request sent with the wrong
 encoding.</p>
 </details>
@@ -169,7 +171,7 @@ How many did the code intend to send?</p>
 <summary>Show explanation</summary>
 <p>The bug is embedding a value that contains <code>&amp;</code> directly in an f-string URL. The
 ampersand is interpreted as a query-string separator, so the server receives
-<code>category=books</code> and a bare key <code>games</code> instead of <code>category=books&amp;games</code>. Teaches
+<code>category=books</code> and a bare key <code>games</code> instead of <code>category=books&amp;games</code>. Shows
 how to pass query parameters as a <code>params=</code> dict so the HTTP client encodes special
 characters correctly.</p>
 </details>
@@ -218,7 +220,7 @@ What field in the response tells you that more data exists?</p>
 <summary>Show explanation</summary>
 <p>The bug is fetching only the first page and ignoring the <code>next_page</code> field in the
 response. No error is raised; the script silently processes a fraction of the
-available data. Teaches how to recognize and follow pagination cursors and why APIs
+available data. Shows how to recognize and follow pagination cursors and why APIs
 return data in pages rather than all at once.</p>
 </details>
 <h2 id="web-notimeout">Disabled Request Timeout</h2>
@@ -255,7 +257,7 @@ output?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is passing <code>timeout=None</code>, which disables all timeouts and causes the call to
-wait indefinitely for a slow or unresponsive server. Teaches the difference between
+wait indefinitely for a slow or unresponsive server. Shows the difference between
 httpx's default timeout and <code>timeout=None</code>, and how to set an explicit
 <code>httpx.Timeout</code> to bound how long a request may take.</p>
 </details>
@@ -300,7 +302,7 @@ Is the request actually successful?</p>
 <summary>Show explanation</summary>
 <p>The bug is comparing <code>r.status_code == 200</code> when a successful POST returns
 <code>201 Created</code>. The response is treated as a failure even though the resource was
-created. Teaches the range of 2xx status codes, when each is used, and how to use
+created. Shows the range of 2xx status codes, when each is used, and how to use
 <code>r.is_success</code> to accept any successful response.</p>
 </details>
 <h2 id="web-ratelimit">Retrying Without Reading Retry-After</h2>
@@ -350,7 +352,7 @@ the <code>Retry-After</code> header contain? Does the script wait before retryin
 <summary>Show explanation</summary>
 <p>The bug is retrying immediately after a 429 Too Many Requests response without
 reading the <code>Retry-After</code> header. Each retry is rejected for the same reason and the
-script loops without ever succeeding. Teaches what 429 means, how to detect it, and
+script loops without ever succeeding. Shows what 429 means, how to detect it, and
 how to wait the server-specified duration before the next attempt.</p>
 </details>
 <h2 id="web-putpatch">PUT Replaces Instead of Updates</h2>
@@ -396,7 +398,7 @@ Which fields changed, and which fields were you expecting to keep?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using PUT with a partial body. PUT replaces the entire resource with
-the request body, so any field not included in the request is wiped. Teaches the
+the request body, so any field not included in the request is wiped. Shows the
 semantic difference between PUT (full replacement) and PATCH (partial update), and
 why sending only the fields you want to change requires PATCH.</p>
 </details>
@@ -436,7 +438,7 @@ appear? What would a server log entry look like?</p>
 <summary>Show explanation</summary>
 <p>The bug is placing the API key in the URL query string. Query strings are recorded
 in server access logs, browser history, and any intermediate proxies, so the secret
-is exposed in plaintext. Teaches how to pass credentials in an <code>Authorization</code>
+is exposed in plaintext. Shows how to pass credentials in an <code>Authorization</code>
 header instead, where they are kept out of logs and not cached by browsers.</p>
 </details>
 <h2 id="web-postredirect">POST Body Lost After Redirect</h2>
@@ -486,7 +488,7 @@ What happened to the request body that was sent to <code>/submit</code>?</p>
 <summary>Show explanation</summary>
 <p>The bug is following a 302 redirect from a POST request. HTTP convention changes the
 method from POST to GET when following a 302, so the request body is silently
-dropped and the final endpoint receives an empty GET request. Teaches how redirects
+dropped and the final endpoint receives an empty GET request. Shows how redirects
 interact with request methods, and how to detect this by inspecting the method and
 body at the redirected URL.</p>
 </details>

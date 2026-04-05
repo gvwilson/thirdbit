@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data Visualization</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Unbreaking Software</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../web/">HTTP and APIs</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a class="active" href="../dataviz/">Data Visualization</a></li>
+<li><a href="../polars/">Polars</a></li>
+<li><a href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Data Visualization</h1>
+<h2 id="dataviz-truncated">Truncated Y-Axis</h2>
+<figure id="f:dataviz-truncated-wrong">
+<img alt="Bar chart of candidate approval ratings with Y-axis starting at 85." src="truncated_axis.svg"/>
+<figcaption>Figure 1: Candidate approval ratings with a truncated Y-axis.</figcaption>
+</figure>
+<p>Compare the visual height of candidate A's bar to candidate D's bar. How much larger
+does D appear? Now look at the actual numbers. How large is the real difference?</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The Y-axis starts at 85 instead of 0. Candidate D's approval (93%) is only 6
+percentage points above candidate A's (87%), but the bars make it look roughly
+three times taller. Any bar chart where the Y-axis does not start at zero
+exaggerates relative differences. The effect is proportional to how far the
+baseline is raised: the higher the floor, the more dramatic the distortion.</p>
+<figure id="f:dataviz-truncated-fixed">
+<img alt="Bar chart of candidate approval ratings with Y-axis starting at 0." src="truncated_axis_fixed.svg"/>
+<figcaption>Figure 2: The same data with the Y-axis starting at 0.</figcaption>
+</figure>
+</details>
+<h2 id="dataviz-cherry">Cherry-Picked Time Window</h2>
+<figure id="f:dataviz-cherry-wrong">
+<img alt="Line chart showing an upward performance trend over 8 months." src="cherry_pick.svg"/>
+<figcaption>Figure 3: Performance trend over the last 8 months.</figcaption>
+</figure>
+<p>The chart shows a clear upward trend over 8 months. What conclusion might you draw
+about this product's long-term trajectory? What information would you need to know
+whether this is reliable?</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The 8 months shown are a recovery from a multi-year decline. The full 5-year series
+falls from 100 to roughly 52 before the recent uptick. Choosing a start date at the
+bottom of a trough guarantees an upward slope. This pattern is common in financial
+and performance reporting: selecting the window that flatters the story while
+omitting the longer context that contradicts it.</p>
+<figure id="f:dataviz-cherry-fixed">
+<img alt="Line chart showing the full 60-month history with a recent uptick at the end of a long decline." src="cherry_pick_fixed.svg"/>
+<figcaption>Figure 4: The full 60-month history.</figcaption>
+</figure>
+</details>
+<h2 id="dataviz-spurious">Spurious Correlation via Shared Trend</h2>
+<figure id="f:dataviz-spurious-wrong">
+<img alt="Scatter plot of monthly coffee consumption vs code commits with a tight regression line." src="spurious_correlation.svg"/>
+<figcaption>Figure 5: Coffee consumption vs code commits over 48 months.</figcaption>
+</figure>
+<p>The scatter plot shows a strong positive relationship between monthly coffee
+consumption and code commits, with a tight regression line. What conclusion might
+a reader draw? What third factor might explain the pattern?</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>Both metrics grow because the engineering team grew: more engineers means more commits
+and more coffee consumed. Plotting two time-trending variables against each other
+removes the time axis entirely and makes a shared common cause look like a direct
+relationship between the two variables. Any two series that both trend in the same
+direction will produce a scatter that looks correlated, regardless of whether they
+have anything to do with each other.</p>
+<figure id="f:dataviz-spurious-fixed">
+<img alt="Scatter plot of coffee vs commits with points colored from dark to light by month, showing temporal ordering." src="spurious_correlation_fixed.svg"/>
+<figcaption>Figure 6: The same scatter with points colored by month. Early months are dark; late months are light.</figcaption>
+</figure>
+<p>Early months cluster in the lower left and late months in the upper right — the
+apparent correlation is entirely temporal ordering.</p>
+</details>
+<h2 id="dataviz-simpsons">Simpson's Paradox</h2>
+<figure id="f:dataviz-simpsons-wrong">
+<img alt="Scatter plot of study hours vs exam score with a downward-sloping regression line." src="simpsons_paradox.svg"/>
+<figcaption>Figure 7: Study hours vs exam score across all students.</figcaption>
+</figure>
+<p>The trend line shows that students who study more tend to score lower. Does that
+mean studying is counterproductive? What might explain the pattern?</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>Students in harder courses study more hours but earn lower scores because the courses
+are harder, not because studying hurts performance. Within each difficulty level the
+relationship is positive: more study leads to higher scores. The aggregate trend
+reverses because a third variable — course difficulty — drives both the study hours
+and the scores. Adding a color encoding for difficulty would reveal three upward
+slopes instead of one downward one. This is Simpson's Paradox: an aggregate trend
+that disappears or reverses when a confounding variable is introduced.</p>
+<figure id="f:dataviz-simpsons-fixed">
+<img alt="Scatter plot colored by course difficulty showing three upward-sloping regression lines." src="simpsons_paradox_fixed.svg"/>
+<figcaption>Figure 8: The same data colored by difficulty, with a separate regression line for each group.</figcaption>
+</figure>
+</details>
+<h2 id="dataviz-meanconceals">Mean Conceals a Bimodal Distribution</h2>
+<figure id="f:dataviz-mean-wrong">
+<img alt="Bar chart showing nearly identical group means for groups A and B." src="mean_hides_distribution.svg"/>
+<figcaption>Figure 9: Average score by group.</figcaption>
+</figure>
+<p>Both groups have nearly the same average score. Would you conclude they are
+performing similarly? What other chart type would you choose before drawing that
+conclusion?</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>Group A is roughly normally distributed around 62. Group B is bimodal: half the
+students score near 25 and half score near 90. Both groups have the same mean, but
+their situations are completely different — Group B has two distinct subpopulations
+that the mean obscures entirely. A strip plot, histogram, or violin chart would make
+the bimodal structure immediately visible. Reporting only the mean discards the
+information most relevant to understanding Group B.</p>
+<figure id="f:dataviz-mean-fixed">
+<img alt="Strip plot showing Group A clustered around 62 and Group B split near 25 and 90." src="mean_hides_distribution_fixed.svg"/>
+<figcaption>Figure 10: Individual scores for each group as a strip plot.</figcaption>
+</figure>
+</details>
+<h2 id="dataviz-absolute">Absolute Counts Instead of Rates</h2>
+<figure id="f:dataviz-absolute-wrong">
+<img alt="Bar chart of raw traffic accident counts by city, with Metro City tallest." src="absolute_vs_rate.svg"/>
+<figcaption>Figure 11: Traffic accidents by city (raw counts).</figcaption>
+</figure>
+<p>Which city appears to have the most serious traffic safety problem? Now calculate
+accidents per 100,000 residents for each city using the figures below. Does the
+ranking change?</p>
+<p>Metro City: 820 accidents, population 2,100,000.
+River Town: 210 accidents, population 180,000.
+Oak Valley: 95 accidents, population 52,000.
+Pine Bluff: 430 accidents, population 640,000.</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>Metro City's raw count is largest, but its rate is 39 per 100,000 — the lowest of
+the four. Oak Valley has only 95 accidents but a rate of 183 per 100,000 — nearly
+five times higher. Absolute counts favor larger populations and are only meaningful
+when comparing groups of similar size. Any comparison that involves groups of
+different sizes requires a denominator: rate, proportion, or per-capita figure.</p>
+<figure id="f:dataviz-absolute-fixed">
+<img alt="Bar chart of traffic accidents per 100,000 residents, with Oak Valley now tallest." src="absolute_vs_rate_fixed.svg"/>
+<figcaption>Figure 12: Traffic accidents per 100,000 residents by city.</figcaption>
+</figure>
+</details>
+<h2 id="dataviz-cumulative">Cumulative Chart Hides a Slowdown</h2>
+<figure id="f:dataviz-cumulative-wrong">
+<img alt="Line chart of cumulative user signups rising steadily over 52 weeks." src="cumulative_hides_slowdown.svg"/>
+<figcaption>Figure 13: Cumulative user signups over 52 weeks.</figcaption>
+</figure>
+<p>The total user count is rising steadily. Would you describe the product as growing?
+Now think about what the weekly rate of new signups looks like in the second half of
+the year compared to the first.</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>A cumulative chart can only go up or stay flat — it can never show a decline even if
+new additions stop entirely. Weeks 1–26 add 400–600 users each; weeks 27–52 add
+10–30. The product's growth has effectively stopped, but the cumulative line looks
+like a healthy upward trend throughout. Plotting the weekly rate instead reveals the
+collapse in new signups. Cumulative charts are useful for showing totals but
+systematically hide any information about acceleration, deceleration, or stagnation.</p>
+<figure id="f:dataviz-cumulative-fixed">
+<img alt="Line chart of weekly new signups showing a sharp drop to near zero after week 26." src="cumulative_hides_slowdown_fixed.svg"/>
+<figcaption>Figure 14: Weekly new signups for the same period.</figcaption>
+</figure>
+</details>
+<h2 id="dataviz-overplot">Discrete Overplotting Hides Density</h2>
+<figure id="f:dataviz-overplot-wrong">
+<img alt="Grid of uniformly-sized dots showing exam scores vs study hours for 600 students." src="discrete_overplot.svg"/>
+<figcaption>Figure 15: Exam scores by hours studied (600 students).</figcaption>
+</figure>
+<p>How many students appear to have studied for 4 hours and scored 65? How confident
+are you that each visible dot represents the same number of students?</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>Both the exam scores (multiples of 5) and hours studied (integers) are discrete, so
+many students share the same coordinates. Opaque markers stack on top of each other
+and become indistinguishable from a single point: a position with 40 students on top
+of each other looks identical to a position with 1. The chart gives no indication
+of how populated each cell is, making the data appear uniformly distributed when 80%
+of students cluster at 3–6 hours and scores of 55–75.</p>
+<figure id="f:dataviz-overplot-fixed">
+<img alt="Bubble chart of exam scores vs study hours where bubble size reveals dense clustering at 3-6 hours and scores of 55-75." src="discrete_overplot_fixed.svg"/>
+<figcaption>Figure 16: The same data with bubble area proportional to number of students.</figcaption>
+</figure>
+</details>
+<h2 id="dataviz-pie">Pie Chart Obscures Ranking</h2>
+<figure id="f:dataviz-pie-wrong">
+<img alt="Pie chart with seven similarly-sized slices labeled Alpha through Eta." src="pie_chart.svg"/>
+<figcaption>Figure 17: Market share by category.</figcaption>
+</figure>
+<p>Without reading the exact percentages, rank the seven categories from largest to
+smallest share. How confident are you in your ranking? Which pairs of adjacent
+categories are hardest to distinguish?</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>Human perception of angles and arc lengths is unreliable, especially when slices are
+similar in size. The shares range from 18.4% down to 8.6% — a meaningful spread —
+but most readers cannot reliably rank the middle five categories without reading the
+labels. A horizontal bar chart sorted by value requires only length perception, which
+humans perform much more accurately. Pie charts are defensible only when there are
+two or three slices with clearly different sizes.</p>
+<figure id="f:dataviz-pie-fixed">
+<img alt="Horizontal bar chart of the same seven categories sorted by market share." src="pie_chart_fixed.svg"/>
+<figcaption>Figure 18: The same data as a sorted horizontal bar chart.</figcaption>
+</figure>
+</details>
+<h2 id="dataviz-ecological">Group Average Does Not Predict Individuals</h2>
+<figure id="f:dataviz-ecological-wrong">
+<img alt="Scatter plot of 20 district averages showing a tight positive correlation between household income and test scores." src="group_vs_individual.svg"/>
+<figcaption>Figure 19: District average income vs average test score (20 districts).</figcaption>
+</figure>
+<p>The chart shows that school districts with higher average household income have higher
+average test scores, with a tight regression line. Would you expect to be able to
+predict an individual student's score from knowing their district's average income?
+How accurate do you think that prediction would be?</p>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The district-level chart uses 20 aggregate points, so noise is suppressed and the
+trend looks precise. But the district average income is a property of the district,
+not the student. Within any district, students from families with very different
+incomes sit in the same classrooms and take the same tests, and individual scores
+scatter widely around the district mean. A statistic that explains 95% of the
+variance across group averages may explain only 25–30% of the variance across
+individuals, because most of the individual variance is within-group and invisible
+in the aggregate chart. Drawing conclusions about individuals from group-level
+correlations is the ecological fallacy.</p>
+<figure id="f:dataviz-ecological-fixed">
+<img alt="Scatter plot of 500 individual students at their district average income showing wide vertical spread around the trend line." src="group_vs_individual_fixed.svg"/>
+<figcaption>Figure 20: Individual student scores plotted at their district's average income level.</figcaption>
+</figure>
+<p>The upward trend is still present but the scatter is so wide that knowing a student's
+district tells you little about that student's score.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../datasci/">Data Science</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../polars/">Polars</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

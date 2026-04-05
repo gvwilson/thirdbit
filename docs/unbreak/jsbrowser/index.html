@@ -27,9 +27,11 @@
 <li><a class="active" href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../web/">HTTP and APIs</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
 <li><a href="../polars/">Polars</a></li>
 <li><a href="../shell/">The Unix Shell</a></li>
 <li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -83,7 +85,7 @@ console output. Are all the field values captured and reported correctly?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>var</code> inside a loop. Hoisting causes the variable to be shared
-across iterations, so the function returns <code>undefined</code> for some fields. Teaches
+across iterations, so the function returns <code>undefined</code> for some fields. Shows
 <code>var</code> hoisting, block scope, and why <code>let</code> and <code>const</code> are preferable.</p>
 </details>
 <h2 id="jsbrowser-deaddom">Dead DOM Event Listener</h2>
@@ -123,7 +125,7 @@ first click?</p>
 <summary>Show explanation</summary>
 <p>The bug is attaching the event listener to a DOM element that is replaced by the
 update, so the listener is discarded and the button stops working after the first
-click. Teaches event delegation and the difference between live and dead DOM
+click. Shows event delegation and the difference between live and dead DOM
 references.</p>
 </details>
 <h2 id="jsbrowser-thisbind"><code>this</code> Binding in Callbacks</h2>
@@ -157,7 +159,7 @@ expected amount each time?</p>
 <summary>Show explanation</summary>
 <p>The bug is that <code>this</code> inside the callback refers to the button element rather than
 the object that owns the counter, so the counter increments by the wrong amount.
-Teaches <code>this</code> binding in JavaScript callbacks and how to use arrow functions or
+Shows <code>this</code> binding in JavaScript callbacks and how to use arrow functions or
 <code>.bind()</code> to preserve context.</p>
 </details>
 <h2 id="jsbrowser-unawaited">Promise Not Awaited</h2>
@@ -201,7 +203,7 @@ data correct on the first load, or does it appear stale or blank?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the fetch result is used before the Promise resolves (code runs
-synchronously after an async call), so the page displays stale data. Teaches the
+synchronously after an async call), so the page displays stale data. Shows the
 JavaScript event loop, Promises, and <code>async/await</code>.</p>
 </details>
 <h2 id="jsbrowser-localstorage"><code>localStorage</code> in Private Mode</h2>
@@ -227,7 +229,7 @@ browser console for errors.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that <code>localStorage</code> throws a <code>SecurityError</code> in private browsing mode but
-the code has no try/catch, so the script fails silently. Teaches browser storage
+the code has no try/catch, so the script fails silently. Shows browser storage
 limitations and how to use the browser console and DevTools to observe thrown
 exceptions.</p>
 </details>
@@ -265,7 +267,7 @@ Does the layout look correct?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a missing <code>&lt;meta name="viewport"&gt;</code> tag that prevents mobile scaling, so
-the page layout breaks on narrow screens even though the CSS looks correct. Teaches
+the page layout breaks on narrow screens even though the CSS looks correct. Shows
 how to use browser DevTools' device emulation and inspect computed styles.</p>
 </details>
 <h2 id="jsbrowser-cors">CORS Header Missing</h2>
@@ -338,7 +340,7 @@ request from the command line.</p>
 <summary>Show explanation</summary>
 <p>The bug is a missing <code>Access-Control-Allow-Origin</code> header on the server response, so
 the fetch request returns a CORS error in the browser even though it works from the
-command line. Teaches what CORS is, how to read network error messages in DevTools,
+command line. Shows what CORS is, how to read network error messages in DevTools,
 and how to configure server headers.</p>
 </details>
 <h2 id="jsbrowser-caching">Browser Caching Stale JavaScript</h2>
@@ -375,7 +377,7 @@ file the browser is serving.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the browser is serving a cached version of the JavaScript file, so
-the page shows outdated content after a bug fix is deployed. Teaches cache-control
+the page shows outdated content after a bug fix is deployed. Shows cache-control
 headers, hard refresh vs. normal refresh, and how to use DevTools to disable the
 cache during development.</p>
 </details>
@@ -422,7 +424,7 @@ shown?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is deploying a minified bundle without a source map, so JavaScript errors
-are reported on minified line numbers that do not correspond to the source. Teaches
+are reported on minified line numbers that do not correspond to the source. Shows
 what source maps are, how to generate them, and how to load them in DevTools to see
 original source locations.</p>
 </details>
@@ -454,7 +456,7 @@ policy-related messages.</p>
 <summary>Show explanation</summary>
 <p>The bug is a Content Security Policy header that blocks an inline script, so the
 application shows blank content in production even though it works in development.
-Teaches how to read CSP violation reports in the browser console, how CSP directives
+Shows how to read CSP violation reports in the browser console, how CSP directives
 work, and how to move inline scripts to external files to comply.</p>
 </details>
 </main>

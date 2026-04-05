@@ -27,9 +27,11 @@
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../web/">HTTP and APIs</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
 <li><a href="../polars/">Polars</a></li>
 <li><a href="../shell/">The Unix Shell</a></li>
 <li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -67,7 +69,7 @@ match the number you counted?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is <code>range(len(data) - k)</code> instead of <code>range(len(data) - k + 1)</code>, so the
-last window is never produced. Teaches how to identify off-by-one errors in index
+last window is never produced. Shows how to identify off-by-one errors in index
 arithmetic and how to verify boundary conditions with small, hand-checkable examples.</p>
 </details>
 <h2 id="basicpy-catadd">String Concatenation Instead of Addition</h2>
@@ -105,7 +107,7 @@ the value look like a reasonable sum of exam scores?</p>
 <summary>Show explanation</summary>
 <p>The bug is accumulating scores with <code>total = total + line.strip()</code> (string
 concatenation) instead of converting each line to a number first, so the script
-always reports a nonsensical total. Teaches the difference between string <code>+</code> and
+always reports a nonsensical total. Shows the difference between string <code>+</code> and
 numeric <code>+</code>, and how to check the type of a value at runtime using <code>type()</code> or
 <code>isinstance()</code>.</p>
 </details>
@@ -138,7 +140,7 @@ accepted. Does it accept any of them?</p>
 <summary>Show explanation</summary>
 <p>The bug is joining the two conditions with <code>and</code> instead of <code>or</code>, which requires
 both to fail simultaneously and almost never happens, so valid passwords are always
-rejected. Teaches how boolean logic errors cause silent misbehavior, and how a small
+rejected. Shows how boolean logic errors cause silent misbehavior, and how a small
 truth table reveals which operator is correct.</p>
 </details>
 <h2 id="basicpy-formula">Misremembered Conversion Formula</h2>
@@ -164,7 +166,7 @@ return the correct value?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is dividing seconds by 60 instead of 3600 (a misremembered formula), so the
-function gives wrong results. Teaches how to verify formulas against known values
+function gives wrong results. Shows how to verify formulas against known values
 (e.g., 1°30′0″ = 1.5°) and how to add assertion checks for values that must fall
 within a known range.</p>
 </details>
@@ -185,7 +187,7 @@ within a known range.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is calling <code>list.sort()</code> (which returns <code>None</code>) and assigning the result, so
-the list is always empty. Teaches that many list methods mutate in place and return
+the list is always empty. Shows that many list methods mutate in place and return
 <code>None</code>.</p>
 </details>
 <h2 id="basicpy-indent">Misindented Loop State Update</h2>
@@ -237,7 +239,7 @@ cherry
 <summary>Show explanation</summary>
 <p>The bug is that the variable storing the previous line is updated outside (after) the
 while loop body due to a missing level of indentation, so every line is counted as
-starting a new run. Teaches how indentation governs control flow in Python and how to
+starting a new run. Shows how indentation governs control flow in Python and how to
 step through a loop mentally to find where state is updated at the wrong time.</p>
 </details>
 <h2 id="basicpy-noreturn">Missing Return Statement</h2>
@@ -260,7 +262,7 @@ step through a loop mentally to find where state is updated at the wrong time.</
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a missing <code>return</code> statement: the function builds the result but does not
-return it, so it returns <code>None</code>. Teaches that Python functions return <code>None</code> by
+return it, so it returns <code>None</code>. Shows that Python functions return <code>None</code> by
 default and how to spot missing <code>return</code> in control flow.</p>
 </details>
 <h2 id="basicpy-nokey">KeyError in Word Counter</h2>
@@ -297,7 +299,7 @@ or to take arms against a sea of troubles
 <summary>Show explanation</summary>
 <p>The bug is incrementing <code>counts[word]</code> without first checking whether the key exists,
 so the function crashes with a <code>KeyError</code> on the first new word it encounters.
-Teaches defensive dictionary access using <code>dict.get(key, 0)</code> or
+Shows defensive dictionary access using <code>dict.get(key, 0)</code> or
 <code>collections.defaultdict</code>, and how to read a <code>KeyError</code> traceback to identify the
 missing key.</p>
 </details>
@@ -330,7 +332,7 @@ access? Use <code>type()</code> to examine the types of the two values being com
 <summary>Show explanation</summary>
 <p>The bug is that the JSON file stores IDs as integers but the login ID arrives as a
 string from user input, and <code>"42" != 42</code> in Python, so the script always reports
-"access denied" even for valid users. Teaches how JSON types map to Python types and
+"access denied" even for valid users. Shows how JSON types map to Python types and
 why type conversion must happen explicitly at system boundaries.</p>
 </details>
 <h2 id="basicpy-recurse">Wrong Recursive Base Case</h2>
@@ -349,7 +351,7 @@ why type conversion must happen explicitly at system boundaries.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a base-case condition that uses <code>&gt;</code> instead of <code>&gt;=</code>, so calling the
-function with zero triggers infinite recursion and raises a <code>RecursionError</code>. Teaches
+function with zero triggers infinite recursion and raises a <code>RecursionError</code>. Shows
 how to identify missing or incorrect base cases in recursion.</p>
 </details>
 <h2 id="basicpy-mutable">Mutable Default Argument</h2>
@@ -375,7 +377,7 @@ values. Are they the same?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a mutable default argument (<code>def f(result=[])</code>), so every call starts
-with leftover items from previous calls. Teaches Python's mutable default argument
+with leftover items from previous calls. Shows Python's mutable default argument
 trap and why <code>None</code> is the correct default.</p>
 </details>
 <h2 id="basicpy-trailing">Invisible Trailing Whitespace</h2>
@@ -418,7 +420,7 @@ West|77
 <summary>Show explanation</summary>
 <p>The bug is that certain applications pad fields with trailing spaces, so string
 comparisons always fail for those rows even though the values look correct to the
-naked eye. Teaches that real-world data often contains invisible characters, and how
+naked eye. Shows that real-world data often contains invisible characters, and how
 <code>.strip()</code> and <code>repr()</code> help diagnose string comparison failures.</p>
 </details>
 <h2 id="basicpy-strmeth">String Methods Return Copies</h2>
@@ -442,7 +444,7 @@ changed?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that <code>str.replace</code> returns a new string and the return value is never
-assigned back, so the original message is unchanged at the end. Teaches that string
+assigned back, so the original message is unchanged at the end. Shows that string
 methods never mutate their argument, and that every string transformation must be
 captured in a variable.</p>
 </details>
@@ -467,7 +469,7 @@ expected? Try with a list where every element should be removed.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is modifying a list while iterating over it, which causes the loop to skip
-every other matching item. Teaches why mutating a collection during iteration causes
+every other matching item. Shows why mutating a collection during iteration causes
 unpredictable behavior.</p>
 </details>
 </main>

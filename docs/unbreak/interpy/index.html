@@ -27,9 +27,11 @@
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../web/">HTTP and APIs</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
 <li><a href="../polars/">Polars</a></li>
 <li><a href="../shell/">The Unix Shell</a></li>
 <li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -66,7 +68,7 @@ Has the original list changed?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>list.reverse()</code> (which mutates in place) instead of <code>reversed()</code>
-or slicing, so the original list is also reversed after the call. Teaches aliasing
+or slicing, so the original list is also reversed after the call. Shows aliasing
 and the difference between in-place and copy operations.</p>
 </details>
 <h2 id="interpy-sharemut">Shared Mutable Class Attribute</h2>
@@ -101,7 +103,7 @@ transaction history of each. Does each account show only its own transactions?</
 <summary>Show explanation</summary>
 <p>The bug is that <code>history = []</code> is defined at class level, so all instances share the
 same list object instead of each having their own, and every account's transactions
-appear in every other account. Teaches the difference between shared mutable class
+appear in every other account. Shows the difference between shared mutable class
 attributes and per-instance attributes initialized in <code>__init__</code>.</p>
 </details>
 <h2 id="interpy-fpeq">Floating-Point Equality</h2>
@@ -143,7 +145,7 @@ printing each value with many decimal places.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>==</code> on floats computed by different routes, so the comparison
-returns <code>False</code> even when the values should be equal. Teaches floating-point
+returns <code>False</code> even when the values should be equal. Shows floating-point
 representation errors and how to use <code>math.isclose</code>.</p>
 </details>
 <h2 id="interpy-broad">Overly Broad Exception Handler</h2>
@@ -194,7 +196,7 @@ it process all the valid URLs? Check whether anything is silently discarded.</p>
 <p>The bug is wrapping the fetch-and-parse loop in <code>try/except Exception: pass</code> to
 tolerate network timeouts. The <code>ValueError</code> raised by the URL parser is also caught
 and discarded, so the scraper silently stops processing after the first malformed
-URL. Teaches how overly broad exception handlers swallow unrelated bugs, and how to
+URL. Shows how overly broad exception handlers swallow unrelated bugs, and how to
 use <code>logging.exception</code> to record errors instead of ignoring them.</p>
 </details>
 <h2 id="interpy-commas">Commas Inside CSV Fields</h2>
@@ -238,7 +240,7 @@ Diana Prince,79
 <p>The bug is that names containing a comma (e.g., "Smith, John") cause
 <code>line.split(',')</code> to produce three fields instead of two, so the index used for the
 score points at the wrong element and the script crashes with an <code>IndexError</code>.
-Teaches why hand-rolled CSV parsing fails on real data and when to use the <code>csv</code>
+Shows why hand-rolled CSV parsing fails on real data and when to use the <code>csv</code>
 module.</p>
 </details>
 <h2 id="interpy-lexisort">Lexicographic vs. Numeric Sort</h2>
@@ -262,7 +264,7 @@ relative to <code>file2</code>?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using the default <code>sort()</code>, which gives lexicographic order and places
-<code>file10</code> before <code>file2</code>. Teaches the difference between lexicographic and numeric
+<code>file10</code> before <code>file2</code>. Shows the difference between lexicographic and numeric
 sort order and how to write a <code>key</code> function that extracts the embedded integer so
 the files sort as <code>file1</code>, <code>file2</code>, <code>file10</code>.</p>
 </details>
@@ -293,7 +295,7 @@ expected?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that generators are exhausted after one pass, so the second use of the
-generator in the same expression produces no results. Teaches that generators are
+generator in the same expression produces no results. Shows that generators are
 single-use iterators and when to use lists instead.</p>
 </details>
 <h2 id="interpy-cachekey">Incomplete Cache Key</h2>
@@ -328,7 +330,7 @@ keyword argument each time. Do both calls return the correct result?</p>
 <summary>Show explanation</summary>
 <p>The bug is that the cache key does not include all function arguments (e.g., ignores
 keyword arguments), so the decorator returns the same result for different inputs.
-Teaches how to construct correct cache keys and test with varied inputs.</p>
+Shows how to construct correct cache keys and test with varied inputs.</p>
 </details>
 <h2 id="interpy-super">Forgetting <code>super().__init__()</code></h2>
 <p>Create an instance of the subclass and try to access an attribute that is set in
@@ -365,7 +367,7 @@ the parent's <code>__init__</code>. Does it exist?</p>
 <summary>Show explanation</summary>
 <p>The bug is forgetting <code>super().__init__()</code>, so the parent's <code>__init__</code> is never
 called and required attributes are missing when a subclass method tries to use them.
-Teaches Python's method resolution order and how to use <code>super()</code> correctly.</p>
+Shows Python's method resolution order and how to use <code>super()</code> correctly.</p>
 </details>
 <h2 id="interpy-unclosed">File Not Closed on Exception</h2>
 <p>Run the script so that it raises an exception part-way through writing. Then open
@@ -414,9 +416,9 @@ fifth line
 <summary>Show explanation</summary>
 <p>The bug is using <code>open()</code> without a <code>with</code> statement. When an unhandled exception
 occurs midway through, the output file is left partially written because the write
-buffer is never flushed and <code>close()</code> is never called. Teaches why context managers
+buffer is never flushed and <code>close()</code> is never called. Shows why context managers
 guarantee file cleanup even when exceptions occur, and how to use
-<code>with open(...) as f</code> to prevent data loss.</p>
+<code>with open(…) as f</code> to prevent data loss.</p>
 </details>
 </main>
 <footer aria-label="Page navigation">

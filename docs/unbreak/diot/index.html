@@ -27,9 +27,11 @@
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../web/">HTTP and APIs</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
 <li><a href="../polars/">Polars</a></li>
 <li><a href="../shell/">The Unix Shell</a></li>
 <li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -83,7 +85,7 @@ Dave,"Austin, TX",88
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>line.split(',')</code> instead of the <code>csv</code> module, so rows that contain
-commas inside quoted fields are split incorrectly. Teaches why hand-rolled parsers
+commas inside quoted fields are split incorrectly. Shows why hand-rolled parsers
 fail on real-world data and when to use standard library tools.</p>
 </details>
 <h2 id="diot-walltime">Wall Time vs. Monotonic Time</h2>
@@ -124,7 +126,7 @@ Do any of them look unusual?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using <code>time.time()</code> without accounting for system clock adjustments, so
-the function reports negative durations when the clock is set back. Teaches the
+the function reports negative durations when the clock is set back. Shows the
 difference between wall time and monotonic time and when to use <code>time.monotonic</code>.</p>
 </details>
 <h2 id="diot-daylight">Naive Datetime and Daylight Saving</h2>
@@ -175,7 +177,7 @@ timezone-aware path.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is adding a <code>timedelta</code> to a naive datetime, so the function produces results
-that are off by one day around daylight saving time transitions. Teaches the
+that are off by one day around daylight saving time transitions. Shows the
 difference between naive and timezone-aware datetimes.</p>
 </details>
 <h2 id="diot-missparse">Missing Elements in HTML Parsing</h2>
@@ -226,7 +228,7 @@ expected elements. What happens when an element is not found?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the HTML structure varies and the selector matches zero elements
-without raising an error, so the script fails silently on some pages. Teaches how to
+without raising an error, so the script fails silently on some pages. Shows how to
 handle missing data in HTML parsing and use assertions to catch unexpected input.</p>
 </details>
 <h2 id="diot-overexp">Overly Permissive Regular Expression</h2>
@@ -261,7 +263,7 @@ that look like email addresses but are not. Does it reject the invalid ones?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a pattern that is too permissive (e.g., missing anchors or character
-class constraints), so the regular expression also matches invalid strings. Teaches
+class constraints), so the regular expression also matches invalid strings. Shows
 how to test regular expressions with both valid and invalid inputs.</p>
 </details>
 <h2 id="diot-noassert">Test with No Assertions</h2>
@@ -296,7 +298,7 @@ testing. Does the test still pass?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the test calls the function but never asserts anything about the
-result, so it always passes even when the function is broken. Teaches that a test
+result, so it always passes even when the function is broken. Shows that a test
 with no assertions is not a test and how to write assertions correctly.</p>
 </details>
 <h2 id="diot-shared">Shared State Between Tests</h2>
@@ -343,7 +345,7 @@ ways?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that one test modifies a module-level variable that another test depends
-on, so the suite passes in isolation but fails when run together. Teaches test
+on, so the suite passes in isolation but fails when run together. Shows test
 isolation, teardown, and the risks of shared global state.</p>
 </details>
 <h2 id="diot-abspath">Hardcoded Absolute Path</h2>
@@ -376,7 +378,7 @@ file is saved. Does it find its configuration file?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is using a hardcoded absolute path instead of a path relative to the
-script's location, so the function behaves differently on different machines. Teaches
+script's location, so the function behaves differently on different machines. Shows
 the difference between <code>__file__</code>-relative and working-directory-relative paths.</p>
 </details>
 <h2 id="diot-jsondate">Unserializable Datetime in JSON</h2>
@@ -405,7 +407,7 @@ be serialized?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the data contains <code>datetime</code> objects, which are not
-JSON-serializable, so the program raises an error when writing output. Teaches how
+JSON-serializable, so the program raises an error when writing output. Shows how
 to identify serialization errors and write custom JSON encoders.</p>
 </details>
 <h2 id="diot-loglevel">Wrong Logging Level</h2>
@@ -442,7 +444,7 @@ present?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the log level is set to <code>WARNING</code> but the calls use
-<code>logger.debug()</code>, so the messages never appear in the log file. Teaches how
+<code>logger.debug()</code>, so the messages never appear in the log file. Shows how
 Python's logging hierarchy works and how to verify the effective log level.</p>
 </details>
 </main>

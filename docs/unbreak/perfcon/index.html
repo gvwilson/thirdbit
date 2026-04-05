@@ -27,9 +27,11 @@
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../web/">HTTP and APIs</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
 <li><a href="../polars/">Polars</a></li>
 <li><a href="../shell/">The Unix Shell</a></li>
 <li><a href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -104,7 +106,7 @@ over and over the fox jumped and the dog slept on and on
 <summary>Show explanation</summary>
 <p>The bug is calling <code>text.count(word)</code> for every unique word, re-scanning the entire
 text each time. On a file of 50,000 words it takes several seconds, while a single
-pass with <code>collections.Counter</code> is nearly instant. Teaches how to identify
+pass with <code>collections.Counter</code> is nearly instant. Shows how to identify
 repeated-scan inefficiency with <code>cProfile</code> and how choosing the right data structure
 eliminates the need for multiple passes.</p>
 </details>
@@ -144,7 +146,7 @@ eliminates the need for multiple passes.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that the subprocess is waiting for input on stdin that the parent never
-provides, so the script hangs and never returns. Teaches how subprocess I/O streams
+provides, so the script hangs and never returns. Shows how subprocess I/O streams
 work and how to use <code>communicate()</code> safely.</p>
 </details>
 <h2 id="perfcon-race">Race Condition in Shared Counter</h2>
@@ -183,7 +185,7 @@ value always the same? Is it always the value you expect?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is a race condition caused by unsynchronized read-modify-write, so multiple
-threads updating a shared counter produce wrong totals. Teaches what a race condition
+threads updating a shared counter produce wrong totals. Shows what a race condition
 is, why it is hard to reproduce, and how to use <code>threading.Lock</code> to fix it.</p>
 </details>
 <h2 id="perfcon-multiproc">Multiprocessing Memory Model</h2>
@@ -218,7 +220,7 @@ worker processes run. Did the workers modify the list you passed in?</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is that each process has its own copy of memory, so changes made inside
-child processes are not visible in the parent's shared list. Teaches the difference
+child processes are not visible in the parent's shared list. Shows the difference
 between threading and multiprocessing memory models.</p>
 </details>
 <h2 id="perfcon-mockpatch">Mock Patched at Wrong Location</h2>
@@ -267,7 +269,7 @@ under test.</p>
 <details class="explanation">
 <summary>Show explanation</summary>
 <p>The bug is patching where the function is defined instead of where it is imported,
-so <code>unittest.mock.patch</code> has no effect on the code under test. Teaches how Python's
+so <code>unittest.mock.patch</code> has no effect on the code under test. Shows how Python's
 import system works and where mocks must be applied.</p>
 </details>
 </main>

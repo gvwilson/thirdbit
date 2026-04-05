@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Testing</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Unbreaking Software</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a href="../web/">HTTP and APIs</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
+<li><a href="../polars/">Polars</a></li>
+<li><a href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a class="active" href="../testing/">Testing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Testing</h1>
+<h2 id="testing-vacuous">Test with No Assertion</h2>
+<p>Run <code>pytest test_vacuous.py -v</code>. Does the test pass? Add a print statement inside
+<code>test_total</code> to confirm that <code>result</code> is being computed. Does a passing test mean
+the function is correct?</p>
+<div data-inc="test_vacuous.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_total</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">total</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that the test contains no assertion, so pytest has nothing to check and
+always reports it as passing. A vacuous test gives false confidence: the function
+could return any value and the test would still pass. Shows that every test must
+contain at least one assertion that can actually fail.</p>
+</details>
+<h2 id="testing-tupleassert">Tuple Is Always Truthy</h2>
+<p>Run <code>pytest test_tupleassert.py -v</code>. Does the test pass? What value does <code>double(4)</code>
+actually return? Check the pytest warning in the output.</p>
+<div data-inc="test_tupleassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span>  <span class="c1"># deliberate wrong implementation</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_double</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>assert (result, expected)</code>, which creates a two-element tuple. A
+non-empty tuple is always truthy, so the assertion never fails regardless of whether
+<code>result == expected</code>. The correct form is <code>assert result == expected</code> without the
+enclosing parentheses. Shows how easy it is to write an assertion that looks
+plausible but is logically vacuous, and why pytest's warning about this pattern
+should not be ignored.</p>
+</details>
+<h2 id="testing-floatequal">Floating-Point Equality</h2>
+<p>Run <code>pytest test_floatequal.py -v</code>. Read the assertion error carefully. What value
+did <code>running_total</code> actually return?</p>
+<div data-inc="test_floatequal.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">v</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_running_total</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">running_total</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mf">0.6</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is comparing floating-point results with <code>==</code>. Repeated addition accumulates
+rounding error in IEEE 754 arithmetic, so <code>0.1 + 0.2 + 0.3</code> produces
+<code>0.6000000000000001</code>, not <code>0.6</code>. Shows how to use <code>pytest.approx</code> to compare
+floats within a tolerance, and why exact equality between computed floats is
+unreliable.</p>
+</details>
+<h2 id="testing-broadexc">pytest.raises Catches the Wrong Exception</h2>
+<p>Run <code>pytest test_broadexc.py -v</code>. Does the test pass? What exception does
+<code>parse_count(None)</code> actually raise? Is that the exception the test intended to check?</p>
+<div data-inc="test_broadexc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_count</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_parse_count_rejects_none</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+        <span class="n">parse_count</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>pytest.raises(Exception)</code>, which accepts any exception, including
+<code>TypeError</code>. The test passes even though <code>parse_count</code> raises a <code>TypeError</code> rather
+than the expected <code>ValueError</code>, masking a bug in the function. Shows how to use a
+specific exception type in <code>pytest.raises</code> and why catching the base <code>Exception</code>
+class in tests hides incorrect behaviour.</p>
+</details>
+<h2 id="testing-noyield">Fixture with No Cleanup</h2>
+<p>Run <code>pytest test_noyield.py -v</code>. The test fails. After it fails, check whether the
+temp file still exists. Then change <code>return path</code> to <code>yield path</code> and add
+<code>os.remove(path)</code> after the yield. Run again and check the filesystem.</p>
+<div data-inc="test_noyield.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">temp_file</span><span class="p">():</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mktemp</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">path</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_write_and_read</span><span class="p">(</span><span class="n">temp_file</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">temp_file</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">temp_file</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"test failed partway through"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>return</code> in a fixture that needs to perform cleanup. With <code>return</code>,
+there is no way to run code after the test finishes, so the temp file is left on disk
+whenever the test fails. With <code>yield</code>, pytest runs the code after the <code>yield</code> as
+teardown even if the test raises an exception. Shows the difference between
+<code>return</code> and <code>yield</code> in pytest fixtures and why <code>yield</code> is necessary for reliable
+cleanup.</p>
+</details>
+<h2 id="testing-orderdep">Test Depends on Execution Order</h2>
+<p>Run <code>pytest test_orderdep.py -v</code>. Both tests pass. Now run
+<code>pytest test_orderdep.py::test_lookup -v</code> to run only the second test. What happens?</p>
+<div data-inc="test_orderdep.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+<span class="n">_registry</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">_registry</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">lookup</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_registry</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_register</span><span class="p">():</span>
+    <span class="n">register</span><span class="p">(</span><span class="s2">"threshold"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">lookup</span><span class="p">(</span><span class="s2">"threshold"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_lookup</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">lookup</span><span class="p">(</span><span class="s2">"threshold"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is that <code>test_lookup</code> relies on <code>test_register</code> having populated <code>_registry</code>
+first. When <code>test_lookup</code> runs alone or in a different order, <code>_registry</code> is empty
+and the test raises a <code>KeyError</code>. Shows why each test must set up its own state
+independently rather than relying on side effects from other tests, and how to use
+fixtures to provide shared setup.</p>
+</details>
+<h2 id="testing-scopemut">Mutable Session-Scoped Fixture</h2>
+<p>Run <code>pytest test_scopemut.py -v</code>. Which test fails? Reverse the order of the two
+tests and run again. Does the other test now fail?</p>
+<div data-inc="test_scopemut.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"session"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">user_list</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_add_user</span><span class="p">(</span><span class="n">user_list</span><span class="p">):</span>
+    <span class="n">user_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_list_starts_empty</span><span class="p">(</span><span class="n">user_list</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is <code>scope="session"</code> on a fixture that returns a mutable list. A session-scoped
+fixture is created once and reused across every test in the run, so mutations made by
+one test are visible to all later tests. Shows the difference between fixture
+scopes, why mutable objects should use function scope (the default) rather than
+session scope, and how fixture scope bugs often appear only when tests are run in a
+particular order.</p>
+</details>
+<h2 id="testing-deadassert">Assertion After the Raising Call Is Dead Code</h2>
+<p>Run <code>pytest test_deadassert.py -v</code>. The test passes. Add a <code>print("reached")</code> on
+the line after <code>result = parse_positive(0)</code>. Run again. Is the print executed?</p>
+<div data-inc="test_deadassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_positive</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> is not positive"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_parse_positive_rejects_zero</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">parse_positive</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is placing an assertion inside a <code>with pytest.raises()</code> block after the line
+that raises. Once <code>parse_positive(0)</code> raises <code>ValueError</code>, execution jumps to the
+end of the <code>with</code> block and the assertion is never reached. The test passes because
+the exception was raised as expected, but the assertion that was supposed to check a
+return value is silently skipped. Shows that assertions on return values must be
+placed after the <code>with pytest.raises()</code> block, not inside it.</p>
+</details>
+<h2 id="testing-missingreturn">Missing Return in Tested Function</h2>
+<p>Run <code>pytest test_missingreturn.py -v</code>. Read the assertion error. What value did
+<code>strip_prefix</code> return? Is that what you expected from the code?</p>
+<div data-inc="test_missingreturn.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">strip_prefix</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+        <span class="n">text</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">):]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_strip_prefix</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">strip_prefix</span><span class="p">(</span><span class="s2">"ERROR: disk full"</span><span class="p">,</span> <span class="s2">"ERROR: "</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">"disk full"</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is a missing <code>return</code> in <code>strip_prefix</code>. The slicing expression computes
+the correct substring but discards it, so the function returns <code>None</code>. The test then
+compares <code>None == "disk full"</code> and fails. Shows how to recognise a missing
+<code>return</code> from a <code>None</code> assertion error and how to check function return values as a
+first step when a test fails unexpectedly.</p>
+</details>
+<h2 id="testing-paramtype">sort Returns None</h2>
+<p>Run <code>pytest test_paramtype.py -v</code>. All three cases fail. Read the assertion error
+for the first case. What value did <code>result</code> have?</p>
+<div data-inc="test_paramtype.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"values,expected"</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span>
+    <span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]),</span>
+    <span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]),</span>
+<span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_sort_returns_sorted_list</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">expected</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is calling <code>values.sort()</code> and assigning its return value. <code>list.sort()</code>
+sorts the list in place and returns <code>None</code>; the sorted result is in <code>values</code>, not
+in <code>result</code>. The assertion then compares <code>None</code> against the expected list and fails.
+Shows the difference between <code>list.sort()</code> (in-place, returns <code>None</code>) and
+<code>sorted()</code> (returns a new sorted list), and how parametrize makes the pattern of
+failure visible across multiple inputs at once.</p>
+</details>
+<h2 id="testing-tmpfile">Test Writes to the Working Directory</h2>
+<p>Run <code>pytest test_tmpfile.py -v</code>. The test passes. After it finishes, list the files
+in your working directory. What file was left behind?</p>
+<div data-inc="test_tmpfile.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">summarize</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"count"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="s2">"total"</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_summarize</span><span class="p">(</span><span class="n">tmp_path</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">summarize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.json"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">saved</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">saved</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="k">assert</span> <span class="n">saved</span><span class="p">[</span><span class="s2">"total"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">60</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is opening <code>"output.json"</code> as a plain filename, which creates the file in
+the current working directory. The file is not deleted when the test finishes, so
+subsequent runs may read stale data, and different tests that use the same filename
+can interfere with each other. Shows how to use the <code>tmp_path</code> fixture, which
+provides a per-test temporary directory that pytest removes automatically after
+each run.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../sql/">SQL</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale/">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

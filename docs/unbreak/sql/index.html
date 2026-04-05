@@ -27,9 +27,11 @@
 <li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
 <li><a href="../web/">HTTP and APIs</a></li>
 <li><a href="../datasci/">Data Science</a></li>
+<li><a href="../dataviz/">Data Visualization</a></li>
 <li><a href="../polars/">Polars</a></li>
 <li><a href="../shell/">The Unix Shell</a></li>
 <li><a class="active" href="../sql/">SQL</a></li>
+<li><a href="../testing/">Testing</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -62,7 +64,7 @@ first, or by species first?</p>
 <summary>Show explanation</summary>
 <p>A query meant to sort penguins by island and then by species within each island
 produces species-first ordering instead; the bug is listing the columns in the
-wrong order in the <code>order by</code> clause. Teaches how <code>order by</code> applies columns from
+wrong order in the <code>order by</code> clause. Shows how <code>order by</code> applies columns from
 left to right and why column order in that clause matters.</p>
 </details>
 <h2 id="sql-offsetpage">Off-by-One in OFFSET Paging</h2>
@@ -78,7 +80,7 @@ full table to check whether rows 11–15 are actually what you got.</p>
 <summary>Show explanation</summary>
 <p>A query meant to retrieve the third page of five rows returns rows 12–16 instead
 of rows 11–15; the bug is using <code>offset 11</code> (which skips 11 rows) instead of
-<code>offset 10</code>. Teaches how <code>limit</code> and <code>offset</code> interact and how to calculate the
+<code>offset 10</code>. Shows how <code>limit</code> and <code>offset</code> interact and how to calculate the
 correct offset for a given page number.</p>
 </details>
 <h2 id="sql-intdivision">Integer Division Truncation</h2>
@@ -95,7 +97,7 @@ Do the kilogram values look right for a penguin that weighs, say, 3750 g?</p>
 <summary>Show explanation</summary>
 <p>A query that converts body mass from grams to kilograms silently truncates the
 result because SQLite performs integer division when both operands are integers;
-the bug is dividing by <code>1000</code> instead of <code>1000.0</code>. Teaches how to force
+the bug is dividing by <code>1000</code> instead of <code>1000.0</code>. Shows how to force
 floating-point arithmetic in SQL and why checking computed columns against known
 values catches this class of error.</p>
 </details>
@@ -112,7 +114,7 @@ dataset? Does the row count match that number?</p>
 <p>A query intended to list the distinct species in the dataset returns seven rows
 instead of three because <code>distinct</code> is applied to both <code>species</code> and <code>sex</code>,
 producing one row per unique (species, sex) combination; the bug is including <code>sex</code>
-in the <code>select</code> clause. Teaches that <code>distinct</code> operates on the entire set of
+in the <code>select</code> clause. Shows that <code>distinct</code> operates on the entire set of
 selected columns, not on individual ones.</p>
 </details>
 <h2 id="sql-nullequal">NULL Equality Test</h2>
@@ -129,7 +131,7 @@ sex was not recorded?</p>
 <p>A query that tries to find penguins with no recorded sex returns zero rows because
 comparing any value to <code>null</code> with <code>=</code> produces <code>null</code> (not <code>true</code>) in SQL's
 ternary logic, so the <code>where</code> clause never passes; the bug is using <code>= null</code> instead
-of <code>is null</code>. Teaches SQL's three-valued logic and the two special tests <code>is null</code>
+of <code>is null</code>. Shows SQL's three-valued logic and the two special tests <code>is null</code>
 and <code>is not null</code>.</p>
 </details>
 <h2 id="sql-impossibleand">Impossible AND Condition</h2>
@@ -146,7 +148,7 @@ Biscoe island from a previous query and check whether it appears here.</p>
 <p>A query that should return penguins from either Biscoe or Dream island returns
 zero rows because <code>and</code> requires both conditions to be true at the same time, but
 a penguin can only be on one island; the bug is using <code>and</code> where <code>or</code> is needed.
-Teaches the difference between <code>and</code> and <code>or</code> and how to spot conditions that can
+Shows the difference between <code>and</code> and <code>or</code> and how to spot conditions that can
 never simultaneously be true.</p>
 </details>
 <h2 id="sql-casevalue">Case-Sensitive String Value</h2>
@@ -164,7 +166,7 @@ values stored in the <code>sex</code> column. Do any of them match the literal u
 <p>A query that should return all female penguins returns zero rows because the <code>sex</code>
 column stores the value <code>'FEMALE'</code> in uppercase but the query filters on
 <code>'female'</code> in lowercase; SQLite string comparisons are case-sensitive for non-ASCII
-characters. Teaches how to inspect the actual stored values before writing a filter
+characters. Shows how to inspect the actual stored values before writing a filter
 and how to use functions like <code>upper()</code> or <code>lower()</code> to normalise comparisons.</p>
 </details>
 <h2 id="sql-wherealiased">WHERE References a SELECT Alias</h2>
@@ -182,7 +184,7 @@ clause and compare the two queries' output.</p>
 <p>A query that tries to filter using a column alias defined in the <code>select</code> clause
 fails with a "no such column" error because SQL evaluates <code>where</code> before <code>select</code>,
 so the alias does not yet exist at that point; the bug is referencing <code>mass_kg</code> in
-<code>where</code> instead of repeating the full expression <code>body_mass_g / 1000.0</code>. Teaches
+<code>where</code> instead of repeating the full expression <code>body_mass_g / 1000.0</code>. Shows
 the order of SQL clause evaluation.</p>
 </details>
 <h2 id="sql-andorprecedence">AND/OR Operator Precedence</h2>
@@ -199,7 +201,7 @@ you expected based on the comment describing the intent?</p>
 <p>A query intended to find Adelie or Chinstrap penguins that are on Biscoe island
 instead returns all Adelie penguins from any island plus Chinstraps on Biscoe,
 because <code>and</code> binds more tightly than <code>or</code>; the bug is missing parentheses around
-the <code>or</code> sub-expression. Teaches SQL operator precedence and why parentheses are
+the <code>or</code> sub-expression. Shows SQL operator precedence and why parentheses are
 needed to make complex <code>where</code> conditions unambiguous.</p>
 </details>
 <h2 id="sql-nonaggcol">Non-Aggregated Column in GROUP BY</h2>
@@ -217,7 +219,7 @@ for that species group?</p>
 <p>A query that groups by species but also selects <code>sex</code> without aggregating it
 produces an arbitrary, unpredictable sex value for each species group because <code>sex</code>
 is not in the <code>group by</code> clause; the bug is selecting a column that is neither
-aggregated nor part of the grouping. Teaches why every column in <code>select</code> must
+aggregated nor part of the grouping. Shows why every column in <code>select</code> must
 either appear in <code>group by</code> or be wrapped in an aggregation function.</p>
 </details>
 <h2 id="sql-wherenothavin">Aggregate Function in WHERE Clause</h2>
@@ -236,7 +238,7 @@ the condition to a <code>having</code> clause after <code>group by</code> fixes 
 error because aggregate functions like <code>avg()</code> cannot appear in <code>where</code>; <code>where</code>
 filters individual rows before grouping, while <code>having</code> filters groups after
 aggregation; the bug is placing the condition in <code>where</code> instead of <code>having</code>.
-Teaches the difference in timing between <code>where</code> and <code>having</code> in SQL's execution
+Shows the difference in timing between <code>where</code> and <code>having</code> in SQL's execution
 order.</p>
 </details>
 <h2 id="sql-groupbymissing">GROUP BY Missing a Column</h2>
@@ -253,7 +255,7 @@ show the same island? Check a few values against the original table.</p>
 <p>A query that counts penguins per species per island produces unreliable island
 values because <code>island</code> appears in <code>select</code> but not in <code>group by</code>, so the database
 picks an arbitrary island for each species group; the bug is omitting <code>island</code> from
-the <code>group by</code> clause. Teaches that every non-aggregated column in <code>select</code> must
+the <code>group by</code> clause. Shows that every non-aggregated column in <code>select</code> must
 also appear in <code>group by</code>.</p>
 </details>
 <h2 id="sql-countnull">count(column) Skips NULL Rows</h2>
@@ -269,7 +271,7 @@ results. If the numbers differ, find the rows that account for the difference.</
 <p>A query meant to count all penguins in the dataset underreports the total because
 <code>count(sex)</code> only counts rows where <code>sex</code> is not null, omitting the 11 penguins
 whose sex was not recorded; the bug is using <code>count(sex)</code> instead of <code>count(*)</code>.
-Teaches the difference between <code>count(column)</code> (excludes nulls) and <code>count(*)</code>
+Shows the difference between <code>count(column)</code> (excludes nulls) and <code>count(*)</code>
 (counts every row).</p>
 </details>
 <h2 id="sql-avgmanual">Manual Average With Wrong Denominator</h2>
@@ -286,7 +288,7 @@ and compare. Are the two values the same?</p>
 but <code>sum()</code> skips the two rows where <code>body_mass_g</code> is null while <code>count(*)</code> still
 counts them, making the denominator too large and the result too small; the bug is
 dividing by <code>count(*)</code> instead of <code>count(body_mass_g)</code> or using <code>avg()</code> directly.
-Teaches how aggregation functions treat null values and why the built-in <code>avg()</code>
+Shows how aggregation functions treat null values and why the built-in <code>avg()</code>
 should be preferred over hand-rolled sum/count averages.</p>
 </details>
 <h2 id="sql-nullneq">NULL Inequality Test</h2>
@@ -303,7 +305,7 @@ and compare the row counts.</p>
 <p>A query that should return only penguins with a recorded sex returns zero rows
 because comparing any value to null with <code>!=</code> produces null (not true) in SQL's
 ternary logic, so the <code>where</code> clause never passes any row; the bug is using
-<code>!= null</code> instead of <code>is not null</code>. Teaches that null comparisons with <code>=</code> or <code>!=</code>
+<code>!= null</code> instead of <code>is not null</code>. Shows that null comparisons with <code>=</code> or <code>!=</code>
 always yield null, and that <code>is null</code> / <code>is not null</code> are the only reliable null
 tests.</p>
 </details>
@@ -323,7 +325,7 @@ query output?</p>
 <summary>Show explanation</summary>
 <p>A query that should list total credits for every person silently omits people whose
 jobs do not appear in the <code>job</code> table (because their work has no matching credit
-value to join to); the bug is using <code>inner join</code> instead of <code>left join</code>. Teaches
+value to join to); the bug is using <code>inner join</code> instead of <code>left join</code>. Shows
 the difference between inner and left joins and when each is appropriate.</p>
 </details>
 <h2 id="sql-noonclause">Missing ON Clause (Cartesian Product)</h2>
@@ -342,7 +344,7 @@ you observed?</p>
 every possible combination of rows from both tables because the <code>on</code> clause is
 missing; a join without an <code>on</code> condition (or equivalent <code>where</code> condition) is
 a Cartesian product, producing rows equal to the product of the two table sizes.
-Teaches that a join without a matching condition is almost never correct and how to
+Shows that a join without a matching condition is almost never correct and how to
 recognise a Cartesian product by its unexpectedly large row count.</p>
 </details>
 <h2 id="sql-coalescemiss">NULL Sum Needs COALESCE</h2>
@@ -361,7 +363,7 @@ null total? What jobs did that person do, according to the <code>work</code> tab
 <summary>Show explanation</summary>
 <p>A query that uses a left join to include all people shows null instead of 0 for
 a person whose jobs produce no credit values, because <code>sum()</code> of an all-null group
-returns null; the bug is not wrapping the sum in <code>coalesce(..., 0)</code>. Teaches how
+returns null; the bug is not wrapping the sum in <code>coalesce(…, 0)</code>. Shows how
 <code>coalesce</code> provides a fallback value for null results and why left joins often
 require it.</p>
 </details>
@@ -384,7 +386,7 @@ you get from <code>select count(*) from survey group by person_id</code>. Do the
 product because the <code>on</code> clause compares <code>survey.person_id</code> to itself (which is
 always true) rather than to <code>person.person_id</code>; the bug is a copy-paste error
 that left the table name on the left side of <code>on</code> as <code>survey</code> instead of <code>person</code>.
-Teaches how to carefully check <code>on</code> conditions when the same column name appears in
+Shows how to carefully check <code>on</code> conditions when the same column name appears in
 both tables.</p>
 </details>
 <h2 id="sql-selfjoin">Self-Join Aliases Confused</h2>
@@ -406,7 +408,7 @@ correct?</p>
 supervisor's name has the labels reversed: the <code>on</code> condition <code>pa.person_id =
 pb.supervisor_id</code> makes <code>pa</code> the supervisor and <code>pb</code> the subordinate, but the
 aliases label <code>pa</code> as <code>person_name</code> and <code>pb</code> as <code>supervisor_name</code>; the bug is
-swapping the alias names. Teaches how to reason about the direction of a self-join
+swapping the alias names. Shows how to reason about the direction of a self-join
 and how to verify the result against the underlying data.</p>
 </details>
 </main>
@@ -421,7 +423,7 @@ and how to verify the result against the underlying data.</p>
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../finale/">Conclusion</a> <span aria-hidden="true">⇒</span>
+<a href="../testing/">Testing</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>
