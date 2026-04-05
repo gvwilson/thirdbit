@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HTTP and APIs</title>
+<meta content="Unbreaking Software" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Unbreaking Software</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../basicpy/">Basic Python</a></li>
+<li><a href="../interpy/">Intermediate Python</a></li>
+<li><a href="../diot/">Data, I/O, and Testing</a></li>
+<li><a href="../perfcon/">Performance and Concurrency</a></li>
+<li><a href="../jsbrowser/">JavaScript Fundamentals</a></li>
+<li><a class="active" href="../web/">HTTP and APIs</a></li>
+<li><a href="../datasci/">Data Science</a></li>
+<li><a href="../polars/">Polars</a></li>
+<li><a href="../shell/">The Unix Shell</a></li>
+<li><a href="../sql/">SQL</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>HTTP and APIs</h1>
+<h2 id="web-nostatuscheck">No Status Check Before Parsing</h2>
+<p>Run the script and read the error message. What type of error is raised, and which
+line causes it? Is the problem in the line that fails or somewhere earlier?</p>
+<div data-inc="nostatuscheck.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">404</span><span class="p">,</span>
+        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"text/html"</span><span class="p">)],</span>
+    <span class="p">})</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span>
+        <span class="s2">"body"</span><span class="p">:</span> <span class="sa">b</span><span class="s2">"&lt;html&gt;&lt;body&gt;&lt;h1&gt;404 Not Found&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;"</span><span class="p">,</span>
+    <span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/data"</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is calling <code>.json()</code> without first checking <code>r.status_code</code>. A 404 response
+returns an HTML error page, not JSON, so <code>.json()</code> raises a <code>JSONDecodeError</code> at the
+parsing step rather than flagging the real problem, which is the failed request.
+Teaches how to check <code>r.status_code</code> or call <code>r.raise_for_status()</code> before reading
+the response body.</p>
+</details>
+<h2 id="web-jsonparam">Form Encoding Instead of JSON</h2>
+<p>Run the script and read the output. What content type does the server report
+receiving? What content type did you intend to send?</p>
+<div data-inc="jsonparam.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">scope</span><span class="p">[</span><span class="s2">"headers"</span><span class="p">])</span>
+    <span class="n">content_type</span> <span class="o">=</span> <span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"(not set)"</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"content-type: </span><span class="si">{</span><span class="n">content_type</span><span class="si">}</span><span class="se">\n</span><span class="s2">body: </span><span class="si">{</span><span class="n">body</span><span class="si">!r}</span><span class="s2">"</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"text/plain"</span><span class="p">)],</span>
+    <span class="p">})</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">msg</span><span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">:</span> <span class="mi">95</span><span class="p">}</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/submit"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using <code>data=</code> instead of <code>json=</code> in the POST call. <code>data=</code> sends a
+form-encoded body with <code>content-type: application/x-www-form-urlencoded</code>, while
+most APIs expect <code>json=</code> which sends a JSON body with <code>content-type:
+application/json</code>. Teaches the difference between these two keyword arguments and
+why the server may silently reject or misparse a request sent with the wrong
+encoding.</p>
+</details>
+<h2 id="web-urlparam">Special Characters in Query Parameters</h2>
+<p>Run the script and read the output. How many query parameters did the server receive?
+How many did the code intend to send?</p>
+<div data-inc="urlparam.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="n">qs</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query_string"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">qs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"&amp;"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">"="</span> <span class="ow">in</span> <span class="n">pair</span><span class="p">:</span>
+            <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">pair</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"="</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">params</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="k">elif</span> <span class="n">pair</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"(no value)"</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"parsed params: </span><span class="si">{</span><span class="n">params</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"text/plain"</span><span class="p">)],</span>
+    <span class="p">})</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">msg</span><span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="s2">"books&amp;games"</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"/items?category=</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">&amp;limit=10"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is embedding a value that contains <code>&amp;</code> directly in an f-string URL. The
+ampersand is interpreted as a query-string separator, so the server receives
+<code>category=books</code> and a bare key <code>games</code> instead of <code>category=books&amp;games</code>. Teaches
+how to pass query parameters as a <code>params=</code> dict so the HTTP client encodes special
+characters correctly.</p>
+</details>
+<h2 id="web-nopaginate">Missing Pagination</h2>
+<p>Run the script and compare the number of records retrieved to the total available.
+What field in the response tells you that more data exists?</p>
+<div data-inc="nopaginate.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">ALL_RECORDS</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span><span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+<span class="n">PAGE_SIZE</span> <span class="o">=</span> <span class="mi">5</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="n">qs</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query_string"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"="</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">qs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"&amp;"</span><span class="p">)</span> <span class="k">if</span> <span class="s2">"="</span> <span class="ow">in</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"page"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">))</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="p">(</span><span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">PAGE_SIZE</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">ALL_RECORDS</span><span class="p">[</span><span class="n">start</span> <span class="p">:</span> <span class="n">start</span> <span class="o">+</span> <span class="n">PAGE_SIZE</span><span class="p">]</span>
+    <span class="n">next_page</span> <span class="o">=</span> <span class="n">page</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">start</span> <span class="o">+</span> <span class="n">PAGE_SIZE</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">ALL_RECORDS</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"items"</span><span class="p">:</span> <span class="n">items</span><span class="p">,</span> <span class="s2">"next_page"</span><span class="p">:</span> <span class="n">next_page</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
+    <span class="p">})</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">body</span><span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/records?page=1"</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'items'</span><span class="p">])</span><span class="si">}</span><span class="s2"> records"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"next_page field in response: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">'next_page'</span><span class="p">]</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"total records on server: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ALL_RECORDS</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is fetching only the first page and ignoring the <code>next_page</code> field in the
+response. No error is raised; the script silently processes a fraction of the
+available data. Teaches how to recognize and follow pagination cursors and why APIs
+return data in pages rather than all at once.</p>
+</details>
+<h2 id="web-notimeout">Disabled Request Timeout</h2>
+<p>Run the script. Does it return promptly? How long does it wait before producing
+output?</p>
+<div data-inc="notimeout.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="c1"># Simulated server delay in seconds</span>
+<span class="n">SERVER_DELAY</span> <span class="o">=</span> <span class="mi">10</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">SERVER_DELAY</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
+    <span class="p">})</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="sa">b</span><span class="s1">'{"status": "done"}'</span><span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/report"</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is passing <code>timeout=None</code>, which disables all timeouts and causes the call to
+wait indefinitely for a slow or unresponsive server. Teaches the difference between
+httpx's default timeout and <code>timeout=None</code>, and how to set an explicit
+<code>httpx.Timeout</code> to bound how long a request may take.</p>
+</details>
+<h2 id="web-created">Checking for 200 Instead of Any 2xx</h2>
+<p>Run the script. What status code does the server return? What does the script print?
+Is the request actually successful?</p>
+<div data-inc="created.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="p">))</span>
+    <span class="n">resource</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="o">**</span><span class="n">body</span><span class="p">}</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
+    <span class="p">})</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span>
+        <span class="s2">"body"</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
+    <span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/users"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alice"</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"created:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"request failed with status </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is comparing <code>r.status_code == 200</code> when a successful POST returns
+<code>201 Created</code>. The response is treated as a failure even though the resource was
+created. Teaches the range of 2xx status codes, when each is used, and how to use
+<code>r.is_success</code> to accept any successful response.</p>
+</details>
+<h2 id="web-ratelimit">Retrying Without Reading Retry-After</h2>
+<p>Run the script and look at the status code and headers on each attempt. What does
+the <code>Retry-After</code> header contain? Does the script wait before retrying?</p>
+<div data-inc="ratelimit.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="n">_request_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">_request_count</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="n">_request_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">429</span><span class="p">,</span>
+        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">),</span>
+            <span class="p">(</span><span class="sa">b</span><span class="s2">"retry-after"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"60"</span><span class="p">),</span>
+        <span class="p">],</span>
+    <span class="p">})</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span>
+        <span class="s2">"body"</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"error"</span><span class="p">:</span> <span class="s2">"rate limit exceeded"</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
+    <span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/api/data"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"success:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+                <span class="k">break</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"attempt </span><span class="si">{</span><span class="n">attempt</span><span class="si">}</span><span class="s2">: status </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">, retry-after=</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'retry-after'</span><span class="p">)</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"total requests sent: </span><span class="si">{</span><span class="n">_request_count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is retrying immediately after a 429 Too Many Requests response without
+reading the <code>Retry-After</code> header. Each retry is rejected for the same reason and the
+script loops without ever succeeding. Teaches what 429 means, how to detect it, and
+how to wait the server-specified duration before the next attempt.</p>
+</details>
+<h2 id="web-putpatch">PUT Replaces Instead of Updates</h2>
+<p>Run the script and compare the resource state before and after the PUT request.
+Which fields changed, and which fields were you expecting to keep?</p>
+<div data-inc="putpatch.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+<span class="c1"># Server-side resource state</span>
+<span class="n">_resource</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"alice@example.com"</span><span class="p">,</span> <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"admin"</span><span class="p">}</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"method"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"PUT"</span><span class="p">:</span>
+        <span class="n">update</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="p">))</span>
+        <span class="c1"># PUT replaces the entire resource with the request body</span>
+        <span class="n">_resource</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">_resource</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">_resource</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
+    <span class="p">})</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">body</span><span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/user/1"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"before:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">"/user/1"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alicia"</span><span class="p">})</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"after:"</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is using PUT with a partial body. PUT replaces the entire resource with
+the request body, so any field not included in the request is wiped. Teaches the
+semantic difference between PUT (full replacement) and PATCH (partial update), and
+why sending only the fields you want to change requires PATCH.</p>
+</details>
+<h2 id="web-tokenurl">API Key in URL Query String</h2>
+<p>Run the script and read the output. In which part of the request does the API key
+appear? What would a server log entry look like?</p>
+<div data-inc="tokenurl.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="n">qs</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query_string"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">scope</span><span class="p">[</span><span class="s2">"headers"</span><span class="p">])</span>
+    <span class="n">auth</span> <span class="o">=</span> <span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">b</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"(not set)"</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"query string : </span><span class="si">{</span><span class="n">qs</span><span class="si">!r}</span><span class="se">\n</span><span class="s2">authorization: </span><span class="si">{</span><span class="n">auth</span><span class="si">!r}</span><span class="s2">"</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"text/plain"</span><span class="p">)],</span>
+    <span class="p">})</span>
+    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">msg</span><span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">"secret-key-12345"</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"/data?api_key=</span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is placing the API key in the URL query string. Query strings are recorded
+in server access logs, browser history, and any intermediate proxies, so the secret
+is exposed in plaintext. Teaches how to pass credentials in an <code>Authorization</code>
+header instead, where they are kept out of logs and not cached by browsers.</p>
+</details>
+<h2 id="web-postredirect">POST Body Lost After Redirect</h2>
+<p>Run the script and read the output. What HTTP method reached the final endpoint?
+What happened to the request body that was sent to <code>/submit</code>?</p>
+<div data-inc="postredirect.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span>
+    <span class="k">if</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"/submit"</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">:</span> <span class="mi">302</span><span class="p">,</span>
+            <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"location"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"http://test/result"</span><span class="p">)],</span>
+        <span class="p">})</span>
+        <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="sa">b</span><span class="s2">""</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">event</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+            <span class="s2">"method"</span><span class="p">:</span> <span class="n">scope</span><span class="p">[</span><span class="s2">"method"</span><span class="p">],</span>
+            <span class="s2">"body"</span><span class="p">:</span> <span class="n">body</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="k">if</span> <span class="n">body</span> <span class="k">else</span> <span class="s2">"(empty)"</span><span class="p">,</span>
+        <span class="p">},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+        <span class="k">await</span> <span class="n">send</span><span class="p">({</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.start"</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+            <span class="s2">"headers"</span><span class="p">:</span> <span class="p">[(</span><span class="sa">b</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"application/json"</span><span class="p">)],</span>
+        <span class="p">})</span>
+        <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"http.response.body"</span><span class="p">,</span> <span class="s2">"body"</span><span class="p">:</span> <span class="n">msg</span><span class="p">})</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"username"</span><span class="p">:</span> <span class="s2">"alice"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"s3cr3t"</span><span class="p">}</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">transport</span><span class="o">=</span><span class="n">httpx</span><span class="o">.</span><span class="n">ASGITransport</span><span class="p">(</span><span class="n">app</span><span class="o">=</span><span class="n">app</span><span class="p">),</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">"http://test"</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/submit"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">follow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<details class="explanation">
+<summary>Show explanation</summary>
+<p>The bug is following a 302 redirect from a POST request. HTTP convention changes the
+method from POST to GET when following a 302, so the request body is silently
+dropped and the final endpoint receives an empty GET request. Teaches how redirects
+interact with request methods, and how to detect this by inspecting the method and
+body at the redirected URL.</p>
+</details>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../jsbrowser/">JavaScript Fundamentals</a>
+</div>
+<div class="col-6 center">
+<a href="../">Unbreaking Software</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../datasci/">Data Science</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
