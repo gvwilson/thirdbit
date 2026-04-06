@@ -3878,7 +3878,8 @@ She was about to put her app to sleep for the night
 when it pinged softly to tell her she had a message from Jeep.
 `saw the news—hope you're bonna.`
 
-The green bar beside it showed only an 85% probability that it was really him,
+The green bar beside it showed only an 85% probability that it was really him
+and that the message hadn't been corrupted somehow,
 but that wasn't why she hesitated before typing,
 `we're aright`,
 and then,
@@ -3928,7 +3929,7 @@ like gulls standing just out of reach of the waves,
 their signs bigger and brighter than those in Halley.
 Cartoon characters and celebrities from Australia, Mzansi, and Newfoundland
 beckoned, danced, pouted, and cracked jokes as people walked by.
-Iffy would have gone into every store,
+Iffy would have gone into every single shop,
 but Aunt Naggie hurried past them,
 her expression set.
 She regarded shopping as a competitive sport
@@ -3936,8 +3937,7 @@ and had no intention of letting Rothera get the better of her.
 
 The city's main market had originally been an aircraft hangar.
 A century ago,
-someone with more money than sense
-had added a spun glass floor two stories above the ground.
+someone with more money than sense had added a spun glass floor.
 Their attempt to turn the building into "The Big South's Biggest, Bestest Dance Hall!!"
 had failed almost immediately.
 The squatters who took it over after the war possessed surplus weapons,
@@ -3984,8 +3984,8 @@ but she had other things on her mind.
 
 She slowed as she approached the end of the canal.
 Her heart sank.
-Two women were working side by side in the canvas shed,
-but both were too old to be the person she was hoping to see.
+The two women working side by side in the canvas shed
+were both too old to be the person she was hoping to see.
 
 "Hey!"
 She whirled around just in time to be caught up in a hug.
@@ -4010,7 +4010,7 @@ her voice muffled slightly by the synthetic raccoon fur of Honesty's coat.
 She slithered free of the hug and took a step back.
 "It was just some bots gone rogue."
 
-"Bots gone rogue?" Honesty repeated disbelievingly.
+"Just?" Honesty repeated disbelievingly.
 "Din't look a that in Hell.
 Looked like th' war come back 'round!"
 
@@ -4070,7 +4070,7 @@ Honesty bumped der hip against Iffy again.
 Second wants t' make an autra li'l sister," de confided with a grin.
 "Me not bein' youngest any more—wou'n't that be a thing?
 Now c'mon, I bet there's cuppa."
-De unhooked der arm from Iffy's and took the younger girl's hand.
+De unhooked der arm from Iffy's and took her hand.
 
 Iffy's mind whirled.
 Another clone?
@@ -4087,7 +4087,7 @@ the handcode that resistance fighters had used
 to hide their words from surveillance during the war,
 and that children now used to keep secrets from adults.
 Little finger and fourth finger together, middle finger, middle and fourth…
-The words and letters took shape in her head as Honesty tapped them out.
+The letters and words took shape in her head as Honesty tapped them out.
 The Blues were watching.
 They had left some helmets behind
 (no, that didn't make any sense, Honesty must have meant some cameras),
@@ -4129,7 +4129,7 @@ in a face that showed how Honesty's would look in years to come.
 "What bad news?" Iffy asked.
 
 "My call-up come 'long yesty," Honesty said reluctantly.
-"Whole bunch roundabouts got 'em.
+"Whole bunch abouts got 'em.
 I gotta do induction t'night."
 
 Iffy's stomach flip-flopped.
@@ -4153,8 +4153,8 @@ What would it do to her friend?
 "It ain't no muck," First said.
 "We come through it aright, you will too."
 Der face and smile were worn-in versions of der grand-younger's.
-Where Honesty had temporary sketches on their cheeks
-First had whorling blue lines
+Where Honesty had temporary sketches on their cheeks,
+First had whorling blue tamoko lines
 that turned the scars of some long-ago accident into asymmetric art.
 
 De tossed the piece of tech de had been cleaning to Iffy.
@@ -4205,7 +4205,7 @@ looking up from the machine de was trying to clean.
 I's fer they bin up some kinda survey mappin'."
 
 "Mebbe," Honesty's First admitted.
-Looking past Iffy rather than at her,
+Her voice deliberately casual,
 de asked,
 "No notions?"
 
@@ -4216,7 +4216,7 @@ de had passed on what she'd said to der First and Second.
 "We don' keep secrets achother," Honesty had said with a shrug.
 "Y'ain't along that, best we part ways now."
 So Iffy had forgiven der,
-secretly relieved that de didn't seem to care that Iffy was different.
+secretly relieved that de didn't seem to care.
 
 Iffy started to hand the box of dronelets back to First,
 but the mechanic waved it away.
@@ -4234,7 +4234,7 @@ Her upbringing had taught her how to rig sails in heavy weather
 and mend engines older than her foster parents
 but not what to do when people were kind to her.
 She tucked the flat box into her pocket and drained the last of her tea.
-"But I gotta get back t' Aunt Naggie an' her shoppin."
+"I oughta get back t' Aunt Naggie an' her shoppin."
 
 "Sure," Honesty said.
 "I'll walk you out."
@@ -4244,7 +4244,7 @@ As usual,
 Honesty did most of the talking.
 Induction wouldn't be so bad—the Marines needed people with tech skills
 the same as everyone else,
-so they'd probably put some like that in der head.
+so they'd probably put something like that in der head.
 De knew tons more about salvage and repair than any crufty old core,
 and what de didn't know de could ask Iffy,
 right?
@@ -4497,7 +4497,8 @@ I just gotta…"
 Her shoulders shook as she wept,
 hopeless and silent.
 
-"Hush now," Iffy said awkwardly.
+"Hush now," Iffy said awkwardly,
+putting her hand on her foster mother's arm.
 "Who is he?"
 
 "Sh!" Aunt Naggie glanced around fearfully.
@@ -4506,7 +4507,7 @@ hopeless and silent.
 "But—"
 
 "Come on."
-Aunt Naggie took Iffy's arm in hers
+Aunt Naggie took Iffy's hand in hers
 and practically dragged her foster daughter along the street.
 "We don't want t' miss 'im."
 
