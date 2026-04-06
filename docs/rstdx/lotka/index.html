@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Predator-Prey Dynamics</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a class="active" href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Predator-Prey Dynamics</h1>
+<h2>The Problem</h2>
+<ul>
+<li>Many ecosystems contain predators that eat prey, and the two populations influence each other over time.</li>
+<li>When prey are abundant, predators thrive and multiply; when predators are numerous, prey decline; when prey are scarce, predators starve and their numbers fall; prey then recover.</li>
+<li>This cycle repeats indefinitely, producing oscillating populations.</li>
+<li>The <a class="gl-ref" href="../glossary/#lotka_volterra">Lotka-Volterra model</a> is the simplest mathematical description of this interaction.
+  It is also used in chemistry (autocatalytic reactions), economics (supply and demand cycles), and epidemiology.</li>
+</ul>
+<h2>The Equations</h2>
+<ul>
+<li>Let $x(t)$ be prey population and $y(t)$ be predator population.</li>
+<li>The model is a pair of ordinary differential equations:</li>
+</ul>
+<p>$$\frac{dx}{dt} = ax - bxy \qquad \frac{dy}{dt} = cxy - dy$$</p>
+<ul>
+<li>Each term has a direct interpretation:</li>
+<li>$ax$: prey grow exponentially in the absence of predators (birth rate $a$).</li>
+<li>$bxy$: prey are removed at a rate proportional to encounters between species (predation rate $b$).</li>
+<li>$cxy$: predators gain from eating prey (efficiency $c$).</li>
+<li>$dy$: predators die at a constant per-capita rate $d$.</li>
+</ul>
+<h2>Parameters and Equilibrium</h2>
+<div data-inc="lotka.py" data-mark="params"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Rate parameters (arbitrary units).</span>
+<span class="c1"># PREY_BIRTH: per-capita prey growth rate in the absence of predators.</span>
+<span class="c1"># PREDATION:  rate at which one predator removes prey (per predator per prey).</span>
+<span class="c1"># PRED_GROWTH: rate at which predators gain from eating prey (per predator per prey).</span>
+<span class="c1"># PRED_DEATH: per-capita predator death rate in the absence of prey.</span>
+<span class="n">PREY_BIRTH</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">PREDATION</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">PRED_GROWTH</span> <span class="o">=</span> <span class="mf">0.075</span>
+<span class="n">PRED_DEATH</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="c1"># Equilibrium populations: the fixed point of the ODE system.</span>
+<span class="c1"># Setting dx/dt = 0 and dy/dt = 0 gives x* = PRED_DEATH/PRED_GROWTH</span>
+<span class="c1"># and y* = PREY_BIRTH/PREDATION.</span>
+<span class="n">PREY_EQ</span> <span class="o">=</span> <span class="n">PRED_DEATH</span> <span class="o">/</span> <span class="n">PRED_GROWTH</span>  <span class="c1"># 20.0</span>
+<span class="n">PRED_EQ</span> <span class="o">=</span> <span class="n">PREY_BIRTH</span> <span class="o">/</span> <span class="n">PREDATION</span>  <span class="c1"># 10.0</span>
+
+<span class="c1"># Initial conditions: start above the prey equilibrium and below the</span>
+<span class="c1"># predator equilibrium to produce a visible oscillation.</span>
+<span class="n">PREY_INIT</span> <span class="o">=</span> <span class="mf">25.0</span>
+<span class="n">PRED_INIT</span> <span class="o">=</span> <span class="mf">5.0</span>
+
+<span class="c1"># Simulate for ~10 complete cycles.  The small-oscillation period</span>
+<span class="c1"># (linearised around equilibrium) is 2π / sqrt(PREY_BIRTH * PRED_DEATH).</span>
+<span class="c1"># The true nonlinear period is ~5.30 for these initial conditions,</span>
+<span class="c1"># so T_MAX = 53.0 covers roughly 10 full cycles.</span>
+<span class="n">PERIOD_APPROX</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">PREY_BIRTH</span> <span class="o">*</span> <span class="n">PRED_DEATH</span><span class="p">)</span>
+<span class="n">T_MAX</span> <span class="o">=</span> <span class="mf">53.0</span>
+
+<span class="c1"># Dense output resolution: one point per 0.05 time units.</span>
+<span class="n">N_EVAL</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T_MAX</span> <span class="o">/</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+</div>
+<ul>
+<li>Setting both derivatives to zero gives the equilibrium:
+  $x^<em> = d/c$ and $y^</em> = a/b$.</li>
+<li>At the equilibrium, populations are constant; any perturbation produces oscillations.</li>
+<li><code>PERIOD_APPROX</code> is derived by linearising around the equilibrium.
+  The exact period depends on the amplitude and must be measured from the solution.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>With <code>PREY_BIRTH</code> = 1.0, <code>PREDATION</code> = 0.1, <code>PRED_GROWTH</code> = 0.075, <code>PRED_DEATH</code> = 1.5,
+what is the prey equilibrium $x^* = d/c$?</p>
+<dl>
+<dt>10.0</dt>
+<dd>Wrong: 10.0 is the predator equilibrium $y^* = a/b$ = <code>PREY_BIRTH / PREDATION</code>.</dd>
+<dt>13.3</dt>
+<dd>Wrong: that is <code>PREY_BIRTH / PRED_GROWTH</code> = 1.0 / 0.075, which is not the equilibrium formula.</dd>
+<dt>20.0</dt>
+<dd>Correct: $x^* = d/c$ = <code>PRED_DEATH / PRED_GROWTH</code> = 1.5 / 0.075 = 20.0.</dd>
+<dt>1.0</dt>
+<dd>Wrong: <code>PREY_BIRTH</code> = 1.0 is a rate parameter, not the equilibrium prey population.</dd>
+</dl>
+</div>
+<h2>Implementing the Right-Hand Side</h2>
+<ul>
+<li><code>solve_ivp</code> requires a function that takes time $t$ and state vector $z = [x, y]$
+  and returns $[dx/dt,\; dy/dt]$.</li>
+<li>The function must not modify $z$; it should return a new list.</li>
+</ul>
+<div data-inc="lotka.py" data-mark="rhs"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return [dx/dt, dy/dt] for the Lotka-Volterra equations.</span>
+
+<span class="sd">    z[0] = x (prey population)</span>
+<span class="sd">    z[1] = y (predator population)</span>
+<span class="sd">    """</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="n">dxdt</span> <span class="o">=</span> <span class="n">PREY_BIRTH</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="n">PREDATION</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+    <span class="n">dydt</span> <span class="o">=</span> <span class="n">PRED_GROWTH</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">-</span> <span class="n">PRED_DEATH</span> <span class="o">*</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dxdt</span><span class="p">,</span> <span class="n">dydt</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div class="forma-ordering" data-lang="en">
+<p>Starting from abundant prey and few predators, put these events in the correct cyclic order.</p>
+<ol>
+<li>Prey population is high; predators begin to multiply</li>
+<li>Predator population peaks; prey decline rapidly</li>
+<li>Prey population is low; predators begin to starve and decline</li>
+<li>Predator population is low; prey begin to recover</li>
+</ol>
+</div>
+<div class="forma-matching" data-lang="en">
+<p>Match each term in the Lotka-Volterra equations to its biological meaning.</p>
+<table>
+<thead>
+<tr>
+<th scope="col">Term</th>
+<th scope="col">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>| $ax$ | Prey grow exponentially in the absence of predators |
+| $bxy$ | Prey are removed at a rate proportional to predator-prey encounters |
+| $cxy$ | Predators gain population from consuming prey |
+| $dy$ | Predators die at a constant per-capita rate |</p>
+</div>
+<h2>Solving the System</h2>
+<ul>
+<li><code>solve_ivp</code> advances the state from $t = 0$ to <code>T_MAX</code> using an adaptive Runge-Kutta method.</li>
+<li><code>t_eval</code> specifies the output times; it does not control the internal step size.</li>
+<li><code>rtol</code> and <code>atol</code> control the solver's internal error tolerance.
+  Setting them to $10^{-8}$ and $10^{-10}$ gives solutions accurate to roughly eight significant figures.</li>
+</ul>
+<div data-inc="lotka.py" data-mark="solve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">solve</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Integrate the Lotka-Volterra equations and return results as a DataFrame."""</span>
+    <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T_MAX</span><span class="p">,</span> <span class="n">N_EVAL</span><span class="p">)</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">rhs</span><span class="p">,</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">T_MAX</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">PREY_INIT</span><span class="p">,</span> <span class="n">PRED_INIT</span><span class="p">],</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span>
+        <span class="n">method</span><span class="o">=</span><span class="s2">"RK45"</span><span class="p">,</span>
+        <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+        <span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"t"</span><span class="p">:</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="s2">"prey"</span><span class="p">:</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"predator"</span><span class="p">:</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+</code></pre></div>
+</div>
+<h2>The Conserved Quantity</h2>
+<ul>
+<li>The LV equations have an exact <a class="gl-ref" href="../glossary/#first_integral">first integral</a>: a quantity $H(x, y)$ that is constant along every trajectory.</li>
+<li>To derive it, write $dy/dx = (cxy - dy)/(ax - bxy)$, separate variables, and integrate both sides.</li>
+<li>The result is:</li>
+</ul>
+<p>$$H(x,y) = cx - d\ln x + by - a\ln y = \text{constant}$$</p>
+<div data-inc="lotka.py" data-mark="conserved"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">conserved</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the conserved quantity H(x, y) = c*x - d*ln(x) + b*y - a*ln(y).</span>
+
+<span class="sd">    This quantity is constant along every trajectory of the Lotka-Volterra</span>
+<span class="sd">    equations.  It is derived by separating variables in dy/dx and integrating.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">PRED_GROWTH</span> <span class="o">*</span> <span class="n">x</span>
+        <span class="o">-</span> <span class="n">PRED_DEATH</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">PREDATION</span> <span class="o">*</span> <span class="n">y</span>
+        <span class="o">-</span> <span class="n">PREY_BIRTH</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li>$H$ is not the total energy of a physical system; it is a mathematical convenience that lets us verify the solver.</li>
+<li>Because $H$ is conserved exactly, any drift in $H$ is purely numerical error.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>If $H(x, y) = cx - d\ln x + by - a\ln y$ drifts noticeably during a long simulation,
+what does this most likely indicate?</p>
+<dl>
+<dt>The populations are converging to a new equilibrium</dt>
+<dd>Wrong: the Lotka-Volterra system has no stable equilibrium — trajectories are closed orbits, so H must stay constant.</dd>
+<dt>The prey are approaching extinction</dt>
+<dd>Wrong: extinction would require x → 0 causing $\ln x \to -\infty$; that is a singular event, not a gradual drift in H.</dd>
+<dt>The formula for H is incorrect</dt>
+<dd>Wrong: $H = cx - d\ln x + by - a\ln y$ is the exact conserved quantity derived from the equations.</dd>
+<dt>The ODE solver is accumulating too much numerical error</dt>
+<dd>Correct: H is an exact first integral, so any change in its value is purely numerical — it directly measures solver inaccuracy.</dd>
+</dl>
+</div>
+<h2>Visualizing the Results</h2>
+<ul>
+<li>Two views of the solution complement each other:</li>
+<li>The time series shows when oscillations occur and how the two populations are offset in phase.</li>
+<li>The <a class="gl-ref" href="../glossary/#phase_portrait">phase portrait</a> shows the closed orbit traced by $(x(t), y(t))$; all orbits of the LV system are closed curves around the equilibrium.</li>
+</ul>
+<div data-inc="lotka.py" data-mark="plots"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_time_series</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return an Altair chart of prey and predator populations over time."""</span>
+    <span class="n">long</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">unpivot</span><span class="p">(</span>
+        <span class="n">index</span><span class="o">=</span><span class="s2">"t"</span><span class="p">,</span>
+        <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">"prey"</span><span class="p">,</span> <span class="s2">"predator"</span><span class="p">],</span>
+        <span class="n">variable_name</span><span class="o">=</span><span class="s2">"species"</span><span class="p">,</span>
+        <span class="n">value_name</span><span class="o">=</span><span class="s2">"population"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">long</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Time"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"population"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Population"</span><span class="p">),</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">"species:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Species"</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Population over time"</span><span class="p">)</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_phase</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return an Altair chart of the predator-prey phase portrait."""</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"prey"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Prey"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"predator"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Predator"</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Phase portrait"</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:lotka-timeseries">
+<img alt="Prey and predator populations oscillating over time, with predator peaks lagging prey peaks." src="lotka_timeseries.svg"/>
+<figcaption>Figure 1: Prey (blue) and predator (orange) populations over 53 time units. Predator peaks follow prey peaks by roughly a quarter-period.</figcaption>
+</figure>
+<figure id="f:lotka-phase">
+<img alt="A closed orbit in the predator-prey phase plane, traversed counter-clockwise." src="lotka_phase.svg"/>
+<figcaption>Figure 2: Phase portrait: every trajectory of the Lotka-Volterra system is a closed curve around the equilibrium $(x^*, y^*) = (20, 10)$.</figcaption>
+</figure>
+<h2>Testing</h2>
+<h3>Populations remain positive</h3>
+<ul>
+<li>Analytically, neither population can reach zero in finite time: the positive quadrant is invariant.</li>
+<li>If a numerical solution produces a negative population, the solver has made a large error or the parameters are degenerate.</li>
+</ul>
+<h3>Conserved quantity stays constant</h3>
+<ul>
+<li>$H(x, y)$ is exactly conserved; any change is purely numerical.</li>
+<li>With <code>rtol=1e-8</code> and <code>atol=1e-10</code>, the solver keeps $H$ constant to within $10^{-6}$ over the full run.</li>
+<li>This tolerance does not need a safety-factor argument: a deviation larger than $10^{-6}$ would represent a 1000-fold increase in solver error and would clearly indicate a bug or a parameter change that broke the solver configuration.</li>
+</ul>
+<h3>Volterra averaging principle</h3>
+<ul>
+<li>Volterra proved that the time mean of $x(t)$ over any complete number of cycles equals $x^* = d/c$,
+  and similarly for $y(t)$.</li>
+<li>This is an exact analytical result, not an approximation.</li>
+<li>Over <code>T_MAX</code> covering ~10 complete cycles, the fractional-cycle bias is below 0.2%.
+  A relative tolerance of 1% gives a 5x safety margin over that measured bias.</li>
+</ul>
+<h3>Period matches linearised estimate</h3>
+<ul>
+<li>Linearising the LV equations around equilibrium gives small oscillations with period $2\pi/\sqrt{ad}$.</li>
+<li>For finite-amplitude oscillations the true period is longer (the nonlinear correction is $O(\text{amplitude}^2)$).</li>
+<li>With our initial conditions the measured period is ~5.30 versus the linearised estimate of ~5.13, a 3.3% deviation.</li>
+<li>A tolerance of 10% gives a safety factor of 3 over that measured deviation.</li>
+</ul>
+<div data-inc="test_lotka.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_peaks</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lotka</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PRED_DEATH</span><span class="p">,</span>
+    <span class="n">PRED_EQ</span><span class="p">,</span>
+    <span class="n">PRED_GROWTH</span><span class="p">,</span>
+    <span class="n">PRED_INIT</span><span class="p">,</span>
+    <span class="n">PREDATION</span><span class="p">,</span>
+    <span class="n">PERIOD_APPROX</span><span class="p">,</span>
+    <span class="n">PREY_BIRTH</span><span class="p">,</span>
+    <span class="n">PREY_EQ</span><span class="p">,</span>
+    <span class="n">PREY_INIT</span><span class="p">,</span>
+    <span class="n">T_MAX</span><span class="p">,</span>
+    <span class="n">conserved</span><span class="p">,</span>
+    <span class="n">rhs</span><span class="p">,</span>
+    <span class="n">solve</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_populations_positive</span><span class="p">():</span>
+    <span class="c1"># The Lotka-Volterra equations conserve the positive quadrant: if x &gt; 0</span>
+    <span class="c1"># and y &gt; 0 initially, both remain positive for all t &gt; 0.  A negative</span>
+    <span class="c1"># value would mean a population went extinct, which this model cannot</span>
+    <span class="c1"># produce analytically; it would indicate a numerical error.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">solve</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"prey"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"predator"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_conserved_quantity</span><span class="p">():</span>
+    <span class="c1"># H(x, y) = c*x - d*ln(x) + b*y - a*ln(y) is an exact first integral of</span>
+    <span class="c1"># the LV system: dH/dt = 0 along every trajectory.  With rtol=1e-8 and</span>
+    <span class="c1"># atol=1e-10 the RK45 solver conserves H to roughly machine precision</span>
+    <span class="c1"># times the number of steps.  A tolerance of 1e-6 is safe for T_MAX=53.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">solve</span><span class="p">()</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">conserved</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"prey"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">"predator"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="n">h</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">1e-6</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_volterra_principle</span><span class="p">():</span>
+    <span class="c1"># Volterra's averaging principle: the time mean of x(t) over any integer</span>
+    <span class="c1"># number of complete cycles equals x* = PRED_DEATH/PRED_GROWTH, and</span>
+    <span class="c1"># similarly for y(t).  T_MAX covers ~10 complete cycles, so the fractional-</span>
+    <span class="c1"># cycle bias is small.  The measured errors are &lt; 0.2%; a tolerance of</span>
+    <span class="c1"># 1% (relative) gives a 5x safety margin.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">solve</span><span class="p">()</span>
+    <span class="n">x_mean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"prey"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">y_mean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"predator"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x_mean</span> <span class="o">-</span> <span class="n">PREY_EQ</span><span class="p">)</span> <span class="o">/</span> <span class="n">PREY_EQ</span> <span class="o">&lt;</span> <span class="mf">0.01</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y_mean</span> <span class="o">-</span> <span class="n">PRED_EQ</span><span class="p">)</span> <span class="o">/</span> <span class="n">PRED_EQ</span> <span class="o">&lt;</span> <span class="mf">0.01</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_period</span><span class="p">():</span>
+    <span class="c1"># The small-oscillation period (linearisation around equilibrium) is</span>
+    <span class="c1"># 2π / sqrt(PREY_BIRTH * PRED_DEATH).  For finite-amplitude oscillations</span>
+    <span class="c1"># the true period differs by O(amplitude²).  With our initial conditions</span>
+    <span class="c1"># the measured period is ~5.30 vs the linearised estimate of ~5.13, a</span>
+    <span class="c1"># 3.3% difference.  A tolerance of 10% gives a 3x safety margin.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">solve</span><span class="p">()</span>
+    <span class="n">peaks</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"prey"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+    <span class="n">t_peaks</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"t"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="n">peaks</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_peaks</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"too few peaks detected to estimate period"</span>
+    <span class="n">measured_period</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t_peaks</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">measured_period</span> <span class="o">-</span> <span class="n">PERIOD_APPROX</span><span class="p">)</span> <span class="o">/</span> <span class="n">PERIOD_APPROX</span> <span class="o">&lt;</span> <span class="mf">0.10</span>
+</code></pre></div>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Starting at the equilibrium</h3>
+<p>Set <code>PREY_INIT = PREY_EQ</code> and <code>PRED_INIT = PRED_EQ</code> and run the simulation.
+What does <code>plot_time_series</code> show?
+What does <code>plot_phase</code> show?
+Explain why in terms of the fixed-point analysis.</p>
+<h3>Effect of initial conditions on period</h3>
+<p>Run the simulation with three different starting points:
+$(x_0, y_0)$ = (21, 10.5), (25, 5), and (40, 2).
+Plot the phase portraits on the same axes using different colors.
+Measure the period of each orbit using <code>find_peaks</code>.
+Is the period the same for all three orbits, or does it vary with amplitude?
+Compare each measured period to <code>PERIOD_APPROX</code>.</p>
+<h3>Harvesting prey</h3>
+<p>Add a constant harvesting term to the prey equation:
+$dx/dt = ax - bxy - h$,
+where $h &gt; 0$ represents the rate at which prey are removed by fishing, hunting, or sampling.
+Derive the new equilibrium $(x_h^<em>, y_h^</em>)$ algebraically.
+Implement the modified <code>rhs</code> and verify your algebra by checking that the simulation
+stays constant when started exactly at the new equilibrium.</p>
+<h3>Numerical accuracy and solver tolerance</h3>
+<p>Reduce <code>rtol</code> and <code>atol</code> by a factor of 100 (to $10^{-6}$ and $10^{-8}$) and re-run the simulation.
+By how much does the range of the conserved quantity $H$ increase?
+At what tolerance does <code>test_conserved_quantity</code> start to fail?
+What does this tell you about the relationship between solver accuracy and test tolerance?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../diffusion/">1D Diffusion Simulation</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../align/">Pairwise Sequence Alignment</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@gvwilson/forma" type="module"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

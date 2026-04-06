@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glossary</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a class="active" href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Glossary</h1>
+<h2>A</h2>
+<h2>B</h2>
+<dl>
+<dt><span id="basic_reproduction_number">Basic reproduction number</span></dt>
+<dd>Denoted $R_0$, the average number of secondary infections caused by a single infectious
+individual in a fully susceptible population; if $R_0 &gt; 1$ an epidemic can grow, if
+$R_0 \leq 1$ it dies out.  For the SIR model, $R_0 = \beta / \gamma$.</dd>
+<dt><span id="binary_mask">Binary mask</span></dt>
+<dd>A 2-D array of true/false (or 1/0) values indicating which pixels satisfy a criterion such
+as exceeding an intensity threshold; used as input to connected-component labelling.</dd>
+</dl>
+<h2>C</h2>
+<dl>
+<dt><span id="censoring">Censoring</span></dt>
+<dd>In survival analysis, an observation is censored when the event of interest has not yet
+occurred by the end of the study or when a participant leaves before the study ends; the
+true event time is unknown but is known to exceed the censoring time.  Right-censoring
+(the most common form) occurs when participants are lost to follow-up or the study concludes.</dd>
+<dt><span id="confusion_matrix">Confusion matrix</span></dt>
+<dd>A $2\times2$ (or larger) table that cross-tabulates true class labels against predicted
+class labels; for binary classification it contains true negatives (TN), false positives
+(FP), false negatives (FN), and true positives (TP), enabling computation of precision,
+recall, and F1 score alongside overall accuracy.</dd>
+<dt><span id="connected_component">Connected component</span></dt>
+<dd>A maximal set of pixels (or grid cells) that are all above a threshold and are connected
+to one another through shared edges or corners; each component is treated as a single object.</dd>
+<dt><span id="cross_entropy">Cross-entropy loss</span></dt>
+<dd>A loss function for classification: $-[y\log p + (1-y)\log(1-p)]$ for binary problems,
+where $y$ is the true label and $p$ is the predicted probability; penalises confident
+wrong predictions more heavily than uncertain ones.</dd>
+<dt><span id="covariance_matrix">Covariance matrix</span></dt>
+<dd>A symmetric matrix whose diagonal entries are the variances of fitted parameters and whose
+off-diagonal entries are the covariances between pairs of parameters; returned by least-squares
+fitting routines to quantify parameter uncertainties.</dd>
+</dl>
+<h2>D</h2>
+<dl>
+<dt><span id="depth_first_search">Depth-first search</span></dt>
+<dd>A graph traversal algorithm that explores as far as possible along each branch before
+backtracking, implemented with a stack (iteratively) or recursion; used here to test
+whether a path of open cells connects the top row to the bottom row of a grid.</dd>
+<dt><span id="diffusion_equation">Diffusion equation</span></dt>
+<dd>The partial differential equation $\partial c/\partial t = D\,\partial^2 c/\partial x^2$
+that describes how a dissolved substance or heat spreads through a medium at a rate
+proportional to the curvature of its concentration profile.</dd>
+<dt><span id="distance_matrix">Distance matrix</span></dt>
+<dd>A square symmetric matrix $D$ where entry $D(i,j)$ stores the evolutionary (or other
+pairwise) distance between taxa $i$ and $j$; the input to tree-reconstruction algorithms.</dd>
+<dt><span id="dynamic_programming">Dynamic programming</span></dt>
+<dd>An algorithmic strategy that solves a problem by breaking it into overlapping subproblems,
+computing each subproblem once, and storing the results in a table to avoid redundant work.</dd>
+</dl>
+<h2>E</h2>
+<dl>
+<dt><span id="euler_mascheroni">Euler-Mascheroni constant</span></dt>
+<dd>The constant $\gamma_E = \lim_{n\to\infty}(\sum_{k=1}^n 1/k - \ln n) \approx 0.5772$;
+appears in the mean of the Gumbel extreme-value distribution as $\mathrm{E}[X] = \mu + \gamma_E \beta$.</dd>
+<dt><span id="extreme_value_distribution">Extreme value distribution</span></dt>
+<dd>A family of distributions that arise as limiting distributions of sample maxima or minima;
+the Gumbel (Type I) member is commonly used to model annual maximum river flows and other
+environmental extremes.</dd>
+</dl>
+<h2>F</h2>
+<dl>
+<dt><span id="flow_network">Flow network</span></dt>
+<dd>A directed graph in which each edge carries a capacity or weight representing the rate at
+which material (water, traffic, data) moves from source to destination; used here to model
+pollutant transport in a river system.</dd>
+<dt><span id="first_integral">First integral</span></dt>
+<dd>A function of the state variables whose value is constant along every trajectory of a
+dynamical system; also called a conserved quantity or invariant.</dd>
+</dl>
+<h2>G</h2>
+<dl>
+<dt><span id="gradient_descent">Gradient descent</span></dt>
+<dd>An iterative optimisation algorithm that updates parameters in the direction of the
+negative gradient of the loss function; at each step, $\theta \leftarrow \theta - \eta \nabla L$
+where $\eta$ is the learning rate.  For convex losses such as binary cross-entropy,
+gradient descent converges to the global minimum.</dd>
+<dt><span id="gaussian_filter">Gaussian filter</span></dt>
+<dd>A smoothing operation that replaces each pixel (or grid point) with a weighted average of
+its neighbours, where the weights follow a Gaussian (bell-curve) shape centred on the point.</dd>
+<dt><span id="gumbel_paper">Gumbel probability paper</span></dt>
+<dd>A plotting technique that rescales the horizontal axis by the reduced variate
+$y = -\ln(-\ln p)$, so that data following a Gumbel distribution plot as a straight line;
+departures from linearity indicate poor fit.</dd>
+<dt><span id="ghost_cell">Ghost cell</span></dt>
+<dd>An extra grid point added outside the physical boundary of a numerical simulation solely
+to store a boundary value; it allows interior update formulas to be applied uniformly at
+the edge without special-casing.</dd>
+</dl>
+<h2>H</h2>
+<dl>
+<dt><span id="heat_flux">Heat flux</span></dt>
+<dd>The rate of heat energy transfer per unit area through a surface, measured in watts per
+square metre (W m⁻²); in steady-state conduction it equals $-k\,dT/dx$ and is uniform
+throughout any composite wall.</dd>
+</dl>
+<h2>I</h2>
+<h2>J</h2>
+<h2>K</h2>
+<dl>
+<dt><span id="kaplan_meier">Kaplan-Meier estimator</span></dt>
+<dd>A non-parametric estimator of the survival function that accounts for censored observations
+by updating only at observed event times: $\hat{S}(t) = \prod_{t_i \leq t}(1 - d_i/n_i)$
+where $d_i$ is the number of events and $n_i$ the number at risk at time $t_i$.</dd>
+</dl>
+<h2>L</h2>
+<dl>
+<dt><span id="local_alignment">Local alignment</span></dt>
+<dd>An alignment that finds the highest-scoring matching subsequence anywhere within two
+sequences, rather than aligning them from end to end; used to locate conserved domains
+within longer sequences.</dd>
+<dt><span id="log_log_regression">Log-log regression</span></dt>
+<dd>A linear regression of $\ln y$ on $\ln x$; the OLS slope directly estimates the exponent
+of an underlying power-law relationship $y = A x^b$, and is used in economics to estimate
+price elasticity of demand.</dd>
+<dt><span id="logistic_regression">Logistic regression</span></dt>
+<dd>A classification model that estimates the probability of class membership using a linear
+combination of features passed through the sigmoid function; fitted by minimising binary
+cross-entropy loss with gradient descent.</dd>
+<dt><span id="lomb_scargle">Lomb-Scargle periodogram</span></dt>
+<dd>FIXME</dd>
+<dt><span id="lotka_volterra">Lotka-Volterra model</span></dt>
+<dd>A pair of ordinary differential equations describing the coupled dynamics of a prey
+population and a predator population, producing oscillating cycles when the system is
+displaced from its equilibrium.</dd>
+</dl>
+<h2>M</h2>
+<dl>
+<dt><span id="method_of_moments">Method of moments</span></dt>
+<dd>A parameter-estimation technique that sets the distribution's theoretical moments (mean,
+variance, etc.) equal to their sample counterparts and solves for the unknown parameters;
+simpler to compute than maximum likelihood but generally less statistically efficient.</dd>
+<dt><span id="moving_average">Moving average</span></dt>
+<dd>A smoothing filter that replaces each value in a series with the mean of a fixed-width
+window of neighbouring values, reducing point-to-point noise variance by a factor equal
+to the window width.</dd>
+</dl>
+<h2>N</h2>
+<dl>
+<dt><span id="neighbor_joining">Neighbor-joining</span></dt>
+<dd>A distance-based algorithm (Saitou and Nei, 1987) that reconstructs a phylogenetic tree
+by iteratively joining the pair of taxa with the smallest corrected distance, running in
+$O(N^3)$ time.</dd>
+<dt><span id="non_maximum_suppression">Non-maximum suppression</span></dt>
+<dd>A post-processing step that scans a list of candidate detections and discards any candidate
+that is not the tallest within a specified neighbourhood, preventing one broad peak or blob
+from being reported as multiple detections.</dd>
+</dl>
+<h2>O</h2>
+<dl>
+<dt><span id="ordinary_least_squares">Ordinary least squares</span></dt>
+<dd>A method for fitting a linear model $y = Xb$ by minimising the sum of squared residuals
+$|y - Xb|^2$; the closed-form solution is $\hat{b} = (X^TX)^{-1}X^Ty$, and the slope
+uncertainty is quantified by the standard error $\text{SE}(\hat{b}) = \sqrt{\hat{\sigma}^2(X^TX)^{-1}}$.</dd>
+</dl>
+<h2>P</h2>
+<dl>
+<dt><span id="price_elasticity">Price elasticity of demand</span></dt>
+<dd>The percentage change in quantity demanded for a 1% change in price:
+$\varepsilon = \partial \ln Q / \partial \ln P$; values below $-1$ indicate elastic demand
+(quantity is highly responsive to price) and values between $-1$ and $0$ indicate inelastic
+demand.</dd>
+<dt><span id="percolation_threshold">Percolation threshold</span></dt>
+<dd>The critical probability $p_c$ at which a large random network transitions from almost
+certainly disconnected to almost certainly connected; for 2D site percolation on a square
+lattice with 4-neighbor connectivity, $p_c \approx 0.5927$.</dd>
+<dt><span id="phase_portrait">Phase portrait</span></dt>
+<dd>A plot of one state variable against another (e.g., predator vs. prey population) showing
+the family of trajectories a dynamical system can follow, without reference to time.</dd>
+<dt><span id="phylogenetic_tree">Phylogenetic tree</span></dt>
+<dd>A branching diagram showing the inferred evolutionary relationships among a set of taxa,
+with leaves representing observed taxa and internal nodes representing their common ancestors.</dd>
+</dl>
+<h2>Q</h2>
+<dl>
+<dt><span id="q_matrix">Q-matrix</span></dt>
+<dd>A corrected distance matrix used in the neighbor-joining algorithm where each entry
+$Q(i,j) = (n-2)D(i,j) - \sum_k D(i,k) - \sum_k D(j,k)$ removes the bias introduced by
+branches of unequal length.</dd>
+</dl>
+<h2>R</h2>
+<dl>
+<dt><span id="right_censoring">Right-censoring</span></dt>
+<dd>A form of censoring in survival analysis where the true event time is known only to exceed
+the observation time; arises when a study ends before all participants experience the event
+or when participants withdraw.  The Kaplan-Meier estimator handles right-censored data
+without bias.</dd>
+<dt><span id="rolling_window">Rolling window</span></dt>
+<dd>A fixed-width buffer of the $w$ most recent observations used to compute local summary
+statistics (mean, variance) that adapt to gradual changes in the signal; also called a
+moving window or sliding window.</dd>
+<dt><span id="radial_velocity">Radial velocity</span></dt>
+<dd>The component of a star's velocity along the observer's line of sight; measured via
+Doppler shifts in spectral lines and used to detect the gravitational wobble caused by
+an orbiting planet.</dd>
+<dt><span id="reduced_variate">Reduced variate</span></dt>
+<dd>The dimensionless quantity $y = -\ln(-\ln p)$ used in extreme-value analysis; it linearises
+the Gumbel CDF so that data following a Gumbel distribution plot as a straight line against
+the corresponding quantiles on Gumbel probability paper.</dd>
+<dt><span id="return_period">Return period</span></dt>
+<dd>Also called recurrence interval; the average time between events that exceed a given
+threshold.  A $T$-year event has probability $1/T$ of being exceeded in any single year
+and probability $1-(1-1/T)^T \approx 63\%$ of being exceeded at least once in $T$ years.</dd>
+</dl>
+<h2>S</h2>
+<dl>
+<dt><span id="sigmoid_function">Sigmoid function</span></dt>
+<dd>The function $\sigma(z) = 1/(1 + e^{-z})$ that maps any real number to the open interval
+$(0,1)$; used in logistic regression to convert a linear score into a probability.</dd>
+<dt><span id="sir_model">SIR model</span></dt>
+<dd>A compartmental epidemic model that divides a fixed population into Susceptible, Infectious,
+and Recovered compartments; individuals move irreversibly from S to I at rate $\beta SI/N$
+and from I to R at rate $\gamma I$, producing a single epidemic wave when $R_0 = \beta/\gamma &gt; 1$.</dd>
+<dt><span id="site_percolation">Site percolation</span></dt>
+<dd>A percolation model in which each site (cell) of a lattice is independently declared open
+with probability $p$; the question is whether open sites form a connected path from one
+boundary to the other.  Contrast with bond percolation, where edges rather than sites are opened.</dd>
+<dd>The function $\sigma(z) = 1/(1 + e^{-z})$ that maps any real number to the open interval
+$(0,1)$; used in logistic regression to convert a linear score into a probability.</dd>
+<dt><span id="semi_amplitude">Semi-amplitude</span></dt>
+<dd>The quantity $K$ in a sinusoidal radial-velocity model, equal to the maximum speed of the
+star relative to the centre of mass of the star-planet system; related to the planet's
+minimum mass and orbital period.</dd>
+<dt><span id="smith_waterman">Smith-Waterman algorithm</span></dt>
+<dd>A dynamic-programming algorithm (Smith and Waterman, 1981) that computes the optimal local
+alignment of two sequences by filling a scoring matrix with a recurrence that includes a
+zero floor, allowing alignments to start anywhere.</dd>
+<dt><span id="spike_outlier">Spike outlier</span></dt>
+<dd>An isolated measurement that is far from the local baseline and immediately returns to
+normal; contrasted with a step change, which is a sustained shift.  A rolling z-score
+detector flags the spike reading but quickly returns to normal z-scores once the spike
+leaves the window.</dd>
+<dt><span id="step_change">Step change</span></dt>
+<dd>A sudden, sustained shift in the baseline level of a time series; the rolling-window
+z-score detector flags readings near the transition but adapts once the window has fully
+moved into the new regime.</dd>
+<dt><span id="survival_function">Survival function</span></dt>
+<dd>The probability that a randomly chosen individual has not yet experienced the event of
+interest by time $t$: $S(t) = P(T &gt; t)$; always starts at 1, is non-increasing, and
+approaches 0 as $t \to \infty$ if all individuals eventually experience the event.</dd>
+</dl>
+<h2>T</h2>
+<dl>
+<dt><span id="transfer_matrix">Transfer matrix</span></dt>
+<dd>A square matrix $T$ where entry $T[i,j]$ gives the fraction of material at node $j$ that
+moves to node $i$ in one time step; when every column sums to 1 (column-stochastic), the
+total amount of material is exactly conserved at every step.</dd>
+<dt><span id="thermal_conductivity">Thermal conductivity</span></dt>
+<dd>A material property $k$ (W m⁻¹ K⁻¹) measuring how readily heat flows through a material;
+high $k$ (e.g. metals) allows large heat flux for a small temperature gradient.</dd>
+<dt><span id="thermal_resistance">Thermal resistance</span></dt>
+<dd>For a uniform layer of thickness $L$ and conductivity $k$, the resistance $R = L/k$
+(m² K W⁻¹) represents the temperature drop per unit heat flux; layers in series add.</dd>
+<dt><span id="tridiagonal_system">Tridiagonal system</span></dt>
+<dd>A linear system $A\mathbf{x} = \mathbf{b}$ in which $A$ has nonzero entries only on the
+main diagonal and the two diagonals immediately above and below it; arises from 1D
+finite-difference discretization and can be solved in $O(n)$ time.</dd>
+<dt><span id="truncation_error">Truncation error</span></dt>
+<dd>The error introduced at each time step by approximating continuous derivatives with finite
+differences; for the explicit diffusion scheme the global truncation error scales as
+$O(\Delta t + \Delta x^2)$.</dd>
+</dl>
+<h2>U</h2>
+<h2>V</h2>
+<dl>
+<dt><span id="von_neumann_stability">von Neumann stability condition</span></dt>
+<dd>FIXME</dd>
+</dl>
+<h2>W</h2>
+<h2>X</h2>
+<h2>Y</h2>
+<h2>Z</h2>
+<dl>
+<dt><span id="z_score">Z-score</span></dt>
+<dd>The number of standard deviations by which an observation deviates from a reference mean:
+$z = (x - \bar{x}) / \hat{\sigma}$; used in anomaly detection to flag readings that are
+unusually far from the local rolling mean.</dd>
+</dl>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../bibliography/">Bibliography</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@gvwilson/forma" type="module"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>
