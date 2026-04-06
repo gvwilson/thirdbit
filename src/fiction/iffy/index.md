@@ -4741,11 +4741,11 @@ but the strait between them was so narrow
 that you could throw a rock across it if you had a good arm.*
 
 *People had settled almost every other part of the world
-before they found Nova Zembla.
+before they reached Nova Zembla.
 Seal hunters and fishermen camped there
 or were shipwrecked and froze to death in the bitter Arctic winter.
 It was briefly home to a secret submarine base,
-and later a place for madmen with calm voices
+and later became a place for madmen with calm voices
 to test bombs that could level entire cities.*
 
 *Then the ice began to melt and the sea began to rise.
@@ -4866,16 +4866,18 @@ Iffy went out on deck
 and watched the Marines unpack and assemble their gear
 with the speed and skill of the inducted.
 She wondered how Honesty was doing—was de still derself,
-or was de struggling right at that very moment
+or was de struggling at that very moment
 to make sense of the reflexes and attitudes of some long-gone soldier?
+Would she,
+when her time came?
 
 By the time Aunt Naggie joined her
 a portable railgun squatted beside a pair of steel-gray capacitors,
 its empty packing case serving as an improvised bench for the Marines.
 Half a dozen rocket lances stood ready on slender posts
 like flamingoes from Iffy's bird book.
-Drones the size of seagulls patrolled overhead,
-making the actual seagulls squawk in protest.
+Drones the size of gulls patrolled overhead,
+making the actual gulls squawk in protest.
 
 "Don't fret,"
 Aunt Naggie said gently as Iffy scraped the paint on the taffrail with her thumbnail.
@@ -4883,6 +4885,7 @@ Aunt Naggie said gently as Iffy scraped the paint on the taffrail with her thumb
 De'll be fine."
 
 "I know," Iffy sighed.
+She was used to her foster mother reading her mind.
 "I just…"
 
 Aunt Naggie put her arm around Iffy's shoulder.
@@ -4909,9 +4912,10 @@ Wales shrugged.
 "To tell you the truth, I'm surprised as well."
 He nudged a toolbox with the toe of his boot.
 "Governor insisted on keeping the, uh, the most sensitive things,
-but he and the core seemed to think I'd be as safe here as anywhere."
+but he and Gayathri and the city core seem to think I might as well be here as anywhere."
 He cocked his head.
-"Want to make something?"
+"So,
+do you want to make something?"
 
 Iffy helped him lug his belongings down to the engine room,
 then laid a paint-stained tarp over the narrow shelf
@@ -4931,7 +4935,7 @@ Iffy said in awe.
 
 Wales chuckled.
 "Not quite, but—here, let me get the printer set up
-while you decide what you want to build."
+while you decide what we're building."
 He plucked a scarred gray cube out of a recess in the hard foam
 that lined the lid of the toolbox.
 
@@ -4977,8 +4981,8 @@ She passed the newly-made motor to Wales.
 
 "Just another couple of minutes for the chassis."
 He shifted his toolbox to the floor and seated himself in its place.
-"Your friend'll be all right,"
-he said as if reading her mind.
+"Your friend will be all right,"
+he said after a moment.
 
 Iffy shrugged.
 "I know.
@@ -4996,7 +5000,7 @@ The corner of Wales' mouth quirked up.
 how to induct skills without dragging bits of personality along with them.
 It eventually decided it wasn't possible,
 but…"
-He picked up a stray scrap of plastic stock shaped like a seagull's wing
+He picked up a scrap of plastic feedstock shaped like a bird's wing,
 flipped it end over end,
 and threw it.
 It thunked into the wall like a knife.
@@ -5011,18 +5015,18 @@ opening the lid and lifting the still-warm chassis.
 
 Iffy's motor fit perfectly.
 A pair of metal-cored propellors on magnetic bearings clipped into place on top,
-and then all that was left was lenses for its cameras.
+and then all that was left were the lenses for its cameras.
 
 *Well, ain't you a beauty?* Iffy thought when she was done.
 The finished drone was the size of Iffy's fist
-and weighed no more than a couple of boiled eggs.
+and weighed no more than a couple of pieces of tofu.
 She ignored the rumble her stomach brought on by the analogy
 and offered the little machine to Wales.
 "Whaddaya wanna call her?"
 
 He shook his head.
 "All I did was push some buttons on the printer.
-You should give her a name."
+You should name her."
 
 Iffy hefted her tiny creation.
 "Can I call her Corvus?" she asked.
@@ -5105,7 +5109,7 @@ she shouted as the two Marines turned away to resume their patrol.
 
 She would have stomped down the gangplank and—she didn't know what,
 but Wales stopped her before she could get that far.
-"Come on," he said quietly,
+"Don't," he said quietly,
 blocking her way.
 "Iffy, come on, it's done."
 
@@ -5127,7 +5131,7 @@ wiping her eyes on her sleeve as Wales handed her a paper towel.
 
 Wales sat back and waited.
 Iffy wiped her eyes again.
-"I had a bird," she said quietly.
+"I had a rat," she said quietly.
 "Aunt Naggie saved up an' got me a pair,
 but one of 'em had somethin' wrong with it,
 so I had just the one.
@@ -5149,7 +5153,7 @@ an' I came back an' she was gone.
 We looked all over for her, me an' Aunt Naggie, but…"
 She shook her head.
 "I musta left her cage unlocked or somethin'.
-If she got on deck, one o' the gulls coulda taken her an'… an'…"
+If she got out, one o' the gulls coulda taken her an'… an'…"
 
 She clenched her hands into fists.
 "Why's it all got to be so hard?" she asked,
@@ -5189,7 +5193,7 @@ and when she wasn't doing chores
 she had school and sims and her tinkering to keep her busy.
 
 Being confined in harbor felt different, though.
-Knowing that Rothera's streets and markets were *right there*
+Knowing that Rothera's streets and markets were right there
 was like an itch in her head that she couldn't scratch.
 Worrying about Honesty just made it worse.
 
@@ -5212,7 +5216,7 @@ There was a long pause.
 - `don't think so.
   sergeant said i cried a lot
   but i don't think that was from hurt.
-  de said a lotta folk do that`
+  de said a lotta folk do that.`
 
 Iffy hesitated again,
 a lump in her throat.
@@ -5246,7 +5250,7 @@ an' the stuff he's got…"
 
 "You sound like a woman in love,"
 Aunt Naggie teased,
-but then her smile slipped a little.
+but then her smile slipped.
 
 "I'm gonna ask him if I can take on with 'im,"
 Iffy said in a rush,
@@ -5255,7 +5259,7 @@ she had been bottling up since the encounter in the market
 but needing say *something*.
 "Like, be his 'prentice for real."
 
-"You should,"
+"Good,"
 Aunt Naggie said firmly.
 "A few years with him an' Balwinder Mishra'll have some real competition."
 
@@ -5318,11 +5322,6 @@ like an ice cube pushed to the bottom of a glass of water and then released.
 *I ain't doin' anythin' 'til I know who you are,*
 she thought,
 forming each word as clearly as she could.
-*Am I talkin' to Nova Zembla?*
-
-*«amusement / scorn / wrong»*
-
-She shook her head.
 *You want me t' do somethin' for you,
 you gotta tell me who you are.*
 
@@ -5552,13 +5551,13 @@ Wales frowned.
 
 A few seconds later they stood side by side in silence
 looking at the double tripod and the shallow square dish it held.
-"I don't recognize it,"
+"Well, that's something,"
 Wales said neutrally.
 
 Iffy rubbed her nose and checked her hand as casually as she could.
 There was no blood,
 but if her headache got any worse she was going to have to find some meds.
-"A raccoon was tryin' to put 'em together,
+"A raccoon was tryin' to put it t'gether,
 so I figured it was somethin' o' yours an' helped out."
 
 "The last time I had any business with raccoons was back in Halley,"
@@ -5590,7 +5589,7 @@ I am speaking to you today to tell you that it did so on my authority."
 Beside her,
 Wales swore under his breath.
 
-"The Antarctic has been neutral territory for over a century,"
+"The Antarctic has been neutral territory for almost a century,"
 the governor went on.
 "In recent years,
 however,
@@ -5600,7 +5599,7 @@ I believe it best to enter into an alliance with Grande Brazil."
 
 His voice hardened.
 "Unfortunately,
-my counterpart in Halley would rather see Antarctica under direct Australian rule.
+my counterpart in Halley would rather see us all under direct Australian rule.
 In aid of this,
 he has invited the Australian Navy to take control of his territory and of the city of Halley.
 As we speak,
@@ -5755,17 +5754,17 @@ One final heave from Iffy and Aunt Naggie got her over the taffrail.
 Iffy tossed the end of the rope back down to Wales.
 Bracing his feet against the ship's hull,
 he clambered up onto the deck,
-soaking wet but apparently otherwise unaffected by his dip in the freezing water.
+soaking wet but apparently otherwise unaffected by the freezing water.
 
 Aunt Naggie handed him the first aid kit from the pilot house.
 Wales turned it on and pressed it against the Marine's neck.
-"Come on come on," Wales muttered.
+"Come on come on come on," Wales muttered.
 Aunt Naggie put her arm around Iffy and squeezed.
 The status light on the first aid kid blinked orange, yellow, orange, yellow:
 the Marine was alive but in critical condition.
 The exoskeleton had clamped an emergency tourniquet around her leg
 to stop her bleeding out,
-but those seconds in the harbor had sent her into hypothermia.
+but those long, cold seconds in the harbor had sent her into shock.
 
 Diagnostics scrolled up the first aid kid's screen.
 Pain killers,
@@ -5941,7 +5940,7 @@ Lights suddenly sparkled on Wales' temples.
 He closed his eyes as his tech reconnected with the world.
 "Slow missiles," he said,
 his eyes flickering under his lids as he absorbed the information.
-"Probably disguised as rats and raccoons until they got close to their targets."
+"Probably disguised as rats and gulls until they got close to their targets."
 His shoulders slumped slightly.
 "Eleven casualties confirmed,
 but there will be more under the rubble."
@@ -5976,7 +5975,7 @@ The smile on Honesty's face was as bright as the Antarctic sun.
 "They warned me that I might find Corporal Kibbens somewhat overwhelming at first,
 but she served with distinction in the Fourth Augmented Infantry during the evacuation of Hawai'i,
 and was decorated posthumously twice during the defense of Auckland.
-She was an outstanding soldier, and I am proud to be her inductee."
+She was an outstanding soldier, and I am proud to serve as her."
 
 Iffy took a step forward,
 some part of her thinking that if only she took Honesty by the shoulders and shook der hard enough
@@ -6005,7 +6004,7 @@ for the last forty years.
 The blast that had torn open the front wall of the Marines' headquarters
 had replaced all that with the acrid afterburn of explosives.
 The ragged opening where the wall had been let in
-a cold salt-and-jellyfish breeze from the harbor.
+a cold breeze from the harbor that smelled of salt and rotting jellyfish.
 
 "Wait here,"
 the Marine guiding them said.
@@ -6020,7 +6019,7 @@ stay calm,
 and power down or disable any advanced hardware nearby.
 
 She opened her mouth to ask how long Wales thought it would be,
-but closed it as he and Aunt Naggie shot her warning glances.
+but closed it as he and Aunt Naggie shot her simultaneous warning glances.
 There was nothing to do but wait and worry.
 
 Footsteps in the corridor and a perfunctory knock on the door
