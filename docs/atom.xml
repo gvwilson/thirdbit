@@ -3,12 +3,335 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-04-01T00:00:00Z</updated>
+ <updated>2026-04-08T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>Lessons from Disaster Management</title>
+   <link href="https://third-bit.com/2026/04/08/lessons-from-disasters/"/>
+   <updated>2026-04-08T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/04/08/lessons-from-disasters/</id>
+   <content type="html">&lt;p&gt;Last year I started building a workshop on how to shut projects down.
+I put it on hold in the fall,
+both because I was finding it difficult to figure out what to say
+and because working on something like that after being laid off felt a bit unhealthy.
+A couple of recent discussions have revived my interest,
+though,
+so here are some notes that I hope one day will find a home.&lt;/p&gt;
+&lt;h2&gt;Normalization of Deviance&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#Vaughan1996&#34;&gt;Vaughan1996&lt;/a&gt; showed that the engineers involved in the Challenger disaster
+did not make a single catastrophic decision
+but instead made a long sequence of small decisions in which signals of danger were repeatedly noticed,
+reinterpreted as acceptable,
+and filed away until deviation from safety standards had become the practical norm.
+The parallel for software and research projects is that
+teams approaching closure often carry a backlog of things that everyone knows are wrong
+but that have never been formally acknowledged.
+A deliberate closure process should include an explicit audit of normalized deviations
+that the team accepted because stopping to fix them felt too costly,
+both to honestly document the project&amp;rsquo;s actual state
+and to avoid passing silent assumptions on to anyone who inherits the work.
+In practical terms,
+a shutdown retrospective is most valuable not when it celebrates successes
+but when it names the things the team learned to live with.&lt;/p&gt;
+&lt;h2&gt;Fantasy Documents and the Rhetoric of Preparedness&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#Clarke1999&#34;&gt;Clarke1999&lt;/a&gt; describes how organizations routinely produce disaster response plans
+that have no realistic chance of being executed.
+Clarke calls these &amp;ldquo;fantasy documents&amp;rdquo;:
+their purpose is to reassure regulators, funders, and the public that someone is in charge,
+despite bearing no relationship to what would actually happen under stress.
+For software and research projects,
+this maps onto the shutdown plan that exists in a drawer but has never been tested,
+or to a &lt;code&gt;HANDOVER.md&lt;/code&gt; written in an afternoon that no one outside the core team has ever read.
+A closure plan should be treated as a drill script, not a policy document:
+teams should periodically walk through it step by step
+and ask whether each action is actually achievable with the people available.&lt;/p&gt;
+&lt;h2&gt;Tight Coupling and Normal Accidents&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Tight coupling&lt;/em&gt; means that failure in one part of a system propagates rapidly through others
+with little time for intervention.
+&lt;a href=&#34;#Perrow1999&#34;&gt;Perrow1999&lt;/a&gt; argues that in complex systems where components are tightly coupled,
+accidents are not aberrations but predictable outcomes of the system&amp;rsquo;s design.
+Modern software and research infrastructure is often tightly coupled
+in ways that only become visible during shutdown:
+an account that pays for ten services,
+or a single personal login that controls a domain.
+These tight couplings mean that an unexpected departure or account closure
+cascades into a complete loss of access before anyone has time to respond.
+The solution is to treat any single point of control that cannot survive a 48-hour unavailability as a bug.&lt;/p&gt;
+&lt;p&gt;That said,
+&lt;a href=&#34;#Singer2023&#34;&gt;Singer2023&lt;/a&gt;
+contrasts &amp;ldquo;blame the individual&amp;rdquo; with &amp;ldquo;blame the system&amp;rdquo;,
+and shows that companies push the latter to absolve themselves of responsibility.&lt;/p&gt;
+&lt;h2&gt;The Survival Arc&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#Ripley2008&#34;&gt;Ripley2008&lt;/a&gt; synthesises research on how people behave when disaster strikes
+and puts forward a three-stage survival arc:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Denial: refusal to believe that the situation is as serious as evidence suggests.&lt;/li&gt;
+&lt;li&gt;Deliberation: a period of paralysed uncertainty about what to do.&lt;/li&gt;
+&lt;li&gt;Decision: action, which may or may not be correct.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Research on building evacuations, shipwrecks, and plane crashes consistently shows that
+the denial phase consumes far more time than people expect,
+while thinking through the scenario before it happens dramatically shortens it.
+For project closure,
+this predicts that the period between a credible signal that a project is in trouble
+and the first concrete closure action will be longer than planners assume,
+particularly under abrupt conditions.
+Rehearsal converts a novel emergency into a recognised pattern.&lt;/p&gt;
+&lt;h2&gt;Warning Signs&lt;/h2&gt;
+&lt;p&gt;While it is not directly relevant to project closure,
+&lt;a href=&#34;#Palazzo2025&#34;&gt;Palazzo2025&lt;/a&gt; argues that there are patterns in the dynamics of corporate scandals.
+Would recognizing them give people early warning that projects were going to fail?&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td style=&#34;border: none; padding-right: 2rem;&#34;&gt;
+      rigid ideology
+      &lt;br&gt;
+      toxic leadership
+      &lt;br&gt;
+      manipulative language
+    &lt;/td&gt;
+    &lt;td style=&#34;border: none; padding-right: 2rem;&#34;&gt;
+      corrupting goals
+      &lt;br&gt;
+      destructive incentives
+      &lt;br&gt;
+      ambiguous rules
+    &lt;/td&gt;
+    &lt;td style=&#34;border: none; padding-right: 2rem;&#34;&gt;
+      perceived unfairness
+      &lt;br&gt;
+      dangerous groups
+      &lt;br&gt;
+      slippery slope
+    &lt;/td&gt;
+&lt;/table&gt;
+
+&lt;h2&gt;The Collapse of Sensemaking&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#Weick2007&#34;&gt;Weick2007&lt;/a&gt; studied organisations that operate reliably in high-stakes, high-complexity environments
+and identified five shared practices they call &lt;em&gt;mindful organizing&lt;/em&gt;.
+Two of these are relevant to project closure:
+sensitivity to operations
+(i.e., maintaining an accurate picture of what is actually happening, not what plans say is happening)
+and commitment to resilience (the capacity to improvise when standard procedures fail).
+Earlier, &lt;a href=&#34;#Weick1993&#34;&gt;Weick1993&lt;/a&gt; introduced the idea of a &lt;em&gt;cosmology episode&lt;/em&gt;:
+a moment when the world stops making sense and actors freeze.
+These can occur during abrupt project closures
+when the governance structures that normally coordinate work suddenly disappear.
+One way to deal with this is to make sure that teams have fallbacks
+such as personal email addresses or a shared document that doesn&amp;rsquo;t depend on organizational infrastructure.
+The twin risks of this are that only insiders will know these unofficial documents exist,
+and that they will be out of date by the time they&amp;rsquo;re needed.&lt;/p&gt;
+&lt;h2&gt;Anticipatory Mourning and the Grief of Planned Endings&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#Rando2000&#34;&gt;Rando2000&lt;/a&gt; studied &lt;em&gt;anticipatory mourning&lt;/em&gt;:
+grief that begins before an expected loss, not after it.
+She distinguishes this from simple &amp;ldquo;grief in advance&amp;rdquo;:
+it involves simultaneous processing of past losses (what the project once was),
+present losses (what it is becoming),
+and future losses (what it will never be),
+and it is cognitively and emotionally more demanding than grief after the fact
+because the person must continue to function while still engaged in the thing they are losing.
+For project teams,
+planned shutdown triggers this:
+team members must continue doing the work of closing down
+while processing the loss of their work relationships and the future they had imagined.
+A practical recommendation is to name this dynamic explicitly,
+because people who understand that their feelings are real are better able to manage them
+and to support one another.&lt;/p&gt;
+&lt;h2&gt;Bibliography&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;span id=&#34;Clarke1999&#34;&gt;Clarke1999&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Lee Clarke:
+&lt;em&gt;Mission Improbable: Using Fantasy Documents to Tame Disaster&lt;/em&gt;.
+University of Chicago Press,
+1999,
+978-0226109411.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Palazzo2025&#34;&gt;Palazzo2025&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Guido Palazzo and Ulrich Hoffrage:
+&lt;em&gt;The Dark Pattern: The Hidden Dynamics of Corporate Scandals&lt;/em&gt;.
+PublicAffairs,
+2025,
+978-1541705302.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Perrow1999&#34;&gt;Perrow1999&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Charles Perrow
+&lt;em&gt;Normal Accidents: Living with High-Risk Technologies&lt;/em&gt;.
+Princeton University Press,
+1999,
+978-0691004129.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Rando2000&#34;&gt;Rando2000&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Therese A. Rando (ed.):
+&lt;em&gt;Clinical Dimensions of Anticipatory Mourning: Theory and Practice in Working with the Dying, Their Loved Ones, and Their Caregivers&lt;/em&gt;.
+Research Press,
+2000,
+978-0878223800.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Ripley2008&#34;&gt;Ripley2008&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Amanda Ripley:
+&lt;em&gt;The Unthinkable: Who Survives When Disaster Strikes—and Why&lt;/em&gt;.
+Crown Publishers,
+2008,
+978-0307352897.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Singer2023&#34;&gt;Singer2023&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Jessie Singer:
+&lt;em&gt;There Are No Accidents: The Deadly Rise of Injury and Disaster—Who Profits and Who Pays the Price&lt;/em&gt;.
+Simon &amp;amp; Schuster,
+2023,
+978-1982129668.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Vaughan1996&#34;&gt;Vaughan1996&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Diane Vaughan:
+&lt;em&gt;The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA&lt;/em&gt;.
+University of Chicago Press,
+1996,
+978-0226851754.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Weick1993&#34;&gt;Weick1993&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Karl E. Weick:
+&amp;ldquo;The Collapse of Sensemaking in Organizations: The Mann Gulch Disaster.&amp;rdquo;
+&lt;em&gt;Administrative Science Quarterly&lt;/em&gt;,
+38(4),
+1993,
+10.2307/2393339.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Weick2007&#34;&gt;Weick2007&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Karl E. Weick and Kathleen M. Sutcliffe
+&lt;em&gt;Managing the Unexpected: Resilient Performance in an Age of Uncertainty&lt;/em&gt;
+(2nd ed.).
+Jossey-Bass,
+2007,
+978-0787996499.&lt;/dd&gt;
+&lt;/dl&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Lessons from MAID</title>
+   <link href="https://third-bit.com/2026/04/08/lessons-from-maid/"/>
+   <updated>2026-04-08T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/04/08/lessons-from-maid/</id>
+   <content type="html">&lt;p&gt;Eight years on, I still &lt;a href=&#34;https://third-bit.com/2018/03/20/goodbye-jeff/&#34;&gt;miss my brother&lt;/a&gt; almost every day.
+I haven&amp;rsquo;t read much about medical assistance in dying (MAID) since he took advantage of it,
+but I still think there are lessons there for ending projects.
+As with &lt;a href=&#34;https://third-bit.com/2026/04/08/lessons-from-disasters/&#34;&gt;the first post in this series&lt;/a&gt;, though,
+I worry about how much of this people will actually do before it&amp;rsquo;s needed,
+particularly when they&amp;rsquo;re already under stress.&lt;/p&gt;
+&lt;h2&gt;Advance Directives&lt;/h2&gt;
+&lt;p&gt;An &lt;em&gt;advance directive&lt;/em&gt; (sometimes called a living will) is a document someone writes
+while they are still healthy and competent,
+specifying what care they do and don&amp;rsquo;t want if they become unable to speak for themselves.
+The direct parallel for a software or research project is something prepared during normal operations
+that specifies the conditions under which the project should be wound down,
+who has the authority to make that call,
+what assets must be preserved and how,
+and what obligations must be honoured.
+&lt;a href=&#34;#Towey2026&#34;&gt;Towey2026&lt;/a&gt; extends this idea beyond purely medical instructions
+to cover personal, emotional, and relational matters,
+which maps well onto the non-technical dimensions of project closure.
+The most important thing is to recognize that this document needs to be written &lt;em&gt;before&lt;/em&gt; it is needed:
+once a project is under stress,
+cognitive load and interpersonal conflict make clear-headed decision-making much harder,
+and governance discussions that should have happened earlier are forced into the worst possible moment.&lt;/p&gt;
+&lt;h2&gt;Total Pain and the Hidden Costs of Closure&lt;/h2&gt;
+&lt;p&gt;Dame Cicely Saunders, who founded the modern hospice movement,
+introduced the concept of &lt;em&gt;total pain&lt;/em&gt; in the 1960s
+to describe how a dying patient&amp;rsquo;s suffering is never purely physical:
+it has physical, psychological, social, and spiritual dimensions that interact and amplify one another &lt;a href=&#34;#Saunders1963&#34;&gt;Saunders1963&lt;/a&gt;.
+Project closure similarly involves more than logistics:
+team members experience professional identity loss,
+grief over unfinished work,
+anxiety about career prospects,
+and sometimes guilt or anger that can fracture long-standing relationships.
+Treating project closure as a purely administrative exercise leaves people worse off
+and makes it harder for the broader community to learn from the experience.&lt;/p&gt;
+&lt;h2&gt;Goals-of-Care Conversations&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#Gawande2014&#34;&gt;Gawande2014&lt;/a&gt; argues that clinicians systematically fail patients by focusing on what medicine can do
+rather than asking what the patient actually wants.
+He advocates a structured approach to hard conversations:
+establish a shared understanding of the current situation,
+make the other person&amp;rsquo;s values and priorities explicit,
+and then negotiate a plan that fits those goals rather than being driven solely by what is technically possible.
+Similarly,
+when a project is ending,
+its leaders must talk with funders, institutional sponsors, and the team
+about what matters most:
+not just what data can be preserved,
+but what is the least bad outcome for each stakeholder,
+and what trade-offs each party is willing to make.&lt;/p&gt;
+&lt;h2&gt;Dignity Therapy and Legacy Documents&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#Chochinov2005&#34;&gt;Chochinov2005&lt;/a&gt; and &lt;a href=&#34;#Chochinov2012&#34;&gt;Chochinov2012&lt;/a&gt; advocate &lt;em&gt;dignity therapy&lt;/em&gt;
+as a brief, structured intervention for people near the end of life.
+The central technique is a guided life-review interview
+in which the person reflects on what has mattered most,
+what they are proud of,
+and what they most want future generations to know and remember.
+The session is recorded, transcribed, and edited into a permanent legacy document
+that extends the patient&amp;rsquo;s influence beyond their death.
+A similar structured exit interview or retrospective at the end of a project
+is more than a conventional &amp;ldquo;lessons learned&amp;rdquo; report
+because it is personal, narrative, and explicitly oriented toward what should survive rather than what went wrong.&lt;/p&gt;
+&lt;h2&gt;Continuing Bonds&lt;/h2&gt;
+&lt;p&gt;The &lt;em&gt;continuing bonds&lt;/em&gt; theory of bereavement &lt;a href=&#34;#Klass1996&#34;&gt;Klass1996&lt;/a&gt;
+challenged the idea that healthy mourning requires letting go of the deceased and severing the relationship.
+Instead,
+it argues that bereaved people who maintain an ongoing internal relationship with the dead
+through story-telling, physical objects, or integration of the deceased&amp;rsquo;s values into their own identity
+are  not pathological:
+they are exhibiting a normal and healthy form of grief.
+The lesson for project closure is that closing a project is not the same as erasing it,
+and that participants don&amp;rsquo;t need to move on in a way that severs their connection to the work.
+Design decisions, published papers, open-source code, and the skills people developed all continue to exist and to matter.
+Framing closure around what continues,
+rather than only around what ends,
+reduces distress and gives project leaders a vocabulary for talking about archiving, citation, and attribution
+not as bureaucratic compliance but as genuine acts of preservation.&lt;/p&gt;
+&lt;h2&gt;Bibliography&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;span id=&#34;Chochinov2005&#34;&gt;Chochinov2005&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Harvey Max Chochinov, Thomas Hack, Thomas Hassard, Linda J. Kristjanson, Susan McClement, and Mike Harlos
+&amp;ldquo;Dignity therapy: A novel psychotherapeutic intervention for patients near the end of life.&amp;rdquo;
+&lt;em&gt;Journal of Clinical Oncology&lt;/em&gt;,
+23(24),
+2005,
+10.1200/JCO.2005.08.391.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Chochinov2012&#34;&gt;Chochinov2012&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Harvey Max Chochinov:
+&lt;em&gt;Dignity Therapy: Final Words for Final Days&lt;/em&gt;.
+Oxford University Press,
+2012,
+978-0195176216.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Clark1999&#34;&gt;Clark1999&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;David Clark:
+&amp;ldquo;Total pain, disciplinary power and the body in the work of Cicely Saunders, 1958-1967.&amp;rdquo;
+&lt;em&gt;Social Science and Medicine&lt;/em&gt;,
+49(6),
+1999,
+10.1016/S0277-9536(99)00098-2.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Gawande2014&#34;&gt;Gawande2014&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Atul Gawande:
+&lt;em&gt;Being Mortal: Medicine and What Matters in the End&lt;/em&gt;.
+Metropolitan Books / Henry Holt,
+2014,
+978-0805095159.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Klass1996&#34;&gt;Klass1996&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Dennis Klass, Phyllis R. Silverman, and Steven Nickman (eds.):
+&lt;em&gt;Continuing Bonds: New Understandings of Grief&lt;/em&gt;.
+Taylor and Francis / Routledge,
+1996,
+978-1560323396.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Saunders1963&#34;&gt;Saunders1963&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Cicely Saunders:
+&amp;ldquo;The treatment of intractable pain in terminal cancer.&amp;rdquo;
+&lt;em&gt;Proceedings of the Royal Society of Medicine&lt;/em&gt;,
+56(3),
+pp. 195-197,
+1963.&lt;/dd&gt;
+&lt;dt&gt;&lt;span id=&#34;Towey2026&#34;&gt;Towey2026&lt;/span&gt;&lt;/dt&gt;
+&lt;dd&gt;Jim Towey:
+&lt;em&gt;Five Wishes&lt;/em&gt;.
+Aging with Dignity,
+https://www.fivewishes.org/,
+viewed 2026-04-08.&lt;/dd&gt;
+&lt;/dl&gt;</content>
+ </entry>
  
  <entry>
    <title>Current Projects</title>
@@ -1340,58 +1663,6 @@ I might come back and polish it a bit more.&lt;/p&gt;
 &lt;p&gt;What I cannot create, I do not understand.&lt;/p&gt;
 &lt;p&gt;— Richard Feynman&lt;/p&gt;
 &lt;/blockquote&gt;</content>
- </entry>
- 
- <entry>
-   <title>Next Steps for Simulation</title>
-   <link href="https://third-bit.com/2026/01/05/next-steps-for-simulation/"/>
-   <updated>2026-01-05T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/01/05/next-steps-for-simulation/</id>
-   <content type="html">&lt;p&gt;I&amp;rsquo;ve filed &lt;a href=&#34;https://github.com/gvwilson/sim/issues&#34;&gt;a few issues&lt;/a&gt;
-in the &lt;a href=&#34;https://github.com/gvwilson/sim&#34;&gt;GitHub repository&lt;/a&gt;
-for my &lt;a href=&#34;https://gvwilson.github.io/sim/&#34;&gt;discrete event simulation&lt;/a&gt; of a small software development team
-in order to map out future work.
-The goal is to move away from what &lt;a href=&#34;https://www.drcathicks.com/&#34;&gt;Cat Hicks&lt;/a&gt; calls
-the &amp;ldquo;brains in jars&amp;rdquo; conception of programmers by including things like this:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/gvwilson/sim/issues/5&#34;&gt;Rushing work&lt;/a&gt; should increase the chance that re-work will be needed.&lt;/li&gt;
-&lt;li&gt;If programmers don&amp;rsquo;t ever get a break, they &lt;a href=&#34;https://github.com/gvwilson/sim/issues/6&#34;&gt;burn out&lt;/a&gt;,
-    which increases both their bug rate and the time needed to do the next task.&lt;/li&gt;
-&lt;li&gt;Too many meetings slows things down,
-    but &lt;a href=&#34;https://github.com/gvwilson/sim/issues/8&#34;&gt;too few meetings&lt;/a&gt; increases the chance of re-work being needed
-    because of faulty or absent communication.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In order to implement these,
-though,
-I&amp;rsquo;ll need a way to simulate activities that multiple people are working on at the same time.
-This would be easy to do if all but the last person to join the activity
-sat idle waiting for it to start,
-but that&amp;rsquo;s not realistic.
-I could instead model it as a multi-person interrupt,
-but &lt;a href=&#34;https://gvwilson.github.io/sim/interrupts/&#34;&gt;interrupts are hard&lt;/a&gt;.
-If you have enough experience with &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt; to offer examples,
-I&amp;rsquo;d be grateful.
-And if you&amp;rsquo;re a professor looking for capstone projects for students,
-please give me a shout:
-I think that a discrete event simulation framework based on &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt; instead of &lt;code&gt;yield&lt;/code&gt;
-would be just about the right size.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Discrete Events</title>
-   <link href="https://third-bit.com/2025/12/30/discrete-events/"/>
-   <updated>2025-12-30T00:00:00Z</updated>
-   <id>https://third-bit.com/2025/12/30/discrete-events/</id>
-   <content type="html">&lt;p&gt;My work log tells me I&amp;rsquo;ve spent 54 hours since mid-November
-building &lt;a href=&#34;https://gvwilson.github.io/sim/&#34;&gt;this discrete event simulation&lt;/a&gt;,
-which works out to a little over an hour a day.
-I&amp;rsquo;ve learned a few things about &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt; and &lt;a href=&#34;https://pola.rs/&#34;&gt;Polars&lt;/a&gt; along the way,
-and depending on what happens with my job search,
-I may run an online workshop in 2026 to walk people through it.
-For now,
-though,
-I need to put this aside and concentrate on completing a couple of small contracts
-and revising some of the fiction &lt;a href=&#34;https://third-bit.com/2025/12/19/the-year-that-was/&#34;&gt;I finally &amp;ldquo;finished&amp;rdquo;&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  
 </feed>

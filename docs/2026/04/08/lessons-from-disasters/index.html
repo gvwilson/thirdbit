@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css">
+    <link rel="stylesheet" href="../../../../assets/page.css">
+    
+<title>The Third Bit: Lessons from Disaster Management</title>
+
+    
+  </head>
+  <body>
+    <nav>
+  <div class="row underline">
+    <div class="col-2 left">
+      <a class="navlink" href="../../../../">Home</a>
+    </div>
+    <div class="col-10 right">
+      <a class="navlink" href="../../../../about/">about</a>
+      <a class="navlink" href="../../../../blog/">blog</a>
+      <a class="navlink" href="../../../../selected/">selected</a>
+      <a class="navlink" href="../../../../talks/">talks</a>
+      <a class="navlink" href="../../../../packages/">packages</a>
+      <a class="navlink" href="../../../../bib/">bibliography</a>
+      <a class="navlink" href="../../../../fiction/">fiction</a>
+    </div>
+  </div>
+</nav>
+    <main>
+      
+<h1>Lessons from Disaster Management</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/04/08/lessons-from-maid/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-04-08" class="post-date">2026-04-08</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Last year I started building a workshop on how to shut projects down.
+I put it on hold in the fall,
+both because I was finding it difficult to figure out what to say
+and because working on something like that after being laid off felt a bit unhealthy.
+A couple of recent discussions have revived my interest,
+though,
+so here are some notes that I hope one day will find a home.</p>
+<h2>Normalization of Deviance</h2>
+<p><a href="#Vaughan1996">Vaughan1996</a> showed that the engineers involved in the Challenger disaster
+did not make a single catastrophic decision
+but instead made a long sequence of small decisions in which signals of danger were repeatedly noticed,
+reinterpreted as acceptable,
+and filed away until deviation from safety standards had become the practical norm.
+The parallel for software and research projects is that
+teams approaching closure often carry a backlog of things that everyone knows are wrong
+but that have never been formally acknowledged.
+A deliberate closure process should include an explicit audit of normalized deviations
+that the team accepted because stopping to fix them felt too costly,
+both to honestly document the project&rsquo;s actual state
+and to avoid passing silent assumptions on to anyone who inherits the work.
+In practical terms,
+a shutdown retrospective is most valuable not when it celebrates successes
+but when it names the things the team learned to live with.</p>
+<h2>Fantasy Documents and the Rhetoric of Preparedness</h2>
+<p><a href="#Clarke1999">Clarke1999</a> describes how organizations routinely produce disaster response plans
+that have no realistic chance of being executed.
+Clarke calls these &ldquo;fantasy documents&rdquo;:
+their purpose is to reassure regulators, funders, and the public that someone is in charge,
+despite bearing no relationship to what would actually happen under stress.
+For software and research projects,
+this maps onto the shutdown plan that exists in a drawer but has never been tested,
+or to a <code>HANDOVER.md</code> written in an afternoon that no one outside the core team has ever read.
+A closure plan should be treated as a drill script, not a policy document:
+teams should periodically walk through it step by step
+and ask whether each action is actually achievable with the people available.</p>
+<h2>Tight Coupling and Normal Accidents</h2>
+<p><em>Tight coupling</em> means that failure in one part of a system propagates rapidly through others
+with little time for intervention.
+<a href="#Perrow1999">Perrow1999</a> argues that in complex systems where components are tightly coupled,
+accidents are not aberrations but predictable outcomes of the system&rsquo;s design.
+Modern software and research infrastructure is often tightly coupled
+in ways that only become visible during shutdown:
+an account that pays for ten services,
+or a single personal login that controls a domain.
+These tight couplings mean that an unexpected departure or account closure
+cascades into a complete loss of access before anyone has time to respond.
+The solution is to treat any single point of control that cannot survive a 48-hour unavailability as a bug.</p>
+<p>That said,
+<a href="#Singer2023">Singer2023</a>
+contrasts &ldquo;blame the individual&rdquo; with &ldquo;blame the system&rdquo;,
+and shows that companies push the latter to absolve themselves of responsibility.</p>
+<h2>The Survival Arc</h2>
+<p><a href="#Ripley2008">Ripley2008</a> synthesises research on how people behave when disaster strikes
+and puts forward a three-stage survival arc:</p>
+<ol>
+<li>Denial: refusal to believe that the situation is as serious as evidence suggests.</li>
+<li>Deliberation: a period of paralysed uncertainty about what to do.</li>
+<li>Decision: action, which may or may not be correct.</li>
+</ol>
+<p>Research on building evacuations, shipwrecks, and plane crashes consistently shows that
+the denial phase consumes far more time than people expect,
+while thinking through the scenario before it happens dramatically shortens it.
+For project closure,
+this predicts that the period between a credible signal that a project is in trouble
+and the first concrete closure action will be longer than planners assume,
+particularly under abrupt conditions.
+Rehearsal converts a novel emergency into a recognised pattern.</p>
+<h2>Warning Signs</h2>
+<p>While it is not directly relevant to project closure,
+<a href="#Palazzo2025">Palazzo2025</a> argues that there are patterns in the dynamics of corporate scandals.
+Would recognizing them give people early warning that projects were going to fail?</p>
+<table>
+  <tr>
+    <td style="border: none; padding-right: 2rem;">
+      rigid ideology
+      <br>
+      toxic leadership
+      <br>
+      manipulative language
+    </td>
+    <td style="border: none; padding-right: 2rem;">
+      corrupting goals
+      <br>
+      destructive incentives
+      <br>
+      ambiguous rules
+    </td>
+    <td style="border: none; padding-right: 2rem;">
+      perceived unfairness
+      <br>
+      dangerous groups
+      <br>
+      slippery slope
+    </td>
+</table>
+
+<h2>The Collapse of Sensemaking</h2>
+<p><a href="#Weick2007">Weick2007</a> studied organisations that operate reliably in high-stakes, high-complexity environments
+and identified five shared practices they call <em>mindful organizing</em>.
+Two of these are relevant to project closure:
+sensitivity to operations
+(i.e., maintaining an accurate picture of what is actually happening, not what plans say is happening)
+and commitment to resilience (the capacity to improvise when standard procedures fail).
+Earlier, <a href="#Weick1993">Weick1993</a> introduced the idea of a <em>cosmology episode</em>:
+a moment when the world stops making sense and actors freeze.
+These can occur during abrupt project closures
+when the governance structures that normally coordinate work suddenly disappear.
+One way to deal with this is to make sure that teams have fallbacks
+such as personal email addresses or a shared document that doesn&rsquo;t depend on organizational infrastructure.
+The twin risks of this are that only insiders will know these unofficial documents exist,
+and that they will be out of date by the time they&rsquo;re needed.</p>
+<h2>Anticipatory Mourning and the Grief of Planned Endings</h2>
+<p><a href="#Rando2000">Rando2000</a> studied <em>anticipatory mourning</em>:
+grief that begins before an expected loss, not after it.
+She distinguishes this from simple &ldquo;grief in advance&rdquo;:
+it involves simultaneous processing of past losses (what the project once was),
+present losses (what it is becoming),
+and future losses (what it will never be),
+and it is cognitively and emotionally more demanding than grief after the fact
+because the person must continue to function while still engaged in the thing they are losing.
+For project teams,
+planned shutdown triggers this:
+team members must continue doing the work of closing down
+while processing the loss of their work relationships and the future they had imagined.
+A practical recommendation is to name this dynamic explicitly,
+because people who understand that their feelings are real are better able to manage them
+and to support one another.</p>
+<h2>Bibliography</h2>
+<dl>
+<dt><span id="Clarke1999">Clarke1999</span></dt>
+<dd>Lee Clarke:
+<em>Mission Improbable: Using Fantasy Documents to Tame Disaster</em>.
+University of Chicago Press,
+1999,
+978-0226109411.</dd>
+<dt><span id="Palazzo2025">Palazzo2025</span></dt>
+<dd>Guido Palazzo and Ulrich Hoffrage:
+<em>The Dark Pattern: The Hidden Dynamics of Corporate Scandals</em>.
+PublicAffairs,
+2025,
+978-1541705302.</dd>
+<dt><span id="Perrow1999">Perrow1999</span></dt>
+<dd>Charles Perrow
+<em>Normal Accidents: Living with High-Risk Technologies</em>.
+Princeton University Press,
+1999,
+978-0691004129.</dd>
+<dt><span id="Rando2000">Rando2000</span></dt>
+<dd>Therese A. Rando (ed.):
+<em>Clinical Dimensions of Anticipatory Mourning: Theory and Practice in Working with the Dying, Their Loved Ones, and Their Caregivers</em>.
+Research Press,
+2000,
+978-0878223800.</dd>
+<dt><span id="Ripley2008">Ripley2008</span></dt>
+<dd>Amanda Ripley:
+<em>The Unthinkable: Who Survives When Disaster Strikes—and Why</em>.
+Crown Publishers,
+2008,
+978-0307352897.</dd>
+<dt><span id="Singer2023">Singer2023</span></dt>
+<dd>Jessie Singer:
+<em>There Are No Accidents: The Deadly Rise of Injury and Disaster—Who Profits and Who Pays the Price</em>.
+Simon &amp; Schuster,
+2023,
+978-1982129668.</dd>
+<dt><span id="Vaughan1996">Vaughan1996</span></dt>
+<dd>Diane Vaughan:
+<em>The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA</em>.
+University of Chicago Press,
+1996,
+978-0226851754.</dd>
+<dt><span id="Weick1993">Weick1993</span></dt>
+<dd>Karl E. Weick:
+&ldquo;The Collapse of Sensemaking in Organizations: The Mann Gulch Disaster.&rdquo;
+<em>Administrative Science Quarterly</em>,
+38(4),
+1993,
+10.2307/2393339.</dd>
+<dt><span id="Weick2007">Weick2007</span></dt>
+<dd>Karl E. Weick and Kathleen M. Sutcliffe
+<em>Managing the Unexpected: Resilient Performance in an Age of Uncertainty</em>
+(2nd ed.).
+Jossey-Bass,
+2007,
+978-0787996499.</dd>
+</dl><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+  </body>
+</html>
