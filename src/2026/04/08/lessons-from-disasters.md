@@ -11,6 +11,13 @@ A couple of recent discussions have revived my interest,
 though,
 so here are some notes that I hope one day will find a home.
 
+> See the entire series:
+>
+> - [Lessons from Disaster Management][disasters]
+> - [Lessons from MAID][maid]
+> - [Lessons from Crisis][crisis]
+> - [Lessons from Business][business]
+
 ## Normalization of Deviance
 
 [Vaughan1996](#Vaughan1996) showed that the engineers involved in the Challenger disaster
@@ -212,3 +219,8 @@ and to support one another.
     Jossey-Bass,
     2007,
     978-0787996499.
+
+[business]: @root/2026/04/08/lessons-from-business/
+[crisis]: @root/2026/04/08/lessons-from-crisis/
+[disasters]: @root/2026/04/08/lessons-from-disasters/
+[maid]: @root/2026/04/08/lessons-from-maid/

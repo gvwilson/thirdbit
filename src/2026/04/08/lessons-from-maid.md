@@ -10,6 +10,13 @@ As with [the first post in this series][disasters], though,
 I worry about how much of this people will actually do before it's needed,
 particularly when they're already under stress.
 
+> See the entire series:
+>
+> - [Lessons from Disaster Management][disasters]
+> - [Lessons from MAID][maid]
+> - [Lessons from Crisis][crisis]
+> - [Lessons from Business][business]
+
 ## Advance Directives
 
 An *advance directive* (sometimes called a living will) is a document someone writes
@@ -143,5 +150,8 @@ not as bureaucratic compliance but as genuine acts of preservation.
     https://www.fivewishes.org/,
     viewed 2026-04-08.
 
+[business]: @root/2026/04/08/lessons-from-business/
+[crisis]: @root/2026/04/08/lessons-from-crisis/
 [disasters]: @root/2026/04/08/lessons-from-disasters/
 [jeff]: @root/2018/03/20/goodbye-jeff/
+[maid]: @root/2026/04/08/lessons-from-maid/

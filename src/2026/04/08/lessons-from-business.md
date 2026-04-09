@@ -6,6 +6,13 @@ date: 2026-04-08
 For-profit businesses weren't the focus of the workshop I [planned to create][disasters],
 but there is a lot to learn from the literature on how to shut companies down.
 
+> See the entire series:
+>
+> - [Lessons from Disaster Management][disasters]
+> - [Lessons from MAID][maid]
+> - [Lessons from Crisis][crisis]
+> - [Lessons from Business][business]
+
 ## Organisational Decline Is Not a Single Event
 
 [Whetten1980](#Whetten1980) argued that management science had almost entirely ignored organizational decline
@@ -207,4 +214,7 @@ that constrain everything else.
     1990,
     10.1016/0304-405X(90)90063-6.
 
+[business]: @root/2026/04/08/lessons-from-business/
+[crisis]: @root/2026/04/08/lessons-from-crisis/
 [disasters]: @root/2026/04/08/lessons-from-disasters/
+[maid]: @root/2026/04/08/lessons-from-maid/

@@ -10,6 +10,13 @@ the question is usually not how to execute a plan but how to act usefully in its
 Crisis response research has studied exactly this situation across many domains,
 and its findings offer practical guidance for project participants who have no script to follow.
 
+> See the entire series:
+>
+> - [Lessons from Disaster Management][disasters]
+> - [Lessons from MAID][maid]
+> - [Lessons from Crisis][crisis]
+> - [Lessons from Business][business]
+
 ## Recognition-Primed Decision Making
 
 When people describe expert decision-making they tend to imagine a deliberate weighing of options,
@@ -258,3 +265,8 @@ The two streams of work need to run in parallel.
     https://www.who.int/publications/i/item/psychological-first-aid,
     2013,
     viewed 2026-04-08.
+
+[business]: @root/2026/04/08/lessons-from-business/
+[crisis]: @root/2026/04/08/lessons-from-crisis/
+[disasters]: @root/2026/04/08/lessons-from-disasters/
+[maid]: @root/2026/04/08/lessons-from-maid/
