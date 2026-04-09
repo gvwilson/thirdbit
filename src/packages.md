@@ -25,17 +25,22 @@ this package adds a few features and provides a Python wrapper.
 -   [ReadTheDocs][chart-docs]
 -   [GitHub][chart-repo]
 
-## faw
+## forma
 
-`faw` is a collection of formative assessment widgets
-for use in computational notebooks
-such as [Marimo][marimo] and [Jupyter][jupyter].
-While the package is distributed as Python,
-much of it is written in JavaScript.
+`forma` is a collection of formative assessment widgets written in JavaScript
+that can be configured directly
+or by writing stylized HTML or Markdown.
 
--   [PyPI][faw-pkg]
--   [ReadTheDocs][faw-docs]
--   [GitHub][faw-docs]
+-   [NPM][forma-pkg]
+-   [GitHub][forma-repo]
+
+## jorma
+
+`jorma` uses static and dynamic analysis to determine
+the [roles of variables][roles] in Python programs.
+
+-   [PyPI][jorma-pkg]
+-   [GitHub][jorma-repo]
 
 ## mccole
 
@@ -69,15 +74,15 @@ while learners can test their analysis pipelines using datasets they generate th
 [chart-docs]: https://chartxkcd.readthedocs.io/
 [chart-pkg]: https://pypi.org/project/chart-xkcd/
 [chart-repo]: https://github.com/gvwilson/chart.xkcd
-[faw-docs]: https://faw.readthedocs.io/
-[faw-pkg]: https://pypi.org/project/faw/
-[faw-repo]: https://github.com/gvwilson/faw
-[jupyter]: https://jupyter.org/
-[marimo]: https://marimo.io/
+[forma-pkg]: https://www.npmjs.com/package/@gvwilson/forma
+[forma-repo]: https://github.com/gvwilson/forma
+[jorma-pkg]: https://pypi.org/project/jorma/
+[jorma-repo]: https://github.com/gvwilson/jorma
 [mccole-docs]: https://mccole.readthedocs.io/
 [mccole-pkg]: https://pypi.org/project/mccole/
 [mccole-repo]: https://github.com/gvwilson/mccole
 [simpy]: https://simpy.readthedocs.io/
+[roles]: https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf
 [snailz-docs]: https://snailz.readthedocs.io/
 [snailz-pkg]: https://pypi.org/project/snailz/
 [snailz-repo]: https://github.com/gvwilson/snailz
