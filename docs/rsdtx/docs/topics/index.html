@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Topic Modeling a Document Corpus</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a class="active" href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Topic Modeling a Document Corpus</h1>
+<h2>The Problem</h2>
+<ul>
+<li>A corpus of documents often covers several recurring themes, but labeling each
+  document by hand is slow and subjective.</li>
+<li>Topic modeling discovers those themes automatically by finding groups of words
+  that tend to appear together across documents.</li>
+<li><a class="gl-ref" href="../glossary/#latent_dirichlet_allocation">Latent Dirichlet Allocation</a> (LDA) is a
+  probabilistic model that represents each document as a mixture of topics and each
+  topic as a distribution over words.</li>
+<li>The approach here:</li>
+<li>Generate a synthetic <a class="gl-ref" href="../glossary/#bag_of_words">bag-of-words</a> corpus in which
+    each document is produced by a dominant topic.</li>
+<li>Run <a class="gl-ref" href="../glossary/#collapsed_gibbs_sampling">collapsed Gibbs sampling</a> to infer
+    topic assignments for each word token.</li>
+<li>Report the top words per topic and visualize document-topic proportions.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Why is LDA called an "unsupervised" method?</p>
+<dl>
+<dt>Because it requires labeled training documents to identify topics.</dt>
+<dd>Wrong: LDA discovers topics from the text alone without any labels; that is
+precisely why it is called unsupervised.</dd>
+<dt>Because it infers topic structure from the documents themselves, with no</dt>
+<dt>pre-specified topic labels.</dt>
+<dd>Correct: the model treats topic assignments for each word token as hidden
+variables and infers them from patterns of word co-occurrence.</dd>
+<dt>Because it only works on documents where the topics are already known.</dt>
+<dd>Wrong: the method is designed for cases where topics are unknown; if topics
+were known, supervised classification would be used instead.</dd>
+<dt>Because it ignores word order within a document.</dt>
+<dd>Wrong: ignoring word order (the bag-of-words assumption) is a design choice,
+not the reason for the "unsupervised" label.</dd>
+</dl>
+</div>
+<h2>Latent Dirichlet Allocation</h2>
+<ul>
+<li>LDA assumes the following generative process for a corpus of $D$ documents,
+  $K$ topics, and a vocabulary of $V$ words:</li>
+<li>For each topic $k$: draw word distribution $\phi_k \sim \text{Dirichlet}(\beta)$.</li>
+<li>For each document $d$: draw topic distribution $\theta_d \sim \text{Dirichlet}(\alpha)$.</li>
+<li>For each word position in $d$: draw topic $z \sim \theta_d$, then word $w \sim \phi_z$.</li>
+<li>$\alpha$ controls how concentrated document-topic distributions are:
+  small $\alpha$ encourages each document to focus on few topics.</li>
+<li>$\beta$ controls topic-word distributions:
+  small $\beta$ encourages each topic to use few words.</li>
+<li>In practice, $\phi$ and $\theta$ are never computed directly; they are
+  integrated out in collapsed Gibbs sampling.</li>
+</ul>
+<h2>Collapsed Gibbs Sampling</h2>
+<ul>
+<li>Collapsed Gibbs sampling iterates over every word token and resamples its
+  topic assignment conditioned on all other assignments.</li>
+<li>Let $n_{dk}$ be the number of tokens in document $d$ assigned to topic $k$,
+  $n_{kw}$ the number of tokens of word $w$ assigned to topic $k$, and
+  $n_k$ the total tokens assigned to topic $k$, all excluding the current token.</li>
+<li>The conditional probability for token $i$ (document $d$, word $w$) is:</li>
+</ul>
+<p>$$P(z_i = k \mid \mathbf{z}<em dk="dk">{-i}, \mathbf{w}) \propto
+  \frac{(n</em>$$} + \alpha)(n_{kw} + \beta)}{n_k + V\beta</p>
+<ul>
+<li>The numerator combines how much document $d$ already favors topic $k$
+  (the $n_{dk}$ term) with how strongly topic $k$ is associated with word $w$
+  (the $n_{kw}$ term).</li>
+<li>The denominator normalizes for the total size of topic $k$.</li>
+<li>After many sweeps, the counts stabilize around the posterior distribution
+  over topic assignments.</li>
+</ul>
+<div class="forma-numeric-entry" data-correct="1.0" data-lang="en" data-tolerance="0.001">
+<p>A token is in document $d$ for word $w$.
+After removing it: $n_{dk}=3$, $n_{kw}=2$, $n_k=8$, $\alpha=1$, $\beta=1$, $V=4$.
+What is the unnormalized sampling weight for topic $k$?</p>
+</div>
+<h2>Generating Synthetic Data</h2>
+<ul>
+<li>Each of the three topics owns ten consecutive words from the 30-word vocabulary.</li>
+<li>Words from a topic's own set are sampled with weight 20; all other words receive
+  weight 0.5, so about 95% of each document's tokens come from one topic.</li>
+<li><code>true_topic</code> records which topic generated each document and is used only in tests.</li>
+</ul>
+<div data-inc="generate_topics.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
+    <span class="n">n_topics</span><span class="o">=</span><span class="n">N_TOPICS</span><span class="p">,</span>
+    <span class="n">docs_per_topic</span><span class="o">=</span><span class="n">DOCS_PER_TOPIC</span><span class="p">,</span>
+    <span class="n">tokens_per_doc</span><span class="o">=</span><span class="n">TOKENS_PER_DOC</span><span class="p">,</span>
+    <span class="n">vocab_size</span><span class="o">=</span><span class="n">VOCAB_SIZE</span><span class="p">,</span>
+    <span class="n">topic_weight</span><span class="o">=</span><span class="n">TOPIC_WEIGHT</span><span class="p">,</span>
+    <span class="n">background_weight</span><span class="o">=</span><span class="n">BACKGROUND_WEIGHT</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a Polars DataFrame with columns doc_id, true_topic, word.</span>
+
+<span class="sd">    Each of the n_topics topics owns vocab_size // n_topics consecutive words</span>
+<span class="sd">    with probability topic_weight; all other words receive background_weight.</span>
+<span class="sd">    true_topic records which topic generated each document and is used only in</span>
+<span class="sd">    tests, not by the unsupervised sampler.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">words_per_topic</span> <span class="o">=</span> <span class="n">vocab_size</span> <span class="o">//</span> <span class="n">n_topics</span>
+    <span class="n">word_forms</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"w</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)]</span>
+
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">doc_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_topics</span><span class="p">):</span>
+        <span class="n">probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">background_weight</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">words_per_topic</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">words_per_topic</span>
+        <span class="n">probs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">topic_weight</span>
+        <span class="n">probs</span> <span class="o">/=</span> <span class="n">probs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">docs_per_topic</span><span class="p">):</span>
+            <span class="n">sampled</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">tokens_per_doc</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">probs</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">word_idx</span> <span class="ow">in</span> <span class="n">sampled</span><span class="p">:</span>
+                <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">"doc_id"</span><span class="p">:</span> <span class="n">doc_id</span><span class="p">,</span>
+                        <span class="s2">"true_topic"</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span>
+                        <span class="s2">"word"</span><span class="p">:</span> <span class="n">word_forms</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">word_idx</span><span class="p">)],</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+            <span class="n">doc_id</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Initializing Topic Assignments</h2>
+<ul>
+<li>The sampler starts by randomly assigning each token to a topic uniformly at random.</li>
+<li>The count matrices are built in a single pass over all tokens.</li>
+<li>Correct initialization guarantees that $n_k = \sum_w n_{kw} = \sum_d n_{dk}$
+  at every point during sampling.</li>
+</ul>
+<div data-inc="topics.py" data-mark="init"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">init_lda</span><span class="p">(</span><span class="n">doc_ids</span><span class="p">,</span> <span class="n">word_ids</span><span class="p">,</span> <span class="n">n_docs</span><span class="p">,</span> <span class="n">n_topics</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Randomly assign topics to all tokens and build count matrices.</span>
+
+<span class="sd">    Returns (topic_ids, n_dk, n_kw, n_k):</span>
+<span class="sd">      topic_ids  1-D integer array, one entry per token, random in [0, n_topics)</span>
+<span class="sd">      n_dk       (n_docs, n_topics) counts of topic k in document d</span>
+<span class="sd">      n_kw       (n_topics, vocab_size) counts of word w assigned to topic k</span>
+<span class="sd">      n_k        (n_topics,) total tokens assigned to each topic</span>
+<span class="sd">    """</span>
+    <span class="n">n_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">doc_ids</span><span class="p">)</span>
+    <span class="n">topic_ids</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_topics</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_tokens</span><span class="p">)</span>
+    <span class="n">n_dk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_docs</span><span class="p">,</span> <span class="n">n_topics</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">n_kw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_topics</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">n_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_topics</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_tokens</span><span class="p">):</span>
+        <span class="n">d</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">doc_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">word_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">topic_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">n_dk</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">z</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">n_kw</span><span class="p">[</span><span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">n_k</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">topic_ids</span><span class="p">,</span> <span class="n">n_dk</span><span class="p">,</span> <span class="n">n_kw</span><span class="p">,</span> <span class="n">n_k</span>
+</code></pre></div>
+</div>
+<h2>One Gibbs Step</h2>
+<ul>
+<li>A full Gibbs step visits every token in the corpus once.</li>
+<li>The token is temporarily removed from the count matrices before its new topic
+  is drawn, so its own assignment does not influence the sampling probabilities.</li>
+</ul>
+<div data-inc="topics.py" data-mark="step"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gibbs_step</span><span class="p">(</span>
+    <span class="n">doc_ids</span><span class="p">,</span> <span class="n">word_ids</span><span class="p">,</span> <span class="n">topic_ids</span><span class="p">,</span> <span class="n">n_dk</span><span class="p">,</span> <span class="n">n_kw</span><span class="p">,</span> <span class="n">n_k</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">rng</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Resample the topic assignment for every token (one full Gibbs sweep).</span>
+
+<span class="sd">    For token i in document d with word w and current topic z:</span>
+<span class="sd">      1. Remove the token's contribution from the count matrices.</span>
+<span class="sd">      2. For each topic k compute the unnormalised weight:</span>
+<span class="sd">            (n_dk[d, k] + alpha) * (n_kw[k, w] + beta) / (n_k[k] + vocab_size * beta)</span>
+<span class="sd">      3. Normalise and draw a new topic.</span>
+<span class="sd">      4. Restore the token under its new topic.</span>
+<span class="sd">    Modifies topic_ids, n_dk, n_kw, and n_k in place.</span>
+<span class="sd">    """</span>
+    <span class="n">n_topics</span> <span class="o">=</span> <span class="n">n_k</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">doc_ids</span><span class="p">)):</span>
+        <span class="n">d</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">doc_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">word_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">topic_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">n_dk</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">z</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">n_kw</span><span class="p">[</span><span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">n_k</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="n">probs</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_dk</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_kw</span><span class="p">[:,</span> <span class="n">w</span><span class="p">]</span> <span class="o">+</span> <span class="n">beta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_k</span> <span class="o">+</span> <span class="n">vocab_size</span> <span class="o">*</span> <span class="n">beta</span><span class="p">)</span>
+        <span class="n">probs</span> <span class="o">/=</span> <span class="n">probs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">new_z</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">n_topics</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">probs</span><span class="p">))</span>
+
+        <span class="n">topic_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_z</span>
+        <span class="n">n_dk</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">new_z</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">n_kw</span><span class="p">[</span><span class="n">new_z</span><span class="p">,</span> <span class="n">w</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">n_k</span><span class="p">[</span><span class="n">new_z</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Why must a token's contribution be removed from the count matrices before
+resampling its topic?</p>
+<dl>
+<dt>To save memory by not storing the current assignment.</dt>
+<dd>Wrong: removing the token does not save memory; the arrays remain the same size.</dd>
+<dt>To avoid circular conditioning: the token's current assignment would otherwise</dt>
+<dt>inflate the probability of keeping the same topic.</dt>
+<dd>Correct: the conditional distribution must be computed excluding token $i$;
+leaving it in would bias the sampler toward its current assignment.</dd>
+<dt>To allow the sampler to explore more topics per iteration.</dt>
+<dd>Wrong: the number of topics explored per token is always $K$, regardless of
+whether the current token is removed first.</dd>
+<dt>Because numpy arrays do not support in-place modification.</dt>
+<dd>Wrong: numpy arrays support in-place modification; the removal and restoration
+are a deliberate algorithmic requirement.</dd>
+</dl>
+</div>
+<h2>Running the Sampler</h2>
+<div data-inc="topics.py" data-mark="run"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_lda</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">n_topics</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="n">N_ITER</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">ALPHA</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">BETA</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Run the collapsed Gibbs sampler and return (n_dk, n_kw, vocab).</span>
+
+<span class="sd">    df must have columns doc_id and word.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">      n_dk   (n_docs, n_topics) topic-count matrix (un-normalised)</span>
+<span class="sd">      n_kw   (n_topics, vocab_size) word-count matrix (un-normalised)</span>
+<span class="sd">      vocab  sorted list of word strings, length vocab_size</span>
+<span class="sd">    """</span>
+    <span class="n">vocab</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"word"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+    <span class="n">word_to_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">w</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vocab</span><span class="p">)}</span>
+    <span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+
+    <span class="n">doc_ids</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"doc_id"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">word_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">word_to_id</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"word"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()])</span>
+    <span class="n">n_docs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">doc_ids</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">topic_ids</span><span class="p">,</span> <span class="n">n_dk</span><span class="p">,</span> <span class="n">n_kw</span><span class="p">,</span> <span class="n">n_k</span> <span class="o">=</span> <span class="n">init_lda</span><span class="p">(</span>
+        <span class="n">doc_ids</span><span class="p">,</span> <span class="n">word_ids</span><span class="p">,</span> <span class="n">n_docs</span><span class="p">,</span> <span class="n">n_topics</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">rng</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iter</span><span class="p">):</span>
+        <span class="n">gibbs_step</span><span class="p">(</span>
+            <span class="n">doc_ids</span><span class="p">,</span> <span class="n">word_ids</span><span class="p">,</span> <span class="n">topic_ids</span><span class="p">,</span> <span class="n">n_dk</span><span class="p">,</span> <span class="n">n_kw</span><span class="p">,</span> <span class="n">n_k</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">rng</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">n_dk</span><span class="p">,</span> <span class="n">n_kw</span><span class="p">,</span> <span class="n">vocab</span>
+</code></pre></div>
+</div>
+<h2>Top Words Per Topic</h2>
+<ul>
+<li>After sampling, the top words for each topic are the words with the highest
+  counts in the $n_{kw}$ matrix.</li>
+<li>For this corpus, each topic's top words are drawn entirely from the ten-word
+  vocabulary assigned to that generating topic.</li>
+</ul>
+<div data-inc="topics.py" data-mark="top_words"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">top_words</span><span class="p">(</span><span class="n">n_kw</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">n_words</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a list of n_topics lists, each containing the top n_words for that topic."""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_kw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">n_kw</span><span class="p">[</span><span class="n">k</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">n_words</span><span class="p">]</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">vocab</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+</div>
+<h2>Document-Topic Proportions</h2>
+<ul>
+<li>The posterior estimate of document $d$'s topic mixture is obtained by
+  smoothing the count row with $\alpha$ and normalising:</li>
+</ul>
+<p>$$\hat{\theta}<em dk="dk">{dk} = \frac{n</em>$$} + \alpha}{\sum_k (n_{dk} + \alpha)</p>
+<div data-inc="topics.py" data-mark="doc_topics"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">doc_topic_proportions</span><span class="p">(</span><span class="n">n_dk</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">ALPHA</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a (n_docs, n_topics) array of normalised document-topic proportions.</span>
+
+<span class="sd">    Each row is smoothed with alpha before normalising:</span>
+<span class="sd">      theta[d, k] = (n_dk[d, k] + alpha) / sum_k (n_dk[d, k] + alpha)</span>
+<span class="sd">    Smoothing ensures that topics with zero observed tokens still receive a</span>
+<span class="sd">    small non-zero probability rather than exactly zero.</span>
+<span class="sd">    """</span>
+    <span class="n">smoothed</span> <span class="o">=</span> <span class="n">n_dk</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span>
+    <span class="k">return</span> <span class="n">smoothed</span> <span class="o">/</span> <span class="n">smoothed</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Visualizing the Results</h2>
+<div data-inc="topics.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_doc_topics</span><span class="p">(</span><span class="n">n_dk</span><span class="p">,</span> <span class="n">true_topics</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">ALPHA</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a heatmap of document-topic proportions sorted by true topic."""</span>
+    <span class="n">proportions</span> <span class="o">=</span> <span class="n">doc_topic_proportions</span><span class="p">(</span><span class="n">n_dk</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="n">n_docs</span><span class="p">,</span> <span class="n">n_topics</span> <span class="o">=</span> <span class="n">proportions</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_docs</span><span class="p">):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"doc </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2"> (true </span><span class="si">{</span><span class="n">true_topics</span><span class="p">[</span><span class="n">d</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_topics</span><span class="p">):</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">"document"</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+                    <span class="s2">"topic"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"topic </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                    <span class="s2">"proportion"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">proportions</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">k</span><span class="p">]),</span>
+                    <span class="s2">"sort_key"</span><span class="p">:</span> <span class="n">true_topics</span><span class="p">[</span><span class="n">d</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">d</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="n">doc_order</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">"document"</span><span class="p">,</span> <span class="s2">"sort_key"</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"sort_key"</span><span class="p">)[</span><span class="s2">"document"</span><span class="p">]</span>
+        <span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"topic:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Inferred topic"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"document:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Document"</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">doc_order</span><span class="p">),</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span>
+                <span class="s2">"proportion:Q"</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">"Proportion"</span><span class="p">,</span>
+                <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">"blues"</span><span class="p">),</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">"Document-topic proportions after Gibbs sampling"</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:topics-heatmap">
+<img alt="A heatmap with 15 document rows grouped into three bands of five and three topic columns. Each band shows a dark blue cell in one column and near-white cells in the others, forming three non-overlapping dark blocks." src="topics-heatmap.svg"/>
+<figcaption>Figure 1: Document-topic proportions after 50 Gibbs iterations (ALPHA=0.1, BETA=0.01). Documents from the same generating topic share a single dominant inferred topic (dark block). Inferred topic labels are permutation-invariant: here generating topics 0, 1, and 2 map to inferred topics 0, 2, and 1.</figcaption>
+</figure>
+<h2>Testing</h2>
+<h3>Count matrix consistency</h3>
+<ul>
+<li>After <code>init_lda</code>, each row of $n_{kw}$ and each column of $n_{dk}$ must sum
+  to the corresponding entry in $n_k$: every token is counted exactly once.</li>
+</ul>
+<h3>Proportions sum to one</h3>
+<ul>
+<li>After smoothing with $\alpha$ and normalising, each row of the proportion
+  matrix must sum to 1.0.</li>
+</ul>
+<h3>Top-words order</h3>
+<ul>
+<li>Given a hand-crafted $n_{kw}$ with known highest-count words, <code>top_words</code>
+  must return them in descending order.</li>
+</ul>
+<h3>Topic recovery</h3>
+<ul>
+<li>After running the sampler on the synthetic corpus, every document in the same
+  true-topic group must share the same inferred dominant topic.
+  The true-to-inferred mapping may be any permutation.</li>
+</ul>
+<div data-inc="test_topics.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_topics</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span><span class="p">,</span> <span class="n">N_TOPICS</span><span class="p">,</span> <span class="n">DOCS_PER_TOPIC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">topics</span><span class="w"> </span><span class="kn">import</span> <span class="n">init_lda</span><span class="p">,</span> <span class="n">run_lda</span><span class="p">,</span> <span class="n">top_words</span><span class="p">,</span> <span class="n">doc_topic_proportions</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_count_matrices_consistent</span><span class="p">():</span>
+    <span class="c1"># After init_lda, n_k must equal both the row sums of n_kw and the</span>
+    <span class="c1"># column sums of n_dk: every token is counted exactly once in each matrix.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_corpus</span><span class="p">()</span>
+    <span class="n">vocab</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"word"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+    <span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+    <span class="n">word_to_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">w</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vocab</span><span class="p">)}</span>
+    <span class="n">doc_ids</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"doc_id"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">word_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">word_to_id</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"word"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()])</span>
+    <span class="n">n_docs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">doc_ids</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">n_dk</span><span class="p">,</span> <span class="n">n_kw</span><span class="p">,</span> <span class="n">n_k</span> <span class="o">=</span> <span class="n">init_lda</span><span class="p">(</span><span class="n">doc_ids</span><span class="p">,</span> <span class="n">word_ids</span><span class="p">,</span> <span class="n">n_docs</span><span class="p">,</span> <span class="n">N_TOPICS</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_equal</span><span class="p">(</span><span class="n">n_k</span><span class="p">,</span> <span class="n">n_kw</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_equal</span><span class="p">(</span><span class="n">n_k</span><span class="p">,</span> <span class="n">n_dk</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_doc_topic_proportions_sum_to_one</span><span class="p">():</span>
+    <span class="c1"># Each document's topic proportions must sum to 1 after smoothing.</span>
+    <span class="n">n_dk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">props</span> <span class="o">=</span> <span class="n">doc_topic_proportions</span><span class="p">(</span><span class="n">n_dk</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_top_words_order</span><span class="p">():</span>
+    <span class="c1"># Given a known n_kw, top_words must return the highest-count words first.</span>
+    <span class="n">n_kw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">70</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">vocab</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"w0"</span><span class="p">,</span> <span class="s2">"w1"</span><span class="p">,</span> <span class="s2">"w2"</span><span class="p">,</span> <span class="s2">"w3"</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">top_words</span><span class="p">(</span><span class="n">n_kw</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">n_words</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"w0"</span><span class="p">,</span> <span class="s2">"w1"</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"w2"</span><span class="p">,</span> <span class="s2">"w3"</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_lda_recovers_topics</span><span class="p">():</span>
+    <span class="c1"># After running the sampler, every document in the same true-topic group</span>
+    <span class="c1"># must have the same inferred dominant topic.  (The mapping from true to</span>
+    <span class="c1"># inferred topics may be permuted; the test only checks internal consistency.)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_corpus</span><span class="p">()</span>
+    <span class="n">n_dk</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">run_lda</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">N_TOPICS</span><span class="p">)</span>
+    <span class="n">proportions</span> <span class="o">=</span> <span class="n">doc_topic_proportions</span><span class="p">(</span><span class="n">n_dk</span><span class="p">)</span>
+    <span class="n">assigned</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">proportions</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_TOPICS</span><span class="p">):</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="n">assigned</span><span class="p">[</span><span class="n">k</span> <span class="o">*</span> <span class="n">DOCS_PER_TOPIC</span> <span class="p">:</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">DOCS_PER_TOPIC</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"True-topic group </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> split across inferred topics: </span><span class="si">{</span><span class="n">group</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Topic modeling key terms</p>
+<dl>
+<dt>Latent Dirichlet Allocation (LDA)</dt>
+<dd>A generative probabilistic model in which each document is a mixture of topics
+and each topic is a distribution over words; both mixtures are drawn from
+Dirichlet priors with concentration parameters $\alpha$ and $\beta$</dd>
+<dt>Collapsed Gibbs sampling</dt>
+<dd>An MCMC algorithm that infers topic assignments by iteratively resampling each
+token's topic conditioned on all other assignments, with the document-topic and
+topic-word distributions integrated out (collapsed)</dd>
+<dt>Bag of words</dt>
+<dd>A document representation that records only which words appear and how often,
+discarding word order; sufficient for LDA because topics are defined by
+co-occurrence patterns rather than sequence</dd>
+<dt>Dirichlet distribution</dt>
+<dd>A distribution over probability vectors; used in LDA as the prior for both
+document-topic and topic-word distributions; small concentration parameters
+produce sparse (concentrated) distributions</dd>
+<dt>Document-topic proportion</dt>
+<dd>$\hat{\theta}<em dk="dk">{dk} = (n</em> + \alpha)$; the
+posterior estimate of how much of document $d$ belongs to topic $k$} + \alpha) / \sum_k (n_{dk</dd>
+</dl>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Effect of alpha and beta</h3>
+<p>Run the sampler with $\alpha \in {0.01, 0.1, 1.0}$ and $\beta \in {0.001, 0.01, 0.1}$
+on the default corpus.
+For which combination of $\alpha$ and $\beta$ does the heatmap show the sharpest
+topic separation?
+Explain why large $\alpha$ blurs the document-topic proportions even when
+the corpus has clear topics.</p>
+<h3>Mixed documents</h3>
+<p>Modify <code>make_corpus</code> to generate five documents that draw 50% of their tokens
+from topic 0 and 50% from topic 1.
+Add those documents to the corpus and re-run the sampler.
+Do the mixed documents appear as a blend in the heatmap, or does the sampler
+assign them to a single topic?</p>
+<h3>Convergence check</h3>
+<p>Track the total number of topic reassignments per Gibbs step.
+Plot this count against iteration number.
+After how many iterations does the count stabilize?
+Compare the result for $\alpha = 0.01$ and $\alpha = 1.0$.</p>
+<h3>Perplexity</h3>
+<p>Implement a <code>perplexity(held_out_df, n_dk, n_kw, alpha, beta)</code> function that
+estimates the per-token perplexity of held-out documents:
+$\exp!\left(-\frac{1}{N}\sum_i \log P(w_i)\right)$
+where $P(w_i) = \sum_k \hat{\theta}<em kw_i="kw_i">{d_ik} \hat{\phi}</em>$.
+Lower perplexity indicates a better model.
+How does perplexity change as you increase the number of topics from 2 to 6?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../vocab/">Vocabulary Richness in Historical Texts</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../authorship/">Authorship Attribution by N-gram Profiles</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@gvwilson/forma" type="module"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

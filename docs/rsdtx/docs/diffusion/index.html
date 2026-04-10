@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>1D Diffusion Simulation</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a class="active" href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>1D Diffusion Simulation</h1>
+<h2>The Problem</h2>
+<ul>
+<li>Diffusion describes how a dissolved substance spreads through a stationary medium over time.</li>
+<li>It appears throughout science: oxygen spreading in tissue, a pollutant dispersing in groundwater, heat conducting through a solid.</li>
+<li>The governing equation in one spatial dimension is the <a class="gl-ref" href="../glossary/#diffusion_equation">diffusion equation</a>:</li>
+</ul>
+<p>$$\frac{\partial c}{\partial t} = D\frac{\partial^2 c}{\partial x^2}$$</p>
+<p>where $c(x, t)$ is concentration, $t$ is time, $x$ is position, and $D$ is the diffusion coefficient.
+- We cannot solve this exactly for arbitrary initial conditions on a finite domain, so we approximate it numerically.</p>
+<h2>Setting Up the Grid</h2>
+<ul>
+<li>Discretize the domain $[0, 1]$ into evenly spaced grid points separated by $\Delta x$.</li>
+<li>Represent concentration as a 1D NumPy array, one value per grid point.</li>
+<li>Choose the number of points and the pulse width so the initial Gaussian is well-resolved.</li>
+</ul>
+<div data-inc="diffusion.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Spatial grid: 50 points give dx = 0.02, fine enough to resolve a Gaussian</span>
+<span class="c1"># pulse of width 0.05 (about 2.5 grid cells per standard deviation).</span>
+<span class="n">GRID_POINTS</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">LENGTH</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">DX</span> <span class="o">=</span> <span class="n">LENGTH</span> <span class="o">/</span> <span class="p">(</span><span class="n">GRID_POINTS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Diffusion coefficient in arbitrary units.</span>
+<span class="n">DIFFUSIVITY</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># The explicit finite-difference scheme is stable only when the stability</span>
+<span class="c1"># ratio r = D*dt/dx^2 &lt;= 0.5 (von Neumann stability condition).</span>
+<span class="c1"># Using STABILITY_RATIO = 0.4 gives a 20% safety margin.</span>
+<span class="n">STABILITY_RATIO</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">DT</span> <span class="o">=</span> <span class="n">STABILITY_RATIO</span> <span class="o">*</span> <span class="n">DX</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">DIFFUSIVITY</span>
+
+<span class="c1"># Run for 500 steps; save a snapshot every 100 steps.</span>
+<span class="n">N_STEPS</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">SNAPSHOT_INTERVAL</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Initial Gaussian pulse centered in the domain.  Width 0.05 keeps the tails</span>
+<span class="c1"># more than 4 standard deviations from each boundary throughout the full run.</span>
+<span class="n">PULSE_CENTER</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">PULSE_WIDTH</span> <span class="o">=</span> <span class="mf">0.05</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>DX</code> is derived from <code>GRID_POINTS</code> and <code>LENGTH</code>; it is not set by hand.</li>
+<li><code>DT</code> is derived from the stability condition (explained below); it is not set by hand either.</li>
+</ul>
+<p>The initial concentration is a Gaussian pulse centered in the domain:</p>
+<div data-inc="diffusion.py" data-mark="make-initial"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_initial</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Return spatial grid and Gaussian initial concentration profile."""</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">LENGTH</span><span class="p">,</span> <span class="n">GRID_POINTS</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">PULSE_CENTER</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">PULSE_WIDTH</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">c</span>
+</code></pre></div>
+</div>
+<h2>Discretizing the Time Derivative</h2>
+<ul>
+<li>Replace $\partial c/\partial t$ with a forward difference: $(c_i^{n+1} - c_i^n) / \Delta t$.</li>
+<li>Replace $\partial^2 c/\partial x^2$ with a centered second difference: $(c_{i+1}^n - 2c_i^n + c_{i-1}^n) / \Delta x^2$.</li>
+<li>Rearranging gives the explicit update rule:</li>
+</ul>
+<p>$$c_i^{n+1} = c_i^n + r\left(c_{i+1}^n - 2c_i^n + c_{i-1}^n\right)$$</p>
+<p>where $r = D\,\Delta t / \Delta x^2$ is the stability ratio.</p>
+<h2>Stability</h2>
+<ul>
+<li>The explicit scheme is conditionally stable: it only produces physically correct results when $r \le 0.5$.</li>
+<li>This is the <a class="gl-ref" href="../glossary/#von_neumann_stability">von Neumann stability condition</a>.</li>
+<li>If $r &gt; 0.5$ the numerical solution grows without bound, producing meaningless results.</li>
+<li>We choose <code>DT</code> so that $r$ = <code>STABILITY_RATIO</code> = 0.4, giving a 20% safety margin below the limit.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>DT is computed as <code>STABILITY_RATIO * DX**2 / DIFFUSIVITY</code>, so <code>r = STABILITY_RATIO</code> at every run.
+Which change would make r exceed 0.5 and destabilise the simulation?</p>
+<dl>
+<dt>Setting STABILITY_RATIO = 0.6</dt>
+<dd>Correct: r equals STABILITY_RATIO by construction, so r = 0.6 &gt; 0.5 and the scheme will blow up.</dd>
+<dt>Doubling <code>GRID_POINTS</code></dt>
+<dd>Wrong: a finer grid halves <code>DX</code>, but <code>DT</code> is recalculated from <code>DX**2</code>, so r = <code>STABILITY_RATIO</code> is unchanged.</dd>
+<dt>Multiplying DIFFUSIVITY by 10</dt>
+<dd>Wrong: DT is divided by DIFFUSIVITY, so increasing DIFFUSIVITY shrinks DT and keeps r = STABILITY_RATIO.</dd>
+<dt>Running 10 000 steps instead of 500</dt>
+<dd>Wrong: the number of steps does not affect r — it only determines how long the simulation runs.</dd>
+</dl>
+</div>
+<h2>Boundary Conditions</h2>
+<ul>
+<li>At the two ends of the grid ($i = 0$ and $i = N-1$), the centered difference formula requires values at $i = -1$ and $i = N$, which do not exist.</li>
+<li>We use zero-flux (Neumann) boundary conditions: no material enters or leaves the domain.</li>
+<li>Mathematically this means $\partial c/\partial x = 0$ at both ends.</li>
+<li>We implement this with <a class="gl-ref" href="../glossary/#ghost_cell">ghost cells</a>: before each update, we prepend a copy of <code>c[0]</code> and append a copy of <code>c[-1]</code>, making the gradient at each boundary zero.</li>
+</ul>
+<div data-inc="diffusion.py" data-mark="step"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return concentration after one explicit finite-difference time step.</span>
+
+<span class="sd">    Prepend and append ghost cells equal to the boundary values to enforce</span>
+<span class="sd">    zero-flux (Neumann) boundary conditions: no material enters or leaves</span>
+<span class="sd">    the domain.  This makes the total mass exactly conserved each step.</span>
+<span class="sd">    """</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">DIFFUSIVITY</span> <span class="o">*</span> <span class="n">DT</span> <span class="o">/</span> <span class="n">DX</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">padded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">c</span><span class="p">,</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]])</span>
+    <span class="k">return</span> <span class="n">c</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="p">(</span><span class="n">padded</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">padded</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">padded</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The ghost-cell approach makes the sum of the correction term exactly zero, so total mass is conserved at each step.</li>
+</ul>
+<div class="forma-ordering" data-lang="en">
+<p>Put these operations in the correct order for one explicit time step with no-flux boundary conditions.</p>
+<ol>
+<li>Prepend c[0] and append c[-1] to form a padded array</li>
+<li>Compute the centered second difference from the padded array</li>
+<li>Multiply the second difference by the stability ratio r</li>
+<li>Add the result to the current concentration array c</li>
+</ol>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>The ghost-cell implementation conserves total mass exactly. Which boundary condition produces this behaviour?</p>
+<dl>
+<dt>Dirichlet (absorbing): $c = 0$ at both ends</dt>
+<dd>Wrong: absorbing boundaries remove mass from the domain; total mass decreases over time.</dd>
+<dt>Neumann (no-flux): $\partial c/\partial x = 0$ at both ends</dt>
+<dd>Correct: zero-flux boundaries prevent material from entering or leaving, so mass is conserved at every step.</dd>
+<dt>Periodic: <code>c[0]</code> = <code>c[-1]</code> at every step</dt>
+<dd>Wrong: periodic boundaries also conserve mass, but they are implemented differently — the concentration wraps around, not reflects.</dd>
+<dt>No boundary condition is needed — mass is conserved automatically</dt>
+<dd>Wrong: without an explicit BC the update formula has no information about what happens at the grid edges.</dd>
+</dl>
+</div>
+<h2>Running the Simulation</h2>
+<ul>
+<li>Advance the concentration array one step at a time, saving a snapshot every <code>SNAPSHOT_INTERVAL</code> steps.</li>
+<li>Store snapshots in a Polars DataFrame with columns <code>x</code>, <code>concentration</code>, and <code>time</code>.</li>
+</ul>
+<div data-inc="diffusion.py" data-mark="simulate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Run the simulation and return concentration snapshots as a DataFrame."""</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">make_initial</span><span class="p">()</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="n">_make_records</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_STEPS</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">SNAPSHOT_INTERVAL</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">records</span> <span class="o">+=</span> <span class="n">_make_records</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">DT</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_make_records</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">xi</span><span class="p">),</span> <span class="s2">"concentration"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">ci</span><span class="p">),</span> <span class="s2">"time"</span><span class="p">:</span> <span class="n">time</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">ci</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="p">]</span>
+</code></pre></div>
+</div>
+<h2>Visualizing the Results</h2>
+<ul>
+<li>Plot each snapshot as a separate line, color-coded by time, to show how the pulse spreads.</li>
+</ul>
+<div data-inc="diffusion.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return an Altair line chart of concentration profiles over time."""</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Position"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"concentration"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Concentration"</span><span class="p">),</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">"time:O"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Time (s)"</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:diffusion-profiles">
+<img alt="Five concentration profiles at t=0 through t=0.83, showing a Gaussian pulse flattening and broadening over time." src="diffusion.svg"/>
+<figcaption>Figure 1: Concentration profiles at five equally-spaced snapshots. The pulse spreads and flattens; the area under each curve (total mass) is constant.</figcaption>
+</figure>
+<h2>Testing</h2>
+<p>Tests validate that the simulation behaves correctly both physically and numerically.</p>
+<h3>Stability check</h3>
+<ul>
+<li>If <code>DIFFUSIVITY</code>, <code>DT</code>, or <code>DX</code> are changed carelessly, the simulation may become unstable.</li>
+<li>This test catches that immediately:</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">DIFFUSIVITY</span> <span class="o">*</span> <span class="n">DT</span> <span class="o">/</span> <span class="n">DX</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">assert</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="mf">0.5</span>
+</code></pre></div>
+<h3>Mass conservation</h3>
+<ul>
+<li>Zero-flux boundaries mean no substance leaves the domain, so total mass must be constant.</li>
+<li>The ghost-cell implementation conserves mass exactly in floating-point arithmetic.</li>
+<li>We allow a relative tolerance of $10^{-10}$ to account for accumulated rounding over <code>N_STEPS</code> steps.</li>
+</ul>
+<h3>Symmetry</h3>
+<ul>
+<li>The initial Gaussian is symmetric about $x = 0.5$, and both boundaries are identical.</li>
+<li>The profile must therefore remain symmetric at every step.</li>
+<li>Asymmetry would indicate a bug in the boundary-condition code.</li>
+</ul>
+<h3>Monotone peak decrease</h3>
+<ul>
+<li>As the pulse spreads, its peak value must fall at every snapshot.</li>
+<li>This test checks physical plausibility without requiring knowledge of the exact solution.</li>
+</ul>
+<h3>Comparison to analytical solution</h3>
+<ul>
+<li>On an infinite domain, a Gaussian pulse with standard deviation $\sigma_0$ evolves so that:</li>
+</ul>
+<p>$$\sigma^2(t) = \sigma_0^2 + 2Dt$$</p>
+<ul>
+<li>After 20 steps the pulse tails are more than $4\sigma$ from each wall, so the boundary has negligible effect.</li>
+<li>We compare the numerical solution to this analytical formula.</li>
+</ul>
+<h4>Choosing the tolerance</h4>
+<ul>
+<li>The explicit scheme has global <a class="gl-ref" href="../glossary/#truncation_error">truncation error</a> $O(\Delta t + \Delta x^2)$.
+  This notation means the error scales with $\Delta t$ and $\Delta x^2$ as those quantities shrink,
+  but it says nothing about the coefficient in front of them.</li>
+<li>With our parameters, $\Delta t + \Delta x^2 \approx 2\times 10^{-3}$.</li>
+<li>Measuring the actual maximum error at $n = 20$ steps gives approximately $3\times 10^{-3}$.
+  The coefficient is greater than 1, so the raw sum $\Delta t + \Delta x^2$ underestimates the true error.</li>
+<li>The tolerance of $5\times 10^{-3}$ is about 1.7 times the measured error.
+  This is a modest safety margin: large enough to absorb minor floating-point variation
+  between platforms, small enough that a factor-of-2 regression would still be caught.</li>
+<li>The factor 1.7 is empirical, not derived mathematically.
+  Any tolerance between roughly $4\times 10^{-3}$ and $10^{-2}$ would be defensible here.
+  What matters is that it is documented alongside the reasoning,
+  so a future reader can judge whether a failing test signals a real problem or an overly tight bound.</li>
+</ul>
+<div data-inc="test_diffusion.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">diffusion</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DIFFUSIVITY</span><span class="p">,</span>
+    <span class="n">DT</span><span class="p">,</span>
+    <span class="n">DX</span><span class="p">,</span>
+    <span class="n">N_STEPS</span><span class="p">,</span>
+    <span class="n">PULSE_CENTER</span><span class="p">,</span>
+    <span class="n">PULSE_WIDTH</span><span class="p">,</span>
+    <span class="n">SNAPSHOT_INTERVAL</span><span class="p">,</span>
+    <span class="n">make_initial</span><span class="p">,</span>
+    <span class="n">step</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_stability_ratio</span><span class="p">():</span>
+    <span class="c1"># The explicit scheme is stable only when r = D*dt/dx^2 &lt;= 0.5</span>
+    <span class="c1"># (von Neumann stability condition).  This test catches accidental</span>
+    <span class="c1"># changes to DIFFUSIVITY, DT, or DX that would break the simulation.</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">DIFFUSIVITY</span> <span class="o">*</span> <span class="n">DT</span> <span class="o">/</span> <span class="n">DX</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">assert</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"stability ratio </span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> exceeds 0.5"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_mass_conservation</span><span class="p">():</span>
+    <span class="c1"># With zero-flux boundaries, the total amount of substance is conserved.</span>
+    <span class="c1"># The ghost-cell implementation makes the correction term sum to zero in</span>
+    <span class="c1"># exact arithmetic.  Floating-point rounding accumulates at roughly</span>
+    <span class="c1"># N_STEPS * machine_epsilon, so a relative tolerance of 1e-10 is safe.</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">make_initial</span><span class="p">()</span>
+    <span class="n">initial_mass</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">DX</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_STEPS</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">final_mass</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">DX</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">final_mass</span> <span class="o">-</span> <span class="n">initial_mass</span><span class="p">)</span> <span class="o">/</span> <span class="n">initial_mass</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_symmetry</span><span class="p">():</span>
+    <span class="c1"># The Gaussian initial condition is symmetric about x = 0.5 and the</span>
+    <span class="c1"># boundary conditions are identical at both ends, so the profile must</span>
+    <span class="c1"># remain symmetric at every step.  Tolerance is 1e-12 (floating-point</span>
+    <span class="c1"># symmetry of the arithmetic operations).</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">make_initial</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_STEPS</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">c</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&lt;</span> <span class="mf">1e-12</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_peak_decreases</span><span class="p">():</span>
+    <span class="c1"># As the pulse spreads out, its peak concentration must fall monotonically.</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">make_initial</span><span class="p">()</span>
+    <span class="n">peaks</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_STEPS</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">SNAPSHOT_INTERVAL</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">peaks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">peaks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">peaks</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_matches_analytical</span><span class="p">():</span>
+    <span class="c1"># On an infinite domain a Gaussian pulse with standard deviation sigma_0</span>
+    <span class="c1"># spreads so that sigma^2(t) = sigma_0^2 + 2*D*t (Crank 1975).  After</span>
+    <span class="c1"># 20 steps the pulse tails are more than 4 sigma from each wall, so</span>
+    <span class="c1"># boundary effects are negligible.</span>
+    <span class="c1"># The scheme has truncation error O(DT + DX^2) ~ 2e-3 with our parameters.</span>
+    <span class="c1"># The measured maximum error at n=20 is ~3e-3 (the prefactor exceeds 1).</span>
+    <span class="c1"># A tolerance of 5e-3 gives a safety factor of ~1.7 over the measured error.</span>
+    <span class="n">n_check</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">make_initial</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_check</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">n_check</span> <span class="o">*</span> <span class="n">DT</span>
+    <span class="n">sigma2</span> <span class="o">=</span> <span class="n">PULSE_WIDTH</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">DIFFUSIVITY</span> <span class="o">*</span> <span class="n">t</span>
+    <span class="n">analytical</span> <span class="o">=</span> <span class="p">(</span><span class="n">PULSE_WIDTH</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+        <span class="o">-</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">PULSE_CENTER</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma2</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">analytical</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">5e-3</span>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="0.169" data-lang="en" data-tolerance="0.005">
+<p>Using the analytical formula $\sigma^2(t) = \sigma_0^2 + 2Dt$, compute $\sigma^2$ after <code>N_STEPS</code> = 500 steps.
+Use <code>PULSE_WIDTH</code> = 0.05 for $\sigma_0$, <code>DIFFUSIVITY</code> = 0.1, <code>GRID_POINTS</code> = 50, <code>LENGTH</code> = 1.0,
+and note that <code>DT</code> = <code>STABILITY_RATIO * DX**2 / DIFFUSIVITY</code>.
+Give your answer to three decimal places.</p>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Step-function initial condition</h3>
+<p>Replace the Gaussian initial condition in <code>make_initial</code> with a step function:
+$c(x) = 1$ for $x &lt; 0.5$ and $c(x) = 0$ for $x \ge 0.5$.
+Run the simulation and plot the results.
+Does <code>test_mass_conservation</code> still pass?
+Does <code>test_symmetry</code> pass or fail, and why?</p>
+<h3>Absorbing boundaries</h3>
+<p>Change the boundary conditions from zero-flux to absorbing (Dirichlet):
+set <code>c[0] = 0</code> and <code>c[-1] = 0</code> after each update instead of using ghost cells.
+Run the simulation and observe how the total mass changes over time.
+Modify <code>test_mass_conservation</code> to check that mass decreases monotonically
+rather than remaining constant.</p>
+<h3>Demonstrating instability</h3>
+<p>Set <code>STABILITY_RATIO = 0.6</code> (above the von Neumann limit of 0.5) and run the simulation for 20 steps.
+Describe what happens to the concentration values.
+Confirm that <code>test_stability_ratio</code> catches this before any time-stepping occurs.</p>
+<h3>Grid refinement and convergence</h3>
+<p>Double <code>GRID_POINTS</code> to 100 (leaving <code>STABILITY_RATIO</code> unchanged so <code>DT</code> is recalculated automatically).
+Measure the new maximum error in <code>test_matches_analytical</code> at $n = 20$ steps.
+The truncation error scales as $O(\Delta t + \Delta x^2)$; with twice as many points,
+$\Delta x$ halves and $\Delta t$ (derived from $\Delta x^2$) quarters.
+Is the observed reduction in error consistent with this prediction?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../intro/">Introduction</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../lotka/">Predator-Prey Dynamics</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@gvwilson/forma" type="module"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

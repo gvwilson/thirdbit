@@ -400,8 +400,12 @@ Let's create a client that fails on purpose:</p>
 </div>
 <div data-inc="ex_failure.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Server1: Granted lock on database to FailClient (token 1)
 [0.0] FailClient: Starting work
-[0.0] Client2: Failed to acquire lock
 [1.0] FailClient: CRASHED!
+[5.0] Server1: Lock on database expired (was held by FailClient)
+[5.0] Server1: Granted lock on database to Client2 (token 2)
+[5.0] Client2: Starting critical section (token 2)
+[7.0] Client2: Finished critical section
+[7.0] Server1: Released lock on database by Client2
 </code></pre></div>
 </div>
 <p>The failing client crashes at time 1.0 without releasing the lock.

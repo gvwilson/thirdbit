@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resilience</title>
+<meta content="Closing Time" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Closing Time</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../gap/">Governance, Assets, and Permissions</a></li>
+<li><a href="../comms/">Communicating a Deliberate Shutdown</a></li>
+<li><a href="../emergency/">Emergency Closure</a></li>
+<li><a href="../preserve/">Preserving Your Work</a></li>
+<li><a href="../care/">Taking Care of People</a></li>
+<li><a href="../legal/">Legal and Administrative Matters</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../disaster/">Lessons from Disaster Management</a></li>
+<li><a href="../maid/">Lessons from MAID</a></li>
+<li><a href="../crisis/">Lessons from Crisis</a></li>
+<li><a href="../business/">Lessons from Business</a></li>
+<li><a href="../fired/">Being Fired</a></li>
+<li><a href="../firing/">Firing People</a></li>
+<li><a class="active" href="../resilience/">Resilience</a></li>
+<li><a href="../handover/">Handing Over</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Resilience</h1>
+<p class="subtitle">what you can do right now</p>
+<p>In 2013,
+the government of Canada ordered the closure of
+five of the Department of Fisheries and Oceans' seven libraries <a class="bib-ref" href="../bibliography/#Nikiforuk2013">Nikiforuk2013</a>.
+No one knows how many thousands of volumes of irreplaceable environmental records were destroyed,
+but even scientists who were directly affected did not make plans in case something similar happened again.
+In contrast,
+when faced with the prospect of a populist demagogue becoming president,
+researchers in Argentina knew from their collective experience what might happen next
+and took action accordingly.</p>
+<p>And then Donald Trump was re-elected
+and an unprecedented assault on American science began.
+Except it wasn't really unprecedented:
+from anti-vax hysteria to climate change denialism
+to banning the teaching of evolution in schools,
+reactionaries have been attacking science and scientists for decades.
+We hadn't prepared,
+even though their manifesto warned us what was coming.</p>
+<h2>Licensing</h2>
+<p>Making code and data publicly available does not ensure that other people can use it;
+you maintain all copyright unless you explicitly include a license,
+so they may still need explicit permission
+or may simply be unsure whether they do or not.
+The Open Source Initiative (OSI)
+maintains a list of <a href="https://opensource.org/licenses">open source licenses</a> it has approved;
+the implications of these licenses are widely understood,
+so choosing one of those will make your project more understandable to others.
+Please do <em>not</em> try to write your own license
+or simply waive copyright and place the software into the public domain,
+as what is meant by "public domain" varies from country to country.
+(In countries such as France and Germany
+it may not actually be possible to waive copyright and place a work in the public domain.)</p>
+<p>More broadly,
+<a href="https://creativecommons.org/">Creative Commons</a> licenses can be used for documentation or research reports
+but should be avoided for actual code,
+while <a href="https://ethicalsource.dev/">ethical licenses</a>
+or licenses based on the <a href="https://blueoakcouncil.org/license/1.0.0">Blue Oak Model License</a> may also be appropriate.
+<a href="http://choosealicense.com">choosealicense.com</a> and other sources provide guidance <a class="bib-ref" href="../bibliography/#Fogel2020">Fogel2020</a>, <a class="bib-ref" href="../bibliography/#Fortunato2021">Fortunato2021</a>;</p>
+<p>Whatever license you choose,
+place its text in a file called <code>LICENSE</code>, <code>LICENSE.txt</code>, or <code>LICENSE.md</code>
+in the root directory of your project,
+as this is where people and automated tools alike will look for it.</p>
+<div class="callout">
+<p><strong>The law, again</strong></p>
+<p>Most discussion of open source licensing focuses on circumstances in a handful of affluent countries
+in the same way as discussion of fiscal sponsorship (Tip 3).
+For example,
+many Latin American countries have access to information laws that include research outcomes and artifacts.
+You can publish data and software under that,
+but the institution sets the license type,
+and you must use institutional repositories.
+As always,
+consult <em>local</em> legal experts before taking action.</p>
+</div>
+<h2>Hosting</h2>
+<p>the threats to your project are political as well as technological (Tip 2),
+so you should ensure that loss of institutional support
+(or worse, that institution turning on you)
+does not mean loss of access.</p>
+<div class="callout">
+<p><strong>The road not taken</strong></p>
+<p>Fifteen years ago,
+a file-sharing system for scientific data based on the BitTorrent protocol
+failed to find wide adoption because of the (quite reasonable) association in many institutions' collective minds
+between BitTorrent and illegal downloading <a class="bib-ref" href="../bibliography/#Langille2010">Langille2010</a>.
+At the time of writing,
+though,
+many individuals and groups are turning to BitTorrent to share datasets that are at risk of disappearing
+because of the protocol's resilience.</p>
+</div>
+<p><a href="https://github.com/">GitHub</a>,
+<a href="https://gitlab.com/">GitLab</a>,
+and <a href="https://bitbucket.org/">BitBucket</a>
+are social coding platforms centered around Git,
+a widely-used open source version control tool.
+However,
+they are all commercial entities based in the same legal jurisdiction,
+which means they are vulnerable to <a class="gl-ref" href="../glossary/#correlated-threat">correlated threats</a>:
+trouble with any of them may mean trouble with all of them.
+<a href="https://codeberg.org/">Codeberg</a>,
+while currently much smaller,
+is a non-profit based in a different jurisdiction;
+consider mirroring your work there or using it as your primary host.
+Keep in mind that persistent code archival is not a feature of development platforms.
+Repositories can be altered,
+made private,
+or deleted
+(also as a result of <a href="https://github.com/github/transparency/tree/main/data/government_takedowns">government takedowns</a>);
+the platform itself may be shut down
+(as happened to the <a href="https://en.wikipedia.org/wiki/Gna!">non-profit Gna!</a>),
+or it may change its revenue model
+(as happened with <a href="https://en.wikipedia.org/wiki/SourceForge">SourceForge</a>,
+which once dominated the open source repository space in the way that GitHub does today <a class="bib-ref" href="../bibliography/#Tamburri2020">Tamburri2020</a>).</p>
+<p>When you create projects on hosted services,
+use a team account as the project owner rather than a personal account.
+Doing this makes it easier to give other people permission to manage the project,
+and as noted in Tip 6,
+a project with multiple owners from different institutions
+is harder for any one institution to lock down.
+For the same reason,
+do not rely solely on logins or email addresses associated with your institution:
+instead,
+ask yourself if you will still have access to the project if you lose that identity,
+and add an identity you personally control to the team that owns the project.
+You can also add your <a class="gl-ref" href="../glossary/#orcid">ORCID</a> to the project's metadata
+so that the project links to a profile that you control
+even when your contact address changes.</p>
+<div class="callout">
+<p><strong>What's in a project?</strong></p>
+<p>When deciding what to store where,
+remember that your version control repository only stores part of what makes up your project.
+For example,
+while GitHub wikis are stored in ordinary git repositories, the issues and discussions live in GitHub's internal database;
+you can use the GitHub API to download their content,
+but (a) the result is intended for consumption by machines, not people,
+and (b) if you are doing this on short notice,
+the odds are high that other people are trying to do it at the same time.
+GitHub's servers may not be able to manage that load when you need them to,
+so use tools like <a href="https://github.com/jlord/offline-issues">offline-issues</a>
+to save hosted content as plain-text files regularly.</p>
+</div>
+<p>Create a DOI for each release of your software
+to ensure citability and retrievability even if the project repository becomes unavailable,
+and add a <a href="https://citation-file-format.github.io/">Citation.CFF</a>
+or <a href="https://codemeta.github.io">codemeta.json</a> file to your code <a class="bib-ref" href="../bibliography/#Druskat2021">Druskat2021</a>
+containing citation metadata.
+Tools such as <a href="https://citation-file-format.github.io/cff-initializer-javascript/">cffinit</a>,
+<a href="https://codemeta.github.io/codemeta-generator/">codemeta generator</a>,
+and <a href="https://github.com/citation-file-format/citation-file-format/blob/main/README.md#tools-to-work-with-citationcff-files-wrench">others</a>
+can help you do this.</p>
+<h2>Community</h2>
+<p>Project culture encompasses the unwritten rules, shared values, and working practices that make projects successful and sustainable. Document the core values and principles that guide decision-making, including examples of how these values are applied in practice and why they matter to the project's success. Identify cultural practices, traditions, and communication norms that contribute to positive team dynamics and project effectiveness. Discuss with successors how to maintain positive cultural elements while allowing for natural evolution and improvement. Consider creating informal mentorship opportunities or advisory roles that help preserve institutional memory while empowering new leadership to develop their own approach.</p>
+<p>Research collaborations often span multiple years and involve complex interpersonal and institutional relationships that require careful management during transitions. Review all active collaborations to assess their status, remaining obligations, and the level of personal relationship involved in maintaining the partnership. Communicate with collaborators about leadership changes early enough to allow for relationship building with successors while ensuring continuity of shared work. Document the history and context of each collaboration, including informal agreements, communication preferences, and any ongoing tensions or issues that may not be immediately apparent. Consider facilitating introduction meetings between collaborators and successors to establish personal connections that support continued partnership.</p>
+<p>Crisis situations that threaten project continuity require pre-established communication protocols and emergency contacts to enable rapid response and coordination. Develop emergency contact lists that include key stakeholders, service providers, institutional contacts, and team members, ensuring that multiple people have access to this information. Establish clear communication hierarchies and decision-making authorities for different types of emergencies, from technical failures to personnel crises to external threats. Create template communications for common emergency scenarios that can be quickly customized and deployed through multiple channels including email, social media, and direct phone contact. Test emergency communication procedures periodically and update contact information regularly to ensure effectiveness when crisis situations actually occur.</p>
+<h2>Community Adoption</h2>
+<p>Publishing your code is not the same as publicizing it.
+The more people who know about and rely on your project,
+the greater the chances that someone will help keep it alive,
+whether by working on it directly or supporting you in doing so.
+If you have not named your project yet,
+choose a name that does not hint at direct and exclusive affiliation to a single institution.
+This can help if the code needs to be relocated,
+and also makes contributors from other institutions feel welcome.
+Additionally,
+label entry-level issues
+(e.g., to use the "good first issue" label on GitHub)
+so that people can easily find a place to start <a class="bib-ref" href="../bibliography/#Steinmacher2015">Steinmacher2015</a>.</p>
+<p>Going further,
+there is a causal link between social media mentions and both new adopters and new contributors <a class="bib-ref" href="../bibliography/#Fang2022">Fang2022</a>.
+Announcing your project on mailing lists, forums, or social media,
+and talking about it at conferences are therefore necessary but not sufficient:
+since everyone else is doing this too,
+it is hard to be heard above the noise.</p>
+<p>There are many good guides to what you can do to promote your project <a class="bib-ref" href="../bibliography/#Kuchner2011">Kuchner2011</a>, <a class="bib-ref" href="../bibliography/#BelliniSaibene2024">BelliniSaibene2024</a>.
+A short video showing how to use the software
+or a slide deck that others can incorporate into their lectures
+will increase uptake by lowering the cost of adoption.
+Similarly,
+a one-page website that opens with an elevator pitch
+explaining who the software is for
+and how it will improve their lives
+is much more likely to lead to that crucial "second glance"
+than a list of publications.</p>
+<p>Disseminating your code through tutorials at conferences is another effective strategy.
+Tutorials are an opportunity for you,
+as an author,
+to describe your work in depth
+and (more importantly) convince your audience to use it.
+Networking through such events will enable you to build relationships with
+the people most likely to care about your project,
+and it is the best way to ensure that you land well after you leave your current position.</p>
+<div class="callout">
+<p>If you can,
+have at least one person outside your organization commit to your code.
+Such community contributions lead to joint ownership of intellectual property,
+which makes it harder for any single institution to lock down your work.
+You can reinforce this by adding their name to the copyright statement in your license.</p>
+</div>
+<p>Finally,
+remember that it is not all about <em>your</em> project.
+If you ask others to help maintain your code,
+be prepared to give them something in return:
+a letter of reference,
+help testing or documenting their project,
+or co-authorship credit on the project and associated publications.</p>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../firing/">Firing People</a>
+</div>
+<div class="col-6 center">
+<a href="../">Closing Time</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../handover/">Handing Over</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

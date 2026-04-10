@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manuscript Stemma Reconstruction</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a class="active" href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Manuscript Stemma Reconstruction</h1>
+<h2>The Problem</h2>
+<ul>
+<li>A historical text often survives in multiple manuscript copies, each introduced
+  by scribes who occasionally made errors, omitted passages, or substituted words.</li>
+<li>A <a class="gl-ref" href="../glossary/#stemma">stemma</a> is the family tree of those copies: it shows which
+  manuscripts descend from which others and reconstructs lost intermediate ancestors.</li>
+<li><a class="gl-ref" href="../glossary/#stemma_reconstruction">Stemma reconstruction</a> is the computational problem
+  of recovering that tree from the patterns of shared variants across surviving manuscripts.</li>
+<li>The approach here:</li>
+<li>Model each manuscript as a sequence of binary <a class="gl-ref" href="../glossary/#variant_locus">variant loci</a>.</li>
+<li>Measure pairwise dissimilarity using <a class="gl-ref" href="../glossary/#hamming_distance">Hamming distance</a>.</li>
+<li>Apply the <a class="gl-ref" href="../glossary/#neighbor_joining">neighbor-joining</a> algorithm (also used in
+    the phylogenetics lesson) to recover the tree topology and branch lengths.</li>
+<li>Visualize the reconstructed unrooted stemma.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Two manuscripts share 12 unique errors that appear in no other copy.
+A third manuscript shares none of those errors.
+What does this pattern most strongly suggest?</p>
+<dl>
+<dt>The two manuscripts are later than the third.</dt>
+<dd>Wrong: later position in time does not follow from shared errors; a manuscript
+copied early can still share errors with a sibling copied later.</dd>
+<dt>The two manuscripts descend from a common intermediate ancestor that already</dt>
+<dt>contained those errors before they were each copied.</dt>
+<dd>Correct: shared unique errors (not present in the archetype or other branches)
+are the primary evidence for a common intermediate ancestor in stemmatic analysis.</dd>
+<dt>The scribe of one manuscript copied the other directly.</dt>
+<dd>Partly correct as one possibility, but an intermediate ancestor explains
+the same pattern without requiring direct copying; more evidence is needed
+to distinguish the two cases.</dd>
+<dt>The errors are scribal conventions and do not indicate copying relationships.</dt>
+<dd>Wrong: shared unique errors in the same positions are statistically very
+unlikely to have arisen independently and are the standard evidence for
+a copying relationship.</dd>
+</dl>
+</div>
+<h2>Variant Loci and Hamming Distance</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#variant_locus">variant locus</a> is a specific position in a manuscript
+  where at least one copy reads differently from the others.</li>
+<li>We represent each manuscript as a binary sequence: 0 if the reading at a locus
+  matches the <a class="gl-ref" href="../glossary/#archetype">archetype</a>, 1 if it has been corrupted.</li>
+<li>The <a class="gl-ref" href="../glossary/#hamming_distance">Hamming distance</a> between two manuscripts is the
+  fraction of loci where they disagree:</li>
+</ul>
+<p>$$D(A, B) = \frac{\text{number of loci where } A \neq B}{\text{total loci}}$$</p>
+<ul>
+<li>Manuscripts that share a common intermediate ancestor will have a smaller Hamming
+  distance to each other than to manuscripts from a different family, because they
+  share inherited variants in addition to their unique ones.</li>
+</ul>
+<div class="forma-numeric-entry" data-correct="0.15" data-lang="en" data-tolerance="0.0001">
+<p>Two manuscripts each have 100 variant loci.
+Manuscript A differs from the archetype at loci 1–10 and 21–30.
+Manuscript B differs from the archetype at loci 1–10 and 41–55.
+What is the Hamming distance between A and B?</p>
+</div>
+<h2>Distance Matrix for the Reference Stemma</h2>
+<ul>
+<li>The reference stemma is:</li>
+</ul>
+<p>$$((A:0.05,\ B:0.03):0.07,\ (C:0.06,\ D:0.04):0.05)$$</p>
+<ul>
+<li>Manuscripts A and B share intermediate ancestor alpha, which is separated from
+  the archetype by 0.07.  C and D share beta, separated from the archetype by 0.05.</li>
+<li>Pairwise distances are sums of branch lengths along the path between each pair.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th scope="col">Pair</th>
+<th scope="col">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A, B</td>
+<td>0.05 + 0.03 = 0.08</td>
+</tr>
+<tr>
+<td>A, C</td>
+<td>0.05 + 0.07 + 0.05 + 0.06 = 0.23</td>
+</tr>
+<tr>
+<td>A, D</td>
+<td>0.05 + 0.07 + 0.05 + 0.04 = 0.21</td>
+</tr>
+<tr>
+<td>B, C</td>
+<td>0.03 + 0.07 + 0.05 + 0.06 = 0.21</td>
+</tr>
+<tr>
+<td>B, D</td>
+<td>0.03 + 0.07 + 0.05 + 0.04 = 0.19</td>
+</tr>
+<tr>
+<td>C, D</td>
+<td>0.06 + 0.04 = 0.10</td>
+</tr>
+</tbody>
+</table>
+<div data-inc="stemma.py" data-mark="make-dist"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_distance_matrix</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (names, D) using exact tree-additive distances.</span>
+
+<span class="sd">    When noise_scale=0.0 (default) the distances are exact and NJ recovers</span>
+<span class="sd">    the true topology and branch lengths to machine precision.</span>
+<span class="sd">    A non-zero noise_scale adds symmetric Gaussian noise to simulate the</span>
+<span class="sd">    imperfect additivity of real manuscript data.</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">MANUSCRIPTS</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">MANUSCRIPTS</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">MANUSCRIPTS</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">_BRANCH</span> <span class="k">else</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+                <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_BRANCH</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">noise_scale</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_scale</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="p">(</span><span class="n">noise</span> <span class="o">+</span> <span class="n">noise</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">noise</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">D</span> <span class="o">+</span> <span class="n">noise</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">MANUSCRIPTS</span><span class="p">),</span> <span class="n">D</span>
+</code></pre></div>
+</div>
+<h2>The Neighbor-Joining Algorithm</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#neighbor_joining">Neighbor-joining</a> iteratively joins the pair of nodes
+  with the smallest corrected distance and contracts the matrix until two nodes remain.</li>
+<li>The Q-matrix correction removes the bias introduced by unequal average distances:</li>
+</ul>
+<p>$$Q(i,j) = (n-2)\,D(i,j) - \sum_k D(i,k) - \sum_k D(j,k)$$</p>
+<ul>
+<li>The pair $(i, j)$ with the smallest $Q(i,j)$ is joined into a new internal node $u$.</li>
+<li>Branch lengths from $u$ to $i$ and $j$ (with $n$ the current matrix size):</li>
+</ul>
+<p>$$\ell_i = \tfrac{1}{2}D(i,j) + \frac{\sum_k D(i,k) - \sum_k D(j,k)}{2(n-2)}$$</p>
+<p>$$\ell_j = D(i,j) - \ell_i$$</p>
+<ul>
+<li>Distance from $u$ to every remaining node $k$:</li>
+</ul>
+<p>$$D(u,k) = \tfrac{1}{2}\bigl[D(i,k) + D(j,k) - D(i,j)\bigr]$$</p>
+<p>The same algorithm is used in the phylogenetics lesson; only the meaning of the
+distance changes — evolutionary substitutions there, scribal variant loci here.</p>
+<div data-inc="stemma.py" data-mark="nj"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Run the neighbor-joining algorithm and return a list of (node_a, node_b, length) edges.</span>
+
+<span class="sd">    `names` is a list of manuscript (or internal node) labels.</span>
+<span class="sd">    `D` is a symmetric distance matrix with zero diagonal.</span>
+<span class="sd">    Returns a list of (node_a, node_b, branch_length) triples covering all 2N-3 edges</span>
+<span class="sd">    of the unrooted binary tree.</span>
+<span class="sd">    """</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">node_counter</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">Q</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">D</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+        <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span>
+
+        <span class="n">d_ij</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        <span class="n">li</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">d_ij</span> <span class="o">+</span> <span class="p">(</span><span class="n">row_sums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">lj</span> <span class="o">=</span> <span class="n">d_ij</span> <span class="o">-</span> <span class="n">li</span>
+        <span class="n">u_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"node</span><span class="si">{</span><span class="n">node_counter</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">node_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u_name</span><span class="p">,</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">li</span><span class="p">))</span>
+        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u_name</span><span class="p">,</span> <span class="n">names</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">lj</span><span class="p">))</span>
+
+        <span class="n">new_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">d_ij</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+        <span class="n">keep</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">j</span><span class="p">]</span>
+        <span class="n">D_new</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">keep</span><span class="p">,</span> <span class="n">keep</span><span class="p">)]</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="n">new_row</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">D2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">))</span>
+        <span class="n">D2</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">),</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">)]</span> <span class="o">=</span> <span class="n">D_new</span>
+        <span class="n">D2</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">extra</span>
+        <span class="n">D2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">)]</span> <span class="o">=</span> <span class="n">extra</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">D2</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keep</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">u_name</span><span class="p">]</span>
+
+    <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">edges</span>
+</code></pre></div>
+</div>
+<h2>A Worked Example</h2>
+<p>Starting with $n = 4$ manuscripts and the distances above, the row sums are
+$R(A) = 0.52$, $R(B) = 0.48$, $R(C) = 0.54$, $R(D) = 0.50$.</p>
+<p>The first-iteration Q-matrix is:</p>
+<table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">A</th>
+<th scope="col">B</th>
+<th scope="col">C</th>
+<th scope="col">D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>—</td>
+<td>−0.84</td>
+<td>−0.60</td>
+<td>−0.60</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td></td>
+<td>—</td>
+<td>−0.60</td>
+<td>−0.60</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td></td>
+<td></td>
+<td>—</td>
+<td>−0.84</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>The minimum $Q = -0.84$ occurs for both (A, B) and (C, D).
+NumPy's <code>argmin</code> on the flattened matrix picks (A, B) first.</p>
+<p>Branch lengths: $\ell_A = 0.05$, $\ell_B = 0.03$.
+After replacing A and B with node4, the next minimum in the 3×3 matrix joins
+C and D into node5 ($\ell_C = 0.06$, $\ell_D = 0.04$).
+The final edge node4–node5 has length 0.12.</p>
+<div class="forma-numeric-entry" data-correct="0.05" data-lang="en" data-tolerance="0.001">
+<p>In the first NJ iteration, A and B are joined.
+$D(A, B) = 0.08$, $R(A) = 0.52$, $R(B) = 0.48$.
+Using $\ell_A = \tfrac{1}{2}D(A,B) + \frac{R(A) - R(B)}{2(n-2)}$ with $n = 4$,
+what is $\ell_A$?</p>
+</div>
+<h2>Hamming Distance Function</h2>
+<div data-inc="stemma.py" data-mark="hamming"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hamming_distance</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the fraction of loci where seq_a and seq_b differ.</span>
+
+<span class="sd">    Both sequences must be 1-D integer arrays of the same length.</span>
+<span class="sd">    A value of 0.0 means identical manuscripts; 1.0 means they differ at</span>
+<span class="sd">    every locus.  This is the Hamming distance normalized by sequence length.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">seq_a</span> <span class="o">!=</span> <span class="n">seq_b</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq_a</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Visualizing the Stemma</h2>
+<div data-inc="stemma.py" data-mark="draw"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw_stemma</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">manuscripts</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save an unrooted stemma tree diagram to `filename`.</span>
+
+<span class="sd">    Manuscript nodes (leaves) are drawn in steelblue; reconstructed</span>
+<span class="sd">    intermediate ancestor nodes are drawn in lightgrey.</span>
+<span class="sd">    Edge labels show the branch length (fraction of differing loci)</span>
+<span class="sd">    rounded to two decimal places.</span>
+<span class="sd">    """</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">leaf_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">manuscripts</span><span class="p">]</span>
+    <span class="n">internal_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">manuscripts</span><span class="p">]</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span>
+        <span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">leaf_nodes</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span>
+        <span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">internal_nodes</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">"lightgrey"</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span>
+        <span class="n">G</span><span class="p">,</span>
+        <span class="n">pos</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">font_color</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span>
+        <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">leaf_nodes</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span>
+        <span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">internal_nodes</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">edge_labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">}</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">edge_labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Reconstructed manuscript stemma"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:stemma-tree">
+<img alt="Unrooted tree with four blue leaf nodes labelled A, B, C, D and two grey internal nodes. A and B are connected through one internal node; C and D through another; the two internal nodes are joined by a central edge." src="stemma-tree.svg"/>
+<figcaption>Figure 1: Reconstructed stemma for the four-manuscript reference example. The two internal (grey) nodes correspond to the lost intermediate ancestors alpha (A–B family) and beta (C–D family). Branch lengths give the fraction of loci that differ along each copying step.</figcaption>
+</figure>
+<h2>Generating Synthetic Manuscripts</h2>
+<ul>
+<li>The stochastic generator simulates a known copying tree by propagating random
+  mutations from the archetype through each branch.</li>
+<li>Each locus flips independently with probability <code>MUTATION_PROB = 0.05</code>.</li>
+<li>Only the four surviving manuscripts A, B, C, D are returned; the archetype and
+  intermediate ancestors are not observed.</li>
+</ul>
+<div data-inc="generate_stemma.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_manuscripts</span><span class="p">(</span>
+    <span class="n">n_loci</span><span class="o">=</span><span class="n">N_LOCI</span><span class="p">,</span>
+    <span class="n">mutation_prob</span><span class="o">=</span><span class="n">MUTATION_PROB</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a dict mapping each manuscript name to its variant sequence.</span>
+
+<span class="sd">    The copying tree is:</span>
+
+<span class="sd">        archetype</span>
+<span class="sd">        |-- alpha  (intermediate ancestor of A and B)</span>
+<span class="sd">        |   |-- A</span>
+<span class="sd">        |   `-- B</span>
+<span class="sd">        `-- beta   (intermediate ancestor of C and D)</span>
+<span class="sd">            |-- C</span>
+<span class="sd">            `-- D</span>
+
+<span class="sd">    Each branch introduces random mutations independently.  The archetype</span>
+<span class="sd">    starts as all-zero; mutations flip a locus from 0 to 1 (or back).</span>
+<span class="sd">    Only the four surviving manuscripts are returned; the archetype and</span>
+<span class="sd">    intermediate ancestors are not observed.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">archetype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_loci</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">_copy</span><span class="p">(</span><span class="n">archetype</span><span class="p">,</span> <span class="n">mutation_prob</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">_copy</span><span class="p">(</span><span class="n">archetype</span><span class="p">,</span> <span class="n">mutation_prob</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+    <span class="n">mss</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"A"</span><span class="p">:</span> <span class="n">_copy</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">mutation_prob</span><span class="p">,</span> <span class="n">rng</span><span class="p">),</span>
+        <span class="s2">"B"</span><span class="p">:</span> <span class="n">_copy</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">mutation_prob</span><span class="p">,</span> <span class="n">rng</span><span class="p">),</span>
+        <span class="s2">"C"</span><span class="p">:</span> <span class="n">_copy</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">mutation_prob</span><span class="p">,</span> <span class="n">rng</span><span class="p">),</span>
+        <span class="s2">"D"</span><span class="p">:</span> <span class="n">_copy</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">mutation_prob</span><span class="p">,</span> <span class="n">rng</span><span class="p">),</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">mss</span>
+</code></pre></div>
+</div>
+<h2>Testing</h2>
+<h3>Hamming distance edge cases</h3>
+<ul>
+<li>Identical sequences have distance 0.0.</li>
+<li>Sequences that differ at every locus have distance 1.0.</li>
+<li>Sequences that differ at exactly half the loci have distance 0.5.</li>
+</ul>
+<h3>Distance matrix structure</h3>
+<ul>
+<li>The matrix must be symmetric with a zero diagonal.</li>
+<li>Within-family distances (A–B and C–D) must be smaller than any cross-family
+  distance, reflecting the true two-clade topology.</li>
+</ul>
+<h3>Edge count</h3>
+<ul>
+<li>An unrooted binary tree on $N$ leaves has $2N - 3$ edges.</li>
+</ul>
+<h3>Topology recovery</h3>
+<ul>
+<li>A and B must share a private internal ancestor (node4), and C and D must share
+  a different one (node5), with no manuscript connected to both internal nodes.</li>
+</ul>
+<h3>Branch-length recovery</h3>
+<ul>
+<li>With exact tree-additive distances, NJ recovers all six branch lengths to
+  machine precision (tolerance $10^{-10}$, accommodating only floating-point rounding).</li>
+</ul>
+<h3>Stochastic generator topology</h3>
+<ul>
+<li>Manuscripts generated by the copying simulator must also satisfy the within-family
+  vs. cross-family distance inequality, confirming that the mutation rate is low
+  enough for the tree signal to dominate noise.</li>
+</ul>
+<div data-inc="test_stemma.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_stemma</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_manuscripts</span><span class="p">,</span> <span class="n">MANUSCRIPTS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">stemma</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">hamming_distance</span><span class="p">,</span>
+    <span class="n">make_distance_matrix</span><span class="p">,</span>
+    <span class="n">neighbor_joining</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># hamming_distance</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_hamming_identical</span><span class="p">():</span>
+    <span class="c1"># Two identical sequences have distance 0.0.</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">hamming_distance</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">seq</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_hamming_all_different</span><span class="p">():</span>
+    <span class="c1"># Sequences that differ at every locus have distance 1.0.</span>
+    <span class="n">seq_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <span class="n">seq_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">hamming_distance</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_hamming_half</span><span class="p">():</span>
+    <span class="c1"># Sequences differing at exactly half the loci have distance 0.5.</span>
+    <span class="n">seq_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <span class="n">seq_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">hamming_distance</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Distance matrix</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_distance_matrix_symmetry</span><span class="p">():</span>
+    <span class="c1"># The distance matrix must be symmetric with zero diagonal.</span>
+    <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">D</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_distance_matrix_within_family_smaller</span><span class="p">():</span>
+    <span class="c1"># Within-family distances (A–B and C–D) must be smaller than cross-family</span>
+    <span class="c1"># distances (A–C, A–D, B–C, B–D), reflecting the true copying tree.</span>
+    <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">)}</span>
+    <span class="n">d_ab</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="s2">"A"</span><span class="p">],</span> <span class="n">idx</span><span class="p">[</span><span class="s2">"B"</span><span class="p">]]</span>
+    <span class="n">d_cd</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="s2">"C"</span><span class="p">],</span> <span class="n">idx</span><span class="p">[</span><span class="s2">"D"</span><span class="p">]]</span>
+    <span class="n">cross</span> <span class="o">=</span> <span class="p">[</span><span class="n">D</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">idx</span><span class="p">[</span><span class="n">b</span><span class="p">]]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="s2">"AB"</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="s2">"CD"</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">d_ab</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">(</span><span class="n">cross</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">d_cd</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">(</span><span class="n">cross</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Neighbor-joining topology and branch lengths</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_edge_count</span><span class="p">():</span>
+    <span class="c1"># An unrooted binary tree on N leaves has 2N-3 edges.</span>
+    <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_topology_recovery</span><span class="p">():</span>
+    <span class="c1"># A and B must share a private internal node, and C and D must share a</span>
+    <span class="c1"># different private internal node.</span>
+    <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+
+    <span class="c1"># Build an adjacency map.</span>
+    <span class="n">adj</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">adj</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">adj</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="c1"># Find the internal node connected to A (not a manuscript itself).</span>
+    <span class="n">parent_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"A"</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MANUSCRIPTS</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">parent_b</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"B"</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MANUSCRIPTS</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">parent_c</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"C"</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MANUSCRIPTS</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">parent_d</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"D"</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MANUSCRIPTS</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># A and B must share the same internal parent; C and D must share another.</span>
+    <span class="k">assert</span> <span class="n">parent_a</span> <span class="o">==</span> <span class="n">parent_b</span><span class="p">,</span> <span class="s2">"A and B should share an internal ancestor"</span>
+    <span class="k">assert</span> <span class="n">parent_c</span> <span class="o">==</span> <span class="n">parent_d</span><span class="p">,</span> <span class="s2">"C and D should share an internal ancestor"</span>
+    <span class="k">assert</span> <span class="n">parent_a</span> <span class="o">!=</span> <span class="n">parent_c</span><span class="p">,</span> <span class="p">(</span>
+        <span class="s2">"AB family and CD family should have different ancestors"</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_branch_length_recovery</span><span class="p">():</span>
+    <span class="c1"># With exact tree-additive distances, NJ recovers all six branch lengths to</span>
+    <span class="c1"># machine precision.  No tolerance beyond floating-point rounding is needed.</span>
+    <span class="c1"># Tolerance 1e-10 accommodates accumulated double-precision arithmetic error.</span>
+    <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+
+    <span class="c1"># True branch lengths from the reference stemma tree.</span>
+    <span class="n">true_lengths</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">]):</span> <span class="mf">0.05</span><span class="p">,</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">]):</span> <span class="mf">0.03</span><span class="p">,</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node5"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">]):</span> <span class="mf">0.06</span><span class="p">,</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node5"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">]):</span> <span class="mf">0.04</span><span class="p">,</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"node5"</span><span class="p">]):</span> <span class="mf">0.12</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">recovered</span> <span class="o">=</span> <span class="p">{</span><span class="nb">frozenset</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]):</span> <span class="n">length</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">true_len</span> <span class="ow">in</span> <span class="n">true_lengths</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">assert</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">recovered</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Missing edge </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">assert</span> <span class="n">recovered</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">true_len</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Stochastic generator topology</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_generator_topology</span><span class="p">():</span>
+    <span class="c1"># Manuscripts generated stochastically must also produce a distance matrix</span>
+    <span class="c1"># whose minimum within-family distance is smaller than the minimum</span>
+    <span class="c1"># cross-family distance, so NJ can still find the correct grouping.</span>
+    <span class="n">mss</span> <span class="o">=</span> <span class="n">make_manuscripts</span><span class="p">()</span>
+    <span class="n">within</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">hamming_distance</span><span class="p">(</span><span class="n">mss</span><span class="p">[</span><span class="s2">"A"</span><span class="p">],</span> <span class="n">mss</span><span class="p">[</span><span class="s2">"B"</span><span class="p">]),</span>
+        <span class="n">hamming_distance</span><span class="p">(</span><span class="n">mss</span><span class="p">[</span><span class="s2">"C"</span><span class="p">],</span> <span class="n">mss</span><span class="p">[</span><span class="s2">"D"</span><span class="p">]),</span>
+    <span class="p">]</span>
+    <span class="n">cross</span> <span class="o">=</span> <span class="p">[</span><span class="n">hamming_distance</span><span class="p">(</span><span class="n">mss</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">mss</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="s2">"AB"</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="s2">"CD"</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">max</span><span class="p">(</span><span class="n">within</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">(</span><span class="n">cross</span><span class="p">),</span> <span class="p">(</span>
+        <span class="s2">"Within-family distances should be smaller than cross-family distances"</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Manuscript stemma key terms</p>
+<dl>
+<dt>Stemma</dt>
+<dd>The family tree of manuscript copies of a text, showing which copies derive
+from which others; internal nodes represent lost intermediate ancestors and
+leaves represent surviving manuscripts</dd>
+<dt>Stemma reconstruction</dt>
+<dd>The computational task of recovering the stemma from patterns of shared
+variants (errors or readings) across surviving manuscripts; analogous to
+phylogenetic tree reconstruction in biology</dd>
+<dt>Archetype</dt>
+<dd>The hypothetical original manuscript from which all surviving copies ultimately
+derive; it may itself be lost, in which case it is inferred as the root of the stemma</dd>
+<dt>Variant locus</dt>
+<dd>A position in a text where at least two manuscripts have different readings;
+used as the character data for computing pairwise distances</dd>
+<dt>Hamming distance</dt>
+<dd>The fraction of corresponding positions at which two sequences differ;
+for binary variant sequences, it equals the proportion of loci where one
+manuscript has the archetype reading and the other has a variant</dd>
+</dl>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Hamming distance from manuscript sequences</h3>
+<p>The <code>generate_stemma</code> module produces actual sequences, not just distances.
+Write <code>build_distance_matrix(mss)</code> that accepts the dict returned by
+<code>make_manuscripts</code> and computes the full $4 \times 4$ Hamming distance matrix.
+Run NJ on this matrix and compare the recovered topology to the one from
+<code>make_distance_matrix</code>.
+Do the stochastic distances give the same grouping?</p>
+<h3>Effect of mutation rate</h3>
+<p>Re-run <code>make_manuscripts</code> with <code>mutation_prob</code> values of 0.01, 0.05, 0.10, and 0.20.
+For each rate, compute the distance matrix and check whether NJ recovers the correct
+two-family topology.
+At what mutation rate does the signal begin to fail, and why?</p>
+<h3>UPGMA comparison</h3>
+<p>UPGMA (Unweighted Pair-Group Method with Arithmetic means) produces a rooted,
+ultrametric tree by always merging the pair with the smallest average distance.
+Implement <code>upgma(names, D)</code> and compare its output to neighbor-joining on the
+reference distance matrix.
+Do they agree on the topology?
+Show a case (by adding noise with <code>noise_scale &gt; 0</code>) where they disagree.</p>
+<h3>Adding a contaminated manuscript</h3>
+<p>A contaminated manuscript (one that was copied partly from two different sources)
+does not fit a tree model.
+Add a fifth manuscript E whose sequence is a 50/50 mix of A and C.
+Compute the distance matrix for all five manuscripts and run NJ.
+Does the algorithm detect the problem, and if so, how is it visible in the
+recovered tree?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../wordshift/">Word Frequency Change Over Time</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fitting an SIR Epidemic Model</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a class="active" href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Fitting an SIR Epidemic Model</h1>
+<h2>The Problem</h2>
+<ul>
+<li>During an outbreak, public health officials observe daily case counts but do not know the underlying transmission dynamics.</li>
+<li>Estimating the transmission rate and recovery rate from the observed curve allows prediction of the epidemic's peak and total size.</li>
+<li>The <a class="gl-ref" href="../glossary/#sir_model">SIR model</a> is the simplest compartmental model that captures this: it divides a fixed population into Susceptible, Infectious, and Recovered (immune) individuals.</li>
+</ul>
+<h2>The SIR Equations</h2>
+<ul>
+<li>The population $N$ is constant; individuals move only from S to I to R:</li>
+</ul>
+<p>$$\frac{dS}{dt} = -\frac{\beta S I}{N} \qquad \frac{dI}{dt} = \frac{\beta S I}{N} - \gamma I \qquad \frac{dR}{dt} = \gamma I$$</p>
+<ul>
+<li>$\beta$ (day$^{-1}$): the transmission rate — the average number of new infections one case generates per day when the whole population is susceptible.</li>
+<li>$\gamma$ (day$^{-1}$): the recovery rate — the reciprocal of the mean infectious period.</li>
+<li>The <a class="gl-ref" href="../glossary/#basic_reproduction_number">basic reproduction number</a> $R_0 = \beta/\gamma$ is the average number of secondary cases generated by one case in a fully susceptible population.</li>
+<li>If $R_0 &gt; 1$, the infectious class grows initially and an epidemic occurs.</li>
+<li>If $R_0 \leq 1$, $I(t)$ decreases from the outset.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>A pathogen has $\beta = 0.30$ day$^{-1}$ and $\gamma = 0.10$ day$^{-1}$.
+What does $R_0 = 3$ mean for a fully susceptible population?</p>
+<dl>
+<dt>Each infected person is in contact with 3 susceptibles per day.</dt>
+<dd>Wrong: $R_0$ is the average number of secondary cases, not the number of contacts.</dd>
+<dt>The epidemic will peak in exactly 3 days.</dt>
+<dd>Wrong: $R_0$ says nothing about timing; the peak depends on $N$ and initial conditions.</dd>
+<dt>On average, each infectious person infects 3 others before recovering.</dt>
+<dd>Correct: $R_0 = \beta / \gamma$ counts secondary cases per primary case in a completely susceptible population.</dd>
+<dt>The epidemic will infect exactly 3% of the population.</dt>
+<dd>Wrong: $R_0$ is not a percentage; final epidemic size depends on $R_0$ through a transcendental equation.</dd>
+</dl>
+</div>
+<h2>Integrating the Model</h2>
+<ul>
+<li><code>scipy.integrate.solve_ivp</code> advances the ODE system from $t=0$ to $t_\text{max}$ using an adaptive Runge-Kutta method.</li>
+<li>The observable quantity is the daily incidence: the number of new infections per day, equal to $-dS/dt = \beta S I / N$.
+  In discrete form, new_cases($t$) $\approx S(t-1) - S(t)$ when evaluated at integer days.</li>
+</ul>
+<div data-inc="sir.py" data-mark="sir-rhs"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sir_rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return [dS/dt, dI/dt, dR/dt] for the SIR epidemic model.</span>
+
+<span class="sd">    S, I, R are the numbers of susceptible, infectious, and recovered</span>
+<span class="sd">    individuals.  The force of infection beta * I / N uses</span>
+<span class="sd">    frequency-dependent (proportional) transmission: each susceptible</span>
+<span class="sd">    encounters a fixed fraction of the population per unit time.</span>
+<span class="sd">    The total N = S + I + R is conserved: dS/dt + dI/dt + dR/dt = 0.</span>
+<span class="sd">    """</span>
+    <span class="n">susc</span><span class="p">,</span> <span class="n">infect</span><span class="p">,</span> <span class="n">rec</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">force</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">susc</span> <span class="o">*</span> <span class="n">infect</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="n">force</span><span class="p">,</span> <span class="n">force</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">infect</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">infect</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div data-inc="sir.py" data-mark="model-cases"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">model_cases</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N_POP</span><span class="p">,</span> <span class="n">i0</span><span class="o">=</span><span class="n">I0</span><span class="p">,</span> <span class="n">t_max</span><span class="o">=</span><span class="n">T_MAX</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return modelled daily new cases for parameters beta and gamma.</span>
+
+<span class="sd">    Integrates the SIR ODEs at integer days and returns the daily incidence</span>
+<span class="sd">    new_cases(t) = S(t-1) - S(t), the number of new infections per day.</span>
+<span class="sd">    """</span>
+    <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">sir_rhs</span><span class="p">,</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">t_max</span><span class="p">)],</span>
+        <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i0</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">i0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span>
+        <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+        <span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>The SIR equations satisfy $dS/dt + dI/dt + dR/dt = 0$ for all $t$.
+What does this imply about the numerical solution?</p>
+<dl>
+<dt>$S$, $I$, and $R$ are each individually conserved.</dt>
+<dd>Wrong: the individual compartments change continuously; only their sum is constant.</dd>
+<dt>$S + I + R = N$ at every time point, to within the solver's tolerance.</dt>
+<dd>Correct: the algebraic identity means the solver should preserve $N$ to within its error tolerance ($\sim \text{rtol} \times N$).</dd>
+<dt>The solver will automatically enforce $S, I, R \geq 0$.</dt>
+<dd>Wrong: standard ODE solvers do not impose positivity constraints; negative values are possible if the step size is too large.</dd>
+<dt>$R_0$ is conserved along every trajectory.</dt>
+<dd>Wrong: $R_0 = \beta/\gamma$ is a parameter, not a function of the state; it has the same value everywhere.</dd>
+</dl>
+</div>
+<h2>Generating Synthetic Data</h2>
+<ul>
+<li>We generate 160 days of daily case counts from known parameters and add Poisson observation noise.</li>
+<li>Poisson noise models the stochasticity of real disease reporting: the variance equals the mean.</li>
+</ul>
+<div data-inc="generate_sir.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># True SIR parameters used to generate synthetic outbreak data.</span>
+<span class="c1"># BETA_TRUE: number of contacts per day that lead to transmission.</span>
+<span class="c1"># GAMMA_TRUE: 1/GAMMA_TRUE is the mean infectious period (10 days here).</span>
+<span class="c1"># R0_TRUE = BETA_TRUE / GAMMA_TRUE = 3.0: each case generates 3 secondary</span>
+<span class="c1"># cases early in the outbreak, so an epidemic occurs (R0 &gt; 1).</span>
+<span class="n">BETA_TRUE</span> <span class="o">=</span> <span class="mf">0.30</span>  <span class="c1"># transmission rate (day^-1)</span>
+<span class="n">GAMMA_TRUE</span> <span class="o">=</span> <span class="mf">0.10</span>  <span class="c1"># recovery rate (day^-1)</span>
+<span class="n">N_POP</span> <span class="o">=</span> <span class="mi">10_000</span>  <span class="c1"># total population (constant; no births or deaths)</span>
+<span class="n">I0</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># initial number of infectious individuals</span>
+
+<span class="n">T_MAX</span> <span class="o">=</span> <span class="mi">160</span>  <span class="c1"># simulation length (days)</span>
+</code></pre></div>
+</div>
+<div data-inc="generate_sir.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="n">BETA_TRUE</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="n">GAMMA_TRUE</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N_POP</span><span class="p">,</span> <span class="n">i0</span><span class="o">=</span><span class="n">I0</span><span class="p">,</span> <span class="n">t_max</span><span class="o">=</span><span class="n">T_MAX</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return daily new-case counts from an SIR model with Poisson observation noise.</span>
+
+<span class="sd">    Integrates the SIR ODEs from day 0 to day t_max and approximates the</span>
+<span class="sd">    daily incidence as the decrease in S between consecutive integer days:</span>
+<span class="sd">    new_cases(t) = S(t-1) - S(t).  Poisson noise is added to mimic</span>
+<span class="sd">    stochastic reporting; the Poisson mean is clipped to zero to avoid</span>
+<span class="sd">    negative arguments (can occur near the epidemic peak due to ODE</span>
+<span class="sd">    interpolation).</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">_sir_rhs</span><span class="p">,</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">t_max</span><span class="p">)],</span>
+        <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i0</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">i0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span>
+        <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+        <span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># Daily incidence: drop in S from one day to the next.</span>
+    <span class="n">new_cases_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">new_cases_obs</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">new_cases_true</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"day"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">t_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">"cases"</span><span class="p">:</span> <span class="n">new_cases_obs</span><span class="p">})</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_sir_rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">susc</span><span class="p">,</span> <span class="n">infect</span><span class="p">,</span> <span class="n">rec</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">force</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">susc</span> <span class="o">*</span> <span class="n">infect</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="n">force</span><span class="p">,</span> <span class="n">force</span> <span class="o">-</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">infect</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">infect</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div class="forma-ordering" data-lang="en">
+<p>Put these steps in the correct order to generate a synthetic SIR outbreak with Poisson noise.</p>
+<ol>
+<li>Integrate the SIR ODEs to obtain S(t) at each integer day</li>
+<li>Compute the daily incidence as new_cases(t) = S(t-1) - S(t)</li>
+<li>Clip negative incidence values to zero (numerical artefact near the peak)</li>
+<li>Draw Poisson samples with means equal to the clipped incidence values</li>
+</ol>
+</div>
+<h2>Fitting the Model</h2>
+<ul>
+<li><code>scipy.optimize.least_squares</code> minimises the sum of squared residuals $\sum_t (\hat{c}_t - c_t)^2$,
+  where $\hat{c}_t$ is the modelled incidence and $c_t$ is the observed count.</li>
+<li>Both $\beta$ and $\gamma$ must be positive, so we impose box constraints with <code>bounds</code>.</li>
+</ul>
+<div data-inc="sir.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Initial parameter guesses for the optimizer.  Starting near biologically</span>
+<span class="c1"># plausible values helps the solver converge; exact values do not matter</span>
+<span class="c1"># as long as residuals decrease monotonically from the starting point.</span>
+<span class="n">BETA_INIT</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">GAMMA_INIT</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># Both parameters must be positive; upper bounds are generous.</span>
+<span class="n">LOWER_BOUNDS</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">]</span>
+<span class="n">UPPER_BOUNDS</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div data-inc="sir.py" data-mark="fit"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="n">observed</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N_POP</span><span class="p">,</span> <span class="n">i0</span><span class="o">=</span><span class="n">I0</span><span class="p">,</span> <span class="n">t_max</span><span class="o">=</span><span class="n">T_MAX</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Fit beta and gamma to observed daily case counts by least squares.</span>
+
+<span class="sd">    Minimises the sum of squared residuals between the modelled and observed</span>
+<span class="sd">    daily incidence.  Returns the fitted (beta, gamma) as a tuple.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">residuals</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+        <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">params</span>
+        <span class="k">return</span> <span class="n">model_cases</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">i0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">)</span> <span class="o">-</span> <span class="n">observed</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span>
+        <span class="n">residuals</span><span class="p">,</span>
+        <span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="n">BETA_INIT</span><span class="p">,</span> <span class="n">GAMMA_INIT</span><span class="p">],</span>
+        <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="n">LOWER_BOUNDS</span><span class="p">,</span> <span class="n">UPPER_BOUNDS</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="3.0" data-lang="en" data-tolerance="0.05">
+<p>Using <code>BETA_TRUE</code> = 0.30 day$^{-1}$ and <code>GAMMA_TRUE</code> = 0.10 day$^{-1}$,
+compute $R_0 = \beta / \gamma$.
+Give your answer to one decimal place.</p>
+</div>
+<h2>Visualizing the Results</h2>
+<div data-inc="sir.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">days</span><span class="p">,</span> <span class="n">observed</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return an Altair chart of observed cases and the fitted SIR model curve."""</span>
+    <span class="n">fitted</span> <span class="o">=</span> <span class="n">model_cases</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>
+    <span class="n">df_obs</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">"day"</span><span class="p">:</span> <span class="n">days</span><span class="p">,</span> <span class="s2">"cases"</span><span class="p">:</span> <span class="n">observed</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s2">"source"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"observed"</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">days</span><span class="p">)}</span>
+    <span class="p">)</span>
+    <span class="n">df_fit</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">"day"</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">T_MAX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span>
+            <span class="s2">"cases"</span><span class="p">:</span> <span class="n">fitted</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+            <span class="s2">"source"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"fitted"</span><span class="p">]</span> <span class="o">*</span> <span class="n">T_MAX</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_obs</span><span class="p">,</span> <span class="n">df_fit</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"day:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Day"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"cases:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"New cases per day"</span><span class="p">),</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">"source:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">""</span><span class="p">),</span>
+            <span class="n">strokeDash</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">StrokeDash</span><span class="p">(</span><span class="s2">"source:N"</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">280</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:sir-fit">
+<img alt="Two curves: noisy observed daily cases (blue) and smooth fitted SIR model (orange). The fitted curve tracks the observed data closely." src="sir.svg"/>
+<figcaption>Figure 1: Observed daily cases (with Poisson noise) and the fitted SIR model. The fitted curve recovers the epidemic shape despite the observation noise.</figcaption>
+</figure>
+<h2>Testing</h2>
+<h3>Population conservation</h3>
+<ul>
+<li>The SIR equations satisfy $S + I + R = N$ algebraically; the solver preserves this to within the specified tolerance.</li>
+<li>A relative tolerance of $10^{-4}$ is $10\times$ the measured numerical drift with <code>rtol=1e-8</code>.</li>
+</ul>
+<h3>No transmission</h3>
+<ul>
+<li>When $\beta = 0$ the force of infection is zero and $S$ is constant; only $I$ decays.</li>
+<li>After <code>T_MAX</code> days, $S$ should differ from its initial value by less than $10^{-4}$ (relative).</li>
+</ul>
+<h3>Single epidemic peak</h3>
+<ul>
+<li>For $R_0 = 3$, the epidemic curve has exactly one maximum that lies in the interior of $[1, T_\text{max}]$.</li>
+<li>Two peaks would indicate a model error or a parameter value that produces oscillations (which the SIR model cannot).</li>
+<li>Near-zero cases at <code>T_MAX</code> confirm the epidemic ended before the simulation did.</li>
+</ul>
+<h3>Parameter recovery</h3>
+<ul>
+<li>Fitting to noiseless model output should recover $\beta$ and $\gamma$ to within 1%.</li>
+<li>This is the best-case scenario for the optimizer; 1% is a generous tolerance for a well-conditioned least-squares problem.</li>
+</ul>
+<div data-inc="test_sir.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_sir</span><span class="w"> </span><span class="kn">import</span> <span class="n">BETA_TRUE</span><span class="p">,</span> <span class="n">GAMMA_TRUE</span><span class="p">,</span> <span class="n">I0</span><span class="p">,</span> <span class="n">N_POP</span><span class="p">,</span> <span class="n">T_MAX</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sir</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit</span><span class="p">,</span> <span class="n">model_cases</span><span class="p">,</span> <span class="n">sir_rhs</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_population_conserved</span><span class="p">():</span>
+    <span class="c1"># dS/dt + dI/dt + dR/dt = 0 is an algebraic identity for the SIR equations,</span>
+    <span class="c1"># so S + I + R = N for all t.  With rtol=1e-8, the integrator keeps the</span>
+    <span class="c1"># maximum deviation below 1e-5 (relative).  A tolerance of 1e-4 gives a</span>
+    <span class="c1"># 10x safety margin over the measured numerical drift.</span>
+    <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">T_MAX</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">sir_rhs</span><span class="p">,</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">T_MAX</span><span class="p">)],</span>
+        <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">N_POP</span> <span class="o">-</span> <span class="n">I0</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">I0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">BETA_TRUE</span><span class="p">,</span> <span class="n">GAMMA_TRUE</span><span class="p">,</span> <span class="n">N_POP</span><span class="p">),</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span>
+        <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+        <span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">total</span> <span class="o">-</span> <span class="n">N_POP</span><span class="p">))</span> <span class="o">/</span> <span class="n">N_POP</span> <span class="o">&lt;</span> <span class="mf">1e-4</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_no_transmission</span><span class="p">():</span>
+    <span class="c1"># When beta = 0 no new infections occur: S stays constant and I decays</span>
+    <span class="c1"># exponentially.  With rtol=1e-8, the departure from the initial S</span>
+    <span class="c1"># value should be below 1e-4 (relative) over T_MAX days.</span>
+    <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">T_MAX</span><span class="p">)])</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">sir_rhs</span><span class="p">,</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">T_MAX</span><span class="p">)],</span>
+        <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">N_POP</span> <span class="o">-</span> <span class="n">I0</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">I0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">GAMMA_TRUE</span><span class="p">,</span> <span class="n">N_POP</span><span class="p">),</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span>
+        <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
+        <span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">s_initial</span> <span class="o">=</span> <span class="n">N_POP</span> <span class="o">-</span> <span class="n">I0</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">s_initial</span><span class="p">)</span> <span class="o">/</span> <span class="n">N_POP</span> <span class="o">&lt;</span> <span class="mf">1e-4</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_single_epidemic_peak</span><span class="p">():</span>
+    <span class="c1"># For R0 = BETA_TRUE / GAMMA_TRUE = 3 &gt; 1, the epidemic curve has exactly</span>
+    <span class="c1"># one maximum.  The peak is not at the boundary (it occurs after the</span>
+    <span class="c1"># outbreak begins and before it ends), and cases fall to near zero by T_MAX.</span>
+    <span class="n">cases</span> <span class="o">=</span> <span class="n">model_cases</span><span class="p">(</span><span class="n">BETA_TRUE</span><span class="p">,</span> <span class="n">GAMMA_TRUE</span><span class="p">)</span>
+    <span class="n">peak_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cases</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">peak_idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">cases</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"peak is at a boundary"</span>
+    <span class="k">assert</span> <span class="n">cases</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">cases</span><span class="p">[</span><span class="n">peak_idx</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s2">"epidemic has not ended by T_MAX"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fit_recovers_parameters</span><span class="p">():</span>
+    <span class="c1"># Fitting to noiseless model output should recover beta and gamma to within</span>
+    <span class="c1"># 1%.  Noiseless data are the best case for the optimizer; this tolerance</span>
+    <span class="c1"># gives a 10x margin over the expected numerical precision of least_squares.</span>
+    <span class="n">noiseless</span> <span class="o">=</span> <span class="n">model_cases</span><span class="p">(</span><span class="n">BETA_TRUE</span><span class="p">,</span> <span class="n">GAMMA_TRUE</span><span class="p">)</span>
+    <span class="n">beta_fit</span><span class="p">,</span> <span class="n">gamma_fit</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">noiseless</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">beta_fit</span> <span class="o">-</span> <span class="n">BETA_TRUE</span><span class="p">)</span> <span class="o">/</span> <span class="n">BETA_TRUE</span> <span class="o">&lt;</span> <span class="mf">0.01</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">gamma_fit</span> <span class="o">-</span> <span class="n">GAMMA_TRUE</span><span class="p">)</span> <span class="o">/</span> <span class="n">GAMMA_TRUE</span> <span class="o">&lt;</span> <span class="mf">0.01</span>
+</code></pre></div>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Herd immunity threshold</h3>
+<p>The epidemic stops growing when $S/N$ falls below $1/R_0$ (the herd immunity threshold).
+For the true parameters, compute the fraction of the population that has been infected by the time
+$I(t)$ reaches its peak.
+Compare this to $1 - 1/R_0$.
+Are they the same?</p>
+<h3>Fitting $R_0$ instead of $\beta$ and $\gamma$</h3>
+<p>Instead of fitting $\beta$ and $\gamma$ separately, reparametrise the model with $R_0$ and $\gamma$ as the
+two parameters (so $\beta = R_0 \gamma$).
+Does the optimiser converge faster?
+Are the confidence intervals on $R_0$ narrower than when computing $R_0 = \hat{\beta}/\hat{\gamma}$
+from independently fitted parameters?</p>
+<h3>SEIR extension</h3>
+<p>Add an exposed (latent) compartment $E$ between $S$ and $I$:
+$dE/dt = \beta SI/N - \sigma E$ and $dI/dt = \sigma E - \gamma I$,
+where $\sigma^{-1}$ is the mean latent period.
+Generate synthetic data with $\sigma = 0.2$ day$^{-1}$ (mean 5-day latent period) and fit the four-parameter SEIR model.
+Does the SIR fit to SEIR data give biased estimates of $\beta$ and $\gamma$?</p>
+<h3>Sensitivity analysis</h3>
+<p>Vary $\beta$ from 0.1 to 0.5 (holding $\gamma = 0.1$ fixed) and plot the epidemic peak size and
+peak timing as functions of $\beta$.
+At what value of $\beta$ does the epidemic just barely cross the threshold (peak in $I$ is very small)?
+How close is this to the theoretical threshold $\beta = \gamma$?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../porous/">Percolation in a Porous Medium</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../survival/">Survival Analysis with Kaplan-Meier</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

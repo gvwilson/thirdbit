@@ -568,20 +568,20 @@ it resolves using last-write-wins but merges all clocks to capture the complete 
     <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="ex_basic.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Node2: Wrote X = 1 with clock {Node2:1}
+<div data-inc="ex_basic.out"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>[0.0] Node1: Wrote X = 1 with clock {Node1:1}
+[0.0] Node2: Wrote X = 1 with clock {Node2:1}
 [0.0] Node3: Wrote X = 1 with clock {Node3:1}
-[0.0] Node1: Wrote X = 1 with clock {Node1:1}
 [0.0] Client1: Wrote X = 1
-[0.5] Node2: Wrote X = 2 with clock {Node2:3, Node3:1}
-[0.5] Node3: Wrote X = 2 with clock {Node2:1, Node3:3}
-[0.5] Node1: Wrote X = 2 with clock {Node1:3, Node2:1, Node3:1}
+[0.5] Node1: Wrote X = 2 with clock {Node1:3, Node2:1}
+[0.5] Node2: Wrote X = 2 with clock {Node1:1, Node2:3}
+[0.5] Node3: Wrote X = 2 with clock {Node1:1, Node2:1, Node3:3}
 [0.5] Client1: Wrote X = 2
+[3.0] Node1: Read X -&gt; 1 version(s)
 [3.0] Node2: Read X -&gt; 1 version(s)
 [3.0] Node3: Read X -&gt; 1 version(s)
-[3.0] Node1: Read X -&gt; 1 version(s)
 [3.0] Client2: Read X -&gt; CONFLICT: 2 versions
-  - 2 (clock: {Node2:3, Node3:1}, ts: 0.5)
-  - 2 (clock: {Node2:1, Node3:3}, ts: 0.5)
+  - 2 (clock: {Node1:3, Node2:1}, ts: 0.5)
+  - 2 (clock: {Node1:1, Node2:3}, ts: 0.5)
 [3.0] Client2: Resolved to 2
 </code></pre></div>
 </div>

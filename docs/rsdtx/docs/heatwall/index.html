@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heat Conduction Through a Composite Wall</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a class="active" href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Heat Conduction Through a Composite Wall</h1>
+<h2>The Problem</h2>
+<ul>
+<li>A wall made of layers of different materials (e.g., brick, insulation, concrete) conducts
+  heat from the warm interior of a building to the cold exterior.</li>
+<li>Given the thickness and <a class="gl-ref" href="../glossary/#thermal_conductivity">thermal conductivity</a> of each layer
+  and the temperatures at the two surfaces, we want the steady-state temperature at every
+  point in the wall and the <a class="gl-ref" href="../glossary/#heat_flux">heat flux</a> (power per unit area) passing through it.</li>
+<li>This calculation is used to size insulation, estimate heating loads, and check compliance
+  with building-energy codes.</li>
+</ul>
+<h2>The Physics</h2>
+<ul>
+<li>In steady state the temperature $T(x)$ no longer changes with time, so the heat equation
+  reduces to:</li>
+</ul>
+<p>$$\frac{d}{dx}\!\left(k(x)\,\frac{dT}{dx}\right) = 0$$</p>
+<ul>
+<li>$k(x)$ is the thermal conductivity at position $x$; it is piecewise constant (one value
+  per layer).</li>
+<li>Within each uniform layer $d^2T/dx^2 = 0$, so $T$ is linear — the slope (and therefore the
+  flux) is constant within any single material.</li>
+<li>At every layer interface both the temperature and the heat flux must be continuous:
+  $T$ does not jump and $k_L\,dT/dx$ on the left equals $k_R\,dT/dx$ on the right.</li>
+</ul>
+<div class="forma-numeric-entry" data-correct="1.514" data-lang="en" data-tolerance="0.005">
+<p>Compute the total thermal resistance ($\text{m}^2\,\text{K}\,\text{W}^{-1}$) of a three-layer wall with:
+brick 0.10 m at $0.72\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$, insulation 0.05 m at $0.04\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$,
+concrete 0.15 m at $1.20\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$.
+Use $R = \sum_i L_i / k_i$ and give your answer to three decimal places.</p>
+</div>
+<h2>Thermal Resistance</h2>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#thermal_resistance">thermal resistance</a> of a uniform layer is $R_i = L_i / k_i$ ($\text{m}^2\,\text{K}\,\text{W}^{-1}$).</li>
+<li>For layers in series the resistances add: $R_\text{total} = \sum_i R_i$.</li>
+<li>The uniform heat flux through the wall is:</li>
+</ul>
+<p>$$q = \frac{T_\text{left} - T_\text{right}}{R_\text{total}}$$</p>
+<ul>
+<li>The temperature at each interface follows by subtracting $q\,R_i$ from the previous value.</li>
+</ul>
+<div data-inc="heatwall.py" data-mark="analytic"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">analytic_solution</span><span class="p">(</span>
+    <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">,</span> <span class="n">conductivities</span><span class="o">=</span><span class="n">LAYER_K</span><span class="p">,</span> <span class="n">t_left</span><span class="o">=</span><span class="n">T_LEFT</span><span class="p">,</span> <span class="n">t_right</span><span class="o">=</span><span class="n">T_RIGHT</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Exact steady-state solution via thermal resistance.</span>
+
+<span class="sd">    For a composite wall the total thermal resistance is:</span>
+
+<span class="sd">        R_total = sum_i ( L_i / k_i )   (m² K W⁻¹)</span>
+
+<span class="sd">    and the uniform heat flux is:</span>
+
+<span class="sd">        q = (T_left - T_right) / R_total   (W m⁻²)</span>
+
+<span class="sd">    The temperature at each layer interface follows from subtracting q * R_i</span>
+<span class="sd">    in sequence from T_left.</span>
+<span class="sd">    """</span>
+    <span class="n">resistances</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="o">/</span> <span class="n">k</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">widths</span><span class="p">,</span> <span class="n">conductivities</span><span class="p">)]</span>
+    <span class="n">r_total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">resistances</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_left</span> <span class="o">-</span> <span class="n">t_right</span><span class="p">)</span> <span class="o">/</span> <span class="n">r_total</span>
+    <span class="n">interface_temps</span> <span class="o">=</span> <span class="p">[</span><span class="n">t_left</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resistances</span><span class="p">:</span>
+        <span class="n">interface_temps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interface_temps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">q</span><span class="p">,</span> <span class="n">resistances</span><span class="p">,</span> <span class="n">interface_temps</span>
+</code></pre></div>
+</div>
+<div class="forma-matching" data-lang="en">
+<p>Match each physical quantity to its definition.</p>
+<table>
+<thead>
+<tr>
+<th scope="col">Quantity</th>
+<th scope="col">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thermal conductivity $k$</td>
+<td>Material property: heat flow per unit area per unit temperature gradient ($\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$)</td>
+</tr>
+<tr>
+<td>Thermal resistance $R$</td>
+<td>Geometry + material: temperature drop per unit flux for one layer ($\text{m}^2\,\text{K}\,\text{W}^{-1}$)</td>
+</tr>
+<tr>
+<td>Heat flux $q$</td>
+<td>Power per unit wall area flowing through the wall in steady state ($\text{W}\,\text{m}^{-2}$)</td>
+</tr>
+<tr>
+<td>Steady state</td>
+<td>Condition where $\partial T/\partial t = 0$ everywhere in the wall</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Discretizing the Wall</h2>
+<ul>
+<li>We place $n_\text{per layer}$ cells in each layer; nodes sit at cell boundaries (including
+  the shared interface between adjacent layers), giving $n_\text{layers} \times n_\text{per layer} + 1$
+  nodes in total.</li>
+<li>Because every segment between neighbouring nodes lies entirely inside one material, each
+  segment has a well-defined conductivity — no averaging formula is needed at layer interfaces.</li>
+</ul>
+<div data-inc="heatwall.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Three-layer composite wall: brick | mineral wool insulation | concrete</span>
+<span class="n">LAYER_WIDTHS</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">]</span>  <span class="c1"># layer thicknesses (m)</span>
+<span class="n">LAYER_K</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.72</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">1.20</span><span class="p">]</span>  <span class="c1"># thermal conductivities (W m⁻¹ K⁻¹)</span>
+<span class="n">LAYER_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"brick"</span><span class="p">,</span> <span class="s2">"insulation"</span><span class="p">,</span> <span class="s2">"concrete"</span><span class="p">]</span>
+<span class="n">T_LEFT</span> <span class="o">=</span> <span class="mf">20.0</span>  <span class="c1"># inner-surface temperature (°C)</span>
+<span class="n">T_RIGHT</span> <span class="o">=</span> <span class="o">-</span><span class="mf">10.0</span>  <span class="c1"># outer-surface temperature (°C)</span>
+
+<span class="c1"># N_PER_LAYER cells per layer.  More cells → smaller discretisation error.</span>
+<span class="c1"># 20 cells per layer is sufficient to recover the exact piecewise-linear solution</span>
+<span class="c1"># of the steady-state heat equation to numerical-precision.</span>
+<span class="n">N_PER_LAYER</span> <span class="o">=</span> <span class="mi">20</span>
+</code></pre></div>
+</div>
+<div data-inc="heatwall.py" data-mark="grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_grid</span><span class="p">(</span><span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">,</span> <span class="n">conductivities</span><span class="o">=</span><span class="n">LAYER_K</span><span class="p">,</span> <span class="n">n_per_layer</span><span class="o">=</span><span class="n">N_PER_LAYER</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (x, k_seg) for a node-centred composite-wall grid.</span>
+
+<span class="sd">    x      : positions of all nodes (m); length n_layers * n_per_layer + 1</span>
+<span class="sd">    k_seg  : conductivity of the segment to the RIGHT of each node (W m⁻¹ K⁻¹);</span>
+<span class="sd">             length n_layers * n_per_layer (one per inter-node gap)</span>
+
+<span class="sd">    Each layer is divided into n_per_layer equal cells.  The rightmost node of</span>
+<span class="sd">    one layer is shared with the leftmost node of the next, so interface nodes</span>
+<span class="sd">    appear exactly once.  Every segment between adjacent nodes lies entirely</span>
+<span class="sd">    inside one material, so no harmonic-mean formula is needed.</span>
+<span class="sd">    """</span>
+    <span class="n">x_parts</span><span class="p">,</span> <span class="n">k_seg</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="n">x_start</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">kval</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">widths</span><span class="p">,</span> <span class="n">conductivities</span><span class="p">)):</span>
+        <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_start</span><span class="p">,</span> <span class="n">x_start</span> <span class="o">+</span> <span class="n">width</span><span class="p">,</span> <span class="n">n_per_layer</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Skip the first node for all but the first layer to avoid duplication.</span>
+        <span class="n">x_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xs</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="c1"># Each of the n_per_layer segments inside this layer has conductivity kval.</span>
+        <span class="n">k_seg</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">kval</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_per_layer</span><span class="p">)</span>
+        <span class="n">x_start</span> <span class="o">+=</span> <span class="n">width</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">x_parts</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">k_seg</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-ordering" data-lang="en">
+<p>Put these grid-construction steps in the correct order.</p>
+<ol>
+<li>Compute node positions within each layer using <code>np.linspace</code></li>
+<li>Skip the first node of each layer after the first (it is shared with the previous layer)</li>
+<li>Record the conductivity of each inter-node segment</li>
+<li>Concatenate node arrays to form the full grid <code>x</code></li>
+</ol>
+</div>
+<h2>Assembling the Tridiagonal System</h2>
+<ul>
+<li>At each interior node $j$ the steady-state flux balance is:</li>
+</ul>
+<p>$$k_{j-1}\,\frac{T_{j-1} - T_j}{\Delta x_\text{left}} + k_{j}\,\frac{T_{j+1} - T_j}{\Delta x_\text{right}} = 0$$</p>
+<ul>
+<li>$k_{j-1}$ and $k_j$ are the conductivities of the segments to the left and right of node $j$.</li>
+<li>This equation involves only $T_{j-1}$, $T_j$, and $T_{j+1}$, so the coefficient matrix is
+  <a class="gl-ref" href="../glossary/#tridiagonal_system">tridiagonal</a>.</li>
+<li>Dirichlet boundary conditions ($T_0 = T_\text{left}$, $T_N = T_\text{right}$) replace the
+  equations for the first and last nodes.</li>
+</ul>
+<div data-inc="heatwall.py" data-mark="assemble"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assemble_system</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">,</span> <span class="n">t_left</span><span class="o">=</span><span class="n">T_LEFT</span><span class="p">,</span> <span class="n">t_right</span><span class="o">=</span><span class="n">T_RIGHT</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Assemble the tridiagonal finite-difference system A T = b.</span>
+
+<span class="sd">    k_seg[j] is the thermal conductivity of the segment [x[j], x[j+1]].</span>
+
+<span class="sd">    At each interior node j the steady-state heat balance is:</span>
+
+<span class="sd">        k_seg[j-1] * (T[j-1] - T[j]) / dx_left</span>
+<span class="sd">      + k_seg[j]   * (T[j+1] - T[j]) / dx_right  =  0</span>
+
+<span class="sd">    Because every node-to-node segment lies inside one material, each coefficient</span>
+<span class="sd">    uses the conductivity of that segment directly — no averaging is required.</span>
+<span class="sd">    At layer-interface nodes the equation automatically enforces continuity of</span>
+<span class="sd">    heat flux: k_left * dT/dx_left = k_right * dT/dx_right.</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="c1"># Dirichlet boundary conditions at the two wall surfaces.</span>
+    <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_left</span>
+    <span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_right</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">dx_l</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">dx_r</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">coeff_l</span> <span class="o">=</span> <span class="n">k_seg</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">dx_l</span>  <span class="c1"># segment [j-1, j]</span>
+        <span class="n">coeff_r</span> <span class="o">=</span> <span class="n">k_seg</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">dx_r</span>  <span class="c1"># segment [j, j+1]</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">coeff_l</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">coeff_r</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">coeff_l</span> <span class="o">+</span> <span class="n">coeff_r</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>At the node exactly at the brick-insulation interface, the FD equation uses
+$k_\text{brick}$ for the left segment and $k_\text{insulation}$ for the right.
+Why is no harmonic-mean formula needed here?</p>
+<dl>
+<dt>The harmonic mean of $k_\text{brick}$ and $k_\text{insulation}$ equals their arithmetic mean for these values.</dt>
+<dd>Wrong: the two conductivities differ by a factor of 18, so the harmonic and arithmetic means are very different.</dd>
+<dt>Every segment between adjacent nodes lies entirely within one material,</dt>
+<dt>so the conductivity of each segment is unambiguous.</dt>
+<dd>Correct: by placing interface nodes at layer boundaries, each inter-node gap
+crosses only one material; there is no mixed segment that would require an effective-medium formula.</dd>
+<dt>The harmonic mean is only required when conductivities differ by more than a factor of 10.</dt>
+<dd>Wrong: the harmonic mean is always the correct effective conductivity for a two-material segment,
+regardless of how much the conductivities differ; it is simply not needed here because no segment
+spans two materials.</dd>
+<dt><code>numpy.linalg.solve</code> automatically averages conductivities at boundaries.</dt>
+<dd>Wrong: <code>numpy.linalg.solve</code> performs Gaussian elimination on whatever matrix you give it;
+it knows nothing about physical boundaries.</dd>
+</dl>
+</div>
+<h2>Solving for the Temperature Profile</h2>
+<div data-inc="heatwall.py" data-mark="solve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">solve_temperatures</span><span class="p">(</span>
+    <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">,</span>
+    <span class="n">conductivities</span><span class="o">=</span><span class="n">LAYER_K</span><span class="p">,</span>
+    <span class="n">t_left</span><span class="o">=</span><span class="n">T_LEFT</span><span class="p">,</span>
+    <span class="n">t_right</span><span class="o">=</span><span class="n">T_RIGHT</span><span class="p">,</span>
+    <span class="n">n_per_layer</span><span class="o">=</span><span class="n">N_PER_LAYER</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (x, T) — grid positions and steady-state temperatures (°C)."""</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">k_seg</span> <span class="o">=</span> <span class="n">build_grid</span><span class="p">(</span><span class="n">widths</span><span class="p">,</span> <span class="n">conductivities</span><span class="p">,</span> <span class="n">n_per_layer</span><span class="p">)</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">assemble_system</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">,</span> <span class="n">t_left</span><span class="p">,</span> <span class="n">t_right</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:heatwall-profile">
+<img alt="Temperature profile through a three-layer wall. The slope is gentle in the high-conductivity layers and steep in the insulation layer." src="heatwall.svg"/>
+<figcaption>Figure 1: Steady-state temperature profile for a brick-insulation-concrete wall with inner surface at 20°C and outer surface at −10°C. Grey dashed lines mark the layer interfaces. The steep slope in the insulation ($0.04\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$) reflects its high thermal resistance.</figcaption>
+</figure>
+<h2>Heat Flux Through Each Layer</h2>
+<ul>
+<li>In steady state the heat flux $q = -k\,dT/dx$ is the same in every layer.</li>
+<li>We compute it directly from the numerical temperature gradient in each layer's segments.</li>
+</ul>
+<div data-inc="heatwall.py" data-mark="flux"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">layer_heat_flux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the heat flux (W m⁻²) in each layer.</span>
+
+<span class="sd">    Flux in segment j: q_j = -k_seg[j] * (T[j+1] - T[j]) / (x[j+1] - x[j]).</span>
+<span class="sd">    In steady state q is constant everywhere; averaging over each layer's</span>
+<span class="sd">    segments reduces discretisation noise near boundaries.</span>
+<span class="sd">    """</span>
+    <span class="n">fluxes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">x_start</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">seg</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># running segment index</span>
+    <span class="k">for</span> <span class="n">width</span><span class="p">,</span> <span class="n">kval</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">widths</span><span class="p">,</span> <span class="n">LAYER_K</span><span class="p">):</span>
+        <span class="n">x_end</span> <span class="o">=</span> <span class="n">x_start</span> <span class="o">+</span> <span class="n">width</span>
+        <span class="n">layer_q</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">seg</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">k_seg</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="n">seg</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x_end</span> <span class="o">+</span> <span class="mf">1e-12</span><span class="p">:</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="o">-</span><span class="n">k_seg</span><span class="p">[</span><span class="n">seg</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">seg</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">T</span><span class="p">[</span><span class="n">seg</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">seg</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">seg</span><span class="p">])</span>
+            <span class="n">layer_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+            <span class="n">seg</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">fluxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">layer_q</span><span class="p">)))</span>
+        <span class="n">x_start</span> <span class="o">=</span> <span class="n">x_end</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fluxes</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="19.82" data-lang="en" data-tolerance="0.05">
+<p>Using the thermal resistance formula with the constants defined above
+($L_\text{brick} = 0.10$ m, $k_\text{brick} = 0.72\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$;
+$L_\text{ins} = 0.05$ m, $k_\text{ins} = 0.04\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$;
+$L_\text{conc} = 0.15$ m, $k_\text{conc} = 1.20\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$;
+$T_\text{left} = 20$°C, $T_\text{right} = -10$°C),
+what is the heat flux $q$ in $\text{W}\,\text{m}^{-2}$?
+Give your answer to two decimal places.</p>
+</div>
+<h2>Testing</h2>
+<h3>Grid node count</h3>
+<ul>
+<li>With $n$ layers and $n_\text{per layer}$ cells each, the grid must contain exactly
+  $n \times n_\text{per layer} + 1$ nodes.  The $+1$ accounts for the shared right-boundary node.</li>
+</ul>
+<h3>Grid extent</h3>
+<ul>
+<li>The first node must be at $x = 0$ and the last at $x = \sum_i L_i$.  An off-by-one in
+  the grid construction would violate this.</li>
+</ul>
+<h3>Boundary temperatures</h3>
+<ul>
+<li>The solver must return exactly <code>T_LEFT</code> and <code>T_RIGHT</code> at the two ends; these are
+  Dirichlet conditions, not approximations.</li>
+</ul>
+<h3>Single layer is linear</h3>
+<ul>
+<li>For a single uniform layer the exact solution is a straight line from $T_\text{left}$ to
+  $T_\text{right}$.  The FD scheme recovers this to machine precision because every interior
+  node satisfies $T_{j-1} - 2T_j + T_{j+1} = 0$ for a linear function.</li>
+</ul>
+<h3>Flux constant across layers</h3>
+<ul>
+<li>Conservation of energy in steady state requires the same heat flux in every layer.
+  Because the FD scheme is exact for piecewise-linear profiles, per-layer flux averages
+  must match the analytic value within 1%.</li>
+</ul>
+<h3>Interface temperatures</h3>
+<ul>
+<li>The temperatures at the layer boundaries returned by the solver must match the analytic
+  values from the thermal-resistance formula to better than $10^{-8}$°C.  Any larger
+  deviation indicates a conductivity-assignment or sign error in the assembly.</li>
+</ul>
+<h3>Linearity in $\Delta T$</h3>
+<ul>
+<li>Doubling the temperature difference across the wall must double the heat flux.  This
+  tests that <code>analytic_solution</code> is free of any nonlinear terms.</li>
+</ul>
+<h3>Boundary-row coefficients</h3>
+<ul>
+<li>The first and last rows of $A$ must have the pattern $(1, 0, 0, \ldots)$ and
+  $(0, \ldots, 0, 1)$, and the corresponding entries of $b$ must be <code>T_LEFT</code> and <code>T_RIGHT</code>.</li>
+</ul>
+<div data-inc="test_heatwall.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">heatwall</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">build_grid</span><span class="p">,</span>
+    <span class="n">assemble_system</span><span class="p">,</span>
+    <span class="n">solve_temperatures</span><span class="p">,</span>
+    <span class="n">layer_heat_flux</span><span class="p">,</span>
+    <span class="n">analytic_solution</span><span class="p">,</span>
+    <span class="n">LAYER_WIDTHS</span><span class="p">,</span>
+    <span class="n">T_LEFT</span><span class="p">,</span>
+    <span class="n">T_RIGHT</span><span class="p">,</span>
+    <span class="n">N_PER_LAYER</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_grid_node_count</span><span class="p">():</span>
+    <span class="c1"># Each layer contributes N_PER_LAYER cells and shares boundary nodes,</span>
+    <span class="c1"># giving n_layers * N_PER_LAYER + 1 nodes total.</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">k_seg</span> <span class="o">=</span> <span class="n">build_grid</span><span class="p">()</span>
+    <span class="n">n_layers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">LAYER_WIDTHS</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="n">n_layers</span> <span class="o">*</span> <span class="n">N_PER_LAYER</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">k_seg</span><span class="p">)</span> <span class="o">==</span> <span class="n">n_layers</span> <span class="o">*</span> <span class="n">N_PER_LAYER</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_grid_covers_full_wall</span><span class="p">():</span>
+    <span class="c1"># First node must be at x=0; last at the total wall thickness.</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">build_grid</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">LAYER_WIDTHS</span><span class="p">),</span> <span class="n">rel</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_boundary_temperatures_enforced</span><span class="p">():</span>
+    <span class="c1"># The solver enforces T_LEFT and T_RIGHT at the two wall surfaces exactly.</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">solve_temperatures</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">T_LEFT</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">T_RIGHT</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_single_layer_is_linear</span><span class="p">():</span>
+    <span class="c1"># For a single uniform layer the steady-state profile is exactly linear.</span>
+    <span class="c1"># The FD scheme recovers this to machine precision because every interior</span>
+    <span class="c1"># node satisfies T[j-1] - 2*T[j] + T[j+1] = 0 for a linear function.</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">solve_temperatures</span><span class="p">(</span><span class="n">widths</span><span class="o">=</span><span class="p">[</span><span class="mf">0.10</span><span class="p">],</span> <span class="n">conductivities</span><span class="o">=</span><span class="p">[</span><span class="mf">0.72</span><span class="p">])</span>
+    <span class="n">T_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">T_LEFT</span><span class="p">,</span> <span class="n">T_RIGHT</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">T_exact</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_flux_constant_across_layers</span><span class="p">():</span>
+    <span class="c1"># In steady state q = -k dT/dx is uniform throughout the wall.</span>
+    <span class="c1"># Because the FD scheme is exact for piecewise-linear profiles, all</span>
+    <span class="c1"># per-layer flux averages must match the analytic value within 1%.</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">solve_temperatures</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">k_seg</span> <span class="o">=</span> <span class="n">build_grid</span><span class="p">()</span>
+    <span class="n">fluxes</span> <span class="o">=</span> <span class="n">layer_heat_flux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">)</span>
+    <span class="n">q_analytic</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">analytic_solution</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">fluxes</span><span class="p">,</span> <span class="n">q_analytic</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"Layer fluxes </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">fluxes</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2"> not all close to analytic </span><span class="si">{</span><span class="n">q_analytic</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> W/m²"</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_numeric_matches_analytic_flux</span><span class="p">():</span>
+    <span class="c1"># Mean numerical flux must match the analytic value to within 0.1%.</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">solve_temperatures</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">k_seg</span> <span class="o">=</span> <span class="n">build_grid</span><span class="p">()</span>
+    <span class="n">fluxes</span> <span class="o">=</span> <span class="n">layer_heat_flux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">)</span>
+    <span class="n">q_analytic</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">analytic_solution</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fluxes</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">q_analytic</span><span class="p">)</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">q_analytic</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.001</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_numeric_matches_analytic_interface_temps</span><span class="p">():</span>
+    <span class="c1"># Numerically solved temperatures at layer interfaces must match the</span>
+    <span class="c1"># analytic values.  The FD scheme is exact for piecewise-linear profiles,</span>
+    <span class="c1"># so any deviation indicates a bug rather than a discretization error.</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">T_numeric</span> <span class="o">=</span> <span class="n">solve_temperatures</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">interface_temps</span> <span class="o">=</span> <span class="n">analytic_solution</span><span class="p">()</span>
+    <span class="n">x_interfaces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">([</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">+</span> <span class="n">LAYER_WIDTHS</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x_iface</span><span class="p">,</span> <span class="n">T_analytic</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x_interfaces</span><span class="p">,</span> <span class="n">interface_temps</span><span class="p">):</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_iface</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">T_numeric</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">T_analytic</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"At x=</span><span class="si">{</span><span class="n">x_iface</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> m: numeric </span><span class="si">{</span><span class="n">T_numeric</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2">°C, "</span>
+            <span class="sa">f</span><span class="s2">"analytic </span><span class="si">{</span><span class="n">T_analytic</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2">°C"</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_higher_flux_for_larger_delta_T</span><span class="p">():</span>
+    <span class="c1"># Doubling the temperature difference must double the heat flux (linearity).</span>
+    <span class="n">q1</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">analytic_solution</span><span class="p">(</span><span class="n">t_left</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">t_right</span><span class="o">=-</span><span class="mf">10.0</span><span class="p">)</span>
+    <span class="n">q2</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">analytic_solution</span><span class="p">(</span><span class="n">t_left</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span> <span class="n">t_right</span><span class="o">=-</span><span class="mf">20.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">q2</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">q1</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_system_matrix_boundary_rows</span><span class="p">():</span>
+    <span class="c1"># First and last rows of A must enforce Dirichlet BCs.</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">k_seg</span> <span class="o">=</span> <span class="n">build_grid</span><span class="p">()</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">assemble_system</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">T_LEFT</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">T_RIGHT</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Heat conduction key terms</p>
+<dl>
+<dt>Thermal conductivity $k$</dt>
+<dd>Material property giving heat flux per unit temperature gradient; high $k$ means heat flows easily ($\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$)</dd>
+<dt>Thermal resistance $R = L/k$</dt>
+<dd>Layer property: larger $R$ means a greater temperature drop for the same flux; used to design insulation ($\text{m}^2\,\text{K}\,\text{W}^{-1}$)</dd>
+<dt>Heat flux $q$</dt>
+<dd>Power flowing through a unit area of wall ($\text{W}\,\text{m}^{-2}$); uniform throughout the wall in steady state</dd>
+<dt>Steady state</dt>
+<dd>Condition where $\partial T/\partial t = 0$ everywhere; temperatures are constant in time</dd>
+<dt>Tridiagonal system</dt>
+<dd>Linear system $A\mathbf{T} = \mathbf{b}$ where $A$ has nonzero entries only on the main diagonal and the two adjacent diagonals; arises naturally from 1D finite-difference discretization</dd>
+<dt>Dirichlet boundary condition</dt>
+<dd>Fixing the value of the unknown (here, temperature) at the boundary, rather than fixing its derivative</dd>
+</dl>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Grid refinement study</h3>
+<p>Double <code>N_PER_LAYER</code> four times (from 5 to 80) and record the maximum absolute difference
+between the numerical and analytic interface temperatures at each refinement level.
+Plot the error versus <code>N_PER_LAYER</code> on a log-log scale.
+Explain the observed convergence order.</p>
+<h3>Radiation and convection boundary conditions</h3>
+<p>Real walls exchange heat with the air by convection, not at a fixed surface temperature.
+The convective boundary condition on the inner surface is:</p>
+<p>$$q = h\,(T_\text{air,in} - T_0)$$</p>
+<p>where $h$ is the convective heat-transfer coefficient ($\text{W}\,\text{m}^{-2}\,\text{K}^{-1}$).
+Modify <code>assemble_system</code> to accept inner and outer convective coefficients instead of
+fixed temperatures, and verify that as $h \to \infty$ the solution approaches the
+Dirichlet result.</p>
+<h3>Transient heat conduction</h3>
+<p>Remove the steady-state assumption and discretize the full 1D heat equation
+$\rho c_p \partial T / \partial t = \partial (k \partial T / \partial x) / \partial x$
+using the explicit Euler method.
+Use $\rho = 1800\,\text{kg}\,\text{m}^{-3}$ and $c_p = 900\,\text{J}\,\text{kg}^{-1}\,\text{K}^{-1}$ for all layers (representative brick).
+Start from a uniform initial temperature of 20°C, apply $T_\text{right} = -10$°C at $t=0$,
+and run until the solution is within 1°C of the steady state everywhere.
+Verify the stability condition $\Delta t \le \Delta x^2 / (2 \alpha)$ where
+$\alpha = k / (\rho c_p)$ is the thermal diffusivity.</p>
+<h3>Optimal insulation placement</h3>
+<p>Fix the total insulation thickness at 5 cm and split it between two locations: one slab
+immediately inside the brick and one immediately inside the concrete.
+Let the inner slab have thickness $t$ ($0 \le t \le 0.05$ m) and the outer slab $(0.05 - t)$ m.
+Compute the heat flux for each split and show that the total resistance — and therefore
+the heat flux — is independent of how the insulation is distributed.
+Explain this result using the series-resistance formula.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../mineral/">Mineral Classification by Geochemistry</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../pollute/">Pollutant Spread in a River Network</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@gvwilson/forma" type="module"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

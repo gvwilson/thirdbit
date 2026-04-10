@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flood Frequency Analysis</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a class="active" href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Flood Frequency Analysis</h1>
+<h2>The Problem</h2>
+<ul>
+<li>Infrastructure such as bridges, levees, and stormwater systems must be designed to withstand rare but extreme floods.</li>
+<li>Engineers specify design events by <a class="gl-ref" href="../glossary/#return_period">return period</a>: the average number of years between events that exceed a given magnitude.</li>
+<li>A 100-year flood does not occur once per century on a schedule; it has a 1% probability of being exceeded in any given year.</li>
+<li>Estimating these probabilities from a short historical record requires fitting a statistical distribution to the annual maximum flows.</li>
+</ul>
+<h2>The Gumbel Distribution</h2>
+<ul>
+<li>Annual maximum flows follow an <a class="gl-ref" href="../glossary/#extreme_value_distribution">extreme value distribution</a> because they are the largest of many daily observations.</li>
+<li>The Gumbel (Type I extreme value) distribution has cumulative distribution function:</li>
+</ul>
+<p>$$F(x) = \exp\!\left(-\exp\!\left(-\frac{x - \mu}{\beta}\right)\right)$$</p>
+<p>where $\mu$ is the location parameter (controls the centre) and $\beta &gt; 0$ is the scale parameter (controls the spread).</p>
+<ul>
+<li>Its mean and standard deviation are:</li>
+</ul>
+<p>$$\mathrm{E}[X] = \mu + \gamma_E \beta \qquad \mathrm{SD}[X] = \frac{\pi \beta}{\sqrt{6}}$$</p>
+<p>where $\gamma_E \approx 0.5772$ is the <a class="gl-ref" href="../glossary/#euler_mascheroni">Euler-Mascheroni constant</a>.</p>
+<div class="forma-multiple-choice" data-lang="en">
+<p>A river gauge records 50 years of annual maximum flows with sample mean 122 m^3/s and
+standard deviation 50 m^3/s.  Using the Gumbel formulas above, what is $\hat{\beta}$?</p>
+<dl>
+<dt>39.0</dt>
+<dd>Correct: $\hat{\beta} = 50 \times \sqrt{6} / \pi \approx 39.0$ m^3/s.</dd>
+<dt>50.0</dt>
+<dd>Wrong: 50 m^3/s is the sample standard deviation, not the scale parameter.</dd>
+<dt>28.7</dt>
+<dd>Wrong: dividing by $\pi$ without multiplying by $\sqrt{6}$ gives $50 / \pi \approx 15.9$, not this value.</dd>
+<dt>122.0</dt>
+<dd>Wrong: 122 m^3/s is the sample mean, which is used to estimate $\mu$, not $\beta$.</dd>
+</dl>
+</div>
+<h2>Generating Synthetic Data</h2>
+<ul>
+<li>We draw 50 years of annual maximum flows from a known Gumbel distribution so that we can verify our estimator.</li>
+<li>The inverse-CDF method: if $U \sim \text{Uniform}(0, 1)$ then $X = \mu - \beta \ln(-\ln U)$ follows $\text{Gumbel}(\mu, \beta)$.</li>
+</ul>
+<div data-inc="generate_flood.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># True Gumbel parameters used to generate the synthetic flow record.</span>
+<span class="c1"># The Gumbel distribution has mean = MU_TRUE + EULER * BETA_TRUE and</span>
+<span class="c1"># standard deviation = pi * BETA_TRUE / sqrt(6), where EULER ~ 0.5772.</span>
+<span class="c1"># With MU_TRUE = 100 and BETA_TRUE = 39 the mean is about 122 m^3/s</span>
+<span class="c1"># and the standard deviation is about 50 m^3/s.</span>
+<span class="n">MU_TRUE</span> <span class="o">=</span> <span class="mf">100.0</span>  <span class="c1"># location parameter (m^3/s)</span>
+<span class="n">BETA_TRUE</span> <span class="o">=</span> <span class="mf">39.0</span>  <span class="c1"># scale parameter (m^3/s)</span>
+
+<span class="n">N_YEARS</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># years of annual maximum flow record</span>
+</code></pre></div>
+</div>
+<div data-inc="generate_flood.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="n">MU_TRUE</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">BETA_TRUE</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N_YEARS</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a DataFrame with synthetic annual maximum flows.</span>
+
+<span class="sd">    Draws n values from a Gumbel distribution with the given location mu</span>
+<span class="sd">    and scale beta.  Uses the inverse-CDF method: if U ~ Uniform(0, 1)</span>
+<span class="sd">    then X = mu - beta * ln(-ln(U)) follows a Gumbel(mu, beta) distribution.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">flows</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"year"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">"annual_max_flow"</span><span class="p">:</span> <span class="n">flows</span><span class="p">})</span>
+</code></pre></div>
+</div>
+<h2>Fitting by the Method of Moments</h2>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#method_of_moments">method of moments</a> sets the distribution's theoretical mean and variance equal to their sample counterparts and solves for the parameters.</li>
+<li>From the Gumbel formulas, solving for $\hat{\beta}$ and $\hat{\mu}$:</li>
+</ul>
+<p>$$\hat{\beta} = \frac{s\sqrt{6}}{\pi} \qquad \hat{\mu} = \bar{x} - \gamma_E \hat{\beta}$$</p>
+<p>where $\bar{x}$ is the sample mean and $s$ is the sample standard deviation with Bessel's correction ($n-1$ denominator).</p>
+<div data-inc="flood.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Euler-Mascheroni constant: appears in the mean and quantile of the Gumbel</span>
+<span class="c1"># distribution.  Value from Abramowitz &amp; Stegun, §23.1.1.</span>
+<span class="n">EULER_MASCHERONI</span> <span class="o">=</span> <span class="mf">0.5772156649</span>
+
+<span class="c1"># Return periods of interest (years).  A T-year flood has probability</span>
+<span class="c1"># 1/T of being exceeded in any given year.</span>
+<span class="n">RETURN_PERIODS</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div data-inc="flood.py" data-mark="fit-gumbel"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fit_gumbel</span><span class="p">(</span><span class="n">flows</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Estimate Gumbel location and scale by the method of moments.</span>
+
+<span class="sd">    The Gumbel distribution satisfies:</span>
+<span class="sd">      mean = mu + gamma * beta      (gamma = Euler-Mascheroni constant)</span>
+<span class="sd">      std  = pi * beta / sqrt(6)</span>
+
+<span class="sd">    Solving for the two unknowns given the sample mean and standard</span>
+<span class="sd">    deviation yields the method-of-moments estimates.</span>
+<span class="sd">    """</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">flows</span><span class="p">))</span>
+    <span class="n">std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">flows</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">beta_hat</span> <span class="o">=</span> <span class="n">std</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">6.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">mu_hat</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">EULER_MASCHERONI</span> <span class="o">*</span> <span class="n">beta_hat</span>
+    <span class="k">return</span> <span class="n">mu_hat</span><span class="p">,</span> <span class="n">beta_hat</span>
+</code></pre></div>
+</div>
+<div class="forma-ordering" data-lang="en">
+<p>Put these steps in the correct order for method-of-moments estimation of Gumbel parameters.</p>
+<ol>
+<li>Compute the sample mean and sample standard deviation of the annual maximum flows</li>
+<li>Estimate the scale parameter: beta_hat = std * sqrt(6) / pi</li>
+<li>Estimate the location parameter: mu_hat = mean - EULER_MASCHERONI * beta_hat</li>
+<li>Use mu_hat and beta_hat to compute return levels or plot the fitted distribution</li>
+</ol>
+</div>
+<h2>Return Periods</h2>
+<ul>
+<li>The $T$-year return level $x_T$ is the flow magnitude exceeded with probability $1/T$ in any given year.</li>
+<li>Setting $F(x_T) = 1 - 1/T$ and solving the Gumbel CDF for $x_T$:</li>
+</ul>
+<p>$$x_T = \hat{\mu} - \hat{\beta} \ln\!\left(-\ln\!\left(1 - \frac{1}{T}\right)\right)$$</p>
+<ul>
+<li>Equivalently, $x_T = \hat{\mu} + \hat{\beta}\, y_T$, where $y_T = -\ln(-\ln(1-1/T))$ is the <a class="gl-ref" href="../glossary/#reduced_variate">reduced variate</a> at return period $T$.</li>
+</ul>
+<div data-inc="flood.py" data-mark="return-level"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">return_level</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the flood magnitude exceeded on average once every T years.</span>
+
+<span class="sd">    The T-year return level is the quantile at non-exceedance probability</span>
+<span class="sd">    p = 1 - 1/T.  For the Gumbel distribution this is:</span>
+<span class="sd">      x_T = mu - beta * ln(-ln(1 - 1/T))</span>
+<span class="sd">    Equivalently, x_T = mu + beta * y_T, where y_T = -ln(-ln(p)) is the</span>
+<span class="sd">    reduced variate at return period T.</span>
+<span class="sd">    """</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">T</span>
+    <span class="k">return</span> <span class="n">mu</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="219.1" data-lang="en" data-tolerance="1.0">
+<p>Using $\hat{\mu} = 100.0$ m^3/s and $\hat{\beta} = 39.0$ m^3/s, compute the 100-year return level
+$x_{100} = \hat{\mu} - \hat{\beta} \ln(-\ln(1 - 1/100))$.
+Give your answer in m^3/s, rounded to one decimal place.</p>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>A community's flood barrier is designed for the 100-year return level.
+Over the next 100 years, what is the probability that the barrier is overtopped at least once?</p>
+<dl>
+<dt>Exactly 1%</dt>
+<dd>Wrong: 1% is the probability of exceedance in a single year, not over 100 years.</dd>
+<dt>Approximately 63%</dt>
+<dd>Correct: P(at least one exceedance in 100 years) = 1 - (1 - 1/100)^100 ≈ 1 - e^{-1} ≈ 63%.</dd>
+<dt>Exactly 100%</dt>
+<dd>Wrong: the return period is an average; exceedance is a random event, not guaranteed over any finite horizon.</dd>
+<dt>Exactly 50%</dt>
+<dd>Wrong: the return period T such that P(at least one exceedance in T years) = 0.5 is T ≈ 69 years, not 100.</dd>
+</dl>
+</div>
+<h2>Gumbel Probability Paper</h2>
+<ul>
+<li>Plotting data on <a class="gl-ref" href="../glossary/#gumbel_paper">Gumbel probability paper</a> gives a visual check on whether the Gumbel distribution fits.</li>
+<li>The Weibull plotting position $p_i = i/(n+1)$ assigns a non-exceedance probability to each ranked observation without assuming a specific distribution.</li>
+<li>The reduced variate $y_i = -\ln(-\ln(p_i))$ linearises the Gumbel CDF: if the data are Gumbel-distributed, the points $(y_i, x_{(i)})$ scatter around a straight line.</li>
+</ul>
+<div data-inc="flood.py" data-mark="plotting-positions"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plotting_positions</span><span class="p">(</span><span class="n">flows</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (reduced_variate, sorted_flows) for a Gumbel probability plot.</span>
+
+<span class="sd">    Ranks observations from smallest to largest and assigns Weibull</span>
+<span class="sd">    plotting positions p_i = i / (n + 1), which are approximately</span>
+<span class="sd">    unbiased for the Gumbel distribution.  The reduced variate</span>
+<span class="sd">    y_i = -ln(-ln(p_i)) linearises the Gumbel CDF: if the data follow</span>
+<span class="sd">    a Gumbel distribution, plotting (y_i, x_(i)) gives a straight line.</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">flows</span><span class="p">)</span>
+    <span class="n">sorted_flows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">flows</span><span class="p">)</span>
+    <span class="n">ranks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">ranks</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">sorted_flows</span>
+</code></pre></div>
+</div>
+<div data-inc="flood.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">flows</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return an Altair Gumbel probability paper chart.</span>
+
+<span class="sd">    Points are the empirical data; the line is the fitted Gumbel distribution.</span>
+<span class="sd">    Both are plotted against the reduced variate y = -ln(-ln(p)).</span>
+<span class="sd">    If the data are Gumbel-distributed, the points should scatter around</span>
+<span class="sd">    a straight line.</span>
+<span class="sd">    """</span>
+    <span class="n">y_obs</span><span class="p">,</span> <span class="n">q_obs</span> <span class="o">=</span> <span class="n">plotting_positions</span><span class="p">(</span><span class="n">flows</span><span class="p">)</span>
+    <span class="n">y_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y_obs</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">y_obs</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="n">x_fit</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">y_fit</span>  <span class="c1"># Gumbel quantile function: x = mu + beta * y</span>
+
+    <span class="n">df_pts</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"y"</span><span class="p">:</span> <span class="n">y_obs</span><span class="p">,</span> <span class="s2">"flow"</span><span class="p">:</span> <span class="n">q_obs</span><span class="p">})</span>
+    <span class="n">df_line</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"y"</span><span class="p">:</span> <span class="n">y_fit</span><span class="p">,</span> <span class="s2">"flow"</span><span class="p">:</span> <span class="n">x_fit</span><span class="p">})</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_pts</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_point</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"y:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Reduced variate  y = -ln(-ln p)"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"flow:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Annual maximum flow (m^3/s)"</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_line</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"firebrick"</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"y:Q"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"flow:Q"</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">points</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Gumbel probability paper"</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:flood-probability-paper">
+<img alt="Scatter plot of observed annual maximum flows vs. reduced variate, with a fitted red line. Points follow the line closely." src="flood.svg"/>
+<figcaption>Figure 1: Gumbel probability paper. Points are ranked observations; the red line is the fitted distribution. Departures from the line indicate that the Gumbel model may not fit.</figcaption>
+</figure>
+<h2>Testing</h2>
+<h3>Parameter recovery on a large sample</h3>
+<ul>
+<li>With $n = 10\,000$ the central-limit theorem says the standard error of $\hat{\beta}$ is roughly $\beta/\sqrt{n}$, well under 1%.</li>
+<li>A relative tolerance of 5% gives a safety factor of $\sim 5$ over the expected sampling error.</li>
+</ul>
+<h3>Monotone return levels</h3>
+<ul>
+<li>The Gumbel quantile $x_T = \mu + \beta y_T$ is strictly increasing in $T$ because $\beta &gt; 0$ and $y_T$ is strictly increasing.</li>
+<li>Any violation would indicate an error in the formula or the sign conventions.</li>
+</ul>
+<h3>Algebraic consistency</h3>
+<ul>
+<li>$F(x_T) = 1 - 1/T$ is the definition of the return level; it must hold to numerical precision ($&lt;10^{-10}$).</li>
+</ul>
+<h3>Valid plotting positions</h3>
+<ul>
+<li>$p_i = i/(n+1) \in (0,1)$ guarantees finite reduced variates; sorted flows must be non-decreasing.</li>
+</ul>
+<div data-inc="test_flood.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_flood</span><span class="w"> </span><span class="kn">import</span> <span class="n">BETA_TRUE</span><span class="p">,</span> <span class="n">MU_TRUE</span><span class="p">,</span> <span class="n">generate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flood</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">fit_gumbel</span><span class="p">,</span>
+    <span class="n">plotting_positions</span><span class="p">,</span>
+    <span class="n">return_level</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fit_gumbel_large_sample</span><span class="p">():</span>
+    <span class="c1"># With N = 10 000 the central-limit theorem says the standard error of</span>
+    <span class="c1"># the sample mean is roughly sigma / sqrt(N) ~ 50 / 100 = 0.5 m^3/s.</span>
+    <span class="c1"># A relative tolerance of 5% (about 5 m^3/s for mu, 2 m^3/s for beta)</span>
+    <span class="c1"># gives a safety factor of ~10 over this standard error.</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">7493418</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">)</span>
+    <span class="n">flows</span> <span class="o">=</span> <span class="n">MU_TRUE</span> <span class="o">-</span> <span class="n">BETA_TRUE</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+    <span class="n">mu_hat</span><span class="p">,</span> <span class="n">beta_hat</span> <span class="o">=</span> <span class="n">fit_gumbel</span><span class="p">(</span><span class="n">flows</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mu_hat</span> <span class="o">-</span> <span class="n">MU_TRUE</span><span class="p">)</span> <span class="o">/</span> <span class="n">MU_TRUE</span> <span class="o">&lt;</span> <span class="mf">0.05</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">beta_hat</span> <span class="o">-</span> <span class="n">BETA_TRUE</span><span class="p">)</span> <span class="o">/</span> <span class="n">BETA_TRUE</span> <span class="o">&lt;</span> <span class="mf">0.05</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_return_levels_increase_with_period</span><span class="p">():</span>
+    <span class="c1"># A T-year flood is rarer and more extreme than a T/2-year flood, so</span>
+    <span class="c1"># return levels must be strictly increasing in T.  The Gumbel quantile</span>
+    <span class="c1"># x_T = mu + beta * (-ln(-ln(1 - 1/T))) is strictly increasing because</span>
+    <span class="c1"># beta &gt; 0 and -ln(-ln(1 - 1/T)) is strictly increasing in T.</span>
+    <span class="n">flows</span> <span class="o">=</span> <span class="n">generate</span><span class="p">()[</span><span class="s2">"annual_max_flow"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">mu</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">fit_gumbel</span><span class="p">(</span><span class="n">flows</span><span class="p">)</span>
+    <span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="n">return_level</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span> <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">]]</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">levels</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_return_level_probability</span><span class="p">():</span>
+    <span class="c1"># By construction, x_T satisfies F(x_T) = 1 - 1/T under the Gumbel CDF</span>
+    <span class="c1"># F(x) = exp(-exp(-(x - mu) / beta)).  This is an algebraic identity, so</span>
+    <span class="c1"># the residual should be below floating-point machine epsilon (~1e-15).</span>
+    <span class="n">mu</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">39.0</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">x_T</span> <span class="o">=</span> <span class="n">return_level</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">p_fitted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x_T</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">beta</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p_fitted</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">T</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_plotting_positions_valid</span><span class="p">():</span>
+    <span class="c1"># Weibull positions i/(n+1) lie in (0, 1), so the reduced variate</span>
+    <span class="c1"># y = -ln(-ln(p)) is always finite.  Sorted flows must be non-decreasing.</span>
+    <span class="n">flows</span> <span class="o">=</span> <span class="n">generate</span><span class="p">()[</span><span class="s2">"annual_max_flow"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">plotting_positions</span><span class="p">(</span><span class="n">flows</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s2">"reduced variates contain infinite values"</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="s2">"flows are not sorted ascending"</span>
+</code></pre></div>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Confidence intervals by bootstrap</h3>
+<p>Estimate 95% confidence intervals for the 100-year return level using the bootstrap:
+draw 1000 samples of size 50 with replacement from the original data,
+fit the Gumbel distribution to each, and compute the 100-year return level.
+Report the 2.5th and 97.5th percentiles of the 1000 estimates.
+How wide is the interval relative to the point estimate?</p>
+<h3>Gringorten plotting positions</h3>
+<p>Replace the Weibull plotting position $p_i = i/(n+1)$ with the Gringorten position
+$p_i = (i - 0.44) / (n + 0.12)$, which is designed to be approximately unbiased
+for the Gumbel distribution.
+How much do the plotted points shift on the probability paper?
+Does the fitted line change?</p>
+<h3>Comparing to the Generalised Extreme Value distribution</h3>
+<p>The Gumbel distribution is a special case (shape $\xi = 0$) of the three-parameter
+Generalised Extreme Value (GEV) distribution.
+Use <code>scipy.stats.genextreme.fit</code> to fit the GEV to the same 50-year record.
+Does the estimated shape parameter differ significantly from zero?
+Compare the 100-year return level from the GEV with the Gumbel estimate.</p>
+<h3>Annual maxima from daily data</h3>
+<p>Download or generate a synthetic series of daily flows for 50 years (e.g., a log-normal
+random walk with autocorrelation).
+Extract the annual maximum from each year.
+Fit the Gumbel distribution to the maxima and plot the result on probability paper.
+How does the quality of the fit compare to the case where the data were drawn directly
+from a Gumbel distribution?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../pollute/">Pollutant Spread in a River Network</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../porous/">Percolation in a Porous Medium</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@gvwilson/forma" type="module"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

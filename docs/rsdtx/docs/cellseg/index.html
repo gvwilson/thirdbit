@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cell Segmentation in Microscopy Images</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a class="active" href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Cell Segmentation in Microscopy Images</h1>
+<h2>The Problem</h2>
+<ul>
+<li>Fluorescence microscopy makes individual cells visible as bright spots on a dark background.</li>
+<li>Counting cells and measuring their sizes by hand is impractical at scale.</li>
+<li>Automated segmentation identifies which pixels belong to which cell using image processing.</li>
+<li>The same pipeline is used in drug-discovery assays, developmental biology, and pathology.</li>
+</ul>
+<h2>Representing a Fluorescence Image</h2>
+<ul>
+<li>Each cell is modelled as a 2-D Gaussian blob centred at $(x_c, y_c)$:</li>
+</ul>
+<p>$$I(x, y) = B \exp\!\left(-\frac{(x - x_c)^2 + (y - y_c)^2}{2\sigma^2}\right)$$</p>
+<ul>
+<li>$B$ is the peak brightness and $\sigma$ is the width of the cell in pixels.</li>
+<li>Multiple cells are summed; independent Gaussian noise is then added and intensities are
+  clipped to zero (a negative photon count is unphysical).</li>
+<li>Cells are placed so that no two centres are closer than <code>MIN_SEPARATION</code> pixels.
+  This separation is chosen large enough that the midpoint intensity between two adjacent
+  cells falls below the operating threshold (see "Choosing the threshold" below).</li>
+</ul>
+<div data-inc="generate_image.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed</span>
+<span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="mi">128</span>  <span class="c1"># pixels per side; kept small for fast tests</span>
+<span class="n">N_CELLS</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># number of cells to place</span>
+<span class="n">CELL_SIGMA</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># Gaussian half-width of each cell (pixels)</span>
+<span class="n">CELL_BRIGHTNESS</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># peak intensity (image values are in [0, 1])</span>
+<span class="n">NOISE_SCALE</span> <span class="o">=</span> <span class="mf">0.15</span>  <span class="c1"># std dev of additive Gaussian noise</span>
+
+<span class="c1"># Minimum centre-to-centre separation that keeps midpoint intensity below the</span>
+<span class="c1"># operating threshold of 0.5.  For two Gaussians of amplitude A and sigma σ</span>
+<span class="c1"># separated by distance d, the midpoint value is 2A·exp(−d²/(8σ²)).</span>
+<span class="c1"># Setting this below 0.5 gives d &gt; 2σ·sqrt(2·ln(4A)) = 2·6·sqrt(2·ln(4)) ≈ 19.8.</span>
+<span class="c1"># We use 24 pixels for a comfortable margin.</span>
+<span class="n">MIN_SEPARATION</span> <span class="o">=</span> <span class="mi">24</span>
+</code></pre></div>
+</div>
+<div data-inc="generate_image.py" data-mark="make-image"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_image</span><span class="p">(</span>
+    <span class="n">n_cells</span><span class="o">=</span><span class="n">N_CELLS</span><span class="p">,</span>
+    <span class="n">sigma</span><span class="o">=</span><span class="n">CELL_SIGMA</span><span class="p">,</span>
+    <span class="n">brightness</span><span class="o">=</span><span class="n">CELL_BRIGHTNESS</span><span class="p">,</span>
+    <span class="n">noise_scale</span><span class="o">=</span><span class="n">NOISE_SCALE</span><span class="p">,</span>
+    <span class="n">image_size</span><span class="o">=</span><span class="n">IMAGE_SIZE</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (image, centers) for a synthetic fluorescence image.</span>
+
+<span class="sd">    Each cell is a 2-D Gaussian with peak `brightness` and width `sigma`.</span>
+<span class="sd">    Independent Gaussian noise with std dev `noise_scale` is added to every</span>
+<span class="sd">    pixel.  Pixel values are clipped to [0, 1].  `centers` is a list of</span>
+<span class="sd">    (x, y) pixel coordinates of the true cell centres.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">centers</span> <span class="o">=</span> <span class="n">_place_cells</span><span class="p">(</span><span class="n">n_cells</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">MIN_SEPARATION</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+
+    <span class="n">ys</span><span class="p">,</span> <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">image_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">image_size</span><span class="p">]</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span> <span class="ow">in</span> <span class="n">centers</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">+=</span> <span class="n">brightness</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+            <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">xs</span> <span class="o">-</span> <span class="n">cx</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">ys</span> <span class="o">-</span> <span class="n">cy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span>
+        <span class="p">)</span>
+    <span class="n">image</span> <span class="o">+=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">noise_scale</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># negative counts are unphysical</span>
+    <span class="k">return</span> <span class="n">image</span><span class="p">,</span> <span class="n">centers</span>
+</code></pre></div>
+</div>
+<h2>Step 1: Smoothing</h2>
+<ul>
+<li>Raw images are noisy; the <a class="gl-ref" href="../glossary/#gaussian_filter">Gaussian filter</a> replaces each pixel with a weighted average of its
+  neighbourhood, suppressing point-to-point fluctuations.</li>
+<li>Convolving the signal Gaussian (sigma $\sigma$) with the filter Gaussian (sigma $\sigma_s$)
+  gives a smoothed cell with sigma $\sqrt{\sigma^2 + \sigma_s^2}$ and peak brightness:</li>
+</ul>
+<p>$$B_\text{smooth} = B \cdot \frac{\sigma^2}{\sigma^2 + \sigma_s^2}$$</p>
+<ul>
+<li>With $\sigma = 6$ and $\sigma_s = 2$ this gives $B_\text{smooth} = 36/40 = 0.90$.</li>
+</ul>
+<div data-inc="cellseg.py" data-mark="smooth"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">smooth</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">SMOOTH_SIGMA</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the image after 2-D Gaussian smoothing with the given sigma."""</span>
+    <span class="k">return</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="0.90" data-lang="en" data-tolerance="0.005">
+<p>A cell has peak brightness $B = 1.0$ and Gaussian width $\sigma = 6$ pixels.
+After smoothing with a Gaussian filter of width $\sigma_s = 2$ pixels,
+the smoothed peak brightness is $B \cdot \sigma^2 / (\sigma^2 + \sigma_s^2)$.
+What is the result? Give your answer to two decimal places.</p>
+</div>
+<h2>Step 2: Thresholding and Labelling</h2>
+<ul>
+<li>Pixels above a threshold form a <a class="gl-ref" href="../glossary/#binary_mask">binary mask</a>; connected regions in the mask are individual cells.</li>
+<li><code>scipy.ndimage.label</code> assigns a unique integer to each <a class="gl-ref" href="../glossary/#connected_component">connected component</a>.</li>
+<li>Components smaller than <code>MIN_CELL_SIZE</code> pixels are discarded to remove noise artefacts.</li>
+</ul>
+<div data-inc="cellseg.py" data-mark="segment"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">segment</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="n">MIN_CELL_SIZE</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (labeled, n_cells) from a smoothed image.</span>
+
+<span class="sd">    Steps:</span>
+<span class="sd">    1. Threshold to a binary mask (pixels above `threshold` → True).</span>
+<span class="sd">    2. Label connected components with scipy.ndimage.label.</span>
+<span class="sd">    3. Discard components smaller than `min_size` pixels.</span>
+
+<span class="sd">    `labeled` is an integer array where 0 is background and 1..n_cells</span>
+<span class="sd">    are the detected cells.  Components are re-numbered consecutively</span>
+<span class="sd">    after size filtering so the label values are always contiguous.</span>
+<span class="sd">    """</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="n">image</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+    <span class="n">raw_labeled</span><span class="p">,</span> <span class="n">n_raw</span> <span class="o">=</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">binary</span><span class="p">)</span>
+
+    <span class="c1"># Filter by size and re-number labels.</span>
+    <span class="n">filtered</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">raw_labeled</span><span class="p">)</span>
+    <span class="n">new_label</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">old_label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_raw</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">raw_labeled</span> <span class="o">==</span> <span class="n">old_label</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_size</span><span class="p">:</span>
+            <span class="n">filtered</span><span class="p">[</span><span class="n">raw_labeled</span> <span class="o">==</span> <span class="n">old_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_label</span>
+            <span class="n">new_label</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">filtered</span><span class="p">,</span> <span class="n">new_label</span> <span class="o">-</span> <span class="mi">1</span>
+</code></pre></div>
+</div>
+<div data-inc="cellseg.py" data-mark="cell-sizes"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cell_sizes</span><span class="p">(</span><span class="n">labeled</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return an array of pixel counts, one per detected cell."""</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">labeled</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">labeled</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
+</code></pre></div>
+</div>
+<div class="forma-ordering" data-lang="en">
+<p>Put these cell-segmentation steps in the correct order.</p>
+<ol>
+<li>Place Gaussian blobs at random non-overlapping positions</li>
+<li>Add Gaussian noise and clip pixel values to zero</li>
+<li>Apply 2-D Gaussian smoothing</li>
+<li>Threshold the smoothed image to produce a binary mask</li>
+<li>Label connected components with <code>scipy.ndimage.label</code></li>
+<li>Discard components smaller than <code>MIN_CELL_SIZE</code> pixels</li>
+</ol>
+</div>
+<h2>Choosing the Threshold</h2>
+<ul>
+<li>The smoothed noise has standard deviation:</li>
+</ul>
+<p>$$\sigma_\text{noise,smooth} = \frac{\sigma_\text{noise}}{2\sqrt{\pi}\,\sigma_s} \approx \frac{0.15}{2\sqrt{\pi}\cdot 2} \approx 0.021$$</p>
+<ul>
+<li>The operating threshold of 0.50 is approximately $24\,\sigma_\text{noise,smooth}$, so the
+  probability of a noise pixel exceeding it is vanishingly small.</li>
+<li>The minimum cell separation (24 px) ensures the midpoint between two adjacent cells has
+  intensity $2 B \exp(-d^2 / 8\sigma^2) = 2 \exp(-2.25) \approx 0.21$, well below the threshold,
+  so adjacent cells are never merged into one component.</li>
+</ul>
+<div data-inc="cellseg.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SMOOTH_SIGMA</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># std dev of the Gaussian smoothing kernel (pixels)</span>
+
+<span class="c1"># After smoothing, cell peak brightness ≈ σ²/(σ²+σ_s²) = 36/40 ≈ 0.90.</span>
+<span class="c1"># Threshold 0.5 sits comfortably below 0.90 and well above the smoothed-noise</span>
+<span class="c1"># ceiling (≈ 5× the smoothed-noise std dev of 0.021; see lesson for derivation).</span>
+<span class="n">THRESHOLD</span> <span class="o">=</span> <span class="mf">0.50</span>
+
+<span class="c1"># Expected cell area at the operating threshold ≈ π·r_t² where</span>
+<span class="c1"># r_t = sqrt(−2·ln(threshold/peak)) · σ_eff ≈ 1.085 · 6.32 ≈ 6.9 px, area ≈ 148 px².</span>
+<span class="c1"># MIN_CELL_SIZE is set well below this to keep real cells while removing noise blobs.</span>
+<span class="n">MIN_CELL_SIZE</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># minimum pixel count for a detected cell</span>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p><code>MIN_SEPARATION</code> is set to 24 pixels rather than a smaller value. Why?</p>
+<dl>
+<dt>scipy.ndimage.label cannot separate components closer than 24 pixels</dt>
+<dd>Wrong: label works at pixel level and separates any two components that do not touch.</dd>
+<dt>At smaller separations the midpoint intensity between two adjacent cells exceeds the threshold, merging them into one component</dt>
+<dd>Correct: two Gaussians 24 px apart have midpoint intensity ≈ 0.21, safely below the threshold of 0.50; closer cells would merge.</dd>
+<dt>The Gaussian smoothing filter blurs cells together unless they are at least $4\sigma$ apart</dt>
+<dd>Wrong: <code>SMOOTH_SIGMA</code> = 2, so $4\sigma = 8$ pixels — much less than 24; blurring is not the limiting factor.</dd>
+<dt>24 pixels is the minimum required by the physical image resolution in microns</dt>
+<dd>Wrong: the separation is derived from the threshold and cell brightness, not from physical calibration of the microscope.</dd>
+</dl>
+</div>
+<h2>What the Segmenter Finds in Pure Noise</h2>
+<ul>
+<li>The same pipeline applied to an image with no cells at all produces false detections when
+  the threshold is too low.</li>
+</ul>
+<div data-inc="generate_image.py" data-mark="make-noise"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_pure_noise</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="n">NOISE_SCALE</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="n">IMAGE_SIZE</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return an image containing only Gaussian noise, no cell signal.</span>
+
+<span class="sd">    Used to demonstrate the false-positive behaviour of the segmentation</span>
+<span class="sd">    pipeline when the threshold is set below the noise floor.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">noise_scale</span><span class="p">,</span> <span class="p">(</span><span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">)),</span> <span class="mf">0.0</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:cellseg-noise">
+<img alt="Pure-noise image with 4 false cell detections shown in colour." src="cellseg_noise.png"/>
+<figcaption>Figure 1: Pure Gaussian noise (no cells) smoothed and segmented at threshold 0.05 with no size filter. Four spurious regions are labelled. The same image at the operating threshold of 0.50 produces zero detections.</figcaption>
+</figure>
+<ul>
+<li>At threshold 0.05 ($\approx 2.4\,\sigma_\text{noise,smooth}$) roughly 0.8% of pixels
+  exceed the threshold; these cluster into a handful of connected blobs.</li>
+<li>The size filter (MIN_CELL_SIZE = 30 px) removes most noise blobs in practice, because
+  genuine noise excursions are usually smaller than real cells.</li>
+<li>The operating threshold makes the size filter a secondary defence rather than the primary one.</li>
+</ul>
+<figure id="f:cellseg-signal">
+<img alt="Left: raw synthetic image with 8 Gaussian blobs. Right: segmented image with each cell in a different colour and true centres marked with red crosses." src="cellseg.png"/>
+<figcaption>Figure 2: Eight synthetic cells recovered by the segmentation pipeline. All 8 are found; cell areas range from 143 to 150 px², close to the analytic value of 148 px².</figcaption>
+</figure>
+<div class="forma-multiple-choice" data-lang="en">
+<p>The noise demonstration shows 4 false cells at threshold 0.05 (no size filter)
+and 0 false cells at threshold 0.50. What roles do the threshold and <code>MIN_CELL_SIZE</code> play?</p>
+<dl>
+<dt>The size filter is the primary defence; the threshold only speeds up computation</dt>
+<dd>Wrong: without an adequate threshold, large noise clusters pass the size filter too; the threshold does the main work.</dd>
+<dt>The threshold and the size filter are equally important and interchangeable</dt>
+<dd>Wrong: they address different failure modes — one filters by intensity, the other by area — and are not interchangeable.</dd>
+<dt>The threshold is irrelevant as long as the size filter is strict enough</dt>
+<dd>Wrong: a very low threshold lets many noise pixels cluster into large components that pass the size filter.</dd>
+<dt>The threshold is the primary defence; the size filter removes small noise blobs that slip past a well-chosen threshold</dt>
+<dd>Correct: at 0.50 $\approx 24\sigma$, noise exceedances are vanishingly rare; the size filter is a secondary backstop for the few that remain.</dd>
+</dl>
+</div>
+<h2>Testing</h2>
+<h3>Noise reduction</h3>
+<ul>
+<li>Smoothing must reduce pixel-to-pixel variance; an increase would indicate a bug or wrong
+  kernel mode.</li>
+</ul>
+<h3>Shape preservation</h3>
+<ul>
+<li><code>scipy.ndimage.gaussian_filter</code> must not change the array shape.</li>
+</ul>
+<h3>Constant image</h3>
+<ul>
+<li>A uniform image has no gradients; smoothing must leave its interior values unchanged.
+  The boundary is affected by zero-padding, so only interior pixels are checked.</li>
+</ul>
+<h3>Cell count</h3>
+<ul>
+<li>With <code>seed=42</code> and default parameters the pipeline must find exactly <code>N_CELLS = 8</code> cells.
+  This pins the full pipeline — generation, smoothing, thresholding, labelling, and size
+  filtering — against a reproducible synthetic ground truth.</li>
+</ul>
+<h3>Cell sizes</h3>
+<ul>
+<li>All detected cell areas must fall in the range 50-350 px².
+  The analytic value is 148 px²; the bounds give a factor of 3 on each side to absorb
+  noise, overlap, and discretisation effects.</li>
+</ul>
+<h3>Empty result above maximum</h3>
+<ul>
+<li>Setting the threshold above the maximum pixel value must return zero cells.</li>
+</ul>
+<h3>Pure noise</h3>
+<ul>
+<li>At threshold 0.05 pure noise must produce at least one false detection, showing that
+  parameter choice matters.</li>
+<li>At the operating threshold it must produce none, showing the threshold is adequate.</li>
+</ul>
+<div data-inc="test_cellseg.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_image</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_image</span><span class="p">,</span> <span class="n">make_pure_noise</span><span class="p">,</span> <span class="n">N_CELLS</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cellseg</span><span class="w"> </span><span class="kn">import</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">segment</span><span class="p">,</span> <span class="n">cell_sizes</span><span class="p">,</span> <span class="n">THRESHOLD</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_smooth_reduces_noise</span><span class="p">():</span>
+    <span class="c1"># Gaussian smoothing must reduce pixel-to-pixel variance.</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">smooth</span><span class="p">(</span><span class="n">noise</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">var</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">noise</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_smooth_preserves_shape</span><span class="p">():</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">IMAGE_SIZE</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">smooth</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_smooth_constant_unchanged</span><span class="p">():</span>
+    <span class="c1"># Smoothing a uniform image must leave interior values unchanged.</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">smooth</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">interior</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">interior</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_segment_finds_all_cells</span><span class="p">():</span>
+    <span class="c1"># With default parameters the pipeline must recover all N_CELLS cells.</span>
+    <span class="n">image</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="n">make_image</span><span class="p">()</span>
+    <span class="n">labeled</span><span class="p">,</span> <span class="n">n_found</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">smooth</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">n_found</span> <span class="o">==</span> <span class="n">N_CELLS</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Expected </span><span class="si">{</span><span class="n">N_CELLS</span><span class="si">}</span><span class="s2"> cells, found </span><span class="si">{</span><span class="n">n_found</span><span class="si">}</span><span class="s2">"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_cell_sizes_reasonable</span><span class="p">():</span>
+    <span class="c1"># Every detected cell must have a pixel area in the physically plausible range.</span>
+    <span class="c1"># At the operating threshold the analytic area is ≈ 148 px²; we allow 50–350 px²</span>
+    <span class="c1"># to accommodate smoothing and noise effects without being unnecessarily tight.</span>
+    <span class="n">image</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_image</span><span class="p">()</span>
+    <span class="n">labeled</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">smooth</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
+    <span class="n">sizes</span> <span class="o">=</span> <span class="n">cell_sizes</span><span class="p">(</span><span class="n">labeled</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">sizes</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Cell too small: </span><span class="si">{</span><span class="n">sizes</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2"> px"</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">sizes</span> <span class="o">&lt;=</span> <span class="mi">350</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Cell too large: </span><span class="si">{</span><span class="n">sizes</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2"> px"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_threshold_above_max_finds_nothing</span><span class="p">():</span>
+    <span class="c1"># A threshold above the maximum smoothed value must produce zero cells.</span>
+    <span class="n">image</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_image</span><span class="p">()</span>
+    <span class="n">labeled</span><span class="p">,</span> <span class="n">n_found</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">smooth</span><span class="p">(</span><span class="n">image</span><span class="p">),</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">999.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">n_found</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_pure_noise_false_positives</span><span class="p">():</span>
+    <span class="c1"># At a threshold of 0.05, pure noise produces false detections.</span>
+    <span class="c1"># Smoothed noise std dev ≈ NOISE_SCALE / (2·sqrt(π)·SMOOTH_SIGMA) ≈ 0.021;</span>
+    <span class="c1"># 0.05 ≈ 2.4σ, so roughly 0.8% of pixels exceed it, forming several blobs.</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">make_pure_noise</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">n_false</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">smooth</span><span class="p">(</span><span class="n">noise</span><span class="p">),</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">n_false</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Expected false positives from pure noise at threshold 0.05"</span>
+
+    <span class="c1"># At the operating threshold (0.50 ≈ 24σ) pure noise must not trigger any cell.</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">n_safe</span> <span class="o">=</span> <span class="n">segment</span><span class="p">(</span><span class="n">smooth</span><span class="p">(</span><span class="n">noise</span><span class="p">),</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">n_safe</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Operating threshold should reject all noise blobs"</span>
+</code></pre></div>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Watershed segmentation</h3>
+<p>The thresholding approach fails when two cells overlap and merge into a single connected
+component.  Implement watershed segmentation: compute the distance transform of the
+binary mask (<code>scipy.ndimage.distance_transform_edt</code>), find local maxima of the distance
+map as seed points, and use <code>scipy.ndimage.watershed_ift</code> (or <code>skimage.segmentation.watershed</code>)
+to split overlapping regions.  Demonstrate that it correctly separates two cells whose
+centres are only 14 pixels apart (closer than <code>MIN_SEPARATION</code>).</p>
+<h3>Intensity-based cell classification</h3>
+<p>Add a second cell type to <code>make_image</code>: dim cells with <code>brightness=0.4</code> alongside the
+standard bright cells with <code>brightness=1.0</code>.  Extend <code>segment</code> to return a label array
+and a list of per-cell mean intensities, then classify each detected cell as bright or
+dim using a simple intensity threshold.  Report precision and recall for each class.</p>
+<h3>Effect of noise on count accuracy</h3>
+<p>Generate 50 images for each of five noise levels:
+$\sigma_\text{noise} \in {0.05, 0.10, 0.15, 0.20, 0.25}$.
+Run the full pipeline on each image and record the number of cells found.
+Plot mean and standard deviation of the cell count as a function of noise level and
+identify the noise level at which the pipeline begins to fail consistently.</p>
+<h3>Adaptive thresholding</h3>
+<p>Real microscopy images often have uneven illumination: the background is brighter in some
+regions than others.  Simulate this by adding a low-frequency gradient
+$G(x,y) = 0.2 \cdot x / \text{IMAGE_SIZE}$ to the synthetic image before adding noise.
+Show that the global threshold misses cells in dark regions or over-detects in bright
+regions, then implement local thresholding (<code>scipy.ndimage.generic_filter</code> with a
+percentile-based local estimate) and show that it restores accurate cell counts.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../massspec/">Peak Detection in Mass Spectra</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../radvel/">Exoplanet Detection via Radial Velocity</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@gvwilson/forma" type="module"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

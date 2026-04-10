@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Spatial Clustering of Archaeological Sites</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a class="active" href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Spatial Clustering of Archaeological Sites</h1>
+<h2>The Problem</h2>
+<ul>
+<li>Archaeological surveys record the locations of sites (settlements, hearths,
+  burial mounds) as 2-D coordinates on a map.</li>
+<li>Sites are rarely distributed uniformly: concentrations may represent settlements
+  around a water source, nodes in a trade network, or ritual landscapes.</li>
+<li><a class="gl-ref" href="../glossary/#spatial_clustering">Spatial clustering</a> groups sites by proximity without
+  requiring the analyst to specify the number of groups in advance.</li>
+<li>The approach here:</li>
+<li>Generate a synthetic set of site locations in which clusters at known centers
+    are surrounded by random background noise.</li>
+<li>Apply <a class="gl-ref" href="../glossary/#dbscan">DBSCAN</a> (Density-Based Spatial Clustering of Applications
+    with Noise) using a KD-tree for fast neighbor lookups.</li>
+<li>Label each site as a cluster member or as noise (an outlier).</li>
+<li>Visualize the result and verify that the planted clusters are recovered.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Why does DBSCAN not require the analyst to specify the number of clusters
+in advance, unlike k-means?</p>
+<dl>
+<dt>Because DBSCAN uses a distance metric and k-means does not.</dt>
+<dd>Wrong: k-means also relies on distances (Euclidean distance to centroids);
+the difference is in how clusters are defined, not whether distance is used.</dd>
+<dt>Because DBSCAN defines clusters as regions of high point density connected</dt>
+<dt>by chains of nearby points, so the number of clusters emerges from the data</dt>
+<dt>given epsilon and min_samples.</dt>
+<dd>Correct: k-means partitions all points into exactly k groups regardless of
+their spatial arrangement; DBSCAN finds arbitrarily shaped dense regions and
+leaves low-density areas unlabelled as noise.</dd>
+<dt>Because DBSCAN always finds more clusters than k-means.</dt>
+<dd>Wrong: DBSCAN can find fewer, more, or the same number of clusters depending
+on the data and parameter choices.</dd>
+<dt>Because DBSCAN ignores noise points, which makes it faster.</dt>
+<dd>Wrong: DBSCAN explicitly identifies noise points as part of its output;
+ignoring outliers is not the reason it avoids pre-specifying k.</dd>
+</dl>
+</div>
+<h2>Core Points, Border Points, and Noise</h2>
+<ul>
+<li>Given a neighborhood radius $\varepsilon$ (epsilon) and a density threshold
+  $m$ (min_samples), DBSCAN classifies each site as one of three types:</li>
+<li><a class="gl-ref" href="../glossary/#core_point">Core point</a>: at least $m$ sites (including itself) lie within
+    distance $\varepsilon$.</li>
+<li>Border point: within $\varepsilon$ of a core point but not itself a core point.</li>
+<li><a class="gl-ref" href="../glossary/#noise_point">Noise point</a>: neither a core point nor within $\varepsilon$
+    of one; labelled $-1$.</li>
+<li>A cluster is the maximal set of sites reachable from any core point by a chain of
+  core-to-neighbor hops within $\varepsilon$.</li>
+</ul>
+<div class="forma-numeric-entry" data-correct="3" data-lang="en" data-tolerance="0">
+<p>Five sites are arranged so that sites A, B, C, D are all within distance
+epsilon of each other, and site E is 2*epsilon away from all others.
+With min_samples = 3, how many clusters does DBSCAN find?</p>
+</div>
+<h2>Epsilon-Ball Queries with a KD-Tree</h2>
+<ul>
+<li>Checking all $\binom{n}{2}$ pairs to find neighbors costs $O(n^2)$.</li>
+<li>A <a class="gl-ref" href="../glossary/#kd_tree">KD-tree</a> indexes points in $k$ dimensions so that all sites
+  within distance $\varepsilon$ of a query point can be retrieved in $O(\log n)$
+  time on average.</li>
+<li><code>scipy.spatial.KDTree.query_ball_tree(tree, eps)</code> returns a list in which
+  entry $i$ contains the indices of all sites within $\varepsilon$ of site $i$,
+  including $i$ itself; computing this for all points at once is faster than
+  issuing $n$ individual queries.</li>
+</ul>
+<h2>Generating Synthetic Site Data</h2>
+<ul>
+<li>Four cluster centers are placed in a 100x100 coordinate space (units: arbitrary
+  survey units such as kilometres).</li>
+<li>Sites within each cluster are drawn from an isotropic Gaussian with standard
+  deviation 5, so most sites lie within 10 units of the center.</li>
+<li>Noise points are scattered uniformly at random across the entire survey region.</li>
+</ul>
+<div data-inc="generate_archcluster.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_sites</span><span class="p">(</span>
+    <span class="n">centers</span><span class="o">=</span><span class="n">CLUSTER_CENTERS</span><span class="p">,</span>
+    <span class="n">spread</span><span class="o">=</span><span class="n">CLUSTER_SPREAD</span><span class="p">,</span>
+    <span class="n">sites_per_cluster</span><span class="o">=</span><span class="n">SITES_PER_CLUSTER</span><span class="p">,</span>
+    <span class="n">n_noise</span><span class="o">=</span><span class="n">N_NOISE</span><span class="p">,</span>
+    <span class="n">region_min</span><span class="o">=</span><span class="n">REGION_MIN</span><span class="p">,</span>
+    <span class="n">region_max</span><span class="o">=</span><span class="n">REGION_MAX</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a Polars DataFrame of synthetic archaeological site locations.</span>
+
+<span class="sd">    Columns:</span>
+<span class="sd">        easting   -- x-coordinate in the survey region</span>
+<span class="sd">        northing  -- y-coordinate in the survey region</span>
+<span class="sd">        true_cluster -- integer cluster index (0, 1, ...) for clustered sites;</span>
+<span class="sd">                        -1 for noise points</span>
+
+<span class="sd">    Clustered sites are drawn from isotropic Gaussian distributions centred on</span>
+<span class="sd">    each entry in centers.  Noise points are placed uniformly at random within</span>
+<span class="sd">    the survey region.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">cluster_id</span><span class="p">,</span> <span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">centers</span><span class="p">):</span>
+        <span class="n">offsets</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">spread</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">sites_per_cluster</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="n">offsets</span><span class="p">:</span>
+            <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">"easting"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">cx</span> <span class="o">+</span> <span class="n">dx</span><span class="p">),</span>
+                    <span class="s2">"northing"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">cy</span> <span class="o">+</span> <span class="n">dy</span><span class="p">),</span>
+                    <span class="s2">"true_cluster"</span><span class="p">:</span> <span class="n">cluster_id</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_noise</span><span class="p">):</span>
+        <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">"easting"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">region_min</span><span class="p">,</span> <span class="n">region_max</span><span class="p">)),</span>
+                <span class="s2">"northing"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">region_min</span><span class="p">,</span> <span class="n">region_max</span><span class="p">)),</span>
+                <span class="s2">"true_cluster"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Running DBSCAN</h2>
+<ul>
+<li>The neighborhood radius $\varepsilon = 12$ captures most intra-cluster pairs
+  (cluster spread $\sigma = 5$, so $\varepsilon = 2.4\sigma$) while the cluster
+  centers are at least 45 units apart, ensuring no inter-cluster reachability.</li>
+<li>$m = 3$ requires at least two neighbors beyond the site itself, which is enough
+  to define a dense region without being so strict that legitimate cluster members
+  become noise.</li>
+</ul>
+<div data-inc="archcluster.py" data-mark="dbscan"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dbscan</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Cluster 2-D site coordinates using the DBSCAN algorithm.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coords      : (n, 2) float array of (easting, northing) values</span>
+<span class="sd">    eps         : neighborhood radius; two sites are neighbors if their</span>
+<span class="sd">                  Euclidean distance is &lt;= eps</span>
+<span class="sd">    min_samples : a site is a core point if at least min_samples sites</span>
+<span class="sd">                  (including itself) lie within its eps-neighborhood</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    labels : length-n integer array; label &gt;= 0 is the cluster index,</span>
+<span class="sd">             label == -1 means the site is noise (not part of any cluster)</span>
+
+<span class="sd">    The algorithm uses scipy.spatial.KDTree for efficient neighborhood queries.</span>
+<span class="sd">    Cluster expansion is breadth-first: starting from each unvisited core</span>
+<span class="sd">    point, all density-reachable sites are assigned the same cluster label.</span>
+<span class="sd">    """</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">KDTree</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+    <span class="n">neighbors</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">query_ball_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
+    <span class="n">is_core</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">nbrs</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_samples</span> <span class="k">for</span> <span class="n">nbrs</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">])</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">cluster_id</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">is_core</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_id</span>
+        <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">labels</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">labels</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_id</span>
+                    <span class="k">if</span> <span class="n">is_core</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+                        <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="n">cluster_id</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">labels</span>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>A site has 4 sites within distance epsilon (including itself) and
+min_samples = 5.  What is its DBSCAN classification?</p>
+<dl>
+<dt>Core point, because it has neighbors within epsilon.</dt>
+<dd>Wrong: core-point status requires at least min_samples neighbors including
+the point itself; 4 &lt; 5, so this site does not qualify.</dd>
+<dt>Border point or noise, depending on whether it is within epsilon of</dt>
+<dt>a core point.</dt>
+<dd>Correct: with fewer than min_samples neighbors it cannot be a core point;
+if a core point is within epsilon it becomes a border point, otherwise noise.</dd>
+<dt>Noise, because it does not have enough neighbors.</dt>
+<dd>Wrong: noise is only assigned to points that are not within epsilon of any
+core point; a non-core point near a core point is a border point, not noise.</dd>
+<dt>Core point, because it has at least one neighbor.</dt>
+<dd>Wrong: having at least one neighbor is not sufficient; the threshold is
+min_samples, which is 5 here.</dd>
+</dl>
+</div>
+<h2>Visualizing the Clusters</h2>
+<div data-inc="archcluster.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_clusters</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a scatter map coloured by cluster label."""</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"easting:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Easting"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"northing:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Northing"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])),</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span>
+                <span class="s2">"cluster_label:N"</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">"Cluster"</span><span class="p">,</span>
+                <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">"category10"</span><span class="p">),</span>
+            <span class="p">),</span>
+            <span class="n">shape</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Shape</span><span class="p">(</span>
+                <span class="s2">"is_noise:N"</span><span class="p">,</span>
+                <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="s2">"false"</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">],</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s2">"circle"</span><span class="p">,</span> <span class="s2">"cross"</span><span class="p">]),</span>
+                <span class="n">legend</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Noise"</span><span class="p">),</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">"DBSCAN clustering of archaeological sites"</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:archcluster-sites">
+<img alt="A scatter plot of site locations in a 100x100 survey region. Four groups of coloured circles cluster near the four planted centers. A smaller number of grey cross markers are scattered at random across the region, representing noise points." src="archcluster-sites.svg"/>
+<figcaption>Figure 1: DBSCAN clustering of 80 synthetic archaeological sites (four clusters of 15 sites each plus 20 noise points). The algorithm recovers all four planted clusters. Noise points (crosses) are those not reachable from any core point.</figcaption>
+</figure>
+<h2>Testing</h2>
+<h3>Site count</h3>
+<ul>
+<li>The generator must produce exactly $|centers| \times$ <code>sites_per_cluster</code> + <code>n_noise</code> rows.</li>
+</ul>
+<h3>Isolated singleton is noise</h3>
+<ul>
+<li>Two points that are more than epsilon apart with <code>min_samples = 3</code> must both
+  be labelled $-1$.</li>
+</ul>
+<h3>Dense patch is one cluster</h3>
+<ul>
+<li>Five points that are all within epsilon of each other must form exactly
+  one cluster with label 0.</li>
+</ul>
+<h3>Two disjoint groups become two clusters</h3>
+<ul>
+<li>Two groups of points separated by more than epsilon must each form their own
+  cluster, producing exactly two distinct cluster labels.</li>
+</ul>
+<h3>Isolated singleton stays noise</h3>
+<ul>
+<li>A single point far from all cluster members must remain labelled $-1$ even
+  when the other points form a valid cluster.</li>
+</ul>
+<h3>Correct cluster count on synthetic data</h3>
+<ul>
+<li>Running DBSCAN with the lesson parameters on the synthetic corpus must
+  recover exactly four clusters.</li>
+</ul>
+<h3>Noise fraction is reasonable</h3>
+<ul>
+<li>The number of sites labelled noise must not exceed twice the planted noise
+  count; with cluster spread 5 and epsilon 12, very few cluster members should
+  be mislabelled.</li>
+</ul>
+<div data-inc="test_archcluster.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_archcluster</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">make_sites</span><span class="p">,</span>
+    <span class="n">CLUSTER_CENTERS</span><span class="p">,</span>
+    <span class="n">SITES_PER_CLUSTER</span><span class="p">,</span>
+    <span class="n">N_NOISE</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">archcluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">dbscan</span><span class="p">,</span> <span class="n">EPS</span><span class="p">,</span> <span class="n">MIN_SAMPLES</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_site_count</span><span class="p">():</span>
+    <span class="c1"># Total rows must equal clustered sites plus noise.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_sites</span><span class="p">()</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">CLUSTER_CENTERS</span><span class="p">)</span> <span class="o">*</span> <span class="n">SITES_PER_CLUSTER</span> <span class="o">+</span> <span class="n">N_NOISE</span>
+    <span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">height</span> <span class="o">==</span> <span class="n">expected</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_no_single_point_cluster</span><span class="p">():</span>
+    <span class="c1"># With MIN_SAMPLES = 3, an isolated point must be labelled noise.</span>
+    <span class="c1"># Two well-separated singletons can never be core points.</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">]])</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">dbscan</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">lbl</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">lbl</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_dense_patch_is_one_cluster</span><span class="p">():</span>
+    <span class="c1"># Five points within eps=1 of each other must form exactly one cluster.</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">dbscan</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">labels</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]))</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">lbl</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">lbl</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_two_disjoint_clusters</span><span class="p">():</span>
+    <span class="c1"># Two groups separated by more than eps must become two clusters.</span>
+    <span class="n">group_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">group_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">group_a</span><span class="p">,</span> <span class="n">group_b</span><span class="p">])</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">dbscan</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">labels</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]))</span> <span class="o">==</span> <span class="mi">2</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_noise_not_merged_into_cluster</span><span class="p">():</span>
+    <span class="c1"># A singleton far from any cluster must remain labelled -1.</span>
+    <span class="n">close</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+    <span class="n">isolated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">50.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">]])</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">close</span><span class="p">,</span> <span class="n">isolated</span><span class="p">])</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">dbscan</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">labels</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_correct_cluster_count_on_synthetic_data</span><span class="p">():</span>
+    <span class="c1"># DBSCAN with the lesson parameters must recover all four planted clusters.</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_sites</span><span class="p">()</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">"easting"</span><span class="p">,</span> <span class="s2">"northing"</span><span class="p">])</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">dbscan</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">EPS</span><span class="p">,</span> <span class="n">MIN_SAMPLES</span><span class="p">)</span>
+    <span class="n">n_clusters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">labels</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]))</span>
+    <span class="k">assert</span> <span class="n">n_clusters</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">CLUSTER_CENTERS</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_noise_fraction_reasonable</span><span class="p">():</span>
+    <span class="c1"># Noise points must not exceed noise points planted plus any cluster</span>
+    <span class="c1"># members that fall outside EPS reach; cluster spread is 5 and EPS is 12</span>
+    <span class="c1"># so very few cluster members should be mislabelled as noise.</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_sites</span><span class="p">()</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">"easting"</span><span class="p">,</span> <span class="s2">"northing"</span><span class="p">])</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">dbscan</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">EPS</span><span class="p">,</span> <span class="n">MIN_SAMPLES</span><span class="p">)</span>
+    <span class="n">n_noise</span> <span class="o">=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="c1"># Allow up to 2x the planted noise count for edge cases.</span>
+    <span class="k">assert</span> <span class="n">n_noise</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">N_NOISE</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Spatial clustering key terms</p>
+<dl>
+<dt>Spatial clustering</dt>
+<dd>The task of partitioning a set of geographic points into groups whose members
+are closer to each other than to points in other groups, without requiring the
+number of groups to be specified in advance</dd>
+<dt>DBSCAN</dt>
+<dd>Density-Based Spatial Clustering of Applications with Noise; a clustering
+algorithm that defines clusters as maximal sets of points connected through
+chains of eps-neighbors, and labels low-density points as noise</dd>
+<dt>Epsilon-neighborhood</dt>
+<dd>The set of all points within distance epsilon of a given point; used in DBSCAN
+to define local density; queried efficiently using a KD-tree</dd>
+<dt>Core point</dt>
+<dd>A point whose epsilon-neighborhood contains at least min_samples points
+(including itself); core points are the seeds from which clusters expand</dd>
+<dt>Noise point</dt>
+<dd>A point that is not a core point and is not within epsilon of any core point;
+labelled -1 by DBSCAN and not assigned to any cluster</dd>
+<dt>KD-tree</dt>
+<dd>A binary space-partitioning tree that indexes k-dimensional points to support
+efficient range queries; <code>scipy.spatial.KDTree</code> returns all points within a
+given distance in O(log n) time on average</dd>
+</dl>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Parameter sensitivity</h3>
+<p>Run DBSCAN on the synthetic data with epsilon values of 5, 12, and 25 and
+min_samples values of 2, 3, and 5 (nine combinations in total).
+Record the number of clusters and noise points for each combination.
+Which settings over-merge distinct clusters?
+Which under-merge and produce many small fragments?</p>
+<h3>Cluster purity</h3>
+<p>For each DBSCAN-assigned cluster, compute the fraction of its members that
+belong to the same planted cluster (the <code>true_cluster</code> column from the generator).
+A perfectly recovered cluster has purity 1.0.
+What is the minimum purity across all four clusters at the lesson parameters?</p>
+<h3>Nearest-neighbor distance plot</h3>
+<p>Before choosing epsilon, plot the distribution of each site's distance to its
+nearest neighbor (excluding itself).
+The elbow in this distribution is a common heuristic for selecting epsilon.
+Does the elbow in this synthetic dataset agree with the lesson value of 12?</p>
+<h3>Convex hull of each cluster</h3>
+<p>For each recovered cluster, compute the convex hull of its member sites using
+<code>scipy.spatial.ConvexHull</code> and report the hull area.
+Larger areas suggest more dispersed clusters.
+Are the hull areas consistent with the planted Gaussian spread of 5?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../interp/">Spatial Interpolation of Climate Data</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@gvwilson/forma" type="module"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

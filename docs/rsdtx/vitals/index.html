@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Anomaly Detection in Patient Vital Signs</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a class="active" href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Anomaly Detection in Patient Vital Signs</h1>
+<h2>The Problem</h2>
+<ul>
+<li>Intensive care units record physiological signals continuously: heart rate, blood pressure,
+  oxygen saturation, respiratory rate.</li>
+<li>Clinicians cannot watch every channel at every moment, so automated flagging of unusual
+  readings reduces the chance of a dangerous change going unnoticed.</li>
+<li>Two qualitatively different anomalies are common: sustained <a class="gl-ref" href="../glossary/#step_change">step changes</a>
+  (the baseline shifts to a new level) and isolated <a class="gl-ref" href="../glossary/#spike_outlier">spikes</a>
+  (a single reading is far from the local trend).</li>
+<li>A simple but effective detector compares each reading to a local reference built from the
+  most recent $w$ readings; a deviation beyond a chosen threshold raises a flag.</li>
+</ul>
+<h2>Rolling Statistics</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#rolling_window">rolling window</a> of width $w$ centred (or trailing) at position $i$
+  uses only the $w$ most recent observations to estimate the local mean and variance.</li>
+<li>This makes the reference adaptive: it follows slow drifts in the baseline without permanently
+  inflating the variance estimate when a sustained shift begins.</li>
+<li>The <a class="gl-ref" href="../glossary/#z_score">z-score</a> of reading $x_i$ against the rolling window is:</li>
+</ul>
+<p>$$z_i = \frac{x_i - \bar{x}_i}{\hat{\sigma}_i}$$</p>
+<p>where $\bar{x}_i$ and $\hat{\sigma}_i$ are the rolling mean and standard deviation.</p>
+<div class="forma-numeric-entry" data-correct="2.0" data-lang="en" data-tolerance="0.01">
+<p>A trailing window of width 3 contains values [68, 70, 72].
+The window mean is 70, and the sample standard deviation is 2.
+A new reading of 74 arrives.
+What is the z-score of 74 against this window?</p>
+</div>
+<h2>Detecting Anomalies</h2>
+<ul>
+<li>A reading is flagged when $|z_i| &gt; \theta$, where $\theta$ is the detection threshold.</li>
+<li>Raising $\theta$ reduces false positives (normal variation incorrectly flagged) at the cost
+  of more false negatives (real anomalies missed); lowering it does the reverse.</li>
+<li>When the rolling standard deviation is zero (all values in the window are identical), no
+  flag is raised: there is no variation to compare against.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>A z-score threshold of $\theta = 3$ is replaced with $\theta = 2$.
+What is the most likely effect on the detector?</p>
+<dl>
+<dt>Fewer true anomalies are detected because the bar is now harder to reach.</dt>
+<dd>Wrong: a lower threshold makes it easier for a reading to exceed the threshold, not harder.</dd>
+<dt>More readings are flagged, including some that are normal variation rather than genuine anomalies.</dt>
+<dd>Correct: the detector becomes more sensitive — it catches more anomalies but also produces more false positives.</dd>
+<dt>Only step changes are detected; spikes are unaffected.</dt>
+<dd>Wrong: the z-score test is symmetric; it flags any deviation regardless of whether it is sustained or isolated.</dd>
+<dt>The rolling standard deviation doubles, compensating for the lower threshold.</dt>
+<dd>Wrong: the standard deviation is computed from the data; changing the threshold does not alter it.</dd>
+</dl>
+</div>
+<h2>Generating Synthetic Vital Signs</h2>
+<ul>
+<li>The baseline is Gaussian noise around 70 bpm (a typical resting heart rate).</li>
+<li>A sustained step change of 12 bpm begins at minute 90, simulating a fever or
+  haemodynamic deterioration.</li>
+<li>Three isolated spikes of 18 bpm above the local baseline are injected at known positions.</li>
+</ul>
+<div data-inc="generate_vitals.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
+<span class="n">N_POINTS</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># number of time points (minutes)</span>
+<span class="n">BASELINE_MEAN</span> <span class="o">=</span> <span class="mf">70.0</span>  <span class="c1"># baseline heart rate (bpm)</span>
+<span class="n">BASELINE_STD</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># normal beat-to-beat variation (bpm)</span>
+<span class="n">STEP_START</span> <span class="o">=</span> <span class="mi">90</span>  <span class="c1"># time index where a sustained step change begins</span>
+<span class="n">STEP_SIZE</span> <span class="o">=</span> <span class="mf">12.0</span>  <span class="c1"># magnitude of the step change (bpm)</span>
+<span class="c1"># Positions of isolated spike outliers and their magnitude.</span>
+<span class="n">SPIKE_POSITIONS</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">165</span><span class="p">]</span>
+<span class="n">SPIKE_SIZE</span> <span class="o">=</span> <span class="mf">18.0</span>  <span class="c1"># spike magnitude above local baseline (bpm)</span>
+</code></pre></div>
+</div>
+<div data-inc="generate_vitals.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_vitals_data</span><span class="p">(</span>
+    <span class="n">n</span><span class="o">=</span><span class="n">N_POINTS</span><span class="p">,</span>
+    <span class="n">baseline_mean</span><span class="o">=</span><span class="n">BASELINE_MEAN</span><span class="p">,</span>
+    <span class="n">baseline_std</span><span class="o">=</span><span class="n">BASELINE_STD</span><span class="p">,</span>
+    <span class="n">step_start</span><span class="o">=</span><span class="n">STEP_START</span><span class="p">,</span>
+    <span class="n">step_size</span><span class="o">=</span><span class="n">STEP_SIZE</span><span class="p">,</span>
+    <span class="n">spike_positions</span><span class="o">=</span><span class="n">SPIKE_POSITIONS</span><span class="p">,</span>
+    <span class="n">spike_size</span><span class="o">=</span><span class="n">SPIKE_SIZE</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a Polars DataFrame with columns 'time', 'heart_rate', and 'is_anomaly'.</span>
+
+<span class="sd">    The baseline is Gaussian noise around baseline_mean.</span>
+<span class="sd">    A sustained step change of step_size bpm begins at step_start.</span>
+<span class="sd">    Isolated spikes of spike_size bpm are injected at spike_positions.</span>
+<span class="sd">    'is_anomaly' marks both step-change positions and spike positions as 1.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">baseline_mean</span><span class="p">,</span> <span class="n">baseline_std</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">values</span><span class="p">[</span><span class="n">step_start</span><span class="p">:]</span> <span class="o">+=</span> <span class="n">step_size</span>
+    <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">spike_positions</span><span class="p">:</span>
+        <span class="n">values</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">+=</span> <span class="n">spike_size</span>
+    <span class="n">anomaly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">anomaly</span><span class="p">[</span><span class="n">step_start</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">spike_positions</span><span class="p">:</span>
+        <span class="n">anomaly</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"time"</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">"heart_rate"</span><span class="p">:</span> <span class="n">values</span><span class="p">,</span> <span class="s2">"is_anomaly"</span><span class="p">:</span> <span class="n">anomaly</span><span class="p">})</span>
+</code></pre></div>
+</div>
+<h2>Rolling Mean and Standard Deviation</h2>
+<div data-inc="vitals.py" data-mark="rolling"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rolling_stats</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Compute trailing rolling mean and standard deviation.</span>
+
+<span class="sd">    For position i the window covers indices [max(0, i - window + 1), i].</span>
+<span class="sd">    The first window - 1 positions use a shorter window as data accumulates.</span>
+<span class="sd">    Standard deviation uses ddof=1 (sample std); positions with only one</span>
+<span class="sd">    value in the window return std = 0.</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">stds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">window</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">segment</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">start</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span>
+        <span class="n">stds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="n">means</span><span class="p">,</span> <span class="n">stds</span>
+</code></pre></div>
+</div>
+<ul>
+<li>The trailing window (ending at the current position) is the natural choice for real-time
+  monitoring: a reading can only be compared against previous observations.</li>
+<li>The first $w - 1$ positions use a shorter window as data accumulates; this warm-up period
+  means the detector is less reliable at the very start of the recording.</li>
+</ul>
+<h2>Flagging Anomalies</h2>
+<div data-inc="vitals.py" data-mark="detect"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">detect_anomalies</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Flag time points where the value deviates from the rolling mean by more than</span>
+<span class="sd">    threshold standard deviations.</span>
+
+<span class="sd">    Returns (flagged, means, stds) where flagged is a boolean array.</span>
+<span class="sd">    A position is flagged when |value - rolling_mean| &gt; threshold * rolling_std.</span>
+<span class="sd">    Positions with rolling_std = 0 are never flagged (no variation to compare against).</span>
+<span class="sd">    """</span>
+    <span class="n">means</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">rolling_stats</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="p">)</span>
+    <span class="n">deviations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">values</span> <span class="o">-</span> <span class="n">means</span><span class="p">)</span>
+    <span class="n">flagged</span> <span class="o">=</span> <span class="n">deviations</span> <span class="o">&gt;</span> <span class="n">threshold</span> <span class="o">*</span> <span class="n">stds</span>
+    <span class="k">return</span> <span class="n">flagged</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">stds</span>
+</code></pre></div>
+</div>
+<div class="forma-matching" data-lang="en">
+<p>Match each anomaly type to the property that makes it detectable.</p>
+<table>
+<thead>
+<tr>
+<th scope="col">Anomaly</th>
+<th scope="col">Detectable because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Isolated spike</td>
+<td>A single reading's z-score exceeds the threshold even though nearby readings are normal</td>
+</tr>
+<tr>
+<td>Sustained step change</td>
+<td>After the window catches up to the new level the z-score may drop, but readings near the transition have large z-scores</td>
+</tr>
+<tr>
+<td>Slow drift</td>
+<td>The rolling mean follows the drift, so z-scores stay small — this detector may miss it</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Visualizing the Results</h2>
+<div data-inc="vitals.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_vitals</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">flagged</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save an Altair figure with the time series, rolling mean, and flagged anomalies."""</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"time"</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">"heart_rate"</span><span class="p">:</span> <span class="n">values</span><span class="p">,</span> <span class="s2">"rolling_mean"</span><span class="p">:</span> <span class="n">means</span><span class="p">})</span>
+    <span class="n">flag_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"time"</span><span class="p">:</span> <span class="n">times</span><span class="p">[</span><span class="n">flagged</span><span class="p">],</span> <span class="s2">"heart_rate"</span><span class="p">:</span> <span class="n">values</span><span class="p">[</span><span class="n">flagged</span><span class="p">]})</span>
+
+    <span class="n">raw_line</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"time:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Time (minutes)"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"heart_rate:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Heart rate (bpm)"</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">mean_line</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"darkorange"</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time:Q"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"rolling_mean:Q"</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">anomaly_pts</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">flag_df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"firebrick"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s2">"triangle-up"</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time:Q"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"heart_rate:Q"</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span> <span class="n">mean_line</span><span class="p">,</span> <span class="n">anomaly_pts</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Anomaly detection in patient vital signs"</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:vitals-anomalies">
+<img alt="Time series of heart rate with rolling mean overlay and red triangle markers at four flagged anomaly positions." src="vitals.svg"/>
+<figcaption>Figure 1: Two hundred minutes of synthetic heart rate (blue line) with 20-minute rolling mean (orange). Red triangles mark the four readings flagged at threshold 3: all three injected spikes and the first point where the step change raises the z-score above 3.</figcaption>
+</figure>
+<h2>Testing</h2>
+<h3>Rolling statistics length</h3>
+<ul>
+<li>The output arrays must have the same length as the input regardless of the window size;
+  an off-by-one in the index calculation is the most common bug.</li>
+</ul>
+<h3>Rolling statistics known values</h3>
+<ul>
+<li>For <code>[1, 2, 3, 4, 5]</code> with window 3, position 2 covers <code>[1, 2, 3]</code>: mean 2.0, sample
+  std 1.0.  Exact integer arithmetic means no tolerance is needed.</li>
+</ul>
+<h3>Single-element window returns std 0</h3>
+<ul>
+<li>At position 0 only one value is in the window; the sample std is undefined ($n - 1 = 0$).
+  The implementation returns 0.0 rather than raising an error or returning NaN.</li>
+</ul>
+<h3>Constant signal produces no anomalies</h3>
+<ul>
+<li>When every value is identical both the rolling mean and the deviation are zero, so
+  $|z_i| = 0 &lt; \theta$ everywhere.  This confirms the zero-std guard works correctly.</li>
+</ul>
+<h3>Isolated spike is detected</h3>
+<ul>
+<li>A single reading of 100 bpm in a constant 70 bpm sequence produces a z-score of
+  approximately 2.8 against window 10 at threshold 2.0 — the spike must be flagged.
+  The tolerance in the comment derivation is $\sigma \approx 9.5$ giving $z \approx 2.84$,
+  which is a 42% safety factor above the threshold.</li>
+</ul>
+<h3>High-threshold flags nothing on normal data</h3>
+<ul>
+<li>With $\theta = 10$ (ten rolling standard deviations) and 200 normally distributed
+  readings (std = 2 bpm), no value should be flagged.  The maximum expected z-score for
+  200 independent Gaussian samples is around 3.5, well below 10.</li>
+</ul>
+<h3>Step change is eventually detected</h3>
+<ul>
+<li>A 15 bpm step change on a 0 bpm noise background produces a z-score above 3 as soon as
+  the window straddles the transition.  This test uses noiseless data to guarantee detection.</li>
+</ul>
+<div data-inc="test_vitals.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vitals</span><span class="w"> </span><span class="kn">import</span> <span class="n">rolling_stats</span><span class="p">,</span> <span class="n">detect_anomalies</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_rolling_stats_length</span><span class="p">():</span>
+    <span class="c1"># Output arrays must match input length regardless of window size.</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">means</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">rolling_stats</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">means</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">stds</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_rolling_stats_known_values</span><span class="p">():</span>
+    <span class="c1"># Position 2 (0-indexed) with window=3 covers values [1, 2, 3].</span>
+    <span class="c1"># Mean = 2.0; sample std (ddof=1) = sqrt(((1-2)^2+(2-2)^2+(3-2)^2)/2) = 1.0.</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+    <span class="n">means</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">rolling_stats</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">means</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">stds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_rolling_stats_single_element_window</span><span class="p">():</span>
+    <span class="c1"># The first position has only one element; std must be 0 (not NaN).</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">])</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">stds</span> <span class="o">=</span> <span class="n">rolling_stats</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">stds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">stds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_constant_signal_no_anomalies</span><span class="p">():</span>
+    <span class="c1"># A perfectly constant signal has zero deviation everywhere, so nothing is flagged.</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">)</span>
+    <span class="n">flagged</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">detect_anomalies</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">flagged</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_isolated_spike_detected</span><span class="p">():</span>
+    <span class="c1"># A single spike far above a constant baseline must be flagged.</span>
+    <span class="c1"># At the spike position the deviation is 30 bpm; with window=10, the</span>
+    <span class="c1"># rolling std at that position is sqrt(9*9 + 27^2)/3 ≈ 9.5, giving a</span>
+    <span class="c1"># z-score of 27/9.5 ≈ 2.8 &gt; 2.0.</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">values</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span> <span class="o">=</span> <span class="mf">100.0</span>
+    <span class="n">flagged</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">detect_anomalies</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">flagged</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_normal_values_not_flagged_high_threshold</span><span class="p">():</span>
+    <span class="c1"># With a very large threshold (10 sigma) no normally distributed values</span>
+    <span class="c1"># should be flagged regardless of random seed.</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">7493418</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">70.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="n">flagged</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">detect_anomalies</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">flagged</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_step_change_eventually_flagged</span><span class="p">():</span>
+    <span class="c1"># A sustained step change of 15 bpm on a 2 bpm background must eventually</span>
+    <span class="c1"># raise the z-score above 3 once the rolling window sees both levels.</span>
+    <span class="c1"># The first WINDOW positions after the step still have mostly pre-step data,</span>
+    <span class="c1"># so we check that at least one point beyond position step_start + window is flagged.</span>
+    <span class="n">WINDOW</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">step_start</span> <span class="o">=</span> <span class="mi">60</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">values</span><span class="p">[</span><span class="n">step_start</span><span class="p">:]</span> <span class="o">=</span> <span class="mf">85.0</span>
+    <span class="n">flagged</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">detect_anomalies</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">WINDOW</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">flagged</span><span class="p">[</span><span class="n">step_start</span> <span class="p">:</span> <span class="n">step_start</span> <span class="o">+</span> <span class="n">WINDOW</span><span class="p">])</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Anomaly detection key terms</p>
+<dl>
+<dt>Rolling window</dt>
+<dd>A fixed-width sliding buffer of the $w$ most recent observations used to estimate local statistics; as new data arrives the oldest observation drops out of the buffer</dd>
+<dt>Z-score</dt>
+<dd>The number of standard deviations by which an observation deviates from the local mean; values beyond a chosen threshold are flagged as anomalies</dd>
+<dt>Detection threshold $\theta$</dt>
+<dd>The z-score cutoff for raising a flag; a higher threshold reduces false positives but may miss smaller anomalies (lower sensitivity)</dd>
+<dt>Step change</dt>
+<dd>A sustained shift in the baseline level; a rolling detector flags readings near the transition but adapts once the window has fully moved past it</dd>
+<dt>Spike</dt>
+<dd>An isolated outlier reading that returns to baseline immediately; the rolling window is not contaminated for long so subsequent readings quickly return to normal z-scores</dd>
+</dl>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Bidirectional window</h3>
+<p>The trailing window can react only after the anomaly has entered the window.
+Replace the trailing window with a centred window that looks $w/2$ steps back and $w/2$
+steps forward.  Show that this detects a spike at the exact position it occurs rather than
+$w/2$ steps after.  What is the cost of using a centred window in a real-time application?</p>
+<h3>Threshold sweep</h3>
+<p>Generate 100 replicate datasets with the same parameters but different random seeds.
+For each dataset count the true positive rate (fraction of injected anomalies flagged)
+and false positive rate (fraction of normal readings flagged) at thresholds $1, 2, 3, 4$.
+Plot the resulting ROC curve and find the threshold that maximises the F1 score.</p>
+<h3>Exponentially weighted mean</h3>
+<p>Replace the uniform rolling window with an exponentially weighted moving average (EWMA):</p>
+<p>$$\bar{x}_i = \alpha x_i + (1 - \alpha) \bar{x}_{i-1}$$</p>
+<p>with smoothing factor $\alpha \in (0, 1)$.  Derive the corresponding EWMA variance
+estimator and re-implement <code>rolling_stats</code> using it.  Compare the detection lag between
+the uniform and EWMA detectors on the step-change data.</p>
+<h3>Multivariate anomaly score</h3>
+<p>A patient has two simultaneous signals: heart rate and respiratory rate.
+Anomalies in both signals at the same time are more clinically significant than anomalies
+in just one.  Combine the two individual z-scores into a single multivariate score
+(e.g. the Euclidean norm of the two z-score vectors) and show that it improves detection
+of anomalies that affect both signals simultaneously while maintaining the per-signal
+false-positive rate.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../survival/">Survival Analysis with Kaplan-Meier</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../tumor/">Tumor Classification by Logistic Regression</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

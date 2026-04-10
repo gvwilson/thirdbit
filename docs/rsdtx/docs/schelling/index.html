@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Schelling Segregation Model</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a class="active" href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Schelling Segregation Model</h1>
+<h2>The Problem</h2>
+<ul>
+<li>In 1971, economist Thomas Schelling asked whether mild individual preferences for
+  similar neighbours could produce large-scale residential segregation.</li>
+<li>The answer is yes: even when each agent requires only 30% of occupied neighbours
+  to share its type, the population self-organises into sharply segregated clusters.</li>
+<li>The <a class="gl-ref" href="../glossary/#schelling_model">Schelling model</a> is an <a class="gl-ref" href="../glossary/#agent_based_model">agent-based model</a>:</li>
+<li>Place two types of agents on a grid, leaving some cells empty.</li>
+<li>At each step, identify dissatisfied agents and move each to a random empty cell.</li>
+<li>Repeat until no agent moves, or for a fixed number of steps.</li>
+<li>The model is a landmark result in computational social science because it shows that
+  macro-level patterns can emerge from micro-level rules without central coordination.</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Which of the following best explains why the Schelling model produces segregation
+even at a low threshold such as 30%?</p>
+<dl>
+<dt>Agents actively seek to be surrounded entirely by their own type.</dt>
+<dd>Wrong: agents only require that a minimum fraction of neighbours are the same type;
+they do not seek any particular neighbourhood composition beyond that.</dd>
+<dt>Dissatisfied agents move to random empty cells, but satisfied agents stay put,</dt>
+<dt>so same-type clusters accumulate around contented individuals.</dt>
+<dd>Correct: movement is triggered by dissatisfaction alone.  Once a cluster forms,
+its interior agents are satisfied and stop moving, reinforcing the boundary.</dd>
+<dt>The grid is too small for the two types to mix uniformly.</dt>
+<dd>Wrong: the result holds for grids of many sizes and is not a finite-size effect.</dd>
+<dt>Random movement eventually produces uniform mixing.</dt>
+<dd>Wrong: random movement does not preserve spatial structure; systematic movement
+away from dissatisfying neighbourhoods does.</dd>
+</dl>
+</div>
+<h2>The Grid and Neighbourhood</h2>
+<ul>
+<li>The grid is an $N \times N$ array.  Each cell holds one of three values:
+  0 (empty), 1 (red agent), or 2 (blue agent).</li>
+<li>The <a class="gl-ref" href="../glossary/#moore_neighborhood">Moore neighbourhood</a> of a cell is the set of up to
+  eight surrounding cells (horizontal, vertical, and diagonal).</li>
+<li>The same-neighbour fraction for an agent at position $(r, c)$ is:</li>
+</ul>
+<p>$$f(r,c) = \frac{\text{occupied neighbours of the same type}}{\text{total occupied neighbours}}$$</p>
+<ul>
+<li>An agent is satisfied when $f(r,c) \geq \theta$, where $\theta$ is the threshold.</li>
+<li>An agent with no occupied neighbours is treated as satisfied ($f = 1$) so that
+  isolated agents do not drift endlessly across empty space.</li>
+</ul>
+<div class="forma-numeric-entry" data-correct="0.375" data-lang="en" data-tolerance="0.001">
+<p>An agent has 8 fully occupied Moore neighbours, of which 3 are the same type.
+What is its same-neighbour fraction?</p>
+</div>
+<h2>Initializing the Grid</h2>
+<ul>
+<li>Equal numbers of red and blue agents are placed at random in a fraction
+  $(1 - p_e)$ of cells, where $p_e$ is the empty fraction.</li>
+<li>The empty cells provide the vacancies that dissatisfied agents move into.</li>
+</ul>
+<div data-inc="schelling.py" data-mark="grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_grid</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">GRID_SIZE</span><span class="p">,</span> <span class="n">empty_fraction</span><span class="o">=</span><span class="n">EMPTY_FRACTION</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a random grid of RED and BLUE agents with some EMPTY cells.</span>
+
+<span class="sd">    Each cell contains 0 (EMPTY), 1 (RED), or 2 (BLUE).  The two agent</span>
+<span class="sd">    types are equal in number; the remaining cells are empty.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">n_cells</span> <span class="o">=</span> <span class="n">size</span> <span class="o">*</span> <span class="n">size</span>
+    <span class="n">n_empty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_cells</span> <span class="o">*</span> <span class="n">empty_fraction</span><span class="p">)</span>
+    <span class="n">n_agents</span> <span class="o">=</span> <span class="n">n_cells</span> <span class="o">-</span> <span class="n">n_empty</span>
+    <span class="n">n_red</span> <span class="o">=</span> <span class="n">n_agents</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">n_blue</span> <span class="o">=</span> <span class="n">n_agents</span> <span class="o">-</span> <span class="n">n_red</span>
+    <span class="n">flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">EMPTY</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_empty</span> <span class="o">+</span> <span class="p">[</span><span class="n">RED</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_red</span> <span class="o">+</span> <span class="p">[</span><span class="n">BLUE</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_blue</span><span class="p">)</span>
+    <span class="n">rng</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">flat</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Computing the Same-Neighbour Fraction</h2>
+<ul>
+<li>Iterating over the 8 relative offsets $(\Delta r, \Delta c) \in {-1,0,1}^2 \setminus \{(0,0)\}$
+  visits each neighbour exactly once.</li>
+<li>Grid boundaries are handled by checking that the neighbour index lies within $[0, N)$.</li>
+</ul>
+<div data-inc="schelling.py" data-mark="neighbors"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">same_neighbor_fraction</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the fraction of occupied neighbours of the same type.</span>
+
+<span class="sd">    Uses the Moore neighbourhood (up to 8 surrounding cells).</span>
+<span class="sd">    Returns 1.0 when no neighbours are occupied so isolated agents</span>
+<span class="sd">    are always considered satisfied.</span>
+<span class="sd">    """</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">agent_type</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
+    <span class="n">n_same</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">n_occupied</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">dr</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">dc</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">dr</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">dc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">row</span> <span class="o">+</span> <span class="n">dr</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="n">dc</span>
+            <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EMPTY</span><span class="p">:</span>
+                <span class="n">n_occupied</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">==</span> <span class="n">agent_type</span><span class="p">:</span>
+                    <span class="n">n_same</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">n_occupied</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">n_same</span> <span class="o">/</span> <span class="n">n_occupied</span>
+</code></pre></div>
+</div>
+<h2>One Simulation Step</h2>
+<ul>
+<li>All dissatisfied agents are identified first, then all empty cells.</li>
+<li>Both lists are shuffled independently and paired in order; each dissatisfied agent
+  moves to the corresponding empty cell if one exists.</li>
+<li>Shuffling before pairing ensures no agent is systematically favoured.</li>
+</ul>
+<div data-inc="schelling.py" data-mark="step"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a new grid after moving all dissatisfied agents.</span>
+
+<span class="sd">    Each dissatisfied agent is paired with a randomly chosen empty cell</span>
+<span class="sd">    and moved there.  Agents that cannot be matched (too few vacancies)</span>
+<span class="sd">    stay in place.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">rng</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dissatisfied</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EMPTY</span> <span class="ow">and</span> <span class="n">same_neighbor_fraction</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">threshold</span>
+    <span class="p">]</span>
+    <span class="n">empties</span> <span class="o">=</span> <span class="p">[(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">==</span> <span class="n">EMPTY</span><span class="p">]</span>
+    <span class="n">rng</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">dissatisfied</span><span class="p">)</span>
+    <span class="n">rng</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">empties</span><span class="p">)</span>
+    <span class="n">new_grid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dissatisfied</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">empties</span><span class="p">):</span>
+            <span class="n">er</span><span class="p">,</span> <span class="n">ec</span> <span class="o">=</span> <span class="n">empties</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">new_grid</span><span class="p">[</span><span class="n">er</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span>
+            <span class="n">new_grid</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">EMPTY</span>
+    <span class="k">return</span> <span class="n">new_grid</span>
+</code></pre></div>
+</div>
+<h2>Measuring Segregation</h2>
+<ul>
+<li>The satisfaction rate (i.e., the fraction of agents that meet the threshold) rises as
+  the grid segregates and reaches 1.0 when every agent is happy with its neighbourhood.</li>
+</ul>
+<div data-inc="schelling.py" data-mark="segregation"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">satisfaction_rate</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the fraction of agents that are satisfied.</span>
+
+<span class="sd">    A higher satisfaction rate indicates that agents have clustered with</span>
+<span class="sd">    like neighbours; it approaches 1.0 as stable clusters form.</span>
+<span class="sd">    """</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">n_agents</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">n_satisfied</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">!=</span> <span class="n">EMPTY</span><span class="p">:</span>
+                <span class="n">n_agents</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">same_neighbor_fraction</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">:</span>
+                    <span class="n">n_satisfied</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">n_agents</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">n_satisfied</span> <span class="o">/</span> <span class="n">n_agents</span>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>After 20 steps with threshold 0.3, the satisfaction rate is 0.92.
+What does this mean?</p>
+<dl>
+<dt>92% of agents have at least 30% same-type neighbours.</dt>
+<dd>Correct: satisfaction rate counts the fraction of agents whose same-neighbour
+fraction meets or exceeds the threshold.</dd>
+<dt>92% of cells are occupied.</dt>
+<dd>Wrong: the fraction of occupied cells is fixed by the initial empty fraction
+and does not change during the simulation.</dd>
+<dt>The two agent types are 92% spatially separated.</dt>
+<dd>Wrong: satisfaction rate measures individual agent happiness, not a global
+spatial segregation index.</dd>
+<dt>92% of agents are surrounded entirely by same-type neighbours.</dt>
+<dd>Wrong: the threshold is 0.3, not 1.0; an agent with even one same-type
+neighbour out of three total may already be satisfied.</dd>
+</dl>
+</div>
+<h2>Running the Simulation</h2>
+<div data-inc="schelling.py" data-mark="run"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">N_STEPS</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Run the simulation and return a list of grid snapshots.</span>
+
+<span class="sd">    Element 0 is the initial grid; element i is the grid after i steps.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">snapshots</span> <span class="o">=</span> <span class="p">[</span><span class="n">grid</span><span class="o">.</span><span class="n">copy</span><span class="p">()]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+        <span class="n">snapshots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">snapshots</span>
+</code></pre></div>
+</div>
+<div data-inc="schelling.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_snapshots</span><span class="p">(</span><span class="n">snapshots</span><span class="p">,</span> <span class="n">steps_to_show</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a figure showing the grid state at the given step indices.</span>
+
+<span class="sd">    White cells are empty, red cells are type RED, blue cells are type BLUE.</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">steps_to_show</span><span class="p">)</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">([</span><span class="s2">"white"</span><span class="p">,</span> <span class="s2">"tomato"</span><span class="p">,</span> <span class="s2">"steelblue"</span><span class="p">])</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">steps_to_show</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">snapshots</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">"nearest"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Step </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:schelling-grid">
+<img alt="Four grid snapshots at steps 0, 5, 10, and 20. Step 0 shows a random mix of red and blue. By step 20 large patches of each colour have formed." src="schelling-grid.svg"/>
+<figcaption>Figure 1: Grid state at steps 0, 5, 10, and 20 (GRID_SIZE=50, EMPTY_FRACTION=0.2, THRESHOLD=0.3). The initially random arrangement self-organises into large segregated clusters. The satisfaction rate rises from 0.832 at step 0 to 1.000 at step 20.</figcaption>
+</figure>
+<h2>Testing</h2>
+<h3>Grid shape and contents</h3>
+<ul>
+<li><code>make_grid</code> must produce a $(50 \times 50)$ array whose cells are all in ${0, 1, 2}$.</li>
+</ul>
+<h3>Balanced agent counts</h3>
+<ul>
+<li>Red and blue agents are built as equal halves of the occupied pool, so their counts
+  differ by at most 1 (an off-by-one when the total number of agents is odd).</li>
+</ul>
+<h3>Neighbour fractions</h3>
+<ul>
+<li>An isolated agent (no occupied neighbours) must return 1.0, matching the convention
+  that isolated agents are considered satisfied.</li>
+<li>An agent surrounded entirely by the same type returns 1.0; surrounded entirely by the
+  opposite type returns 0.0.</li>
+</ul>
+<h3>Stable segregated grid</h3>
+<ul>
+<li>A $4 \times 4$ grid with red in the left two columns and blue in the right two
+  columns is fully satisfied: border agents have $5/8 = 0.625$ same-type neighbours,
+  which exceeds the threshold of 0.3.  One step must leave the grid unchanged.</li>
+</ul>
+<h3>Satisfaction increases</h3>
+<ul>
+<li>Starting from the random initial grid, the satisfaction rate after 20 steps must
+  exceed the initial rate; agents self-organise into clusters.</li>
+</ul>
+<div data-inc="test_schelling.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">schelling</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">EMPTY</span><span class="p">,</span>
+    <span class="n">RED</span><span class="p">,</span>
+    <span class="n">BLUE</span><span class="p">,</span>
+    <span class="n">GRID_SIZE</span><span class="p">,</span>
+    <span class="n">SEED</span><span class="p">,</span>
+    <span class="n">make_grid</span><span class="p">,</span>
+    <span class="n">same_neighbor_fraction</span><span class="p">,</span>
+    <span class="n">step</span><span class="p">,</span>
+    <span class="n">satisfaction_rate</span><span class="p">,</span>
+    <span class="n">run</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_grid_shape</span><span class="p">():</span>
+    <span class="c1"># Grid must be a square with side GRID_SIZE.</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">make_grid</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">grid</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">GRID_SIZE</span><span class="p">,</span> <span class="n">GRID_SIZE</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_grid_cell_values</span><span class="p">():</span>
+    <span class="c1"># Every cell must be EMPTY, RED, or BLUE.</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">make_grid</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span><span class="o">.</span><span class="n">issubset</span><span class="p">({</span><span class="n">EMPTY</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">})</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_grid_agent_counts_balanced</span><span class="p">():</span>
+    <span class="c1"># The two agent types are built as equal halves of the agent pool,</span>
+    <span class="c1"># so their counts differ by at most 1 (rounding when n_agents is odd).</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">make_grid</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">grid</span> <span class="o">==</span> <span class="n">RED</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">grid</span> <span class="o">==</span> <span class="n">BLUE</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_neighbor_fraction_isolated_agent</span><span class="p">():</span>
+    <span class="c1"># An agent with no occupied neighbours has same_neighbor_fraction 1.0</span>
+    <span class="c1"># so it is treated as satisfied and never moves.</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">RED</span>
+    <span class="k">assert</span> <span class="n">same_neighbor_fraction</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_neighbor_fraction_all_same</span><span class="p">():</span>
+    <span class="c1"># An agent surrounded entirely by the same type has fraction 1.0.</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">RED</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">same_neighbor_fraction</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_neighbor_fraction_all_different</span><span class="p">():</span>
+    <span class="c1"># An agent surrounded entirely by the opposite type has fraction 0.0.</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">BLUE</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">RED</span>
+    <span class="k">assert</span> <span class="n">same_neighbor_fraction</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_stable_grid_unchanged</span><span class="p">():</span>
+    <span class="c1"># A perfectly segregated 4x4 grid (RED left, BLUE right) has every</span>
+    <span class="c1"># agent meeting the 0.3 threshold, so no movement should occur.</span>
+    <span class="c1"># Border agents (column 1 or 2) have at least 5 same-type neighbours</span>
+    <span class="c1"># out of 8, giving a fraction of 0.625 &gt;= THRESHOLD.</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">grid</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">RED</span>
+    <span class="n">grid</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="n">BLUE</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">step</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="n">rng</span><span class="p">),</span> <span class="n">grid</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_satisfaction_increases</span><span class="p">():</span>
+    <span class="c1"># Running 20 steps from the random initial grid must raise the</span>
+    <span class="c1"># satisfaction rate; agents self-organise into clusters.</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">make_grid</span><span class="p">()</span>
+    <span class="n">initial</span> <span class="o">=</span> <span class="n">satisfaction_rate</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="n">snapshots</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">satisfaction_rate</span><span class="p">(</span><span class="n">snapshots</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">initial</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Schelling model key terms</p>
+<dl>
+<dt>Schelling model</dt>
+<dd>An agent-based simulation in which agents on a grid move to random empty cells
+when fewer than a threshold fraction of their occupied neighbours share their type;
+even a low threshold produces large-scale segregation</dd>
+<dt>Moore neighbourhood</dt>
+<dd>The set of up to 8 cells immediately surrounding a grid cell (horizontal, vertical,
+and diagonal); cells on the boundary have fewer than 8 neighbours</dd>
+<dt>Same-neighbour fraction</dt>
+<dd>$f = \text{same-type occupied neighbours} / \text{total occupied neighbours}$;
+defined as 1.0 for isolated agents; an agent is satisfied when $f \geq \theta$</dd>
+<dt>Satisfaction rate</dt>
+<dd>The fraction of agents whose same-neighbour fraction meets the threshold;
+increases as the grid segregates toward a stable clustered state</dd>
+<dt>Emergent segregation</dt>
+<dd>Large-scale spatial separation of agent types arising from individual satisfaction
+rules without any global coordination or explicit goal of segregation</dd>
+</dl>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Effect of threshold</h3>
+<p>Run the simulation with thresholds of 0.1, 0.3, 0.5, and 0.7.
+Plot the satisfaction rate over time for each threshold on the same axes.
+At what threshold does the model fail to reach a satisfaction rate above 0.95
+within 50 steps?</p>
+<h3>Asymmetric populations</h3>
+<p>Modify <code>make_grid</code> so that red agents make up 70% of the occupied cells and
+blue agents make up 30%.
+Run the simulation with threshold 0.3 and compare the final satisfaction rate
+with the balanced case.
+Which type ends up more satisfied, and why?</p>
+<h3>Segregation index</h3>
+<p>The satisfaction rate measures individual happiness, not the spatial extent of
+clustering.
+Implement a <code>mean_cluster_size</code> function that computes the mean size of same-type
+connected components using <code>scipy.ndimage.label</code>.
+Plot mean cluster size over time alongside the satisfaction rate.</p>
+<h3>Convergence detection</h3>
+<p>Add a <code>converged</code> parameter to <code>run</code> that stops early when fewer than 1% of
+agents are dissatisfied.
+How many steps are needed to converge at threshold 0.3 for a 100x100 grid?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../breakpoint/">Structural Break Detection in Economic Time Series</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../vocab/">Vocabulary Richness in Historical Texts</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@gvwilson/forma" type="module"></script>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

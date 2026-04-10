@@ -316,7 +316,7 @@ The constructor takes an extra parameter <code>max_queue_size</code>:</p>
 <p>It uses this value to initialize queues:</p>
 <div data-inc="backpressure_broker.py" data-mark="subscribe"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Queue</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Create a bounded queue for a subscriber to a topic."""</span>
-        <span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">max_capacity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_queue_size</span><span class="p">)</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_queue_size</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="p">[</span><span class="n">topic</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">queue</span>
 </code></pre></div>
@@ -421,8 +421,8 @@ and the system reaches equilibrium where the publishing rate matches the consump
 [0.5] FastPublisher published: Message 2 from FastPublisher (interval: 0.5s)
 [1.0] FastPublisher published: Message 3 from FastPublisher (interval: 0.5s)
 [1.5] FastPublisher published: Message 4 from FastPublisher (interval: 0.5s)
-[2.0] FastPublisher published: Message 5 from FastPublisher (interval: 0.5s)
 [2.0] SlowSubscriber received from 'events': Message 2 from FastPublisher (latency: 1.5)
+[2.0] FastPublisher published: Message 5 from FastPublisher (interval: 0.5s)
 [2.5] FastPublisher published: Message 6 from FastPublisher (interval: 0.5s)
 [3.0] FastPublisher published: Message 7 from FastPublisher (interval: 0.5s)
 [3.5] FastPublisher BACKPRESSURE - slowing to 1.0s interval
@@ -467,7 +467,7 @@ we either evict a lower-priority message or discard the one that just arrived:</
                 <span class="c1"># Displace lowest priority item if new message has higher priority</span>
                 <span class="n">bisect</span><span class="o">.</span><span class="n">insort</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">_items</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
                 <span class="n">kept</span> <span class="o">=</span> <span class="n">message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">queue</span><span class="o">.</span><span class="n">_items</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-                <span class="n">queue</span><span class="o">.</span><span class="n">_items</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">_items</span><span class="p">[:</span> <span class="n">queue</span><span class="o">.</span><span class="n">_max_capacity</span><span class="p">]</span>
+                <span class="n">queue</span><span class="o">.</span><span class="n">_items</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">_items</span><span class="p">[:</span> <span class="n">queue</span><span class="o">.</span><span class="n">_capacity</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">kept</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">num_delivered</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">else</span><span class="p">:</span>
@@ -522,6 +522,7 @@ and of outstanding acknowledgments:</p>
 The lambda captures the acknowledgment ID and calls <code>_check_ack()</code> after the timeout:</p>
 <div data-inc="ack_broker.py" data-mark="publish"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Publish with acknowledgment."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_published</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">queues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topics</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">topic</span><span class="p">,</span> <span class="p">[])</span>
 
         <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">queues</span><span class="p">:</span>
@@ -549,7 +550,7 @@ The lambda captures the acknowledgment ID and calls <code>_check_ack()</code> af
         <span class="k">if</span> <span class="n">ack_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">:</span>
             <span class="n">msg</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pending_acks</span><span class="p">[</span><span class="n">ack_id</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">queue</span><span class="o">.</span><span class="n">_getters</span><span class="p">:</span>
-                <span class="n">evt</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">_getters</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">evt</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">_getters</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
                 <span class="n">evt</span><span class="o">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">queue</span><span class="o">.</span><span class="n">_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>

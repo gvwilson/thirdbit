@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Percolation in a Porous Medium</title>
+<meta content="Research Software Design and Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation">
+<a href="../">Research Software Design and Testing by Example</a>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a class="active" href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<span aria-hidden="true">·</span>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+</nav>
+<main id="main-content">
+<h1>Percolation in a Porous Medium</h1>
+<h2>The Problem</h2>
+<ul>
+<li>Porous materials such as sandstone, soil, and filter membranes have a random network of connected pores.</li>
+<li>A fluid injected at one face can flow to the other face only if there is a continuous path of connected open pores.</li>
+<li>The critical question is: at what fraction of open pores does flow first become possible?</li>
+<li>This is the <a class="gl-ref" href="../glossary/#percolation_threshold">percolation threshold</a>, a sharp transition that appears in hydrology, materials science, and network theory.</li>
+</ul>
+<h2>The Grid Model</h2>
+<ul>
+<li>We approximate the material as a square grid: each cell is independently open (passable) with probability $p$ or blocked (solid) with probability $1-p$.</li>
+<li>This is <a class="gl-ref" href="../glossary/#site_percolation">site percolation</a> on a 2D square lattice with 4-neighbor (von Neumann) connectivity.</li>
+<li>"Percolation" means a connected path of open cells exists from any cell in the top row to any cell in the bottom row.</li>
+</ul>
+<div data-inc="porous.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">GRID_SIZE</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># side length of the square grid (cells)</span>
+<span class="n">N_TRIALS</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># independent trials per probability value</span>
+<span class="n">N_PROBS</span> <span class="o">=</span> <span class="mi">41</span>  <span class="c1"># number of probability values from 0.0 to 1.0 inclusive</span>
+<span class="n">RNG_SEED</span> <span class="o">=</span> <span class="mi">7493418</span>
+
+<span class="c1"># Theoretical site-percolation threshold for a 2D square lattice with</span>
+<span class="c1"># 4-neighbor (von Neumann) connectivity.  From Stauffer &amp; Aharony,</span>
+<span class="c1"># Introduction to Percolation Theory (2nd ed., 1994), Appendix B.</span>
+<span class="n">THRESHOLD_THEORY</span> <span class="o">=</span> <span class="mf">0.5927</span>
+</code></pre></div>
+</div>
+<div data-inc="porous.py" data-mark="make-grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_grid</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a GRID_SIZE x GRID_SIZE boolean array.</span>
+
+<span class="sd">    Each cell is independently True (open) with probability p.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">GRID_SIZE</span><span class="p">,</span> <span class="n">GRID_SIZE</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">p</span>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>The expression <code>rng.random((GRID_SIZE, GRID_SIZE)) &lt; p</code> produces a boolean grid.
+What fraction of its cells are True on average?</p>
+<dl>
+<dt>$1 - p$</dt>
+<dd>Wrong: cells with a uniform random value less than p are True with probability p, not 1-p.</dd>
+<dt>$p$</dt>
+<dd>Correct: each cell is drawn from Uniform(0, 1) and is less than p with probability p.</dd>
+<dt>$p^2$</dt>
+<dd>Wrong: the cells are independent; their joint probability involves products only when all must be True simultaneously.</dd>
+<dt>$\sqrt{p}$</dt>
+<dd>Wrong: the comparison <code>&lt; p</code> gives probability p directly, with no square root.</dd>
+</dl>
+</div>
+<h2>Depth-First Search</h2>
+<ul>
+<li>We test percolation by searching for a path from the top row to the bottom row.</li>
+<li><a class="gl-ref" href="../glossary/#depth_first_search">Depth-first search</a> (DFS) explores as far as possible along each branch before backtracking.</li>
+<li>All open cells in row 0 are added to a stack as starting points; the search succeeds as soon as any visited cell reaches the last row.</li>
+</ul>
+<div data-inc="porous.py" data-mark="percolates"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">percolates</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return True if an open path connects any top-row cell to any bottom-row cell.</span>
+
+<span class="sd">    Uses iterative depth-first search with 4-neighbor (von Neumann) connectivity.</span>
+<span class="sd">    All open cells in row 0 are added to the stack as starting points.</span>
+<span class="sd">    The search succeeds as soon as any visited cell lies in the last row.</span>
+<span class="sd">    """</span>
+    <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncols</span><span class="p">)</span> <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">]]</span>
+    <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="n">nrows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">dr</span><span class="p">,</span> <span class="n">dc</span> <span class="ow">in</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+            <span class="n">nr</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">dr</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="n">dc</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">nr</span> <span class="o">&lt;</span> <span class="n">nrows</span>
+                <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">nc</span> <span class="o">&lt;</span> <span class="n">ncols</span>
+                <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">]</span>
+            <span class="p">):</span>
+                <span class="n">visited</span><span class="p">[</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">nr</span><span class="p">,</span> <span class="n">nc</span><span class="p">))</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>visited</code> prevents cells from being added to the stack twice, keeping the search $O(N^2)$ in the grid size.</li>
+<li>Marking cells as visited before the main loop (not after popping) ensures no cell is pushed onto the stack more than once.</li>
+</ul>
+<div class="forma-ordering" data-lang="en">
+<p>Put these steps in the correct order for the iterative DFS percolation test.</p>
+<ol>
+<li>Collect all open cells in row 0 and push them onto the stack; mark them as visited</li>
+<li>Pop a cell (r, c) from the stack</li>
+<li>If r equals the last row index, return True (percolation found)</li>
+<li>For each unvisited open 4-neighbor, mark it visited and push it onto the stack</li>
+<li>If the stack is empty and the last row was never reached, return False</li>
+</ol>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Why must cells be marked as visited before they are popped from the stack, rather than after?</p>
+<dl>
+<dt>Marking after popping is a valid alternative that produces the same result.</dt>
+<dd>Wrong: marking after popping allows the same cell to be pushed multiple times, making the algorithm O(N^4) instead of O(N^2).</dd>
+<dt>Marking before popping prevents a cell from being pushed onto the stack more than once.</dt>
+<dd>Correct: once a cell is marked visited, no future neighbor scan will add it again, bounding the stack size by the number of cells.</dd>
+<dt>The visited array must be filled in top-to-bottom order to work correctly.</dt>
+<dd>Wrong: the visited array is indexed by (row, column), not traversal order; order of marking does not matter.</dd>
+<dt>Marking after popping would cause the algorithm to miss cells in the last row.</dt>
+<dd>Wrong: the check <code>r == nrows - 1</code> happens after popping; the order of marking does not affect which cells are checked.</dd>
+</dl>
+</div>
+<h2>Sweeping the Probability</h2>
+<ul>
+<li>We run <code>N_TRIALS</code> independent trials at each probability value and record the fraction that percolate.</li>
+<li>At low $p$, almost no trial percolates; at high $p$, almost every trial does.</li>
+<li>The transition from 0 to 1 sharpens as the grid size increases.</li>
+</ul>
+<div data-inc="porous.py" data-mark="sweep"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sweep</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Return a DataFrame with the percolation fraction at each probability.</span>
+
+<span class="sd">    For each p in a uniform grid from 0 to 1, runs N_TRIALS independent</span>
+<span class="sd">    experiments and records the fraction that percolate.  All trials share</span>
+<span class="sd">    a single RNG to ensure reproducibility from RNG_SEED.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">RNG_SEED</span><span class="p">)</span>
+    <span class="n">probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">N_PROBS</span><span class="p">)</span>
+    <span class="n">fractions</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">sum</span><span class="p">(</span><span class="n">percolates</span><span class="p">(</span><span class="n">make_grid</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">rng</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_TRIALS</span><span class="p">))</span> <span class="o">/</span> <span class="n">N_TRIALS</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">probs</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"probability"</span><span class="p">:</span> <span class="n">probs</span><span class="p">,</span> <span class="s2">"fraction_percolating"</span><span class="p">:</span> <span class="n">fractions</span><span class="p">})</span>
+</code></pre></div>
+</div>
+<div data-inc="porous.py" data-mark="estimate-threshold"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">estimate_threshold</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the smallest p where the percolation fraction first reaches 0.5.</span>
+
+<span class="sd">    On a finite grid the percolation transition is sharp but not a true step</span>
+<span class="sd">    function.  The crossing of 0.5 is a conventional and reproducible</span>
+<span class="sd">    estimator of the finite-size threshold.</span>
+<span class="sd">    """</span>
+    <span class="n">above</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"fraction_percolating"</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">above</span><span class="p">[</span><span class="s2">"probability"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">above</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Visualizing the Results</h2>
+<div data-inc="porous.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return an Altair line chart of percolation fraction vs. open probability."""</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"probability:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Open-cell probability p"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
+                <span class="s2">"fraction_percolating:Q"</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">"Fraction of trials that percolate"</span><span class="p">,</span>
+                <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]),</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Percolation threshold sweep"</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:porous-sweep">
+<img alt="S-shaped curve: fraction percolating vs. open probability. The curve rises steeply near p = 0.59." src="porous.svg"/>
+<figcaption>Figure 1: Percolation fraction vs. open-cell probability p on a 20 x 20 grid, 200 trials per point. The transition is centred near the theoretical threshold p_c = 0.5927.</figcaption>
+</figure>
+<h2>Testing</h2>
+<h3>Boundary cases</h3>
+<ul>
+<li>At $p = 0$ all cells are closed; the stack starts empty and the search returns <code>False</code> immediately.</li>
+<li>At $p = 1$ all cells are open; a straight vertical path always exists.</li>
+<li>A single-row grid percolates if and only if any cell in that row is open (row 0 and row $N-1$ are the same).</li>
+</ul>
+<h3>Fraction in $[0, 1]$</h3>
+<ul>
+<li>Each trial produces a boolean; the fraction is a count divided by <code>N_TRIALS</code>, always in $[0, 1]$.</li>
+</ul>
+<h3>Threshold near theory</h3>
+<ul>
+<li>On an infinite lattice the threshold is $p_c \approx 0.5927$ (Stauffer &amp; Aharony 1994).</li>
+<li>On a $20 \times 20$ grid with 200 trials the finite-size correction and Monte Carlo variance together are within 0.07 of this value.</li>
+<li>A tolerance of 0.07 is tight enough to catch a wrong algorithm but loose enough to accommodate finite-size effects.</li>
+</ul>
+<div data-inc="test_porous.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">porous</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RNG_SEED</span><span class="p">,</span>
+    <span class="n">THRESHOLD_THEORY</span><span class="p">,</span>
+    <span class="n">estimate_threshold</span><span class="p">,</span>
+    <span class="n">make_grid</span><span class="p">,</span>
+    <span class="n">percolates</span><span class="p">,</span>
+    <span class="n">sweep</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_empty_grid_never_percolates</span><span class="p">():</span>
+    <span class="c1"># When p = 0 every cell is closed (False), so the stack is empty from</span>
+    <span class="c1"># the start and the DFS returns False immediately.</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">RNG_SEED</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">make_grid</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">percolates</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_full_grid_always_percolates</span><span class="p">():</span>
+    <span class="c1"># When p = 1 every cell is open (True).  A straight vertical path</span>
+    <span class="c1"># through column 0 connects row 0 to row GRID_SIZE - 1.</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">RNG_SEED</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">make_grid</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">percolates</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_single_row_grid</span><span class="p">():</span>
+    <span class="c1"># A one-row grid percolates if and only if at least one cell in that row</span>
+    <span class="c1"># is open, because the top row and the bottom row are the same row.</span>
+    <span class="n">open_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
+    <span class="k">assert</span> <span class="n">percolates</span><span class="p">(</span><span class="n">open_row</span><span class="p">)</span>
+    <span class="n">closed_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]])</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">percolates</span><span class="p">(</span><span class="n">closed_row</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_fractions_in_unit_interval</span><span class="p">():</span>
+    <span class="c1"># Each trial either percolates or not, so the fraction must lie in [0, 1].</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">sweep</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"fraction_percolating"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"fraction_percolating"</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_threshold_near_theory</span><span class="p">():</span>
+    <span class="c1"># On a 20 x 20 grid with 200 trials the finite-size threshold should be</span>
+    <span class="c1"># within 0.07 of the infinite-lattice value 0.5927.  Finite-size effects</span>
+    <span class="c1"># and Monte Carlo variance both contribute; a tolerance of 0.07 gives a</span>
+    <span class="c1"># comfortable margin without being so wide that a wrong algorithm passes.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">sweep</span><span class="p">()</span>
+    <span class="n">p_c</span> <span class="o">=</span> <span class="n">estimate_threshold</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p_c</span> <span class="o">-</span> <span class="n">THRESHOLD_THEORY</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.07</span><span class="p">,</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"estimated threshold </span><span class="si">{</span><span class="n">p_c</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> is too far from theory </span><span class="si">{</span><span class="n">THRESHOLD_THEORY</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="0.5927" data-lang="en" data-tolerance="0.002">
+<p>The theoretical percolation threshold for 2D site percolation on a square lattice with
+4-neighbor connectivity is commonly cited as 0.5927.
+To three decimal places, what is <code>THRESHOLD_THEORY</code> as defined in <code>porous.py</code>?</p>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Larger grids</h3>
+<p>Increase <code>GRID_SIZE</code> to 50 and rerun <code>sweep</code> (you may need to reduce <code>N_TRIALS</code> to 50 to keep the run time reasonable).
+Does the threshold estimate get closer to 0.5927?
+Does the transition curve become steeper?</p>
+<h3>8-neighbor connectivity</h3>
+<p>Change the neighbor offsets in <code>percolates</code> from the 4-neighbor pattern to 8-neighbor (Moore neighborhood):
+add the four diagonal directions $(\pm 1, \pm 1)$.
+The theoretical threshold for 8-neighbor site percolation is approximately 0.407.
+Update <code>THRESHOLD_THEORY</code> and verify that <code>test_threshold_near_theory</code> still passes.</p>
+<h3>Bond percolation</h3>
+<p>In bond percolation, edges between adjacent cells are open with probability $p$ (rather than cells themselves).
+Implement a <code>make_bond_grid</code> function that creates a random boolean array for horizontal bonds and another for vertical bonds.
+Modify <code>percolates</code> to use bond arrays instead of a cell array.
+The theoretical threshold for 2D bond percolation on a square lattice is exactly $p_c = 0.5$.
+Estimate it numerically and compare.</p>
+<h3>Cluster size distribution</h3>
+<p>Instead of returning only a boolean, modify <code>percolates</code> to return the sizes of all connected open clusters
+found during the DFS.
+At $p = p_c$, the largest cluster grows as a power law of the grid size $N$.
+Run sweeps at several grid sizes and plot the largest cluster size vs. $N$ near the threshold.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../flood/">Flood Frequency Analysis</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Design and Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../sir/">Fitting an SIR Epidemic Model</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
