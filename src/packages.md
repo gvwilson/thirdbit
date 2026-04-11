@@ -3,6 +3,10 @@ title: "Packages"
 template: page
 ---
 
+<div class="row" markdown="1">
+<div class="col-6 col" markdown="1">
+<div class="card" markdown="1">
+
 ## asimpy
 
 `asimpy` is a simple discrete event simulation framework
@@ -13,6 +17,11 @@ which makes it easier to model modern asynchronous Python APIs.
 -   [PyPI][asimpy-pkg]
 -   [ReadTheDocs][asimpy-docs]
 -   [GitHub][asimpy-repo]
+
+</div>
+</div>
+<div class="col-6 col" markdown="1">
+<div class="card" markdown="1">
 
 ## chart_xkcd
 
@@ -25,6 +34,14 @@ this package adds a few features and provides a Python wrapper.
 -   [ReadTheDocs][chart-docs]
 -   [GitHub][chart-repo]
 
+</div>
+</div>
+</div>
+
+<div class="row" markdown="1">
+<div class="col-6 col" markdown="1">
+<div class="card" markdown="1">
+
 ## forma
 
 `forma` is a collection of formative assessment widgets written in JavaScript
@@ -34,6 +51,11 @@ or by writing stylized HTML or Markdown.
 -   [NPM][forma-pkg]
 -   [GitHub][forma-repo]
 
+</div>
+</div>
+<div class="col-6 col" markdown="1">
+<div class="card" markdown="1">
+
 ## jorma
 
 `jorma` uses static and dynamic analysis to determine
@@ -41,6 +63,14 @@ the [roles of variables][roles] in Python programs.
 
 -   [PyPI][jorma-pkg]
 -   [GitHub][jorma-repo]
+
+</div>
+</div>
+</div>
+
+<div class="row" markdown="1">
+<div class="col-6 col" markdown="1">
+<div class="card" markdown="1">
 
 ## mccole
 
@@ -53,20 +83,26 @@ and other features needed in tutorials.
 -   [ReadTheDocs][mccole-docs]
 -   [GitHub][mccole-repo]
 
+</div>
+</div>
+<div class="col-6 col" markdown="1">
+<div class="card" markdown="1">
+
 ## snailz
 
 `snailz` is a synthetic data generator
 that models a study of snails in the Pacific Northwest
 which are growing to unusual size as a result of exposure to pollution.
-The package generates fully-reproducible datasets of varying sizes and with varying statistical properties,
-and is intended for classroom use.
-For example,
-an instructor can give each learner a unique dataset to analyze,
-while learners can test their analysis pipelines using datasets they generate themselves.
+The package generates fully-reproducible datasets of varying sizes
+and with varying statistical properties.
 
 -   [PyPI][snailz-pkg]
 -   [ReadTheDocs][snailz-docs]
 -   [GitHub][snailz-repo]
+
+</div>
+</div>
+</div>
 
 [asimpy-docs]: https://asimpy.readthedocs.io/
 [asimpy-pkg]: https://pypi.org/project/asimpy/
