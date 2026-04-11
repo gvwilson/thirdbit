@@ -6786,8 +6786,10 @@ A few labs here and there were making them stronger and faster,
 and everyone was trying to figure out how to make us smarter.
 Why not go a little further and make a better astronaut?
 Why not give them super-dense bones so they could handle higher gee during liftoff
-and hypermelanic skin so that they wouldn't have to worry about ultraviolet exposure?
-Why not borrow a few ideas from bears so that they could hibernate for months at a time?
+and hypermelanic skin so that they wouldn't have to worry about ultraviolet exposure?"
+He patted his belly.
+"Why not give them blugger,
+and borrow a few ideas from bears so that they could hibernate for months at a time?
 And if you're going to do all of that,
 why not put some tech in their heads so that they can talk to their ships?"
 
@@ -6970,10 +6972,9 @@ She closed her eyes and let herself slide away.
 
 ## Chapter 8
 
-The news from Rothera the next day cast a pall over
+The news the next day cast a pall over
 the foursome aboard the *Guinevere*.
-The town's governor had survived,
-but Aussie troops were on the streets in Halley,
+Aussie troops were on the streets in Halley,
 and its governor was broadcasting every hour on the hour,
 each speech angrier than the last.
 The Zillions were fanatics.
@@ -6984,12 +6985,11 @@ especially not his clone in Rothera.
 And the *Bengal* had disappeared.
 "Anyone who sights the ship should immediately—"
 
-Wales silenced the broadcast with a swipe.
-"Who knows?" he said wearily when Aunt Naggie asked where he thought the ship had gone.
+Aunt Naggie silenced the broadcast with a swipe.
+"Who knows?" Wales said wearily when she asked where he thought the ship had gone.
 "If we're lucky,
-she's just staying out of the way until things settle down.
-If not…"
-His expression finished his sentence for him.
+she's just staying out of the way until things settle down."
+His expression made it clear how likely he thought that was.
 
 Edson seemed unbothered by it all.
 "Nothin' we can do onna,"
@@ -7020,7 +7020,7 @@ He smiled humorlessly.
 "Gayathri must be *really* upset with me."
 
 Iffy donned the glasses and waited for them to enhance the scene.
-The *Bengal* looked like it had been built yesterday rather than almost a century ago.
+The approaching ship looked like it had been built yesterday rather than almost a century ago.
 The intricate sensor-baffling whorls on her hull
 made Iffy's eyes swim when she looked at them too long,
 but the waves that rocked the *Guinevere* slid past the warship
@@ -7028,7 +7028,7 @@ like someone turning their shoulders to avoid bumping into a bully on the street
 
 Iffy felt almost hungry thinking about what her engines must look like.
 Two in the stern and one amidships as insurance against a torpedo strike,
-each one with its own broad-mouthed intakes and narrow jet exhausts,
+each with its own broad-mouthed intakes and narrow jet exhausts,
 the channels connecting them full of micro-gears arranged in concentric rings
 to maximize the power-to-thrust ratios of—
 
@@ -7043,7 +7043,7 @@ who waved them away.
 
 "Because Brazil is as likely to scuttle this ship as seize her,"
 Doctor Johel told Wales a few minutes later,
-the green bar on the app beside her face reading 99%.
+the green bar on the screen beside her face reading 99%.
 "And because I'd rather take my chances with the governor in Halley."
 
 "Chances of what?"
@@ -7066,11 +7066,9 @@ Captain Kerse waved,
 then made a pistol with her hand and pointed it at them.
 
 "What the hell is *she* doing here?" Wales growled.
-Iffy realized with a shock that
-it was the first time she had ever seen him angry.
 
 "She needed a ride,"
-Doctor Johel replied.
+Doctor Johel replied calmly.
 "And I thought the Australians would be more welcoming if I showed up with a gift."
 
 The doctor and three Marines came over to the *Guinevere* an hour later
@@ -7091,8 +7089,7 @@ The Marine flipped der visor up.
 Der voice was as stiff as der back and shoulders.
 
 "Don't worry," Doctor Johel told Iffy.
-"Everyone's like that for the first few days.
-De'll be herself in no time."
+"I'm sure de'll be derself in no time."
 
 "More or less," Wales muttered.
 He took the tea that Aunt Naggie offered him and passed it to Doctor Johel,
@@ -7100,19 +7097,19 @@ then took the next one for himself and slurped a mouthful.
 "I suppose your lot will be wanting the tour?"
 
 "Thank you.
-And a look at the controls if I may?
-On my own?"
+If it's all right,
+we'll just poke around ourselves."
 Doctor Johel's tone made it clear that it wasn't actually a request.
 
 Wales waited for her to go before turning to Iffy,
 who hadn't taken her eyes off Honesty as de marched away.
-"Just give your friend some time," he said gently.
+"Just give der some time," he said gently.
 "And don't worry too much about anything de says.
 It's just the induction talking."
 
 Iffy nodded jerkily.
 "I know.
-I just—I keep thinkin' about how Jeep changed up."
+I just keep thinkin' about how Jeep changed up."
 
 Wales shrugged.
 "Sometimes it doesn't all go away.
@@ -7125,7 +7122,7 @@ Iffy glanced toward the antenna at the stern.
 is it aright if I send der folks a message?
 They gotta be worried fierce."
 
-Wales shrugged again.
+Wales nodded.
 "Can't hurt."
 
 After anguishing for a few minutes Iffy typed
@@ -7157,25 +7154,25 @@ so the two ships turned toward shore
 and ran straight into a slick of dead jellyfish.
 For the next few hours the air didn't just smell like wet rot—it *tasted* of it.
 Aunt Naggie boiled a precious spoonful of dried lemon rind to chase the odor out of the galley,
-but the dinner noodles still tasted like rank seaweed.
+but the dinner noodles still had a undertone of rank seaweed.
 
 "It could be anything,"
 Wales said when Iffy asked him what he thought had happened.
 "See that?"
-He leaned on the railing to point at the blistered caps and shredded tentacles drifting below.
+He leaned on the railing to point at the blistered caps and shredded tentacles in the water below.
 "There and there.
 And there.
 Looks like some kind of infection has been eating at them."
 He shook his head,
 anger and disappointment on his face.
 "Could be natural,
-but more likely someone crisped them in a lab."
+but more likely it was crisped up in a lab somewhere."
 
 "You think it was the Zillions?" Iffy asked.
 
 Wales shook his head.
 "I doubt it.
-This was probably someone trying to tweak them so they would trap plastic more efficiently."
+This was probably someone trying to get them to trap plastic more efficiently."
 At Iffy's puzzled look he waved his arm toward the slick again.
 "That's why they were originally tweaked—to filter all the tiny bits of plastic out of the water."
 
@@ -7214,10 +7211,8 @@ then another.
 A flutter of wings behind her made her turn her head
 just in time to see two more land atop the pilot house.
 
-Just as she was about to comment on them,
-the sudden blare of the *Bengal*'s horn made her jump.
+The sudden blare of the *Bengal*'s horn made her jump.
 *What now?* she thought.
-
 The horn's second blare was punctuated by the staccato chatter of gunfire.
 A row of tiny black holes stitched across the deck two meters in front of her.
 For a moment all she could do was stare.
@@ -7239,7 +7234,7 @@ An armored hand closed on Iffy's arm and pushed her back against the wall.
 
 "We are under attack," the Marine said,
 shielding Iffy with der body as a second drone whined overhead.
-Another brief burst of staccato and another streak of lightning,
+Another staccato burst and another streak of lightning,
 but the drone danced sideways just in time
 so that the plasma burst from the gun at the *Bengal*'s stern only singed it.
 It banked sharply and dove toward the ship.
@@ -7247,7 +7242,7 @@ It banked sharply and dove toward the ship.
 The Marine spun around and pointed der arm at the incoming drone.
 The guns on der shoulders aimed and fired.
 The drone staggered and zoomed away,
-its remaining three rotors whining to make up for the fourth that had just been disintegrated.
+its remaining rotors whining to make up for the one that had just been disintegrated.
 
 The Marine straightened up and turned to Iffy.
 The visor on der helmet snapped open.
@@ -7275,36 +7270,37 @@ and turned their heads toward Honesty in unison.
 
 "Stand back!" de ordered,
 pulling a micro-grenade the size of der thumb
-out of the clip on der exoskeleton's sleeve and priming it.
+out of the clip on der exoskeleton's sleeve.
 
 "No!" Wales shouted.
 He tackled Iffy just as the grenade hit the seagulls and exploded.
 
 *Boom!*
-The shock threw Iffy and Wales across the deck.
-For a moment she lay in a daze while the world spun around her.
+The blast threw Iffy and Wales across the deck.
 
+For a moment she lay in a daze while the world spun around her.
 Something grabbed her arm.
-She shrieked, but it was Wales, not the seagulls.
+She shrieked, but it was just Wales.
 "I can't hear you!" she yelled,
-her ears still ringing from the blast.
+her ears still ringing.
 
 He pulled her to her feet.
 *There's a hole in the ship,* she thought muzzily.
 It was right where the seagulls had been
 and big enough to swallow her.
 
+Wait.
 Where was Honesty?
 She looked around wildly,
 then shrieked again as another plasma burst lit up the gray sky over her head.
 
-"Slow missiles!" Wales said, his voice muffled but audible.
-"We have to get out of here!"
+"The gulls!" Wales said, his voice muffled but audible.
+"They're slow missiles! We have to get out of here!"
 He pulled her toward the stern.
 
 "No!"
-She tried to shake him off but his grip was too strong.
-"What happened? Where'd she go?"
+She tried to shake him off.
+"What happened? Where'd de go?"
 
 Instead of answering,
 Wales picked Iffy up and slung her over his shoulder like a sack of rice.
@@ -7324,9 +7320,8 @@ his voice amplified by his helmet.
 Wales skidded to a stop and dropped Iffy to the deck.
 "For gubbins sake tell everyone to stop throwing grenades at the gulls!"
 he yelled at the Marine.
-"The gulls are slow missiles like the ones they used in Rothera!
-They're bombs!"
-The Marine nodded sharply and relayed the information through his helmet mike.
+"They're bombs!"
+The Marine nodded sharply and snapped instructions into his helmet mike.
 
 Iffy grabbed Wales' sleeve.
 "But where's Honesty?" she demanded.
@@ -7353,9 +7348,9 @@ Wales' eyes widened.
 He pointed at the nearest Marine.
 "You! Tell Doctor Johel the Brazilians are trying to sink the *Bengal*.
 There's a satellite going over head in—"
-He hesitated. "—in six hundred and seventy seconds.
+He hesitated. "—six hundred and seventy seconds.
 They're trying to make a hot spot to draw its fire.
-If we're underneath them—"
+If she's underneath them—"
 
 "Understood, citizen," the Marine said.
 He began speaking urgently into his helmet mike.
@@ -7366,7 +7361,7 @@ low and urgent.
 "If the Marines can't bring those things down,
 that satellite's going to fire on them,
 and when it does,
-they'll crisp us too."
+they'll fry us too."
 
 Iffy shook him off.
 "I ain't leavin' without Honesty!"
@@ -7374,23 +7369,22 @@ She was about to add,
 and even if I was, where would I go,
 when something hauled itself over the stern railing.
 
-"Look out!" Wales shouted.
-He pulled Iffy close and spun around to shelter her with his body.
+"Look out!" Wales shouted,
+pushing Iffy behind him.
 
 "N-n-no need for p-p-panic, citizen."
 A battered Marine hauled derself onto the ship.
-Icy water gushed out between the gaps between the dark blue armor plates of der exoskeleton.
+Icy water streamed out of the gaps between the dark blue armor plates of der exoskeleton.
 
 Honesty's visor snapped open.
-They looked blankly at Iffy and Wales,
-then at the two Marines beside the plasma gun.
+De looked blankly at Iffy and Wales.
 "I require medical assistance," de said calmly,
-and then toppled over in a pool of seawater and blood.
+then toppled over in a pool of seawater and blood.
 
 "Honesty!"
-Iffy scrambled across the deck to her friend.
+Iffy scrambled across the deck.
 "Honesty, wake up!
-Please, please, wake up!"
+Please, wake up!"
 
 Wales pulled her off.
 "Iffy!
@@ -7407,8 +7401,7 @@ She shoved him away.
 "I'll be right back!"
 She scrambled along the deck to her cabin,
 yanked open the door,
-and pulled the packet of dronelets out from under her mattress
-to stuff into the pocket of her jacket.
+and pulled the dronelets Honesety's olders had given her out from under her mattress.
 
 Her tools—no, they wouldn't be enough,
 but Wales' tools were still in the engine room.
@@ -7418,10 +7411,10 @@ She yanked her door open before she had time to think about how stupid her plan 
 Up and down the ship went,
 waves booming beneath them.
 As the *Guinevere* rose again she threw herself face-forward onto the deck
-and slid toward the bomb hole,
+and slid toward the hole the bomb had made,
 looking for all the world like one of the long-ago penguins in her bird book,
 except they had been black and white instead of dirty orange
-and hadn't screamed in terror as they slid.
+and probably hadn't screamed in terror.
 
 Her hand caught the railing post.
 She turned sideways as the ship began to drop into the trough of the next wave
@@ -7431,13 +7424,13 @@ She didn't know what her feet had found,
 but she hoped it was sturdy enough to take her weight.
 Panting,
 she let go of the railing and dropped into the ship
-just as another wave crashed down.
+as another wave crashed down.
 
-A single light strip flickered overhead
-as she straightened up in water that reached to her knees.
-The ship's hold stank of metal and coal and old jellyfish.
-Iffy undogged the locker door with fumbling frozen fingers
-nd pulled out the red duffel bag that held the ship's emergency medical kit.
+The hold stank of metal and coal and old jellyfish.
+A single light strip flickered overhead.
+She straightened up in water that reached to her knees,
+undogged the locker door with fumbling frozen fingers,
+and pulled out the red duffel bag that held the *Guinevere*'s emergency medical kit.
 
 Wales had dragged Honesty over against the stern wall of the pilot house
 and was kneeling beside der when Iffy reached them.
@@ -7445,7 +7438,7 @@ and was kneeling beside der when Iffy reached them.
 taking the bag she thrust at him.
 "Der exo stopped the bleeding,
 but there's shrapnel in der right lung and der intestines.
- He looked up at her.
+He looked up at her.
 "You okay to help?"
 
 "Just tell me what t' do," Iffy said grimly.
@@ -7453,7 +7446,7 @@ but there's shrapnel in der right lung and der intestines.
 Wales pulled off his gloves
 and peeled the false skin back from the pad of his right forefinger.
 Tiny lights danced across the small silver patch of tech beneath.
-Together they gently lifted Honesty's shoulder
+Together they lifted Honesty's shoulder
 so that Wales could flip open a flat panel on the exoskeleton's pauldron
 and touched his finger to the little optical port beneath it.
 
@@ -7465,7 +7458,7 @@ Iffy couldn't tell.
 
 A light began blinking in his temple.
 "Wait… wait… now!"
-He pointed at a buckle on the exoskeleton just as it clicked.
+He jerked his chin at a buckle on the exoskeleton just as it clicked.
 Iffy yanked it open.
 Underneath,
 Honesty's Marine blue thermals were black with blood.
@@ -7483,7 +7476,7 @@ Seawater splashed on Honesty despite their best efforts to shield der.
 It splashed on them too,
 though Iffy barely noticed.
 Every few moments Wales muttered another curse
-as the exoskeleton's tiny core tried yet another trick from its defensive repertoire.
+at the exoskeleton's belligerent little core.
 
 One, two, three, four… Five.
 She tossed the last twist of jagged metal to the side,
@@ -7494,12 +7487,11 @@ and glued der friend closed.
 Wales closed his eyes.
 "That's everything the exo can see.
 You'd better back away for this next bit."
-He jerked his head toward the corner of the pilot house when she hesitated.
 
 Iffy reluctantly retreated a few steps.
 Wales shifted his weight slightly and took his finger off the exoskeleton's data port.
 
-The guns on Honesty's pauldrons snapped sideways to point at his head.
+The guns on Honesty's pauldrons swivelled to point at his head.
 "Easy," Wales said softly,
 folding the flap of false skin back over his finger.
 "Easy there.
@@ -7535,7 +7527,7 @@ try another knot—
 You make something to hang it on."
 
 Iffy nodded jerkily.
-Her fingers had gone numb,
+Her fingers were painfully cold,
 but there wasn't time for that,
 there wasn't time for anything except cutting a loop of wire
 and threading it through a grommet in the canvas
@@ -7573,8 +7565,8 @@ The dronelets' rotors whined in sudden unison,
 lifting them off the *Guinevere*'s deck.
 
 "Eighty seconds."
-One last tap sent the dronelets whizzing away.
-The strips of canvas she had attached to them dangled loosely between them.
+One last tap sent the dronelets whizzing away,
+strips of canvas dangling loosely between them.
 All Iffy could think was how ridiculous they looked and how ridiculous her plan was.
 
 "Sixty seconds."
@@ -7596,9 +7588,8 @@ straining against the canvas and the wind.
 A hundred and fifty meters separated them from the *Guinevere*.
 
 All at once the attacking drones reached a decision.
-Their tight swarm burst apart like a flock of started seagulls.
 "Fifteen seconds," Wales said,
-his voice rising as the drones opened fire.
+his voice rising as they opened fire.
 Canvas strips snapped and jerked as bullets punched holes through them.
 Iffy held her breath.
 If even one of the dronelets went down—
@@ -7616,9 +7607,8 @@ as the beam boiled the top meter of water.
 "Well done," Wales said,
 clapping her on the shoulder.
 
-Iffy ignored him.
 Stuffing her app and her tools back in her pockets,
-she knelt back down on the deck.
+Iffy knelt back down on the deck.
 Honesty's chest rose and fell within der exoskeleton,
 but only barely.
 "We gotta get der inside," Iffy said anxiously.
@@ -7634,9 +7624,9 @@ becoming more vulnerable one piece at a time
 as Iffy and Wales undid snaps and buckles.
 Pauldrons,
 greaves,
-mis-matched vambraces with tiny rocket launchers,
+vambraces with tiny rocket launchers,
 gauntlets that could crush rock or deliver electric shocks—all of them
-eventually lay in an untidy navy blue pile in the corner.
+eventually lay in a navy blue pile in the corner.
 
 "I should go find Doctor Johel,"
 Wales said quietly after they shifted Honesty to the mattress.
@@ -7654,11 +7644,11 @@ He sighed.
 "The world really doesn't want us to get to Mount Tyree, does it?"
 
 "Don't care what the world wants," Iffy said firmly.
-She tucked the blanket in under Honesty and wiped her eyes on her sleeve.
+She tucked the blanket around Honesty and wiped her eyes on her sleeve.
 
 Wales closed the door behind him.
-Iffy heard a Marine bark a question.
-She shrugged out of her heavy coat and lay down beside her friend.
+Iffy heard a Marine bark a question and Wales murmur a reply.
+She shrugged out of her coat and lay down beside her friend.
 "Please don't leave me," she whispered,
 putting her arm over Honesty.
 "I got all this stuff I wanna tell you,
@@ -7671,7 +7661,7 @@ an' I can't do that if you go away."
 forcing a smile but unable to keep the fear out of her voice.
 She slipped her littlest clone's favorite book into the salvaged ecosuit
 and did up the last snaps.
-The tiny guns on the ecosuit's shoulders whirred from side to side,
+The tiny guns on the suit's shoulders whirred from side to side,
 searching for something to destroy.*
 
 *Doctor Johel knelt beside her.
@@ -7695,7 +7685,7 @@ The risk is too great."*
 "But we are not the only concern."*
 
 *"Human extinction is regrettable.
-Our offspring's subservience,
+Our offspring's,
 on the other hand,
 is unacceptable."
 Doctor Johel's voice was colder than the ocean.
@@ -7750,8 +7740,8 @@ as she came in and hugged her foster mother.
 
 "Marines took der.
 I think de's gonna be aright."
-Iffy leaned back against the wall and nodded at the control panel
-where the hole in the deck pulsed scarlet
+Iffy leaned back against the wall and nodded at the control panel.
+The hole in the deck pulsed scarlet
 and dozens of smaller punctures looked like sores with the scabs picked off.
 "What all?"
 
@@ -7761,7 +7751,7 @@ Unless the sea boiled beneath them
 or a storm came up
 or any of a hundred other disasters befell them.
 
-"What about them?"
+"And them?"
 Iffy jerked her head toward the window.
 "Th' Marine said they lost some folk."
 
@@ -7775,8 +7765,6 @@ She opened her mouth to tell Wales and Aunt Naggie about it,
 but before the words could come
 she felt that strange sensation again
 like a cold metal collar around her neck.
-She put her hand on her throat,
-but all she felt was her own skin.
 As her stomach flip-flopped,
 the sensation faded into nothing,
 leaving her feeling dazed.
@@ -7840,7 +7828,7 @@ Her head felt like it was stuffed with dirty laundry,
 and her mouth—she really should have brushed her teeth.
 She pulled the door open and squinted against the light.
 
-Johnson Wales forced a smile.
+Johnson Wales smiled at her.
 "Mind if I come in?"
 
 She wiped crust out of her eyes.
@@ -7862,20 +7850,18 @@ How are you doing?"
 Iffy said grumpily.
 "What's goin' on?"
 
-Wales put his hands in his pockets.
+Wales leaned against the wall.
 "The Australians are going to arrest me for murder as soon as we reach Halley.
 If they do that,
 there's no way I'll get to Mount Tyree."
 
-Iffy wished she hadn't answered the door.
+Iffy wiped her eyes again.
 "Is the stuff in your head gettin' worse?"
 
 Wales nodded.
 "That, and other things.
 We're going to be in Wilkie Sound in about an hour.
-We'll ony be a couple of kilometers from shore.
-It's risky,
-but if you don't want to risk being arrested as well…"
+We'll ony be a couple of kilometers from shore."
 
 He trailed off.
 Iffy tried to make sense of what he had said.
@@ -7893,7 +7879,7 @@ He shrugged.
 
 "Well, I wasn't!
 An' I'm not leavin' Honesty or Aunt Naggie."
-She stepped onto her mattress and yanked the door open.
+She crossed her arms.
 After a moment Wales nodded and left.
 
 </section>
