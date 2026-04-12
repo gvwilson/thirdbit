@@ -53,6 +53,8 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
+<span aria-hidden="true">·</span>
+<a href="https://github.com/gvwilson/sdxjs">Repository</a>
 </nav>
 <main id="main-content">
 <h1>Module Loader</h1>
@@ -64,7 +66,7 @@ The key requirement for such a function is to avoid accidentally overwriting thi
 if we just <code>eval</code> some code and it happens to assign to a variable called <code>x</code>,
 anything called <code>x</code> already in our program might be overwritten.
 We therefore need a way to <a class="gl-ref" href="../glossary/#encapsulate">encapsulate</a> the contents of what we're loading.
-Our approach is based on <a class="bib-ref" href="../bibliography/#Casciaro2020">Casciaro2020</a>,
+Our approach is based on [<a class="bib-ref" href="../bibliography/#Casciaro2020">Casciaro2020</a>],
 which contains a lot of other useful information as well.</p>
 <h2 id="module-loader-namespace">How can we implement namespaces?</h2>
 <p>A <a class="gl-ref" href="../glossary/#namespace">namespace</a> is a collection of names in a program

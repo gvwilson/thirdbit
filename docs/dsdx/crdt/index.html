@@ -49,6 +49,8 @@
 <li><a href="../asimpy/">Discrete Event Simulation with asimpy</a></li>
 </ul>
 </div>
+<span aria-hidden="true">·</span>
+<a href="https://github.com/gvwilson/dsdx">Repository</a>
 </nav>
 <main id="main-content">
 <h1>Conflict-Free Replicated Data Types</h1>
@@ -271,9 +273,9 @@ Again,
 each slot tracks how many increments that specific replica has performed,
 so the total is how many increments have happened across all replicas.</p>
 <p>To make it concrete, consider this output:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">Ahmed</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
-<span class="n">Baemi</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
-<span class="n">Chiti</span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="mi">7</span><span class="o">,</span><span class="w"> </span><span class="n">counts</span><span class="o">={</span><span class="s1">'Chiti'</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="s1">'Ahmed'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="s1">'Baemi'</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="o">}</span>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>Ahmed: value=5, counts={'Ahmed': 3, 'Baemi': 2}
+Baemi: value=5, counts={'Baemi': 3, 'Ahmed': 2}
+Chiti: value=7, counts={'Chiti': 3, 'Ahmed': 2, 'Baemi': 2}
 </code></pre></div>
 <p>Ahmed and Baemi have synced with each other,
 so they agree,

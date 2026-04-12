@@ -53,6 +53,8 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
+<span aria-hidden="true">·</span>
+<a href="https://github.com/gvwilson/sdxjs">Repository</a>
 </nav>
 <main id="main-content">
 <h1>Build Manager</h1>
@@ -92,7 +94,7 @@ when we want to bundle multiple modules into a single loadable file (<a class="x
 or re-create documentation from source code (<a class="xref" href="../docgen/">Chapter 16</a>).
 In this chapter we will create a simple build manager
 based on <a href="https://www.gnu.org/software/make/">Make</a>, <a href="https://www.npmjs.com/package/bajel">Bajel</a>, <a href="https://jakejs.com/">Jake</a>,
-and other systems discussed in <a class="bib-ref" href="../bibliography/#Smith2011">Smith2011</a>.</p>
+and other systems discussed in [<a class="bib-ref" href="../bibliography/#Smith2011">Smith2011</a>].</p>
 <h2 id="build-manager-contents">What's in a build manager?</h2>
 <p>The input to a build manager is a set of rules,
 each of which has:</p>
@@ -999,12 +1001,12 @@ all of the commands it might execute if asked to rebuild everything.</p>
 </ol>
 <h3>Define filesets</h3>
 <p>Modify the build manager so that users can define sets of files:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">fileset</span><span class="o">:</span>
-<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">everything</span>
-<span class="w">  </span><span class="n">contains</span><span class="o">:</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">X</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">Y</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">Z</span>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>fileset:
+  name: everything
+  contains:
+    - X
+    - Y
+    - Z
 </code></pre></div>
 <p>and then refer to them later:</p>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="o">-</span><span class="w"> </span><span class="nl">target</span><span class="p">:</span><span class="w"> </span><span class="n">P</span>
@@ -1013,9 +1015,9 @@ all of the commands it might execute if asked to rebuild everything.</p>
 </code></pre></div>
 <h3>Globbing</h3>
 <p>Modify the build manager so that it can dynamically construct a set of files:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">glob</span><span class="o">:</span>
-<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">allAvailableInputs</span>
-<span class="w">  </span><span class="n">pattern</span><span class="o">:</span><span class="w"> </span><span class="s2">"./*.in"</span>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>glob:
+  name: allAvailableInputs
+  pattern: "./*.in"
 </code></pre></div>
 <p>and then refer to them later:</p>
 <div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="o">-</span><span class="w"> </span><span class="nl">target</span><span class="p">:</span><span class="w"> </span><span class="n">P</span>

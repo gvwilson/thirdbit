@@ -49,6 +49,8 @@
 <li><a href="../asimpy/">Discrete Event Simulation with asimpy</a></li>
 </ul>
 </div>
+<span aria-hidden="true">·</span>
+<a href="https://github.com/gvwilson/dsdx">Repository</a>
 </nav>
 <main id="main-content">
 <h1>A Bit of Theory</h1>
@@ -59,7 +61,7 @@ If you write a value to a variable,
 you can immediately read that value back.
 None of these guarantees hold automatically in a distributed system.</p>
 <h2 id="theory-clock">Clocks and Order</h2>
-<p><a class="bib-ref" href="../bibliography/#Lamport1978">Lamport1978</a> is one of the most influential papers in computer science.
+<p>[<a class="bib-ref" href="../bibliography/#Lamport1978">Lamport1978</a>] is one of the most influential papers in computer science.
 Its central insight is that clocks are unreliable in distributed systems.
 Two machines might disagree about the time by milliseconds or even seconds,
 and there is no way to synchronize them perfectly.
@@ -152,7 +154,7 @@ This is closely related to Lamport's happens-before relation
 and is often the strongest consistency model
 that can be achieved without expensive global coordination.</p>
 <h2 id="theory-cap">The CAP Theorem</h2>
-<p><a class="bib-ref" href="../bibliography/#Gilbert2002">Gilbert2002</a> proved that
+<p>[<a class="bib-ref" href="../bibliography/#Gilbert2002">Gilbert2002</a>] proved that
 a distributed system cannot simultaneously provide all three of the following properties:</p>
 <ul>
 <li>consistency: every read returns the most recent write;</li>

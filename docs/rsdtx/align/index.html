@@ -64,6 +64,8 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
+<span aria-hidden="true">·</span>
+<a href="https://github.com/gvwilson/rsdtx">Repository</a>
 </nav>
 <main id="main-content">
 <h1>Pairwise Sequence Alignment</h1>
@@ -236,9 +238,9 @@
 </code></pre></div>
 </div>
 <p>Running the algorithm on <code>SEQ_A = "ATCGT"</code> and <code>SEQ_B = "ATGT"</code> produces:</p>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="n">ATCGT</span>
-<span class="w">   </span><span class="o">||</span><span class="w"> </span><span class="o">||</span>
-<span class="n">b</span><span class="o">:</span><span class="w"> </span><span class="n">AT</span><span class="o">-</span><span class="n">GT</span>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code>a: ATCGT
+   || ||
+b: AT-GT
 </code></pre></div>
 <p>The gap in <code>seq_b</code> at position 3 accounts for the <code>C</code> in <code>seq_a</code> that has no counterpart.
 The score is $4 \times 2 + (-2) = 6$: four matches at <code>MATCH_SCORE</code> = 2 and one gap at <code>GAP_PENALTY</code> = −2.</p>
