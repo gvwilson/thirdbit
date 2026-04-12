@@ -21,10 +21,10 @@
 <ul class="dropdown-content" id="nav-lessons">
 <li><a href="../intro/">Introduction</a></li>
 <li><a class="active" href="../gap/">Governance, Assets, and Permissions</a></li>
-<li><a href="../comms/">Communicating a Deliberate Shutdown</a></li>
-<li><a href="../emergency/">Emergency Closure</a></li>
+<li><a href="../comms/">Communicating During a Deliberate Shutdown</a></li>
+<li><a href="../emergency/">On Short Notice</a></li>
 <li><a href="../preserve/">Preserving Your Work</a></li>
-<li><a href="../care/">Taking Care of People</a></li>
+<li><a href="../care/">Presering Your People</a></li>
 <li><a href="../legal/">Legal and Administrative Matters</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
@@ -36,13 +36,8 @@
 <li><a href="../license/">License</a></li>
 <li><a href="../conduct/">Code of Conduct</a></li>
 <li><a href="../contributing/">Contributing</a></li>
-<li><a href="../disaster/">Lessons from Disaster Management</a></li>
-<li><a href="../maid/">Lessons from MAID</a></li>
-<li><a href="../crisis/">Lessons from Crisis</a></li>
-<li><a href="../business/">Lessons from Business</a></li>
-<li><a href="../fired/">Being Fired</a></li>
-<li><a href="../firing/">Firing People</a></li>
-<li><a href="../resilience/">Resilience</a></li>
+<li><a href="../misc/">Miscellaneous</a></li>
+<li><a href="../fire/">Firing and Being Fired</a></li>
 <li><a href="../handover/">Handing Over</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
@@ -51,66 +46,119 @@
 </nav>
 <main id="main-content">
 <h1>Governance, Assets, and Permissions</h1>
+<p class="subtitle">start with the easy stuff</p>
 <ul>
 <li>Deliberate closure first: less traumatic, and the practices are good project hygiene anyway</li>
-<li>Governance<ul>
-<li>Every team needs explicit decision-making rules (e.g., <a class="gl-ref" href="../glossary/#bdfl">BDFL</a> or <a class="gl-ref" href="../glossary/#martha-rules">Martha's Rules</a>)</li>
+</ul>
+<h2>Governance</h2>
+<ul>
+<li>Every team needs explicit decision-making rules
+    (e.g., <a class="gl-ref" href="../glossary/#bdfl">BDFL</a> or <a class="gl-ref" href="../glossary/#martha-rules">Martha's Rules</a>)</li>
 <li>Rules must include <a class="gl-ref" href="../glossary/#suffrage">suffrage</a>: who can veto, not just who is consulted</li>
 <li>Few projects have a <code>GOVERNANCE.md</code> file; fewer still include shutdown criteria</li>
-<li>Add shutdown criteria before they are needed;
-    discussing them may surface pre-existing disagreements, not cause new ones</li>
-<li>The Apache Software Foundation's attic process is a documented model:
-    at least three active respondents required to keep a project viable</li>
-<li>Write conditions for shutdown, who has authority to make the call,
-    what assets must be preserved, and what obligations must be honoured
-    while the project is still healthy<ul>
-<li>Once a project is under stress, governance discussions become much harder
-    <a href="../maid/#advance-directives">details</a></li>
-</ul>
-</li>
-<li>A closure plan that sits in a drawer and has never been tested is a <a class="gl-ref" href="../glossary/#fantasy-document">fantasy document</a><ul>
-<li>Treat it as a drill script and walk through it periodically to check that each step
-    is actually executable with the people available
-    <a href="../disaster/#fantasy-documents">details</a></li>
+<li>The <a href="https://apache.org/">Apache Software Foundation</a>'s <a href="https://attic.apache.org/process.html">attic process</a> is a documented model:<ul>
+<li>At least three active respondents required to keep a project viable</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>Assets and obligations<ul>
-<li>Code, data, discussion archives, website, social media accounts,
-    domain name, hardware, trademarks, name recognition, community goodwill</li>
-<li>Hosting costs, software licenses, bank accounts,
-    partially-completed contracts, funding reports, confidential data obligations</li>
-<li>Legal responsibilities may attach to both; ask someone before assuming</li>
-<li>Modern project infrastructure is often tightly coupled in ways that only become visible
-    during shutdown (e.g., one account that pays for ten services)<ul>
-<li>Treat any single point of control that cannot survive 48-hour unavailability as a bug
-    <a href="../disaster/#tight-coupling">details</a></li>
+<figure id="f:gap-attic">
+<img alt="Eight-step Apache Attic Process taken from https://attic.apache.org/process-howto.html" src="apache-attic.svg"/>
+<figcaption>Figure 1: Apache Attic Process</figcaption>
+</figure>
+<ul>
+<li>Governance discussions forced under stress are far harder than those done in advance:
+    cognitive load and interpersonal conflict make clear-headed decision-making much harder</li>
+<li>In medicine, an advance directive specifies what care a patient wants
+    if they become unable to speak for themselves</li>
+<li>So write an <a class="gl-ref" href="../glossary/#advance-directive">advance directive</a> for the project while it is still healthy [<a class="bib-ref" href="../bibliography/#Towey2026">Towey2026</a>]:<ul>
+<li>Conditions for shutdown</li>
+<li>Who has authority to make the call</li>
+<li>What assets must be preserved</li>
+<li>What obligations must be honoured</li>
 </ul>
 </li>
-<li>Handing over a GitHub organization and a domain name is not the same as handing over
-    governance obligations or data privacy commitments</li>
-<li>Every handover should include an explicit list of what is and is not being transferred
-    <a href="../business/#asset-sale">details</a></li>
+<li>A closure plan that sits in a drawer and has never been tested is a <a class="gl-ref" href="../glossary/#fantasy-document">fantasy document</a>
+    [<a class="bib-ref" href="../bibliography/#Clarke1999">Clarke1999</a>]<ul>
+<li>Organizations routinely produce plans that reassure regulators and funders
+    but bear no relationship to what would actually happen under stress</li>
+<li>A <code>HANDOVER.md</code> written in an afternoon that no one outside the core team has read</li>
+<li>Ideally,
+    walk through the closure plan periodically
+    to check that each step is actually executable with the people available</li>
+<li>But the word "ideally" is doing a lot of work in that sentence</li>
 </ul>
 </li>
-<li>Permissions<ul>
+</ul>
+<h2>Coupling and Cascading Failure</h2>
+<ul>
+<li>Project infrastructure is often <a class="gl-ref" href="../glossary/#tight-coupling">tightly coupled</a> in ways
+    that only become visible during shutdown [<a class="bib-ref" href="../bibliography/#Perrow1999">Perrow1999</a>]<ul>
+<li>Failures in tightly-coupled systems are not aberrations
+    but predictable outcomes of the system's design</li>
+</ul>
+</li>
+<li>[<a class="bib-ref" href="../bibliography/#Singer2023">Singer2023</a>] shows that organisations often invoke individual explanations
+    to deflect systemic accountability<ul>
+<li>"The driver wasn't paying attention" rather than "the dashboard was too complicated"</li>
+</ul>
+</li>
+<li>An account that pays for ten services,
+    or a single personal login that controls a domain,
+    means that an unexpected departure can cascade into complete loss of access</li>
+<li>Handing over a GitHub organization and a domain name is not the same as
+    handing over governance obligations or data privacy commitments</li>
+<li>Treat any single point of control that cannot survive 48-hour unavailability as a bug</li>
+<li>And treat every handover as an explicit asset transfer,
+    not a transfer of "the project" as a whole [<a class="bib-ref" href="../bibliography/#Marks2022">Marks2022</a>]<ul>
+<li>An asset transfer moves selected assets and obligations;
+    the original legal entity persists or is wound down separately</li>
+<li>An entity transfer moves the entire legal entity including unknown liabilities</li>
+<li>Being explicit about what is and is not transferred
+    protects both the outgoing team and the incoming maintainers</li>
+</ul>
+</li>
+<li>As noted in the <a href="../intro/">introduction</a>,
+    there are legal obligations and restrictions around many of these<ul>
+<li>Do <em>not</em> assume the law is comprehensible or sensible</li>
+</ul>
+</li>
+</ul>
+<h2>Permissions</h2>
+<ul>
 <li>Use dedicated organizational accounts rather than personal ones
     as soon as multiple people have privileged access</li>
 <li>Keep a findable list of privileged actions and the accounts that can perform them</li>
 <li>Use a <a class="gl-ref" href="../glossary/#password-manager">password manager</a> for all organizational credentials</li>
 </ul>
-</li>
-</ul>
+<h2>Exercises</h2>
 <section class="exercise">
-<h2>Exercise: Project Inventory</h2>
-<p>Work individually for ten minutes, then share in groups of three or four:</p>
+<h2>Project Inventory</h2>
 <ol>
 <li>
-<p>Make a list of everything that belongs to your project:
-    code, data, accounts, hardware, mailing lists, social media handles.
-    Compare lists with your group: what did others include that you missed?</p>
+<p>Work individually for ten minutes
+    to make a list of everything that belongs to your project.</p>
 </li>
+<li>
+<p>Compare lists with otheres in your group.
+    What did they include that you missed and vice versa?
+    What did someone include that other people think isn't actually part of the project?</p>
+</li>
+</ol>
+</section>
+<section class="exercise">
+<h3>Assets and Obligations</h3>
+<p>Add one thing to each of the following lists:</p>
+<ul>
+<li>Code, data, discussion archives, website, social media accounts,
+    domain name, hardware, and…?</li>
+<li>Hosting costs, software licenses, bank accounts, trademarks,
+    partially-completed contracts, funding reports, confidential data obligations, and…?</li>
+<li>Community goodwill, points of contact, and…?</li>
+</ul>
+</section>
+<section class="exercise">
+<h3>Who and What</h3>
+<ol>
 <li>
 <p>What would your project be unable to do if you were unavailable for three months?</p>
 </li>
@@ -119,6 +167,30 @@
     rather than accounts dedicated to the project?</p>
 </li>
 </ol>
+</section>
+<section class="exercise">
+<h3>Write a Project Advance Directive</h3>
+<ol>
+<li>
+<p>Write a one-page document covering:</p>
+<ul>
+<li>The conditions under which this project should be wound down
+    (not just "when funding runs out" but specific observable signals)</li>
+<li>Who has the authority to make that call
+    (distinguish between who must be consulted and who has an actual veto)</li>
+<li>What assets must be preserved before shutdown is complete, and how</li>
+<li>What obligations must be honoured before the project can be considered closed</li>
+</ul>
+</li>
+<li>
+<p>Give your document to a partner and ask them to find one realistic scenario
+    it does not handle.
+    What happens if the person with authority is unavailable?
+    What happens if two people with veto disagree?</p>
+</li>
+</ol>
+<p>Which conditions were hardest to write precisely?
+Where did "who is consulted" blur into "who has a veto"?</p>
 </section>
 </main>
 <footer aria-label="Page navigation">
@@ -132,7 +204,7 @@
 	  <a href="../#acknowledgments">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../comms/">Communicating a Deliberate Shutdown</a> <span aria-hidden="true">⇒</span>
+<a href="../comms/">Communicating During a Deliberate Shutdown</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

@@ -21,10 +21,10 @@
 <ul class="dropdown-content" id="nav-lessons">
 <li><a class="active" href="../intro/">Introduction</a></li>
 <li><a href="../gap/">Governance, Assets, and Permissions</a></li>
-<li><a href="../comms/">Communicating a Deliberate Shutdown</a></li>
-<li><a href="../emergency/">Emergency Closure</a></li>
+<li><a href="../comms/">Communicating During a Deliberate Shutdown</a></li>
+<li><a href="../emergency/">On Short Notice</a></li>
 <li><a href="../preserve/">Preserving Your Work</a></li>
-<li><a href="../care/">Taking Care of People</a></li>
+<li><a href="../care/">Presering Your People</a></li>
 <li><a href="../legal/">Legal and Administrative Matters</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
@@ -36,13 +36,8 @@
 <li><a href="../license/">License</a></li>
 <li><a href="../conduct/">Code of Conduct</a></li>
 <li><a href="../contributing/">Contributing</a></li>
-<li><a href="../disaster/">Lessons from Disaster Management</a></li>
-<li><a href="../maid/">Lessons from MAID</a></li>
-<li><a href="../crisis/">Lessons from Crisis</a></li>
-<li><a href="../business/">Lessons from Business</a></li>
-<li><a href="../fired/">Being Fired</a></li>
-<li><a href="../firing/">Firing People</a></li>
-<li><a href="../resilience/">Resilience</a></li>
+<li><a href="../misc/">Miscellaneous</a></li>
+<li><a href="../fire/">Firing and Being Fired</a></li>
 <li><a href="../handover/">Handing Over</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
@@ -51,7 +46,7 @@
 </nav>
 <main id="main-content">
 <h1>Introduction</h1>
-<p class="subtitle">what this workshop does and doesn't cover</p>
+<p class="subtitle">setting the scene</p>
 <ul>
 <li>For every beginning there must be an ending</li>
 <li>But we don't like to talk about that<ul>
@@ -62,8 +57,9 @@
 </ul>
 </li>
 <li>Preparing for the end can make it less painful<ul>
-<li>And less likely: if we think about how things might end, we might be able to prevent some endings</li>
-<li>It also helps make what happens before the end more enjoyable</li>
+<li>And less likely:
+    if we think about how things might end, we might be able to prevent some endings</li>
+<li>It also helps make what happens before then more enjoyable</li>
 </ul>
 </li>
 </ul>
@@ -80,48 +76,106 @@
 <li>You only get one shot at it and aren't able to make changes as you go along</li>
 </ul>
 </li>
-<li>We want the former, but sometimes life happens</li>
-<li>Planning for the latter can make it less likely</li>
-</ul>
-<h2>Best vs. Good Enough</h2>
-<ul>
-<li><a class="bib-ref" href="../bibliography/#Wilson2014">Wilson2014</a> outlined how <a class="gl-ref" href="../glossary/#rse">research software engineers</a> should organize their projetcs</li>
-<li><a class="bib-ref" href="../bibliography/#Wilson2017">Wilson2017</a> was in part a rebuttal<ul>
+<li>We want the former, but often have to deal with the latter</li>
+<li>[<a class="bib-ref" href="../bibliography/#Wilson2014">Wilson2014</a>] outlined how <a class="gl-ref" href="../glossary/#rse">research software engineers</a>
+    should organize their projetcs</li>
+<li>[<a class="bib-ref" href="../bibliography/#Wilson2017">Wilson2017</a>] was in part a rebuttal<ul>
 <li>Most people don't have time to do everything the "right" way</li>
 <li>By which we usually mean "their employers don't give them enough time"</li>
 <li>So comparing what they do to "best practices" is as unfair as
     comparing what a surgeon does at leisure in a well-equipped hospital
-to what a paramedic does at a crash site</li>
+    to what a paramedic does at a crash site</li>
 </ul>
 </li>
-<li>This workshop addresses both kinds of setting<ul>
+<li>This workshop addresses both cases<ul>
 <li>Vaida has time to plan
     and to correct things that she initially gets wrong</li>
 <li>Liam only has time to do a few things,
     and will not be able to go back and fix anything he doesn't get right</li>
 </ul>
 </li>
-<li>The <a class="gl-ref" href="../glossary/#sunk-cost-fallacy">sunk cost fallacy</a> keeps projects alive past their useful life<ul>
-<li>By the time shutdown feels urgent, decline has usually been underway far longer than anyone acknowledged;
-    recognizing which stage a project is in determines which interventions are still available
-    <a href="../business/#org-decline">details</a></li>
-<li>Patterns in organizational dynamics
-    (rigid ideology, toxic leadership, corrupting goals, destructive incentives, perceived unfairness)
-    can give early warning that a project is heading for failure
-    <a href="../disaster/#warning-signs">details</a></li>
+</ul>
+<div class="callout">
+<p>An <a class="gl-ref" href="../glossary/#abstinence-solution">abstinence solution</a> is one that requires people
+to do things we know they actually won't
+(See also "<a class="gl-ref" href="../glossary/#bullshit">bullshit</a>" [<a class="bib-ref" href="../bibliography/#Frankfurt2005">Frankfurt2005</a>].)
+In particular, "document everything" doesn't work:
+people will always short-change writing descriptions of work in favor of actually doing work
+and fail to write down the parts of their work that they think are obvious
+in part because most of what we can write today doesn't actually address tomorrow's actual needs.</p>
+</div>
+<h2>The Survival Arc</h2>
+<ul>
+<li>[<a class="bib-ref" href="../bibliography/#Ripley2008">Ripley2008</a>] synthesised research on how people behave when disaster strikes
+    and identified a three-stage <a class="gl-ref" href="../glossary/#survival-arc">survival arc</a>:<ul>
+<li>Denial: refusal to believe that the situation is as serious as evidence suggests</li>
+<li>Deliberation: a period of paralysed uncertainty about what to do</li>
+<li>Decision: action, which may or may not be correct</li>
 </ul>
 </li>
-<li>Business owners who were satisfied with their exits had started planning years in advance<ul>
-<li>Skipping early stages because they feel premature is the most common mistake
-    <a href="../business/#exit-planning">details</a></li>
+<li>The denial phase usually consumes far more time than people expect<ul>
+<li>Thinking through the scenario before it happens dramatically shortens it</li>
 </ul>
 </li>
-<li>The denial phase before the first concrete closure action is longer than planners assume<ul>
-<li>Rehearsal converts a novel emergency into a recognized pattern and shortens it
-    <a href="../disaster/#survival-arc">details</a></li>
+<li>The period between a credible sign that a project is in trouble
+    and the first concrete closure action will be longer than planners assume,
+    particularly under abrupt conditions<ul>
+<li>Rehearsal converts a novel emergency into a recognized pattern and shortens denial</li>
+</ul>
+</li>
+<li>Business owners who were satisfied with their exits had started planning years in advance
+    [<a class="bib-ref" href="../bibliography/#Burlingham2014">Burlingham2014</a>]<ul>
+<li>The most common mistake is skipping early stages because they feel premature</li>
 </ul>
 </li>
 </ul>
+<h2>What We Can Hope For</h2>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#sunk-cost-fallacy">sunk cost fallacy</a> keeps projects alive past their useful life</li>
+<li>[<a class="bib-ref" href="../bibliography/#Weitzel1989">Weitzel1989</a>] describes a five-stage model of organisational decline:<ul>
+<li>Blindness: warning signs go unrecognised</li>
+<li>Inaction: signs are seen but nothing changes</li>
+<li>Faulty action: the wrong remedies are tried</li>
+<li>Crisis: resources are depleted and options close off</li>
+<li>Dissolution</li>
+</ul>
+</li>
+<li>The moment when shutdown becomes undeniable is rarely the moment it became inevitable:
+    the warning signs were there earlier [<a class="bib-ref" href="../bibliography/#Whetten1980">Whetten1980</a>]<ul>
+<li>Recognizing which stage a project is in determines which interventions are still available</li>
+</ul>
+</li>
+</ul>
+<div class="callout">
+<p>[<a class="bib-ref" href="../bibliography/#Palazzo2025">Palazzo2025</a>] identified patterns in the dynamics of corporate scandals.
+Recognizing them early can give people warning that projects are going to fail.</p>
+<div class="center">
+<table>
+<tr>
+<td style="border: none; padding-right: 2rem;">
+      rigid ideology
+      <br/>
+      toxic leadership
+      <br/>
+      manipulative language
+    </td>
+<td style="border: none; padding-right: 2rem;">
+      corrupting goals
+      <br/>
+      destructive incentives
+      <br/>
+      ambiguous rules
+    </td>
+<td style="border: none; padding-right: 2rem;">
+      perceived unfairness
+      <br/>
+      dangerous groups
+      <br/>
+      slippery slope
+    </td>
+</tr>
+</table>
+</div>
 <h2>Threat Models</h2>
 <ul>
 <li>What situation you are in usually depends on external factors<ul>
@@ -155,37 +209,24 @@ to what a paramedic does at a crash site</li>
 </ul>
 <div class="callout">
 <p>Governments make emergency plans to deal with community threats
-(if they are responsible enough to admit their existence).
+(if they are responsible enough to admit those threats exist).
 When governments themselves are in upheaval,
-people turn to <a class="gl-ref" href="../glossary/#civil-society">civil society</a> for help <a class="bib-ref" href="../bibliography/#Solnit2010">Solnit2010</a>.</p>
+people turn to <a class="gl-ref" href="../glossary/#civil-society">civil society</a> for help [<a class="bib-ref" href="../bibliography/#Solnit2010">Solnit2010</a>].</p>
 </div>
-<h2>No Abstinence Solutions</h2>
-<ul>
-<li>An <a class="gl-ref" href="../glossary/#abstinence-solution">abstinence solution</a> is one that requires people
-    to do things we know they actually won't<ul>
-<li>See also "<a class="gl-ref" href="../glossary/#bullshit">bullshit</a>" <a class="bib-ref" href="../bibliography/#Frankfurt2005">Frankfurt2005</a></li>
-</ul>
-</li>
-<li>In particular, "document everything" doesn't work<ul>
-<li>People will always short-change writing descriptions of work in favor of actually doing work</li>
-<li>And fail to write down the parts of their work that they think are obvious</li>
-<li>In part because most of what we can write today doesn't actually address
-    tomorrow's actual needs</li>
-</ul>
-</li>
-</ul>
 <h2>Stay Within the Law</h2>
 <ul>
 <li>Ensuring your work remains usable is not worth putting yourself at legal risk<ul>
-<li>Institutions, journals, and funders have policies for licensing and sharing <a class="bib-ref" href="../bibliography/#Katz2018">Katz2018</a>.</li>
+<li>Institutions, journals, and funders have policies for licensing and sharing [<a class="bib-ref" href="../bibliography/#Katz2018">Katz2018</a>].</li>
 <li>So find out what those rules are and make sure you stay within them</li>
+<li>Which isn't necessarily the same thing as saying "follow them" [<a class="bib-ref" href="../bibliography/#OSS1944">OSS1944</a>]</li>
 </ul>
 </li>
 <li>If you don't know if there is a policy or not, <em>ask someone</em><ul>
 <li>Look for an <a href="https://sustainoss.org/academic-map/universities/index.html">Open Source Program Office</a> (OSPO) or intellectual property (IP) office</li>
 </ul>
 </li>
-<li>Here and elsewhere, use email rather than chat or video calls so that you have a record<ul>
+<li>Here and elsewhere, use email rather than chat or video calls
+    so that you have a record of everything said by both parties<ul>
 <li>Your memory isn't perfect (particularly under difficult circumstances)</li>
 <li>And unfortunately, people may change their minds about what they said, meant, or promised</li>
 </ul>
@@ -198,30 +239,31 @@ If you are leaving your position on short notice or under difficult circumstance
 you may want to be selective about which forms you fill in proactively
 and which you "just haven't gotten around to yet".
 Members of marginalized groups have had more practice with these tactics
-than members of privileged groups <a class="bib-ref" href="../bibliography/#Scott1987">Scott1987</a>;
+than members of privileged groups [<a class="bib-ref" href="../bibliography/#Scott1987">Scott1987</a>];
 if you belong to the latter,
 a conversation or two with selected colleagues may help you see your priorities more clearly.</p>
 </div>
 <h2>Not Covered</h2>
 <ul>
 <li>Community building<ul>
-<li>Lots of good guides <a class="bib-ref" href="../bibliography/#Alinsky1989">Alinsky1989</a>, <a class="bib-ref" href="../bibliography/#Brown2007">Brown2007</a>, <a class="bib-ref" href="../bibliography/#Lakey2018">Lakey2018</a></li>
+<li>Lots of good guides [<a class="bib-ref" href="../bibliography/#Alinsky1989">Alinsky1989</a>, <a class="bib-ref" href="../bibliography/#Brown2007">Brown2007</a>, <a class="bib-ref" href="../bibliography/#Lakey2018">Lakey2018</a>]</li>
 <li>We assume you have to use the community you already have</li>
 </ul>
 </li>
 <li>Communication skills<ul>
 <li>We'll talk about <em>what</em> to say but not (much) about <em>how</em> to say it</li>
-<li>See <a class="bib-ref" href="../bibliography/#Kuchner2011">Kuchner2011</a> for some useful insights</li>
+<li>See [<a class="bib-ref" href="../bibliography/#Kuchner2011">Kuchner2011</a>] for some useful insights</li>
 </ul>
 </li>
 <li>For-profit businesses<ul>
 <li>We assume your project isn't supposed to turn a profit</li>
-<li>And that growth for its own sake hasn't been your goal <a class="bib-ref" href="../bibliography/#Burlingham2016">Burlingham2016</a></li>
+<li>And that growth for its own sake hasn't been your goal [<a class="bib-ref" href="../bibliography/#Burlingham2016">Burlingham2016</a>]</li>
 </ul>
 </li>
 </ul>
+<h2>Exercises</h2>
 <section class="exercise">
-<h2>Exercise</h2>
+<h3>Quick Check</h3>
 <ol>
 <li>Are you handing over or shutting down?<ul>
 <li>Can think of shutdown as "succession to zero"</li>
@@ -234,12 +276,13 @@ a conversation or two with selected colleagues may help you see your priorities 
 </li>
 <li>Can you act unilaterally or do other people have a veto?<ul>
 <li><em>Not</em> "have a stake in the outcome", but rather can disagree with you and make it stick</li>
-<li>Subsidiary question: are those "other people" your peers or your superiors (e.g., your employer)?</li>
+<li>Are those "other people" your peers or your superiors (e.g., your employer)?</li>
 </ul>
 </li>
 <li>Can you talk to someone who has been through this before?</li>
 </ol>
 </section>
+</div>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
