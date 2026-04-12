@@ -7892,7 +7892,7 @@ They limped into Halley the next day.
 Iffy waited on deck until Aunt Naggie appeared
 with a duffel full of food and spices hitched over one shoulder.
 "No point wasting it," she said to Iffy.
-It would take at least a week to repair the damage to the *Guinevere*,
+It would take weeks to repair the damage to the *Guinevere*,
 so for the first time since Iffy had come on board,
 they would have to live elsewhere.
 
@@ -7907,7 +7907,7 @@ Aunt Naggie asked incredulously.
 
 The Ecologist spread his hands.
 "No idea.
-The dinghy's still tied up at the stern,
+The dinghy's still hung up at th' stern,
 and nothin' else missin' that I can see."
 
 Iffy said nothing.
@@ -7916,16 +7916,16 @@ when he fished the injured Marine out of Rothera harbor,
 but would he really be able to swim a couple of kilometers to shore?
 While towing his toolboxes?
 She had no idea.
-All she knew was that Doctor Johel *wasn't* going to be happy.
+All she knew was that Doctor Johel wasn't going to be happy.
 
-The Australian Navy was waiting for them
-when they sailed past the old ship that was Halley's breakwater.
+An Australian Navy cutter was waiting for them as they saled around the breakwater.
 A pair of sailors in waterproof parkas boarded the *Guinevere*
 and took up positions by the pilot house as Aunt Naggie steered them in.
-That felt like an afterthought compared to the drones, zodiacs, and people
-who swarmed the *Bengal*.
+It felt like an afterthought compared to the drones, boats, and people
+who swarmed the *Bengal*,
+but Iffy didn't mind being overlooked.
 
-Iffy watched for a few moments,
+She watched for a few moments,
 then turned her back on the commotion.
 She had recorded half a dozen messages for Honesty
 and deleted each one
@@ -7943,17 +7943,17 @@ Iffy looked at the wounded ship that was the only home she knew.
 "Let's go."
 
 Edson thumped the side of the truck.
-"Sure thing, boss!" it said happily,
-and lurched into motion with an Aussie drone circling overhead.
+"Sure thing, boss!" it said happily.
+It lurched into motion with an Aussie drone circling overhead.
 
 The streets were almost as empty as Rothera's had been after the attack.
+Even the gulls overhead seemed subdued.
 Aussie soldiers stood in pairs at major intersections
 wearing parkas instead of exoskeletons,
 heavy rifles cradled in their arms.
-The few locals they saw were all in a hurry to be somewhere.
-Iffy looked sidelong at them,
+The few locals Iffy saw were all in a hurry to be somewhere.
+She looked sidelong at them,
 hoping and failing to see Jeep or someone else she knew.
-Even the gulls overhead seemed subdued.
 
 They rounded a final corner and rolled through the gate to the governor's mansion.
 It was smaller than its counterpart in Rothera,
@@ -7962,16 +7962,15 @@ but she didn't doubt for a moment that
 the three-story house in front of her was more than capable of defending itself.
 
 The truck slowed and stopped.
-"Here ya go!" it said cheerfully,
-its accent a century old.
+"Here ya go!" it said cheerfully.
 It waited for them to dismount and unload their gear
-and then backed up,
-swung around,
-and trundled off toward the docks,
+before backing up,
+turning around,
+and trundling back toward the docks,
 whistling a happy tune.
 
-The second truck pulled up.
-An Aussie sailor helped Doctor Johel out of the back.
+A second truck pulled up,
+and an Aussie sailor helped Doctor Johel out of the back.
 "Come along, mustn't dawdle," she said, waving them forward.
 Gravel crunched underfoot,
 and somewhere in the distance Iffy heard the slow *whoop whoop whoop* of wind turbines,
@@ -7980,8 +7979,8 @@ The constant shush and murmur of the ocean seemed a long way away.
 
 Through a pair of double doors that opened on their own,
 along a short corridor,
-and they were in a waiting room that looked like a hasty pencil sketch of
-the one in the mansion in Rothera.
+and they found themselves in a waiting room that looked like
+a knock-off of the one in the mansion in Rothera.
 The couch was just as uncomfortable,
 but steel-gray instead of ochre and green,
 and the music was bland and unplaceable.
@@ -8000,16 +7999,14 @@ His grip was still strong when he shook her hand.
 "Your friend has already been moved to the hospital here in town,
 and the Australians have promised to give der the best possible care."
 
-"Thank you," she mumbled.
+"Thanks," she mumbled.
 
 He gave her hand a final firm squeeze before turning to Doctor Johel.
 "Unfortunately, the other news isn't as pleasant," he continued briskly.
-"The attack on you was definitely the work of my counterpart in Rothera,
+"The attack on you was definitely coordinated by my counterpart in Rothera,
 but the core believes some faction of the machines hypermind may have assisted them.
 We've tried reaching out through the usual channels,
-but all we've had back so far is a poem about the necessity of entropy
-and how time is an arrow,
-not a circle."
+but all we've had back so far is a poem about the necessity of entropy."
 
 "If the machines are involved, does that mean you're scrubbing the mission?"
 Doctor Johel asked.
@@ -8033,8 +8030,8 @@ And as puzzled.
 I can only assume that he had some assistance."
 She very pointedly didn't look at Iffy as she spoke.
 
-There was a shower in the basement
-that provided a seemingly endless flow of hot water that didn't smell of the sea.
+The shower in the basement
+provided a seemingly endless flow of hot water that didn't smell of the sea.
 Iffy and Aunt Naggie squabbled for a moment about who needed it more
 before the soldier who was their guide and guard cleared his throat
 and pointed out that there were actually *two* showers.
@@ -8055,8 +8052,7 @@ and sending them to the mansion's core,
 but at that particular moment she didn't care.
 
 She and Aunt Naggie seated themselves gingerly.
-The governor and Doctor Johel ended their murmured conversation,
-and for a moment everyone sat silently and expectantly.
+For a moment everyone sat silently.
 "Ah, thank you," the governor said lightly
 as a trolley rolled toward them on silent wheels
 bearing sweet and sour soup,
@@ -8064,7 +8060,7 @@ grilled tofu,
 roasted vegetables,
 sliced mangoes,
 and tea.
-The adults made appreciative noises and Iffy's stomach rumbled
+Iffy's stomach rumbled and the adults made appreciative noises
 as the trolley gave each of their plates an unnecessary polish with a clean white cloth,
 laid out chopsticks with geometric precision,
 and began serving the food.
@@ -8081,7 +8077,7 @@ slowly mellowed as the main course gave way to rice pudding and more tea.
 "You're really set on making the trip?"
 Doctor Johel asked, settling back in her chair.
 
-"Oh, absolutely," the governor said expansively.
+"Absolutely," the governor said expansively.
 "The Australians' cores think there's a seventy-eight percent chance
 Commander Wales was telling the truth about the base,
 but a ninety-something percent chance that the machines or the Brazilians will try to stop us reaching it.
@@ -8136,7 +8132,7 @@ squeezing Iffy's hand.
 An' you'll be fine.
 You been waitin' for somethin' like this your whole life an' now it's here."
 She sniffed.
-"'Sides, someone's gotta keen an eye on the *Guinevere*.
+"'Sides, someone's gotta keen an eye on the *Ginny*.
 No tellin' what these savages might do to her."
 
 Iffy settled back into her bed.
@@ -8150,9 +8146,9 @@ She leaned forward and kissed Iffy's forehead.
 "Now you get some sleep.
 I don't figure there'll be much time for it once you're on your way."
 
-Iffy took another shower in the morning,
+Iffy had another shower in the morning,
 wondering as she did so what it would be like
-to be the sort of person who could shower every single day.
+to be the sort of person who could take one every day.
 She made and discarded half a dozen plans for sneaking out
 as she let the hot water pummel her,
 only to find a note on her app from Doctor Johel after she toweled off.
@@ -8169,8 +8165,6 @@ Iffy said through a mouthful of sweetened porridge.
 
 Edson scraped the last of his own porridge out of his bowl
 and set it aside.
-Unlike Iffy and Aunt Naggie,
-he seemed unbothered by the empty tables in the mansion's dining hall.
 "We're goin' along by the Sandhus.
 For groceries an' gossip,"
 he added,
@@ -8185,12 +8179,12 @@ then went back to looking ominous.
 The only sounds as she walked through the gate were her boots crunching on gravel
 and the whine of a saw cutting stone somewhere in the distance.
 
-Halley itself wasn't as quiet as it had been the day before,
+Halley wasn't as quiet as it had been the day before,
 but still had the eerie emptiness of the morning after Midsummer's Day.
 Shops were closed or had their curtains drawn.
 All three of the town's cafés were open,
 but the only people in them were wearing uniforms.
-Some stopped to watch Iffy trudge past.
+Some of them watched Iffy trudge past.
 Others just glanced at her before going back to
 talking more loudly than was necessary.
 
@@ -8276,7 +8270,6 @@ It was Iffy's turn to shrug.
 "Ain't nothin' to me, if that's what you're wonderin'.
 Aussies an' governors an' Zillions—it ain't our fight.
 We'd all be tay bangle if they'd shove off an' leave us be."
-
 When Jeep nodded,
 relief written on his face,
 Iffy said,
@@ -8302,8 +8295,10 @@ they're not listenin' but they got somethin' to watch where I go?*
 She suddenly remembered
 an image of herself from above
 as she walked up to the door of Mister Mishra's workshop a few minutes earlier.
-It was almost immediately replaced by Doctor Johel's face.
-Was that the machines' way of telling her who was keeping an eye on her?
+The image was almost immediately replaced by one of Doctor Johel's face.
+Both felt genuine,
+but somehow crisper or sharper than actual memories.
+Were they the machines' way of telling her who was keeping an eye on her?
 
 Before she could chase the thought any further,
 Jeep handed her a mug of chai.
@@ -8327,10 +8322,10 @@ but I heard him an' amma once after we been down the harbor t' set a wreath,
 an' abba said everyone knew the fire wasn't just an accident."
 
 The chai went cold in Iffy's stomach.
-"You don't think—they wouldn't do somethin' like that t' Halley, would they?"
+"You think it was th' governors havin' a jammer?"
 
 Jeep stared past her.
-"They aready blew up half o' Rothera, din't they?"
+"They blew up half o' Rothera, din't they?"
 He emptied his mug in one big gulp and stood up.
 He had shoulders now,
 she noticed,
@@ -8343,7 +8338,9 @@ This one had joined the Marines full-time after their induction
 and was off somewhere in the backayonder.
 That one was apprenticing as a teacher,
 and Akumé had pretty much taken over running her mother's swap-n-shop.
-Eventually they said an awkward "see ya".
+
+Eventually the tea was gone.
+They said an awkward "see ya" to each other.
 When the workshop door closed behind her,
 Iffy felt that she had found something she hadn't known she had lost.
 
@@ -8387,7 +8384,7 @@ She could see if Aunt Naggie and Edson were still at the Sandhus' store,
 but that felt pointless too,
 so instead she wandered toward the new machine shop.
 
-The quarantine blockhouse had been repaired,
+The quarantine blockhouse had been repaired
 and fresh cobblestones laid down to replace those torn up in the jammer
 when Wales had retrieved his toolboxes.
 Someone had hung a jaunty "Opening Soon!" banner across the machine shop,
@@ -8417,13 +8414,14 @@ when she had done all the haggling she was going to do over a bag of onions.
 She lowered her voice to a loud whisper.
 "I'm bein' surveilled."
 
-The raccoon lowered itself to all fours and scampered away,
-disappearing behind a pair of rotting crates stacked against the wall.
-Iffy sighed,
-wondering again why everything had to be so complicated.
+The raccoon chittered with annoyance,
+lowered itself to all fours,
+and scampered away
+to disappear behind a pair of crates stacked against the wall.
+Iffy sighed and turned back toward the mansion.
 
 She spent the rest of the day doing homework
-on the very comfortable bed in the governor's mansion.
+on her very comfortable bed.
 After an hour of math and ecology she switched to history.
 There had originally been four governors,
 all clones of the UN Emergency Authority's last representative on the continent.
@@ -8449,8 +8447,7 @@ and someone had posted pictures.
 
 Iffy stared at the one on her app.
 Two copies of the governor beamed at the photographer.
-Sitting beside the one from Bharati,
-with his arm around her shoulder,
+Sitting beside the one from Bharati with his arm around her shoulder,
 a slightly younger version of Doctor Johel smiled at her through the years.
 
 The governor didn't join them for dinner that evening,
@@ -8468,14 +8465,13 @@ the trolley was right there and undoubtedly listening.
 Aunt Naggie asked Iffy
 as the trolley cleared their empty bowls.
 
-"Oh,
-the expedition's departure has been delayed,"
+"The expedition's departure has been delayed,"
 the trolley said before Iffy could say that she didn't know.
 "Some other matters came up
 and the governor felt more time was needed to prepare.
 I'm sure everything will be sorted out in short order.
 Now,
-who would like some mango sorbet?"
+who would like mango sorbet?"
 
 Back in her room,
 Iffy closed her eyes and opened her bird book.
@@ -8495,8 +8491,8 @@ She stiffened as the thought appeared in her head.
 
 *«help / immediate / survival»*
 
-The thought broke into pieces like a glass portrait shattering as it hit the floor
-and each shard was a picture no not a picture but the world seen through a pair of frightened eyes
+The thought broke into pieces like a glass portrait shattering as it hit the floor.
+Each shard was a picture no not a picture but the world seen through a pair of frightened eyes
 scurrying through an abandoned room that smelled of coal and grease
 following a black and gray tail in the same room the same smell
 and in a cobblestoned alley hunched behind a barrel too afraid to move
@@ -8509,7 +8505,7 @@ Iffy squeezed her eyes shut.
 *It's too much.
 Just tell me what's happenin'.*
 
-*«hunted / quarry / prey»*
+*«hunted / hunted / help»*
 
 Looking through yet another pair of eyes,
 Iffy saw two young raccoons run awkwardly across a yard filled with furniture
@@ -8523,14 +8519,14 @@ Anger welled up inside her.
 Was this the "other matters" that the trolley had mentioned?
 People grumbled about tweaked animals stealing bits of hardware and scraps of food,
 and kids sometimes threw stones at them to shoo them away,
-but hunting them as if they were rogue machines?
+but *hunting* them as if they were rogue machines?
 
 *«help»*
 
 Something she thought was supposed to be a map appeared in her mind.
 *I can't make sense o' that,* she thought,
 scrambling to her feet and grabbing her coat.
-The map was a raccon's eye view of Halley,
+The image was a raccon's eye view of Halley,
 full of rarely-used basements with smells for signposts
 and twisty little paths that she presumed kept them out of sight of people.
 But the streets and shops she knew were mostly blank no-go areas,
@@ -8542,15 +8538,15 @@ she said,
 hurrying off without waiting for a reply.
 She said the same thing to the Aussie sailors at the mansion's door,
 careful not to look up to see if she could spot
-the drone she was certain would be following her.
+the drone she was certain must be somewhere overhead.
 
 The sun was half-hidden by a scattering of high, thin clouds.
 She stumbled as another view of Halley superimposed itself
-on the ice-rimed cobblestones beneath her.
+on the grimy cobblestones beneath her.
 Half a dozen green dots marked the raccoons' locations,
 which meant the four red ones were their hunters.
-Blue dots appeared, moved, and disappeared:
-were they sailors who had joined the hunt?
+Blue dots appeared, moved, and disappeared.
+Were they sailors who had joined the hunt?
 No,
 that one was her,
 and that pair were the captain of the *Watney Breach* and his husband,
@@ -8619,12 +8615,15 @@ the Aussie voice grumbled.
 "Didn't know they belonged to anyone.
 You keep them indoors for now, aright?"
 
-"I'll think about it."
+"Yes *sir*,"
+she said,
+putting as much teenage scorn into her voice as she could.
 She kept her arms crossed as the hunter bot trotted away,
 then took a deep breath and turned to look down at her new friend.
 "Hope you an' your friends got somewhere t' hole up."
 
-A third Aussie sailor was waiting for her at the governor's mansion
+When she got back to the mansion,
+a third Aussie sailor was waiting for her
 beside the two who had been standing guard when she left.
 "Citizen Kwan?
 Doctor Johel would like to speak with you.
@@ -8641,8 +8640,8 @@ heavier than the one at ground level,
 let them into a corridor whose pipes and lettered walls
 reminded her uncomfortably of the one beneath the mansion in Rothera.
 
-The sailor knocked on yet another door,
-opening it without waiting for a response.
+The sailor knocked on yet another door
+and opened it without waiting for a response.
 "Thank you,"
 Doctor Johel said,
 rising from the chair in which she had been waiting.
@@ -8816,7 +8815,7 @@ Iffy waited until the door closed before exploding.
 Doctor Johel said curtly.
 "My father designed the governors' mods when they were first cloned.
 Their first wanted them to be able to share memories with each other.
-It turned out there was no way to do that without essentially imprinting them,
+It turned out there was no way to do that without imprinting them each time,
 but the upload capability was never removed."
 
 Puzzle pieces clicked together in Iffy's head.
@@ -8840,7 +8839,7 @@ so she went back to her room,
 kicked off her boots,
 dropped her coat on the floor,
 and threw herself on her bed.
-It really had been a blobfish of a day.
+It really had been a vulture of a day.
 
 She surfaced from troubled dreams a few hours later.
 Her room was completely dark
