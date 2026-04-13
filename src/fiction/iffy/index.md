@@ -8974,8 +8974,8 @@ she had learned that the first time she had donned an exoskeleton.
 Her heartbeat was steady,
 even though it wasn't really hers.
 She couldn't explain the difference,
-but something deep in the back of her brain knew that
-the muscle thudding in her chest wasn't the one she had known in her life.
+but something in the back of her brain knew that
+the muscle thudding in her chest wasn't she'd had when she was alive.
 
 She drew a deep breath,
 held it,
@@ -8999,16 +8999,13 @@ This body was definitely female,
 but also definitely young.
 And it—she—was thirsty and needed a bathroom.
 
-Sandrine sat up.
-"Hello?" she called.
-
 The door slid open.
 Reflex rolled her sideways,
 tossing the sheet into the air for whatever momentary distraction it might provide
 as she dropped into a fighting crouch.
 
-"At ease, corporal," said the elderly woman standing in the doorway
-behind the bot that had just rolled into her room.
+"At ease, corporal," said the elderly woman
+standing behind the bot that had just rolled into her room.
 "It's all right—this one's safe.
 It's just going to check your vitals.
 Here."
@@ -9019,7 +9016,7 @@ She gestured at a panel on the wall beside her.
 
 Sandrine straightened up.
 "Sorry, ma'am.
-Old habit."
+Old habits."
 The woman was wearing civilian clothes—a formal black turtleneck and a matching black kameez
 over loose-fitting trousers—but "ma'am" seemed safest for now.
 
@@ -9031,7 +9028,7 @@ and you're in Antarctica.
 It's been a little over a hundred years since you were transcribed,
 so you'll have a lot to catch up on.
 There's an app on the table there,
-and I'll have some mango noodles sent down when you're ready."
+and I'll have some food sent down when you're ready."
 
 "Thank you, ma'am."
 Sandrine hesitated.
@@ -9047,7 +9044,7 @@ Sandrine reached over the waist-high bot waiting patiently to examine her
 and took it.
 
 There wasn't much on the app,
-but she hadn't really expected there would be.
+but she hadn't expected there would be.
 It said the machine wars had ended in a draw,
 though the list of things humanity was no longer allowed to do
 made it pretty clear who had actually won.
@@ -9064,19 +9061,19 @@ she had only ever seen either in videos.
 
 An animated map showed the retreat of the world's ice caps
 and the corresponding inward creep of shorelines.
-Some of the islands they had used as staging posts during the war
+Some of the islands she had used as staging posts during the war
 were now completely submerged,
 but all that extra water hadn't stopped forests from turning into plains
 and plains into deserts.
 She started to zoom in on Hobart,
 then closed the map
 and did a few pushups instead.
-Her body was so skinny—whatever was special about Fifth Ang Kwan
+Her body really was skinny—whatever was special about Fifth Ang Kwan
 didn't seem to have included three square meals a day.
 
 She felt gut-deep relief when a Marine showed up a few minutes later
 with a bowl full of noodles and a freshly-printed uniform for her to wear.
-The fleshy yellow chunks on the noodles weren't any kind of mango she recognized,
+The fleshy yellow chunks on the noodles weren't any kind of fruit she recognized,
 but the food was warm and filling
 and the uniform fit perfectly.
 
@@ -9090,13 +9087,13 @@ She twisted from side to side to crack her spine.
 "Paolo Vassilenko," the Marine said.
 "I was imprinted three months ago.
 It took well—I can access most of my host's original memories when I need to,
-and there haven't been any stutters or seizures to speak of."
+and there haven't been any stutters or seizures since the first couple of days."
 
 Sandrine nodded.
 "How long do they think you'll last?"
 
 The Marine shrugged.
-"Call-up is supposed to be a year,
+"Call-up is supposed to be six months,
 but some of the others have been re-imprinted a couple of times.
 They check us pretty carefully before doing it,"
 he added.
@@ -9129,9 +9126,9 @@ the metal-on-metal whine of a saw in a machine shop as she passed a half-open do
 it was all very familiar.
 She couldn't have said how she knew she was underground
 any more than she could have explained how she had known that her heart wasn't her own.
-She just accepted it as part of her mission,
+She just accepted it,
 wondering as Sergeant Vassilenko rapped his knuckles on a door
-how many copies of hers had accepted it before.
+how many copies of hers had accepted similar circumstances before.
 
 "Enter."
 The sergeant opened the door and nodded for her to go through,
@@ -9139,13 +9136,13 @@ turning to stand at attention in the hall as it swung close.
 
 "Hello again, corporal.
 This will just take a moment."
-Doctor Johel gestured at a comfortable-looking chair opposite her desk
-without looking up from the app in her hands.
+Doctor Johel gestured at a comfortable-looking chair opposite her desk.
 
 Sandrine sat on the edge of the seat,
 her back straight and her hands folded neatly in her lap.
 "What do you know about the Niobium project?"
-Doctor Johel asked.
+Doctor Johel asked
+without looking up from the app in her hands.
 
 Sandrine shook her head.
 "Never heard of it, ma'am."
@@ -9158,7 +9155,7 @@ She swiped a scene from her app onto the wall beside them.
 There was so much shrapnel from old satellites and what-not
 that people basically gave up on trying to plot routes through it.
 They just threw armor on everything and billed for the extra weight.
-But up here, up past geosynchronous orbit in retrograde space, well…"
+But up here, up past geosynchronous orbit, well…"
 Green curves formed around the slowly-turning globe,
 safely outside the sparkling chaff closer in.
 
@@ -9188,15 +9185,15 @@ that has the machines quite worried."
 Sandrine filed that away.
 "Then may I ask, ma'am, how I can be of service?"
 
-Another swipe on the app put a human form on the wall.
-Short,
+Another swipe on the app put a human form on the wall:
+short,
 skinny,
 female,
-with something blobbish and silvery scattered through her like spilled mercury.
+and with something blobbish and silvery scattered through her like spilled mercury.
 
 "Citizen Kwan—she prefers Iffy, by the way—well,
 she has some rather interesting modifications.
-The first clone in her lineage seems to have been born
+The first clone in her lineage seems to have been made
 just as Niobium was picking up speed.
 It took quite a lot of work to detect her enhancements—even now
 I'm only half convinced they're real.
@@ -9214,7 +9211,7 @@ Doctor Johel straightened up.
 "But that was when you were *you*,
 as it were.
 Right now,
-you're in a body that seems to be able to pull information out of thin air.
+you're in someone who seems to pull information out of thin air.
 I'm hoping that if you can master that ability,
 you'll be able to get the answers I need."
 
@@ -9239,10 +9236,8 @@ rather than something involving clubs, canvas bags, or electrodes.
 The panic that followed was very real, though.
 She knew it was just the effect of whatever drug she had been given,
 but the word "just" didn't really feel appropriate.
-She panted for breath as if she had just been running through the desert under fire.
-She had to get away.
-She knew she was safe,
-but "she" wasn't in control any longer.
+She panted for breath as if she had just been running through the desert under fire,
+desperate to get away from a threat that wasn't actually there.
 
 Her heart thumped in her chest.
 No, it wasn't hers, it was Ang Kwan's, but that didn't matter.
@@ -9254,7 +9249,7 @@ He shrugged apologetically.
 I wasn't told.
 It should wear off in a few minutes."
 He consulted the app on the stand beside her chair,
-which wasn't as comfortable as the one in the doctor's office
+which wasn't as comfortable as the one in Doctor Johel's office
 even though it reclined.
 She tried to focus on that,
 and on other little details in the room,
@@ -9276,7 +9271,7 @@ The whining sound she was hearing was coming from her,
 she realized.
 She swallowed hard to stop it,
 but that interrupted her breathing
-and now she was panting again.
+and made her start panting again.
 She couldn't fill her lungs.
 She needed to get her arms out of the straps.
 She needed to run away,
@@ -9293,7 +9288,7 @@ then another.
 After the third,
 she squeezed her hands into fists and slowly, deliberately relaxed them.
 "Can I have some water, please, sergeant?"
-she asked once she was sure her voice would be under her control.
+she asked once she was sure she would be able to control her voice.
 
 Wordlessly,
 Sergeant Vassilenko held a bottle to her lips.
@@ -9318,7 +9313,7 @@ Doctor Johel said briskly.
 "For security, you understand—having original personalities surface at the wrong moment
 could be quite problematic at a facility like this.
 Unfortunately,
-that's going to make it quite a bit harder for you
+that's going to make it quite hard for you
 to access Citizen Kwan's memories and abilities.
 As I said,
 we're rather short on time,
@@ -9337,7 +9332,7 @@ Doctor Johel didn't bother to check in after the next session
 or those that followed it.
 Finally,
 several hours later,
-whoever or whatever was monitoring Sandrine told Sergeant Vassilenko to stop.
+whoever or whatever was monitoring Sandrine told the sergeant to stop.
 "How are you doing?" he asked
 as he undid the straps and handed her a bottle of water.
 
@@ -9345,10 +9340,10 @@ as he undid the straps and handed her a bottle of water.
 she said.
 "I imagine I've been worse, too."
 She wondered if he knew how many times she had been imprinted
-and what had happened to those temporary copies of her.
+and what had happened to those copies of her.
 There had been stories when she was alive
 of entire battalions made up of just one person,
-and imprints that had gone wrong in a dozen different ways,
+and of imprints that had gone wrong in a dozen different ways,
 each more cinematic than the last.
 
 She handed back the now-empty bottle and stood.
@@ -9360,7 +9355,7 @@ Sergeant Vassilenko said.
 "I'll see if I can get you something more interesting than noodles for dinner."
 
 She stood in the shower for a long time,
-enjoying the feeling of water against the stubble on her scalp.
+enjoying the feeling of it against the stubble on her scalp.
 Dinner was grilled tofu in an unidentifiable citrus sauce,
 broccoli,
 and potatoes.
@@ -9404,7 +9399,7 @@ cursing each other good-naturedly for the tangles they made.
 
 It had been.
 Her family had been relocated to Hobart
-when storms battering Brisbane went from a monthly to a weekly occurrence.
+when the storms battering Brisbane went from a monthly to a weekly occurrence.
 "Temporarily" became "for the duration of the emergency",
 and by the time she was old enough to ride her treasured bamboo bicycle to school
 people had stopped pretending the emergency was ever going to end.
@@ -9435,7 +9430,7 @@ and the blue and white bamboo bicycle that Akumé had stolen and crashed.
 
 Sandrine unclenched her hands again.
 It was a good thing Iffy chewed her nails—she would have
-dug gouges out of her palms by now otherwise.
+dug gouges in her palms by now otherwise.
 Back to the beginning.
 Hobart.
 School.
@@ -9582,7 +9577,7 @@ and then bent the wrong way again.
 *i dunno maybe*
 Iffy brushed Sandrine's thought away.
 *but it ain't about that it's about someone else usin' you
-like you were just a remote an' not a person*
+like you were a bot an' not a person*
 
 *I'm sorry this was necessary.
 I truly am.*
@@ -9592,7 +9587,7 @@ Sandrine put all the sincerity into the thought that she could.
 Iffy fired back something whose pronunciation had obviously changed
 but whose meaning had not.
 *what'd she tell you this was necessary for?
-doctor got the governors fightin' each other over nothin'
+she's got the governors fightin' each other
 an' figures I might be some sort o' super weapon,
 that's all this is*
 
@@ -9609,7 +9604,7 @@ Without warning Sandrine was inside
 Iffy's memory of swiping through old news reports on a hand-held app
 while lying on a cot somewhere that smelled like the sea.
 There was a picture of her,
-older by years than the "her" that had been recorded,
+older than the "her" that had been recorded,
 raising a hand as her name was called at her trial.
 She was wearing civilian clothes and her hair was pulled back in a complicated braid,
 but her back was as straight as ever.
@@ -9652,7 +9647,7 @@ An hour later
 Sandrine stood at attention in Doctor Johel's windowless office.
 "Yes ma'am, I believe so,"
 she said,
-eyes fixed on a tiny spot on the wall above the doctor's head.
+eyes fixed on the wall above the doctor's head.
 
 "Mm."
 She steepled her hands under her chin.
@@ -9705,7 +9700,7 @@ and studied the chaos in front of her.
 
 Sandrine lost track of time as she measured, cut, shaped, and tied.
 They had only given her six rubber bands:
-she stretched each one to its limit
+she stretched each to its limit
 before deciding to tie them together as they were
 rather than trying to splice them.
 The cardboard wasn't as rigid as she would have liked,
@@ -9802,9 +9797,7 @@ Sandrine thought.
 
 Doctor Johel swiped an image of a four-legged sentry bot onto the wall.
 "Something managed to get through the security on a pack of these in Rothera a few days ago.
-If you can figure out how,
-well,
-that would certainly be a step in the right direction."
+It would be a great help if you can figure out how."
 
 "Of course, ma'am, I'll do my best."
 She hesitated.
@@ -9830,13 +9823,12 @@ Doctor Johel waved a hand in her direction,
 her attention already elsewhere.
 
 The "isolation area" turned out to be the middle of
-what Sandrine guessed had until recently been a cafeteria.
+what had until recently been a cafeteria.
 Six tables pushed together were her workbench.
 The rest of the room was empty
 except for the cameras, fire extinguishers, EMPs, and needle guns bolted to the walls.
 She knew they were there in case whatever she built got out of hand,
-but they still made the space between her shoulderblades itch
-the way it had when she was in the field.
+but they still made the space between her shoulderblades itch.
 
 The sentry bot was laid out in pieces across three of the tables.
 One leg was missing,
@@ -9857,7 +9849,7 @@ he said when she asked if he could help her turn over the bot's torso.
 He patted the gauss gun in his lap.
 
 "No worries."
-In truth the bot was lighter than it looked,
+The bot was actually lighter than it looked,
 in part thanks to the absence of ammunition.
 Asking the private to help had mostly been the equivalent of
 sending a drone over unknown territory
@@ -9959,7 +9951,7 @@ Innocent people didn't feel like they needed to tell stories.
 Building a fourth leg for the bot was easier and harder than she expected:
 easier because someone had already printed most of the parts she needed,
 but harder because they fit together in ways that only made sense to other machines.
-Eccentric gears whose teeth fit together in exactly one way
+Eccentric gears whose teeth engaged in exactly one way
 had to be connected to cables twisted a precise number of times
 to maximize the tensile recoil of mechanical ankles and knees.
 Each of the tiny auxiliary motors in the thigh had four different kinds of ratchet,
@@ -9996,7 +9988,7 @@ The sentry bot dropped to the floor with a thud.
 and then he shouted and clutched his face
 as the laser sight pivoted and fired at his eyes.
 The meds would be able to repair the damage—at least Sandrine hoped they would—but
-for the next few minutes at least he was out of action.
+for the next few minutes at least he was blind.
 
 The laser pivoted again,
 firing and firing to blind the hidden cameras
@@ -10004,7 +9996,7 @@ as the door opened.
 The Marine bringing her second lunch shouted
 as the sentry bot leaped at him,
 knocking him back and blocking the door from closing.
-Sandrine slung the half-dozen little EMPs she had made over her shoulder and ran.
+Sandrine slung the little EMPs she had made over her shoulder and ran.
 
 *right go right go right*
 Iffy said in her head.
@@ -10052,7 +10044,7 @@ a mudslide that had swallowed a hundred homes…
 The military government had declared they couldn't spare resources for a rescue mission.
 Sandrine had stolen a hovertruck and gone to save people anyway.
 Thirty-eight people owed her their lives,
-and if it hadn't been for a second mudslide the number would have been higher.
+and if it hadn't been for a second mudslide she would have rescued more.
 
 *Folks that had a right t' give you missions are long gone,*
 Iffy thought at her.
@@ -10063,7 +10055,7 @@ You can decide which one o' her you want t' be.*
 There was a moment neither of them shared with the other.
 *I wish I could remember my mum and dad,* Sandrine finally thought.
 
-*All I got o' mine is how they ended,*
+*All I got o' my olders is how they ended,*
 Iffy replied gently.
 *I'd give just about anythin' else t' have more.*
 
