@@ -214,50 +214,9 @@ what is the prey equilibrium $x^* = d/c$?</p>
     <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"t"</span><span class="p">:</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="s2">"prey"</span><span class="p">:</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"predator"</span><span class="p">:</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
 </code></pre></div>
 </div>
-<h2>The Conserved Quantity</h2>
-<ul>
-<li>The LV equations have an exact <a class="gl-ref" href="../glossary/#first_integral">first integral</a>: a quantity $H(x, y)$ that is constant along every trajectory.</li>
-<li>To derive it, write $dy/dx = (cxy - dy)/(ax - bxy)$, separate variables, and integrate both sides.</li>
-<li>The result is:</li>
-</ul>
-<p>$$H(x,y) = cx - d\ln x + by - a\ln y = \text{constant}$$</p>
-<div data-inc="lotka.py" data-mark="conserved"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">conserved</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return the conserved quantity H(x, y) = c*x - d*ln(x) + b*y - a*ln(y).</span>
-
-<span class="sd">    This quantity is constant along every trajectory of the Lotka-Volterra</span>
-<span class="sd">    equations.  It is derived by separating variables in dy/dx and integrating.</span>
-<span class="sd">    """</span>
-    <span class="k">return</span> <span class="p">(</span>
-        <span class="n">PRED_GROWTH</span> <span class="o">*</span> <span class="n">x</span>
-        <span class="o">-</span> <span class="n">PRED_DEATH</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="o">+</span> <span class="n">PREDATION</span> <span class="o">*</span> <span class="n">y</span>
-        <span class="o">-</span> <span class="n">PREY_BIRTH</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="p">)</span>
-</code></pre></div>
-</div>
-<ul>
-<li>$H$ is not the total energy of a physical system; it is a mathematical convenience that lets us verify the solver.</li>
-<li>Because $H$ is conserved exactly, any drift in $H$ is purely numerical error.</li>
-</ul>
-<div class="forma-multiple-choice" data-lang="en">
-<p>If $H(x, y) = cx - d\ln x + by - a\ln y$ drifts noticeably during a long simulation,
-what does this most likely indicate?</p>
-<dl>
-<dt>The populations are converging to a new equilibrium</dt>
-<dd>Wrong: the Lotka-Volterra system has no stable equilibrium — trajectories are closed orbits, so H must stay constant.</dd>
-<dt>The prey are approaching extinction</dt>
-<dd>Wrong: extinction would require x → 0 causing $\ln x \to -\infty$; that is a singular event, not a gradual drift in H.</dd>
-<dt>The formula for H is incorrect</dt>
-<dd>Wrong: $H = cx - d\ln x + by - a\ln y$ is the exact conserved quantity derived from the equations.</dd>
-<dt>The ODE solver is accumulating too much numerical error</dt>
-<dd>Correct: H is an exact first integral, so any change in its value is purely numerical — it directly measures solver inaccuracy.</dd>
-</dl>
-</div>
 <h2>Visualizing the Results</h2>
 <ul>
-<li>Two views of the solution complement each other:</li>
-<li>The time series shows when oscillations occur and how the two populations are offset in phase.</li>
-<li>The <a class="gl-ref" href="../glossary/#phase_portrait">phase portrait</a> shows the closed orbit traced by $(x(t), y(t))$; all orbits of the LV system are closed curves around the equilibrium.</li>
+<li>Two views of the solution complement each other.</li>
 </ul>
 <div data-inc="lotka.py" data-mark="plots"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_time_series</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return an Altair chart of prey and predator populations over time."""</span>
@@ -279,8 +238,8 @@ what does this most likely indicate?</p>
     <span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">plot_phase</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return an Altair chart of the predator-prey phase portrait."""</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_trajectory</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return an Altair chart of the predator-prey population trajectory."""</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
         <span class="o">.</span><span class="n">mark_line</span><span class="p">()</span>
@@ -288,29 +247,35 @@ what does this most likely indicate?</p>
             <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"prey"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Prey"</span><span class="p">),</span>
             <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"predator"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Predator"</span><span class="p">),</span>
         <span class="p">)</span>
-        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Phase portrait"</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Population trajectory"</span><span class="p">)</span>
     <span class="p">)</span>
 </code></pre></div>
 </div>
+<ul>
+<li>The time-series plot shows both populations over time.</li>
+<li>The prey population (blue) rises first; the predator population (orange) rises shortly after.</li>
+<li>Predator peaks lag prey peaks because predators need abundant food before they can multiply.</li>
+<li>Once predators are numerous, prey decline rapidly; predators then starve and their numbers fall.</li>
+<li>The prey then recover, and the cycle begins again.</li>
+</ul>
 <figure id="f:lotka-timeseries">
 <img alt="Prey and predator populations oscillating over time, with predator peaks lagging prey peaks." src="lotka_timeseries.svg"/>
 <figcaption>Figure 1: Prey (blue) and predator (orange) populations over 53 time units. Predator peaks follow prey peaks by roughly a quarter-period.</figcaption>
 </figure>
-<figure id="f:lotka-phase">
-<img alt="A closed orbit in the predator-prey phase plane, traversed counter-clockwise." src="lotka_phase.svg"/>
-<figcaption>Figure 2: Phase portrait: every trajectory of the Lotka-Volterra system is a closed curve around the equilibrium $(x^*, y^*) = (20, 10)$.</figcaption>
+<ul>
+<li>The population trajectory plots $x$ versus $y$ at each point in time.</li>
+<li>When the solution returns to approximately the same $(x, y)$ point after one cycle, the curve closes on itself.</li>
+<li>A nearly closed loop means the system keeps repeating the same pattern indefinitely.</li>
+</ul>
+<figure id="f:lotka-trajectory">
+<img alt="A closed loop in the prey-predator plane showing the repeating population cycle." src="lotka_trajectory.svg"/>
+<figcaption>Figure 2: Population trajectory: prey ($x$-axis) versus predator ($y$-axis). The loop closes because the populations repeat the same cycle.</figcaption>
 </figure>
 <h2>Testing</h2>
 <h3>Populations remain positive</h3>
 <ul>
 <li>Analytically, neither population can reach zero in finite time: the positive quadrant is invariant.</li>
 <li>If a numerical solution produces a negative population, the solver has made a large error or the parameters are degenerate.</li>
-</ul>
-<h3>Conserved quantity stays constant</h3>
-<ul>
-<li>$H(x, y)$ is exactly conserved; any change is purely numerical.</li>
-<li>With <code>rtol=1e-8</code> and <code>atol=1e-10</code>, the solver keeps $H$ constant to within $10^{-6}$ over the full run.</li>
-<li>This tolerance does not need a safety-factor argument: a deviation larger than $10^{-6}$ would represent a 1000-fold increase in solver error and would clearly indicate a bug or a parameter change that broke the solver configuration.</li>
 </ul>
 <h3>Volterra averaging principle</h3>
 <ul>
@@ -333,7 +298,6 @@ what does this most likely indicate?</p>
     <span class="n">PRED_EQ</span><span class="p">,</span>
     <span class="n">PERIOD_APPROX</span><span class="p">,</span>
     <span class="n">PREY_EQ</span><span class="p">,</span>
-    <span class="n">conserved</span><span class="p">,</span>
     <span class="n">solve</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -347,15 +311,6 @@ what does this most likely indicate?</p>
     <span class="k">assert</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"prey"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="k">assert</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"predator"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_conserved_quantity</span><span class="p">():</span>
-    <span class="c1"># H(x, y) = c*x - d*ln(x) + b*y - a*ln(y) is an exact first integral of</span>
-    <span class="c1"># the LV system: dH/dt = 0 along every trajectory.  With rtol=1e-8 and</span>
-    <span class="c1"># atol=1e-10 the RK45 solver conserves H to roughly machine precision</span>
-    <span class="c1"># times the number of steps.  A tolerance of 1e-6 is safe for T_MAX=53.</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">solve</span><span class="p">()</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">conserved</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"prey"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">"predator"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
-    <span class="k">assert</span> <span class="n">h</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">h</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">1e-6</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_volterra_principle</span><span class="p">():</span>
@@ -390,12 +345,12 @@ what does this most likely indicate?</p>
 <h3>Starting at the equilibrium</h3>
 <p>Set <code>PREY_INIT = PREY_EQ</code> and <code>PRED_INIT = PRED_EQ</code> and run the simulation.
 What does <code>plot_time_series</code> show?
-What does <code>plot_phase</code> show?
+What does <code>plot_trajectory</code> show?
 Explain why in terms of the fixed-point analysis.</p>
 <h3>Effect of initial conditions on period</h3>
 <p>Run the simulation with three different starting points:
 $(x_0, y_0)$ = (21, 10.5), (25, 5), and (40, 2).
-Plot the phase portraits on the same axes using different colors.
+Plot the population trajectories on the same axes using different colors.
 Measure the period of each orbit using <code>find_peaks</code>.
 Is the period the same for all three orbits, or does it vary with amplitude?
 Compare each measured period to <code>PERIOD_APPROX</code>.</p>
@@ -408,9 +363,10 @@ Implement the modified <code>rhs</code> and verify your algebra by checking that
 stays constant when started exactly at the new equilibrium.</p>
 <h3>Numerical accuracy and solver tolerance</h3>
 <p>Reduce <code>rtol</code> and <code>atol</code> by a factor of 100 (to $10^{-6}$ and $10^{-8}$) and re-run the simulation.
-By how much does the range of the conserved quantity $H$ increase?
-At what tolerance does <code>test_conserved_quantity</code> start to fail?
-What does this tell you about the relationship between solver accuracy and test tolerance?</p>
+Run the simulation for <code>T_MAX</code> time units and check whether the population trajectory still forms a
+nearly closed loop.
+At what tolerance does the loop visibly fail to close?
+What does this tell you about the relationship between solver accuracy and the appearance of the trajectory?</p>
 </section>
 </main>
 <footer aria-label="Page navigation">

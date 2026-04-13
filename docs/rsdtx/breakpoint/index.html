@@ -76,14 +76,14 @@
   A <a class="gl-ref" href="../glossary/#structural_break">structural break</a> is a point in time where the statistical
   properties of the series change permanently.</li>
 <li>Failing to account for a break leads to biased forecasts and spurious inference:
-  a regression fitted over a period that straddles a break conflates two different regimes.</li>
+  a model fitted over a period that straddles a break conflates two different regimes.</li>
 <li>The approach here:</li>
 <li>Generate a synthetic time series with a known break at a known step.</li>
-<li>Fit an ordinary least squares model to the whole series and compute
-    the <a class="gl-ref" href="../glossary/#cusum">cumulative sum (CUSUM) statistic</a> of the residuals.</li>
+<li>Subtract the sample mean from each observation to get residuals, then compute
+    the <a class="gl-ref" href="../glossary/#cusum">cumulative sum (CUSUM) statistic</a> of those residuals.</li>
 <li>Detect the break as the location of the largest absolute CUSUM value.</li>
-<li>Compare two choices of OLS model — mean-only and linear-trend — and discuss
-    when each is appropriate.</li>
+<li>Extend to a linear-trend model — subtracting a fitted line instead of the mean —
+    and discuss when each approach is appropriate.</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why does a structural break cause the CUSUM of OLS residuals to deviate from zero?</p>
@@ -155,43 +155,19 @@ At which step index (0-based) does $|C_t|$ reach its maximum?</p>
     <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"step"</span><span class="p">:</span> <span class="n">steps</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="n">values</span><span class="p">})</span>
 </code></pre></div>
 </div>
-<h2>Mean-Only CUSUM</h2>
+<h2>Mean-Only Residuals and CUSUM</h2>
 <ul>
-<li>The simplest OLS model fits a constant mean $\hat{y}_t = \bar{y}$ to the whole series.</li>
-<li>Before the break the true mean is 0.0 but $\bar{y} \approx 1.5$, so residuals are
-  negative; after the break the true mean is 3.0, so residuals are positive.</li>
-<li>This sign reversal produces the characteristic V-shape in $C_t$, with the trough
-  at the break.</li>
+<li>Subtract the sample mean from each observation: $\hat{e}_t = y_t - \bar{y}$.</li>
+<li>If there is no break, these residuals fluctuate randomly around zero with no
+  consistent pattern.</li>
+<li>If there is a break, residuals before the break have one consistent sign and
+  residuals after have the opposite sign: the global mean sits between the two
+  local means, so it over-estimates one half and under-estimates the other.</li>
+<li>This sign reversal produces the characteristic V-shape in $C_t$: the CUSUM
+  drifts in one direction before the break and reverses after; the peak marks
+  the break.</li>
 </ul>
-<div data-inc="breakpoint.py" data-mark="ols"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">ols_residuals_mean</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Residuals from a mean-only (intercept-only) OLS fit.</span>
-
-<span class="sd">    Fits y_t = mu where mu = mean(y).  Residuals e_t = y_t - mu sum to</span>
-<span class="sd">    zero by construction.  Use this model when the series is expected to</span>
-<span class="sd">    be stationary around a constant mean before and after the break.</span>
-<span class="sd">    """</span>
-    <span class="k">return</span> <span class="n">values</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">ols_residuals_trend</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Residuals from a linear-trend OLS fit.</span>
-
-<span class="sd">    Fits y_t = a + b*t by ordinary least squares, then returns e_t = y_t - (a + b*t).</span>
-<span class="sd">    Removes any linear drift so the CUSUM responds only to departures from</span>
-<span class="sd">    the fitted trend, such as a sudden mean shift.  Residuals still sum to</span>
-<span class="sd">    zero because the OLS intercept centers them.</span>
-<span class="sd">    Use this model when the series is expected to have a linear trend in</span>
-<span class="sd">    addition to a possible break.</span>
-<span class="sd">    """</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-    <span class="n">t_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="n">y_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-    <span class="n">ss_tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">t_mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">ss_ty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">t_mean</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">values</span> <span class="o">-</span> <span class="n">y_mean</span><span class="p">))</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">ss_ty</span> <span class="o">/</span> <span class="n">ss_tt</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">y_mean</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">t_mean</span>
-    <span class="k">return</span> <span class="n">values</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<div data-inc="breakpoint.py" data-mark="mean_residuals"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <div data-inc="breakpoint.py" data-mark="cusum"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cusum</span><span class="p">(</span><span class="n">residuals</span><span class="p">):</span>
@@ -215,19 +191,26 @@ At which step index (0-based) does $|C_t|$ reach its maximum?</p>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">cusum_values</span><span class="p">)))</span>
 </code></pre></div>
 </div>
-<h2>Linear-Trend CUSUM</h2>
+<h2>Linear-Trend Residuals and CUSUM</h2>
 <ul>
-<li>If the series also has a linear trend, fitting only a constant conflates the trend
-  with the break: the CUSUM responds to both.</li>
-<li>Fitting $\hat{y}_t = a + bt$ by OLS first removes the trend; the CUSUM of the
-  detrended residuals then responds only to non-linear features such as a sudden
-  mean shift.</li>
+<li>If the series also has a linear trend, subtracting only the mean conflates the
+  trend with the break: the CUSUM responds to both.</li>
+<li>Instead, subtract a fitted line — the line of best fit found by <code>np.polyfit</code>:
+  $\hat{e}_t = y_t - (a + bt)$ where $a$ and $b$ are chosen to minimise the sum of
+  squared differences from the data.</li>
+<li>The CUSUM of these trend residuals responds only to departures from the fitted
+  line, such as a sudden mean shift.</li>
+<li>A break that also changes the trend is harder to see in mean residuals but visible
+  in trend residuals.</li>
 <li>When the series has no trend (as in the synthetic data here) both models should
   detect the same break — and they do: both find step 100.</li>
-<li>When a trend is present the linear-trend CUSUM is the appropriate choice;
-  applying the mean-only CUSUM to a trending series would produce a spurious signal
+<li>When a trend is present the linear-trend approach is the appropriate choice;
+  applying the mean-only approach to a trending series produces a spurious signal
   at the point where the trend, not a break, drives the largest cumulative deviation.</li>
 </ul>
+<div data-inc="breakpoint.py" data-mark="trend_residuals"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
 <div class="forma-multiple-choice" data-lang="en">
 <p>A time series has GDP values that grow at roughly 2% per year with no sudden shift.
 Which CUSUM model is more appropriate?</p>
@@ -327,11 +310,12 @@ and make break detection unreliable.</dd>
   <code>np.cumsum</code> on the same array exactly.  Any discrepancy would indicate
   an indexing bug.</li>
 </ul>
-<h3>OLS residuals sum to zero</h3>
+<h3>Residuals sum to zero</h3>
 <ul>
-<li>For any OLS fit that includes an intercept, residuals must sum to zero by
-  the normal equations.  This holds for both the mean-only and linear-trend models.
-  A failure would indicate an error in the slope or intercept formula.</li>
+<li>For both the mean-only and linear-trend fits, residuals must sum to zero.
+  Subtracting the sample mean centers the data exactly; <code>np.polyfit</code> with an
+  intercept term also centers the residuals.
+  A failure would indicate an error in the subtraction or fitting step.</li>
 </ul>
 <h3>Clean-signal break detection</h3>
 <ul>
@@ -350,7 +334,7 @@ and make break detection unreliable.</dd>
 <div data-inc="test_breakpoint.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_breakpoint</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_breakpoint_data</span><span class="p">,</span> <span class="n">BREAK_STEP</span><span class="p">,</span> <span class="n">N_STEPS</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">breakpoint</span><span class="w"> </span><span class="kn">import</span> <span class="n">ols_residuals_mean</span><span class="p">,</span> <span class="n">ols_residuals_trend</span><span class="p">,</span> <span class="n">cusum</span><span class="p">,</span> <span class="n">detect_break</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">breakpoint</span><span class="w"> </span><span class="kn">import</span> <span class="n">residuals_mean</span><span class="p">,</span> <span class="n">residuals_trend</span><span class="p">,</span> <span class="n">cusum</span><span class="p">,</span> <span class="n">detect_break</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_cusum_all_zero_residuals</span><span class="p">():</span>
@@ -369,7 +353,7 @@ and make break detection unreliable.</dd>
     <span class="c1"># intercept equals the sample mean, centering the residuals exactly.</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">make_breakpoint_data</span><span class="p">()</span>
     <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ols_residuals_mean</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_mean</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_trend_residuals_sum_to_zero</span><span class="p">():</span>
@@ -377,7 +361,7 @@ and make break detection unreliable.</dd>
     <span class="c1"># zero for the linear-trend fit.</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">make_breakpoint_data</span><span class="p">()</span>
     <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ols_residuals_trend</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals_trend</span><span class="p">(</span><span class="n">values</span><span class="p">))</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_detect_break_clean_signal</span><span class="p">():</span>
@@ -390,7 +374,7 @@ and make break detection unreliable.</dd>
             <span class="mf">3.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N_STEPS</span> <span class="o">-</span> <span class="n">BREAK_STEP</span><span class="p">),</span>
         <span class="p">]</span>
     <span class="p">)</span>
-    <span class="n">detected</span> <span class="o">=</span> <span class="n">detect_break</span><span class="p">(</span><span class="n">cusum</span><span class="p">(</span><span class="n">ols_residuals_mean</span><span class="p">(</span><span class="n">values</span><span class="p">)))</span>
+    <span class="n">detected</span> <span class="o">=</span> <span class="n">detect_break</span><span class="p">(</span><span class="n">cusum</span><span class="p">(</span><span class="n">residuals_mean</span><span class="p">(</span><span class="n">values</span><span class="p">)))</span>
     <span class="k">assert</span> <span class="n">detected</span> <span class="o">==</span> <span class="n">BREAK_STEP</span> <span class="o">-</span> <span class="mi">1</span>
 
 
@@ -401,7 +385,7 @@ and make break detection unreliable.</dd>
     <span class="c1"># so the estimated break location is detected + 1.</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">make_breakpoint_data</span><span class="p">()</span>
     <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-    <span class="n">detected</span> <span class="o">=</span> <span class="n">detect_break</span><span class="p">(</span><span class="n">cusum</span><span class="p">(</span><span class="n">ols_residuals_mean</span><span class="p">(</span><span class="n">values</span><span class="p">)))</span>
+    <span class="n">detected</span> <span class="o">=</span> <span class="n">detect_break</span><span class="p">(</span><span class="n">cusum</span><span class="p">(</span><span class="n">residuals_mean</span><span class="p">(</span><span class="n">values</span><span class="p">)))</span>
     <span class="k">assert</span> <span class="nb">abs</span><span class="p">((</span><span class="n">detected</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">BREAK_STEP</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">10</span>
 </code></pre></div>
 </div>
@@ -412,14 +396,15 @@ and make break detection unreliable.</dd>
 <dd>A point in time at which the statistical properties of a time series (mean, variance,
 trend) change abruptly and permanently; also called a regime change or change point</dd>
 <dt>CUSUM statistic $C_t$</dt>
-<dd>$\sum_{s=0}^{t} \hat{e}_s$; cumulative sum of OLS residuals; drifts systematically
+<dd>$\sum_{s=0}^{t} \hat{e}_s$; cumulative sum of residuals; drifts systematically
 when the fitted model is wrong on one side of a break</dd>
-<dt>Mean-only OLS residuals</dt>
+<dt>Mean-only residuals</dt>
 <dd>$\hat{e}_t = y_t - \bar{y}$; appropriate when the series is stationary around a
 constant mean; confounds trend and break if a trend is present</dd>
-<dt>Linear-trend OLS residuals</dt>
-<dd>$\hat{e}_t = y_t - (\hat{a} + \hat{b}t)$; removes a fitted linear drift before
-forming the CUSUM; appropriate when the series has a deterministic trend</dd>
+<dt>Linear-trend residuals</dt>
+<dd>$\hat{e}_t = y_t - (a + bt)$ where $a$ and $b$ are found by <code>np.polyfit</code>;
+removes a fitted linear drift before forming the CUSUM; appropriate when the
+series has a deterministic trend</dd>
 <dt>Break detection rule</dt>
 <dd>$\hat{\tau} = \arg\max_t |C_t|$; the last index before the estimated break;
 the estimated break location is $\hat{\tau} + 1$</dd>

@@ -71,6 +71,13 @@
 <h1>Glossary</h1>
 <h2>A</h2>
 <dl>
+<dt><span id="area_under_curve">Area under the curve (AUC)</span></dt>
+<dd>The area enclosed between the ROC curve and the x-axis, computed using
+the trapezoidal rule as
+$\text{AUC} \approx \sum_i \tfrac{1}{2}(\text{HR}<em i_1="i+1">i + \text{HR}</em>})|\text{FAR<em i_1="i+1">i - \text{FAR}</em>|$;
+AUC = 0.5 for chance performance (the diagonal) and AUC = 1.0 for perfect
+discrimination; it equals the probability that a randomly chosen signal trial
+receives a higher evidence score than a randomly chosen noise trial.</dd>
 <dt><span id="authorship_attribution">Authorship attribution</span></dt>
 <dd>The task of identifying which of several candidate authors wrote an anonymous
 text by comparing its stylistic features (such as character n-gram frequencies)
@@ -274,6 +281,10 @@ its neighbours, where the weights follow a Gaussian (bell-curve) shape centred o
 <dd>A plotting technique that rescales the horizontal axis by the reduced variate
 $y = -\ln(-\ln p)$, so that data following a Gumbel distribution plot as a straight line;
 departures from linearity indicate poor fit.</dd>
+<dt><span id="global_alignment">Global alignment</span></dt>
+<dd>An alignment that spans both sequences from end to end, inserting gaps wherever necessary
+to align every character; the Needleman-Wunsch algorithm finds the highest-scoring global
+alignment using dynamic programming.</dd>
 <dt><span id="ghost_cell">Ghost cell</span></dt>
 <dd>An extra grid point added outside the physical boundary of a numerical simulation solely
 to store a boundary value; it allows interior update formulas to be applied uniformly at
@@ -311,8 +322,29 @@ is $d_i^{-p}$ ($d_i$ is the distance from the query point, $p$ is the power
 parameter); larger $p$ concentrates influence on the nearest stations.</dd>
 </dl>
 <h2>J</h2>
+<dl>
+<dt><span id="jacobi_iteration">Jacobi iteration</span></dt>
+<dd>An iterative method for solving systems of equations in which each unknown is updated
+to the value that would satisfy its equation if all other unknowns are held at their
+previous values; updates are applied simultaneously to all unknowns in each sweep.
+For the steady-state heat equation on a 1D grid, each interior node is replaced by the
+conductivity-weighted average of its two neighbours, and sweeps continue until
+successive solutions differ by less than a prescribed tolerance.</dd>
+</dl>
 <h2>K</h2>
 <dl>
+<dt><span id="k_means">K-means clustering</span></dt>
+<dd>An iterative algorithm that partitions $n$ data points into $K$ clusters by alternating
+between two steps: assigning each point to its nearest centroid (using Euclidean distance)
+and updating each centroid as the coordinate-wise mean of all points assigned to it.
+The algorithm stops when assignments no longer change.  Because initialization is random,
+results can vary across runs; the number of clusters $K$ must be chosen in advance.</dd>
+<dt><span id="term_frequency">Term frequency (TF)</span></dt>
+<dd>The count of how many times each word in the vocabulary appears in a given document,
+stored as a vector with one entry per vocabulary word.  Raw TF counts are proportional
+to document length, so longer documents produce larger vectors; dividing by the document's
+L2 norm (or total token count) gives a length-normalized vector that reflects the
+shape of word use rather than total volume.</dd>
 <dt><span id="kd_tree">KD-tree</span></dt>
 <dd>A binary space-partitioning tree that organises $k$-dimensional points by
 recursively splitting along alternating coordinate axes.  Supports efficient
@@ -361,6 +393,10 @@ The Gini coefficient equals twice the area between the Lorenz curve and the diag
 <dd>A linear regression of $\ln y$ on $\ln x$; the OLS slope directly estimates the exponent
 of an underlying power-law relationship $y = A x^b$, and is used in economics to estimate
 price elasticity of demand.</dd>
+<dt><span id="log_normal_distribution">Log-normal distribution</span></dt>
+<dd>A probability distribution for a positive random variable $X$ such that $\ln X$ follows
+a normal distribution; characterised by its log-mean $\mu_y$ and log-standard-deviation
+$\sigma_y$, and widely used in hydrology to model annual maximum river flows.</dd>
 <dt><span id="logistic_regression">Logistic regression</span></dt>
 <dd>A classification model that estimates the probability of class membership using a linear
 combination of features passed through the sigmoid function; fitted by minimising binary
@@ -414,6 +450,11 @@ authors using cosine similarity or other distance measures.</dd>
 <dd>A distance-based algorithm (Saitou and Nei, 1987) that reconstructs a phylogenetic tree
 by iteratively joining the pair of taxa with the smallest corrected distance, running in
 $O(N^3)$ time.</dd>
+<dt><span id="needleman_wunsch">Needleman-Wunsch algorithm</span></dt>
+<dd>A dynamic programming algorithm (Needleman and Wunsch, 1970) for global sequence alignment.
+The first row and column of the scoring matrix are initialised to cumulative gap penalties,
+and the recurrence fills remaining cells as the maximum of a diagonal (match/mismatch) move,
+an upward (gap in the second sequence) move, or a leftward (gap in the first sequence) move.</dd>
 <dt><span id="non_maximum_suppression">Non-maximum suppression</span></dt>
 <dd>A post-processing step that scans a list of candidate detections and discards any candidate
 that is not the tallest within a specified neighbourhood, preventing one broad peak or blob
@@ -589,6 +630,14 @@ differences; for the explicit diffusion scheme the global truncation error scale
 $O(\Delta t + \Delta x^2)$.</dd>
 </dl>
 <h2>U</h2>
+<dl>
+<dt><span id="upgma">UPGMA</span></dt>
+<dd>Unweighted Pair Group Method with Arithmetic Mean; a distance-based algorithm that
+reconstructs a rooted phylogenetic tree by iteratively merging the pair of taxa (or
+clusters) with the smallest average pairwise distance, placing each new node at height
+$D(i,j)/2$.  UPGMA assumes a molecular clock (constant evolutionary rate across all
+lineages); when rates vary, the recovered topology may be incorrect.</dd>
+</dl>
 <h2>V</h2>
 <dl>
 <dt><span id="variant_locus">Variant locus</span></dt>

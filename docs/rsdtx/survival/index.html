@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Survival Analysis with Kaplan-Meier</title>
+<title>Survival Analysis</title>
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
@@ -68,7 +68,7 @@
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
 </nav>
 <main id="main-content">
-<h1>Survival Analysis with Kaplan-Meier</h1>
+<h1>Survival Analysis</h1>
 <h2>The Problem</h2>
 <ul>
 <li>In a clinical trial some patients experience the event of interest (death, relapse, recovery)
@@ -76,8 +76,8 @@
 <li>An observation where the true event time is unknown because we only know the patient
   survived past a certain point is called <a class="gl-ref" href="../glossary/#right_censoring">right-censored</a>.</li>
 <li>Ignoring censored observations or treating them as events both bias the estimate of survival time.</li>
-<li>The <a class="gl-ref" href="../glossary/#kaplan_meier">Kaplan-Meier estimator</a> (1958) accounts for censoring by updating the
-  survival probability only at observed event times, using only the patients still under observation.</li>
+<li>This lesson builds an exponential survival model, showing how a naive estimate is biased and
+  how maximum-likelihood estimation corrects for censoring.</li>
 </ul>
 <h2>The Survival Function</h2>
 <ul>
@@ -87,42 +87,20 @@
 <p>$$S(t) = P(T &gt; t)$$</p>
 <ul>
 <li>$S(0) = 1$ (everyone is alive at the start) and $S(t)$ is non-increasing.</li>
-<li>For an Exponential distribution with mean $\mu$, $S(t) = e^{-t/\mu}$ and the median survival time is $\mu \ln 2$.</li>
+<li>For an Exponential distribution with rate $\lambda$, the survival function is:</li>
+</ul>
+<p>$$S(t) = e^{-\lambda t}$$</p>
+<ul>
+<li>As $t \to \infty$, $S(t) \to 0$; the curve decays smoothly rather than dropping in steps.</li>
+<li>The mean survival time is $\mu = 1/\lambda$; the median is $(\ln 2)/\lambda \approx 0.693/\lambda$.</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.5" data-lang="en" data-tolerance="0.001">
-<p>The survival time of a population follows an Exponential distribution with mean $\mu = 20$ days.
-Using $S(t) = e^{-t/\mu}$, compute $S(20 \ln 2)$ to three decimal places.</p>
-</div>
-<h2>The Kaplan-Meier Estimator</h2>
-<ul>
-<li>At each unique event time $t_i$, let $n_i$ be the number still at risk (not yet had event,
-  not yet censored) and $d_i$ the number who experience the event at exactly $t_i$.</li>
-<li>The product-limit estimate multiplies successive conditional survival factors:</li>
-</ul>
-<p>$$\hat{S}(t) = \prod_{t_i \leq t} \left(1 - \frac{d_i}{n_i}\right)$$</p>
-<ul>
-<li>Censored observations reduce the risk set $n_i$ for all subsequent event times but do not
-  count as events — this is the key difference from simply computing the empirical CDF.</li>
-<li>Tied censoring and event times: by convention, censoring at time $t$ is treated as occurring
-  just after any events at $t$, so the censored patient is still in $n_i$ for that event time.</li>
-</ul>
-<div class="forma-multiple-choice" data-lang="en">
-<p>Patient A is censored at day 10 (last known to be alive). Patient B has an event at day 12.
-How does patient A appear in the Kaplan-Meier calculation at $t = 12$?</p>
-<dl>
-<dt>Patient A contributes $d_i = 1$ at $t = 12$ because they represent an unknown event.</dt>
-<dd>Wrong: censoring means the event did not occur before day 10; the patient is not counted as an event.</dd>
-<dt>Patient A is not in $n_i$ at $t = 12$ because they left the study before that time.</dt>
-<dd>Correct: once censored at day 10, patient A is no longer at risk and is excluded from $n_i$ at all subsequent times.</dd>
-<dt>Patient A is counted in $n_i$ at $t = 12$ but contributes $d_i = 0$.</dt>
-<dd>Wrong: patient A is not at risk at day 12 — they cannot contribute to the risk set after being censored at day 10.</dd>
-<dt>Patient A's censoring time is used as their event time.</dt>
-<dd>Wrong: substituting the censoring time as an event time is the bias the KM estimator is specifically designed to avoid.</dd>
-</dl>
+<p>The survival time of a population follows an Exponential distribution with rate $\lambda = 1/20$.
+Using $S(t) = e^{-\lambda t}$, compute $S(20 \ln 2)$ to three decimal places.</p>
 </div>
 <h2>Generating Synthetic Data</h2>
 <ul>
-<li>Each patient's true event time is drawn from Exponential($\mu = 20$ days).</li>
+<li>Each patient's true event time is drawn from Exponential($\mu = 20$ days, i.e. $\lambda = 1/20$).</li>
 <li>An independent censoring time drawn from Uniform($10$, $35$) days simulates patients
   who leave the study at different points.</li>
 <li>The observed time is whichever comes first; <code>observed = 1</code> if the event came first.</li>
@@ -160,277 +138,187 @@ How does patient A appear in the Kaplan-Meier calculation at $t = 12$?</p>
     <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"time"</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">"observed"</span><span class="p">:</span> <span class="n">observed</span><span class="p">})</span>
 </code></pre></div>
 </div>
+<h2>A Naive Estimate</h2>
+<ul>
+<li>A first attempt: use only the patients whose event was actually observed, ignore the rest.</li>
+<li>For an Exponential distribution, the mean of uncensored times estimates $\mu$, giving:</li>
+</ul>
+<p>$$\hat{\lambda}<em _text_uncensored="\text{uncensored">{\text{naive}} = \frac{1}{\bar{t}</em>$$}}</p>
+<div data-inc="survival.py" data-mark="naive-rate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Patient A is censored at day 10. Patient B has an event at day 25.
+If we compute the naive rate using only uncensored patients, which of these is true?</p>
+<dl>
+<dt>Patient A's time of 10 days is included in the mean.</dt>
+<dd>Wrong: the naive estimate discards censored patients entirely.</dd>
+<dt>Patient B's time of 25 days raises the mean, lowering $\hat{\lambda}_{\text{naive}}$.</dt>
+<dd>Wrong: a longer uncensored time raises the mean, which lowers the rate estimate — the direction is correct but this is not a problem if all observations are uncensored.</dd>
+<dt>Dropping patient A removes a long survival time from the calculation, inflating $\hat{\lambda}_{\text{naive}}$.</dt>
+<dd>Correct: censored patients tended to survive longer; removing them makes the mean look smaller and the rate look higher.</dd>
+<dt>Dropping patient A has no effect because censored patients never experienced the event.</dt>
+<dd>Wrong: even though the event did not occur, the censored time still carries information about how long the patient survived.</dd>
+</dl>
+</div>
+<h2>Why the Naive Estimate Is Biased</h2>
+<ul>
+<li>Censored patients were still alive at their last observation — they survived at least that long.</li>
+<li>Dropping them removes longer-than-average survival times from the calculation.</li>
+<li>The remaining uncensored times have a shorter mean, so $\hat{\lambda}_{\text{naive}}$ is too high.</li>
+<li>The bias grows with the censoring fraction: the more patients are censored, the worse the estimate.</li>
+</ul>
 <div class="forma-ordering" data-lang="en">
-<p>Put these Kaplan-Meier steps in the correct order.</p>
+<p>Put these reasoning steps about censoring bias in the correct order.</p>
 <ol>
-<li>Sort all unique times at which events (not censorings) occurred</li>
-<li>For each event time, count $n_i$ (at risk) and $d_i$ (events)</li>
-<li>Compute the conditional survival factor $(1 - d_i / n_i)$ at each event time</li>
-<li>Multiply the factors cumulatively to obtain $\hat{S}(t)$</li>
-<li>Report the first $t$ where $\hat{S}(t) \leq 0.5$ as the estimated median</li>
+<li>Censoring occurs because a patient's follow-up ends before the event</li>
+<li>Censored patients were alive at their last observation, so their true event time is longer</li>
+<li>Dropping them leaves only patients who tended to have shorter survival times</li>
+<li>The mean of the remaining times underestimates $\mu$, so the rate is overestimated</li>
 </ol>
 </div>
-<h2>Computing the Estimate</h2>
-<div data-inc="survival.py" data-mark="km-estimate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kaplan_meier</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Compute the Kaplan-Meier product-limit survival estimate.</span>
-
-<span class="sd">    At each unique event time t_i:</span>
-<span class="sd">      - n_i = number of patients still at risk (time &gt;= t_i, not yet censored)</span>
-<span class="sd">      - d_i = number who experienced the event at exactly t_i</span>
-<span class="sd">      - S(t_i) = S(t_{i-1}) * (1 - d_i / n_i)</span>
-
-<span class="sd">    Returns (event_times, survival_probs) where both arrays are sorted in</span>
-<span class="sd">    ascending order and have the same length.</span>
-<span class="sd">    """</span>
-    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-    <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">observed</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">event_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">observed</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]))</span>
-    <span class="n">surv</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">survival_probs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">event_times</span><span class="p">:</span>
-        <span class="n">n_at_risk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">times</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span>
-        <span class="n">n_events</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">times</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">observed</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
-        <span class="n">surv</span> <span class="o">*=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">n_events</span> <span class="o">/</span> <span class="n">n_at_risk</span>
-        <span class="n">survival_probs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">surv</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">event_times</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">survival_probs</span><span class="p">)</span>
+<h2>A Corrected Estimate</h2>
+<ul>
+<li>The maximum-likelihood estimate (MLE) of $\lambda$ uses all observed times, not just events.</li>
+<li>The log-likelihood for $n$ patients with times $t_i$ and event indicators $\delta_i$ is:</li>
+</ul>
+<p>$$\ell(\lambda) = \sum_{i=1}^{n} \left[ \delta_i \ln \lambda - \lambda t_i \right]$$</p>
+<ul>
+<li>Setting $d\ell/d\lambda = 0$:</li>
+</ul>
+<p>$$\frac{d}{d\lambda} \left( d \ln \lambda - \lambda \sum_i t_i \right) = \frac{d}{\lambda} - \sum_i t_i = 0$$</p>
+<p>where $d = \sum_i \delta_i$ is the total number of events.</p>
+<ul>
+<li>Solving gives:</li>
+</ul>
+<p>$$\hat{\lambda} = \frac{d}{\sum_i t_i}$$</p>
+<ul>
+<li>Every patient's time contributes to $\sum_i t_i$, whether or not the event occurred.</li>
+<li>A censored patient contributes time up to the point they were last observed: this is called
+  person-time and captures the information that the patient was alive throughout that period.</li>
+</ul>
+<div data-inc="survival.py" data-mark="corrected-rate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="0.125" data-lang="en" data-tolerance="0.001">
+<p>Three patients have times $[2, 4, 10]$ with event indicators $[1, 1, 0]$.
+Compute $\hat{\lambda} = d / \sum t_i$ to three decimal places.</p>
+</div>
+<h2>The Empirical Survival Curve</h2>
+<ul>
+<li>To visualize how well the model fits, plot the fraction of uncensored events occurring after each time.</li>
+<li>Sort the uncensored event times; at the $i$-th event time (0-indexed), $(n - i)/n$ events occur at or after that time.</li>
+<li>This gives a non-increasing step function that starts at 1 and reaches $1/n$ at the last event.</li>
+</ul>
+<div data-inc="survival.py" data-mark="empirical-curve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
-<li>The inner loop over <code>event_times</code> (sorted unique times where <code>observed == 1</code>) ensures
-  that only true event times, not censoring times, trigger a drop in $\hat{S}$.</li>
-<li><code>np.sum(times &gt;= t)</code> counts all patients still at risk at time $t$: those whose recorded
-  time (event or censoring) is at least $t$.</li>
+<li>Overlay the exponential curves $e^{-\hat{\lambda}_{\text{naive}} t}$ and $e^{-\hat{\lambda} t}$
+  to see which fits the empirical curve more closely.</li>
 </ul>
-<h2>Median Survival Time</h2>
-<div data-inc="survival.py" data-mark="median"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">median_survival</span><span class="p">(</span><span class="n">event_times</span><span class="p">,</span> <span class="n">survival_probs</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return the smallest event time at which the survival estimate drops to 0.5 or below.</span>
-
-<span class="sd">    Returns None if the survival curve never reaches 0.5 (too many censored observations</span>
-<span class="sd">    prevent the estimate from falling that far).</span>
-<span class="sd">    """</span>
-    <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">event_times</span><span class="p">,</span> <span class="n">survival_probs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">return</span> <span class="kc">None</span>
+<div data-inc="survival.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
-<ul>
-<li>The median is the first time $\hat{S}(t) \leq 0.5$; it does not require $\hat{S}$ to reach
-  zero, making it well-defined even when many patients are censored.</li>
-<li>Returning <code>None</code> when the curve never reaches $0.5$ is important: a function that silently
-  returns the last event time would give a misleading result.</li>
-</ul>
-<div class="forma-numeric-entry" data-correct="13.9" data-lang="en" data-tolerance="0.2">
-<p>For an Exponential distribution with mean $\mu = 20$ days, compute the theoretical median
-survival time $\mu \ln 2$ in days, rounded to one decimal place.</p>
-</div>
-<h2>Visualizing the Survival Curve</h2>
-<div data-inc="survival.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_km</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">,</span> <span class="n">event_times</span><span class="p">,</span> <span class="n">survival_probs</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Save a Kaplan-Meier step function with censoring tick marks.</span>
-
-<span class="sd">    The step function starts at S = 1 and drops at each event time.</span>
-<span class="sd">    Censored observations are shown as small vertical ticks at the</span>
-<span class="sd">    survival probability current when each patient left the study.</span>
-<span class="sd">    """</span>
-    <span class="c1"># Build step-function coordinates: prepend t=0, S=1 so the curve</span>
-    <span class="c1"># starts at the left edge of the plot.</span>
-    <span class="n">step_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">event_times</span><span class="p">])</span>
-    <span class="n">step_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">survival_probs</span><span class="p">])</span>
-    <span class="n">step_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"t"</span><span class="p">:</span> <span class="n">step_t</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">:</span> <span class="n">step_s</span><span class="p">})</span>
-
-    <span class="n">step_line</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">step_df</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="s2">"step-after"</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"t:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Time (days)"</span><span class="p">),</span>
-            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
-                <span class="s2">"S:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Survival probability"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-            <span class="p">),</span>
-        <span class="p">)</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Compute survival probability at each censored time by finding the</span>
-    <span class="c1"># largest event_time that is less than or equal to the censored time.</span>
-    <span class="n">times_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-    <span class="n">observed_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">observed</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">censored_times</span> <span class="o">=</span> <span class="n">times_arr</span><span class="p">[</span><span class="n">observed_arr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
-    <span class="n">censor_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">censored_times</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">ct</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">censored_times</span><span class="p">):</span>
-        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">event_times</span><span class="p">,</span> <span class="n">ct</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">"right"</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">censor_s</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">survival_probs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-
-    <span class="n">censor_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"t"</span><span class="p">:</span> <span class="n">censored_times</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">:</span> <span class="n">censor_s</span><span class="p">})</span>
-    <span class="n">censor_marks</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">censor_df</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">mark_tick</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"firebrick"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"t:Q"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"S:Q"</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s2">"t:Q"</span><span class="p">,</span> <span class="s2">"S:Q"</span><span class="p">])</span>
-    <span class="p">)</span>
-
-    <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">step_line</span><span class="p">,</span> <span class="n">censor_marks</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
-        <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Kaplan-Meier survival estimate"</span>
-    <span class="p">)</span>
-    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<figure id="f:survival-km">
-<img alt="Step function showing estimated survival probability decreasing from 1 to near 0, with red tick marks at censored observation times." src="survival.svg"/>
-<figcaption>Figure 1: Kaplan-Meier survival curve for 100 synthetic patients (69 events, 31 censored). The step function drops at each event time; red tick marks show censored patients still alive at their last observation. Estimated median survival: 12.6 days; theoretical median: 13.9 days.</figcaption>
+<figure id="f:survival-exp">
+<img alt="Step-function empirical survival curve with two exponential overlays: naive rate (red dashed) decays faster, corrected rate (orange dashed) tracks the empirical curve more closely." src="survival.svg"/>
+<figcaption>Figure 1: Empirical survival curve for 100 synthetic patients with exponential fits. The naive rate (red) overestimates decay because it ignores censored patients. The corrected MLE rate (orange) fits the empirical curve more closely.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Exact values for two patients</h3>
 <ul>
-<li>With two patients who both have events at $t = 1$ and $t = 2$ and no censoring:
-  $\hat{S}(1) = 1/2 = 0.5$ and $\hat{S}(2) = 0.5 \times 0 = 0$.</li>
-<li>These are exact rational values computed without rounding, so no tolerance is needed.</li>
+<li><code>naive_rate</code> should return $1 / \bar{t}_{\text{uncensored}}$; compute the mean by hand for a small dataset.</li>
+<li><code>corrected_rate</code> should return $d / \sum t_i$; again, hand-check with a small dataset.</li>
+<li>When censored observations exist, <code>naive_rate</code> must exceed <code>corrected_rate</code> — the bias should be
+  detectable on the full 100-patient synthetic dataset.</li>
+<li><code>empirical_survival</code> must return fractions in $[0, 1]$ that are non-increasing.</li>
+<li>When all observations are uncensored, the two rates must agree: with $\delta_i = 1$ for all $i$,
+  $d / \sum t_i = n / \sum t_i = 1 / \bar{t} = \hat{\lambda}_{\text{naive}}$.</li>
 </ul>
-<h3>Censored observation creates no event time</h3>
-<ul>
-<li>A patient censored at $t = 1$ must produce no entry in <code>event_times</code>; only observed events
-  generate drop points.</li>
-</ul>
-<h3>Censoring reduces the risk set</h3>
-<ul>
-<li>Three patients: censored at 1.0, event at 1.5, event at 2.0.
-  At $t = 1.5$ only two patients are at risk (the censored one has already left), so
-  $\hat{S}(1.5) = 1 - 1/2 = 0.5$ rather than $1 - 1/3 \approx 0.667$.</li>
-</ul>
-<h3>Non-increasing and bounded</h3>
-<ul>
-<li>Each factor $(1 - d_i/n_i) \in [0, 1]$, so the product can only stay the same or decrease.
-  A test on the full synthetic dataset catches any implementation bug that produces an increase.</li>
-</ul>
-<h3>Median survival — known case</h3>
-<ul>
-<li>Four patients with events at 1, 2, 3, 4:
-  $\hat{S}(2) = (3/4)(2/3) = 1/2$.  The median must be exactly 2.0.</li>
-<li>The tolerance of $10^{-6}$ (relative) verifies exact arithmetic, not floating-point approximation.</li>
-</ul>
-<h3>Median returns None when curve stays above 0.5</h3>
-<ul>
-<li>One event in ten patients gives $\hat{S}(t) = 0.9$ permanently; <code>median_survival</code> must
-  return <code>None</code>, not 0.9 or the last event time.</li>
-</ul>
-<div data-inc="test_survival.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<div data-inc="test_survival.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_survival_data</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">kaplan_meier</span><span class="p">,</span> <span class="n">median_survival</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">naive_rate</span><span class="p">,</span> <span class="n">corrected_rate</span><span class="p">,</span> <span class="n">empirical_survival</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_two_events_exact_values</span><span class="p">():</span>
-    <span class="c1"># 2 patients with events at t=1 and t=2 (no censoring).</span>
-    <span class="c1"># At t=1: n_at_risk=2, d=1 → S(1) = 1 * (1 - 1/2) = 0.5</span>
-    <span class="c1"># At t=2: n_at_risk=1, d=1 → S(2) = 0.5 * (1 - 1/1) = 0.0</span>
-    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
-    <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">event_times</span><span class="p">,</span> <span class="n">surv</span> <span class="o">=</span> <span class="n">kaplan_meier</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">event_times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">event_times</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">surv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">surv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_naive_rate_is_reciprocal_of_uncensored_mean</span><span class="p">():</span>
+    <span class="c1"># Only the two uncensored times (2.0 and 4.0) contribute; mean = 3.0, rate = 1/3.</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">naive_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_censored_observation_creates_no_event</span><span class="p">():</span>
-    <span class="c1"># First patient censored at t=1 → only one event time (t=2).</span>
-    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
-    <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">event_times</span><span class="p">,</span> <span class="n">surv</span> <span class="o">=</span> <span class="n">kaplan_meier</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">event_times</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
-    <span class="k">assert</span> <span class="n">event_times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_corrected_rate_is_events_over_total_time</span><span class="p">():</span>
+    <span class="c1"># d = 2, sum(t) = 2.0 + 4.0 + 10.0 = 16.0, rate = 2/16 = 0.125.</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">corrected_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="mf">16.0</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_censoring_reduces_risk_set</span><span class="p">():</span>
-    <span class="c1"># 3 patients: times=[1.0, 1.5, 2.0], observed=[0, 1, 1].</span>
-    <span class="c1"># Patient 1 is censored at t=1.0 and is no longer at risk at t=1.5.</span>
-    <span class="c1"># At t=1.5: n_at_risk=2, d=1 → S(1.5) = 1 * (1 - 1/2) = 0.5</span>
-    <span class="c1"># At t=2.0: n_at_risk=1, d=1 → S(2.0) = 0.5 * (1 - 1/1) = 0.0</span>
-    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
-    <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">event_times</span><span class="p">,</span> <span class="n">surv</span> <span class="o">=</span> <span class="n">kaplan_meier</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">surv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">surv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_survival_non_increasing</span><span class="p">():</span>
-    <span class="c1"># S(t) must never increase: each factor (1 - d_i/n_i) is in [0, 1].</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_naive_rate_exceeds_corrected_when_censored</span><span class="p">():</span>
+    <span class="c1"># Censored patients survived longer than average; dropping them inflates the naive rate.</span>
+    <span class="c1"># With any dataset that has at least one censored observation, naive &gt; corrected.</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">make_survival_data</span><span class="p">()</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">surv</span> <span class="o">=</span> <span class="n">kaplan_meier</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">"observed"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">surv</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"observed"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">naive_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">corrected_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_survival_bounded</span><span class="p">():</span>
-    <span class="c1"># Every survival probability must lie in [0, 1].</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_empirical_survival_fractions_non_increasing_and_bounded</span><span class="p">():</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">make_survival_data</span><span class="p">()</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">surv</span> <span class="o">=</span> <span class="n">kaplan_meier</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">"observed"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">surv</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">surv</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"observed"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">fractions</span> <span class="o">=</span> <span class="n">empirical_survival</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
+    <span class="c1"># All fractions must be in [0, 1].</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="mf">0.0</span> <span class="o">&lt;=</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="mf">1.0</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fractions</span><span class="p">)</span>
+    <span class="c1"># Fractions must be non-increasing.</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fractions</span><span class="p">,</span> <span class="n">fractions</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="k">assert</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_median_survival_four_patients</span><span class="p">():</span>
-    <span class="c1"># 4 patients: events at t=1, 2, 3, 4.</span>
-    <span class="c1"># S(1)=0.75, S(2)=0.50, S(3)=0.25, S(4)=0.00.</span>
-    <span class="c1"># Median is the first time S &lt;= 0.5, which is t=2.</span>
-    <span class="c1"># S(2) calculation: 1*(1-1/4)*(1-1/3) = 0.75*0.6667 = 0.50.</span>
-    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
-    <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">event_times</span><span class="p">,</span> <span class="n">surv</span> <span class="o">=</span> <span class="n">kaplan_meier</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">surv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">median_survival</span><span class="p">(</span><span class="n">event_times</span><span class="p">,</span> <span class="n">surv</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_median_none_when_curve_stays_above_half</span><span class="p">():</span>
-    <span class="c1"># With only one event out of many patients the curve stays above 0.5.</span>
-    <span class="c1"># 10 patients: 1 event at t=1, 9 censored at t=100.</span>
-    <span class="c1"># S(1) = 1 - 1/10 = 0.9 and the curve never drops to 0.5.</span>
-    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mf">100.0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">9</span><span class="p">)</span>
-    <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">9</span><span class="p">)</span>
-    <span class="n">event_times</span><span class="p">,</span> <span class="n">surv</span> <span class="o">=</span> <span class="n">kaplan_meier</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">median_survival</span><span class="p">(</span><span class="n">event_times</span><span class="p">,</span> <span class="n">surv</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_corrected_equals_naive_when_no_censoring</span><span class="p">():</span>
+    <span class="c1"># When every observation is an event, d/sum(t) == 1/mean(t) == naive_rate.</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">naive_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">corrected_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div class="forma-flashcard" data-lang="en">
-<p>Kaplan-Meier key terms</p>
+<p>Exponential survival analysis key terms</p>
 <dl>
 <dt>Right-censoring</dt>
 <dd>An observation where the event has not occurred by the end of follow-up; the true event time is unknown but greater than the censoring time</dd>
 <dt>Survival function $S(t)$</dt>
-<dd>The probability that a randomly chosen individual has not yet experienced the event by time $t$; always starts at 1 and is non-increasing</dd>
-<dt>At-risk set $n_i$</dt>
-<dd>The number of individuals who have neither experienced the event nor been censored before time $t_i$; the denominator in the KM update</dd>
-<dt>Product-limit formula</dt>
-<dd>$\hat{S}(t) = \prod_{t_i \leq t}(1 - d_i/n_i)$; censoring shrinks $n_i$ without adding to $d_i$, propagating uncertainty forward without biasing the estimate</dd>
-<dt>Median survival time</dt>
-<dd>The first time $\hat{S}(t) \leq 0.5$; preferred over the mean because the mean requires $S$ to reach zero, which may not occur when censoring is heavy</dd>
+<dd>The probability that a randomly chosen individual has not yet experienced the event by time $t$; for an Exponential with rate $\lambda$ this is $e^{-\lambda t}$</dd>
+<dt>Person-time</dt>
+<dd>The total time each individual was observed, summed across all individuals; censored patients contribute time up to their last observation, so $\sum_i t_i$ captures all available information</dd>
+<dt>MLE rate $\hat{\lambda}$</dt>
+<dd>$d / \sum_i t_i$: events divided by total person-time; accounts for censored observations by including their follow-up time in the denominator</dd>
+<dt>Naive bias</dt>
+<dd>Dropping censored patients inflates $\hat{\lambda}$ because censored patients tended to survive longer; the bias grows with the censoring fraction</dd>
 </dl>
 </div>
+<p>The Kaplan-Meier estimator handles censored observations more carefully using conditional
+probabilities at each event time, and does not assume an exponential distribution; it requires
+more advanced statistics.</p>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
-<h3>Greenwood's formula</h3>
-<p>The standard error of $\hat{S}(t)$ is given by Greenwood's formula:</p>
-<p>$$\widehat{\text{Var}}[\hat{S}(t)] = \hat{S}(t)^2 \sum_{t_i \leq t} \frac{d_i}{n_i(n_i - d_i)}$$</p>
-<p>Add a function <code>greenwood_se(event_times, survival_probs, n_at_risk, d_events)</code> that
-returns the pointwise standard error at each event time, and plot 95% confidence bands
-around the survival curve.</p>
-<h3>Log-rank test</h3>
-<p>Given two groups (e.g. treatment vs. control), the log-rank test checks whether their
-survival curves differ significantly.  At each event time $t_i$ (pooled across groups),
-compute the expected number of events in group 1 as $e_{1i} = n_{1i} d_i / n_i$.
-The test statistic is:</p>
-<p>$$\chi^2 = \frac{(\sum_i d_{1i} - \sum_i e_{1i})^2}{\sum_i e_{1i}(1 - n_{1i}/n_i)(n_i - d_i)/(n_i - 1)}$$</p>
-<p>Generate two groups with different mean survival times and verify that the test correctly
-rejects the null hypothesis at the 5% level.</p>
-<h3>Exponential parametric fit</h3>
-<p>The non-parametric KM estimate can be compared with a parametric Exponential fit.
-The maximum-likelihood estimate of the rate $\lambda$ is:</p>
-<p>$$\hat{\lambda} = \frac{\text{number of events}}{\text{total person-time}} = \frac{\sum_i d_i}{\sum_i t_i}$$</p>
-<p>Plot the KM curve and the fitted Exponential curve on the same axes.
-How well does the Exponential model fit the synthetic data generated from it?</p>
-<h3>Competing risks</h3>
-<p>Modify <code>make_survival_data</code> to generate two competing event types (e.g. relapse vs.
-treatment toxicity), each with its own Exponential rate.
-Plot cause-specific survival curves for each event type, treating the other type as
-a censoring event.  Show that the sum of all cause-specific incidences equals the
-overall event rate.</p>
+<h3>Confidence interval for the rate</h3>
+<p>The asymptotic standard error of $\hat{\lambda}$ is $\hat{\lambda} / \sqrt{d}$.
+Add a function <code>rate_ci(times, observed, alpha=0.05)</code> that returns a 95% confidence interval
+using a normal approximation, and verify that the interval contains the true rate on the
+synthetic dataset.</p>
+<h3>Effect of censoring fraction</h3>
+<p>Generate datasets with censoring windows that produce 10%, 30%, 50%, and 70% censoring fractions.
+For each, compute the naive and corrected rates and plot both against the true rate.
+At what censoring fraction does the naive estimate become seriously misleading?</p>
+<h3>Weibull extension</h3>
+<p>The Weibull distribution generalises the Exponential: $S(t) = e^{-(\lambda t)^k}$ where $k = 1$
+recovers the Exponential.  Derive the log-likelihood, implement MLE for both $\lambda$ and $k$
+using <code>scipy.optimize.minimize</code>, and compare the Weibull and Exponential fits on the synthetic data.</p>
+<h3>Two-group comparison</h3>
+<p>Generate two groups with true rates $\lambda_1 = 0.04$ and $\lambda_2 = 0.06$.
+Estimate the corrected rate for each group and test whether the ratio $\hat{\lambda}_1 / \hat{\lambda}_2$
+differs significantly from 1 using the fact that $\ln(\hat{\lambda}_1 / \hat{\lambda}_2)$ is
+approximately normal with standard error $\sqrt{1/d_1 + 1/d_2}$.</p>
 </section>
 </main>
 <footer aria-label="Page navigation">

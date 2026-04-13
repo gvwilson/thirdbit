@@ -80,7 +80,7 @@
 <ul>
 <li>The network is a directed tree: water flows from headwaters to an outlet, with no cycles.</li>
 <li>Nodes represent measurement stations or junctions; edges represent river reaches.</li>
-<li>Edge weights record relative discharge (mean flow rate), which governs both dilution and visualization.</li>
+<li>Edge weights record relative discharge (mean flow rate), which governs visualization but not transport.</li>
 </ul>
 <div data-inc="pollute.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># River network: 5 nodes in a directed tree (upstream to downstream).</span>
 <span class="c1"># Node indices correspond to NODE_NAMES.</span>
@@ -93,7 +93,7 @@
 <span class="n">SPILL_NODE</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="c1"># Fraction of concentration at each non-sink node transported downstream per step.</span>
-<span class="c1"># At 0.4, roughly 40% of mass moves forward each time step.</span>
+<span class="c1"># At 0.4, roughly 40 % of mass moves forward each time step.</span>
 <span class="n">TRANSPORT_RATE</span> <span class="o">=</span> <span class="mf">0.4</span>
 
 <span class="n">N_STEPS</span> <span class="o">=</span> <span class="mi">20</span>
@@ -139,65 +139,59 @@
 <ul>
 <li>At each time step, a fraction <code>TRANSPORT_RATE</code> of the concentration at each non-sink node moves downstream.</li>
 <li>The remaining fraction $(1 - \text{TRANSPORT_RATE})$ stays at the node (representing mixing and retention in the water column).</li>
-<li>For node $j$ with downstream successor $i$, the update rule is:</li>
+<li>For a node $v$ with upstream neighbours $u_1, u_2, \ldots$ each contributing fraction $f_k$, the update rule is:</li>
 </ul>
-<p>$$c_i^{n+1} = c_i^n + \alpha \, c_j^n \qquad c_j^{n+1} = (1 - \alpha) \, c_j^n$$</p>
-<p>where $\alpha = \text{TRANSPORT_RATE}$.</p>
+<p>$$c_v^{n+1} = (1 - \alpha)\,c_v^n + \sum_k f_k\,c_{u_k}^n$$</p>
+<p>where $\alpha = \text{TRANSPORT_RATE}$ and $f_k = \alpha / \text{(number of downstream neighbours of } u_k\text{)}$.</p>
 <ul>
-<li>Combined across all nodes, this is a single matrix-vector multiplication $\mathbf{c}^{n+1} = T\,\mathbf{c}^n$.</li>
-<li>The <a class="gl-ref" href="../glossary/#transfer_matrix">transfer matrix</a> $T$ encodes the entire network topology and transport rate in one object.</li>
+<li>When a node drains into a single successor, $f_k = \alpha$.</li>
+<li>When a node splits equally among two successors, each receives $\alpha / 2$.</li>
 </ul>
-<h2>Building the Transfer Matrix</h2>
-<div data-inc="pollute.py" data-mark="make-transfer"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_transfer</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return the N x N transfer matrix for one time step.</span>
+<h2>Building the Upstream Table</h2>
+<ul>
+<li>Rather than building a matrix, we pre-compute for each node $v$ the list of $(u, f)$ pairs, where $u$ is an upstream neighbour and $f$ is the fraction of $u$'s concentration that flows into $v$.</li>
+<li>This list is empty for headwater nodes (no upstream neighbours) and for isolated nodes.</li>
+</ul>
+<div data-inc="pollute.py" data-mark="build-upstream"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_upstream</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return upstream[v] = list of (u, fraction) pairs for each node v.</span>
 
-<span class="sd">    T[i, j] is the fraction of the concentration at node j that arrives</span>
-<span class="sd">    at node i in one step.  Each non-sink node retains (1 - TRANSPORT_RATE)</span>
-<span class="sd">    of its concentration and sends TRANSPORT_RATE to its downstream</span>
-<span class="sd">    successor(s), divided equally when there are several.  The sink</span>
-<span class="sd">    retains everything it receives (T[sink, sink] = 1).</span>
-
-<span class="sd">    Because every column of T sums to 1, mass is exactly conserved:</span>
-<span class="sd">    the total concentration summed over all nodes never changes.</span>
+<span class="sd">    For each edge u -&gt; v, the fraction of u's concentration that flows to v</span>
+<span class="sd">    in one step is TRANSPORT_RATE divided by the number of downstream</span>
+<span class="sd">    neighbours of u.  A node with no upstream neighbours has an empty list.</span>
 <span class="sd">    """</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">)</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># default: each node retains everything</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">SINK</span><span class="p">:</span>
+    <span class="n">upstream</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)}</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="n">SINK</span><span class="p">:</span>
             <span class="k">continue</span>
-        <span class="n">succs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+        <span class="n">succs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">succs</span><span class="p">:</span>
             <span class="k">continue</span>
-        <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">TRANSPORT_RATE</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">succs</span><span class="p">:</span>
-            <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">TRANSPORT_RATE</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">succs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">T</span>
+        <span class="n">fraction</span> <span class="o">=</span> <span class="n">TRANSPORT_RATE</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">succs</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">succs</span><span class="p">:</span>
+            <span class="n">upstream</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u</span><span class="p">,</span> <span class="n">fraction</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">upstream</span>
 </code></pre></div>
 </div>
-<ul>
-<li>The matrix starts as the identity: every node retains everything.</li>
-<li>Non-sink nodes are then modified to lose <code>TRANSPORT_RATE</code> to their successor(s).</li>
-<li>Each column of $T$ sums to 1: the total concentration (mass) is exactly conserved at every step.</li>
-</ul>
 <div class="forma-ordering" data-lang="en">
-<p>Put these steps in the correct order to build one column of the transfer matrix for a non-sink node j.</p>
+<p>Put these steps in the correct order to fill in the upstream table for one non-sink node u.</p>
 <ol>
-<li>Identify the list of downstream successors of j in the graph G</li>
-<li>Set T[j, j] = 1 - TRANSPORT_RATE (fraction retained at j)</li>
-<li>For each successor i, set T[i, j] = TRANSPORT_RATE / number_of_successors</li>
-<li>Verify that the column sums to 1 (mass conservation check)</li>
+<li>Find the list of downstream successors of u in the graph G</li>
+<li>Compute fraction = TRANSPORT_RATE / number of successors</li>
+<li>For each successor v, append (u, fraction) to upstream[v]</li>
+<li>Check that the fractions appended for u sum to TRANSPORT_RATE (conservation check)</li>
 </ol>
 </div>
 <div class="forma-multiple-choice" data-lang="en">
 <p>In our 5-node tree every non-sink node has exactly one downstream successor.
-What does <code>TRANSPORT_RATE / len(succs)</code> equal in this case?</p>
+What fraction of its concentration does each non-sink node send downstream per step?</p>
 <dl>
 <dt>0.0</dt>
 <dd>Wrong: that would mean no pollutant is ever transported.</dd>
 <dt>TRANSPORT_RATE / 2</dt>
-<dd>Wrong: <code>len(succs)</code> is 1, not 2, for nodes with a single successor.</dd>
+<dd>Wrong: dividing by 2 would only apply if the node had two successors.</dd>
 <dt>TRANSPORT_RATE</dt>
-<dd>Correct: dividing by 1 leaves TRANSPORT_RATE unchanged; all transported mass goes to the single successor.</dd>
+<dd>Correct: with one successor, fraction = TRANSPORT_RATE / 1 = TRANSPORT_RATE.</dd>
 <dt>1.0</dt>
 <dd>Wrong: 1.0 would mean all concentration moves downstream and none is retained.</dd>
 </dl>
@@ -206,17 +200,35 @@ What does <code>TRANSPORT_RATE / len(succs)</code> equal in this case?</p>
 <div data-inc="pollute.py" data-mark="simulate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Simulate pollutant transport and return concentration snapshots.</span>
 
-<span class="sd">    Advances c = T @ c one step at a time and records the state at</span>
-<span class="sd">    step 0 and every SNAPSHOT_INTERVAL steps thereafter.</span>
+<span class="sd">    For each time step the new concentration at node v is:</span>
+
+<span class="sd">        new_c[v] = c[v] * (1 - outflow_rate[v])</span>
+<span class="sd">                   + sum(fraction * c[u] for (u, fraction) in upstream[v])</span>
+
+<span class="sd">    where outflow_rate[v] is TRANSPORT_RATE for non-sink nodes (0 for the sink).</span>
+<span class="sd">    The sink retains everything it receives and sends nothing downstream.</span>
 <span class="sd">    """</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
     <span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">make_transfer</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+    <span class="n">upstream</span> <span class="o">=</span> <span class="n">build_upstream</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+    <span class="c1"># Outflow rate for each node: TRANSPORT_RATE for non-sink nodes that have</span>
+    <span class="c1"># at least one downstream successor; 0 for the sink and for isolated nodes.</span>
+    <span class="n">outflow</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">SINK</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">u</span><span class="p">)):</span>
+            <span class="n">outflow</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">TRANSPORT_RATE</span>
 
     <span class="n">records</span> <span class="o">=</span> <span class="n">_snapshot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_STEPS</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">T</span> <span class="o">@</span> <span class="n">c</span>
+        <span class="n">new_c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">retained</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">outflow</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">inflow</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fraction</span> <span class="o">*</span> <span class="n">c</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fraction</span><span class="p">)</span> <span class="ow">in</span> <span class="n">upstream</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">new_c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">retained</span> <span class="o">+</span> <span class="n">inflow</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">new_c</span>
         <span class="k">if</span> <span class="n">step</span> <span class="o">%</span> <span class="n">SNAPSHOT_INTERVAL</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">records</span> <span class="o">+=</span> <span class="n">_snapshot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
@@ -230,8 +242,8 @@ What does <code>TRANSPORT_RATE / len(succs)</code> equal in this case?</p>
 </code></pre></div>
 </div>
 <ul>
-<li>The loop applies the transfer matrix repeatedly, saving a snapshot every <code>SNAPSHOT_INTERVAL</code> steps.</li>
-<li>Each snapshot records the concentration at all nodes at a given time step.</li>
+<li>For each time step and each node $v$, <code>retained</code> is the fraction staying put and <code>inflow</code> is the sum of fractions arriving from upstream neighbours.</li>
+<li>The loop saves a snapshot every <code>SNAPSHOT_INTERVAL</code> steps so that only a small table is stored.</li>
 </ul>
 <h2>Visualizing the Results</h2>
 <div data-inc="pollute.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -259,110 +271,187 @@ What does <code>TRANSPORT_RATE / len(succs)</code> equal in this case?</p>
 <h2>Testing</h2>
 <h3>Mass conservation</h3>
 <ul>
-<li>The transfer matrix is column-stochastic (columns sum to 1), so $\sum_i c_i^n = \sum_i c_i^0 = 1$ at every step.</li>
-<li>This holds exactly in floating-point arithmetic for this matrix structure; no tolerance is needed beyond rounding ($10^{-12}$).</li>
+<li>At every step, each unit of concentration is either retained at its node or forwarded to a downstream neighbour.</li>
+<li>No mass is created or destroyed, so the sum over all nodes must equal 1.0 throughout.</li>
+<li>Floating-point addition of 5 small numbers over 20 steps introduces rounding of at most $10^{-12}$.</li>
 </ul>
 <h3>Non-negativity</h3>
 <ul>
-<li>All entries of $T$ are non-negative and each update is a convex combination of non-negative values.</li>
-<li>Concentration cannot go negative; any negative value would indicate a code error.</li>
+<li>Every update is a weighted sum of non-negative concentrations with non-negative fractions.</li>
+<li>Concentration cannot go negative; a negative value would indicate a code error.</li>
 </ul>
 <h3>Monotone decay at the spill node</h3>
 <ul>
-<li><code>upstream_a</code> has no upstream predecessors, so its column of $T$ has only the diagonal entry $(1 - \alpha)$.</li>
-<li>Starting from $c_0 = 1$, concentration there decays as $(1 - \alpha)^n$, strictly decreasing.</li>
+<li><code>upstream_a</code> has no upstream neighbours, so each step it retains only $(1 - \alpha)$ of whatever it holds.</li>
+<li>Starting from $c_0 = 1$, its concentration decays as $(1 - \alpha)^n$, which is strictly decreasing.</li>
 </ul>
 <h3>Uncontaminated node stays zero</h3>
 <ul>
-<li><code>upstream_b</code> also has no predecessors and starts at 0.</li>
-<li>Its concentration is $(1 - \alpha)^n \times 0 = 0$ at every step — a structural check on the network topology.</li>
+<li><code>upstream_b</code> also has no upstream neighbours and starts at zero concentration.</li>
+<li>Each step it retains $(1 - \alpha) \times 0 = 0$, so it remains zero throughout.</li>
 </ul>
 <h3>Monotone accumulation at the outlet</h3>
 <ul>
 <li>The outlet (sink) only receives mass and never releases it, so its concentration is non-decreasing.</li>
 </ul>
-<div data-inc="test_pollute.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pollute</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<h3>Upstream fractions sum to transport rate</h3>
+<ul>
+<li>For each non-sink node $u$ that has downstream successors, the fractions stored in the upstream table must sum to exactly <code>TRANSPORT_RATE</code>, confirming that all transported mass is accounted for.</li>
+</ul>
+<div data-inc="test_pollute.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pollute</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">NODE_NAMES</span><span class="p">,</span>
     <span class="n">N_STEPS</span><span class="p">,</span>
     <span class="n">SINK</span><span class="p">,</span>
     <span class="n">SPILL_NODE</span><span class="p">,</span>
+    <span class="n">TRANSPORT_RATE</span><span class="p">,</span>
     <span class="n">build_network</span><span class="p">,</span>
-    <span class="n">make_transfer</span><span class="p">,</span>
+    <span class="n">build_upstream</span><span class="p">,</span>
 <span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_mass_conservation</span><span class="p">():</span>
-    <span class="c1"># The transfer matrix is column-stochastic: each column sums to exactly 1.</span>
-    <span class="c1"># Starting from total mass = 1, the sum is conserved at every step in</span>
-    <span class="c1"># exact floating-point arithmetic (no rounding accumulation from addition).</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_run</span><span class="p">(</span><span class="n">n_steps</span><span class="o">=</span><span class="n">N_STEPS</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return concentration list after n_steps using the same loop as simulate."""</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">build_network</span><span class="p">()</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">make_transfer</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">))</span>
+    <span class="n">upstream</span> <span class="o">=</span> <span class="n">build_upstream</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
     <span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_STEPS</span><span class="p">):</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">T</span> <span class="o">@</span> <span class="n">c</span>
-    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span>
+
+    <span class="c1"># Outflow rates mirror those in simulate().</span>
+    <span class="n">outflow</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">SINK</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">u</span><span class="p">)):</span>
+            <span class="n">outflow</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">TRANSPORT_RATE</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">new_c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">retained</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">outflow</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">inflow</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fraction</span> <span class="o">*</span> <span class="n">c</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fraction</span><span class="p">)</span> <span class="ow">in</span> <span class="n">upstream</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">new_c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">retained</span> <span class="o">+</span> <span class="n">inflow</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">new_c</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_mass_conservation</span><span class="p">():</span>
+    <span class="c1"># Each step, every unit of concentration either stays at its node or moves</span>
+    <span class="c1"># to a downstream neighbour.  No mass is created or destroyed, so the total</span>
+    <span class="c1"># must equal 1.0 throughout.  Floating-point rounding in repeated addition</span>
+    <span class="c1"># can accumulate, but for 5 nodes and 20 steps the error stays below 1e-12.</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">_run</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_all_nonnegative</span><span class="p">():</span>
-    <span class="c1"># Each update c = T @ c is a convex combination of non-negative values</span>
-    <span class="c1"># (all entries of T are non-negative), so no concentration can go negative.</span>
+    <span class="c1"># Every update is a weighted sum of non-negative values with non-negative</span>
+    <span class="c1"># weights, so concentration cannot go negative at any node or step.</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">build_network</span><span class="p">()</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">make_transfer</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">))</span>
+    <span class="n">upstream</span> <span class="o">=</span> <span class="n">build_upstream</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
     <span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="n">outflow</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">SINK</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">u</span><span class="p">)):</span>
+            <span class="n">outflow</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">TRANSPORT_RATE</span>
+
     <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_STEPS</span><span class="p">):</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">T</span> <span class="o">@</span> <span class="n">c</span>
-        <span class="k">assert</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"negative concentration at step </span><span class="si">{</span><span class="n">step</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">new_c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">retained</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">outflow</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">inflow</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fraction</span> <span class="o">*</span> <span class="n">c</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fraction</span><span class="p">)</span> <span class="ow">in</span> <span class="n">upstream</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">new_c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">retained</span> <span class="o">+</span> <span class="n">inflow</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">new_c</span>
+        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"negative concentration at step </span><span class="si">{</span><span class="n">step</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_spill_node_decreases</span><span class="p">():</span>
-    <span class="c1"># upstream_a (node 0) has no upstream predecessors, so its concentration</span>
-    <span class="c1"># decays by factor (1 - TRANSPORT_RATE) each step.  It must be strictly</span>
-    <span class="c1"># decreasing from its initial value of 1.</span>
+    <span class="c1"># upstream_a (node 0) has no upstream neighbours, so every step it loses</span>
+    <span class="c1"># TRANSPORT_RATE of whatever concentration it holds and gains nothing back.</span>
+    <span class="c1"># Its concentration must be strictly decreasing from its starting value of 1.</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">build_network</span><span class="p">()</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">make_transfer</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">))</span>
+    <span class="n">upstream</span> <span class="o">=</span> <span class="n">build_upstream</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
     <span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">prev</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">])</span>
+
+    <span class="n">outflow</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">SINK</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">u</span><span class="p">)):</span>
+            <span class="n">outflow</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">TRANSPORT_RATE</span>
+
+    <span class="n">prev</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_STEPS</span><span class="p">):</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">T</span> <span class="o">@</span> <span class="n">c</span>
+        <span class="n">new_c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">retained</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">outflow</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">inflow</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fraction</span> <span class="o">*</span> <span class="n">c</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fraction</span><span class="p">)</span> <span class="ow">in</span> <span class="n">upstream</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">new_c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">retained</span> <span class="o">+</span> <span class="n">inflow</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">new_c</span>
         <span class="k">assert</span> <span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">prev</span>
-        <span class="n">prev</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">])</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">]</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_uncontaminated_node_stays_zero</span><span class="p">():</span>
-    <span class="c1"># upstream_b (node 1) starts at zero and has no upstream predecessors.</span>
-    <span class="c1"># Column 1 of T has T[1,1] = 1 - TRANSPORT_RATE and T[j,1] = 0 for j != 1.</span>
-    <span class="c1"># Starting from c[1] = 0, it stays exactly zero at every step.</span>
-    <span class="n">G</span> <span class="o">=</span> <span class="n">build_network</span><span class="p">()</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">make_transfer</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">))</span>
-    <span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_STEPS</span><span class="p">):</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">T</span> <span class="o">@</span> <span class="n">c</span>
-        <span class="k">assert</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span>  <span class="c1"># upstream_b is never contaminated</span>
+    <span class="c1"># upstream_b (node 1) starts at zero concentration and has no upstream</span>
+    <span class="c1"># neighbours feeding into it.  It loses TRANSPORT_RATE each step, so its</span>
+    <span class="c1"># concentration is 0 * (1 - TRANSPORT_RATE)^step = 0 throughout.</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">_run</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span>  <span class="c1"># upstream_b is never contaminated</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_outlet_nondecreasing</span><span class="p">():</span>
-    <span class="c1"># Pollutant accumulates at the sink: c[SINK] increases whenever the reach</span>
-    <span class="c1"># (node 3) has positive concentration, and never decreases.</span>
+    <span class="c1"># The outlet (sink) only receives mass; it never sends mass downstream.</span>
+    <span class="c1"># Its concentration therefore cannot decrease between steps.</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">build_network</span><span class="p">()</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">make_transfer</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">))</span>
+    <span class="n">upstream</span> <span class="o">=</span> <span class="n">build_upstream</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
     <span class="n">c</span><span class="p">[</span><span class="n">SPILL_NODE</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">prev</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">SINK</span><span class="p">])</span>
+
+    <span class="n">outflow</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">SINK</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">u</span><span class="p">)):</span>
+            <span class="n">outflow</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">TRANSPORT_RATE</span>
+
+    <span class="n">prev</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">SINK</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_STEPS</span><span class="p">):</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">T</span> <span class="o">@</span> <span class="n">c</span>
+        <span class="n">new_c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">retained</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">outflow</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">inflow</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fraction</span> <span class="o">*</span> <span class="n">c</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fraction</span><span class="p">)</span> <span class="ow">in</span> <span class="n">upstream</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="n">new_c</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">retained</span> <span class="o">+</span> <span class="n">inflow</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">new_c</span>
         <span class="k">assert</span> <span class="n">c</span><span class="p">[</span><span class="n">SINK</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">prev</span>
-        <span class="n">prev</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">SINK</span><span class="p">])</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">SINK</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_upstream_fractions_sum</span><span class="p">():</span>
+    <span class="c1"># For each non-sink node u that has downstream neighbours, the total</span>
+    <span class="c1"># fraction of concentration it sends out equals TRANSPORT_RATE exactly.</span>
+    <span class="c1"># This can be checked by summing the fractions stored in build_upstream.</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">build_network</span><span class="p">()</span>
+    <span class="n">upstream</span> <span class="o">=</span> <span class="n">build_upstream</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="c1"># Collect total outflow fraction assigned to each source node.</span>
+    <span class="n">sent</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">))}</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">NODE_NAMES</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">fraction</span><span class="p">)</span> <span class="ow">in</span> <span class="n">upstream</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
+            <span class="n">sent</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">fraction</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">total</span> <span class="ow">in</span> <span class="n">sent</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">total</span> <span class="o">-</span> <span class="n">TRANSPORT_RATE</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"node </span><span class="si">{</span><span class="n">NODE_NAMES</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="si">}</span><span class="s2"> sends </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">, expected </span><span class="si">{</span><span class="n">TRANSPORT_RATE</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
 </code></pre></div>
 </div>
-<div class="forma-numeric-entry" data-correct="0.24" data-lang="en" data-tolerance="0.005">
+<div class="forma-numeric-entry" data-correct="0.48" data-lang="en" data-tolerance="0.005">
 <p>Starting from $c = [1, 0, 0, 0, 0]$ and using <code>TRANSPORT_RATE</code> = 0.4, what is the concentration at
 <code>junction</code> (node 2) after exactly 2 time steps?
 Give your answer to two decimal places.</p>
+<p>Hint: trace through the update rule step by step.
+At step 1, junction receives $0.4 \times c_0[\text{upstream_a}]$ from upstream_a.
+At step 2, junction retains $0.6$ of its step-1 value and receives another inflow from upstream_a.</p>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
@@ -374,20 +463,20 @@ Does the pollutant reach the outlet faster or slower?</p>
 <h3>Variable transport rate</h3>
 <p>Replace the uniform <code>TRANSPORT_RATE</code> with per-edge rates stored in a dictionary keyed by <code>(src, dst)</code>.
 Assign higher rates to high-flow edges (e.g., rate proportional to edge weight / max edge weight).
-Modify <code>make_transfer</code> to use per-edge rates.
+Modify <code>build_upstream</code> to use per-edge rates and update <code>simulate</code> accordingly.
 How does the arrival time at the outlet change compared to the uniform-rate model?</p>
 <h3>Continuous spill</h3>
 <p>Change the initial condition so that <code>upstream_a</code> receives a constant input of 0.1 concentration units per step
 (a continuous source rather than an instantaneous spill).
-Modify <code>simulate</code> to add this source term after each matrix update.
+Modify <code>simulate</code> to add this source term to <code>new_c[SPILL_NODE]</code> after each update step.
 Is mass still conserved?
 At what step does the outlet concentration stabilise?</p>
-<h3>Two-spill superposition</h3>
+<h3>Two-spill comparison</h3>
 <p>Run two separate simulations: one with the spill at <code>upstream_a</code> and one with a spill at <code>upstream_b</code>.
-Add the two concentration arrays at each step.
+Add the two concentration lists at each step.
 Compare the result to a single simulation that starts with concentration 1.0 at both headwater nodes simultaneously.
 Are the results identical?
-Explain why (or why not) in terms of the linearity of the transfer matrix update.</p>
+Explain why in terms of the structure of the update rule.</p>
 </section>
 </main>
 <footer aria-label="Page navigation">

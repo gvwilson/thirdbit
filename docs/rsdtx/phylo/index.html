@@ -74,40 +74,38 @@
 <li>Species that share a common ancestor tend to have similar DNA or protein sequences.</li>
 <li>A <a class="gl-ref" href="../glossary/#phylogenetic_tree">phylogenetic tree</a> shows how a set of taxa (species, genes, or individuals) are related by common descent.</li>
 <li>The leaves of the tree are the observed taxa; internal nodes represent hypothetical ancestors.</li>
-<li>An unrooted binary tree on $N$ leaves has exactly $2N - 3$ edges.</li>
-<li>Given only pairwise sequence distances, we want to infer the tree topology and branch lengths.</li>
+<li>Given only pairwise sequence distances, we want to infer the tree topology (who is related to whom) and branch lengths (how different they are).</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
-<p>An unrooted binary tree on 8 leaves has how many edges?</p>
+<p>A rooted binary tree on 4 leaves has how many internal nodes (not counting the leaves themselves)?</p>
 <dl>
-<dt>8</dt>
-<dd>Wrong: 8 is the number of leaves, not edges.</dd>
-<dt>11</dt>
-<dd>Wrong: that is $2 \times 8 - 5$; the correct formula is $2N - 3$.</dd>
-<dt>13</dt>
-<dd>Correct: an unrooted binary tree on N leaves has $2N - 3$ edges; $2 \times 8 - 3 = 13$.</dd>
-<dt>15</dt>
-<dd>Wrong: 15 would require $2N - 3 = 15$, i.e. N = 9 leaves.</dd>
+<dt>2</dt>
+<dd>Wrong: a rooted binary tree on N leaves has N-1 internal nodes, so 4-1=3.</dd>
+<dt>3</dt>
+<dd>Correct: a rooted binary tree on N leaves has N-1 internal nodes; here 4-1=3.</dd>
+<dt>4</dt>
+<dd>Wrong: 4 is the number of leaves; the number of internal nodes is N-1=3.</dd>
+<dt>5</dt>
+<dd>Wrong: this would require N=6 leaves.</dd>
 </dl>
 </div>
 <h2>Distance Matrices</h2>
 <ul>
 <li>A <a class="gl-ref" href="../glossary/#distance_matrix">distance matrix</a> $D$ stores the evolutionary distance between every pair of taxa.</li>
 <li>Distances are estimated from aligned sequences: the fraction of positions that differ, corrected for multiple substitutions.</li>
-<li>An ideal distance matrix is additive: the distance between any two leaves equals the sum of branch lengths on the path between them.</li>
 </ul>
 <div data-inc="phylo.py" data-mark="taxa"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">TAXA</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Chimp"</span><span class="p">,</span> <span class="s2">"Human"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">]</span>
 
-<span class="c1"># True branch lengths from the reference tree:</span>
-<span class="c1">#   ((Bat:0.6, Chimp:0.8):1.2, (Human:0.4, Gorilla:0.5))</span>
+<span class="c1"># True branch lengths from the reference tree used to generate distances.</span>
+<span class="c1"># The tree is: ((Bat:0.6, Chimp:0.8):1.2, (Human:0.4, Gorilla:0.5))</span>
 <span class="c1"># Pairwise distances are sums of branches on the path between each pair.</span>
 <span class="n">_BRANCH</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="p">(</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Chimp"</span><span class="p">):</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="mf">0.8</span><span class="p">,</span>  <span class="c1"># 1.4</span>
-    <span class="p">(</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Human"</span><span class="p">):</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="mf">1.2</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">,</span>  <span class="c1"># 2.2</span>
-    <span class="p">(</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">):</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="mf">1.2</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># 2.3</span>
-    <span class="p">(</span><span class="s2">"Chimp"</span><span class="p">,</span> <span class="s2">"Human"</span><span class="p">):</span> <span class="mf">0.8</span> <span class="o">+</span> <span class="mf">1.2</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">,</span>  <span class="c1"># 2.4</span>
-    <span class="p">(</span><span class="s2">"Chimp"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">):</span> <span class="mf">0.8</span> <span class="o">+</span> <span class="mf">1.2</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># 2.5</span>
-    <span class="p">(</span><span class="s2">"Human"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">):</span> <span class="mf">0.4</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># 0.9</span>
+    <span class="p">(</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Chimp"</span><span class="p">):</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="mf">0.8</span><span class="p">,</span>       <span class="c1"># 1.4</span>
+    <span class="p">(</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Human"</span><span class="p">):</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="mf">1.2</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">,</span> <span class="c1"># 2.2</span>
+    <span class="p">(</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">):</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="mf">1.2</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="c1"># 2.3</span>
+    <span class="p">(</span><span class="s2">"Chimp"</span><span class="p">,</span> <span class="s2">"Human"</span><span class="p">):</span> <span class="mf">0.8</span> <span class="o">+</span> <span class="mf">1.2</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">,</span> <span class="c1"># 2.4</span>
+    <span class="p">(</span><span class="s2">"Chimp"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">):</span> <span class="mf">0.8</span> <span class="o">+</span> <span class="mf">1.2</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="c1"># 2.5</span>
+    <span class="p">(</span><span class="s2">"Human"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">):</span> <span class="mf">0.4</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span>   <span class="c1"># 0.9</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -169,175 +167,69 @@
     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">TAXA</span><span class="p">),</span> <span class="n">D</span>
 </code></pre></div>
 </div>
-<h2>The Neighbor-Joining Algorithm</h2>
+<h2>The UPGMA Algorithm</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#neighbor_joining">Neighbor-joining</a> (Saitou and Nei, 1987) reconstructs a tree from a distance matrix in $O(N^3)$ time.</li>
-<li>The key insight is that the smallest raw distance does not always identify nearest neighbors: long branches can make distant taxa look close.</li>
-<li>The <a class="gl-ref" href="../glossary/#q_matrix">Q-matrix</a> correction removes the effect of varying average distances:</li>
+<li><a class="gl-ref" href="../glossary/#upgma">UPGMA</a> (Unweighted Pair Group Method with Arithmetic Mean) reconstructs a rooted tree from a distance matrix using only arithmetic means.</li>
+<li>The key idea: at each step, merge the pair of taxa with the smallest pairwise distance.</li>
+<li>Place the new internal node at height $D(i,j)/2$ — half the merged distance — which is the estimated time of the common ancestor.</li>
+<li>Branch length from the new node to each merged taxon is the difference in heights.</li>
+<li>Update the distance from the new node $u$ to any remaining taxon $k$ as the arithmetic mean:</li>
 </ul>
-<p>$$Q(i,j) = (n-2)\,D(i,j) - \sum_k D(i,k) - \sum_k D(j,k)$$</p>
+<p>$$D(u, k) = \frac{D(i, k) + D(j, k)}{2}$$</p>
 <ul>
-<li>The pair $(i, j)$ with the smallest $Q(i,j)$ are joined into a new internal node $u$.</li>
-<li>Branch lengths from $u$ to $i$ and $j$ are:</li>
+<li>Replace $i$ and $j$ with $u$ in the matrix and repeat until only one node remains.</li>
 </ul>
-<p>$$\ell_i = \tfrac{1}{2}D(i,j) + \frac{\sum_k D(i,k) - \sum_k D(j,k)}{2(n-2)}$$</p>
-<p>$$\ell_j = D(i,j) - \ell_i$$</p>
-<ul>
-<li>The distance from $u$ to every remaining taxon $k$ is:</li>
-</ul>
-<p>$$D(u,k) = \tfrac{1}{2}\bigl[D(i,k) + D(j,k) - D(i,j)\bigr]$$</p>
-<ul>
-<li>Replace $i$ and $j$ with $u$ in the matrix and repeat until only two nodes remain.</li>
-<li>Join the final two nodes with a single edge.</li>
-</ul>
-<div data-inc="phylo.py" data-mark="nj"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Run the neighbor-joining algorithm and return a list of (node_a, node_b, length) edges.</span>
-
-<span class="sd">    `names` is a list of taxon (or internal node) labels.</span>
-<span class="sd">    `D` is a symmetric distance matrix with zero diagonal.</span>
-<span class="sd">    Returns a list of (node_a, node_b, branch_length) triples covering all 2N-3 edges</span>
-<span class="sd">    of the unrooted binary tree.</span>
-<span class="sd">    """</span>
-    <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">node_counter</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>  <span class="c1"># index for new internal nodes</span>
-
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
-
-        <span class="c1"># Q-matrix: Q[i,j] = (n-2)*D[i,j] - sum_k D[i,k] - sum_k D[j,k]</span>
-        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">Q</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">D</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>  <span class="c1"># exclude diagonal from search</span>
-
-        <span class="c1"># Find the pair (i, j) with the smallest Q value.</span>
-        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
-        <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">:</span>
-            <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span>
-
-        <span class="c1"># Branch lengths from the new internal node u to i and j.</span>
-        <span class="n">d_ij</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-        <span class="n">li</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">d_ij</span> <span class="o">+</span> <span class="p">(</span><span class="n">row_sums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
-        <span class="n">lj</span> <span class="o">=</span> <span class="n">d_ij</span> <span class="o">-</span> <span class="n">li</span>
-        <span class="n">u_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"node</span><span class="si">{</span><span class="n">node_counter</span><span class="si">}</span><span class="s2">"</span>
-        <span class="n">node_counter</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u_name</span><span class="p">,</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">li</span><span class="p">))</span>
-        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u_name</span><span class="p">,</span> <span class="n">names</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">lj</span><span class="p">))</span>
-
-        <span class="c1"># Distance from new node u to each remaining taxon k.</span>
-        <span class="n">new_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">d_ij</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
-
-        <span class="c1"># Build reduced matrix: remove rows/cols i and j, append u.</span>
-        <span class="n">keep</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">j</span><span class="p">]</span>
-        <span class="n">D_new</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">keep</span><span class="p">,</span> <span class="n">keep</span><span class="p">)]</span>
-        <span class="n">extra</span> <span class="o">=</span> <span class="n">new_row</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span>
-        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">D2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">))</span>
-        <span class="n">D2</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">),</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">)]</span> <span class="o">=</span> <span class="n">D_new</span>
-        <span class="n">D2</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">extra</span>
-        <span class="n">D2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">keep</span><span class="p">)]</span> <span class="o">=</span> <span class="n">extra</span>
-        <span class="n">D</span> <span class="o">=</span> <span class="n">D2</span>
-        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keep</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">u_name</span><span class="p">]</span>
-
-    <span class="c1"># Final two nodes: one edge between them.</span>
-    <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
-    <span class="k">return</span> <span class="n">edges</span>
-</code></pre></div>
-</div>
-<div class="forma-multiple-choice" data-lang="en">
-<p>Why does neighbor-joining compute a Q-matrix instead of simply joining the pair
-with the smallest raw distance?</p>
-<dl>
-<dt>A long branch to a distant taxon makes it appear close to many others; the Q-matrix corrects for this bias</dt>
-<dd>Correct: the Q-matrix subtracts row sums to remove the effect of unequal average distances, revealing true nearest neighbours.</dd>
-<dt>The Q-matrix is faster to compute than scanning raw distances</dt>
-<dd>Wrong: computing Q requires the same $O(N^2)$ work as scanning the raw matrix.</dd>
-<dt>Raw distances are not symmetric, but Q-matrix entries are</dt>
-<dd>Wrong: a valid distance matrix is already symmetric by definition.</dd>
-<dt>The Q-matrix avoids the need to compute branch lengths separately</dt>
-<dd>Wrong: branch lengths are computed from the distance matrix after the pair is identified, not from Q itself.</dd>
-</dl>
-</div>
 <div class="forma-ordering" data-lang="en">
-<p>Put these steps for one iteration of neighbor-joining in the correct order.</p>
+<p>Put these steps for one iteration of UPGMA in the correct order.</p>
 <ol>
-<li>Compute the Q-matrix from the current distance matrix</li>
-<li>Find the pair (i, j) with the minimum Q value</li>
-<li>Compute branch lengths from the new internal node to i and j</li>
-<li>Compute distances from the new node to all remaining taxa</li>
-<li>Remove i and j from the matrix, add the new node, and repeat</li>
+<li>Find the pair (i, j) with the smallest distance in the current matrix</li>
+<li>Create a new internal node u at height D(i, j) / 2</li>
+<li>Record branch lengths: branch to i = height(u) - height(i), branch to j = height(u) - height(j)</li>
+<li>Compute distances from u to all remaining taxa as arithmetic means</li>
+<li>Remove i and j from the matrix, add u, and repeat</li>
 </ol>
 </div>
 <h2>A Worked Example</h2>
-<p>Starting with $n = 4$ taxa and the distances above, the Q-matrix for the first iteration is:</p>
-<table>
-<thead>
-<tr>
-<th scope="col"></th>
-<th scope="col">Bat</th>
-<th scope="col">Chimp</th>
-<th scope="col">Human</th>
-<th scope="col">Gorilla</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Bat</strong></td>
-<td>—</td>
-<td>−5.8</td>
-<td>−4.6</td>
-<td>−4.8</td>
-</tr>
-<tr>
-<td><strong>Chimp</strong></td>
-<td></td>
-<td>—</td>
-<td>−4.6</td>
-<td>−4.6</td>
-</tr>
-<tr>
-<td><strong>Human</strong></td>
-<td></td>
-<td></td>
-<td>—</td>
-<td>−7.0</td>
-</tr>
-<tr>
-<td><strong>Gorilla</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<p>The minimum is $Q(\text{Human}, \text{Gorilla}) = -7.0$, so Human and Gorilla are joined first as node4.</p>
-<p>Branch lengths: $\ell_\text{Human} = 0.4$, $\ell_\text{Gorilla} = 0.5$.</p>
-<p>After replacing Human and Gorilla with node4, the matrix shrinks to $3 \times 3$. The next minimum joins Bat and Chimp as node5 ($\ell_\text{Bat} = 0.6$, $\ell_\text{Chimp} = 0.8$). The final edge node4--node5 has length 1.2.</p>
-<div class="forma-numeric-entry" data-correct="0.40" data-lang="en" data-tolerance="0.005">
-<p>In the first NJ iteration Human and Gorilla are joined.
-$D(\text{Human}, \text{Gorilla}) = 0.9$. The row sums are $\sum_k D(\text{Human}, k) = 5.5$
-and $\sum_k D(\text{Gorilla}, k) = 5.7$.
-Using $\ell_i = \tfrac{1}{2}D(i,j) + \frac{\sum_k D(i,k) - \sum_k D(j,k)}{2(n-2)}$ with $n = 4$,
-what is $\ell_\text{Human}$? Give your answer to two decimal places.</p>
+<p>Starting with $n = 4$ taxa and the distances above, Human and Gorilla have the smallest distance (0.9), so they are merged first into node4 at height $0.9/2 = 0.45$.</p>
+<p>Branch lengths: $\ell_\text{Human} = 0.45 - 0 = 0.45$ and $\ell_\text{Gorilla} = 0.45 - 0 = 0.45$ (both start at height 0).</p>
+<p>After replacing Human and Gorilla with node4, the next smallest distance is Bat-Chimp (1.4), which becomes node5 at height $1.4/2 = 0.70$. Branch lengths to Bat and Chimp are each $0.70 - 0 = 0.70$.</p>
+<p>The final merge joins node4 and node5. The average distance between node4 and node5, computed as the arithmetic mean of all pairwise distances between the two groups, works out to $2.35$. The final node (node6) sits at height $2.35/2 = 1.175$. Branch lengths are $1.175 - 0.45 = 0.725$ to node4 and $1.175 - 0.70 = 0.475$ to node5.</p>
+<div class="forma-numeric-entry" data-correct="0.45" data-lang="en" data-tolerance="0.005">
+<p>In the first UPGMA iteration Human and Gorilla are merged.
+$D(\text{Human}, \text{Gorilla}) = 0.9$.
+The new internal node is placed at height $D/2$.
+What is the branch length from the new node to Human?
+Give your answer to two decimal places.</p>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Why does UPGMA assume a molecular clock?</p>
+<dl>
+<dt>Because it always picks the pair with the smallest distance, regardless of how far each taxon is from others.</dt>
+<dd>Wrong: that is the merge criterion, not the clock assumption.</dd>
+<dt>Because it places each internal node at half the merged distance, assuming all lineages evolve at the same rate.</dt>
+<dd>Correct: placing the node at $D(i,j)/2$ assumes that $i$ and $j$ are equidistant from their common ancestor, which requires equal rates of evolution in both lineages.</dd>
+<dt>Because it uses arithmetic means to update distances.</dt>
+<dd>Wrong: the arithmetic mean update is a computational convenience, not the molecular clock assumption.</dd>
+<dt>Because it produces a rooted tree rather than an unrooted tree.</dt>
+<dd>Wrong: whether a tree is rooted or unrooted is independent of the clock assumption.</dd>
+</dl>
 </div>
 <h2>Displaying the Tree</h2>
 <div data-inc="phylo.py" data-mark="draw"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw_tree</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">taxa</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Save an unrooted tree diagram to `filename`.</span>
+<span class="w">    </span><span class="sd">"""Save a rooted tree diagram to `filename`.</span>
 
 <span class="sd">    Leaf nodes (members of `taxa`) are drawn in blue; internal nodes in grey.</span>
 <span class="sd">    Edge labels show branch lengths rounded to two decimal places.</span>
 <span class="sd">    """</span>
-    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 
-    <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+    <span class="c1"># Use a simple hierarchical layout via networkx spring layout.</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">to_undirected</span><span class="p">(),</span> <span class="n">seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
-    <span class="n">leaf_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">taxa</span><span class="p">]</span>
-    <span class="n">internal_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">taxa</span><span class="p">]</span>
+    <span class="n">leaf_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">nd</span> <span class="k">for</span> <span class="n">nd</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">nd</span> <span class="ow">in</span> <span class="n">taxa</span><span class="p">]</span>
+    <span class="n">internal_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">nd</span> <span class="k">for</span> <span class="n">nd</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span> <span class="k">if</span> <span class="n">nd</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">taxa</span><span class="p">]</span>
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
     <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span>
@@ -347,11 +239,13 @@ what is $\ell_\text{Human}$? Give your answer to two decimal places.</p>
         <span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="n">internal_nodes</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">"lightgrey"</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
     <span class="p">)</span>
     <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-    <span class="n">edge_labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">}</span>
-    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">edge_labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">edge_labels</span> <span class="o">=</span> <span class="p">{(</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">length</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">}</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span>
+        <span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">edge_labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">)</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Neighbor-joining tree"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"UPGMA tree"</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
@@ -359,8 +253,8 @@ what is $\ell_\text{Human}$? Give your answer to two decimal places.</p>
 </code></pre></div>
 </div>
 <figure id="f:phylo-tree">
-<img alt="Unrooted phylogenetic tree for Bat, Chimp, Human, Gorilla with branch lengths labelled." src="phylo.svg"/>
-<figcaption>Figure 1: Neighbor-joining tree for four taxa. Blue nodes are observed taxa; grey nodes are reconstructed ancestors. Branch lengths are the exact values used to generate the distance matrix.</figcaption>
+<img alt="Rooted UPGMA tree for Bat, Chimp, Human, Gorilla with branch lengths labelled." src="phylo.svg"/>
+<figcaption>Figure 1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey nodes are reconstructed ancestors. Branch lengths reflect the arithmetic-mean distances used at each merge step.</figcaption>
 </figure>
 <h2>Testing</h2>
 <h3>Matrix symmetry</h3>
@@ -370,7 +264,8 @@ what is $\ell_\text{Human}$? Give your answer to two decimal places.</p>
 </ul>
 <h3>Edge count</h3>
 <ul>
-<li>An unrooted binary tree on $N$ leaves has $2N - 3$ edges.</li>
+<li>A rooted binary tree on $N$ leaves has exactly $2N - 2$ directed edges
+  (each of the $N - 1$ internal nodes contributes two child edges).</li>
 <li>Any other count means the loop terminated early or ran too many iterations.</li>
 </ul>
 <h3>Topology recovery</h3>
@@ -381,17 +276,20 @@ what is $\ell_\text{Human}$? Give your answer to two decimal places.</p>
 <h3>Branch length recovery</h3>
 <ul>
 <li>With exact tree-additive distances the algorithm recovers every branch length to machine precision.</li>
-<li>No tolerance is needed: floating-point round-off is below $10^{-10}$.</li>
-<li>This test is stronger than a topology check and also pins the internal node naming order produced by the algorithm.</li>
+<li>No tolerance is needed: floating-point round-off in the arithmetic means is below $10^{-10}$.</li>
 </ul>
 <h3>Topology under noise</h3>
 <ul>
 <li>Real distance data are not perfectly additive.</li>
-<li>With small Gaussian noise (scale 0.05, roughly 3% of the Bat-Chimp distance) the correct topology should still be recovered.</li>
-<li>This test documents the robustness of neighbor-joining to modest measurement error.</li>
+<li>With small Gaussian noise (scale 0.05) the correct topology should still be recovered.</li>
+<li>This test documents the robustness of UPGMA to modest measurement error.</li>
 </ul>
 <div data-inc="test_phylo.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">phylo</span><span class="w"> </span><span class="kn">import</span> <span class="n">TAXA</span><span class="p">,</span> <span class="n">make_distance_matrix</span><span class="p">,</span> <span class="n">neighbor_joining</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phylo</span><span class="w"> </span><span class="kn">import</span> <span class="n">TAXA</span><span class="p">,</span> <span class="n">make_distance_matrix</span><span class="p">,</span> <span class="n">upgma</span>
+
+<span class="c1"># Tolerance for floating-point comparisons in branch-length tests.</span>
+<span class="c1"># UPGMA computes only averages and halvings, so round-off is well below 1e-10.</span>
+<span class="n">BRANCH_TOLERANCE</span> <span class="o">=</span> <span class="mf">1e-10</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_matrix_symmetric</span><span class="p">():</span>
@@ -401,98 +299,97 @@ what is $\ell_\text{Human}$? Give your answer to two decimal places.</p>
     <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_nj_edge_count</span><span class="p">():</span>
-    <span class="c1"># An unrooted binary tree on N leaves has exactly 2N-3 edges.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_upgma_edge_count</span><span class="p">():</span>
+    <span class="c1"># A rooted binary tree on N leaves has exactly 2N-2 directed edges</span>
+    <span class="c1"># (each internal node contributes two child edges; there are N-1 internal nodes).</span>
     <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">TAXA</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">TAXA</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_nj_recovers_topology</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_upgma_recovers_topology</span><span class="p">():</span>
     <span class="c1"># The reference tree groups (Bat, Chimp) and (Human, Gorilla).</span>
-    <span class="c1"># Each pair should share an internal node (appear together in two edges</span>
-    <span class="c1"># that both connect to the same internal node label).</span>
+    <span class="c1"># UPGMA should merge Human+Gorilla first (smallest distance 0.9),</span>
+    <span class="c1"># then Bat+Chimp (next smallest distance 1.4), then join the two clades.</span>
     <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
 
-    <span class="c1"># Build adjacency: for each leaf, collect all nodes it connects to.</span>
-    <span class="n">adj</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">adj</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-        <span class="n">adj</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="c1"># Build parent-child adjacency from edges.</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">children</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
 
-    <span class="n">bat_neighbours</span> <span class="o">=</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"Bat"</span><span class="p">]</span>
-    <span class="n">chimp_neighbours</span> <span class="o">=</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"Chimp"</span><span class="p">]</span>
-    <span class="n">human_neighbours</span> <span class="o">=</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"Human"</span><span class="p">]</span>
-    <span class="n">gorilla_neighbours</span> <span class="o">=</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"Gorilla"</span><span class="p">]</span>
+    <span class="c1"># Find the internal node whose children are both leaves from the same clade.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">siblings</span><span class="p">(</span><span class="n">taxon_a</span><span class="p">,</span> <span class="n">taxon_b</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">parent</span><span class="p">,</span> <span class="n">kids</span> <span class="ow">in</span> <span class="n">children</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">taxon_a</span> <span class="ow">in</span> <span class="n">kids</span> <span class="ow">and</span> <span class="n">taxon_b</span> <span class="ow">in</span> <span class="n">kids</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="c1"># Bat and Chimp must share a common internal neighbour.</span>
-    <span class="k">assert</span> <span class="n">bat_neighbours</span> <span class="o">&amp;</span> <span class="n">chimp_neighbours</span><span class="p">,</span> <span class="p">(</span>
-        <span class="s2">"Bat and Chimp should share an internal node"</span>
-    <span class="p">)</span>
-
-    <span class="c1"># Human and Gorilla must share a common internal neighbour.</span>
-    <span class="k">assert</span> <span class="n">human_neighbours</span> <span class="o">&amp;</span> <span class="n">gorilla_neighbours</span><span class="p">,</span> <span class="p">(</span>
-        <span class="s2">"Human and Gorilla should share an internal node"</span>
-    <span class="p">)</span>
-
-    <span class="c1"># The two internal nodes for each clade must be different.</span>
-    <span class="n">bat_chimp_node</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">bat_neighbours</span> <span class="o">&amp;</span> <span class="n">chimp_neighbours</span><span class="p">))</span>
-    <span class="n">human_gorilla_node</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">human_neighbours</span> <span class="o">&amp;</span> <span class="n">gorilla_neighbours</span><span class="p">))</span>
-    <span class="k">assert</span> <span class="n">bat_chimp_node</span> <span class="o">!=</span> <span class="n">human_gorilla_node</span>
+    <span class="k">assert</span> <span class="n">siblings</span><span class="p">(</span><span class="s2">"Human"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">),</span> <span class="s2">"Human and Gorilla should be sisters"</span>
+    <span class="k">assert</span> <span class="n">siblings</span><span class="p">(</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Chimp"</span><span class="p">),</span> <span class="s2">"Bat and Chimp should be sisters"</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_nj_recovers_branch_lengths</span><span class="p">():</span>
-    <span class="c1"># With exact tree-additive distances, neighbor-joining recovers all branch</span>
-    <span class="c1"># lengths to machine precision.  No tolerance is needed beyond floating-point</span>
-    <span class="c1"># round-off (&lt; 1e-10).</span>
-    <span class="c1"># NJ merges (Human, Gorilla) first → node4; then (Bat, Chimp) → node5.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_upgma_recovers_branch_lengths</span><span class="p">():</span>
+    <span class="c1"># With exact distances UPGMA should recover branch lengths to machine precision.</span>
+    <span class="c1"># UPGMA merges in this order:</span>
+    <span class="c1">#   node4 &lt;- Human (0.45), Gorilla (0.45)   [merge height = 0.9/2 = 0.45]</span>
+    <span class="c1">#   node5 &lt;- Bat (0.70), Chimp (0.70)        [merge height = 1.4/2 = 0.70]</span>
+    <span class="c1">#   node6 &lt;- node4 (0.725), node5 (0.475)   [merge height = 2.35/2 = 1.175]</span>
+    <span class="c1"># Branch length = merge height of parent - height of child.</span>
     <span class="n">expected</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"Human"</span><span class="p">,</span> <span class="s2">"node4"</span><span class="p">]):</span> <span class="mf">0.4</span><span class="p">,</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"Gorilla"</span><span class="p">,</span> <span class="s2">"node4"</span><span class="p">]):</span> <span class="mf">0.5</span><span class="p">,</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"node5"</span><span class="p">]):</span> <span class="mf">0.6</span><span class="p">,</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"Chimp"</span><span class="p">,</span> <span class="s2">"node5"</span><span class="p">]):</span> <span class="mf">0.8</span><span class="p">,</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"node5"</span><span class="p">]):</span> <span class="mf">1.2</span><span class="p">,</span>
+        <span class="p">(</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"Human"</span><span class="p">):</span> <span class="mf">0.45</span><span class="p">,</span>
+        <span class="p">(</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">):</span> <span class="mf">0.45</span><span class="p">,</span>
+        <span class="p">(</span><span class="s2">"node5"</span><span class="p">,</span> <span class="s2">"Bat"</span><span class="p">):</span> <span class="mf">0.70</span><span class="p">,</span>
+        <span class="p">(</span><span class="s2">"node5"</span><span class="p">,</span> <span class="s2">"Chimp"</span><span class="p">):</span> <span class="mf">0.70</span><span class="p">,</span>
+        <span class="p">(</span><span class="s2">"node6"</span><span class="p">,</span> <span class="s2">"node4"</span><span class="p">):</span> <span class="mf">0.725</span><span class="p">,</span>
+        <span class="p">(</span><span class="s2">"node6"</span><span class="p">,</span> <span class="s2">"node5"</span><span class="p">):</span> <span class="mf">0.475</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
-        <span class="k">assert</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unexpected edge </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">--</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">"</span>
-        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">length</span> <span class="o">-</span> <span class="n">expected</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"Edge </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">--</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">: got </span><span class="si">{</span><span class="n">length</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">, expected </span><span class="si">{</span><span class="n">expected</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Expected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">expected</span><span class="p">)</span><span class="si">}</span><span class="s2"> edges, got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">for</span> <span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Unexpected edge </span><span class="si">{</span><span class="n">parent</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">child</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">length</span> <span class="o">-</span> <span class="n">expected</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">BRANCH_TOLERANCE</span><span class="p">,</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Edge </span><span class="si">{</span><span class="n">parent</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">child</span><span class="si">}</span><span class="s2">: got </span><span class="si">{</span><span class="n">length</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2">, expected </span><span class="si">{</span><span class="n">expected</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">:</span><span class="s2">.8f</span><span class="si">}</span><span class="s2">"</span>
         <span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_nj_with_noise_recovers_topology</span><span class="p">():</span>
-    <span class="c1"># With small Gaussian noise (scale 0.05) the topology should still be</span>
-    <span class="c1"># recovered correctly, even though exact branch lengths are not expected.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_upgma_with_noise_recovers_topology</span><span class="p">():</span>
+    <span class="c1"># With small Gaussian noise (scale 0.05) the correct topology should still</span>
+    <span class="c1"># be recovered.  The Human-Gorilla distance (0.9) is well below the next</span>
+    <span class="c1"># smallest (Bat-Chimp at 1.4), so modest noise rarely disrupts the merge order.</span>
     <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
-    <span class="n">adj</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">adj</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-        <span class="n">adj</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-    <span class="n">bat_chimp</span> <span class="o">=</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"Bat"</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"Chimp"</span><span class="p">]</span>
-    <span class="n">human_gorilla</span> <span class="o">=</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"Human"</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"Gorilla"</span><span class="p">]</span>
-    <span class="k">assert</span> <span class="n">bat_chimp</span><span class="p">,</span> <span class="s2">"Bat and Chimp should still share an internal node under noise"</span>
-    <span class="k">assert</span> <span class="n">human_gorilla</span><span class="p">,</span> <span class="p">(</span>
-        <span class="s2">"Human and Gorilla should still share an internal node under noise"</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">children</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">siblings</span><span class="p">(</span><span class="n">taxon_a</span><span class="p">,</span> <span class="n">taxon_b</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">parent</span><span class="p">,</span> <span class="n">kids</span> <span class="ow">in</span> <span class="n">children</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">taxon_a</span> <span class="ow">in</span> <span class="n">kids</span> <span class="ow">and</span> <span class="n">taxon_b</span> <span class="ow">in</span> <span class="n">kids</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">assert</span> <span class="n">siblings</span><span class="p">(</span><span class="s2">"Human"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">),</span> <span class="p">(</span>
+        <span class="s2">"Human and Gorilla should be sisters even under small noise"</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">siblings</span><span class="p">(</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Chimp"</span><span class="p">),</span> <span class="p">(</span>
+        <span class="s2">"Bat and Chimp should be sisters even under small noise"</span>
     <span class="p">)</span>
 </code></pre></div>
 </div>
 <h2>Generating Random Trees</h2>
 <ul>
-<li>A single hand-crafted example is useful for tracing through the algorithm, but it cannot reveal how neighbor-joining behaves on different topologies or at larger scales.</li>
+<li>A single hand-crafted example is useful for tracing through the algorithm, but it cannot reveal how UPGMA behaves on different topologies or at larger scales.</li>
 <li><code>generate_tree.py</code> provides <code>make_random_tree</code> which builds a random unrooted binary tree and returns its exact distance matrix alongside the true edge list.</li>
-<li>The algorithm accepts the same <code>(names, D)</code> pair that <code>make_distance_matrix</code> produces, so no changes to <code>neighbor_joining</code> are needed.</li>
 </ul>
 <h3>Building a random topology</h3>
 <ul>
-<li>Start with three leaves connected to a single internal node (the only unrooted binary tree on three taxa).</li>
+<li>Start with three leaves connected to a single internal node.</li>
 <li>For each additional taxon, pick a random existing edge, insert a new internal node in the middle of it, and attach the new taxon to that node.</li>
-<li>This procedure samples every labelled unrooted binary topology with equal probability.</li>
-<li>Branch lengths are drawn independently from an exponential distribution with a specified mean, matching the assumption of a molecular clock (branch length = rate X time).</li>
+<li>Branch lengths are drawn independently from an exponential distribution with a specified mean.</li>
 </ul>
 <div data-inc="generate_tree.py" data-mark="random-tree"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_random_tree</span><span class="p">(</span>
     <span class="n">n_taxa</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">branch_mean</span><span class="o">=</span><span class="n">DEFAULT_BRANCH_MEAN</span><span class="p">,</span> <span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.0</span>
@@ -555,8 +452,7 @@ what is $\ell_\text{Human}$? Give your answer to two decimal places.</p>
 <h3>Computing distances and checking topology</h3>
 <ul>
 <li>Once the tree is built, pairwise distances are computed as shortest-path lengths through the networkx graph weighted by branch length.</li>
-<li>To compare topologies without referring to internal node names, each tree is converted to its set of bipartitions: for every edge, the two groups of leaves on either side.</li>
-<li>An unrooted binary tree on $N$ leaves has $N - 3$ non-trivial bipartitions (pendant edges, which connect a single leaf, are excluded).</li>
+<li>To compare topologies, each tree is converted to its set of bipartitions: for every edge, the two groups of leaves on either side.</li>
 <li>Two trees have the same topology if and only if their bipartition sets are identical.</li>
 </ul>
 <div data-inc="test_generate_tree.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -631,17 +527,16 @@ what is $\ell_\text{Human}$? Give your answer to two decimal places.</p>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
-<h3>UPGMA clustering</h3>
-<p>UPGMA (Unweighted Pair-Group Method with Arithmetic means) is an older clustering method that
-produces a rooted, ultrametric tree by always merging the pair with the smallest average distance.
-Implement <code>upgma(names, D)</code> returning edges as <code>(parent, child, length)</code> triples.
+<h3>Neighbor-joining comparison</h3>
+<p>Neighbor-joining (Saitou and Nei, 1987) uses a Q-matrix correction that removes long-branch
+attraction bias and does not assume a molecular clock.
+Implement <code>neighbor_joining(names, D)</code> returning edges as <code>(node_a, node_b, length)</code> triples.
 Verify that UPGMA and neighbor-joining agree on the topology for the exact distance matrix,
-then show a case where they differ when noise is added.</p>
+then add noise (scale 0.05) and show a case where they disagree.</p>
 <h3>Bootstrapping</h3>
-<p>Phylogenetic bootstrap estimates how well-supported each split is by resampling columns of the
-sequence alignment.  Simulate this by drawing 100 perturbed distance matrices using
-<code>make_distance_matrix(noise_scale=0.1, seed=i)</code> for $i = 0, \ldots, 99$ and running
-neighbor-joining on each.
+<p>Phylogenetic bootstrap estimates how well-supported each split is.
+Draw 100 perturbed distance matrices using <code>make_distance_matrix(noise_scale=0.1, seed=i)</code>
+for $i = 0, \ldots, 99$ and run UPGMA on each.
 Report what fraction of replicates recover the correct (Bat, Chimp) clade.</p>
 <h3>Four-point condition</h3>
 <p>A distance matrix is tree-additive if and only if it satisfies the four-point condition:
@@ -653,8 +548,7 @@ Verify that the exact matrix passes and a noisy matrix fails.</p>
 <h3>Larger synthetic trees</h3>
 <p>Extend <code>make_distance_matrix</code> to accept an arbitrary Newick-format string such as
 <code>"((A:0.1,B:0.2):0.3,(C:0.4,D:0.5):0.6)"</code> and compute the full distance matrix from it.
-Use this to generate a 10-taxon example and confirm that neighbor-joining recovers the
-correct topology.</p>
+Use this to generate a 10-taxon example and confirm that UPGMA recovers the correct topology.</p>
 </section>
 </main>
 <footer aria-label="Page navigation">

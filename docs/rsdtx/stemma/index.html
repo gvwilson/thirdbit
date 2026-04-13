@@ -80,9 +80,8 @@
 <li>The approach here:</li>
 <li>Model each manuscript as a sequence of binary <a class="gl-ref" href="../glossary/#variant_locus">variant loci</a>.</li>
 <li>Measure pairwise dissimilarity using <a class="gl-ref" href="../glossary/#hamming_distance">Hamming distance</a>.</li>
-<li>Apply the <a class="gl-ref" href="../glossary/#neighbor_joining">neighbor-joining</a> algorithm (also used in
-    the phylogenetics lesson) to recover the tree topology and branch lengths.</li>
-<li>Visualize the reconstructed unrooted stemma.</li>
+<li>Apply the <a class="gl-ref" href="../glossary/#upgma">UPGMA</a> algorithm to recover the tree topology and branch lengths.</li>
+<li>Visualize the reconstructed stemma.</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Two manuscripts share 12 unique errors that appear in no other copy.
@@ -195,58 +194,78 @@ What is the Hamming distance between A and B?</p>
     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">MANUSCRIPTS</span><span class="p">),</span> <span class="n">D</span>
 </code></pre></div>
 </div>
-<h2>The Neighbor-Joining Algorithm</h2>
+<h2>The UPGMA Algorithm</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#neighbor_joining">Neighbor-joining</a> iteratively joins the pair of nodes
-  with the smallest corrected distance and contracts the matrix until two nodes remain.</li>
-<li>The Q-matrix correction removes the bias introduced by unequal average distances:</li>
+<li><a class="gl-ref" href="../glossary/#upgma">UPGMA</a> (Unweighted Pair-Group Method with Arithmetic means) builds
+  a rooted tree by iteratively merging the pair of nodes with the smallest pairwise
+  distance.</li>
+<li>At each step:</li>
+<li>Find the pair $(i, j)$ with the smallest $D(i,j)$.</li>
+<li>Create an internal node $u$.
+     Each branch from $u$ has length $D(i,j)/2$:</li>
 </ul>
-<p>$$Q(i,j) = (n-2)\,D(i,j) - \sum_k D(i,k) - \sum_k D(j,k)$$</p>
+<p>$$\ell_i = \ell_j = \frac{D(i,j)}{2}$$</p>
+<ol>
+<li>Replace $i$ and $j$ with $u$.
+     Distance from $u$ to any remaining taxon $k$ is the average:</li>
+</ol>
+<p>$$D(u,k) = \frac{D(i,k) + D(j,k)}{2}$$</p>
 <ul>
-<li>The pair $(i, j)$ with the smallest $Q(i,j)$ is joined into a new internal node $u$.</li>
-<li>Branch lengths from $u$ to $i$ and $j$ (with $n$ the current matrix size):</li>
+<li>Repeat until two nodes remain, then join them with an edge equal to the remaining
+  distance.</li>
+<li>UPGMA assumes a constant rate of scribal error across all manuscripts (analogous
+  to the molecular clock in phylogenetics).
+  The neighbor-joining algorithm relaxes this assumption but requires more advanced
+  mathematics.</li>
 </ul>
-<p>$$\ell_i = \tfrac{1}{2}D(i,j) + \frac{\sum_k D(i,k) - \sum_k D(j,k)}{2(n-2)}$$</p>
-<p>$$\ell_j = D(i,j) - \ell_i$$</p>
-<ul>
-<li>Distance from $u$ to every remaining node $k$:</li>
-</ul>
-<p>$$D(u,k) = \tfrac{1}{2}\bigl[D(i,k) + D(j,k) - D(i,j)\bigr]$$</p>
-<p>The same algorithm is used in the phylogenetics lesson; only the meaning of the
-distance changes — evolutionary substitutions there, scribal variant loci here.</p>
-<div data-inc="stemma.py" data-mark="nj"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Run the neighbor-joining algorithm and return a list of (node_a, node_b, length) edges.</span>
+<div data-inc="stemma.py" data-mark="upgma"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">dist_matrix</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Run the UPGMA algorithm and return a list of (node_a, node_b, length) edges.</span>
 
-<span class="sd">    `names` is a list of manuscript (or internal node) labels.</span>
-<span class="sd">    `D` is a symmetric distance matrix with zero diagonal.</span>
-<span class="sd">    Returns a list of (node_a, node_b, branch_length) triples covering all 2N-3 edges</span>
-<span class="sd">    of the unrooted binary tree.</span>
+<span class="sd">    `names` is a list of manuscript labels.</span>
+<span class="sd">    `dist_matrix` is a symmetric distance matrix with zero diagonal.</span>
+
+<span class="sd">    UPGMA (Unweighted Pair-Group Method with Arithmetic means) builds a rooted,</span>
+<span class="sd">    ultrametric tree.  At each step it merges the pair with the smallest pairwise</span>
+<span class="sd">    distance, assigns each branch half that distance, then recomputes distances to</span>
+<span class="sd">    the new node as the average of the merged nodes' distances.</span>
+
+<span class="sd">    Returns a list of (node_a, node_b, branch_length) triples.  For each internal</span>
+<span class="sd">    node u created by merging i and j, two edges are added: (u, i, D(i,j)/2) and</span>
+<span class="sd">    (u, j, D(i,j)/2).  The final two nodes are joined by one last edge.</span>
 <span class="sd">    """</span>
     <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
-    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">dist_matrix</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
     <span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># node_counter starts after all leaf indices so generated names never</span>
+    <span class="c1"># collide with manuscript labels such as "A", "B", etc.</span>
     <span class="n">node_counter</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
 
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
-        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">Q</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">D</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
 
-        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+        <span class="c1"># Find the pair (i, j) with i &lt; j that has the smallest distance.</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
         <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">:</span>
             <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span>
 
         <span class="n">d_ij</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-        <span class="n">li</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">d_ij</span> <span class="o">+</span> <span class="p">(</span><span class="n">row_sums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">row_sums</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
-        <span class="n">lj</span> <span class="o">=</span> <span class="n">d_ij</span> <span class="o">-</span> <span class="n">li</span>
+        <span class="c1"># Each branch from the new node u to i and j has length D(i,j)/2.</span>
+        <span class="n">half</span> <span class="o">=</span> <span class="n">d_ij</span> <span class="o">/</span> <span class="mf">2.0</span>
         <span class="n">u_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"node</span><span class="si">{</span><span class="n">node_counter</span><span class="si">}</span><span class="s2">"</span>
         <span class="n">node_counter</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u_name</span><span class="p">,</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">li</span><span class="p">))</span>
-        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u_name</span><span class="p">,</span> <span class="n">names</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">lj</span><span class="p">))</span>
+        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u_name</span><span class="p">,</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">half</span><span class="p">))</span>
+        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u_name</span><span class="p">,</span> <span class="n">names</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">half</span><span class="p">))</span>
 
-        <span class="n">new_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">d_ij</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+        <span class="c1"># Distance from u to every remaining taxon k is the average of the</span>
+        <span class="c1"># distances from i and from j to k (UPGMA averaging rule).</span>
+        <span class="n">new_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Remove rows/columns for i and j; append row/column for u.</span>
         <span class="n">keep</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">j</span><span class="p">]</span>
         <span class="n">D_new</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">keep</span><span class="p">,</span> <span class="n">keep</span><span class="p">)]</span>
         <span class="n">extra</span> <span class="o">=</span> <span class="n">new_row</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span>
@@ -258,14 +277,13 @@ distance changes — evolutionary substitutions there, scribal variant loci here
         <span class="n">D</span> <span class="o">=</span> <span class="n">D2</span>
         <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keep</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">u_name</span><span class="p">]</span>
 
+    <span class="c1"># Two nodes remain; connect them with the remaining distance.</span>
     <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
     <span class="k">return</span> <span class="n">edges</span>
 </code></pre></div>
 </div>
 <h2>A Worked Example</h2>
-<p>Starting with $n = 4$ manuscripts and the distances above, the row sums are
-$R(A) = 0.52$, $R(B) = 0.48$, $R(C) = 0.54$, $R(D) = 0.50$.</p>
-<p>The first-iteration Q-matrix is:</p>
+<p>Starting with $n = 4$ manuscripts and the distances from the reference stemma:</p>
 <table>
 <thead>
 <tr>
@@ -278,28 +296,28 @@ $R(A) = 0.52$, $R(B) = 0.48$, $R(C) = 0.54$, $R(D) = 0.50$.</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>A</strong></td>
+<td>A</td>
 <td>—</td>
-<td>−0.84</td>
-<td>−0.60</td>
-<td>−0.60</td>
+<td>0.08</td>
+<td>0.23</td>
+<td>0.21</td>
 </tr>
 <tr>
-<td><strong>B</strong></td>
+<td>B</td>
 <td></td>
 <td>—</td>
-<td>−0.60</td>
-<td>−0.60</td>
+<td>0.21</td>
+<td>0.19</td>
 </tr>
 <tr>
-<td><strong>C</strong></td>
+<td>C</td>
 <td></td>
 <td></td>
 <td>—</td>
-<td>−0.84</td>
+<td>0.10</td>
 </tr>
 <tr>
-<td><strong>D</strong></td>
+<td>D</td>
 <td></td>
 <td></td>
 <td></td>
@@ -307,17 +325,100 @@ $R(A) = 0.52$, $R(B) = 0.48$, $R(C) = 0.54$, $R(D) = 0.50$.</p>
 </tr>
 </tbody>
 </table>
-<p>The minimum $Q = -0.84$ occurs for both (A, B) and (C, D).
-NumPy's <code>argmin</code> on the flattened matrix picks (A, B) first.</p>
-<p>Branch lengths: $\ell_A = 0.05$, $\ell_B = 0.03$.
-After replacing A and B with node4, the next minimum in the 3×3 matrix joins
-C and D into node5 ($\ell_C = 0.06$, $\ell_D = 0.04$).
-The final edge node4–node5 has length 0.12.</p>
-<div class="forma-numeric-entry" data-correct="0.05" data-lang="en" data-tolerance="0.001">
-<p>In the first NJ iteration, A and B are joined.
-$D(A, B) = 0.08$, $R(A) = 0.52$, $R(B) = 0.48$.
-Using $\ell_A = \tfrac{1}{2}D(A,B) + \frac{R(A) - R(B)}{2(n-2)}$ with $n = 4$,
-what is $\ell_A$?</p>
+<p>Step 1: the minimum distance is $D(A,B) = 0.08$.
+Merge A and B into node4.
+Branch lengths: $\ell_A = \ell_B = 0.08/2 = 0.04$.
+Update the matrix using the UPGMA averaging rule:</p>
+<p>$$D(\text{node4}, C) = \frac{0.23 + 0.21}{2} = 0.22$$
+$$D(\text{node4}, D) = \frac{0.21 + 0.19}{2} = 0.20$$</p>
+<p>The $3 \times 3$ matrix after step 1:</p>
+<table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">node4</th>
+<th scope="col">C</th>
+<th scope="col">D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node4</td>
+<td>—</td>
+<td>0.22</td>
+<td>0.20</td>
+</tr>
+<tr>
+<td>C</td>
+<td></td>
+<td>—</td>
+<td>0.10</td>
+</tr>
+<tr>
+<td>D</td>
+<td></td>
+<td></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Step 2: the minimum distance is $D(C,D) = 0.10$.
+Merge C and D into node5.
+Branch lengths: $\ell_C = \ell_D = 0.10/2 = 0.05$.
+Update:</p>
+<p>$$D(\text{node4}, \text{node5}) = \frac{0.22 + 0.20}{2} = 0.21$$</p>
+<p>Step 3: two nodes remain (node4 and node5).
+Join them with the remaining edge of length $0.21$.</p>
+<p>The recovered edges are:</p>
+<table>
+<thead>
+<tr>
+<th scope="col">Edge</th>
+<th scope="col">Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node4 -- A</td>
+<td>0.04</td>
+</tr>
+<tr>
+<td>node4 -- B</td>
+<td>0.04</td>
+</tr>
+<tr>
+<td>node5 -- C</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>node5 -- D</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>node4 -- node5</td>
+<td>0.21</td>
+</tr>
+</tbody>
+</table>
+<div class="forma-numeric-entry" data-correct="0.22" data-lang="en" data-tolerance="0.001">
+<p>After merging A and B into node4 in the first UPGMA step,
+$D(A, C) = 0.23$ and $D(B, C) = 0.21$.
+Using the UPGMA averaging rule $D(\text{node4}, C) = (D(A,C) + D(B,C)) / 2$,
+what is $D(\text{node4}, C)$?</p>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>In step 2 of the worked example, which pair is merged?</p>
+<dl>
+<dt>node4 and C, because D(node4, C) = 0.22 is the second-smallest entry.</dt>
+<dd>Wrong: D(C, D) = 0.10 is smaller than D(node4, C) = 0.22 and D(node4, D) = 0.20,
+so C and D are merged first.</dd>
+<dt>C and D, because D(C, D) = 0.10 is the smallest remaining distance.</dt>
+<dd>Correct: UPGMA always merges the pair with the global minimum distance
+in the current matrix.</dd>
+<dt>node4 and D, because D(node4, D) = 0.20 is smaller than D(node4, C) = 0.22.</dt>
+<dd>Wrong: D(C, D) = 0.10 is the global minimum and is smaller than
+both cross-family distances, so C and D are merged.</dd>
+</dl>
 </div>
 <h2>Hamming Distance Function</h2>
 <div data-inc="stemma.py" data-mark="hamming"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hamming_distance</span><span class="p">(</span><span class="n">seq_a</span><span class="p">,</span> <span class="n">seq_b</span><span class="p">):</span>
@@ -437,19 +538,24 @@ what is $\ell_A$?</p>
 <li>Within-family distances (A–B and C–D) must be smaller than any cross-family
   distance, reflecting the true two-clade topology.</li>
 </ul>
-<h3>Edge count</h3>
-<ul>
-<li>An unrooted binary tree on $N$ leaves has $2N - 3$ edges.</li>
-</ul>
 <h3>Topology recovery</h3>
 <ul>
 <li>A and B must share a private internal ancestor (node4), and C and D must share
   a different one (node5), with no manuscript connected to both internal nodes.</li>
+<li>UPGMA merges A and B first (D=0.08, the global minimum), then C and D
+  (D=0.10, the next minimum), then joins the two internal nodes.</li>
 </ul>
 <h3>Branch-length recovery</h3>
 <ul>
-<li>With exact tree-additive distances, NJ recovers all six branch lengths to
-  machine precision (tolerance $10^{-10}$, accommodating only floating-point rounding).</li>
+<li>With the reference distances, UPGMA assigns branch length 0.04 to each of the
+  A and B edges (half of 0.08), 0.05 to each of the C and D edges (half of 0.10),
+  and 0.21 to the internal edge.</li>
+<li>Tolerance $10^{-10}$ covers only accumulated floating-point rounding.</li>
+</ul>
+<h3>All lengths positive</h3>
+<ul>
+<li>Every branch length returned by UPGMA must be strictly positive, confirming that
+  no degenerate zero-length branches were produced.</li>
 </ul>
 <h3>Stochastic generator topology</h3>
 <ul>
@@ -463,7 +569,7 @@ what is $\ell_A$?</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">stemma</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">hamming_distance</span><span class="p">,</span>
     <span class="n">make_distance_matrix</span><span class="p">,</span>
-    <span class="n">neighbor_joining</span><span class="p">,</span>
+    <span class="n">upgma</span><span class="p">,</span>
 <span class="p">)</span>
 
 
@@ -519,22 +625,18 @@ what is $\ell_A$?</p>
 
 
 <span class="c1"># ---------------------------------------------------------------------------</span>
-<span class="c1"># Neighbor-joining topology and branch lengths</span>
+<span class="c1"># UPGMA topology and branch lengths</span>
 <span class="c1"># ---------------------------------------------------------------------------</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_edge_count</span><span class="p">():</span>
-    <span class="c1"># An unrooted binary tree on N leaves has 2N-3 edges.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_upgma_topology_recovery</span><span class="p">():</span>
+    <span class="c1"># A and B must share a private internal ancestor, and C and D must share</span>
+    <span class="c1"># a different one.  UPGMA merges the pair with the smallest distance first:</span>
+    <span class="c1"># D(A,B) = 0.08 is the global minimum, so A and B are joined first into</span>
+    <span class="c1"># node4; then D(C,D) = 0.10 &lt; D(node4,C) = D(node4,D), so C and D are</span>
+    <span class="c1"># joined into node5; finally node4 and node5 are joined.</span>
     <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">test_topology_recovery</span><span class="p">():</span>
-    <span class="c1"># A and B must share a private internal node, and C and D must share a</span>
-    <span class="c1"># different private internal node.</span>
-    <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
 
     <span class="c1"># Build an adjacency map.</span>
     <span class="n">adj</span> <span class="o">=</span> <span class="p">{}</span>
@@ -542,13 +644,12 @@ what is $\ell_A$?</p>
         <span class="n">adj</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
         <span class="n">adj</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
-    <span class="c1"># Find the internal node connected to A (not a manuscript itself).</span>
+    <span class="c1"># Find the internal node connected to each manuscript.</span>
     <span class="n">parent_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"A"</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MANUSCRIPTS</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">parent_b</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"B"</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MANUSCRIPTS</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">parent_c</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"C"</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MANUSCRIPTS</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">parent_d</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">adj</span><span class="p">[</span><span class="s2">"D"</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MANUSCRIPTS</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="c1"># A and B must share the same internal parent; C and D must share another.</span>
     <span class="k">assert</span> <span class="n">parent_a</span> <span class="o">==</span> <span class="n">parent_b</span><span class="p">,</span> <span class="s2">"A and B should share an internal ancestor"</span>
     <span class="k">assert</span> <span class="n">parent_c</span> <span class="o">==</span> <span class="n">parent_d</span><span class="p">,</span> <span class="s2">"C and D should share an internal ancestor"</span>
     <span class="k">assert</span> <span class="n">parent_a</span> <span class="o">!=</span> <span class="n">parent_c</span><span class="p">,</span> <span class="p">(</span>
@@ -556,25 +657,41 @@ what is $\ell_A$?</p>
     <span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_branch_length_recovery</span><span class="p">():</span>
-    <span class="c1"># With exact tree-additive distances, NJ recovers all six branch lengths to</span>
-    <span class="c1"># machine precision.  No tolerance beyond floating-point rounding is needed.</span>
-    <span class="c1"># Tolerance 1e-10 accommodates accumulated double-precision arithmetic error.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_upgma_branch_lengths</span><span class="p">():</span>
+    <span class="c1"># UPGMA branch lengths for the reference distance matrix.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Step 1: merge A and B (D=0.08).  Each branch length = 0.08/2 = 0.04.</span>
+    <span class="c1">#   D(node4, C) = (0.23 + 0.21) / 2 = 0.22</span>
+    <span class="c1">#   D(node4, D) = (0.21 + 0.19) / 2 = 0.20</span>
+    <span class="c1">#</span>
+    <span class="c1"># Step 2: merge C and D (D=0.10 &lt; 0.20 &lt; 0.22).  Each branch length = 0.05.</span>
+    <span class="c1">#   D(node4, node5) = (0.22 + 0.20) / 2 = 0.21</span>
+    <span class="c1">#</span>
+    <span class="c1"># Step 3: join node4 and node5 with the remaining distance = 0.21.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Tolerance 1e-10 covers only accumulated floating-point rounding.</span>
     <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
-    <span class="n">edges</span> <span class="o">=</span> <span class="n">neighbor_joining</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
 
-    <span class="c1"># True branch lengths from the reference stemma tree.</span>
-    <span class="n">true_lengths</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">]):</span> <span class="mf">0.05</span><span class="p">,</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">]):</span> <span class="mf">0.03</span><span class="p">,</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node5"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">]):</span> <span class="mf">0.06</span><span class="p">,</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node5"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">]):</span> <span class="mf">0.04</span><span class="p">,</span>
-        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"node5"</span><span class="p">]):</span> <span class="mf">0.12</span><span class="p">,</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">]):</span> <span class="mf">0.04</span><span class="p">,</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">]):</span> <span class="mf">0.04</span><span class="p">,</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node5"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">]):</span> <span class="mf">0.05</span><span class="p">,</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node5"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">]):</span> <span class="mf">0.05</span><span class="p">,</span>
+        <span class="nb">frozenset</span><span class="p">([</span><span class="s2">"node4"</span><span class="p">,</span> <span class="s2">"node5"</span><span class="p">]):</span> <span class="mf">0.21</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="n">recovered</span> <span class="o">=</span> <span class="p">{</span><span class="nb">frozenset</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]):</span> <span class="n">length</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">}</span>
-    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">true_len</span> <span class="ow">in</span> <span class="n">true_lengths</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">true_len</span> <span class="ow">in</span> <span class="n">expected</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">assert</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">recovered</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Missing edge </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span>
         <span class="k">assert</span> <span class="n">recovered</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">true_len</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_upgma_all_lengths_positive</span><span class="p">():</span>
+    <span class="c1"># Every branch length in the UPGMA tree must be strictly positive.</span>
+    <span class="n">names</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">make_distance_matrix</span><span class="p">()</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Non-positive branch length on edge </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">--</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2">"</span>
 
 
 <span class="c1"># ---------------------------------------------------------------------------</span>
@@ -585,7 +702,7 @@ what is $\ell_A$?</p>
 <span class="k">def</span><span class="w"> </span><span class="nf">test_generator_topology</span><span class="p">():</span>
     <span class="c1"># Manuscripts generated stochastically must also produce a distance matrix</span>
     <span class="c1"># whose minimum within-family distance is smaller than the minimum</span>
-    <span class="c1"># cross-family distance, so NJ can still find the correct grouping.</span>
+    <span class="c1"># cross-family distance, so UPGMA can still find the correct grouping.</span>
     <span class="n">mss</span> <span class="o">=</span> <span class="n">make_manuscripts</span><span class="p">()</span>
     <span class="n">within</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">hamming_distance</span><span class="p">(</span><span class="n">mss</span><span class="p">[</span><span class="s2">"A"</span><span class="p">],</span> <span class="n">mss</span><span class="p">[</span><span class="s2">"B"</span><span class="p">]),</span>
@@ -618,6 +735,11 @@ used as the character data for computing pairwise distances</dd>
 <dd>The fraction of corresponding positions at which two sequences differ;
 for binary variant sequences, it equals the proportion of loci where one
 manuscript has the archetype reading and the other has a variant</dd>
+<dt>UPGMA</dt>
+<dd>Unweighted Pair-Group Method with Arithmetic means; a clustering algorithm
+that builds a rooted, ultrametric tree by iteratively merging the pair of
+nodes with the smallest pairwise distance and updating distances by averaging;
+assumes a constant rate of change along all branches</dd>
 </dl>
 </div>
 <section aria-label="Exercises" class="exercises">
@@ -626,26 +748,25 @@ manuscript has the archetype reading and the other has a variant</dd>
 <p>The <code>generate_stemma</code> module produces actual sequences, not just distances.
 Write <code>build_distance_matrix(mss)</code> that accepts the dict returned by
 <code>make_manuscripts</code> and computes the full $4 \times 4$ Hamming distance matrix.
-Run NJ on this matrix and compare the recovered topology to the one from
+Run UPGMA on this matrix and compare the recovered topology to the one from
 <code>make_distance_matrix</code>.
 Do the stochastic distances give the same grouping?</p>
 <h3>Effect of mutation rate</h3>
 <p>Re-run <code>make_manuscripts</code> with <code>mutation_prob</code> values of 0.01, 0.05, 0.10, and 0.20.
-For each rate, compute the distance matrix and check whether NJ recovers the correct
+For each rate, compute the distance matrix and check whether UPGMA recovers the correct
 two-family topology.
 At what mutation rate does the signal begin to fail, and why?</p>
-<h3>UPGMA comparison</h3>
-<p>UPGMA (Unweighted Pair-Group Method with Arithmetic means) produces a rooted,
-ultrametric tree by always merging the pair with the smallest average distance.
-Implement <code>upgma(names, D)</code> and compare its output to neighbor-joining on the
-reference distance matrix.
-Do they agree on the topology?
-Show a case (by adding noise with <code>noise_scale &gt; 0</code>) where they disagree.</p>
+<h3>Effect of noise on UPGMA</h3>
+<p>UPGMA assumes all branch rates are equal (the constant-rate assumption).
+Add Gaussian noise to the reference distance matrix using <code>make_distance_matrix(noise_scale=s)</code>
+for $s \in {0.01, 0.02, 0.05}$.
+At what noise level does UPGMA first recover the wrong topology (A or B grouped with C or D)?
+How does this compare to the noiseless case?</p>
 <h3>Adding a contaminated manuscript</h3>
 <p>A contaminated manuscript (one that was copied partly from two different sources)
 does not fit a tree model.
 Add a fifth manuscript E whose sequence is a 50/50 mix of A and C.
-Compute the distance matrix for all five manuscripts and run NJ.
+Compute the distance matrix for all five manuscripts and run UPGMA.
 Does the algorithm detect the problem, and if so, how is it visible in the
 recovered tree?</p>
 </section>
