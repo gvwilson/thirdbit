@@ -10093,8 +10093,8 @@ blocked again,
 punched hard,
 and then swept his feet out from under him.
 
-The exit was locked.
-The hinges were on the inside
+The exit was locked,
+but the hinges were on the inside
 and big enough for the rebuilt sentry bot to grasp.
 Outside was colder than they expected and shadowed instead of sunshine-bright.
 
@@ -10110,7 +10110,7 @@ Whole bunch o' people died.*
 
 "Not all of them,"
 Sandrine muttered,
-thinking about what Private Leung had said about Sergeant Vassilenko.
+thinking about what Private Leung had said.
 Both of their bodies were the right age to have been children twenty years ago.
 "How much time do we have?"
 
@@ -10162,7 +10162,7 @@ and enough muttered curses for an entire brigade of Marines.
 "Jeep an' others,
 it's like bits o' them got put in storage an' replaced with bits o' you for a while.
 I figure th' two of us bein' like this is down to whatever's in me
-that Doctor Johel's so excited t' get her hands on."
+that Doctor Johel's so excited t' get hold of."
 She reattached the last of the wires she had pulled free
 and took a deep breath.
 "Wasn't sure that wouldn't go off right away," she confessed.
@@ -10189,12 +10189,11 @@ As the bot loped away she said,
 *Thanks.*
 Sandrine rolled their head from side to side
 and started running.
-The *boom!* came a few moments later.
-Somewhere behind them,
-the sentry bot's power cells had reached their limit.
+She didn't look back at the *boom!* a few moments later
+when the sentry bot's power cells reached their limit.
 
 The scientists and engineers who erected the first buildings at Bharati Station
-played a single game of cricket in the snow
+played a game of cricket in the snow
 so that they could send pictures of it back to their families.
 As the temperature and other buildings both went up in the years and decades that followed,
 those games became a regular fixture of station life.
@@ -10203,7 +10202,7 @@ to escape the droughts, floods, and communal warfare of their homeland,
 the proposal to build a proper cricket pitch
 went from a standing joke to a unanimously-approved item in the town plan.
 Sandrine doubted the stadium's architects had realized that
-such a large, covered space would be
+it would one day be
 a perfect place to hide armored hovercraft from passing drones and satellites.
 
 There were no guards at the stadium.
@@ -10212,7 +10211,7 @@ They were hundreds of kilometers from the nearest settlement,
 and anyone capable of crossing that expanse
 would not have been slowed down by a couple of shivering Marines.
 
-One of the hovercraft was a three-story monster that looked like it could square off against the *Bengal*.
+One of the hovercraft was a double decker that looked like it could square off against the *Bengal*.
 The others were merely large and menacing.
 Sandrine trotted to the nearest of those and flipped open
 a small armored plate next to an access hatch.
@@ -10254,7 +10253,7 @@ Without waiting for an answer she poured herself into Iffy's arms and legs.
 No,
 *her* arms and legs.
 She had walked home from school one day with a fever
-as yet another flu swept across the world.
+as yet another virus swept across the world.
 The teacher had passed out at his desk,
 wheezing with each sweaty breath.
 She remembered one of her hobie classmates saying they should stay
@@ -10298,7 +10297,7 @@ Two fuel cells,
 a motor,
 a ground-effect skirt made of blast-resistant material,
 a well-cushioned seat beneath a curved plastic window,
-redundant comms in place of the weapons it would usually carry,
+sensors in place of the weapons it would otherwise carry,
 and a double helping of rations and first-aid supplies
 made it feel like something out of a sim.
 All she needed was a mask,
@@ -10343,7 +10342,7 @@ and her olders were stuffing her into her ecosuit.
 Nobody can."*
 
 *"We can try!" she said fiercely.
-"Th' governor an' th' machines an', an' everybody,
+"Th' governor an' th' machines an' everybody,
 they wouldn't be chasin' me like this if they din't think there was a chance
 I could do somethin'.
 An' even if I can't—"*
@@ -10352,7 +10351,7 @@ She knew she was dreaming,
 but even in her dreams she'd never dared to say this before.
 *Even if I can't, I gotta make it mean somethin'.
 Livin' when you din't an' all what Aunt Naggie's put up with
-an' what happened to Jeep an' Honesty an', an' Sandrine—if I don't try,
+an' what happened to Jeep an' Honesty an' Sandrine—if I don't try,
 none of it mattered.
 Now shut up an' let me sleep.*
 
@@ -10379,11 +10378,12 @@ she was almost three hundred kilometers away from Bharati.
 The sign outside Buhr called it "the best little town south of 60".
 Someone had added, "Population: 0" decades ago
 when the mine closed
-and its last die-hard residents were relocated to other settlements.
+and its last residents were relocated to other settlements,
+voluntarily or otherwise.
 
 She parked the pod in the shadows beneath a small cliff,
 wincing when its side scraped against stone.
-"Maintain camouflage," she told its little core,
+"Stay hidden," she told its little core,
 then lifted the plastic windshield on its hydraulic hinges and clambered out
 as the pod made itself more or less invisible.
 
@@ -10397,8 +10397,8 @@ and she missed Sandrine.
 
 An hour went by.
 She saw two birds in the distance,
-though they might just have been spotter drones searching for her,
-and at one point something the size of an arctic hare
+though they might just have been spotter drones searching for her.
+At one point something the size of an arctic hare
 scurried from one tuft of grass to another.
 When the pod's app finally pinged she stood up
 and tossed another piece of gravel at the blotch on the cliff
@@ -10409,8 +10409,7 @@ The pod's vibration sensor painted a green trace on the map
 that solidified as the core became more certain of its epicenter.
 One two three four thumb,
 one four two three thumb.
-She grinned as she caught herself tapping
-the rhythm Sandrine had used to calm herself.
+She grinned as she caught herself tapping the rhythm.
 
 A chunky utility truck crested the ridge.
 Blocky fuel cells lay three deep on its flat bed.
@@ -10432,7 +10431,7 @@ bumping over the cracked asphalt road.
 
 "Thanks for comin' t' get me,"
 Iffy said.
-"How far are we goin'?
+"How far we goin'?
 And is Aunt Naggie aright?"
 
 "She's fine.
@@ -10448,8 +10447,8 @@ in a language she didn't recognize.
 If the Antarctic Peninsula was an arm reaching toward Patagonia,
 Buhr was the bump on its elbow.
 The two-lane road beneath them climbed one ridge after another,
-each drop a little shallower than the one before.
-Arctic willow, cotton grass, and purple lupins grew wherever there was soil.
+each rise a little higher than the one before.
+Arctic willow, cotton grass, and purple lupins clung to the earth wherever there was soil.
 Tweaked lichen grew in yellow patches wherever there wasn't,
 patiently working its way into every microscopic crack in the ancient bedrock.
 The truck's tires hummed over grated bridges
@@ -10470,7 +10469,7 @@ a bottle of water,
 and a second, empty bottle.
 "I'll, uh, I'll empty that when you're done with it."
 He gestured at the second bottle
-and then mercifully turned away to give her the illusion of privacy.
+and then turned away to give her the illusion of privacy.
 
 Afterward,
 they sat in the cab and ate their meager meals.
@@ -10484,12 +10483,12 @@ He nodded again.
 "Only met 'em a couple o' times,
 'long by Port Progress.
 Was just First an' Second then,
-crewin' on the *Rushin Doll* before Cap'n Wang passed
+crewin' the *Rushin Doll* before Cap'n Wang passed
 an' they took her for their own.
 They were good people."
 
 Something glinted on the road a kilometer away.
-They waited in silence as the robot hauler neared,
+They waited in silence as the robotruck neared,
 rolled past,
 and disappeared around the next bend
 with three smaller haulers rattling and bumping in a line behind it.
@@ -10525,12 +10524,11 @@ but I can't say."
 Edson swallowed the last of his samosa
 and wiped his hands on the cardboard box.
 "We should get goin'.
-You can stay up front from here—if I keep th' windows dark
+You can stay up front from here—if I keep th' windows tinted
 it oughta be safe enough."
 
 The road rose more steeply as they got further from the ocean,
-every ridge higher than the one before.
-The dark mass of the Vinson Massif lay against the horizon ahead of them.
+the dark mass of the Vinson Massif growing on the horizon ahead of them.
 Each time it came into sight Iffy thought of
 the ship that had run itself aground to make a breakwater for Halley.
 Remembering Wales and the things he had said made her wonder if Aunt Naggie was aright
@@ -10572,23 +10570,22 @@ a snorkel—she studied that for a moment—and polarized goggles.
 
 By the time Edson climbed back into the cab she was bundled up and overheating.
 "Lemme know if you, uh, hear anythin' more,"
-he said shortly,
+he said,
 putting the truck in gear.
 
 They drove on without music,
 faster than before.
-Iffy watched the time the voice had given them tick away
-on the watch sewn into the cuff of her jacket.
+Iffy watched the time the voice had given them tick away on the cuff of her jacket.
 With sixteen minutes remaining
 Edson slowed and turned onto something too faint to be called a track.
 Iffy put one hand on the roof of the cab to brace herself
-as the truck bounced over sharp-edged rocks the size of her head.
+as they bounced over sharp-edged rocks the size of her head.
 
 Nine minutes remaining.
 The truck dipped nose-down into a narrow gulley.
 The stream at the bottom had once flowed beneath the ice.
 Now it wound its way between clumps of tweaked Arctic willow
-spaced too evenly apart to be natural.
+too evenly spaced to be natural.
 Water splashed up onto the truck's hood
 as they followed the stream for two and a half precious minutes.
 
@@ -10644,7 +10641,7 @@ leaving them in total darkness.
 
 "Ssh!"
 
-The only light was the faint glow of her jacket watch.
+The only light was the faint glow of her jacket's watch.
 Two minutes.
 One minute thirty.
 One minute.
@@ -10662,11 +10659,11 @@ of Edson shifting his weight above her.
 
 It was half an hour before he said,
 "Aright, mind your eyes."
-She blinked as a faint reddish strip came to life overhead.
+She blinked as a reddish strip came to life overhead.
 Her back and arms ached from holding the unnatural position,
-and she had to stop herself from grunting each time she put weight on her injured knee,
-but another fifty rungs brought them to the bottom of the shaft.
+and she had to stop herself from grunting each time she put weight on her injured knee.
 
+Another fifty rungs brought them to the bottom of the shaft.
 She limped out of Edson's way and leaned against a rounded wall
 as he pressed a panel.
 Soft white lights revealed a domed roof,
@@ -10732,17 +10729,19 @@ squinting against the sun.
 
 She thought they would head back to the road,
 but instead they angled away from it,
-cross-country straight toward the bulk of the distant massif.
+walking cross-country straight toward the bulk of the distant massif.
 Iffy wondered why Edson wasn't worried about being spotted by drones,
 but if he wasn't going to volunteer the information,
 she wasn't going to ask.
 Besides,
 she was too busy putting one foot in front of the other
 over and over again.
-She had never walked this far off pavement.
+She had never walked this far off pavement,
+or on it for that matter.
 Gravel shifting underfoot made her feel unsteady,
 while the spongy beds of carbon-capture moss made her calves ache.
-She had a headache too—when she turned down the polarization in her goggles
+She had a headache, too.
+When she turned down the polarization in her goggles
 to see where she was putting her feet,
 the sunlight dazzled her,
 and one big gulp of water from the bottle in Edson's pack every half hour
@@ -10761,9 +10760,9 @@ They would still be visible in infrared,
 he told her,
 but with luck they would look like a colony of arctic hares in a burrow
 rather than two people
-kilometers away from where people ought to be.
+kilometers away from anywhere people ought to be.
 
-She tossed and turned in her sleeve tent,
+She tossed and turned in her tent,
 unable to fall asleep.
 Its roof was claustrophobically close above her.
 The wind sounded wrong,
@@ -10773,7 +10772,7 @@ She missed its smell and her bird book
 and she was tired of things happening to her.
 
 When Edson wriggled out of his tent a few hours later
-Iffy was already sitting cross-legged in front of hers
+Iffy was sitting cross-legged in front of hers,
 throwing pebbles one by one at a boulder.
 He stretched and twisted,
 then bent over and pressed his forehead against his knees.
@@ -10787,7 +10786,7 @@ quiet but firm.
 A pebble bounced off the boulder.
 
 Edson let his breath out in a long whoosh.
-"I know cross-country ain't your thing,"
+"I know hikin' ain't your thing,"
 he started.
 
 "It ain't that,"
@@ -10847,7 +10846,7 @@ Pause.
 
 Edson shook his head.
 "Nope, never.
-It's from the war, or maybe before.
+It's from the war.
 It means if you can't walk I'll carry you,
 an' if I can't carry you I'll sit with you 'til the end."
 
@@ -10870,8 +10869,7 @@ that made her want to lie down and never get up again.
 The sky was empty except for a few wispy cirrus clouds
 made of crystals blown high off the ice
 that still covered the center of the continent.
-The only birds were too far away
-and too close to the ground for Iffy to identify.
+The only birds were too far away for Iffy to identify.
 
 To her surprise the land wasn't empty.
 Once a small brown-and-white hare bounded away from and disappeared into a burrow.
@@ -10879,7 +10877,7 @@ There were shrews too,
 and once a few desiccated brown beads that Edson said were lynx scat.
 Transplanting the animals' ancestor from the other pole
 and nurturing an ecosystem that could sustain itself
-had taken a generation.
+had taken decades.
 Many species hadn't survived,
 but each year,
 the fragile patches of life scattered across the continent
@@ -10943,9 +10941,7 @@ Something hit the ground in the distance.
 
 "Spotter drone,"
 he said,
-stuffing his tent back into his knapsack.
-Belatedly she grabbed hers and began folding it over on itself
-as if it was a sail.
+folding it over on itself as if it was a sail.
 "Dunno whose it is,
 but for sure somethin' bigger is gonna come lookin' for it.
 Good news is,
@@ -11009,8 +11005,7 @@ The herd slowed and stopped,
 all facing inward,
 horned heads low and sweat steam rising from their backs.
 
-She held her breath as one of the musk ox stepped forward
-in front of Edson and pawed the ground.
+She held her breath as an ox stepped in front of Edson and pawed the ground.
 Sunlight reflected off a collar around its neck,
 except no,
 it wasn't a collar,
@@ -11025,8 +11020,8 @@ The ox snorted and stepped daintily closer to him.
 "Saints," Iffy breathed as it nuzzled the Ecologist.
 She half-expected to hear a voice in her head.
 Instead,
-the ox pooped,
-swished its tail,
+the ox swished its tail,
+pooped,
 and grumbled,
 shifting its weight from hoof to hoof.
 
@@ -11041,10 +11036,9 @@ and her horns weren't actually needle-pointed,
 but standing in front of her made Iffy feel she was on trial
 and the judge had already decided her guilt.
 
-The musk ox turned her head to fix one eye on Iffy.
-She could smell the animal's moist breath.
-The tangles in her thick, dark coat seemed a match for
-the dents and scrapes on the bot riding her.
+The ox turned her head to fix one eye on Iffy.
+She could smell the animal's moist breath
+and see the tangles in her thick, dark coat.
 
 On impulse she reached out slowly, palm up.
 The musk ox snorted again,
