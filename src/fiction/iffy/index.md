@@ -1310,7 +1310,7 @@ The owner glanced from Wales to Iffy to the cases
 but said nothing more than, "Tea?"
 
 They sat at one of the stone-topped tables
-and sipped the strong, minty brew from mis-matched ceramic mugs
+and sipped the strong, minty brew from mismatched ceramic mugs
 the size of Iffy's doubled fists.
 Wales sighed contentedly,
 then set his drink aside,
@@ -1840,7 +1840,7 @@ and the faint but ever-present risk of the sea turning to foam beneath them.
 Halley quickly fell below the horizon.
 After motoring for an hour under high, thin clouds,
 Uncle Jack ordered the *Guinevere* to raise her sails.
-The ship's tiny core obediently ran mis-matched gossamer sheets up her twin Y-masts.
+The ship's tiny core obediently ran mismatched gossamer sheets up her twin Y-masts.
 Waves a meter high made the ship rock from side to side
 in a rhythm that Iffy knew as well as she knew her own heartbeat.
 
@@ -4068,7 +4068,7 @@ Honesty bumped der hip against Iffy again.
 "Good," de said firmly.
 "'Cuz they payin' overtime an' we can use the jing.
 Second wants t' make an autra li'l sister," de confided with a grin.
-"Me not bein' youngest any more—wou'n't that be a thing?
+"Me not bein' youngest any more—wouldn't that be a thing?
 Now c'mon, I bet there's cuppa."
 De unhooked der arm from Iffy's and took her hand.
 
@@ -6243,7 +6243,7 @@ but there was none.
 The thoughts rising side by side in her head were no more human than jellyfish.
 They were a choir,
 a jigsaw puzzle,
-and a vast subterranean lake untouched by light for millenia,
+and a vast subterranean lake untouched by light for millennia,
 all at once and all together.
 
 *«limited window of opportunity / urgency / exchange of value / binding agreement / confirm»*
@@ -6935,7 +6935,7 @@ tapped the screen,
 and sat bolt upright,
 her headache and fatigue forgotten.
 
-It took the image a hearbeat to uncompress.
+It took the image a heartbeat to uncompress.
 Iffy gulped.
 Honesty's First and Second were looking straight into the camera,
 both worried.
@@ -7861,7 +7861,7 @@ Iffy wiped her eyes again.
 Wales nodded.
 "That, and other things.
 We're going to be in Wilkie Sound in about an hour.
-We'll ony be a couple of kilometers from shore."
+We'll only be a couple of kilometers from shore."
 
 He trailed off.
 Iffy tried to make sense of what he had said.
@@ -9437,7 +9437,7 @@ School.
 The smell of the automatic disinfectant spray at the entrance
 and the stern looks the guard gave anyone who tried to run through it
 instead of pausing to count to five.
-The awe she felt seeing a tiger pace back and forth in an enclsoure at the zoo.
+The awe she felt seeing a tiger pace back and forth in an enclosure at the zoo.
 
 *you never*
 
