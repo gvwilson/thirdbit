@@ -8,14 +8,15 @@
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation">
-<a href="../">Research Software Design and Testing by Example</a>
-<span aria-hidden="true">·</span>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Design and Testing by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +55,6 @@
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
@@ -64,25 +64,25 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
+</div>
 </nav>
 <main id="main-content">
 <h1>Survival Analysis</h1>
 <h2>The Problem</h2>
 <ul>
 <li>In a clinical trial some patients experience the event of interest (death, relapse, recovery)
-  while others leave the study before the trial ends or are still event-free when the data are analysed.</li>
+    while others leave the study before the trial ends or are still event-free when the data are analysed.</li>
 <li>An observation where the true event time is unknown because we only know the patient
-  survived past a certain point is called <a class="gl-ref" href="../glossary/#right_censoring">right-censored</a>.</li>
+    survived past a certain point is called <a class="gl-ref" href="../glossary/#right_censoring">right-censored</a>.</li>
 <li>Ignoring censored observations or treating them as events both bias the estimate of survival time.</li>
 <li>This lesson builds an exponential survival model, showing how a naive estimate is biased and
-  how maximum-likelihood estimation corrects for censoring.</li>
+    how maximum-likelihood estimation corrects for censoring.</li>
 </ul>
 <h2>The Survival Function</h2>
 <ul>
 <li>The <a class="gl-ref" href="../glossary/#survival_function">survival function</a> $S(t)$ is the probability that a randomly
-  chosen individual survives past time $t$:</li>
+    chosen individual survives past time $t$:</li>
 </ul>
 <p>$$S(t) = P(T &gt; t)$$</p>
 <ul>
@@ -102,7 +102,7 @@ Using $S(t) = e^{-\lambda t}$, compute $S(20 \ln 2)$ to three decimal places.</p
 <ul>
 <li>Each patient's true event time is drawn from Exponential($\mu = 20$ days, i.e. $\lambda = 1/20$).</li>
 <li>An independent censoring time drawn from Uniform($10$, $35$) days simulates patients
-  who leave the study at different points.</li>
+    who leave the study at different points.</li>
 <li>The observed time is whichever comes first; <code>observed = 1</code> if the event came first.</li>
 </ul>
 <div data-inc="generate_survival.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
@@ -143,7 +143,7 @@ Using $S(t) = e^{-\lambda t}$, compute $S(20 \ln 2)$ to three decimal places.</p
 <li>A first attempt: use only the patients whose event was actually observed, ignore the rest.</li>
 <li>For an Exponential distribution, the mean of uncensored times estimates $\mu$, giving:</li>
 </ul>
-<p>$$\hat{\lambda}<em _text_uncensored="\text{uncensored">{\text{naive}} = \frac{1}{\bar{t}</em>$$}}</p>
+<p>$$\hat{\lambda}_{\text{naive}} = \frac{1}{\bar{t}_{\text{uncensored}}}$$</p>
 <div data-inc="survival.py" data-mark="naive-rate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
@@ -184,10 +184,9 @@ If we compute the naive rate using only uncensored patients, which of these is t
 </ul>
 <p>$$\ell(\lambda) = \sum_{i=1}^{n} \left[ \delta_i \ln \lambda - \lambda t_i \right]$$</p>
 <ul>
-<li>Setting $d\ell/d\lambda = 0$:</li>
+<li>Setting $d\ell/d\lambda = 0$, where $d = \sum_i \delta_i$ is the total number of events:</li>
 </ul>
 <p>$$\frac{d}{d\lambda} \left( d \ln \lambda - \lambda \sum_i t_i \right) = \frac{d}{\lambda} - \sum_i t_i = 0$$</p>
-<p>where $d = \sum_i \delta_i$ is the total number of events.</p>
 <ul>
 <li>Solving gives:</li>
 </ul>
@@ -195,7 +194,7 @@ If we compute the naive rate using only uncensored patients, which of these is t
 <ul>
 <li>Every patient's time contributes to $\sum_i t_i$, whether or not the event occurred.</li>
 <li>A censored patient contributes time up to the point they were last observed: this is called
-  person-time and captures the information that the patient was alive throughout that period.</li>
+    person-time and captures the information that the patient was alive throughout that period.</li>
 </ul>
 <div data-inc="survival.py" data-mark="corrected-rate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
@@ -207,15 +206,18 @@ Compute $\hat{\lambda} = d / \sum t_i$ to three decimal places.</p>
 <h2>The Empirical Survival Curve</h2>
 <ul>
 <li>To visualize how well the model fits, plot the fraction of uncensored events occurring after each time.</li>
-<li>Sort the uncensored event times; at the $i$-th event time (0-indexed), $(n - i)/n$ events occur at or after that time.</li>
-<li>This gives a non-increasing step function that starts at 1 and reaches $1/n$ at the last event.</li>
+<li>Sort the uncensored event times<ul>
+<li>At the $i$-th event time (0-indexed), $(n - i)/n$ events occur at or after that time</li>
+</ul>
+</li>
+<li>This gives a non-increasing step function that starts at 1 and reaches $1/n$ at the last event</li>
 </ul>
 <div data-inc="survival.py" data-mark="empirical-curve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
 <li>Overlay the exponential curves $e^{-\hat{\lambda}_{\text{naive}} t}$ and $e^{-\hat{\lambda} t}$
-  to see which fits the empirical curve more closely.</li>
+    to see which fits the empirical curve more closely</li>
 </ul>
 <div data-inc="survival.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
@@ -296,9 +298,11 @@ Compute $\hat{\lambda} = d / \sum t_i$ to three decimal places.</p>
 <dd>Dropping censored patients inflates $\hat{\lambda}$ because censored patients tended to survive longer; the bias grows with the censoring fraction</dd>
 </dl>
 </div>
+<blockquote>
 <p>The Kaplan-Meier estimator handles censored observations more carefully using conditional
 probabilities at each event time, and does not assume an exponential distribution; it requires
 more advanced statistics.</p>
+</blockquote>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
 <h3>Confidence interval for the rate</h3>

@@ -8,14 +8,15 @@
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation">
-<a href="../">Research Software Design and Testing by Example</a>
-<span aria-hidden="true">·</span>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Design and Testing by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +55,6 @@
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
@@ -64,26 +64,28 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
+</div>
 </nav>
 <main id="main-content">
 <h1>Vocabulary Richness in Historical Texts</h1>
 <h2>The Problem</h2>
 <ul>
 <li>Lexical richness — how varied an author's word choices are — is used in
-  authorship studies, language acquisition research, and digital humanities.</li>
+    authorship studies, language acquisition research, and digital humanities.</li>
 <li>The simplest measure is the <a class="gl-ref" href="../glossary/#type_token_ratio">type-token ratio</a> (TTR):
-  the number of distinct word types divided by the total number of word tokens.</li>
+    the number of distinct word types divided by the total number of word tokens.</li>
 <li>TTR has a well-known flaw: it falls as text length increases even when richness
-  is constant, because longer texts inevitably repeat high-frequency words.</li>
+    is constant, because longer texts inevitably repeat high-frequency words.</li>
 <li>The <a class="gl-ref" href="../glossary/#mattr">Moving-Average Type-Token Ratio</a> (MATTR) fixes this by computing
-  TTR over fixed-width windows and averaging the results.</li>
-<li>The approach here:</li>
+    TTR over fixed-width windows and averaging the results.</li>
+<li>The approach here:<ul>
 <li>Generate a synthetic corpus in which each author samples words from a
     <a class="gl-ref" href="../glossary/#zipf_law">Zipfian distribution</a> with a different vocabulary size.</li>
 <li>Compute TTR and MATTR for each text using Polars.</li>
 <li>Visualize and compare richness scores across authors with Vega-Altair.</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why does a 1000-word text typically have a lower TTR than a 100-word text
@@ -115,7 +117,7 @@ independent of tokenisation quality.</dd>
 <p>$$\text{MATTR} = \frac{1}{T - w + 1} \sum_{i=0}^{T-w} \text{TTR}(t_i, t_{i+1}, \ldots, t_{i+w-1})$$</p>
 <ul>
 <li>Each window has the same length $w$, so each window TTR is on the same scale;
-  averaging them gives a length-fair summary.</li>
+    averaging them gives a length-fair summary.</li>
 <li>When $T \leq w$ there is only one window and MATTR equals the global TTR.</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.6" data-lang="en" data-tolerance="0.001">
@@ -125,9 +127,9 @@ What is its type-token ratio?</p>
 <h2>Generating Synthetic Texts</h2>
 <ul>
 <li>Word frequencies in natural language follow <a class="gl-ref" href="../glossary/#zipf_law">Zipf's law</a>:
-  the $k$-th most common word appears with frequency proportional to $1/k$.</li>
+    the $k$-th most common word appears with frequency proportional to $1/k$.</li>
 <li>Sampling from this distribution with different vocabulary sizes reproduces
-  the richness differences between authors with limited and extensive lexicons.</li>
+    the richness differences between authors with limited and extensive lexicons.</li>
 </ul>
 <div data-inc="generate_vocab.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
     <span class="n">authors</span><span class="o">=</span><span class="n">AUTHORS</span><span class="p">,</span>
@@ -250,23 +252,25 @@ What is its type-token ratio?</p>
 <figcaption>Figure 1: MATTR for each text in the synthetic corpus. Author A (vocabulary 200), Author B (400), and Author C (800) produce texts with MATTR of roughly 0.63, 0.68, and 0.72 respectively, confirming that the metric distinguishes authors by lexical richness regardless of text length.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>TTR edge cases</h3>
 <ul>
+<li>TTR edge cases<ul>
 <li>A text of all unique words has TTR exactly 1.0.</li>
 <li>A text where the same word is repeated $n$ times has TTR $1/n$.</li>
 <li>An empty word list returns 0.0 without raising an exception.</li>
 </ul>
-<h3>MATTR fallback</h3>
-<ul>
+</li>
+<li>MATTR fallback<ul>
 <li>When the text is shorter than the window, MATTR returns the global TTR.</li>
 <li>When the text length equals the window width, there is exactly one window and
-  MATTR equals the global TTR.</li>
+    MATTR equals the global TTR.</li>
 </ul>
-<h3>Richness ordering</h3>
-<ul>
+</li>
+<li>Richness ordering<ul>
 <li>Author A (vocabulary 200), Author B (400), and Author C (800) are generated from
-  increasingly large Zipfian vocabularies.
-  Their mean MATTR values must increase in the same order.</li>
+    increasingly large Zipfian vocabularies.
+    Their mean MATTR values must increase in the same order.</li>
+</ul>
+</li>
 </ul>
 <div data-inc="test_vocab.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_vocab</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span>

@@ -8,14 +8,15 @@
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation">
-<a href="../">Research Software Design and Testing by Example</a>
-<span aria-hidden="true">·</span>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Design and Testing by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +55,6 @@
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
@@ -64,18 +64,21 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
+</div>
 </nav>
 <main id="main-content">
 <h1>Signal Detection Theory Analysis</h1>
 <h2>The Problem</h2>
 <ul>
-<li>In a detection experiment, an observer responds "yes" or "no" to each
-  stimulus; some stimuli contain a signal, others do not.</li>
-<li>Raw accuracy conflates two separate factors: the observer's ability to
-  detect the signal and their tendency to say "yes" regardless.</li>
-<li>Framing the outcome as a confusion matrix keeps the two factors separate.</li>
+<li>In a detection experiment, an observer responds "yes" or "no" to each stimulus</li>
+<li>Some stimuli contain a signal, others do not</li>
+<li>Raw accuracy conflates two separate factors<ul>
+<li>The observer's ability to detect the signal</li>
+<li>Their tendency to say "yes" regardless</li>
+</ul>
+</li>
+<li>Framing the outcome as a confusion matrix keeps the two factors separate</li>
 </ul>
 <table>
 <thead>
@@ -99,12 +102,16 @@
 </tbody>
 </table>
 <ul>
-<li><a class="gl-ref" href="../glossary/#hit_rate">Hit rate</a> (HR): the proportion of signal trials on which
-  the observer responds "yes" — hits divided by total signal trials.</li>
-<li><a class="gl-ref" href="../glossary/#false_alarm_rate">False alarm rate</a> (FAR): the proportion of noise
-  trials on which the observer incorrectly responds "yes" — false alarms
-  divided by total noise trials.</li>
-<li>Both are simple proportions that require only first-year probability.</li>
+<li>The <a class="gl-ref" href="../glossary/#hit_rate">hit rate</a> (HR) is
+    the proportion of signal trials on which the observer responds "yes"<ul>
+<li>I.e, hits divided by total signal trials</li>
+</ul>
+</li>
+<li>The <a class="gl-ref" href="../glossary/#false_alarm_rate">false alarm rate</a> (FAR) is
+    the proportion of noise trials on which the observer incorrectly responds "yes"<ul>
+<li>False alarms divided by total noise trials</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>An observer runs 100 signal trials and 100 noise trials.
@@ -148,8 +155,8 @@ trials and false alarms come from noise trials.</dd>
 <ul>
 <li><code>labels</code> is an array of 1 (signal) and 0 (noise) for each trial.</li>
 <li><code>decisions</code> is an array of 1 (responded yes) and 0 (responded no).</li>
-<li>The function counts hits and false alarms, then divides by the appropriate
-  total number of trials.</li>
+<li>The function counts hits and false alarms
+    then divides by the appropriate total number of trials</li>
 </ul>
 <div class="forma-ordering" data-lang="en">
 <p>Order the steps to compute the hit rate from experiment data.</p>
@@ -159,20 +166,33 @@ Divide the hit count by the total number of signal trials.</p>
 </div>
 <h2>The ROC Curve as a Threshold Sweep</h2>
 <ul>
-<li>An observer does not simply say "yes" or "no": they have an internal numeric
-  evidence score for each trial and say "yes" when that score exceeds a
-  decision threshold.</li>
-<li>By varying the threshold, we trace out different (FAR, HR) pairs.</li>
-<li>A very high threshold means only very strong evidence triggers a "yes":
-    few false alarms, but also few hits — a conservative observer.</li>
-<li>A very low threshold means almost any evidence triggers a "yes": many
-    hits, but also many false alarms — a liberal observer.</li>
-<li>The <a class="gl-ref" href="../glossary/#roc_curve">ROC curve</a> (Receiver Operating Characteristic) is the
-  set of all (FAR, HR) pairs an observer can achieve by adjusting the threshold.</li>
-<li>The diagonal line FAR = HR represents chance performance: the observer gains
-  no extra hits without an equal increase in false alarms.</li>
-<li>A curve that bows toward the upper-left corner means the observer can achieve
-  high hit rates with low false alarm rates — better discrimination.</li>
+<li>An observer does not simply say "yes" or "no"<ul>
+<li>They have an internal numeric evidence score for each trial
+    and say "yes" when that score exceeds a decision threshold</li>
+</ul>
+</li>
+<li>By varying the threshold, we trace out different (FAR, HR) pairs<ul>
+<li>A very high threshold means only very strong evidence triggers a "yes"<ul>
+<li>Few false alarms, but also few hits</li>
+<li>A conservative observer</li>
+</ul>
+</li>
+<li>A very low threshold means almost any evidence triggers a "yes"<ul>
+<li>Many hits, but also many false alarms</li>
+<li>A liberal observer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The <a class="gl-ref" href="../glossary/#roc_curve">ROC curve</a> (Receiver Operating Characteristic) is
+    the set of all (FAR, HR) pairs an observer can achieve by adjusting the threshold</li>
+<li>The diagonal line FAR = HR represents chance performance<ul>
+<li>I.e., the observer gains no extra hits without an equal increase in false alarms</li>
+</ul>
+</li>
+<li>A curve that bows toward the upper-left corner means that
+    the observer can achieve high hit rates with low false alarm rates,
+    i.e., better discrimination</li>
 </ul>
 <div data-inc="sdt.py" data-mark="roc"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">roc_curve</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (far, hr) arrays tracing the ROC curve from evidence scores.</span>
@@ -210,12 +230,12 @@ Divide the hit count by the total number of signal trials.</p>
 </code></pre></div>
 </div>
 <ul>
-<li><code>scores</code> contains the numeric evidence value for each trial.</li>
-<li><code>labels</code> contains 1 for signal trials and 0 for noise trials.</li>
-<li>The function sweeps over all unique score values as candidate thresholds,
-  from highest (most conservative) to lowest (most liberal).</li>
-<li>At each threshold, a trial is classified as "yes" when its score is at
-  or above the threshold.</li>
+<li><code>scores</code> contains the numeric evidence value for each trial</li>
+<li><code>labels</code> contains 1 for signal trials and 0 for noise trials</li>
+<li>The function sweeps over all unique score values as candidate thresholds
+    from highest (most conservative) to lowest (most liberal)</li>
+<li>At each threshold,
+    a trial is classified as "yes" when its score is at or above the threshold</li>
 </ul>
 <div class="forma-matching" data-lang="en">
 <p>Match each threshold choice to its likely effect on hit rate and false alarm rate.</p>
@@ -230,21 +250,25 @@ Divide the hit count by the total number of signal trials.</p>
 </div>
 <h2>Area Under the ROC Curve</h2>
 <ul>
-<li>Any single (FAR, HR) pair depends on the threshold chosen, which may vary
-  between observers or experiments.</li>
-<li>The <a class="gl-ref" href="../glossary/#area_under_curve">area under the ROC curve</a> (AUC) summarizes
-  performance across all thresholds with a single number.</li>
-<li>AUC = 0.5: the ROC is the diagonal — chance performance.</li>
-<li>AUC = 1.0: the ROC passes through (0, 1) — perfect discrimination.</li>
-<li>Interpretation: AUC equals the probability that a randomly chosen signal
-  trial receives a higher evidence score than a randomly chosen noise trial.</li>
-<li>The trapezoidal rule approximates AUC from the arrays of (FAR, HR) points:</li>
+<li>Any single (FAR, HR) pair depends on the threshold chosen,
+    which may vary between observers or experiments</li>
+<li>The <a class="gl-ref" href="../glossary/#area_under_curve">area under the ROC curve</a> (AUC)
+    summarizes performance across all thresholds with a single number</li>
+<li>AUC = 0.5: the ROC is the diagonal, i.e., chance performance</li>
+<li>AUC = 1.0: the ROC passes through (0, 1), i.e., perfect discrimination</li>
+<li>Interpretation: AUC equals the probability that a randomly chosen signal trial
+    receives a higher evidence score than a randomly chosen noise trial</li>
+<li>The <a class="gl-ref" href="../glossary/#trapezoidal_rule">trapezoidal rule</a> approximates AUC from the arrays of (FAR, HR) points:</li>
 </ul>
-<p>$$\text{AUC} \approx \sum_i \tfrac{1}{2}(\text{HR}<em i_1="i+1">i + \text{HR}</em>}) \cdot |\text{FAR<em i_1="i+1">i - \text{FAR}</em>|$$</p>
+<p>$$\text{AUC} \approx \sum_i \tfrac{1}{2}(\text{HR}_i + \text{HR}_{i+1}) \cdot |\text{FAR}_i - \text{FAR}_{i+1}|$$</p>
 <ul>
-<li>Each term is the area of a trapezoid whose parallel sides are $\text{HR}<em i_1="i+1">i$
-  and $\text{HR}</em>$ and whose width is the step in FAR — a Riemann sum.</li>
-<li>As the number of threshold steps increases, the sum converges to the true area.</li>
+<li>Each term is the area of a trapezoid
+    whose parallel sides are $\text{HR}<em i_1="i+1">i$ and $\text{HR}</em>$
+    and whose width is the step in FAR<ul>
+<li>A <a class="gl-ref" href="../glossary/#riemann_sum">Riemann sum</a></li>
+</ul>
+</li>
+<li>As the number of threshold steps increases, the sum converges to the true area</li>
 </ul>
 <div data-inc="sdt.py" data-mark="auc"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">auc</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">hr</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the area under the ROC curve using the trapezoidal rule.</span>
@@ -303,59 +327,76 @@ What is their AUC?</p>
 <figcaption>Figure 1: ROC curve produced by sweeping over score thresholds (blue). The gray dashed diagonal represents chance performance (AUC = 0.5). The bowing of the curve above the diagonal indicates the observer can discriminate signal from noise.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Hit rate is 1.0 when all signal trials are detected</h3>
 <ul>
-<li>If the observer responds "yes" to every signal trial, hits equal total signal
-  trials, so HR = 1.0.</li>
+<li>
+<p>Hit rate is 1.0 when all signal trials are detected</p>
+<ul>
+<li>If the observer responds "yes" to every signal trial, hits equal total signal trials, so HR = 1.0</li>
 </ul>
-<h3>False alarm rate is 0.0 when no noise trial triggers a response</h3>
+</li>
+<li>
+<p>False alarm rate is 0.0 when no noise trial triggers a response</p>
 <ul>
-<li>If the observer never responds "yes" on noise trials, false alarms = 0,
-  so FAR = 0.0.</li>
+<li>If the observer never responds "yes" on noise trials, false alarms = 0, so FAR = 0.0</li>
 </ul>
-<h3>Rates are proportional to counts</h3>
+</li>
+<li>
+<p>Rates are proportional to counts</p>
 <ul>
-<li>With 3 hits out of 4 signal trials and 1 false alarm out of 2 noise trials,
-  HR = 0.75 and FAR = 0.5.</li>
+<li>With 3 hits out of 4 signal trials and 1 false alarm out of 2 noise trials, HR = 0.75 and FAR = 0.5</li>
 </ul>
-<h3>ROC starts at the origin</h3>
+</li>
+<li>
+<p>ROC starts at the origin</p>
 <ul>
-<li>At the threshold above every score, no trial is classified as "yes", so
-  HR = 0 and FAR = 0.</li>
+<li>At the threshold above every score, no trial is classified as "yes", so HR = 0 and FAR = 0</li>
 </ul>
-<h3>ROC ends at (1, 1)</h3>
+</li>
+<li>
+<p>ROC ends at (1, 1)</p>
 <ul>
-<li>At the threshold below every score, every trial is classified as "yes", so
-  HR = 1 and FAR = 1.</li>
+<li>At the threshold below every score, every trial is classified as "yes", so HR = 1 and FAR = 1</li>
 </ul>
-<h3>ROC is monotonically increasing</h3>
+</li>
+<li>
+<p>ROC is monotonically increasing</p>
 <ul>
-<li>Lowering the threshold can only keep or increase both HR and FAR, never
-  decrease either.</li>
+<li>Lowering the threshold can only keep or increase both HR and FAR, never decrease either</li>
 </ul>
-<h3>ROC passes through (0, 1) for perfectly separable scores</h3>
+</li>
+<li>
+<p>ROC passes through (0, 1) for perfectly separable scores</p>
 <ul>
-<li>When every signal score exceeds every noise score, one threshold admits
-  all signals and no noise, placing a point at FAR = 0, HR = 1.</li>
+<li>When every signal score exceeds every noise score,
+    one threshold admits all signals and no noise, placing a point at FAR = 0, HR = 1</li>
 </ul>
-<h3>AUC of the diagonal is 0.5</h3>
+</li>
+<li>
+<p>AUC of the diagonal is 0.5</p>
 <ul>
-<li>The diagonal ROC (FAR = HR) represents chance performance, so its area
-  is exactly half the unit square.</li>
+<li>The diagonal ROC (FAR = HR) represents chance performance,
+  so its area is exactly half the unit square</li>
 </ul>
-<h3>AUC of a perfect step is 1.0</h3>
+</li>
+<li>
+<p>AUC of a perfect step is 1.0</p>
 <ul>
-<li>A step from (0, 0) to (0, 1) to (1, 1) encloses the entire unit square.</li>
+<li>A step from (0, 0) to (0, 1) to (1, 1) encloses the entire unit square</li>
 </ul>
-<h3>AUC is above 0.5 for separable scores</h3>
+</li>
+<li>
+<p>AUC is above 0.5 for separable scores</p>
 <ul>
-<li>When signal scores are on average higher than noise scores, the ROC bows
-  above the diagonal and AUC &gt; 0.5.</li>
+<li>When signal scores are on average higher than noise scores,
+    the ROC bows above the diagonal and AUC &gt; 0.5</li>
 </ul>
-<h3>AUC does not depend on the order of FAR values supplied</h3>
+</li>
+<li>
+<p>AUC does not depend on the order of FAR values supplied</p>
 <ul>
-<li>The implementation sorts FAR internally, so reversing the input arrays
-  gives the same result.</li>
+<li>The implementation sorts FAR internally, so reversing the input arrays gives the same result</li>
+</ul>
+</li>
 </ul>
 <div data-inc="test_sdt.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
@@ -495,13 +536,17 @@ that a random signal trial receives a higher evidence score than a random noise 
 </div>
 <h2>Note on the Gaussian Model</h2>
 <ul>
-<li>The equal-variance Gaussian model summarizes performance compactly via
-  $d' = \Phi^{-1}(\text{HR}) - \Phi^{-1}(\text{FAR})$, where $\Phi^{-1}$ is the
-  inverse of the standard normal CDF.</li>
-<li>This assumes both the noise distribution and the signal distribution are normal
-  with equal variance; only their means differ.</li>
-<li>The threshold-sweep ROC presented in this lesson makes no distributional
-  assumptions: it works for any numeric evidence score and any underlying distribution.</li>
+<li>The equal-variance Gaussian model summarizes performance compactly
+    via $d' = \Phi^{-1}(\text{HR}) - \Phi^{-1}(\text{FAR})$,
+    where $\Phi^{-1}$ is the inverse of the standard normal CDF</li>
+<li>This assumes both the noise distribution and the signal distribution are normal with equal variance<ul>
+<li>Only their means differ</li>
+</ul>
+</li>
+<li>The threshold-sweep ROC presented in this lesson makes no distributional assumptions<ul>
+<li>It works for any numeric evidence score and any underlying distribution</li>
+</ul>
+</li>
 </ul>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>

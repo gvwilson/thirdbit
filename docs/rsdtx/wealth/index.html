@@ -8,14 +8,15 @@
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation">
-<a href="../">Research Software Design and Testing by Example</a>
-<span aria-hidden="true">·</span>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Design and Testing by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +55,6 @@
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
@@ -64,23 +64,25 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
+</div>
 </nav>
 <main id="main-content">
 <h1>Wealth Inequality in an Exchange Economy</h1>
 <h2>The Problem</h2>
 <ul>
 <li>Even when individuals exchange resources randomly with no deliberate hoarding,
-  wealth concentrates in a small number of hands over time.</li>
+    wealth concentrates in a small number of hands over time.</li>
 <li>This is the central insight of <a class="gl-ref" href="../glossary/#agent_based_model">agent-based models</a> of exchange:
-  inequality can emerge from random processes, not only from skill differences or
-  deliberate exploitation.</li>
-<li>The model studied here — sometimes called the "yardsale model" — works as follows:</li>
+    inequality can emerge from random processes, not only from skill differences or
+    deliberate exploitation.</li>
+<li>The <a class="gl-ref" href="../glossary/#yardsale">model</a>  works as follows:<ul>
 <li>Start with $N$ agents, each holding 1 unit of wealth (total wealth $= N$).</li>
 <li>At each step, choose two agents at random; the poorer transfers a uniformly random
     fraction of their own wealth to the richer.</li>
 <li>Repeat for many steps and track the wealth distribution.</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>In the yardsale model, Agent A has 0.4 units and Agent B has 1.6 units.
@@ -101,16 +103,16 @@ wealth (1.6).</dd>
 <h2>The Gini Coefficient</h2>
 <ul>
 <li>The <a class="gl-ref" href="../glossary/#gini_coefficient">Gini coefficient</a> $G$ is the most widely used scalar summary of
-  inequality: it equals 0 for perfect equality and approaches 1 when all wealth is
-  concentrated in one agent.</li>
+    inequality: it equals 0 for perfect equality and approaches 1 when all wealth is
+    concentrated in one agent.</li>
 <li>It is defined as the mean absolute difference in wealth between all pairs, normalised
-  by twice the mean wealth:</li>
+    by twice the mean wealth:</li>
 </ul>
 <p>$$G = \frac{\sum_i \sum_j |w_i - w_j|}{2\,n \sum_i w_i}$$</p>
 <ul>
 <li>Computing this directly requires $O(n^2)$ comparisons.
-  Sorting the wealth array first reduces the cost to $O(n \log n)$:
-  after sorting so that $w_{(1)} \leq w_{(2)} \leq \cdots \leq w_{(n)}$,</li>
+    Sorting the wealth array first reduces the cost to $O(n \log n)$:
+    after sorting so that $w_{(1)} \leq w_{(2)} \leq \cdots \leq w_{(n)}$,</li>
 </ul>
 <p>$$G = \frac{2\sum_{i=1}^n i\,w_{(i)} - (n+1)\sum_i w_i}{n \sum_i w_i}$$</p>
 <div data-inc="wealth.py" data-mark="gini"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gini</span><span class="p">(</span><span class="n">wealth</span><span class="p">):</span>
@@ -136,9 +138,9 @@ compute the Gini coefficient.</p>
 <h2>The Exchange Simulation</h2>
 <ul>
 <li>The simulation records the Gini coefficient after every exchange so we can watch
-  inequality grow from zero.</li>
+    inequality grow from zero.</li>
 <li>A key invariant: total wealth $\sum_i w_i = N$ is conserved exactly at every step
-  because each transfer moves wealth without creating or destroying it.</li>
+    because each transfer moves wealth without creating or destroying it.</li>
 </ul>
 <div data-inc="wealth.py" data-mark="simulate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_exchange</span><span class="p">(</span><span class="n">n_agents</span><span class="o">=</span><span class="n">N_AGENTS</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">N_STEPS</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Run the random-exchange wealth model.</span>
@@ -180,13 +182,13 @@ compute the Gini coefficient.</p>
 <h2>The Lorenz Curve</h2>
 <ul>
 <li>The <a class="gl-ref" href="../glossary/#lorenz_curve">Lorenz curve</a> gives a visual picture of the whole distribution,
-  not just a single number.</li>
+    not just a single number.</li>
 <li>Sort agents by wealth ascending; the curve plots the cumulative fraction of total wealth
-  held by the bottom $x$ fraction of the population.</li>
+    held by the bottom $x$ fraction of the population.</li>
 <li>Perfect equality produces the 45-degree line $y = x$.
-  Any inequality bows the curve below that line.</li>
+    Any inequality bows the curve below that line.</li>
 <li>The Gini coefficient equals twice the area between the Lorenz curve and the
-  equality line.</li>
+    equality line.</li>
 </ul>
 <div data-inc="wealth.py" data-mark="lorenz"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">lorenz_curve</span><span class="p">(</span><span class="n">wealth</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (population_fractions, wealth_fractions) arrays for the Lorenz curve.</span>
@@ -274,43 +276,35 @@ not the $y$-value at $x = 0.5$.</dd>
 </figure>
 <ul>
 <li>The Gini rises quickly at first because early random exchanges quickly
-  produce a spread in wealth from identical starting values.</li>
+    produce a spread in wealth from identical starting values.</li>
 <li>Growth slows as wealth concentrates: the few richest agents now dominate
-  exchanges, but the model has no way to reverse concentration once it is
-  established.</li>
+    exchanges, but the model has no way to reverse concentration once it is
+    established.</li>
 <li>The theoretical steady-state Gini for an exponential wealth distribution is
-  exactly 0.5 (see Exercises), but the yardsale model's convergence is slow and
-  in practice the simulated Gini often exceeds 0.5 because the distribution
-  is not yet truly exponential.</li>
+    exactly 0.5 (see Exercises), but the yardsale model's convergence is slow and
+    in practice the simulated Gini often exceeds 0.5 because the distribution
+    is not yet truly exponential.</li>
 </ul>
 <h2>Testing</h2>
-<h3>Equal-distribution baseline</h3>
-<ul>
-<li><code>gini(np.ones(n))</code> must return exactly 0.0 for any $n$.
-  Analytically: substituting $w_{(i)} = 1$ gives $2n(n+1)/2 - (n+1)n = 0$ in the numerator.</li>
-</ul>
-<h3>Perfect-inequality limit</h3>
-<ul>
-<li>When one agent holds all wealth, the formula gives $(n-1)/n$.
-  For $n = 10$: $G = 0.9$, which approaches 1 as $n \to \infty$, confirming the
-  coefficient never quite reaches 1 for any finite population.</li>
-</ul>
-<h3>Gini stays in [0, 1]</h3>
-<ul>
-<li>Wealth is non-negative and total wealth is conserved, so the formula
-  is always well-defined and bounded.</li>
-</ul>
-<h3>Total wealth conserved</h3>
-<ul>
-<li>The sum of all agent wealths must equal $N$ to within floating-point rounding
-  throughout the full simulation.</li>
-</ul>
-<h3>Gini rises from zero</h3>
-<ul>
-<li>Starting from equal wealth (Gini = 0), the simulation must produce substantial
-  inequality after 2000 steps.
-  With seed 7493418 the final value is 0.88, well above the 0.3 threshold.</li>
-</ul>
+<dl>
+<dt>Equal-distribution baseline</dt>
+<dd><code>gini(np.ones(n))</code> must return exactly 0.0 for any $n$.
+Analytically: substituting $w_{(i)} = 1$ gives $2n(n+1)/2 - (n+1)n = 0$ in the numerator.</dd>
+<dt>Perfect-inequality limit</dt>
+<dd>When one agent holds all wealth, the formula gives $(n-1)/n$.
+For $n = 10$: $G = 0.9$, which approaches 1 as $n \to \infty$, confirming the
+coefficient never quite reaches 1 for any finite population.</dd>
+<dt>Gini stays in [0, 1]</dt>
+<dd>Wealth is non-negative and total wealth is conserved, so the formula
+is always well-defined and bounded.</dd>
+<dt>Total wealth conserved</dt>
+<dd>The sum of all agent wealths must equal $N$ to within floating-point rounding
+throughout the full simulation.</dd>
+<dt>Gini rises from zero</dt>
+<dd>Starting from equal wealth (Gini = 0), the simulation must produce substantial
+inequality after 2000 steps.
+With seed 7493418 the final value is 0.88, well above the 0.3 threshold.</dd>
+</dl>
 <div data-inc="test_wealth.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">wealth</span><span class="w"> </span><span class="kn">import</span> <span class="n">gini</span><span class="p">,</span> <span class="n">simulate_exchange</span><span class="p">,</span> <span class="n">N_AGENTS</span>

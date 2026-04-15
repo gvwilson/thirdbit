@@ -8,14 +8,15 @@
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation">
-<a href="../">Research Software Design and Testing by Example</a>
-<span aria-hidden="true">·</span>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Design and Testing by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +55,6 @@
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
@@ -64,23 +64,26 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
+</div>
 </nav>
 <main id="main-content">
 <h1>Schelling Segregation Model</h1>
 <h2>The Problem</h2>
 <ul>
 <li>In 1971, economist Thomas Schelling asked whether mild individual preferences for
-  similar neighbours could produce large-scale residential segregation.</li>
-<li>The answer is yes: even when each agent requires only 30% of occupied neighbours
-  to share its type, the population self-organises into sharply segregated clusters.</li>
-<li>The <a class="gl-ref" href="../glossary/#schelling_model">Schelling model</a> is an <a class="gl-ref" href="../glossary/#agent_based_model">agent-based model</a>:</li>
-<li>Place two types of agents on a grid, leaving some cells empty.</li>
-<li>At each step, identify dissatisfied agents and move each to a random empty cell.</li>
-<li>Repeat until no agent moves, or for a fixed number of steps.</li>
+    similar neighbours could produce large-scale residential segregation</li>
+<li>The answer is yes:
+    even when each agent requires only 30% of occupied neighbours to share its type,
+    the population self-organises into sharply segregated clusters</li>
+<li>The <a class="gl-ref" href="../glossary/#schelling_model">Schelling model</a> is an <a class="gl-ref" href="../glossary/#agent_based_model">agent-based model</a>:<ul>
+<li>Place two types of agents on a grid, leaving some cells empty</li>
+<li>At each step, identify dissatisfied agents and move each to a random empty cell</li>
+<li>Repeat until no agent moves, or for a fixed number of steps</li>
+</ul>
+</li>
 <li>The model is a landmark result in computational social science because it shows that
-  macro-level patterns can emerge from micro-level rules without central coordination.</li>
+    macro-level patterns can emerge from micro-level rules without central coordination.</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Which of the following best explains why the Schelling model produces segregation
@@ -103,16 +106,16 @@ away from dissatisfying neighbourhoods does.</dd>
 <h2>The Grid and Neighbourhood</h2>
 <ul>
 <li>The grid is an $N \times N$ array.  Each cell holds one of three values:
-  0 (empty), 1 (red agent), or 2 (blue agent).</li>
+    0 (empty), 1 (red agent), or 2 (blue agent)</li>
 <li>The <a class="gl-ref" href="../glossary/#moore_neighborhood">Moore neighbourhood</a> of a cell is the set of up to
-  eight surrounding cells (horizontal, vertical, and diagonal).</li>
+    eight surrounding cells (horizontal, vertical, and diagonal)</li>
 <li>The same-neighbour fraction for an agent at position $(r, c)$ is:</li>
 </ul>
 <p>$$f(r,c) = \frac{\text{occupied neighbours of the same type}}{\text{total occupied neighbours}}$$</p>
 <ul>
-<li>An agent is satisfied when $f(r,c) \geq \theta$, where $\theta$ is the threshold.</li>
-<li>An agent with no occupied neighbours is treated as satisfied ($f = 1$) so that
-  isolated agents do not drift endlessly across empty space.</li>
+<li>An agent is satisfied when $f(r,c) \geq \theta$, where $\theta$ is the threshold</li>
+<li>An agent with no occupied neighbours is treated as satisfied ($f = 1$)
+    so that isolated agents do not drift endlessly across empty space</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.375" data-lang="en" data-tolerance="0.001">
 <p>An agent has 8 fully occupied Moore neighbours, of which 3 are the same type.
@@ -121,8 +124,8 @@ What is its same-neighbour fraction?</p>
 <h2>Initializing the Grid</h2>
 <ul>
 <li>Equal numbers of red and blue agents are placed at random in a fraction
-  $(1 - p_e)$ of cells, where $p_e$ is the empty fraction.</li>
-<li>The empty cells provide the vacancies that dissatisfied agents move into.</li>
+    $(1 - p_e)$ of cells, where $p_e$ is the empty fraction</li>
+<li>The empty cells provide the vacancies that dissatisfied agents move into</li>
 </ul>
 <div data-inc="schelling.py" data-mark="grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_grid</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">GRID_SIZE</span><span class="p">,</span> <span class="n">empty_fraction</span><span class="o">=</span><span class="n">EMPTY_FRACTION</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a random grid of RED and BLUE agents with some EMPTY cells.</span>
@@ -144,8 +147,8 @@ What is its same-neighbour fraction?</p>
 <h2>Computing the Same-Neighbour Fraction</h2>
 <ul>
 <li>Iterating over the 8 relative offsets $(\Delta r, \Delta c) \in {-1,0,1}^2 \setminus \{(0,0)\}$
-  visits each neighbour exactly once.</li>
-<li>Grid boundaries are handled by checking that the neighbour index lies within $[0, N)$.</li>
+    visits each neighbour exactly once</li>
+<li>Grid boundaries are handled by checking that the neighbour index lies within $[0, N)$</li>
 </ul>
 <div data-inc="schelling.py" data-mark="neighbors"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">same_neighbor_fraction</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the fraction of occupied neighbours of the same type.</span>
@@ -174,10 +177,10 @@ What is its same-neighbour fraction?</p>
 </div>
 <h2>One Simulation Step</h2>
 <ul>
-<li>All dissatisfied agents are identified first, then all empty cells.</li>
-<li>Both lists are shuffled independently and paired in order; each dissatisfied agent
-  moves to the corresponding empty cell if one exists.</li>
-<li>Shuffling before pairing ensures no agent is systematically favoured.</li>
+<li>All dissatisfied agents are identified first, then all empty cells</li>
+<li>Both lists are shuffled independently and paired in order</li>
+<li>Each dissatisfied agent moves to the corresponding empty cell if one exists</li>
+<li>Shuffling before pairing ensures no agent is systematically favoured</li>
 </ul>
 <div data-inc="schelling.py" data-mark="step"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a new grid after moving all dissatisfied agents.</span>
@@ -209,8 +212,9 @@ What is its same-neighbour fraction?</p>
 </div>
 <h2>Measuring Segregation</h2>
 <ul>
-<li>The satisfaction rate (i.e., the fraction of agents that meet the threshold) rises as
-  the grid segregates and reaches 1.0 when every agent is happy with its neighbourhood.</li>
+<li>The satisfaction rate (i.e., the fraction of agents that meet the threshold)
+    rises as the grid segregates
+    and reaches 1.0 when every agent is happy with its neighbourhood</li>
 </ul>
 <div data-inc="schelling.py" data-mark="segregation"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">satisfaction_rate</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the fraction of agents that are satisfied.</span>
@@ -286,32 +290,47 @@ neighbour out of three total may already be satisfied.</dd>
 <figcaption>Figure 1: Grid state at steps 0, 5, 10, and 20 (GRID_SIZE=50, EMPTY_FRACTION=0.2, THRESHOLD=0.3). The initially random arrangement self-organises into large segregated clusters. The satisfaction rate rises from 0.832 at step 0 to 1.000 at step 20.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Grid shape and contents</h3>
 <ul>
-<li><code>make_grid</code> must produce a $(50 \times 50)$ array whose cells are all in ${0, 1, 2}$.</li>
+<li>
+<p>Grid shape and contents</p>
+<ul>
+<li><code>make_grid</code> must produce a $(50 \times 50)$ array whose cells are all in ${0, 1, 2}$</li>
 </ul>
-<h3>Balanced agent counts</h3>
+</li>
+<li>
+<p>Balanced agent counts</p>
 <ul>
-<li>Red and blue agents are built as equal halves of the occupied pool, so their counts
-  differ by at most 1 (an off-by-one when the total number of agents is odd).</li>
+<li>Red and blue agents are built as equal halves of the occupied pool,
+    so their counts differ by at most 1
+    (an off-by-one when the total number of agents is odd)</li>
 </ul>
-<h3>Neighbour fractions</h3>
+</li>
+<li>
+<p>Neighbour fractions</p>
 <ul>
-<li>An isolated agent (no occupied neighbours) must return 1.0, matching the convention
-  that isolated agents are considered satisfied.</li>
-<li>An agent surrounded entirely by the same type returns 1.0; surrounded entirely by the
-  opposite type returns 0.0.</li>
+<li>An isolated agent (no occupied neighbours) must return 1.0,
+    matching the convention that isolated agents are considered satisfied</li>
+<li>An agent surrounded entirely by the same type returns 1.0</li>
+<li>One surrounded entirely by the opposite type returns 0.0</li>
 </ul>
-<h3>Stable segregated grid</h3>
+</li>
+<li>
+<p>Stable segregated grid</p>
 <ul>
-<li>A $4 \times 4$ grid with red in the left two columns and blue in the right two
-  columns is fully satisfied: border agents have $5/8 = 0.625$ same-type neighbours,
-  which exceeds the threshold of 0.3.  One step must leave the grid unchanged.</li>
+<li>A $4 \times 4$ grid with red in the left two columns and blue in the right two columns
+    is fully satisfied</li>
+<li>Border agents have $5/8 = 0.625$ same-type neighbours which exceeds the threshold of 0.3</li>
+<li>One step must leave the grid unchanged</li>
 </ul>
-<h3>Satisfaction increases</h3>
+</li>
+<li>
+<p>Satisfaction increases</p>
 <ul>
-<li>Starting from the random initial grid, the satisfaction rate after 20 steps must
-  exceed the initial rate; agents self-organise into clusters.</li>
+<li>Starting from the random initial grid,
+    the satisfaction rate after 20 steps must exceed the initial rate
+    because agents self-organise into clusters</li>
+</ul>
+</li>
 </ul>
 <div data-inc="test_schelling.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>

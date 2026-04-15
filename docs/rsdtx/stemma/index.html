@@ -8,14 +8,15 @@
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation">
-<a href="../">Research Software Design and Testing by Example</a>
-<span aria-hidden="true">·</span>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Design and Testing by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +55,6 @@
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
@@ -64,24 +64,26 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
+</div>
 </nav>
 <main id="main-content">
 <h1>Manuscript Stemma Reconstruction</h1>
 <h2>The Problem</h2>
 <ul>
 <li>A historical text often survives in multiple manuscript copies, each introduced
-  by scribes who occasionally made errors, omitted passages, or substituted words.</li>
+    by scribes who occasionally made errors, omitted passages, or substituted words.</li>
 <li>A <a class="gl-ref" href="../glossary/#stemma">stemma</a> is the family tree of those copies: it shows which
-  manuscripts descend from which others and reconstructs lost intermediate ancestors.</li>
+    manuscripts descend from which others and reconstructs lost intermediate ancestors.</li>
 <li><a class="gl-ref" href="../glossary/#stemma_reconstruction">Stemma reconstruction</a> is the computational problem
-  of recovering that tree from the patterns of shared variants across surviving manuscripts.</li>
-<li>The approach here:</li>
+    of recovering that tree from the patterns of shared variants across surviving manuscripts.</li>
+<li>The approach here:<ul>
 <li>Model each manuscript as a sequence of binary <a class="gl-ref" href="../glossary/#variant_locus">variant loci</a>.</li>
 <li>Measure pairwise dissimilarity using <a class="gl-ref" href="../glossary/#hamming_distance">Hamming distance</a>.</li>
 <li>Apply the <a class="gl-ref" href="../glossary/#upgma">UPGMA</a> algorithm to recover the tree topology and branch lengths.</li>
 <li>Visualize the reconstructed stemma.</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Two manuscripts share 12 unique errors that appear in no other copy.
@@ -108,17 +110,17 @@ a copying relationship.</dd>
 <h2>Variant Loci and Hamming Distance</h2>
 <ul>
 <li>A <a class="gl-ref" href="../glossary/#variant_locus">variant locus</a> is a specific position in a manuscript
-  where at least one copy reads differently from the others.</li>
+    where at least one copy reads differently from the others.</li>
 <li>We represent each manuscript as a binary sequence: 0 if the reading at a locus
-  matches the <a class="gl-ref" href="../glossary/#archetype">archetype</a>, 1 if it has been corrupted.</li>
+    matches the <a class="gl-ref" href="../glossary/#archetype">archetype</a>, 1 if it has been corrupted.</li>
 <li>The <a class="gl-ref" href="../glossary/#hamming_distance">Hamming distance</a> between two manuscripts is the
-  fraction of loci where they disagree:</li>
+    fraction of loci where they disagree:</li>
 </ul>
 <p>$$D(A, B) = \frac{\text{number of loci where } A \neq B}{\text{total loci}}$$</p>
 <ul>
 <li>Manuscripts that share a common intermediate ancestor will have a smaller Hamming
-  distance to each other than to manuscripts from a different family, because they
-  share inherited variants in addition to their unique ones.</li>
+    distance to each other than to manuscripts from a different family, because they
+    share inherited variants in addition to their unique ones.</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.15" data-lang="en" data-tolerance="0.0001">
 <p>Two manuscripts each have 100 variant loci.
@@ -133,7 +135,7 @@ What is the Hamming distance between A and B?</p>
 <p>$$((A:0.05,\ B:0.03):0.07,\ (C:0.06,\ D:0.04):0.05)$$</p>
 <ul>
 <li>Manuscripts A and B share intermediate ancestor alpha, which is separated from
-  the archetype by 0.07.  C and D share beta, separated from the archetype by 0.05.</li>
+    the archetype by 0.07.  C and D share beta, separated from the archetype by 0.05.</li>
 <li>Pairwise distances are sums of branch lengths along the path between each pair.</li>
 </ul>
 <table>
@@ -197,26 +199,28 @@ What is the Hamming distance between A and B?</p>
 <h2>The UPGMA Algorithm</h2>
 <ul>
 <li><a class="gl-ref" href="../glossary/#upgma">UPGMA</a> (Unweighted Pair-Group Method with Arithmetic means) builds
-  a rooted tree by iteratively merging the pair of nodes with the smallest pairwise
-  distance.</li>
-<li>At each step:</li>
+    a rooted tree by iteratively merging the pair of nodes with the smallest pairwise
+    distance.</li>
+<li>At each step:<ul>
 <li>Find the pair $(i, j)$ with the smallest $D(i,j)$.</li>
 <li>Create an internal node $u$.
-     Each branch from $u$ has length $D(i,j)/2$:</li>
+    Each branch from $u$ has length $D(i,j)/2$:</li>
+</ul>
+</li>
 </ul>
 <p>$$\ell_i = \ell_j = \frac{D(i,j)}{2}$$</p>
-<ol>
+<ul>
 <li>Replace $i$ and $j$ with $u$.
-     Distance from $u$ to any remaining taxon $k$ is the average:</li>
-</ol>
+    Distance from $u$ to any remaining taxon $k$ is the average:</li>
+</ul>
 <p>$$D(u,k) = \frac{D(i,k) + D(j,k)}{2}$$</p>
 <ul>
 <li>Repeat until two nodes remain, then join them with an edge equal to the remaining
-  distance.</li>
+    distance.</li>
 <li>UPGMA assumes a constant rate of scribal error across all manuscripts (analogous
-  to the molecular clock in phylogenetics).
-  The neighbor-joining algorithm relaxes this assumption but requires more advanced
-  mathematics.</li>
+    to the molecular clock in phylogenetics).
+    The neighbor-joining algorithm relaxes this assumption but requires more advanced
+    mathematics.</li>
 </ul>
 <div data-inc="stemma.py" data-mark="upgma"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">upgma</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">dist_matrix</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Run the UPGMA algorithm and return a list of (node_a, node_b, length) edges.</span>
@@ -485,10 +489,10 @@ both cross-family distances, so C and D are merged.</dd>
 <h2>Generating Synthetic Manuscripts</h2>
 <ul>
 <li>The stochastic generator simulates a known copying tree by propagating random
-  mutations from the archetype through each branch.</li>
+    mutations from the archetype through each branch.</li>
 <li>Each locus flips independently with probability <code>MUTATION_PROB = 0.05</code>.</li>
 <li>Only the four surviving manuscripts A, B, C, D are returned; the archetype and
-  intermediate ancestors are not observed.</li>
+    intermediate ancestors are not observed.</li>
 </ul>
 <div data-inc="generate_stemma.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_manuscripts</span><span class="p">(</span>
     <span class="n">n_loci</span><span class="o">=</span><span class="n">N_LOCI</span><span class="p">,</span>
@@ -526,42 +530,56 @@ both cross-family distances, so C and D are merged.</dd>
 </code></pre></div>
 </div>
 <h2>Testing</h2>
-<h3>Hamming distance edge cases</h3>
+<ul>
+<li>
+<p>Hamming distance edge cases</p>
 <ul>
 <li>Identical sequences have distance 0.0.</li>
 <li>Sequences that differ at every locus have distance 1.0.</li>
 <li>Sequences that differ at exactly half the loci have distance 0.5.</li>
 </ul>
-<h3>Distance matrix structure</h3>
+</li>
+<li>
+<p>Distance matrix structure</p>
 <ul>
 <li>The matrix must be symmetric with a zero diagonal.</li>
 <li>Within-family distances (A–B and C–D) must be smaller than any cross-family
-  distance, reflecting the true two-clade topology.</li>
+    distance, reflecting the true two-clade topology.</li>
 </ul>
-<h3>Topology recovery</h3>
+</li>
+<li>
+<p>Topology recovery</p>
 <ul>
 <li>A and B must share a private internal ancestor (node4), and C and D must share
-  a different one (node5), with no manuscript connected to both internal nodes.</li>
+    a different one (node5), with no manuscript connected to both internal nodes.</li>
 <li>UPGMA merges A and B first (D=0.08, the global minimum), then C and D
-  (D=0.10, the next minimum), then joins the two internal nodes.</li>
+    (D=0.10, the next minimum), then joins the two internal nodes.</li>
 </ul>
-<h3>Branch-length recovery</h3>
+</li>
+<li>
+<p>Branch-length recovery</p>
 <ul>
 <li>With the reference distances, UPGMA assigns branch length 0.04 to each of the
-  A and B edges (half of 0.08), 0.05 to each of the C and D edges (half of 0.10),
-  and 0.21 to the internal edge.</li>
+    A and B edges (half of 0.08), 0.05 to each of the C and D edges (half of 0.10),
+    and 0.21 to the internal edge.</li>
 <li>Tolerance $10^{-10}$ covers only accumulated floating-point rounding.</li>
 </ul>
-<h3>All lengths positive</h3>
+</li>
+<li>
+<p>All lengths positive</p>
 <ul>
 <li>Every branch length returned by UPGMA must be strictly positive, confirming that
-  no degenerate zero-length branches were produced.</li>
+    no degenerate zero-length branches were produced.</li>
 </ul>
-<h3>Stochastic generator topology</h3>
+</li>
+<li>
+<p>Stochastic generator topology</p>
 <ul>
 <li>Manuscripts generated by the copying simulator must also satisfy the within-family
-  vs. cross-family distance inequality, confirming that the mutation rate is low
-  enough for the tree signal to dominate noise.</li>
+    vs. cross-family distance inequality, confirming that the mutation rate is low
+    enough for the tree signal to dominate noise.</li>
+</ul>
+</li>
 </ul>
 <div data-inc="test_stemma.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>

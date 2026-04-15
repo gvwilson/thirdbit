@@ -8,14 +8,15 @@
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation">
-<a href="../">Research Software Design and Testing by Example</a>
-<span aria-hidden="true">·</span>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Design and Testing by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +55,6 @@
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
@@ -64,18 +64,18 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
+</div>
 </nav>
 <main id="main-content">
 <h1>Word Frequency Change Over Time</h1>
 <h2>The Problem</h2>
 <ul>
 <li>A word's relative frequency in a corpus can rise or fall over decades as cultural
-  and linguistic fashions change.</li>
+    and linguistic fashions change.</li>
 <li><a class="gl-ref" href="../glossary/#diachronic_analysis">Diachronic analysis</a> asks: given a corpus of texts
-  labelled by period, how can we detect and quantify these changes?</li>
-<li>The approach here:</li>
+    labelled by period, how can we detect and quantify these changes?</li>
+<li>The approach here:<ul>
 <li>Generate a synthetic corpus in which each decade's token counts include three
     target words with known injected linear trends.</li>
 <li>Normalize raw counts by total tokens per decade to obtain
@@ -83,6 +83,8 @@
 <li>Estimate a <a class="gl-ref" href="../glossary/#word_shift">word-shift</a> slope for each target word using
     <a class="gl-ref" href="../glossary/#ordinary_least_squares">ordinary least squares</a>.</li>
 <li>Visualize frequency trajectories with Vega-Altair.</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why normalize raw word counts by the total tokens per decade rather than
@@ -107,12 +109,12 @@ the statistical variation that results from sampling a finite corpus.</dd>
 <h2>Normalized Frequency</h2>
 <ul>
 <li>For word $w$ in decade $d$ with raw count $c_{w,d}$ and total token count
-  $N_d = \sum_{w'} c_{w',d}$, the normalized frequency is:</li>
+    $N_d = \sum_{w'} c_{w',d}$, the normalized frequency is:</li>
 </ul>
 <p>$$f_{w,d} = \frac{c_{w,d}}{N_d}$$</p>
 <ul>
 <li>All normalized frequencies in a decade sum to 1, making them comparable across
-  decades regardless of how many texts were digitized or produced.</li>
+    decades regardless of how many texts were digitized or produced.</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.025" data-lang="en" data-tolerance="0.0001">
 <p>A word appears 50 times in a decade that contains 2000 total tokens.
@@ -121,16 +123,15 @@ What is its normalized frequency?</p>
 <h2>Linear Trend</h2>
 <ul>
 <li>A linear trend assumes that the normalized frequency changes by a constant amount
-  per decade: $f_{w,d} = \alpha_w + \beta_w \cdot d_{\text{idx}}$, where
-  $d_{\text{idx}}$ is the decade index (0 for the earliest decade, 1 for the next,
-  and so on).</li>
+    per decade: $f_{w,d} = \alpha_w + \beta_w \cdot d_{\text{idx}}$, where
+    $d_{\text{idx}}$ is the decade index (0 for the earliest decade, 1 for the next,
+    and so on).</li>
 <li>The <a class="gl-ref" href="../glossary/#ordinary_least_squares">OLS</a> slope estimator is:</li>
 </ul>
-<p>$$\hat{\beta}<em _text_idx="\text{idx">w = \frac{\displaystyle\sum_d (d</em>}} - \bar{d})(f_{w,d} - \bar{f<em _text_idx="\text{idx">w)}
-                       {\displaystyle\sum_d (d</em>$$}} - \bar{d})^2</p>
+<p>$$\hat{\beta}_w = \frac{\displaystyle\sum_d (d_{\text{idx}} - \bar{d})(f_{w,d} - \bar{f}_w)} {\displaystyle\sum_d (d_{\text{idx}} - \bar{d})^2}$$</p>
 <ul>
 <li>A positive $\hat{\beta}_w$ means the word's share of tokens rose over time;
-  a negative slope means it fell.</li>
+    a negative slope means it fell.</li>
 <li>The units of $\hat{\beta}_w$ are normalized-frequency change per 10-year period.</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.010" data-lang="en" data-tolerance="0.0001">
@@ -141,12 +142,12 @@ What is the OLS slope?</p>
 </div>
 <h2>Generating Synthetic Data</h2>
 <ul>
-<li>Decade indices run from 0 (1850) to 10 (1950).</li>
-<li>"telegraph" has base frequency 0.005 and rises by 0.002 per decade.</li>
-<li>"candle" has base frequency 0.025 and falls by 0.002 per decade.</li>
-<li>"steam" is stable at 0.015 throughout (zero slope, used as a control).</li>
-<li>97 background words share the remaining probability mass equally.</li>
-<li>Multinomial sampling with 5000 tokens per decade adds realistic noise.</li>
+<li>Decade indices run from 0 (1850) to 10 (1950)</li>
+<li>"telegraph" has base frequency 0.005 and rises by 0.002 per decade</li>
+<li>"candle" has base frequency 0.025 and falls by 0.002 per decade</li>
+<li>"steam" is stable at 0.015 throughout (zero slope, used as a control)</li>
+<li>97 background words share the remaining probability mass equally</li>
+<li>Multinomial sampling with 5000 tokens per decade adds realistic noise</li>
 </ul>
 <div data-inc="generate_wordshift.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
     <span class="n">decades</span><span class="o">=</span><span class="n">DECADES</span><span class="p">,</span>
@@ -267,42 +268,30 @@ What is the OLS slope?</p>
 <figcaption>Figure 1: Normalized frequency of three target words across decades 1850–1950. The rising and falling trends in telegraph and candle are clearly visible despite multinomial sampling noise.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Normalization sums to one</h3>
-<ul>
-<li>After normalization, the sum of all word frequencies within each decade must
-  equal 1.0 to floating-point precision.</li>
-</ul>
-<h3>Non-negative frequencies</h3>
-<ul>
-<li>All normalized frequencies must be non-negative; a negative value would indicate
-  a bug in the join or division step.</li>
-</ul>
-<h3>Flat series has zero slope</h3>
-<ul>
-<li>A sequence of identical frequencies gives OLS slope exactly 0.0.</li>
-</ul>
-<h3>Known-slope recovery</h3>
-<ul>
-<li>A perfectly linear sequence with slope 0.002 must return slope 0.002 to
-  machine precision (no sampling noise, so no tolerance needed).</li>
-</ul>
-<h3>Single-point series</h3>
-<ul>
-<li>A single-point input has a zero denominator; the function must return 0.0
-  rather than raising an exception.</li>
-</ul>
-<h3>Slope signs</h3>
-<ul>
-<li>The slope for "telegraph" must be positive, for "candle" negative, and
-  for "steam" near zero (within 0.001).</li>
-</ul>
-<h3>Slope magnitude</h3>
-<ul>
-<li>The recovered slope for each target word must be within 0.001 of the true
-  injected value.  The expected standard error of the OLS estimator for this
-  corpus is below 0.0002, so 0.001 allows more than five standard errors of
-  sampling variation before a test failure.</li>
-</ul>
+<dl>
+<dt>Normalization sums to one</dt>
+<dd>After normalization, the sum of all word frequencies within each decade must
+equal 1.0 to floating-point precision.</dd>
+<dt>Non-negative frequencies</dt>
+<dd>All normalized frequencies must be non-negative; a negative value would indicate
+a bug in the join or division step.</dd>
+<dt>Flat series has zero slope</dt>
+<dd>A sequence of identical frequencies gives OLS slope exactly 0.0.</dd>
+<dt>Known-slope recovery</dt>
+<dd>A perfectly linear sequence with slope 0.002 must return slope 0.002 to
+machine precision (no sampling noise, so no tolerance needed).</dd>
+<dt>Single-point series</dt>
+<dd>A single-point input has a zero denominator; the function must return 0.0
+rather than raising an exception.</dd>
+<dt>Slope signs</dt>
+<dd>The slope for "telegraph" must be positive, for "candle" negative, and
+for "steam" near zero (within 0.001).</dd>
+<dt>Slope magnitude</dt>
+<dd>The recovered slope for each target word must be within 0.001 of the true
+injected value.  The expected standard error of the OLS estimator for this
+corpus is below 0.0002, so 0.001 allows more than five standard errors of
+sampling variation before a test failure.</dd>
+</dl>
 <div data-inc="test_wordshift.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_wordshift</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span><span class="p">,</span> <span class="n">TARGET_WORDS</span><span class="p">,</span> <span class="n">TARGET_SLOPE</span>

@@ -8,14 +8,15 @@
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation">
-<a href="../">Research Software Design and Testing by Example</a>
-<span aria-hidden="true">·</span>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Design and Testing by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +55,6 @@
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
@@ -64,27 +64,27 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
+</div>
 </nav>
 <main id="main-content">
 <h1>Tumor Classification by Logistic Regression</h1>
 <h2>The Problem</h2>
 <ul>
 <li>Computational pathology extracts quantitative features from tissue images — cell size,
-  shape irregularity, nuclear-to-cytoplasm ratio — and uses them to predict whether a
-  sample is benign or malignant.</li>
+    shape irregularity, nuclear-to-cytoplasm ratio — and uses them to predict whether a
+    sample is benign or malignant.</li>
 <li>Logistic regression is the simplest model that outputs
-  a probability rather than a raw score: the predicted class-1 probability lies in $(0, 1)$
-  so it can be interpreted directly as a risk estimate.</li>
+    a probability rather than a raw score: the predicted class-1 probability lies in $(0, 1)$
+    so it can be interpreted directly as a risk estimate.</li>
 <li>It fits a linear boundary in feature space and is easy to train, interpret, and test;
-  more complex models often offer little additional accuracy when the classes are linearly separable.</li>
+    more complex models often offer little additional accuracy when the classes are linearly separable.</li>
 </ul>
 <h2>The Logistic Regression Model</h2>
 <ul>
 <li>A linear combination of features $\mathbf{x}$ produces a score $z = \mathbf{w} \cdot \mathbf{x} + b$.</li>
 <li>The sigmoid function $\sigma(z) = 1/(1 + e^{-z})$ maps $z$ to a
-  probability in $(0, 1)$:</li>
+    probability in $(0, 1)$:</li>
 </ul>
 <p>$$p = \sigma(z) = \frac{1}{1 + e^{-z}}$$</p>
 <ul>
@@ -121,12 +121,10 @@ $\mathbf{x} = [0, 0]$.  Compute $\sigma(0 \cdot 1 + 0 \cdot 0 + 1) = \sigma(1)$ 
 <ul>
 <li><a class="gl-ref" href="../glossary/#gradient_descent">Gradient descent</a> iteratively moves $\mathbf{w}$ and $b$ downhill:</li>
 </ul>
-<p>$$\frac{\partial L}{\partial \mathbf{w}} = \frac{1}{n} X^T (\mathbf{p} - \mathbf{y})
-\qquad
-\frac{\partial L}{\partial b} = \frac{1}{n} \sum_i (p_i - y_i)$$</p>
+<p>$$\frac{\partial L}{\partial \mathbf{w}} = \frac{1}{n} X^T (\mathbf{p} - \mathbf{y}) \qquad \frac{\partial L}{\partial b} = \frac{1}{n} \sum_i (p_i - y_i)$$</p>
 <ul>
 <li>The update rule at each step is $\mathbf{w} \leftarrow \mathbf{w} - \eta \partial L / \partial \mathbf{w}$
-  where $\eta$ is the learning rate.</li>
+    where $\eta$ is the learning rate.</li>
 </ul>
 <div data-inc="tumor.py" data-mark="train"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">2000</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fit logistic regression by gradient descent on binary cross-entropy loss.</span>
@@ -166,9 +164,9 @@ $\mathbf{x} = [0, 0]$.  Compute $\sigma(0 \cdot 1 + 0 \cdot 0 + 1) = \sigma(1)$ 
 <h2>Generating Synthetic Data</h2>
 <ul>
 <li>Two isotropic Gaussian clusters in 2D simulate benign (centred at $[1.5, 1.5]$) and
-  malignant (centred at $[3.5, 3.5]$) cell populations.</li>
+    malignant (centred at $[3.5, 3.5]$) cell populations.</li>
 <li>The Euclidean distance between class means is $\sqrt{8} \approx 2.83$ standard deviations,
-  making the classes well-separated but not trivially so.</li>
+    making the classes well-separated but not trivially so.</li>
 </ul>
 <div data-inc="generate_tumor.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
 <span class="n">N_PER_CLASS</span> <span class="o">=</span> <span class="mi">150</span>  <span class="c1"># samples per class</span>
@@ -214,10 +212,10 @@ $\mathbf{x} = [0, 0]$.  Compute $\sigma(0 \cdot 1 + 0 \cdot 0 + 1) = \sigma(1)$ 
 <h2>Evaluating the Classifier</h2>
 <ul>
 <li>A <a class="gl-ref" href="../glossary/#confusion_matrix">confusion matrix</a> tabulates the four combinations of actual and
-  predicted class: true negatives (TN), false positives (FP), false negatives (FN), and true
-  positives (TP).</li>
+    predicted class: true negatives (TN), false positives (FP), false negatives (FN), and true
+    positives (TP).</li>
 <li>False negatives (malignant predicted as benign) are typically more harmful than false positives
-  in cancer screening, which motivates choosing a threshold below 0.5 in practice.</li>
+    in cancer screening, which motivates choosing a threshold below 0.5 in practice.</li>
 </ul>
 <div data-inc="tumor.py" data-mark="evaluate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a 2x2 confusion matrix [[TN, FP], [FN, TP]].</span>
@@ -311,34 +309,36 @@ $\mathbf{x} = [0, 0]$.  Compute $\sigma(0 \cdot 1 + 0 \cdot 0 + 1) = \sigma(1)$ 
 <figcaption>Figure 1: Logistic regression applied to 300 synthetic tumour samples. The dashed black line is the learned decision boundary $w_1 x_1 + w_2 x_2 + b = 0$. Test accuracy 96.7%: two benign samples misclassified as malignant, zero malignant samples missed.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Sigmoid exact values</h3>
 <ul>
+<li>Sigmoid exact values<ul>
 <li>$\sigma(0) = 0.5$ is an exact algebraic identity; no tolerance is needed.</li>
 <li>$\sigma(\pm 100)$ saturates to $1$ or $0$ to within $10^{-10}$; this catches any sign
-  error in the exponent argument.</li>
+    error in the exponent argument.</li>
 </ul>
-<h3>Zero weights produce constant probability</h3>
-<ul>
+</li>
+<li>Zero weights produce constant probability<ul>
 <li>With $\mathbf{w} = \mathbf{0}$ and $b = 0$ the model outputs $0.5$ for every input; this
-  verifies that <code>predict_proba</code> correctly passes the linear combination through <code>sigmoid</code>.</li>
+    verifies that <code>predict_proba</code> correctly passes the linear combination through <code>sigmoid</code>.</li>
 </ul>
-<h3>Confusion matrix — perfect and all-wrong classifiers</h3>
-<ul>
+</li>
+<li>Confusion matrix — perfect and all-wrong classifiers<ul>
 <li>A perfect classifier has $\text{TP} = \text{TN} = 2$ and $\text{FP} = \text{FN} = 0$;
-  the all-wrong classifier swaps TN/TP with FP/FN.</li>
+    the all-wrong classifier swaps TN/TP with FP/FN.</li>
 <li>Using a 4-sample input makes every cell of the $2\times2$ matrix exactly one or two,
-  allowing integer comparison without any tolerance.</li>
+    allowing integer comparison without any tolerance.</li>
 </ul>
-<h3>Accuracy</h3>
-<ul>
+</li>
+<li>Accuracy<ul>
 <li>A perfect match gives accuracy 1.0; an all-wrong match gives 0.0.  Both are exact.</li>
 </ul>
-<h3>Training converges on separable data</h3>
-<ul>
+</li>
+<li>Training converges on separable data<ul>
 <li>Class means 3.3 standard deviations apart in each feature; 2000 iterations at
-  learning rate 0.1.  Accuracy above 95% is a conservative bound — the measured value
-  is 97.7% on the full dataset.  The safety factor of $\approx 1.03$ above the threshold
-  accommodates random seeds that produce slightly less-separated draws.</li>
+    learning rate 0.1.  Accuracy above 95% is a conservative bound — the measured value
+    is 97.7% on the full dataset.  The safety factor of $\approx 1.03$ above the threshold
+    accommodates random seeds that produce slightly less-separated draws.</li>
+</ul>
+</li>
 </ul>
 <div data-inc="test_tumor.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>

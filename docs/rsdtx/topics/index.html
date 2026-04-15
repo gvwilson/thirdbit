@@ -8,14 +8,15 @@
 <meta content="Research Software Design and Testing by Example" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-<link href="../_static/page.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav aria-label="Site navigation">
-<a href="../">Research Software Design and Testing by Example</a>
-<span aria-hidden="true">·</span>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Design and Testing by Example</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -54,7 +55,6 @@
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <div class="dropdown">
 <button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
 <ul class="dropdown-content" id="nav-appendices">
@@ -64,18 +64,18 @@
 <li><a href="../glossary/">Glossary</a></li>
 </ul>
 </div>
-<span aria-hidden="true">·</span>
 <a href="https://github.com/gvwilson/rsdtx">Repository</a>
+</div>
 </nav>
 <main id="main-content">
 <h1>Topic Modeling a Document Corpus</h1>
 <h2>The Problem</h2>
 <ul>
 <li>A corpus of documents often covers several recurring themes, but labeling each
-  document by hand is slow and subjective.</li>
+    document by hand is slow and subjective.</li>
 <li>Topic modeling discovers those themes automatically by finding groups of words
-  that tend to appear together across documents.</li>
-<li>The approach here:</li>
+    that tend to appear together across documents.</li>
+<li>The approach here:<ul>
 <li>Generate a synthetic <a class="gl-ref" href="../glossary/#bag_of_words">bag-of-words</a> corpus in which
     each document is produced by one of three topics, each with a distinct vocabulary.</li>
 <li>Represent each document as a <a class="gl-ref" href="../glossary/#term_frequency">term-frequency</a> (TF) vector:
@@ -83,6 +83,8 @@
 <li>Run <a class="gl-ref" href="../glossary/#k_means">k-means clustering</a> on those vectors to find groups of
     documents that use similar words.</li>
 <li>Compare results using raw TF counts and length-normalized TF vectors.</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why is topic modeling called an "unsupervised" method?</p>
@@ -106,9 +108,9 @@ not the reason for the label "unsupervised."</dd>
 <ul>
 <li>The corpus has three topics; each topic owns six consecutive words from a twenty-word vocabulary.</li>
 <li>Words from a topic's own set are sampled with weight 20; all other words receive
-  weight 0.5, so about 96% of each document's tokens come from the document's true topic.</li>
+    weight 0.5, so about 96% of each document's tokens come from the document's true topic.</li>
 <li>Document lengths vary because token counts are drawn from a Poisson distribution
-  with mean 40; this mimics realistic corpora where documents differ in length.</li>
+    with mean 40; this mimics realistic corpora where documents differ in length.</li>
 <li>Each row in the resulting DataFrame is one document with integer word-count columns.</li>
 <li><code>true_topic</code> records which topic generated each document and is used only in tests.</li>
 </ul>
@@ -158,10 +160,10 @@ not the reason for the label "unsupervised."</dd>
 <h2>Building TF Vectors</h2>
 <ul>
 <li>A <a class="gl-ref" href="../glossary/#term_frequency">term-frequency</a> vector for document $d$ is the vector
-  $\mathbf{t}<em 0="0" _geq="\geq">d \in \mathbb{Z}</em>^V$ where $V$ is the vocabulary size and
-  $t_{dw}$ counts how many times word $w$ appears in document $d$.</li>
+    $\mathbf{t}<em 0="0" _geq="\geq">d \in \mathbb{Z}</em>^V$ where $V$ is the vocabulary size and
+    $t_{dw}$ counts how many times word $w$ appears in document $d$.</li>
 <li>Extracting word-count columns from the DataFrame and converting to a NumPy matrix
-  gives a two-dimensional array with shape $(\text{n_docs},\, V)$.</li>
+    gives a two-dimensional array with shape $(\text{n_docs},\, V)$.</li>
 </ul>
 <div data-inc="topics.py" data-mark="tf_matrix"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a (n_docs, vocab_size) NumPy array of raw term-frequency counts.</span>
@@ -177,14 +179,14 @@ not the reason for the label "unsupervised."</dd>
 <h2>Length Normalization</h2>
 <ul>
 <li>Raw TF vectors are proportional to document length: a document twice as long will
-  have roughly twice the counts for every word, even if its topic mix is identical.</li>
+    have roughly twice the counts for every word, even if its topic mix is identical.</li>
 <li>Dividing each document vector by its <a class="gl-ref" href="../glossary/#term_frequency">L2 norm</a> removes this
-  length effect:</li>
+    length effect:</li>
 </ul>
-<p>$$\hat{\mathbf{t}}_d = \frac{\mathbf{t}_d}{|\mathbf{t}_d|_2}$$</p>
+<p>$$\hat{\mathbf{t}}_d = \frac{\mathbf{t}_d}{\|\mathbf{t}_d\|_2}$$</p>
 <ul>
 <li>After normalization, two documents about the same topic are close to each other
-  in Euclidean space even if one is three times longer than the other.</li>
+    in Euclidean space even if one is three times longer than the other.</li>
 <li>This is analogous to comparing the shape of word use rather than its volume.</li>
 </ul>
 <div data-inc="topics.py" data-mark="normalize"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">normalize_rows</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
@@ -218,19 +220,21 @@ the sum of squares, not the sum itself.</dd>
 <h2>The K-Means Algorithm</h2>
 <ul>
 <li><a class="gl-ref" href="../glossary/#k_means">K-means</a> partitions $n$ documents into $K$ clusters by
-  alternating two steps until assignments stop changing:</li>
+    alternating two steps until assignments stop changing:<ol>
 <li>Assign each document to the nearest centroid (smallest Euclidean distance).</li>
 <li>Update each centroid as the coordinate-wise mean of all documents in that cluster.</li>
+</ol>
+</li>
 <li>The centroid of a cluster is the "average document" for that cluster: its
-  $w$-th coordinate is the average count (or average normalized count) of word
-  $w$ across all documents assigned to the cluster.</li>
+    $w$-th coordinate is the average count (or average normalized count) of word
+    $w$ across all documents assigned to the cluster.</li>
 <li>The assignment distance between document $\mathbf{t}$ and centroid $\mathbf{c}$
-  is the Euclidean distance:</li>
+    is the Euclidean distance:</li>
 </ul>
 <p>$$d(\mathbf{t},\,\mathbf{c}) = \sqrt{\sum_{w=1}^{V}(t_w - c_w)^2}$$</p>
 <ul>
 <li>The algorithm needs $K$ to be chosen before running it; topic modeling uses domain
-  knowledge or model selection criteria to pick $K$.</li>
+    knowledge or model selection criteria to pick $K$.</li>
 </ul>
 <div data-inc="topics.py" data-mark="kmeans"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="n">MAX_ITER</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Run k-means clustering and return (labels, centroids).</span>
@@ -285,9 +289,9 @@ What is the Euclidean distance $d(\mathbf{a}, \mathbf{c})$?</p>
 <h2>Top Words Per Cluster</h2>
 <ul>
 <li>After k-means converges, the top words for each cluster are those with the highest
-  value in the cluster's centroid vector.</li>
+    value in the cluster's centroid vector.</li>
 <li>A high centroid coordinate for word $w$ means that documents in the cluster tend
-  to use word $w$ frequently, making it a good label for the cluster's theme.</li>
+    to use word $w$ frequently, making it a good label for the cluster's theme.</li>
 </ul>
 <div data-inc="topics.py" data-mark="top_words"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">top_words</span><span class="p">(</span><span class="n">centroids</span><span class="p">,</span> <span class="n">word_cols</span><span class="p">,</span> <span class="n">n_words</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a list of k lists, each with the top n_words for that cluster.</span>
@@ -306,12 +310,12 @@ What is the Euclidean distance $d(\mathbf{a}, \mathbf{c})$?</p>
 <h2>Raw TF vs. Normalized TF</h2>
 <ul>
 <li>With raw TF vectors, longer documents pull centroids upward uniformly across all words,
-  which can make centroid coordinates reflect document length as much as topic content.</li>
+    which can make centroid coordinates reflect document length as much as topic content.</li>
 <li>With normalized TF vectors, centroids reflect the typical word-use pattern (shape)
-  for documents in each cluster, independent of length.</li>
+    for documents in each cluster, independent of length.</li>
 <li>For this synthetic corpus both approaches recover the three topics because all documents
-  have similar Poisson-distributed lengths; in a corpus with very unequal document lengths,
-  normalization matters more.</li>
+    have similar Poisson-distributed lengths; in a corpus with very unequal document lengths,
+    normalization matters more.</li>
 </ul>
 <h2>Visualizing Cluster Centroids</h2>
 <div data-inc="topics.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_clusters</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">true_topics</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">word_cols</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
@@ -371,28 +375,30 @@ particular member based on its total count.</dd>
 </dl>
 </div>
 <h2>Testing</h2>
-<h3>TF matrix shape</h3>
 <ul>
+<li>TF matrix shape<ul>
 <li><code>make_tf_matrix</code> must return an array with one row per document and one column per
-  vocabulary word; all entries must be non-negative.</li>
+    vocabulary word; all entries must be non-negative.</li>
 </ul>
-<h3>Normalized rows have unit length</h3>
-<ul>
+</li>
+<li>Normalized rows have unit length<ul>
 <li>After <code>normalize_rows</code>, every row must satisfy $|\hat{\mathbf{t}}_d|_2 = 1$.</li>
 <li>Tolerance of $10^{-10}$ is used because floating-point division introduces rounding
-  errors at the level of machine epsilon ($\approx 2\times 10^{-16}$ for 64-bit floats).</li>
+    errors at the level of machine epsilon ($\approx 2\times 10^{-16}$ for 64-bit floats).</li>
 <li>A zero row must remain zero (no division by zero).</li>
 </ul>
-<h3>Top-words order</h3>
-<ul>
+</li>
+<li>Top-words order<ul>
 <li>Given a hand-crafted centroid matrix with known highest-weight words, <code>top_words</code>
-  must return them in descending order.</li>
+    must return them in descending order.</li>
 </ul>
-<h3>Topic recovery</h3>
-<ul>
+</li>
+<li>Topic recovery<ul>
 <li>After running k-means with normalized TF on the synthetic corpus, every document
-  in the same true-topic group must be assigned to the same cluster.
-  The true-to-cluster mapping may be any permutation.</li>
+    in the same true-topic group must be assigned to the same cluster.
+    The true-to-cluster mapping may be any permutation.</li>
+</ul>
+</li>
 </ul>
 <div data-inc="test_topics.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_topics</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span><span class="p">,</span> <span class="n">N_TOPICS</span>
@@ -503,59 +509,47 @@ rather than total token volume</dd>
 </dl>
 </div>
 <h2>From K-Means to Probabilistic Topic Models</h2>
-<ul>
-<li>K-means assigns each document to exactly one cluster.</li>
-<li>In practice, a document can be about more than one topic: a biology paper might
-  discuss both genetics and statistics.</li>
-<li>Latent Dirichlet Allocation (LDA) is a probabilistic generalization of this idea:
-  rather than assigning each document to exactly one topic, it allows each document
-  to be a mixture of topics, and each topic to be a distribution over words.</li>
-<li>LDA inference uses Bayesian methods (specifically collapsed Gibbs sampling, a form
-  of Markov chain Monte Carlo) and requires more advanced statistics than k-means.</li>
-</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="o">-</span><span class="w">   </span><span class="n">K</span><span class="o">-</span><span class="n">means</span><span class="w"> </span><span class="n">assigns</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">cluster</span><span class="p">.</span>
+<span class="o">-</span><span class="w">   </span><span class="n">In</span><span class="w"> </span><span class="n">practice</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="nl">topic:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">biology</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="n">might</span>
+<span class="w">    </span><span class="n">discuss</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">genetics</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">statistics</span><span class="p">.</span>
+<span class="o">-</span><span class="w">   </span><span class="n">Latent</span><span class="w"> </span><span class="n">Dirichlet</span><span class="w"> </span><span class="n">Allocation</span><span class="w"> </span><span class="p">(</span><span class="n">LDA</span><span class="p">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">probabilistic</span><span class="w"> </span><span class="n">generalization</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nl">idea:</span>
+<span class="w">    </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">assigning</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">document</span>
+<span class="w">    </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mixture</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">topics</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">distribution</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">words</span><span class="p">.</span>
+<span class="o">-</span><span class="w">   </span><span class="n">LDA</span><span class="w"> </span><span class="n">inference</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">Bayesian</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="p">(</span><span class="n">specifically</span><span class="w"> </span><span class="n">collapsed</span><span class="w"> </span><span class="n">Gibbs</span><span class="w"> </span><span class="n">sampling</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">form</span>
+<span class="w">    </span><span class="n">of</span><span class="w"> </span><span class="n">Markov</span><span class="w"> </span><span class="n">chain</span><span class="w"> </span><span class="n">Monte</span><span class="w"> </span><span class="n">Carlo</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">advanced</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">k</span><span class="o">-</span><span class="n">means</span><span class="p">.</span>
+</code></pre></div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
 <h3>Effect of K</h3>
-<ul>
-<li>Run k-means on the normalized TF matrix with $K \in {2, 3, 4, 5}$.</li>
-<li>For $K = 3$, the three clusters should match the three generating topics.</li>
-<li>What happens to the cluster centroid heatmap when $K = 4$? Does the extra cluster
-  split one of the true topics in two, or does it find a different grouping?</li>
-<li>Explain why increasing $K$ beyond the true number of topics does not necessarily
-  improve the result.</li>
-</ul>
+<p>Run k-means on the normalized TF matrix with $K \in {2, 3, 4, 5}$.
+For $K = 3$, the three clusters should match the three generating topics.
+What happens to the cluster centroid heatmap when $K = 4$? Does the extra cluster
+split one of the true topics in two, or does it find a different grouping?
+Explain why increasing $K$ beyond the true number of topics does not necessarily
+improve the result.</p>
 <h3>Effect of initialization</h3>
-<ul>
-<li>K-means can converge to different solutions depending on which documents are
-  chosen as initial centroids.</li>
-<li>Run k-means on the normalized TF matrix 10 times, each time with a different
-  random seed.</li>
-<li>How often does the algorithm recover all three true topics?</li>
-<li>What happens in the runs that fail to recover them?</li>
-</ul>
+<p>K-means can converge to different solutions depending on which documents are
+chosen as initial centroids.
+Run k-means on the normalized TF matrix 10 times, each time with a different
+random seed.
+How often does the algorithm recover all three true topics?
+What happens in the runs that fail to recover them?</p>
 <h3>Mixed documents</h3>
-<ul>
-<li>Modify <code>make_corpus</code> to generate five documents that draw 50% of their tokens
-  from topic 0 and 50% from topic 1.</li>
-<li>Add those documents to the corpus and re-run k-means.</li>
-<li>Which cluster do the mixed documents end up in?</li>
-<li>Plot the centroid weights for those documents alongside the cluster centroids
-  to show why the algorithm places them where it does.</li>
-</ul>
+<p>Modify <code>make_corpus</code> to generate five documents that draw 50% of their tokens
+from topic 0 and 50% from topic 1.
+Add those documents to the corpus and re-run k-means.
+Which cluster do the mixed documents end up in?
+Plot the centroid weights for those documents alongside the cluster centroids
+to show why the algorithm places them where it does.</p>
 <h3>Inertia</h3>
-<ul>
-<li>The within-cluster sum of squared distances (inertia) measures how tightly
-  packed each cluster is:</li>
-</ul>
-<p>$$\text{inertia} = \sum_{k=0}^{K-1} \sum_{d:\,\text{label}(d)=k}
-  |\hat{\mathbf{t}}_d - \mathbf{c}_k|_2^2$$</p>
-<ul>
-<li>Implement <code>inertia(matrix, labels, centroids)</code> and plot inertia against $K$
-  for $K \in {2, 3, 4, 5, 6}$.</li>
-<li>The "elbow" in the plot (where inertia stops dropping sharply) is a common
-  heuristic for choosing $K$.</li>
-<li>Does the elbow occur at $K = 3$ for this corpus?</li>
-</ul>
+<p>The within-cluster sum of squared distances (inertia) measures how tightly
+packed each cluster is:</p>
+<p>$$\text{inertia} = \sum_{k=0}^{K-1} \sum_{d:\,\text{label}(d)=k} \|\hat{\mathbf{t}}_d - \mathbf{c}_k\|_2^2$$</p>
+<p>Implement <code>inertia(matrix, labels, centroids)</code> and plot inertia against $K$
+for $K \in {2, 3, 4, 5, 6}$.
+The "elbow" in the plot (where inertia stops dropping sharply) is a common
+heuristic for choosing $K$.
+Does the elbow occur at $K = 3$ for this corpus?</p>
 </section>
 </main>
 <footer aria-label="Page navigation">
