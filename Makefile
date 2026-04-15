@@ -4,8 +4,8 @@
 commands:
 	@grep -h -E '^##' ${MAKEFILE_LIST} | sed -e 's/## //g' | column -t -s ':'
 
-## build: rebuild site without running server
-build:
+## site: rebuild site without running server
+site:
 	ark build
 
 ## serve: build site and run server
