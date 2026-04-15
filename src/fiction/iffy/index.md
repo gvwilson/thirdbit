@@ -11140,14 +11140,12 @@ Edson grinned at the look on Iffy's face.
 "Two of us goin' cross-country is too zing easy to spot,"
 he said.
 "In with all them,
-we're just two more musk ox goin' about their business."
+we're just two more critters goin' about their business."
 
 They followed the herd toward the foothills of the massif.
-The animals snorted and farted and grumbled around them,
+The musk ox snorted and farted and grumbled around them,
 strong white teeth nipping the last of the summer growth.
-Iffy didn't see any bots on their backs.
-In return,
-the musk ox barely seemed to notice them,
+The animals barely seemed to notice them,
 though two or three were always as close to her
 as a cow would be to a half-grown calf.
 
@@ -11173,7 +11171,7 @@ The next day began the same way,
 but soon the ground began to rise more steeply.
 Their boots crunched on gravel
 as the tundra gave way to bare rock exposed by retreating ice a century ago
-but not yet colonized by anything bigger stubborn clumps of cottongrass.
+but not yet colonized by anything bigger than stubborn clumps of cottongrass.
 
 They finally reached a slope so steep that the musk ox paused,
 grumbled to each other,
@@ -11181,9 +11179,9 @@ and began to amble away.
 Iffy felt exposed,
 as if a passing ship had caught her sunning herself on the deck of the *Guinevere*.
 Edson just shrugged when she asked about drones.
-"I think they're all busy watchin' each other right now.
+"There's not much we can do about it.
 An' anyway,
-there's not much we can do about it."
+I think they're all busy watchin' each other right now."
 But he did assemble his rifle and sling it over his shoulder,
 and even when he was pointing out the painted initials of some long ago survey,
 he kept one eye on the sky.
@@ -11228,9 +11226,9 @@ Come on."
 It took half an hour to reach the stream
 that snaked along the bottom of the valley.
 Edson talked the whole way.
-The land was rebounding as the ice retreated.
-That meant thousands of microquakes every year,
-which fractured the rock,
+The land was rebounding as the ice retreated,
+which meant thousands of microquakes every year.
+They fractured the rock,
 which made it easier to put in pipes for geothermal power
 or drill holes for hot springs.
 The result was only a couple of degrees warmer than the land around it,
@@ -11241,7 +11239,7 @@ Look—that rock was actually a bot recharging itself from a power outlet hidden
 And there—he took her arm to stop her from stepping on leaf.
 "Just wait," he said.
 Sure enough,
-a moment later it scuttled across the path
+a moment later the leaf hurried across the path
 and disappeared into a patch of white-tufted heather.
 "Ants,"
 he said proudly.
@@ -11287,7 +11285,7 @@ she mumbled.
 he said levelly,
 his aim shifting from one bot to the next.
 "Oh,
-an' remind 'em this place is s'posed to be off limits.
+an' remind 'em this place is s'posed to be neutral territ'ry.
 There's agreements an' such."
 
 As quickly as it had come
@@ -11317,21 +11315,21 @@ then took it.
 Somehow it didn't feel foolish.
 
 "They all have names,"
-he said quietly as they made their way to the nearest greenhouse.
+he told her as they made their way to the nearest greenhouse.
 "Folk that helped make this place or stopped other folk tearin' 'em all down."
 
 "Are there any for my olders?"
 she asked after a few steps.
 
 He squeezed her hand.
-"No,
+"Not yet,
 but if you want to plant some,
 we'd be proud to have 'em."
 
 The greenhouse had double walls and an airlock door.
-Inside was dry and warm.
+The inside was dry and warm.
 Bicycles of various sizes and in various degrees of repair
-huddled side by side like sheep at a trough.
+stood in a stand like sheep at a trough.
 Row upon row of shelves held square pots of heather,
 moss,
 and pine seedlings,
@@ -11355,7 +11353,7 @@ and bounced up and down to test it,
 but didn't take off her coat or boots.
 "What kind o' work?"
 
-"All kinds," Edson said.
+"Whatever needs done," Edson said.
 "Been a couple o' months since anyone was here, maybe more.
 There's trees 'n' all to re-pot,
 a couple o' composters to turn over,
@@ -11427,7 +11425,7 @@ before she finished sitting up.
 frowning at the app in his hand.
 "Del that—there's a whole bunch o' somethin's coming."
 
-"The musk ox?"
+"The ox?"
 Iffy asked,
 struggling to lace her boots
 with fingers that felt like they were made of tofu.
@@ -11438,7 +11436,7 @@ she asked,
 then jumped as he swore explosively.
 
 "Marines.
-Couple o' dozen,
+Couple o' squads,
 headin' straight for us."
 He swore again.
 "Th' herd's gonna try t' slow 'em down,
@@ -11460,7 +11458,7 @@ Iffy held his gaze.
 "You do what you gotta do,"
 she said,
 hoping she sounded braver than she felt.
-"We can sort out th' compost when it's over."
+"We can worry about th' compost when it's over."
 
 Two minutes later she was on a bicycle
 pedalling hard and breathing harder.
@@ -11469,7 +11467,8 @@ She was pretty sure her foster mother's "in case"
 hadn't included fleeing from Marines in the backayonder,
 but there was no time to think about that,
 no time to think about whether Edson had a plan
-because even going downhill on the world's best road
+because even if they were going downhill on the world's best road
+instead of uphill on dirt and gravel
 there was no way they could move as fast as what was coming for them.
 
 Up, down, up again—the forest dropped out of sight
@@ -11500,8 +11499,7 @@ only to have its target step aside at the last moment
 and snap a kick that broke the ox's leg.
 
 The app flashed.
-The images froze as whatever had been transmitting went offline,
-perhaps forever.
+The images froze as whatever had been transmitting went offline.
 "Mother Yanina, Mother Pao, forgive our crimes and arrogance,"
 Edson whispered.
 
@@ -11560,7 +11558,7 @@ weren't enough to turn the tide.
 Nineteen and five… Sixteen and eight… Fourteen and ten…
 The numbers in the corner of the map showed how many blue dots remained
 and how many had gone dark.
-At fifteen and nine the remaining Marines began to fall back.
+At eleven and thirteen the remaining Marines began to fall back.
 The green dots kept pace but let them go.
 
 "How bad is it?" Edson asked,
@@ -11574,7 +11572,7 @@ The others are pullin' out."
 "I don't mean the affin' Marines," he snapped.
 "How bad's the *damage*?"
 
-She tapped the app to bring up a dozen tiled camera views.
+She tapped the app to bring up tiles of camera views.
 Steam jetted out of the ground in some.
 Others showed shattered rock and fallen trees.
 And one—
@@ -11593,10 +11591,9 @@ She bent over and threw up.
 
 "Y'aright?" Edson asked as she straightened up.
 
-"No!
-No, I'm not aright!"
 She spat the last of the sour vomit out of her mouth.
-"There's folk *dead* back there!"
+"No, I'm no aright!
+There's folk *dead* back there!"
 
 He didn't answer.
 "Don't that bother you?" she demanded,
@@ -11659,7 +11656,8 @@ The cold air stung Iffy's cheeks,
 and if the bumps and potholes on the climb up the ridge had been frightening,
 going over them downhill at three times the speed was terrifying.
 There wasn't time to be scared, though,
-or to think about how long the Marines would follow the drone before realizing they'd been duped.
+or to think about how long the Marines behind them would follow the drone
+before realizing they'd been duped.
 There was just staying upright as she followed Edson around the next turn
 and trying not to go head-first over her handlebars
 each time her front tire hit a rock.
@@ -11685,7 +11683,7 @@ She lay there for a moment in shock,
 then cried out as she struggled to get up.
 It felt like someone was using Mister Mishra's drills on her knee and shoulder.
 
-She kicked free of the bike with her uninjured leg
+She kicked the bike away with her uninjured leg
 and cried out again as she tried and failed to stand.
 Edson braked,
 fishtailed,
@@ -11710,7 +11708,7 @@ even though she knew the drone's core was far too simple to be aware of itself.
 
 She opened her eyes again a few moments later and wiped her face with her sleeve.
 "I got two of 'em," she said.
-"That leaves seven, plus the hovercraft."
+"That leaves nine, plus whoever's in th' hovercraft."
 
 Edson nodded,
 then jumped as a rock two meters away burst into splinters.
@@ -11724,7 +11722,7 @@ Edson caught Iffy's eye and grinned.
 And then he twisted a button on his cuff
 to make the camouflage on his jacket jerk and swirl through not-quite random patterns
 designed to confuse the Marines' targeting algorithms,
-twisted around and up onto one knee,
+rose onto one knee,
 and began firing.
 He got off two shots before an impact in his chest sent him tumbling backward down the slope.
 
@@ -11781,8 +11779,8 @@ Iffy thought it was a bot,
 but then she removed her helmet.
 
 "Well,"
-said Doctor Johel conversationally.
-"Haven't you caused quite a ruckus.
+Doctor Johel said conversationally.
+"You've caused quite a ruckus.
 Australia and Brazil are on the verge of all-out war,
 the machines are in some sort of tizzy,
 and you seem to be the center of all of it.
@@ -11790,7 +11788,7 @@ I'm sure it will give us plenty to talk about on our way."
 
 Edson put a hand on Iffy's shoulder.
 "No offense,
-but we're fine t' make our own way."
+but we're fine t' walk."
 
 "Mm."
 Doctor Johel nodded as if agreeing.
