@@ -11863,8 +11863,8 @@ you can do it yourself!"
 
 ## Chapter 13
 
-There were Marines on board the hovercraft,
-all apparently imprinted with the same taciturn personality.
+The Marines on board the hovercraft
+all seemed to be imprinted with the same taciturn personality.
 Two of them marched Edson down a corridor
 while Doctor Johel explained to Iffy
 that the Ecologist would be fine.
@@ -11888,7 +11888,7 @@ gesturing at the padded chair to the left of hers.
 "And buckle up,"
 a familiar voice said.
 Captain Kerse turned around in her seat and gave Iffy a wolf-like grin.
-"This thing was built for shock and awe, not for comfort."
+"This yobbo was built for shock and awe, not comfort."
 
 Iffy limped over to the chair
 and lowered herself onto it with a wince.
@@ -11907,8 +11907,7 @@ Temperatures and battery reserves,
 the rotational speeds of idling engines,
 weather reports,
 and projections from a hundred independent simulations of the next few moments
-waited for attention
-like courtiers waiting on a king.
+vied for attention like courtiers waiting on a queen.
 
 "Where are we goin'?" Iffy asked sullenly.
 She had tried loosening the straps of her harness so that she could wriggle out if she needed to,
@@ -11921,7 +11920,7 @@ as she rearranged the display with a few flicks of her fingers.
 we might meet an old friend.
 A patrol spotted Johnson a couple of hundred kilometers from here yesterday."
 
-"That man is a cockroach,"
+"That man's a cockroach,"
 Captain Kerse growled.
 
 Doctor Johel.
@@ -11933,7 +11932,7 @@ The engines beneath them rumbled.
 The hovercraft rose like a ship being lifted by a wave
 and rotated smoothly on its cushion of air.
 Orange status lights blinked and turned green
-as the sentry bots climbed back aboard.
+as sentry bots climbed back aboard.
 "All accounted for, ma'am,"
 said the Marine seated beside Iffy.
 
@@ -11947,10 +11946,10 @@ She took a deep breath and watched the world race by
 as the hovercraft bumped and shook toward the horizon.
 
 A Marine showed up a few minutes later
-to give Iffy a patch to dull the pain in her knee
+with a patch to dull the pain in Iffy's knee
 and speed its healing.
 Her eyelids grew heavy
-as the drugs and accelerators seeped through her skin.
+as the drugs and metabolic accelerators seeped through her skin.
 Even a mug of thick, sweet tea
 wasn't enough to keep them from closing.
 
@@ -11983,7 +11982,7 @@ In the end she decided it didn't matter.
 What mattered was that diving into that other world of information
 felt more like opening her eyes each time she did it.
 Finding what she wanted was still difficult,
-but what had once seemed as chaotic as the Dance Hall market in Rothera
+but what had once seemed as chaotic as the Dance Hall in Rothera
 now had the beginnings of structure.
 She didn't understand it yet,
 but for the first time she felt that she might.*
@@ -11991,9 +11990,9 @@ but for the first time she felt that she might.*
 *Wireframes swam in the darkness.
 The hovercraft had been built as a blockade runner in Tashkent
 before the start of the machine wars.
-Its reactor had originally been designed for use in a submarine—she
-took a moment to admire the sleek, single-minded recklessness of its design.
-The motors that created its cushion of air
+Its reactor had originally been designed for use in a submarine:
+she took a moment to admire the sleek, single-minded recklessness of its design.
+The motors that created its air cushion
 would have pumped fuel at hypersonic speeds
 in orbital booster rockets
 if history had unfolded just a little bit differently.
@@ -12009,7 +12008,7 @@ slithered between bulkheads.*
 flew through it,
 and spun it around.
 Any of a dozen rooms or holds could have been repurposed as a cell.
-For one moment she thought about reaching out to the hovercraft's core,
+For one moment she thought about asking the hovercraft's core,
 but it would be better protected than the railgun on the pier in Rothera had been.*
 
 She yawned widely.
@@ -12017,16 +12016,15 @@ The images slipped away as her concentration finally conceded
 to the painkillers and reconstructives.
 A moment later she began to snore for real.
 
-She woke to the smell of curried noodles,
-and for a few disoriented seconds she thought she was back on the *Guinevere*.
-But no,
-she was still buckled into her chair in the cockpit of the hovercraft.
+She woke to the smell of curried noodles.
+For a few disoriented seconds she thought she was back on the *Guinevere*,
+but she was still buckled into her chair in the cockpit of the hovercraft.
 She took the plate that the expressionless Marine offered her
 and fumbled with the chopsticks
 while she waited for her mind to catch up with the rest of her.
 
-Doctor Johel was gone,
-but the gently undulating tundra on the screens around her looked the same as it had.
+Doctor Johel was gone.
+The gently undulating tundra on the screens around her looked the same as it had.
 Their speed hadn't changed either,
 she noticed,
 or their heading.
@@ -12055,7 +12053,7 @@ She shrugged.
 'less you're aright with me talkin' to Edson for a bit."
 
 "I'm afraid that's out of the question for now,"
-the doctor said regretfully.
+the doctor replied regretfully.
 "All right.
 Private Norbu will take you down to the galley
 and then show you to your cabin.
@@ -12185,7 +12183,7 @@ moments before they would have set off an alarm.
 *Sleep well,* she thought giddily.
 She had never ridden a high-speed atomic bomb before.
 She wondered how many people had,
-and how many of them had lived to tell the tale.
+and if any of them had lived to tell the tale.
 
 She didn't realize her nose was bleeding
 until an alarm klaxon began to blare
@@ -12213,7 +12211,7 @@ to fool the hovercraft's genetic sensors:
 she had as many as she could possibly want.
 
 She straightened up and worked her tongue in her mouth.
-It still felt like someone had replaced it with a piece of pressed jellyfish,
+It felt like someone had replaced it with a piece of pressed jellyfish,
 but the room was no longer an endlessly-receding tunnel from a horror sim.
 She focused on the app lying on the bunk and pushed with her mind once again.
 Something inside the door clicked and it slid aside.
@@ -12225,7 +12223,7 @@ Edson asked as he stood.
 
 "You should see the other guy," she said
 grinning woozily.
-"Any idea where our gear is?"
+"Any idea where our gear's at?"
 
 He shook his head.
 "Not a moss.
@@ -12249,10 +12247,10 @@ Anyone who wanted to find them could just follow the trail of drops and streaks 
 "Here," she mumbled.
 "…straps…"
 
-"*Está bem*, I got it,"
+"*Está bem*,"
 Edson said soothingly.
 He turned her around and lowered her onto the molded plastic seat,
-then buckled the harness across her chest
+buckled the harness across her chest,
 and pulled a bulky pair of goggles down over her eyes and nose.
 "Bite on this,"
 he told her,
@@ -12265,7 +12263,7 @@ I'll be right behind you."
 He took her wrists and placed her hands on the grips built into the seat.
 "One… two… *three*."
 
-She yelped into the mouthpiece as hovercraft fired the ejection seat into the air.
+She yelped into the mouthpiece as the ejection seat shot into the air.
 Daylight blinded her and ice-cold wind instantly numbed her cheeks.
 Tiny gyros whined to stabilize the chair
 long enough for the explosive bolts in its back to fire.
@@ -12281,8 +12279,7 @@ interrupted only by a few dark boulders
 and the camouflaged rectangular bulk of the hovercraft
 that was already a hundred meters away,
 but Iffy didn't have time to think about that,
-or about the second ejection seat that the hovercraft
-had just fired into the air.
+or about the second ejection seat the hovercraft had just launched.
 She was flying,
 really actually flying,
 except she had to be back on the ground before a satellite spotted her.
@@ -12325,7 +12322,7 @@ Her nosebleed had stopped,
 but she was still lightheaded.
 She clambered awkwardly up the boulder
 and shielded her eyes with her hand.
-Edson's chair had just landed a hundred meters away.
+Edson's chair had landed a hundred meters away.
 Doctor Johel had undoubtedly retaken control of the hovercraft,
 only to discover that all three coolant pumps had burned out
 and would need to be replaced
@@ -12404,7 +12401,7 @@ and the next he was coming straight at her,
 wide-eyed and shouting something she couldn't hear.
 She took a deep breath and spread her arms wide.
 
-Edson hit her with a thump that she felt in her injured shoulder.
+Edson hit her with a thump that stabbed her injured shoulder.
 His hands scrabbled for purchase on her parka,
 but the fabric was slippery to shed water and he couldn't get a grip
 but that was aright,
@@ -12434,7 +12431,7 @@ but whatever else happened,
 she swore she would find a way to fly again.
 
 After one last lift from a thermal rising off a stretch of exposed rock
-they began a long, slow descentc
+they began a long, slow descent.
 "Get ready!" Edson shouted.
 Iffy grabbed the strap with one numb hand and let go with the other
 so that she was half beside and half behind him.
@@ -12485,7 +12482,7 @@ and a medical kit.
 The center of the floor was taken up by a circular hatch.
 
 She grinned at Edson.
-"Welcome to *my* secret lair."
+"Welcome to my lair."
 
 Whatever he might have said in reply was cut off by a low rumble.
 She whirled around and froze as a white-furred head lifted off the snow three strides away.
