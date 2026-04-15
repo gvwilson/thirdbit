@@ -3,16 +3,18 @@
   <head>
     {% include "head.jinja" %}
     <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
-    <link rel="stylesheet" href="@root/assets/thirdbit.css">
-    <link rel="stylesheet" href="@root/assets/page.css">
+    <link rel="stylesheet" href="@root/assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="@root/assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="@root/assets/thirdbit.css" type="text/css">
     {% block head_title %}
     <title>{% if node.title %}{{node.title}}{% else %}{{site.title}}{% endif %}</title>
     {% endblock %}
     {% block head_includes %}{% endblock %}
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     {% include "nav.jinja" %}
-    <main>
+    <main id="main-content">
       {% block page_title %}
       <h1>{% if node.title %}{{node.title}}{% else %}{{site.title}}{% endif %}</h1>
       {% endblock %}
