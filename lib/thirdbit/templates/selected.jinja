@@ -2,16 +2,16 @@
 
 {% block content %}
 <h2>Favorites</h2>
-<table>
+<ul>
 {% for post in site._posts|reverse %}
-{%- if post.category == "favorite" -%}<tr><td>{{post.date}}</td><td><a href="{{post.url}}">{{post.title}}</a></td></tr>{%- endif -%}
+{%- if post.category == "favorite" -%}<li>{{post.date}}: <a href="{{post.url}}">{{post.title}}</a></li>{%- endif -%}
 {% endfor %}
-</table>
+</ul>
 
 <h2>Anecdotes</h2>
-<table>
+<ul>
 {% for post in site._posts|reverse %}
-{%- if post.category == "anecdote" -%}<tr><td>{{post.date}}</td><td><a href="{{post.url}}">{{post.title}}</a></td></tr>{%- endif -%}
+{%- if post.category == "anecdote" -%}<li>{{post.date}}: <a href="{{post.url}}">{{post.title}}</a></li>{%- endif -%}
 {% endfor %}
-</table>
+</ul>
 {% endblock %}
