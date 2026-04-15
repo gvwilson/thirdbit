@@ -71,20 +71,22 @@
 <h1>Inter-Rater Agreement</h1>
 <h2>The Problem</h2>
 <ul>
-<li>In qualitative research, clinical coding, and data annotation, two or more
-  human raters independently assign categories to the same observations.</li>
-<li>The fraction of observations on which raters agree is straightforward to
-  compute, but it is inflated by the agreement that would occur by chance
-  even if raters were assigning labels randomly.</li>
-<li><a class="gl-ref" href="../glossary/#cohens_kappa">Cohen's kappa</a> corrects for chance agreement and
-  produces a standardized measure of how much the observed agreement exceeds
-  the expectation under independence.</li>
-<li>The approach here:</li>
-<li>Generate synthetic rating pairs with a known underlying agreement
-    probability using a controlled random model.</li>
-<li>Construct the <a class="gl-ref" href="../glossary/#contingency_table_raters">contingency table</a> of rater
-    label pairs and compute kappa with its standard error.</li>
-<li>Compare kappa across several scenarios with different agreement levels.</li>
+<li>In qualitative research, clinical coding, or data annotation,
+    two or more human raters independently assign categories to the same observations</li>
+<li>The fraction of observations on which raters agree is straightforward to compute,
+    but it is inflated by the agreement that would occur by chance
+    even if raters were assigning labels randomly.</li>
+<li><a class="gl-ref" href="../glossary/#cohens_kappa">Cohen's kappa</a> corrects for chance agreement
+    and produces a standardized measure of
+    how much the observed agreement exceeds the expectation under independence</li>
+<li>Our approach:<ul>
+<li>Generate synthetic rating pairs with a known underlying agreement probability
+    using a controlled random model</li>
+<li>Construct the <a class="gl-ref" href="../glossary/#contingency_table_raters">contingency table</a> of rater label pairs
+    and compute kappa with its standard error</li>
+<li>Compare kappa across several scenarios with different agreement levels</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Two raters each independently assign one of three equally likely categories to
@@ -108,12 +110,13 @@ under the assumption of independent uniform random choices.</dd>
 </div>
 <h2>The Contingency Table</h2>
 <ul>
-<li>For $K$ categories, the contingency table is a $K \times K$ integer matrix
-  where entry $C_{ij}$ is the number of items for which rater A assigned
-  category $i$ and rater B assigned category $j$.</li>
-<li>The diagonal entries $C_{ii}$ represent agreements; off-diagonal entries
-  represent disagreements.</li>
-<li>The table summarises all information needed to compute kappa.</li>
+<li>For $K$ categories,
+    the contingency table is a $K \times K$ integer matrix
+    where entry $C_{ij}$ is the number of items for which rater A assigned category $i$
+    and rater B assigned category $j$</li>
+<li>The diagonal entries $C_{ii}$ represent agreements,
+    while off-diagonal entries represent disagreements</li>
+<li>The table summarises all information needed to compute kappa</li>
 </ul>
 <div data-inc="agreement.py" data-mark="table"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">contingency_table</span><span class="p">(</span><span class="n">rater_a</span><span class="p">,</span> <span class="n">rater_b</span><span class="p">,</span> <span class="n">n_cats</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a (n_cats x n_cats) integer contingency table.</span>
@@ -130,19 +133,21 @@ under the assumption of independent uniform random choices.</dd>
 </div>
 <h2>Cohen's Kappa</h2>
 <ul>
-<li>Let $N$ be the total number of items and:</li>
-<li>$P_o = \sum_i C_{ii} / N$: observed agreement proportion.</li>
-<li>$p_i = \sum_j C_{ij} / N$: rater A's marginal probability for category $i$.</li>
-<li>$q_j = \sum_i C_{ij} / N$: rater B's marginal probability for category $j$.</li>
-<li>$P_e = \sum_i p_i q_i$: expected agreement under independence.</li>
+<li>Let $N$ be the total number of items and:<ul>
+<li>$P_o = \sum_i C_{ii} / N$: observed agreement proportion</li>
+<li>$p_i = \sum_j C_{ij} / N$: rater A's marginal probability for category $i$</li>
+<li>$q_j = \sum_i C_{ij} / N$: rater B's marginal probability for category $j$</li>
+<li>$P_e = \sum_i p_i q_i$: expected agreement under independence</li>
+</ul>
+</li>
 <li>Cohen's kappa is:</li>
 </ul>
 <p>$$\kappa = \frac{P_o - P_e}{1 - P_e}$$</p>
 <ul>
-<li>$\kappa = 0$ when observed agreement equals the chance expectation.</li>
-<li>$\kappa = 1$ when raters agree perfectly ($P_o = 1$).</li>
-<li>$\kappa &lt; 0$ is possible when observed agreement falls below chance, though
-  this rarely occurs in practice.</li>
+<li>$\kappa = 0$ when observed agreement equals the chance expectation</li>
+<li>$\kappa = 1$ when raters agree perfectly ($P_o = 1$)</li>
+<li>$\kappa &lt; 0$ is possible when observed agreement falls below chance,
+    though this rarely occurs in practice</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.5" data-lang="en" data-tolerance="0.005">
 <p>A 3x3 contingency table has 20 items on each diagonal cell and 5 items on each
@@ -187,21 +192,23 @@ off-diagonal cell (N = 90). Given P_o = 2/3 and P_e = 1/3, what is kappa?</p>
 </div>
 <h2>The Expected Agreement P_e</h2>
 <ul>
-<li>$P_e = \sum_i p_i q_i$ is the probability that two independently drawn
-  labels (one from rater A's marginal, one from rater B's) happen to match.</li>
-<li>Under the generation model used here: with probability <code>agree_prob</code> both
-  raters draw the same uniform label, and otherwise they draw independently.
-  With $K$ categories this gives:</li>
+<li>$P_e = \sum_i p_i q_i$ is the probability that two independently drawn labels
+    (one from rater A's marginal, one from rater B's)
+    happen to match</li>
+<li>Under the generation model used here,
+    with probability <code>agree_prob</code> both raters draw the same uniform label,
+    and otherwise they draw independently</li>
+<li>With $K$ categories this gives:</li>
 </ul>
-<p>$$P_o = \text{agree_prob} + \frac{1 - \text{agree_prob}}{K}$$</p>
+<p>$$P_o = \text{agree\_prob} + \frac{1 - \text{agree\_prob}}{K}$$</p>
 <ul>
 <li>When marginals are uniform ($p_i = q_i = 1/K$):
-  $P_e = K \cdot (1/K)^2 = 1/K$.</li>
-<li>Substituting into the kappa formula and simplifying:
-  $\kappa = \text{agree_prob}$.</li>
-<li>So the synthetic generator produces data where the expected kappa directly
-  equals the underlying agreement probability, making it easy to verify the
-  implementation.</li>
+    $P_e = K \cdot (1/K)^2 = 1/K$</li>
+<li>Substituting into the kappa formula and simplifying gives
+    $\kappa = \text{agree_prob}$.</li>
+<li>So the synthetic generator produces data where
+    the expected kappa directly equals the underlying agreement probability,
+    making it easy to verify the implementation</li>
 </ul>
 <h2>Generating Synthetic Rating Data</h2>
 <div data-inc="generate_agreement.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_ratings</span><span class="p">(</span><span class="n">n_items</span><span class="o">=</span><span class="n">N_ITEMS</span><span class="p">,</span> <span class="n">n_cats</span><span class="o">=</span><span class="n">N_CATS</span><span class="p">,</span> <span class="n">agree_prob</span><span class="o">=</span><span class="n">AGREE_PROB</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
@@ -233,15 +240,14 @@ off-diagonal cell (N = 90). Given P_o = 2/3 and P_e = 1/3, what is kappa?</p>
 </div>
 <h2>Standard Error of Kappa</h2>
 <ul>
-<li>The asymptotic standard error (Cohen, 1960) is:</li>
+<li>The asymptotic standard error is:</li>
 </ul>
 <p>$$\text{SE}(\kappa) = \sqrt{\frac{P_o(1 - P_o)}{N(1 - P_e)^2}}$$</p>
 <ul>
-<li>This approximates $\text{SE}(P_o) = \sqrt{P_o(1-P_o)/N}$ (each item is
-  an independent Bernoulli trial for agreement) and propagates it through the
-  kappa formula by dividing by $(1 - P_e)$.</li>
-<li>A 95% confidence interval for $\kappa$ is
-  $\kappa \pm 1.96 \cdot \text{SE}(\kappa)$.</li>
+<li>This approximates $\text{SE}(P_o) = \sqrt{P_o(1-P_o)/N}$
+    (each item is an independent Bernoulli trial for agreement)
+    and propagates it through the kappa formula by dividing by $(1 - P_e)$</li>
+<li>A 95% confidence interval for $\kappa$ is $\kappa \pm 1.96 \cdot \text{SE}(\kappa)$</li>
 </ul>
 <h2>Comparing Scenarios</h2>
 <div data-inc="agreement.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_kappa_scenarios</span><span class="p">(</span><span class="n">scenarios</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">n_cats</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
@@ -287,34 +293,26 @@ off-diagonal cell (N = 90). Given P_o = 2/3 and P_e = 1/3, what is kappa?</p>
 <figcaption>Figure 1: Cohen's kappa for five synthetic rating scenarios (N = 100 items, K = 3 categories). Kappa closely tracks the underlying agreement probability, confirming the theoretical result that expected kappa equals agree_prob under the uniform marginal model.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Table shape</h3>
-<ul>
-<li><code>contingency_table</code> with <code>n_cats=3</code> must return a $(3, 3)$ array.</li>
-</ul>
-<h3>Table sum equals item count</h3>
-<ul>
-<li>All entries in the contingency table must sum to <code>N_ITEMS</code>.</li>
-</ul>
-<h3>Perfect agreement gives kappa = 1</h3>
-<ul>
-<li>When both raters assign identical labels, every item is on the diagonal and
-  kappa must equal 1.0 regardless of the marginal distribution.</li>
-</ul>
-<h3>Chance agreement gives kappa near zero</h3>
-<ul>
-<li>Independent uniform labels have $P_o \approx P_e = 1/K$, so kappa should
-  be near zero; tolerance 0.15 accounts for sampling variability.</li>
-</ul>
-<h3>Standard error positive and finite</h3>
-<ul>
-<li>The standard error must be a positive finite number for any valid table.</li>
-</ul>
-<h3>Kappa close to agree_prob</h3>
-<ul>
-<li>With <code>N_ITEMS = 100</code> and uniform marginals, observed kappa must be within
-  0.15 of <code>AGREE_PROB</code>; this is conservative given the sampling variability
-  of approximately $\text{SE} \approx 0.05$ at this sample size.</li>
-</ul>
+<dl>
+<dt>Table shape</dt>
+<dd><code>contingency_table</code> with <code>n_cats=3</code> must return a $(3, 3)$ array.</dd>
+<dt>Table sum equals item count</dt>
+<dd>All entries in the contingency table must sum to <code>N_ITEMS</code>.</dd>
+<dt>Perfect agreement gives kappa = 1</dt>
+<dd>When both raters assign identical labels,
+every item is on the diagonal and kappa must equal 1.0 regardless of the marginal distribution.</dd>
+<dt>Chance agreement gives kappa near zero</dt>
+<dd>Independent uniform labels have $P_o \approx P_e = 1/K$,
+so kappa should be near zero.
+The tolerance 0.15 accounts for sampling variability.</dd>
+<dt>Standard error positive and finite</dt>
+<dd>The standard error must be a positive finite number for any valid table.</dd>
+<dt>Kappa close to agree_prob</dt>
+<dd>With <code>N_ITEMS = 100</code> and uniform marginals,
+the observed kappa must be within 0.15 of <code>AGREE_PROB</code>.
+This is conservative given the sampling variability of approximately $\text{SE} \approx 0.05$
+at this sample size</dd>
+</dl>
 <div data-inc="test_agreement.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_agreement</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_ratings</span><span class="p">,</span> <span class="n">N_ITEMS</span><span class="p">,</span> <span class="n">N_CATS</span><span class="p">,</span> <span class="n">AGREE_PROB</span>
@@ -411,8 +409,7 @@ and rater B's marginal probability for that category</dd>
 diagonal should be penalised less than disagreements far from it.
 Implement weighted kappa using linear weights:
 $w_{ij} = 1 - |i - j| / (K - 1)$.
-Apply it to a 5-category synthetic dataset and compare it to the unweighted
-kappa.
+Apply it to a 5-category synthetic dataset and compare it to the unweighted kappa.
 When does the difference between weighted and unweighted kappa matter most?</p>
 <h3>Confidence intervals across scenarios</h3>
 <p>For each of the five <code>SCENARIOS</code> in <code>agreement.py</code>, compute the 95% confidence

@@ -71,16 +71,16 @@
 <h1>Pollutant Spread in a River Network</h1>
 <h2>The Problem</h2>
 <ul>
-<li>A chemical spill at a river headwater contaminates the water supply of communities downstream.</li>
-<li>River networks branch and merge: pollutant introduced at one node is carried to all nodes reachable from it.</li>
-<li>We want to track the concentration at each node over time to predict when downstream communities are affected.</li>
-<li>This is a <a class="gl-ref" href="../glossary/#flow_network">flow network</a> problem: a directed graph where edges carry material from node to node.</li>
+<li>River networks branch and merge: pollutant introduced at one node is carried to all nodes reachable from it</li>
+<li>We want to track the concentration at each node over time to predict when downstream communities are affected</li>
+<li>This is a <a class="gl-ref" href="../glossary/#flow_network">flow network</a> problem:
+    a directed graph where edges carry material from node to node</li>
 </ul>
 <h2>Representing the River Network</h2>
 <ul>
-<li>The network is a directed tree: water flows from headwaters to an outlet, with no cycles.</li>
-<li>Nodes represent measurement stations or junctions; edges represent river reaches.</li>
-<li>Edge weights record relative discharge (mean flow rate), which governs visualization but not transport.</li>
+<li>The network is a directed tree: water flows from headwaters to an outlet, with no cycles</li>
+<li>Nodes represent measurement stations or junctions; edges represent river reaches</li>
+<li>Edge weights record relative discharge (i.e., mean flow rate)</li>
 </ul>
 <div data-inc="pollute.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># River network: 5 nodes in a directed tree (upstream to downstream).</span>
 <span class="c1"># Node indices correspond to NODE_NAMES.</span>
@@ -118,9 +118,13 @@
 </code></pre></div>
 </div>
 <ul>
-<li><code>upstream_a</code> (node 0) is the spill site; <code>upstream_b</code> (node 1) is an uncontaminated headwater.</li>
-<li>Both drain into <code>junction</code> (node 2), which drains to <code>reach</code> (node 3), which drains to <code>outlet</code> (node 4).</li>
-<li>Node 4 is the sink: pollutant that arrives there accumulates and is not transported further.</li>
+<li><code>upstream_a</code> (node 0) is the spill site</li>
+<li><code>upstream_b</code> (node 1) is an uncontaminated headwater</li>
+<li>Both drain into <code>junction</code> (node 2), which drains to <code>reach</code> (node 3), which drains to <code>outlet</code> (node 4)</li>
+<li>Node 4 is the sink<ul>
+<li>Pollutant that arrives there accumulates and is not transported further</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why is a river network represented as a directed graph rather than an undirected graph?</p>
@@ -137,20 +141,25 @@
 </div>
 <h2>The Transport Model</h2>
 <ul>
-<li>At each time step, a fraction <code>TRANSPORT_RATE</code> of the concentration at each non-sink node moves downstream.</li>
-<li>The remaining fraction $(1 - \text{TRANSPORT_RATE})$ stays at the node (representing mixing and retention in the water column).</li>
-<li>For a node $v$ with upstream neighbours $u_1, u_2, \ldots$ each contributing fraction $f_k$, the update rule is:</li>
+<li>At each time step, a fraction <code>TRANSPORT_RATE</code> of the concentration at each non-sink node moves downstream</li>
+<li>The remaining fraction $(1 - \text{TRANSPORT_RATE})$ stays at the node
+    (representing mixing and retention in the water column)</li>
+<li>For a node $v$ with upstream neighbours $u_1, u_2, \ldots$ each contributing fraction $f_k$,
+    the update rule is:</li>
 </ul>
 <p>$$c_v^{n+1} = (1 - \alpha)\,c_v^n + \sum_k f_k\,c_{u_k}^n$$</p>
-<p>where $\alpha = \text{TRANSPORT_RATE}$ and $f_k = \alpha / \text{(number of downstream neighbours of } u_k\text{)}$.</p>
 <ul>
-<li>When a node drains into a single successor, $f_k = \alpha$.</li>
-<li>When a node splits equally among two successors, each receives $\alpha / 2$.</li>
+<li>$\alpha = \text{TRANSPORT_RATE}$
+    and $f_k = \alpha / \text{(number of downstream neighbours of } u_k\text{)}$</li>
+<li>When a node drains into a single successor, $f_k = \alpha$</li>
+<li>When a node splits equally among two successors, each receives $\alpha / 2$</li>
 </ul>
 <h2>Building the Upstream Table</h2>
 <ul>
-<li>Rather than building a matrix, we pre-compute for each node $v$ the list of $(u, f)$ pairs, where $u$ is an upstream neighbour and $f$ is the fraction of $u$'s concentration that flows into $v$.</li>
-<li>This list is empty for headwater nodes (no upstream neighbours) and for isolated nodes.</li>
+<li>Rather than building a matrix,
+    we pre-compute the list of $(u, f)$ pairs for each node $v$,
+    where $u$ is an upstream neighbour and $f$ is the fraction of $u$'s concentration that flows into $v$</li>
+<li>This list is empty for headwater nodes (no upstream neighbours) and for isolated nodes</li>
 </ul>
 <div data-inc="pollute.py" data-mark="build-upstream"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_upstream</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return upstream[v] = list of (u, fraction) pairs for each node v.</span>
@@ -242,8 +251,10 @@ What fraction of its concentration does each non-sink node send downstream per s
 </code></pre></div>
 </div>
 <ul>
-<li>For each time step and each node $v$, <code>retained</code> is the fraction staying put and <code>inflow</code> is the sum of fractions arriving from upstream neighbours.</li>
-<li>The loop saves a snapshot every <code>SNAPSHOT_INTERVAL</code> steps so that only a small table is stored.</li>
+<li>For each time step and each node $v$,
+    <code>retained</code> is the fraction staying put
+    and <code>inflow</code> is the sum of fractions arriving from upstream neighbours</li>
+<li>The loop saves a snapshot every <code>SNAPSHOT_INTERVAL</code> steps so that only a small table is stored</li>
 </ul>
 <h2>Visualizing the Results</h2>
 <div data-inc="pollute.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -269,34 +280,51 @@ What fraction of its concentration does each non-sink node send downstream per s
 <figcaption>Figure 1: Concentration at each node over 20 time steps. The pollutant pulse travels from the spill site (upstream_a) through the network toward the outlet.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Mass conservation</h3>
 <ul>
-<li>At every step, each unit of concentration is either retained at its node or forwarded to a downstream neighbour.</li>
+<li>
+<p>Mass conservation</p>
+<ul>
+<li>At every step,
+    each unit of concentration is either retained at its node or forwarded to a downstream neighbour.</li>
 <li>No mass is created or destroyed, so the sum over all nodes must equal 1.0 throughout.</li>
 <li>Floating-point addition of 5 small numbers over 20 steps introduces rounding of at most $10^{-12}$.</li>
 </ul>
-<h3>Non-negativity</h3>
+</li>
+<li>
+<p>Non-negativity</p>
 <ul>
 <li>Every update is a weighted sum of non-negative concentrations with non-negative fractions.</li>
 <li>Concentration cannot go negative; a negative value would indicate a code error.</li>
 </ul>
-<h3>Monotone decay at the spill node</h3>
+</li>
+<li>
+<p>Monotone decay at the spill node</p>
 <ul>
 <li><code>upstream_a</code> has no upstream neighbours, so each step it retains only $(1 - \alpha)$ of whatever it holds.</li>
 <li>Starting from $c_0 = 1$, its concentration decays as $(1 - \alpha)^n$, which is strictly decreasing.</li>
 </ul>
-<h3>Uncontaminated node stays zero</h3>
+</li>
+<li>
+<p>Uncontaminated node stays zero</p>
 <ul>
 <li><code>upstream_b</code> also has no upstream neighbours and starts at zero concentration.</li>
 <li>Each step it retains $(1 - \alpha) \times 0 = 0$, so it remains zero throughout.</li>
 </ul>
-<h3>Monotone accumulation at the outlet</h3>
+</li>
+<li>
+<p>Monotone accumulation at the outlet</p>
 <ul>
 <li>The outlet (sink) only receives mass and never releases it, so its concentration is non-decreasing.</li>
 </ul>
-<h3>Upstream fractions sum to transport rate</h3>
+</li>
+<li>
+<p>Upstream fractions sum to transport rate</p>
 <ul>
-<li>For each non-sink node $u$ that has downstream successors, the fractions stored in the upstream table must sum to exactly <code>TRANSPORT_RATE</code>, confirming that all transported mass is accounted for.</li>
+<li>For each non-sink node $u$ that has downstream successors,
+    the fractions stored in the upstream table must sum to exactly <code>TRANSPORT_RATE</code>,
+    confirming that all transported mass is accounted for</li>
+</ul>
+</li>
 </ul>
 <div data-inc="test_pollute.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pollute</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">NODE_NAMES</span><span class="p">,</span>

@@ -71,10 +71,10 @@
 <h1>Cell Segmentation in Microscopy Images</h1>
 <h2>The Problem</h2>
 <ul>
-<li>Fluorescence microscopy makes individual cells visible as bright spots on a dark background.</li>
-<li>Counting cells and measuring their sizes by hand is impractical at scale.</li>
-<li>Automated segmentation identifies which pixels belong to which cell using image processing.</li>
-<li>The same pipeline is used in drug-discovery assays, developmental biology, and pathology.</li>
+<li>Fluorescence microscopy makes individual cells visible as bright spots on a dark background</li>
+<li>Counting cells and measuring their sizes by hand is impractical at scale</li>
+<li>Automated segmentation identifies which pixels belong to which cell using image processing</li>
+<li>The same pipeline is used in drug-discovery assays, developmental biology, and pathology</li>
 </ul>
 <h2>Representing a Fluorescence Image</h2>
 <ul>
@@ -82,12 +82,17 @@
 </ul>
 <p>$$I(x, y) = B \exp\!\left(-\frac{(x - x_c)^2 + (y - y_c)^2}{2\sigma^2}\right)$$</p>
 <ul>
-<li>$B$ is the peak brightness and $\sigma$ is the width of the cell in pixels.</li>
-<li>Multiple cells are summed; independent Gaussian noise is then added and intensities are
-  clipped to zero (a negative photon count is unphysical).</li>
-<li>Cells are placed so that no two centres are closer than <code>MIN_SEPARATION</code> pixels.
-  This separation is chosen large enough that the midpoint intensity between two adjacent
-  cells falls below the operating threshold (see "Choosing the threshold" below).</li>
+<li>$B$ is the peak brightness and $\sigma$ is the width of the cell in pixels</li>
+<li>Multiple cells are summed,
+    independent Gaussian noise is then added and intensities are clipped to zero<ul>
+<li>A negative photon count is unphysical</li>
+</ul>
+</li>
+<li>Cells are placed so that no two centres are closer than <code>MIN_SEPARATION</code> pixels<ul>
+<li>This separation is chosen large enough that
+    the midpoint intensity between two adjacent cells falls below the operating threshold (below)</li>
+</ul>
+</li>
 </ul>
 <div data-inc="generate_image.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed</span>
 <span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="mi">128</span>  <span class="c1"># pixels per side; kept small for fast tests</span>
@@ -135,14 +140,15 @@
 </div>
 <h2>Step 1: Smoothing</h2>
 <ul>
-<li>Raw images are noisy; the <a class="gl-ref" href="../glossary/#gaussian_filter">Gaussian filter</a> replaces each pixel with a weighted average of its
-  neighbourhood, suppressing point-to-point fluctuations.</li>
-<li>Convolving the signal Gaussian (sigma $\sigma$) with the filter Gaussian (sigma $\sigma_s$)
-  gives a smoothed cell with sigma $\sqrt{\sigma^2 + \sigma_s^2}$ and peak brightness:</li>
+<li>Raw images are noisy,
+    so the <a class="gl-ref" href="../glossary/#gaussian_filter">Gaussian filter</a> replaces each pixel with
+    a weighted average of its neighbourhood, suppressing point-to-point fluctuations</li>
+<li><a class="gl-ref" href="../glossary/#convolution">Convolving</a> the signal Gaussian ($\sigma$) with the filter Gaussian ($\sigma_s$)
+    gives a smoothed cell with sigma $\sqrt{\sigma^2 + \sigma_s^2}$ and peak brightness:</li>
 </ul>
 <p>$$B_\text{smooth} = B \cdot \frac{\sigma^2}{\sigma^2 + \sigma_s^2}$$</p>
 <ul>
-<li>With $\sigma = 6$ and $\sigma_s = 2$ this gives $B_\text{smooth} = 36/40 = 0.90$.</li>
+<li>With $\sigma = 6$ and $\sigma_s = 2$ this gives $B_\text{smooth} = 36/40 = 0.90$</li>
 </ul>
 <div data-inc="cellseg.py" data-mark="smooth"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">smooth</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">SMOOTH_SIGMA</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the image after 2-D Gaussian smoothing with the given sigma."""</span>
@@ -157,9 +163,12 @@ What is the result? Give your answer to two decimal places.</p>
 </div>
 <h2>Step 2: Thresholding and Labelling</h2>
 <ul>
-<li>Pixels above a threshold form a <a class="gl-ref" href="../glossary/#binary_mask">binary mask</a>; connected regions in the mask are individual cells.</li>
-<li><code>scipy.ndimage.label</code> assigns a unique integer to each <a class="gl-ref" href="../glossary/#connected_component">connected component</a>.</li>
-<li>Components smaller than <code>MIN_CELL_SIZE</code> pixels are discarded to remove noise artefacts.</li>
+<li>Pixels above a threshold form a <a class="gl-ref" href="../glossary/#binary_mask">binary mask</a><ul>
+<li>Connected regions in the mask are individual cells</li>
+</ul>
+</li>
+<li><code>scipy.ndimage.label</code> assigns a unique integer to each <a class="gl-ref" href="../glossary/#connected_component">connected component</a></li>
+<li>Components smaller than <code>MIN_CELL_SIZE</code> pixels are discarded to remove noise artefacts</li>
 </ul>
 <div data-inc="cellseg.py" data-mark="segment"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">segment</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">THRESHOLD</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="n">MIN_CELL_SIZE</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (labeled, n_cells) from a smoothed image.</span>
@@ -210,11 +219,12 @@ What is the result? Give your answer to two decimal places.</p>
 </ul>
 <p>$$\sigma_\text{noise,smooth} = \frac{\sigma_\text{noise}}{2\sqrt{\pi}\,\sigma_s} \approx \frac{0.15}{2\sqrt{\pi}\cdot 2} \approx 0.021$$</p>
 <ul>
-<li>The operating threshold of 0.50 is approximately $24\,\sigma_\text{noise,smooth}$, so the
-  probability of a noise pixel exceeding it is vanishingly small.</li>
-<li>The minimum cell separation (24 px) ensures the midpoint between two adjacent cells has
-  intensity $2 B \exp(-d^2 / 8\sigma^2) = 2 \exp(-2.25) \approx 0.21$, well below the threshold,
-  so adjacent cells are never merged into one component.</li>
+<li>The operating threshold of 0.50 is approximately $24\,\sigma_\text{noise,smooth}$,
+    so the probability of a noise pixel exceeding it is vanishingly small</li>
+<li>The minimum cell separation (24 px) ensures the midpoint between two adjacent cells
+    has intensity $2 B \exp(-d^2 / 8\sigma^2) = 2 \exp(-2.25) \approx 0.21$,
+    well below the threshold,
+    so adjacent cells are never merged into one component</li>
 </ul>
 <div data-inc="cellseg.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SMOOTH_SIGMA</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># std dev of the Gaussian smoothing kernel (pixels)</span>
 
@@ -244,8 +254,8 @@ What is the result? Give your answer to two decimal places.</p>
 </div>
 <h2>What the Segmenter Finds in Pure Noise</h2>
 <ul>
-<li>The same pipeline applied to an image with no cells at all produces false detections when
-  the threshold is too low.</li>
+<li>The same pipeline applied to an image with no cells at all produces false detections
+    when the threshold is too low</li>
 </ul>
 <div data-inc="generate_image.py" data-mark="make-noise"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_pure_noise</span><span class="p">(</span><span class="n">noise_scale</span><span class="o">=</span><span class="n">NOISE_SCALE</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="n">IMAGE_SIZE</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return an image containing only Gaussian noise, no cell signal.</span>
@@ -262,15 +272,18 @@ What is the result? Give your answer to two decimal places.</p>
 <figcaption>Figure 1: Pure Gaussian noise (no cells) smoothed and segmented at threshold 0.05 with no size filter. Four spurious regions are labelled. The same image at the operating threshold of 0.50 produces zero detections.</figcaption>
 </figure>
 <ul>
-<li>At threshold 0.05 ($\approx 2.4\,\sigma_\text{noise,smooth}$) roughly 0.8% of pixels
-  exceed the threshold; these cluster into a handful of connected blobs.</li>
-<li>The size filter (MIN_CELL_SIZE = 30 px) removes most noise blobs in practice, because
-  genuine noise excursions are usually smaller than real cells.</li>
-<li>The operating threshold makes the size filter a secondary defence rather than the primary one.</li>
+<li>At threshold 0.05 ($\approx 2.4\,\sigma_\text{noise,smooth}$)
+    roughly 0.8% of pixels exceed the threshold<ul>
+<li>These cluster into a handful of connected blobs</li>
+</ul>
+</li>
+<li>The size filter (MIN_CELL_SIZE = 30 px) removes most noise blobs in practice
+    because genuine noise blobs are usually smaller than real cells</li>
+<li>The operating threshold makes the size filter a secondary defence rather than the primary one</li>
 </ul>
 <figure id="f:cellseg-signal">
 <img alt="Left: raw synthetic image with 8 Gaussian blobs. Right: segmented image with each cell in a different colour and true centres marked with red crosses." src="cellseg.png"/>
-<figcaption>Figure 2: Eight synthetic cells recovered by the segmentation pipeline. All 8 are found; cell areas range from 143 to 150 px², close to the analytic value of 148 px².</figcaption>
+<figcaption>Figure 2: Eight synthetic cells recovered by the segmentation pipeline. All 8 are found; cell areas range from 143 to 150 pixels squared, close to the analytic value of 148 pixels squared.</figcaption>
 </figure>
 <div class="forma-multiple-choice" data-lang="en">
 <p>The noise demonstration shows 4 false cells at threshold 0.05 (no size filter)
@@ -287,42 +300,30 @@ and 0 false cells at threshold 0.50. What roles do the threshold and <code>MIN_C
 </dl>
 </div>
 <h2>Testing</h2>
-<h3>Noise reduction</h3>
-<ul>
-<li>Smoothing must reduce pixel-to-pixel variance; an increase would indicate a bug or wrong
-  kernel mode.</li>
-</ul>
-<h3>Shape preservation</h3>
-<ul>
-<li><code>scipy.ndimage.gaussian_filter</code> must not change the array shape.</li>
-</ul>
-<h3>Constant image</h3>
-<ul>
-<li>A uniform image has no gradients; smoothing must leave its interior values unchanged.
-  The boundary is affected by zero-padding, so only interior pixels are checked.</li>
-</ul>
-<h3>Cell count</h3>
-<ul>
-<li>With <code>seed=42</code> and default parameters the pipeline must find exactly <code>N_CELLS = 8</code> cells.
-  This pins the full pipeline — generation, smoothing, thresholding, labelling, and size
-  filtering — against a reproducible synthetic ground truth.</li>
-</ul>
-<h3>Cell sizes</h3>
-<ul>
-<li>All detected cell areas must fall in the range 50-350 px².
-  The analytic value is 148 px²; the bounds give a factor of 3 on each side to absorb
-  noise, overlap, and discretisation effects.</li>
-</ul>
-<h3>Empty result above maximum</h3>
-<ul>
-<li>Setting the threshold above the maximum pixel value must return zero cells.</li>
-</ul>
-<h3>Pure noise</h3>
-<ul>
-<li>At threshold 0.05 pure noise must produce at least one false detection, showing that
-  parameter choice matters.</li>
-<li>At the operating threshold it must produce none, showing the threshold is adequate.</li>
-</ul>
+<dl>
+<dt>Noise reduction</dt>
+<dd>Smoothing must reduce pixel-to-pixel variance; an increase would indicate a bug or wrong kernel mode.</dd>
+<dt>Shape preservation</dt>
+<dd><code>scipy.ndimage.gaussian_filter</code> must not change the array shape.</dd>
+<dt>Constant image</dt>
+<dd>A uniform image has no gradients,
+so smoothing must leave its interior values unchanged.
+The boundary is affected by zero-padding,
+so only interior pixels are checked.</dd>
+<dt>Cell count</dt>
+<dd>With default parameters the pipeline must find exactly <code>N_CELLS = 8</code> cells.
+This pins the full pipeline against a reproducible result.</dd>
+<dt>Cell sizes</dt>
+<dd>All detected cell areas must fall in the range 50-350 $\text{px}^2$.
+The analytic value is 148 $\text{px}^2$;
+the bounds give a factor of 3 on each side to absorb noise, overlap, and discretisation effects.</dd>
+<dt>Empty result above maximum</dt>
+<dd>Setting the threshold above the maximum pixel value must return zero cells.</dd>
+<dt>Pure noise</dt>
+<dd>At threshold 0.05 pure noise must produce at least one false detection,
+showing that parameter choice matters.
+At the operating threshold it must produce none, showing the threshold is adequate.</dd>
+</dl>
 <div data-inc="test_cellseg.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_image</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_image</span><span class="p">,</span> <span class="n">make_pure_noise</span><span class="p">,</span> <span class="n">N_CELLS</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">cellseg</span><span class="w"> </span><span class="kn">import</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">segment</span><span class="p">,</span> <span class="n">cell_sizes</span><span class="p">,</span> <span class="n">THRESHOLD</span>
@@ -408,8 +409,9 @@ Plot mean and standard deviation of the cell count as a function of noise level 
 identify the noise level at which the pipeline begins to fail consistently.</p>
 <h3>Adaptive thresholding</h3>
 <p>Real microscopy images often have uneven illumination: the background is brighter in some
-regions than others.  Simulate this by adding a low-frequency gradient
-$G(x,y) = 0.2 \cdot x / \text{IMAGE_SIZE}$ to the synthetic image before adding noise.
+regions than others.  Simulate this by adding a low-frequency gradient:</p>
+<p>$G(x,y) = 0.2 \cdot x / \text{IMAGE\_SIZE}$</p>
+<p>to the synthetic image before adding noise.
 Show that the global threshold misses cells in dark regions or over-detects in bright
 regions, then implement local thresholding (<code>scipy.ndimage.generic_filter</code> with a
 percentile-based local estimate) and show that it restores accurate cell counts.</p>

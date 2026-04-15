@@ -72,9 +72,13 @@
 <h2>The Problem</h2>
 <ul>
 <li>Species that share a common ancestor tend to have similar DNA or protein sequences.</li>
-<li>A <a class="gl-ref" href="../glossary/#phylogenetic_tree">phylogenetic tree</a> shows how a set of taxa (species, genes, or individuals) are related by common descent.</li>
-<li>The leaves of the tree are the observed taxa; internal nodes represent hypothetical ancestors.</li>
-<li>Given only pairwise sequence distances, we want to infer the tree topology (who is related to whom) and branch lengths (how different they are).</li>
+<li>A <a class="gl-ref" href="../glossary/#phylogenetic_tree">phylogenetic tree</a> shows how a set of species, genes, or individuals
+    are related by common descent</li>
+<li>The leaves of the tree are the observed <a class="gl-ref" href="../glossary/#taxa">taxa</a>,
+    while internal nodes represent hypothetical ancestors</li>
+<li>Given only pairwise sequence distances,
+    we want to infer the tree topology (who is related to whom)
+    and branch lengths (how different they are)</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>A rooted binary tree on 4 leaves has how many internal nodes (not counting the leaves themselves)?</p>
@@ -91,8 +95,9 @@
 </div>
 <h2>Distance Matrices</h2>
 <ul>
-<li>A <a class="gl-ref" href="../glossary/#distance_matrix">distance matrix</a> $D$ stores the evolutionary distance between every pair of taxa.</li>
-<li>Distances are estimated from aligned sequences: the fraction of positions that differ, corrected for multiple substitutions.</li>
+<li>A <a class="gl-ref" href="../glossary/#distance_matrix">distance matrix</a> $D$ stores the evolutionary distance between every pair of taxa</li>
+<li>Distances are estimated from aligned sequences:
+    the fraction of positions that differ, corrected for multiple substitutions</li>
 </ul>
 <div data-inc="phylo.py" data-mark="taxa"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">TAXA</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bat"</span><span class="p">,</span> <span class="s2">"Chimp"</span><span class="p">,</span> <span class="s2">"Human"</span><span class="p">,</span> <span class="s2">"Gorilla"</span><span class="p">]</span>
 
@@ -169,10 +174,13 @@
 </div>
 <h2>The UPGMA Algorithm</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#upgma">UPGMA</a> (Unweighted Pair Group Method with Arithmetic Mean) reconstructs a rooted tree from a distance matrix using only arithmetic means.</li>
-<li>The key idea: at each step, merge the pair of taxa with the smallest pairwise distance.</li>
-<li>Place the new internal node at height $D(i,j)/2$ — half the merged distance — which is the estimated time of the common ancestor.</li>
-<li>Branch length from the new node to each merged taxon is the difference in heights.</li>
+<li><a class="gl-ref" href="../glossary/#upgma">UPGMA</a> (Unweighted Pair Group Method with Arithmetic Mean)
+    reconstructs a rooted tree from a distance matrix using only arithmetic means</li>
+<li>At each step, merge the pair of taxa with the smallest pairwise distance</li>
+<li>Place the new internal node at height $D(i,j)/2$
+    (i.e., half the merged distance)
+    which is the estimated time of the common ancestor</li>
+<li>Branch length from the new node to each merged taxon is the difference in heights</li>
 <li>Update the distance from the new node $u$ to any remaining taxon $k$ as the arithmetic mean:</li>
 </ul>
 <p>$$D(u, k) = \frac{D(i, k) + D(j, k)}{2}$$</p>
@@ -190,10 +198,23 @@
 </ol>
 </div>
 <h2>A Worked Example</h2>
-<p>Starting with $n = 4$ taxa and the distances above, Human and Gorilla have the smallest distance (0.9), so they are merged first into node4 at height $0.9/2 = 0.45$.</p>
-<p>Branch lengths: $\ell_\text{Human} = 0.45 - 0 = 0.45$ and $\ell_\text{Gorilla} = 0.45 - 0 = 0.45$ (both start at height 0).</p>
-<p>After replacing Human and Gorilla with node4, the next smallest distance is Bat-Chimp (1.4), which becomes node5 at height $1.4/2 = 0.70$. Branch lengths to Bat and Chimp are each $0.70 - 0 = 0.70$.</p>
-<p>The final merge joins node4 and node5. The average distance between node4 and node5, computed as the arithmetic mean of all pairwise distances between the two groups, works out to $2.35$. The final node (node6) sits at height $2.35/2 = 1.175$. Branch lengths are $1.175 - 0.45 = 0.725$ to node4 and $1.175 - 0.70 = 0.475$ to node5.</p>
+<ul>
+<li>Starting with $n = 4$ taxa and the distances above,
+    Human and Gorilla have the smallest distance (0.9),
+    so they are merged first into node4 at height $0.9/2 = 0.45$</li>
+<li>Branch lengths:
+    $\ell_\text{Human} = 0.45 - 0 = 0.45$ and $\ell_\text{Gorilla} = 0.45 - 0 = 0.45$ (both start at height 0)</li>
+<li>After replacing Human and Gorilla with node4,
+    the next smallest distance is Bat-Chimp (1.4),
+    which becomes node5 at height $1.4/2 = 0.70$.
+    Branch lengths to Bat and Chimp are each $0.70 - 0 = 0.70$.</li>
+<li>The final merge joins node4 and node5.
+    The average distance between node4 and node5,
+    computed as the arithmetic mean of all pairwise distances between the two groups,
+    works out to $2.35$.
+    The final node (node6) sits at height $2.35/2 = 1.175$.
+    Branch lengths are $1.175 - 0.45 = 0.725$ to node4 and $1.175 - 0.70 = 0.475$ to node5.</li>
+</ul>
 <div class="forma-numeric-entry" data-correct="0.45" data-lang="en" data-tolerance="0.005">
 <p>In the first UPGMA iteration Human and Gorilla are merged.
 $D(\text{Human}, \text{Gorilla}) = 0.9$.
@@ -257,32 +278,44 @@ Give your answer to two decimal places.</p>
 <figcaption>Figure 1: UPGMA tree for four taxa. Blue nodes are observed taxa; grey nodes are reconstructed ancestors. Branch lengths reflect the arithmetic-mean distances used at each merge step.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Matrix symmetry</h3>
 <ul>
-<li>Distances must satisfy $D(i,j) = D(j,i)$ and $D(i,i) = 0$.</li>
-<li>An asymmetric matrix would indicate a bug in the construction code.</li>
+<li>
+<p>Matrix symmetry</p>
+<ul>
+<li>Distances must satisfy $D(i,j) = D(j,i)$ and $D(i,i) = 0$</li>
+<li>An asymmetric matrix would indicate a bug in the construction code</li>
 </ul>
-<h3>Edge count</h3>
+</li>
+<li>
+<p>Edge count</p>
 <ul>
 <li>A rooted binary tree on $N$ leaves has exactly $2N - 2$ directed edges
-  (each of the $N - 1$ internal nodes contributes two child edges).</li>
-<li>Any other count means the loop terminated early or ran too many iterations.</li>
+   (each of the $N - 1$ internal nodes contributes two child edges)</li>
+<li>Any other count means the loop terminated early or ran too many iterations</li>
 </ul>
-<h3>Topology recovery</h3>
+</li>
+<li>
+<p>Topology recovery</p>
 <ul>
-<li>Two pairs of taxa (Bat, Chimp) and (Human, Gorilla) should each share a private internal node.</li>
-<li>If either pair is split across different internal nodes, the algorithm recovered the wrong topology.</li>
+<li>Two pairs of taxa (Bat, Chimp) and (Human, Gorilla) should each share a private internal node</li>
+<li>If either pair is split across different internal nodes, the algorithm recovered the wrong topology</li>
 </ul>
-<h3>Branch length recovery</h3>
+</li>
+<li>
+<p>Branch length recovery</p>
 <ul>
-<li>With exact tree-additive distances the algorithm recovers every branch length to machine precision.</li>
-<li>No tolerance is needed: floating-point round-off in the arithmetic means is below $10^{-10}$.</li>
+<li>With exact tree-additive distances the algorithm recovers every branch length to machine precision</li>
+<li>No tolerance is needed: floating-point round-off in the arithmetic means is below $10^{-10}$</li>
 </ul>
-<h3>Topology under noise</h3>
+</li>
+<li>
+<p>Topology under noise</p>
 <ul>
-<li>Real distance data are not perfectly additive.</li>
-<li>With small Gaussian noise (scale 0.05) the correct topology should still be recovered.</li>
-<li>This test documents the robustness of UPGMA to modest measurement error.</li>
+<li>Real distance data are not perfectly additive</li>
+<li>With small Gaussian noise (scale 0.05) the correct topology should still be recovered</li>
+<li>This test documents the robustness of UPGMA to modest measurement error</li>
+</ul>
+</li>
 </ul>
 <div data-inc="test_phylo.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">phylo</span><span class="w"> </span><span class="kn">import</span> <span class="n">TAXA</span><span class="p">,</span> <span class="n">make_distance_matrix</span><span class="p">,</span> <span class="n">upgma</span>
@@ -382,14 +415,22 @@ Give your answer to two decimal places.</p>
 </div>
 <h2>Generating Random Trees</h2>
 <ul>
-<li>A single hand-crafted example is useful for tracing through the algorithm, but it cannot reveal how UPGMA behaves on different topologies or at larger scales.</li>
-<li><code>generate_tree.py</code> provides <code>make_random_tree</code> which builds a random unrooted binary tree and returns its exact distance matrix alongside the true edge list.</li>
+<li>A single hand-crafted example is useful for tracing through the algorithm,
+    but it cannot reveal how UPGMA behaves on different topologies or at larger scales</li>
+<li><code>generate_tree.py</code> provides <code>make_random_tree</code>
+    which builds a random unrooted binary tree
+    and returns its exact distance matrix alongside the true edge list</li>
 </ul>
 <h3>Building a random topology</h3>
 <ul>
-<li>Start with three leaves connected to a single internal node.</li>
-<li>For each additional taxon, pick a random existing edge, insert a new internal node in the middle of it, and attach the new taxon to that node.</li>
-<li>Branch lengths are drawn independently from an exponential distribution with a specified mean.</li>
+<li>Start with three leaves connected to a single internal node</li>
+<li>For each additional taxon<ul>
+<li>Pick a random existing edge</li>
+<li>Insert a new internal node in the middle of it</li>
+<li>Attach the new taxon to that node</li>
+</ul>
+</li>
+<li>Branch lengths are drawn independently from an exponential distribution with a specified mean</li>
 </ul>
 <div data-inc="generate_tree.py" data-mark="random-tree"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_random_tree</span><span class="p">(</span>
     <span class="n">n_taxa</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">branch_mean</span><span class="o">=</span><span class="n">DEFAULT_BRANCH_MEAN</span><span class="p">,</span> <span class="n">noise_scale</span><span class="o">=</span><span class="mf">0.0</span>
@@ -451,9 +492,14 @@ Give your answer to two decimal places.</p>
 </div>
 <h3>Computing distances and checking topology</h3>
 <ul>
-<li>Once the tree is built, pairwise distances are computed as shortest-path lengths through the networkx graph weighted by branch length.</li>
-<li>To compare topologies, each tree is converted to its set of bipartitions: for every edge, the two groups of leaves on either side.</li>
-<li>Two trees have the same topology if and only if their bipartition sets are identical.</li>
+<li>Once the tree is built,
+    pairwise distances are computed as shortest-path lengths through the networkx graph weighted by branch length</li>
+<li>To compare topologies,
+    each tree is converted to its set of <a class="gl-ref" href="../glossary/#bipartition">bipartitions</a><ul>
+<li>For every edge, the two groups of leaves on either side</li>
+</ul>
+</li>
+<li>Two trees have the same topology if and only if their bipartition sets are identical</li>
 </ul>
 <div data-inc="test_generate_tree.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>

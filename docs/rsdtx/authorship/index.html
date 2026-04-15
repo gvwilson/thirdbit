@@ -71,19 +71,21 @@
 <h1>Authorship Attribution by N-gram Profiles</h1>
 <h2>The Problem</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#authorship_attribution">Authorship attribution</a> asks: given an anonymous
-  text and a set of candidate authors, whose writing style does the text most resemble?</li>
+<li><a class="gl-ref" href="../glossary/#authorship_attribution">Authorship attribution</a> asks,
+    "Given an anonymous text and a set of candidate authors,
+    whose writing style does the text most resemble?"</li>
 <li>Applications include forensic linguistics (disputed documents, plagiarism detection)
-  and literary studies (anonymous or pseudonymous works).</li>
+    and literary studies (anonymous or pseudonymous works)</li>
 <li>Style is captured not by vocabulary choices but by low-level character patterns:
-  how often certain pairs or triples of characters appear together.</li>
-<li>The approach here:</li>
-<li>Generate a synthetic corpus of short texts in which each author uses a
-    distinct set of characters with higher frequency.</li>
-<li>Build a <a class="gl-ref" href="../glossary/#ngram_profile">character n-gram profile</a> for each author from
-    training texts.</li>
-<li>Attribute each test text to the author whose profile is most similar, using
-    <a class="gl-ref" href="../glossary/#cosine_similarity">cosine similarity</a> as the distance measure.</li>
+    how often certain pairs or triples of characters appear together</li>
+<li>The approach here:<ul>
+<li>Generate a synthetic corpus of short texts in which
+    each author uses a distinct set of characters with higher frequency</li>
+<li>Build a <a class="gl-ref" href="../glossary/#ngram_profile">character n-gram profile</a> for each author from training texts</li>
+<li>Attribute each test text to the author whose profile is most similar,
+    using <a class="gl-ref" href="../glossary/#cosine_similarity">cosine similarity</a> as the distance measure</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why are character n-grams more reliable for authorship attribution than word
@@ -107,28 +109,28 @@ reason they outperform word profiles for single-language attribution tasks.</dd>
 </div>
 <h2>Character N-gram Profiles</h2>
 <ul>
-<li>A <a class="gl-ref" href="../glossary/#char_ngram">character n-gram</a> is a sequence of $n$ consecutive characters
-  in a text; spaces and punctuation are treated as characters so that word-boundary
-  patterns are captured.</li>
-<li>For a text of length $L$ characters there are $L - n + 1$ overlapping n-grams.</li>
-<li>The profile for an author is the relative frequency of each n-gram across all
-  their training texts:</li>
+<li>A <a class="gl-ref" href="../glossary/#char_ngram">character n-gram</a> is a sequence of $n$ consecutive characters in a text<ul>
+<li>Spaces and punctuation are treated as characters so that word-boundary patterns are captured</li>
+</ul>
+</li>
+<li>For a text of length $L$ characters there are $L - n + 1$ overlapping n-grams</li>
+<li>The profile for an author is the relative frequency of each n-gram across all their training texts</li>
 </ul>
 <p>$$p(ng) = \frac{\text{count}(ng)}{\sum_{ng'} \text{count}(ng')}$$</p>
 <ul>
-<li>The profile is a probability distribution over the set of observed n-grams.</li>
+<li>The profile is a probability distribution over the set of observed n-grams</li>
 </ul>
 <h2>Cosine Similarity</h2>
 <ul>
-<li>Given two profiles $\mathbf{p}_A$ and $\mathbf{p}_B$ (treated as vectors indexed
-  by n-gram), the cosine similarity is:</li>
+<li>Given two profiles $\mathbf{p}<em ng="ng">A$ and $\mathbf{p}_B$ (treated as vectors indexed by n-gram),
+    with $|\mathbf{p}| = \sqrt{\sum</em>$,
+    the cosine similarity is:} p(ng)^2</li>
 </ul>
-<p>$$\text{sim}(A, B) = \frac{\sum_{ng} p_A(ng)\, p_B(ng)}{|\mathbf{p}_A|\;|\mathbf{p}_B|}$$</p>
-<p>where $|\mathbf{p}| = \sqrt{\sum_{ng} p(ng)^2}$.</p>
+<p>$$\text{sim}(A, B) = \frac{\sum_{ng} p_A(ng)\, p_B(ng)}{\|\mathbf{p}_A\|\;\|\mathbf{p}_B\|}$$</p>
 <ul>
-<li>Cosine similarity ranges from 0 (no shared n-grams) to 1 (identical profiles).</li>
-<li>Dividing by the norms makes the measure length-independent: a short text and a
-  long text with the same relative frequencies score 1.</li>
+<li>Cosine similarity ranges from 0 (no shared n-grams) to 1 (identical profiles)</li>
+<li>Dividing by the norms makes the measure length-independent:
+    a short text and a long text with the same relative frequencies score 1</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.96" data-lang="en" data-tolerance="0.001">
 <p>Profile A has bigrams "ab" with frequency 0.6 and "cd" with frequency 0.8
@@ -138,12 +140,14 @@ What is the cosine similarity of A and B?</p>
 </div>
 <h2>Generating Synthetic Texts</h2>
 <ul>
-<li>The 15-character alphabet "abcdefghijklmno" is divided into three equal groups
-  of five; each author favors one group.</li>
-<li>Characters from the preferred group are sampled five times more often than
-  characters from the other groups, producing clearly separable profiles.</li>
-<li>Words are random strings of 3 to 6 characters; texts contain 150 words.</li>
-<li>The last of the four texts per author serves as the held-out test text.</li>
+<li>The 15-character alphabet "abcdefghijklmno" is divided into three equal groups of five</li>
+<li>Each author favors one group</li>
+<li>Characters from the preferred group are sampled five times more often
+    than characters from the other groups,
+    producing clearly separable profiles</li>
+<li>Words are random strings of 3 to 6 characters</li>
+<li>texts contain 150 words</li>
+<li>The last of the four texts per author serves as the <a class="gl-ref" href="../glossary/#hold_out">held-out</a> test text</li>
 </ul>
 <div data-inc="generate_authorship.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
     <span class="n">authors</span><span class="o">=</span><span class="n">AUTHORS</span><span class="p">,</span>
@@ -244,10 +248,10 @@ What is the cosine similarity of A and B?</p>
 </div>
 <h2>Attributing an Unknown Text</h2>
 <ul>
-<li>For each candidate author, build a profile from their training texts.</li>
-<li>Compute the cosine similarity between the unknown text's profile and each
-  candidate profile.</li>
-<li>The candidate with the highest similarity is the predicted author.</li>
+<li>For each candidate author,
+    build a profile from their training texts</li>
+<li>Compute the cosine similarity between the unknown text's profile and each candidate profile</li>
+<li>The candidate with the highest similarity is the predicted author</li>
 </ul>
 <div data-inc="authorship.py" data-mark="attribute"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">attribute</span><span class="p">(</span><span class="n">unknown_profile</span><span class="p">,</span> <span class="n">candidate_profiles</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return candidates ranked by cosine similarity to the unknown profile.</span>
@@ -313,23 +317,33 @@ statistical test not implemented here.</dd>
 <figcaption>Figure 1: Cosine similarity of the Author C test text against each candidate's training profile (NGRAM_SIZE=2). Author C scores 0.94; Authors A and B score 0.33 and 0.30, correctly identifying the author with a large margin.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Bigram counts</h3>
 <ul>
-<li>"abc" with $n=2$ yields exactly the bigrams "ab" and "bc", each with count 1.</li>
-<li>"aaa" with $n=2$ yields two overlapping "aa" bigrams.</li>
+<li>
+<p>Bigram counts</p>
+<ul>
+<li>"abc" with $n=2$ yields exactly the bigrams "ab" and "bc", each with count 1</li>
+<li>"aaa" with $n=2$ yields two overlapping "aa" bigrams</li>
 </ul>
-<h3>Profile normalization</h3>
+</li>
+<li>
+<p>Profile normalization</p>
 <ul>
-<li>A profile built from any non-empty text must sum to 1.0.</li>
+<li>A profile built from any non-empty text must sum to 1.0</li>
 </ul>
-<h3>Cosine edge cases</h3>
+</li>
+<li>
+<p>Cosine edge case</p>
 <ul>
-<li>Identical profiles have cosine similarity exactly 1.0.</li>
-<li>Profiles with no shared n-grams have cosine similarity 0.0.</li>
+<li>Identical profiles have cosine similarity exactly 1.0</li>
+<li>Profiles with no shared n-grams have cosine similarity 0.0</li>
 </ul>
-<h3>Attribution accuracy</h3>
+</li>
+<li>
+<p>Attribution accuracy</p>
 <ul>
-<li>Every test text in the synthetic corpus must be attributed to its true author.</li>
+<li>Every test text in the synthetic corpus must be attributed to its true author</li>
+</ul>
+</li>
 </ul>
 <div data-inc="test_authorship.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>

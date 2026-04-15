@@ -231,10 +231,10 @@ Compute $\hat{\lambda} = d / \sum t_i$ to three decimal places.</p>
 <li><code>naive_rate</code> should return $1 / \bar{t}_{\text{uncensored}}$; compute the mean by hand for a small dataset.</li>
 <li><code>corrected_rate</code> should return $d / \sum t_i$; again, hand-check with a small dataset.</li>
 <li>When censored observations exist, <code>naive_rate</code> must exceed <code>corrected_rate</code> — the bias should be
-  detectable on the full 100-patient synthetic dataset.</li>
+    detectable on the full 100-patient synthetic dataset.</li>
 <li><code>empirical_survival</code> must return fractions in $[0, 1]$ that are non-increasing.</li>
 <li>When all observations are uncensored, the two rates must agree: with $\delta_i = 1$ for all $i$,
-  $d / \sum t_i = n / \sum t_i = 1 / \bar{t} = \hat{\lambda}_{\text{naive}}$.</li>
+    $d / \sum t_i = n / \sum t_i = 1 / \bar{t} = \hat{\lambda}_{\text{naive}}$.</li>
 </ul>
 <div data-inc="test_survival.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_survival_data</span>

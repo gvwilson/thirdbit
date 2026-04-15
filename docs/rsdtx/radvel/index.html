@@ -71,14 +71,14 @@
 <h1>Exoplanet Detection via Radial Velocity</h1>
 <h2>The Problem</h2>
 <ul>
-<li>A planet orbiting a star pulls the star gravitationally, causing it to wobble around the
-  system's centre of mass.</li>
-<li>This wobble produces a periodic Doppler shift in the star's spectral lines that can be
-  measured as a <a class="gl-ref" href="../glossary/#radial_velocity">radial-velocity</a> (RV) variation.</li>
-<li>Fitting a sinusoidal model to the RV time series recovers the planet's orbital period and
-  a lower bound on its mass.</li>
-<li>The RV method discovered the first confirmed exoplanet around a Sun-like star (51 Pegasi b,
-  1995) and remains one of the most productive detection techniques.</li>
+<li>A planet orbiting a star pulls the star gravitationally,
+    causing it to wobble around the system's centre of mass</li>
+<li>This wobble produces a periodic Doppler shift in the star's spectral lines
+    that can be measured as a <a class="gl-ref" href="../glossary/#radial_velocity">radial-velocity</a> (RV) variation</li>
+<li>Fitting a sinusoidal model to the RV time series recovers the planet's orbital period
+    and a lower bound on its mass</li>
+<li>The RV method discovered the first confirmed exoplanet around a Sun-like star (51 Pegasi b, in 1995)
+    and remains one of the most productive detection techniques</li>
 </ul>
 <h2>The Radial Velocity Signal</h2>
 <ul>
@@ -86,14 +86,15 @@
 </ul>
 <p>$$v(t) = K \sin\!\left(\frac{2\pi t}{P} + \phi\right) + v_\text{sys}$$</p>
 <ul>
-<li>$K$ is the <a class="gl-ref" href="../glossary/#semi_amplitude">semi-amplitude</a> (m/s), $P$ the orbital period (days), $\phi$ the phase, and
-  $v_\text{sys}$ the systemic (centre-of-mass) velocity.</li>
+<li>$K$ is the <a class="gl-ref" href="../glossary/#semi_amplitude">semi-amplitude</a> (m/s),
+    $P$ the orbital period (days), $\phi$ the phase,
+    and $v_\text{sys}$ the systemic (centre-of-mass) velocity</li>
 <li>For a circular orbit the semi-amplitude is related to the planet mass by:</li>
 </ul>
 <p>$$K = \left(\frac{2\pi G}{P}\right)^{1/3} \frac{M_p \sin i}{(M_\star + M_p)^{2/3}}$$</p>
 <ul>
-<li>Because only $M_p \sin i$ appears in the formula, the RV method gives a minimum planet mass;
-  the true mass requires an independent inclination measurement.</li>
+<li>Because only $M_p \sin i$ appears in the formula,
+    the RV method gives a minimum planet mass; the true mass requires an independent inclination measurement.</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="50.0" data-lang="en" data-tolerance="0.5">
 <p>Using $v(t) = K \sin(2\pi t / P + \varphi) + v_\text{sys}$ with $K = 50$ m/s, $P = 10$ days,
@@ -101,8 +102,8 @@ $\varphi = 0$, $v_\text{sys} = 0$, what is $v(2.5)$? Give your answer in m/s.</p
 </div>
 <h2>Generating Synthetic Observations</h2>
 <ul>
-<li>Observation times are drawn uniformly at random across the time baseline to simulate a
-  realistic (unevenly spaced) survey schedule.</li>
+<li>Observation times are drawn uniformly at random across the time baseline
+    to simulate a realistic (unevenly spaced) survey schedule</li>
 </ul>
 <div data-inc="generate_rv.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed</span>
 <span class="n">PERIOD</span> <span class="o">=</span> <span class="mf">10.0</span>  <span class="c1"># orbital period (days)</span>
@@ -142,13 +143,14 @@ $\varphi = 0$, $v_\text{sys} = 0$, what is $v(2.5)$? Give your answer in m/s.</p
 </div>
 <h2>Fitting the Model</h2>
 <ul>
-<li><code>scipy.optimize.curve_fit</code> minimises the sum of squared residuals between the data and
-  <code>model_rv</code>, returning the best-fit parameters and their <a class="gl-ref" href="../glossary/#covariance_matrix">covariance matrix</a>.</li>
-<li>The one-sigma uncertainties are the square roots of the diagonal entries of the covariance
-  matrix.</li>
-<li>Initial guesses are derived from the data without assuming knowledge of the true parameters:
-  the amplitude guess uses the fact that the standard deviation of a sinusoid equals $K / \sqrt{2}$,
-  and the period guess assumes roughly three cycles are visible in the baseline.</li>
+<li><code>scipy.optimize.curve_fit</code> minimises the sum of squared residuals between the data and <code>model_rv</code>,
+    returning the best-fit parameters and their <a class="gl-ref" href="../glossary/#covariance_matrix">covariance matrix</a></li>
+<li>The one-sigma uncertainties are the square roots of the diagonal entries of the covariance matrix</li>
+<li>Initial guesses are derived from the data without assuming knowledge of the true parameters<ul>
+<li>The amplitude guess uses the fact that the standard deviation of a sinusoid equals $K / \sqrt{2}$</li>
+<li>The period guess assumes roughly three cycles are visible in the baseline</li>
+</ul>
+</li>
 </ul>
 <div data-inc="radvel.py" data-mark="model"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">model_rv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">v_sys</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Sinusoidal radial-velocity model for a single planet.</span>
@@ -215,12 +217,14 @@ $\varphi = 0$, $v_\text{sys} = 0$, what is $v(2.5)$? Give your answer in m/s.</p
 </figure>
 <h2>When the Fit Is Meaningless: Pure Noise</h2>
 <ul>
-<li>If there is no planet, the RV measurements contain only noise.</li>
-<li>Fitting a sinusoid to pure noise always returns some amplitude and period — the fit cannot
-  report "no signal found".</li>
-<li>The covariance matrix reveals whether the result is meaningful: if the uncertainty on the
-  fitted amplitude is comparable to or larger than the amplitude itself, the detection is not
-  statistically significant.</li>
+<li>If there is no planet, the RV measurements contain only noise</li>
+<li>Fitting a sinusoid to pure noise always returns some amplitude and period:
+    the fit cannot report "no signal found"</li>
+<li>The covariance matrix reveals whether the result is meaningful<ul>
+<li>If the uncertainty on the fitted amplitude is comparable to or larger than the amplitude itself,
+    the detection is not statistically significant</li>
+</ul>
+</li>
 </ul>
 <div data-inc="generate_rv.py" data-mark="make-noise-rv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_pure_noise_rv</span><span class="p">(</span>
     <span class="n">noise_scale</span><span class="o">=</span><span class="n">NOISE_SCALE</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="n">N_POINTS</span><span class="p">,</span> <span class="n">t_max</span><span class="o">=</span><span class="n">T_MAX</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span>
@@ -251,46 +255,40 @@ so $\sigma_K / K = 0.92$. What does this mean?</p>
 <figcaption>Figure 2: Fitting a sinusoid to pure noise (no planet signal). Fitted: K = 2.4 ± 2.2 m/s, fractional uncertainty 0.92. A fractional uncertainty above 0.5 indicates a non-detection.</figcaption>
 </figure>
 <ul>
-<li>The fractional amplitude uncertainty $\sigma_K / K$ is a quick significance diagnostic:</li>
+<li>The fractional amplitude uncertainty $\sigma_K / K$ is a quick significance diagnostic:<ul>
 <li>$\sigma_K / K &lt; 0.1$: strong detection</li>
 <li>$\sigma_K / K &gt; 0.5$: non-detection</li>
 </ul>
+</li>
+</ul>
 <h2>Testing</h2>
-<h3>Model values</h3>
-<ul>
-<li>At $t = 0$ and $\phi = 0$ the model reduces to $v_\text{sys}$; at $t = P/4$ it reaches
-  $K + v_\text{sys}$.  Checking known exact values guards against sign errors in the sine
-  argument.</li>
-</ul>
-<h3>Periodicity</h3>
-<ul>
-<li>Adding one full period to $t$ must return the same velocity.  This is a pure algebraic
-  property of the model and requires no tolerance.</li>
-</ul>
-<h3>Noise-free recovery</h3>
-<ul>
-<li>With no measurement noise, the fit must recover both amplitude and period to machine
-  precision.  Any failure points to a bug in the fitting setup (wrong parameter order,
-  wrong initial guess structure, or flipped bounds) rather than a noise effect.</li>
-</ul>
-<h3>Noisy recovery — period</h3>
-<ul>
-<li>With noise-to-amplitude ratio 0.20 and 50 points, the Cramér-Rao bound on the period
-  uncertainty is roughly 0.2 days.  The 5% tolerance (0.5 days) gives a safety factor of
-  2.5X compared to the measured error of ~0.12 days.</li>
-</ul>
-<h3>Noisy recovery — amplitude</h3>
-<ul>
-<li>The measured fractional amplitude error with <code>seed=42</code> is ~2.5%.  The 15% tolerance
-  gives a safety factor of ~6X, wide enough to accommodate other random seeds.</li>
-</ul>
-<h3>Pure-noise uncertainty</h3>
-<ul>
-<li>A fractional amplitude uncertainty above 0.5 means the fitted amplitude is not
-  distinguishable from zero at the 2-sigma level.  For pure noise data this must always
-  hold; a failure would indicate the fit was accidentally converging to a spurious periodic
-  signal in the noise.</li>
-</ul>
+<dl>
+<dt>Model values</dt>
+<dd>At $t = 0$ and $\phi = 0$ the model reduces to $v_\text{sys}$.
+At $t = P/4$ it reaches $K + v_\text{sys}$.
+Checking known exact values guards against sign errors in the sine argument.</dd>
+<dt>Periodicity</dt>
+<dd>Adding one full period to $t$ must return the same velocity.
+This is a pure algebraic property of the model and requires no tolerance.</dd>
+<dt>Noise-free recovery</dt>
+<dd>With no measurement noise, the fit must recover both amplitude and period to machine precision.
+Any failure points to a bug in the fitting setup
+(wrong parameter order, wrong initial guess structure, or flipped bounds)
+rather than a noise effect.</dd>
+<dt>Noisy recovery of period</dt>
+<dd>With noise-to-amplitude ratio 0.20 and 50 points,
+the <a class="gl-ref" href="../glossary/#cramer_rao_bound">Cramér-Rao bound</a> on the period uncertainty is roughly 0.2 days.
+The 5% tolerance (0.5 days) gives a safety factor of 2.5X compared to the measured error of ~0.12 days.</dd>
+<dt>Noisy recovery of amplitude</dt>
+<dd>The measured fractional amplitude error with <code>seed=42</code> is ~2.5%.
+The 15% tolerance gives a safety factor of ~6X,
+which is wide enough to accommodate other random seeds.</dd>
+<dt>Pure-noise uncertainty</dt>
+<dd>A fractional amplitude uncertainty above 0.5 means
+the fitted amplitude is not distinguishable from zero at the 2-sigma level.
+This must always hold for pure noise data.
+A failure would indicate the fit was accidentally converging to a spurious periodic signal in the noise.</dd>
+</dl>
 <div data-inc="test_radvel.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_rv</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_rv_data</span><span class="p">,</span> <span class="n">make_pure_noise_rv</span><span class="p">,</span> <span class="n">PERIOD</span><span class="p">,</span> <span class="n">AMPLITUDE</span>

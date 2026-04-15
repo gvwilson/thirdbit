@@ -71,11 +71,20 @@
 <h1>Predator-Prey Dynamics</h1>
 <h2>The Problem</h2>
 <ul>
-<li>Many ecosystems contain predators that eat prey, and the two populations influence each other over time.</li>
-<li>When prey are abundant, predators thrive and multiply; when predators are numerous, prey decline; when prey are scarce, predators starve and their numbers fall; prey then recover.</li>
-<li>This cycle repeats indefinitely, producing oscillating populations.</li>
-<li>The <a class="gl-ref" href="../glossary/#lotka_volterra">Lotka-Volterra model</a> is the simplest mathematical description of this interaction.
-  It is also used in chemistry (autocatalytic reactions), economics (supply and demand cycles), and epidemiology.</li>
+<li>A common dynamic in predator-prey systems:<ul>
+<li>When prey are abundant, predators thrive and multiply</li>
+<li>When predators are numerous, prey decline</li>
+<li>When prey are scarce, predators starve and their numbers fall</li>
+<li>Prey then recover</li>
+</ul>
+</li>
+<li>This cycle produces oscillating populations</li>
+<li>The <a class="gl-ref" href="../glossary/#lotka_volterra">Lotka-Volterra model</a>
+    is the simplest mathematical description of this interaction.<ul>
+<li>It is also used in chemistry (autocatalytic reactions)
+    and economics (supply and demand cycles).</li>
+</ul>
+</li>
 </ul>
 <h2>The Equations</h2>
 <ul>
@@ -84,11 +93,13 @@
 </ul>
 <p>$$\frac{dx}{dt} = ax - bxy \qquad \frac{dy}{dt} = cxy - dy$$</p>
 <ul>
-<li>Each term has a direct interpretation:</li>
-<li>$ax$: prey grow exponentially in the absence of predators (birth rate $a$).</li>
-<li>$bxy$: prey are removed at a rate proportional to encounters between species (predation rate $b$).</li>
-<li>$cxy$: predators gain from eating prey (efficiency $c$).</li>
-<li>$dy$: predators die at a constant per-capita rate $d$.</li>
+<li>Each term has a direct interpretation:<ul>
+<li>$ax$: prey grow exponentially in the absence of predators (birth rate $a$)</li>
+<li>$bxy$: prey are removed at a rate proportional to encounters between species (predation rate $b$)</li>
+<li>$cxy$: predators gain from eating prey (efficiency $c$)</li>
+<li>$dy$: predators die at a constant per-capita rate $d$</li>
+</ul>
+</li>
 </ul>
 <h2>Parameters and Equilibrium</h2>
 <div data-inc="lotka.py" data-mark="params"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Rate parameters (arbitrary units).</span>
@@ -125,10 +136,13 @@
 </div>
 <ul>
 <li>Setting both derivatives to zero gives the equilibrium:
-  $x^<em> = d/c$ and $y^</em> = a/b$.</li>
-<li>At the equilibrium, populations are constant; any perturbation produces oscillations.</li>
-<li><code>PERIOD_APPROX</code> is derived by linearising around the equilibrium.
-  The exact period depends on the amplitude and must be measured from the solution.</li>
+    $x^<em> = d/c$ and $y^</em> = a/b$.</li>
+<li>At the equilibrium, populations are constant</li>
+<li>But any perturbation produces oscillations</li>
+<li><code>PERIOD_APPROX</code> is derived by linearising around the equilibrium<ul>
+<li>The exact period depends on the amplitude and must be measured from the solution</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>With <code>PREY_BIRTH</code> = 1.0, <code>PREDATION</code> = 0.1, <code>PRED_GROWTH</code> = 0.075, <code>PRED_DEATH</code> = 1.5,
@@ -147,8 +161,8 @@ what is the prey equilibrium $x^* = d/c$?</p>
 <h2>Implementing the Right-Hand Side</h2>
 <ul>
 <li><code>solve_ivp</code> requires a function that takes time $t$ and state vector $z = [x, y]$
-  and returns $[dx/dt,\; dy/dt]$.</li>
-<li>The function must not modify $z$; it should return a new list.</li>
+    and returns $[dx/dt,\; dy/dt]$</li>
+<li>The function must not modify $z$; instead, it should return a new list</li>
 </ul>
 <div data-inc="lotka.py" data-mark="rhs"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return [dx/dt, dy/dt] for the Lotka-Volterra equations.</span>
@@ -194,10 +208,12 @@ what is the prey equilibrium $x^* = d/c$?</p>
 </div>
 <h2>Solving the System</h2>
 <ul>
-<li><code>solve_ivp</code> advances the state from $t = 0$ to <code>T_MAX</code> using an adaptive Runge-Kutta method.</li>
-<li><code>t_eval</code> specifies the output times; it does not control the internal step size.</li>
-<li><code>rtol</code> and <code>atol</code> control the solver's internal error tolerance.
-  Setting them to $10^{-8}$ and $10^{-10}$ gives solutions accurate to roughly eight significant figures.</li>
+<li><code>solve_ivp</code> advances the state from $t = 0$ to <code>T_MAX</code> using an adaptive Runge-Kutta method</li>
+<li><code>t_eval</code> specifies the output times; it does not control the internal step size</li>
+<li><code>rtol</code> and <code>atol</code> control the solver's internal error tolerance<ul>
+<li>Setting them to $10^{-8}$ and $10^{-10}$ gives solutions accurate to roughly eight significant figures.</li>
+</ul>
+</li>
 </ul>
 <div data-inc="lotka.py" data-mark="solve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">solve</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Integrate the Lotka-Volterra equations and return results as a DataFrame."""</span>
@@ -252,46 +268,49 @@ what is the prey equilibrium $x^* = d/c$?</p>
 </code></pre></div>
 </div>
 <ul>
-<li>The time-series plot shows both populations over time.</li>
-<li>The prey population (blue) rises first; the predator population (orange) rises shortly after.</li>
-<li>Predator peaks lag prey peaks because predators need abundant food before they can multiply.</li>
-<li>Once predators are numerous, prey decline rapidly; predators then starve and their numbers fall.</li>
-<li>The prey then recover, and the cycle begins again.</li>
+<li>The time-series plot shows both populations over time<ul>
+<li>The prey population (blue) rises first; the predator population (orange) rises shortly after</li>
+<li>Predator peaks lag prey peaks because predators need abundant food before they can multiply  </li>
+</ul>
+</li>
+<li>Once predators are numerous, prey decline rapidly; predators then starve and their numbers fall  </li>
+<li>The prey then recover, and the cycle begins again</li>
 </ul>
 <figure id="f:lotka-timeseries">
 <img alt="Prey and predator populations oscillating over time, with predator peaks lagging prey peaks." src="lotka_timeseries.svg"/>
 <figcaption>Figure 1: Prey (blue) and predator (orange) populations over 53 time units. Predator peaks follow prey peaks by roughly a quarter-period.</figcaption>
 </figure>
 <ul>
-<li>The population trajectory plots $x$ versus $y$ at each point in time.</li>
-<li>When the solution returns to approximately the same $(x, y)$ point after one cycle, the curve closes on itself.</li>
-<li>A nearly closed loop means the system keeps repeating the same pattern indefinitely.</li>
+<li>The population trajectory plots $x$ versus $y$ at each point in time<ul>
+<li>When the solution returns to approximately the same $(x, y)$ point after one cycle,
+    the curve closes on itself.</li>
+<li>A nearly closed loop means the system keeps repeating the same pattern indefinitely</li>
+</ul>
+</li>
 </ul>
 <figure id="f:lotka-trajectory">
 <img alt="A closed loop in the prey-predator plane showing the repeating population cycle." src="lotka_trajectory.svg"/>
 <figcaption>Figure 2: Population trajectory: prey ($x$-axis) versus predator ($y$-axis). The loop closes because the populations repeat the same cycle.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Populations remain positive</h3>
-<ul>
-<li>Analytically, neither population can reach zero in finite time: the positive quadrant is invariant.</li>
-<li>If a numerical solution produces a negative population, the solver has made a large error or the parameters are degenerate.</li>
-</ul>
-<h3>Volterra averaging principle</h3>
-<ul>
-<li>Volterra proved that the time mean of $x(t)$ over any complete number of cycles equals $x^* = d/c$,
-  and similarly for $y(t)$.</li>
-<li>This is an exact analytical result, not an approximation.</li>
-<li>Over <code>T_MAX</code> covering ~10 complete cycles, the fractional-cycle bias is below 0.2%.
-  A relative tolerance of 1% gives a 5x safety margin over that measured bias.</li>
-</ul>
-<h3>Period matches linearised estimate</h3>
-<ul>
-<li>Linearising the LV equations around equilibrium gives small oscillations with period $2\pi/\sqrt{ad}$.</li>
-<li>For finite-amplitude oscillations the true period is longer (the nonlinear correction is $O(\text{amplitude}^2)$).</li>
-<li>With our initial conditions the measured period is ~5.30 versus the linearised estimate of ~5.13, a 3.3% deviation.</li>
-<li>A tolerance of 10% gives a safety factor of 3 over that measured deviation.</li>
-</ul>
+<dl>
+<dt>Populations remain positive</dt>
+<dd>Analytically, neither population can reach zero in finite time: the positive quadrant is invariant.
+If a numerical solution produces a negative population, the solver has made a large error or the parameters are degenerate.</dd>
+<dt>Volterra averaging principle</dt>
+<dd>Volterra proved that the time mean of $x(t)$ over any complete number of cycles equals $x^* = d/c$,
+and similarly for $y(t)$.
+This is an exact analytical result, not an approximation.
+Over <code>T_MAX</code> covering ~10 complete cycles, the fractional-cycle bias is below 0.2%.
+A relative tolerance of 1% gives a 5x safety margin over that measured bias.</dd>
+<dt>Period matches linearised estimate</dt>
+<dd>Linearising the LV equations around equilibrium gives small oscillations with period $2\pi/\sqrt{ad}$.
+For finite-amplitude oscillations the true period is longer
+(the nonlinear correction is $O(\text{amplitude}^2)$).
+With our initial conditions the measured period is ~5.30
+versus the linearised estimate of ~5.13, a 3.3% deviation.
+A tolerance of 10% gives a safety factor of 3 over that measured deviation.</dd>
+</dl>
 <div data-inc="test_lotka.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_peaks</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">lotka</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>

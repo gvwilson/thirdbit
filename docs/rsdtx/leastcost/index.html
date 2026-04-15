@@ -71,17 +71,18 @@
 <h1>Least-Cost Path Analysis for Trade Routes</h1>
 <h2>The Problem</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#landscape_archaeology">Landscape archaeology</a> asks where historical travelers
-  and traders were most likely to move through a terrain.</li>
-<li>Modern roads follow valleys and passes, not straight lines, because crossing ridges
-  is slow and exhausting; ancient routes did the same.</li>
-<li><a class="gl-ref" href="../glossary/#least_cost_path">Least-cost path analysis</a> formalises this idea:</li>
-<li>Represent the terrain as a 2-D grid in which each cell has an elevation value.</li>
-<li>Define a <a class="gl-ref" href="../glossary/#cost_surface">cost surface</a> that translates elevation into travel
-    difficulty.</li>
-<li>Apply <a class="gl-ref" href="../glossary/#dijkstras_algorithm">Dijkstra's algorithm</a> to find the path from
-    a source cell to a destination cell that minimises the total accumulated cost.</li>
-<li>Visualize the terrain and overlay the optimal route.</li>
+<li>Modern roads follow valleys and passes because crossing ridges is slow and exhausting,
+    and ancient routes did the same</li>
+<li><a class="gl-ref" href="../glossary/#landscape_archaeology">Landscape archaeology</a> asks
+    where historical travelers and traders were most likely to move through a terrain</li>
+<li><a class="gl-ref" href="../glossary/#least_cost_path">Least-cost path analysis</a> formalises this idea<ul>
+<li>Represent the terrain as a 2-D grid in which each cell has an elevation value</li>
+<li>Define a <a class="gl-ref" href="../glossary/#cost_surface">cost surface</a> that translates elevation into travel difficulty</li>
+<li>Apply <a class="gl-ref" href="../glossary/#dijkstras_algorithm">Dijkstra's algorithm</a> to find the path
+    from a source cell to a destination cell that minimises the total accumulated cost</li>
+<li>Visualize the terrain and overlay the optimal route</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why does least-cost path analysis assign lower cost to valley cells than
@@ -105,16 +106,18 @@ longer valley path can beat a shorter ridge path if the valley cost is low enoug
 </div>
 <h2>The Cost Surface</h2>
 <ul>
-<li>The elevation grid is a 2-D array with values normalised to $[0, 1]$: 0 is the
-  lowest point in the landscape, 1 is the highest.</li>
+<li>The elevation grid is a 2-D array with values normalised to $[0, 1]$<ul>
+<li>0 is the lowest point in the landscape, 1 is the highest</li>
+</ul>
+</li>
 <li>Moving from cell $A$ to an adjacent cell $B$ incurs an edge cost:</li>
 </ul>
-<p>$$\text{edge_cost}(A, B) = \frac{\text{elev}(A) + \text{elev}(B)}{2} \times d(A, B)$$</p>
+<p>$$\text{edge\_cost}(A, B) = \frac{\text{elev}(A) + \text{elev}(B)}{2} \times d(A, B)$$</p>
 <ul>
-<li>Averaging the endpoint elevations penalises entering a ridge from a valley (and
-  vice versa) proportionally.</li>
-<li>$d(A, B) = 1$ for orthogonal moves and $\sqrt{2}$ for diagonal moves, so longer
-  edges cost proportionally more.</li>
+<li>Averaging the endpoint elevations penalises entering a ridge from a valley proportionally
+    (and vice versa).</li>
+<li>$d(A, B) = 1$ for orthogonal moves and $\sqrt{2}$ for diagonal moves,
+    so longer edges cost proportionally more.</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.75" data-lang="en" data-tolerance="0.001">
 <p>Cell A has elevation 0.5 and orthogonally adjacent cell B has elevation 1.0.
@@ -122,11 +125,11 @@ What is the edge cost from A to B?</p>
 </div>
 <h2>Generating Synthetic Terrain</h2>
 <ul>
-<li>The terrain is a superposition of sinusoidal waves at four octaves.</li>
-<li>Each successive octave has half the amplitude and twice the spatial frequency of
-  the previous, producing a fractal-like surface of ridges and valleys.</li>
+<li>The terrain is a superposition of sinusoidal waves at four octaves</li>
+<li>Each successive octave has half the amplitude and twice the spatial frequency of the previous,
+    producing a fractal-like surface of ridges and valleys</li>
 <li>The result is normalised to $[0, 1]$ so that cost surface values are comparable
-  regardless of the raw wave amplitudes.</li>
+    regardless of the raw wave amplitudes</li>
 </ul>
 <div data-inc="generate_leastcost.py" data-mark="terrain"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_terrain</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a (rows, cols) elevation array with values in [0, 1].</span>
@@ -154,12 +157,14 @@ What is the edge cost from A to B?</p>
 </div>
 <h2>Dijkstra's Algorithm on a Grid</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#dijkstras_algorithm">Dijkstra's algorithm</a> maintains a priority queue of
-  cells ordered by their current best-known distance from the source.</li>
-<li>At each step it pops the cheapest cell, examines its eight neighbors, and relaxes
-  (updates) any neighbor whose new cost would be lower than its current best.</li>
-<li>When the destination is popped from the queue, its accumulated cost is optimal and
-  the shortest-path tree stored in <code>prev</code> can be traced back to recover the route.</li>
+<li><a class="gl-ref" href="../glossary/#dijkstras_algorithm">Dijkstra's algorithm</a> maintains a priority queue of cells
+    ordered by their current best-known distance from the source</li>
+<li>At each step it pops the cheapest cell,
+    examines its eight neighbors,
+    and updates any neighbor whose new cost would be lower than its current best</li>
+<li>When the destination is popped from the queue,
+    its accumulated cost is optimal
+    and the shortest-path tree stored in <code>prev</code> can be traced back to recover the route</li>
 </ul>
 <div data-inc="leastcost.py" data-mark="dijkstra"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">least_cost_path</span><span class="p">(</span><span class="n">elev</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the least-cost path through an elevation grid.</span>
@@ -240,43 +245,30 @@ Stop when the destination cell is popped; trace back through the predecessor map
 <figcaption>Figure 1: Least-cost trade route through a synthetic 40x60 terrain grid. The path avoids the high-elevation ridges (bright) and follows valley corridors (dark) to minimise accumulated travel cost.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Terrain shape</h3>
-<ul>
-<li><code>make_terrain(rows, cols)</code> must return an array of exactly that shape.</li>
-</ul>
-<h3>Terrain bounds</h3>
-<ul>
-<li>After normalisation the minimum must be 0.0 and the maximum must be 1.0.</li>
-</ul>
-<h3>Terrain reproducibility</h3>
-<ul>
-<li>Calling <code>make_terrain</code> twice with the same seed must return identical arrays.</li>
-</ul>
-<h3>Path endpoints</h3>
-<ul>
-<li>The first cell of the returned path must equal <code>START</code>; the last must equal <code>END</code>.</li>
-</ul>
-<h3>Path connectivity</h3>
-<ul>
-<li>Every consecutive pair of cells in the path must be 8-connected neighbors,
-  i.e., their offsets must appear in <code>STEP_LEN</code>.</li>
-</ul>
-<h3>Flat terrain takes the diagonal</h3>
-<ul>
-<li>On a uniform-elevation 5x5 grid, the cheapest route from $(0,0)$ to $(4,4)$
-  is the main diagonal (cost $4\sqrt{2} \approx 5.66$) rather than the 8-step
-  orthogonal route (cost 8.0), so the path must visit exactly 5 cells.</li>
-</ul>
-<h3>Valley preferred over ridge</h3>
-<ul>
-<li>A 3x3 grid with a zero-elevation valley row in the middle must route the path
-  through that row rather than across the high-elevation rows.</li>
-</ul>
-<h3>Low-cost path beats ridge traverse</h3>
-<ul>
-<li>On a 3x5 grid with an all-zero middle row, the Dijkstra path must cost
-  strictly less than an all-ridge orthogonal traverse.</li>
-</ul>
+<dl>
+<dt>Terrain shape</dt>
+<dd><code>make_terrain(rows, cols)</code> must return an array of exactly that shape.</dd>
+<dt>Terrain bounds</dt>
+<dd>After normalisation the minimum must be 0.0 and the maximum must be 1.0.</dd>
+<dt>Terrain reproducibility</dt>
+<dd>Calling <code>make_terrain</code> twice with the same seed must return identical arrays.</dd>
+<dt>Path endpoints</dt>
+<dd>The first cell of the returned path must equal <code>START</code>; the last must equal <code>END</code>.</dd>
+<dt>Path connectivity</dt>
+<dd>Every consecutive pair of cells in the path must be 8-connected neighbors,
+i.e., their offsets must appear in <code>STEP_LEN</code>.</dd>
+<dt>Flat terrain takes the diagonal</dt>
+<dd>On a uniform-elevation 5x5 grid, the cheapest route from $(0,0)$ to $(4,4)$
+is the main diagonal (cost $4\sqrt{2} \approx 5.66$)
+rather than the 8-step orthogonal route (cost 8.0),
+so the path must visit exactly 5 cells.</dd>
+<dt>Valley preferred over ridge</dt>
+<dd>A 3x3 grid with a zero-elevation valley row in the middle
+must route the path through that row rather than across the high-elevation rows.</dd>
+<dt>Low-cost path beats ridge traverse</dt>
+<dd>On a 3x5 grid with an all-zero middle row,
+the Dijkstra path must cost strictly less than an all-ridge orthogonal traverse.</dd>
+</dl>
 <div data-inc="test_leastcost.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_leastcost</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_terrain</span><span class="p">,</span> <span class="n">GRID_ROWS</span><span class="p">,</span> <span class="n">GRID_COLS</span><span class="p">,</span> <span class="n">START</span><span class="p">,</span> <span class="n">END</span>

@@ -71,19 +71,19 @@
 <h1>Fitting a Learning Curve to Experimental Data</h1>
 <h2>The Problem</h2>
 <ul>
-<li>Practice improves performance: reaction times fall, error rates decrease,
-  and movement fluency increases with repetition.</li>
-<li><a class="gl-ref" href="../glossary/#learning_curve">Learning curves</a> quantify how quickly this improvement
-  happens and how much improvement can be expected with more practice.</li>
-<li>The approach here:</li>
-<li>Generate 80 per-trial reaction times from a <a class="gl-ref" href="../glossary/#power_law">power-law</a>
-    model with added Gaussian noise.</li>
-<li>Fit the model $\text{RT}(n) = A \cdot n^{-b}$ using
-    <code>scipy.optimize.curve_fit</code>.</li>
-<li>Extract the learning rate exponent $b$ and compute a 95%
-    <a class="gl-ref" href="../glossary/#confidence_interval_parameter">confidence interval</a> from the
-    covariance matrix returned by the fitter.</li>
+<li>Practice improves performance: reaction times fall and error rates decrease</li>
+<li><a class="gl-ref" href="../glossary/#learning_curve">Learning curves</a> quantify how quickly this improvement happens
+    and how much improvement can be expected with more practice</li>
+<li>Our approach:<ul>
+<li>Generate 80 per-trial reaction times from a <a class="gl-ref" href="../glossary/#power_law">power-law</a> model
+    with added Gaussian noise.</li>
+<li>Fit the model $\text{RT}(n) = A \cdot n^{-b}$ using <code>scipy.optimize.curve_fit</code></li>
+<li>Extract the learning rate exponent $b$
+    and compute a 95% <a class="gl-ref" href="../glossary/#confidence_interval_parameter">confidence interval</a>
+    from the covariance matrix returned by the fitter</li>
 <li>Plot the raw data with the fitted curve overlaid.</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why is a power-law model used for learning curves rather than a linear model?</p>
@@ -107,26 +107,29 @@ is used because it describes the data well, not for computational convenience.</
 </div>
 <h2>The Power-Law Learning Model</h2>
 <ul>
-<li>The model is $\text{RT}(n) = A \cdot n^{-b}$ where:</li>
-<li>$n$ is the trial number (1, 2, ..., N).</li>
-<li>$A$ is the predicted reaction time on trial 1 in milliseconds.</li>
-<li>$b &gt; 0$ is the learning rate exponent: larger $b$ means faster
-    improvement.</li>
-<li>Taking logarithms gives $\ln \text{RT} = \ln A - b \ln n$, showing that
-  the power law is linear in log-log space.</li>
-<li>The parameters $A$ and $b$ are estimated simultaneously by nonlinear least
-  squares rather than log-linearizing, which avoids distorting the noise
-  structure when reaction times have additive Gaussian noise.</li>
+<li>The model is $\text{RT}(n) = A \cdot n^{-b}$ where:<ul>
+<li>$n$ is the trial number (1, 2, ..., N)</li>
+<li>$A$ is the predicted reaction time on trial 1 in milliseconds</li>
+<li>$b &gt; 0$ is the learning rate exponent: larger $b$ means faster improvement</li>
+</ul>
+</li>
+<li>Taking logarithms gives $\ln \text{RT} = \ln A - b \ln n$,
+    showing that the power law is linear in log-log space</li>
+<li>The parameters $A$ and $b$ are estimated simultaneously by nonlinear least squares
+    rather than log-linearizing,
+    which avoids distorting the noise structure when reaction times have additive Gaussian noise.</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="200" data-lang="en" data-tolerance="0.1">
 <p>If A = 400 ms and b = 0.5, what is the predicted reaction time (in ms) on trial 4?</p>
 </div>
 <h2>Generating Synthetic Trial Data</h2>
 <ul>
-<li>The true parameters are $A = 500$ ms and $b = 0.3$, which are within the
-  empirical range for simple motor tasks (Newell and Rosenbloom, 1981).</li>
-<li>Gaussian noise with standard deviation 20 ms is added to each trial; values
-  below 1 ms are clamped to ensure all reaction times are positive.</li>
+<li>The true parameters are $A = 500$ ms and $b = 0.3$,
+    which are within the empirical range for simple motor tasks</li>
+<li>Gaussian noise with standard deviation 20 ms is added to each trial<ul>
+<li>Values below 1 ms are clamped to ensure all reaction times are positive</li>
+</ul>
+</li>
 </ul>
 <div data-inc="generate_learning.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_trials</span><span class="p">(</span>
     <span class="n">n_trials</span><span class="o">=</span><span class="n">N_TRIALS</span><span class="p">,</span>
@@ -154,13 +157,15 @@ is used because it describes the data well, not for computational convenience.</
 </div>
 <h2>Fitting with curve_fit</h2>
 <ul>
-<li><code>scipy.optimize.curve_fit(f, x, y, p0)</code> finds the parameter values that
-  minimise $\sum_i (y_i - f(x_i, \theta))^2$ starting from initial guess <code>p0</code>.</li>
-<li>It returns two objects:</li>
-<li><code>popt</code>: the best-fit parameter vector $(A, b)$.</li>
-<li><code>pcov</code>: the estimated covariance matrix of the parameters.</li>
-<li>The diagonal entry <code>pcov[1, 1]</code> is the estimated variance of $b$;
-  its square root is the standard error $\text{SE}(b)$.</li>
+<li><code>scipy.optimize.curve_fit(f, x, y, p0)</code> finds the parameter values
+    that minimise $\sum_i (y_i - f(x_i, \theta))^2$ starting from initial guess <code>p0</code></li>
+<li>It returns two objects:<ul>
+<li><code>popt</code>: the best-fit parameter vector $(A, b)$</li>
+<li><code>pcov</code>: the estimated covariance matrix of the parameters</li>
+</ul>
+</li>
+<li>The diagonal entry <code>pcov[1, 1]</code> is the estimated variance of $b$</li>
+<li>Its square root is the standard error $\text{SE}(b)$</li>
 </ul>
 <div data-inc="learning.py" data-mark="fit"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fit_power_law</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">rt</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fit a power-law learning curve to per-trial reaction-time data.</span>
@@ -198,10 +203,12 @@ is used because it describes the data well, not for computational convenience.</
 <p>$$b \pm 1.96 \cdot \text{SE}(b), \qquad \text{SE}(b) = \sqrt{\text{pcov}[1,1]}$$</p>
 <ul>
 <li>The multiplier 1.96 comes from the standard normal distribution:
-  $P(-1.96 &lt; Z &lt; 1.96) = 0.95$.</li>
+    $P(-1.96 &lt; Z &lt; 1.96) = 0.95$.</li>
 <li>This is an asymptotic approximation valid when the sample size is large
-  relative to the number of parameters; with 80 trials and 2 parameters
-  it is accurate.</li>
+    relative to the number of parameters<ul>
+<li>With 80 trials and 2 parameters it is accurate</li>
+</ul>
+</li>
 </ul>
 <div class="forma-ordering" data-lang="en">
 <p>Order the steps to fit a power-law learning curve and report a confidence interval for b.</p>
@@ -261,33 +268,23 @@ Form the 95% CI: (b - 1.96 * SE, b + 1.96 * SE).</p>
 <figcaption>Figure 1: Per-trial reaction times (blue points) and the fitted power-law learning curve (red line) for 80 synthetic trials. The fitted exponent b = 0.298 is close to the true value of 0.30; the 95% confidence interval [0.278, 0.318] brackets the true value.</figcaption>
 </figure>
 <h2>Testing</h2>
-<h3>Trial count</h3>
-<ul>
-<li><code>make_trials()</code> must return exactly <code>N_TRIALS</code> rows.</li>
-</ul>
-<h3>All reaction times positive</h3>
-<ul>
-<li>Every RT must be positive; values below 1 ms are clamped at 1 ms.</li>
-</ul>
-<h3>Trial numbers</h3>
-<ul>
-<li>The <code>trial</code> column must contain the integers 1 through <code>N_TRIALS</code> in order.</li>
-</ul>
-<h3>Fitted exponent close to true value</h3>
-<ul>
-<li>With 80 trials and noise SD 20 ms the fitted $b$ must be within 0.10 of
-  <code>TRUE_B</code>; the signal range of about 210 ms gives moderate SNR, and 80 data
-  points are sufficient for the estimator to converge well within this tolerance.</li>
-</ul>
-<h3>CI brackets true exponent</h3>
-<ul>
-<li>The 95% confidence interval for $b$ must contain <code>TRUE_B</code>.</li>
-</ul>
-<h3>Predicted RT decreasing</h3>
-<ul>
-<li>The fitted curve evaluated at trials 1 through 20 must be strictly
-  decreasing, confirming that $b &gt; 0$ and $A &gt; 0$.</li>
-</ul>
+<dl>
+<dt>Trial count</dt>
+<dd><code>make_trials()</code> must return exactly <code>N_TRIALS</code> rows.</dd>
+<dt>All reaction times positive</dt>
+<dd>Every RT must be positive; values below 1 ms are clamped at 1 ms.</dd>
+<dt>Trial numbers</dt>
+<dd>The <code>trial</code> column must contain the integers 1 through <code>N_TRIALS</code> in order.</dd>
+<dt>Fitted exponent close to true value</dt>
+<dd>With 80 trials and noise SD 20 ms the fitted $b$ must be within 0.10 of <code>TRUE_B</code>.
+The signal range of about 210 ms gives moderate SNR,
+and 80 data points are sufficient for the estimator to converge well within this tolerance.</dd>
+<dt>CI brackets true exponent</dt>
+<dd>The 95% confidence interval for $b$ must contain <code>TRUE_B</code>.</dd>
+<dt>Predicted RT decreasing</dt>
+<dd>The fitted curve evaluated at trials 1 through 20 must be strictly decreasing,
+confirming that $b &gt; 0$ and $A &gt; 0$.</dd>
+</dl>
 <div data-inc="test_learning.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_learning</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_trials</span><span class="p">,</span> <span class="n">N_TRIALS</span><span class="p">,</span> <span class="n">TRUE_B</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">learning</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit_power_law</span><span class="p">,</span> <span class="n">power_law</span>

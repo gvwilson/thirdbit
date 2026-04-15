@@ -71,21 +71,27 @@
 <h1>Spatial Clustering of Archaeological Sites</h1>
 <h2>The Problem</h2>
 <ul>
-<li>Archaeological surveys record the locations of sites (settlements, hearths,
-  burial mounds) as 2-D coordinates on a map.</li>
-<li>Sites are rarely distributed uniformly: concentrations may represent settlements
-  around a water source, nodes in a trade network, or ritual landscapes.</li>
-<li><a class="gl-ref" href="../glossary/#spatial_clustering">Spatial clustering</a> groups sites by proximity without
-  requiring the analyst to specify the number of groups in advance.</li>
-<li>The approach here:</li>
+<li>Archaeological surveys record the locations of sites
+    (settlements, hearths, burial mounds) as 2-D coordinates on a map</li>
+<li>Sites are rarely distributed uniformly:<ul>
+<li>Concentrations may represent settlements around a water source,
+    nodes in a trade network,
+    or ritual landscapes</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#spatial_clustering">Spatial clustering</a> groups sites by proximity
+    without requiring the analyst to specify the number of groups in advance</li>
+<li>The approach here:<ul>
 <li>Generate a synthetic set of site locations in which clusters at known centers
-    are surrounded by random background noise.</li>
-<li>Divide the survey region into a regular grid and count sites per cell.</li>
-<li>Mark cells whose count meets a density threshold as "hot."</li>
-<li>Find <a class="gl-ref" href="../glossary/#connected_component">connected components</a> of hot cells using
-    <a class="gl-ref" href="../glossary/#depth_first_search">depth-first search</a> (DFS) with 8-connectivity.</li>
-<li>Assign each site the label of the component containing its cell.</li>
-<li>Compute the centroid of each cluster.</li>
+    are surrounded by random background noise</li>
+<li>Divide the survey region into a regular grid and count sites per cell</li>
+<li>Mark cells whose count meets a density threshold as "hot"</li>
+<li>Find <a class="gl-ref" href="../glossary/#connected_component">connected components</a> of hot cells
+    using <a class="gl-ref" href="../glossary/#depth_first_search">depth-first search</a> (DFS) with 8-connectivity</li>
+<li>Assign each site the label of the component containing its cell</li>
+<li>Compute the centroid of each cluster</li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why does a grid-cell density approach label some sites as noise (label -1)?</p>
@@ -107,18 +113,18 @@ but the labelling depends on cell density, not overall counts.</dd>
 </div>
 <h2>Dividing the Region into a Grid</h2>
 <ul>
-<li>The survey region spans $[\text{region_min}, \text{region_max}]$ in both
-  easting and northing.</li>
+<li>The survey region spans $[\text{region_min}, \text{region_max}]$ in both easting and northing</li>
 <li>Divide each axis into <code>grid_size</code> equal-width cells of width
-  $w = (\text{region_max} - \text{region_min}) / \text{grid_size}$.</li>
+    $w = (\text{region_max} - \text{region_min}) / \text{grid_size}$</li>
 <li>The cell index along one axis for a coordinate $v$ is:</li>
 </ul>
-<p>$$\text{cell} = \left\lfloor \frac{v - \text{region_min}}{w} \right\rfloor$$</p>
+<p>$$\text{cell} = \left\lfloor \frac{v - \text{region\_min}}{w} \right\rfloor$$</p>
 <ul>
-<li>Sites exactly on the upper boundary would map to index <code>grid_size</code>; clip to
-  <code>grid_size - 1</code> to keep them inside the array.</li>
-<li>Count the number of sites in each cell; the result is a 2D integer array
-  of shape <code>(grid_size, grid_size)</code>.</li>
+<li>Sites exactly on the upper boundary would map to index <code>grid_size</code><ul>
+<li>Clip to <code>grid_size - 1</code> to keep them inside the array</li>
+</ul>
+</li>
+<li>Count the number of sites in each cell; the result is a 2D integer array of shape <code>(grid_size, grid_size)</code></li>
 </ul>
 <div data-inc="archcluster.py" data-mark="grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
@@ -129,10 +135,14 @@ but the labelling depends on cell density, not overall counts.</dd>
 </div>
 <h2>Identifying Concentration Cells</h2>
 <ul>
-<li>A cell with <code>count &gt;= HOT_THRESHOLD</code> is called a "hot" cell; it represents
-  a local concentration of sites.</li>
-<li>Cells below the threshold are background: isolated or sparse finds that do not
-  indicate a settlement pattern.</li>
+<li>A cell with <code>count &gt;= HOT_THRESHOLD</code> is called a "hot" cell<ul>
+<li>It represents a local concentration of sites</li>
+</ul>
+</li>
+<li>Cells below the threshold are background<ul>
+<li>Isolated or sparse finds that do not indicate a settlement pattern</li>
+</ul>
+</li>
 <li>The Boolean mask of hot cells is straightforward:</li>
 </ul>
 <div data-inc="archcluster.py" data-mark="hot-cells"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
@@ -140,9 +150,9 @@ but the labelling depends on cell density, not overall counts.</dd>
 </div>
 <ul>
 <li>Raising <code>HOT_THRESHOLD</code> requires denser concentrations before a cell qualifies,
-  which can split a real cluster into fragments or eliminate it entirely.</li>
-<li>Lowering <code>HOT_THRESHOLD</code> to 1 makes every occupied cell hot, merging isolated
-  noise points into spurious clusters.</li>
+    which can split a real cluster into fragments or eliminate it entirely</li>
+<li>Lowering <code>HOT_THRESHOLD</code> to 1 makes every occupied cell hot,
+    merging isolated noise points into spurious clusters</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>What happens to the number of detected clusters when GRID_SIZE is halved
@@ -166,20 +176,22 @@ not split them.</dd>
 </div>
 <h2>Finding Clusters with Depth-First Search</h2>
 <ul>
-<li>Two hot cells belong to the same cluster if they are connected through a chain
-  of adjacent hot cells.</li>
-<li>8-connectivity counts all eight neighbors (four cardinal, four diagonal), so
-  clusters that touch only at corners are still merged.</li>
-<li>The same iterative DFS used in the <code>porous</code> lesson labels connected components;
-  here it assigns cluster IDs instead of testing for top-to-bottom percolation.</li>
+<li>Two hot cells belong to the same cluster if they are connected through a chain of adjacent hot cells</li>
+<li>8-connectivity counts all eight neighbors (four cardinal, four diagonal),
+    so clusters that touch only at corners are still merged</li>
+<li>The same iterative DFS used in the <code>porous</code> lesson labels connected components</li>
+<li>Here it assigns cluster IDs instead of testing for top-to-bottom percolation</li>
 </ul>
 <div data-inc="archcluster.py" data-mark="dfs"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
-<li><code>labels</code> is initialized to -1; only hot cells receive a non-negative label.</li>
-<li>Each cell is pushed onto the stack at most once (when first labelled), so the
-  algorithm runs in $O(\text{grid_size}^2)$ time.</li>
+<li><code>labels</code> is initialized to -1<ul>
+<li>Only hot cells receive a non-negative label</li>
+</ul>
+</li>
+<li>Each cell is pushed onto the stack at most once (when first labelled),
+    so the algorithm runs in $O(\text{grid_size}^2)$ time</li>
 </ul>
 <div class="forma-ordering" data-lang="en">
 <p>Put these steps of the DFS connected-component labelling in the correct order.</p>
@@ -212,19 +224,18 @@ end up in background cells and are labelled as noise.</dd>
 </div>
 <h2>Assigning Sites to Clusters</h2>
 <ul>
-<li>Each site is mapped to a grid cell using the same floor-division formula as
-  <code>build_grid</code>.</li>
-<li>The site receives the cluster label of its cell; sites in background cells
-  receive -1 (noise).</li>
+<li>Each site is mapped to a grid cell using the same floor-division formula as <code>build_grid</code></li>
+<li>The site receives the cluster label of its cell</li>
+<li>Sites in background cells receive -1 (noise)</li>
 </ul>
 <div data-inc="archcluster.py" data-mark="assign"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
-<li>Sites in hot cells that belong to a small disconnected cluster receive a
-  distinct positive label, not noise.</li>
-<li>Two sites in adjacent cells may receive different labels if one cell is hot
-  and the other is not, even if the sites are physically close.</li>
+<li>Sites in hot cells that belong to a small disconnected cluster receive a distinct positive label,
+    not noise</li>
+<li>Two sites in adjacent cells may receive different labels if one cell is hot and the other is not,
+    even if the sites are physically close</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Site A is at easting 34.0, northing 24.0.  Its cell has a count of 1
@@ -246,52 +257,42 @@ to cluster centroids.</dd>
 </div>
 <h2>Cluster Centroids</h2>
 <ul>
-<li>The centroid of a cluster is the mean easting and mean northing of all sites
-  assigned to that cluster.</li>
-<li>Centroids summarize each cluster's geographic location and can be compared with
-  known landscape features.</li>
+<li>The centroid of a cluster is the mean easting and mean northing of all sites assigned to that cluster</li>
+<li>Centroids summarize each cluster's geographic location and can be compared with known landscape features</li>
 </ul>
 <div data-inc="archcluster.py" data-mark="centroids"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
 <ul>
-<li>Noise sites (label -1) are excluded from all centroid calculations.</li>
-<li>The centroid of a cluster recovered from Gaussian-distributed data should be
-  close to the planted center; the offset is the estimation error.</li>
+<li>Noise sites (label -1) are excluded from all centroid calculations</li>
+<li>The centroid of a cluster recovered from Gaussian-distributed data
+    should be close to the planted center<ul>
+<li>The offset is the estimation error</li>
+</ul>
+</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="3" data-lang="en" data-tolerance="0">
 <p>Four clusters are planted in the synthetic data.  How many entries does the
 dict returned by cluster_centroids contain, assuming all four are recovered?</p>
 </div>
 <h2>Testing</h2>
-<h3>Grid shape and total count</h3>
-<ul>
-<li><code>build_grid</code> must return an array of shape <code>(grid_size, grid_size)</code>.</li>
-<li>The sum of all cell counts must equal the total number of sites, because every
-  site lands in exactly one cell.</li>
-</ul>
-<h3>Hot-cell mask</h3>
-<ul>
-<li><code>find_hot_cells</code> must mark cells with count &gt;= threshold as True and all other
-  cells as False.</li>
-</ul>
-<h3>Two disconnected blocks become two clusters</h3>
-<ul>
-<li>A 3x3 hot mask with True at (0, 0) and True at (2, 2) must receive two
-  distinct non-negative cluster IDs, because those cells are not 8-connected.</li>
-</ul>
-<h3>At least two clusters on synthetic data</h3>
-<ul>
-<li>Running the full pipeline on the synthetic data must produce at least two
-  clusters; the four planted concentrations are far enough apart to remain
-  separate under the default parameters.</li>
-</ul>
-<h3>One centroid per label</h3>
-<ul>
-<li><code>cluster_centroids</code> must return exactly one entry for every unique non-negative
-  label in the input, and the centroid coordinates must equal the mean of the
-  corresponding sites.</li>
-</ul>
+<dl>
+<dt>Grid shape and total count</dt>
+<dd><code>build_grid</code> must return an array of shape <code>(grid_size, grid_size)</code>.
+The sum of all cell counts must equal the total number of sites,
+because every site lands in exactly one cell.</dd>
+<dt>Hot-cell mask</dt>
+<dd><code>find_hot_cells</code> must mark cells with count &gt;= threshold as True and all other cells as False.</dd>
+<dt>Two disconnected blocks become two clusters</dt>
+<dd>A 3x3 hot mask with True at (0, 0) and True at (2, 2) must receive two distinct non-negative cluster IDs,
+because those cells are not 8-connected.</dd>
+<dt>At least two clusters on synthetic data</dt>
+<dd>Running the full pipeline on the synthetic data must produce at least two clusters.
+The four planted concentrations are far enough apart to remain separate under the default parameters.</dd>
+<dt>One centroid per label</dt>
+<dd><code>cluster_centroids</code> must return exactly one entry for every unique non-negative label in the input,
+and the centroid coordinates must equal the mean of the corresponding sites.</dd>
+</dl>
 <div data-inc="test_archcluster.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_archcluster</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -412,8 +413,10 @@ of hot cells</dd>
 summarizes the cluster's geographic location</dd>
 </dl>
 </div>
-<p>DBSCAN handles clusters of irregular shape and density without discretizing
-space; it requires a more advanced algorithms course.</p>
+<ul>
+<li>DBSCAN handles clusters of irregular shape and density without discretizing space</li>
+<li>It requires a more advanced algorithms course.</li>
+</ul>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
 <h3>Parameter sensitivity</h3>

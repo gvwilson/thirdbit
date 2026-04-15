@@ -72,18 +72,21 @@
 <h2>The Problem</h2>
 <ul>
 <li>Weather stations record temperature and precipitation at discrete locations,
-  but models and maps need values everywhere in the study region.</li>
-<li><a class="gl-ref" href="../glossary/#spatial_interpolation">Spatial interpolation</a> estimates the value at
-  any unsampled location by combining observations from nearby stations.</li>
-<li>The approach here:</li>
-<li>Generate a synthetic network of 30 weather stations whose values are sampled
-    from a known smooth field so that errors can be measured exactly.</li>
+    but models and maps need values everywhere in the study region</li>
+<li><a class="gl-ref" href="../glossary/#spatial_interpolation">Spatial interpolation</a> estimates the value at unsampled locations
+    by combining observations from nearby stations</li>
+<li>Our approach:<ul>
+<li>Generate a synthetic network of weather stations
+    whose values are sampled from a known smooth field
+    so that errors can be measured exactly</li>
 <li>Apply <a class="gl-ref" href="../glossary/#inverse_distance_weighting">inverse-distance weighting</a> (IDW)
-    to estimate temperature on a regular 40x40 grid covering the same region.</li>
-<li>Evaluate the interpolated surface against the true field using mean absolute
-    error (MAE).</li>
+    to estimate temperature on a regular covering the same region</li>
+<li>Evaluate the interpolated surface against the true field using
+    <a class="gl-ref" href="../glossary/#mean_absolute_error">mean absolute error</a> (MAE).</li>
 <li>Estimate prediction skill at new locations using
-    <a class="gl-ref" href="../glossary/#cross_validation_loo">leave-one-out cross-validation</a>.</li>
+    <a class="gl-ref" href="../glossary/#cross_validation_loo">leave-one-out cross-validation</a></li>
+</ul>
+</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>Why should interpolation give more weight to nearby stations than to distant ones?</p>
@@ -109,18 +112,21 @@ across the region.</dd>
 </div>
 <h2>Inverse-Distance Weighting</h2>
 <ul>
-<li>For a query point $\mathbf{q}$, let $d_i = |\mathbf{q} - \mathbf{s}_i|$
-  be the Euclidean distance to station $i$ with observed value $z_i$.</li>
+<li>For a query point $\mathbf{q}$, let $d_i = |\mathbf{q} - \mathbf{s}_i|$ be
+    the Euclidean distance to station $i$ with observed value $z_i$</li>
 <li>The IDW estimate is:</li>
 </ul>
 <p>$$\hat{z}(\mathbf{q}) = \frac{\displaystyle\sum_{i=1}^{n} w_i\, z_i}{\displaystyle\sum_{i=1}^{n} w_i}, \qquad w_i = d_i^{-p}$$</p>
 <ul>
-<li>The power parameter $p$ controls how fast influence falls off with distance:
-  $p = 2$ is standard in environmental science.</li>
-<li>A small constant $\varepsilon = 10^{-10}$ is added to each $d_i$ to prevent
-  division by zero when a query point coincides with a station.</li>
-<li>Because the weights are non-negative and sum to one after normalization, IDW
-  is a convex combination: all estimates lie within $[\min_i z_i,\, \max_i z_i]$.</li>
+<li>The power parameter $p$ controls how fast influence falls off with distance<ul>
+<li>$p = 2$ is standard in environmental science</li>
+</ul>
+</li>
+<li>A small constant $\varepsilon = 10^{-10}$ is added to each $d_i$
+    to prevent division by zero when a query point coincides with a station</li>
+<li>Because the weights are non-negative and sum to one after normalization,
+    IDW is a <a class="gl-ref" href="../glossary/#convexity">convex combination</a>:
+    all estimates lie within $[\min_i z_i,\, \max_i z_i]$</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="0.8" data-lang="en" data-tolerance="0.01">
 <p>Station A is 1 unit from the query point and has value 1.0.
@@ -129,12 +135,14 @@ Using p = 2, what is the IDW estimate at the query point?</p>
 </div>
 <h2>Generating Synthetic Station Data</h2>
 <ul>
-<li>The true temperature field is $T(x, y) = \sin(3\pi x)\cos(2\pi y)$ on
-  $[0,1]^2$, producing three warm-cool bands in $x$ and two in $y$.</li>
-<li>Station locations are drawn uniformly at random; values are exact samples from
-  this field with no added noise.</li>
-<li>Using a noise-free reference separates interpolation error from measurement
-  error when evaluating the method.</li>
+<li>The true temperature field is $T(x, y) = \sin(3\pi x)\cos(2\pi y)$ on $[0,1]^2$,
+    producing three warm-cool bands in $x$ and two in $y$</li>
+<li>Station locations are drawn uniformly at random<ul>
+<li>Values are exact samples from this field with no added noise</li>
+</ul>
+</li>
+<li>Using a noise-free reference separates interpolation error from measurement error
+    when evaluating the method</li>
 </ul>
 <div data-inc="generate_interp.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_stations</span><span class="p">(</span><span class="n">n_stations</span><span class="o">=</span><span class="n">N_STATIONS</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a Polars DataFrame of synthetic weather station observations.</span>
@@ -158,11 +166,11 @@ Using p = 2, what is the IDW estimate at the query point?</p>
 </div>
 <h2>Computing the IDW Grid</h2>
 <ul>
-<li>Each of the 1600 grid points is treated as an independent query.</li>
+<li>Each of the grid points is treated as an independent query</li>
 <li>All $(m \times n)$ distances are computed at once by broadcasting:
-  <code>diff = query_xy[:, newaxis, :] - station_xy[newaxis, :, :]</code> yields an
-  $(m, n, 2)$ array; summing squared differences along the last axis gives
-  the $(m, n)$ distance matrix in a single expression with no Python loop.</li>
+    <code>diff = query_xy[:, newaxis, :] - station_xy[newaxis, :, :]</code> yields an $(m, n, 2)$ array</li>
+<li>Summing squared differences along the last axis
+    gives the $(m, n)$ distance matrix in a single expression</li>
 </ul>
 <div data-inc="interp.py" data-mark="idw"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">idw</span><span class="p">(</span><span class="n">station_xy</span><span class="p">,</span> <span class="n">station_values</span><span class="p">,</span> <span class="n">query_xy</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="n">IDW_POWER</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Interpolate values at query points using inverse-distance weighting.</span>
@@ -249,47 +257,44 @@ Divide by the total weight to obtain the normalized estimate.</p>
 </figure>
 <h2>Cross-Validation</h2>
 <ul>
-<li><a class="gl-ref" href="../glossary/#cross_validation_loo">Leave-one-out cross-validation</a> (LOO-CV) measures
-  how well the interpolation predicts at a completely unsampled location.</li>
-<li>For each of the $n$ stations: remove it, interpolate its value from the
-  remaining $n - 1$ stations, and record the absolute error.</li>
-<li>The mean of the $n$ absolute errors (the LOO-CV MAE) estimates the expected
-  prediction error at a new station location.</li>
-<li>LOO-CV is necessary because IDW nearly reproduces the training value at any
-  station included in the computation: evaluating accuracy on training data
-  would systematically underestimate the true prediction error.</li>
+<li>Leave-one-out cross-validation (LOO-CV) measures how well the interpolation predicts the value
+    at a completely unsampled location</li>
+<li>For each of the $n$ stations:<ul>
+<li>Remove it</li>
+<li>Interpolate its value from the remaining $n - 1$ stations</li>
+<li>Record the absolute error</li>
+</ul>
+</li>
+<li>The mean of the $n$ absolute errors (the LOO-CV MAE) estimates
+    the expected prediction error at a new station location</li>
+<li>LOO-CV is necessary because IDW nearly reproduces the training value
+    at any station included in the computation<ul>
+<li>Evaluating accuracy on training data
+    would systematically underestimate the true prediction error</li>
+</ul>
+</li>
 </ul>
 <h2>Testing</h2>
-<h3>Station count</h3>
-<ul>
-<li><code>make_stations()</code> must return exactly <code>N_STATIONS</code> rows.</li>
-</ul>
-<h3>Exact recovery at station location</h3>
-<ul>
-<li>IDW at a station's own coordinates must return approximately that station's
-  value; tolerance $10^{-4}$ is justified by the EPSILON perturbation, which
-  gives the co-located station a weight ratio of roughly $10^{20}$:1.</li>
-</ul>
-<h3>Grid shape</h3>
-<ul>
-<li><code>interpolate_grid</code> with <code>rows=10, cols=15</code> must return an array of shape $(10, 15)$.</li>
-</ul>
-<h3>Interpolated values in range</h3>
-<ul>
-<li>Every IDW estimate must lie within $[\min z_i, \max z_i]$; this is a
-  consequence of IDW being a convex combination of the station values.</li>
-</ul>
-<h3>Weights decrease with distance</h3>
-<ul>
-<li>A query point 0.2 units from station A and 0.8 units from station B must
-  produce an estimate closer to A's value.</li>
-</ul>
-<h3>Cross-validation MAE below threshold</h3>
-<ul>
-<li>LOO-CV MAE must be below 0.3 on the synthetic data; the true field amplitude
-  is 1.0 and 30 stations on this smooth field should achieve well under 30%
-  relative error.</li>
-</ul>
+<dl>
+<dt>Station count</dt>
+<dd><code>make_stations()</code> must return exactly <code>N_STATIONS</code> rows.</dd>
+<dt>Exact recovery at station location</dt>
+<dd>IDW at a station's own coordinates must return approximately that station's value.
+The tolerance $10^{-4}$ is justified by the EPSILON perturbation,
+which gives the co-located station a weight ratio of roughly $10^{20}$:1.</dd>
+<dt>Grid shape</dt>
+<dd><code>interpolate_grid</code> with <code>rows=10, cols=15</code> must return an array of shape $(10, 15)$.</dd>
+<dt>Interpolated values in range</dt>
+<dd>Every IDW estimate must lie within $[\min z_i, \max z_i]$.
+This is a consequence of IDW being a convex combination of the station values.</dd>
+<dt>Weights decrease with distance</dt>
+<dd>A query point 0.2 units from station A and 0.8 units from station B
+must produce an estimate closer to A's value.</dd>
+<dt>Cross-validation MAE below threshold</dt>
+<dd>LOO-CV MAE must be below 0.3 on the synthetic data.
+the true field amplitude is 1.0,
+and 30 stations on this smooth field should achieve well under 30% relative error.</dd>
+</dl>
 <div data-inc="test_interp.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_interp</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>

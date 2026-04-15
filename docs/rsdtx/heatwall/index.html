@@ -71,27 +71,30 @@
 <h1>Heat Conduction Through a Composite Wall</h1>
 <h2>The Problem</h2>
 <ul>
-<li>A wall made of layers of different materials (e.g., brick, insulation, concrete) conducts
-  heat from the warm interior of a building to the cold exterior.</li>
+<li>A wall made of layers of different materials like brick or insulation
+    conducts heat from the warm interior of a building to the cold exterior</li>
 <li>Given the thickness and <a class="gl-ref" href="../glossary/#thermal_conductivity">thermal conductivity</a> of each layer
-  and the temperatures at the two surfaces, we want the steady-state temperature at every
-  point in the wall and the <a class="gl-ref" href="../glossary/#heat_flux">heat flux</a> (power per unit area) passing through it.</li>
-<li>This calculation is used to size insulation, estimate heating loads, and check compliance
-  with building-energy codes.</li>
+    and the temperatures at the two surfaces,
+    we want the steady-state temperature at every point in the wall
+    and the <a class="gl-ref" href="../glossary/#heat_flux">heat flux</a> (power per unit area) passing through it</li>
+<li>This calculation is used to size insulation and check compliance with building codes</li>
 </ul>
 <h2>The Physics</h2>
 <ul>
-<li>In steady state the temperature $T(x)$ no longer changes with time, so the heat equation
-  reduces to:</li>
+<li>In steady state the temperature $T(x)$ no longer changes with time,
+    so the heat equation reduces to:</li>
 </ul>
 <p>$$\frac{d}{dx}\!\left(k(x)\,\frac{dT}{dx}\right) = 0$$</p>
 <ul>
-<li>$k(x)$ is the thermal conductivity at position $x$; it is piecewise constant (one value
-  per layer).</li>
-<li>Within each uniform layer $d^2T/dx^2 = 0$, so $T$ is linear — the slope (and therefore the
-  flux) is constant within any single material.</li>
+<li>$k(x)$ is the thermal conductivity at position $x$</li>
+<li>It is piecewise constant, i.e., has one value per layer</li>
+<li>Within each uniform layer $d^2T/dx^2 = 0$,
+    so $T$ is linear<ul>
+<li>The slope (and therefore the flux) is constant within any single material</li>
+</ul>
+</li>
 <li>At every layer interface both the temperature and the heat flux must be continuous:
-  $T$ does not jump and $k_L\,dT/dx$ on the left equals $k_R\,dT/dx$ on the right.</li>
+    $T$ does not jump and $k_L\,dT/dx$ on the left equals $k_R\,dT/dx$ on the right</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="1.514" data-lang="en" data-tolerance="0.005">
 <p>Compute the total thermal resistance ($\text{m}^2\,\text{K}\,\text{W}^{-1}$) of a three-layer wall with:
@@ -101,13 +104,14 @@ Use $R = \sum_i L_i / k_i$ and give your answer to three decimal places.</p>
 </div>
 <h2>Thermal Resistance</h2>
 <ul>
-<li>The <a class="gl-ref" href="../glossary/#thermal_resistance">thermal resistance</a> of a uniform layer is $R_i = L_i / k_i$ ($\text{m}^2\,\text{K}\,\text{W}^{-1}$).</li>
+<li>The <a class="gl-ref" href="../glossary/#thermal_resistance">thermal resistance</a> of a uniform layer
+    is $R_i = L_i / k_i$ ($\text{m}^2\,\text{K}\,\text{W}^{-1}$)</li>
 <li>For layers in series the resistances add: $R_\text{total} = \sum_i R_i$.</li>
 <li>The uniform heat flux through the wall is:</li>
 </ul>
 <p>$$q = \frac{T_\text{left} - T_\text{right}}{R_\text{total}}$$</p>
 <ul>
-<li>The temperature at each interface follows by subtracting $q\,R_i$ from the previous value.</li>
+<li>The temperature at each interface follows by subtracting $q\,R_i$ from the previous value</li>
 </ul>
 <div data-inc="heatwall.py" data-mark="analytic"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">analytic_solution</span><span class="p">(</span>
     <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">,</span> <span class="n">conductivities</span><span class="o">=</span><span class="n">LAYER_K</span><span class="p">,</span> <span class="n">t_left</span><span class="o">=</span><span class="n">T_LEFT</span><span class="p">,</span> <span class="n">t_right</span><span class="o">=</span><span class="n">T_RIGHT</span>
@@ -165,11 +169,17 @@ Use $R = \sum_i L_i / k_i$ and give your answer to three decimal places.</p>
 </div>
 <h2>Discretizing the Wall</h2>
 <ul>
-<li>We place $n_\text{per layer}$ cells in each layer; nodes sit at cell boundaries (including
-  the shared interface between adjacent layers), giving $n_\text{layers} \times n_\text{per layer} + 1$
-  nodes in total.</li>
-<li>Because every segment between neighbouring nodes lies entirely inside one material, each
-  segment has a well-defined conductivity — no averaging formula is needed at layer interfaces.</li>
+<li>We place $n_\text{per layer}$ cells in each layer<ul>
+<li>Nodes sit at cell boundaries,
+    including the shared interface between adjacent layers),
+    giving $n_\text{layers} \times n_\text{per layer} + 1$ nodes in total</li>
+</ul>
+</li>
+<li>Because every segment between neighbouring nodes lies entirely inside one material,
+    each segment has a well-defined conductivity<ul>
+<li>So no averaging formula is needed at layer interfaces</li>
+</ul>
+</li>
 </ul>
 <div data-inc="heatwall.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Three-layer composite wall: brick | mineral wool insulation | concrete</span>
 <span class="n">LAYER_WIDTHS</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">]</span>  <span class="c1"># layer thicknesses (m)</span>
@@ -224,9 +234,11 @@ Use $R = \sum_i L_i / k_i$ and give your answer to three decimal places.</p>
 </div>
 <h2>Iterative Relaxation</h2>
 <ul>
-<li>Rather than assembling and solving a linear system, we find the steady-state temperatures
-  by repeatedly applying a simple averaging rule until the profile stops changing.</li>
-<li>This is the same "keep updating until convergence" strategy as Euler's method for ODEs.</li>
+<li>Rather than assembling and solving a linear system,
+    we find the steady-state temperatures by repeatedly applying a simple averaging rule
+    until the profile stops changing</li>
+<li>This is the same "keep updating until convergence" strategy
+    as <a class="gl-ref" href="../glossary/#eulers_method">Euler's method</a> for ordinary differential equations.</li>
 <li>At each interior node $i$, the steady-state heat balance requires:</li>
 </ul>
 <p>$$k_{i-1}\,\frac{T_{i-1} - T_i}{\Delta x_\text{left}} + k_i\,\frac{T_{i+1} - T_i}{\Delta x_\text{right}} = 0$$</p>
@@ -235,18 +247,22 @@ Use $R = \sum_i L_i / k_i$ and give your answer to three decimal places.</p>
 </ul>
 <p>$$a = \frac{k_{i-1}}{\Delta x_\text{left}}, \quad b = \frac{k_i}{\Delta x_\text{right}}, \quad T_i \leftarrow \frac{a\,T_{i-1} + b\,T_{i+1}}{a + b}$$</p>
 <ul>
-<li>$k_{i-1}$ is the conductivity of the segment to the left of node $i$; $k_i$ is the
-  conductivity of the segment to the right; $\Delta x_\text{left}$ and $\Delta x_\text{right}$
-  are the distances to the neighbouring nodes.</li>
-<li>Both conductivity and spacing appear in the weights: a high-conductivity or narrow segment
-  "pulls" the node temperature toward the neighbour on that side more strongly.</li>
-<li>The two boundary temperatures $T_0 = T_\text{left}$ and $T_N = T_\text{right}$ are fixed
-  throughout.</li>
-<li>After each full sweep over all interior nodes, we check the maximum change:
-  if $\max_i |T_i^\text{new} - T_i^\text{old}| &lt; \varepsilon$ we stop.</li>
-<li>The threshold $\varepsilon$ (<code>TOLERANCE</code>) is set to $10^{-6}$ °C, which is far smaller than
-  any physical measurement uncertainty.</li>
-<li>This method is called <a class="gl-ref" href="../glossary/#jacobi_iteration">Jacobi iteration</a>.</li>
+<li>$k_{i-1}$ is the conductivity of the segment to the left of node $i$,
+    $k_i$ is the conductivity of the segment to the right,
+    and $\Delta x_\text{left}$ and $\Delta x_\text{right}$ are the distances to the neighbouring nodes</li>
+<li>Both conductivity and spacing appear in the weights<ul>
+<li>A high-conductivity or narrow segment "pulls" the node temperature toward the neighbour on that side
+    more strongly</li>
+</ul>
+</li>
+<li>The two boundary temperatures $T_0 = T_\text{left}$ and $T_N = T_\text{right}$ are fixed throughout</li>
+<li>After each full sweep over all interior nodes, we check the maximum change<ul>
+<li>If $\max_i |T_i^\text{new} - T_i^\text{old}| &lt; \varepsilon$ we stop</li>
+</ul>
+</li>
+<li>The threshold $\varepsilon$ (<code>TOLERANCE</code>) is set to $10^{-6}$ °C,
+    which is far smaller than any physical measurement uncertainty</li>
+<li>This method is called <a class="gl-ref" href="../glossary/#jacobi_iteration">Jacobi iteration</a></li>
 </ul>
 <div data-inc="heatwall.py" data-mark="jacobi"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">jacobi_solve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">,</span> <span class="n">t_left</span><span class="o">=</span><span class="n">T_LEFT</span><span class="p">,</span> <span class="n">t_right</span><span class="o">=</span><span class="n">T_RIGHT</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">TOLERANCE</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Solve for steady-state temperatures using Jacobi (relaxation) iteration.</span>
@@ -314,10 +330,11 @@ starting guess (as long as the boundary conditions are fixed).</dd>
 </div>
 <h2>Convergence Behaviour</h2>
 <ul>
-<li>A good starting guess speeds convergence: we use a linear profile from $T_\text{left}$ to
-  $T_\text{right}$, which is already the exact answer for a uniform wall.</li>
-<li>For the three-layer wall the iteration typically converges in a few hundred sweeps.</li>
-<li>The figure below shows snapshots at iterations 0, 10, 100, and the converged solution.</li>
+<li>A good starting guess speeds convergence</li>
+<li>We use a linear profile from $T_\text{left}$ to $T_\text{right}$,
+    which is already the exact answer for a uniform wall</li>
+<li>For the three-layer wall the iteration typically converges in a few hundred sweeps</li>
+<li>The figure below shows snapshots at iterations 0, 10, 100, and the converged solution</li>
 </ul>
 <figure id="f:heatwall-convergence">
 <img alt="Temperature profiles at iterations 0, 10, 100, and converged for a brick-insulation-concrete wall." src="heatwall_convergence.svg"/>
@@ -352,8 +369,8 @@ Give your answer to two decimal places.</p>
 </figure>
 <h2>Heat Flux Through Each Layer</h2>
 <ul>
-<li>In steady state the heat flux $q = -k\,dT/dx$ is the same in every layer.</li>
-<li>We compute it directly from the numerical temperature gradient in each layer's segments.</li>
+<li>In steady state the heat flux $q = -k\,dT/dx$ is the same in every layer</li>
+<li>We compute it directly from the numerical temperature gradient in each layer's segments</li>
 </ul>
 <div data-inc="heatwall.py" data-mark="flux"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">layer_heat_flux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">k_seg</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the heat flux (W m⁻²) in each layer.</span>
@@ -378,56 +395,46 @@ Give your answer to two decimal places.</p>
 </code></pre></div>
 </div>
 <h2>Testing</h2>
-<h3>Grid node count</h3>
-<ul>
-<li>With $n$ layers and $n_\text{per layer}$ cells each, the grid must contain exactly
-  $n \times n_\text{per layer} + 1$ nodes.  The $+1$ accounts for the shared right-boundary node.</li>
-</ul>
-<h3>Grid extent</h3>
-<ul>
-<li>The first node must be at $x = 0$ and the last at $x = \sum_i L_i$.  An off-by-one in
-  the grid construction would violate this.</li>
-</ul>
-<h3>Boundary temperatures</h3>
-<ul>
-<li>The solver must return exactly <code>T_LEFT</code> and <code>T_RIGHT</code> at the two ends; these are
-  fixed throughout the iteration, not approximations.</li>
-</ul>
-<h3>Single layer is linear</h3>
-<ul>
-<li>For a single uniform layer the exact solution is a straight line from $T_\text{left}$ to
-  $T_\text{right}$.  Jacobi iteration converges to this profile because the update rule
-  $T_i \leftarrow (T_{i-1} + T_{i+1})/2$ has the linear profile as its only fixed point.</li>
-</ul>
-<h3>Convergence is reached</h3>
-<ul>
-<li>After the solver returns, applying one more Jacobi sweep must produce a change smaller
-  than <code>TOLERANCE</code>.  This directly tests the stopping criterion.</li>
-</ul>
-<h3>Flux constant across layers</h3>
-<ul>
-<li>Conservation of energy in steady state requires the same heat flux in every layer.
-  Per-layer flux averages must match the analytic value within 1%.</li>
-</ul>
-<h3>Interface temperature matches analytic</h3>
-<ul>
-<li>The temperatures at the layer boundaries returned by the solver must match the analytic
-  values from the thermal-resistance formula to better than $10^{-3}$ °C.  The remaining
-  error is dominated by the finite node spacing, not by iteration error, so any deviation
-  larger than this indicates a conductivity-assignment or grid-construction bug.</li>
-</ul>
-<h3>Linearity in $\Delta T$</h3>
-<ul>
-<li>Doubling the temperature difference across the wall must double the heat flux.  This
-  tests that <code>analytic_solution</code> is free of any nonlinear terms.</li>
-</ul>
-<h3>Flux continuity at interfaces</h3>
-<ul>
-<li>At every layer interface, the heat flux computed from the last segment of the left
-  layer must equal the flux computed from the first segment of the right layer to within
-  0.1% of the analytic flux.  This verifies that Jacobi iteration correctly enforces
-  $k_1\,\Delta T_1 / \Delta x_1 = k_2\,\Delta T_2 / \Delta x_2$ at each boundary.</li>
-</ul>
+<dl>
+<dt>Grid node count</dt>
+<dd>With $n$ layers and $n_\text{per layer}$ cells each,
+the grid must contain exactly $n \times n_\text{per layer} + 1$ nodes.
+The $+1$ accounts for the shared right-boundary node.</dd>
+<dt>Grid extent</dt>
+<dd>The first node must be at $x = 0$ and the last at $x = \sum_i L_i$.
+An off-by-one in the grid construction would violate this.</dd>
+<dt>Boundary temperatures</dt>
+<dd>The solver must return exactly <code>T_LEFT</code> and <code>T_RIGHT</code> at the two ends.
+these are fixed throughout the iteration, not approximations.</dd>
+<dt>Single layer is linear</dt>
+<dd>For a single uniform layer the exact solution is a straight line from $T_\text{left}$ to $T_\text{right}$.
+Jacobi iteration converges to this profile because
+the update rule $T_i \leftarrow (T_{i-1} + T_{i+1})/2$ has the linear profile as its only fixed point.</dd>
+<dt>Convergence is reached</dt>
+<dd>After the solver returns,
+applying one more Jacobi sweep must produce a change smaller than <code>TOLERANCE</code>.
+This directly tests the stopping criterion.</dd>
+<dt>Flux constant across layers</dt>
+<dd>Conservation of energy in steady state requires the same heat flux in every layer.
+Per-layer flux averages must match the analytic value within 1%.</dd>
+<dt>Interface temperature matches analytic</dt>
+<dd>The temperatures at the layer boundaries returned by the solver
+must match the analytic values from the thermal-resistance formula to better than $10^{-3}$ °C.
+The remaining error is dominated by the finite node spacing,
+not by iteration error,
+so any deviation larger than this indicates a conductivity-assignment or grid-construction bug.</dd>
+<dt>Linearity in $\Delta T$</dt>
+<dd>Doubling the temperature difference across the wall must double the heat flux.
+This tests that <code>analytic_solution</code> is free of any nonlinear terms.</dd>
+<dt>Flux continuity at interfaces</dt>
+<dd>At every layer interface,
+the heat flux computed from the last segment of the left layer
+must equal the flux computed from the first segment of the right layer
+to within 0.1% of the analytic flux.
+This verifies that Jacobi iteration correctly enforces
+$k_1\,\Delta T_1 / \Delta x_1 = k_2\,\Delta T_2 / \Delta x_2$
+at each boundary.</dd>
+</dl>
 <div data-inc="test_heatwall.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">heatwall</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>

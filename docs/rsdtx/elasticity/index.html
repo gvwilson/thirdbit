@@ -71,15 +71,18 @@
 <h1>Estimating Price Elasticity of Demand</h1>
 <h2>The Problem</h2>
 <ul>
-<li>The <a class="gl-ref" href="../glossary/#price_elasticity">price elasticity of demand</a> measures how sensitive consumer
-  demand is to price changes: it answers "if the price rises by 1%, how many fewer units are sold?"</li>
+<li>The <a class="gl-ref" href="../glossary/#price_elasticity">price elasticity of demand</a> measures
+    how sensitive consumer demand is to price changes<ul>
+<li>If the price rises by 1%, how many fewer units are sold?</li>
+</ul>
+</li>
 <li>Formally:</li>
 </ul>
 <p>$$\varepsilon = \frac{\partial \ln Q}{\partial \ln P} = \frac{P}{Q} \frac{dQ}{dP}$$</p>
 <ul>
-<li>$\varepsilon &lt; -1$: demand is elastic — a 1% price increase causes more than a 1% drop in quantity.</li>
-<li>$-1 &lt; \varepsilon &lt; 0$: demand is inelastic — quantity is relatively insensitive to price.</li>
-<li>$\varepsilon = -1$: unit elastic — price and quantity move in equal and opposite proportions.</li>
+<li>$\varepsilon &lt; -1$: demand is elastic — a 1% price increase causes more than a 1% drop in quantity</li>
+<li>$-1 &lt; \varepsilon &lt; 0$: demand is inelastic — quantity is relatively insensitive to price</li>
+<li>$\varepsilon = -1$: unit elastic — price and quantity move in equal and opposite proportions</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
 <p>A product has estimated price elasticity $\varepsilon = -2.0$.
@@ -102,8 +105,8 @@ If the price increases by 10%, what happens to quantity demanded?</p>
 <p>$$\ln Q = \ln A + \varepsilon \ln P$$</p>
 <ul>
 <li>This means $\varepsilon$ is the <a class="gl-ref" href="../glossary/#ordinary_least_squares">ordinary least squares</a> slope
-  in <a class="gl-ref" href="../glossary/#log_log_regression">log-log space</a>: fitting $y = a + bx$ where $y = \ln Q$ and $x = \ln P$
-  directly estimates the elasticity as the slope $b$.</li>
+    in <a class="gl-ref" href="../glossary/#log_log_regression">log-log space</a>:
+    fitting $y = a + bx$ where $y = \ln Q$ and $x = \ln P$ directly estimates the elasticity as the slope $b$</li>
 <li>The intercept $a = \ln A$ gives the log of the demand intercept, but is rarely reported by itself.</li>
 </ul>
 <div class="forma-numeric-entry" data-correct="-1.5" data-lang="en" data-tolerance="0.01">
@@ -113,16 +116,19 @@ What is the corresponding elasticity (the slope of the log-log line)?</p>
 </div>
 <h2>Ordinary Least Squares in Log-Log Space</h2>
 <ul>
-<li>Transforming prices and quantities to logs reduces the nonlinear power-law model to a
-  straight line, so standard OLS applies:</li>
+<li>Transforming prices and quantities to logs reduces the nonlinear power-law model
+    to a straight line, so standard OLS applies:</li>
 </ul>
 <p>$$\hat{\varepsilon} = \frac{\sum_i (\ln P_i - \overline{\ln P})(\ln Q_i - \overline{\ln Q})}{\sum_i (\ln P_i - \overline{\ln P})^2}$$</p>
 <ul>
 <li>The standard error of $\hat{\varepsilon}$ is:</li>
 </ul>
 <p>$$\text{SE}(\hat{\varepsilon}) = \sqrt{\frac{\text{RSS}/(n-2)}{\sum_i (\ln P_i - \overline{\ln P})^2}}$$</p>
-<p>where $\text{RSS} = \sum_i (\ln Q_i - \hat{a} - \hat{\varepsilon} \ln P_i)^2$ is the
-  residual sum of squares.  A 95% confidence interval is $\hat{\varepsilon} \pm t_{0.975,\,n-2} \cdot \text{SE}(\hat{\varepsilon})$.</p>
+<ul>
+<li>$\text{RSS} = \sum_i (\ln Q_i - \hat{a} - \hat{\varepsilon} \ln P_i)^2$ is
+    the residual sum of squares</li>
+<li>A 95% confidence interval is $\hat{\varepsilon} \pm t_{0.975,\,n-2} \cdot \text{SE}(\hat{\varepsilon})$</li>
+</ul>
 <div data-inc="elasticity.py" data-mark="ols"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_log_ols</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fit log(quantity) = intercept + slope * log(price) by ordinary least squares.</span>
 
@@ -167,10 +173,15 @@ What is the corresponding elasticity (the slope of the log-log line)?</p>
 </div>
 <h2>Generating Synthetic Data</h2>
 <ul>
-<li>Prices are drawn uniformly from $[1, 20]$ dollars; log-quantities are generated from the
-  power-law model plus Gaussian noise in log space.</li>
-<li>Noise in log space is equivalent to multiplicative noise in original space: each observed
-  quantity is $Q_i = A P_i^\varepsilon \cdot e^{\epsilon_i}$ where $\epsilon_i \sim N(0, \sigma^2)$.</li>
+<li>Prices are drawn uniformly from $[1, 20]$ dollars<ul>
+<li>Log-quantities are generated from the power-law model plus Gaussian noise in log space</li>
+</ul>
+</li>
+<li>Noise in log space is equivalent to multiplicative noise in original space<ul>
+<li>Each observed quantity is $Q_i = A P_i^\varepsilon \cdot e^{\epsilon_i}$,
+    where $\epsilon_i \sim N(0, \sigma^2)$</li>
+</ul>
+</li>
 </ul>
 <div data-inc="generate_elasticity.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
 <span class="n">N_POINTS</span> <span class="o">=</span> <span class="mi">80</span>  <span class="c1"># number of price-quantity observations</span>
@@ -255,35 +266,33 @@ What is the corresponding elasticity (the slope of the log-log line)?</p>
 <figcaption>Figure 1: Eighty synthetic price-quantity observations on log-log axes. The fitted OLS line has slope $\hat{\varepsilon} = -1.474 \pm 0.022$ (95% CI: $[-1.518,\,-1.430]$), covering the true value $\varepsilon = -1.5$.</figcaption>
 </figure>
 <ul>
-<li>The confidence interval $[-1.518, -1.430]$ is narrow because the noise ($\sigma = 0.15$ in
-  log space) is small relative to the price variation.</li>
-<li>A wide confidence interval (or one that includes zero) would indicate insufficient price
-  variation in the data to estimate elasticity reliably.</li>
+<li>The confidence interval $[-1.518, -1.430]$ is narrow because
+    the noise ($\sigma = 0.15$ in log space) is small relative to the price variation</li>
+<li>A wide confidence interval (or one that includes zero) indicates
+    insufficient price variation in the data to estimate elasticity reliably</li>
 </ul>
 <h2>Testing</h2>
-<h3>Noise-free recovery</h3>
-<ul>
-<li>With no noise, OLS returns the exact true slope and intercept to within $10^{-6}$ (relative).
-  Any deviation is a bug in the OLS formula rather than a sampling artefact.</li>
-</ul>
-<h3>Noisy slope within 10% of true value</h3>
-<ul>
-<li>With $\sigma = 0.15$ and $n = 80$, the theoretical SE of the slope is approximately 0.02.
-  Ten percent of $|\varepsilon| = 1.5$ equals 0.15, giving a safety factor of roughly 7.5
-  over the expected sampling error, so the test should pass for any reasonable random seed.</li>
-</ul>
-<h3>Negative elasticity</h3>
-<ul>
-<li>Any estimated slope for downward-sloping demand must be negative.  A positive slope would
-  indicate data generation or formula errors because prices and quantities are negatively
-  correlated by construction.</li>
-</ul>
-<h3>95% CI contains true value</h3>
-<ul>
-<li>With the fixed seed 7493418, the CI $[-1.518, -1.430]$ reliably contains the true
-  value $-1.5$.  This test would fail only with data where the noise draw happens to be
-  extreme, which the fixed seed rules out.</li>
-</ul>
+<dl>
+<dt>Noise-free recovery</dt>
+<dd>With no noise,
+OLS returns the exact true slope and intercept to within $10^{-6}$ (relative).
+Any deviation is a bug in the OLS formula rather than a sampling artefact.</dd>
+<dt>Noisy slope within 10% of true value</dt>
+<dd>With $\sigma = 0.15$ and $n = 80$,
+the theoretical SE of the slope is approximately 0.02.
+Ten percent of $|\varepsilon| = 1.5$ equals 0.15,
+giving a safety factor of roughly 7.5 over the expected sampling error,
+so the test should pass for any reasonable random seed.</dd>
+<dt>Negative elasticity</dt>
+<dd>Any estimated slope for downward-sloping demand must be negative.
+A positive slope would indicate data generation or formula errors
+because prices and quantities are negatively correlated by construction.</dd>
+<dt>95% CI contains true value</dt>
+<dd>With the fixed seed 7493418,
+the CI $[-1.518, -1.430]$ reliably contains the true value $-1.5$.
+This test would fail only with data where the noise draw happens to be extreme,
+which the fixed seed rules out.</dd>
+</dl>
 <div data-inc="test_elasticity.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_elasticity</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_elasticity_data</span><span class="p">,</span> <span class="n">TRUE_ELASTICITY</span><span class="p">,</span> <span class="n">TRUE_INTERCEPT</span>

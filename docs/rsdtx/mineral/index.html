@@ -71,21 +71,23 @@
 <h1>Mineral Classification by Geochemistry</h1>
 <h2>The Problem</h2>
 <ul>
-<li>Geochemists measure rock samples as oxide weight percentages (wt%): the fraction of each
-  chemical compound in the rock.</li>
-<li>A classifier that assigns samples to mineral classes from their chemistry automates a task
-  that otherwise requires expert visual inspection of thin sections under a microscope.</li>
-<li>We train a <a class="gl-ref" href="../glossary/#logistic_regression">logistic regression</a> model on two features —
-  $\text{SiO}_2$ (silica) and $\text{Al}_2\text{O}_3$ (alumina) — to separate felsic rocks (granite-like, silica-rich)
-  from mafic rocks (basalt-like, silica-poor).</li>
+<li>Geochemists measure rock samples as oxide weight percentages (wt%),
+    which is the fraction of each chemical compound in the rock</li>
+<li>A classifier that assigns samples to mineral classes from their chemistry
+    automates a task that otherwise requires expert visual inspection of thin sections under a microscope</li>
+<li>We train a <a class="gl-ref" href="../glossary/#logistic_regression">logistic regression</a> model on
+    $\text{SiO}_2$ (silica) and $\text{Al}_2\text{O}_3$ (alumina)
+    to separate felsic rocks (granite-like, silica-rich) from mafic rocks (basalt-like, silica-poor)</li>
 </ul>
 <h2>Generating Synthetic Geochemical Data</h2>
 <ul>
-<li>Real geochemical datasets are messy; we start with synthetic data drawn from two Gaussian
-  distributions that mimic the composition ranges reported in igneous petrology textbooks.</li>
-<li>Felsic rocks average 70 wt% $\text{SiO}_2$ and 14 wt% $\text{Al}_2\text{O}_3$; mafic rocks average 50 wt% $\text{SiO}_2$
-  and 9 wt% $\text{Al}_2\text{O}_3$.</li>
-<li>The two distributions overlap — real mineral classification is never perfectly clean.</li>
+<li>We start with synthetic data drawn from two Gaussian distributions
+    that mimic the composition ranges reported in igneous petrology textbooks</li>
+<li>Felsic rocks average 70 wt% $\text{SiO}_2$ and 14 wt% $\text{Al}_2\text{O}_3$<ul>
+<li>Mafic rocks average 50 wt% $\text{SiO}_2$ and 9 wt% $\text{Al}_2\text{O}_3$</li>
+</ul>
+</li>
+<li>The two distributions overlap because real mineral classification is never perfectly clean</li>
 </ul>
 <div data-inc="generate_mineral.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Synthetic geochemical data: two mineral classes distinguished by oxide concentrations.</span>
 <span class="c1"># Felsic rocks (e.g. granite) are silica-rich; mafic rocks (e.g. basalt) are silica-poor.</span>
@@ -130,9 +132,9 @@ what fraction of the $\text{SiO}_2$ distributions overlap?
 </ul>
 <p>$$p = \sigma(w_0 \cdot x_0 + w_1 \cdot x_1 + b) = \frac{1}{1 + e^{-(w_0 x_0 + w_1 x_1 + b)}}$$</p>
 <ul>
-<li>$\sigma$ is the <a class="gl-ref" href="../glossary/#sigmoid_function">sigmoid function</a>, which maps any real number to $(0, 1)$.</li>
-<li>$x_0$ and $x_1$ are the (normalised) $\text{SiO}_2$ and $\text{Al}_2\text{O}_3$ concentrations.</li>
-<li>$w_0$, $w_1$, and $b$ are learned from data.</li>
+<li>$\sigma$ is the <a class="gl-ref" href="../glossary/#sigmoid_function">sigmoid function</a>, which maps any real number to $(0, 1)$</li>
+<li>$x_0$ and $x_1$ are the (normalised) $\text{SiO}_2$ and $\text{Al}_2\text{O}_3$ concentrations</li>
+<li>$w_0$, $w_1$, and $b$ are learned from data</li>
 </ul>
 <div data-inc="mineral.py" data-mark="sigmoid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Map any real number to (0, 1): sigma(z) = 1 / (1 + exp(-z))."""</span>
@@ -175,8 +177,8 @@ is the standard tool for constraining weights.</dd>
 <p>$$\mathcal{L} = -\frac{1}{n}\sum_{i=1}^n \left[ y_i \log p_i + (1 - y_i) \log(1 - p_i) \right]$$</p>
 <ul>
 <li>The gradient of $\mathcal{L}$ with respect to the weights is $\mathbf{X}^\top (\mathbf{p} - \mathbf{y}) / n$,
-  and with respect to the bias is $\text{mean}(\mathbf{p} - \mathbf{y})$.</li>
-<li>Each gradient-descent step subtracts the gradient scaled by the learning rate.</li>
+    and with respect to the bias is $\text{mean}(\mathbf{p} - \mathbf{y})$</li>
+<li>Each gradient-descent step subtracts the gradient scaled by the learning rate</li>
 </ul>
 <div data-inc="mineral.py" data-mark="train"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="n">N_ITER</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Fit a logistic regression model by gradient descent.</span>
@@ -228,13 +230,13 @@ is the standard tool for constraining weights.</dd>
 </div>
 <h2>Decision Boundary and Classification</h2>
 <ul>
-<li>The decision boundary is the line where $p = 0.5$, i.e., where $w_0 x_0 + w_1 x_1 + b = 0$.</li>
-<li>Rearranging for $x_1$ ($\text{Al}_2\text{O}_3$) as a function of $x_0$ ($\text{SiO}_2$):</li>
+<li>The decision boundary is the line where $p = 0.5$, i.e., where $w_0 x_0 + w_1 x_1 + b = 0$</li>
+<li>Rearranging for $x_1$ ($\text{Al}_2\text{O}_3$) as a function of $x_0$ ($\text{SiO}_2$) gives:</li>
 </ul>
 <p>$$x_1 = -\frac{w_0 x_0 + b}{w_1}$$</p>
 <ul>
-<li>Because features were normalised during training, the boundary must be mapped back to
-  original units before plotting.</li>
+<li>Because features were normalised during training,
+    the boundary must be mapped back to original units before plotting</li>
 </ul>
 <div data-inc="mineral.py" data-mark="boundary"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">decision_boundary_line</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">x_range</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return (x_vals, y_vals) for the decision boundary in original feature space.</span>
@@ -294,40 +296,32 @@ is the standard tool for constraining weights.</dd>
 </table>
 </div>
 <h2>Testing</h2>
-<h3>Sigmoid known values</h3>
-<ul>
-<li>$\sigma(0) = 0.5$ exactly; $\sigma(z) \to 1$ as $z \to +\infty$; $\sigma(z) \to 0$ as
-  $z \to -\infty$.  These are identities that must hold regardless of the training data.</li>
-</ul>
-<h3>Normalization properties</h3>
-<ul>
-<li>After normalization, each feature column must have mean 0 and standard deviation 1.</li>
-<li>Applying training statistics to test data must reproduce $(\mathbf{x} - \mu) / \sigma$
-  without recomputing $\mu$ or $\sigma$ from the test set.</li>
-</ul>
-<h3>Loss decreases during training</h3>
-<ul>
-<li>A correct gradient-descent implementation must reduce the cross-entropy loss monotonically
-  over the first 100 iterations.  An increase would indicate a sign error in the gradient or
-  an excessively large learning rate.</li>
-</ul>
-<h3>Accuracy on well-separated data</h3>
-<ul>
-<li>The two classes are separated by roughly 6.7 standard deviations in $\text{SiO}_2$.  A correctly
-  trained classifier must achieve at least 95% accuracy; a lower score indicates a bug.</li>
-</ul>
-<h3>Accuracy with seed=42</h3>
-<ul>
-<li>With default parameters and <code>seed=42</code>, held-out test accuracy must reach at least 95%.
-  The tolerance of 5% is wide enough to accommodate small variations between seeds while
-  still catching a failed classifier.</li>
-</ul>
-<h3>Predict with known weights</h3>
-<ul>
-<li>With $w = [10, 0]$ and $b = 0$, the boundary is at $x_0 = 0$.  A sample with
-  $x_0 = 1$ must be predicted class 1 and a sample with $x_0 = -1$ must be predicted
-  class 0.</li>
-</ul>
+<dl>
+<dt>Sigmoid known values</dt>
+<dd>$\sigma(0) = 0.5$ exactly,
+$\sigma(z) \to 1$ as $z \to +\infty$,
+and $\sigma(z) \to 0$ as $z \to -\infty$.
+These are identities that must hold regardless of the training data.</dd>
+<dt>Normalization properties</dt>
+<dd>After normalization, each feature column must have mean 0 and standard deviation 1.
+Applying training statistics to test data must reproduce $(\mathbf{x} - \mu) / \sigma$
+without recomputing $\mu$ or $\sigma$ from the test set.</dd>
+<dt>Loss decreases during training</dt>
+<dd>A correct gradient-descent implementation
+must reduce the cross-entropy loss monotonically over the first 100 iterations.
+An increase would indicate a sign error in the gradient or an excessively large learning rate.</dd>
+<dt>Accuracy on well-separated data</dt>
+<dd>The two classes are separated by roughly 6.7 standard deviations in $\text{SiO}_2$.
+A correctly trained classifier must achieve at least 95% accuracy; a lower score indicates a bug.</dd>
+<dt>Accuracy with seed=42</dt>
+<dd>With default parameters, held-out test accuracy must reach at least 95%.
+The tolerance of 5% is wide enough to accommodate small variations between random seeds
+while still catching a failed classifier.</dd>
+<dt>Predict with known weights</dt>
+<dd>With $w = [10, 0]$ and $b = 0$, the boundary is at $x_0 = 0$.
+A sample with $x_0 = 1$ must be predicted class 1
+and a sample with $x_0 = -1$ must be predicted class 0.</dd>
+</dl>
 <div data-inc="test_mineral.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">generate_mineral</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_mineral_data</span><span class="p">,</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">TRAIN_FRAC</span>
