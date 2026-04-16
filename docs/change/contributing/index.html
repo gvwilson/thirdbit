@@ -16,7 +16,7 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Organizational Change</a>
+<a class="brand" href="../">Change</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -56,50 +56,12 @@ All contributors must abide by our Code of Conduct.</p>
 <li>Install dependencies: <code>uv sync</code>.</li>
 <li>Run <code>make</code> on its own to see a list of common commands.</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th scope="col">make task</th>
-<th scope="col">effect</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>build</td>
-<td>render HTML pages</td>
-</tr>
-<tr>
-<td>check</td>
-<td>check structure and content</td>
-</tr>
-<tr>
-<td>clean</td>
-<td>clean up</td>
-</tr>
-<tr>
-<td>commands</td>
-<td>show available commands (default)</td>
-</tr>
-<tr>
-<td>links</td>
-<td>check links in published site</td>
-</tr>
-<tr>
-<td>serve</td>
-<td>serve generated HTML</td>
-</tr>
-<tr>
-<td>spelling</td>
-<td>check for unknown words</td>
-</tr>
-<tr>
-<td>untab</td>
-<td>remove tabs in Markdown files</td>
-</tr>
-</tbody>
-</table>
-<h2>Structure</h2>
+<h2>Style and Structure</h2>
 <ul>
+<li>Lessons are written in Markdown and compiled to HTML using the <code>mccole</code> static site generator.<ul>
+<li>Each lesson should take about an hour to work through.</li>
+</ul>
+</li>
 <li>Lessons are in <code>slug</code> directories<ul>
 <li><code>slug</code> is short mnemonic</li>
 <li>Each lesson must have an <code>index.md</code> file containing its content</li>
@@ -110,10 +72,11 @@ All contributors must abide by our Code of Conduct.</p>
 <li>The leading <code>@</code> is translated into a relative reference to the project root</li>
 </ul>
 </li>
-<li>The Markdown link definitions in <code>extras/links.md</code> are appended to all Markdown files<ul>
+<li>The Markdown link definitions in <code>_extras/links.md</code> are appended to all Markdown files<ul>
 <li>This helps ensure consistent link URLs across pages</li>
 </ul>
 </li>
+<li>Figures, code inclusions, citations, and glossary references are formatted using <code>mccole</code> shortcodes.</li>
 <li>The home page for the site is generated from <code>README.md</code><ul>
 <li>The navigation menus for lessons and appendices are generated from
     the <code>lessons</code> and <code>appendices</code> <code>div</code> elements in <code>README.md</code></li>
@@ -130,12 +93,8 @@ All contributors must abide by our Code of Conduct.</p>
 <li>Use an inline HTML link <code>g:key</code> in files to create links</li>
 </ul>
 </li>
-<li>The <code>static</code> directory contains CSS and JavaScript files</li>
-<li>The <code>templates</code> directory contains <a href="https://jinja.palletsprojects.com/">Jinja</a> templates used to generate HTML<ul>
-<li><code>page.html</code> is used for website pages</li>
-<li><code>slides.html</code> is used for slideshows</li>
-</ul>
-</li>
+<li>The <code>_static</code> directory contains CSS and JavaScript files</li>
+<li>The <code>_templates</code> directory contains <a href="https://jinja.palletsprojects.com/">Jinja</a> templates used to generate HTML</li>
 </ul>
 <h2>FAQ</h2>
 <dl>
@@ -156,7 +115,7 @@ from pointing out mistakes to suggestions for better explanations.</dd>
 <span aria-hidden="true">⇐</span> <a href="../conduct/">Code of Conduct</a>
 </div>
 <div class="col-6 center">
-<a href="../">Organizational Change</a>
+<a href="../">Change</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
