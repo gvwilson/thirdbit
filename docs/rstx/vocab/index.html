@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vocabulary Richness in Historical Texts</title>
+<meta content="Research Software Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Testing by Example</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a class="active" href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/rstx">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Vocabulary Richness in Historical Texts</h1>
+<h2>The Problem</h2>
+<ul>
+<li>Lexical richness — how varied an author's word choices are — is used in
+    authorship studies, language acquisition research, and digital humanities.</li>
+<li>The simplest measure is the <a class="gl-ref" href="../glossary/#type_token_ratio">type-token ratio</a> (TTR):
+    the number of distinct word types divided by the total number of word tokens.</li>
+<li>TTR has a well-known flaw: it falls as text length increases even when richness
+    is constant, because longer texts inevitably repeat high-frequency words.</li>
+<li>The <a class="gl-ref" href="../glossary/#mattr">Moving-Average Type-Token Ratio</a> (MATTR) fixes this by computing
+    TTR over fixed-width windows and averaging the results.</li>
+<li>The approach here:<ul>
+<li>Generate a synthetic corpus in which each author samples words from a
+    <a class="gl-ref" href="../glossary/#zipf_law">Zipfian distribution</a> with a different vocabulary size.</li>
+<li>Compute TTR and MATTR for each text using Polars.</li>
+<li>Visualize and compare richness scores across authors with Vega-Altair.</li>
+</ul>
+</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Why does a 1000-word text typically have a lower TTR than a 100-word text
+from the same author?</p>
+<dl>
+<dt>Because longer texts contain fewer unique words.</dt>
+<dd>Wrong: longer texts contain more unique words in absolute terms; it is the
+ratio of unique words to total words that falls.</dd>
+<dt>Because words are reused more often as text length increases, reducing the</dt>
+<dt>proportion of unique word forms.</dt>
+<dd>Correct: common words such as "the" and "of" appear multiple times; as total
+tokens grow, repetitions account for a larger share of the count.</dd>
+<dt>Because the author's vocabulary is exhausted after 100 words.</dt>
+<dd>Wrong: the full vocabulary is available throughout; it is reuse frequency that
+changes the ratio.</dd>
+<dt>Because tokenisation introduces more errors in longer texts.</dt>
+<dd>Wrong: TTR is a purely statistical property of the token sequence and is
+independent of tokenisation quality.</dd>
+</dl>
+</div>
+<h2>Type-Token Ratio and MATTR</h2>
+<ul>
+<li>Given a text of $T$ tokens containing $V$ distinct word types, the TTR is:</li>
+</ul>
+<p>$$\text{TTR} = \frac{V}{T}$$</p>
+<ul>
+<li>The MATTR with window width $w$ is:</li>
+</ul>
+<p>$$\text{MATTR} = \frac{1}{T - w + 1} \sum_{i=0}^{T-w} \text{TTR}(t_i, t_{i+1}, \ldots, t_{i+w-1})$$</p>
+<ul>
+<li>Each window has the same length $w$, so each window TTR is on the same scale;
+    averaging them gives a length-fair summary.</li>
+<li>When $T \leq w$ there is only one window and MATTR equals the global TTR.</li>
+</ul>
+<div class="forma-numeric-entry" data-correct="0.6" data-lang="en" data-tolerance="0.001">
+<p>A 100-word text contains 60 distinct word types.
+What is its type-token ratio?</p>
+</div>
+<h2>Generating Synthetic Texts</h2>
+<ul>
+<li>Word frequencies in natural language follow <a class="gl-ref" href="../glossary/#zipf_law">Zipf's law</a>:
+    the $k$-th most common word appears with frequency proportional to $1/k$.</li>
+<li>Sampling from this distribution with different vocabulary sizes reproduces
+    the richness differences between authors with limited and extensive lexicons.</li>
+</ul>
+<div data-inc="generate_vocab.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
+    <span class="n">authors</span><span class="o">=</span><span class="n">AUTHORS</span><span class="p">,</span>
+    <span class="n">vocab_sizes</span><span class="o">=</span><span class="n">VOCAB_SIZES</span><span class="p">,</span>
+    <span class="n">texts_per_author</span><span class="o">=</span><span class="n">TEXTS_PER_AUTHOR</span><span class="p">,</span>
+    <span class="n">text_length</span><span class="o">=</span><span class="n">TEXT_LENGTH</span><span class="p">,</span>
+    <span class="n">zipf_exp</span><span class="o">=</span><span class="n">ZIPF_EXP</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a Polars DataFrame with columns text_id, author, word.</span>
+
+<span class="sd">    Each author has a distinct vocabulary size; words are sampled from</span>
+<span class="sd">    a Zipfian frequency distribution (frequency proportional to 1/rank^zipf_exp).</span>
+<span class="sd">    A larger vocabulary size produces more distinct words per token and thus</span>
+<span class="sd">    a higher type-token ratio.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">text_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">author</span><span class="p">,</span> <span class="n">vocab_size</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">authors</span><span class="p">,</span> <span class="n">vocab_sizes</span><span class="p">):</span>
+        <span class="n">ranks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">vocab_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">probs</span> <span class="o">=</span> <span class="n">ranks</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">zipf_exp</span><span class="p">)</span>
+        <span class="n">probs</span> <span class="o">/=</span> <span class="n">probs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">word_forms</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"w</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">04d</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">texts_per_author</span><span class="p">):</span>
+            <span class="n">sampled</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">word_forms</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">text_length</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">probs</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">sampled</span><span class="p">:</span>
+                <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"text_id"</span><span class="p">:</span> <span class="n">text_id</span><span class="p">,</span> <span class="s2">"author"</span><span class="p">:</span> <span class="n">author</span><span class="p">,</span> <span class="s2">"word"</span><span class="p">:</span> <span class="n">w</span><span class="p">})</span>
+            <span class="n">text_id</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Computing TTR and MATTR</h2>
+<div data-inc="vocab.py" data-mark="ttr"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">type_token_ratio</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return unique words / total words (type-token ratio, TTR).</span>
+
+<span class="sd">    TTR falls as text length increases even when vocabulary richness is</span>
+<span class="sd">    constant, because longer texts inevitably repeat high-frequency words.</span>
+<span class="sd">    Use MATTR for length-fair comparisons across texts of different sizes.</span>
+<span class="sd">    """</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">words</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">words</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">mattr</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">MATTR_WINDOW</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the Moving-Average Type-Token Ratio.</span>
+
+<span class="sd">    Computes TTR over each consecutive window of width `window`, then</span>
+<span class="sd">    returns the mean of those window TTRs.  Because every window has the</span>
+<span class="sd">    same length, the result is length-independent and can fairly compare</span>
+<span class="sd">    texts of different sizes.  Falls back to global TTR when the text is</span>
+<span class="sd">    shorter than the window.</span>
+<span class="sd">    """</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">window</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">type_token_ratio</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="n">window_ttrs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">type_token_ratio</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">window</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">window</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">window_ttrs</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<h2>Aggregating Richness Scores</h2>
+<div data-inc="vocab.py" data-mark="richness"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_richness</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">MATTR_WINDOW</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a DataFrame with TTR and MATTR for each text.</span>
+
+<span class="sd">    Input df must have columns text_id, author, word.</span>
+<span class="sd">    Output has columns text_id, author, ttr, mattr.</span>
+<span class="sd">    """</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">text_id</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"text_id"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">():</span>
+        <span class="n">subset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"text_id"</span><span class="p">)</span> <span class="o">==</span> <span class="n">text_id</span><span class="p">)</span>
+        <span class="n">author</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="s2">"author"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="s2">"word"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">"text_id"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">text_id</span><span class="p">),</span>
+                <span class="s2">"author"</span><span class="p">:</span> <span class="n">author</span><span class="p">,</span>
+                <span class="s2">"ttr"</span><span class="p">:</span> <span class="n">type_token_ratio</span><span class="p">(</span><span class="n">words</span><span class="p">),</span>
+                <span class="s2">"mattr"</span><span class="p">:</span> <span class="n">mattr</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">window</span><span class="p">),</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Visualizing Results</h2>
+<div data-inc="vocab.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_richness</span><span class="p">(</span><span class="n">richness_df</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a bar chart of MATTR per text, coloured by author."""</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">richness_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">concat_str</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"author"</span><span class="p">),</span>
+                <span class="n">pl</span><span class="o">.</span><span class="n">lit</span><span class="p">(</span><span class="s2">" </span><span class="se">\u2013</span><span class="s2"> text "</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"text_id"</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">String</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"label"</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"label:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Text"</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"mattr:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"MATTR"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">"author:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Author"</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">"Moving-Average Type-Token Ratio by Text"</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:vocab-richness">
+<img alt="Bar chart with six bars. Author A bars are shortest, Author B bars are middle height, Author C bars are tallest." src="vocab-richness.svg"/>
+<figcaption>Figure 1: MATTR for each text in the synthetic corpus. Author A (vocabulary 200), Author B (400), and Author C (800) produce texts with MATTR of roughly 0.63, 0.68, and 0.72 respectively, confirming that the metric distinguishes authors by lexical richness regardless of text length.</figcaption>
+</figure>
+<h2>Testing</h2>
+<ul>
+<li>TTR edge cases<ul>
+<li>A text of all unique words has TTR exactly 1.0.</li>
+<li>A text where the same word is repeated $n$ times has TTR $1/n$.</li>
+<li>An empty word list returns 0.0 without raising an exception.</li>
+</ul>
+</li>
+<li>MATTR fallback<ul>
+<li>When the text is shorter than the window, MATTR returns the global TTR.</li>
+<li>When the text length equals the window width, there is exactly one window and
+    MATTR equals the global TTR.</li>
+</ul>
+</li>
+<li>Richness ordering<ul>
+<li>Author A (vocabulary 200), Author B (400), and Author C (800) are generated from
+    increasingly large Zipfian vocabularies.
+    Their mean MATTR values must increase in the same order.</li>
+</ul>
+</li>
+</ul>
+<div data-inc="test_vocab.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_vocab</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vocab</span><span class="w"> </span><span class="kn">import</span> <span class="n">type_token_ratio</span><span class="p">,</span> <span class="n">mattr</span><span class="p">,</span> <span class="n">compute_richness</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_ttr_all_unique</span><span class="p">():</span>
+    <span class="c1"># When every word is distinct the TTR is exactly 1.0.</span>
+    <span class="k">assert</span> <span class="n">type_token_ratio</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">])</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_ttr_all_same</span><span class="p">():</span>
+    <span class="c1"># When the same word is repeated n times the TTR is 1/n.</span>
+    <span class="k">assert</span> <span class="n">type_token_ratio</span><span class="p">([</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_ttr_empty</span><span class="p">():</span>
+    <span class="c1"># Empty input returns 0.0 without raising an exception.</span>
+    <span class="k">assert</span> <span class="n">type_token_ratio</span><span class="p">([])</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_mattr_short_text_equals_ttr</span><span class="p">():</span>
+    <span class="c1"># When the text is shorter than the window, MATTR falls back to global TTR.</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">mattr</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">type_token_ratio</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_mattr_window_equals_length</span><span class="p">():</span>
+    <span class="c1"># When text length equals the window width there is exactly one window,</span>
+    <span class="c1"># so MATTR equals TTR exactly.</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">mattr</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">type_token_ratio</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_richness_order_by_vocab_size</span><span class="p">():</span>
+    <span class="c1"># Mean MATTR must increase with vocabulary size: Author A (200) &lt;</span>
+    <span class="c1"># Author B (400) &lt; Author C (800).  The Zipfian generator guarantees</span>
+    <span class="c1"># that a larger vocabulary produces more distinct tokens per window.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_corpus</span><span class="p">()</span>
+    <span class="n">richness</span> <span class="o">=</span> <span class="n">compute_richness</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="n">richness</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"author"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"mattr"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">"author"</span><span class="p">)</span>
+    <span class="n">mattr_vals</span> <span class="o">=</span> <span class="n">means</span><span class="p">[</span><span class="s2">"mattr"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="c1"># Authors sort alphabetically: A, B, C -- matching ascending vocab sizes.</span>
+    <span class="k">assert</span> <span class="n">mattr_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mattr_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mattr_vals</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Vocabulary richness key terms</p>
+<dl>
+<dt>Type-token ratio (TTR)</dt>
+<dd>$V/T$ where $V$ is the number of distinct word types and $T$ is the total
+token count; decreases with text length even at constant vocabulary richness</dd>
+<dt>Moving-average TTR (MATTR)</dt>
+<dd>Mean of window TTRs computed over overlapping fixed-width windows;
+length-independent because every window has the same size</dd>
+<dt>Zipf's law</dt>
+<dd>The empirical regularity that the $k$-th most frequent word in a corpus
+appears roughly $1/k$ times as often as the most frequent word; produces
+the characteristic long tail of rare words in natural language</dd>
+<dt>Vocabulary richness</dt>
+<dd>A property of a text or author reflecting how varied word choices are;
+higher richness means proportionally more unique words per token</dd>
+<dt>Window width (MATTR)</dt>
+<dd>The fixed number of tokens in each local TTR window; must be short enough
+to keep window TTR below 1.0 but long enough to average out token-level noise</dd>
+</dl>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Effect of window width</h3>
+<p>Compute MATTR for window widths of 10, 25, 50, 100, and 200 for one of the
+Author C texts.
+Plot MATTR against window width and explain why MATTR approaches the global TTR
+as the window grows toward the text length.</p>
+<h3>TTR length dependence</h3>
+<p>Generate texts of 100, 200, 400, and 800 tokens from the same Zipfian distribution
+(vocabulary size 400).
+Plot both TTR and MATTR against text length on the same axes.
+At what length does the difference between TTR and MATTR become noticeable?</p>
+<h3>Real corpus comparison</h3>
+<p>Download two public-domain texts of very different lengths from Project Gutenberg.
+Tokenise each into lowercase words (strip punctuation), then compute TTR and
+MATTR with a 50-word window.
+Does MATTR correct the length bias visible in TTR?</p>
+<h3>Hapax legomena rate</h3>
+<p>A hapax legomenon is a word that appears exactly once in a text.
+Implement <code>hapax_rate(words)</code> that returns the fraction of total tokens that are
+hapax legomena.
+Compare hapax rate with MATTR across the three synthetic authors and discuss
+whether hapax rate is also length-independent.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../schelling/">Schelling Segregation Model</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../topics/">Topic Modeling a Document Corpus</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

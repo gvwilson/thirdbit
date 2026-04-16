@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Signal Detection Theory Analysis</title>
+<meta content="Research Software Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Testing by Example</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a class="active" href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/rstx">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Signal Detection Theory Analysis</h1>
+<h2>The Problem</h2>
+<ul>
+<li>In a detection experiment, an observer responds "yes" or "no" to each stimulus</li>
+<li>Some stimuli contain a signal, others do not</li>
+<li>Raw accuracy conflates two separate factors<ul>
+<li>The observer's ability to detect the signal</li>
+<li>Their tendency to say "yes" regardless</li>
+</ul>
+</li>
+<li>Framing the outcome as a confusion matrix keeps the two factors separate</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Observer says "yes"</th>
+<th scope="col">Observer says "no"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signal present</td>
+<td>Hit</td>
+<td>Miss</td>
+</tr>
+<tr>
+<td>Signal absent</td>
+<td>False alarm</td>
+<td>Correct rejection</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#hit_rate">hit rate</a> (HR) is
+    the proportion of signal trials on which the observer responds "yes"<ul>
+<li>I.e, hits divided by total signal trials</li>
+</ul>
+</li>
+<li>The <a class="gl-ref" href="../glossary/#false_alarm_rate">false alarm rate</a> (FAR) is
+    the proportion of noise trials on which the observer incorrectly responds "yes"<ul>
+<li>False alarms divided by total noise trials</li>
+</ul>
+</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>An observer runs 100 signal trials and 100 noise trials.
+They record 70 hits and 30 false alarms.
+What are their hit rate and false alarm rate?</p>
+<dl>
+<dt>HR = 0.70, FAR = 0.30</dt>
+<dd>Correct: HR = 70/100 = 0.70 and FAR = 30/100 = 0.30.</dd>
+<dt>HR = 0.70, FAR = 0.70</dt>
+<dd>Wrong: the false alarm count (30) is divided by the number of noise
+trials (100), giving 0.30, not 0.70.</dd>
+<dt>HR = 70, FAR = 30</dt>
+<dd>Wrong: hit rate and false alarm rate are proportions between 0 and 1,
+not raw counts.</dd>
+<dt>HR = 0.30, FAR = 0.70</dt>
+<dd>Wrong: hits and false alarms have been swapped; hits come from signal
+trials and false alarms come from noise trials.</dd>
+</dl>
+</div>
+<h2>Computing Hit Rate and False Alarm Rate</h2>
+<div data-inc="sdt.py" data-mark="rates"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">confusion_rates</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">decisions</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (hit_rate, false_alarm_rate) from binary label and decision arrays.</span>
+
+<span class="sd">    labels    -- 1-D array of 1 (signal) or 0 (noise) for each trial</span>
+<span class="sd">    decisions -- 1-D array of 1 (responded yes) or 0 (responded no)</span>
+
+<span class="sd">    hit_rate        = hits / total signal trials</span>
+<span class="sd">    false_alarm_rate = false alarms / total noise trials</span>
+<span class="sd">    """</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+    <span class="n">decisions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">decisions</span><span class="p">)</span>
+    <span class="n">signal_trials</span> <span class="o">=</span> <span class="n">labels</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">noise_trials</span> <span class="o">=</span> <span class="n">labels</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">hits</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">decisions</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">signal_trials</span><span class="p">)</span>
+    <span class="n">false_alarms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">decisions</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">noise_trials</span><span class="p">)</span>
+    <span class="n">hit_rate</span> <span class="o">=</span> <span class="n">hits</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">signal_trials</span><span class="p">)</span>
+    <span class="n">false_alarm_rate</span> <span class="o">=</span> <span class="n">false_alarms</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">noise_trials</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">hit_rate</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">false_alarm_rate</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>labels</code> is an array of 1 (signal) and 0 (noise) for each trial.</li>
+<li><code>decisions</code> is an array of 1 (responded yes) and 0 (responded no).</li>
+<li>The function counts hits and false alarms
+    then divides by the appropriate total number of trials</li>
+</ul>
+<div class="forma-ordering" data-lang="en">
+<p>Order the steps to compute the hit rate from experiment data.</p>
+<p>Count the number of trials on which a signal was present.
+Count the number of those signal trials on which the observer responded "yes" (hits).
+Divide the hit count by the total number of signal trials.</p>
+</div>
+<h2>The ROC Curve as a Threshold Sweep</h2>
+<ul>
+<li>An observer does not simply say "yes" or "no"<ul>
+<li>They have an internal numeric evidence score for each trial
+    and say "yes" when that score exceeds a decision threshold</li>
+</ul>
+</li>
+<li>By varying the threshold, we trace out different (FAR, HR) pairs<ul>
+<li>A very high threshold means only very strong evidence triggers a "yes"<ul>
+<li>Few false alarms, but also few hits</li>
+<li>A conservative observer</li>
+</ul>
+</li>
+<li>A very low threshold means almost any evidence triggers a "yes"<ul>
+<li>Many hits, but also many false alarms</li>
+<li>A liberal observer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The <a class="gl-ref" href="../glossary/#roc_curve">ROC curve</a> (Receiver Operating Characteristic) is
+    the set of all (FAR, HR) pairs an observer can achieve by adjusting the threshold</li>
+<li>The diagonal line FAR = HR represents chance performance<ul>
+<li>I.e., the observer gains no extra hits without an equal increase in false alarms</li>
+</ul>
+</li>
+<li>A curve that bows toward the upper-left corner means that
+    the observer can achieve high hit rates with low false alarm rates,
+    i.e., better discrimination</li>
+</ul>
+<div data-inc="sdt.py" data-mark="roc"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">roc_curve</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (far, hr) arrays tracing the ROC curve from evidence scores.</span>
+
+<span class="sd">    scores -- 1-D array of numeric evidence values, one per trial</span>
+<span class="sd">    labels -- 1-D array of 1 (signal) or 0 (noise) for each trial</span>
+
+<span class="sd">    The threshold sweeps over all unique score values plus a value just</span>
+<span class="sd">    above the maximum so that the curve starts near (0, 0).  At each</span>
+<span class="sd">    threshold, a trial is classified as "yes" when its score is &gt;= threshold.</span>
+<span class="sd">    The curve runs from near (0, 0) at the highest threshold to (1, 1) at</span>
+<span class="sd">    the lowest, tracing all (FAR, HR) pairs the observer can achieve.</span>
+<span class="sd">    """</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+    <span class="c1"># Thresholds: from just above max down to min, covering the full range.</span>
+    <span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">scores</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># Prepend a threshold above every score so the curve starts at (0, 0).</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">thresholds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">top</span><span class="p">,</span> <span class="n">thresholds</span><span class="p">])</span>
+
+    <span class="n">n_signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">n_noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">far</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thresholds</span><span class="p">))</span>
+    <span class="n">hr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">thresholds</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">thresholds</span><span class="p">):</span>
+        <span class="n">decisions</span> <span class="o">=</span> <span class="p">(</span><span class="n">scores</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">hits</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">decisions</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">fa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">decisions</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">hr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hits</span> <span class="o">/</span> <span class="n">n_signal</span>
+        <span class="n">far</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fa</span> <span class="o">/</span> <span class="n">n_noise</span>
+
+    <span class="k">return</span> <span class="n">far</span><span class="p">,</span> <span class="n">hr</span>
+</code></pre></div>
+</div>
+<ul>
+<li><code>scores</code> contains the numeric evidence value for each trial</li>
+<li><code>labels</code> contains 1 for signal trials and 0 for noise trials</li>
+<li>The function sweeps over all unique score values as candidate thresholds
+    from highest (most conservative) to lowest (most liberal)</li>
+<li>At each threshold,
+    a trial is classified as "yes" when its score is at or above the threshold</li>
+</ul>
+<div class="forma-matching" data-lang="en">
+<p>Match each threshold choice to its likely effect on hit rate and false alarm rate.</p>
+<dl>
+<dt>Very high threshold</dt>
+<dd>Low hit rate and low false alarm rate (conservative: the observer rarely responds).</dd>
+<dt>Very low threshold</dt>
+<dd>High hit rate and high false alarm rate (liberal: the observer almost always responds).</dd>
+<dt>Threshold at the midpoint of all scores</dt>
+<dd>Intermediate hit rate and false alarm rate (moderate operating point).</dd>
+</dl>
+</div>
+<h2>Area Under the ROC Curve</h2>
+<ul>
+<li>Any single (FAR, HR) pair depends on the threshold chosen,
+    which may vary between observers or experiments</li>
+<li>The <a class="gl-ref" href="../glossary/#area_under_curve">area under the ROC curve</a> (AUC)
+    summarizes performance across all thresholds with a single number</li>
+<li>AUC = 0.5: the ROC is the diagonal, i.e., chance performance</li>
+<li>AUC = 1.0: the ROC passes through (0, 1), i.e., perfect discrimination</li>
+<li>Interpretation: AUC equals the probability that a randomly chosen signal trial
+    receives a higher evidence score than a randomly chosen noise trial</li>
+<li>The <a class="gl-ref" href="../glossary/#trapezoidal_rule">trapezoidal rule</a> approximates AUC from the arrays of (FAR, HR) points:</li>
+</ul>
+<p>$$\text{AUC} \approx \sum_i \tfrac{1}{2}(\text{HR}_i + \text{HR}_{i+1}) \cdot |\text{FAR}_i - \text{FAR}_{i+1}|$$</p>
+<ul>
+<li>Each term is the area of a trapezoid
+    whose parallel sides are $\text{HR}<em i_1="i+1">i$ and $\text{HR}</em>$
+    and whose width is the step in FAR<ul>
+<li>A <a class="gl-ref" href="../glossary/#riemann_sum">Riemann sum</a></li>
+</ul>
+</li>
+<li>As the number of threshold steps increases, the sum converges to the true area</li>
+</ul>
+<div data-inc="sdt.py" data-mark="auc"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">auc</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">hr</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the area under the ROC curve using the trapezoidal rule.</span>
+
+<span class="sd">    The trapezoidal rule approximates the area as a sum of trapezoids:</span>
+
+<span class="sd">        AUC = sum_i  0.5 * (HR_i + HR_{i+1}) * |FAR_i - FAR_{i+1}|</span>
+
+<span class="sd">    This is a Riemann sum that converges to the true AUC as the number</span>
+<span class="sd">    of threshold steps increases.  AUC = 0.5 for chance performance</span>
+<span class="sd">    (the diagonal) and AUC = 1.0 for perfect discrimination.</span>
+<span class="sd">    """</span>
+    <span class="n">far</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">hr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="c1"># Sort by FAR so the trapezoidal sum goes left to right.</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">far</span><span class="p">)</span>
+    <span class="n">sorted_far</span> <span class="o">=</span> <span class="n">far</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+    <span class="n">sorted_hr</span> <span class="o">=</span> <span class="n">hr</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+    <span class="n">widths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">sorted_far</span><span class="p">))</span>
+    <span class="n">heights</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">sorted_hr</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sorted_hr</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">widths</span> <span class="o">*</span> <span class="n">heights</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="0.5" data-lang="en" data-tolerance="0.05">
+<p>An observer's evidence scores are identical for signal and noise trials, so their
+ROC curve follows the diagonal exactly.
+What is their AUC?</p>
+</div>
+<h2>Visualizing the ROC Curve</h2>
+<div data-inc="sdt.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_roc</span><span class="p">(</span><span class="n">roc_far</span><span class="p">,</span> <span class="n">roc_hr</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save an ROC curve plot as an SVG file."""</span>
+    <span class="n">curve_data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"far"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">"hr"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">)}</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">roc_far</span><span class="p">,</span> <span class="n">roc_hr</span><span class="p">)]</span>
+    <span class="n">diag_data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"far"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"hr"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">},</span> <span class="p">{</span><span class="s2">"far"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">"hr"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}]</span>
+
+    <span class="n">base</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"far:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"False alarm rate"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"hr:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Hit rate"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])),</span>
+    <span class="p">)</span>
+    <span class="n">curve</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">curve_data</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">diagonal</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">strokeDash</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">diag_data</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span><span class="n">curve</span> <span class="o">+</span> <span class="n">diagonal</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">"ROC curve (threshold sweep)"</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:sdt-roc">
+<img alt="A square plot with false alarm rate on the x-axis and hit rate on the y-axis, both ranging from 0 to 1. A blue curve bows toward the upper-left corner above the gray diagonal chance line." src="sdt-roc.svg"/>
+<figcaption>Figure 1: ROC curve produced by sweeping over score thresholds (blue). The gray dashed diagonal represents chance performance (AUC = 0.5). The bowing of the curve above the diagonal indicates the observer can discriminate signal from noise.</figcaption>
+</figure>
+<h2>Testing</h2>
+<ul>
+<li>
+<p>Hit rate is 1.0 when all signal trials are detected</p>
+<ul>
+<li>If the observer responds "yes" to every signal trial, hits equal total signal trials, so HR = 1.0</li>
+</ul>
+</li>
+<li>
+<p>False alarm rate is 0.0 when no noise trial triggers a response</p>
+<ul>
+<li>If the observer never responds "yes" on noise trials, false alarms = 0, so FAR = 0.0</li>
+</ul>
+</li>
+<li>
+<p>Rates are proportional to counts</p>
+<ul>
+<li>With 3 hits out of 4 signal trials and 1 false alarm out of 2 noise trials, HR = 0.75 and FAR = 0.5</li>
+</ul>
+</li>
+<li>
+<p>ROC starts at the origin</p>
+<ul>
+<li>At the threshold above every score, no trial is classified as "yes", so HR = 0 and FAR = 0</li>
+</ul>
+</li>
+<li>
+<p>ROC ends at (1, 1)</p>
+<ul>
+<li>At the threshold below every score, every trial is classified as "yes", so HR = 1 and FAR = 1</li>
+</ul>
+</li>
+<li>
+<p>ROC is monotonically increasing</p>
+<ul>
+<li>Lowering the threshold can only keep or increase both HR and FAR, never decrease either</li>
+</ul>
+</li>
+<li>
+<p>ROC passes through (0, 1) for perfectly separable scores</p>
+<ul>
+<li>When every signal score exceeds every noise score,
+    one threshold admits all signals and no noise, placing a point at FAR = 0, HR = 1</li>
+</ul>
+</li>
+<li>
+<p>AUC of the diagonal is 0.5</p>
+<ul>
+<li>The diagonal ROC (FAR = HR) represents chance performance,
+  so its area is exactly half the unit square</li>
+</ul>
+</li>
+<li>
+<p>AUC of a perfect step is 1.0</p>
+<ul>
+<li>A step from (0, 0) to (0, 1) to (1, 1) encloses the entire unit square</li>
+</ul>
+</li>
+<li>
+<p>AUC is above 0.5 for separable scores</p>
+<ul>
+<li>When signal scores are on average higher than noise scores,
+    the ROC bows above the diagonal and AUC &gt; 0.5</li>
+</ul>
+</li>
+<li>
+<p>AUC does not depend on the order of FAR values supplied</p>
+<ul>
+<li>The implementation sorts FAR internally, so reversing the input arrays gives the same result</li>
+</ul>
+</li>
+</ul>
+<div data-inc="test_sdt.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdt</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_rates</span><span class="p">,</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">auc</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># confusion_rates</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_hit_rate_all_hits</span><span class="p">():</span>
+    <span class="c1"># Every signal trial is detected: hit rate must be 1.0.</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">decisions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">hr</span><span class="p">,</span> <span class="n">far</span> <span class="o">=</span> <span class="n">confusion_rates</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">decisions</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">hr</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_false_alarm_rate_zero</span><span class="p">():</span>
+    <span class="c1"># No noise trial triggers a false alarm: FAR must be 0.0.</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">decisions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">far</span> <span class="o">=</span> <span class="n">confusion_rates</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">decisions</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">far</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_hit_and_false_alarm_rates_proportional</span><span class="p">():</span>
+    <span class="c1"># 3 out of 4 signal trials are hits; 1 out of 2 noise trials is a false alarm.</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">decisions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">hr</span><span class="p">,</span> <span class="n">far</span> <span class="o">=</span> <span class="n">confusion_rates</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">decisions</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">hr</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">far</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># roc_curve</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_roc_starts_at_origin</span><span class="p">():</span>
+    <span class="c1"># The first point (highest threshold) should classify nothing as signal,</span>
+    <span class="c1"># so both FAR and HR are 0.</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span>  <span class="p">]</span>
+    <span class="n">far</span><span class="p">,</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">far</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">hr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_roc_ends_at_one</span><span class="p">():</span>
+    <span class="c1"># The last point (lowest threshold) classifies everything as signal,</span>
+    <span class="c1"># so both FAR and HR are 1.</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span>  <span class="p">]</span>
+    <span class="n">far</span><span class="p">,</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">far</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">hr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_roc_monotonically_increasing</span><span class="p">():</span>
+    <span class="c1"># Both FAR and HR must be non-decreasing across threshold steps.</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">7493418</span><span class="p">)</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.5</span><span class="p">])</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)])</span>
+    <span class="n">far</span><span class="p">,</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">far</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">far</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">far</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">hr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">hr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_roc_perfect_scores</span><span class="p">():</span>
+    <span class="c1"># When every signal score exceeds every noise score the ROC passes</span>
+    <span class="c1"># through (0, 1): at the threshold that admits all signals but no noise,</span>
+    <span class="c1"># FAR = 0 and HR = 1.</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span>  <span class="p">]</span>
+    <span class="n">far</span><span class="p">,</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="c1"># The point (FAR=0, HR=1) must appear somewhere in the curve.</span>
+    <span class="k">assert</span> <span class="nb">any</span><span class="p">(</span><span class="n">f</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">h</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">hr</span><span class="p">))</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># auc</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_auc_chance_diagonal</span><span class="p">():</span>
+    <span class="c1"># The diagonal ROC (FAR = HR everywhere) has AUC = 0.5.</span>
+    <span class="n">far</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+    <span class="n">hr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">auc</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">hr</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_auc_perfect</span><span class="p">():</span>
+    <span class="c1"># A step from (0, 0) to (0, 1) to (1, 1) encloses the full unit square: AUC = 1.0.</span>
+    <span class="n">far</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">hr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">auc</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">hr</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_auc_above_chance_for_separable_scores</span><span class="p">():</span>
+    <span class="c1"># When signal scores are generally higher than noise scores, AUC &gt; 0.5.</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">7493418</span><span class="p">)</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">signal</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.5</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">noise</span><span class="p">,</span> <span class="n">signal</span><span class="p">])</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)])</span>
+    <span class="n">far</span><span class="p">,</span> <span class="n">hr</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">hr</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">area</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_auc_symmetric</span><span class="p">():</span>
+    <span class="c1"># auc should not depend on whether FAR is supplied in ascending or</span>
+    <span class="c1"># descending order, because the implementation sorts internally.</span>
+    <span class="n">far</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">hr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span>  <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">auc</span><span class="p">(</span><span class="n">far</span><span class="p">,</span> <span class="n">hr</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">auc</span><span class="p">(</span><span class="n">far</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">hr</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Signal detection key terms</p>
+<dl>
+<dt>Hit rate</dt>
+<dd>The proportion of signal trials on which the observer correctly responds "yes":
+HR = hits / total signal trials; also called the true positive rate.</dd>
+<dt>False alarm rate</dt>
+<dd>The proportion of noise trials on which the observer incorrectly responds "yes":
+FAR = false alarms / total noise trials; also called the false positive rate.</dd>
+<dt>ROC curve</dt>
+<dd>The Receiver Operating Characteristic curve; a plot of hit rate against false-alarm
+rate as the decision threshold varies from very conservative to very liberal;
+produced by a threshold sweep over evidence scores.</dd>
+<dt>Area under the curve (AUC)</dt>
+<dd>A summary of ROC performance computed using the trapezoidal rule; AUC = 0.5 for
+chance performance and AUC = 1.0 for perfect discrimination; equals the probability
+that a random signal trial receives a higher evidence score than a random noise trial.</dd>
+</dl>
+</div>
+<h2>Note on the Gaussian Model</h2>
+<ul>
+<li>The equal-variance Gaussian model summarizes performance compactly
+    via $d' = \Phi^{-1}(\text{HR}) - \Phi^{-1}(\text{FAR})$,
+    where $\Phi^{-1}$ is the inverse of the standard normal CDF</li>
+<li>This assumes both the noise distribution and the signal distribution are normal with equal variance<ul>
+<li>Only their means differ</li>
+</ul>
+</li>
+<li>The threshold-sweep ROC presented in this lesson makes no distributional assumptions<ul>
+<li>It works for any numeric evidence score and any underlying distribution</li>
+</ul>
+</li>
+</ul>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Compute AUC from a small example</h3>
+<p>Given evidence scores <code>[0.1, 0.4, 0.35, 0.8]</code> and labels <code>[0, 0, 1, 1]</code>
+(0 = noise, 1 = signal), trace through <code>roc_curve</code> by hand at each unique
+score threshold.
+Compute the AUC using the trapezoidal rule.
+Check your answer against the function.</p>
+<h3>Effect of threshold on the confusion matrix</h3>
+<p>Using the synthetic data from <code>generate_sdt.py</code>, choose three thresholds:
+the 25th, 50th, and 75th percentile of all scores.
+For each threshold, compute HR and FAR and mark the corresponding point on
+the ROC curve.
+How does moving from a conservative threshold to a liberal threshold change
+the confusion matrix?</p>
+<h3>Comparing two observers</h3>
+<p>Observer A has evidence scores that follow N(0, 1) for noise and N(1.0, 1)
+for signal.
+Observer B has scores that follow N(0, 1) for noise and N(2.0, 1) for signal.
+Generate 200 trials for each observer (RNG seed 7493418), compute their ROC
+curves and AUCs, and plot both curves on the same axes.
+Which observer has the higher AUC and why?</p>
+<h3>Trapezoidal approximation error</h3>
+<p>The trapezoidal rule is exact only when the curve is piecewise linear.
+Generate a fine-grained ROC (1 000 signal and 1 000 noise trials) and a
+coarse-grained ROC (20 signal and 20 noise trials) from the same underlying
+score distributions.
+Compare their AUC estimates.
+How large is the approximation error in the coarse case?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../learning/">Fitting a Learning Curve to Experimental Data</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../agreement/">Inter-Rater Agreement</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

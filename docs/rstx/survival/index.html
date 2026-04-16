@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Survival Analysis</title>
+<meta content="Research Software Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Testing by Example</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a class="active" href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/rstx">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Survival Analysis</h1>
+<h2>The Problem</h2>
+<ul>
+<li>In a clinical trial some patients experience the event of interest (death, relapse, recovery)
+    while others leave the study before the trial ends or are still event-free when the data are analysed.</li>
+<li>An observation where the true event time is unknown because we only know the patient
+    survived past a certain point is called <a class="gl-ref" href="../glossary/#right_censoring">right-censored</a>.</li>
+<li>Ignoring censored observations or treating them as events both bias the estimate of survival time.</li>
+<li>This lesson builds an exponential survival model, showing how a naive estimate is biased and
+    how maximum-likelihood estimation corrects for censoring.</li>
+</ul>
+<h2>The Survival Function</h2>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#survival_function">survival function</a> $S(t)$ is the probability that a randomly
+    chosen individual survives past time $t$:</li>
+</ul>
+<p>$$S(t) = P(T &gt; t)$$</p>
+<ul>
+<li>$S(0) = 1$ (everyone is alive at the start) and $S(t)$ is non-increasing.</li>
+<li>For an Exponential distribution with rate $\lambda$, the survival function is:</li>
+</ul>
+<p>$$S(t) = e^{-\lambda t}$$</p>
+<ul>
+<li>As $t \to \infty$, $S(t) \to 0$; the curve decays smoothly rather than dropping in steps.</li>
+<li>The mean survival time is $\mu = 1/\lambda$; the median is $(\ln 2)/\lambda \approx 0.693/\lambda$.</li>
+</ul>
+<div class="forma-numeric-entry" data-correct="0.5" data-lang="en" data-tolerance="0.001">
+<p>The survival time of a population follows an Exponential distribution with rate $\lambda = 1/20$.
+Using $S(t) = e^{-\lambda t}$, compute $S(20 \ln 2)$ to three decimal places.</p>
+</div>
+<h2>Generating Synthetic Data</h2>
+<ul>
+<li>Each patient's true event time is drawn from Exponential($\mu = 20$ days, i.e. $\lambda = 1/20$).</li>
+<li>An independent censoring time drawn from Uniform($10$, $35$) days simulates patients
+    who leave the study at different points.</li>
+<li>The observed time is whichever comes first; <code>observed = 1</code> if the event came first.</li>
+</ul>
+<div data-inc="generate_survival.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
+<span class="n">N_PATIENTS</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># number of patients in the study</span>
+<span class="n">MEAN_SURVIVAL</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mf">20.0</span>  <span class="c1"># mean event time drawn from Exponential(scale=MEAN_SURVIVAL) in days</span>
+<span class="p">)</span>
+<span class="c1"># Censoring time drawn from Uniform(CENSOR_MIN, CENSOR_MAX): patients followed up for a random</span>
+<span class="c1"># duration, with the study ending if the event has not yet occurred.</span>
+<span class="n">CENSOR_MIN</span> <span class="o">=</span> <span class="mf">10.0</span>  <span class="c1"># minimum follow-up time (days)</span>
+<span class="n">CENSOR_MAX</span> <span class="o">=</span> <span class="mf">35.0</span>  <span class="c1"># maximum follow-up time (days)</span>
+</code></pre></div>
+</div>
+<div data-inc="generate_survival.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_survival_data</span><span class="p">(</span>
+    <span class="n">n</span><span class="o">=</span><span class="n">N_PATIENTS</span><span class="p">,</span>
+    <span class="n">mean_survival</span><span class="o">=</span><span class="n">MEAN_SURVIVAL</span><span class="p">,</span>
+    <span class="n">censor_min</span><span class="o">=</span><span class="n">CENSOR_MIN</span><span class="p">,</span>
+    <span class="n">censor_max</span><span class="o">=</span><span class="n">CENSOR_MAX</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a Polars DataFrame with columns 'time' and 'observed'.</span>
+
+<span class="sd">    Each patient has a true event time drawn from Exponential(scale=mean_survival).</span>
+<span class="sd">    An independent censoring time is drawn from Uniform(censor_min, censor_max).</span>
+<span class="sd">    The observed time is whichever comes first.</span>
+<span class="sd">    'observed' is 1 if the event occurred before censoring, 0 otherwise.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">true_event_times</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">mean_survival</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">censoring_times</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="n">censor_min</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">censor_max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="p">(</span><span class="n">true_event_times</span> <span class="o">&lt;=</span> <span class="n">censoring_times</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">true_event_times</span><span class="p">,</span> <span class="n">censoring_times</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"time"</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">"observed"</span><span class="p">:</span> <span class="n">observed</span><span class="p">})</span>
+</code></pre></div>
+</div>
+<h2>A Naive Estimate</h2>
+<ul>
+<li>A first attempt: use only the patients whose event was actually observed, ignore the rest.</li>
+<li>For an Exponential distribution, the mean of uncensored times estimates $\mu$, giving:</li>
+</ul>
+<p>$$\hat{\lambda}_{\text{naive}} = \frac{1}{\bar{t}_{\text{uncensored}}}$$</p>
+<div data-inc="survival.py" data-mark="naive-rate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Patient A is censored at day 10. Patient B has an event at day 25.
+If we compute the naive rate using only uncensored patients, which of these is true?</p>
+<dl>
+<dt>Patient A's time of 10 days is included in the mean.</dt>
+<dd>Wrong: the naive estimate discards censored patients entirely.</dd>
+<dt>Patient B's time of 25 days raises the mean, lowering $\hat{\lambda}_{\text{naive}}$.</dt>
+<dd>Wrong: a longer uncensored time raises the mean, which lowers the rate estimate — the direction is correct but this is not a problem if all observations are uncensored.</dd>
+<dt>Dropping patient A removes a long survival time from the calculation, inflating $\hat{\lambda}_{\text{naive}}$.</dt>
+<dd>Correct: censored patients tended to survive longer; removing them makes the mean look smaller and the rate look higher.</dd>
+<dt>Dropping patient A has no effect because censored patients never experienced the event.</dt>
+<dd>Wrong: even though the event did not occur, the censored time still carries information about how long the patient survived.</dd>
+</dl>
+</div>
+<h2>Why the Naive Estimate Is Biased</h2>
+<ul>
+<li>Censored patients were still alive at their last observation — they survived at least that long.</li>
+<li>Dropping them removes longer-than-average survival times from the calculation.</li>
+<li>The remaining uncensored times have a shorter mean, so $\hat{\lambda}_{\text{naive}}$ is too high.</li>
+<li>The bias grows with the censoring fraction: the more patients are censored, the worse the estimate.</li>
+</ul>
+<div class="forma-ordering" data-lang="en">
+<p>Put these reasoning steps about censoring bias in the correct order.</p>
+<ol>
+<li>Censoring occurs because a patient's follow-up ends before the event</li>
+<li>Censored patients were alive at their last observation, so their true event time is longer</li>
+<li>Dropping them leaves only patients who tended to have shorter survival times</li>
+<li>The mean of the remaining times underestimates $\mu$, so the rate is overestimated</li>
+</ol>
+</div>
+<h2>A Corrected Estimate</h2>
+<ul>
+<li>The maximum-likelihood estimate (MLE) of $\lambda$ uses all observed times, not just events.</li>
+<li>The log-likelihood for $n$ patients with times $t_i$ and event indicators $\delta_i$ is:</li>
+</ul>
+<p>$$\ell(\lambda) = \sum_{i=1}^{n} \left[ \delta_i \ln \lambda - \lambda t_i \right]$$</p>
+<ul>
+<li>Setting $d\ell/d\lambda = 0$, where $d = \sum_i \delta_i$ is the total number of events:</li>
+</ul>
+<p>$$\frac{d}{d\lambda} \left( d \ln \lambda - \lambda \sum_i t_i \right) = \frac{d}{\lambda} - \sum_i t_i = 0$$</p>
+<ul>
+<li>Solving gives:</li>
+</ul>
+<p>$$\hat{\lambda} = \frac{d}{\sum_i t_i}$$</p>
+<ul>
+<li>Every patient's time contributes to $\sum_i t_i$, whether or not the event occurred.</li>
+<li>A censored patient contributes time up to the point they were last observed: this is called
+    person-time and captures the information that the patient was alive throughout that period.</li>
+</ul>
+<div data-inc="survival.py" data-mark="corrected-rate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="0.125" data-lang="en" data-tolerance="0.001">
+<p>Three patients have times $[2, 4, 10]$ with event indicators $[1, 1, 0]$.
+Compute $\hat{\lambda} = d / \sum t_i$ to three decimal places.</p>
+</div>
+<h2>The Empirical Survival Curve</h2>
+<ul>
+<li>To visualize how well the model fits, plot the fraction of uncensored events occurring after each time.</li>
+<li>Sort the uncensored event times<ul>
+<li>At the $i$-th event time (0-indexed), $(n - i)/n$ events occur at or after that time</li>
+</ul>
+</li>
+<li>This gives a non-increasing step function that starts at 1 and reaches $1/n$ at the last event</li>
+</ul>
+<div data-inc="survival.py" data-mark="empirical-curve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<ul>
+<li>Overlay the exponential curves $e^{-\hat{\lambda}_{\text{naive}} t}$ and $e^{-\hat{\lambda} t}$
+    to see which fits the empirical curve more closely</li>
+</ul>
+<div data-inc="survival.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
+</code></pre></div>
+</div>
+<figure id="f:survival-exp">
+<img alt="Step-function empirical survival curve with two exponential overlays: naive rate (red dashed) decays faster, corrected rate (orange dashed) tracks the empirical curve more closely." src="survival.svg"/>
+<figcaption>Figure 1: Empirical survival curve for 100 synthetic patients with exponential fits. The naive rate (red) overestimates decay because it ignores censored patients. The corrected MLE rate (orange) fits the empirical curve more closely.</figcaption>
+</figure>
+<h2>Testing</h2>
+<ul>
+<li><code>naive_rate</code> should return $1 / \bar{t}_{\text{uncensored}}$; compute the mean by hand for a small dataset.</li>
+<li><code>corrected_rate</code> should return $d / \sum t_i$; again, hand-check with a small dataset.</li>
+<li>When censored observations exist, <code>naive_rate</code> must exceed <code>corrected_rate</code> — the bias should be
+    detectable on the full 100-patient synthetic dataset.</li>
+<li><code>empirical_survival</code> must return fractions in $[0, 1]$ that are non-increasing.</li>
+<li>When all observations are uncensored, the two rates must agree: with $\delta_i = 1$ for all $i$,
+    $d / \sum t_i = n / \sum t_i = 1 / \bar{t} = \hat{\lambda}_{\text{naive}}$.</li>
+</ul>
+<div data-inc="test_survival.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_survival_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">naive_rate</span><span class="p">,</span> <span class="n">corrected_rate</span><span class="p">,</span> <span class="n">empirical_survival</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_naive_rate_is_reciprocal_of_uncensored_mean</span><span class="p">():</span>
+    <span class="c1"># Only the two uncensored times (2.0 and 4.0) contribute; mean = 3.0, rate = 1/3.</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">naive_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_corrected_rate_is_events_over_total_time</span><span class="p">():</span>
+    <span class="c1"># d = 2, sum(t) = 2.0 + 4.0 + 10.0 = 16.0, rate = 2/16 = 0.125.</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">]</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">corrected_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="mf">16.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_naive_rate_exceeds_corrected_when_censored</span><span class="p">():</span>
+    <span class="c1"># Censored patients survived longer than average; dropping them inflates the naive rate.</span>
+    <span class="c1"># With any dataset that has at least one censored observation, naive &gt; corrected.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_survival_data</span><span class="p">()</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"observed"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">naive_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">corrected_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_empirical_survival_fractions_non_increasing_and_bounded</span><span class="p">():</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_survival_data</span><span class="p">()</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"observed"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">fractions</span> <span class="o">=</span> <span class="n">empirical_survival</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span>
+    <span class="c1"># All fractions must be in [0, 1].</span>
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="mf">0.0</span> <span class="o">&lt;=</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="mf">1.0</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fractions</span><span class="p">)</span>
+    <span class="c1"># Fractions must be non-increasing.</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fractions</span><span class="p">,</span> <span class="n">fractions</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="k">assert</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_corrected_equals_naive_when_no_censoring</span><span class="p">():</span>
+    <span class="c1"># When every observation is an event, d/sum(t) == 1/mean(t) == naive_rate.</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">naive_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">corrected_rate</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">observed</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Exponential survival analysis key terms</p>
+<dl>
+<dt>Right-censoring</dt>
+<dd>An observation where the event has not occurred by the end of follow-up; the true event time is unknown but greater than the censoring time</dd>
+<dt>Survival function $S(t)$</dt>
+<dd>The probability that a randomly chosen individual has not yet experienced the event by time $t$; for an Exponential with rate $\lambda$ this is $e^{-\lambda t}$</dd>
+<dt>Person-time</dt>
+<dd>The total time each individual was observed, summed across all individuals; censored patients contribute time up to their last observation, so $\sum_i t_i$ captures all available information</dd>
+<dt>MLE rate $\hat{\lambda}$</dt>
+<dd>$d / \sum_i t_i$: events divided by total person-time; accounts for censored observations by including their follow-up time in the denominator</dd>
+<dt>Naive bias</dt>
+<dd>Dropping censored patients inflates $\hat{\lambda}$ because censored patients tended to survive longer; the bias grows with the censoring fraction</dd>
+</dl>
+</div>
+<blockquote>
+<p>The Kaplan-Meier estimator handles censored observations more carefully using conditional
+probabilities at each event time, and does not assume an exponential distribution; it requires
+more advanced statistics.</p>
+</blockquote>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Confidence interval for the rate</h3>
+<p>The asymptotic standard error of $\hat{\lambda}$ is $\hat{\lambda} / \sqrt{d}$.
+Add a function <code>rate_ci(times, observed, alpha=0.05)</code> that returns a 95% confidence interval
+using a normal approximation, and verify that the interval contains the true rate on the
+synthetic dataset.</p>
+<h3>Effect of censoring fraction</h3>
+<p>Generate datasets with censoring windows that produce 10%, 30%, 50%, and 70% censoring fractions.
+For each, compute the naive and corrected rates and plot both against the true rate.
+At what censoring fraction does the naive estimate become seriously misleading?</p>
+<h3>Weibull extension</h3>
+<p>The Weibull distribution generalises the Exponential: $S(t) = e^{-(\lambda t)^k}$ where $k = 1$
+recovers the Exponential.  Derive the log-likelihood, implement MLE for both $\lambda$ and $k$
+using <code>scipy.optimize.minimize</code>, and compare the Weibull and Exponential fits on the synthetic data.</p>
+<h3>Two-group comparison</h3>
+<p>Generate two groups with true rates $\lambda_1 = 0.04$ and $\lambda_2 = 0.06$.
+Estimate the corrected rate for each group and test whether the ratio $\hat{\lambda}_1 / \hat{\lambda}_2$
+differs significantly from 1 using the fact that $\ln(\hat{\lambda}_1 / \hat{\lambda}_2)$ is
+approximately normal with standard error $\sqrt{1/d_1 + 1/d_2}$.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../sir/">Fitting an SIR Epidemic Model</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../vitals/">Anomaly Detection in Patient Vital Signs</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

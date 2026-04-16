@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estimating Price Elasticity of Demand</title>
+<meta content="Research Software Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Testing by Example</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a class="active" href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/rstx">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Estimating Price Elasticity of Demand</h1>
+<h2>The Problem</h2>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#price_elasticity">price elasticity of demand</a> measures
+    how sensitive consumer demand is to price changes<ul>
+<li>If the price rises by 1%, how many fewer units are sold?</li>
+</ul>
+</li>
+<li>Formally:</li>
+</ul>
+<p>$$\varepsilon = \frac{\partial \ln Q}{\partial \ln P} = \frac{P}{Q} \frac{dQ}{dP}$$</p>
+<ul>
+<li>$\varepsilon &lt; -1$: demand is elastic — a 1% price increase causes more than a 1% drop in quantity</li>
+<li>$-1 &lt; \varepsilon &lt; 0$: demand is inelastic — quantity is relatively insensitive to price</li>
+<li>$\varepsilon = -1$: unit elastic — price and quantity move in equal and opposite proportions</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>A product has estimated price elasticity $\varepsilon = -2.0$.
+If the price increases by 10%, what happens to quantity demanded?</p>
+<dl>
+<dt>Quantity decreases by 2%.</dt>
+<dd>Wrong: elasticity multiplies the percentage change in price, not adds to it.</dd>
+<dt>Quantity decreases by 20%.</dt>
+<dd>Correct: $\Delta Q / Q \approx \varepsilon \times \Delta P / P = -2.0 \times 10\% = -20\%$.</dd>
+<dt>Quantity increases by 20% because supply adjusts.</dt>
+<dd>Wrong: price elasticity of demand describes consumer response, not supplier response.</dd>
+<dt>Quantity is unchanged because consumers need the product regardless of price.</dt>
+<dd>Wrong: that would describe a perfectly inelastic good ($\varepsilon = 0$), not one with $\varepsilon = -2$.</dd>
+</dl>
+</div>
+<h2>The Log-Log Model</h2>
+<ul>
+<li>A power-law demand curve $Q = A P^\varepsilon$ becomes linear after taking logarithms:</li>
+</ul>
+<p>$$\ln Q = \ln A + \varepsilon \ln P$$</p>
+<ul>
+<li>This means $\varepsilon$ is the <a class="gl-ref" href="../glossary/#ordinary_least_squares">ordinary least squares</a> slope
+    in <a class="gl-ref" href="../glossary/#log_log_regression">log-log space</a>:
+    fitting $y = a + bx$ where $y = \ln Q$ and $x = \ln P$ directly estimates the elasticity as the slope $b$</li>
+<li>The intercept $a = \ln A$ gives the log of the demand intercept, but is rarely reported by itself.</li>
+</ul>
+<div class="forma-numeric-entry" data-correct="-1.5" data-lang="en" data-tolerance="0.01">
+<p>Using $\ln Q = a + \varepsilon \ln P$ with $a = 5$ and $\varepsilon = -1.5$,
+compute $\ln Q$ when $P = e$ (Euler's number, so $\ln P = 1$).
+What is the corresponding elasticity (the slope of the log-log line)?</p>
+</div>
+<h2>Ordinary Least Squares in Log-Log Space</h2>
+<ul>
+<li>Transforming prices and quantities to logs reduces the nonlinear power-law model
+    to a straight line, so standard OLS applies:</li>
+</ul>
+<p>$$\hat{\varepsilon} = \frac{\sum_i (\ln P_i - \overline{\ln P})(\ln Q_i - \overline{\ln Q})}{\sum_i (\ln P_i - \overline{\ln P})^2}$$</p>
+<ul>
+<li>The standard error of $\hat{\varepsilon}$ is:</li>
+</ul>
+<p>$$\text{SE}(\hat{\varepsilon}) = \sqrt{\frac{\text{RSS}/(n-2)}{\sum_i (\ln P_i - \overline{\ln P})^2}}$$</p>
+<ul>
+<li>$\text{RSS} = \sum_i (\ln Q_i - \hat{a} - \hat{\varepsilon} \ln P_i)^2$ is
+    the residual sum of squares</li>
+<li>A 95% confidence interval is $\hat{\varepsilon} \pm t_{0.975,\,n-2} \cdot \text{SE}(\hat{\varepsilon})$</li>
+</ul>
+<div data-inc="elasticity.py" data-mark="ols"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_log_ols</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Fit log(quantity) = intercept + slope * log(price) by ordinary least squares.</span>
+
+<span class="sd">    OLS formulas:</span>
+<span class="sd">        slope     = sum[(x_i - x_mean)(y_i - y_mean)] / sum[(x_i - x_mean)^2]</span>
+<span class="sd">        intercept = y_mean - slope * x_mean</span>
+<span class="sd">        SE(slope) = sqrt(RSS / (n - 2)) / sqrt(sum[(x_i - x_mean)^2])</span>
+
+<span class="sd">    The 95% confidence interval uses the t-distribution with n - 2 degrees of freedom.</span>
+<span class="sd">    A large SE relative to the slope indicates a poorly constrained estimate.</span>
+
+<span class="sd">    Returns (intercept, slope, se_slope, ci_low, ci_high).</span>
+<span class="sd">    """</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">quantities</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">ss_xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ss_xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_mean</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_mean</span><span class="p">))</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="n">ss_xy</span> <span class="o">/</span> <span class="n">ss_xx</span>
+    <span class="n">intercept</span> <span class="o">=</span> <span class="n">y_mean</span> <span class="o">-</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x_mean</span>
+    <span class="n">residuals</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">rss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># Residual standard error: sqrt(RSS / (n - 2))</span>
+    <span class="n">se_slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rss</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">ss_xx</span><span class="p">)</span>
+    <span class="n">t_crit</span> <span class="o">=</span> <span class="n">t_dist</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ci_low</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">-</span> <span class="n">t_crit</span> <span class="o">*</span> <span class="n">se_slope</span>
+    <span class="n">ci_high</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">+</span> <span class="n">t_crit</span> <span class="o">*</span> <span class="n">se_slope</span>
+    <span class="k">return</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">se_slope</span><span class="p">,</span> <span class="n">ci_low</span><span class="p">,</span> <span class="n">ci_high</span>
+</code></pre></div>
+</div>
+<div class="forma-ordering" data-lang="en">
+<p>Put these log-log OLS steps in the correct order.</p>
+<ol>
+<li>Compute $x_i = \ln P_i$ and $y_i = \ln Q_i$ for each observation</li>
+<li>Compute $\bar{x}$ and $\bar{y}$, then $SS_{xx}$ and $SS_{xy}$</li>
+<li>Estimate slope $\hat{\varepsilon} = SS_{xy} / SS_{xx}$ and intercept $\hat{a} = \bar{y} - \hat{\varepsilon}\bar{x}$</li>
+<li>Compute residuals $e_i = y_i - (\hat{a} + \hat{\varepsilon} x_i)$ and RSS $= \sum e_i^2$</li>
+<li>Report $\hat{\varepsilon}$ with 95% CI using $t_{0.975,\,n-2} \cdot \text{SE}(\hat{\varepsilon})$</li>
+</ol>
+</div>
+<h2>Generating Synthetic Data</h2>
+<ul>
+<li>Prices are drawn uniformly from $[1, 20]$ dollars<ul>
+<li>Log-quantities are generated from the power-law model plus Gaussian noise in log space</li>
+</ul>
+</li>
+<li>Noise in log space is equivalent to multiplicative noise in original space<ul>
+<li>Each observed quantity is $Q_i = A P_i^\varepsilon \cdot e^{\epsilon_i}$,
+    where $\epsilon_i \sim N(0, \sigma^2)$</li>
+</ul>
+</li>
+</ul>
+<div data-inc="generate_elasticity.py" data-mark="constants"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">SEED</span> <span class="o">=</span> <span class="mi">7493418</span>  <span class="c1"># RNG seed for reproducibility</span>
+<span class="n">N_POINTS</span> <span class="o">=</span> <span class="mi">80</span>  <span class="c1"># number of price-quantity observations</span>
+<span class="n">TRUE_ELASTICITY</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.5</span>  <span class="c1"># true price elasticity (slope in log-log space)</span>
+<span class="n">TRUE_INTERCEPT</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># true log-scale intercept</span>
+<span class="n">PRICE_MIN</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># minimum price ($)</span>
+<span class="n">PRICE_MAX</span> <span class="o">=</span> <span class="mf">20.0</span>  <span class="c1"># maximum price ($)</span>
+<span class="c1"># Log-quantity noise: chosen so that ~95% of observed quantities fall within</span>
+<span class="c1"># exp(±2 * NOISE_STD) ≈ ±35% of the true quantity at each price.</span>
+<span class="n">NOISE_STD</span> <span class="o">=</span> <span class="mf">0.15</span>
+</code></pre></div>
+</div>
+<div data-inc="generate_elasticity.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_elasticity_data</span><span class="p">(</span>
+    <span class="n">n</span><span class="o">=</span><span class="n">N_POINTS</span><span class="p">,</span>
+    <span class="n">true_elasticity</span><span class="o">=</span><span class="n">TRUE_ELASTICITY</span><span class="p">,</span>
+    <span class="n">true_intercept</span><span class="o">=</span><span class="n">TRUE_INTERCEPT</span><span class="p">,</span>
+    <span class="n">price_min</span><span class="o">=</span><span class="n">PRICE_MIN</span><span class="p">,</span>
+    <span class="n">price_max</span><span class="o">=</span><span class="n">PRICE_MAX</span><span class="p">,</span>
+    <span class="n">noise_std</span><span class="o">=</span><span class="n">NOISE_STD</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a Polars DataFrame with columns 'price' and 'quantity'.</span>
+
+<span class="sd">    Prices are drawn uniformly from [price_min, price_max].</span>
+<span class="sd">    Log-quantities follow:</span>
+
+<span class="sd">        log(quantity) = true_intercept + true_elasticity * log(price) + noise</span>
+
+<span class="sd">    where noise ~ N(0, noise_std^2), so quantities are log-normally distributed</span>
+<span class="sd">    around the true power-law demand curve.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">prices</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">price_min</span><span class="p">,</span> <span class="n">price_max</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">log_quantities</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">true_intercept</span>
+        <span class="o">+</span> <span class="n">true_elasticity</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">noise_std</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">quantities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_quantities</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"price"</span><span class="p">:</span> <span class="n">prices</span><span class="p">,</span> <span class="s2">"quantity"</span><span class="p">:</span> <span class="n">quantities</span><span class="p">})</span>
+</code></pre></div>
+</div>
+<h2>Fitting and Reporting the Elasticity</h2>
+<div data-inc="elasticity.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_loglog</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a log-log scatter plot with the fitted OLS line.</span>
+
+<span class="sd">    Both axes are on a log scale.  The fitted curve is the power-law:</span>
+<span class="sd">        quantity = exp(intercept) * price^slope</span>
+<span class="sd">    shown as a straight line in log-log space.</span>
+<span class="sd">    """</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"price"</span><span class="p">:</span> <span class="n">prices</span><span class="p">,</span> <span class="s2">"quantity"</span><span class="p">:</span> <span class="n">quantities</span><span class="p">})</span>
+    <span class="n">scatter</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span>
+                <span class="s2">"price:Q"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"log"</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Price ($, log scale)"</span>
+            <span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
+                <span class="s2">"quantity:Q"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"log"</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Quantity (log scale)"</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">p_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="n">q_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">intercept</span><span class="p">)</span> <span class="o">*</span> <span class="n">p_range</span><span class="o">**</span><span class="n">slope</span>
+    <span class="n">fit_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"price"</span><span class="p">:</span> <span class="n">p_range</span><span class="p">,</span> <span class="s2">"quantity"</span><span class="p">:</span> <span class="n">q_fit</span><span class="p">})</span>
+    <span class="n">fit_line</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">fit_df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"firebrick"</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"price:Q"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"quantity:Q"</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">fit_line</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Log-log demand curve with OLS fit"</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:elasticity-loglog">
+<img alt="Log-log scatter plot of price vs quantity with a straight fitted line showing a negative slope." src="elasticity.svg"/>
+<figcaption>Figure 1: Eighty synthetic price-quantity observations on log-log axes. The fitted OLS line has slope $\hat{\varepsilon} = -1.474 \pm 0.022$ (95% CI: $[-1.518,\,-1.430]$), covering the true value $\varepsilon = -1.5$.</figcaption>
+</figure>
+<ul>
+<li>The confidence interval $[-1.518, -1.430]$ is narrow because
+    the noise ($\sigma = 0.15$ in log space) is small relative to the price variation</li>
+<li>A wide confidence interval (or one that includes zero) indicates
+    insufficient price variation in the data to estimate elasticity reliably</li>
+</ul>
+<h2>Testing</h2>
+<dl>
+<dt>Noise-free recovery</dt>
+<dd>With no noise,
+OLS returns the exact true slope and intercept to within $10^{-6}$ (relative).
+Any deviation is a bug in the OLS formula rather than a sampling artefact.</dd>
+<dt>Noisy slope within 10% of true value</dt>
+<dd>With $\sigma = 0.15$ and $n = 80$,
+the theoretical SE of the slope is approximately 0.02.
+Ten percent of $|\varepsilon| = 1.5$ equals 0.15,
+giving a safety factor of roughly 7.5 over the expected sampling error,
+so the test should pass for any reasonable random seed.</dd>
+<dt>Negative elasticity</dt>
+<dd>Any estimated slope for downward-sloping demand must be negative.
+A positive slope would indicate data generation or formula errors
+because prices and quantities are negatively correlated by construction.</dd>
+<dt>95% CI contains true value</dt>
+<dd>With the fixed seed 7493418,
+the CI $[-1.518, -1.430]$ reliably contains the true value $-1.5$.
+This test would fail only with data where the noise draw happens to be extreme,
+which the fixed seed rules out.</dd>
+</dl>
+<div data-inc="test_elasticity.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_elasticity</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_elasticity_data</span><span class="p">,</span> <span class="n">TRUE_ELASTICITY</span><span class="p">,</span> <span class="n">TRUE_INTERCEPT</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elasticity</span><span class="w"> </span><span class="kn">import</span> <span class="n">log_log_ols</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_noise_free_slope_recovery</span><span class="p">():</span>
+    <span class="c1"># With no noise, OLS must recover the true slope to near machine precision.</span>
+    <span class="c1"># We use a generous relative tolerance of 1e-6 to allow for floating-point</span>
+    <span class="c1"># arithmetic, which is far tighter than the noise-corrupted case (&lt; 10%).</span>
+    <span class="n">prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="n">log_quantities</span> <span class="o">=</span> <span class="n">TRUE_INTERCEPT</span> <span class="o">+</span> <span class="n">TRUE_ELASTICITY</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+    <span class="n">quantities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_quantities</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">log_log_ols</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">slope</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">TRUE_ELASTICITY</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_noise_free_intercept_recovery</span><span class="p">():</span>
+    <span class="n">prices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="n">log_quantities</span> <span class="o">=</span> <span class="n">TRUE_INTERCEPT</span> <span class="o">+</span> <span class="n">TRUE_ELASTICITY</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+    <span class="n">quantities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_quantities</span><span class="p">)</span>
+    <span class="n">intercept</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">log_log_ols</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">intercept</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">TRUE_INTERCEPT</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_noisy_slope_within_ten_percent</span><span class="p">():</span>
+    <span class="c1"># With Gaussian log-quantity noise (std=0.15) and 80 observations,</span>
+    <span class="c1"># the OLS slope must land within 10% of the true value.</span>
+    <span class="c1"># The theoretical SE of the slope is roughly noise_std / sqrt(SS_xx),</span>
+    <span class="c1"># where SS_xx grows with n; 10% of |TRUE_ELASTICITY| = 0.15 gives</span>
+    <span class="c1"># a safety factor of ~3 over the expected SE ≈ 0.04.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_elasticity_data</span><span class="p">()</span>
+    <span class="n">prices</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"price"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">quantities</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"quantity"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">log_log_ols</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">slope</span> <span class="o">-</span> <span class="n">TRUE_ELASTICITY</span><span class="p">)</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">TRUE_ELASTICITY</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.10</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_elasticity_is_negative</span><span class="p">():</span>
+    <span class="c1"># Normal demand: higher price → lower quantity → negative slope in log-log space.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_elasticity_data</span><span class="p">()</span>
+    <span class="n">prices</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"price"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">quantities</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"quantity"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">log_log_ols</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">slope</span> <span class="o">&lt;</span> <span class="mf">0.0</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_confidence_interval_contains_true_value</span><span class="p">():</span>
+    <span class="c1"># The 95% CI should contain the true elasticity.</span>
+    <span class="c1"># With a well-specified model and n=80 points this should virtually always hold;</span>
+    <span class="c1"># it fails only in extreme noise draws that do not occur with seed 7493418.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_elasticity_data</span><span class="p">()</span>
+    <span class="n">prices</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"price"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">quantities</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"quantity"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ci_low</span><span class="p">,</span> <span class="n">ci_high</span> <span class="o">=</span> <span class="n">log_log_ols</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">quantities</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">ci_low</span> <span class="o">&lt;</span> <span class="n">TRUE_ELASTICITY</span> <span class="o">&lt;</span> <span class="n">ci_high</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Price elasticity key terms</p>
+<dl>
+<dt>Price elasticity of demand $\varepsilon$</dt>
+<dd>$\partial \ln Q / \partial \ln P$; the percentage change in quantity demanded for a 1% change in price; negative for normal goods</dd>
+<dt>Elastic demand ($|\varepsilon| &gt; 1$)</dt>
+<dd>Quantity is highly responsive to price; a 1% price rise causes more than a 1% drop in sales</dd>
+<dt>Inelastic demand ($|\varepsilon| &lt; 1$)</dt>
+<dd>Quantity is insensitive to price; consumers buy approximately the same amount regardless of small price changes</dd>
+<dt>Log-log regression</dt>
+<dd>A linear regression of $\ln Q$ on $\ln P$; the OLS slope directly estimates the elasticity exponent of the underlying power-law demand curve</dd>
+<dt>Residual standard error</dt>
+<dd>$\sqrt{\text{RSS}/(n-2)}$; estimates the noise in log-quantity; together with price variation it determines the precision of the elasticity estimate</dd>
+</dl>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Residual diagnostics</h3>
+<p>Plot the OLS residuals $e_i = \ln Q_i - \hat{a} - \hat{\varepsilon} \ln P_i$ against $\ln P_i$.
+If the log-log model is correct, the residuals should show no trend and no heteroscedasticity
+(variance should be roughly constant across prices).
+Modify <code>make_elasticity_data</code> to introduce heteroscedasticity (noise that increases with price)
+and show how the residual plot reveals it.</p>
+<h3>Weighted least squares</h3>
+<p>If measurement variance is known to be proportional to price ($\text{Var}(\epsilon_i) = \sigma^2 P_i$),
+ordinary OLS is inefficient.  Implement weighted OLS by minimising
+$\sum_i w_i (y_i - \hat{a} - \hat{\varepsilon} x_i)^2$ with weights $w_i = 1/P_i$.
+Compare the standard errors of the WLS and OLS estimates on heteroscedastic data.</p>
+<h3>Two-stage price endogeneity correction</h3>
+<p>In observational data, price is not set randomly — firms charge more when demand is high,
+creating a spurious correlation.  Instrumental variables estimation uses an instrument $Z$
+correlated with price but uncorrelated with the demand shock.
+Simulate endogenous prices by adding a common demand shock to both price and log-quantity,
+then show that OLS overestimates $|\varepsilon|$ while two-stage least squares (using a cost
+instrument) recovers the true elasticity.</p>
+<h3>Bootstrap confidence intervals</h3>
+<p>The OLS confidence interval assumes normally distributed residuals.
+Implement a bootstrap estimate: resample the 80 observations with replacement, fit the
+log-log model to each resample, and take the 2.5th and 97.5th percentiles of the 1000
+bootstrapped slopes as the CI.
+Compare the bootstrap CI with the analytic CI; do they agree closely for the synthetic data?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../tumor/">Tumor Classification by Logistic Regression</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../wealth/">Wealth Inequality in an Exchange Economy</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

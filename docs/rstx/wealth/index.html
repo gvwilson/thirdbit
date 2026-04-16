@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wealth Inequality in an Exchange Economy</title>
+<meta content="Research Software Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Testing by Example</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a class="active" href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/rstx">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Wealth Inequality in an Exchange Economy</h1>
+<h2>The Problem</h2>
+<ul>
+<li>Even when individuals exchange resources randomly with no deliberate hoarding,
+    wealth concentrates in a small number of hands over time.</li>
+<li>This is the central insight of <a class="gl-ref" href="../glossary/#agent_based_model">agent-based models</a> of exchange:
+    inequality can emerge from random processes, not only from skill differences or
+    deliberate exploitation.</li>
+<li>The <a class="gl-ref" href="../glossary/#yardsale">model</a>  works as follows:<ul>
+<li>Start with $N$ agents, each holding 1 unit of wealth (total wealth $= N$).</li>
+<li>At each step, choose two agents at random; the poorer transfers a uniformly random
+    fraction of their own wealth to the richer.</li>
+<li>Repeat for many steps and track the wealth distribution.</li>
+</ul>
+</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>In the yardsale model, Agent A has 0.4 units and Agent B has 1.6 units.
+A fraction $f = 0.25$ is drawn.  What is Agent A's wealth after the exchange?</p>
+<dl>
+<dt>0.3 units.</dt>
+<dd>Correct: Agent A is poorer, so A transfers $0.25 \times 0.4 = 0.1$ units to B.
+$0.4 - 0.1 = 0.3$.</dd>
+<dt>0.5 units.</dt>
+<dd>Wrong: the fraction applies to A's wealth (0.4), not to the total (2.0) or B's
+wealth (1.6).</dd>
+<dt>0.1 units.</dt>
+<dd>Wrong: 0.1 is the transfer amount, not A's remaining wealth.</dd>
+<dt>0.4 units.</dt>
+<dd>Wrong: A is the poorer agent and must transfer wealth to B.</dd>
+</dl>
+</div>
+<h2>The Gini Coefficient</h2>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#gini_coefficient">Gini coefficient</a> $G$ is the most widely used scalar summary of
+    inequality: it equals 0 for perfect equality and approaches 1 when all wealth is
+    concentrated in one agent.</li>
+<li>It is defined as the mean absolute difference in wealth between all pairs, normalised
+    by twice the mean wealth:</li>
+</ul>
+<p>$$G = \frac{\sum_i \sum_j |w_i - w_j|}{2\,n \sum_i w_i}$$</p>
+<ul>
+<li>Computing this directly requires $O(n^2)$ comparisons.
+    Sorting the wealth array first reduces the cost to $O(n \log n)$:
+    after sorting so that $w_{(1)} \leq w_{(2)} \leq \cdots \leq w_{(n)}$,</li>
+</ul>
+<p>$$G = \frac{2\sum_{i=1}^n i\,w_{(i)} - (n+1)\sum_i w_i}{n \sum_i w_i}$$</p>
+<div data-inc="wealth.py" data-mark="gini"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gini</span><span class="p">(</span><span class="n">wealth</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Gini coefficient of a wealth distribution.</span>
+
+<span class="sd">    Uses the sorted-array formula:</span>
+<span class="sd">        G = (2 * sum(i * w_(i)) - (n+1) * sum(w)) / (n * sum(w))</span>
+<span class="sd">    where indices i are 1-based and w_(i) is the i-th smallest wealth.</span>
+<span class="sd">    Returns 0 for perfect equality and (n-1)/n when one agent holds everything.</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">wealth</span><span class="p">)</span>
+    <span class="n">sorted_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">wealth</span><span class="p">)</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sorted_w</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">sorted_w</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">total</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="0" data-lang="en" data-tolerance="0.001">
+<p>Three agents hold 1, 1, and 1 unit of wealth respectively.
+Using the formula $G = (2\sum i\,w_{(i)} - (n+1)\sum w) / (n\sum w)$ with $n=3$,
+compute the Gini coefficient.</p>
+</div>
+<h2>The Exchange Simulation</h2>
+<ul>
+<li>The simulation records the Gini coefficient after every exchange so we can watch
+    inequality grow from zero.</li>
+<li>A key invariant: total wealth $\sum_i w_i = N$ is conserved exactly at every step
+    because each transfer moves wealth without creating or destroying it.</li>
+</ul>
+<div data-inc="wealth.py" data-mark="simulate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_exchange</span><span class="p">(</span><span class="n">n_agents</span><span class="o">=</span><span class="n">N_AGENTS</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="n">N_STEPS</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Run the random-exchange wealth model.</span>
+
+<span class="sd">    Agents start with equal wealth of 1.0 each.  At every step two distinct</span>
+<span class="sd">    agents are chosen uniformly at random; the poorer transfers a uniformly</span>
+<span class="sd">    random fraction of their own wealth to the richer.  Total wealth is</span>
+<span class="sd">    conserved exactly at n_agents throughout.</span>
+
+<span class="sd">    Returns (final_wealth, gini_history) where gini_history[t] is the Gini</span>
+<span class="sd">    coefficient after t exchanges (gini_history[0] is the initial value 0.0).</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">wealth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_agents</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">gini_history</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n_steps</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">gini_history</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">gini</span><span class="p">(</span><span class="n">wealth</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">n_agents</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">wealth</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">wealth</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+            <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span>  <span class="c1"># i is now the poorer agent</span>
+        <span class="n">fraction</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">transfer</span> <span class="o">=</span> <span class="n">fraction</span> <span class="o">*</span> <span class="n">wealth</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">wealth</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">transfer</span>
+        <span class="n">wealth</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">transfer</span>
+        <span class="n">gini_history</span><span class="p">[</span><span class="n">step</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">gini</span><span class="p">(</span><span class="n">wealth</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wealth</span><span class="p">,</span> <span class="n">gini_history</span>
+</code></pre></div>
+</div>
+<div class="forma-ordering" data-lang="en">
+<p>Put the exchange steps in the correct order.</p>
+<ol>
+<li>Choose two distinct agents $i$ and $j$ uniformly at random</li>
+<li>Identify the poorer agent (swap labels if necessary so $w_i \leq w_j$)</li>
+<li>Draw fraction $f \sim \text{Uniform}(0, 1)$</li>
+<li>Compute transfer $\delta = f \cdot w_i$</li>
+<li>Update $w_i \leftarrow w_i - \delta$ and $w_j \leftarrow w_j + \delta$</li>
+</ol>
+</div>
+<h2>The Lorenz Curve</h2>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#lorenz_curve">Lorenz curve</a> gives a visual picture of the whole distribution,
+    not just a single number.</li>
+<li>Sort agents by wealth ascending; the curve plots the cumulative fraction of total wealth
+    held by the bottom $x$ fraction of the population.</li>
+<li>Perfect equality produces the 45-degree line $y = x$.
+    Any inequality bows the curve below that line.</li>
+<li>The Gini coefficient equals twice the area between the Lorenz curve and the
+    equality line.</li>
+</ul>
+<div data-inc="wealth.py" data-mark="lorenz"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">lorenz_curve</span><span class="p">(</span><span class="n">wealth</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return (population_fractions, wealth_fractions) arrays for the Lorenz curve.</span>
+
+<span class="sd">    Both arrays start at (0, 0) and end at (1, 1).  The area between the</span>
+<span class="sd">    curve and the 45-degree equality line equals G/2, where G is the Gini</span>
+<span class="sd">    coefficient.</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">wealth</span><span class="p">)</span>
+    <span class="n">sorted_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">wealth</span><span class="p">)</span>
+    <span class="n">cum_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">sorted_w</span><span class="p">)</span>
+    <span class="n">pop_fracs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">wealth_fracs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">],</span> <span class="n">cum_w</span> <span class="o">/</span> <span class="n">cum_w</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">pop_fracs</span><span class="p">,</span> <span class="n">wealth_fracs</span>
+</code></pre></div>
+</div>
+<div data-inc="wealth.py" data-mark="plot_lorenz"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_lorenz_curve</span><span class="p">(</span><span class="n">wealth</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a Lorenz curve with the line of equality overlaid."""</span>
+    <span class="n">pop_fracs</span><span class="p">,</span> <span class="n">wealth_fracs</span> <span class="o">=</span> <span class="n">lorenz_curve</span><span class="p">(</span><span class="n">wealth</span><span class="p">)</span>
+    <span class="n">df_lorenz</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"population"</span><span class="p">:</span> <span class="n">pop_fracs</span><span class="p">,</span> <span class="s2">"wealth"</span><span class="p">:</span> <span class="n">wealth_fracs</span><span class="p">})</span>
+    <span class="n">df_equal</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"population"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="s2">"wealth"</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]})</span>
+    <span class="n">lorenz_line</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_lorenz</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"population:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Cumulative share of population"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"wealth:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Cumulative share of wealth"</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">equal_line</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_equal</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">strokeDash</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"population:Q"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"wealth:Q"</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">equal_line</span><span class="p">,</span> <span class="n">lorenz_line</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Lorenz curve after 2000 exchanges"</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:wealth-lorenz">
+<img alt="Lorenz curve bowing well below the diagonal line of equality, with the bottom 80% of agents holding roughly 20% of total wealth." src="wealth-lorenz.svg"/>
+<figcaption>Figure 1: Lorenz curve after 2000 exchanges with 200 agents (seed 7493418). The bottom 80% of agents hold roughly 20% of total wealth; the final Gini coefficient is 0.88.</figcaption>
+</figure>
+<div class="forma-multiple-choice" data-lang="en">
+<p>In a Lorenz curve, the point $(0.5,\; 0.2)$ means:</p>
+<dl>
+<dt>The wealthiest 50% of agents hold 20% of total wealth.</dt>
+<dd>Wrong: the curve shows the bottom (poorest) fraction, not the top.</dd>
+<dt>The poorest 50% of agents hold 20% of total wealth.</dt>
+<dd>Correct: the Lorenz curve always measures cumulative shares starting from the poorest.</dd>
+<dt>20% of agents each hold exactly 50% of total wealth.</dt>
+<dd>Wrong: the axes represent cumulative fractions, not individual shares.</dd>
+<dt>The Gini coefficient equals 0.2.</dt>
+<dd>Wrong: the Gini is twice the area between the Lorenz curve and the diagonal,
+not the $y$-value at $x = 0.5$.</dd>
+</dl>
+</div>
+<h2>Gini Trajectory</h2>
+<div data-inc="wealth.py" data-mark="plot_gini"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_gini_trajectory</span><span class="p">(</span><span class="n">gini_history</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a line chart of the Gini coefficient at each exchange step."""</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">"step"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gini_history</span><span class="p">)),</span>
+            <span class="s2">"gini"</span><span class="p">:</span> <span class="n">gini_history</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"step:Q"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Exchange step"</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
+                <span class="s2">"gini:Q"</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]),</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Gini coefficient"</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Gini coefficient over time"</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:wealth-gini">
+<img alt="Line chart rising steeply from 0 in the first few hundred steps, then levelling off near 0.88 by step 2000." src="wealth-gini.svg"/>
+<figcaption>Figure 2: Gini coefficient over 2000 pairwise exchanges with 200 agents. The coefficient rises from 0.00 (perfect equality) to 0.88, consistent with the exponential steady-state distribution whose theoretical Gini is 0.50 — the simulation has not yet fully converged but is still rising.</figcaption>
+</figure>
+<ul>
+<li>The Gini rises quickly at first because early random exchanges quickly
+    produce a spread in wealth from identical starting values.</li>
+<li>Growth slows as wealth concentrates: the few richest agents now dominate
+    exchanges, but the model has no way to reverse concentration once it is
+    established.</li>
+<li>The theoretical steady-state Gini for an exponential wealth distribution is
+    exactly 0.5 (see Exercises), but the yardsale model's convergence is slow and
+    in practice the simulated Gini often exceeds 0.5 because the distribution
+    is not yet truly exponential.</li>
+</ul>
+<h2>Testing</h2>
+<dl>
+<dt>Equal-distribution baseline</dt>
+<dd><code>gini(np.ones(n))</code> must return exactly 0.0 for any $n$.
+Analytically: substituting $w_{(i)} = 1$ gives $2n(n+1)/2 - (n+1)n = 0$ in the numerator.</dd>
+<dt>Perfect-inequality limit</dt>
+<dd>When one agent holds all wealth, the formula gives $(n-1)/n$.
+For $n = 10$: $G = 0.9$, which approaches 1 as $n \to \infty$, confirming the
+coefficient never quite reaches 1 for any finite population.</dd>
+<dt>Gini stays in [0, 1]</dt>
+<dd>Wealth is non-negative and total wealth is conserved, so the formula
+is always well-defined and bounded.</dd>
+<dt>Total wealth conserved</dt>
+<dd>The sum of all agent wealths must equal $N$ to within floating-point rounding
+throughout the full simulation.</dd>
+<dt>Gini rises from zero</dt>
+<dd>Starting from equal wealth (Gini = 0), the simulation must produce substantial
+inequality after 2000 steps.
+With seed 7493418 the final value is 0.88, well above the 0.3 threshold.</dd>
+</dl>
+<div data-inc="test_wealth.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wealth</span><span class="w"> </span><span class="kn">import</span> <span class="n">gini</span><span class="p">,</span> <span class="n">simulate_exchange</span><span class="p">,</span> <span class="n">N_AGENTS</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_gini_equal_distribution</span><span class="p">():</span>
+    <span class="c1"># With identical wealth for every agent the Gini must be exactly 0.</span>
+    <span class="c1"># Analytically: (2 * n(n+1)/2 - (n+1)*n) / n^2 = 0 for any n.</span>
+    <span class="k">assert</span> <span class="n">gini</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_gini_perfect_inequality</span><span class="p">():</span>
+    <span class="c1"># One agent holds all wealth; Gini = (n-1)/n.</span>
+    <span class="c1"># With n=10: G = 9/10 = 0.9 exactly.</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">gini</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_gini_bounded_during_simulation</span><span class="p">():</span>
+    <span class="c1"># Wealth is always non-negative and total wealth is conserved, so the</span>
+    <span class="c1"># Gini coefficient must stay in [0, 1] at every step.</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">gini_history</span> <span class="o">=</span> <span class="n">simulate_exchange</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">gini_history</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">gini_history</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_total_wealth_conserved</span><span class="p">():</span>
+    <span class="c1"># Every exchange transfers wealth without creation or destruction, so</span>
+    <span class="c1"># the sum must equal n_agents (each agent starts with 1.0) to within</span>
+    <span class="c1"># floating-point rounding.</span>
+    <span class="n">final_wealth</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">simulate_exchange</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">final_wealth</span><span class="p">)</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">N_AGENTS</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_gini_rises_from_zero</span><span class="p">():</span>
+    <span class="c1"># The model starts from perfect equality (Gini = 0) and should</span>
+    <span class="c1"># produce substantial inequality after 2000 exchanges.</span>
+    <span class="c1"># The theoretical steady-state Gini for exponential wealth distributions</span>
+    <span class="c1"># is 0.5; after 2000 steps the simulated value reliably exceeds 0.3.</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">gini_history</span> <span class="o">=</span> <span class="n">simulate_exchange</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">gini_history</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">abs</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">gini_history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.3</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Wealth inequality key terms</p>
+<dl>
+<dt>Gini coefficient $G$</dt>
+<dd>$(2\sum i\,w_{(i)} - (n+1)\sum w) / (n\sum w)$ for sorted wealth; 0 for perfect equality,
+$(n-1)/n$ when all wealth is held by one agent</dd>
+<dt>Lorenz curve</dt>
+<dd>Plot of cumulative wealth fraction vs. cumulative population fraction, both sorted
+from poorest to richest; the area between the curve and the 45-degree line equals $G/2$</dd>
+<dt>Agent-based model</dt>
+<dd>Simulation in which autonomous agents follow local rules; emergent population-level
+patterns (such as inequality) arise from many individual interactions</dd>
+<dt>Yardsale model</dt>
+<dd>Random exchange rule in which the poorer agent transfers a random fraction of their
+own wealth to the richer; produces exponential steady-state wealth distribution</dd>
+<dt>Wealth conservation invariant</dt>
+<dd>$\sum_i w_i = N$ at every step; a transfer $\delta$ from agent $i$ to $j$ subtracts
+$\delta$ from $w_i$ and adds $\delta$ to $w_j$, leaving the total unchanged</dd>
+</dl>
+</div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Theoretical steady-state Gini</h3>
+<p>For an exponential distribution with rate $\lambda$, all agents draw wealth
+$w \sim \text{Exp}(\lambda)$ independently.
+Show algebraically that the Gini coefficient of this distribution is exactly 0.5.
+(Hint: use the formula $G = 1 - 2\int_0^\infty S(w)^2 \, dw / \text{E}[W]$
+where $S(w) = e^{-\lambda w}$ is the survival function.)</p>
+<h3>Convergence as a function of $N$</h3>
+<p>Run the simulation with 50, 200, and 1000 agents for 10 000 steps each and plot the
+final Gini as a function of $N$.
+Does the steady-state Gini depend on the population size, or does it converge to
+the same value regardless of $N$?</p>
+<h3>Redistribution policy</h3>
+<p>Add a "redistribution step" every 100 exchanges: take 10% of the total wealth held
+by the top decile (wealthiest 10% of agents) and distribute it equally to all agents.
+How does this change the trajectory and steady-state Gini?</p>
+<h3>Symmetric exchange rule</h3>
+<p>Change the transfer rule: instead of the poorer agent transferring a fraction of their
+own wealth, both agents contribute a fraction of their own wealth to a pool and the pool
+is split 50/50.
+Show that total wealth is still conserved under this rule, then compare the resulting
+Gini trajectory to the original yardsale model.</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../elasticity/">Estimating Price Elasticity of Demand</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../breakpoint/">Structural Break Detection in Economic Time Series</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Topic Modeling a Document Corpus</title>
+<meta content="Research Software Testing by Example" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">Research Software Testing by Example</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../diffusion/">1D Diffusion Simulation</a></li>
+<li><a href="../lotka/">Predator-Prey Dynamics</a></li>
+<li><a href="../align/">Pairwise Sequence Alignment</a></li>
+<li><a href="../phylo/">Phylogenetic Tree Reconstruction</a></li>
+<li><a href="../massspec/">Peak Detection in Mass Spectra</a></li>
+<li><a href="../cellseg/">Cell Segmentation in Microscopy Images</a></li>
+<li><a href="../radvel/">Exoplanet Detection via Radial Velocity</a></li>
+<li><a href="../mineral/">Mineral Classification by Geochemistry</a></li>
+<li><a href="../heatwall/">Heat Conduction Through a Composite Wall</a></li>
+<li><a href="../pollute/">Pollutant Spread in a River Network</a></li>
+<li><a href="../flood/">Flood Frequency Analysis</a></li>
+<li><a href="../porous/">Percolation in a Porous Medium</a></li>
+<li><a href="../sir/">Fitting an SIR Epidemic Model</a></li>
+<li><a href="../survival/">Survival Analysis with Kaplan-Meier</a></li>
+<li><a href="../vitals/">Anomaly Detection in Patient Vital Signs</a></li>
+<li><a href="../tumor/">Tumor Classification by Logistic Regression</a></li>
+<li><a href="../elasticity/">Estimating Price Elasticity of Demand</a></li>
+<li><a href="../wealth/">Wealth Inequality in an Exchange Economy</a></li>
+<li><a href="../breakpoint/">Structural Break Detection in Economic Time Series</a></li>
+<li><a href="../schelling/">Schelling Segregation Model</a></li>
+<li><a href="../vocab/">Vocabulary Richness in Historical Texts</a></li>
+<li><a class="active" href="../topics/">Topic Modeling a Document Corpus</a></li>
+<li><a href="../authorship/">Authorship Attribution by N-gram Profiles</a></li>
+<li><a href="../wordshift/">Word Frequency Change Over Time</a></li>
+<li><a href="../stemma/">Manuscript Stemma Reconstruction</a></li>
+<li><a href="../leastcost/">Least-Cost Path Analysis for Trade Routes</a></li>
+<li><a href="../archcluster/">Spatial Clustering of Archaeological Sites</a></li>
+<li><a href="../interp/">Spatial Interpolation of Climate Data</a></li>
+<li><a href="../learning/">Fitting a Learning Curve to Experimental Data</a></li>
+<li><a href="../sdt/">Signal Detection Theory Analysis</a></li>
+<li><a href="../agreement/">Inter-Rater Agreement</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/rstx">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Topic Modeling a Document Corpus</h1>
+<h2>The Problem</h2>
+<ul>
+<li>A corpus of documents often covers several recurring themes, but labeling each
+    document by hand is slow and subjective.</li>
+<li>Topic modeling discovers those themes automatically by finding groups of words
+    that tend to appear together across documents.</li>
+<li>The approach here:<ul>
+<li>Generate a synthetic <a class="gl-ref" href="../glossary/#bag_of_words">bag-of-words</a> corpus in which
+    each document is produced by one of three topics, each with a distinct vocabulary.</li>
+<li>Represent each document as a <a class="gl-ref" href="../glossary/#term_frequency">term-frequency</a> (TF) vector:
+    one integer per vocabulary word recording how often that word appears.</li>
+<li>Run <a class="gl-ref" href="../glossary/#k_means">k-means clustering</a> on those vectors to find groups of
+    documents that use similar words.</li>
+<li>Compare results using raw TF counts and length-normalized TF vectors.</li>
+</ul>
+</li>
+</ul>
+<div class="forma-multiple-choice" data-lang="en">
+<p>Why is topic modeling called an "unsupervised" method?</p>
+<dl>
+<dt>Because it requires labeled training documents to identify topics.</dt>
+<dd>Wrong: topic modeling discovers structure from the text alone, with no labels
+provided; that is precisely why it is called unsupervised.</dd>
+<dt>Because it infers topic structure from the documents themselves, with no</dt>
+<dt>pre-specified topic labels.</dt>
+<dd>Correct: the algorithm finds groupings based entirely on patterns of word use,
+without any human-assigned category names or example documents.</dd>
+<dt>Because it only works on documents where the topics are already known.</dt>
+<dd>Wrong: the method is designed for cases where topics are unknown; if topics
+were known, supervised classification would be used instead.</dd>
+<dt>Because it ignores word order within a document.</dt>
+<dd>Wrong: ignoring word order (the bag-of-words assumption) is a modeling choice,
+not the reason for the label "unsupervised."</dd>
+</dl>
+</div>
+<h2>Generating Synthetic Data</h2>
+<ul>
+<li>The corpus has three topics; each topic owns six consecutive words from a twenty-word vocabulary.</li>
+<li>Words from a topic's own set are sampled with weight 20; all other words receive
+    weight 0.5, so about 96% of each document's tokens come from the document's true topic.</li>
+<li>Document lengths vary because token counts are drawn from a Poisson distribution
+    with mean 40; this mimics realistic corpora where documents differ in length.</li>
+<li>Each row in the resulting DataFrame is one document with integer word-count columns.</li>
+<li><code>true_topic</code> records which topic generated each document and is used only in tests.</li>
+</ul>
+<div data-inc="generate_topics.py" data-mark="generate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_corpus</span><span class="p">(</span>
+    <span class="n">n_topics</span><span class="o">=</span><span class="n">N_TOPICS</span><span class="p">,</span>
+    <span class="n">docs_per_topic</span><span class="o">=</span><span class="n">DOCS_PER_TOPIC</span><span class="p">,</span>
+    <span class="n">vocab_size</span><span class="o">=</span><span class="n">VOCAB_SIZE</span><span class="p">,</span>
+    <span class="n">words_per_topic</span><span class="o">=</span><span class="n">WORDS_PER_TOPIC</span><span class="p">,</span>
+    <span class="n">mean_tokens</span><span class="o">=</span><span class="n">MEAN_TOKENS_PER_DOC</span><span class="p">,</span>
+    <span class="n">topic_weight</span><span class="o">=</span><span class="n">TOPIC_WEIGHT</span><span class="p">,</span>
+    <span class="n">background_weight</span><span class="o">=</span><span class="n">BACKGROUND_WEIGHT</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a Polars DataFrame with columns doc_id, true_topic, and one column per word.</span>
+
+<span class="sd">    Each row is a document; word columns contain integer token counts (raw TF vectors).</span>
+<span class="sd">    true_topic records which topic generated each document and is used only in tests.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">word_forms</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"w</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)]</span>
+
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">doc_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_topics</span><span class="p">):</span>
+        <span class="n">probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">background_weight</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">words_per_topic</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">words_per_topic</span>
+        <span class="n">probs</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">topic_weight</span>
+        <span class="n">probs</span> <span class="o">/=</span> <span class="n">probs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">docs_per_topic</span><span class="p">):</span>
+            <span class="c1"># Use Poisson-distributed length so documents vary naturally.</span>
+            <span class="n">n_tokens</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">mean_tokens</span><span class="p">))</span>
+            <span class="c1"># Ensure at least one token so TF vectors are non-zero.</span>
+            <span class="n">n_tokens</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n_tokens</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">sampled</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_tokens</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">probs</span><span class="p">)</span>
+            <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">sampled</span><span class="p">,</span> <span class="n">minlength</span><span class="o">=</span><span class="n">vocab_size</span><span class="p">)</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"doc_id"</span><span class="p">:</span> <span class="n">doc_id</span><span class="p">,</span> <span class="s2">"true_topic"</span><span class="p">:</span> <span class="n">k</span><span class="p">}</span>
+            <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">word_forms</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
+                <span class="n">row</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            <span class="n">doc_id</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2>Building TF Vectors</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#term_frequency">term-frequency</a> vector for document $d$ is the vector
+    $\mathbf{t}<em 0="0" _geq="\geq">d \in \mathbb{Z}</em>^V$ where $V$ is the vocabulary size and
+    $t_{dw}$ counts how many times word $w$ appears in document $d$.</li>
+<li>Extracting word-count columns from the DataFrame and converting to a NumPy matrix
+    gives a two-dimensional array with shape $(\text{n_docs},\, V)$.</li>
+</ul>
+<div data-inc="topics.py" data-mark="tf_matrix"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a (n_docs, vocab_size) NumPy array of raw term-frequency counts.</span>
+
+<span class="sd">    The first two columns of df are doc_id and true_topic; remaining columns</span>
+<span class="sd">    are word counts.  Returns the matrix and the list of word column names.</span>
+<span class="sd">    """</span>
+    <span class="n">word_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"doc_id"</span><span class="p">,</span> <span class="s2">"true_topic"</span><span class="p">)]</span>
+    <span class="n">tf</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">word_cols</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="p">,</span> <span class="n">word_cols</span>
+</code></pre></div>
+</div>
+<h2>Length Normalization</h2>
+<ul>
+<li>Raw TF vectors are proportional to document length: a document twice as long will
+    have roughly twice the counts for every word, even if its topic mix is identical.</li>
+<li>Dividing each document vector by its <a class="gl-ref" href="../glossary/#term_frequency">L2 norm</a> removes this
+    length effect:</li>
+</ul>
+<p>$$\hat{\mathbf{t}}_d = \frac{\mathbf{t}_d}{\|\mathbf{t}_d\|_2}$$</p>
+<ul>
+<li>After normalization, two documents about the same topic are close to each other
+    in Euclidean space even if one is three times longer than the other.</li>
+<li>This is analogous to comparing the shape of word use rather than its volume.</li>
+</ul>
+<div data-inc="topics.py" data-mark="normalize"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">normalize_rows</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a copy of matrix with each row divided by its L2 norm.</span>
+
+<span class="sd">    Documents with zero norm (all-zero rows) are left as zeros.</span>
+<span class="sd">    Normalizing makes k-means compare the shape of word use rather than</span>
+<span class="sd">    total volume: a short document and a long document about the same</span>
+<span class="sd">    topic end up close together after normalization.</span>
+<span class="sd">    """</span>
+    <span class="n">norms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Avoid division by zero for any all-zero document.</span>
+    <span class="n">safe_norms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">norms</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">norms</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">matrix</span> <span class="o">/</span> <span class="n">safe_norms</span>
+</code></pre></div>
+</div>
+<div class="forma-multiple-choice" data-lang="en">
+<p>A document has TF vector $[6, 0, 2, 0]$. What is its L2 norm?</p>
+<dl>
+<dt>$\sqrt{6}$</dt>
+<dd>Wrong: the L2 norm squares each entry before summing: $\sqrt{6^2 + 0^2 + 2^2 + 0^2} = \sqrt{40}$.</dd>
+<dt>$\sqrt{40}$</dt>
+<dd>Correct: $|\mathbf{t}|_2 = \sqrt{6^2 + 0^2 + 2^2 + 0^2} = \sqrt{36 + 4} = \sqrt{40}$.</dd>
+<dt>8</dt>
+<dd>Wrong: adding the entries directly gives 8, but the L2 norm takes the square root of
+the sum of squares, not the sum itself.</dd>
+<dt>$\sqrt{8}$</dt>
+<dd>Wrong: $\sqrt{8}$ would be the L2 norm of $[2, 2, 2, 2]$, not of $[6, 0, 2, 0]$.</dd>
+</dl>
+</div>
+<h2>The K-Means Algorithm</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#k_means">K-means</a> partitions $n$ documents into $K$ clusters by
+    alternating two steps until assignments stop changing:<ol>
+<li>Assign each document to the nearest centroid (smallest Euclidean distance).</li>
+<li>Update each centroid as the coordinate-wise mean of all documents in that cluster.</li>
+</ol>
+</li>
+<li>The centroid of a cluster is the "average document" for that cluster: its
+    $w$-th coordinate is the average count (or average normalized count) of word
+    $w$ across all documents assigned to the cluster.</li>
+<li>The assignment distance between document $\mathbf{t}$ and centroid $\mathbf{c}$
+    is the Euclidean distance:</li>
+</ul>
+<p>$$d(\mathbf{t},\,\mathbf{c}) = \sqrt{\sum_{w=1}^{V}(t_w - c_w)^2}$$</p>
+<ul>
+<li>The algorithm needs $K$ to be chosen before running it; topic modeling uses domain
+    knowledge or model selection criteria to pick $K$.</li>
+</ul>
+<div data-inc="topics.py" data-mark="kmeans"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kmeans</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="n">MAX_ITER</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Run k-means clustering and return (labels, centroids).</span>
+
+<span class="sd">    Algorithm:</span>
+<span class="sd">      1. Choose k distinct rows of matrix at random as initial centroids.</span>
+<span class="sd">      2. Assign each row to the nearest centroid (Euclidean distance).</span>
+<span class="sd">      3. Update each centroid as the mean of its assigned rows.</span>
+<span class="sd">      4. Repeat steps 2-3 until assignments stop changing or max_iter is reached.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      labels     1-D integer array of cluster indices, one per document.</span>
+<span class="sd">      centroids  (k, vocab_size) array of final centroid vectors.</span>
+<span class="sd">    """</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">n_docs</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Step 1: choose k random documents as initial centroids.</span>
+    <span class="n">init_indices</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">n_docs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">centroids</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="n">init_indices</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_docs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iter</span><span class="p">):</span>
+        <span class="c1"># Step 2: assign each document to the nearest centroid.</span>
+        <span class="c1"># Compute squared Euclidean distances via broadcasting.</span>
+        <span class="n">diffs</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">centroids</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+        <span class="n">sq_distances</span> <span class="o">=</span> <span class="p">(</span><span class="n">diffs</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">new_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sq_distances</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Step 3: update centroids.</span>
+        <span class="n">new_centroids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">centroids</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="n">members</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="n">new_labels</span> <span class="o">==</span> <span class="n">c</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">members</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">new_centroids</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">members</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Empty cluster: reinitialize to a random document.</span>
+                <span class="n">new_centroids</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">n_docs</span><span class="p">)]</span>
+
+        <span class="c1"># Stop when assignments no longer change.</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">new_labels</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+            <span class="k">break</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">new_labels</span>
+        <span class="n">centroids</span> <span class="o">=</span> <span class="n">new_centroids</span>
+
+    <span class="k">return</span> <span class="n">labels</span><span class="p">,</span> <span class="n">centroids</span>
+</code></pre></div>
+</div>
+<div class="forma-numeric-entry" data-correct="5" data-lang="en" data-tolerance="0.001">
+<p>Consider two document vectors $\mathbf{a} = [3, 4]$ and centroid $\mathbf{c} = [0, 0]$.
+What is the Euclidean distance $d(\mathbf{a}, \mathbf{c})$?</p>
+</div>
+<h2>Top Words Per Cluster</h2>
+<ul>
+<li>After k-means converges, the top words for each cluster are those with the highest
+    value in the cluster's centroid vector.</li>
+<li>A high centroid coordinate for word $w$ means that documents in the cluster tend
+    to use word $w$ frequently, making it a good label for the cluster's theme.</li>
+</ul>
+<div data-inc="topics.py" data-mark="top_words"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">top_words</span><span class="p">(</span><span class="n">centroids</span><span class="p">,</span> <span class="n">word_cols</span><span class="p">,</span> <span class="n">n_words</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return a list of k lists, each with the top n_words for that cluster.</span>
+
+<span class="sd">    The top words for a cluster are those with the highest value in the</span>
+<span class="sd">    centroid vector: high centroid coordinates mean those words appear most</span>
+<span class="sd">    often (on average) among documents in that cluster.</span>
+<span class="sd">    """</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">centroids</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">centroids</span><span class="p">[</span><span class="n">c</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">n_words</span><span class="p">]</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">word_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+</div>
+<h2>Raw TF vs. Normalized TF</h2>
+<ul>
+<li>With raw TF vectors, longer documents pull centroids upward uniformly across all words,
+    which can make centroid coordinates reflect document length as much as topic content.</li>
+<li>With normalized TF vectors, centroids reflect the typical word-use pattern (shape)
+    for documents in each cluster, independent of length.</li>
+<li>For this synthetic corpus both approaches recover the three topics because all documents
+    have similar Poisson-distributed lengths; in a corpus with very unequal document lengths,
+    normalization matters more.</li>
+</ul>
+<h2>Visualizing Cluster Centroids</h2>
+<div data-inc="topics.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_clusters</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">true_topics</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">word_cols</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Save a heatmap of centroid word weights, one row per cluster."""</span>
+    <span class="n">n_clusters</span><span class="p">,</span> <span class="n">vocab_size</span> <span class="o">=</span> <span class="n">centroids</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">word_cols</span><span class="p">):</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">"cluster"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"cluster </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                    <span class="s2">"word"</span><span class="p">:</span> <span class="n">w</span><span class="p">,</span>
+                    <span class="s2">"weight"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">centroids</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">"word:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Word"</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">word_cols</span><span class="p">),</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">"cluster:N"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Cluster"</span><span class="p">),</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span>
+                <span class="s2">"weight:Q"</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">"Centroid weight"</span><span class="p">,</span>
+                <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">"blues"</span><span class="p">),</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">"Cluster centroids (word weights)"</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<figure id="f:topics-heatmap">
+<img alt="A heatmap with three cluster rows and twenty word columns. Each row shows a band of dark blue cells concentrated in one-third of the vocabulary (words w00-w05, w06-w11, or w12-w17), with near-white elsewhere. The three dark bands do not overlap." src="topics-heatmap.svg"/>
+<figcaption>Figure 1: Cluster centroid weights after k-means on normalized TF vectors. Each cluster's centroid has high weight on the six words belonging to its generating topic and near-zero weight on the rest.</figcaption>
+</figure>
+<div class="forma-multiple-choice" data-lang="en">
+<p>What does the centroid of a k-means cluster represent?</p>
+<dl>
+<dt>The document in the cluster that was chosen as the initial seed.</dt>
+<dd>Wrong: the initial seed is used only for initialization; the centroid is updated
+after every assignment step and is usually no longer equal to any single document.</dd>
+<dt>The coordinate-wise mean of all documents currently assigned to the cluster.</dt>
+<dd>Correct: at each iteration the centroid is recomputed as the mean vector of its
+member documents, so it represents the "average" document in that cluster.</dd>
+<dt>The document in the cluster that is farthest from all other clusters.</dt>
+<dd>Wrong: that would be a notion from outlier detection, not from k-means; the
+centroid minimizes the sum of squared distances to its members, not maximizes them.</dd>
+<dt>The document with the highest total word count in the cluster.</dt>
+<dd>Wrong: the centroid is a mean over all cluster members, not a selection of one
+particular member based on its total count.</dd>
+</dl>
+</div>
+<h2>Testing</h2>
+<ul>
+<li>TF matrix shape<ul>
+<li><code>make_tf_matrix</code> must return an array with one row per document and one column per
+    vocabulary word; all entries must be non-negative.</li>
+</ul>
+</li>
+<li>Normalized rows have unit length<ul>
+<li>After <code>normalize_rows</code>, every row must satisfy $|\hat{\mathbf{t}}_d|_2 = 1$.</li>
+<li>Tolerance of $10^{-10}$ is used because floating-point division introduces rounding
+    errors at the level of machine epsilon ($\approx 2\times 10^{-16}$ for 64-bit floats).</li>
+<li>A zero row must remain zero (no division by zero).</li>
+</ul>
+</li>
+<li>Top-words order<ul>
+<li>Given a hand-crafted centroid matrix with known highest-weight words, <code>top_words</code>
+    must return them in descending order.</li>
+</ul>
+</li>
+<li>Topic recovery<ul>
+<li>After running k-means with normalized TF on the synthetic corpus, every document
+    in the same true-topic group must be assigned to the same cluster.
+    The true-to-cluster mapping may be any permutation.</li>
+</ul>
+</li>
+</ul>
+<div data-inc="test_topics.py"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_topics</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_corpus</span><span class="p">,</span> <span class="n">N_TOPICS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">topics</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_tf_matrix</span><span class="p">,</span> <span class="n">normalize_rows</span><span class="p">,</span> <span class="n">kmeans</span><span class="p">,</span> <span class="n">top_words</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_tf_matrix_shape</span><span class="p">():</span>
+    <span class="c1"># The TF matrix must have one row per document and one column per word.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_corpus</span><span class="p">()</span>
+    <span class="n">tf</span><span class="p">,</span> <span class="n">word_cols</span> <span class="o">=</span> <span class="n">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">n_docs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">n_docs</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">word_cols</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_tf_matrix_non_negative</span><span class="p">():</span>
+    <span class="c1"># All TF entries must be non-negative integers represented as floats.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_corpus</span><span class="p">()</span>
+    <span class="n">tf</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">tf</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_normalize_rows_unit_length</span><span class="p">():</span>
+    <span class="c1"># After normalization, every non-zero row must have L2 norm equal to 1.</span>
+    <span class="c1"># Tolerance of 1e-10 accounts for floating-point rounding in the division.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_corpus</span><span class="p">()</span>
+    <span class="n">tf</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">tf_norm</span> <span class="o">=</span> <span class="n">normalize_rows</span><span class="p">(</span><span class="n">tf</span><span class="p">)</span>
+    <span class="n">norms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">tf_norm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_allclose</span><span class="p">(</span><span class="n">norms</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">norms</span><span class="p">)),</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_normalize_rows_zero_vector</span><span class="p">():</span>
+    <span class="c1"># A row of all zeros must remain all zeros after normalization (no division by zero).</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]])</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">normalize_rows</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_equal</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_top_words_order</span><span class="p">():</span>
+    <span class="c1"># Given a hand-crafted centroid matrix, top_words must return the</span>
+    <span class="c1"># highest-weight words first.</span>
+    <span class="n">centroids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">80.0</span><span class="p">,</span> <span class="mf">70.0</span><span class="p">]])</span>
+    <span class="n">word_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"w0"</span><span class="p">,</span> <span class="s2">"w1"</span><span class="p">,</span> <span class="s2">"w2"</span><span class="p">,</span> <span class="s2">"w3"</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">top_words</span><span class="p">(</span><span class="n">centroids</span><span class="p">,</span> <span class="n">word_cols</span><span class="p">,</span> <span class="n">n_words</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"w0"</span><span class="p">,</span> <span class="s2">"w1"</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"w2"</span><span class="p">,</span> <span class="s2">"w3"</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_kmeans_label_count</span><span class="p">():</span>
+    <span class="c1"># k-means must return exactly one label per document.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_corpus</span><span class="p">()</span>
+    <span class="n">tf</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">labels</span><span class="p">,</span> <span class="n">centroids</span> <span class="o">=</span> <span class="n">kmeans</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span> <span class="n">N_TOPICS</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),)</span>
+    <span class="k">assert</span> <span class="n">centroids</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">N_TOPICS</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_kmeans_label_range</span><span class="p">():</span>
+    <span class="c1"># Every label must be a valid cluster index in [0, K).</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_corpus</span><span class="p">()</span>
+    <span class="n">tf</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">labels</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">kmeans</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span> <span class="n">N_TOPICS</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">labels</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">labels</span> <span class="o">&lt;</span> <span class="n">N_TOPICS</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_kmeans_recovers_topics_normalized</span><span class="p">():</span>
+    <span class="c1"># After k-means on normalized TF vectors, documents from the same</span>
+    <span class="c1"># generating topic must all be assigned to the same cluster.</span>
+    <span class="c1"># The mapping from true topics to cluster indices may be any permutation.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">make_corpus</span><span class="p">()</span>
+    <span class="n">tf</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_tf_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">tf_norm</span> <span class="o">=</span> <span class="n">normalize_rows</span><span class="p">(</span><span class="n">tf</span><span class="p">)</span>
+    <span class="n">labels</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">kmeans</span><span class="p">(</span><span class="n">tf_norm</span><span class="p">,</span> <span class="n">N_TOPICS</span><span class="p">)</span>
+    <span class="n">true_topics</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"true_topic"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_TOPICS</span><span class="p">):</span>
+        <span class="n">group_labels</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">true_topics</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="n">k</span>
+        <span class="p">]</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">group_labels</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"True-topic group </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> split across clusters: </span><span class="si">{</span><span class="n">group_labels</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="forma-flashcard" data-lang="en">
+<p>Topic modeling key terms</p>
+<dl>
+<dt>Bag of words</dt>
+<dd>A document representation that records only which words appear and how often,
+discarding word order; used here because topics are defined by co-occurrence
+patterns rather than syntactic structure</dd>
+<dt>Term frequency (TF) vector</dt>
+<dd>A vector with one entry per vocabulary word giving the count of that word in
+a document; raw TF is proportional to document length; normalizing by the L2
+norm removes the length effect and captures only the shape of word use</dd>
+<dt>K-means clustering</dt>
+<dd>An iterative algorithm that assigns each document to its nearest centroid, then
+updates centroids as the mean of their members; repeats until assignments stop
+changing; requires the number of clusters $K$ to be specified in advance</dd>
+<dt>Centroid</dt>
+<dd>The coordinate-wise mean of all documents assigned to a cluster; high centroid
+coordinates indicate words that are used most often in that cluster and serve
+as labels for the cluster's theme</dd>
+<dt>L2 normalization</dt>
+<dd>Dividing a vector by its Euclidean length $|\mathbf{t}|_2 = \sqrt{\sum_w t_w^2}$
+so that the result has unit length; makes k-means compare the shape of word use
+rather than total token volume</dd>
+</dl>
+</div>
+<h2>From K-Means to Probabilistic Topic Models</h2>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="o">-</span><span class="w">   </span><span class="n">K</span><span class="o">-</span><span class="n">means</span><span class="w"> </span><span class="n">assigns</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">cluster</span><span class="p">.</span>
+<span class="o">-</span><span class="w">   </span><span class="n">In</span><span class="w"> </span><span class="n">practice</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="nl">topic:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">biology</span><span class="w"> </span><span class="n">paper</span><span class="w"> </span><span class="n">might</span>
+<span class="w">    </span><span class="n">discuss</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">genetics</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">statistics</span><span class="p">.</span>
+<span class="o">-</span><span class="w">   </span><span class="n">Latent</span><span class="w"> </span><span class="n">Dirichlet</span><span class="w"> </span><span class="n">Allocation</span><span class="w"> </span><span class="p">(</span><span class="n">LDA</span><span class="p">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">probabilistic</span><span class="w"> </span><span class="n">generalization</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nl">idea:</span>
+<span class="w">    </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">assigning</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">document</span>
+<span class="w">    </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mixture</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">topics</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">distribution</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">words</span><span class="p">.</span>
+<span class="o">-</span><span class="w">   </span><span class="n">LDA</span><span class="w"> </span><span class="n">inference</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">Bayesian</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="p">(</span><span class="n">specifically</span><span class="w"> </span><span class="n">collapsed</span><span class="w"> </span><span class="n">Gibbs</span><span class="w"> </span><span class="n">sampling</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">form</span>
+<span class="w">    </span><span class="n">of</span><span class="w"> </span><span class="n">Markov</span><span class="w"> </span><span class="n">chain</span><span class="w"> </span><span class="n">Monte</span><span class="w"> </span><span class="n">Carlo</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">advanced</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">k</span><span class="o">-</span><span class="n">means</span><span class="p">.</span>
+</code></pre></div>
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Effect of K</h3>
+<p>Run k-means on the normalized TF matrix with $K \in {2, 3, 4, 5}$.
+For $K = 3$, the three clusters should match the three generating topics.
+What happens to the cluster centroid heatmap when $K = 4$? Does the extra cluster
+split one of the true topics in two, or does it find a different grouping?
+Explain why increasing $K$ beyond the true number of topics does not necessarily
+improve the result.</p>
+<h3>Effect of initialization</h3>
+<p>K-means can converge to different solutions depending on which documents are
+chosen as initial centroids.
+Run k-means on the normalized TF matrix 10 times, each time with a different
+random seed.
+How often does the algorithm recover all three true topics?
+What happens in the runs that fail to recover them?</p>
+<h3>Mixed documents</h3>
+<p>Modify <code>make_corpus</code> to generate five documents that draw 50% of their tokens
+from topic 0 and 50% from topic 1.
+Add those documents to the corpus and re-run k-means.
+Which cluster do the mixed documents end up in?
+Plot the centroid weights for those documents alongside the cluster centroids
+to show why the algorithm places them where it does.</p>
+<h3>Inertia</h3>
+<p>The within-cluster sum of squared distances (inertia) measures how tightly
+packed each cluster is:</p>
+<p>$$\text{inertia} = \sum_{k=0}^{K-1} \sum_{d:\,\text{label}(d)=k} \|\hat{\mathbf{t}}_d - \mathbf{c}_k\|_2^2$$</p>
+<p>Implement <code>inertia(matrix, labels, centroids)</code> and plot inertia against $K$
+for $K \in {2, 3, 4, 5, 6}$.
+The "elbow" in the plot (where inertia stops dropping sharply) is a common
+heuristic for choosing $K$.
+Does the elbow occur at $K = 3$ for this corpus?</p>
+</section>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../vocab/">Vocabulary Richness in Historical Texts</a>
+</div>
+<div class="col-6 center">
+<a href="../">Research Software Testing by Example</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../authorship/">Authorship Attribution by N-gram Profiles</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</body>
+</html>
