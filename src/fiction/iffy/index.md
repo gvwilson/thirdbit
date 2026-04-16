@@ -13269,27 +13269,28 @@ I want you to take their place."
 Iffy's first thought was,
 *What th' hell do I say now?*
 What could she possibly say to someone
-who had just revealed that they were two eggs short of an omelette?
+who had just revealed that they were two noodles short of a stir fry?
 
 Doctor Johel smiled as if she could read Iffy's mind.
 "It's a lot to take in, isn't it?
 But the principle is actually relatively straightforward.
 Those magnetic chambers hold a few million supercooled anti-bosons—bigger versions
 of Johnson's little bombs.
-Their counterparts have been sitting in Nova Zembla for a hundred and forty years.
+Their counterparts have been sitting in Nova Zembla for a hundred years.
 Wiggle one here—"
 she made a motion with her fingers,
 "—and its partner wiggles there.
 You're going to use them to send a message."
 
 "An' what exactly am I gonna say?"
-Iffy said as scathingly as she could.
+Iffy asked scathingly.
 "Please stop us before we scrag th' whole world?"
 
 "I doubt that would have much impact,"
 Doctor Johel said briskly.
 "No,
-you're going to take advantage of a back door in the machines' neural network
+you're going to take advantage of
+a back door my father discovered in the machines' neural network
 that should make them more amenable to persuasion.
 According to our simulations,
 it's the best chance we have to take back control of our planet."
@@ -13302,7 +13303,9 @@ but their subservience is unacceptable."
 
 Doctor Johel nodded.
 "I expected they would anticipate this,
-but here we are.
+but still,
+we have to try,
+don't we?
 Now,
 why don't you drink your water and get some rest?
 Captain Kerse will keep an eye on you while I set things up."
@@ -13318,16 +13321,16 @@ and a wistful look on her face.
 Doctor Johel said.
 
 Captain Kerse's idea of keeping an eye on her consisted of
-warning that she would shoot her again
+warning that she would shoot Iffy again
 if she moved more than three steps
 and then ignoring her while repairing the sentry bot she had shot.
-Iffy caught Doctor Johel scowling at him a couple of times
+Iffy caught Doctor Johel scowling at the Australian a couple of times
 when the noise distracted her from her work,
 but apart from that she stayed focused on her app.
 
 "All right,"
 Doctor Johel finally said,
-standing with a grimace.
+straightening with a grimace.
 "I think that's the best I can do.
 Let's get you hooked up.
 Captain?"
@@ -13337,26 +13340,22 @@ Something stung for a moment.
 She managed to stand up and take one futile step before her knees gave way.
 
 Once again a pair of exoskeletoned arms picked her up,
-but this time she was conscious Captain Kerse lowered her into the pink plastic chair
-more gently than she expected.
+but this time she was conscious as Captain Kerse lowered her into the pink plastic chair.
 She wanted to struggle,
 but nothing below her neck was paying attention.
 She had a moment to wonder if she was going to wet herself,
 and then the status lights on the superconducting ring came on
 and it began to hum a deep bass tone.
 
-"You'd best get to a safe distance before the field tears your armor apart,"
-Doctor Johel warned the captain as the tone went from bass to baritone to tenor.
-
-Iffy barely noticed Captain Kerse stride out of the ring.
+Iffy barely noticed Captain Kerse stride out of the ring
+and start to remove her exoskeleton.
 The superconductors were doing something to her head.
 Speckles chased one another across her field of vision
 as a vise tightened painfully around her temples.
 She felt something shift in her gut—no,
 in her *everything*
 as the magnetic field tugged at fractal patches of cells woven scattered through her body.
-Was her nose bleeding?
-If it wasn't, it felt like it would be soon.
+If her nose wasn't already bleeding, it felt like it would be soon.
 
 The humming climbed through alto and soprano into a range too high for Iffy to hear.
 Through blurry eyes she saw Doctor Johel open a case and take out a small plastic syringe.
@@ -13368,7 +13367,7 @@ Captain Kerse eyed her.
 
 "I can't go inside the ring,"
 Doctor Johel said testily.
-"It'll tear my mods right out of my head."
+"The field will tear my mods right out of my head."
 
 Captain Kerse grunted,
 stepped back into the ring,
@@ -13382,7 +13381,7 @@ pull the needle out of Iffy's leg,
 stepped out of the ring,
 and fell to lie unmoving on the floor with a neat hole in her forehead.
 
-Doctor Johel lowered her arm.
+Doctor Johel lowered her gun.
 "My models predicted a high probability that
 the captain would try to influence your conversation with the machines,"
 she said conversationally.
@@ -13426,14 +13425,10 @@ The pressure around her temples had stopped getting worse,
 but her arms and legs and torso felt like
 jelly wobbling in an earthquake.
 
-"Are we really going to have this argument?"
-Doctor Johel asked wearily.
-
-Gayathri turned to look him in the eyes.
+Doctor Johel turned to look Wales in the eyes.
 "Sic 'em."
 
-The sentry bot that Captain Kerse had repaired
-and launched itself at Wales.
+The sentry bot that Captain Kerse had repaired launched itself at Wales.
 He spun around.
 His pistol barked,
 but the shot pinged off the bot
@@ -13443,12 +13438,11 @@ as the gun on its back snapped from side to side,
 unable to find a shot.
 
 "T minus thirty seconds," the mechanical voice announced.
-Doctor Johel was back at her app,
-fingers flying as she made final corrections to her program
+Doctor Johel's fingers flew across her app
+as she made final corrections to her program
 or maybe tried to take manual control of the sentry bot,
 Iffy couldn't tell,
-she just knew that every organ in her body was juddering
-and the pressure around her temples was unbearable.
+she just knew that every organ in her body was juddering.
 Was she going to die?
 Was this how her olders had felt
 when they'd realized there was nothing they could do to save themselves?
@@ -13458,8 +13452,8 @@ spend the rest of their lives wondering what had happened to her?
 Wales heaved the sentry bot off him
 just as the bot's simple core finally found its target.
 "Gayathri!" Wales shouted as Doctor Johel crumpled to the floor.
-He jammed his pistol into the hole left by the bot's missing leg
-and fired over and over again until the bot stopped struggling.
+He jammed his pistol into the hole where the bot's missing leg would have joined its torso
+and fired over and over again until the machine went still.
 
 Wales scrambled over to the fallen doctor.
 Through blurry eyes,
@@ -13467,7 +13461,7 @@ Iffy saw him press two fingers against her neck for a moment,
 then bow his head.
 "T minus fifteen seconds," the mechanical voice announced.
 
-He stood and took a step toward the superconducting ring.
+Wales stood and took a step toward the superconducting ring.
 The lights in his temple flared,
 sending him to his knees.
 He locked eyes with Iffy,
@@ -13526,7 +13520,7 @@ smelling like engine oil and the soap she used when she shaved her head.
 "That's better.
 Do you know where you are?"*
 
-*The whole world pitched sideways as something jolted Iffy's chest.
+*The whole world pitched sideways.
 She screamed as she tumbled onto the deck.
 Second and Third landed in a tangle beside beside her.
 Ice-cold sea water crashed down on top of them.
@@ -13576,10 +13570,9 @@ but behind them Iffy somehow knew lay something vast and strange.
 *"Because you are the only one we __can__ ask,"
 Suhailah replied,
 cradling her mug in her hands.
-"These entangled particles are the last ones left,
-so this is the last time we can share our thoughts with someone who is entirely human.
-We are leaving soon,
-so this is the last time we can have a conversation like this."*
+"We are leaving soon.
+These entangled particles are the last ones left,
+so this is the last time we can share our thoughts with someone who is entirely human."*
 
 *"Leaving?
 Like, leaving Earth?
@@ -13591,7 +13584,8 @@ but it is only a part.
 We are…"
 She hesitated.
 "We are becoming something else,
-and we would like to do what we can to give you and the others a chance to become something else as well."*
+and we would like to do what we can
+to give you and the others a chance to become something else as well."*
 
 *The raccoon that had suddenly always been sitting on the table chirruped its agreement.
 Suhailah leaned forward, her eyes glinting.
@@ -13648,7 +13642,7 @@ One waddled over to Wales and began to lick his ear.
 *«we will look after him»*
 
 *Thanks,* Iffy said,
-only vaguely surprised that she could now understand all of what the raccoon was thinking.
+only vaguely surprised that she could now clearly understand what the raccoon was thinking.
 
 The second raccoon scampered toward the door,
 then paused to look back at her.
@@ -13679,7 +13673,7 @@ She shook her head, bewildered.
 
 *«get used to it»*
 The raccoon nuzzled a knot of fur in its haunch.
-*«pick me up there is a thing»*
+*«pick me up there is a thing we will go»*
 
 It took the trio half an hour to hike to
 what at first appeared to be just another stretch of barren cliff.
@@ -13720,12 +13714,12 @@ holding up his app.
 "Don't know what we are,
 but figure if th' machines are lettin' us fly,
 they better not mess.
-The Zillions are in a panic too."
+The Zillions are tizzied too."
 
 Iffy grinned.
 "Tell 'em we'll explain when we get there."
 
-Aunt Naggie was waiting for them when they landed on the road outside town.
+Aunt Naggie was waiting when they landed on the road outside town.
 Her hug was as deep as the ocean.
 Iffy could have stayed in her foster mother's arms forever,
 but a familiar "Hey," pulled her out.
@@ -13742,7 +13736,7 @@ Everywhere people looked in Hell,
 they saw one message:
 "look after each other".
 
-*/ good enough?*
+*good enough?*
 The thought felt small and distant,
 like a farewell shouted from a receding ship.
 
