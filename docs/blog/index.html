@@ -82,6 +82,49 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/04/16/big-tech-is-like/">
+      Big Tech is Like…
+    </a>
+  </h2>
+  <p><time datetime="2026-04-16" class="post-date">2026-04-16</time></p>
+  <p>I don&rsquo;t think I&rsquo;ll ever actually write <em><a href="../ideas/sdgc/">Sex and Drugs and Guns and Code</a></em>,
+but if I do,
+I&rsquo;ll frame it as, &ldquo;Big tech is like…&rdquo;
+and then spend two or three pages on each of the following:</p>
+<ol>
+<li>…a Drug Cartel</li>
+<li>…a Company Town</li>
+<li>…the Medieval Church</li>
+<li>…a Hollywood Studio</li>
+<li>…a Fast Food Franchise</li>
+<li>…a Patent Medicine Company</li>
+<li>…a Protection Racket</li>
+<li>…a Supermarket Chain</li>
+<li>…a Department Store</li>
+<li>…a Credit Card Network</li>
+<li>…a Credit Bureau</li>
+<li>…a Private Military Contractor</li>
+<li>…a Nation-State (Without the Obligations)</li>
+<li>…the Sharecropping System</li>
+<li>…the Yellow Press</li>
+<li>…the Penny Press</li>
+<li>…the NCAA</li>
+<li>…the Radio Payola System</li>
+<li>…Planned Obsolescence</li>
+<li>…the Putting-Out System</li>
+<li>…a Long Firm Fraud</li>
+<li>…the Enclosure Movement</li>
+<li>…the Stasi</li>
+<li>…Standard Oil</li>
+<li>…the Chemical Industry</li>
+<li>…the Auto Industry</li>
+<li>…the East India Company</li>
+<li>…a Drug Company</li>
+</ol>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/04/13/a-bibliography/">
       A Bibliography
     </a>
@@ -1828,140 +1871,6 @@ Here&rsquo;s what&rsquo;s happened since:</p>
 </tr>
 </tbody>
 </table>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/03/28/e-bike-for-the-mind/">
-      An E-Bike for the Mind
-    </a>
-  </h2>
-  <p><time datetime="2026-03-28" class="post-date">2026-03-28</time></p>
-  <p>As I wrote <a href="../2026/03/26/feasible/">a couple of days ago</a>,
-Sajaniemi et al&rsquo;s work on <a href="https://www.ppig.org/files/2005-PPIG-17th-sajaniemi.pdf">roles of variables</a>
-identified and named ten patterns in the way variables are used in novice programs.
-These roles aren&rsquo;t just a way to analyze code.
-They&rsquo;re also useful for explaining code,
-because they provide a vocabulary to capture <em>intent</em>
-in a way that&rsquo;s complementary to type information like <code>int</code> or <code>Person</code>.</p>
-<table>
-<thead>
-<tr>
-<th>Role</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Fixed value</td>
-<td>Initialized once and not changed thereafter.</td>
-</tr>
-<tr>
-<td>Stepper</td>
-<td>Steps through a systematic, predictable succession of values (e.g., a loop counter).</td>
-</tr>
-<tr>
-<td>Walker</td>
-<td>Traverses a data structure element by element, where each new value depends on the previous position.</td>
-</tr>
-<tr>
-<td>Follower</td>
-<td>Always receives the previous value of some other variable (e.g., <code>prev = current</code> before <code>current</code> is updated).</td>
-</tr>
-<tr>
-<td>Most-recent holder</td>
-<td>Holds the latest value encountered in an unpredictable series, typically successive inputs.</td>
-</tr>
-<tr>
-<td>Most-wanted holder</td>
-<td>Holds the best value found so far (e.g., maximum or minimum).</td>
-</tr>
-<tr>
-<td>Gatherer</td>
-<td>Accumulates the combined effect of individual values (e.g., running sum or count).</td>
-</tr>
-<tr>
-<td>One-way flag</td>
-<td>A two-valued variable that, once changed from its initial value, never reverts (e.g., an error flag set to <code>True</code> and never reset).</td>
-</tr>
-<tr>
-<td>Temporary</td>
-<td>Holds a value for a very short time only, most commonly in a swap operation.</td>
-</tr>
-<tr>
-<td>Organizer</td>
-<td>A collection used only to rearrange its elements (e.g., sorted in place), never to add or remove them.</td>
-</tr>
-<tr>
-<td>Container</td>
-<td>A collection whose elements are added and/or removed during the computation.</td>
-</tr>
-</tbody>
-</table>
-<p>It occurred to me during a workshop this week that
-variable roles might help when we are using LLMs in teaching.
-In order to understand a piece of software,
-I need to understand the purpose of each of its parts.
-Pattern names like Observer or Singleton help me do this
-because they compress complex chunks of code down to single concepts,
-which helps prevent cognitive overload.
-However,
-the classic design patterns are still too big for novices;
-would Sajaniemi&rsquo;s roles be more helpful?
-I.e.,
-can we prompt the LLM to explain things in terms of these roles
-while simultaneously teaching newcomers to think in terms of them,
-and if so,
-does it help?
-And if the answers are &ldquo;yes&rdquo;,
-are there other roles that Sajaniemi and his colleagues didn&rsquo;t identify
-that are worth adding to the table above?
-(I work with data scientists
-so the first that comes to mind is &ldquo;Dataframe&rdquo;,
-but that&rsquo;s not a role: that&rsquo;s a data type.)</p>
-<blockquote>
-<p>One way to think about roles is that types tell you about the variable&rsquo;s state at rest
-while roles tell you about the variable&rsquo;s state in motion.
-This duality is similar to the one Kerievsky described
-in his under-appreciated book <a href="https://isbnsearch.org/isbn/9780321630018"><em>Refactoring to Patterns</em></a>,
-which explored the duality between design patterns (code at rest)
-and refactorings (code in motion).</p>
-</blockquote>
-<p>In order to explore these ideas,
-I spent about three and a half hours prompting Claude to build <a href="https://github.com/gvwilson/jorma">jorma</a>,
-a small Python package that uses static and dynamic analysis
-to identify variables&rsquo; roles.
-At the time of writing it is about 1000 lines of Python (not including tests)
-and is able to process 145 source files taken from <a href="../sdxpy/"><em>Software Design by Example</em></a>.
-I made a few small edits to the code manually,
-but almost all of what&rsquo;s in <code>src</code> and <code>tests</code> was written by Claude.
-I think it would have taken me four or five days of full-time work and frustration
-to get this far on my own,
-which means that I probably wouldn&rsquo;t have done it.</p>
-<p>That realization is what led to this post&rsquo;s title:
-if a computer is a bicycle for the mind,
-then LLMs are like e-bikes.
-They let a lot of people go distances and tackle hills that they couldn&rsquo;t before,
-and they&rsquo;re better for all of us than cars,
-but they&rsquo;re a menace to both pedestrians and traditional cyclists,
-more harmful to the environment than what they&rsquo;re replacing,
-and have given companies yet another way to hollow out local businesses.
-(Neighborhood restaurants know that cheap delivery services are killing them slowly,
-but if they don&rsquo;t play,
-they&rsquo;ll just die more quickly.)</p>
-<p>I wish I could write a tidy conclusion for this post,
-but I don&rsquo;t have one.
-Experiments like <a href="https://github.com/gvwilson/jorma">jorma</a> have convinced me that
-telling people not to use LLMs
-is going to be just as ineffective as telling teenagers not to have sex or use social media.
-I hope that this week&rsquo;s court decisions to hold Meta accountable for the harm it has caused
-is a first step toward dealing with <a href="../2026/03/08/cognitive-pollution/">cognitive pollution</a> in general,
-for the same reason that I hope Toronto and other places will figure out
-how to make e-bikes a normal part of everyday life.
-Until then,
-if you&rsquo;d like to help me improve <a href="https://github.com/gvwilson/jorma">jorma</a>,
-please try it out or <a href="mailto:gvwilson@third-bit.com">get in touch</a>.</p>
-<p><em>See also Andrew Nesbitt&rsquo;s post <a href="https://nesbitt.io/2026/03/29/the-roles-of-packages.html">The Roles of Packages</a>.</em></p>
 </article>
 
 
