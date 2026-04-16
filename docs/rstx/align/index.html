@@ -262,9 +262,6 @@
 </li>
 <li>$H[4,3] = 5$: the score of the best global alignment</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="1" data-lang="en" data-tolerance="0">
-<p>Using the table above, what is the value of $H[2,2]$ (row C, column G)?</p>
-</div>
 <h2>Traceback</h2>
 <ul>
 <li>The best global alignment ends at $H[m, n]$ (bottom-right cell)</li>
@@ -378,11 +375,6 @@ b: A-GT
 <li>The score is $3 \times 2 + (-1) = 5$:
     three matches at <code>MATCH_SCORE</code> = 2 and one gap at <code>GAP_PENALTY</code> = -1</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="5" data-lang="en" data-tolerance="0">
-<p>Aligning "AGTC" with "AGC" using <code>MATCH_SCORE = 2</code>, <code>MISMATCH_PENALTY = -1</code>, <code>GAP_PENALTY = -1</code>:
-the best global alignment has three matches and one gap.
-What is the total alignment score?</p>
-</div>
 <h2>Visualizing the Scoring Matrix</h2>
 <ul>
 <li>Plotting $H$ as a heatmap shows where high-scoring regions form</li>
@@ -540,6 +532,10 @@ Note the difference from Smith-Waterman, which would return an empty alignment w
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>Aligning "AGTC" with "AGC" using <code>MATCH_SCORE = 2</code>, <code>MISMATCH_PENALTY = -1</code>, <code>GAP_PENALTY = -1</code>:
+the best global alignment has three matches and one gap.
+What is the total alignment score?</p>
 <h3>Effect of gap penalty</h3>
 <p>Change <code>GAP_PENALTY</code> from -1 to -3 (while keeping <code>MISMATCH_PENALTY = -1</code>) and re-run
 <code>align("ACGT", "AGT")</code>.

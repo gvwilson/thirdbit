@@ -91,12 +91,6 @@
     the <a class="gl-ref" href="../glossary/#z_score">z-score</a> of reading $x_i$ against the rolling window is:</li>
 </ul>
 <p>$$z_i = \frac{x_i - \bar{x}_i}{\hat{\sigma}_i}$$</p>
-<div class="forma-numeric-entry" data-correct="2.0" data-lang="en" data-tolerance="0.01">
-<p>A trailing window of width 3 contains values [68, 70, 72].
-The window mean is 70, and the sample standard deviation is 2.
-A new reading of 74 arrives.
-What is the z-score of 74 against this window?</p>
-</div>
 <h2>Detecting Anomalies</h2>
 <ul>
 <li>A reading is flagged when $|z_i| &gt; \theta$, where $\theta$ is the detection threshold.</li>
@@ -382,6 +376,11 @@ the window straddles the transition.  This test uses noiseless data to guarantee
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>A trailing window of width 3 contains values [68, 70, 72].
+The window mean is 70, and the sample standard deviation is 2.
+A new reading of 74 arrives.
+What is the z-score of 74 against this window?</p>
 <h3>Bidirectional window</h3>
 <p>The trailing window can react only after the anomaly has entered the window.
 Replace the trailing window with a centred window that looks $w/2$ steps back and $w/2$

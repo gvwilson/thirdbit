@@ -155,12 +155,6 @@
     <span class="k">return</span> <span class="n">ndimage</span><span class="o">.</span><span class="n">gaussian_filter</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div class="forma-numeric-entry" data-correct="0.90" data-lang="en" data-tolerance="0.005">
-<p>A cell has peak brightness $B = 1.0$ and Gaussian width $\sigma = 6$ pixels.
-After smoothing with a Gaussian filter of width $\sigma_s = 2$ pixels,
-the smoothed peak brightness is $B \cdot \sigma^2 / (\sigma^2 + \sigma_s^2)$.
-What is the result? Give your answer to two decimal places.</p>
-</div>
 <h2>Step 2: Thresholding and Labelling</h2>
 <ul>
 <li>Pixels above a threshold form a <a class="gl-ref" href="../glossary/#binary_mask">binary mask</a><ul>
@@ -389,6 +383,11 @@ At the operating threshold it must produce none, showing the threshold is adequa
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>A cell has peak brightness $B = 1.0$ and Gaussian width $\sigma = 6$ pixels.
+After smoothing with a Gaussian filter of width $\sigma_s = 2$ pixels,
+the smoothed peak brightness is $B \cdot \sigma^2 / (\sigma^2 + \sigma_s^2)$.
+What is the result? Give your answer to two decimal places.</p>
 <h3>Watershed segmentation</h3>
 <p>The thresholding approach fails when two cells overlap and merge into a single connected
 component.  Implement watershed segmentation: compute the distance transform of the

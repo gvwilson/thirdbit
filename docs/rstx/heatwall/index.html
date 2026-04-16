@@ -96,12 +96,6 @@
 <li>At every layer interface both the temperature and the heat flux must be continuous:
     $T$ does not jump and $k_L\,dT/dx$ on the left equals $k_R\,dT/dx$ on the right</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="1.514" data-lang="en" data-tolerance="0.005">
-<p>Compute the total thermal resistance ($\text{m}^2\,\text{K}\,\text{W}^{-1}$) of a three-layer wall with:
-brick 0.10 m at $0.72\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$, insulation 0.05 m at $0.04\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$,
-concrete 0.15 m at $1.20\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$.
-Use $R = \sum_i L_i / k_i$ and give your answer to three decimal places.</p>
-</div>
 <h2>Thermal Resistance</h2>
 <ul>
 <li>The <a class="gl-ref" href="../glossary/#thermal_resistance">thermal resistance</a> of a uniform layer
@@ -340,15 +334,6 @@ starting guess (as long as the boundary conditions are fixed).</dd>
 <img alt="Temperature profiles at iterations 0, 10, 100, and converged for a brick-insulation-concrete wall." src="heatwall_convergence.svg"/>
 <figcaption>Figure 1: Convergence of Jacobi iteration for a brick-insulation-concrete wall. The initial guess is a straight line. After 10 sweeps the profile is already bending toward the correct shape; after 100 sweeps it is nearly indistinguishable from the converged solution.</figcaption>
 </figure>
-<div class="forma-numeric-entry" data-correct="19.82" data-lang="en" data-tolerance="0.05">
-<p>Using the thermal resistance formula with the constants defined above
-($L_\text{brick} = 0.10$ m, $k_\text{brick} = 0.72\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$;
-$L_\text{ins} = 0.05$ m, $k_\text{ins} = 0.04\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$;
-$L_\text{conc} = 0.15$ m, $k_\text{conc} = 1.20\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$;
-$T_\text{left} = 20$°C, $T_\text{right} = -10$°C),
-what is the heat flux $q$ in $\text{W}\,\text{m}^{-2}$?
-Give your answer to two decimal places.</p>
-</div>
 <h2>Solving and Plotting the Profile</h2>
 <div data-inc="heatwall.py" data-mark="solve"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">solve_temperatures</span><span class="p">(</span>
     <span class="n">widths</span><span class="o">=</span><span class="n">LAYER_WIDTHS</span><span class="p">,</span>
@@ -600,6 +585,25 @@ at each boundary.</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<ol>
+<li>
+<p>Compute the total thermal resistance ($\text{m}^2\,\text{K}\,\text{W}^{-1}$) of a three-layer wall with:
+    brick 0.10 m at $0.72\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$,
+    insulation 0.05 m at $0.04\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$,
+    concrete 0.15 m at $1.20\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$.
+    Use $R = \sum_i L_i / k_i$ and give your answer to three decimal places.</p>
+</li>
+<li>
+<p>Using the thermal resistance formula with the constants defined above
+    ($L_\text{brick} = 0.10$ m, $k_\text{brick} = 0.72\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$;
+    $L_\text{ins} = 0.05$ m, $k_\text{ins} = 0.04\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$;
+    $L_\text{conc} = 0.15$ m, $k_\text{conc} = 1.20\,\text{W}\,\text{m}^{-1}\,\text{K}^{-1}$;
+    $T_\text{left} = 20$°C, $T_\text{right} = -10$°C),
+    what is the heat flux $q$ in $\text{W}\,\text{m}^{-2}$?
+    Give your answer to two decimal places.</p>
+</li>
+</ol>
 <h3>Grid refinement study</h3>
 <p>Double <code>N_PER_LAYER</code> four times (from 5 to 80) and record the maximum absolute difference
 between the numerical and analytic interface temperatures at each refinement level.

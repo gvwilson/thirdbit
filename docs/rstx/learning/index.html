@@ -119,9 +119,6 @@ is used because it describes the data well, not for computational convenience.</
     rather than log-linearizing,
     which avoids distorting the noise structure when reaction times have additive Gaussian noise.</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="200" data-lang="en" data-tolerance="0.1">
-<p>If A = 400 ms and b = 0.5, what is the predicted reaction time (in ms) on trial 4?</p>
-</div>
 <h2>Generating Synthetic Trial Data</h2>
 <ul>
 <li>The true parameters are $A = 500$ ms and $b = 0.3$,
@@ -355,6 +352,8 @@ SE = sqrt(pcov[b, b]) and z = 1.96 for a 95% CI under asymptotic normality</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>If A = 400 ms and b = 0.5, what is the predicted reaction time (in ms) on trial 4?</p>
 <h3>Log-log linearity</h3>
 <p>Take the logarithm of both <code>trial</code> and <code>rt</code> from the synthetic data and fit a
 straight line using <code>numpy.polyfit</code>.

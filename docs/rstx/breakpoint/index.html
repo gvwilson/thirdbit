@@ -122,11 +122,6 @@ produces the characteristic V-shape.</dd>
 <li>Because detect_break returns the last index before the estimated break,
     the estimated break location in terms of steps is $\hat{\tau} + 1$</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="99" data-lang="en" data-tolerance="0">
-<p>A noise-free series has value 0 for steps 0-99 and value 3 for steps 100-199.
-The global mean is 1.5.
-At which step index (0-based) does $|C_t|$ reach its maximum?</p>
-</div>
 <h2>Generating Synthetic Data</h2>
 <ul>
 <li>The series has a single abrupt break at step 100:
@@ -419,6 +414,10 @@ the estimated break location is $\hat{\tau} + 1$</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>A noise-free series has value 0 for steps 0-99 and value 3 for steps 100-199.
+The global mean is 1.5.
+At which step index (0-based) does $|C_t|$ reach its maximum?</p>
 <h3>Two break points</h3>
 <p>Modify <code>make_breakpoint_data</code> to introduce a second break: the mean shifts from 0.0
 to 3.0 at step 60 and then from 3.0 to 1.0 at step 140.

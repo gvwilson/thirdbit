@@ -94,10 +94,6 @@
 <li>As $t \to \infty$, $S(t) \to 0$; the curve decays smoothly rather than dropping in steps.</li>
 <li>The mean survival time is $\mu = 1/\lambda$; the median is $(\ln 2)/\lambda \approx 0.693/\lambda$.</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="0.5" data-lang="en" data-tolerance="0.001">
-<p>The survival time of a population follows an Exponential distribution with rate $\lambda = 1/20$.
-Using $S(t) = e^{-\lambda t}$, compute $S(20 \ln 2)$ to three decimal places.</p>
-</div>
 <h2>Generating Synthetic Data</h2>
 <ul>
 <li>Each patient's true event time is drawn from Exponential($\mu = 20$ days, i.e. $\lambda = 1/20$).</li>
@@ -198,10 +194,6 @@ If we compute the naive rate using only uncensored patients, which of these is t
 </ul>
 <div data-inc="survival.py" data-mark="corrected-rate"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
-</div>
-<div class="forma-numeric-entry" data-correct="0.125" data-lang="en" data-tolerance="0.001">
-<p>Three patients have times $[2, 4, 10]$ with event indicators $[1, 1, 0]$.
-Compute $\hat{\lambda} = d / \sum t_i$ to three decimal places.</p>
 </div>
 <h2>The Empirical Survival Curve</h2>
 <ul>
@@ -305,6 +297,17 @@ more advanced statistics.</p>
 </blockquote>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<ol>
+<li>
+<p>The survival time of a population follows an Exponential distribution with rate $\lambda = 1/20$.
+    Using $S(t) = e^{-\lambda t}$, compute $S(20 \ln 2)$ to three decimal places.</p>
+</li>
+<li>
+<p>Three patients have times $[2, 4, 10]$ with event indicators $[1, 1, 0]$.
+    Compute $\hat{\lambda} = d / \sum t_i$ to three decimal places.</p>
+</li>
+</ol>
 <h3>Confidence interval for the rate</h3>
 <p>The asymptotic standard error of $\hat{\lambda}$ is $\hat{\lambda} / \sqrt{d}$.
 Add a function <code>rate_ci(times, observed, alpha=0.05)</code> that returns a 95% confidence interval

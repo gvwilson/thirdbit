@@ -130,11 +130,6 @@ wealth (1.6).</dd>
     <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">sorted_w</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">total</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">total</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div class="forma-numeric-entry" data-correct="0" data-lang="en" data-tolerance="0.001">
-<p>Three agents hold 1, 1, and 1 unit of wealth respectively.
-Using the formula $G = (2\sum i\,w_{(i)} - (n+1)\sum w) / (n\sum w)$ with $n=3$,
-compute the Gini coefficient.</p>
-</div>
 <h2>The Exchange Simulation</h2>
 <ul>
 <li>The simulation records the Gini coefficient after every exchange so we can watch
@@ -373,6 +368,10 @@ $\delta$ from $w_i$ and adds $\delta$ to $w_j$, leaving the total unchanged</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>Three agents hold 1, 1, and 1 unit of wealth respectively.
+Using the formula $G = (2\sum i\,w_{(i)} - (n+1)\sum w) / (n\sum w)$ with $n=3$,
+compute the Gini coefficient.</p>
 <h3>Theoretical steady-state Gini</h3>
 <p>For an exponential distribution with rate $\lambda$, all agents draw wealth
 $w \sim \text{Exp}(\lambda)$ independently.

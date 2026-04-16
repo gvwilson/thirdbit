@@ -129,10 +129,6 @@ but the labelling depends on cell density, not overall counts.</dd>
 <div data-inc="archcluster.py" data-mark="grid"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>
 </code></pre></div>
 </div>
-<div class="forma-numeric-entry" data-correct="5" data-lang="en" data-tolerance="0">
-<p>A survey region runs from 0 to 100 units.  GRID_SIZE is 20, so each cell is
-5 units wide.  A site at easting 27.3 maps to which column index?</p>
-</div>
 <h2>Identifying Concentration Cells</h2>
 <ul>
 <li>A cell with <code>count &gt;= HOT_THRESHOLD</code> is called a "hot" cell<ul>
@@ -155,11 +151,11 @@ but the labelling depends on cell density, not overall counts.</dd>
     merging isolated noise points into spurious clusters</li>
 </ul>
 <div class="forma-multiple-choice" data-lang="en">
-<p>What happens to the number of detected clusters when GRID_SIZE is halved
+<p>What happens to the number of detected clusters when <code>GRID_SIZE</code> is halved
 (from 20 to 10)?</p>
 <dl>
 <dt>The number of clusters always increases, because there are more cells to label.</dt>
-<dd>Wrong: halving GRID_SIZE reduces the number of cells, not increases them;
+<dd>Wrong: halving <code>GRID_SIZE</code> reduces the number of cells, not increases them;
 each coarser cell aggregates more sites.</dd>
 <dt>Each cell covers four times the area and accumulates more sites, so cells are</dt>
 <dt>more likely to meet HOT_THRESHOLD and previously separate clusters may merge.</dt>
@@ -271,10 +267,6 @@ to cluster centroids.</dd>
 </ul>
 </li>
 </ul>
-<div class="forma-numeric-entry" data-correct="3" data-lang="en" data-tolerance="0">
-<p>Four clusters are planted in the synthetic data.  How many entries does the
-dict returned by cluster_centroids contain, assuming all four are recovered?</p>
-</div>
 <h2>Testing</h2>
 <dl>
 <dt>Grid shape and total count</dt>
@@ -419,6 +411,17 @@ summarizes the cluster's geographic location</dd>
 </ul>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<ol>
+<li>
+<p>A survey region runs from 0 to 100 units.  <code>GRID_SIZE</code> is 20, so each cell is
+    5 units wide.  A site at easting 27.3 maps to which column index?</p>
+</li>
+<li>
+<p>Four clusters are planted in the synthetic data.  How many entries does the
+    dict returned by <code>cluster_centroids</code> contain, assuming all four are recovered?</p>
+</li>
+</ol>
 <h3>Parameter sensitivity</h3>
 <p>Run the pipeline on the synthetic data with <code>GRID_SIZE</code> values of 10, 20, and 40
 and <code>HOT_THRESHOLD</code> values of 1, 2, and 4 (nine combinations in total).

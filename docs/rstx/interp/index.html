@@ -128,11 +128,6 @@ across the region.</dd>
     IDW is a <a class="gl-ref" href="../glossary/#convexity">convex combination</a>:
     all estimates lie within $[\min_i z_i,\, \max_i z_i]$</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="0.8" data-lang="en" data-tolerance="0.01">
-<p>Station A is 1 unit from the query point and has value 1.0.
-Station B is 2 units away and has value 0.0.
-Using p = 2, what is the IDW estimate at the query point?</p>
-</div>
 <h2>Generating Synthetic Station Data</h2>
 <ul>
 <li>The true temperature field is $T(x, y) = \sin(3\pi x)\cos(2\pi y)$ on $[0,1]^2$,
@@ -397,6 +392,10 @@ prediction skill on new data without requiring a separate test set</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>Station A is 1 unit from the query point and has value 1.0.
+Station B is 2 units away and has value 0.0.
+Using p = 2, what is the IDW estimate at the query point?</p>
 <h3>Effect of the power parameter</h3>
 <p>Run IDW with $p$ values of 1, 2, 4, and 8 on the synthetic station data.
 For each value compute the LOO-CV MAE and plot the interpolated field.

@@ -109,11 +109,6 @@ If the price increases by 10%, what happens to quantity demanded?</p>
     fitting $y = a + bx$ where $y = \ln Q$ and $x = \ln P$ directly estimates the elasticity as the slope $b$</li>
 <li>The intercept $a = \ln A$ gives the log of the demand intercept, but is rarely reported by itself.</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="-1.5" data-lang="en" data-tolerance="0.01">
-<p>Using $\ln Q = a + \varepsilon \ln P$ with $a = 5$ and $\varepsilon = -1.5$,
-compute $\ln Q$ when $P = e$ (Euler's number, so $\ln P = 1$).
-What is the corresponding elasticity (the slope of the log-log line)?</p>
-</div>
 <h2>Ordinary Least Squares in Log-Log Space</h2>
 <ul>
 <li>Transforming prices and quantities to logs reduces the nonlinear power-law model
@@ -368,6 +363,10 @@ which the fixed seed rules out.</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>Using $\ln Q = a + \varepsilon \ln P$ with $a = 5$ and $\varepsilon = -1.5$,
+compute $\ln Q$ when $P = e$ (Euler's number, so $\ln P = 1$).
+What is the corresponding elasticity (the slope of the log-log line)?</p>
 <h3>Residual diagnostics</h3>
 <p>Plot the OLS residuals $e_i = \ln Q_i - \hat{a} - \hat{\varepsilon} \ln P_i$ against $\ln P_i$.
 If the log-log model is correct, the residuals should show no trend and no heteroscedasticity

@@ -109,10 +109,6 @@
     <span class="k">return</span> <span class="p">(</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div class="forma-numeric-entry" data-correct="0.731" data-lang="en" data-tolerance="0.002">
-<p>A logistic regression model with $\mathbf{w} = [1, 0]$ and $b = 1$ receives input
-$\mathbf{x} = [0, 0]$.  Compute $\sigma(0 \cdot 1 + 0 \cdot 0 + 1) = \sigma(1)$ to three decimal places.</p>
-</div>
 <h2>Training: Minimising Binary Cross-Entropy</h2>
 <ul>
 <li>The binary cross-entropy loss penalises confident wrong predictions:</li>
@@ -433,6 +429,9 @@ $\mathbf{x} = [0, 0]$.  Compute $\sigma(0 \cdot 1 + 0 \cdot 0 + 1) = \sigma(1)$ 
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>A logistic regression model with $\mathbf{w} = [1, 0]$ and $b = 1$ receives input $\mathbf{x} = [0, 0]$.
+Compute $\sigma(0 \cdot 1 + 0 \cdot 0 + 1) = \sigma(1)$ to three decimal places.</p>
 <h3>Feature normalisation</h3>
 <p>Logistic regression is sensitive to feature scale: a feature with large absolute values
 dominates the dot product before training has adjusted the corresponding weight.

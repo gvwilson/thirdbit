@@ -96,10 +96,6 @@
 <li>Because only $M_p \sin i$ appears in the formula,
     the RV method gives a minimum planet mass; the true mass requires an independent inclination measurement.</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="50.0" data-lang="en" data-tolerance="0.5">
-<p>Using $v(t) = K \sin(2\pi t / P + \varphi) + v_\text{sys}$ with $K = 50$ m/s, $P = 10$ days,
-$\varphi = 0$, $v_\text{sys} = 0$, what is $v(2.5)$? Give your answer in m/s.</p>
-</div>
 <h2>Generating Synthetic Observations</h2>
 <ul>
 <li>Observation times are drawn uniformly at random across the time baseline
@@ -386,6 +382,9 @@ A failure would indicate the fit was accidentally converging to a spurious perio
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>Using $v(t) = K \sin(2\pi t / P + \varphi) + v_\text{sys}$ with $K = 50$ m/s, $P = 10$ days,
+$\varphi = 0$, $v_\text{sys} = 0$, what is $v(2.5)$? Give your answer in m/s.</p>
 <h3>Lomb-Scargle periodogram</h3>
 <p><code>scipy.optimize.curve_fit</code> requires a period initial guess; a poor guess may converge to a
 wrong local minimum.  The Lomb-Scargle periodogram finds periodic signals

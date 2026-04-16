@@ -407,14 +407,13 @@ Which change would make <code>r</code> exceed 0.5 and make the simulation produc
     <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">analytical</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">5e-3</span>
 </code></pre></div>
 </div>
-<div class="forma-numeric-entry" data-correct="0.169" data-lang="en" data-tolerance="0.005">
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Do the math</h3>
 <p>Using the analytical formula $\sigma^2(t) = \sigma_0^2 + 2Dt$, compute $\sigma^2$ after <code>N_STEPS</code> = 500 steps.
 Use <code>PULSE_WIDTH</code> = 0.05 for $\sigma_0$, <code>DIFFUSIVITY</code> = 0.1, <code>GRID_POINTS</code> = 50, <code>LENGTH</code> = 1.0,
 and note that <code>DT</code> = <code>STABILITY_RATIO * DX**2 / DIFFUSIVITY</code>.
 Give your answer to three decimal places.</p>
-</div>
-<section aria-label="Exercises" class="exercises">
-<h2>Exercises</h2>
 <h3>Step-function initial condition</h3>
 <p>Replace the Gaussian initial condition in <code>make_initial</code> with a step function:
 $c(x) = 1$ for $x &lt; 0.5$ and $c(x) = 0$ for $x \ge 0.5$.

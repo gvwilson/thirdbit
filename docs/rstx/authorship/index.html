@@ -132,12 +132,6 @@ reason they outperform word profiles for single-language attribution tasks.</dd>
 <li>Dividing by the norms makes the measure length-independent:
     a short text and a long text with the same relative frequencies score 1</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="0.96" data-lang="en" data-tolerance="0.001">
-<p>Profile A has bigrams "ab" with frequency 0.6 and "cd" with frequency 0.8
-(it contains no other bigrams, and the two frequencies form a unit vector).
-Profile B has "ab" with frequency 0.8 and "cd" with frequency 0.6.
-What is the cosine similarity of A and B?</p>
-</div>
 <h2>Generating Synthetic Texts</h2>
 <ul>
 <li>The 15-character alphabet "abcdefghijklmno" is divided into three equal groups of five</li>
@@ -428,6 +422,11 @@ next-highest score; a small margin indicates low attribution confidence</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>Profile A has bigrams "ab" with frequency 0.6 and "cd" with frequency 0.8
+(it contains no other bigrams, and the two frequencies form a unit vector).
+Profile B has "ab" with frequency 0.8 and "cd" with frequency 0.6.
+What is the cosine similarity of A and B?</p>
 <h3>Effect of n-gram size</h3>
 <p>Repeat the attribution experiment with $n = 1$, $2$, $3$, and $4$.
 Plot the similarity scores for all three test texts at each $n$.

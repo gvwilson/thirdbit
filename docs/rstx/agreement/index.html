@@ -149,10 +149,6 @@ under the assumption of independent uniform random choices.</dd>
 <li>$\kappa &lt; 0$ is possible when observed agreement falls below chance,
     though this rarely occurs in practice</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="0.5" data-lang="en" data-tolerance="0.005">
-<p>A 3x3 contingency table has 20 items on each diagonal cell and 5 items on each
-off-diagonal cell (N = 90). Given P_o = 2/3 and P_e = 1/3, what is kappa?</p>
-</div>
 <div data-inc="agreement.py" data-mark="kappa"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cohen_kappa</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return Cohen's kappa and its standard error from a contingency table.</span>
 
@@ -404,6 +400,9 @@ and rater B's marginal probability for that category</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>A 3x3 contingency table has 20 items on each diagonal cell and 5 items on each
+off-diagonal cell (N = 90). Given P_o = 2/3 and P_e = 1/3, what is kappa?</p>
 <h3>Weighted kappa</h3>
 <p>In ordinal coding (e.g., severity on a 1-5 scale) disagreements near the
 diagonal should be penalised less than disagreements far from it.

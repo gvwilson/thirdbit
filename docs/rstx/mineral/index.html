@@ -119,13 +119,6 @@
     <span class="k">return</span> <span class="n">X</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
 </code></pre></div>
 </div>
-<div class="forma-numeric-entry" data-correct="0.895" data-lang="en" data-tolerance="0.005">
-<p>The Mahalanobis distance between two univariate Gaussians with means $\mu_1$, $\mu_2$ and
-equal standard deviation $\sigma$ is $|\mu_1 - \mu_2| / \sigma$.
-Using <code>FELSIC_MEAN[0] = 70</code>, <code>MAFIC_MEAN[0] = 50</code>, <code>FELSIC_STD[0] = 3</code>,
-what fraction of the $\text{SiO}_2$ distributions overlap?
-(Hint: use the 68-95-99.7 rule: the distance is about $6.7\sigma$, so overlap $\approx 0$.)</p>
-</div>
 <h2>The Logistic Regression Model</h2>
 <ul>
 <li>The model predicts the probability that a sample is mafic (class 1):</li>
@@ -434,6 +427,12 @@ and a sample with $x_0 = -1$ must be predicted class 0.</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>The Mahalanobis distance between two univariate Gaussians with means $\mu_1$, $\mu_2$ and
+equal standard deviation $\sigma$ is $|\mu_1 - \mu_2| / \sigma$.
+Using <code>FELSIC_MEAN[0] = 70</code>, <code>MAFIC_MEAN[0] = 50</code>, <code>FELSIC_STD[0] = 3</code>,
+what fraction of the $\text{SiO}_2$ distributions overlap?
+(Hint: use the 68-95-99.7 rule: the distance is about $6.7\sigma$, so overlap $\approx 0$.)</p>
 <h3>Three-class classification</h3>
 <p>Add a third class (ultramafic rocks, e.g. peridotite, with $\text{SiO}_2 \approx 42$ wt% and $\text{Al}_2\text{O}_3 \approx 3$ wt%).
 Extend <code>train</code> to use the softmax function and categorical cross-entropy loss instead of the

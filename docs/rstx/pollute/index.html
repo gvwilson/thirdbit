@@ -473,16 +473,15 @@ What fraction of its concentration does each non-sink node send downstream per s
             <span class="p">)</span>
 </code></pre></div>
 </div>
-<div class="forma-numeric-entry" data-correct="0.48" data-lang="en" data-tolerance="0.005">
+<section aria-label="Exercises" class="exercises">
+<h2>Exercises</h2>
+<h3>Do the math</h3>
 <p>Starting from $c = [1, 0, 0, 0, 0]$ and using <code>TRANSPORT_RATE</code> = 0.4, what is the concentration at
 <code>junction</code> (node 2) after exactly 2 time steps?
 Give your answer to two decimal places.</p>
 <p>Hint: trace through the update rule step by step.
 At step 1, junction receives $0.4 \times c_0[\text{upstream_a}]$ from upstream_a.
 At step 2, junction retains $0.6$ of its step-1 value and receives another inflow from upstream_a.</p>
-</div>
-<section aria-label="Exercises" class="exercises">
-<h2>Exercises</h2>
 <h3>Adding a tributary</h3>
 <p>Add a sixth node <code>tributary</code> (node 5) that joins at <code>reach</code> (node 3) with edge weight 2.0.
 Update <code>build_network</code> and rerun the simulation.

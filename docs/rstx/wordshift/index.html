@@ -116,10 +116,6 @@ the statistical variation that results from sampling a finite corpus.</dd>
 <li>All normalized frequencies in a decade sum to 1, making them comparable across
     decades regardless of how many texts were digitized or produced.</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="0.025" data-lang="en" data-tolerance="0.0001">
-<p>A word appears 50 times in a decade that contains 2000 total tokens.
-What is its normalized frequency?</p>
-</div>
 <h2>Linear Trend</h2>
 <ul>
 <li>A linear trend assumes that the normalized frequency changes by a constant amount
@@ -134,12 +130,6 @@ What is its normalized frequency?</p>
     a negative slope means it fell.</li>
 <li>The units of $\hat{\beta}_w$ are normalized-frequency change per 10-year period.</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="0.010" data-lang="en" data-tolerance="0.0001">
-<p>A word has normalized frequency 0.010 at decade index 0 and 0.020 at decade
-index 1 (two data points only).
-The mean decade index is 0.5 and the mean frequency is 0.015.
-What is the OLS slope?</p>
-</div>
 <h2>Generating Synthetic Data</h2>
 <ul>
 <li>Decade indices run from 0 (1850) to 10 (1950)</li>
@@ -384,6 +374,19 @@ the rate of change of normalized frequency per decade estimated by ordinary leas
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<ol>
+<li>
+<p>A word appears 50 times in a decade that contains 2000 total tokens.
+    What is its normalized frequency?</p>
+</li>
+<li>
+<p>A word has normalized frequency 0.010 at decade index 0 and 0.020 at decade
+    index 1 (two data points only).
+    The mean decade index is 0.5 and the mean frequency is 0.015.
+    What is the OLS slope?</p>
+</li>
+</ol>
 <h3>Confidence interval on the slope</h3>
 <p>Extend <code>linear_trend</code> to return both the slope and its standard error
 $\text{SE}(\hat{\beta}) = \hat{\sigma} / \sqrt{\sum_d (d - \bar{d})^2}$,

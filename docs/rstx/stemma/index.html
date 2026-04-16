@@ -122,12 +122,6 @@ a copying relationship.</dd>
     distance to each other than to manuscripts from a different family, because they
     share inherited variants in addition to their unique ones.</li>
 </ul>
-<div class="forma-numeric-entry" data-correct="0.15" data-lang="en" data-tolerance="0.0001">
-<p>Two manuscripts each have 100 variant loci.
-Manuscript A differs from the archetype at loci 1–10 and 21–30.
-Manuscript B differs from the archetype at loci 1–10 and 41–55.
-What is the Hamming distance between A and B?</p>
-</div>
 <h2>Distance Matrix for the Reference Stemma</h2>
 <ul>
 <li>The reference stemma is:</li>
@@ -404,12 +398,6 @@ Join them with the remaining edge of length $0.21$.</p>
 </tr>
 </tbody>
 </table>
-<div class="forma-numeric-entry" data-correct="0.22" data-lang="en" data-tolerance="0.001">
-<p>After merging A and B into node4 in the first UPGMA step,
-$D(A, C) = 0.23$ and $D(B, C) = 0.21$.
-Using the UPGMA averaging rule $D(\text{node4}, C) = (D(A,C) + D(B,C)) / 2$,
-what is $D(\text{node4}, C)$?</p>
-</div>
 <div class="forma-multiple-choice" data-lang="en">
 <p>In step 2 of the worked example, which pair is merged?</p>
 <dl>
@@ -762,6 +750,21 @@ assumes a constant rate of change along all branches</dd>
 </div>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<ol>
+<li>
+<p>Two manuscripts each have 100 variant loci.
+    Manuscript A differs from the archetype at loci 1–10 and 21–30.
+    Manuscript B differs from the archetype at loci 1–10 and 41–55.
+    What is the Hamming distance between A and B?</p>
+</li>
+<li>
+<p>After merging A and B into node4 in the first UPGMA step,
+    $D(A, C) = 0.23$ and $D(B, C) = 0.21$.
+    Using the UPGMA averaging rule $D(\text{node4}, C) = (D(A,C) + D(B,C)) / 2$,
+    what is $D(\text{node4}, C)$?</p>
+</li>
+</ol>
 <h3>Hamming distance from manuscript sequences</h3>
 <p>The <code>generate_stemma</code> module produces actual sequences, not just distances.
 Write <code>build_distance_matrix(mss)</code> that accepts the dict returned by

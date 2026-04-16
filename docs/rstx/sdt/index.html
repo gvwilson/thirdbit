@@ -292,11 +292,6 @@ Divide the hit count by the total number of signal trials.</p>
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">widths</span> <span class="o">*</span> <span class="n">heights</span><span class="p">))</span>
 </code></pre></div>
 </div>
-<div class="forma-numeric-entry" data-correct="0.5" data-lang="en" data-tolerance="0.05">
-<p>An observer's evidence scores are identical for signal and noise trials, so their
-ROC curve follows the diagonal exactly.
-What is their AUC?</p>
-</div>
 <h2>Visualizing the ROC Curve</h2>
 <div data-inc="sdt.py" data-mark="plot"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">plot_roc</span><span class="p">(</span><span class="n">roc_far</span><span class="p">,</span> <span class="n">roc_hr</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Save an ROC curve plot as an SVG file."""</span>
@@ -550,6 +545,10 @@ that a random signal trial receives a higher evidence score than a random noise 
 </ul>
 <section aria-label="Exercises" class="exercises">
 <h2>Exercises</h2>
+<h3>Do the math</h3>
+<p>An observer's evidence scores are identical for signal and noise trials, so their
+ROC curve follows the diagonal exactly.
+What is their AUC?</p>
 <h3>Compute AUC from a small example</h3>
 <p>Given evidence scores <code>[0.1, 0.4, 0.35, 0.8]</code> and labels <code>[0, 0, 1, 1]</code>
 (0 = noise, 1 = signal), trace through <code>roc_curve</code> by hand at each unique
