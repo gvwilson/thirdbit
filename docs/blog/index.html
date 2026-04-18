@@ -82,6 +82,286 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/04/18/asimpy-performance-benchmarking/">
+      asimpy Performance Benchmarking
+    </a>
+  </h2>
+  <p><time datetime="2026-04-18" class="post-date">2026-04-18</time></p>
+  <p><a href="https://asimpy.readthedocs.io/">asimpy</a> is a discrete event simulation framework written in Python.
+Unlike <a href="https://simpy.readthedocs.io/">SimPy</a>, it uses <code>async</code>/<code>await</code> rather than <code>yield</code>,
+which is more in keeping with modern Python idioms
+and makes it easier to (for example) write simulation-based mocks of modern <code>async</code> libraries
+to use in testing and teaching.
+The latest version on <a href="https://pypi.org/project/asimpy/">PyPI</a> includes some benchmarking scripts
+that compare the performance of the two libraries.</p>
+<p>The results below show that asimpy is faster for some things but slower for others.
+SimPy is faster for basic scheduling primitives:
+Timeout, Event, Interrupt, and Process creation all need roughly half as many instructions
+because Python&rsquo;s <code>yield</code> carries lower per-resumption overhead than <code>async</code>/<code>await</code>.
+(A generator frame advance is a single C-level operation,
+but an <code>async</code> coroutine suspension goes through the <strong>await</strong> protocol
+and a coroutine wrapper before reaching the same point.)</p>
+<p>asimpy is faster for resource, container, and store operations
+because SimPy models every such interaction as a pair of distinct event objects
+(<code>Request</code>/<code>Release</code>, <code>ContainerPut</code>/<code>ContainerGet</code>, and <code>StorePut</code>/<code>StoreGet</code>)
+that must be allocated, appended to a queue, scheduled on the heap, popped,
+and then trigger a separate chain of callbacks.
+All together,
+these operations require roughly three times as many instructions asimpy&rsquo;s equivalent
+for an uncontended resource acquire and release.
+In short,
+asimpy pays more than SimPy per scheduler tick but less per resource operation,
+so which library is faster for a given simulation
+depends on how many processes spend their time waiting on timeouts and events
+versus competing for shared resources.</p>
+<p>I&rsquo;d like to find a way to reduce asimpy&rsquo;s instruction count for simple operations.
+If you&rsquo;d like to have a look and offer suggestions (or pull requests),
+they would be very welcome.</p>
+<blockquote>
+<p>Note: most of the tests for asimpy were generated using Claude,
+as were the benchmark programs,
+and I asked its advice several times
+while trying to make asimpy&rsquo;s implementation more uniform
+and while trying to debug <code>FirstOf</code>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: right;">asimpy</th>
+<th style="text-align: right;">simpy</th>
+<th style="text-align: right;">asimpy/simpy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">AllOf</td>
+<td style="text-align: right;">338.2</td>
+<td style="text-align: right;">569.6</td>
+<td style="text-align: right;">0.594</td>
+</tr>
+<tr>
+<td style="text-align: left;">AllOf (blocking)</td>
+<td style="text-align: right;">674.4</td>
+<td style="text-align: right;">703.8</td>
+<td style="text-align: right;">0.958</td>
+</tr>
+<tr>
+<td style="text-align: left;">Barrier / Barrier (via Event)</td>
+<td style="text-align: right;">440.4</td>
+<td style="text-align: right;">258.8</td>
+<td style="text-align: right;">1.702</td>
+</tr>
+<tr>
+<td style="text-align: left;">Container</td>
+<td style="text-align: right;">273.2</td>
+<td style="text-align: right;">520.8</td>
+<td style="text-align: right;">0.525</td>
+</tr>
+<tr>
+<td style="text-align: left;">Container (float amounts)</td>
+<td style="text-align: right;">273.2</td>
+<td style="text-align: right;">520.8</td>
+<td style="text-align: right;">0.525</td>
+</tr>
+<tr>
+<td style="text-align: left;">Container (non-blocking)</td>
+<td style="text-align: right;">53.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Environment.get_log</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Environment.log</td>
+<td style="text-align: right;">20.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Environment.run(until=)</td>
+<td style="text-align: right;">253.3</td>
+<td style="text-align: right;">121.5</td>
+<td style="text-align: right;">2.084</td>
+</tr>
+<tr>
+<td style="text-align: left;">Event</td>
+<td style="text-align: right;">181.2</td>
+<td style="text-align: right;">129.6</td>
+<td style="text-align: right;">1.399</td>
+</tr>
+<tr>
+<td style="text-align: left;">Event (cancel)</td>
+<td style="text-align: right;">42.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Event (fail)</td>
+<td style="text-align: right;">210.2</td>
+<td style="text-align: right;">166.6</td>
+<td style="text-align: right;">1.262</td>
+</tr>
+<tr>
+<td style="text-align: left;">FirstOf / AnyOf</td>
+<td style="text-align: right;">326.2</td>
+<td style="text-align: right;">469.6</td>
+<td style="text-align: right;">0.695</td>
+</tr>
+<tr>
+<td style="text-align: left;">FirstOf / AnyOf (blocking)</td>
+<td style="text-align: right;">659.4</td>
+<td style="text-align: right;">603.8</td>
+<td style="text-align: right;">1.092</td>
+</tr>
+<tr>
+<td style="text-align: left;">Interrupt</td>
+<td style="text-align: right;">532.4</td>
+<td style="text-align: right;">427.8</td>
+<td style="text-align: right;">1.244</td>
+</tr>
+<tr>
+<td style="text-align: left;">Interrupt (with cause)</td>
+<td style="text-align: right;">540.4</td>
+<td style="text-align: right;">440.8</td>
+<td style="text-align: right;">1.226</td>
+</tr>
+<tr>
+<td style="text-align: left;">PreemptiveResource</td>
+<td style="text-align: right;">922.4</td>
+<td style="text-align: right;">1423.8</td>
+<td style="text-align: right;">0.648</td>
+</tr>
+<tr>
+<td style="text-align: left;">PreemptiveResource (cause fields)</td>
+<td style="text-align: right;">933.4</td>
+<td style="text-align: right;">1444.8</td>
+<td style="text-align: right;">0.646</td>
+</tr>
+<tr>
+<td style="text-align: left;">PreemptiveResource (no-preempt)</td>
+<td style="text-align: right;">829.3</td>
+<td style="text-align: right;">1283.0</td>
+<td style="text-align: right;">0.646</td>
+</tr>
+<tr>
+<td style="text-align: left;">PriorityQueue / PriorityStore</td>
+<td style="text-align: right;">271.2</td>
+<td style="text-align: right;">494.7</td>
+<td style="text-align: right;">0.548</td>
+</tr>
+<tr>
+<td style="text-align: left;">Process</td>
+<td style="text-align: right;">349.1</td>
+<td style="text-align: right;">323.4</td>
+<td style="text-align: right;">1.080</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue</td>
+<td style="text-align: right;">268.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue (blocking get)</td>
+<td style="text-align: right;">553.4</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue (blocking put)</td>
+<td style="text-align: right;">606.3</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue (non-blocking)</td>
+<td style="text-align: right;">53.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (contention)</td>
+<td style="text-align: right;">565.0</td>
+<td style="text-align: right;">804.5</td>
+<td style="text-align: right;">0.702</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (context manager)</td>
+<td style="text-align: right;">160.2</td>
+<td style="text-align: right;">482.8</td>
+<td style="text-align: right;">0.332</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (multi-capacity)</td>
+<td style="text-align: right;">563.3</td>
+<td style="text-align: right;">804.4</td>
+<td style="text-align: right;">0.700</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (try_acquire)</td>
+<td style="text-align: right;">39.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (uncontended)</td>
+<td style="text-align: right;">138.2</td>
+<td style="text-align: right;">445.8</td>
+<td style="text-align: right;">0.310</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store</td>
+<td style="text-align: right;">264.2</td>
+<td style="text-align: right;">479.8</td>
+<td style="text-align: right;">0.551</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (FIFO queue)</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">479.8</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (blocking get)</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">635.0</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (blocking put)</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">638.9</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (filtered get)</td>
+<td style="text-align: right;">273.2</td>
+<td style="text-align: right;">517.7</td>
+<td style="text-align: right;">0.528</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (non-blocking)</td>
+<td style="text-align: right;">47.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Timeout</td>
+<td style="text-align: right;">252.2</td>
+<td style="text-align: right;">123.6</td>
+<td style="text-align: right;">2.041</td>
+</tr>
+</tbody>
+</table>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/04/16/big-tech-is-like/">
       Big Tech is Like…
     </a>
@@ -1702,175 +1982,6 @@ viewed 2026-04-08.</dd>
 (like tower defense, but the player is trying to help travelers reach their destinationn instead of kill them).
 If you&rsquo;re interested in collaborating on that,
 please reach out.</p>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/03/30/project-status/">
-      Project Status
-    </a>
-  </h2>
-  <p><time datetime="2026-03-30" class="post-date">2026-03-30</time></p>
-  <p>A couple of years ago I posted <a href="../projects/">a list of student projects</a> I&rsquo;d be interested in supervising.
-Here&rsquo;s what&rsquo;s happened since:</p>
-<table>
-<thead>
-<tr>
-<th>Project</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Altruism in Software Teams</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Browsercast</td>
-<td>partially</td>
-</tr>
-<tr>
-<td>Validity of Claims</td>
-<td>in progress</td>
-</tr>
-<tr>
-<td>The Impact of Calibrated Code Review</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Code Selectors</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Simulations of Distributed Systems</td>
-<td>done</td>
-</tr>
-<tr>
-<td>Developer Discussions</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Dragnet</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Drawing Execution Order</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Extending Lox</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Generative Art</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Ghost Engineers</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>The Hoye Test</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Student Adoption of IDE Tools</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Marimo and H5P</td>
-<td>done</td>
-</tr>
-<tr>
-<td>Markdown to DOM</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>What &ldquo;Business of Software&rdquo; Doesn&rsquo;t Teach</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Narwhals</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Parallelizing Marimo Notebooks</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Software Design for Everyone</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Software Design by Example in Gleam</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Software Performance by Example</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Software Security by Example</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Session Recording and Playback</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Comparing Slideshow Tools</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Testing Research Software</td>
-<td>in progress</td>
-</tr>
-<tr>
-<td>A Blocks-Based Data Science Tool</td>
-<td>in progress</td>
-</tr>
-<tr>
-<td>Tooling Effort over Time</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>A Tower Support Game</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Unbreaking Software</td>
-<td>in progress</td>
-</tr>
-<tr>
-<td>Analysis of Undergrad Textbooks</td>
-<td>upcoming</td>
-</tr>
-<tr>
-<td>Understanding Ethics</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>Identification of Variable Roles</td>
-<td>in progress</td>
-</tr>
-<tr>
-<td>Human-Scale Web Programming</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>A Little WYSIWYG Editor</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>A WYSIWYG Computational Notebook</td>
-<td>undone</td>
-</tr>
-<tr>
-<td>XKCD Charts</td>
-<td>done</td>
-</tr>
-</tbody>
-</table>
 </article>
 
 

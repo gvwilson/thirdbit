@@ -3,12 +3,290 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-04-16T00:00:00Z</updated>
+ <updated>2026-04-18T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>asimpy Performance Benchmarking</title>
+   <link href="https://third-bit.com/2026/04/18/asimpy-performance-benchmarking/"/>
+   <updated>2026-04-18T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/04/18/asimpy-performance-benchmarking/</id>
+   <content type="html">&lt;p&gt;&lt;a href=&#34;https://asimpy.readthedocs.io/&#34;&gt;asimpy&lt;/a&gt; is a discrete event simulation framework written in Python.
+Unlike &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt;, it uses &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt; rather than &lt;code&gt;yield&lt;/code&gt;,
+which is more in keeping with modern Python idioms
+and makes it easier to (for example) write simulation-based mocks of modern &lt;code&gt;async&lt;/code&gt; libraries
+to use in testing and teaching.
+The latest version on &lt;a href=&#34;https://pypi.org/project/asimpy/&#34;&gt;PyPI&lt;/a&gt; includes some benchmarking scripts
+that compare the performance of the two libraries.&lt;/p&gt;
+&lt;p&gt;The results below show that asimpy is faster for some things but slower for others.
+SimPy is faster for basic scheduling primitives:
+Timeout, Event, Interrupt, and Process creation all need roughly half as many instructions
+because Python&amp;rsquo;s &lt;code&gt;yield&lt;/code&gt; carries lower per-resumption overhead than &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt;.
+(A generator frame advance is a single C-level operation,
+but an &lt;code&gt;async&lt;/code&gt; coroutine suspension goes through the &lt;strong&gt;await&lt;/strong&gt; protocol
+and a coroutine wrapper before reaching the same point.)&lt;/p&gt;
+&lt;p&gt;asimpy is faster for resource, container, and store operations
+because SimPy models every such interaction as a pair of distinct event objects
+(&lt;code&gt;Request&lt;/code&gt;/&lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;ContainerPut&lt;/code&gt;/&lt;code&gt;ContainerGet&lt;/code&gt;, and &lt;code&gt;StorePut&lt;/code&gt;/&lt;code&gt;StoreGet&lt;/code&gt;)
+that must be allocated, appended to a queue, scheduled on the heap, popped,
+and then trigger a separate chain of callbacks.
+All together,
+these operations require roughly three times as many instructions asimpy&amp;rsquo;s equivalent
+for an uncontended resource acquire and release.
+In short,
+asimpy pays more than SimPy per scheduler tick but less per resource operation,
+so which library is faster for a given simulation
+depends on how many processes spend their time waiting on timeouts and events
+versus competing for shared resources.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;d like to find a way to reduce asimpy&amp;rsquo;s instruction count for simple operations.
+If you&amp;rsquo;d like to have a look and offer suggestions (or pull requests),
+they would be very welcome.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: most of the tests for asimpy were generated using Claude,
+as were the benchmark programs,
+and I asked its advice several times
+while trying to make asimpy&amp;rsquo;s implementation more uniform
+and while trying to debug &lt;code&gt;FirstOf&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: left;&#34;&gt;Feature&lt;/th&gt;
+&lt;th style=&#34;text-align: right;&#34;&gt;asimpy&lt;/th&gt;
+&lt;th style=&#34;text-align: right;&#34;&gt;simpy&lt;/th&gt;
+&lt;th style=&#34;text-align: right;&#34;&gt;asimpy/simpy&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;AllOf&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;338.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;569.6&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.594&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;AllOf (blocking)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;674.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;703.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.958&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Barrier / Barrier (via Event)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;440.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;258.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.702&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Container&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;273.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;520.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.525&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Container (float amounts)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;273.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;520.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.525&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Container (non-blocking)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;53.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Environment.get_log&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;11.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Environment.log&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;20.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Environment.run(until=)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;253.3&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;121.5&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2.084&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Event&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;181.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;129.6&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.399&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Event (cancel)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;42.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Event (fail)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;210.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;166.6&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.262&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;FirstOf / AnyOf&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;326.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;469.6&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.695&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;FirstOf / AnyOf (blocking)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;659.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;603.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.092&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Interrupt&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;532.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;427.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.244&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Interrupt (with cause)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;540.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;440.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.226&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;PreemptiveResource&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;922.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1423.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.648&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;PreemptiveResource (cause fields)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;933.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1444.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.646&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;PreemptiveResource (no-preempt)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;829.3&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1283.0&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.646&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;PriorityQueue / PriorityStore&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;271.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;494.7&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.548&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Process&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;349.1&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;323.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.080&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Queue&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;268.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Queue (blocking get)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;553.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Queue (blocking put)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;606.3&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Queue (non-blocking)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;53.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Resource (contention)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;565.0&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;804.5&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.702&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Resource (context manager)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;160.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;482.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.332&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Resource (multi-capacity)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;563.3&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;804.4&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.700&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Resource (try_acquire)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;39.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Resource (uncontended)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;138.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;445.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.310&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Store&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;264.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;479.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.551&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Store (FIFO queue)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;479.8&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Store (blocking get)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;635.0&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Store (blocking put)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;638.9&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Store (filtered get)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;273.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;517.7&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.528&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Store (non-blocking)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;47.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Timeout&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;252.2&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;123.6&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2.041&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</content>
+ </entry>
  
  <entry>
    <title>Big Tech is Like…</title>
@@ -2591,17 +2869,6 @@ are defending the local traditions in which they are personally invested.
 In my idle moments,
 I wonder where we&amp;rsquo;d be if &lt;a href=&#34;https://en.wikipedia.org/wiki/NATO_Software_Engineering_Conferences&#34;&gt;that long-ago NATO conference&lt;/a&gt;
 had adopted industrial design as a metaphor instead of engineering.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Updating Snailz</title>
-   <link href="https://third-bit.com/2026/01/23/updating-snailz/"/>
-   <updated>2026-01-23T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/01/23/updating-snailz/</id>
-   <content type="html">&lt;p&gt;I have updated the &lt;a href=&#34;https://github.com/gvwilson/snailz&#34;&gt;synthetic data generator&lt;/a&gt; I built last year
-to generate datasets I can use in &lt;a href=&#34;https://third-bit.com/sql/&#34;&gt;my SQL tutorial&lt;/a&gt;.
-I might also use it as a running example
-if I ever teach a course on software design in Python to researchers.&lt;/p&gt;</content>
  </entry>
  
 </feed>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: asimpy Performance Benchmarking</title>
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../selected/">selected</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>asimpy Performance Benchmarking</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/04/16/big-tech-is-like/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-04-18" class="post-date">2026-04-18</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p><a href="https://asimpy.readthedocs.io/">asimpy</a> is a discrete event simulation framework written in Python.
+Unlike <a href="https://simpy.readthedocs.io/">SimPy</a>, it uses <code>async</code>/<code>await</code> rather than <code>yield</code>,
+which is more in keeping with modern Python idioms
+and makes it easier to (for example) write simulation-based mocks of modern <code>async</code> libraries
+to use in testing and teaching.
+The latest version on <a href="https://pypi.org/project/asimpy/">PyPI</a> includes some benchmarking scripts
+that compare the performance of the two libraries.</p>
+<p>The results below show that asimpy is faster for some things but slower for others.
+SimPy is faster for basic scheduling primitives:
+Timeout, Event, Interrupt, and Process creation all need roughly half as many instructions
+because Python&rsquo;s <code>yield</code> carries lower per-resumption overhead than <code>async</code>/<code>await</code>.
+(A generator frame advance is a single C-level operation,
+but an <code>async</code> coroutine suspension goes through the <strong>await</strong> protocol
+and a coroutine wrapper before reaching the same point.)</p>
+<p>asimpy is faster for resource, container, and store operations
+because SimPy models every such interaction as a pair of distinct event objects
+(<code>Request</code>/<code>Release</code>, <code>ContainerPut</code>/<code>ContainerGet</code>, and <code>StorePut</code>/<code>StoreGet</code>)
+that must be allocated, appended to a queue, scheduled on the heap, popped,
+and then trigger a separate chain of callbacks.
+All together,
+these operations require roughly three times as many instructions asimpy&rsquo;s equivalent
+for an uncontended resource acquire and release.
+In short,
+asimpy pays more than SimPy per scheduler tick but less per resource operation,
+so which library is faster for a given simulation
+depends on how many processes spend their time waiting on timeouts and events
+versus competing for shared resources.</p>
+<p>I&rsquo;d like to find a way to reduce asimpy&rsquo;s instruction count for simple operations.
+If you&rsquo;d like to have a look and offer suggestions (or pull requests),
+they would be very welcome.</p>
+<blockquote>
+<p>Note: most of the tests for asimpy were generated using Claude,
+as were the benchmark programs,
+and I asked its advice several times
+while trying to make asimpy&rsquo;s implementation more uniform
+and while trying to debug <code>FirstOf</code>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: right;">asimpy</th>
+<th style="text-align: right;">simpy</th>
+<th style="text-align: right;">asimpy/simpy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">AllOf</td>
+<td style="text-align: right;">338.2</td>
+<td style="text-align: right;">569.6</td>
+<td style="text-align: right;">0.594</td>
+</tr>
+<tr>
+<td style="text-align: left;">AllOf (blocking)</td>
+<td style="text-align: right;">674.4</td>
+<td style="text-align: right;">703.8</td>
+<td style="text-align: right;">0.958</td>
+</tr>
+<tr>
+<td style="text-align: left;">Barrier / Barrier (via Event)</td>
+<td style="text-align: right;">440.4</td>
+<td style="text-align: right;">258.8</td>
+<td style="text-align: right;">1.702</td>
+</tr>
+<tr>
+<td style="text-align: left;">Container</td>
+<td style="text-align: right;">273.2</td>
+<td style="text-align: right;">520.8</td>
+<td style="text-align: right;">0.525</td>
+</tr>
+<tr>
+<td style="text-align: left;">Container (float amounts)</td>
+<td style="text-align: right;">273.2</td>
+<td style="text-align: right;">520.8</td>
+<td style="text-align: right;">0.525</td>
+</tr>
+<tr>
+<td style="text-align: left;">Container (non-blocking)</td>
+<td style="text-align: right;">53.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Environment.get_log</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Environment.log</td>
+<td style="text-align: right;">20.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Environment.run(until=)</td>
+<td style="text-align: right;">253.3</td>
+<td style="text-align: right;">121.5</td>
+<td style="text-align: right;">2.084</td>
+</tr>
+<tr>
+<td style="text-align: left;">Event</td>
+<td style="text-align: right;">181.2</td>
+<td style="text-align: right;">129.6</td>
+<td style="text-align: right;">1.399</td>
+</tr>
+<tr>
+<td style="text-align: left;">Event (cancel)</td>
+<td style="text-align: right;">42.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Event (fail)</td>
+<td style="text-align: right;">210.2</td>
+<td style="text-align: right;">166.6</td>
+<td style="text-align: right;">1.262</td>
+</tr>
+<tr>
+<td style="text-align: left;">FirstOf / AnyOf</td>
+<td style="text-align: right;">326.2</td>
+<td style="text-align: right;">469.6</td>
+<td style="text-align: right;">0.695</td>
+</tr>
+<tr>
+<td style="text-align: left;">FirstOf / AnyOf (blocking)</td>
+<td style="text-align: right;">659.4</td>
+<td style="text-align: right;">603.8</td>
+<td style="text-align: right;">1.092</td>
+</tr>
+<tr>
+<td style="text-align: left;">Interrupt</td>
+<td style="text-align: right;">532.4</td>
+<td style="text-align: right;">427.8</td>
+<td style="text-align: right;">1.244</td>
+</tr>
+<tr>
+<td style="text-align: left;">Interrupt (with cause)</td>
+<td style="text-align: right;">540.4</td>
+<td style="text-align: right;">440.8</td>
+<td style="text-align: right;">1.226</td>
+</tr>
+<tr>
+<td style="text-align: left;">PreemptiveResource</td>
+<td style="text-align: right;">922.4</td>
+<td style="text-align: right;">1423.8</td>
+<td style="text-align: right;">0.648</td>
+</tr>
+<tr>
+<td style="text-align: left;">PreemptiveResource (cause fields)</td>
+<td style="text-align: right;">933.4</td>
+<td style="text-align: right;">1444.8</td>
+<td style="text-align: right;">0.646</td>
+</tr>
+<tr>
+<td style="text-align: left;">PreemptiveResource (no-preempt)</td>
+<td style="text-align: right;">829.3</td>
+<td style="text-align: right;">1283.0</td>
+<td style="text-align: right;">0.646</td>
+</tr>
+<tr>
+<td style="text-align: left;">PriorityQueue / PriorityStore</td>
+<td style="text-align: right;">271.2</td>
+<td style="text-align: right;">494.7</td>
+<td style="text-align: right;">0.548</td>
+</tr>
+<tr>
+<td style="text-align: left;">Process</td>
+<td style="text-align: right;">349.1</td>
+<td style="text-align: right;">323.4</td>
+<td style="text-align: right;">1.080</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue</td>
+<td style="text-align: right;">268.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue (blocking get)</td>
+<td style="text-align: right;">553.4</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue (blocking put)</td>
+<td style="text-align: right;">606.3</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue (non-blocking)</td>
+<td style="text-align: right;">53.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (contention)</td>
+<td style="text-align: right;">565.0</td>
+<td style="text-align: right;">804.5</td>
+<td style="text-align: right;">0.702</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (context manager)</td>
+<td style="text-align: right;">160.2</td>
+<td style="text-align: right;">482.8</td>
+<td style="text-align: right;">0.332</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (multi-capacity)</td>
+<td style="text-align: right;">563.3</td>
+<td style="text-align: right;">804.4</td>
+<td style="text-align: right;">0.700</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (try_acquire)</td>
+<td style="text-align: right;">39.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (uncontended)</td>
+<td style="text-align: right;">138.2</td>
+<td style="text-align: right;">445.8</td>
+<td style="text-align: right;">0.310</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store</td>
+<td style="text-align: right;">264.2</td>
+<td style="text-align: right;">479.8</td>
+<td style="text-align: right;">0.551</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (FIFO queue)</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">479.8</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (blocking get)</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">635.0</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (blocking put)</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">638.9</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (filtered get)</td>
+<td style="text-align: right;">273.2</td>
+<td style="text-align: right;">517.7</td>
+<td style="text-align: right;">0.528</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (non-blocking)</td>
+<td style="text-align: right;">47.2</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;">Timeout</td>
+<td style="text-align: right;">252.2</td>
+<td style="text-align: right;">123.6</td>
+<td style="text-align: right;">2.041</td>
+</tr>
+</tbody>
+</table><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+  </body>
+</html>
