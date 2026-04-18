@@ -81,7 +81,7 @@ it seemed like everyone within half a day's walk or ride wanted to be there as w
 The Ox brothers,
 Zeke Bear,
 a mixed family of deer and raccoons,
-a double dozen bots off to one side in a cluster around Dockety and Crucher—Sindy kept her eyes down
+a double dozen bots off to one side in a cluster around Dockety and Crusher—Sindy kept her eyes down
 and let her parents and her sister respond to their murmured hellos.
 She managed a "hello" to Gumption,
 who had polished his budding horns and combed the knots out of his fur,
@@ -1725,7 +1725,7 @@ Captain Leung whooped.
 We made it!
 We made it!"
 
-"Don't jinx it," Captain Szego replied.
+"Don't jinx it," Doctor Szego replied.
 The captain laughed,
 and Violet realized she was laughing too,
 but crying too.
@@ -1860,7 +1860,7 @@ the wind was smearing the gray trail of smoke across the sky.
 She hoped Violet was all right.
 
 Dockety held out the communicator.
-sindy tucked it back in her pocket.
+Sindy tucked it back in her pocket.
 Her jaw set.
 People had come to her rescue.
 Now it was her turn.
@@ -2794,7 +2794,7 @@ But no one heard her except Violet,
 and she was too busy getting out of the way to pay attention.
 
 The two combat bots didn't bother with the stairs this time.
-They through themselves through the hatch and skidded across the grass,
+They threw themselves through the hatch and skidded across the grass,
 making deep gouges in the soil.
 Z40 reared up on its hind legs and clamped its foreclaws around the nearest tentacle.
 The tentacle dragged it toward the shuttle,
@@ -3420,7 +3420,7 @@ André's voice was heavy with sarcasm.
 Violet didn't see any reason to tell him about the dandelion braid.
 
 "André, please," Captain Leung said sharply.
-Doctor, how long before you can send a drone to repair the shuttle?"
+"Doctor, how long before you can send a drone to repair the shuttle?"
 
 "At least a few more hours, I'm afraid.
 Will you be all right until then?"
