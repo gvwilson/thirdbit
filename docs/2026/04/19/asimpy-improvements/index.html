@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="me" href="https://mastodon.social/@gvwilson">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/atom+xml" title="The Third Bit" href="../../../../atom.xml">
+<script defer data-domain="third-bit.com" src="https://plausible.io/js/plausible.js"></script>
+    <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+    <link rel="stylesheet" href="../../../../assets/chota.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/mccole.css" type="text/css">
+    <link rel="stylesheet" href="../../../../assets/thirdbit.css" type="text/css">
+    
+<title>The Third Bit: asimpy Improvements</title>
+
+    
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav class="nav" aria-label="Site navigation">
+  <div class="nav-left">
+    <a class="brand" href="../../../../">Third Bit</a>
+  </div>
+  <div class="nav-right">
+    <a href="../../../../about/">about</a>
+    <a href="../../../../blog/">blog</a>
+    <a href="../../../../selected/">selected</a>
+    <a href="../../../../talks/">talks</a>
+    <a href="../../../../packages/">packages</a>
+    <a href="../../../../bib/">bibliography</a>
+    <a href="../../../../fiction/">fiction</a>
+  </div>
+</nav>
+    <main id="main-content">
+      
+<h1>asimpy Improvements</h1>
+
+
+<div class="row">
+  <div class="col-2 left">
+    
+      <a href="../../../../2026/04/18/changing-minds/">
+        &lArr; <span class="pagination-text">previous</span>
+      </a>
+    
+  </div>
+  <div class="col-8 center">
+    Posted <time datetime="2026-04-19" class="post-date">2026-04-19</time>
+  </div>
+  <div class="col-2 right">
+    
+  </div>
+</div>
+<!-- content --><p>Following up on <a href="../../../../2026/04/18/asimpy-performance-benchmarking/">yesterday&rsquo;s post about benchmarking</a>,
+Claude and I have made some improvements to <a href="https://asimpy.readthedocs.io/">asimpy</a>.</p>
+<h2>1. Eliminate <code>functools.partial</code> in <code>resume()</code></h2>
+<p>Before, every time an event fired and needed to reschedule a waiting process, <code>resume()</code> did this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_done</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">immediate</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_loop</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+</code></pre></div>
+<p><code>partial</code> is a C-level callable, so it is fast,
+but it still allocates a new object on every event completion.
+The fix stores the value directly on the process and schedules <code>_loop</code> without wrapping it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_done</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resume_value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">immediate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_loop</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resume_value</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_resume_value</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="o">...</span>
+</code></pre></div>
+<h2>2. Inline <code>_add_waiter</code> in <code>_loop</code></h2>
+<p>When a process parks on a pending event, the original code called through a method:</p>
+<div class="highlight"><pre><span></span><code><span class="n">yielded</span><span class="o">.</span><span class="n">_add_waiter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resume</span><span class="p">)</span>
+</code></pre></div>
+<p>The inlined version writes directly to the event&rsquo;s waiter slot:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="n">_PENDING</span><span class="p">:</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">yielded</span><span class="o">.</span><span class="n">_waiter</span>
+    <span class="k">if</span> <span class="n">w</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">yielded</span><span class="o">.</span><span class="n">_waiter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resume</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resume</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">yielded</span><span class="o">.</span><span class="n">_waiter</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">resume</span><span class="p">]</span>
+</code></pre></div>
+<p>This saves one Python function-call dispatch per <code>await</code> on a pending event.</p>
+<h2>3. Move the Exception Check from <code>Event.__await__</code> to <code>Process._loop</code></h2>
+<p>The original <code>__await__</code> checked whether the received value was an exception on every resume,
+even when the event succeeded normally:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">value</span>
+</code></pre></div>
+<p>Moving the check to <code>_loop</code> lets <code>__await__</code> become a single expression with no branch:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="k">yield</span> <span class="bp">self</span><span class="p">)</span>
+</code></pre></div>
+<p>In <code>_loop</code>, the value from a failed event causes <code>coro.throw()</code> instead of <code>coro.send()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
+    <span class="n">yielded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coro</span><span class="o">.</span><span class="n">throw</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">yielded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<p>Every normal (non-failing) <code>await</code> now avoids the <code>isinstance</code> check entirely.</p>
+<h2>4. Lazy Waiter Slot</h2>
+<p>Every <code>Event.__init__</code> previously allocated an empty list for <code>_waiters</code>,
+which is wasted work in the common case where at most one process ever waits on a given event.
+The fix replaces the list with a single <code>_waiter</code> slot that upgrades lazily:</p>
+<ul>
+<li><code>None</code>: no waiter yet (initial state, no allocation)</li>
+<li><code>callable</code>: exactly one waiter (the common case)</li>
+<li><code>list</code>: two or more waiters (<code>AllOf</code> and <code>FirstOf</code>)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;_env&quot;</span><span class="p">,</span> <span class="s2">&quot;_value&quot;</span><span class="p">,</span> <span class="s2">&quot;_waiter&quot;</span><span class="p">,</span> <span class="s2">&quot;_on_cancel&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_waiter</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># None | callable | list[callable]</span>
+</code></pre></div>
+<p><code>succeed()</code> dispatches on the same three cases and avoids iterating an empty list
+for the typical single-waiter event.</p>
+<h2>Benchmark Results</h2>
+<p>Benchmarks were run with <code>sys.monitoring</code> (Python bytecode instruction counts)
+and <code>time.perf_counter()</code> (wall-clock time),
+each over 1000 executions of the feature under test.
+The comparison is against SimPy 5, which uses generator-based scheduling.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: right;">Before (µs)</th>
+<th style="text-align: right;">After (µs)</th>
+<th style="text-align: right;">Wall-clock Δ</th>
+<th style="text-align: right;">Instr Δ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Event</td>
+<td style="text-align: right;">0.522</td>
+<td style="text-align: right;">0.446</td>
+<td style="text-align: right;">-14.6%</td>
+<td style="text-align: right;">-1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Event (fail)</td>
+<td style="text-align: right;">0.967</td>
+<td style="text-align: right;">0.770</td>
+<td style="text-align: right;">-20.4%</td>
+<td style="text-align: right;">-2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Timeout</td>
+<td style="text-align: right;">0.686</td>
+<td style="text-align: right;">0.623</td>
+<td style="text-align: right;">-9.2%</td>
+<td style="text-align: right;">-1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Environment.run(until=)</td>
+<td style="text-align: right;">0.749</td>
+<td style="text-align: right;">0.638</td>
+<td style="text-align: right;">-14.8%</td>
+<td style="text-align: right;">-1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Container</td>
+<td style="text-align: right;">0.694</td>
+<td style="text-align: right;">0.647</td>
+<td style="text-align: right;">-6.8%</td>
+<td style="text-align: right;">-4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Container (float amounts)</td>
+<td style="text-align: right;">0.745</td>
+<td style="text-align: right;">0.640</td>
+<td style="text-align: right;">-14.1%</td>
+<td style="text-align: right;">-4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue</td>
+<td style="text-align: right;">0.729</td>
+<td style="text-align: right;">0.657</td>
+<td style="text-align: right;">-9.9%</td>
+<td style="text-align: right;">-4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue (blocking get)</td>
+<td style="text-align: right;">1.733</td>
+<td style="text-align: right;">1.605</td>
+<td style="text-align: right;">-7.4%</td>
+<td style="text-align: right;">-4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Queue (blocking put)</td>
+<td style="text-align: right;">1.870</td>
+<td style="text-align: right;">1.723</td>
+<td style="text-align: right;">-7.9%</td>
+<td style="text-align: right;">-4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store</td>
+<td style="text-align: right;">0.706</td>
+<td style="text-align: right;">0.692</td>
+<td style="text-align: right;">-2.0%</td>
+<td style="text-align: right;">-4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Store (filtered get)</td>
+<td style="text-align: right;">0.721</td>
+<td style="text-align: right;">0.695</td>
+<td style="text-align: right;">-3.6%</td>
+<td style="text-align: right;">-4</td>
+</tr>
+<tr>
+<td style="text-align: left;">PriorityQueue</td>
+<td style="text-align: right;">0.710</td>
+<td style="text-align: right;">0.673</td>
+<td style="text-align: right;">-5.2%</td>
+<td style="text-align: right;">-4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (uncontended)</td>
+<td style="text-align: right;">0.364</td>
+<td style="text-align: right;">0.339</td>
+<td style="text-align: right;">-6.9%</td>
+<td style="text-align: right;">-2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (context manager)</td>
+<td style="text-align: right;">0.493</td>
+<td style="text-align: right;">0.481</td>
+<td style="text-align: right;">-2.4%</td>
+<td style="text-align: right;">-2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (contention)</td>
+<td style="text-align: right;">1.825</td>
+<td style="text-align: right;">1.676</td>
+<td style="text-align: right;">-8.2%</td>
+<td style="text-align: right;">+13</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource (multi-capacity)</td>
+<td style="text-align: right;">1.843</td>
+<td style="text-align: right;">1.738</td>
+<td style="text-align: right;">-5.7%</td>
+<td style="text-align: right;">+13</td>
+</tr>
+<tr>
+<td style="text-align: left;">AllOf</td>
+<td style="text-align: right;">1.059</td>
+<td style="text-align: right;">1.022</td>
+<td style="text-align: right;">-3.5%</td>
+<td style="text-align: right;">-4</td>
+</tr>
+<tr>
+<td style="text-align: left;">AllOf (blocking)</td>
+<td style="text-align: right;">2.243</td>
+<td style="text-align: right;">2.054</td>
+<td style="text-align: right;">-8.4%</td>
+<td style="text-align: right;">+4</td>
+</tr>
+<tr>
+<td style="text-align: left;">FirstOf</td>
+<td style="text-align: right;">1.067</td>
+<td style="text-align: right;">1.009</td>
+<td style="text-align: right;">-5.4%</td>
+<td style="text-align: right;">-3</td>
+</tr>
+<tr>
+<td style="text-align: left;">FirstOf (blocking)</td>
+<td style="text-align: right;">2.240</td>
+<td style="text-align: right;">2.189</td>
+<td style="text-align: right;">-2.3%</td>
+<td style="text-align: right;">+2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Interrupt</td>
+<td style="text-align: right;">1.866</td>
+<td style="text-align: right;">1.763</td>
+<td style="text-align: right;">-5.5%</td>
+<td style="text-align: right;">-1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Interrupt (with cause)</td>
+<td style="text-align: right;">1.918</td>
+<td style="text-align: right;">1.770</td>
+<td style="text-align: right;">-7.7%</td>
+<td style="text-align: right;">-1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Barrier</td>
+<td style="text-align: right;">1.381</td>
+<td style="text-align: right;">1.280</td>
+<td style="text-align: right;">-7.3%</td>
+<td style="text-align: right;">-2</td>
+</tr>
+<tr>
+<td style="text-align: left;">PreemptiveResource</td>
+<td style="text-align: right;">3.196</td>
+<td style="text-align: right;">3.179</td>
+<td style="text-align: right;">-0.5%</td>
+<td style="text-align: right;">-5</td>
+</tr>
+<tr>
+<td style="text-align: left;">PreemptiveResource (no-preempt)</td>
+<td style="text-align: right;">2.558</td>
+<td style="text-align: right;">2.422</td>
+<td style="text-align: right;">-5.3%</td>
+<td style="text-align: right;">-3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Process</td>
+<td style="text-align: right;">1.431</td>
+<td style="text-align: right;">1.994</td>
+<td style="text-align: right;">+39.3%</td>
+<td style="text-align: right;">+14</td>
+</tr>
+</tbody>
+</table>
+<h2>What the Numbers Show</h2>
+<p>Wall-clock time improved by 2-20% for every benchmark except <code>Process</code>.
+The largest gains appeared where events are created and triggered frequently:
+failing events (-20%),
+basic <code>Event</code> and <code>Timeout</code> (-15%),
+and <code>Environment.run(until=)</code> (-15%).
+The savings come primarily from eliminating one C-level allocation per event completion
+(the <code>partial</code> object in change 1)
+and one per event creation (the empty list in change 4).
+Neither of these shows up as fewer Python bytecodes
+because <code>sys.monitoring</code> counts only Python-level instructions, not C heap allocations.
+This is is why instruction counts changed by only 1-5 for most benchmarks
+even when wall-clock time fell.</p>
+<p>The instruction increases on <code>Resource (contention/multi-capacity)</code> (+13) and <code>Process</code> (+14)
+come from the three new bytecodes per <code>_loop</code> entry introduced by change 1
+(read <code>_resume_value</code>, clear it to <code>None</code>)
+and the <code>isinstance</code> branch introduced by change 3.
+For resource contention,
+where multiple processes queue for the same resource,
+these extra instructions are more than offset by the C-level savings:
+wall-clock still fell 6-8%.</p>
+<p>The <code>Process</code> microbenchmark is the one genuine regression (+39% wall-clock, +14 instructions).
+It measures the cost of creating and running a single minimal process to completion.
+At that scale the fixed per-<code>_loop</code> overhead from changes 1 and 3 has nothing to amortise against.
+In any simulation where a process awaits more than one event during its lifetime,
+which is the overwhelmingly common case,
+those costs are shared across many events and the net result is a speedup.</p>
+<h2>What I Can&rsquo;t Benchmark</h2>
+<p>These changes definitely make asimpy harder to understand:
+for example,
+inlining <code>_add_waiter</code> moves an action from what feels like its natural home
+to an entirely different part of the library.
+I wouldn&rsquo;t have thought of doing this on my own,
+and while I understand what Claude suggested in retrospect,
+I don&rsquo;t know how long it would take to wrap my head around it
+if I was reading the code for the first time.
+People are using phrases like &ldquo;cognitive debt&rdquo; and &ldquo;comprehension debt&rdquo; to describe this phenomenon;
+my only consolation is that software systems have <em>always</em> struggled with this.</p><!-- /content -->
+
+    </main>
+    <footer>
+  &copy; 2004-2026 <a href="../../../../about/">Greg Wilson</a>
+  <a href="mailto:gvwilson@third-bit.com"><img src="../../../../assets/icons/envelope.svg" alt="email" class="footer-icon"></a>
+  <a href="https://www.linkedin.com/in/gvwilson/"><img src="../../../../assets/icons/linkedin.svg" alt="LinkedIn" class="footer-icon"></a>
+  <a href="https://mastodon.social/@gvwilson"><img src="../../../../assets/icons/mastodon.svg" alt="Mastodon" class="footer-icon"></a>
+  <!-- <a href="https://calendly.com/gvwilson/30min"><img src="../../../../assets/icons/calendar.svg" alt="Calendly" class="footer-icon"></a> -->
+  <a href="https://github.com/gvwilson"><img src="../../../../assets/icons/github.svg" alt="GitHub" class="footer-icon"></a>
+  <a href="https://www.youtube.com/channel/UCbDQ7FIeYB3FHRADAjUjfrg"><img src="../../../../assets/icons/youtube.svg" alt="YouTube" class="footer-icon"></a>
+  <a href="../../../../bib/"><img src="../../../../assets/icons/orcid.svg" alt="ORCID" class="footer-icon"></a>
+  <a href="../../../../atom.xml"><img src="../../../../assets/icons/rss.svg" alt="RSS feed" class="footer-icon"></a>
+  <a href="../../../../license/"><img src="../../../../assets/icons/cc-by.svg" alt="license" class="footer-icon"></a>
+  <a href="../../../../colophon/"><img src="../../../../assets/icons/pencil.svg" alt="colophon" class="footer-icon"></a>
+  <a href="../../../../cv/"><img src="../../../../assets/icons/file.svg" alt="CV" class="footer-icon"></a>
+  <br>
+  The material on this site may not be used to train AI models without the express permission of the author.
+</footer>
+  </body>
+</html>

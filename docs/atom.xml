@@ -3,12 +3,332 @@
  <title>The Third Bit</title>
  <link href="https://third-bit.com/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2026-04-18T00:00:00Z</updated>
+ <updated>2026-04-19T00:00:00Z</updated>
  <id>https://third-bit.com/</id>
  <author>
    <name>Greg Wilson</name>
    <email>gvwilson@third-bit.com</email>
  </author>
+ 
+ <entry>
+   <title>asimpy Improvements</title>
+   <link href="https://third-bit.com/2026/04/19/asimpy-improvements/"/>
+   <updated>2026-04-19T00:00:00Z</updated>
+   <id>https://third-bit.com/2026/04/19/asimpy-improvements/</id>
+   <content type="html">&lt;p&gt;Following up on &lt;a href=&#34;https://third-bit.com/2026/04/18/asimpy-performance-benchmarking/&#34;&gt;yesterday&amp;rsquo;s post about benchmarking&lt;/a&gt;,
+Claude and I have made some improvements to &lt;a href=&#34;https://asimpy.readthedocs.io/&#34;&gt;asimpy&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;1. Eliminate &lt;code&gt;functools.partial&lt;/code&gt; in &lt;code&gt;resume()&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Before, every time an event fired and needed to reschedule a waiting process, &lt;code&gt;resume()&lt;/code&gt; did this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;functools&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;partial&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;resume&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;immediate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;partial&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_loop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;partial&lt;/code&gt; is a C-level callable, so it is fast,
+but it still allocates a new object on every event completion.
+The fix stores the value directly on the process and schedules &lt;code&gt;_loop&lt;/code&gt; without wrapping it:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;resume&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_resume_value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;
+        &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;immediate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_loop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;_loop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_resume_value&lt;/span&gt;
+    &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_resume_value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;2. Inline &lt;code&gt;_add_waiter&lt;/code&gt; in &lt;code&gt;_loop&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;When a process parks on a pending event, the original code called through a method:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;yielded&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_add_waiter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resume&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The inlined version writes directly to the event&amp;rsquo;s waiter slot:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;v&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_PENDING&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;w&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;yielded&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_waiter&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;w&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;yielded&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_waiter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resume&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;isinstance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resume&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;yielded&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_waiter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resume&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This saves one Python function-call dispatch per &lt;code&gt;await&lt;/code&gt; on a pending event.&lt;/p&gt;
+&lt;h2&gt;3. Move the Exception Check from &lt;code&gt;Event.__await__&lt;/code&gt; to &lt;code&gt;Process._loop&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The original &lt;code&gt;__await__&lt;/code&gt; checked whether the received value was an exception on every resume,
+even when the event succeeded normally:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__await__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;isinstance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;BaseException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;raise&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Moving the check to &lt;code&gt;_loop&lt;/code&gt; lets &lt;code&gt;__await__&lt;/code&gt; become a single expression with no branch:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__await__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In &lt;code&gt;_loop&lt;/code&gt;, the value from a failed event causes &lt;code&gt;coro.throw()&lt;/code&gt; instead of &lt;code&gt;coro.send()&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;isinstance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;BaseException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;yielded&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_coro&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;throw&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;yielded&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_coro&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Every normal (non-failing) &lt;code&gt;await&lt;/code&gt; now avoids the &lt;code&gt;isinstance&lt;/code&gt; check entirely.&lt;/p&gt;
+&lt;h2&gt;4. Lazy Waiter Slot&lt;/h2&gt;
+&lt;p&gt;Every &lt;code&gt;Event.__init__&lt;/code&gt; previously allocated an empty list for &lt;code&gt;_waiters&lt;/code&gt;,
+which is wasted work in the common case where at most one process ever waits on a given event.
+The fix replaces the list with a single &lt;code&gt;_waiter&lt;/code&gt; slot that upgrades lazily:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;None&lt;/code&gt;: no waiter yet (initial state, no allocation)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;callable&lt;/code&gt;: exactly one waiter (the common case)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;list&lt;/code&gt;: two or more waiters (&lt;code&gt;AllOf&lt;/code&gt; and &lt;code&gt;FirstOf&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;vm&#34;&gt;__slots__&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;_env&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;_value&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;_waiter&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;_on_cancel&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;__init__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_waiter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# None | callable | list[callable]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;succeed()&lt;/code&gt; dispatches on the same three cases and avoids iterating an empty list
+for the typical single-waiter event.&lt;/p&gt;
+&lt;h2&gt;Benchmark Results&lt;/h2&gt;
+&lt;p&gt;Benchmarks were run with &lt;code&gt;sys.monitoring&lt;/code&gt; (Python bytecode instruction counts)
+and &lt;code&gt;time.perf_counter()&lt;/code&gt; (wall-clock time),
+each over 1000 executions of the feature under test.
+The comparison is against SimPy 5, which uses generator-based scheduling.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: left;&#34;&gt;Feature&lt;/th&gt;
+&lt;th style=&#34;text-align: right;&#34;&gt;Before (µs)&lt;/th&gt;
+&lt;th style=&#34;text-align: right;&#34;&gt;After (µs)&lt;/th&gt;
+&lt;th style=&#34;text-align: right;&#34;&gt;Wall-clock Δ&lt;/th&gt;
+&lt;th style=&#34;text-align: right;&#34;&gt;Instr Δ&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Event&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.522&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.446&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-14.6%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Event (fail)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.967&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.770&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-20.4%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Timeout&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.686&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.623&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-9.2%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Environment.run(until=)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.749&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.638&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-14.8%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Container&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.694&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.647&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-6.8%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Container (float amounts)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.745&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.640&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-14.1%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Queue&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.729&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.657&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-9.9%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Queue (blocking get)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.733&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.605&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-7.4%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Queue (blocking put)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.870&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.723&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-7.9%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Store&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.706&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.692&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-2.0%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Store (filtered get)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.721&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.695&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-3.6%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;PriorityQueue&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.710&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.673&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-5.2%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Resource (uncontended)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.364&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.339&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-6.9%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Resource (context manager)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.493&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;0.481&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-2.4%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Resource (contention)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.825&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.676&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-8.2%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;+13&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Resource (multi-capacity)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.843&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.738&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-5.7%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;+13&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;AllOf&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.059&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.022&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-3.5%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;AllOf (blocking)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2.243&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2.054&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-8.4%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;+4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;FirstOf&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.067&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.009&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-5.4%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;FirstOf (blocking)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2.240&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2.189&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-2.3%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;+2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Interrupt&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.866&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.763&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-5.5%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Interrupt (with cause)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.918&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.770&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-7.7%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Barrier&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.381&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.280&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-7.3%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;PreemptiveResource&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;3.196&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;3.179&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-0.5%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;PreemptiveResource (no-preempt)&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2.558&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;2.422&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-5.3%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;-3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: left;&#34;&gt;Process&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.431&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;1.994&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;+39.3%&lt;/td&gt;
+&lt;td style=&#34;text-align: right;&#34;&gt;+14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;What the Numbers Show&lt;/h2&gt;
+&lt;p&gt;Wall-clock time improved by 2-20% for every benchmark except &lt;code&gt;Process&lt;/code&gt;.
+The largest gains appeared where events are created and triggered frequently:
+failing events (-20%),
+basic &lt;code&gt;Event&lt;/code&gt; and &lt;code&gt;Timeout&lt;/code&gt; (-15%),
+and &lt;code&gt;Environment.run(until=)&lt;/code&gt; (-15%).
+The savings come primarily from eliminating one C-level allocation per event completion
+(the &lt;code&gt;partial&lt;/code&gt; object in change 1)
+and one per event creation (the empty list in change 4).
+Neither of these shows up as fewer Python bytecodes
+because &lt;code&gt;sys.monitoring&lt;/code&gt; counts only Python-level instructions, not C heap allocations.
+This is is why instruction counts changed by only 1-5 for most benchmarks
+even when wall-clock time fell.&lt;/p&gt;
+&lt;p&gt;The instruction increases on &lt;code&gt;Resource (contention/multi-capacity)&lt;/code&gt; (+13) and &lt;code&gt;Process&lt;/code&gt; (+14)
+come from the three new bytecodes per &lt;code&gt;_loop&lt;/code&gt; entry introduced by change 1
+(read &lt;code&gt;_resume_value&lt;/code&gt;, clear it to &lt;code&gt;None&lt;/code&gt;)
+and the &lt;code&gt;isinstance&lt;/code&gt; branch introduced by change 3.
+For resource contention,
+where multiple processes queue for the same resource,
+these extra instructions are more than offset by the C-level savings:
+wall-clock still fell 6-8%.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Process&lt;/code&gt; microbenchmark is the one genuine regression (+39% wall-clock, +14 instructions).
+It measures the cost of creating and running a single minimal process to completion.
+At that scale the fixed per-&lt;code&gt;_loop&lt;/code&gt; overhead from changes 1 and 3 has nothing to amortise against.
+In any simulation where a process awaits more than one event during its lifetime,
+which is the overwhelmingly common case,
+those costs are shared across many events and the net result is a speedup.&lt;/p&gt;
+&lt;h2&gt;What I Can&amp;rsquo;t Benchmark&lt;/h2&gt;
+&lt;p&gt;These changes definitely make asimpy harder to understand:
+for example,
+inlining &lt;code&gt;_add_waiter&lt;/code&gt; moves an action from what feels like its natural home
+to an entirely different part of the library.
+I wouldn&amp;rsquo;t have thought of doing this on my own,
+and while I understand what Claude suggested in retrospect,
+I don&amp;rsquo;t know how long it would take to wrap my head around it
+if I was reading the code for the first time.
+People are using phrases like &amp;ldquo;cognitive debt&amp;rdquo; and &amp;ldquo;comprehension debt&amp;rdquo; to describe this phenomenon;
+my only consolation is that software systems have &lt;em&gt;always&lt;/em&gt; struggled with this.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Changing Minds</title>
@@ -2846,50 +3166,6 @@ I therefore think that before we make recommendations about what anyone ought to
 we ought to find out what has and hasn&amp;rsquo;t worked elsewhere.
 I&amp;rsquo;ve been thinking about this &lt;a href=&#34;https://third-bit.com/ideas/sdgc/&#34;&gt;for a long time&lt;/a&gt;,
 but I still don&amp;rsquo;t know how to make it happen.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>104 Days</title>
-   <link href="https://third-bit.com/2026/02/08/104-days/"/>
-   <updated>2026-02-08T00:00:00Z</updated>
-   <id>https://third-bit.com/2026/02/08/104-days/</id>
-   <content type="html">&lt;p&gt;It has been 104 days since I was laid off.
-In that time I have written approximately 64,000 words,
-of which 75% has been fiction and 25% non-fiction.
-(These figures don&amp;rsquo;t include email or social media.)
-I&amp;rsquo;ve actually written on all but 30 of those 104 days;
-at 71%, that puts me a little short of my 75% target
-but slightly ahead of the 65% of days I&amp;rsquo;ve managed over the past year.&lt;/p&gt;
-&lt;p&gt;As for time,
-I&amp;rsquo;m averaging about 5 hours a day of trackable activity,
-which includes exercise, music practice, and pro bono work
-as well as writing, programming, teaching, and looking for a job.
-I don&amp;rsquo;t really know where the rest of the day goes—I don&amp;rsquo;t believe sleep,
-chores, Wordle, and an episode or two of &lt;a href=&#34;https://en.wikipedia.org/wiki/Elementary_(TV_series)&#34;&gt;&lt;em&gt;Elementary&lt;/em&gt;&lt;/a&gt;
-fill nineteen hours out of every twenty-four—but
-I&amp;rsquo;m trying not to worry about it.&lt;/p&gt;
-&lt;p&gt;Ongoing projects include:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;building some &lt;a href=&#34;https://gvwilson.github.io/sim/&#34;&gt;simulations of software development teams&lt;/a&gt;
-    in order to learn how &lt;a href=&#34;https://simpy.readthedocs.io/&#34;&gt;SimPy&lt;/a&gt; works;&lt;/li&gt;
-&lt;li&gt;writing &lt;a href=&#34;https://asimpy.readthedocs.io/&#34;&gt;a discrete event simulation package&lt;/a&gt; in Python that uses &lt;code&gt;async&lt;/code&gt;/&lt;code&gt;await&lt;/code&gt;
-    (partly to teach  myself how asynchronous programming works in Python);&lt;/li&gt;
-&lt;li&gt;writing &lt;a href=&#34;https://snailz.readthedocs.io/&#34;&gt;a synthetic data generator&lt;/a&gt; to use in teaching data science;&lt;/li&gt;
-&lt;li&gt;finishing two middle-grade novelettes and starting a third;&lt;/li&gt;
-&lt;li&gt;(finally) finishing a full draft of a YA novel I&amp;rsquo;ve been chipping away at for years;&lt;/li&gt;
-&lt;li&gt;doing a few hours of contract work (mostly teaching, but also some technical writing);&lt;/li&gt;
-&lt;li&gt;helping to supervise some university students&amp;rsquo; projects;&lt;/li&gt;
-&lt;li&gt;playing jazz again after more than twenty years; and&lt;/li&gt;
-&lt;li&gt;missing my daughter, who is enjoying her first year at university
-    but without whom my world feels just a little bit empty.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;One thing I &lt;em&gt;haven&amp;rsquo;t&lt;/em&gt; done much of is read.
-I used to devour a book or two a week,
-but these days I find it difficult to get into most fiction,
-and even harder to read non-fiction.
-I don&amp;rsquo;t know if this is because I&amp;rsquo;m distracted by personal and world events,
-or whether it&amp;rsquo;s a stage of life,
-but I miss losing myself in someone else&amp;rsquo;s prose for a few hours at a time.&lt;/p&gt;</content>
  </entry>
  
 </feed>
