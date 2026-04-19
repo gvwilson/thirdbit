@@ -284,11 +284,11 @@ not noticing that a little green light had started blinking at one end.
 
 Violet lay in her pod waiting for the lid to open,
 wishing that she was still in virtual.
-The wake-up program had finished its cycle an hour ago.
-Moisture made a quiet plip, plip, plip
+The wake-up program had finished its cycle several minutes ago,
+and moisture made a steady plip, plip, plip
 as it dripped off the inside of the pod's lid.
 She didn't remember what world she had been in,
-but she was sure that being back in the real wouldn't be nearly as much fun.
+but she was sure that being back in the real one wouldn't be nearly as much fun.
 
 She shivered despite the warmth when the lid finally hissed open.
 Step one: sit up.
@@ -297,7 +297,7 @@ Doctor Szego said it was something to do with her inner ears,
 but that didn't make it any better.
 Step three was to grope around on the table beside her pod
 to make sure her robe was there.
-André had only hidden it once,
+The service bots had only forgotten to put it there once,
 but her cheeks still burned when she thought about how embarrassed she had been.
 
 She tied the robe's belt at her waist,
@@ -309,25 +309,24 @@ but at least it covered up the taste of the vitamins and minerals.
 The door to her pod room slid open.
 A service bot rolled in,
 one wheel squeaking slightly.
-"Good morning, Violet," it said cheerfully.
+"Good morning, Violet!" it said cheerfully.
 
 "Mmph."
 She rolled her head from side to side until something clicked in her neck.
 "Is it really morning?"
 
-"It is morning somewhere,"
+"It is morning somewhere!"
 the bot replied.
-"You have a message from Doctor Szego.
-Shall I play it now?"
+"Doctor Szego would like to speak with you.
+May I?"
 
 "Sure."
 She sat on the now-closed lid of her pod and yawned.
 
-"Message begins.
-Good morning, Violet."
-Between one sentence and the next there was a soft *click*
-as the bot's voice changed
-from a generic mechanical twang to something older, warmer, and female.
+There was a soft *ping*.
+"Good morning, Violet."
+Instead of the service bot's generic mechanical twang,
+the new voice was older, warmer, and female.
 
 "Morning, Doctor Szego,"
 Violet replied dutifully.
@@ -344,7 +343,7 @@ Violet yawned again.
 "I'll let Captain Leung explain that.
 He's waiting for you on the bridge."
 
-*click*
+*ping*
 
 "Hey clumsy.
 Trip over yourself yet or are you still in your pod?"
@@ -358,14 +357,14 @@ the voice scoffed.
 "I was hunting dragons.
 How about you?
 Decorating your bedroom again?
-Or making cookies?"
+Or making cooooookies?"
 He dragged the word out.
 
 "End conversation,"
 Violet told the bot wearily.
 She had tried being friends with André,
 and sometimes it almost seemed like it was working,
-but sooner or later—usually sooner—every conversation turned to sneers and insults.
+but sooner or later every conversation turned to sneers and insults—usually sooner.
 If anyone else their age was ever awake she would just block him,
 but the most important word in that sentence was "if".
 
@@ -376,46 +375,50 @@ so she had told Doctor Szego that she didn't ever want to wake up again
 unless there was hot water.
 She let it pummel her,
 turning slowly,
-and tried to remember what she had been dreaming about in virtual.
+and tried to remember what she had been doing in virtual.
 Someone had come to visit,
 someone who looked like…a kangaroo?
 
 She frowned and ran her fingers through her purple hair
 to tease out the knots that somehow always formed while she slept.
 There had definitely been a kangaroo,
-and she had a vague sense that Central had been there too,
-but she couldn't remember what they had said or done.
-It wasn't important:
-the people she met in virtual were never there for long.
+and she had a vague sense that Central had been there too.
+She couldn't remember what they had said or done,
+but it wasn't important.
+The people she met in virtual were never there
+the next time she went looking for them.
 
-Another service bot brought her clothes when she finally finished her shower.
+Another service bot brought her clothes when she finally grew bored of her shower.
 Soft gray pants,
 a matching hoodie with a built-in breathing mask in case of an emergency,
 gloves for her hands and feet:
 she had worn the same outfit in ever-larger sizes for as long as she could remember.
 "When you're older," Doctor Szego and Captain Leung said
-when she asked them if she could have a uniform like theirs.
+when she asked if she could have a uniform like theirs.
 She sighed,
 dressed,
 and headed for the bridge.
 
-The corridor smelled like bleach and cinnamon.
+The narrow metal corridor smelled like bleach and cinnamon.
 One of the overhead lights wasn't working,
 and she counted three—no, four—doors that were stuck half-open.
 *Or half-closed,* she thought,
-trying not to let the most recent signs of the ark's decay dampen her mood.
-The bots did their best and fixed what they could,
+trying not to let the most recent signs of the ark's gradual decay dampen her mood.
+Captain Leung an the bots did their best to fix what they could,
 but every time she came out of virtual,
-it seemed like something new was falling apart.
+it seemed like something else had fallen apart.
+She wondered sometimes what would happen if her pod failed.
+Would whatever made-up world she was in at the time fade away around her,
+or would she wake up for a few final, panicky moments?
 
 She pushed the thought away as she climbed the ladder toward the bridge.
 After one floor, she felt lighter.
 After two,
 she no longer needed to use her feet at all.
 She paused briefly at the third floor to do a somersault,
-wishing that the feeling of weightlessness still made her giggle
+wishing that weightlessness still made her giggle
 the way it had when she was little,
-then grabbed the nearest run and continued on her way.
+then grabbed the nearest rung and continued on her way.
 
 "Good morning, Violet,"
 Captain Leung said as she joined him on the bridge.
@@ -428,10 +431,9 @@ the captain wouldn't be interested.
 "One of the lights is out in 1-C."
 
 He nodded without taking his eyes off the displays in front of him.
-There was more gray in his hair,
-she noticed,
-and judging from the smudge of beard on his cheeks
-he had been awake for at least a couple of days.
+Judging from the smudge of beard on his cheeks
+he had been awake for at least a couple of days,
+and there was a little more gray in his hair.
 
 She sat in her usual chair and buckled herself in.
 "How long was I asleep?" she asked
@@ -458,17 +460,16 @@ André's voice said,
 heavy with sarcasm.
 
 Violet pouted.
-It felt like ages since someone other than the captain
-had been awake at the same time as her,
+She couldn't remember the last time she had seen someone other than Captain Leung in person,
 and he was about as much fun as the service bots.
 
 She swiped her own display to bring up the exterior cameras.
 The stars looked as cold and as clean as they always did.
-Another swipe and she could see the blue dot where she was born.
+Another swipe and she could see the blue dot where she was told she had been born.
 She could zoom in if she wanted,
 but what was the point?
 She was going to wander the ark's empty corridors for a couple of days,
-trade barbs with André,
+trade insults with André,
 say, "Yes, Captain Leung," and, "Yes, Doctor Szego," a few times,
 and then go back into her pod,
 just as she had so many times before.
@@ -483,13 +484,13 @@ He took a deep breath and turned to her,
 forcing an unconvincing smile.
 "Why don't we head down to the mess and talk for a bit?"
 
-Five minutes later Violet put her spoon back in her stew and said,
+Five minutes later Violet put her spoon back in her goop and said,
 "I don't understand."
 
 "Neither do I,"
 Captain Leung said,
 swallowing a mouthful of the warm beige goop the ark had made for them.
-"Our systems have suffered one minor breakdown after another,
+"Our systems have had one minor incident after another,
 but we've always been able to patch things up.
 This time, though…"
 He shook his head.
@@ -502,11 +503,15 @@ but the look on Captain Leung's face told her how worried her was.
 "I think Central spoke to me when I was in virtual,"
 she said hesitantly.
 "I asked it to wake me up whenever there was someone new,
+and then there was a 'brid that looked like a kangaroo
 and…"
-She stirred her stew for a moment,
+She stirred her goop for a moment,
 her frown matching the captain's.
 "I'm sorry,
-that's all I can remember."
+that's all I can remember right now."
+It always took a while for her memories to come back,
+and even when they did,
+there were sometimes gaps.
 
 Captain Leung shook his head.
 "It doesn't matter.
@@ -521,8 +526,8 @@ he explained as Violet opened her mouth to ask.
 
 "Oh."
 Go home?
-The thought felt oddly foreign.
-The ark was home.
+The thought felt strange.
+The ark was her home.
 
 "And there's another thing,"
 the captain continued.
@@ -530,13 +535,13 @@ the captain continued.
 but we've picked up a comms beacon for the first time in what feels like forever.
 Here."
 
-He pushed his bowl aside and put a tablet on the table.
-Two taps brought up a map.
+He pushed his bowl aside and put an app on the table.
+Two taps on its screen brought up a map.
 "This is our original launch site.
-All this used to be farmland,
+It used to be farmland,
 but it flooded a few hundred years ago when the river changed course.
 It's hard to tell from this far out,
-but I imagine it's one big swamp by now.
+but it looks like it's one big swamp now.
 This, on the other hand…"
 
 Violet leaned in as he swiped the map sideways.
@@ -550,7 +555,7 @@ Doctor Szego' voice asked.
 
 Captain Leung nodded.
 "Robots don't eat potatoes."
-He studied the tablet a moment longer,
+He studied the app a moment longer,
 then looked at Violet.
 "I don't think we have a choice.
 I think it's time to go home."
@@ -561,20 +566,34 @@ I think it's time to go home."
 
 ## Chapter 3: Hide and Seek (Sindy)
 
-Sindy made a cheese and pickle sandwich to take to school the next morning,
+Maddy left early the next morning
+with her clothes in a suitcase borrowed from their neighbors,
+her sketchbooks and pencils in her satchel,
+and a determined expression on her face.
+The wagon would take two days to get to Sandy Bend,
+where she would start doing illustrations for the newspaper
+while living with a distant cousin that Sindy was assured she actually had met once.
+
+*And spending all her free time with Gumption,*
+Sindy thought enviously as she returned her sister's final wave.
+According to his letters,
+he had already made friends with some of the other apprentices
+and couldn't wait to show Maddy around the town library.
+
+Sindy made a cheese and pickle sandwich to take to school,
 then went back upstairs to brush her hair a second time.
 Her bed was made,
 and all her clothes were put away,
-so as much as she wanted a reason to put off going to school,
-she was fresh out.
+so as much as she wanted to delay going to school,
+she had run out of reasons.
 
-She missed walking into Rusty Bridge with Maddy and Gumption.
-Her big sister had stopped holding her hand years ago,
+She and her big sister had walked to school together every morning.
+They had stopped holding hands years ago,
 but even if they didn't talk much,
-her company had been comforting.
-Sindy hadn't realized how much that mattered to her until it ended.
-Now,
-the walk to school was just another reminder of how lonely she felt.
+the company had been comforting.
+Sindy hadn't realized how much she would miss that,
+and how much walking to school on her own would be
+just another reminder of how lonely she felt.
 
 She slipped into the one-room schoolhouse
 and slid into her usual seat near the back
@@ -591,8 +610,8 @@ Miz Nabbles sniffed disapprovingly.
 or does he still have—what was it this time?"
 
 "A cold, Miz Nabbles.
-He's gettin' better, but he says he's still under it."
-Bravo didn't even try to make the excuse convincing.
+He's gettin' better, but he's still a bit blurgy."
+Bravo looked at his desk as he made the excuse.
 
 Someone snickered.
 Miz Nabbles sniffed again.
@@ -607,34 +626,35 @@ Do you have something for us?"
 "Kind of,"
 she said reluctantly.
 "I did all the questions about loans and interest,
-but the triggernometry—"
+but the algebry—"
 
-"Tri<em>go</em>nometry," Miz Nabbles corrected.
+"Alge<em>bra</em>," Miz Nabbles corrected.
 
-"—tri<em>go</em>nometry was really hard.
+"—alge<em>bra</em> was just a muddle.
 I didn't even really know how to start,"
 Sindy confessed.
 
 Miz Nabbles flicked her tail.
 "Well, we went over it *twice* in class.
 It really shouldn't be that difficult,
-particularly not for someone with your special abilities."
+particularly not for someone with your abilities."
 
 Sindy's ears burned.
 *Just 'cuz I can use tech doesn't mean I'm good at math,*
 she thought but didn't say.
-She actually had been able to do most of the problems,
-but when she had shown up last week with all her homework done,
-some of the other kids had called her a show-off.
+She had actually been able to all of the problems,
+but had learned the hard way that 
+if she showed up with all her homework done,
+some of the other kids would call her a show-off
+and others wouldn't talk to her at all.
 Sometimes it seemed like there were no right answers.
 
-Recess came exactly an hour and a half later.
-She pretended to be writing a note in her practice book
-until most of her classmates had poured out the door into the playground,
+Recess came an hour and a half later.
+She pretended to write a note in her practice book
+until her classmates had poured out the door into the playground,
 then followed them.
-Bravo and some other boys her age had found long sticks
-and were practicing the pike drills
-they had seen the town's militia do.
+Bravo and some other boys were using long sticks
+to practice the pike drills they had seen the town's militia do.
 Melia Fox and two other girls were skipping rope—Sindy knew
 she wouldn't be welcome there—but
 a few of the younger children seemed to be organizing a game of freeze tag.
@@ -644,17 +664,16 @@ while they settled on the precise rules.
 After ignoring her for a few moments,
 Melia's younger sister glanced at her.
 "Sorry," she said insincerely,
-"But we've got too many people already."
+"But we got too many people already."
 
-Sindy waited just long enough for the moment to become uncomfortable
-before saying,
 "Sure,"
-and turning away.
+Sindy said,
+turning away.
 Feeling more alone than ever,
-she walked slowly over to the toybox,
+she walked over to the toybox,
 took out three cloth balls,
-and started to practice juggling,
-just like she had every day last week.
+and started to practice juggling.
+She was much better at it than she wanted to be.
 
 "It's not my fault," she wanted to say,
 except she didn't know who she would say it to.
@@ -664,7 +683,7 @@ It wasn't her fault that she was a throwback.
 It wasn't her fault that the Operators had kidnapped her
 and tried to hand her over to the bots in Heck.
 (But the sidelong looks when she went into town told her
-exactly who was thinking that there had to have been a reason.)
+how many people though there must have been some kind of reason.)
 It wasn't her fault that Special Leaf had died.
 (But he wouldn't have been injured if she hadn't lost control,
 and no matter what Doc Whinny and Mayor Lupus and everyone said,
@@ -680,11 +699,11 @@ wishing with every dry mouthful that she had brought a water bottle as well.
 
 She needed a hobby, she decided,
 kicking a loose stone into the knee-high weeds at the side of the road.
-Maddy had her drawing and Gumption was learning to be a mechanic—she
+Maddy had her drawing and Gumption enjoyed tinkering with machines—she
 should find something she could do on her own
 that *didn't* involve the Makers' ancient tech.
 She had tried sewing and baking and singing and whittling and now juggling,
-but nothing ever held her interest more than a couple of weeks.
+but nothing ever held her interest for long.
 
 Sindy kicked another rock into the weeds
 and tossed the last crust of her sandwich over her shoulder for luck.
@@ -695,7 +714,7 @@ Sindy.
 I have promised to repair the Foxes' cart by sundown.
 Perhaps we can play tag some other time."
 The buzzing undertone of Dockety's voice hadn't changed,
-but Sindy still wasn't used to the bot referring to itself as "I".
+but Sindy still wasn't used to it referring to itself as "I".
 
 "Sure," she said,
 trying to to keep the disappointment out of her voice.
@@ -703,25 +722,28 @@ Dockety's eyes rotated and rotated back in its equivalent of either a shrug or a
 she was never sure which.
 It turned back to the cart in question,
 the back end of which was resting on a tree stump
-while the bot mended its rear axle.
+while the bot fitted it with a new rear axle.
 
 Crusher and Beevy were busy turning logs into planks,
-not that either would been much fun to play tag with.
+not that either would been much fun to play tag with:
+Crusher was too bit,
+and Beevy still had trouble with the idea of fun.
 She didn't really know any of the other bots she could see
 well enough to ask them to play.
 *I should have just gone home,*
 she thought,
 then jumped and squeaked as something pinched her ankle.
 
-"Gotcha tee hee hee,"
-said a deep voice.
+"gotcha tee hee hee,"
+said a tinny voice.
 The same words scrolled across the screen
-on the front of the little bot that had rolled up behind her.
+on the front of the little bot that had snuck up behind her
+on four oversized rubber tires.
 
 Sindy put her hands on her hips and scowled down at it.
 "That wasn't funny, Mouse."
 
-"Was too."
+"was too."
 The little bot flashed a pattern of sparkles on its screen.
 It zipped back and forth,
 pleased with itself.
@@ -738,14 +760,14 @@ It took her a minute to explain the rules.
 Hey!"
 She yelped as Mouse poked her with its single skinny arm
 and immediately raced away,
-its four wheels bouncing over the stones and potholes of Bots' End's single short street.
+its wheels bouncing over the stones and potholes of Bots' End's single unpaved street.
 
 She gave chase,
 only for the little bot to disappear under the raised floor of a nearby building.
 "That's not fair! Come back out!"
 
-"Nope.
-Tee hee hee."
+"nope.
+tee hee hee."
 
 Sindy crouched down.
 She could see sparkles of amusement on Mouse's screen,
@@ -757,8 +779,8 @@ She sat back on her haunches.
 "That's not you play tag, Mouse," she repeated.
 "You have to be somewhere the other person *could* catch you or it's no fun."
 
-There was a moment of silence,
-and then then Mouse rolled out from under the building.
+There was a moment's pause,
+and then then Mouse rolled out.
 `you didn't say that was a rule` scrolled accusingly across its screen.
 
 "Sorry."
@@ -779,7 +801,7 @@ Staring at the ceiling didn't make her feel any better.
 Neither did re-doing the braid in her hair,
 and the books sitting on her side table
 just reminded her of Special Leaf.
-Papa Roo would play checkers with her if she asked him to,
+Her father would play checkers with her if she asked him to,
 but she hated it when people did things because they felt sorry for her.
 
 She picked up the little gray cylinder she had found in Special Leaf's house
@@ -789,7 +811,7 @@ She turned it over,
 looking for a button or switch or anything else.
 "So what do you do?" she asked out loud.
 
-And froze as an unknown voice responded,
+And froze as an unknown voice said,
 "What do you mean, what do I do?"
 
 </section>
