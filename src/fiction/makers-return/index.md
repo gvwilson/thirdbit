@@ -11,13 +11,13 @@ fiction: true
 ## Chapter 1: My Thanks To Those I Loved (Sindy)
 
 Sindy lay in bed waiting for the sun to rise
-and wishing that it wouldn't.
+but wishing it wouldn't.
 The rain had stopped an hour ago.
-Raindrops made a steady plip, plip, plip outside her window
+Drops made a steady plip, plip, plip outside her window
 as they fell from one leaf to the next.
 She hadn't heard the storm start,
 so she must have slept,
-but she still felt wearier all the way down into her bones.
+but she still felt weary all the way into her bones.
 
 Soft knuckles rapped gently on her door.
 "Sindy?
@@ -28,7 +28,7 @@ We don't want to miss this."
 even though she knew she would never forgive herself if she did.
 "Coming, mama."
 She pushed aside the heavy quilt she had slept under
-since she was old enough to have a room of her own,
+since she was old enough to have a bed of her own,
 swung her legs out of the bed,
 and looked at the clothes she had laid out on her chair the night before.
 The gray dress was the first thing she had ever owned besides boots and underwear
@@ -38,13 +38,13 @@ She wished that was why she was going to wear it.
 
 Papa Roo was already at the kitchen table when she went downstairs.
 "You look nice," he said,
-holding out an arm to pull her in for a quick hug.
+pulling her in for a quick hug.
 
 "Thanks, papa."
 She sat and took a slice of thick, dark toast from the stack in the middle of the table
 while her father poured her a cup of tea.
 After waiting a few moments,
-Papa Roo took Sindy's plate and began spreading raspberry jam on it.
+Papa Roo took the toast from Sindy's plate and began spreading raspberry jam on it.
 
 "I can do that," Sindy said.
 
@@ -54,40 +54,40 @@ Her father nodded without stopping.
 Mama Roo and Sindy's sister Maddy joined them a few minutes later.
 They had brushed their fur until it almost shone,
 but their expressions were solemn.
-Other than a quiet, "Pass the jam?" and, "Thank you,"
-they ate in silence.
 
+The family ate in silence except for an occasional quiet, "Pass the jam?" and, "Thank you,"
 "We can take care of those later," Mama Roo said
 when Sindy stood to put her plate in the square tin bucket they used as a sink.
+
 Sindy nodded,
-then to her surprise found herself crying again:
+then found herself crying again:
 not the deep sobs that had shaken her when the mayor had arrived to tell them
 that Special Leaf was gone,
-just raindrops spilling out of her eyes and running down her cheeks.
-
+just drops spilling out of her eyes and running down her cheeks.
 She wiped them away with her sleeve,
 took a deep breath to steady herself,
 and said, "I guess we should get going."
 
-Rusty Bridge wasn't a big town,
-but it was big enough to have its own cemetery grove.
-Dockety had asked if it and the other bots could help with Special Leaf's planting.
-Mayor Lupus had thank it but shaken her head.
-"Y'all are welcome to join us, though," she added.
-"He would've wanted you to be there."
-
+Rusty Bridge was only a small town,
+but it was still big enough to have its own cemetery grove.
 As the Roos arrived,
 it seemed like everyone within half a day's walk or ride wanted to be there as well.
 The Ox brothers,
 Zeke Bear,
-a mixed family of deer and raccoons,
-a double dozen bots off to one side in a cluster around Dockety and Crusher—Sindy kept her eyes down
+a mixed family of deer and raccoons—Sindy kept her eyes down
 and let her parents and her sister respond to their murmured hellos.
-She managed a "hello" to Gumption,
-who had polished his budding horns and combed the knots out of his fur,
+She managed a "hello" to Bluster and Bravo,
+who had polished their budding horns and combed the knots out of their fur for once,
 then took her place at her sister's side.
 
-When the sun's trailing edge let go of the hilltops to the east,
+Dockety and half a dozen other bots stood in a cluster to one side.
+Dockety had asked if it could help plant Special Leaf.
+Mayor Lupus had shaken her head,
+then added,
+"Y'all are welcome to join us, though.
+He said he wanted you to be there."
+
+As the rising sun cleared the hilltops to the east,
 Mayor Lupus stepped up onto the dark rectangular stone that was the grove's only adornment
 and rapped her gnarlywood cane on it three times.
 The quiet conversations in the crowd faded,
@@ -100,7 +100,7 @@ Sindy stared at the ground in front of her boots
 as the mayor described the years Special Leaf had spent as an Operator,
 how he had helped build the school in Rusty Bridge,
 and all the small kindnesses he had shown the town's residents over the decades.
-She kept her eyes open,
+She kept her eyes open
 because she knew that if she closed them
 she would see the moment when she lost control of Special Blazes' tech.
 Everyone kept telling her it wasn't her fault,
@@ -110,15 +110,17 @@ but he had never really recovered after being burned by the fireball.
 And now he was gone.
 Peacefully,
 Doc Whinny had said,
-as if that made a difference.
+as if that somehow made it better.
 He was gone,
 and everyone in town knew she was a freak,
-and Maddy was too busy making googly eyes at Gumption to play or read or,
-or anything,
-and—
+and Gumption was off in Sandy Bend doing his apprenticeship
+and Maddy was going there as well to work for the newspaper,
+so there'd be no one for her to play with or read with or,
+and why did everything have to be so hard?
 
 As Mayor Lupus came to the end of her eulogy,
-Sindy wiped her eyes with the handkerchief Mama Roo had insisted she put in the pocket of her dress.
+Sindy wiped her eyes with the handkerchief
+that her mother had insisted she put in the pocket of her dress.
 "That will be my thanks to those I loved
 and to the world that gave me the life,"
 she mumbled along with everyone else.
@@ -130,20 +132,20 @@ and then people began shuffling forward to take turns spading in some dirt.
 
 "Still don't think it's right,
 them being here,"
-Miz Nabbles muttered to no one in particular
-as Dockety, Beevy, and the other bots joined the line.
+Miz Nabbles muttered to no one in particular,
+nodding toward Dockety, Beevy, and the other bots.
 
 "Well,
 Special Leaf asked for them especially,
 and I think that's what matters most."
-The schoolteacher's ears flicked back in embarrassment at Maddy's calm rebuke.
+The schoolteacher's ears flicked back at the mayor's calm rebuke.
 
 "You go ahead,"
-Papa Roo said gently as they neared the head of the line.
+Papa Roo urged Sindy gently as they neared the head of the line.
 Sindy took the shovel,
 dug into the pile beside the grave,
-and tilted it in.
-The cedar wasn't even as tall as she was,
+and tilted the blade to spill the soil around the cedar's roots.
+The tree wasn't even as tall as she was,
 but she supposed the others towering over her must once have been as small.
 
 "Miz Roo?
@@ -165,10 +167,11 @@ The mayor shook her head.
 Here.
 He wrote this before he passed,
 then got Doc Whinny an' I to witness it for him."
-She took a piece of paper from the inside pocket of her formal black coat
+She took an envelope from the inside pocket of her formal black coat
 and passed it to Sindy.
 
-She unfolded the letter,
+She took out the letter,
+unfolded it,
 read it,
 and then read it again.
 It couldn't possibly mean what she thought it meant.
@@ -184,9 +187,8 @@ She patted her pocket.
 "I have a couple o' keys to give you when you're ready for 'em."
 
 It still didn't make sense to Sindy.
-She couldn't own a house—she was only twelve years old!
-It was the smile on her father's face and the hug he gave her
-that suddenly made it real.
+She couldn't own a house—she was only just turned thirteen!
+It was the hug her father gave her that suddenly made it real.
 "I don't want it without him there,"
 she sniffled into his shoulder.
 
@@ -194,47 +196,39 @@ she sniffled into his shoulder.
 "But until his tree grows,
 being in that house is as close to him as any of us will be able to get."
 He kissed the top her head.
-"How about we go have a look together?"
+"How about we go and have a look together?"
+
+"I should go home and get myself sorted,"
+Maddy said.
+She hugged Sindy.
+"I'll get some biscuits in the oven for you."
 
 It took them a few minutes to extricate themselves from the gathering.
 Word of Special Leaf's bequest rippled through the crowd as they did so.
 *At least it's something new for Miz Nabbles to be annoyed about,*
 Sindy thought.
 
-Gumption joined the Roos on the walk back into town.
-He and Papa Roo talked for a bit about mechanical things,
-and about what life was like for him as an apprentice in Sandy Bend.
-When they reached Special Leaf's house,
-he and Maddy exchanged glances.
-
-"I imagine you two would like a bit of time together,"
-Papa Roo said a little too loudly.
-Maddy rolled her eyes but didn't let go of Gumption's hand.
-
-"Join us for diner?"
-Mama Roo asked.
-The young goat nodded,
-and after giving Sindy one last hug each,
-the couple walked away.
-
-Papa Roo tried the door.
-"Hm—keys must be for something inside,"
-he said as it opened.
+Special Leaf's house—Sindy knew it would always be *his* house for her—was
+just a couple of blocks from the center of Rusty Bridge.
+The door was unlocked when Papa Roo tried it.
+"Hm—the keys must be for something inside,"
+he said,
+opening it.
 Sindy hesitated,
 then swallowed the lump in her throat and followed her parents inside.
 
 Special Leaf's front room was the closest thing Rusty Bridge had to a library.
 The shelves lining the walls were packed with books.
 Others lay in piles on side tables,
-small slips of paper with scribbled notes tucked between their pages.
-It smelled of tea, paper, soap, and the heavy wool scarves that the old tortoise had been fond of.
+small slips of paper with notes in the tortoise's cramped hand tucked between their pages.
+It smelled of tea, paper, soap, and the heavy wool scarves that Special Leaf had been fond of.
 
 Papa Roo put his hands on his hips.
 "Well—it's going to take a while to sort all this out, isn't it?"
 
 "Doesn't have to happen today,"
 Mama Roo replied,
-already sorting books into piles.
+already tidying the piles of books.
 "Sindy,
 why don't you go and see about tea?"
 
@@ -258,7 +252,7 @@ a necklace whose beads changed color at a thought:
 they had spent hours together figuring out what each one did.
 
 Sindy frowned and took a gray cylinder from the box.
-This was new—at least,
+It was new—at least,
 she didn't remember seeing it before.
 She turned it over in her hands,
 but couldn't see anything that looked like a switch or a button.
@@ -273,14 +267,14 @@ when handling any of the Makers' ancient tech.
 Where have you—oh, there you are."
 Mama Roo joined her in the kitchen
 and took the kettle off the stove.
-"Papa and I were just talking about getting lunch at the Wayside as a treat.
+"Papa and I were just talking about getting chocolate at the Wayside on the way home as a treat.
 That would be nice, wouldn't it?"
 
 "Sure, I guess."
-All of a sudden Sindy wanted to be anywhere but in Special Leaf's house without him.
+All of a sudden Sindy wanted to be anywhere but in Special Leaf's kitchen without him.
 "Yeah, let's go."
 She slipped the cylinder into her pocket as she followed her mother into the hallway,
-not noticing when a little green light started blinking on its end.
+not noticing that a little green light had started blinking at one end.
 
 </section>
 
