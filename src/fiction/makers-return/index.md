@@ -391,7 +391,7 @@ the next time she went looking for them.
 Another service bot brought her clothes when she finally grew bored of her shower.
 Soft gray pants,
 a matching hoodie with a built-in breathing mask in case of an emergency,
-gloves for her hands and feet:
+gloves for her hands and tabis for her feet:
 she had worn the same outfit in ever-larger sizes for as long as she could remember.
 "When you're older," Doctor Szego and Captain Leung said
 when she asked if she could have a uniform like theirs.
@@ -822,47 +822,53 @@ And froze as an unknown voice said,
 
 *I think it's time to go home.*
 The sentence went around and around in Violet's head
-like the merry-go-round in the virtual funfair she still sometimes visited
+like the merry-go-round in the virtual funfair she sometimes visited
 when she was feeling particularly lonely.
+She knew the people laughing and smiling around her weren't real,
+but if she closed her eyes and just listened as she went around and around,
+she could pretend.
+
 What did "home" even mean?
-She remembered air that smelled like fresh flowers
+She thought she remembered air that smelled like fresh flowers
 and the warmth of sunlight on her skin,
-but she also remembered people shouting
-and the final night-time rush to get to the ark
+but sometimes she also remembered people shouting
+and a night-time rush to get to the ark
 and the feeling of being crushed into her seat as it launched.
+After so long and so many hibernations,
+she wasn't sure which memories were real and which were long-ago visits to virtual.
 
-At first she thought they would return right away.
+At first she thought Captain Leung meant that the ark would return right away.
 Like everything involving adults,
+though,
 it turned out to be slower and more complicated.
-"We've been asleep a lot longer than we planned,"
+"We've been away a lot longer than planned,"
 Doctor Szego said.
-"We have double-check everything before we can even start planning re-entry."
+"We have to double-check everything before we can even start preparing for re-entry."
 
-"Even then…" Captain Leung muttered under his breath,
+"Double might be optimistic," Captain Leung muttered,
 scowling at a display showing red bars
 that Violet was pretty sure were supposed to be green.
 He sat back in his chair to stretch,
-blinking as if suddenly remembering that Violet could overhear the conversation.
+blinking as if suddenly remembering that Violet could overhear him.
 
-"Don't worry,"
-he said with a smile Violet didn't actually find reassuring.
+"But don't worry,"
+he said with a smile Violet assumed was supposed to be reassuring.
 "We'll sort it out."
 
 Sorting it out turned out to mean a space walk.
 Doctor Szego wanted to send one of the service bots,
 but Captain Leung insisted that he had to do it.
-"Have you forgotten why we had to launch in such a hurry?"
-he demanded.
-"If it's been compromised,
+"They're as skiffy as the ark,"
+he argued.
+"If it has an episode while it's out there,
 it could cripple us or worse.
-And it's not like you can do it,
-or one of the children."
+And it's not like you can do it."
 
 Violet watched through half a dozen cameras as he climbed into
 a bulky yellow spacesuit.
 Doctor Szego talked him through a checklist full of numbers and acronyms.
 Twice they stopped to swap a malfunctioning piece of equipment on his suit
-for its match from the other three suits hanging in the bay.
+for its match from one of the others hanging in the bay.
 
 "Think it'll be our turn some day?"
 Violet asked André on their private channel.
@@ -881,27 +887,26 @@ Doctor Szego' voice cut in sharply.
 "Nothing's going to go wrong,
 and even if it did,
 people don't actually explode in space,
-so let's not give anyone a reason to have nightmares,
+so let's not give anyone nightmares,
 all right?"
 
 "Sorry, doctor," he muttered.
-Violet heard a small *click* as he cut comms,
+Violet heard a small *ping* as he cut comms,
 leaving just the soft wheeze of the air circulation system
 and the intermittent beeping of the ark's displays
 for her to listen to.
-*So much for 'private channel',* she thought despondently.
+*So much for 'private channel',* she thought.
 Maybe once the ark landed she would finally be able to do something
 without someone or something watching.
 She wondered if that would feel strange.
 
-At first Captain Leung's excursion was less exciting
+At first Captain Leung's excursion was even less exciting
 than a ride on the virtual merry-go-round.
 She watched through the camera on his helmet
 as he swung out through the hatch,
 clipped a tether to a guide wire,
 opened a panel,
-and replaced one nondescript rectangular bit of something or other
-with another that looked identical.
+and replaced one nondescript rectangular bit of something or other with another.
 That done,
 he closed the panel,
 turned around,
@@ -910,30 +915,30 @@ and paused for a moment.
 his voice echoing slightly.
 
 "Yeah."
-A quarter circle of white-blue-green filled one corner of camera's view.
+A quarter circle of blue, white, and green filled one corner of camera's view.
 The sun was about to set,
 but no,
 she could see that was wrong.
-The planet *rising* to block out the sky,
+The planet was actually *rising* to block out the sky,
 or the ark was falling,
 down down down but moving so fast that it never hit the ground.
 It was beautiful and impossible and scary all at once,
-but "home"?
+but it wasn't home.
 
 Without warning half of the screens in front of Violet went red.
 `ERROR` flashed on some,
 `DANGER` on others.
-Wireframe schematics appeared, spun around, and zoomed in.
+Wireframe schematics popped up, spun around, and zoomed in.
 Highlight arrows popped up,
 one three six a dozen.
 
-"Szego! What's happening?"
+"Szego! Status!"
 Captain Leung barked.
 
 "Overload in relay six.
 Checking…
 Correction, in relays six, seven, and nine."
-Doctor Szego spoke quickly.
+Doctor Szego spoke quickly but calmly.
 "The optical conduit you just swapped in must have gone glassy."
 She paused.
 "Warning.
@@ -942,16 +947,15 @@ Brace for maneuver."
 
 Captain Leung had time for a brief curse before
 a giant nudged the ark with its shoulder.
-Violet's heart leaped into her throat
-as the view through his helmet camera tumbled wildly.
-Another display showed his legs swing free of the ark's hull,
+Violet's heart leaped into her throat as the sudden movement jerked her sideways.
+The view through Captain Leung's helmet camera tumbled wildly.
+A display showed his legs swing free of the ark's hull,
 making it look as though he was dangling from one hand beneath the ark.
 "Shut it down!
 Shut it down!"
 he shouted.
 
-"We're locked out," she replied,
-her voice as calm as ever.
+"We're locked out," she replied.
 "Hang on a moment."
 
 "Was that meant to be funny?"
@@ -960,34 +964,35 @@ swinging around to grab his tether.
 
 The giant nudged the ark again,
 harder this time.
-Violet fumbled with the safety straps on her seat.
+Violet fumbled with the safety straps on her seat,
+snugging them tighter.
 "André?" she said,
-trying to keep the panic out of her voice.
+trying to keep panic out of her voice.
 "André,
 are you all right?"
 He didn't answer.
 
-"Captain, I suggest we vent propellant from tank B,"
+"Captain, I suggest we vent tank B,"
 Doctor Szego said.
-"The thruster can't fire if it doesn't have any fuel."
+"The thruster can't fire if it doesn't have any propellant."
 
 "No!"
 Captain Leung had wrapped a loop of the tether around his forearm
 and was trying to get his boots back on the hull.
 "We need that for re-entry."
 
-"If the thruster keeps firing,
-re-entry will no longer be an option."
+"If the thruster fires again,
+re-entry may no longer be an option."
 
-Captain Leung hesitated a moment longer.
+Captain Leung hesitated a moment.
 "Do it," he ordered crisply.
 
 One of the displays in front of Violet switched views
 to show a stretch of hull
-beneath a perfectly black sky decorated with tiny bright shards of diamond.
+beneath a perfectly black sky decorated with tiny sparkling shards of diamond.
 She only had a second to take in the view
 before a white cloud erupted from the ark,
-the fuel instantly freezing into a million more sparkles.
+the instantly-frozen fuel adding a million more sparkles to the scene.
 
 Another display flashed `FUEL EXPENDED`
 as the errant thruster tried to fire one last time.
@@ -995,7 +1000,7 @@ Captain Leung swore again.
 "That's going to make things interesting," he muttered.
 
 "We will figure it out,"
-Doctor Szego replied.
+Doctor Szego said.
 "We always do."
 
 Violet went down to the airlock and waited for it to cycle.
@@ -1008,18 +1013,17 @@ Hours later,
 she woke from a restless sleep
 to lie in her cot and listen to the quiet ever-present sounds
 of the machine that was her home.
-She knew right away that she wouldn't be able to get back to sleep.
-After half an hour of tossing and turning proved her right,
+After tossing and turning for half an hour,
 she got up,
 scratched the stubble on her shaven head,
 and slipped her feet into her padded tabis.
 
-The lights in the corridor felt too bright,
+The lights in the corridors just showed how empty they were,
 and she didn't think she could stomach another bowlful of goop,
 so she made her way to the bridge
 and sat in the captain's chair.
 She didn't exactly have permission to do that,
-but no one had ever actually told her that she couldn't,
+but no one had ever told her that she couldn't,
 and anyway,
 none of the ark's critical systems would respond to her voice.
 
@@ -1036,19 +1040,20 @@ but some of them seemed strangely familiar.
 She shook her head.
 The things she had met in virtual weren't real,
 but that didn't mean they weren't based on real things.
-The merry-go-round, for example—she (thought she) remembered
-actually riding one before the rush to the ark and the long sleep that followed.
+The merry-go-round, for example:
+she thought she remembered actually riding one
+before the rush to the ark and the long sleeps that followed.
 Had she spoken to a hybrid kangaroo when she was little,
 or had the ark's computer picked it out of her imagination
 and reflected it back to her?
 
 A light blinked next to one of the displays.
 It had been blinking for a while,
-she realized,
-wiping her eyes with her sleeve.
-She slapped the light angrily.
+she realized.
+She wiped her eyes with her sleeve
+and slapped the light angrily.
 
-"So what do you do?" a voice asked.
+"So what do you do?" a female voice asked.
 
 "What do you mean, what do I do?"
 she answered without thinking.
@@ -1094,7 +1099,7 @@ What else do you have in your archive?"
 
 There was a moment of silence.
 "I don't have an archive."
-The voice sounded unsure of itself.
+The voice sounded unsure of herself.
 "I'm a person, not a bot."
 
 Violet blinked.
@@ -1127,8 +1132,7 @@ You mean, like a kangaroo?"
 She and mama and papa are all roos.
 I'm—I'm different."
 
-Violet felt her fingers dig into the arms of the captain's chair,
-but it was as if they belonged to someone else.
+Violet's fingers dug into the arms of the captain's chair.
 "Are you—are you on the ground?
 Like,
 for real on the ground?"
@@ -1144,7 +1148,7 @@ I think I met your sister in virtual.
 We're going to land soon,"
 she added in a breathless rush.
 "Like,
-tomorrow soon.
+maybe even tomorrow.
 Lots of things are broken and Central isn't talking to us any more
 so Captain Leung and Doctor Szego decided we have to land and,
 and if this map is right,
