@@ -689,6 +689,26 @@ It wasn't her fault that Special Leaf had died.
 and no matter what Doc Whinny and Mayor Lupus and everyone said,
 that *had* to have weakened him.)
 
+Just before recess ended,
+Bravo left the other boys to their pretend battle
+and walked over to her with his stick still in his hands.
+"You're gettin' pretty good at that," he said,
+his tone halfway between complimentary and accusing.
+
+"Thanks."
+Sindy missed a toss,
+then said, "Ow!" as she and Bravo bumped their heads together
+as they both bent to pick it up.
+
+"Sorry," he muttered,
+handing it to her.
+He hesitated a moment as if to add something,
+then turned away abruptly at the sound of Miz Nabbles' whistle.
+
+*What was that all about?* Sindy wondered
+as she put the balls back in the toybox.
+She shrugged mentally and headed inside.
+
 Miz Nabbles set them free at noon.
 Sindy didn't bother to try to find someone to sit with for lunch.
 Instead,
@@ -1170,11 +1190,10 @@ to cut off the conversation.
 "Violet!
 Shut that down!"
 Sindy jumped as a second voice,
-older and deeper,
+older and male,
 barked the order.
-The green light on the cylinder in her hand blinked twice,
-then went dark.
 
+The green light on the cylinder in her hand blinked and went dark.
 "Hello?" she said tentatively.
 "Are you still there?"
 Nobody answered.
@@ -1186,19 +1205,21 @@ and she was only wearing socks
 and it took a lot more than stomping to break anything the Makers had made.
 She settled for tossing it onto her side table
 and rolling over to bury her face in her pillow.
-Why couldn't the world just leave her alone for a while?
+Why couldn't the world just leave her alone?
 
-She thumped her pillow with her forehead,
-then sat up with a sigh
+She thumped her pillow with her forehead a couple of times,
+then sat up,
+sighed,
 and made her way downstairs.
-Her father was sitting at the kitchen table
-drawing the outlines of letters on a piece of canvas
-that her mother would then turn into an awning.
-He looked up as she came in and smiled.
+Her father was sitting at the kitchen table,
+outlining letters on a piece of canvas
+that her mother would then turn into an awning for one of the shops in the town square.
+He smiled at her as she sat down opposite him.
 "Homework all done?"
 
 "No."
-She put the cylinder on the table.
+She put the cylinder on the table
+and spun it around.
 
 "Oh, what's this?"
 He reached for it,
@@ -1218,19 +1239,18 @@ and it's going to land here tomorrow."
 
 Papa Roo studied her for a moment
 before setting it down and pushing his chair back.
-"I'll go get Mama."
+"I'll get your mother."
 
-Sindy repeated the entire conversation as well as she could to her parents,
-then again half an hour later to Mayor Lupus in town.
+Sindy repeated the conversation as well as she could to her parents,
+then again to Mayor Lupus in her office half an hour later.
 The old wolf studied the cylinder,
 then handed it back to Sindy and scratched her ear doubtfully.
 "If anyone else told me this I'd ask 'em if they'd bumped their head,
 but after everythin' you've been through…"
 
 She leaned back in her chair.
-"You think this has anythin' to do with that shootin' star?"
+"You think this has anythin' to do with your time in Heck?"
 she asked Papa Roo.
-"And those dreams you've been havin'?"
 
 Sindy's father shifted uncomfortably.
 "I wish I knew.
@@ -1238,7 +1258,7 @@ The dreams have stopped, mostly."
 Which Sindy knew was a lie.
 Papa Roo didn't lose track of who he was any more,
 or spend hours obsessively drawing the same simple figures over and over,
-but he still argued with himself in his sleep loudly enough to wake her sometimes.
+but he still sometimes whimpered in his sleep loudly enough to wake her.
 
 "Mm."
 Mayor Lupus straightened a pile of papers on her desk.
@@ -1250,9 +1270,12 @@ she continued,
 raising a finger to cut Sindy off.
 "I'm just sayin' I don't know what move to make."
 
-She sighed.
-"I miss Leaf already.
-He always had somethin' to suggest at times like these."
+She sighed,
+looking at the little framed sketch on her desk that Maddy had drawn
+of her and Special Leaf playing checkers.
+"Wish you were here,"
+she murmured.
+"You always had somethin' useful to suggest at times like these."
 
 They had just stood up to leave when the mayor's grand-nephew burst in.
 "Aunty Lupus!
@@ -1269,36 +1292,35 @@ the young wolf said,
 his eyes wide.
 "Special Blazes!
 He's back!
-An' he brought a *crocodile*!"
+An' he brought a *lizard*!"
 
 Mayor Lupus was out of her chair and at the window
 before Sindy could properly digest what Cody had said.
 "Well ain't that just peachy,"
-the old wolf muttered a moment later.
+the old wolf muttered.
 "Nephew!
-Get yourself out to Bots' End an' tell Dockety and all them the news.
+Get yourself out to Bots' End an' give Dockety and all them the news.
 No,
 use the back door.
 Lickety quick now."
 
-She turned to the Roos.
+She turned to the Roos as Cody scampered away.
 "I expect this is gonna have somethin' to do with Special Leaf passin'.
 You folks want to be in the conversation,
-or do you want to make use of the back door as well?"
+or would you rather make use o' the back door as well?"
 
-Mama Roo straightened in her chair.
+Mama Roo straightened.
 "We have nothing to hide,
-especially not from him."
+especially not from him,"
+she said firmly.
 
 Mayor Lupus nodded.
 "Figured you'd feel that way."
-Her grin showed teeth yellowed with age,
-but still sharp.
+The teeth her grin showed teeth had yellowed with age but were still sharp.
 
 Special Blazes was waiting for them
-when they stepped out onto the porch of the mayor's house.
-He had set a sturdy traveling pack on the bottom step,
-but stood two steps back on the cobblestones.
+when they stepped onto the porch of the mayor's house.
+He had set his sturdy traveling pack on the cobblestones by the bottom step.
 His dark green uniform jacket was spotless,
 its collar and cuffs matching the black patch over his eye.
 
@@ -1306,7 +1328,7 @@ His companion wore an identical uniform,
 but that was where the similarities ended.
 Sindy had seen reptiles before,
 but Special Leaf had been the only one who actually lived in Rusty Bridge.
-His skin had a pebbled texture,
+The crocodile's skin had a pebbled texture,
 more gray than green,
 and his tail was even thicker than her father's.
 
@@ -1314,22 +1336,22 @@ and his tail was even thicker than her father's.
 lisping slightly around his fangs.
 "You look well."
 
-"Been doin' well, thank you,"
+"Thank you, I'm sure,"
 the mayor replied levelly.
 "Must say I'm surprised t' see you here."
 
-"Well, I would have written ahead,
+"Well, I apologize for not writing ahead,
 but I figured the letter wouldn't get here much before me.
 This is Nash, by the way.
 He's my new deputy."
 
 The crocodile doffed his hat.
 "Miz Mayor."
-His voice was an octave lower than the tiger's.
+His voice was half an octave lower than the tiger's.
 
 Mayor Lupus nodded curtly.
-"So now that we've made introductions,
-mind tellin' me what brings you back to these parts?"
+"Pleased t' meet you.
+Now, mind tellin' me what brings you back to these parts?"
 
 Special Blazes took an envelope from inside his jacket.
 "I have orders to inspect Special Leaf's home
@@ -1340,9 +1362,9 @@ Sindy thought angrily.
 Mama Roo's hand tightened slightly on her shoulder
 as if she could read her daughter's thoughts.
 
-The mayor's mechanical leg hummed slightly as she descended the steps
+The mayor's mechanical leg whirred slightly as she descended the steps
 to pluck the envelope from Special Blazes' hand.
-She unfolded the letter it contained and pursed her lips as she scanned it.
+She unfolded the letter it contained and pursed her lips as she read it.
 "Seems to be in order," she allowed.
 "Of course,
 you'll need permission from the new owner."
@@ -1357,12 +1379,12 @@ so if you check paragraph three…"
 The mayor held out the letter.
 It took Sindy a moment to realize it was for her.
 
-"Let me see that."
-Papa Roo took it
+"Here, let me."
+Papa Roo took the letter
 and held it so that he and Mama Roo could puzzle over it together.
 
-Without warning the crocodile unshouldered his pack and whirled around.
-"Trash cans coming, boss."
+Without warning the crocodile hissed.
+"Visitors, boss."
 
 "I hear them,"
 the tiger replied calmly,
@@ -1370,7 +1392,7 @@ and a moment later Sindy did too.
 
 Dockety and Beevy slowed to a stop as they came around the corner
 and retracted their wheels
-to walk the rest of the way across the town square.
+so that they could walk the rest of the way across the town square.
 Nash's hand twitched toward the holster on his hip,
 but Special Blazes seemed unbothered by the bots' arrival.
 
@@ -1399,20 +1421,18 @@ Sindy hoped the sight of the bot stung a little.
 
 "The Operators want to dig through Special Leaf's stuff,"
 the mayor explained in the silence that followed.
-She jerked a thumb at the letter that Mama and Papa Roo were holding.
+She jerked a thumb at the letter in Mama and Papa Roo's hands.
 "It's all legal and what-not."
 
 "That is sensible,"
 Dockety buzzed.
 "Would you like our assistance?"
 
-"That won't be necessary," Nash rumbled.
+"That won't be necessary," Special Blazes said smoothly.
+Though I trust you'll join us, Miz Roo?
+Seeing as how you're now the owner?"
 
-Special Blazes raised a hand.
-"Actually, a bit of help would be welcome.
-I trust you'll join us as well, Miz Roo?"
-
-Sindy met his gaze.
+Sindy forced herself to meet his gaze.
 "Of course."
 
 The cylinder in her pocket pinged softly.
@@ -1424,15 +1444,16 @@ Special Blazes flicked an ear.
 "Something need your attention?"
 
 Sindy took out the cylinder.
-The green light on the end was glowing again.
+The green light on the end was blinking again.
 "Is anyone there?" the voice said.
 "Can you hear me?"
 
 "I can hear you," Sindy said.
 "Is this Violet?"
 
-"Yes, it's me, it's me,
-but it's happening,
+"Yes,
+but listen,
+it's happening,
 it's happening now.
 Captain Leung is about to start the re-entry burn.
 We're going to land.
@@ -1447,8 +1468,8 @@ Sindy shushed him with a wave.
 "I mean the ark is going to land!
 I told you that!"
 The voice coming from the cylinder sounded frantic.
-"A whole bunch of stuff isn't working
-but the captain says it's just going to get worse if we wait
+"A whole bunch of systems aren't working right any more
+but Captain Leung thinks it'll just get worse if we wait
 so he's—whoa!"
 
 Something rumbled so loudly that the cylinder vibrated in Sindy's hand.
@@ -1462,9 +1483,12 @@ Sindy looked at the now-silent cylinder.
 "That's who I was telling you about.
 She said she's in space right now but they're going to land."
 
-"That's the most ridiculous thing I've ever—what?"
-Special Blazes stopped mid-sentence as Nash elbowed him and pointed up,
-where a smoky gray streak was drawing itself across the sky.
+"They're going to what?
+Who?
+What is it?"
+Special Blazes turned to Nash as the crocodile elbowed him and pointed at the sky.
+A star had appeared in the daytime sky,
+and it was moving.
 
 </section>
 
