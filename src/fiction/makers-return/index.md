@@ -1454,7 +1454,7 @@ The green light on the end was blinking again.
 "Yes,
 but listen,
 it's happening,
-it's happening now.
+it's happening now!
 Captain Leung is about to start the re-entry burn.
 We're going to land.
 We're going to land *now*!"
@@ -1484,8 +1484,12 @@ Sindy looked at the now-silent cylinder.
 She said she's in space right now but they're going to land."
 
 "They're going to what?
-Who?
-What is it?"
+Who?"
+
+FIXME: fill this in
+
+
+"What is it?"
 Special Blazes turned to Nash as the crocodile elbowed him and pointed at the sky.
 A star had appeared in the daytime sky,
 and it was moving.
@@ -1512,29 +1516,22 @@ I told you that!
 A whole bunch of stuff isn't working
 but the captain says it's just going to get worse if we wait
 so he's—whoa!"
-She grabbed the console in front of her as the ark shook,
-her hand accidentally hitting the "off" button on the comms.
-
-There wasn't time to worry about that now.
+She grabbed the console in front of her as the ark shook.
+Her hand accidentally hitting the "off" button on the comms,
+but there wasn't time to worry about that.
 She had to get back to the bridge before—
 
 "Violet!
 Where are you?
-Main burn is starting in three minutes!"
+Main burn is about to start!"
 
 "On my way, Captain!"
-She staggered on her way to the door
-as the deck shuddered beneath her.
+She staggered on her way to the door as the ark shuddered again.
 This wasn't virtual.
 This was *real*.
 
-She took the ladder to the bridge two rungs at a time.
-Her usual somersault was out of the question:
-even at the third floor,
-where she was usually weightless,
-she could feel herself being pressed back against the wall.
-
-Captain Leung shot an angry look her way
+Violet took the ladder to the bridge two rungs at a time.
+Captain Leung shot her an angry look
 as she buckled herself into her seat.
 "Where were you?"
 
@@ -1542,7 +1539,7 @@ as she buckled herself into her seat.
 she lied,
 but he had already turned back to the screens and controls in front of him.
 
-"Main burn in thirty seconds."
+"Main engine ignition in thirty seconds."
 Doctor Szego might as well have been saying that
 the cafeteria was serving goop for lunch again.
 "Violet, are you strapped in?"
@@ -1550,14 +1547,11 @@ the cafeteria was serving goop for lunch again.
 She clicked the last buckle into place.
 "Yes, doctor."
 
-"Me too,"
-André said.
-"Thanks for asking."
-His voice,
-like the doctor's,
-came through the speaker next to Violet.
+"Me too, thanks for asking."
+Like the doctor's,
+André's voice came through the speaker next to Violet.
 
-"Save it,"
+"Stow it,"
 Captain Leung snapped.
 "This is going to be a bumpy ride."
 
@@ -1569,7 +1563,7 @@ Two.
 One.
 Ignition."
 As Doctor Szego reached the end of her countdown,
-an invisible giant hand pressed Violet back into her chair.
+a giant invisible hand pressed Violet back into her chair.
 Vibration rumbled up her spine,
 making her teeth chatter.
 
@@ -1583,7 +1577,7 @@ Doctor Szego replied calmly.
 An image appeared on the main screen in front of them.
 The dark blue bulk at the bottom was the planet below them.
 A dashed green curve marked the orbit they had been in,
-while a steeper solid curve projected their altered path.
+while a steeper solid curve showed their altered path.
 Dozens of thinner red lines marked the trajectories of long-dead satellites,
 fragments of booster rockets,
 and other space junk.
@@ -1593,27 +1587,28 @@ Captain Leung cursed again.
 "Szego!
 What was that?"
 
-"A boot of some sort," she replied.
+"A spacesuit boot of some sort," she replied.
 "There was no way to avoid it.
 The hull appears undamaged.
 There's more debris ahead.
 I'm going to roll to avoid it."
 
-Violet swallowed hard as her weight shifted to one side.
+Violet swallowed her dizziness as down shifted to one side,
+wondering briefly how anyone could lose a boot in space.
 The green curve of their descent bent a little more
 to avoid a cluster of red lines.
-She clutched the arms of her chair.
+She dug her fingers into the arms of her chair.
 The space combat games she had sometimes played with André
 when he refused to play anything she actually liked
-had never made her feel this helpless.
+had never made her feel helpless the way this did.
 
 "Avoiding" almost immediately turned out to mean
 "avoid as much big stuff as possible".
 Over the centuries,
-collisions between bits of space junk had produced a cascade of shrapnel.
-The individual pieces were still scattered,
-but at their speed that wasn't enough:
-the sound of bits of metal clattering on the hull grew louder with each passing minute.
+collisions had turned orbiting bits of junk into a cascade of shrapnel.
+The individual bits of plastic and metal were still scattered,
+but as their speed increased
+the sound of them clattering on the hull grew louder and louder.
 
 "I'm scared,"
 André said through the speaker in Violet's headrest.
@@ -1623,50 +1618,49 @@ For once the sneer was missing from his voice.
 She swallowed hard.
 "It'll be over soon."
 
-Red lines sprouted on the screen faster and faster
-until they were as thick as Violet's hair.
+Red lines sprouted on the screen until they were as thick as Violet's hair.
 The clatter on the hull rose to a crescendo,
 then abruptly stopped as the green line tracing the ark's descent
-dipped below the junk.
+dipped into the upper atmosphere.
 Captain Leung sagged back in his seat and let his breath out with a whoosh.
 "So much for the easy part," he said.
 
-A quick swipe brought up a dozen views of the ark's hull.
-Violet swallowed again at the damage they showed.
+A quick swipe brought up a dozen views of the ark's battered hull.
 Some scratches were superficial,
 but here and there she saw jagged dents,
 one of which was spraying a razor line of vapor into space.
 
-"Szego?"
+"Szego!"
 the captain snapped.
+"Can't you do anything about that?"
 
 "I'm sorry, captain.
-First contact with atmosphere is in twenty seconds.
-There's no way to repair it in time."
+We are already experiencing atmospheric drag.
+There's no way to get a bot out there to repair it."
 
 Another swipe switched the view again.
-They were so close to the planet now that it filled the entire screen.
+They were so close now that the planet filled the entire screen.
 White clouds looked like spilled paint on an ocean-blue background.
 A break revealed land,
 brown-gray instead of the green that Violet had imagined.
 
-"Is that where we're landing?"
+"Is that where we're going?"
 André asked, awed.
 
 Violet shook her head.
 "I don't think so.
-Wait—look!"
+Whoa!"
 The image in front of her was getting brighter.
 A delicate orange tinge washed over it.
 The ark began to rumble.
 
-"We've reached atmosphere,"
+"We're at threshold,"
 Doctor Szego said.
 "Captain?
 It's now or never."
 
 "Initiate re-entry."
-Violet heard the tension in his voice.
+Violet heard the tension in his voice as he added,
 "It's not like we have a choice."
 
 Once again an invisible giant hand pushed Violet back in her chair.
@@ -1680,7 +1674,7 @@ and no matter what happened,
 this was a one-way trip.
 
 Minutes ticked by in the corner of the screen.
-The rumbling slowly began to subside.
+The rumbling began to subside.
 "Glide path achieved," Doctor Szego announced.
 "Ground speed is nominal.
 We did it."
@@ -1689,7 +1683,7 @@ We did it."
 "How are you holding up?"
 
 It took Violet a moment to realize he was speaking to her.
-"I'm all right," she said.
+"I'm all right," she lied.
 
 "Good.
 Let's have a look, shall we?"
@@ -1698,31 +1692,30 @@ The view switched again,
 and this time Violet gasped.
 It *was* green,
 green and beautiful.
-A river carved a sinuous line across a broad grassy plain
+A river drew a glistening sinuous line across a broad grassy plain
 that turned into forest as she watched.
 The forest broke like a wave against snow-capped mountains,
-only to resume again on their far side.
+only to resume again on their other side.
 
 Another river appeared.
 Violet's weight shifted as the ark banked to follow its course.
 "Are *you* all right?" she asked André.
 
 "Course I am, dummy.
-Piece of cake."
+You're the only one who was scared."
 She rolled her eyes,
 relieved that he was back to being annoying.
 
 Without warning the deck fell away beneath her.
-She yelped as the whole ark dropped,
-then rumbled as the engines fired.
+She yelped as the whole ark dropped.
 "What the hell was that?" Captain Leung demanded.
 
 "Number two engine has failed,"
 Doctor Szego announced calmly.
-"I'm trying to use the orbital thrusters to compensate,
+"I'm using the orbital thrusters to compensate,
 but—hold on."
 The ark plummeted again.
-"Thrusters are dry.
+"Thrusters are at five percent.
 We have to set down *now*."
 
 "Where?" the captain demanded
@@ -1737,21 +1730,19 @@ I'll aim for that."
 
 "Yes, but it's a *soft* swamp," Doctor Szego replied.
 
-Violet knew they were still moving incredibly fast,
-but the ground seemed to crawl beneath them.
-The lower they got the faster it moved.
+The lower they got,
+the faster the ground below them seemed to move.
 There!
 That was a building,
 or it had been.
 A handful of others flashed past,
 all in ruins,
 then a road,
-a proper paved road like the ones she thought she remembered
-from when she was little.
-Down, down, down,
-trees rushing away,
-a flock of birds bursting into the air in terror,
-and then the green suddenly became darker.
+a proper paved road like the ones she knew from virtual.
+Down, down, down they went,
+trees rushing away beneath them.
+A flock of birds burst into the air in terror,
+and then the green suddenly darkened into swamp.
 
 "Ten seconds.
 Five.
@@ -1759,22 +1750,22 @@ Four.
 Three.
 Two.
 One.
-Contact."
+Touchdown."
 The ark didn't shudder this time.
 It shook and bounced,
 throwing Violet forward as it shed speed.
 
 Captain Leung whooped.
-"Touchdown!
-We made it!
+"We made it!
 We made it!"
 
 "Don't jinx it," Doctor Szego replied.
 The captain laughed,
 and Violet realized she was laughing too,
-but crying too.
+and crying at the same time.
 They had done it.
 They had landed.
+They were home.
 
 The ark tilted slightly.
 "What's that?" Captain Leung demanded.
