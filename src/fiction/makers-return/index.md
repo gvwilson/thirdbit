@@ -1486,8 +1486,7 @@ She said she's in space right now but they're going to land."
 "They're going to what?
 Who?"
 
-FIXME: fill this in
-
+FIXME: fill this in with a couple of minutes of argument.
 
 "What is it?"
 Special Blazes turned to Nash as the crocodile elbowed him and pointed at the sky.
@@ -1503,7 +1502,7 @@ and it was moving.
 "It's happening now!" Violet said.
 She could hear the fear in her voice.
 "Captain Leung is about to start the re-entry burn.
-We're going to land.
+We're going to land near some kind of swamp.
 We're going to land *now*!"
 
 "Who is that?"
@@ -1716,7 +1715,7 @@ Doctor Szego announced calmly.
 but—hold on."
 The ark plummeted again.
 "Thrusters are at five percent.
-We have to set down *now*."
+We have to set down."
 
 "Where?" the captain demanded
 even as his hands danced across the controls.
@@ -1789,24 +1788,27 @@ The hull rang as it grabbed the side of the ark.
 
 ## Chapter 7: The Thing in the Swamp (Sindy)
 
-"What?"
-Special Blazes stopped mid-sentence as Nash elbowed him and pointed up,
-where a smoky gray streak was drawing itself across the sky.
-He whirled around and jabbed a clawed finger at Sindy.
+"What is it?"
+Special Blazes turned to Nash as the crocodile elbowed him and pointed at the sky.
+A star had appeared in the daytime sky,
+and it was moving.
+A moment later it began drawing a faint gray streak across the blue.
+
+Special Blazes jabbed a clawed finger at Sindy.
 "Explain this. Now!"
 
 "I don't know!" Sindy protested
-"I found this at Special Leaf's house
+"I found that thing at Special Leaf's house
 and there was a voice
 and it told me they were going to land and—"
 
-"They?" the tiger growled.
-"Who are they?"
+"They?" the tiger snapped.
+"Who are 'they'?"
 
 "I don't know!" Sindy repeated.
 Her father's arm tightened around her shoulder protectively.
 "All I know is that her name is Violet
-and she met Maddy in Heck,
+and she met Maddy when we were in Heck,
 kind of,
 and they're in space but now they're going to land."
 
@@ -1824,7 +1826,7 @@ He charged past Sindy and into the house.
 His boots thumped on the stairs,
 and a moment later the alarm bell in the belfry above them began to clang.
 
-It only took a few minutes for the first two dozen members of the town's militia
+It only took a few minutes for the first of the town's militia
 to assemble in a ragged line
 with their pikes and nets and glue guns.
 While others straggled in from the fields around Rusty Bridge,
@@ -1832,89 +1834,91 @@ the mayor and Special Blazes took turns explaining that no,
 that wasn't a drill and yes,
 it was about the thing in the sky.
 
-Gumption and Maddy arrived together.
-He kissed her cheek and took his place in line.
-She hugged Sindy and then took her hand.
-"Never a dull moment," Maddy said,
-forcing a smile.
+Bluster and Bravo Goat arrived together as they always did.
+Bluster looked like he had been sleeping in a haystack,
+which was plausible given his attitude toward doing chores.
+Bravo's recently-combed fur and clean-ish shirt were at odds with
+the scowl on his face
+as he shouldered his yawning twin into line.
 
 "All right, listen up!" Mayor Lupus bellowed.
 "Whatever this is,
-it looks like it's comin' down in our back yard,
-so we're gonna go have a look.
+it looks like it's comin' down in our back yard.
 No reason to think there's it's gonna make trouble,
-but keep your wits about you."
+but we're gonna go have a look just to be sure."
 
 She gestured at the Operators.
-"Special Blazes here will be in charge.
-Do what he tells you,
-and for pity's sake,
-don't go jumpin' at shadows."
+"Y'all have met Special Blazes here before.
+He'll be in charge,
+so do what he tells you.
+And for pity's sake,
+keep your wits about you don't go jumpin' at shadows."
 Her stern look swept across the ragged force in front of her,
-making a couple of its members shift uncomfortably.
+making a few of its members shift uncomfortably.
 
 Dockety raised a hand.
-"Shall I gather others from the settlement?"
+"Shall we gather others from the settlement to assist?"
 
-"Sure," the mayor said,
-but, "No," Special Blazes said at the same moment.
-"Not until we know what this is,"
+"Sure," the mayor said at the same moment that Special Blazes said, "No."
+"Not until we know what it is,"
 the tiger continued.
-"If it's anything like Central,
-we don't want to be up against your lot as well."
+"If it can take you over like Central did,
+we could be in a powerful mess."
 
-"I think that is unlikely," Dockety buzzed.
+"I think that is unlikely," Dockety buzzed
+as a murmur ran through the crowd.
 
 Special Blazes' ears went back.
-"Likely or not, that's how it is.
+"Likely or not, it's a risk we're not going to take.
 As for the rest of you,
-let's get going.
-The sooner we find this thing,
+form up.
+The sooner we find out what this thing is,
 the sooner you can all be back home drinking tea."
-
-He and the crocodile shouldered their packs and strode past the militia
-without looking back.
-After a curt nod from the mayor,
-the townspeople fell in behind them.
+He and the crocodile shouldered their packs and strode past the militia,
+not looking back to check as the townspeople fell in behind them
+in ragged ranks of four.
 
 Sindy suddenly realized that she was still holding the cylinder in her hand.
-She wriggled out from her father's arm and hurried over to Dockety and Beevy.
-"You ever seen anything like this?" she asked,
-holding it out.
+She wriggled out from under her father's arm and hurried over to Dockety and Beevy.
+"You ever seen anything like this?" she asked.
 
-Dockety plucked it from her fingers.
-Its eyes rotated and then rotated back as it studied the little piece of tech.
+Dockety plucked it from her fingers with its smaller manipulator.
+Its eyes rotated one way and then the other as it studied the little piece of tech.
 "It is a communication device.
 I would have to disassemble it to learn more."
 
 "Don't!
 Sorry, I know you wouldn't."
 Sindy took a deep breath.
-High above their heads,
-the wind was smearing the gray trail of smoke across the sky.
-She hoped Violet was all right.
+High in the distance,
+the wind was starting to smear the lengthening gray trail across the sky.
+She didn't know who Violet was,
+but she hoped she was all right.
 
-Dockety held out the communicator.
+Dockety handed back the communicator.
 Sindy tucked it back in her pocket.
 Her jaw set.
 People had come to her rescue.
 Now it was her turn.
 "How long will it take us to get to the Mire?" she asked.
 
-Riding on top of Beevy wasn't as comfortable as riding piggy-back on Dockety,
+FIXME: how does she know to go to the Mire?
+
+FIXME: extricate herself from her parents.
+
+Riding on top of Beevy was bumpier than riding piggy-back on Dockety,
 but at least her legs didn't go to sleep.
-She felt guilty for telling her parents that she was going to school,
-but this was important.
-She could apologize later.
 
 The militia had taken the main road out of town,
-so she and the bots had to use one of the many footpaths
+so she and the bots used one of the many footpaths
 that ran between the outlying farms.
-Grampa Elk shouted something to her as they raced past.
+Grampa Elk shouted something to her as they raced past his beehives.
 She waved in response,
 nearly sliding off Beevy's back as she did so.
 After that she ignored the few people they saw
-and focused on dodging low-hanging branches and not falling off.
+and focused on dodging low-hanging branches while not falling off.
+
+FIXME: they have to be chasing the ark in its final stages to find the right place in the Mire.
 
 The Mire was just a hundred meters away from the spot where
 the path joined up with the Makers' road.
@@ -1926,7 +1930,8 @@ It was taller than any building in Rusty Bridge and wider than the town square.
 Steam rose from the water beneath it.
 
 And it was under attack.
-Three gray metal tentacles rose out of the swamp to grip it.
+Three gray metal tentacles had already risen out of the swamp
+and taken hold of it.
 Even as she watched,
 a fourth tentacle broke the surface and slithered up the ark's battered metal hull,
 groping for purchase.
@@ -1936,27 +1941,28 @@ She knew those tentacles.
 She and Maddy and Dockety had seen them
 when they first took shelter in Patient's lair on the edge of the swamp.
 Nobody knew what their owner looked like,
-which only made her occasional nightmares worse.
+which only made her occasional nightmares about them worse.
 
-They braked as they reached the militia.
-Dockety retracted its single wheel and lowered its legs
-as Sindy slid off Beevy's back with a groan.
-She raised a finger to her lips as Gumption spotted her,
+Beevy braked as they reached the militia.
+Sindy slid off its back with a groan
+as Dockety retracted its single wheel and lowered its legs.
+She took half a step to position herself behind the bot,
 but it was too late:
-Special Blazes had seen her too.
+Special Blazes had seen her.
 
 The tiger swore.
-"I told you to stay put!"
-He had unbuttoned his uniform jacket
-to reveal a crystalline piece of tech strapped to his chest.
-Beside him,
-Nash was attaching something that looked like a pitchfork with a gunsight and trigger
-to a sturdy metal tripod.
+"What are you lot doing here?
+I told you to stay put!"
 
 "We chose to disregard your request,"
 Dockety replied as `NO` scrolled across Beevy's screen.
-Special Blazes made an angry noise in the back of his throat
-and waved them off.
+
+Special Blazes made an angry noise in the back of his throat.
+He had unbuttoned his uniform jacket
+to uncover the crystalline tech strapped to his chest.
+Beside him,
+Nash was mounting something that looked like a pitchfork with a gunsight and trigger
+on a sturdy metal tripod.
 
 *bzzz*
 Sindy jumped.
@@ -1966,58 +1972,50 @@ She pulled it out.
 
 "Who is this?"
 a voice demanded.
-It was the same person who had ordered Violet to shut down their earlier conversation.
+It was the same voice that had ordered Violet to shut down their earlier conversation.
 
 "I'm Sindy,"
 she said,
 turning her back on the Operators and waving at Dockety to come closer.
 "I'm outside.
 I mean,
-beside you."
+I'm on the ground beside you."
 
-"Tell them to release!
-The hull's breached—we're taking on water.
-They have to let us go!"
+"I don't care where you are!
+Tell your defense system to release us!"
 
-"The tentacles?"
+"The defense—you mean the tentacles?"
 
 "Yes!
-We mean you no harm.
-Please,
-deactivate your defenses!"
+We come in peace!
+Now deactivate your defenses!"
 
 Sindy's eyes widened.
-"Me?
-They're not mine!
-Or ours—they live in the Mire.
+"They're not ours!
+They live in the Mire.
 We don't control them!"
 
 "Who are you talking to?"
 Special Blazes demanded,
-grabbing Sindy's arm.
+grabbing Sindy's wrist.
 "Who is this?"
 
 "This is Captain Leung,"
 the voice replied.
 "And I say again,
-we're taking on water.
+we come in peace.
+Our ark was damaged during re-entry.
 Please,
 shut down your defense system so our bots can make repairs."
 
-The Operator glanced at Beevy,
-his eyes narrowing.
-"Your bots?"
+The Operator's eyes narrowed.
+He glanced at Beevy and Dockety.
+"Your bots, eh?"
 
-"Yes, our service bots.
-Look,
-that's not important right now—just turn the damn thing off!"
-
-Special Blazes covered the communicator in Sindy's hand with his own.
-"Switch it off," he ordered.
-"The tech, not the thing in the swamp.
-We have no idea who they are or if they're even people,"
-he continued as Sindy opened her mouth.
-"This could just be a trick by Central or something like it."
+He covered the communicator with his paw.
+"Switch it off," he ordered Sindy.
+"We have no idea who they are or if they're even people.
+This could just be a trick by Central or something like it."
 
 "But they're in trouble!"
 Sindy tried to pull her hand away,
@@ -2030,42 +2028,44 @@ and stared at it.
 A moment later the green light on its end blinked off.
 
 "That's mine!"
-Sindy protested,
-but Special Blazes ignored her.
+Sindy protested as the tiger pocketed the device.
 
-"Nice trick, boss," the crocodile said admiringly.
+"Nice trick, boss," the crocodile said from a few paces away.
 "Do I get to shoot something now?"
 
-Sindy felt fury rising in her as the Operator turned his back on her.
+Sindy felt fury rising in her as Special Blazes turned away from her.
 That was *hers*!
-Special or not, he had no right to take it from her!
+Operator or not, he had no right to take it from her!
 And Violet needed her help!
+
+FIXME: need to foreshadow her secret practice sessions.
 
 Something stirred inside her,
 something deeper and larger than her anger.
-Suddenly she was aware of the two bots beside her
+Suddenly she could *feel* the two bots beside her
 and the tech on Special Blazes' chest
 and the little echo of it in his hand.
-She had felt this before,
+She had felt this sensation before,
 when she had accidentally set off Special Blazes' tech and injured Special Leaf,
 but this time was different.
-She clung to it the way she had clung to Beevy and reached out.
+This time all the practicing she had been doing in secret in her room
+put *her* in control.
 
-There.
-Right in front of her.
+There,
+right in front of her.
 It was so big she hadn't even noticed it at first,
-but it was simple, too.
-*Let go!* she thought,
-not realizing she was shouting the words as well.
+but as terrifying as it was,
+it was just another piece of tech.
+*Let go!* she ordered.
 *Let go __now__!*
 
 The tentacles froze.
 *Let! Go!* she repeated,
-putting everything she had behind the two words.
+not realizing that she was shouting the words as well as thinking them.
 
-The tentacles began slithering back down the side of the ark into the swamp.
+The tentacles began to slither back down the side of the ark into the swamp.
 Sindy had just enough time to think,
-"Huh—it worked,"
+*Huh—it worked,*
 before she collapsed on the ground.
 
 </section>
