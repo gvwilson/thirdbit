@@ -1,6 +1,7 @@
 ---
 title: "Big Tech is Like a Long Firm Fraud"
 date: 2026-04-20
+category: sdgc
 ---
 
 Another book that I really enjoyed last year was Davies' *Lying for Money*.

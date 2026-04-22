@@ -1,6 +1,7 @@
 ---
 title: "Big Tech is Like the Cocaine Cartels"
 date: 2026-04-19
+category: sdgc
 ---
 
 Wainwright's *Narconomics* is one of my favorite books.

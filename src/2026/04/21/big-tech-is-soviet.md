@@ -1,6 +1,7 @@
 ---
 title: "Big Tech is Soviet"
 date: 2026-04-21
+category: sdgc
 ---
 
 Scott's *Seeing Like a State* describes

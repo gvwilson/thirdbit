@@ -2,16 +2,9 @@
 
 {% block content %}
 <h2>Favorites</h2>
-<ul>
-{% for post in site._posts|reverse %}
-{%- if post.category == "favorite" -%}<li>{{post.date}}: <a href="{{post.url}}">{{post.title}}</a></li>{%- endif -%}
-{% endfor %}
-</ul>
-
+{% set category_name = "favorite" %}
+{% include "category.jinja" %}
 <h2>Anecdotes</h2>
-<ul>
-{% for post in site._posts|reverse %}
-{%- if post.category == "anecdote" -%}<li>{{post.date}}: <a href="{{post.url}}">{{post.title}}</a></li>{%- endif -%}
-{% endfor %}
-</ul>
+{% set category_name = "anecdote" %}
+{% include "category.jinja" %}
 {% endblock %}

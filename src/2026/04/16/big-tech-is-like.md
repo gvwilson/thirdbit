@@ -1,6 +1,7 @@
 ---
 title: "Big Tech is Like…"
 date: 2026-04-16
+category: sdgc
 ---
 
 I don't think I'll ever actually write *[Sex and Drugs and Guns and Code](@root/ideas/sdgc/)*,

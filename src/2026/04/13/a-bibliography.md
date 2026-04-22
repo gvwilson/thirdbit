@@ -1,6 +1,7 @@
 ---
 title: "A Bibliography"
 date: 2026-04-13
+category: sdgc
 ---
 
 ## A
