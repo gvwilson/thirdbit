@@ -4,6 +4,8 @@ date: 2026-04-13
 category: sdgc
 ---
 
+*[See the whole series](@root/sdgc/)*
+
 ## A
 
 <span id="Acemoglu2023">Acemoglu2023</span>

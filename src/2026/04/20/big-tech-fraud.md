@@ -93,6 +93,8 @@ Most importantly,
 auditing fails because big accounting firms depend on their clients for their income,
 which gives them a powerful reason to *not* find any problems.
 
+*[See the whole series](@root/sdgc/)*
+
 <span id="Davies2022">Davies2022</span>
 :   Dan Davies:
     *Lying for Money: How Legendary Frauds Reveal the Workings of the World*.

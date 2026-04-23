@@ -118,6 +118,8 @@ or harmful to national security.
 As we belatedly start to think seriously about regulating social media and AI,
 I think it's worth keeping the cocaine cartels in mind.
 
+*[See the whole series](@root/sdgc/)*
+
 <span id="Wainwright2017">Wainwright2017</span>
 :   Tom Wainwright:
     *Narconomics: How to Run a Drug Cartel*.

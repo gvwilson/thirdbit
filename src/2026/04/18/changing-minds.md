@@ -94,6 +94,8 @@ and working through social networks rather than through arguments.
 This is not manipulation:
 it is taking the actual psychology of belief seriously.
 
+*[See the whole series](@root/sdgc/)*
+
 <span id="Achen2017">Achen2017</span>
 :   Christopher Achen and Larry Bartels:
     *Democracy for Realists: Why Elections Do Not Produce Responsive Government*.

@@ -37,3 +37,5 @@ and then spend two or three pages on each of the following:
 1.  …the Auto Industry
 1.  …the East India Company
 1.  …a Drug Company
+
+*[See the whole series](@root/sdgc/)*
