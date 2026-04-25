@@ -2886,22 +2886,21 @@ the two combat bots scrambled through the hatch.
 "You don't understand!" Sindy shouted,
 struggling as he strapped her in.
 "You're making it *mad!*"
-She didn't know how,
-but she could feel the tentacled thing's simple-minded anger.
-It must be some kind of tech.
+She could feel the tentacled thing's simple-minded anger
+the same way she could feel the tech in Special Leaf's house,
+except this was much, much bigger.
 
 "Warning."
 The calm female voice came from all around her.
 "Proximity alert."
-Metal clanged as half a dozen tentacles erupted from the swamp
+Metal clanged as more tentacles erupted from the swamp
 and fell across the hull.
 
 "Maybe—" Violet started to stay behind Sindy.
 
 "Hang on!"
-the captain snapped,
-throwing himself into the seat beside Sindy's
-and grabbing the controls.
+The captain threw himself into the seat beside Sindy's
+and grabbed the controls.
 The little spaceship's engine rumbled below them
 and the craft lurched into the air.
 
@@ -2917,7 +2916,7 @@ the thing in the swamp still had them.
 A little help, please?"
 
 "I'm sorry, captain," the female voice said.
-"All of the ark's weapons are still offline."
+"The ark's weapons are still offline."
 
 "Well, ours aren't,"
 Captain Leung muttered.
@@ -2927,29 +2926,26 @@ he pointed the ship's nose at the swamp and fired.
 
 The flash was brighter than the one from Nash's lightning gun,
 so bright that the ship's windows darkened.
-
-The tentacles recoiled,
-tumbling the ship onto its side.
-Sindy shrieked,
-and heard a matching shriek from Violet behind her.
-
-Captain Leung pushed the controls forward.
-The ship shot into the air,
-corkscrewing to avoid one last attempt to grab it.
 A sharp pain stabbed Sindy's head,
 disappearing as quickly as it had arrived.
+The tentacles recoiled,
+tumbling the ship onto its side.
+
+Sindy shrieked in time with a matching shriek from Violet behind her.
+The ship shot into the air,
+corkscrewing to avoid one last attempt to grab it.
 
 "Szego!
-What's the situation?"
+Can you give me an entry?"
 Captain Leung barked.
 
-"Buttoned down," the female voice replied.
-"I can't let you dock without letting that thing back in."
+"Sorry, captain," the female voice replied.
+"I can't let you dock without giving that thing an opening."
 
 "Understood."
 The ship banked,
 pushing Sindy back into her seat.
-"I'll find somewhere safe to set down and call you then."
+"I'll find somewhere to set down and call you then."
 
 "Rusty Bridge!" Sindy said.
 "You'll be safe there, I promise!"
@@ -2958,13 +2954,13 @@ The captain glanced at her.
 "That's the town we saw?
 That's where you're from?"
 
-"We're all from there except Special Blazes.
+"We're all from there except Special Blazes and his partner.
 Look,
-that thing in the swamp—that's not us.
+that thing in the swamp—it ain't ours.
 It wasn't Patient's or Central's, either.
-It just lives there and—"
+It just lives there and makes everyone's life miserable!"
 
-"You know about Central?" Violet asked from behind her.
+"You know about Central?" Violet asked.
 
 Sindy twisted around in her seat.
 "Of course.
@@ -2979,7 +2975,7 @@ You'd have to destroy all of them at once to shut it down."
 Sindy said hotly.
 "It shut *itself* down.
 It said it was tired
-and it wanted all the other bots to have a chance to be free."
+and it wanted all the other bots to be free."
 
 "Impossible,"
 the captain repeated.
@@ -2992,27 +2988,27 @@ he pointed.
 Sindy had only seen Rusty Bridge from the air once before,
 when she and Maddy and Dockety escaped from Patient's lair.
 Even without that,
-she would have instantly recognized its cobblestoned central square
-and the mayor's house
+she would have instantly recognized its cobblestoned central square,
+the mayor's house,
 and even Miz Nabbles' school.
 
-Her heart sank.
 People were running to get indoors.
 She couldn't blame them:
 if she saw a spaceship flying overhead
 an hour after the militia had gone to investigate something falling from outer space,
 she would run away too.
 
-Captain Leung banked the ship again.
+Captain Leung banked the shuttle.
 "At least that's still standing," he said.
 The bridge that gave the town its name had once spanned the Rusty River.
 The river had changed course hundreds of years ago,
 so now the bridge was surrounded by forest.
-Sindy had been to it with Maddy and Gumption.
+Sindy had been to it once with Maddy and Gumption.
 She didn't believe it was haunted,
 or that there was a troll bot under it
 who stole naughty children in the middle of the night,
-but one visit had been enough.
+but still,
+that one visit had been enough.
 
 They circled the bridge,
 tilting to get a better view.
@@ -3028,10 +3024,10 @@ like mulch."
 
 "That doesn't look like mulch to me,"
 Captain Leung said levelly,
-slowing the shuttle to a crawl.
+slowing the shuttle to hover over Bots' End.
 Sindy's heart sank.
-Crusher had just rolled out of one of the sheds on its oversized treads
-with half a dozen logs in its manipulators.
+Crusher had just rolled into sight on its oversized treads
+to pick up another log from the pile outside the lumber shed.
 
 "That's just Crusher," she said weakly.
 "It's friendly."
@@ -3049,9 +3045,10 @@ It must have followed them from the swamp.
 "And then your friend fired on us,"
 Captain Leung finished.
 "So we're going to land somewhere that *doesn't* have
-a robo-monster lurking nearby
-and wait for Doctor Szego to tell us the ark is secure.
-You can go back home then if you want to."
+some kind of robo-monster lurking nearby
+and wait for Doctor Szego to tell us the ark is secure."
+
+FIXME: change this exchange
 
 "'Course I want to!"
 Sindy said indignantly.
@@ -3061,22 +3058,21 @@ Sindy said indignantly.
 Violet ventured.
 "She hasn't done anything wrong."
 
-Whatever Captain Leung might have said in reply
+Whatever Captain Leung was going to say
 was interrupted by a deafening *clang!*
 The whole cabin jerked sideways,
 the engine whining beneath them as it tried to compensate
 for the punch the shuttle had just taken.
 
-"What the—is this what you mean by 'friendly'?"
+"What the—is this what you mean by friendly?"
 the captain demanded,
-twisting the controls to slew the shuttle sideways.
-A log flew past its nose like an arrow.
+twisting the controls to slew the shuttle sideways
+as a second log flew past its nose like an arrow.
+Below them,
+Crusher picked up another log like a spear.
+Captain Leung turned the shuttle and accelerated away.
 
-Crusher took aim below them and threw another log.
-Captain Leung dodged again,
-then turned the shuttle and accelerated away.
-
-Red lights began blinking on the panel in front of Sindy.
+Red lights lit up the panel in front of Sindy.
 The engine's thrum turned into a buzzsaw whine.
 "Warning," a flat mechanical voice said.
 "Thruster integrity compromised.
@@ -3091,8 +3087,7 @@ He looked at Sindy.
 "Any suggestions?"
 
 She shook her head.
-The shuttle was shaking.
-She was pretty sure it wasn't supposed to do that.
+She was pretty sure the shuttle wasn't supposed to be shaking the way it was.
 "Just stay away from the swamp.
 Oh, and Heck—the bots there don't much like people."
 
@@ -3103,26 +3098,27 @@ Better stay out of Sandy Bend, too.
 That's where Special Blazes is from.
 I bet there's a bunch of people there that would shoot at you like Nash did."
 
-"Should have stayed in orbit,"
+"So what you're saying is,
+we should have stayed in orbit,"
 Captain Leung muttered.
 "All right, I'm putting us down in that clearing.
 Hold on."
 
-Their landing was even bumpier than their takeoff had been.
+Their landing was bumpier than their takeoff had been.
 For a moment Sindy was sure they were going to crash,
 but the shuttle slowed,
 steadied,
 and dropped onto the ground with an audible thud.
 
 An abandoned farmhouse stood twenty meters away.
+Whoever had once lived here had clearly given up years ago.
 The remains of its roof sagged wearily above its crumbling fieldstone walls.
 What had once been garden plots around it
 were now overgrown with weeds
 and home to saplings the same height as Sindy.
-Whoever had once lived here had clearly given up years ago.
 
 A wireframe image of the building appeared on the screen.
-Fuzzier lines formed beneath it.
+Fainter lines formed beneath it.
 Captain Leung frowned.
 "That's quite the basement."
 
@@ -3137,16 +3133,15 @@ Z51, I want you twenty meters behind it.
 Violet—"
 He hesitated.
 "Z51, cancel previous order.
-You stay here with the children.
-Activate."
+You stay here with the children."
 
 The first combat bot was out the hatch even as the stairs were being lowered.
 Captain Leung followed.
 The hatch closed behind him with an ominous clunk.
 
 Sindy immediately tugged at the straps holding her in her seat.
-"Here, I'll do it."
-Violet came forward to sit in the captain's seat,
+"Here, let me do that."
+Violet came forward,
 leaned over,
 and began undoing the complicated buckles.
 
