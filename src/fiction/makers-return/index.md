@@ -2211,6 +2211,8 @@ she said,
 but what she thought was,
 *I'm going outside!*
 
+FIXME: make more of a deal about André being left behind
+
 "It's not fair,"
 André groused a few moments later.
 "How come I have to stay in my pod and you get to fight monsters?"
@@ -2351,11 +2353,11 @@ Had she fallen out of a tree again?
 
 She grabbed the manipulator Dockety offered her
 and let the bot help her to her feet.
-The spaceship was still floating in the swamp,
+The ark was still floating in the swamp,
 but the tentacles were gone.
 Had she done that?
 
-"'m aright," she mumbled unconvincingly.
+"'m 'right," she mumbled unconvincingly.
 
 `DO YOU NEED A RIDE?` scrolled across Beevy's screen.
 
@@ -2366,11 +2368,11 @@ She shook her head, immediately regretting it.
 Dockety's eyes rotated.
 "I was hoping you could tell us."
 
-"Look! Topside!"
-Gumption said a few meters away,
+"Look!"
+Bravo shouted from a few meters away,
 pointing.
 A gasp ran through the townspeople
-as something the size of a large wagon rose from the top of the spaceship
+as something the size of a wagon rose from the top of the ark
 on a blue-white haze too bright to look at directly.
 
 "Here we go,"
@@ -2379,7 +2381,7 @@ aiming the pitchford gun he had set up.
 
 "No!"
 Mayor Lupus barked.
-"Nobody does anythin' unless *I* say so.
+"No more shootin' unless *I* say so.
 You got that?"
 
 The crocodile glanced at her,
@@ -2387,25 +2389,28 @@ then at Special Blazes.
 "Boss?"
 
 The tiger's ears were flat against his head.
-"Keep your cool,
-but keep finger on the trigger.
-There may not be time for chit-chat, Miz Mayor,"
+"Hold your fire,
+but keep your finger on the trigger.
+There may not be time for chit-chat if things start to bounce, Miz Mayor,"
 he added.
+
+"Make time,"
+she replied curtly.
 
 The small craft made a half-circle overhead
 like a bird inspecting a discarded crust of bread
-before settling to the ground fifty meters away from the townspeople.
+before settling to the ground fifty meters away.
 The light beneath it dimmed, hummed, and went out.
 "Now what?" Sindy whispered.
 
-Dockety clicked the fingers of its manipulator together in a rapid staccato.
+Dockety clicked the fingers of its smaller manipulator together in a rapid staccato.
 "I don't know."
-It was nervous,
-Sindy realized with a shock.
+*Is it nervous?*
+Sindy wondered.
 She had never seen Dockety nervous before,
-not even in battle.
+not even in the middle of a fight.
 
-Moments passed.
+The breeze rustled through the leaves on the willows behind them.
 "What're they waiting for?" Nash hissed.
 
 As if in answer,
@@ -2414,8 +2419,8 @@ and swung down silently to become a short flight of steps.
 A gasp ran through the townspeople
 as something large and rectangular appeared in the opening,
 tilted,
-and began to clamber down on four sturdy mechanical legs.
-A second identical shape appeared behind it.
+and began to make its way down on four sturdy mechanical legs.
+A second shape appeared behind it.
 
 Sindy's heart went into her throat.
 The two bots looked like Beevy,
@@ -2425,28 +2430,29 @@ but brand new instead of scarred and patched and repaired.
 Special Blazes snarled.
 
 "On it!"
-Nash aimed his pitchfork at the lead bot and fired.
-The air crackled as lightning sliced the air and struck its target.
+Nash aimed his pitchfork at the first bot.
+Lightning crackled through the air and struck its target.
 
 "Stop! Stop shooting, you idiot!"
 Mayor Lupus shouted as Nash fired a second time.
-She grabbed his shoulder and tried to pull him away from the pitchfork gun,
+She grabbed his arm and tried to pull him away from the pitchfork gun,
 only for him to knock her to the ground.
 
 *Thump!*
 The crocodile hissed with rage as a net tangled around him,
 sending him to the ground beside the mayor.
-"Whoops," Gumption said coolly.
+"Sorry," Bravo said brightly.
+"My hand slipped."
 
-"Everybody just *stop*!" Special Blazes bellowed.
+"Everybody just *stop!*" Special Blazes bellowed.
 A moment later the hatch on the small craft closed with a clang
 behind the two retreating bots.
 
 Mayor Lupus rounded on the two Operators.
 "I said nobody does anything 'til *I say so*!"
-Her fury was as white-hot as the lightning Nash had fired at the bots.
+Her fury crackled like the lightning from Nash's gun.
 
-Special Blazes stepped between her and Nash.
+Special Blazes bared his fangs.
 "Those were war machines.
 Do you understand?
 Keeping you safe from bots like that is our whole job!"
@@ -2455,57 +2461,53 @@ Keeping you safe from bots like that is our whole job!"
 "I thought your job was kidnappin' kids!"
 She jerked a clawed thumb over her shoulder at Sindy.
 
-For a split second Sindy thought the tiger was going to throw a punch or a fireball,
-but instead he took a deep breath and shook his head.
+For a second Sindy thought the tiger was going to throw a punch or a fireball.
+Instead, he took a deep breath and shook his head.
 "I'm not going to apologize for that,
 not to you or anyone else."
 
-As the two argued over what to do next,
+As the two glared at each other and Nash wriggled out of the net,
 Sindy turned to Dockety and Beevy.
-"You ever seen anything like them?
+"You ever seen anything like 'em?
 Those two bots, I mean."
 
 `YES` Beevy scrolled.
-"Yes," Dockety said in its buzzing voice.
+"Yes," Dockety buzzed.
 "The Operator is correct.
-They were built for violent encounters,
-and appear unmodified.
+They were built for violence,
+and appear to be in perfect condition.
 They would be quite formidable in a fight."
 It emitted a brief burst of static.
 Speckles of light danced across Beevy's screen in response.
 "Even Crusher would find it hard to defeat them."
 
-Something shifted deep inside Sindy.
+Sindy's jaw set.
 Her sister and Gumption had been brave so many times.
 Now it was her turn.
-
-Her jaw set.
 "Well then, we better make sure it doesn't come to that,"
 she said firmly.
 "Come on."
 
-The Mayor and Special Blazes were still arguing.
-Everyone else was too busy watching them
-to notice Sindy and the two bots quietly retreat into the trees.
-Damp soil yielded beneath them as they picked their way
-between drooping willow branches.
-Sindy kept thinking that they would be too late,
-that the little ship would take off again,
+Nobody noticed Sindy and the two bots slip back into the trees.
+Damp soil squished beneath their feet
+as they picked their way between drooping willow branches.
+Sindy kept expecting the little ship to take off at any moment,
 but it stayed where it was.
 
-"Aright," she finally said.
-They weren't actually much closer to the ship,
+"Aright," she said
+when they had circled around to the other side of the little ship.
+They weren't actually much closer to it,
 but they were far enough away from the militia
-that nobody would be able to hit her with a ball of glue
+that nobody would be able to hit her with a blob of glue
 or tangle her in a net.
-She had no idea what the range of Nash's lightning gun was.
+She had no idea how far Nash's lightning gun could shoot.
 All she could do was hope he wouldn't use it on her.
 
-"Are you certain you want to do this?" Dockety asked.
+"Are you certain this is a good idea?" Dockety asked.
 
-"Nope," Sindy said.
-She forced a grin and then stepped out of the trees
-and began walking toward the ship with her arms in the air.
+"Nope," Sindy said, forcing a grin.
+She stepped out of the trees
+and began walking toward the ship with her arms raised.
 She really hoped Dockety and Beevy were behind her.
 "Hey!" she called.
 "Hi!
@@ -2513,10 +2515,9 @@ Remember me?
 I'm the one you were talking to."
 
 "Sindy Roo, you get back here right now!"
-She ignored the mayor's shout.
 
-"Hey."
-She stopped and lowered her arms halfway to the little craft.
+She ignored the mayor's shout,
+sopping halfway to the little craft and lowering her arms.
 "Um,
 I'm sorry about what happened back there.
 You just startled them, is all.
@@ -2530,17 +2531,16 @@ Dockety raised a manipulator and waved.
 Beevy flashed `HELLO` on its screen.
 
 Sindy took another step toward the small craft.
-"If you want to come out and talk,
-I promise they won't shoot at you again."
+"I can't use the communicator thing to talk to you
+'cuz they took it away from me,
+but if you want to come out and talk,
+I promise they won't shoot you again."
 *I hope,* she added mentally.
 "Or if you just want to sit for a bit,
-that's aright too.
-You can't use the communicator thing to tell me, though.
-I don't have that any more."
+that's aright too."
 
 She stood and waited,
-not knowing what else to say.
-She felt like she did when she had to stand up and answer a question in Miz Nabbles' class,
+feeling like she did when she had to stand up and answer a question in Miz Nabbles' class,
 or when she heard other kids talking about a birthday party
 and she didn't know if she was going to be invited or not.
 
@@ -2548,59 +2548,55 @@ and she didn't know if she was going to be invited or not.
 The words slipped out before she could think them through.
 "You just gotta show them that they got nothing to be afraid of."
 
-Nothing happened for a few moments.
-Then the hatch on the craft's side swung open
-and a figure in a bulky yellow suit appeared at the top step.
+The hatch on the craft's side swung open.
+A figure in a bulky yellow suit appeared at the top step.
 Sindy's breath caught.
 Was it a person or a bot?
 It had two arms and two legs,
-but its head was as big and as round as a bucket,
-and its mirrored front gave no hint of its contents.
+but its head was as big and round as a shiny bucket,
+and the mirrored surface where its face ought to be
+gave no hint of what was behind it.
 
 The figure came down the steps slowly.
 A second, smaller one appeared behind it
 but stayed in the entrance.
 
 "Greetings."
-The voice seemed to come from the little ship.
+The lead figure's voice sounded human.
 "We come in peace."
 
-Sindy raised one hand.
+Sindy raised a tentative hand.
 "Us too."
 
-"Are you in command here?" the voice asked.
-It was deeper and older than the one she had heard through the communicator.
+"Are you in command here?" the figure asked.
 
 "Me?
-Um, no, that would be the mayor."
-She waved at the townspeople fifty meters away.
-"Her name is Lupus—Mayor Lupus.
-I'm Sindy,
+No, that would be Mayor Lupus."
+She waved at the townspeople.
+"I'm Sindy,
 and this is Dockety and Beevy."
 
 "I am Captain Leung,
 commander of Ark Nineteen.
 This is Violet."
-The lead figure gestured at the one waiting at the top of the steps.
+The figure gestured at the smaller one at the top of the steps.
 
 "Pleased to meet you," Sindy said.
 "Are you really from space?"
 
 "Not originally.
-Are you from the town we saw over that way?"
+Are you from the town we saw?"
 The figure gestured in the direction of Rusty Bridge.
 
-"Yeah, that's us.
-The mayor,
-well,
-that's what she's the mayor of.
+"Uh, yeah.
+That's what Mayor Lupus is the mayor of.
 And Dockety here,
 it's like the mayor for the bots."
 
 "For the bots," the voice repeated slowly.
 "Interesting."
 
-Before Sindy could think of what to say next,
+Before Sindy could think of something to say next,
 the smaller figure reached up and took its head off.
 At least that's what Sindy thought at first.
 It took her a moment to realize it was just a helmet,
@@ -2611,8 +2607,8 @@ Sindy gaped at her.
 "You're a throwback!" she exclaimed.
 
 The girl blinked.
-"I don't know what that is.
-I'm human, just like you."
+"I don't know what that means.
+I'm human, like you."
 
 </section>
 
