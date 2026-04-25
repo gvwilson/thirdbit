@@ -3166,7 +3166,8 @@ Sindy added,
 ## Chapter 12: Normal (Violet)
 
 Violet's hard was still pounding as the shuttle set down
-near the abandoned farmhouse.
+near an abandoned farmhouse
+straight out of one of the scary virtuals that André liked so much.
 The *clang!* of something hitting the hull had made her shriek,
 but neither the captain nor their passenger had noticed.
 And then the engine had started making a funny noise
@@ -3178,11 +3179,11 @@ in the middle of the night.
 She watched Z40 crawl out the hatch,
 and Captain Leung follow it.
 The combat bots scared her,
-but she was still glad that he had ordered Z51 to stay behind.
+but she was still glad he had ordered Z51 to stay behind.
 
 When Sindy began tugging at her harness,
 Violet said,
-"Here, I'll do it,"
+"Here, let me do that,"
 and went forward to undo the buckles.
 
 "Thanks," Sindy said.
@@ -3202,7 +3203,7 @@ Sindy added,
 "Really?"
 
 "Mm hm."
-Sindy wriggled her shoulders free of the harness.
+Sindy wriggled free of the harness.
 "Aren't many folks can say they've been kidnapped by bots twice."
 
 "Things like that only happen to me in virtual,"
@@ -3218,7 +3219,7 @@ You have to go to school in space?"
 This time Violet's smile was real.
 "It's not so bad."
 Her smile slipped a little.
-"I think I spend most of the time asleep.
+"I spend most of the time asleep.
 Not regular sleep but, you know, frozen.
 I think I've been asleep for a lot longer than I realized."
 
@@ -3259,21 +3260,22 @@ Wet earth,
 grass,
 something sweet that she guessed came from
 the flowers growing among the weeds in the garden plots
-between them and the farmhouse—even the occasional whiff of sweat
+between them and the farmhouse—even the whiff of sweat
 and laundry soap from Sindy was ten times more real than anything virtual.
 
-Sindy didn't seem to notice.
+Sindy didn't seem to notice how wonderful it all was.
 She also didn't jump and squeak when something leaped out of the grass
 and flew away.
 "It's just a grasshopper," she said.
 "Here, watch."
 She picked up a stick and swatted a waist-high clump of weeds nearby.
 Half a dozen more grasshoppers fled,
-whining angrily.
+buzzing angrily.
 
 Something metallic the size of Violet's boot scuttled out of the bush
 and made a beeline for the farmhouse.
-"What was that?" Violet exclaimed.
+Violet leaped back in fright.
+"What was that?"
 
 Sindy shrugged.
 "Some kind of bot.
@@ -3281,7 +3283,7 @@ There's more of them about since Central went away.
 They're mostly harmless if you don't bother them.
 One of my best friends is a bot,"
 she added.
-"We call it Mouse.
+"It's name is Mouse.
 We met it the first time I was kidnapped.
 I'm trying to teach it how to play tag."
 
@@ -3290,9 +3292,8 @@ She was starting to sweat inside her spacesuit.
 
 Sindy looked at her sidelong,
 clearly trying to think of how to ask something.
-"When you talk about virtual—was that the same as Central?
-Because my sister Maddy says that she met someone
-when she was hooked up to Central.
+"When you talk about virtual—my sister Maddy says that
+she met someone when she was hooked up to Central.
 She doesn't remember much,
 but she remembers her hair was purple like yours."
 
@@ -3375,7 +3376,7 @@ we need to find somewhere safe for the ark."
 
 "Rusty Bridge is safe!" Sindy bridled.
 
-"Having trees thrown at me doesn't make me feel particularly safe,"
+"Having a bot throw trees at me doesn't make me feel particularly safe,"
 Captain Leung shot back,
 then sighed again.
 "Sorry, I shouldn't snap at you.
@@ -3388,12 +3389,12 @@ Captain Leung scratched the side of his nose with a gloved finger.
 "I'm thinking about it,
 but I'm still worried about whatever might be in that bunker.
 You said there were lots like it around here?"
-he asked Sindy.
 
-She shrugged,
+Sindy shrugged,
 looking at the braid in her lap,
 then nodded reluctantly.
 "Any idea what we might find in this one?"
+the captain asked.
 
 Sindy shrugged again.
 "Used to be a crazy bot in one of them named Patient,
@@ -3430,7 +3431,8 @@ His voice sounded tinny in Violet's ears.
 "I'm here, Captain.
 There haven't been any more attacks,
 and repairs are going as well as can be expected.
-Violet, how are you doing?"
+Violet, I've lost your vital signs.
+Are you all right?"
 
 "Yeah, how's it going?"
 André's voice was heavy with sarcasm.
@@ -3451,7 +3453,7 @@ We're going to check out the structure I mentioned earlier.
 I'll put the shuttle in auto-defense mode and take both Z-bots with me.
 Leung out."
 
-Violet undid her helmet just as Sindy stuck her head out of the shuttle.
+Violet took off her helmet just as Sindy stuck her head out of the shuttle.
 "How do I…?" she asked,
 obviously trying not to sound embarrassed.
 
