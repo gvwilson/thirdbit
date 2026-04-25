@@ -1,5 +1,5 @@
 ---
-title: "Cognitive Pollution Revisitd"
+title: "Cognitive Pollution Revisited"
 date: 2026-04-25
 category: sdgc
 ---
