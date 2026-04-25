@@ -2620,20 +2620,18 @@ I'm human, like you."
 "Are you really from space?"
 
 "Not originally,"
-Captain Leung replied through the shuttle's speakers.
-He had warned Violet not to give too much away
-until they knew what they were up against.
-"Are you from the town we saw over that way?"
+Captain Leung replied,
+gesturing past the mob of armed 'brids as if they weren't there.
+"Are you from the town we saw?"
 
-"Yeah, that's us."
-Sindy spoke in a rush.
-"The mayor,
-well,
-that's what she's the mayor of.
+"Uh, yeah,"
+Sindy said hesitantly.
+"That's what Mayor Lupus is the mayor of.
 And Dockety here,
 it's like the mayor for the bots."
+Her accent made her words round and musical in Violet's ears.
 
-"For the bots," Captain Leung repeated.
+"For the bots," Captain Leung repeated slowly.
 "Interesting."
 
 All of a sudden Violet couldn't stand it any more.
@@ -2648,7 +2646,7 @@ Sindy gasped.
 "You're a throwback!"
 
 Violet blinked.
-"I don't know what that is.
+"I don't know what that means.
 I'm human, just like you."
 
 "Violet!"
@@ -2665,41 +2663,46 @@ Put your—"
 She thumbed the switch on her helmet to cut him off.
 
 Captain Leung took off his helmet.
-"Permission to come aboard?" he asked.
+He shot Violet a look that meant
+they were going to talk about this later,
+except he would do all the talking and she wouldn't enjoy the conversation.
+What he said aloud to Sindy was,
+"Permission to disembark?"
 
 "What?"
 Sindy blinked at him.
 
-"He means, may he come down off the steps?"
+"He is asking for permission to come down off the steps,"
 the scrapwork two-legged bot behind her buzzed.
 
 "Oh, sure.
 Or, um, maybe you better wait and ask the mayor.
 If that would be aright?"
-she added hastily.
+she added hastily,
+glancing nervously at the mob.
 
 Violet followed her eyes.
-Two 'brids had separated from the crowd and were walking toward them.
-One clearly had some tiger in its genes.
-The other—she couldn't decide if it was descended from a dog or a wolf,
-but it was clearly canine.
+Two 'brids had separated from the others and were walking toward them.
+One clearly had some tiger in its ancestry.
+The other was clearly canine.
 
 *She,* Violet corrected herself as the pair neared.
 The wolf with the cane and cyborg leg was a she.
-The tiger was a he,
-and had a patch over one eye.
-His green-and-black jacket looked a lot like a uniform.
+The tiger with a patch over one eye seemed to be a he.
+His green-and-black jacket looked a lot like a uniform,
+and was unbuttoned to show something that looked like
+the plasma repulsors on the bottom of the shuttle.
 
 Captain Leung waited,
 his helmet cradled in one arm.
 As the two 'brids neared,
 the scrapwork bot stepped forward to join them.
-The tiger gave it a dirty look, but said nothing.
+The tiger gave it a look, but said nothing.
 
 "Mornin'," the wolf said politely.
 "Seems you've come a long way.
 Sorry 'bout all the fuss earlier.
-Some folks were just feelin' a bit agitated, was all."
+Some folks were just feelin' a bit on edge."
 
 "I understand," Captain Leung replied,
 his tone just as casual.
@@ -2707,7 +2710,7 @@ his tone just as casual.
 to faze one of those Z-bots.
 As I'm sure you know,"
 he added,
-nodding toward the larger bot standing behind the newcomers.
+nodding toward the larger bot standing behind Sindy.
 "I take it you're the mayor?"
 
 The wolf straightened slightly.
@@ -2722,14 +2725,15 @@ The wolf and tiger spoke simultaneously.
 "What the mayor means," the tiger said,
 "Is that she's in charge of everything day-to-day.
 Special circumstances are my responsibility,
-and I think we can all agree that your ship there qualifies as 'special'."
+and I think we can all agree that your vessel qualifies as 'special'."
 
 "I imagine it does,"
 Captain Leung said drily.
-"And how about your friend there?
-Your young friend said it's some kind of mayor for the local bots?"
+"And how about…"
+He gestured toward the scrapwork bot.
+"Your young friend said it's some kind of mayor as well?"
 
-The tiger glanced at the wolf.
+The wolf spoke before the tiger could reply.
 "More or less.
 I'm Lupus, by the way, and this is Special Blazes.
 That's Dockety,
@@ -2738,31 +2742,31 @@ and of course you've already met Sindy."
 "I'm Captain Leung,
 commander of Ark Nineteen,
 and this is Violet."
-He gestured toward her without taking his eyes off their visitors.
+He didn't take his eyes off their visitors as he spoke.
 "I must say,
-it's remarkable you've been able to keep your bot running.
+it's remarkable you've been able to keep those bots running.
 All those replacements and repairs must have required
 a great deal of ingenuity."
 
 "Can't take the credit for that," the mayor said.
 "Dockety an' the others,
-they take care of all their repairs an' upgrades themselves.
+they take care of fixin' themselves.
 We stay out o' the way as much as we can."
 
 Violet wouldn't have noticed Captain Leung stiffen slightly
 if she hadn't spent practically her whole life with him.
 "You allow them to make unsupervised self-modifications?"
 
-"Only some."
-Special Blazes cut in before Mayor Lupus could answer.
+"Only some,"
+Special Blazes cut in.
 "Making sure that doesn't get out of hand is one of my group's responsibilities."
 
 A few steps away from him,
 Sindy rolled her eyes.
 Violet suppressed a smile.
 She knew that "adults are talking nonsense" look.
-Why couldn't they all just stop talking for a minute
-so that she could take off her spacesuit and,
+Why couldn't they all just stop for a minute
+so that she could take off her spacesuit
 and dig her fingers into the earth
 or climb one of the trees whose branches were swaying slightly in the breeze?
 They weren't particularly tall trees,
@@ -2772,60 +2776,52 @@ but that wasn't the point.
 She was three meters away from actually being *on the ground*
 and they were making her *wait* and—
 
-She had just a second to register the shocked look on Sindy's face
+She had just a second to register a shocked look on Sindy's face
 before a young goat-like 'brid shouted, "Look out!"
-The rag-tag 'brid militia standing near the edge of the swamp raised their weapons.
-
-Captain Leung pointed a stiffened finger at the party standing in front of them.
-"What's happening?" he snapped.
-
-"I don't—" the mayor started,
-but was cut off by a snarl from the tiger.
-Something clanked behind Violet.
-She spun around as the tall shadow of a metal tentacle fell over her.
-
-"That ain't us! That ain't us!" Mayor Lupus shouted
-as the tiger unbuttoned his uniform jacket
-to reveal a crystalline piece of tech strapped across his furry chest.
+The mob of 'brids standing near the edge of the swamp raised their weapons.
+The tiger snarled as something clanked behind Violet.
+She spun around to see one-two-three tentacles emerge from the swamp.
 
 "Stay with me!"
-Captain Leung grabbed Violet's arm and pulled her down the steps
-just before the groping tentacle scraped across the hatch.
+Captain Leung grabbed Violet's arm and pulled her down the steps.
+
+"That ain't us!" Mayor Lupus shouted
+just before a groping tentacle scraped across the hatch.
 
 Violet stumbled and went to her knees.
 Her helmet slipped from her arms and rolled onto the grass.
 She scrabbled for it.
 She would be in trouble if she lost it.
 
-Captain Leung pulled her to her feet and donned his helmet.
+Captain Leung pulled her to her feet.
 "Z40! Z51! Contact topside authorization Leung one seven seven bravo!"
 he shouted into his chin mike.
 
 A second tentacle rose from the swamp and draped itself over the shuttle.
-Weeds fell from it as it rocked the little craft on its landing gear.
-Violet heard Doctor Szego speaking urgently in her helmet
+Wet weeds fell from it as it the little craft rocked on its landing gear.
+Violet heard Doctor Szego's voice in her helmet
 but couldn't make out the words.
 
 "Nash!" the tiger bellowed.
 "What're you waiting for?"
 
 Lightning arced from the crocodile's gun,
-striking the upraised tentacle with a sound like
-oil sizzling in a hot pan.
-Violet shrieked as a fireball burst from the tech on Special Blazes' chest
+striking the nearest tentacle
+with a sound like oil sizzling in a hot pan.
+Violet shrieked as a fireball burst from Special Blazes' chest
 and splattered across the shuttle's side.
 
 "Stop!" Sindy cried out.
 "You're just making it angry!"
 But no one heard her except Violet,
-and she was too busy getting out of the way to pay attention.
+and she was too busy getting out of the way
+to wonder how Sindy could possibly know that.
 
 The two combat bots didn't bother with the stairs this time.
 They threw themselves through the hatch and skidded across the grass,
-making deep gouges in the soil.
-Z40 reared up on its hind legs and clamped its foreclaws around the nearest tentacle.
-The tentacle dragged it toward the shuttle,
-then lifted it into the air.
+leaving deep gouges in the soil.
+Z40 reared up on its hind legs and clamped its foreclaws around the nearest tentacle,
+only to be lifted into the air.
 
 The combat bot that had arrived with the 'brids grabbed one of Z40's legs.
 Z51 grabbed the other.
@@ -2835,16 +2831,18 @@ The tentacle bent with strain, but couldn't lift their combined weight.
 Lightning struck the tentacle.
 Sparks danced along it.
 The second tentacle let go of the shuttle and swung over Violet's head,
-knocking the three bots sideways.
+sending the three bots flying through the air.
 
-"Get back in the shuttle!" Captain Leung shouted,
+"Get back on board!" Captain Leung shouted,
 pushing Violet toward the stairs.
 As another fireball burst from the tiger's tech
 the captain lunged forward and grabbed Sindy's arm.
 
+FIXME: why does Leung take her?
+
 "Hey! Let go!" Sindy yelled.
 The mayor swung her cane.
-Captain Leung blocked it with his arm and pointed his finger.
+Captain Leung blocked it with his arm and pointed a straightened finger.
 A brilliant blue laser cut the heavy wooden stick in half.
 
 "Let *go!*" Sindy yelled again as Captain Leung picked her up
@@ -2853,7 +2851,7 @@ and slung her over her shoulder.
 "Cover us!" the captain shouted.
 His boots clanged on the steps as he followed Violet into the shuttle.
 Behind him,
-Z40 and Z51 spun around and backed toward the hatch,
+Z40 and Z51 backed toward the hatch,
 their manipulators clacking menacingly.
 
 Captain Leung dropped Sindy into the seat beside his
@@ -2868,7 +2866,7 @@ strapping her in.
 
 "Warning." Doctor Szego voice came from four speakers at once.
 "Proximity alert."
-Metal clanged on metal once again as half a dozen tentacles erupted from the swamp
+Metal clanged on metal once again as half a dozen more tentacles erupted from the swamp
 and grabbed hold of the shuttle.
 
 </section>
