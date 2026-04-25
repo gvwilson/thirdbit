@@ -82,6 +82,98 @@
 
 <article class="post">
   <h2 class="post-title">
+    <a href="../2026/04/25/cognitive-pollution-revisited/">
+      Cognitive Pollution Revisitd
+    </a>
+  </h2>
+  <p><time datetime="2026-04-25" class="post-date">2026-04-25</time></p>
+  <p>Engineers learn to reason about direct, traceable failures:
+a faulty valve leads to a boiler explosion or a bug crashes a program.
+This model frames harm as rare, dramatic, and attributable,
+but the most serious damage caused by industry hasn&rsquo;t actually worked this way.
+Instead,
+it has been diffuse, cumulative, slow to emerge,
+and difficult to attribute to any single decision or actor.</p>
+<p>When leaded gasoline lowered the IQs of an entire generation of children,
+no single tank of fuel caused a measurable injury.
+Similarly, no particular cigarette is responsible for any particular cancer death.
+The harm is real and massive,
+but it was distributed across millions of exposures,
+tens of millions of people,
+and decades,
+so those responsible didn&rsquo;t meet the legal requirement of direct and proximate cause.</p>
+<p>This pattern is no longer confined to physical toxins.
+Social media platforms optimized for engagement produce radicalization and depression as a byproduct.
+The harm is diffuse:
+no single recommendation causes a school shooting or an act of genocide.
+The long, probabilistic causal chain makes it difficult to assign fault
+and therefore difficult to regulate.</p>
+<p>The term <em>cognitive pollution</em> is increasingly used to describe this.
+As with other forms of pollution,
+it is proving difficult to regulate,
+and tech companies have every incentive to maintain that difficulty.
+After all,
+as long as harm cannot be attributed to them,
+they can externalize its cost onto the people who absorb it.</p>
+<p>The tobacco industry did not accidentally produce uncertainty about the link between smoking and cancer.
+It funded research specifically intended to produce uncertainty,
+identified scientists willing to dispute the consensus,
+and maintained that effort for decades after the science was settled.
+The same pattern appears in the history of leaded gasoline,
+asbestos,
+oxycontin,
+and now social media and AI.</p>
+<p>Civil and chemical engineers are now taught about pollution,
+not because the profession had a crisis of conscience,
+but because society decided over the course of many decades and through many court cases
+to hold polluters liable for harm.
+Noise pollution, and now light pollution, are retracing that history,
+and I think that if we take mental health as seriously as physical health,
+it&rsquo;s inevitable that we will start to hold companies accountable for the mental suffering they cause.</p>
+<p>If we frame harm as rare, dramatic, and attributable,
+responsible engineering means avoiding the specific decision that produces attributable failures.
+Under the pollution model,
+on the other hand,
+responsible engineers are accountable for long-term cumulative effects.
+A few recent court judgments in the United States may show that this shift is finally happening,
+but they will undoubtedly be contested,
+and as the overturn of Roe v. Wade shows,
+precedent isn&rsquo;t enough of a guarantee.
+Legislation that holds tech companies responsible for the damage their products do to users&rsquo; mental health
+can come sooner,
+will be far more robust,
+and will have more impact than pious gestures like banning young people from using social media.</p>
+<p><em><a href="../sdgc/">See the whole series</a></em></p>
+<dl>
+<dt><span id="Michaels2008">Michaels2008</span></dt>
+<dd>David Michaels:
+<em>Doubt Is Their Product: How Industry&rsquo;s Assault on Science Threatens Your Health</em>.
+Oxford University Press,
+2008,
+978-0195300673.</dd>
+<dt><span id="Oreskes2010">Oreskes2010</span></dt>
+<dd>Naomi Oreskes and Erik M. Conway:
+<em>Merchants of Doubt: How a Handful of Scientists Obscured the Truth on Issues from Tobacco Smoke to Climate Change</em>.
+Bloomsbury,
+2010,
+978-1608193943.</dd>
+<dt><span id="Perrow1999">Perrow1999</span></dt>
+<dd>Charles Perrow:
+<em>Normal Accidents: Living with High-Risk Technologies</em>.
+Princeton University Press,
+1999,
+978-0691004129.</dd>
+<dt><span id="Singer2023">Singer2023</span></dt>
+<dd>Jessie Singer:
+<em>There Are No Accidents: The Deadly Rise of Injury and Disaster</em>.
+Simon &amp; Schuster,
+2023,
+978-1982129668.</dd>
+</dl>
+</article>
+
+<article class="post">
+  <h2 class="post-title">
     <a href="../2026/04/25/big-tech-as-beauty/">
       Big Tech is Like the Beauty Industry
     </a>
@@ -787,328 +879,6 @@ PublicAffairs,
 2017,
 978-1610397704.</dd>
 </dl>
-</article>
-
-<article class="post">
-  <h2 class="post-title">
-    <a href="../2026/04/19/asimpy-improvements/">
-      asimpy Improvements
-    </a>
-  </h2>
-  <p><time datetime="2026-04-19" class="post-date">2026-04-19</time></p>
-  <p>Following up on <a href="../2026/04/18/asimpy-performance-benchmarking/">yesterday&rsquo;s post about benchmarking</a>,
-Claude and I have made some improvements to <a href="https://asimpy.readthedocs.io/">asimpy</a>.</p>
-<h2>1. Eliminate <code>functools.partial</code> in <code>resume()</code></h2>
-<p>Before, every time an event fired and needed to reschedule a waiting process, <code>resume()</code> did this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_done</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">immediate</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_loop</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
-</code></pre></div>
-<p><code>partial</code> is a C-level callable, so it is fast,
-but it still allocates a new object on every event completion.
-The fix stores the value directly on the process and schedules <code>_loop</code> without wrapping it:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_done</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_resume_value</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_env</span><span class="o">.</span><span class="n">immediate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_loop</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resume_value</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_resume_value</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="o">...</span>
-</code></pre></div>
-<h2>2. Inline <code>_add_waiter</code> in <code>_loop</code></h2>
-<p>When a process parks on a pending event, the original code called through a method:</p>
-<div class="highlight"><pre><span></span><code><span class="n">yielded</span><span class="o">.</span><span class="n">_add_waiter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resume</span><span class="p">)</span>
-</code></pre></div>
-<p>The inlined version writes directly to the event&rsquo;s waiter slot:</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="n">_PENDING</span><span class="p">:</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">yielded</span><span class="o">.</span><span class="n">_waiter</span>
-    <span class="k">if</span> <span class="n">w</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">yielded</span><span class="o">.</span><span class="n">_waiter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resume</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-        <span class="n">w</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resume</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">yielded</span><span class="o">.</span><span class="n">_waiter</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">resume</span><span class="p">]</span>
-</code></pre></div>
-<p>This saves one Python function-call dispatch per <code>await</code> on a pending event.</p>
-<h2>3. Move the Exception Check from <code>Event.__await__</code> to <code>Process._loop</code></h2>
-<p>The original <code>__await__</code> checked whether the received value was an exception on every resume,
-even when the event succeeded normally:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="k">yield</span> <span class="bp">self</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">value</span>
-    <span class="k">return</span> <span class="n">value</span>
-</code></pre></div>
-<p>Moving the check to <code>_loop</code> lets <code>__await__</code> become a single expression with no branch:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="k">yield</span> <span class="bp">self</span><span class="p">)</span>
-</code></pre></div>
-<p>In <code>_loop</code>, the value from a failed event causes <code>coro.throw()</code> instead of <code>coro.send()</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="ne">BaseException</span><span class="p">):</span>
-    <span class="n">yielded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coro</span><span class="o">.</span><span class="n">throw</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">yielded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coro</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</code></pre></div>
-<p>Every normal (non-failing) <code>await</code> now avoids the <code>isinstance</code> check entirely.</p>
-<h2>4. Lazy Waiter Slot</h2>
-<p>Every <code>Event.__init__</code> previously allocated an empty list for <code>_waiters</code>,
-which is wasted work in the common case where at most one process ever waits on a given event.
-The fix replaces the list with a single <code>_waiter</code> slot that upgrades lazily:</p>
-<ul>
-<li><code>None</code>: no waiter yet (initial state, no allocation)</li>
-<li><code>callable</code>: exactly one waiter (the common case)</li>
-<li><code>list</code>: two or more waiters (<code>AllOf</code> and <code>FirstOf</code>)</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;_env&quot;</span><span class="p">,</span> <span class="s2">&quot;_value&quot;</span><span class="p">,</span> <span class="s2">&quot;_waiter&quot;</span><span class="p">,</span> <span class="s2">&quot;_on_cancel&quot;</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
-    <span class="o">...</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_waiter</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># None | callable | list[callable]</span>
-</code></pre></div>
-<p><code>succeed()</code> dispatches on the same three cases and avoids iterating an empty list
-for the typical single-waiter event.</p>
-<h2>Benchmark Results</h2>
-<p>Benchmarks were run with <code>sys.monitoring</code> (Python bytecode instruction counts)
-and <code>time.perf_counter()</code> (wall-clock time),
-each over 1000 executions of the feature under test.
-The comparison is against SimPy 5, which uses generator-based scheduling.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Feature</th>
-<th style="text-align: right;">Before (µs)</th>
-<th style="text-align: right;">After (µs)</th>
-<th style="text-align: right;">Wall-clock Δ</th>
-<th style="text-align: right;">Instr Δ</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Event</td>
-<td style="text-align: right;">0.522</td>
-<td style="text-align: right;">0.446</td>
-<td style="text-align: right;">-14.6%</td>
-<td style="text-align: right;">-1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Event (fail)</td>
-<td style="text-align: right;">0.967</td>
-<td style="text-align: right;">0.770</td>
-<td style="text-align: right;">-20.4%</td>
-<td style="text-align: right;">-2</td>
-</tr>
-<tr>
-<td style="text-align: left;">Timeout</td>
-<td style="text-align: right;">0.686</td>
-<td style="text-align: right;">0.623</td>
-<td style="text-align: right;">-9.2%</td>
-<td style="text-align: right;">-1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Environment.run(until=)</td>
-<td style="text-align: right;">0.749</td>
-<td style="text-align: right;">0.638</td>
-<td style="text-align: right;">-14.8%</td>
-<td style="text-align: right;">-1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Container</td>
-<td style="text-align: right;">0.694</td>
-<td style="text-align: right;">0.647</td>
-<td style="text-align: right;">-6.8%</td>
-<td style="text-align: right;">-4</td>
-</tr>
-<tr>
-<td style="text-align: left;">Container (float amounts)</td>
-<td style="text-align: right;">0.745</td>
-<td style="text-align: right;">0.640</td>
-<td style="text-align: right;">-14.1%</td>
-<td style="text-align: right;">-4</td>
-</tr>
-<tr>
-<td style="text-align: left;">Queue</td>
-<td style="text-align: right;">0.729</td>
-<td style="text-align: right;">0.657</td>
-<td style="text-align: right;">-9.9%</td>
-<td style="text-align: right;">-4</td>
-</tr>
-<tr>
-<td style="text-align: left;">Queue (blocking get)</td>
-<td style="text-align: right;">1.733</td>
-<td style="text-align: right;">1.605</td>
-<td style="text-align: right;">-7.4%</td>
-<td style="text-align: right;">-4</td>
-</tr>
-<tr>
-<td style="text-align: left;">Queue (blocking put)</td>
-<td style="text-align: right;">1.870</td>
-<td style="text-align: right;">1.723</td>
-<td style="text-align: right;">-7.9%</td>
-<td style="text-align: right;">-4</td>
-</tr>
-<tr>
-<td style="text-align: left;">Store</td>
-<td style="text-align: right;">0.706</td>
-<td style="text-align: right;">0.692</td>
-<td style="text-align: right;">-2.0%</td>
-<td style="text-align: right;">-4</td>
-</tr>
-<tr>
-<td style="text-align: left;">Store (filtered get)</td>
-<td style="text-align: right;">0.721</td>
-<td style="text-align: right;">0.695</td>
-<td style="text-align: right;">-3.6%</td>
-<td style="text-align: right;">-4</td>
-</tr>
-<tr>
-<td style="text-align: left;">PriorityQueue</td>
-<td style="text-align: right;">0.710</td>
-<td style="text-align: right;">0.673</td>
-<td style="text-align: right;">-5.2%</td>
-<td style="text-align: right;">-4</td>
-</tr>
-<tr>
-<td style="text-align: left;">Resource (uncontended)</td>
-<td style="text-align: right;">0.364</td>
-<td style="text-align: right;">0.339</td>
-<td style="text-align: right;">-6.9%</td>
-<td style="text-align: right;">-2</td>
-</tr>
-<tr>
-<td style="text-align: left;">Resource (context manager)</td>
-<td style="text-align: right;">0.493</td>
-<td style="text-align: right;">0.481</td>
-<td style="text-align: right;">-2.4%</td>
-<td style="text-align: right;">-2</td>
-</tr>
-<tr>
-<td style="text-align: left;">Resource (contention)</td>
-<td style="text-align: right;">1.825</td>
-<td style="text-align: right;">1.676</td>
-<td style="text-align: right;">-8.2%</td>
-<td style="text-align: right;">+13</td>
-</tr>
-<tr>
-<td style="text-align: left;">Resource (multi-capacity)</td>
-<td style="text-align: right;">1.843</td>
-<td style="text-align: right;">1.738</td>
-<td style="text-align: right;">-5.7%</td>
-<td style="text-align: right;">+13</td>
-</tr>
-<tr>
-<td style="text-align: left;">AllOf</td>
-<td style="text-align: right;">1.059</td>
-<td style="text-align: right;">1.022</td>
-<td style="text-align: right;">-3.5%</td>
-<td style="text-align: right;">-4</td>
-</tr>
-<tr>
-<td style="text-align: left;">AllOf (blocking)</td>
-<td style="text-align: right;">2.243</td>
-<td style="text-align: right;">2.054</td>
-<td style="text-align: right;">-8.4%</td>
-<td style="text-align: right;">+4</td>
-</tr>
-<tr>
-<td style="text-align: left;">FirstOf</td>
-<td style="text-align: right;">1.067</td>
-<td style="text-align: right;">1.009</td>
-<td style="text-align: right;">-5.4%</td>
-<td style="text-align: right;">-3</td>
-</tr>
-<tr>
-<td style="text-align: left;">FirstOf (blocking)</td>
-<td style="text-align: right;">2.240</td>
-<td style="text-align: right;">2.189</td>
-<td style="text-align: right;">-2.3%</td>
-<td style="text-align: right;">+2</td>
-</tr>
-<tr>
-<td style="text-align: left;">Interrupt</td>
-<td style="text-align: right;">1.866</td>
-<td style="text-align: right;">1.763</td>
-<td style="text-align: right;">-5.5%</td>
-<td style="text-align: right;">-1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Interrupt (with cause)</td>
-<td style="text-align: right;">1.918</td>
-<td style="text-align: right;">1.770</td>
-<td style="text-align: right;">-7.7%</td>
-<td style="text-align: right;">-1</td>
-</tr>
-<tr>
-<td style="text-align: left;">Barrier</td>
-<td style="text-align: right;">1.381</td>
-<td style="text-align: right;">1.280</td>
-<td style="text-align: right;">-7.3%</td>
-<td style="text-align: right;">-2</td>
-</tr>
-<tr>
-<td style="text-align: left;">PreemptiveResource</td>
-<td style="text-align: right;">3.196</td>
-<td style="text-align: right;">3.179</td>
-<td style="text-align: right;">-0.5%</td>
-<td style="text-align: right;">-5</td>
-</tr>
-<tr>
-<td style="text-align: left;">PreemptiveResource (no-preempt)</td>
-<td style="text-align: right;">2.558</td>
-<td style="text-align: right;">2.422</td>
-<td style="text-align: right;">-5.3%</td>
-<td style="text-align: right;">-3</td>
-</tr>
-<tr>
-<td style="text-align: left;">Process</td>
-<td style="text-align: right;">1.431</td>
-<td style="text-align: right;">1.994</td>
-<td style="text-align: right;">+39.3%</td>
-<td style="text-align: right;">+14</td>
-</tr>
-</tbody>
-</table>
-<h2>What the Numbers Show</h2>
-<p>Wall-clock time improved by 2-20% for every benchmark except <code>Process</code>.
-The largest gains appeared where events are created and triggered frequently:
-failing events (-20%),
-basic <code>Event</code> and <code>Timeout</code> (-15%),
-and <code>Environment.run(until=)</code> (-15%).
-The savings come primarily from eliminating one C-level allocation per event completion
-(the <code>partial</code> object in change 1)
-and one per event creation (the empty list in change 4).
-Neither of these shows up as fewer Python bytecodes
-because <code>sys.monitoring</code> counts only Python-level instructions, not C heap allocations.
-This is is why instruction counts changed by only 1-5 for most benchmarks
-even when wall-clock time fell.</p>
-<p>The instruction increases on <code>Resource (contention/multi-capacity)</code> (+13) and <code>Process</code> (+14)
-come from the three new bytecodes per <code>_loop</code> entry introduced by change 1
-(read <code>_resume_value</code>, clear it to <code>None</code>)
-and the <code>isinstance</code> branch introduced by change 3.
-For resource contention,
-where multiple processes queue for the same resource,
-these extra instructions are more than offset by the C-level savings:
-wall-clock still fell 6-8%.</p>
-<p>The <code>Process</code> microbenchmark is the one genuine regression (+39% wall-clock, +14 instructions).
-It measures the cost of creating and running a single minimal process to completion.
-At that scale the fixed per-<code>_loop</code> overhead from changes 1 and 3 has nothing to amortise against.
-In any simulation where a process awaits more than one event during its lifetime,
-which is the overwhelmingly common case,
-those costs are shared across many events and the net result is a speedup.</p>
-<h2>What I Can&rsquo;t Benchmark</h2>
-<p>These changes definitely make asimpy harder to understand:
-for example,
-inlining <code>_add_waiter</code> moves an action from what feels like its natural home
-to an entirely different part of the library.
-I wouldn&rsquo;t have thought of doing this on my own,
-and while I understand what Claude suggested in retrospect,
-I don&rsquo;t know how long it would take to wrap my head around it
-if I was reading the code for the first time.
-People are using phrases like &ldquo;cognitive debt&rdquo; and &ldquo;comprehension debt&rdquo; to describe this phenomenon;
-my only consolation is that software systems have <em>always</em> struggled with this.</p>
 </article>
 
 
