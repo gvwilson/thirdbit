@@ -9,20 +9,22 @@ As Sarah Igo describes in *The Known Citizen*,
 what is and isn't private has expanded in some directions and contracted in others over the past century
 with no consistent underlying principle.
 Sexual behavior between consenting adults was legally public
-in the sense that it was criminally regulated well into the twentieth century.
-Medical records were routinely shared between physicians, employers, and insurers without patient consent.
-The expansion of legal privacy protection into both of these areas
-was the result of specific case-by-case struggles.
-
+(in the sense that it was criminally regulated)
+well into the twentieth century.
+Physicians, employers, and insurers routinely shared medical records without patients' consent.
 At the same time,
 financial transactions that were once private are now reported to governments
 under anti-money-laundering and tax-compliance measures,
 and communications that were once protected by the practical difficulty of interception
 are now trivially monitored at scale.
-These shifts also do not reflect a coherent theory of what should be private.
-They reflect the outcomes of contests between specific interests,
+
+Changes to legal privacy protection into these areas
+were the result of specific case-by-case struggles.
+The shifts also do not reflect a coherent theory of what should be private.
+Instead,
+they reflect the outcomes of contests between specific interests,
 and the interests of states and large corporations have generally prevailed over
-the interests of individuals.
+those of individuals.
 
 The most thorough surveillance states in history were built without computers.
 The East German Ministry for State Security,
@@ -39,7 +41,7 @@ in a country of 16 million people,
 a ratio of state surveillance capacity to population that has never been matched.
 Many of these informants were members of the same family
 who were recruited without each other's knowledge.
-Anna Funder *Stasiland* documents what this meant in practice:
+Anna Funder's *Stasiland* documents what this meant in practice:
 files on personal relationships,
 sexual behavior,
 political opinions expressed in private,
