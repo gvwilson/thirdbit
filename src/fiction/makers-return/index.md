@@ -3755,55 +3755,56 @@ its voice straight out of Sindy's nightmares.
 ## Chapter 14: Left Behind (Violet)
 
 Once,
-many waking cycles ago,
-André had messaged Violet privately to tell her that he had found
-a secret game tucked away in a hidden corner of virtual.
-"It's pretty scary," he had said with relish.
-"Maybe too scary for for you."
+so long ago that Violet could only half remember it,
+André had messaged her to say that
+he had found a secret game tucked away in a forgotten corner of virtual.
+"It's v scary," he had said with relish.
+"Maybe 2 scary 4 you."
 
 Of course,
 that meant she had to try it out,
 so the next time Captain Leung was busy overseeing repairs
 she visualized the coordinates André had given her,
-opened the door that appeared,
-and stepped into chaos.
+opened the door that appeared in her mind,
+and stepped into a nightmare.
 
-It was night.
+It was dark.
 People were rushing around,
-shouting orders or trying to find one another.
-Some were carrying equipment or weapons.
-Others had children in their arms.
-Behind them all,
-gray curved walls stretched into the sky,
-except somehow she knew that they were walls,
+shouting orders or trying to find one another or figure out what was going on.
+Some carried equipment or weapons.
+Others had infants in their arms.
+Gray curved walls stretched into the sky behind them,
+except somehow she knew that they weren't walls,
 they were the hulls of arks waiting to be launched into space.
 
-A siren started blaring.
+A siren began whooping.
 "They've broken through!" someone yelled.
-Two women in exoskeletons just in front of Violet hugged awkwardly.
+Two women in exoskeletons in front of Violet hugged awkwardly.
 One donned her helmet and raised a forked lightning gun to her shoulder
-as the other hurried away with long mechanical strides.
+as the other picked up a couple of protesting children
+and hurried away with long mechanical strides.
 
-The woman who had stayed managed to fire half a dozen shots
+The woman who had stayed managed to fire a dozen shots
 before the bots reached her.
-Violet screamed and flipped out of the game,
+
+Violet screamed and flipped back into the real,
 then lay in her pod until she stopped shaking.
-She never tried to find the game again
-because some part of her knew that it wasn't actually a game.
+She never tried to find the sim again
+because some part of her knew that it wasn't actually a sim.
 She never spoke about it to André,
 either,
 and he never asked.
 
 When the misshapen bot with tentacles for arms stepped into the underground room,
-Violet thought for a moment that she had somehow fallen back into that game.
+Violet thought for a moment that she had somehow fallen back into that sim.
 "I should have known it would be you,"
-it said to Sindy in a tone that reminded her of André at his meanest.
+it said to Sindy with a sneer that reminded her of André at his meanest.
 
 "Z40! Attack!"
 Violet ordered, pointing.
 
 The combat bot didn't move.
-The newcomer snickered.
+The newcomer sniggered.
 "I'm afraid your friend is *my* friend now.
 Its firewall was an antique,
 but its parts are in excellent condition."
@@ -3814,7 +3815,8 @@ Sindy glared at it.
 
 The bot did a skittering little dance.
 "Am I?
-Oh dear."
+Oh dear.
+How sad for me."
 
 Sindy crossed her arms.
 "I *saw* it.
@@ -3823,7 +3825,8 @@ And good riddance,"
 she added.
 
 "Now, now," the bot purred.
-Violet shivered at the sudden change in its tone.
+Violet shivered at the sudden change in its tone,
+which was somehow even creepier than its snigger.
 "No need to be nasty.
 That's *my* job.
 Ah ha ha ha."
@@ -3858,7 +3861,7 @@ and then the bot began to laugh its horrible mechanical laugh.
 Ah ha ha ha.
 You are trying to *trick* me.
 These are not Makers.
-These are just two originals like yourself dressed up in scavenged technology.
+These are just two trivial entities like yourself wearing scavenged technology.
 *Stolen* technology,"
 it added,
 its voice suddenly venomous.
@@ -3874,14 +3877,14 @@ but now they're back."
 
 Sindy waved a hand to cut her off.
 "Which means you have to do what they tell you to,"
-she continued.
+she continued triumphantly.
 "Isn't that right?
 You have to do what they say just like Central did."
 
 "Sindy!" Violet said desperately.
 "I don't think it works like that."
 
-She expected the bot to tie them up or put them in handcuffs or something,
+She expected the bot to tie them up or put them in handcuffs or freeze them or *something*,
 but it didn't need to:
 there was nowhere for them to run.
 It led the way through the buried corridors.
@@ -3892,6 +3895,8 @@ Heavy doors slid open as they approached
 and closed behind them.
 Lights flickered into life over their heads,
 dimming once they were past.
+"I hate it when they do that,"
+Sindy muttered.
 
 Finally they reached a stretch of corridor lined with numbered doors.
 "You will stay here,"
@@ -3902,12 +3907,12 @@ with a cot, a couch, a small desk, and no obvious means of escape.
 
 Patient's tentacles writhed.
 "Your companion should have regained consciousness by now.
-I will conduct tests to determine the origin of his failure.
+I will conduct tests to determine the cause of his failure.
 And then you will tell me how you came by the technology you are wearing,
 and how you enslaved these two units."
 
 "We didn't enslave them!" Violet protested.
-"They're ours!"
+"They belong to us!"
 
 Patient froze for a moment.
 "I suggest you use the next few hours to reflect on what you just said,"
@@ -3933,7 +3938,7 @@ Sindy shrugged.
 "I was actually gonna lie down.
 Don't think I'll be able to sleep,"
 she went on,
-prodding the couch's seat cushion
+prodding the couch's seat cushion and giving it a sniff
 before stretching out on it.
 "But we might as well be comfortable."
 She paused.
@@ -3941,7 +3946,7 @@ She paused.
 
 Violet sat on the edge of the desk,
 then immediately stood up again.
-"How can you—Sindy, we've been *kidnapped*!"
+"How can you—Sindy, we're *prisoners*!"
 
 The other girl looked at her.
 "Uh huh.
@@ -3952,16 +3957,17 @@ She sat down on the desk again.
 "I'm sorry," she said quietly.
 "I didn't know Captain Leung was going to do that."
 
+FIXME: adjust as needed after figuring out why Leung took Sindy
+
 Sindy yawned.
 "That's aright.
 I don't think he knew he was going to do it either."
-She rolled onto her side and propped herself up on her elbow.
-"I hope he's aright."
 
 Violet nodded, hugging herself.
 She had never thought that she would miss her pod.
 
-"Hey, don't worry," Sindy said.
+"Hey, don't worry," Sindy said,
+rolling onto her side and propping herself up on her elbow.
 "I been in worse spots than this.
 Least they haven't hooked us up to any machines or anything yet."
 
@@ -3969,6 +3975,8 @@ Least they haven't hooked us up to any machines or anything yet."
 I just…"
 Violet took a deep breath.
 "It just brings back some bad memories."
+
+FIXME: need to make it clear the sim above is memories so that Violet can remember here
 
 It took her a few minutes to tell Sindy what little she remembered
 of escaping on the ark.
@@ -4003,18 +4011,19 @@ I don't know,
 do chores and stuff."
 
 She instantly knew it was the wrong thing to say.
-"My mama is a hybrid,"
+"My mama is 'people',"
 Sindy snapped.
 "And my sister, and my dad, and just about everyone I know.
 Nobody *made* them to do anything."
 
-*So much for making friends,* Violet thought,
+*So much for making friends,* Violet thought despairingly,
 but she had come this far.
 "Sindy, that can't be.
-'Brids can't have human children.
-They must have adopted you or something."
+'Brids can't have human children."
 
-Whatever Sindy might have said in reply
+FIXME: need to foreshadow Sindy's concern about being adopted
+
+Whatever Sindy might have said
 was cut off by the door sliding open.
 A small cleaning bot rolled in on four oversized wheels,
 the single arm set in its top waving
@@ -4025,7 +4034,7 @@ Violet squawked and kicked it without thinking.
 jumping to her feet as the bot hit the wall and fell to the floor.
 
 `ouch ouch ouch` it flashed.
-"Why did you do that?" it asked in a deep voice.
+"Why did you do that?" it asked in a tinny voice.
 
 Sindy crouched beside it.
 "Yeah, why'd you do that?
@@ -4043,7 +4052,7 @@ Violet didn't know which of them she was speaking to.
 "She didn't mean it.
 She was just scared."
 She sat back on her haunches.
-"What're you doing here, anyway?"
+"But what are you doing here?"
 
 `rescue you` scrolled across its screen.
 
