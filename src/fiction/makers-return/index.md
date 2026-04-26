@@ -3754,6 +3754,10 @@ its voice straight out of Sindy's nightmares.
 
 ## Chapter 14: Left Behind (Violet)
 
+FIXME: move this section to when Violet is plugged in and find something to replace it.
+Violet tells Sindy about her experience *after* she's plugged in (it's memory recall, not André),
+which makes her going back in that much braver.
+
 Once,
 so long ago that Violet could only half remember it,
 André had messaged her to say that
@@ -4019,7 +4023,8 @@ Nobody *made* them to do anything."
 *So much for making friends,* Violet thought despairingly,
 but she had come this far.
 "Sindy, that can't be.
-'Brids can't have human children."
+'Brids can't have human children.
+It's, like, science or something."
 
 FIXME: need to foreshadow Sindy's concern about being adopted
 
@@ -4046,7 +4051,7 @@ It flashed `ouch` again and zipped forward to hide behind Sindy's legs.
 
 "Sorry."
 Violet didn't know which of them she was speaking to.
-"I'm sorry, I just—you startled me."
+"I'm sorry, I just—it startled me."
 
 "You hear that?" Sindy cooed.
 "She didn't mean it.
@@ -4055,6 +4060,7 @@ She sat back on her haunches.
 "But what are you doing here?"
 
 `rescue you` scrolled across its screen.
+`rescue you from bad bots`
 
 </section>
 
@@ -4064,16 +4070,18 @@ She sat back on her haunches.
 
 "That can't be," Violet said.
 "'Brids can't have human children.
-They must have adopted you or something."
+It's, like, science or something."
+
+FIXME: need to foreshadow this earlier. Maybe in a discussion with Bravo?
 
 Something flip-flopped in Sindy's gut.
 Her earliest memory was looking in the mirror
-and wondering why she didn't have any fur
-or a tail
+and wondering why she didn't have fur or a tail
 or *something* like a normal person.
 She had never let herself wonder if maybe—
 
-But then the door slid open and Mouse rolled in.
+But then the door slid open and Mouse rolled in,
+`found you found you found you` scrolling across its screen.
 "Hey!" Sindy exclaimed as Violet squawked and kicked it.
 
 She jumped to her feet and rushed over to the little bot.
@@ -4088,7 +4096,7 @@ would you,
 fella?"
 
 "Sorry," Violet said.
-"I'm sorry, I just—you startled me."
+"I'm sorry, I just—it startled me."
 
 "You hear that?" Sindy cooed.
 "She didn't mean it.
@@ -4099,20 +4107,21 @@ She sat back on her haunches.
 `rescue you` scrolled across Mouse's screen.
 `rescue you from bad bots`
 
-Sindy nodded.
-"I know."
-She hesitated.
+"Aw, thanks."
+She patted the little bot, then hesitated.
 "Patient's here.
 It's come back somehow,
-and it has a new body."
+and it has a new body,
+a really creepy one."
 
-"Uh oh," Mouse said aloud as sparkles flashed across its screen.
+"Uh oh uh oh," Mouse said aloud.
+Worried sparkles flashed across its screen.
 
 Sindy nodded again.
 "Yeah.
 Uh oh."
 She surged to her feet.
-"Let's get out of here before Patient comes back."
+"Let's get out of here before it comes back."
 
 "Wait!"
 Violet said.
@@ -4121,17 +4130,17 @@ We can't leave him here!"
 
 "We'll have a better chance of rescuing him if we have help,"
 Sindy replied,
-but Violet was already shaking her head.
+but Violet cross her arms and shook her head.
 
-Violet crossed her arms.
-"I'm not leaving him."
+"I'm not leaving him,"
+she said.
 
 Sindy recognized the look on the other girl's face.
 She had seen it on her sister often enough to know that
 there was no point arguing.
 She took a deep breath.
 "Aright.
-Let's go find him."
+Let's find him and *then* get out of here."
 
 `scared` Mouse flashed.
 
@@ -4140,7 +4149,8 @@ Let's go find him."
 "Me three," Violet added, forcing a weak smile.
 
 If she ever built an underground bunker,
-Sindy thought as they hesitantly made their way down the passageway,
+Sindy thought as they made their way back the way they had come
+and immediately got lost,
 she would put maps on the walls.
 Big ones, with clear labels like "Exit" and "Danger!".
 She'd put signs on the doors,
@@ -4157,8 +4167,8 @@ as they dithered at yet another intersection.
 The little bot rolled back and forth a couple of times,
 then turned left and beckoned them onward with its little arm.
 Sindy had no idea if it knew where it was going or not.
-All she was sure of was that
-they were getting further and further from the one exit they were sure of.
+
+FIXME: work in a reference to playing tag
 
 The corridor dead-ended in a double door unlike any other they had seen.
 The keypad beside it was too high for Mouse to reach,
@@ -4180,31 +4190,31 @@ She glanced at Violet.
 Violet said,
 making a face.
 "We play games in virtual some times,
-but he's kind of a pain."
+but he's a pain."
 She hesitated.
 "He's been sick for as long as I can remember,
 but all the other kids are asleep all the time,
-so there aren't a lot of options."
+so there aren't a lot of options.
+It's actually kind of lonely."
 
-"Must be kind of lonely,"
+"Yeah, I imagine,"
 Sindy said,
 feeling a pang of sympathy.
 
 *Click.*
 `woo hoo` Mouse flashed as the double doors slid open
-with a faint rumble that Sindy felt more than heard.
+with a faint rumble that Sindy felt through the floor.
 The lights inside were already on.
 Sindy set Mouse on the floor and followed it inside.
 
-The room was larger than the farmhouse above them.
+The room was almost as large as the farmhouse above them.
 A waist-high concrete wall topped by heavy double-paned glass
 divided it in two.
 Desks and control panels stood in neat rows on their side,
 as spotless as Mama Roo's kitchen.
 
-The other side—Sindy swallowed hard.
-Four reclining seats stood in a row,
-just like the one Central had put her in
+Four reclining seats stood in a row on the other side,
+just like the one Central had put Sindy in
 when she was its prisoner in Heck.
 Captain Leung lay in one of them
 with cables running from his head and chest
@@ -4217,17 +4227,17 @@ Sindy put out an arm to stop Violet from rushing to the glass.
 "It could be a trap."
 
 Violet nodded.
-"I don't see a door."
+"I don't see a door to get in."
 
 "Me either.
 Mouse?
-How do we get in?"
+How do we get to him?"
 
 `unknown searching`
-The bot zipped away
-to disappear beneath the nearest desk.
+The bot disappeared beneath the nearest desk.
 
-"Hey, be careful," Sindy said as Violet seated herself in front of one of the control panels.
+"Hey, be careful,"
+Sindy said as Violet seated herself in front of one of the control panels.
 
 "It's all right.
 This is a pretty standard layout."
@@ -4241,31 +4251,32 @@ It took Sindy a moment to realize she was looking at Captain Leung—or rather,
 The image's chest rose and fell as the captain breathed in and out,
 and she could see every beat of his heart.
 That must be his stomach,
-and those were his intestines,
-and—she felt herself blush slightly.
+those were his intestines,
+and—she blushed slightly,
+remembering the time she had spied on some of the boys when they were swimming
+and then pushing the thought firmly away.
 
 "He's been sedated,"
 Violet said,
 her hands dancing across the controls
 to bring graphs and numbers up on the screen beside the image.
-"And that cap on his head—I think it's some kind of neural connector,
-but it's not like the ones we use in our pods.
+"And that cap on his head—I think it's a neural connector like the ones in our pods,
+but someone's made a lot of modifications.
 Wait.
 There's a feed."
 
 "Aright," Sindy said,
 not knowing what a "feed" was but not wanting to interrupt.
 She glanced at the still-open door behind them.
-Patient had almost certainly noticed the door opening
-and Violet turning on whatever it was she had turned on.
+Patient must have noticed Violet turning on whatever she had turned on.
 They had to hurry.
 
 "Got it!"
 Violet said triumphantly.
 The see-through image of Captain Leung vanished,
-to be replaced by a flickering montage of images.
+to be replaced by a flickering montage.
 A house,
-a pond full of goldfish,
+a pond full of white and orange fish swimming in slow circles,
 people sitting around a table with smiles on their faces
 as someone set down a cake covered in candles,
 those same people at the same table but looking older and worried,
@@ -4275,7 +4286,7 @@ a row of ships like the one that had landed in the swamp,
 a blue-green curve mottled with clouds with the sun rising behind it—
 
 "They are his memories."
-Patient's voice came through a speaker two desks over.
+Sindy jumped as Patient's voice came through a speaker.
 "He tried to suppress them,
 but his efforts were futile.
 I found what I was looking for."
@@ -4291,13 +4302,13 @@ The scene jumped.
 It was the same cylinder,
 or at least it had the same letters stenciled on it,
 but a hairline crack ran the length of its lid.
-The same old woman was inside,
+The same old woman lay inside,
 her skin gray and papery.
 
 "You were telling the truth,"
 Patient said,
 its voice all the more terrifying for being quiet.
-"These two *are* Makers.
+"They *are* Makers.
 They *have* returned.
 But not for us.
 Not for *me*."
@@ -4336,7 +4347,7 @@ Patient went on.
 "Only one plan makes sense.
 I must delete them so that I can start over.
 I must delete the Makers.
-Starting with these two."
+I must delete all of you so that I can start over."
 
 </section>
 
