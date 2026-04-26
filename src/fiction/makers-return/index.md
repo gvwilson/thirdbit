@@ -3509,6 +3509,10 @@ A broken chair,
 some animal's dried scat on the remains of a throw rug—Sindy shivered.
 Would her family's house look like this some day?
 
+FIXME: why would the captain take them underground?
+And why would he have landed there?
+Some sort of signal from under this farmhouse (a trap by Patient)?
+
 "All clear,"
 Captain Leung called.
 Sindy and Violet did an awkward two-step at the door
