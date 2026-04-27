@@ -60,7 +60,6 @@ and make the people dependent on their new overlords.
 
 *[See the whole series](@root/sdgc/)*
 
-
 <span id="Linebaugh2014">Linebaugh2014</span>
 :   Peter Linebaugh:
     *Stop, Thief!: The Commons, Enclosures, and Resistance*.
