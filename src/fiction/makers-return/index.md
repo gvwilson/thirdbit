@@ -6,6 +6,8 @@ fiction: true
 
 <ol id="toc"></ol>
 
+FIXME: more italics in Violet's speech patterns.
+
 <section markdown="1">
 
 ## Chapter 1: My Thanks To Those I Loved (Sindy)
@@ -4222,15 +4224,12 @@ to the machines piled haphazardly beside him.
 His spacesuit was neatly folded on a table a few paces away,
 but his helmet was nowhere to be seen.
 
-"Wait!"
-Sindy put out an arm to stop Violet from rushing to the glass.
-"It could be a trap."
+"I don't see a way to get in,"
+Violet said.
 
-Violet nodded.
-"I don't see a door to get in."
-
-"Me either.
-Mouse?
+"Me either."
+Sindy turned to the little bot.
+"Mouse?
 How do we get to him?"
 
 `unknown searching`
@@ -4348,6 +4347,7 @@ Patient went on.
 I must delete them so that I can start over.
 I must delete the Makers.
 I must delete all of you so that I can start over."
+And then the double doors behind them slid shut with a faint rumble.
 
 </section>
 
@@ -4358,10 +4358,10 @@ I must delete all of you so that I can start over."
 "I must delete them so that I can start over,"
 the bot said.
 "I must delete the Makers.
-Starting with these two."
-And then the double doors behind them slid shut with a faint rumble.
+I must delete all of you so that I can start over."
 
-The little bot that Sindy called mouse waved its single little arm in panic.
+The doors behind them rumbled shut.
+The little bot that Sindy called Mouse waved its single little arm in panic.
 `oh no oh no` scrolled across its screen.
 "That's not good," it said simultaneously.
 
@@ -4378,18 +4378,15 @@ she said to Sindy.
 
 "You think?" the other girl shot back.
 She waved at the controls on the desk.
-"Can you do something with these?"
+"Can you do something with those?"
 
 "Let's find out."
-Violet sat down again and stared at the switches,
-screens,
-panels,
-and keyboards crowded together in front of her.
+Violet sat down again and studied the switches, screens, and panels in front of her.
 If that one brought up a medical display for Captain Leung,
 then maybe *that* one would—
 
 *click*
-A section of the half-wall in front of them swung open.
+A section of the wall dividing the room swung open.
 "Wait!"
 Violet said as Sindy hurried to it.
 "It could be a trap."
@@ -4399,8 +4396,7 @@ Sindy replied,
 pulling the section of wall the rest of the way open.
 
 *Is everyone down here like this?*
-Violet wondered as she followed Sindy and the little bot she called Mouse
-into the lab.
+Violet wondered as she followed Sindy and Mouse into the lab.
 If so,
 and if they survived,
 life was going to be a *lot* more interesting than it had been on the ark.
@@ -4413,7 +4409,7 @@ she could see that the wires running to his head were attached to a helmet
 instead of being glued directly to his skin.
 Other helmets just like it hung on the backs of the other three chairs.
 They looked heavier than the one she wore in her pod,
-but was otherwise almost identical.
+but otherwise seemed identical.
 
 Sindy was looking at the helmets as well.
 Their eyes met.
@@ -4424,28 +4420,23 @@ and using it to take control of the doors and the bots and everything
 so that we can escape,
 then yes,"
 Violet replied.
-Her spacesuit rustled as she sat gingerly on the edge of the nearest chair.
+The cushion gave slightly underneath her
+as she sat gingerly on the edge of the nearest chair.
 Was she really going to do this?
 For all she knew,
 she would just wind up unconscious like Captain Leung.
 
 "I'll do it,"
 Sindy said,
-lifting the helmet off the back of the third seat
-and then sitting down with it in his arms.
-"I helped 'em beat Central and Patient last time.
-Oughta be easier now that it's just one of 'em."
+taking the helmet off the back of the third seat.
+"It worked aright for me last time."
 
-"Maybe,"
-Violet said,
-sitting back in her own chair.
+FIXME: come up with a better line for Violet.
 
-Sindy raised her eyebrows.
-"Do you have a better idea?"
-
-"I don't know if I'd call it better,"
+"Uh huh,"
 Violet replied,
-then lifted the helmet from her chair
+then lifted the helmet from her chair,
+sat back,
 and snugged it into place on her head.
 
 *"It's different for everyone,"
@@ -4466,8 +4457,7 @@ The important things stay the same, though.
 Places, events, what people say—those have to be created before your brain can interpret them.
 It's only the details that vary."*
 
-That answer had satisfied her younger self enough
-for her to say thank you and good night.
+That answer had satisfied her younger self.
 She hadn't thought much about the "how" of virtual since then,
 but her question and Doctor Szego's answer came rushing back
 when she found herself standing
@@ -4475,19 +4465,21 @@ in a room that looked exactly like the one she had just been in,
 except spotless and empty.
 
 The half-glass wall was in the same place,
-with a gap where the door had been.
-The double doors between the outer room and the corridor were gone as well.
-So were the light panels, she realized.
+but solid where the door had been.
+The double doors between the outer room and the corridor
+had been replaced by a blank stretch of concrete.
+The light panels were missing too, she realized.
 She could see perfectly well,
 but had no idea where the light was coming from.
 
 Something creaked behind her.
 She whirled around.
-The concrete wall creaked again, bulging out slightly.
-She didn't know what it was,
+The concrete wall creaked again,
+bulging slightly as if something was trying to push through them into the room.
+She didn't know what that meant,
 but something told her it wasn't good.
 
-Violet ran to the double doors.
+Violet ran to where the double doors should be.
 Here in virtual,
 the keypad was just an angled outcrop of concrete.
 There was nowhere to put her palm and no keys to press.
@@ -4496,61 +4488,54 @@ then used one of the words Captain Leung wasn't supposed to use around her
 when nothing happened.
 
 The wall behind her creaked again.
-She glanced over her shoulder just as the concrete cracked.
-A mechanical tentacle extruded itself
+She glanced over her shoulder just as
+a mechanical tentacle slithered through a crack in the concrete
 and began groping around the wall.
-It was Patient,
-or at least something with the same arms as it.
-She had to hurry.
+It looked just like the ones on Patient's creepy new body.
+She had to *do* something, but what?
 
-The keypad on the outer side of the door was just as useless as the one inside.
-*Think,* she told herself,
-trying to be calm the way Sindy seemed to manage.
-Wait—were the doors actually there?
-She slid her hand into the narrow gaps in the wall
-that they slid into.
-Her fingertips met no resistance.
-Either the doors were too deep for her to reach,
-or they were missing entirely.
+"Just *open*," she said despairingly.
+As if it had heard her,
+the wall in front of her vanished.
+It didn't swing open or slide aside,
+it just hadn't ever been there.
 
-The crack in the wall of the lab opened wider.
-A second tentacle emerged.
-Violet hesitated only a moment before running down the corridor,
-back the way they had come.
-All the intersections were gone,
-and so were the numbered doors.
+A second tentacle emerged behind her.
+Violet hesitated only a moment before running back the way they had come.
+The twists and turns and intersections were all gone,
+but the faster she ran,
+the more the passageway seemed to stretch out.
+As soon as she realized that she slowed to a walk.
+Sure enough,
+the dimly-lit concrete went back to normal,
+or at least what passed for normal for a virtual simulation of an underground bunker.
 
-She reached the stairs up to the farmhouse in what felt like seconds,
-clambered up them two at a time,
-and stopped abruptly at the top.
+When she reached the stairs up to the farmhouse
+she took them two at a time.
 The inside of the farmhouse was as clean as the lab had been,
-and just as empty except for a square pillar the same height as
-the lab's double doors.
-A matching pair of keypads stuck out from opposite sides of it.
+but filled with cozy furniture.
+The patterned rug on the floor looked brand new,
+and a warm, inviting smell was coming from the stove.
+What there *wasn't* was a door.
+Or windows, she realized—they were gone too.
 
-Did both control the double doors in the real world?
-Did neither?
-Or would one let them out and the other trap them?
-As she dithered,
-she heard the sound of mechanical feet
-echoing out of the hole in the floor.
-*Eeny meeny miney mo,* she thought,
-and pressed her hand on the nearest keypad.
+The sound of mechanical feet echoed in the passageway beneath her.
+As if in response,
+a keypad suddenly existed on the kitchen table two strides away.
+*Sure, why not?* she thought a bit giddily,
+and pressed her hand on it.
 
 *blink*
-One moment the farmhouse was empty.
-The next,
-a see-through image floated in mid-air.
+The rug and furniture disappeared,
+to be replaced by a translucent image floating in mid-air.
 It was the ark,
 still lying in the swamp,
-with some of Sindy's 'brid friends still standing guard nearby.
-At least there was no sign of giant tentacles.
-
-But wait:
-there was a timer counting down near the ark.
+with some of Sindy's 'brid friends standing guard nearby.
+There was no sign of giant tentacles,
+but a timer was counting down above the scene.
 As she watched,
 Z40 and Z51 marched up to the ark.
-A walkway extended from the ship's side,
+A walkway extended from its side,
 withdrawing again after the two bots were inside.
 
 A moment later the entire scene disappeared in a brilliant flash.
@@ -4559,13 +4544,14 @@ Violet's hand flew to her mouth as
 `simulation complete: 100% success`
 took the place of the timer.
 
-Violet felt like she was going to throw up.
-Was Patient going to blow up the ark?
-Everyone she knew was on board!
+Violet felt like she was going to be sick.
+Was Patient going to blow use Z40 and Z51 to blow up the ark?
 
-She pressed her hand firmly on the other keypad.
-The image of the ark disappeared,
-to be replaced by a black-and-white depiction of the lab,
+FIXME: Violet needs to figure out how to open the door.
+This needs to tie back to something on the ark as explanation.
+
+She pressed her hand on the keypad.
+The image of the ark was replaced by a black-and-white depiction of the lab,
 complete with her and Captain Leung in chairs
 and Sindy and Mouse nearby.
 The double doors flashed twice, then opened.
@@ -4574,8 +4560,7 @@ She had done it!
 A tentacle came out of the hole in the floor.
 "Found you," hissed a familiar, frightening voice.
 
-Violet closed her eyes and *pushed*.
-
+Violet closed her eyes and ordered herself to wake up *now*.
 When she opened them she was back in the lab.
 "You did it!" Sindy said,
 immediately followed by, "Ew!"
@@ -4589,11 +4574,14 @@ then spat to get the taste out of her mouth.
 "That was pretty stupid of you,"
 Sindy said,
 helping her to her feet.
-"But pretty brave, too."
+"Putting on the helmet, I mean, not…"
+She gestured at the floor.
+"But it was pretty brave, too.
+Thanks."
 
 "Thanks."
-Violet stopped herself from wiping her mouth with the sleeve of her spacesuit,
-then took Sindy's arm.
+Violet stopped herself from wiping her mouth with her sleeve,
+then stifled an unpleasant burp and struggled to her feet.
 "Come on—we have to get out of here."
 
 Sindy nodded at Captain Leung.
@@ -4601,9 +4589,9 @@ Sindy nodded at Captain Leung.
 We can't just leave him here."
 
 "We have to,"
-Violet said,
-swallowing a burp.
-"We have to get back to the ark or that crazy bot is going to blow it up!"
+Violet said.
+"That crazy bot of yours is going to blow it up!
+It's going to blow *everything* up!"
 
 </section>
 
