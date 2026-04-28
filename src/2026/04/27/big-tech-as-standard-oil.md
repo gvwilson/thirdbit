@@ -115,6 +115,8 @@ before they could grow large enough to threaten market share.
 The current debate over platform regulation is therefore partly a debate about
 whether antitrust law should return to its original concern with concentration of power.
 
+*[See the whole series](@root/sdgc/)*
+
 <span id="Doctorow2025">Doctorow2025</span>
 :   Cory Doctorow:
     *Enshittification: Why Everything Suddenly Got Worse and What to Do About It*.
