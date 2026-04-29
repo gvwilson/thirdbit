@@ -4888,19 +4888,20 @@ the alarm bell in the belfry above them began to ring.
 ## Chapter 18: This Is Not a Game (Violet)
 
 Violet jumped when a bell began to ring overhead.
-A young wolfish 'brid stuck his out out of window two stories above the crowd and shouted,
+A young wolfish 'brid stuck his out out of window two stories above and shouted,
 "Bots! There's bots comin'! A whole mess of 'em!"
 
 "Now what?" Mayor Lupus demanded in exasperation.
 "Dockety, is this your folk?"
 
-"No," the bot replied, its voice buzzing.
-"I think it is an attack."
+"No," the bot buzzed.
+"I believe Miz Roo is correct.
+I believe it is an attack."
 
 "Cody!" the mayor shouted up through cupped paws.
 "Which way they comin'?"
 
-"'Long by Pickleberry Street!" the young wolf shouted back.
+"Down along Pickleberry Street!" the young wolf shouted back.
 "There's a couple of 'em look like Beevy!"
 
 "It's Patient!" Sindy exclaimed.
@@ -4909,8 +4910,9 @@ A young wolfish 'brid stuck his out out of window two stories above the crowd an
 The handful of militia in the little cobblestoned square
 looked at each other.
 One young goat 'brid elbowed another, who shushed the first.
+Violet's heart sank.
 Most of the town's defenders were still by the ark,
-Violet realized with a sinking feeling.
+and the ones who were here had no chance against Z40 and Z51.
 
 "All right, ears to me," the tiger snapped.
 "You two with the net guns, get over by the water trough.
@@ -4932,21 +4934,21 @@ when the young wolf above shouted,
 
 "Aim for its legs!" the tiger shouted as Z40 charged into the square.
 Two net guns fired in quick succession.
-One went high,
-but the second tangled around the combat bot's front legs.
+One shot went high.
+The second tangled around the combat bot's front legs.
 It fell forward
 just in time to be struck by
-a fireball from the tech on the tiger's chest.
+a fireball from the tiger's chest.
 
 Behind it,
 a hodge-podge of other bots swarmed into the square.
 Some looked like the service bots from the ark,
-others were completely new to Violet.
+others were designs completely new to Violet.
 All had patches and modifications:
 a saw blade in place of an arm,
 a tire three sizes too large for its frame,
-and others she didn't have time to digest
-before they and the militia met.
+and things she didn't have time to make sense of
+before the fighting began.
 
 "With me, boys!" the tiger shouted, charging forward.
 The two young goats lowered their pikes and raced after him.
@@ -4960,22 +4962,20 @@ as the other girl pulled her into a narrow alley.
 "To get help!" Sindy shot over her shoulder.
 
 The alley opened onto a narrow street.
-Their feet drummed on its planked sidewalk.
+Their feet drummed on a planked sidewalk.
 A couple of 'brids shouted questions at them,
-but Sindy didn't slow down to answer so Violet didn't either,
+but Sindy didn't slow down,
 not until they reached the steps of a tidy two-story house
 with a small porch and narrow windows on either side of its front door.
 
 The inside was cool
-and smelled faintly of tea and warm fires
-and something else Violet couldn't identify.
+and smelled faintly of tea and warm fires.
 Shelves packed with books lined the walls.
 Others lay in neat piles on side tables,
 some with slips of paper stuck in them.
 
 "I thought we were getting help?" Violet asked,
-following Sindy into a kitchen
-that had clearly also doubled as a dining room.
+following Sindy into a kitchen.
 
 "We are."
 Sindy took a sturdy brown case off the counter and upended it.
@@ -5016,7 +5016,7 @@ Her face and Sindy's were replaced by that of a bald reptilian hybrid
 wearing glasses, a sweater, and a colorful scarf.
 "Hello Sindy," he said.
 
-Sindy gasped.
+Sindy's hand flew to her mouth.
 The hybrid straightened his glasses and smiled.
 "If you're watching this,
 then I'm guessing I'm no longer able to share a cup of tea with you.
@@ -5029,12 +5029,13 @@ The hybrid looked over his shoulder at the cupboard behind him.
 "I hope it all brings you as much joy as you have brought me."
 
 The image froze, then blinked out.
-Violet swallowed the lump in her throat.
+Violet swallowed a sudden lump in her throat.
 "Are you all right?" she asked Sindy.
 
 Sindy wiped her eyes with her sleeve and shook her head.
 "No.
-I—I just miss him."
+I miss him.
+I miss him so much."
 
 Violet handed her the playback.
 Not knowing what else to do,
@@ -5061,16 +5062,11 @@ Side by side they looked at the hidden treasure.
 "Do you think it's a trap?" Violet whispered.
 There were *always* traps in games.
 
-Sindy shook her head.
-"Special Leaf wouldn't—"
-She stopped for a moment.
-"He wouldn't *have* set a trap for me."
-
-She reached forward to pick up something that looked like
-a large coiled spring with bobbles on the end,
-frowned at it,
-and then shook her head.
-"No idea.
+Sindy shook her head,
+reaching into the cupboard to pick up something that looked like
+a large coiled spring with bobbles on the end.
+She frowned at it and shook her head.
+"I have no idea what this is.
 You?"
 
 Violet shook her head in return.
@@ -5084,7 +5080,7 @@ it just floated in the air,
 turning slowly.
 
 "There has to be *something* here we can use,"
-Sindy muttered in frustration a few moments later.
+Sindy muttered in frustration.
 "He wouldn't have hid 'em if they were just toys."
 
 "I'm sorry," Violet said again.
