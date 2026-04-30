@@ -59,7 +59,7 @@ they tend to treat their workers no better than a Soviet-era factory manager.
 > See also Spufford's wonderful *Red Plenty*,
 > which I'm not even going to try to describe.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Cassidy2025">Cassidy2025</span>
 :   John Cassidy:

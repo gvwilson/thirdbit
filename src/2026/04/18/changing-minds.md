@@ -94,7 +94,7 @@ and working through social networks rather than through arguments.
 This is not manipulation:
 it is taking the actual psychology of belief seriously.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Achen2017">Achen2017</span>
 :   Christopher Achen and Larry Bartels:

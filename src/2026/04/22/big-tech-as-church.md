@@ -70,7 +70,7 @@ Major technology platforms' power comes from the same sources.
 To leave Facebook does not just mean losing a service:
 it means losing connection to the social world that the platform provides.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Southern1990">Southern1990</span>
 :   R.W. Southern:

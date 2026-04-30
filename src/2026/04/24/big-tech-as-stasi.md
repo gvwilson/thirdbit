@@ -71,7 +71,7 @@ than the Stasi could ever have dreamed of knowing.
 The irony is that the Stasi had to coerce their informants;
 we pay subscription fees for the privilege of being surveilled.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Funder2011">Funder2011</span>
 :   Anna Funder:

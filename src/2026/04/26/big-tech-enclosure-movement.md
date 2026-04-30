@@ -58,7 +58,7 @@ extinguish practices that had sustained communities for generations,
 convert resource into commodities that could be extracted or sold,
 and make the people dependent on their new overlords.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Linebaugh2014">Linebaugh2014</span>
 :   Peter Linebaugh:

@@ -77,7 +77,7 @@ The gap between the industry's self-presentation and its actual material footpri
 It is sustained by the geographic distance between production and consumption,
 and by the way that distance makes the connection invisible to those who benefit from it.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Lapierre2002">Lapierre2002</span>
 :   Dominique Lapierre and Javier Moro:

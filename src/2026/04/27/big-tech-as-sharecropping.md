@@ -100,7 +100,7 @@ The app is not merely a more convenient interface.
 It is supervisory infrastructure that monitors pace and completion rates
 and eliminates the degrees of freedom that less tightly managed arrangement permitted.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Blackmon2008">Blackmon2008</span>
 :   Douglas A. Blackmon:

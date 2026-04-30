@@ -67,7 +67,7 @@ can come sooner,
 will be far more robust,
 and will have more impact than pious gestures like banning young people from using social media.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Michaels2008">Michaels2008</span>
 :   David Michaels:

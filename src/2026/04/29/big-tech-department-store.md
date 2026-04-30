@@ -44,7 +44,7 @@ which is how banks usually respond to findings of insider train:
 misconduct labeled individual aberration,
 and the structural conditions that produced it are not addressed.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Khan2017">Khan2017</span>
 :   Lina Khan:

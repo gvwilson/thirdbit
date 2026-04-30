@@ -75,7 +75,7 @@ And it does not account for the fact that the "voluntary" choice
 is often a choice between accepting a bad deal
 or having none at all.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Schlosser2001">Schlosser2001</span>
 :   Eric Schlosser:

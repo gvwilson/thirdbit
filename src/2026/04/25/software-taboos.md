@@ -80,7 +80,7 @@ we should keep politics out of programming,
 these decisions about what to write (and read) are political:
 it puts the interests of one set of stakeholders over another.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Douglas2002">Douglas2002</span>
 :   Mary Douglas:

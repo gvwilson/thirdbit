@@ -94,7 +94,7 @@ such age verification requirements, platform liability rules, and filtering mand
 would make it harder for geographically isolated youth
 to learn more about who they might be.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Gray2009">Gray2009</span>
 :   Mary L. Gray:

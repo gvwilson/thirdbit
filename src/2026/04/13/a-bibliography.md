@@ -4,7 +4,7 @@ date: 2026-04-13
 category: sdgc
 ---
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 ## A
 

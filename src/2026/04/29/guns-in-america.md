@@ -68,7 +68,7 @@ No single one of these factors is individually decisive,
 but together they have sustained a policy equilibrium
 that has survived Columbine, Sandy Hook, Parkland, and dozens of other mass killings.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Hemenway2009">Hemenway2009</span>
 :   David Hemenway:

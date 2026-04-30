@@ -93,7 +93,7 @@ Most importantly,
 auditing fails because big accounting firms depend on their clients for their income,
 which gives them a powerful reason to *not* find any problems.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Davies2022">Davies2022</span>
 :   Dan Davies:

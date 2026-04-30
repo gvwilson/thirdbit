@@ -60,7 +60,7 @@ Neither criterion is without any signal about likely job performance,
 but neither is calibrated against actual job performance data,
 because most organizations never close that loop.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Cottom2017">Cottom2017</span>
 :   Tressie McMillan Cottom:

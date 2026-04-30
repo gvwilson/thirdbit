@@ -62,7 +62,7 @@ they were not at the very bottom.
 >
 > – Lyndon B. Johnson
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Banaji2013">Banaji2013</span>
 :   Mahzarin R. Banaji and Anthony G. Greenwald:

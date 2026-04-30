@@ -83,7 +83,7 @@ or content that simply satisfies a question and lets the user close the tab.
 Big tech companies that depend on advertising revenue
 will therefore always amplify inflammatory distortion over mere facts.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Campbell2001">Campbell2001</span>
 :   W. Joseph Campbell:

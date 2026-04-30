@@ -82,7 +82,7 @@ Short of this,
 accurate disclosure would require prominence and clarity that platforms have no incentive to provide,
 since their business model depends on users not knowing that the game is rigged.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Doctorow2022">Doctorow2022</span>
 :   Cory Doctorow and Rebecca Giblin:

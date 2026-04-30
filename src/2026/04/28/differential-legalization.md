@@ -71,7 +71,7 @@ This was not the policy response extended to crack cocaine in the 1980s,
 which devastated predominantly Black urban communities
 and was met with mandatory minimums and mass incarceration.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Hari2015">Hari2015</span>
 :   Johann Hari:

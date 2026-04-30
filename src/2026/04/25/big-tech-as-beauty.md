@@ -114,7 +114,7 @@ but perhaps one more purchase will fix that.
 A business model built on that premise
 has no interest in ever letting us feel finished.
 
-*[See the whole series](@root/sdgc/)*
+*[see the whole series](@root/sdgc/) · [email me](mailto:gvwilson@third-bit.com?subject=SDGC)*
 
 <span id="Packard1957">Packard1957</span>
 :   Vance Packard:
