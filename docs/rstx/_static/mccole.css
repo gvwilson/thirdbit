@@ -4,6 +4,8 @@
     --len-half: 0.5rem;
     --len-line-height: 1.4; /* instead of standard 1.2 */
     --len-one: 1rem;
+    --len-one-half: 1.5rem;
+    --len-two: 2rem;
     --len-page: 960px; /* 60rem at 16px base; kept in px since Chota uses 62.5% html base */
     --len-quarter: 0.25rem;
     --len-thick-double: 8px;
@@ -96,7 +98,7 @@ h1, h2, h3 {
     margin-bottom: var(--len-thick-double);
 }
 h2, h3 {
-    margin-top: 1.5rem;
+    margin-top: var(--len-one-half);
 }
 
 /* Page heading */
@@ -207,6 +209,7 @@ table {
 td, th {
     border: solid var(--len-thin) var(--color-lightGrey);
     padding: 1.2rem 0.8rem;
+    vertical-align: top;
 }
 
 tr:hover {
@@ -217,13 +220,12 @@ thead {
     background-color: var(--bg-secondary-color);
 }
 
-/* Lists: 1.5rem minimum indent for legibility */
 ol {
-    padding-left: 1.5rem;
+    padding-left: var(--len-two);
     margin-top: 0px;
 }
 ul {
-    padding-left: 1.5rem;
+    padding-left: var(--len-two);
     margin-top: 0px;
     list-style-type: disc;
 }
@@ -237,7 +239,8 @@ div.syllabus {
     border-radius: 4px;
 }
 div.callout > :last-child,
-div.syllabus > :last-child {
+div.syllabus > :last-child,
+blockquote > :last-child {
     margin-bottom: 0;
 }
 
@@ -246,7 +249,7 @@ dt:not(:first-child) {
     margin-top: var(--len-quarter);
 }
 dd {
-    margin-left: 1.5rem;
+    margin-left: var(--len-one-half);
     margin-bottom: var(--len-half);
 }
 
