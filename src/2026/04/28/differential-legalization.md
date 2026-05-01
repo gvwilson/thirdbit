@@ -63,7 +63,7 @@ Pharmaceutical manufacturers
 aggressively marketed OxyContin to physicians
 while misrepresenting how addictive it was.
 When the crisis could no longer be ignored,
-it was dealth with as a public health emergency.
+it was dealt with as a public health emergency.
 Federal money flowed toward treatment;
 harm reduction was debated seriously in legislatures that had previously dismissed it,
 largely because the communities most affected were predominantly white and rural.
