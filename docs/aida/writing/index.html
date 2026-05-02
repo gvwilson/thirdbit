@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Writing</title>
+<meta content="AI for Data Analysis" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">AI for Data Analysis</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../llm/">How LLMs Work</a></li>
+<li><a href="../interact/">Interact with LLMs</a></li>
+<li><a href="../manage/">Managing Data</a></li>
+<li><a href="../coding/">Coding</a></li>
+<li><a href="../visualize/">Visualizing Results</a></li>
+<li><a class="active" href="../writing/">Writing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/aida">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Writing</h1>
+<h2>Why use an LLM for scientific writing</h2>
+<ul>
+<li>Scientists have used spell checkers and citation managers since they were invented</li>
+<li>LLMs are "just" a more powerful version of these<ul>
+<li>The word "just" is doing a lot of work in that sentence</li>
+</ul>
+</li>
+<li>If you stop thinking about what you are saying,
+    you stop saying anything worth reading</li>
+</ul>
+<h2>What LLMs can help with</h2>
+<ul>
+<li>Drafting: producing a rough first version of a methods section, abstract, or cover letter</li>
+<li>Editing: suggesting ways to shorten sentences, improve flow, or reduce jargon</li>
+<li>Summarizing: condensing a long paper into a paragraph to check your own understanding</li>
+<li>Reformatting: converting references to a required citation style</li>
+<li>Translation: moving text between registers (e.g., technical to plain-language summary)</li>
+</ul>
+<h2>What LLMs get wrong</h2>
+<ul>
+<li>Fabricating citations: producing plausible-sounding but nonexistent references</li>
+<li>Overstating confidence: removing hedges and qualifications that matter in scientific prose</li>
+<li>Losing precision: substituting near-synonyms that change the meaning of a claim</li>
+<li>Generic phrasing: producing sentences that sound polished but say nothing specific</li>
+<li>Misrepresenting methods: paraphrasing a procedure in ways that omit critical details</li>
+</ul>
+<h2>Prompting for drafts</h2>
+<ul>
+<li>Provide the specific claim you want to make before asking for prose</li>
+<li>Include the key numbers, citations, or conditions that must appear</li>
+<li>Ask for a draft, not a final version: plan to rewrite rather than just accept</li>
+<li>Specify the audience and register explicitly (e.g., "write for a methods section in a biology journal")</li>
+</ul>
+<h2>Prompting for editing</h2>
+<ul>
+<li>Paste your own text and ask for specific changes, not a general rewrite</li>
+<li>Ask it to flag passive constructions, not eliminate them: some are correct</li>
+<li>Ask it to identify long sentences rather than shorten them automatically</li>
+<li>Ask why a suggested change improves the text: vague style advice is not useful</li>
+</ul>
+<h2>Verifying LLM-generated writing</h2>
+<ul>
+<li>Check every citation against the actual source<ul>
+<li>You <em>do</em> use a citation manager, right?</li>
+</ul>
+</li>
+<li>Confirm that quantitative claims match your data or the cited paper</li>
+<li>Read the output aloud: fluent prose can hide missing substance</li>
+<li>Ask a colleague to read it without knowing an LLM was involved: does it sound like you?</li>
+</ul>
+<h2>Academic integrity</h2>
+<ul>
+<li>Follow your institution's policy on LLM use in submitted work<ul>
+<li>If the institution has one, that is</li>
+</ul>
+</li>
+<li>Disclose LLM assistance where required or where it is a reasonable expectation</li>
+<li>Do not submit LLM-generated text as your own analysis or interpretation</li>
+<li>The LLM is not responsible for errors in your paper: you are</li>
+</ul>
+<h2>Exercises</h2>
+<ol>
+<li>Write a two-sentence summary of a paper you have read recently<ul>
+<li>Ask an LLM to expand it into a full abstract paragraph</li>
+<li>Identify two places where the expansion added words without adding meaning</li>
+</ul>
+</li>
+<li>Paste a methods paragraph from your own work into an LLM and ask it to shorten it by 30%<ul>
+<li>Check whether any shortened version omits information a reader would need to reproduce the experiment</li>
+</ul>
+</li>
+<li>Ask an LLM to generate three citations supporting a specific claim in your field<ul>
+<li>Look up each citation and report how many are real,
+    how many are fabricated,
+    and how many exist but do not support the claim</li>
+</ul>
+</li>
+<li>Take a sentence from a paper that uses the passive voice correctly
+    (e.g., "Samples were centrifuged at 3000 rpm")<ul>
+<li>Ask an LLM to rewrite the paragraph in the active voice</li>
+<li>Evaluate whether every change it made actually improved the prose</li>
+</ul>
+</li>
+<li>Write a one-paragraph plain-language summary of a technical result<ul>
+<li>Ask an LLM to revise it for a general audience</li>
+<li>Identify one place where the revision introduced an error or overstatement</li>
+</ul>
+</li>
+<li>Ask an LLM to write a cover letter for a paper submission to a specific journal<ul>
+<li>Identify every sentence that could apply to any paper by any author</li>
+<li>Rewrite those sentences to say something specific about your work</li>
+</ul>
+</li>
+</ol>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../visualize/">Visualizing Results</a>
+</div>
+<div class="col-6 center">
+<a href="../">AI for Data Analysis</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale/">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

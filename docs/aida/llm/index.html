@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How LLMs Work</title>
+<meta content="AI for Data Analysis" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">AI for Data Analysis</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a class="active" href="../llm/">How LLMs Work</a></li>
+<li><a href="../interact/">Interact with LLMs</a></li>
+<li><a href="../manage/">Managing Data</a></li>
+<li><a href="../coding/">Coding</a></li>
+<li><a href="../visualize/">Visualizing Results</a></li>
+<li><a href="../writing/">Writing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/aida">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>How LLMs Work</h1>
+<h2>Tokenization</h2>
+<ul>
+<li>Text is split into <a class="gl-ref" href="../glossary/#token">tokens</a> before being processed<ul>
+<li>A token is roughly 4 characters of English text</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#tokenization">Tokenization</a> uses <a class="gl-ref" href="../glossary/#bpe">Byte-Pair Encoding (BPE)</a>:
+    common character sequences are merged into single tokens</li>
+<li>One word can become several tokens: <code>"tokenization"</code> → <code>["token", "ization"]</code></li>
+<li>Capitalization matters: <code>"Cat"</code> and <code>"cat"</code> often have different token IDs</li>
+<li>Non-English text is less efficiently tokenized:
+    a Chinese character may be one token, but an emoji can be three or four</li>
+<li>The same sentence tokenized by two different models may produce different token counts</li>
+<li>Approximate rule of thumb: 1,000 English words ≈ 1,300 tokens</li>
+<li>Token IDs are integers fed to the model<ul>
+<li>The model never sees raw characters</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">anthropic</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="o">.</span><span class="n">Anthropic</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">count_tokens</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">"claude-opus-4-6"</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"penguin bill length in millimeters"</span><span class="p">}]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">input_tokens</span><span class="p">)</span>   <span class="c1"># number of tokens</span>
+</code></pre></div>
+<ul>
+<li>Why token count matters<ul>
+<li>API pricing is per token</li>
+<li>Input and output priced separately</li>
+</ul>
+</li>
+<li>Context window limits are measured in tokens, not words or characters</li>
+</ul>
+<h2>The transformer architecture</h2>
+<ul>
+<li>A <a class="gl-ref" href="../glossary/#transformer">transformer</a> is a stack of identical layers<ul>
+<li>GPT-class models have dozens of layers</li>
+</ul>
+</li>
+<li>Each layer applies two operations: multi-head self-attention, then a feed-forward network</li>
+<li><a class="gl-ref" href="../glossary/#self_attention">Self-attention</a> lets every token look at every other token in the context
+    and decide how much to "attend" to each one</li>
+<li>Attention weights are learned during training, not hand-coded</li>
+<li>The feed-forward network applies a learned non-linear transformation to each token independently</li>
+<li>Model size is measured in <a class="gl-ref" href="../glossary/#model_parameters">parameters</a> (learned weights)<ul>
+<li>Current <a class="gl-ref" href="../glossary/#frontier_model">frontier models</a> have hundreds of billions</li>
+</ul>
+</li>
+<li>More parameters generally means better performance but higher cost and slower inference</li>
+<li>The final layer outputs a probability distribution over the entire vocabulary (all possible next tokens)</li>
+<li>The model does not "decide" the next token<ul>
+<li>It assigns probabilities and then samples</li>
+</ul>
+</li>
+</ul>
+<h2>Training</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#pre_training">Pre-training</a>: the model learns to predict the next token on a massive text corpus</li>
+<li>Corpora include web pages, books, academic papers, and code — typically hundreds of billions of tokens</li>
+<li>No human writes the training signal<ul>
+<li>The loss is simply how wrong the next-token prediction was</li>
+</ul>
+</li>
+<li>The model stores statistical associations between tokens, not a lookup table of facts</li>
+<li><a class="gl-ref" href="../glossary/#fine_tuning">Supervised fine-tuning</a> (SFT):
+    the pre-trained model is further trained on curated instruction-response pairs</li>
+<li><a class="gl-ref" href="../glossary/#rlhf">Reinforcement learning from human feedback</a> (RLHF): human raters rank model outputs<ul>
+<li>The model is updated to produce higher-ranked responses</li>
+</ul>
+</li>
+<li>Fine-tuning is much cheaper than pre-training but still requires significant compute</li>
+<li>Domain-specific fine-tuning (e.g., on medical literature) can improve accuracy in that domain
+    without retraining from scratch</li>
+</ul>
+<h2>Context windows</h2>
+<ul>
+<li>The <a class="gl-ref" href="../glossary/#context_window">context window</a> is
+    the maximum number of tokens the model can process in a single call,
+    including both prompt and response</li>
+<li>Current models range from ~8K tokens (smaller models) to over 1M tokens (long-context models)</li>
+<li>Everything in the context window is processed together<ul>
+<li>The model has no persistent memory between separate API calls</li>
+</ul>
+</li>
+<li>When a conversation exceeds the context limit, the application must truncate or summarize earlier content</li>
+<li>Longer contexts cost more per call and have higher latency</li>
+<li>Very long contexts can cause the model to pay less attention to information in the middle
+    (the "lost in the middle" effect)</li>
+<li>The context window includes the system prompt, conversation history, retrieved documents, and the response</li>
+</ul>
+<h2>Temperature and sampling</h2>
+<ul>
+<li>After computing the probability distribution over next tokens, the model must choose one</li>
+<li><a class="gl-ref" href="../glossary/#temperature">Temperature</a> scales the distribution before sampling:<ul>
+<li>Low temperature sharpens it</li>
+<li>High temperature flattens it</li>
+</ul>
+</li>
+<li>Temperature 0: always pick the most probable token<ul>
+<li>Output is deterministic for the same input</li>
+</ul>
+</li>
+<li>Temperature 1: sample proportionally from the distribution<ul>
+<li>Output varies between calls</li>
+</ul>
+</li>
+<li>Temperature &gt; 1: more random, often less coherent<ul>
+<li>Useful for creative tasks</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#top_p">Top-p (nucleus) sampling</a>: restrict sampling to
+    the smallest set of tokens whose cumulative probability exceeds p (e.g., 0.9)</li>
+<li>Most APIs expose both <code>temperature</code> and <code>top_p</code> as parameters</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">anthropic</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="o">.</span><span class="n">Anthropic</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">"claude-opus-4-6"</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># deterministic</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"List three penguin species."</span><span class="p">}]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>Setting temperature to 0 does not guarantee identical outputs across model versions</li>
+</ul>
+<h2>Training data cutoff</h2>
+<ul>
+<li>Model weights are frozen after training<ul>
+<li>The model cannot learn new information without retraining or fine-tuning</li>
+</ul>
+</li>
+<li>The <a class="gl-ref" href="../glossary/#training_cutoff">training cutoff</a> is
+    the date after which new events and publications are not reflected in the model</li>
+<li>The model may still generate confident-sounding text about post-cutoff events
+    by extrapolating from prior patterns</li>
+<li>Library APIs change after the cutoff<ul>
+<li>LLMs frequently generate code using deprecated or removed functions</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># LLM may suggest the old Polars API:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"species"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="c1"># deprecated in Polars &gt;= 0.19</span>
+
+<span class="c1"># Correct current API:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">"species"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>Always check generated code against the current version of the documentation,
+    not the LLM's description of it</li>
+<li>Models are often vague about their exact cutoff date<ul>
+<li>Treat stated cutoffs as approximate</li>
+</ul>
+</li>
+</ul>
+<h2>Hallucination</h2>
+<ul>
+<li>The model always generates the statistically most plausible continuation of the prompt<ul>
+<li>It has no mechanism to refuse to answer</li>
+</ul>
+</li>
+<li>If the training data lacked coverage of a topic,
+    the model fills the gap with plausible-sounding text</li>
+<li><a class="gl-ref" href="../glossary/#hallucination">Hallucination</a> is not random noise<ul>
+<li>It is coherent-sounding text that is factually wrong</li>
+<li>Also called <a class="gl-ref" href="../glossary/#confabulation">confabulation</a></li>
+</ul>
+</li>
+<li>Citations are particularly unreliable<ul>
+<li>The model may generate a real author's name with a fabricated title and DOI</li>
+</ul>
+</li>
+<li>URLs are invented<ul>
+<li>A hallucinated URL may look valid but return a 404</li>
+</ul>
+</li>
+<li>Numeric facts (population figures, p-values, dates) are common hallucination sites</li>
+<li>The model does not know when it is hallucinating<ul>
+<li>Confidence in tone is not correlated with accuracy</li>
+</ul>
+</li>
+<li>Hallucination rates vary by domain<ul>
+<li>Well-covered topics (Python basics) hallucinate less than obscure ones (niche library internals)</li>
+</ul>
+</li>
+<li>Longer, more specific prompts with examples tend to reduce hallucination</li>
+</ul>
+<h2>Retrieval-augmented generation</h2>
+<ul>
+<li><a class="gl-ref" href="../glossary/#rag">Retrieval-augmented generation</a> (RAG) augments the prompt
+    with text retrieved from an external source at query time</li>
+<li>The external source is typically a <a class="gl-ref" href="../glossary/#vector_database">vector database</a><ul>
+<li>Documents are converted to <a class="gl-ref" href="../glossary/#embedding">embedding vectors</a> and stored</li>
+</ul>
+</li>
+<li>At query time, the query is also embedded and the most similar document chunks are retrieved</li>
+<li>Retrieved chunks are inserted into the prompt as context before the LLM generates a response</li>
+<li>RAG reduces hallucination on domain-specific questions
+    because the model has accurate source text in its context window</li>
+<li>RAG does not eliminate hallucination: the model may still misread or misquote the retrieved text</li>
+<li>The quality of retrieval depends on how well documents are chunked and how good the embedding model is</li>
+<li>RAG requires maintaining and updating the document store as source material changes</li>
+</ul>
+<h2>Checking LLM output</h2>
+<ul>
+<li>Does the result have the right shape?<ul>
+<li>A list when a list was prompted for, a number when a number was prompted for, etc.</li>
+</ul>
+</li>
+<li>Are values in a plausible range?<ul>
+<li>A mean bill length of 4600 mm is implausible for penguins</li>
+</ul>
+</li>
+<li>Does the output match an independent source?<ul>
+<li>Cross-check a statistic against the original dataset</li>
+</ul>
+</li>
+<li>Does the code actually run without errors?<ul>
+<li>Try running it</li>
+</ul>
+</li>
+<li>Does the code produce the same result on a small test case you can compute by hand?</li>
+<li>Does the code give the right answer on the simplest possible input?<ul>
+<li>An empty list, a single row, or all-identical values are the easiest cases to check by hand</li>
+<li>These boundary cases catch off-by-one errors and wrong defaults that plausible-looking inputs hide</li>
+</ul>
+</li>
+<li>Does the code preserve a quantity that should be conserved?<ul>
+<li>A cleaning step should not change the total row count unless rows were explicitly dropped</li>
+<li>A normalization step should produce values that sum to 1.0</li>
+<li>A reformatting step should not change the number of records</li>
+</ul>
+</li>
+<li>When deciding whether a number is "close enough," ask whether the difference is smaller than the natural variation in the data<ul>
+<li>A discrepancy of 0.1 mm in penguin bill length means something different from a discrepancy of 0.1 in a probability</li>
+<li>If the discrepancy is smaller than the measurement error in your data, it is probably not worth worrying about</li>
+</ul>
+</li>
+<li>Are all package names and function signatures correct for the installed version?</li>
+<li>These are the same questions to ask when checking any data analysis, LLM-generated or not</li>
+</ul>
+<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Quick sanity check: does the generated summary statistic match direct computation?</span>
+<span class="n">llm_answer</span> <span class="o">=</span> <span class="mf">43.9</span>   <span class="c1"># LLM claimed this was mean bill length for Adelie penguins</span>
+<span class="n">actual</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"species"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"Adelie"</span><span class="p">)[</span><span class="s2">"bill_length_mm"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">llm_answer</span> <span class="o">-</span> <span class="n">actual</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Mismatch: LLM=</span><span class="si">{</span><span class="n">llm_answer</span><span class="si">}</span><span class="s2">, actual=</span><span class="si">{</span><span class="n">actual</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
+<ul>
+<li>Spot-checking is not sufficient for high-stakes decisions<ul>
+<li>Full verification is required</li>
+</ul>
+</li>
+</ul>
+<h2>Exercises</h2>
+<ol>
+<li>Use an LLM API to count tokens in the sentence "penguin bill length in millimeters"<ul>
+<li>Then count tokens for the same sentence in another language and compare</li>
+</ul>
+</li>
+<li>Prompt an LLM to describe the Polars <code>group_by</code> function<ul>
+<li>Check its claims against the current Polars documentation and log any discrepancies</li>
+</ul>
+</li>
+<li>Ask the same factual question twice with temperature 0 and then twice with temperature 1<ul>
+<li>Record how often the high-temperature answers differ and what this implies for reproducibility</li>
+</ul>
+</li>
+<li>Prompt an LLM to describe an event that occurred after its training cutoff<ul>
+<li>Record how it signals (or fails to signal) uncertainty</li>
+</ul>
+</li>
+<li>Prompt an LLM to cite three peer-reviewed papers on penguin bill morphology<ul>
+<li>Look up the DOIs and/or titles it provides: do the papers exist? Are the citations accurate?</li>
+</ul>
+</li>
+<li>Prompt an LLM to explain its own limitations regarding training data cutoffs<ul>
+<li>Evaluate whether the explanation is accurate and complete based on what you have learned in this lesson</li>
+</ul>
+</li>
+<li>Prompt an LLM to write a function that computes the mean of a list of numbers<ul>
+<li>Test it on an empty list, a list with one element, and a list where all elements are identical</li>
+<li>Record which boundary cases (if any) it handled correctly without being told to</li>
+</ul>
+</li>
+</ol>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../intro/">Introduction</a>
+</div>
+<div class="col-6 center">
+<a href="../">AI for Data Analysis</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../interact/">Interact with LLMs</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

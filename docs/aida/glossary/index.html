@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Glossary</title>
+<meta content="AI for Data Analysis" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">AI for Data Analysis</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../llm/">How LLMs Work</a></li>
+<li><a href="../interact/">Interact with LLMs</a></li>
+<li><a href="../manage/">Managing Data</a></li>
+<li><a href="../coding/">Coding</a></li>
+<li><a href="../visualize/">Visualizing Results</a></li>
+<li><a href="../writing/">Writing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a class="active" href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/aida">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Glossary</h1>
+<h2>A</h2>
+<dl>
+<dt><span id="agent">agent</span></dt>
+<dd>An LLM application that runs an observe-plan-act loop, using tool
+calls to gather information and take actions over multiple steps
+rather than producing a single response.</dd>
+</dl>
+<h2>B</h2>
+<dl>
+<dt><span id="bpe">Byte-Pair Encoding (BPE)</span></dt>
+<dd>A tokenization algorithm that repeatedly merges the most frequent
+adjacent byte or character pair, building a vocabulary of subword
+units used to split text into tokens.</dd>
+</dl>
+<h2>C</h2>
+<dl>
+<dt><span id="confabulation">confabulation</span></dt>
+<dd>Another term for hallucination; emphasizes that the model is
+producing coherent-sounding but fabricated content rather than
+retrieving stored facts. The two words are used interchangeably
+in the literature.</dd>
+<dt><span id="context_window">context window</span></dt>
+<dd>The maximum number of tokens a language model can process in a
+single call, including both the prompt (system message,
+conversation history, retrieved documents) and the response.</dd>
+</dl>
+<h2>D</h2>
+<dl>
+<dt><span id="data_dictionary">data dictionary</span></dt>
+<dd>A document or table that describes each column in a dataset: its
+name, data type, units, allowed values, and meaning. A good data
+dictionary lets a new user understand the dataset without reading
+the original collection code or paper.</dd>
+</dl>
+<h2>E</h2>
+<dl>
+<dt><span id="embedding">embedding</span></dt>
+<dd>A numeric vector that represents a piece of text in a
+high-dimensional space such that semantically similar texts have
+similar vectors; used in retrieval-augmented generation to find
+relevant documents.</dd>
+<dt><span id="eda">exploratory data analysis</span></dt>
+<dd>The process of summarizing, visualizing, and investigating a
+dataset to understand its structure, identify anomalies, and
+uncover patterns before formal modeling or hypothesis testing.</dd>
+<dt><span id="exponential_backoff">exponential backoff</span></dt>
+<dd>A retry strategy in which the delay between successive attempts
+increases exponentially (e.g., 1s, 2s, 4s, 8s) to reduce load on a
+service that has returned a rate-limit or server error.</dd>
+</dl>
+<h2>F</h2>
+<dl>
+<dt><span id="few_shot">few-shot prompting</span></dt>
+<dd>A prompting technique that includes one or more example
+input-output pairs in the prompt to show the model the desired
+format or behavior before posing the actual query.</dd>
+<dt><span id="fine_tuning">fine-tuning</span></dt>
+<dd>Additional training of a pre-trained model on a smaller, curated
+dataset to improve its performance on a specific task or domain;
+includes supervised fine-tuning (SFT) and reinforcement learning
+from human feedback (RLHF).</dd>
+<dt><span id="frontier_model">frontier model</span></dt>
+<dd>One of the most capable large language models currently available,
+typically from a major AI lab and trained at enormous scale; the
+term is relative and shifts as new models are released.</dd>
+</dl>
+<h2>G</h2>
+<h2>H</h2>
+<dl>
+<dt><span id="hallucination">hallucination</span></dt>
+<dd>The generation of plausible-sounding but factually incorrect text
+by a language model, also called confabulation; occurs because the
+model generates the statistically most likely continuation of a
+prompt rather than verifying facts.</dd>
+</dl>
+<h2>I</h2>
+<h2>J</h2>
+<dl>
+<dt><span id="json_schema">JSON schema</span></dt>
+<dd>A vocabulary for describing the structure and constraints of JSON
+documents, including required fields, data types, and allowed
+values; used in MCP tool definitions to specify the expected
+format of inputs and outputs.</dd>
+<dt><span id="json_rpc">JSON-RPC</span></dt>
+<dd>A lightweight remote procedure call protocol that encodes requests
+and responses as JSON; used by the Model Context Protocol to let
+LLM clients call tools on a local or remote server.</dd>
+</dl>
+<h2>K</h2>
+<h2>L</h2>
+<dl>
+<dt><span id="linter">linter</span></dt>
+<dd>A tool that analyzes source code without running it and reports
+style violations, unused imports, undefined variables, and other
+common mistakes.</dd>
+<dt><span id="lorenz_curve">Lorenz curve</span></dt>
+<dd>A plot of the cumulative share of something held by the bottom <em>x</em>
+fraction of the population (sorted from least to most); a
+perfectly equal distribution produces the 45-degree diagonal,
+while any inequality bows the curve below it.</dd>
+</dl>
+<h2>M</h2>
+<dl>
+<dt><span id="mcp">Model Context Protocol</span> (MCP)</dt>
+<dd>An open standard using JSON-RPC that allows LLM applications to
+connect to external tools and data sources — such as databases,
+file systems, and web search — through a common interface.</dd>
+<dt><span id="model_parameters">model parameters</span></dt>
+<dd>The numeric weights of a neural network, learned during training;
+model size is typically measured in the number of parameters, with
+current frontier models having hundreds of billions.</dd>
+</dl>
+<h2>N</h2>
+<h2>O</h2>
+<h2>P</h2>
+<dl>
+<dt><span id="pre_training">pre-training</span></dt>
+<dd>The initial training phase in which a language model learns to
+predict the next token on a large text corpus; produces a
+general-purpose model that is subsequently refined by fine-tuning.</dd>
+<dt><span id="precision_recall">precision and recall</span></dt>
+<dd>Two measures of a classifier's accuracy on a particular class.
+Precision is the fraction of positive predictions that are
+correct; recall is the fraction of actual positives that were
+found. A classifier can improve one at the expense of the other,
+so both are needed to evaluate performance honestly.</dd>
+</dl>
+<h2>Q</h2>
+<dl>
+<dt><span id="q_q_plot">Q-Q plot</span></dt>
+<dd>A graph that assesses whether a dataset follows a theoretical
+distribution by plotting its quantiles against the expected
+quantiles of that distribution, with points falling along a
+straight line indicating a good fit.</dd>
+</dl>
+<h2>R</h2>
+<dl>
+<dt><span id="rate_limit">rate limit</span></dt>
+<dd>A constraint imposed by an API provider on how many requests or
+tokens a client may submit per unit of time; exceeded limits
+return HTTP 429 errors and require retrying with exponential
+back-off.</dd>
+<dt><span id="rlhf">reinforcement learning from human feedback</span> (RLHF)</dt>
+<dd>A fine-tuning technique in which human raters rank model outputs
+and the model is updated to produce higher-ranked responses; used
+to improve helpfulness and reduce harmful outputs.</dd>
+<dt><span id="rag">retrieval-augmented generation</span> (RAG)</dt>
+<dd>A technique that retrieves relevant document chunks from an
+external source at query time and inserts them into the prompt,
+grounding the model's response in accurate source text and
+reducing hallucination.</dd>
+<dt><span id="role_prompting">role prompting</span></dt>
+<dd>A prompting technique that instructs the model to adopt a specific
+persona or area of expertise (e.g., "You are an expert
+statistician") to improve domain-specific responses.</dd>
+</dl>
+<h2>S</h2>
+<dl>
+<dt><span id="self_attention">self-attention</span></dt>
+<dd>A mechanism in transformer models in which each token is weighted
+by its relevance to every other token in the context window; the
+weights are learned during training and allow the model to capture
+long-range dependencies in text.</dd>
+<dt><span id="skill">skill</span></dt>
+<dd>A Markdown file containing a system prompt that specializes an LLM
+application's behavior for a recurring task. Claude Code stores
+skills in <code>~/.claude/</code> and are available across all projects.</dd>
+</dl>
+<h2>T</h2>
+<dl>
+<dt><span id="temperature">temperature</span></dt>
+<dd>A parameter that scales the probability distribution over next
+tokens before sampling; temperature 0 makes output deterministic,
+temperature 1 samples proportionally, and values above 1 produce
+more varied and less coherent output.</dd>
+<dt><span id="token">token</span></dt>
+<dd>The basic unit of text processed by a language model; roughly 4
+characters of English on average, produced by splitting input text
+with a tokenization algorithm such as Byte-Pair Encoding.</dd>
+<dt><span id="tokenization">tokenization</span></dt>
+<dd>The process of splitting input text into tokens before feeding it
+to a language model, typically using an algorithm such as
+Byte-Pair Encoding; different models use different tokenizers and
+may produce different token counts for the same text.</dd>
+<dt><span id="top_p">top-p sampling</span></dt>
+<dd>A sampling strategy, also called nucleus sampling, that restricts
+token selection to the smallest set of tokens whose cumulative
+probability exceeds a threshold p (e.g., 0.9), preventing very
+low-probability tokens from being chosen.</dd>
+<dt><span id="training_cutoff">training cutoff</span></dt>
+<dd>The date after which new information is not reflected in a model's
+weights; events, publications, and API changes after this date are
+unknown to the model, which may still generate confident-sounding
+text about them by extrapolating from prior patterns.</dd>
+<dt><span id="transformer">transformer</span></dt>
+<dd>A neural network architecture based on stacked self-attention
+layers that underlies most modern large language models; each
+layer applies self-attention followed by a feed-forward network,
+allowing the model to process all tokens in the context window in
+parallel.</dd>
+</dl>
+<h2>U</h2>
+<h2>V</h2>
+<dl>
+<dt><span id="vector_database">vector database</span></dt>
+<dd>A database that stores documents as embedding vectors and supports
+fast retrieval of the most semantically similar documents for a
+given query; used as the external knowledge store in
+retrieval-augmented generation.</dd>
+</dl>
+<h2>W</h2>
+<h2>X</h2>
+<h2>Y</h2>
+<h2>Z</h2>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../bibliography/">Bibliography</a>
+</div>
+<div class="col-6 center">
+<a href="../">AI for Data Analysis</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Visualizing Results</title>
+<meta content="AI for Data Analysis" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">AI for Data Analysis</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../llm/">How LLMs Work</a></li>
+<li><a href="../interact/">Interact with LLMs</a></li>
+<li><a href="../manage/">Managing Data</a></li>
+<li><a href="../coding/">Coding</a></li>
+<li><a class="active" href="../visualize/">Visualizing Results</a></li>
+<li><a href="../writing/">Writing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/aida">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Visualizing Results</h1>
+<h2>Altair Basics</h2>
+<ul>
+<li>Common mark types: <code>.mark_point()</code>, <code>.mark_bar()</code>, <code>.mark_line()</code>, <code>.mark_rect()</code></li>
+<li>Encoding channels: <code>x</code>, <code>y</code>, <code>color</code>, <code>size</code>, <code>tooltip</code>, and <code>facet</code></li>
+<li>Interaction: selection</li>
+<li>Save charts as PNG or SVG with <code>.save()</code></li>
+</ul>
+<h2>Verify a chart</h2>
+<ul>
+<li>Does it show the expected number of points?</li>
+<li>Do axis ranges match the data?</li>
+<li>Does the color legend list all categories?</li>
+</ul>
+<h2>Iterate with LLM help</h2>
+<ul>
+<li>Add a regression line</li>
+<li>Change axis scale</li>
+<li>Facet by a categorical variable</li>
+</ul>
+<h2>Accessibility</h2>
+<ul>
+<li>Colorblind-safe color schemes, meaningful axis labels, readable font sizes, alt text<ul>
+<li>An LLMs can do the tedious work, so no longer any excuse <em>not</em> to do all this</li>
+</ul>
+</li>
+<li>Prompt an LLM to check charts against these criteria</li>
+<li>Prompt an LLM to generate alt text describing a chart from code and from prompt plus code</li>
+</ul>
+<h2>Exercises</h2>
+<ol>
+<li>Prompt an LLM to generate a histogram of body mass<ul>
+<li>Verify that the x-axis range matches the min and max from the Polars DataFrame</li>
+</ul>
+</li>
+<li>Prompt an LLM to generate a bar chart of mean bill length by species<ul>
+<li>Check that the number of bars matches the number of distinct species</li>
+</ul>
+</li>
+<li>Prompt an LLM to generate Altair code using a method that does not exist<ul>
+<li>Identify the error and prompt LLM to fix it using the current API</li>
+</ul>
+</li>
+<li>Add a <code>tooltip</code> encoding showing body mass and island<ul>
+<li>Verify that hovering displays both fields correctly</li>
+</ul>
+</li>
+<li>Replace the default color scheme with a colorblind-safe palette suggested by the LLM<ul>
+<li>Verify it against a colorblindness simulator</li>
+</ul>
+</li>
+<li>Prompt an LLM to facet the scatter plot by island<ul>
+<li>Confirm that each facet contains only penguins from that island</li>
+</ul>
+</li>
+<li>Prompt an LLM to generate a <a class="gl-ref" href="../glossary/#q_q_plot">Q-Q plot</a> of <code>body_mass_g</code> for Gentoo penguins
+    to check whether body mass is approximately normally distributed<ul>
+<li>Verify that both axes are labeled and that a diagonal reference line is drawn</li>
+<li>Generate a perfectly normal sample of the same size and confirm its Q-Q plot is straight</li>
+</ul>
+</li>
+<li>Use the squirrel census to count sightings per hectare,
+    then prompt an LLM to generate a <a class="gl-ref" href="../glossary/#lorenz_curve">Lorenz curve</a>
+    showing how unevenly sightings are distributed across hectares<ul>
+<li>Verify that the curve starts at (0, 0) and ends at (1, 1)</li>
+<li>Verify that the curve bows noticeably below the diagonal line of perfect equality</li>
+<li>If the curve does not satisfy either condition, trace the bug in the LLM's code</li>
+</ul>
+</li>
+<li>Download the <a href="https://data.giss.nasa.gov/gistemp/data_v4.html">NOAA GISTEMP</a> global mean surface temperature anomaly dataset<ul>
+<li>Prompt an LLM to plot the time series and add a vertical marker line at 1988
+    (the year James Hansen testified to the US Senate about climate change)</li>
+<li>Verify that the marker falls on the correct year and is visible against the background</li>
+<li>Check that the x-axis labels show years, not integer indices</li>
+</ul>
+</li>
+<li>Prompt an LLM to generate a 2D bin plot (heatmap) of <code>bill_length_mm</code> vs. <code>body_mass_g</code>
+    for all penguins, where color encodes the count of observations in each bin<ul>
+<li>Verify that the color scale increases with count</li>
+<li>Verify that the axis ranges cover all the data</li>
+<li>Check whether empty bins are shown as a neutral color rather than the lowest-count color</li>
+</ul>
+</li>
+</ol>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../coding/">Coding</a>
+</div>
+<div class="col-6 center">
+<a href="../">AI for Data Analysis</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../writing/">Writing</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

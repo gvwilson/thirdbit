@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coding</title>
+<meta content="AI for Data Analysis" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">AI for Data Analysis</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../llm/">How LLMs Work</a></li>
+<li><a href="../interact/">Interact with LLMs</a></li>
+<li><a href="../manage/">Managing Data</a></li>
+<li><a class="active" href="../coding/">Coding</a></li>
+<li><a href="../visualize/">Visualizing Results</a></li>
+<li><a href="../writing/">Writing</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+</ul>
+</div>
+<a href="https://github.com/gvwilson/aida">Repository</a>
+</div>
+</nav>
+<main id="main-content">
+<h1>Coding</h1>
+<h2>Prompting an LLM to write code</h2>
+<ul>
+<li>When asking an LLM to write code, be as specific as possible:<ul>
+<li>State the goal in plain language before asking for code</li>
+<li>Name the library or tool you want it to use</li>
+<li>Say what the input looks like and what the output should be</li>
+<li>Compare the result against something you can verify independently</li>
+</ul>
+</li>
+<li>When the first attempt is wrong:<ul>
+<li>Describe what is wrong, not just that it is wrong</li>
+<li>Explain what a correct answer would look like</li>
+<li>Ask it to explain what its code does before asking it to fix anything</li>
+</ul>
+</li>
+</ul>
+<h2>Common LLM errors in generated code</h2>
+<ul>
+<li>Hallucinating names: inventing table columns, function arguments, or parameter names that do not exist</li>
+<li>Mixing libraries: using Pandas syntax in Polars code, or vice versa</li>
+<li>Inventing significance levels or statistical thresholds without justification</li>
+<li>Conflating correlation with causation in interpretations</li>
+<li>Directional bias errors:
+    when a known artifact should push an estimate one way, check that it does<ul>
+<li>If the bias goes the wrong way, the method or the code is wrong</li>
+</ul>
+</li>
+</ul>
+<h2>Verifying results</h2>
+<ul>
+<li>Check counts against known totals from an independent source</li>
+<li>Spot-check individual values by hand</li>
+<li>Confirm aggregates are in a plausible range</li>
+<li>Check that a partition covers all rows:
+    subgroup counts must sum to the total, and fractions must sum to 1.0</li>
+</ul>
+<h2>Common errors in LLM-generated SQL</h2>
+<ul>
+<li>Schema hallucination: inventing table or column names that do not exist</li>
+<li>Faulty joins: wrong type, missing or ambiguous conditions</li>
+<li>Aggregation mistakes: grouping errors, aggregating the wrong column</li>
+<li>Missing filters: omitting <code>where</code> conditions implied by the question</li>
+<li>Mishandling nulls in <code>order by</code> or aggregation</li>
+<li>A <code>group by</code> that drops rows (e.g., because of <code>null</code> values in the grouping column)
+    is a common silent error</li>
+</ul>
+<h2>Verifying query results</h2>
+<ul>
+<li>Check row counts against known totals</li>
+<li>Spot-check individual values</li>
+<li>Confirm aggregates are in a plausible range</li>
+<li>Check that subgroup counts sum to the total and fractions sum to 1.0</li>
+</ul>
+<h2>Reading and inspecting data with Polars</h2>
+<ul>
+<li><code>pl.read_csv()</code>, <code>pl.read_database()</code>, <code>pl.scan_csv()</code> for large files</li>
+<li>Inspect with <code>.schema</code>, <code>.head()</code>, <code>.describe()</code>, <code>.null_count()</code></li>
+<li><code>.drop_nulls()</code>, <code>.fill_null()</code>, <code>.cast()</code>, <code>.str.strip_chars()</code>, <code>.with_columns()</code></li>
+<li>Prompt explicitly for Polars: LLMs frequently produce Pandas syntax instead</li>
+</ul>
+<h2>Identifying problems</h2>
+<ul>
+<li>Missing values</li>
+<li>Wrong data types</li>
+<li>Inconsistent string values</li>
+<li>Implausible outliers</li>
+<li>Compare null counts and dataframe shape before and after</li>
+<li>Spot-check that no valid rows were dropped</li>
+<li>Check invariants: row count before must equal rows kept plus rows dropped</li>
+<li>Confirm that derived fractions or probabilities across all categories sum to 1.0</li>
+<li>Invented significance levels</li>
+<li>Wrong direction of effect</li>
+<li>Conflating correlation with causation</li>
+<li>Overstating certainty about group differences</li>
+</ul>
+<h2>Code quality</h2>
+<ul>
+<li>Use <code>ruff</code> to <a class="gl-ref" href="../glossary/#linter">lint</a> LLM-generated Python code before running it<ul>
+<li>Catches unused imports, undefined variables, and style violations</li>
+</ul>
+</li>
+<li>Ask the LLM to review code for repeated logic, hardcoded values, and readability problems</li>
+</ul>
+<h3>Validating an analysis</h3>
+<ul>
+<li>Generate synthetic data with a known answer and confirm the analysis recovers it<ul>
+<li>If the method cannot recover the true value from clean synthetic data, the code is wrong</li>
+<li>Make the synthetic data realistically noisy: if it is too clean, the test is not useful</li>
+</ul>
+</li>
+<li>Fit the same model two different ways and check that the results agree<ul>
+<li>Compute a mean with <code>.mean()</code> and again with <code>.sum()</code> divided by <code>.len()</code> and confirm they match</li>
+<li>If two valid approaches disagree, at least one is wrong</li>
+</ul>
+</li>
+<li>Vary a parameter you are uncertain about and check whether your main conclusion changes<ul>
+<li>If swapping a threshold from 2.0 to 2.5 standard deviations flips your result,
+    you need more data or a clearer criterion</li>
+</ul>
+</li>
+</ul>
+<h2>Exercises</h2>
+<ol>
+<li>Prompt an LLM to count the total number of rows in the penguins table<ul>
+<li>Verify the result matches <code>wc -l</code> on the CSV minus the header</li>
+</ul>
+</li>
+<li>Prompt an LLM to compute average body mass by species<ul>
+<li>Check whether each value is in a plausible range for that species</li>
+</ul>
+</li>
+<li>Prompt an LLM to write a query that references a column name you slightly misspell in the prompt<ul>
+<li>Does it hallucinate a column or flag the error?</li>
+</ul>
+</li>
+<li>Prompt an LLM to write a join query<ul>
+<li>How can you validate that the query is correct?</li>
+</ul>
+</li>
+<li>Prompt an LLM to explain a clause you have not used before
+    (e.g., <code>coalesce</code>, <code>like</code>, or a window function)<ul>
+<li>Write a query using it and verify the output</li>
+</ul>
+</li>
+<li>Prompt an LLM to write a query that cross-tabulates species and island
+    in the penguins table (one row per species, one column per island, counts in cells)<ul>
+<li>Sum a row and verify it equals the count for that species from a separate <code>group by</code> query</li>
+<li>Sum a column and verify it equals the count for that island</li>
+</ul>
+</li>
+<li>Prompt an LLM to write a query that flags penguins whose <code>body_mass_g</code>
+    is more than two standard deviations from the mean for their species<ul>
+<li>Verify two or three flagged rows by computing the species mean and standard deviation yourself</li>
+<li>Did the LLM use a subquery or a window function? Check whether the approach is actually correct</li>
+</ul>
+</li>
+<li>Prompt an LLM to compute what fraction of each species is female
+    (<code>sex = 'FEMALE'</code> count divided by total count per species)<ul>
+<li>Verify that the fractions for each species sum to approximately 1.0</li>
+<li>Prompt the LLM to explain what it did with rows where <code>sex</code> is <code>null</code>,
+    then confirm its answer against the query</li>
+</ul>
+</li>
+<li>Load the penguins data into Polars and confirm that row and column counts match the original file</li>
+<li>Prompt an LLM to generate code that fills missing body mass values with the species median<ul>
+<li>Verify that the null count decreases by the expected amount</li>
+</ul>
+</li>
+<li>Prompt an LLM to generate a cleaning script<ul>
+<li>Run <code>ruff</code> on it and fix every warning, using the LLM to explain any you do not understand</li>
+</ul>
+</li>
+<li>Prompt an LLM to review a ten-line Polars script for code smells<ul>
+<li>Apply one suggested improvement and confirm the output is unchanged</li>
+</ul>
+</li>
+<li>Compute the Pearson correlation between bill length and body mass<ul>
+<li>Prompt an LLM to interpret the result</li>
+<li>Evaluate whether its interpretation is justified by the number alone</li>
+</ul>
+</li>
+<li>Identify an LLM interpretation of a group statistic that overstates certainty<ul>
+<li>Rewrite it to accurately reflect what the data show</li>
+</ul>
+</li>
+<li>Filter the penguins data to keep 90% Adelie and 10% Chinstrap penguins<ul>
+<li>Prompt an LLM to evaluate how well the rule "classify as Adelie if <code>bill_length_mm &lt; 45</code>" performs</li>
+<li>Did its first response report accuracy alone? Prompt it specifically for
+    <a class="gl-ref" href="../glossary/#precision_recall">precision and recall</a></li>
+<li>Check whether it flagged the class imbalance without being asked</li>
+</ul>
+</li>
+<li>Prompt an LLM to fit a linear regression of <code>body_mass_g</code> on <code>bill_length_mm</code>
+    and interpret the slope<ul>
+<li>Did it report a confidence interval for the slope?</li>
+<li>Did it hedge about causation, or did it imply that longer bills cause heavier birds?</li>
+<li>Rewrite its interpretation to accurately reflect what the regression can and cannot show</li>
+</ul>
+</li>
+<li>Prompt an LLM to add a column <code>mass_outlier</code> that is <code>True</code> where <code>body_mass_g</code> is
+    more than two standard deviations from the mean <em>for that species</em><ul>
+<li>Ask the LLM whether it used the overall mean or the per-species mean, then check the code</li>
+<li>Count the flagged rows and spot-check two or three of them against the species statistics</li>
+</ul>
+</li>
+<li>Generate a synthetic dataset of 100 penguins where Adelies have a mean bill length of 38 mm
+    and Chinstraps have a mean bill length of 49 mm (both with standard deviation 2 mm)<ul>
+<li>Prompt an LLM to fit a classifier that predicts species from bill length</li>
+<li>Confirm that the decision boundary falls between the two means</li>
+<li>Check whether the reported accuracy is consistent with the known overlap between the two distributions</li>
+</ul>
+</li>
+<li>Compute the mean body mass of all penguins two ways: once with <code>.mean()</code> and once by
+    computing the sum of all body mass values divided by the count of non-null rows<ul>
+<li>Confirm that both answers agree to at least four significant figures</li>
+<li>If they differ, find the cause</li>
+</ul>
+</li>
+</ol>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../manage/">Managing Data</a>
+</div>
+<div class="col-6 center">
+<a href="../">AI for Data Analysis</a>
+	  ©
+	  <a href="../#acknowledgments">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../visualize/">Visualizing Results</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>
