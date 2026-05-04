@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Writing</title>
+<title>Communicating</title>
 <meta content="AI for Data Analysis" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
@@ -21,12 +21,11 @@
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
 <li><a href="../intro/">Introduction</a></li>
-<li><a href="../llm/">How LLMs Work</a></li>
-<li><a href="../interact/">Interact with LLMs</a></li>
+<li><a href="../interact/">Interacting with LLMs</a></li>
 <li><a href="../manage/">Managing Data</a></li>
-<li><a href="../coding/">Coding</a></li>
-<li><a href="../visualize/">Visualizing Results</a></li>
-<li><a class="active" href="../writing/">Writing</a></li>
+<li><a href="../code/">Coding</a></li>
+<li><a class="active" href="../communicate/">Communicating</a></li>
+<li><a href="../learning/">Learning</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -38,13 +37,17 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../llm/">How LLMs Work</a></li>
+<li><a href="../api/">Using the API</a></li>
 </ul>
 </div>
-<a href="https://github.com/gvwilson/aida">Repository</a>
 </div>
 </nav>
 <main id="main-content">
-<h1>Writing</h1>
+<h1>Communicating</h1>
+<ul>
+<li>Writing and visualization</li>
+</ul>
 <h2>Why use an LLM for scientific writing</h2>
 <ul>
 <li>Scientists have used spell checkers and citation managers since they were invented</li>
@@ -71,21 +74,21 @@
 <li>Generic phrasing: producing sentences that sound polished but say nothing specific</li>
 <li>Misrepresenting methods: paraphrasing a procedure in ways that omit critical details</li>
 </ul>
-<h2>Prompting for drafts</h2>
+<h2>Prompt for drafts</h2>
 <ul>
 <li>Provide the specific claim you want to make before asking for prose</li>
 <li>Include the key numbers, citations, or conditions that must appear</li>
 <li>Ask for a draft, not a final version: plan to rewrite rather than just accept</li>
 <li>Specify the audience and register explicitly (e.g., "write for a methods section in a biology journal")</li>
 </ul>
-<h2>Prompting for editing</h2>
+<h2>Prompt for editing</h2>
 <ul>
 <li>Paste your own text and ask for specific changes, not a general rewrite</li>
 <li>Ask it to flag passive constructions, not eliminate them: some are correct</li>
 <li>Ask it to identify long sentences rather than shorten them automatically</li>
 <li>Ask why a suggested change improves the text: vague style advice is not useful</li>
 </ul>
-<h2>Verifying LLM-generated writing</h2>
+<h2>Verify LLM-generated writing</h2>
 <ul>
 <li>Check every citation against the actual source<ul>
 <li>You <em>do</em> use a citation manager, right?</li>
@@ -104,6 +107,46 @@
 <li>Disclose LLM assistance where required or where it is a reasonable expectation</li>
 <li>Do not submit LLM-generated text as your own analysis or interpretation</li>
 <li>The LLM is not responsible for errors in your paper: you are</li>
+</ul>
+<h2>How to document LLM use</h2>
+<ul>
+<li>Model identification</li>
+<li>Prompts (e.g., include the log files with your datasets and results)</li>
+<li>How you verified its work</li>
+</ul>
+<blockquote>
+<p>ChatGPT-4o (OpenAI, accessed March 2025) was used to assist with
+initial coding of interview transcripts. All AI-generated codes were
+reviewed and revised by the authors. Prompts used are provided in
+Supplement S2.</p>
+</blockquote>
+<h2>Altair Basics</h2>
+<ul>
+<li>Common mark types: <code>.mark_point()</code>, <code>.mark_bar()</code>, <code>.mark_line()</code>, <code>.mark_rect()</code></li>
+<li>Encoding channels: <code>x</code>, <code>y</code>, <code>color</code>, <code>size</code>, <code>tooltip</code>, and <code>facet</code></li>
+<li>Interaction: selection</li>
+<li>Save charts as PNG or SVG with <code>.save()</code></li>
+</ul>
+<h2>Verify a chart</h2>
+<ul>
+<li>Does it show the expected number of points?</li>
+<li>Do axis ranges match the data?</li>
+<li>Does the color legend list all categories?</li>
+</ul>
+<h2>Iterate with LLM help</h2>
+<ul>
+<li>Add a regression line</li>
+<li>Change axis scale</li>
+<li>Facet by a categorical variable</li>
+</ul>
+<h2>Accessibility</h2>
+<ul>
+<li>Colorblind-safe color schemes, meaningful axis labels, readable font sizes, alt text<ul>
+<li>An LLMs can do the tedious work, so no longer any excuse <em>not</em> to do all this</li>
+</ul>
+</li>
+<li>Prompt an LLM to check charts against these criteria</li>
+<li>Prompt an LLM to generate alt text describing a chart from code and from prompt plus code</li>
 </ul>
 <h2>Exercises</h2>
 <ol>
@@ -138,20 +181,72 @@
 <li>Rewrite those sentences to say something specific about your work</li>
 </ul>
 </li>
+<li>Prompt an LLM to generate a histogram of body mass<ul>
+<li>Verify that the x-axis range matches the min and max from the Polars DataFrame</li>
+</ul>
+</li>
+<li>Prompt an LLM to generate a bar chart of mean bill length by species<ul>
+<li>Check that the number of bars matches the number of distinct species</li>
+</ul>
+</li>
+<li>Prompt an LLM to generate Altair code using a method that does not exist<ul>
+<li>Identify the error and prompt LLM to fix it using the current API</li>
+</ul>
+</li>
+<li>Add a <code>tooltip</code> encoding showing body mass and island<ul>
+<li>Verify that hovering displays both fields correctly</li>
+</ul>
+</li>
+<li>Replace the default color scheme with a colorblind-safe palette suggested by the LLM<ul>
+<li>Verify it against a colorblindness simulator</li>
+</ul>
+</li>
+<li>Prompt an LLM to facet the scatter plot by island<ul>
+<li>Confirm that each facet contains only penguins from that island</li>
+</ul>
+</li>
+<li>Prompt an LLM to generate a <a class="gl-ref" href="../glossary/#q_q_plot">Q-Q plot</a> of <code>body_mass_g</code> for Gentoo penguins
+    to check whether body mass is approximately normally distributed<ul>
+<li>Verify that both axes are labeled and that a diagonal reference line is drawn</li>
+<li>Generate a perfectly normal sample of the same size and confirm its Q-Q plot is straight</li>
+</ul>
+</li>
+<li>Use the squirrel census to count sightings per hectare,
+    then prompt an LLM to generate a <a class="gl-ref" href="../glossary/#lorenz_curve">Lorenz curve</a>
+    showing how unevenly sightings are distributed across hectares<ul>
+<li>Verify that the curve starts at (0, 0) and ends at (1, 1)</li>
+<li>Verify that the curve bows noticeably below the diagonal line of perfect equality</li>
+<li>If the curve does not satisfy either condition, trace the bug in the LLM's code</li>
+</ul>
+</li>
+<li>Download the <a href="https://data.giss.nasa.gov/gistemp/data_v4.html">NOAA GISTEMP</a> global mean surface temperature anomaly dataset<ul>
+<li>Prompt an LLM to plot the time series and add a vertical marker line at 1988
+    (the year James Hansen testified to the US Senate about climate change)</li>
+<li>Verify that the marker falls on the correct year and is visible against the background</li>
+<li>Check that the x-axis labels show years, not integer indices</li>
+</ul>
+</li>
+<li>Prompt an LLM to generate a 2D bin plot (heatmap) of <code>bill_length_mm</code> vs. <code>body_mass_g</code>
+    for all penguins, where color encodes the count of observations in each bin<ul>
+<li>Verify that the color scale increases with count</li>
+<li>Verify that the axis ranges cover all the data</li>
+<li>Check whether empty bins are shown as a neutral color rather than the lowest-count color</li>
+</ul>
+</li>
 </ol>
 </main>
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../visualize/">Visualizing Results</a>
+<span aria-hidden="true">⇐</span> <a href="../code/">Coding</a>
 </div>
 <div class="col-6 center">
 <a href="../">AI for Data Analysis</a>
 	  ©
-	  <a href="../#acknowledgments">the authors</a>
+	  <a href="../contributing/#contributors">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../finale/">Conclusion</a> <span aria-hidden="true">⇒</span>
+<a href="../learning/">Learning</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Learning</title>
+<meta content="AI for Data Analysis" name="description"/>
+<link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav aria-label="Site navigation" class="nav">
+<div class="nav-left">
+<a class="brand" href="../">AI for Data Analysis</a>
+<div class="dropdown">
+<button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
+<ul class="dropdown-content" id="nav-lessons">
+<li><a href="../intro/">Introduction</a></li>
+<li><a href="../interact/">Interacting with LLMs</a></li>
+<li><a href="../manage/">Managing Data</a></li>
+<li><a href="../code/">Coding</a></li>
+<li><a href="../communicate/">Communicating</a></li>
+<li><a class="active" href="../learning/">Learning</a></li>
+<li><a href="../finale/">Conclusion</a></li>
+</ul>
+</div>
+<div class="dropdown">
+<button aria-controls="nav-appendices" aria-haspopup="true">Appendices</button>
+<ul class="dropdown-content" id="nav-appendices">
+<li><a href="../license/">License</a></li>
+<li><a href="../conduct/">Code of Conduct</a></li>
+<li><a href="../contributing/">Contributing</a></li>
+<li><a href="../bibliography/">Bibliography</a></li>
+<li><a href="../glossary/">Glossary</a></li>
+<li><a href="../llm/">How LLMs Work</a></li>
+<li><a href="../api/">Using the API</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<h1>Learning</h1>
+<h2>LLMs as tutors</h2>
+<ul>
+<li>The appeal is obvious<ul>
+<li>Ask as many questions as you want, whenever you want</li>
+<li>Ask for a different explanation if the first doesn't make sense</li>
+<li>Don't feel stupid in front of other people</li>
+</ul>
+</li>
+<li>The limitations are equally obvious<ul>
+<li>The tutor makes things up</li>
+<li>You never learn how to do things yourself</li>
+</ul>
+</li>
+</ul>
+<h2>Getting explanations at the right level</h2>
+<ul>
+<li>LLMs calibrate their explanations to cues in the prompt<ul>
+<li>"I'm an undergraduate" produces shorter sentences and more analogies</li>
+<li>"I have a Ph.D. in statistics" produces fewer hand-waves and more precision</li>
+</ul>
+</li>
+<li>Be explicit about what you already know and what you do not<ul>
+<li>Weak: "Explain p-values."</li>
+<li>Stronger: "I know a p-value is a probability but I don't understand what it's a probability <em>of</em>.
+    Explain in two paragraphs without assuming I know calculus."</li>
+</ul>
+</li>
+<li>Ask for multiple explanations if the first one does not click<ul>
+<li>"Try a different analogy" is a useful prompt</li>
+</ul>
+</li>
+<li>Ask for a concrete example before an abstract definition<ul>
+<li>Most people understand examples before principles, not the other way around</li>
+</ul>
+</li>
+</ul>
+<h2>Using examples and analogies</h2>
+<ul>
+<li>Prompt the LLM to show you before it tells you<ul>
+<li>"Give me a worked example, then explain the rule it illustrates"</li>
+</ul>
+</li>
+<li>Prompt it for the example to use data you already know<ul>
+<li>"Show me how to compute the mean bill length per species using the penguins dataset"</li>
+</ul>
+</li>
+<li>Prompt it for a bad example alongside a good one<ul>
+<li>"Show me a histogram that is badly binned and one that is well-binned, using the same data"</li>
+</ul>
+</li>
+<li>Analogies break down: prompt the LLM to explain where its analogy stops working<ul>
+<li>"You compared p-values to fire alarms. Where does that analogy fail?"</li>
+</ul>
+</li>
+<li>An example you can run is more useful than one you can only read<ul>
+<li>Paste the code into a notebook and make sure it actually does what the LLM claimed</li>
+</ul>
+</li>
+</ul>
+<h2>Testing your own understanding</h2>
+<ul>
+<li>Explaining something is harder than recognizing a correct explanation<ul>
+<li>Write a short paragraph in your own words, then prompt the LLM to check it</li>
+</ul>
+</li>
+<li>Prompt the LLM to quiz you<ul>
+<li>"Ask me three questions about what I just read, then tell me which answers I got wrong"</li>
+</ul>
+</li>
+<li>Prompt for common misconceptions<ul>
+<li>"What do beginners usually get wrong about confidence intervals?"</li>
+</ul>
+</li>
+<li>Resist the urge to look at the LLM's answer before writing your own<ul>
+<li>The moment you read the answer, you will convince yourself you already knew it</li>
+</ul>
+</li>
+</ul>
+<h2>What LLMs get wrong as tutors</h2>
+<ul>
+<li>Hallucination in explanations: technically fluent but factually wrong<ul>
+<li>Particularly common for specialist or niche topics</li>
+</ul>
+</li>
+<li><a class="gl-ref" href="../glossary/#sycophancy">Sycophancy</a>: telling you what you want to hear<ul>
+<li>If you say "so it's basically the same as X, right?", the LLM is inclined to agree</li>
+<li>Ask "Is there anything wrong with this description?" rather than "Is this right?"</li>
+</ul>
+</li>
+</ul>
+<div class="callout">
+<p>Why does the wording of that question matter?
+LLMs are trained using reinforcement learning from human feedback (RLHF),
+where human raters rank model responses.
+Raters tend to prefer responses that are agreeable and helpful-sounding,
+so the model learns that confirming what the user said
+is more likely to be rated positively than contradicting them.
+This is called <em>sycophancy</em>: optimizing for approval rather than accuracy.
+Asking "Is there anything wrong with this?" explicitly invites disagreement
+and shifts the model toward a more critical mode.
+A quick test: tell an LLM something subtly wrong
+("the p-value is the probability that the null hypothesis is true, right?")
+and compare what you get from "Is this right?" versus "Is there anything wrong with this description?"</p>
+</div>
+<ul>
+<li>Skipping steps<ul>
+<li>LLMs often omit the step they consider obvious,
+    which is often exactly the step you are confused about</li>
+<li>Ask "Walk me through this step by step and don't skip anything, even the trivial parts"</li>
+</ul>
+</li>
+<li>Overlong answers that bury the key point<ul>
+<li>Ask for a one-sentence version before the full explanation</li>
+</ul>
+</li>
+<li>No memory across sessions<ul>
+<li>A new conversation starts with no record of what you covered before</li>
+<li>You have to re-establish context every time</li>
+</ul>
+</li>
+</ul>
+<h2>Checking what you learned</h2>
+<ul>
+<li>An explanation that makes sense in the moment may still be wrong<ul>
+<li>The feeling of understanding and actual understanding are not the same thing</li>
+</ul>
+</li>
+<li>Cross-check key claims against a textbook, documentation, or a reliable reference</li>
+<li>Run the code: if the LLM explains that a function works a certain way, test it on a small example</li>
+<li>Ask a second source, including a different LLM<ul>
+<li>Two independent hallucinations that agree are still hallucinations</li>
+</ul>
+</li>
+<li>Try to use the concept before deciding you understand it<ul>
+<li>Explaining penguin bill length distributions becomes easier after looking at the actual histogram</li>
+</ul>
+</li>
+<li>The hardest cases to catch are explanations that are roughly right but subtly misleading<ul>
+<li>Checking for "plausible but wrong" requires knowing enough to be suspicious</li>
+</ul>
+</li>
+</ul>
+<h2>Exercises</h2>
+<ol>
+<li>Find a concept in statistics that you find confusing
+    (e.g., confidence intervals, p-values, or the difference between variance and standard deviation)<ul>
+<li>Prompt an LLM to explain it to someone who has taken one semester of statistics</li>
+<li>Write a one-paragraph explanation in your own words</li>
+<li>Prompt the LLM to identify any errors in your explanation</li>
+</ul>
+</li>
+<li>Prompt an LLM to explain how <code>group_by</code> works in Polars, using the penguins dataset as an example<ul>
+<li>Run the example it provides</li>
+<li>Ask it to re-explain the step you found hardest to follow, using a different analogy</li>
+</ul>
+</li>
+<li>Prompt an LLM to quiz you on the content of the "How LLMs Work" lesson in this tutorial<ul>
+<li>Answer three questions without looking back at the lesson</li>
+<li>Review the LLM's feedback and record which concepts you actually understood
+    versus which ones you only recognized</li>
+</ul>
+</li>
+<li>Prompt an LLM "Is it accurate to say that an LLM looks up facts from its training data?"<ul>
+<li>Then ask "Is there anything misleading about that description?"</li>
+<li>Compare the two responses and explain why the second question changed the answer</li>
+</ul>
+</li>
+<li>Prompt an LLM to explain a statistical concept, then ask the same question to a different LLM<ul>
+<li>Identify one claim both LLMs made</li>
+<li>Verify that claim against a textbook or the relevant Wikipedia article</li>
+</ul>
+</li>
+<li>Prompt an LLM to walk you through computing the standard deviation of bill lengths
+    for Adelie penguins step by step, without skipping any steps<ul>
+<li>Identify any step it omitted or got wrong</li>
+<li>Verify the final answer by computing it yourself using the penguins dataset</li>
+</ul>
+</li>
+</ol>
+</main>
+<footer aria-label="Page navigation">
+<div class="row">
+<div class="col-3 left">
+<span aria-hidden="true">⇐</span> <a href="../communicate/">Communicating</a>
+</div>
+<div class="col-6 center">
+<a href="../">AI for Data Analysis</a>
+	  ©
+	  <a href="../contributing/#contributors">the authors</a>
+</div>
+<div class="col-3 right">
+<a href="../finale/">Conclusion</a> <span aria-hidden="true">⇒</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Interact with LLMs</title>
+<title>Interacting with LLMs</title>
 <meta content="AI for Data Analysis" name="description"/>
 <link href="../_static/favicon.ico" rel="icon" type="image/x-icon"/>
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
@@ -21,12 +21,11 @@
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
 <li><a href="../intro/">Introduction</a></li>
-<li><a href="../llm/">How LLMs Work</a></li>
-<li><a class="active" href="../interact/">Interact with LLMs</a></li>
+<li><a class="active" href="../interact/">Interacting with LLMs</a></li>
 <li><a href="../manage/">Managing Data</a></li>
-<li><a href="../coding/">Coding</a></li>
-<li><a href="../visualize/">Visualizing Results</a></li>
-<li><a href="../writing/">Writing</a></li>
+<li><a href="../code/">Coding</a></li>
+<li><a href="../communicate/">Communicating</a></li>
+<li><a href="../learning/">Learning</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -38,13 +37,14 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../llm/">How LLMs Work</a></li>
+<li><a href="../api/">Using the API</a></li>
 </ul>
 </div>
-<a href="https://github.com/gvwilson/aida">Repository</a>
 </div>
 </nav>
 <main id="main-content">
-<h1>Interact with LLMs</h1>
+<h1>Interacting with LLMs</h1>
 <ul>
 <li>FIXME: this references Claude specifically - can it be made generic?</li>
 </ul>
@@ -120,44 +120,6 @@ Do not include any other text.
 </li>
 <li>Long, complex prompts can be broken into smaller prompts that build on each other</li>
 </ul>
-<h2>The API</h2>
-<ul>
-<li>Use the API when you need to call an LLM from Python code inside a notebook, a script, or a pipeline</li>
-<li>Authentication is done via an environment variable, not hardcoded in source files</li>
-</ul>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ANTHROPIC_API_KEY</span><span class="o">=</span><span class="s2">"sk-ant-..."</span><span class="w">   </span><span class="c1"># add to ~/.zshrc or ~/.bashrc</span>
-</code></pre></div>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">anthropic</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="o">.</span><span class="n">Anthropic</span><span class="p">()</span>   <span class="c1"># reads ANTHROPIC_API_KEY automatically</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-    <span class="n">model</span><span class="o">=</span><span class="s2">"claude-opus-4-6"</span><span class="p">,</span>
-    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
-    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"How many rows are in a 10x10 grid?"</span><span class="p">}]</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div>
-<ul>
-<li>The response object contains <code>content</code> (a list of content blocks),
-    <code>usage</code> (token counts),
-    and <code>stop_reason</code></li>
-<li>Cost is <code>(input_tokens * input_price) + (output_tokens * output_price)</code><ul>
-<li>Check the provider's pricing page</li>
-</ul>
-</li>
-<li><a class="gl-ref" href="../glossary/#rate_limit">Rate limits</a> apply: requests per minute and tokens per minute<ul>
-<li>Exceeded limits raise HTTP 429 errors</li>
-</ul>
-</li>
-<li>Use <a class="gl-ref" href="../glossary/#exponential_backoff">exponential back-off</a> when retrying rate-limited requests</li>
-</ul>
-<div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-        <span class="k">break</span>
-    <span class="k">except</span> <span class="n">anthropic</span><span class="o">.</span><span class="n">RateLimitError</span><span class="p">:</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">attempt</span><span class="p">)</span>
-</code></pre></div>
 <h2>Model Context Protocol</h2>
 <ul>
 <li><a class="gl-ref" href="../glossary/#mcp">Model context protocol</a> (MCP) is
@@ -276,11 +238,6 @@ state<span class="w"> </span>the<span class="w"> </span>library<span class="w"> 
 <li>Test it on a data-loading task and record whether it changed the output</li>
 </ul>
 </li>
-<li>Call the LLM API from a short Python script to summarize a dataset<ul>
-<li>Print the <code>usage</code> field of the response</li>
-<li>Record how many input and output tokens the call consumed and estimate its cost</li>
-</ul>
-</li>
 <li>Prompt an agent to find and fix a syntax error in a short Python script<ul>
 <li>Review every tool call it made</li>
 <li>Note which changes were correct and which introduced new problems</li>
@@ -295,12 +252,12 @@ state<span class="w"> </span>the<span class="w"> </span>library<span class="w"> 
 <footer aria-label="Page navigation">
 <div class="row">
 <div class="col-3 left">
-<span aria-hidden="true">⇐</span> <a href="../llm/">How LLMs Work</a>
+<span aria-hidden="true">⇐</span> <a href="../intro/">Introduction</a>
 </div>
 <div class="col-6 center">
 <a href="../">AI for Data Analysis</a>
 	  ©
-	  <a href="../#acknowledgments">the authors</a>
+	  <a href="../contributing/#contributors">the authors</a>
 </div>
 <div class="col-3 right">
 <a href="../manage/">Managing Data</a> <span aria-hidden="true">⇒</span>

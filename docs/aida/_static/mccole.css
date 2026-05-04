@@ -130,6 +130,11 @@ img.img-90 {
     align-items: baseline;
 }
 
+/* Remove Chota's default 2rem left padding so brand aligns with body text */
+.nav .brand {
+    padding-left: 0;
+}
+
 /* Make dropdown a flex container so its button participates in baseline alignment */
 .nav .dropdown {
     display: flex;
@@ -237,6 +242,7 @@ div.syllabus {
     padding: 1rem;
     background-color: var(--bg-secondary-color);
     border-radius: 4px;
+    margin-bottom: 1em;
 }
 div.callout > :last-child,
 div.syllabus > :last-child,
@@ -278,9 +284,9 @@ details.explanation {
 details.explanation > summary {
     cursor: pointer;
     color: var(--color-primary);
-    list-style: disclosure-closed;
+    list-style: inside disclosure-closed;
     padding: var(--len-quarter) 0;
 }
 details.explanation[open] > summary {
-    list-style: disclosure-open;
+    list-style: inside disclosure-open;
 }

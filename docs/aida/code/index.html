@@ -21,12 +21,11 @@
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
 <li><a href="../intro/">Introduction</a></li>
-<li><a href="../llm/">How LLMs Work</a></li>
-<li><a href="../interact/">Interact with LLMs</a></li>
+<li><a href="../interact/">Interacting with LLMs</a></li>
 <li><a href="../manage/">Managing Data</a></li>
-<li><a class="active" href="../coding/">Coding</a></li>
-<li><a href="../visualize/">Visualizing Results</a></li>
-<li><a href="../writing/">Writing</a></li>
+<li><a class="active" href="../code/">Coding</a></li>
+<li><a href="../communicate/">Communicating</a></li>
+<li><a href="../learning/">Learning</a></li>
 <li><a href="../finale/">Conclusion</a></li>
 </ul>
 </div>
@@ -38,16 +37,17 @@
 <li><a href="../contributing/">Contributing</a></li>
 <li><a href="../bibliography/">Bibliography</a></li>
 <li><a href="../glossary/">Glossary</a></li>
+<li><a href="../llm/">How LLMs Work</a></li>
+<li><a href="../api/">Using the API</a></li>
 </ul>
 </div>
-<a href="https://github.com/gvwilson/aida">Repository</a>
 </div>
 </nav>
 <main id="main-content">
 <h1>Coding</h1>
 <h2>Prompting an LLM to write code</h2>
 <ul>
-<li>When asking an LLM to write code, be as specific as possible:<ul>
+<li>When prompting an LLM to write code, be as specific as possible:<ul>
 <li>State the goal in plain language before asking for code</li>
 <li>Name the library or tool you want it to use</li>
 <li>Say what the input looks like and what the output should be</li>
@@ -60,6 +60,15 @@
 <li>Ask it to explain what its code does before asking it to fix anything</li>
 </ul>
 </li>
+<li>FIXME: example session</li>
+</ul>
+<h2>Code quality</h2>
+<ul>
+<li>Use <code>ruff</code> to <a class="gl-ref" href="../glossary/#linter">lint</a> LLM-generated Python code before running it<ul>
+<li>Catches unused imports, undefined variables, and style violations</li>
+</ul>
+</li>
+<li>Prompt the LLM to review code for repeated logic, hardcoded values, and readability problems</li>
 </ul>
 <h2>Common LLM errors in generated code</h2>
 <ul>
@@ -98,36 +107,6 @@
 <li>Confirm aggregates are in a plausible range</li>
 <li>Check that subgroup counts sum to the total and fractions sum to 1.0</li>
 </ul>
-<h2>Reading and inspecting data with Polars</h2>
-<ul>
-<li><code>pl.read_csv()</code>, <code>pl.read_database()</code>, <code>pl.scan_csv()</code> for large files</li>
-<li>Inspect with <code>.schema</code>, <code>.head()</code>, <code>.describe()</code>, <code>.null_count()</code></li>
-<li><code>.drop_nulls()</code>, <code>.fill_null()</code>, <code>.cast()</code>, <code>.str.strip_chars()</code>, <code>.with_columns()</code></li>
-<li>Prompt explicitly for Polars: LLMs frequently produce Pandas syntax instead</li>
-</ul>
-<h2>Identifying problems</h2>
-<ul>
-<li>Missing values</li>
-<li>Wrong data types</li>
-<li>Inconsistent string values</li>
-<li>Implausible outliers</li>
-<li>Compare null counts and dataframe shape before and after</li>
-<li>Spot-check that no valid rows were dropped</li>
-<li>Check invariants: row count before must equal rows kept plus rows dropped</li>
-<li>Confirm that derived fractions or probabilities across all categories sum to 1.0</li>
-<li>Invented significance levels</li>
-<li>Wrong direction of effect</li>
-<li>Conflating correlation with causation</li>
-<li>Overstating certainty about group differences</li>
-</ul>
-<h2>Code quality</h2>
-<ul>
-<li>Use <code>ruff</code> to <a class="gl-ref" href="../glossary/#linter">lint</a> LLM-generated Python code before running it<ul>
-<li>Catches unused imports, undefined variables, and style violations</li>
-</ul>
-</li>
-<li>Ask the LLM to review code for repeated logic, hardcoded values, and readability problems</li>
-</ul>
 <h3>Validating an analysis</h3>
 <ul>
 <li>Generate synthetic data with a known answer and confirm the analysis recovers it<ul>
@@ -145,6 +124,21 @@
     you need more data or a clearer criterion</li>
 </ul>
 </li>
+</ul>
+<h2>Identifying problems in analysis</h2>
+<ul>
+<li>Missing values</li>
+<li>Wrong data types</li>
+<li>Inconsistent string values</li>
+<li>Implausible outliers</li>
+<li>Compare null counts and dataframe shape before and after</li>
+<li>Spot-check that no valid rows were dropped</li>
+<li>Check invariants: row count before must equal rows kept plus rows dropped</li>
+<li>Confirm that derived fractions or probabilities across all categories sum to 1.0</li>
+<li>Invented significance levels</li>
+<li>Wrong direction of effect</li>
+<li>Conflating correlation with causation</li>
+<li>Overstating certainty about group differences</li>
 </ul>
 <h2>Exercises</h2>
 <ol>
@@ -253,10 +247,10 @@
 <div class="col-6 center">
 <a href="../">AI for Data Analysis</a>
 	  ©
-	  <a href="../#acknowledgments">the authors</a>
+	  <a href="../contributing/#contributors">the authors</a>
 </div>
 <div class="col-3 right">
-<a href="../visualize/">Visualizing Results</a> <span aria-hidden="true">⇒</span>
+<a href="../communicate/">Communicating</a> <span aria-hidden="true">⇒</span>
 </div>
 </div>
 </footer>
