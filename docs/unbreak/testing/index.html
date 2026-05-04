@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>Testing</h1>
-<h2 id="testing-vacuous">Test with No Assertion</h2>
+<h2 id="testing-vacuous">Write a test for a totaling function</h2>
 <p>Run <code>pytest test_vacuous.py -v</code>. Does the test pass? Add a print statement inside
 <code>test_total</code> to confirm that <code>result</code> is being computed. Does a passing test mean
 the function is correct?</p>
@@ -70,7 +71,7 @@ always reports it as passing. A vacuous test gives false confidence: the functio
 could return any value and the test would still pass. Shows that every test must
 contain at least one assertion that can actually fail.</p>
 </details>
-<h2 id="testing-tupleassert">Tuple Is Always Truthy</h2>
+<h2 id="testing-tupleassert">Test that a doubling function returns the right value</h2>
 <p>Run <code>pytest test_tupleassert.py -v</code>. Does the test pass? What value does <code>double(4)</code>
 actually return? Check the pytest warning in the output.</p>
 <div data-inc="test_tupleassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -92,13 +93,10 @@ enclosing parentheses. Shows how easy it is to write an assertion that looks
 plausible but is logically vacuous, and why pytest's warning about this pattern
 should not be ignored.</p>
 </details>
-<h2 id="testing-floatequal">Floating-Point Equality</h2>
+<h2 id="testing-floatequal">Test a running total function</h2>
 <p>Run <code>pytest test_floatequal.py -v</code>. Read the assertion error carefully. What value
 did <code>running_total</code> actually return?</p>
-<div data-inc="test_floatequal.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+<div data-inc="test_floatequal.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
     <span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
         <span class="n">total</span> <span class="o">+=</span> <span class="n">v</span>
@@ -118,7 +116,7 @@ rounding error in IEEE 754 arithmetic, so <code>0.1 + 0.2 + 0.3</code> produces
 floats within a tolerance, and why exact equality between computed floats is
 unreliable.</p>
 </details>
-<h2 id="testing-broadexc">pytest.raises Catches the Wrong Exception</h2>
+<h2 id="testing-broadexc">Test that a function rejects invalid input</h2>
 <p>Run <code>pytest test_broadexc.py -v</code>. Does the test pass? What exception does
 <code>parse_count(None)</code> actually raise? Is that the exception the test intended to check?</p>
 <div data-inc="test_broadexc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
@@ -141,7 +139,7 @@ than the expected <code>ValueError</code>, masking a bug in the function. Shows 
 specific exception type in <code>pytest.raises</code> and why catching the base <code>Exception</code>
 class in tests hides incorrect behaviour.</p>
 </details>
-<h2 id="testing-noyield">Fixture with No Cleanup</h2>
+<h2 id="testing-noyield">Test a function that reads from a temporary file</h2>
 <p>Run <code>pytest test_noyield.py -v</code>. The test fails. After it fails, check whether the
 temp file still exists. Then change <code>return path</code> to <code>yield path</code> and add
 <code>os.remove(path)</code> after the yield. Run again and check the filesystem.</p>
@@ -173,12 +171,10 @@ teardown even if the test raises an exception. Shows the difference between
 <code>return</code> and <code>yield</code> in pytest fixtures and why <code>yield</code> is necessary for reliable
 cleanup.</p>
 </details>
-<h2 id="testing-orderdep">Test Depends on Execution Order</h2>
+<h2 id="testing-orderdep">Test a registry that stores and retrieves entries</h2>
 <p>Run <code>pytest test_orderdep.py -v</code>. Both tests pass. Now run
 <code>pytest test_orderdep.py::test_lookup -v</code> to run only the second test. What happens?</p>
-<div data-inc="test_orderdep.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
-
-<span class="n">_registry</span> <span class="o">=</span> <span class="p">{}</span>
+<div data-inc="test_orderdep.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">_registry</span> <span class="o">=</span> <span class="p">{}</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
@@ -206,7 +202,7 @@ and the test raises a <code>KeyError</code>. Shows why each test must set up its
 independently rather than relying on side effects from other tests, and how to use
 fixtures to provide shared setup.</p>
 </details>
-<h2 id="testing-scopemut">Mutable Session-Scoped Fixture</h2>
+<h2 id="testing-scopemut">Share a list fixture across multiple tests</h2>
 <p>Run <code>pytest test_scopemut.py -v</code>. Which test fails? Reverse the order of the two
 tests and run again. Does the other test now fail?</p>
 <div data-inc="test_scopemut.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
@@ -235,7 +231,7 @@ scopes, why mutable objects should use function scope (the default) rather than
 session scope, and how fixture scope bugs often appear only when tests are run in a
 particular order.</p>
 </details>
-<h2 id="testing-deadassert">Assertion After the Raising Call Is Dead Code</h2>
+<h2 id="testing-deadassert">Test that a function raises an error on bad input</h2>
 <p>Run <code>pytest test_deadassert.py -v</code>. The test passes. Add a <code>print("reached")</code> on
 the line after <code>result = parse_positive(0)</code>. Run again. Is the print executed?</p>
 <div data-inc="test_deadassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
@@ -262,7 +258,7 @@ the exception was raised as expected, but the assertion that was supposed to che
 return value is silently skipped. Shows that assertions on return values must be
 placed after the <code>with pytest.raises()</code> block, not inside it.</p>
 </details>
-<h2 id="testing-missingreturn">Missing Return in Tested Function</h2>
+<h2 id="testing-missingreturn">Test a string prefix-stripping function</h2>
 <p>Run <code>pytest test_missingreturn.py -v</code>. Read the assertion error. What value did
 <code>strip_prefix</code> return? Is that what you expected from the code?</p>
 <div data-inc="test_missingreturn.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">strip_prefix</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
@@ -283,7 +279,7 @@ compares <code>None == "disk full"</code> and fails. Shows how to recognise a mi
 <code>return</code> from a <code>None</code> assertion error and how to check function return values as a
 first step when a test fails unexpectedly.</p>
 </details>
-<h2 id="testing-paramtype">sort Returns None</h2>
+<h2 id="testing-paramtype">Test a function that returns a sorted list</h2>
 <p>Run <code>pytest test_paramtype.py -v</code>. All three cases fail. Read the assertion error
 for the first case. What value did <code>result</code> have?</p>
 <div data-inc="test_paramtype.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
@@ -308,7 +304,7 @@ Shows the difference between <code>list.sort()</code> (in-place, returns <code>N
 <code>sorted()</code> (returns a new sorted list), and how parametrize makes the pattern of
 failure visible across multiple inputs at once.</p>
 </details>
-<h2 id="testing-tmpfile">Test Writes to the Working Directory</h2>
+<h2 id="testing-tmpfile">Test a function that writes JSON to a file</h2>
 <p>Run <code>pytest test_tmpfile.py -v</code>. The test passes. After it finishes, list the files
 in your working directory. What file was left behind?</p>
 <div data-inc="test_tmpfile.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">summarize</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
@@ -343,7 +339,7 @@ each run.</p>
 <span aria-hidden="true">⇐</span> <a href="../sql/">SQL</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -352,5 +348,12 @@ each run.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

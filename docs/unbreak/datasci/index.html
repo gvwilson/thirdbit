@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>Data Science</h1>
-<h2 id="datasci-filterboundary">Filter Boundary Condition</h2>
+<h2 id="datasci-filterboundary">Select rows within a date range</h2>
 <p>Run the script and count the rows returned. Then count by hand how many rows in the
 CSV should satisfy the condition. Do the two counts agree?</p>
 <div data-inc="filterboundary.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -79,7 +80,7 @@ epsilon,90.0
 the script keeps rows it should drop. Shows how to verify filter logic by checking
 boundary values and using <code>.filter()</code> with explicit comparison operators.</p>
 </details>
-<h2 id="datasci-multilinecsv">Multi-Line CSV Header</h2>
+<h2 id="datasci-multilinecsv">Read a spreadsheet with a two-row header</h2>
 <p>Run the script and look at the row count and the first few rows of the DataFrame.
 Do they match the data you expected to load?</p>
 <div data-inc="multilinecsv.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -106,7 +107,7 @@ the multi-line header as data and reports the wrong number of rows. Shows how to
 inspect the first few rows of a DataFrame with <code>.head()</code> and how to use <code>skip_rows</code>
 and <code>has_header</code> to handle non-standard file layouts.</p>
 </details>
-<h2 id="datasci-casejoin">Case-Sensitive Column Name in Join</h2>
+<h2 id="datasci-casejoin">Combine two datasets on a shared identifier</h2>
 <p>Run the script and examine the <code>mean_amount</code> column in the result. Are there any
 null values where you did not expect them?</p>
 <div data-inc="casejoin.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -134,7 +135,7 @@ null values where you did not expect them?</p>
 output has a null for the group mean. Shows that Polars column names are
 case-sensitive and how to diagnose null-filled join results.</p>
 </details>
-<h2 id="datasci-datestring">Dates Read as Strings</h2>
+<h2 id="datasci-datestring">Sort records by date of collection</h2>
 <p>Run the script and check the schema of the DataFrame. What type does Polars assign
 to the <code>date</code> column? How many rows does the filter return?</p>
 <div data-inc="datestring.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -161,7 +162,7 @@ lexicographic rather than chronological and the filter returns no rows even thou
 matching rows exist. Shows how to inspect inferred column types with <code>.schema</code>, and
 how to cast a column to <code>pl.Date</code> before filtering.</p>
 </details>
-<h2 id="datasci-aggorder">Aggregation Order Error</h2>
+<h2 id="datasci-aggorder">Compute per-group statistics before filtering</h2>
 <p>Run the script and compare the output totals to the values in the CSV file. Do the
 per-region totals make sense?</p>
 <div data-inc="aggorder.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -194,7 +195,7 @@ and then groups a single-row DataFrame, producing unexpectedly large totals. Sho
 the importance of operation order in lazy and eager pipelines and how to verify
 intermediate results.</p>
 </details>
-<h2 id="datasci-lazyerror">Lazy Evaluation Defers Errors</h2>
+<h2 id="datasci-lazyerror">Debug a pipeline that fails at the wrong step</h2>
 <p>Run the script and read the error message and traceback. Which step in the pipeline
 does the error appear to come from? Is that where the mistake actually is?</p>
 <div data-inc="lazyerror.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -223,7 +224,7 @@ does the error appear to come from? Is that where the mistake actually is?</p>
 transformation is written. Shows how Polars lazy evaluation defers errors and how
 to use <code>.collect()</code> on intermediate steps to locate the failing transformation.</p>
 </details>
-<h2 id="datasci-wrongdelim">Wrong CSV Delimiter</h2>
+<h2 id="datasci-wrongdelim">Read a tab-separated export from a database</h2>
 <p>Run the script and examine the column names and values in the combined DataFrame.
 Are the columns what you expected?</p>
 <div data-inc="wrongdelim.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -254,7 +255,7 @@ entire row as a single column. When <code>concat</code> is called with <code>how
 columns are filled with nulls and the result has twice as many columns as expected.
 Shows how to check column names and counts before concatenating DataFrames.</p>
 </details>
-<h2 id="datasci-sentinel">Sentinel Values Mistaken for Data</h2>
+<h2 id="datasci-sentinel">Average measurements that include missing values</h2>
 <p>Run the script and look at the mean. Then inspect the raw data. Are there any
 values in the column that seem unusually large?</p>
 <div data-inc="sentinel.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -287,7 +288,7 @@ true null, so <code>.fill_null()</code> has no effect on them and the mean is sk
 appear to be valid large numbers. Shows how to identify domain-specific sentinel
 values and replace them with <code>pl.Null</code> before analysis.</p>
 </details>
-<h2 id="datasci-whitespace">Whitespace in Group Keys</h2>
+<h2 id="datasci-whitespace">Group survey responses by category</h2>
 <p>Run the script and count the number of groups produced. Is it more than you
 expected? Call <code>.unique()</code> on the grouping column and examine what you see.</p>
 <div data-inc="whitespace.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -315,7 +316,7 @@ more groups than expected. Shows how to inspect unique values with <code>.unique
 use <code>.str.strip_chars()</code> to normalize strings before grouping, and verify group
 counts.</p>
 </details>
-<h2 id="datasci-rolling">Rolling Window min_periods</h2>
+<h2 id="datasci-rolling">Smooth a noisy sensor signal</h2>
 <p>Run the script and count the null values in the <code>rolling_mean</code> column. Is the
 number of null rows what you expected for a 7-day window?</p>
 <div data-inc="rolling.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -352,7 +353,7 @@ that cannot be fully filled returns null and the result has far more nulls than
 expected. Shows how rolling aggregations handle incomplete windows and how to
 choose between strict and lenient behavior with <code>min_periods</code>.</p>
 </details>
-<h2 id="datasci-quanttype">Missing Quantitative Encoding Type</h2>
+<h2 id="datasci-quanttype">Plot measurement values on a scatter chart</h2>
 <p>Run the script and open the saved chart in a browser. Do all the bars have heights
 that reflect the <code>value</code> column?</p>
 <div data-inc="quanttype.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -378,7 +379,7 @@ instead of summing values, giving all bars the same height. Shows how Altair
 infers encoding types and why specifying <code>type</code> explicitly avoids silent
 misinterpretation.</p>
 </details>
-<h2 id="datasci-colorscale">Color Scale from String Column</h2>
+<h2 id="datasci-colorscale">Color a chart by a numeric category</h2>
 <p>Run the script and open the saved chart. Does the color scale appear as a
 continuous gradient, or as a discrete set of colors?</p>
 <div data-inc="colorscale.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -406,7 +407,7 @@ float, so Altair applies a nominal color scale and the scatter plot shows a disc
 legend with arbitrary colors instead of a continuous gradient. Shows how data types
 in the source DataFrame determine Altair's default encoding choices.</p>
 </details>
-<h2 id="datasci-temporal">Nominal vs. Temporal Encoding</h2>
+<h2 id="datasci-temporal">Plot measurements collected over time</h2>
 <p>Open the saved chart in a browser. Are the months arranged in chronological order
 along the x-axis, or in a different order?</p>
 <div data-inc="temporal.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -432,7 +433,7 @@ chart draws disconnected segments instead of a continuous line. Shows the
 difference between nominal and temporal encoding in Altair and how to verify axis
 ordering.</p>
 </details>
-<h2 id="datasci-filterfield">Altair Filter on Wrong Field</h2>
+<h2 id="datasci-filterfield">Add an interactive filter to a chart</h2>
 <p>Open the saved chart in a browser. Does it show only the categories whose count
 is 100 or more, or does it show all of them?</p>
 <div data-inc="filterfield.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -462,7 +463,7 @@ shown instead of just the top 10. Shows how to debug Altair transforms by
 inspecting the chart's JSON specification and checking field names match the data
 source.</p>
 </details>
-<h2 id="datasci-tooltip">Tooltip Field with Spaces</h2>
+<h2 id="datasci-tooltip">Show column values in a chart tooltip</h2>
 <p>Open the saved chart in a browser and hover over a point. Does the <code>Sales Region</code>
 field in the tooltip show a value?</p>
 <div data-inc="tooltip.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -489,7 +490,7 @@ shows <code>null</code> for that field even though the data contains values. Sho
 shorthand handles special characters and when to use
 <code>alt.Tooltip(field=…, title=…)</code> instead.</p>
 </details>
-<h2 id="datasci-polarsinaltair">Polars DataFrame in Altair</h2>
+<h2 id="datasci-polarsinaltair">Pass a Polars dataframe to a chart library</h2>
 <p>Run the script and open the saved chart in a browser. Does the chart show any data
 points?</p>
 <div data-inc="polarsinaltair.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -514,7 +515,7 @@ converting it to a pandas DataFrame or using <code>alt.Data</code>, so the chart
 Shows which data formats Altair accepts natively and how to convert between Polars
 and the formats Altair supports.</p>
 </details>
-<h2 id="datasci-spurcorr">Spurious Perfect Correlation</h2>
+<h2 id="datasci-spurcorr">Check whether two measurements are related</h2>
 <p>Run the script and note the correlation value. Then examine how <code>metric_a</code> and
 <code>metric_b</code> are constructed. Should they really be perfectly correlated?</p>
 <div data-inc="spurcorr.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -540,7 +541,7 @@ is exactly 1.0 for columns that should not be perfectly correlated. Shows how to
 audit column provenance in a pipeline and use scatter plots to sanity-check
 correlation claims.</p>
 </details>
-<h2 id="datasci-chunkaccum">Memory from Chunk Accumulation</h2>
+<h2 id="datasci-chunkaccum">Process a large file in pieces</h2>
 <p>Run the script on a large file and watch how memory usage changes as the script
 runs. Does memory stay roughly constant, or does it grow?</p>
 <div data-inc="chunkaccum.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -570,7 +571,7 @@ processing each chunk and writing results incrementally, so the pipeline runs ou
 memory on large files. Shows streaming versus batch processing patterns and how to
 use Polars' <code>scan_csv</code> with lazy evaluation to avoid loading the full file.</p>
 </details>
-<h2 id="datasci-floatyear">Float Year in Faceted Chart</h2>
+<h2 id="datasci-floatyear">Facet a chart by year of collection</h2>
 <p>Open the saved chart in a browser. How many facet panels does it show? Inspect the
 type of the <code>year</code> column in the DataFrame.</p>
 <div data-inc="floatyear.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -600,7 +601,7 @@ nominal value but the layout collapses to one panel due to the unexpected type.
 Shows how to cast integer-like columns to <code>pl.Int32</code> before charting and how to
 verify facet behavior with a small sample.</p>
 </details>
-<h2 id="datasci-outoforder">Out-of-Order Notebook Cells</h2>
+<h2 id="datasci-outoforder">Run a notebook after restarting the kernel</h2>
 <p>Run this script from top to bottom. Does it raise an error? Which line causes the
 error?</p>
 <div data-inc="outoforder.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -631,7 +632,7 @@ explicit inputs.</p>
 <span aria-hidden="true">⇐</span> <a href="../web/">HTTP and APIs</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -640,5 +641,12 @@ explicit inputs.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

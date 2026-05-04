@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>Polars</h1>
-<h2 id="polars-selectdrop">select Drops Unlisted Columns</h2>
+<h2 id="polars-selectdrop">Add a computed column to a DataFrame</h2>
 <p>Run the script and look at the columns in the result. How many columns does it
 have? How many columns did the original DataFrame have?</p>
 <div data-inc="selectdrop.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -75,7 +76,7 @@ columns listed in the call and drops all others, so <code>id</code> and <code>na
 Shows the difference between <code>.select()</code> (choose columns) and <code>.with_columns()</code>
 (add or replace columns while keeping the rest).</p>
 </details>
-<h2 id="polars-nocollect">Lazy Frame Never Collected</h2>
+<h2 id="polars-nocollect">Filter and select rows from a dataset</h2>
 <p>Run the script and look at what is printed. Is the output a table of data, or
 something else? What type does <code>type(result)</code> report?</p>
 <div data-inc="nocollect.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -101,7 +102,7 @@ at the end, so the result is a <code>LazyFrame</code> (a query plan) rather than
 The filter and select have not executed. Shows the difference between eager and
 lazy evaluation in Polars and when <code>.collect()</code> is required.</p>
 </details>
-<h2 id="polars-nullequal">Null Comparison with == None</h2>
+<h2 id="polars-nullequal">Find rows with missing scores</h2>
 <p>Run the script. How many rows does it print? How many rows contain a missing score?</p>
 <div data-inc="nullequal.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
@@ -122,7 +123,7 @@ involving null yields null rather than a boolean, so every row in the filtered
 result is null and the filter keeps nothing. Shows null semantics in Polars and
 how to use <code>.is_null()</code> to correctly select rows where a value is missing.</p>
 </details>
-<h2 id="polars-castsilent">Float Cast Truncates Instead of Rounding</h2>
+<h2 id="polars-castsilent">Convert float scores to integers</h2>
 <p>Run the script and compare the values in the <code>score</code> column to the expected rounded
 values printed below them. What happened to 88.7 and 95.6?</p>
 <div data-inc="castsilent.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -144,7 +145,7 @@ values printed below them. What happened to 88.7 and 95.6?</p>
 Shows that integer casting in Polars is a truncation operation, and how to use
 <code>.round(0).cast(pl.Int64)</code> when rounding behavior is intended.</p>
 </details>
-<h2 id="polars-overwindow">group_by Collapses Rows</h2>
+<h2 id="polars-overwindow">Add a department average salary to each employee row</h2>
 <p>Run the script. How many rows does the output have? How many rows did you expect?</p>
 <div data-inc="overwindow.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
@@ -167,7 +168,7 @@ per group. Shows the difference between aggregation (which reduces rows) and win
 functions (which compute a value per row), and how to use <code>.over()</code> inside
 <code>.with_columns()</code> to attach group statistics to every row.</p>
 </details>
-<h2 id="polars-innerjoin">Default Inner Join Drops Rows</h2>
+<h2 id="polars-innerjoin">Join orders to customer records</h2>
 <p>Run the script and compare the number of input orders to the number of rows in the
 result. Which order is missing, and why?</p>
 <div data-inc="innerjoin.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -196,7 +197,7 @@ that does not appear in the customers table, so it is silently dropped. Shows th
 difference between inner and left joins, how to specify <code>how="left"</code> to retain all
 rows from the left table, and how to verify row counts before and after a join.</p>
 </details>
-<h2 id="polars-aliasexpr">Missing alias on Computed Column</h2>
+<h2 id="polars-aliasexpr">Add a total price column to an order table</h2>
 <p>Run the script and compare the column names and values to the original DataFrame.
 Which column was overwritten, and which column was supposed to be added?</p>
 <div data-inc="aliasexpr.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -218,7 +219,7 @@ the original <code>price</code> column with the product values instead of adding
 column. Shows how Polars names unnamed expressions and why <code>.alias()</code> is needed
 whenever the result should have a different name from its inputs.</p>
 </details>
-<h2 id="polars-strptime">Day and Month Swapped in Date Format</h2>
+<h2 id="polars-strptime">Parse dates from a CSV file</h2>
 <p>Run the script and look at the parsed <code>date</code> column. Is <code>"03/04/2024"</code> shown as
 April 3rd or March 4th? What date was intended?</p>
 <div data-inc="strptime.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -242,7 +243,7 @@ every date parses without error, but each one is wrong. Shows how ambiguous nume
 date formats cause silent data corruption, and why checking a few parsed values
 against known inputs is necessary to confirm the format string is correct.</p>
 </details>
-<h2 id="polars-explodestring">explode on a String Column</h2>
+<h2 id="polars-explodestring">Split a tags column into one row per tag</h2>
 <p>Run the script and read the error message. What type does Polars report for the
 <code>tags</code> column?</p>
 <div data-inc="explodestring.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -264,7 +265,7 @@ list-type column. Shows how to convert a delimited string column into a list
 column with <code>.str.split()</code> before calling <code>.explode()</code>, and how to check column
 types with <code>.schema</code> before applying list operations.</p>
 </details>
-<h2 id="polars-withcolumnsdep">Cross-Reference in One with_columns Call</h2>
+<h2 id="polars-withcolumnsdep">Compute a discounted price and order total in one step</h2>
 <p>Run the script and read the error message. Which column is reported as not found?
 Is that column present in the original DataFrame?</p>
 <div data-inc="withcolumnsdep.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
@@ -297,7 +298,7 @@ separate <code>.with_columns()</code> calls when one result depends on another.<
 <span aria-hidden="true">⇐</span> <a href="../dataviz/">Data Visualization</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -306,5 +307,12 @@ separate <code>.with_columns()</code> calls when one result depends on another.<
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>The Unix Shell</h1>
-<h2 id="shell-numericsort">Numeric Sort</h2>
+<h2 id="shell-numericsort">Sort a list of numbers from smallest to largest</h2>
 <p>Run this script and look at the order of the numbers it prints. Is the smallest
 number first? What order would you expect?</p>
 <div data-inc="numericsort.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -75,7 +76,7 @@ sort<span class="w"> </span>numericsort.txt
 (alphabetical) ordering so <code>10</code> appears before <code>2</code>. Shows the difference between
 alphabetical and numeric sort and when to use <code>sort -n</code>.</p>
 </details>
-<h2 id="shell-overwrite">Redirect Overwrites</h2>
+<h2 id="shell-overwrite">Collect a summary line from each file in a directory</h2>
 <p>Run this script and then look at <code>summary.txt</code>. How many lines does it contain?
 How many did you expect?</p>
 <div data-inc="overwrite.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -93,7 +94,7 @@ How many did you expect?</p>
 instead of appending to it, so the summary contains only one entry. Shows the
 difference between <code>&gt;</code> (overwrite) and <code>&gt;&gt;</code> (append).</p>
 </details>
-<h2 id="shell-wideglob">Wildcard Too Broad</h2>
+<h2 id="shell-wideglob">Copy monthly notes files to an archive directory</h2>
 <p>Look at the list of <code>.txt</code> files in the directory. Which files does <code>*.txt</code> match?
 Are all of them files you want to copy?</p>
 <div data-inc="wideglob.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -112,7 +113,7 @@ Shows how to check what a wildcard matches before using it in a destructive
 command, and how to narrow a pattern (e.g., <code>notes_???.txt</code>) to match only the
 intended files.</p>
 </details>
-<h2 id="shell-uniqsorted">Unsorted Input to <code>uniq</code></h2>
+<h2 id="shell-uniqsorted">Count distinct species in a CSV file</h2>
 <p>Run this script and check the count it reports. Then look at the species column in
 <code>species.csv</code>. How many distinct species are there, and does the count match?</p>
 <div data-inc="uniqsorted.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -142,7 +143,7 @@ separately and the reported count is too high. Shows that <code>uniq</code> only
 adjacent duplicates and that <code>sort | uniq</code> is the correct pattern for counting
 distinct values.</p>
 </details>
-<h2 id="shell-quotedvar">Unquoted Loop Variable</h2>
+<h2 id="shell-quotedvar">Count words in files whose names contain spaces</h2>
 <p>Run this script with a filename that contains a space (e.g., <code>"field notes.txt"</code>).
 Does it process the file correctly?</p>
 <div data-inc="quotedvar.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -162,7 +163,7 @@ for any filename that contains a space. Shows why loop variables should always b
 quoted as <code>"$f"</code> and how spaces in filenames require consistent quoting throughout a
 script.</p>
 </details>
-<h2 id="shell-wrongarg">Wrong Positional Parameter</h2>
+<h2 id="shell-wrongarg">Filter lines from an input file into an output file</h2>
 <p>Run the script with a small input file and the name of an output file. Look at
 which file was created and which file was modified.</p>
 <div data-inc="wrongarg.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -179,7 +180,7 @@ the output path and writes to the input path instead. Shows how to verify which
 argument is which by reading the usage comment, and how to use <code>echo</code> to print
 argument values before acting on them.</p>
 </details>
-<h2 id="shell-headtail"><code>head</code> Instead of <code>tail</code></h2>
+<h2 id="shell-headtail">Print the most recent entries from a log file</h2>
 <p>Run this script and note which rows are printed. Are they from the beginning or
 end of the file?</p>
 <div data-inc="headtail.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -209,7 +210,7 @@ recent ones. Shows the difference between <code>head</code> and <code>tail</code
 them — for example <code>tail -n 5</code> for the last 5, or <code>head -n 10 | tail -n 5</code> for
 lines 6–10.</p>
 </details>
-<h2 id="shell-dotdot">Too Many <code>..</code></h2>
+<h2 id="shell-dotdot">Save output to a shared directory one level up</h2>
 <p>Read the comment at the top of the script. Map out the expected directory structure
 on paper. How many levels up does <code>../..</code> go? Is that where <code>shared/</code> lives?</p>
 <div data-inc="dotdot.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -236,7 +237,7 @@ script saves output two levels up instead of one. Shows how to trace relative
 paths by counting directory levels, and how to use <code>pwd</code> and <code>ls ..</code> to verify the
 directory structure before running a script.</p>
 </details>
-<h2 id="shell-wcflag">Wrong <code>wc</code> Flag</h2>
+<h2 id="shell-wcflag">Count the records in a data file</h2>
 <p>Run this script and look at the numbers it prints. Do they match the number of
 lines (records) in the file?</p>
 <div data-inc="wcflag.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -262,7 +263,7 @@ script prints a much larger number than the number of records. Shows the
 difference between <code>wc</code> flags and how to use <code>wc --help</code> to check which flag
 produces which count.</p>
 </details>
-<h2 id="shell-findglob">Unquoted Glob in <code>find</code></h2>
+<h2 id="shell-findglob">Find all CSV files in a directory tree</h2>
 <p>Run this script from a directory that contains at least one <code>.csv</code> file. What
 arguments does <code>find</code> actually receive? Use <code>echo</code> in place of <code>find</code> to check.</p>
 <div data-inc="findglob.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -279,7 +280,7 @@ filenames from the current directory. Shows that the shell expands unquoted
 wildcards before passing them to any command, and that patterns given to
 <code>find -name</code> must be quoted.</p>
 </details>
-<h2 id="shell-cutdelim">Wrong <code>cut</code> Delimiter</h2>
+<h2 id="shell-cutdelim">Extract family names from a tab-separated file</h2>
 <p>Run this script and examine the output. Does each output line contain just the
 family name, or does it contain the whole row?</p>
 <div data-inc="cutdelim.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -302,7 +303,7 @@ are no commas, <code>cut</code> treats each line as a single field and returns i
 how to identify the actual delimiter in a file (using <code>cat -A</code> to show invisible
 characters) and how to specify a tab with <code>-d$'\t'</code>.</p>
 </details>
-<h2 id="shell-grepinvert">Inverted <code>grep</code></h2>
+<h2 id="shell-grepinvert">Filter error lines from a log file</h2>
 <p>Run this script and read the output. Do the lines shown contain the word you
 were searching for?</p>
 <div data-inc="grepinvert.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -327,7 +328,7 @@ contain the pattern. The script prints everything except the error lines instead
 just the error lines. Shows what <code>-v</code> does and how to check the result of a <code>grep</code>
 command against a small known file to confirm it is filtering in the right direction.</p>
 </details>
-<h2 id="shell-missingarg">Missing Script Argument</h2>
+<h2 id="shell-missingarg">Count the lines in a file given on the command line</h2>
 <p>Run this script with no arguments. Does it print useful output, produce an error,
 or do something else? Use <code>Ctrl-C</code> to stop it if it appears to hang.</p>
 <div data-inc="missingarg.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -345,7 +346,7 @@ no filename reads from standard input, so the script hangs waiting indefinitely 
 keystrokes. Shows how positional parameters expand to empty strings when omitted,
 and how to check for missing arguments with <code>echo "Usage: …"</code> before using them.</p>
 </details>
-<h2 id="shell-catorder">Wrong <code>cat</code> Order</h2>
+<h2 id="shell-catorder">Concatenate report sections in the correct order</h2>
 <p>Run this script and read the resulting <code>report.txt</code>. Does the report begin with
 the introduction, or with a different section?</p>
 <div data-inc="catorder.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -381,7 +382,7 @@ line, so the sections appear in the wrong order. Shows that <code>cat</code> con
 files in the order they are given, and how to verify the result with <code>head</code> before
 treating the output as correct.</p>
 </details>
-<h2 id="shell-loopclobber">Loop Clobbers on Re-run</h2>
+<h2 id="shell-loopclobber">Append a summary line from each file to a report</h2>
 <p>Run this script once, then run it again. How many lines does <code>summary.txt</code> contain
 after the first run? After the second run?</p>
 <div data-inc="loopclobber.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -403,7 +404,7 @@ entries after a second run. Shows how to decide between <code>&gt;</code> and <c
 pattern of redirecting the first write with <code>&gt;</code> or removing the output file before
 the loop begins.</p>
 </details>
-<h2 id="shell-sortn">Numeric Reverse Sort</h2>
+<h2 id="shell-sortn">List the three largest files in a directory</h2>
 <p>Run this script in a directory that has files of different sizes. Compare the
 output to <code>ls -s | sort -rn | head -n 3</code>. Are the results the same?</p>
 <div data-inc="sortn.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -421,7 +422,7 @@ order. A file of size 100 blocks sorts as smaller than 8 because <code>"8"</code
 order. Shows that <code>-r</code> alone reverses the current sort order and that <code>-rn</code> is
 needed to sort numbers in descending order.</p>
 </details>
-<h2 id="shell-headcount"><code>head</code> Off by One</h2>
+<h2 id="shell-headcount">Extract ten data rows from a CSV file</h2>
 <p>Run this script and count the data rows in the output. Then count the data rows
 in the original file. Are they the same?</p>
 <div data-inc="headcount.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -452,7 +453,7 @@ data rows remain instead of ten. Shows how to account for header lines when
 counting with <code>head</code> and how to use <code>wc -l</code> to verify the actual line count of the
 output.</p>
 </details>
-<h2 id="shell-quotedall">Unquoted <code>$@</code></h2>
+<h2 id="shell-quotedall">Process a list of filenames passed as script arguments</h2>
 <p>Run this script with a filename that contains a space. Does it process the file,
 or does it report an error about a non-existent file?</p>
 <div data-inc="quotedall.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -472,7 +473,7 @@ space-separated token is treated as a separate argument and the script fails for
 argument that contains a space. Shows the difference between <code>$@</code> and <code>"$@"</code>: the
 quoted form preserves each argument as a single token, even if it contains spaces.</p>
 </details>
-<h2 id="shell-findtype"><code>find</code> Missing <code>-type f</code></h2>
+<h2 id="shell-findtype">Count log files in a directory tree</h2>
 <p>Create a directory whose name ends in <code>.log</code> (e.g., <code>mkdir debug.log</code>). Now run
 this script. Does the count include the directory?</p>
 <div data-inc="findtype.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -488,7 +489,7 @@ files, so directories whose names end in <code>.log</code> are included in the c
 the use of <code>-type f</code> to restrict <code>find</code> results to regular files and <code>-type d</code> to
 restrict to directories.</p>
 </details>
-<h2 id="shell-cprecurse"><code>cp</code> Without <code>-r</code></h2>
+<h2 id="shell-cprecurse">Copy a directory to a backup location</h2>
 <p>Run this script. Does it copy the directory, or does it produce an error message?
 What does the error message say?</p>
 <div data-inc="cprecurse.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
@@ -511,7 +512,7 @@ and how to read <code>cp --help</code> to find the right flag.</p>
 <span aria-hidden="true">⇐</span> <a href="../polars/">Polars</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -520,5 +521,12 @@ and how to read <code>cp --help</code> to find the right flag.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

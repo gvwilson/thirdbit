@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>Data, I/O, and Testing</h1>
-<h2 id="diot-quotecsv">Quoted Fields in CSV Parsing</h2>
+<h2 id="diot-quotecsv">Read a contact list from a CSV export</h2>
 <p>Run the parser with the provided CSV file. Do all rows produce the correct number
 of fields? Pay particular attention to rows that contain commas.</p>
 <div data-inc="quotecsv.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -90,7 +91,7 @@ Dave,"Austin, TX",88
 commas inside quoted fields are split incorrectly. Shows why hand-rolled parsers
 fail on real-world data and when to use standard library tools.</p>
 </details>
-<h2 id="diot-walltime">Wall Time vs. Monotonic Time</h2>
+<h2 id="diot-walltime">Benchmark an image processing function</h2>
 <p>Run the benchmarking function several times and examine the elapsed time values.
 Do any of them look unusual?</p>
 <div data-inc="walltime.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
@@ -131,7 +132,7 @@ Do any of them look unusual?</p>
 the function reports negative durations when the clock is set back. Shows the
 difference between wall time and monotonic time and when to use <code>time.monotonic</code>.</p>
 </details>
-<h2 id="diot-daylight">Naive Datetime and Daylight Saving</h2>
+<h2 id="diot-daylight">Schedule a recurring task across time zones</h2>
 <p>Call the date arithmetic function with a date near a daylight saving transition.
 Compare the result from the naive datetime path with the result from the
 timezone-aware path.</p>
@@ -182,7 +183,7 @@ timezone-aware path.</p>
 that are off by one day around daylight saving time transitions. Shows the
 difference between naive and timezone-aware datetimes.</p>
 </details>
-<h2 id="diot-missparse">Missing Elements in HTML Parsing</h2>
+<h2 id="diot-missparse">Scrape prices from a product page</h2>
 <p>Run the script with the provided HTML file and check whether it finds all the
 expected elements. What happens when an element is not found?</p>
 <div data-inc="missparse.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
@@ -233,7 +234,7 @@ expected elements. What happens when an element is not found?</p>
 without raising an error, so the script fails silently on some pages. Shows how to
 handle missing data in HTML parsing and use assertions to catch unexpected input.</p>
 </details>
-<h2 id="diot-overexp">Overly Permissive Regular Expression</h2>
+<h2 id="diot-overexp">Extract phone numbers from a text file</h2>
 <p>Test the regular expression against a few valid email addresses and a few strings
 that look like email addresses but are not. Does it reject the invalid ones?</p>
 <div data-inc="overexp.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
@@ -268,7 +269,7 @@ that look like email addresses but are not. Does it reject the invalid ones?</p>
 class constraints), so the regular expression also matches invalid strings. Shows
 how to test regular expressions with both valid and invalid inputs.</p>
 </details>
-<h2 id="diot-noassert">Test with No Assertions</h2>
+<h2 id="diot-noassert">Write a test for a data validation function</h2>
 <p>Run the test suite. Does it pass? Now deliberately break the function the test is
 testing. Does the test still pass?</p>
 <div data-inc="noassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
@@ -303,7 +304,7 @@ testing. Does the test still pass?</p>
 result, so it always passes even when the function is broken. Shows that a test
 with no assertions is not a test and how to write assertions correctly.</p>
 </details>
-<h2 id="diot-shared">Shared State Between Tests</h2>
+<h2 id="diot-shared">Test a function that modifies a global registry</h2>
 <p>Run each test on its own. Then run both together. Do you get the same results both
 ways?</p>
 <div data-inc="shared.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Module-level registry — shared state that persists between tests</span>
@@ -350,7 +351,7 @@ ways?</p>
 on, so the suite passes in isolation but fails when run together. Shows test
 isolation, teardown, and the risks of shared global state.</p>
 </details>
-<h2 id="diot-abspath">Hardcoded Absolute Path</h2>
+<h2 id="diot-abspath">Load a reference data file in a test</h2>
 <p>Run the script from a different working directory than the one where the script
 file is saved. Does it find its configuration file?</p>
 <div data-inc="abspath.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
@@ -383,7 +384,7 @@ file is saved. Does it find its configuration file?</p>
 script's location, so the function behaves differently on different machines. Shows
 the difference between <code>__file__</code>-relative and working-directory-relative paths.</p>
 </details>
-<h2 id="diot-jsondate">Unserializable Datetime in JSON</h2>
+<h2 id="diot-jsondate">Save a record with a timestamp to a file</h2>
 <p>Run the script and read the error message. Which value in the data structure cannot
 be serialized?</p>
 <div data-inc="jsondate.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
@@ -412,7 +413,7 @@ be serialized?</p>
 JSON-serializable, so the program raises an error when writing output. Shows how
 to identify serialization errors and write custom JSON encoders.</p>
 </details>
-<h2 id="diot-loglevel">Wrong Logging Level</h2>
+<h2 id="diot-loglevel">Add diagnostic output to a data pipeline</h2>
 <p>Run the script and then look at the log file. Are the messages you expected to see
 present?</p>
 <div data-inc="loglevel.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
@@ -456,7 +457,7 @@ Python's logging hierarchy works and how to verify the effective log level.</p>
 <span aria-hidden="true">⇐</span> <a href="../interpy/">Intermediate Python</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -465,5 +466,12 @@ Python's logging hierarchy works and how to verify the effective log level.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

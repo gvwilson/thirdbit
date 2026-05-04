@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>Intermediate Python</h1>
-<h2 id="interpy-alias">Aliasing and In-Place Reversal</h2>
+<h2 id="interpy-alias">Reverse a sequence for display</h2>
 <p>Call the function and then print both the original list and the returned value.
 Has the original list changed?</p>
 <div data-inc="alias.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">reversed_copy</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
@@ -73,7 +74,7 @@ Has the original list changed?</p>
 or slicing, so the original list is also reversed after the call. Shows aliasing
 and the difference between in-place and copy operations.</p>
 </details>
-<h2 id="interpy-sharemut">Shared Mutable Class Attribute</h2>
+<h2 id="interpy-sharemut">Track items added to each shopping cart</h2>
 <p>Create two account objects, add different transactions to each, and then print the
 transaction history of each. Does each account show only its own transactions?</p>
 <div data-inc="sharemut.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
@@ -108,7 +109,7 @@ same list object instead of each having their own, and every account's transacti
 appear in every other account. Shows the difference between shared mutable class
 attributes and per-instance attributes initialized in <code>__init__</code>.</p>
 </details>
-<h2 id="interpy-fpeq">Floating-Point Equality</h2>
+<h2 id="interpy-fpeq">Check whether a running total hits a target</h2>
 <p>Run this script and examine the two computed values. Are they exactly equal? Try
 printing each value with many decimal places.</p>
 <div data-inc="fpeq.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">amounts</span><span class="p">):</span>
@@ -150,7 +151,7 @@ printing each value with many decimal places.</p>
 returns <code>False</code> even when the values should be equal. Shows floating-point
 representation errors and how to use <code>math.isclose</code>.</p>
 </details>
-<h2 id="interpy-broad">Overly Broad Exception Handler</h2>
+<h2 id="interpy-broad">Load settings from a configuration file</h2>
 <p>Run the scraper with the provided URL list, which includes one malformed URL. Does
 it process all the valid URLs? Check whether anything is silently discarded.</p>
 <div data-inc="broad.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
@@ -201,7 +202,7 @@ and discarded, so the scraper silently stops processing after the first malforme
 URL. Shows how overly broad exception handlers swallow unrelated bugs, and how to
 use <code>logging.exception</code> to record errors instead of ignoring them.</p>
 </details>
-<h2 id="interpy-commas">Commas Inside CSV Fields</h2>
+<h2 id="interpy-commas">Read addresses from a spreadsheet export</h2>
 <p>Run the script with the provided CSV file and read the traceback. Which line in the
 file triggers the error? Examine that line carefully.</p>
 <div data-inc="commas.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -245,7 +246,7 @@ score points at the wrong element and the script crashes with an <code>IndexErro
 Shows why hand-rolled CSV parsing fails on real data and when to use the <code>csv</code>
 module.</p>
 </details>
-<h2 id="interpy-lexisort">Lexicographic vs. Numeric Sort</h2>
+<h2 id="interpy-lexisort">Rank files by version number</h2>
 <p>Run the sort function and examine the output order. Where does <code>file10</code> appear
 relative to <code>file2</code>?</p>
 <div data-inc="lexisort.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sorted_logs</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
@@ -270,7 +271,7 @@ relative to <code>file2</code>?</p>
 sort order and how to write a <code>key</code> function that extracts the embedded integer so
 the files sort as <code>file1</code>, <code>file2</code>, <code>file10</code>.</p>
 </details>
-<h2 id="interpy-exhaust">Exhausted Generator</h2>
+<h2 id="interpy-exhaust">Process a pipeline of records twice</h2>
 <p>Run the script and look at both outputs. Does each one produce the values you
 expected?</p>
 <div data-inc="exhaust.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">positive_numbers</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
@@ -300,7 +301,7 @@ expected?</p>
 generator in the same expression produces no results. Shows that generators are
 single-use iterators and when to use lists instead.</p>
 </details>
-<h2 id="interpy-cachekey">Incomplete Cache Key</h2>
+<h2 id="interpy-cachekey">Cache results of an expensive calculation</h2>
 <p>Call the cached function twice with the same positional argument but a different
 keyword argument each time. Do both calls return the correct result?</p>
 <div data-inc="cachekey.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">memoize</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
@@ -334,7 +335,7 @@ keyword argument each time. Do both calls return the correct result?</p>
 keyword arguments), so the decorator returns the same result for different inputs.
 Shows how to construct correct cache keys and test with varied inputs.</p>
 </details>
-<h2 id="interpy-super">Forgetting <code>super().__init__()</code></h2>
+<h2 id="interpy-super">Extend a base class with new attributes</h2>
 <p>Create an instance of the subclass and try to access an attribute that is set in
 the parent's <code>__init__</code>. Does it exist?</p>
 <div data-inc="super.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
@@ -371,7 +372,7 @@ the parent's <code>__init__</code>. Does it exist?</p>
 called and required attributes are missing when a subclass method tries to use them.
 Shows Python's method resolution order and how to use <code>super()</code> correctly.</p>
 </details>
-<h2 id="interpy-unclosed">File Not Closed on Exception</h2>
+<h2 id="interpy-unclosed">Write results to disk when processing fails</h2>
 <p>Run the script so that it raises an exception part-way through writing. Then open
 the output file. Does it contain complete data?</p>
 <div data-inc="unclosed.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -429,7 +430,7 @@ guarantee file cleanup even when exceptions occur, and how to use
 <span aria-hidden="true">⇐</span> <a href="../basicpy/">Basic Python</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -438,5 +439,12 @@ guarantee file cleanup even when exceptions occur, and how to use
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

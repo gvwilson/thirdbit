@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>Data Visualization</h1>
-<h2 id="dataviz-truncated">Truncated Y-Axis</h2>
+<h2 id="dataviz-truncated">Compare candidate approval ratings</h2>
 <figure id="f:dataviz-truncated-wrong">
 <img alt="Bar chart of candidate approval ratings with Y-axis starting at 85." src="truncated_axis.svg"/>
 <figcaption>Figure 1: Candidate approval ratings with a truncated Y-axis.</figcaption>
@@ -70,7 +71,7 @@ baseline is raised: the higher the floor, the more dramatic the distortion.</p>
 <figcaption>Figure 2: The same data with the Y-axis starting at 0.</figcaption>
 </figure>
 </details>
-<h2 id="dataviz-cherry">Cherry-Picked Time Window</h2>
+<h2 id="dataviz-cherry">Assess a product's long-term performance trend</h2>
 <figure id="f:dataviz-cherry-wrong">
 <img alt="Line chart showing an upward performance trend over 8 months." src="cherry_pick.svg"/>
 <figcaption>Figure 3: Performance trend over the last 8 months.</figcaption>
@@ -90,7 +91,7 @@ omitting the longer context that contradicts it.</p>
 <figcaption>Figure 4: The full 60-month history.</figcaption>
 </figure>
 </details>
-<h2 id="dataviz-spurious">Spurious Correlation via Shared Trend</h2>
+<h2 id="dataviz-spurious">Interpret the relationship between coffee consumption and code commits</h2>
 <figure id="f:dataviz-spurious-wrong">
 <img alt="Scatter plot of monthly coffee consumption vs code commits with a tight regression line." src="spurious_correlation.svg"/>
 <figcaption>Figure 5: Coffee consumption vs code commits over 48 months.</figcaption>
@@ -113,7 +114,7 @@ have anything to do with each other.</p>
 <p>Early months cluster in the lower left and late months in the upper right — the
 apparent correlation is entirely temporal ordering.</p>
 </details>
-<h2 id="dataviz-simpsons">Simpson's Paradox</h2>
+<h2 id="dataviz-simpsons">Interpret the relationship between study hours and exam scores</h2>
 <figure id="f:dataviz-simpsons-wrong">
 <img alt="Scatter plot of study hours vs exam score with a downward-sloping regression line." src="simpsons_paradox.svg"/>
 <figcaption>Figure 7: Study hours vs exam score across all students.</figcaption>
@@ -134,7 +135,7 @@ that disappears or reverses when a confounding variable is introduced.</p>
 <figcaption>Figure 8: The same data colored by difficulty, with a separate regression line for each group.</figcaption>
 </figure>
 </details>
-<h2 id="dataviz-meanconceals">Mean Conceals a Bimodal Distribution</h2>
+<h2 id="dataviz-meanconceals">Compare two groups by average score</h2>
 <figure id="f:dataviz-mean-wrong">
 <img alt="Bar chart showing nearly identical group means for groups A and B." src="mean_hides_distribution.svg"/>
 <figcaption>Figure 9: Average score by group.</figcaption>
@@ -155,7 +156,7 @@ information most relevant to understanding Group B.</p>
 <figcaption>Figure 10: Individual scores for each group as a strip plot.</figcaption>
 </figure>
 </details>
-<h2 id="dataviz-absolute">Absolute Counts Instead of Rates</h2>
+<h2 id="dataviz-absolute">Identify which city has the worst traffic safety record</h2>
 <figure id="f:dataviz-absolute-wrong">
 <img alt="Bar chart of raw traffic accident counts by city, with Metro City tallest." src="absolute_vs_rate.svg"/>
 <figcaption>Figure 11: Traffic accidents by city (raw counts).</figcaption>
@@ -179,7 +180,7 @@ different sizes requires a denominator: rate, proportion, or per-capita figure.<
 <figcaption>Figure 12: Traffic accidents per 100,000 residents by city.</figcaption>
 </figure>
 </details>
-<h2 id="dataviz-cumulative">Cumulative Chart Hides a Slowdown</h2>
+<h2 id="dataviz-cumulative">Assess a product's user growth over the past year</h2>
 <figure id="f:dataviz-cumulative-wrong">
 <img alt="Line chart of cumulative user signups rising steadily over 52 weeks." src="cumulative_hides_slowdown.svg"/>
 <figcaption>Figure 13: Cumulative user signups over 52 weeks.</figcaption>
@@ -200,7 +201,7 @@ systematically hide any information about acceleration, deceleration, or stagnat
 <figcaption>Figure 14: Weekly new signups for the same period.</figcaption>
 </figure>
 </details>
-<h2 id="dataviz-overplot">Discrete Overplotting Hides Density</h2>
+<h2 id="dataviz-overplot">Read exam scores by hours studied for 600 students</h2>
 <figure id="f:dataviz-overplot-wrong">
 <img alt="Grid of uniformly-sized dots showing exam scores vs study hours for 600 students." src="discrete_overplot.svg"/>
 <figcaption>Figure 15: Exam scores by hours studied (600 students).</figcaption>
@@ -220,7 +221,7 @@ of students cluster at 3–6 hours and scores of 55–75.</p>
 <figcaption>Figure 16: The same data with bubble area proportional to number of students.</figcaption>
 </figure>
 </details>
-<h2 id="dataviz-pie">Pie Chart Obscures Ranking</h2>
+<h2 id="dataviz-pie">Rank seven categories by market share</h2>
 <figure id="f:dataviz-pie-wrong">
 <img alt="Pie chart with seven similarly-sized slices labeled Alpha through Eta." src="pie_chart.svg"/>
 <figcaption>Figure 17: Market share by category.</figcaption>
@@ -241,7 +242,7 @@ two or three slices with clearly different sizes.</p>
 <figcaption>Figure 18: The same data as a sorted horizontal bar chart.</figcaption>
 </figure>
 </details>
-<h2 id="dataviz-ecological">Group Average Does Not Predict Individuals</h2>
+<h2 id="dataviz-ecological">Predict individual student scores from district income data</h2>
 <figure id="f:dataviz-ecological-wrong">
 <img alt="Scatter plot of 20 district averages showing a tight positive correlation between household income and test scores." src="group_vs_individual.svg"/>
 <figcaption>Figure 19: District average income vs average test score (20 districts).</figcaption>
@@ -275,7 +276,7 @@ district tells you little about that student's score.</p>
 <span aria-hidden="true">⇐</span> <a href="../datasci/">Data Science</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -284,5 +285,12 @@ district tells you little about that student's score.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

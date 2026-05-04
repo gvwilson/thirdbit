@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>HTTP and APIs</h1>
-<h2 id="web-nostatuscheck">No Status Check Before Parsing</h2>
+<h2 id="web-nostatuscheck">Fetch and parse data from an API endpoint</h2>
 <p>Run the script and read the error message. What type of error is raised, and which
 line causes it? Is the problem in the line that fails or somewhere earlier?</p>
 <div data-inc="nostatuscheck.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -90,7 +91,7 @@ parsing step rather than flagging the real problem, which is the failed request.
 Shows how to check <code>r.status_code</code> or call <code>r.raise_for_status()</code> before reading
 the response body.</p>
 </details>
-<h2 id="web-jsonparam">Form Encoding Instead of JSON</h2>
+<h2 id="web-jsonparam">Submit a new record to an API as JSON</h2>
 <p>Run the script and read the output. What content type does the server report
 receiving? What content type did you intend to send?</p>
 <div data-inc="jsonparam.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -132,7 +133,7 @@ application/json</code>. Shows the difference between these two keyword argument
 why the server may silently reject or misparse a request sent with the wrong
 encoding.</p>
 </details>
-<h2 id="web-urlparam">Special Characters in Query Parameters</h2>
+<h2 id="web-urlparam">Search an API with a multi-word query parameter</h2>
 <p>Run the script and read the output. How many query parameters did the server receive?
 How many did the code intend to send?</p>
 <div data-inc="urlparam.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -177,7 +178,7 @@ ampersand is interpreted as a query-string separator, so the server receives
 how to pass query parameters as a <code>params=</code> dict so the HTTP client encodes special
 characters correctly.</p>
 </details>
-<h2 id="web-nopaginate">Missing Pagination</h2>
+<h2 id="web-nopaginate">Retrieve all records from a paginated API</h2>
 <p>Run the script and compare the number of records retrieved to the total available.
 What field in the response tells you that more data exists?</p>
 <div data-inc="nopaginate.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -225,7 +226,7 @@ response. No error is raised; the script silently processes a fraction of the
 available data. Shows how to recognize and follow pagination cursors and why APIs
 return data in pages rather than all at once.</p>
 </details>
-<h2 id="web-notimeout">Disabled Request Timeout</h2>
+<h2 id="web-notimeout">Fetch data from a potentially slow API endpoint</h2>
 <p>Run the script. Does it return promptly? How long does it wait before producing
 output?</p>
 <div data-inc="notimeout.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -263,7 +264,7 @@ wait indefinitely for a slow or unresponsive server. Shows the difference betwee
 httpx's default timeout and <code>timeout=None</code>, and how to set an explicit
 <code>httpx.Timeout</code> to bound how long a request may take.</p>
 </details>
-<h2 id="web-created">Checking for 200 Instead of Any 2xx</h2>
+<h2 id="web-created">Create a new resource via a POST request</h2>
 <p>Run the script. What status code does the server return? What does the script print?
 Is the request actually successful?</p>
 <div data-inc="created.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -307,7 +308,7 @@ Is the request actually successful?</p>
 created. Shows the range of 2xx status codes, when each is used, and how to use
 <code>r.is_success</code> to accept any successful response.</p>
 </details>
-<h2 id="web-ratelimit">Retrying Without Reading Retry-After</h2>
+<h2 id="web-ratelimit">Retry a request after hitting a rate limit</h2>
 <p>Run the script and look at the status code and headers on each attempt. What does
 the <code>Retry-After</code> header contain? Does the script wait before retrying?</p>
 <div data-inc="ratelimit.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -357,7 +358,7 @@ reading the <code>Retry-After</code> header. Each retry is rejected for the same
 script loops without ever succeeding. Shows what 429 means, how to detect it, and
 how to wait the server-specified duration before the next attempt.</p>
 </details>
-<h2 id="web-putpatch">PUT Replaces Instead of Updates</h2>
+<h2 id="web-putpatch">Update a single field in an existing API resource</h2>
 <p>Run the script and compare the resource state before and after the PUT request.
 Which fields changed, and which fields were you expecting to keep?</p>
 <div data-inc="putpatch.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -404,7 +405,7 @@ the request body, so any field not included in the request is wiped. Shows the
 semantic difference between PUT (full replacement) and PATCH (partial update), and
 why sending only the fields you want to change requires PATCH.</p>
 </details>
-<h2 id="web-tokenurl">API Key in URL Query String</h2>
+<h2 id="web-tokenurl">Authenticate with an API using a secret key</h2>
 <p>Run the script and read the output. In which part of the request does the API key
 appear? What would a server log entry look like?</p>
 <div data-inc="tokenurl.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -443,7 +444,7 @@ in server access logs, browser history, and any intermediate proxies, so the sec
 is exposed in plaintext. Shows how to pass credentials in an <code>Authorization</code>
 header instead, where they are kept out of logs and not cached by browsers.</p>
 </details>
-<h2 id="web-postredirect">POST Body Lost After Redirect</h2>
+<h2 id="web-postredirect">Submit form data to an endpoint that redirects</h2>
 <p>Run the script and read the output. What HTTP method reached the final endpoint?
 What happened to the request body that was sent to <code>/submit</code>?</p>
 <div data-inc="postredirect.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
@@ -501,7 +502,7 @@ body at the redirected URL.</p>
 <span aria-hidden="true">⇐</span> <a href="../jsbrowser/">JavaScript Fundamentals</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -510,5 +511,12 @@ body at the redirected URL.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

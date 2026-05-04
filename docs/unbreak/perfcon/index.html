@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>Performance, Concurrency, and System Interaction</h1>
-<h2 id="perfcon-repscans">Repeated Scans</h2>
+<h2 id="perfcon-repscans">Search a large log file for matching entries</h2>
 <p>Run the word-frequency function on the provided text file and time how long it
 takes. Then run <code>cProfile</code> on it to see which lines consume the most time.</p>
 <div data-inc="repscans.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -112,7 +113,7 @@ pass with <code>collections.Counter</code> is nearly instant. Shows how to ident
 repeated-scan inefficiency with <code>cProfile</code> and how choosing the right data structure
 eliminates the need for multiple passes.</p>
 </details>
-<h2 id="perfcon-subproc">Subprocess Waiting for Input</h2>
+<h2 id="perfcon-subproc">Run an external tool and capture its output</h2>
 <p>Run this script. Does it return promptly, or does it hang?</p>
 <div data-inc="subproc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -151,7 +152,7 @@ eliminates the need for multiple passes.</p>
 provides, so the script hangs and never returns. Shows how subprocess I/O streams
 work and how to use <code>communicate()</code> safely.</p>
 </details>
-<h2 id="perfcon-race">Race Condition in Shared Counter</h2>
+<h2 id="perfcon-race">Count requests handled by concurrent workers</h2>
 <p>Run this script several times and record the final counter value each time. Is the
 value always the same? Is it always the value you expect?</p>
 <div data-inc="race.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
@@ -190,7 +191,7 @@ value always the same? Is it always the value you expect?</p>
 threads updating a shared counter produce wrong totals. Shows what a race condition
 is, why it is hard to reproduce, and how to use <code>threading.Lock</code> to fix it.</p>
 </details>
-<h2 id="perfcon-multiproc">Multiprocessing Memory Model</h2>
+<h2 id="perfcon-multiproc">Share a lookup table across worker processes</h2>
 <p>Run this script and compare the contents of the shared list before and after the
 worker processes run. Did the workers modify the list you passed in?</p>
 <div data-inc="multiproc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
@@ -213,7 +214,7 @@ worker processes run. Did the workers modify the list you passed in?</p>
         <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"results: </span><span class="si">{</span><span class="n">results</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"expected: [0, 1, 2, 3, 4] in some order"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"expected: [0, 1, 2, 3, 4] in some order"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Each child process gets its own copy of memory."</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Fix: use multiprocessing.Manager().list() or return values via a Queue."</span><span class="p">)</span>
@@ -225,7 +226,7 @@ worker processes run. Did the workers modify the list you passed in?</p>
 child processes are not visible in the parent's shared list. Shows the difference
 between threading and multiprocessing memory models.</p>
 </details>
-<h2 id="perfcon-mockpatch">Mock Patched at Wrong Location</h2>
+<h2 id="perfcon-mockpatch">Test a function that sends email notifications</h2>
 <p>Run the test. Does it pass? Add a print statement inside the mock to check whether
 the mock is actually being called. Then look at the return value of the function
 under test.</p>
@@ -252,7 +253,7 @@ under test.</p>
         <span class="n">result</span> <span class="o">=</span> <span class="n">mockpatch_user</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected: ['MOCK', 'DATA']"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: ['MOCK', 'DATA']"</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[</span><span class="s2">"MOCK"</span><span class="p">,</span> <span class="s2">"DATA"</span><span class="p">],</span> <span class="p">(</span>
         <span class="sa">f</span><span class="s2">"Mock had no effect — got </span><span class="si">{</span><span class="n">result</span><span class="si">!r}</span><span class="se">\n</span><span class="s2">"</span>
         <span class="s2">"Fix: patch 'mockpatch_user.fetch_data' (where it is used), "</span>
@@ -281,7 +282,7 @@ import system works and where mocks must be applied.</p>
 <span aria-hidden="true">⇐</span> <a href="../diot/">Data, I/O, and Testing</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -290,5 +291,12 @@ import system works and where mocks must be applied.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

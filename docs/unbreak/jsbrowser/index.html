@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>JavaScript Fundamentals and the Browser</h1>
-<h2 id="jsbrowser-hoisting"><code>var</code> Hoisting in Loops</h2>
+<h2 id="jsbrowser-hoisting">Attach click handlers to a list of buttons</h2>
 <p>Open the page in a browser, fill in some form field values, and submit. Check the
 console output. Are all the field values captured and reported correctly?</p>
 <div data-inc="hoisting.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -90,7 +91,7 @@ console output. Are all the field values captured and reported correctly?</p>
 across iterations, so the function returns <code>undefined</code> for some fields. Shows
 <code>var</code> hoisting, block scope, and why <code>let</code> and <code>const</code> are preferable.</p>
 </details>
-<h2 id="jsbrowser-deaddom">Dead DOM Event Listener</h2>
+<h2 id="jsbrowser-deaddom">Update a table row when a button is clicked</h2>
 <p>Open the page and click the button several times. Does it keep working after the
 first click?</p>
 <div data-inc="deaddom.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -130,7 +131,7 @@ update, so the listener is discarded and the button stops working after the firs
 click. Shows event delegation and the difference between live and dead DOM
 references.</p>
 </details>
-<h2 id="jsbrowser-thisbind"><code>this</code> Binding in Callbacks</h2>
+<h2 id="jsbrowser-thisbind">Save a form field value with a timer</h2>
 <p>Open the page and click the button several times. Does the counter increment by the
 expected amount each time?</p>
 <div data-inc="thisbind.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -164,7 +165,7 @@ the object that owns the counter, so the counter increments by the wrong amount.
 Shows <code>this</code> binding in JavaScript callbacks and how to use arrow functions or
 <code>.bind()</code> to preserve context.</p>
 </details>
-<h2 id="jsbrowser-unawaited">Promise Not Awaited</h2>
+<h2 id="jsbrowser-unawaited">Fetch user data before rendering a profile</h2>
 <p>Open the page and check the data displayed against what the API returns. Is the
 data correct on the first load, or does it appear stale or blank?</p>
 <div data-inc="unawaited.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -208,7 +209,7 @@ data correct on the first load, or does it appear stale or blank?</p>
 synchronously after an async call), so the page displays stale data. Shows the
 JavaScript event loop, Promises, and <code>async/await</code>.</p>
 </details>
-<h2 id="jsbrowser-localstorage"><code>localStorage</code> in Private Mode</h2>
+<h2 id="jsbrowser-localstorage">Save user preferences across page loads</h2>
 <p>Open the page in a private browsing window. Does anything go wrong? Check the
 browser console for errors.</p>
 <div data-inc="localstorage.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -235,7 +236,7 @@ the code has no try/catch, so the script fails silently. Shows browser storage
 limitations and how to use the browser console and DevTools to observe thrown
 exceptions.</p>
 </details>
-<h2 id="jsbrowser-viewport">Missing Viewport <code>meta</code> Tag</h2>
+<h2 id="jsbrowser-viewport">Build a page that works on mobile devices</h2>
 <p>Open the page in a browser and use DevTools to simulate a narrow mobile screen.
 Does the layout look correct?</p>
 <div data-inc="viewport.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -272,7 +273,7 @@ Does the layout look correct?</p>
 the page layout breaks on narrow screens even though the CSS looks correct. Shows
 how to use browser DevTools' device emulation and inspect computed styles.</p>
 </details>
-<h2 id="jsbrowser-cors">CORS Header Missing</h2>
+<h2 id="jsbrowser-cors">Load data from an API on a different domain</h2>
 <p>Open the HTML page in a browser and check the network tab in DevTools. Does the
 fetch request succeed, or do you see an error? Compare this with running the same
 request from the command line.</p>
@@ -345,7 +346,7 @@ the fetch request returns a CORS error in the browser even though it works from 
 command line. Shows what CORS is, how to read network error messages in DevTools,
 and how to configure server headers.</p>
 </details>
-<h2 id="jsbrowser-caching">Browser Caching Stale JavaScript</h2>
+<h2 id="jsbrowser-caching">Deploy an update that users don't see</h2>
 <p>Make a change to the JavaScript file and reload the page normally. Does the change
 take effect? Try checking the network tab in DevTools to see which version of the
 file the browser is serving.</p>
@@ -383,7 +384,7 @@ the page shows outdated content after a bug fix is deployed. Shows cache-control
 headers, hard refresh vs. normal refresh, and how to use DevTools to disable the
 cache during development.</p>
 </details>
-<h2 id="jsbrowser-sourcemap">Missing Source Map</h2>
+<h2 id="jsbrowser-sourcemap">Debug a minified production build</h2>
 <p>Trigger the JavaScript error and look at the stack trace in the browser console.
 Can you identify the exact source location of the problem from the information
 shown?</p>
@@ -430,7 +431,7 @@ are reported on minified line numbers that do not correspond to the source. Show
 what source maps are, how to generate them, and how to load them in DevTools to see
 original source locations.</p>
 </details>
-<h2 id="jsbrowser-csp">Content Security Policy Block</h2>
+<h2 id="jsbrowser-csp">Add an inline script to a secured page</h2>
 <p>Open the page in a browser. Does the inline script run? Check the console for any
 policy-related messages.</p>
 <div data-inc="csp.html" data-scrub="\s*(//|&lt;!--).*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -468,7 +469,7 @@ work, and how to move inline scripts to external files to comply.</p>
 <span aria-hidden="true">⇐</span> <a href="../perfcon/">Performance and Concurrency</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -477,5 +478,12 @@ work, and how to move inline scripts to external files to comply.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -51,7 +52,7 @@
 </nav>
 <main id="main-content">
 <h1>Basic Python</h1>
-<h2 id="basicpy-sliding">Off-by-One in Sliding Window</h2>
+<h2 id="basicpy-sliding">Calculate a running average over a time series</h2>
 <p>Run this code with a small list (for example, five elements and a window size of
 three) and count the windows by hand. Does the number of windows the code returns
 match the number you counted?</p>
@@ -74,7 +75,7 @@ match the number you counted?</p>
 last window is never produced. Shows how to identify off-by-one errors in index
 arithmetic and how to verify boundary conditions with small, hand-checkable examples.</p>
 </details>
-<h2 id="basicpy-catadd">String Concatenation Instead of Addition</h2>
+<h2 id="basicpy-catadd">Add up totals from a text file</h2>
 <p>Run this script with the provided input file and examine the total it prints. Does
 the value look like a reasonable sum of exam scores?</p>
 <div data-inc="catadd.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -113,7 +114,7 @@ always reports a nonsensical total. Shows the difference between string <code>+<
 numeric <code>+</code>, and how to check the type of a value at runtime using <code>type()</code> or
 <code>isinstance()</code>.</p>
 </details>
-<h2 id="basicpy-andor">Boolean Logic in Validation</h2>
+<h2 id="basicpy-andor">Validate a user registration form</h2>
 <p>Call the validation function with several passwords, including one you expect to be
 accepted. Does it accept any of them?</p>
 <div data-inc="andor.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_valid_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
@@ -145,7 +146,7 @@ both to fail simultaneously and almost never happens, so valid passwords are alw
 rejected. Shows how boolean logic errors cause silent misbehavior, and how a small
 truth table reveals which operator is correct.</p>
 </details>
-<h2 id="basicpy-formula">Misremembered Conversion Formula</h2>
+<h2 id="basicpy-formula">Convert temperatures between units</h2>
 <p>Call the conversion function with a coordinate you can verify by hand—for example,
 1 degree, 30 minutes, 0 seconds should equal 1.5 decimal degrees. Does the function
 return the correct value?</p>
@@ -172,7 +173,7 @@ function gives wrong results. Shows how to verify formulas against known values
 (e.g., 1°30′0″ = 1.5°) and how to add assertion checks for values that must fall
 within a known range.</p>
 </details>
-<h2 id="basicpy-sortnone">In-Place Sort Returns None</h2>
+<h2 id="basicpy-sortnone">Sort a list of student scores</h2>
 <p>Run this script and examine what it prints. Is the list what you expected?</p>
 <div data-inc="sortnone.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">squared_sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a sorted list of squares of the input numbers."""</span>
@@ -192,7 +193,7 @@ within a known range.</p>
 the list is always empty. Shows that many list methods mutate in place and return
 <code>None</code>.</p>
 </details>
-<h2 id="basicpy-indent">Misindented Loop State Update</h2>
+<h2 id="basicpy-indent">Count words across multiple files</h2>
 <p>Run this script with the provided input file and examine the run-length counts.
 Then trace through the loop by hand with a short example—track what the "previous
 line" variable holds at each step.</p>
@@ -244,7 +245,7 @@ while loop body due to a missing level of indentation, so every line is counted 
 starting a new run. Shows how indentation governs control flow in Python and how to
 step through a loop mentally to find where state is updated at the wrong time.</p>
 </details>
-<h2 id="basicpy-noreturn">Missing Return Statement</h2>
+<h2 id="basicpy-noreturn">Check whether a number is prime</h2>
 <p>Call the function and print its return value. Is it what you expected?</p>
 <div data-inc="noreturn.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">filter_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a new list containing only the non-negative values."""</span>
@@ -258,7 +259,7 @@ step through a loop mentally to find where state is updated at the wrong time.</
     <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">]</span>
     <span class="n">filtered</span> <span class="o">=</span> <span class="n">filter_negatives</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">filtered</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected: [1, 4, 5, 2]"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: [1, 4, 5, 2]"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <details class="explanation">
@@ -267,7 +268,7 @@ step through a loop mentally to find where state is updated at the wrong time.</
 return it, so it returns <code>None</code>. Shows that Python functions return <code>None</code> by
 default and how to spot missing <code>return</code> in control flow.</p>
 </details>
-<h2 id="basicpy-nokey">KeyError in Word Counter</h2>
+<h2 id="basicpy-nokey">Count word frequencies in a document</h2>
 <p>Run this script with the provided input file. Read the full traceback carefully.
 Which line raises the error, and what does the error message tell you about what
 is missing?</p>
@@ -305,7 +306,7 @@ Shows defensive dictionary access using <code>dict.get(key, 0)</code> or
 <code>collections.defaultdict</code>, and how to read a <code>KeyError</code> traceback to identify the
 missing key.</p>
 </details>
-<h2 id="basicpy-streq">JSON Integers vs. String Input</h2>
+<h2 id="basicpy-streq">Match user IDs loaded from a config file</h2>
 <p>Run this script with a user ID taken directly from the JSON file. Does it grant
 access? Use <code>type()</code> to examine the types of the two values being compared.</p>
 <div data-inc="streq.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
@@ -337,7 +338,7 @@ string from user input, and <code>"42" != 42</code> in Python, so the script alw
 "access denied" even for valid users. Shows how JSON types map to Python types and
 why type conversion must happen explicitly at system boundaries.</p>
 </details>
-<h2 id="basicpy-recurse">Wrong Recursive Base Case</h2>
+<h2 id="basicpy-recurse">Compute factorials recursively</h2>
 <p>Call the function with the argument <code>0</code>. Does it return the correct result?</p>
 <div data-inc="recurse.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return n! for non-negative n."""</span>
@@ -356,7 +357,7 @@ why type conversion must happen explicitly at system boundaries.</p>
 function with zero triggers infinite recursion and raises a <code>RecursionError</code>. Shows
 how to identify missing or incorrect base cases in recursion.</p>
 </details>
-<h2 id="basicpy-mutable">Mutable Default Argument</h2>
+<h2 id="basicpy-mutable">Collect results with a helper function</h2>
 <p>Call the function twice in a row with no arguments and compare the two return
 values. Are they the same?</p>
 <div data-inc="mutable.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">collect_items</span><span class="p">(</span><span class="n">new_items</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="p">[]):</span>
@@ -382,7 +383,7 @@ values. Are they the same?</p>
 with leftover items from previous calls. Shows Python's mutable default argument
 trap and why <code>None</code> is the correct default.</p>
 </details>
-<h2 id="basicpy-trailing">Invisible Trailing Whitespace</h2>
+<h2 id="basicpy-trailing">Compare lines read from a file</h2>
 <p>Run this script with the provided input file. Use <code>repr()</code> on a field value that
 fails to match its expected string. Does the <code>repr()</code> output reveal anything that
 was not visible before?</p>
@@ -425,7 +426,7 @@ comparisons always fail for those rows even though the values look correct to th
 naked eye. Shows that real-world data often contains invisible characters, and how
 <code>.strip()</code> and <code>repr()</code> help diagnose string comparison failures.</p>
 </details>
-<h2 id="basicpy-strmeth">String Methods Return Copies</h2>
+<h2 id="basicpy-strmeth">Clean up user-submitted text</h2>
 <p>Call the function and print the message before and after the call. Has the message
 changed?</p>
 <div data-inc="strmeth.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">censor</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">banned_words</span><span class="p">):</span>
@@ -440,7 +441,7 @@ changed?</p>
     <span class="n">banned</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"quick"</span><span class="p">,</span> <span class="s2">"lazy"</span><span class="p">]</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">censor</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">banned</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected: The *** brown fox jumps over the *** dog"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: The *** brown fox jumps over the *** dog"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <details class="explanation">
@@ -450,7 +451,7 @@ assigned back, so the original message is unchanged at the end. Shows that strin
 methods never mutate their argument, and that every string transformation must be
 captured in a variable.</p>
 </details>
-<h2 id="basicpy-mutiter">Mutating a List During Iteration</h2>
+<h2 id="basicpy-mutiter">Remove expired entries from a list</h2>
 <p>Run this script and count how many items were removed. Is it the number you
 expected? Try with a list where every element should be removed.</p>
 <div data-inc="mutiter.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">remove_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
@@ -465,7 +466,7 @@ expected? Try with a list where every element should be removed.</p>
     <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">remove_negatives</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result:   </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expected: [3, 5]"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Expected: [3, 5]"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <details class="explanation">
@@ -481,7 +482,7 @@ unpredictable behavior.</p>
 <span aria-hidden="true">⇐</span> <a href="../intro/">Introduction</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -490,5 +491,12 @@ unpredictable behavior.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>

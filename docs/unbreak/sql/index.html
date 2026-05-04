@@ -10,13 +10,14 @@
 <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/chota.css" rel="stylesheet" type="text/css"/>
 <link href="../_static/mccole.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" rel="stylesheet"/>
 <script data-domain="third-bit.com" defer="" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav aria-label="Site navigation" class="nav">
 <div class="nav-left">
-<a class="brand" href="../">Unbreak</a>
+<a class="brand" href="../">Unbreaking Software</a>
 <div class="dropdown">
 <button aria-controls="nav-lessons" aria-haspopup="true">Lessons</button>
 <ul class="dropdown-content" id="nav-lessons">
@@ -52,7 +53,7 @@
 <main id="main-content">
 <h1>SQL</h1>
 <p><a href="./databases.zip">download databases</a></p>
-<h2 id="sql-sortcol">Wrong Sort Column Order</h2>
+<h2 id="sql-sortcol">Display records sorted by last name then first name</h2>
 <p>Run this query and look at the first several rows. Is the output ordered by island
 first, or by species first?</p>
 <div data-inc="sortcol.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Show the species, island, and sex of all penguins,</span>
@@ -69,7 +70,7 @@ produces species-first ordering instead; the bug is listing the columns in the
 wrong order in the <code>order by</code> clause. Shows how <code>order by</code> applies columns from
 left to right and why column order in that clause matters.</p>
 </details>
-<h2 id="sql-offsetpage">Off-by-One in OFFSET Paging</h2>
+<h2 id="sql-offsetpage">Retrieve the second page of search results</h2>
 <p>Run this query and note which rows are returned. Count from the beginning of the
 full table to check whether rows 11–15 are actually what you got.</p>
 <div data-inc="offsetpage.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Retrieve rows 11 through 15 from the penguins table (the third page of 5).</span>
@@ -85,7 +86,7 @@ of rows 11–15; the bug is using <code>offset 11</code> (which skips 11 rows) i
 <code>offset 10</code>. Shows how <code>limit</code> and <code>offset</code> interact and how to calculate the
 correct offset for a given page number.</p>
 </details>
-<h2 id="sql-intdivision">Integer Division Truncation</h2>
+<h2 id="sql-intdivision">Calculate the average score per student</h2>
 <p>Run this query and compare the <code>mass_kg</code> column to the <code>body_mass_g</code> column.
 Do the kilogram values look right for a penguin that weighs, say, 3750 g?</p>
 <div data-inc="intdivision.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Show body mass in kilograms for the first 10 penguins.</span>
@@ -103,7 +104,7 @@ the bug is dividing by <code>1000</code> instead of <code>1000.0</code>. Shows h
 floating-point arithmetic in SQL and why checking computed columns against known
 values catches this class of error.</p>
 </details>
-<h2 id="sql-distinctcols">DISTINCT Over Too Many Columns</h2>
+<h2 id="sql-distinctcols">List unique participants in a study</h2>
 <p>Run this query and count the rows returned. How many distinct species are in the
 dataset? Does the row count match that number?</p>
 <div data-inc="distinctcols.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- List the distinct species found in the penguins dataset (one row per species).</span>
@@ -119,7 +120,7 @@ producing one row per unique (species, sex) combination; the bug is including <c
 in the <code>select</code> clause. Shows that <code>distinct</code> operates on the entire set of
 selected columns, not on individual ones.</p>
 </details>
-<h2 id="sql-nullequal">NULL Equality Test</h2>
+<h2 id="sql-nullequal">Find records with no assigned reviewer</h2>
 <p>Run this query. How many rows does it return? Are there penguins in the table whose
 sex was not recorded?</p>
 <div data-inc="nullequal.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find all penguins whose sex was not recorded.</span>
@@ -136,7 +137,7 @@ ternary logic, so the <code>where</code> clause never passes; the bug is using <
 of <code>is null</code>. Shows SQL's three-valued logic and the two special tests <code>is null</code>
 and <code>is not null</code>.</p>
 </details>
-<h2 id="sql-impossibleand">Impossible AND Condition</h2>
+<h2 id="sql-impossibleand">Filter for records in two different categories</h2>
 <p>Run this query. How many rows does it return? Choose a penguin you know is on
 Biscoe island from a previous query and check whether it appears here.</p>
 <div data-inc="impossibleand.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find all penguins from either Biscoe island or Dream island.</span>
@@ -153,7 +154,7 @@ a penguin can only be on one island; the bug is using <code>and</code> where <co
 Shows the difference between <code>and</code> and <code>or</code> and how to spot conditions that can
 never simultaneously be true.</p>
 </details>
-<h2 id="sql-casevalue">Case-Sensitive String Value</h2>
+<h2 id="sql-casevalue">Query records by status label</h2>
 <p>Run this query and count the rows returned. Then run a query to find the distinct
 values stored in the <code>sex</code> column. Do any of them match the literal used in the
 <code>where</code> clause?</p>
@@ -171,7 +172,7 @@ column stores the value <code>'FEMALE'</code> in uppercase but the query filters
 characters. Shows how to inspect the actual stored values before writing a filter
 and how to use functions like <code>upper()</code> or <code>lower()</code> to normalise comparisons.</p>
 </details>
-<h2 id="sql-wherealiased">WHERE References a SELECT Alias</h2>
+<h2 id="sql-wherealiased">Filter on a calculated column</h2>
 <p>Run this query. Does it raise an error or return wrong results? Add a second
 <code>select</code> that uses the full expression <code>body_mass_g / 1000.0</code> in the <code>where</code>
 clause and compare the two queries' output.</p>
@@ -189,7 +190,7 @@ so the alias does not yet exist at that point; the bug is referencing <code>mass
 <code>where</code> instead of repeating the full expression <code>body_mass_g / 1000.0</code>. Shows
 the order of SQL clause evaluation.</p>
 </details>
-<h2 id="sql-andorprecedence">AND/OR Operator Precedence</h2>
+<h2 id="sql-andorprecedence">Select records matching one of two conditions</h2>
 <p>Run this query. Which species and islands appear in the result? Is the output what
 you expected based on the comment describing the intent?</p>
 <div data-inc="andorprecedence.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find penguins that are on Biscoe island and are either Adelie or Chinstrap.</span>
@@ -206,7 +207,7 @@ because <code>and</code> binds more tightly than <code>or</code>; the bug is mis
 the <code>or</code> sub-expression. Shows SQL operator precedence and why parentheses are
 needed to make complex <code>where</code> conditions unambiguous.</p>
 </details>
-<h2 id="sql-nonaggcol">Non-Aggregated Column in GROUP BY</h2>
+<h2 id="sql-nonaggcol">Summarize sales by region and product</h2>
 <p>Run this query and examine the <code>sex</code> column. Pick one species and check a few rows
 against the original data. Are the sex values consistent with what you expected
 for that species group?</p>
@@ -224,7 +225,7 @@ is not in the <code>group by</code> clause; the bug is selecting a column that i
 aggregated nor part of the grouping. Shows why every column in <code>select</code> must
 either appear in <code>group by</code> or be wrapped in an aggregation function.</p>
 </details>
-<h2 id="sql-wherenothavin">Aggregate Function in WHERE Clause</h2>
+<h2 id="sql-wherenothavin">Keep only groups above a minimum size</h2>
 <p>Run this query. Does it return a result or raise an error? Check whether moving
 the condition to a <code>having</code> clause after <code>group by</code> fixes the problem.</p>
 <div data-inc="wherenothavin.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find species whose average body mass exceeds 4000 g.</span>
@@ -243,7 +244,7 @@ aggregation; the bug is placing the condition in <code>where</code> instead of <
 Shows the difference in timing between <code>where</code> and <code>having</code> in SQL's execution
 order.</p>
 </details>
-<h2 id="sql-groupbymissing">GROUP BY Missing a Column</h2>
+<h2 id="sql-groupbymissing">Count entries per category and subcategory</h2>
 <p>Run this query and examine the <code>island</code> column. Do all the rows for a given species
 show the same island? Check a few values against the original table.</p>
 <div data-inc="groupbymissing.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Count the number of penguins observed on each island, broken down by species.</span>
@@ -260,7 +261,7 @@ picks an arbitrary island for each species group; the bug is omitting <code>isla
 the <code>group by</code> clause. Shows that every non-aggregated column in <code>select</code> must
 also appear in <code>group by</code>.</p>
 </details>
-<h2 id="sql-countnull">count(column) Skips NULL Rows</h2>
+<h2 id="sql-countnull">Count how many records have a phone number</h2>
 <p>Run this query. Then run a second query using <code>count(*)</code> and compare the two
 results. If the numbers differ, find the rows that account for the difference.</p>
 <div data-inc="countnull.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Report the total number of penguins in the dataset.</span>
@@ -276,7 +277,7 @@ whose sex was not recorded; the bug is using <code>count(sex)</code> instead of 
 Shows the difference between <code>count(column)</code> (excludes nulls) and <code>count(*)</code>
 (counts every row).</p>
 </details>
-<h2 id="sql-avgmanual">Manual Average With Wrong Denominator</h2>
+<h2 id="sql-avgmanual">Compute a class average including absent students</h2>
 <p>Run this query and note the result. Then run <code>select avg(body_mass_g) from penguins</code>
 and compare. Are the two values the same?</p>
 <div data-inc="avgmanual.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Calculate the average body mass of all penguins.</span>
@@ -293,7 +294,7 @@ dividing by <code>count(*)</code> instead of <code>count(body_mass_g)</code> or 
 Shows how aggregation functions treat null values and why the built-in <code>avg()</code>
 should be preferred over hand-rolled sum/count averages.</p>
 </details>
-<h2 id="sql-nullneq">NULL Inequality Test</h2>
+<h2 id="sql-nullneq">Find records that don't match a given value</h2>
 <p>Run this query. How many rows does it return? Then run a query using <code>is not null</code>
 and compare the row counts.</p>
 <div data-inc="nullneq.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Find all penguins whose sex has been recorded.</span>
@@ -311,7 +312,7 @@ ternary logic, so the <code>where</code> clause never passes any row; the bug is
 always yield null, and that <code>is null</code> / <code>is not null</code> are the only reliable null
 tests.</p>
 </details>
-<h2 id="sql-innerleft">INNER JOIN Drops Unmatched Rows</h2>
+<h2 id="sql-innerleft">List all customers with or without orders</h2>
 <p>Run this query and list the people in the result. Then run <code>select distinct person
 from work</code> and compare. Does every person from the <code>work</code> table appear in the
 query output?</p>
@@ -330,7 +331,7 @@ jobs do not appear in the <code>job</code> table (because their work has no matc
 value to join to); the bug is using <code>inner join</code> instead of <code>left join</code>. Shows
 the difference between inner and left joins and when each is appropriate.</p>
 </details>
-<h2 id="sql-noonclause">Missing ON Clause (Cartesian Product)</h2>
+<h2 id="sql-noonclause">Join two tables to combine related records</h2>
 <p>Run this query. Count the rows returned. How many rows are in the <code>job</code> table?
 How many are in the <code>work</code> table? How do those numbers relate to the row count
 you observed?</p>
@@ -349,7 +350,7 @@ a Cartesian product, producing rows equal to the product of the two table sizes.
 Shows that a join without a matching condition is almost never correct and how to
 recognise a Cartesian product by its unexpectedly large row count.</p>
 </details>
-<h2 id="sql-coalescemiss">NULL Sum Needs COALESCE</h2>
+<h2 id="sql-coalescemiss">Total donations where some records are empty</h2>
 <p>Run this query and check the <code>total</code> column for each person. Which person has a
 null total? What jobs did that person do, according to the <code>work</code> table?</p>
 <div data-inc="coalescemiss.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- Show total credits earned per person.</span>
@@ -369,7 +370,7 @@ returns null; the bug is not wrapping the sum in <code>coalesce(…, 0)</code>. 
 <code>coalesce</code> provides a fallback value for null results and why left joins often
 require it.</p>
 </details>
-<h2 id="sql-joinswapped">JOIN ON Condition References Same Table Twice</h2>
+<h2 id="sql-joinswapped">Match employees to their department records</h2>
 <p>Run this query. Does every person appear? Compare the <code>num_surveys</code> counts to what
 you get from <code>select count(*) from survey group by person_id</code>. Do the numbers match?</p>
 <div data-inc="joinswapped.sql" data-scrub="\s*--.*BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1">-- List each person's full name and the number of surveys they have done.</span>
@@ -391,7 +392,7 @@ that left the table name on the left side of <code>on</code> as <code>survey</co
 Shows how to carefully check <code>on</code> conditions when the same column name appears in
 both tables.</p>
 </details>
-<h2 id="sql-selfjoin">Self-Join Aliases Confused</h2>
+<h2 id="sql-selfjoin">Find pairs of employees in the same department</h2>
 <p>Run this query and look at a few rows. Use the <code>person</code> table to verify which
 people are supervisors and which are subordinates. Are the labels in the output
 correct?</p>
@@ -420,7 +421,7 @@ and how to verify the result against the underlying data.</p>
 <span aria-hidden="true">⇐</span> <a href="../shell/">The Unix Shell</a>
 </div>
 <div class="col-6 center">
-<a href="../">Unbreak</a>
+<a href="../">Unbreaking Software</a>
 	  ©
 	  <a href="../#acknowledgments">the authors</a>
 </div>
@@ -429,5 +430,12 @@ and how to verify the result against the underlying data.</p>
 </div>
 </div>
 </footer>
+<script crossorigin="anonymous" defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$',  right: '$',  display: false}
+        ]
+      });" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </body>
 </html>
