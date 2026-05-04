@@ -54,7 +54,7 @@
 <h2 id="polars-selectdrop">Add a computed column to a DataFrame</h2>
 <p>Run the script and look at the columns in the result. How many columns does it
 have? How many columns did the original DataFrame have?</p>
-<div data-inc="selectdrop.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="selectdrop.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/selectdrop.py" class="inc-path" role="img" tabindex="0" title="polars/selectdrop.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
@@ -81,7 +81,7 @@ call in the pipeline and replace it with <code>.with_columns()</code>.</p>
 <h2 id="polars-nocollect">Filter and select rows from a dataset</h2>
 <p>Run the script and look at what is printed. Is the output a table of data, or
 something else? What type does <code>type(result)</code> report?</p>
-<div data-inc="nocollect.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="nocollect.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/nocollect.py" class="inc-path" role="img" tabindex="0" title="polars/nocollect.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Carol"</span><span class="p">,</span> <span class="s2">"Dave"</span><span class="p">],</span>
@@ -110,7 +110,7 @@ pipeline never executed. Add <code>.collect()</code> at the end of the chain.</p
 </details>
 <h2 id="polars-nullequal">Find rows with missing scores</h2>
 <p>Run the script. How many rows does it print? How many rows contain a missing score?</p>
-<div data-inc="nullequal.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="nullequal.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/nullequal.py" class="inc-path" role="img" tabindex="0" title="polars/nullequal.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Carol"</span><span class="p">,</span> <span class="s2">"Dave"</span><span class="p">],</span>
@@ -137,7 +137,7 @@ null count is positive, the comparison <code>== None</code> is the problem — r
 <h2 id="polars-castsilent">Convert float scores to integers</h2>
 <p>Run the script and compare the values in the <code>score</code> column to the expected rounded
 values printed below them. What happened to 88.7 and 95.6?</p>
-<div data-inc="castsilent.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="castsilent.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/castsilent.py" class="inc-path" role="img" tabindex="0" title="polars/castsilent.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
@@ -165,7 +165,7 @@ part rather than rounding.</p>
 </details>
 <h2 id="polars-overwindow">Add a department average salary to each employee row</h2>
 <p>Run the script. How many rows does the output have? How many rows did you expect?</p>
-<div data-inc="overwindow.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="overwindow.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/overwindow.py" class="inc-path" role="img" tabindex="0" title="polars/overwindow.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Carol"</span><span class="p">,</span> <span class="s2">"Dave"</span><span class="p">,</span> <span class="s2">"Eve"</span><span class="p">],</span>
@@ -195,7 +195,7 @@ rows. Replace the <code>group_by().agg()</code> pipeline with
 <h2 id="polars-innerjoin">Join orders to customer records</h2>
 <p>Run the script and compare the number of input orders to the number of rows in the
 result. Which order is missing, and why?</p>
-<div data-inc="innerjoin.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="innerjoin.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/innerjoin.py" class="inc-path" role="img" tabindex="0" title="polars/innerjoin.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">orders</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"order_id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
@@ -230,7 +230,7 @@ inner join.</p>
 <h2 id="polars-aliasexpr">Add a total price column to an order table</h2>
 <p>Run the script and compare the column names and values to the original DataFrame.
 Which column was overwritten, and which column was supposed to be added?</p>
-<div data-inc="aliasexpr.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="aliasexpr.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/aliasexpr.py" class="inc-path" role="img" tabindex="0" title="polars/aliasexpr.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"price"</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">],</span>
@@ -258,7 +258,7 @@ was assigned back to <code>price</code> rather than creating a new column. Add
 <h2 id="polars-strptime">Parse dates from a CSV file</h2>
 <p>Run the script and look at the parsed <code>date</code> column. Is <code>"03/04/2024"</code> shown as
 April 3rd or March 4th? What date was intended?</p>
-<div data-inc="strptime.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="strptime.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/strptime.py" class="inc-path" role="img" tabindex="0" title="polars/strptime.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"event"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"conference"</span><span class="p">,</span> <span class="s2">"deadline"</span><span class="p">,</span> <span class="s2">"review"</span><span class="p">],</span>
@@ -288,7 +288,7 @@ day is 15. Only one interpretation is possible, and it immediately reveals wheth
 <h2 id="polars-explodestring">Split a tags column into one row per tag</h2>
 <p>Run the script and read the error message. What type does Polars report for the
 <code>tags</code> column?</p>
-<div data-inc="explodestring.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="explodestring.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/explodestring.py" class="inc-path" role="img" tabindex="0" title="polars/explodestring.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
@@ -315,7 +315,7 @@ column types with <code>.schema</code> before applying list operations.</p>
 <h2 id="polars-withcolumnsdep">Compute a discounted price and order total in one step</h2>
 <p>Run the script and read the error message. Which column is reported as not found?
 Is that column present in the original DataFrame?</p>
-<div data-inc="withcolumnsdep.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div data-inc="withcolumnsdep.py" data-scrub="\s*# BUG.*"><span aria-label="Source: polars/withcolumnsdep.py" class="inc-path" role="img" tabindex="0" title="polars/withcolumnsdep.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"price"</span><span class="p">:</span> <span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">],</span>

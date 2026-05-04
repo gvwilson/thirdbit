@@ -55,7 +55,7 @@
 <p>Run the script and read the error message. What type of error is
 raised, and which line causes it? Is the problem in the line that
 fails or somewhere earlier?</p>
-<div data-inc="nostatuscheck.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="nostatuscheck.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/nostatuscheck.py" class="inc-path" role="img" tabindex="0" title="web/nostatuscheck.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
 
@@ -99,7 +99,7 @@ request that was never checked.</p>
 <h2 id="web-jsonparam">Submit a new record to an API as JSON</h2>
 <p>Run the script and read the output. What content type does the server
 report receiving? What content type did you intend to send?</p>
-<div data-inc="jsonparam.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="jsonparam.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/jsonparam.py" class="inc-path" role="img" tabindex="0" title="web/jsonparam.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
 
@@ -147,7 +147,7 @@ it now shows <code>application/json</code>.</p>
 <h2 id="web-urlparam">Search an API with a multi-word query parameter</h2>
 <p>Run the script and read the output. How many query parameters did the
 server receive?  How many did the code intend to send?</p>
-<div data-inc="urlparam.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="urlparam.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/urlparam.py" class="inc-path" role="img" tabindex="0" title="web/urlparam.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
 
@@ -199,7 +199,7 @@ HTTP library encode them correctly.</p>
 <p>Run the script and compare the number of records retrieved to the
 total available.  What field in the response tells you that more data
 exists?</p>
-<div data-inc="nopaginate.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="nopaginate.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/nopaginate.py" class="inc-path" role="img" tabindex="0" title="web/nopaginate.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
@@ -252,7 +252,7 @@ is returning data in pages.  Check the response for a <code>next_page</code>,
 <h2 id="web-notimeout">Fetch data from a potentially slow API endpoint</h2>
 <p>Run the script. Does it return promptly? How long does it wait before
 producing output?</p>
-<div data-inc="notimeout.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="notimeout.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/notimeout.py" class="inc-path" role="img" tabindex="0" title="web/notimeout.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
 
@@ -297,7 +297,7 @@ timeout error.</p>
 <h2 id="web-created">Create a new resource via a POST request</h2>
 <p>Run the script. What status code does the server return? What does the
 script print?  Is the request actually successful?</p>
-<div data-inc="created.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="created.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/created.py" class="inc-path" role="img" tabindex="0" title="web/created.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
@@ -347,7 +347,7 @@ accept any 2xx status code.</p>
 <p>Run the script and look at the status code and headers on each
 attempt. What does the <code>Retry-After</code> header contain? Does the script
 wait before retrying?</p>
-<div data-inc="ratelimit.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="ratelimit.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/ratelimit.py" class="inc-path" role="img" tabindex="0" title="web/ratelimit.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
@@ -404,7 +404,7 @@ next attempt.</p>
 <p>Run the script and compare the resource state before and after the PUT
 request.  Which fields changed, and which fields were you expecting to
 keep?</p>
-<div data-inc="putpatch.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="putpatch.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/putpatch.py" class="inc-path" role="img" tabindex="0" title="web/putpatch.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
@@ -457,7 +457,7 @@ resource. Switch to PATCH and send only the fields you want to change.</p>
 <h2 id="web-tokenurl">Authenticate with an API using a secret key</h2>
 <p>Run the script and read the output. In which part of the request does
 the API key appear? What would a server log entry look like?</p>
-<div data-inc="tokenurl.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="tokenurl.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/tokenurl.py" class="inc-path" role="img" tabindex="0" title="web/tokenurl.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
 
@@ -502,7 +502,7 @@ access log. Move it to an <code>Authorization</code> header instead.</p>
 <p>Run the script and read the output. What HTTP method reached the final
 endpoint?  What happened to the request body that was sent to
 <code>/submit</code>?</p>
-<div data-inc="postredirect.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<div data-inc="postredirect.py" data-scrub="\s*# BUG.*"><span aria-label="Source: web/postredirect.py" class="inc-path" role="img" tabindex="0" title="web/postredirect.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>

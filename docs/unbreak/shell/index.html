@@ -54,13 +54,13 @@
 <h2 id="shell-numericsort">Sort a list of numbers from smallest to largest</h2>
 <p>Run this script and look at the order of the numbers it prints. Is the smallest
 number first? What order would you expect?</p>
-<div data-inc="numericsort.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="numericsort.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/numericsort.sh" class="inc-path" role="img" tabindex="0" title="shell/numericsort.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Print the numbers in numericsort.txt in ascending order.</span>
 
 sort<span class="w"> </span>numericsort.txt
 </code></pre></div>
 </div>
-<div data-inc="numericsort.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>10
+<div data-inc="numericsort.txt"><span aria-label="Source: shell/numericsort.txt" class="inc-path" role="img" tabindex="0" title="shell/numericsort.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>10
 9
 2
 100
@@ -82,7 +82,7 @@ the same input and compare.</p>
 <h2 id="shell-overwrite">Collect a summary line from each file in a directory</h2>
 <p>Run this script and then look at <code>summary.txt</code>. How many lines does it contain?
 How many did you expect?</p>
-<div data-inc="overwrite.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="overwrite.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/overwrite.sh" class="inc-path" role="img" tabindex="0" title="shell/overwrite.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Collect the first (header) line of each .dat file into summary.txt.</span>
 
 <span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>overwrite_a.dat<span class="w"> </span>overwrite_b.dat<span class="w"> </span>overwrite_c.dat
@@ -103,7 +103,7 @@ the loop for <code>&gt;</code> and check whether it should be <code>&gt;&gt;</co
 <h2 id="shell-wideglob">Copy monthly notes files to an archive directory</h2>
 <p>Look at the list of <code>.txt</code> files in the directory. Which files does <code>*.txt</code> match?
 Are all of them files you want to copy?</p>
-<div data-inc="wideglob.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="wideglob.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/wideglob.sh" class="inc-path" role="img" tabindex="0" title="shell/wideglob.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Copy the monthly notes files to the archive directory.</span>
 <span class="c1"># Monthly notes are notes_jan.txt and notes_feb.txt.</span>
 <span class="c1"># notes_archive.txt is the running archive and should NOT be copied.</span>
@@ -125,13 +125,13 @@ pattern before using it.</p>
 <h2 id="shell-uniqsorted">Count distinct species in a CSV file</h2>
 <p>Run this script and check the count it reports. Then look at the species column in
 <code>species.csv</code>. How many distinct species are there, and does the count match?</p>
-<div data-inc="uniqsorted.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="uniqsorted.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/uniqsorted.sh" class="inc-path" role="img" tabindex="0" title="shell/uniqsorted.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Count the number of distinct species recorded in species.csv.</span>
 
 cut<span class="w"> </span>-d,<span class="w"> </span>-f2<span class="w"> </span>species.csv<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
 </code></pre></div>
 </div>
-<div data-inc="species.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>date,species,count
+<div data-inc="species.csv"><span aria-label="Source: shell/species.csv" class="inc-path" role="img" tabindex="0" title="shell/species.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>date,species,count
 2024-03-01,sparrow,12
 2024-03-01,robin,5
 2024-03-02,sparrow,8
@@ -158,7 +158,7 @@ are being missed by <code>uniq</code> alone.</p>
 <h2 id="shell-quotedvar">Count words in files whose names contain spaces</h2>
 <p>Run this script with a filename that contains a space (e.g., <code>"field notes.txt"</code>).
 Does it process the file correctly?</p>
-<div data-inc="quotedvar.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="quotedvar.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/quotedvar.sh" class="inc-path" role="img" tabindex="0" title="shell/quotedvar.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Count the lines in each text file passed to this script.</span>
 
 <span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
@@ -182,7 +182,7 @@ as one.</p>
 <h2 id="shell-wrongarg">Filter lines from an input file into an output file</h2>
 <p>Run the script with a small input file and the name of an output file. Look at
 which file was created and which file was modified.</p>
-<div data-inc="wrongarg.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="wrongarg.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/wrongarg.sh" class="inc-path" role="img" tabindex="0" title="shell/wrongarg.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Usage: wrongarg.sh input_file output_file</span>
 <span class="c1"># Copy the first 20 lines of input_file into output_file.</span>
 
@@ -203,13 +203,13 @@ input and output filenames in the wrong positions, swap <code>$1</code> and <cod
 <h2 id="shell-headtail">Print the most recent entries from a log file</h2>
 <p>Run this script and note which rows are printed. Are they from the beginning or
 end of the file?</p>
-<div data-inc="headtail.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="headtail.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/headtail.sh" class="inc-path" role="img" tabindex="0" title="shell/headtail.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Print the last 5 data rows of headtail.txt (excluding the header line).</span>
 
 head<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>headtail.txt
 </code></pre></div>
 </div>
-<div data-inc="headtail.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>experiment_id,temperature,pressure
+<div data-inc="headtail.txt"><span aria-label="Source: shell/headtail.txt" class="inc-path" role="img" tabindex="0" title="shell/headtail.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>experiment_id,temperature,pressure
 E001,22.1,101.3
 E002,23.4,100.8
 E003,21.9,102.1
@@ -237,7 +237,7 @@ output. If both show the earliest timestamps, the wrong command is being used. R
 <h2 id="shell-dotdot">Save output to a shared directory one level up</h2>
 <p>Read the comment at the top of the script. Map out the expected directory structure
 on paper. How many levels up does <code>../..</code> go? Is that where <code>shared/</code> lives?</p>
-<div data-inc="dotdot.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="dotdot.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/dotdot.sh" class="inc-path" role="img" tabindex="0" title="shell/dotdot.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Run this script from inside results/2024/.</span>
 <span class="c1"># Save a sorted copy of measurements.txt to the shared/ directory,</span>
 <span class="c1"># which is one level above the current directory (i.e., results/shared/).</span>
@@ -245,7 +245,7 @@ on paper. How many levels up does <code>../..</code> go? Is that where <code>sha
 sort<span class="w"> </span>-n<span class="w"> </span>measurements.txt<span class="w"> </span>&gt;<span class="w"> </span>../../shared/sorted.txt
 </code></pre></div>
 </div>
-<div data-inc="measurements.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>depth_m,temp_c,salinity
+<div data-inc="measurements.txt"><span aria-label="Source: shell/measurements.txt" class="inc-path" role="img" tabindex="0" title="shell/measurements.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>depth_m,temp_c,salinity
 0,18.4,35.1
 10,17.9,35.2
 20,17.1,35.4
@@ -269,14 +269,14 @@ paper.</p>
 <h2 id="shell-wcflag">Count the records in a data file</h2>
 <p>Run this script and look at the numbers it prints. Do they match the number of
 lines (records) in the file?</p>
-<div data-inc="wcflag.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="wcflag.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/wcflag.sh" class="inc-path" role="img" tabindex="0" title="shell/wcflag.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Report the number of observation records in wcflag.txt.</span>
 <span class="c1"># Each line is one record.</span>
 
 wc<span class="w"> </span>-w<span class="w"> </span>wcflag.txt
 </code></pre></div>
 </div>
-<div data-inc="wcflag.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>sparrow observed at grid B4
+<div data-inc="wcflag.txt"><span aria-label="Source: shell/wcflag.txt" class="inc-path" role="img" tabindex="0" title="shell/wcflag.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>sparrow observed at grid B4
 robin observed at grid A2
 crow observed at grid C1
 sparrow observed at grid D3
@@ -298,7 +298,7 @@ counting words rather than lines.</p>
 <h2 id="shell-findglob">Find all CSV files in a directory tree</h2>
 <p>Run this script from a directory that contains at least one <code>.csv</code> file. What
 arguments does <code>find</code> actually receive? Use <code>echo</code> in place of <code>find</code> to check.</p>
-<div data-inc="findglob.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="findglob.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/findglob.sh" class="inc-path" role="img" tabindex="0" title="shell/findglob.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Find all CSV files anywhere under the data/ directory.</span>
 
 find<span class="w"> </span>data<span class="w"> </span>-name<span class="w"> </span>*.csv
@@ -319,13 +319,13 @@ list shows specific filenames rather than the literal pattern <code>*.csv</code>
 <h2 id="shell-cutdelim">Extract family names from a tab-separated file</h2>
 <p>Run this script and examine the output. Does each output line contain just the
 family name, or does it contain the whole row?</p>
-<div data-inc="cutdelim.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="cutdelim.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/cutdelim.sh" class="inc-path" role="img" tabindex="0" title="shell/cutdelim.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Extract the family name (first column) from the tab-delimited roster.</span>
 
 cut<span class="w"> </span>-d,<span class="w"> </span>-f1<span class="w"> </span>cutdelim.txt
 </code></pre></div>
 </div>
-<div data-inc="cutdelim.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Smith	Jane	Biology
+<div data-inc="cutdelim.txt"><span aria-label="Source: shell/cutdelim.txt" class="inc-path" role="img" tabindex="0" title="shell/cutdelim.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Smith	Jane	Biology
 Jones	Tom	Chemistry
 Garcia	Maria	Physics
 Chen	Wei	Biology
@@ -345,13 +345,13 @@ comma, <code>cut</code> will see no delimiter and return each entire line as a s
 <h2 id="shell-grepinvert">Filter error lines from a log file</h2>
 <p>Run this script and read the output. Do the lines shown contain the word you
 were searching for?</p>
-<div data-inc="grepinvert.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="grepinvert.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/grepinvert.sh" class="inc-path" role="img" tabindex="0" title="shell/grepinvert.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Print all lines in the log that contain the word "ERROR".</span>
 
 grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">"ERROR"</span><span class="w"> </span>grepinvert.txt
 </code></pre></div>
 </div>
-<div data-inc="grepinvert.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>2024-03-01 08:02 INFO  server started
+<div data-inc="grepinvert.txt"><span aria-label="Source: shell/grepinvert.txt" class="inc-path" role="img" tabindex="0" title="shell/grepinvert.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>2024-03-01 08:02 INFO  server started
 2024-03-01 08:15 ERROR disk usage above 90%
 2024-03-01 09:00 INFO  backup complete
 2024-03-01 09:47 ERROR connection timeout after 30s
@@ -375,7 +375,7 @@ inverting the match. Remove <code>-v</code> to keep only matching lines.</p>
 <h2 id="shell-missingarg">Count the lines in a file given on the command line</h2>
 <p>Run this script with no arguments. Does it print useful output, produce an error,
 or do something else? Use <code>Ctrl-C</code> to stop it if it appears to hang.</p>
-<div data-inc="missingarg.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="missingarg.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/missingarg.sh" class="inc-path" role="img" tabindex="0" title="shell/missingarg.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Usage: missingarg.sh filename</span>
 <span class="c1"># Print the filename and its line count.</span>
 
@@ -399,26 +399,26 @@ instead of a file.</p>
 <h2 id="shell-catorder">Concatenate report sections in the correct order</h2>
 <p>Run this script and read the resulting <code>report.txt</code>. Does the report begin with
 the introduction, or with a different section?</p>
-<div data-inc="catorder.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="catorder.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/catorder.sh" class="inc-path" role="img" tabindex="0" title="shell/catorder.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Assemble the three sections of the report in order: introduction, methods, results.</span>
 
 cat<span class="w"> </span>section3.txt<span class="w"> </span>section1.txt<span class="w"> </span>section2.txt<span class="w"> </span>&gt;<span class="w"> </span>report.txt
 </code></pre></div>
 </div>
-<div data-inc="section1.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Introduction
+<div data-inc="section1.txt"><span aria-label="Source: shell/section1.txt" class="inc-path" role="img" tabindex="0" title="shell/section1.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Introduction
 ============
 This report summarises findings from the 2024 field season.
 Three sites were surveyed between January and March.
 </code></pre></div>
 </div>
-<div data-inc="section2.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Methods
+<div data-inc="section2.txt"><span aria-label="Source: shell/section2.txt" class="inc-path" role="img" tabindex="0" title="shell/section2.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Methods
 =======
 Samples were collected using standard protocols.
 Each site was visited on three consecutive days.
 Temperature and salinity were recorded at each visit.
 </code></pre></div>
 </div>
-<div data-inc="section3.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Results
+<div data-inc="section3.txt"><span aria-label="Source: shell/section3.txt" class="inc-path" role="img" tabindex="0" title="shell/section3.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>Results
 =======
 Site A showed elevated salinity compared to baseline.
 Site B was within normal range on all measures.
@@ -439,7 +439,7 @@ filenames on the <code>cat</code> command line to the intended section order.</p
 <h2 id="shell-loopclobber">Append a summary line from each file to a report</h2>
 <p>Run this script once, then run it again. How many lines does <code>summary.txt</code> contain
 after the first run? After the second run?</p>
-<div data-inc="loopclobber.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="loopclobber.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/loopclobber.sh" class="inc-path" role="img" tabindex="0" title="shell/loopclobber.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Collect word counts for all .dat files into summary.txt.</span>
 <span class="c1"># Running this script a second time should produce the same summary,</span>
 <span class="c1"># not a file with doubled entries.</span>
@@ -466,7 +466,7 @@ switching to <code>&gt;&gt;</code> for subsequent writes.</p>
 <h2 id="shell-sortn">List the three largest files in a directory</h2>
 <p>Run this script in a directory that has files of different sizes. Compare the
 output to <code>ls -s | sort -rn | head -n 3</code>. Are the results the same?</p>
-<div data-inc="sortn.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="sortn.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/sortn.sh" class="inc-path" role="img" tabindex="0" title="shell/sortn.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># List the three largest files in the current directory by block size,</span>
 <span class="c1"># largest first.</span>
 
@@ -488,14 +488,14 @@ is alphabetical rather than numeric. Compare with <code>ls -s | sort -rn | head 
 <h2 id="shell-headcount">Extract ten data rows from a CSV file</h2>
 <p>Run this script and count the data rows in the output. Then count the data rows
 in the original file. Are they the same?</p>
-<div data-inc="headcount.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="headcount.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/headcount.sh" class="inc-path" role="img" tabindex="0" title="shell/headcount.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Extract the header row plus the first 10 data rows from headcount.csv</span>
 <span class="c1"># (11 lines total: 1 header + 10 data).</span>
 
 head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>headcount.csv
 </code></pre></div>
 </div>
-<div data-inc="headcount.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>site,reading,value
+<div data-inc="headcount.csv"><span aria-label="Source: shell/headcount.csv" class="inc-path" role="img" tabindex="0" title="shell/headcount.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>site,reading,value
 A,1,42.3
 A,2,38.9
 A,3,55.1
@@ -523,7 +523,7 @@ data rows.</p>
 <h2 id="shell-quotedall">Process a list of filenames passed as script arguments</h2>
 <p>Run this script with a filename that contains a space. Does it process the file,
 or does it report an error about a non-existent file?</p>
-<div data-inc="quotedall.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="quotedall.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/quotedall.sh" class="inc-path" role="img" tabindex="0" title="shell/quotedall.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Usage: quotedall.sh file1 file2 ...</span>
 <span class="c1"># Count the lines in each file passed as an argument.</span>
 
@@ -548,7 +548,7 @@ space preserved.</p>
 <h2 id="shell-findtype">Count log files in a directory tree</h2>
 <p>Create a directory whose name ends in <code>.log</code> (e.g., <code>mkdir debug.log</code>). Now run
 this script. Does the count include the directory?</p>
-<div data-inc="findtype.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="findtype.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/findtype.sh" class="inc-path" role="img" tabindex="0" title="shell/findtype.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Count all log files (and only log files) under the current directory.</span>
 
 find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*.log"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
@@ -567,7 +567,7 @@ output. Add <code>-type f</code> and rerun to confirm it is excluded.</p>
 <h2 id="shell-cprecurse">Copy a directory to a backup location</h2>
 <p>Run this script. Does it copy the directory, or does it produce an error message?
 What does the error message say?</p>
-<div data-inc="cprecurse.sh" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<div data-inc="cprecurse.sh" data-scrub="\s*# BUG.*"><span aria-label="Source: shell/cprecurse.sh" class="inc-path" role="img" tabindex="0" title="shell/cprecurse.sh">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># Back up the entire results/ directory to backup/results/.</span>
 
 cp<span class="w"> </span>results/<span class="w"> </span>backup/results/

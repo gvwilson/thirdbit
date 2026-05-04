@@ -54,7 +54,7 @@
 <h2 id="interpy-alias">Reverse a sequence for display</h2>
 <p>Call the function and then print both the original list and the returned value.
 Has the original list changed?</p>
-<div data-inc="alias.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">reversed_copy</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div data-inc="alias.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/alias.py" class="inc-path" role="img" tabindex="0" title="interpy/alias.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">reversed_copy</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a reversed copy of data, leaving the original unchanged."""</span>
     <span class="n">data</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">data</span>
@@ -80,7 +80,7 @@ copy, and reversing it also mutated the original.</p>
 <h2 id="interpy-sharemut">Track items added to each shopping cart</h2>
 <p>Create two account objects, add different transactions to each, and then print the
 transaction history of each. Does each account show only its own transactions?</p>
-<div data-inc="sharemut.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
+<div data-inc="sharemut.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/sharemut.py" class="inc-path" role="img" tabindex="0" title="interpy/sharemut.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
     <span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
@@ -120,7 +120,7 @@ account1.history)</code> — it will print <code>True</code>.</p>
 <h2 id="interpy-fpeq">Check whether a running total hits a target</h2>
 <p>Run this script and examine the two computed values. Are they exactly equal? Try
 printing each value with many decimal places.</p>
-<div data-inc="fpeq.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">amounts</span><span class="p">):</span>
+<div data-inc="fpeq.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/fpeq.py" class="inc-path" role="img" tabindex="0" title="interpy/fpeq.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">amounts</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the total by accumulating amounts one at a time."""</span>
     <span class="n">result</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">amounts</span><span class="p">:</span>
@@ -166,7 +166,7 @@ the rounding difference that makes <code>==</code> return <code>False</code>.</p
 <h2 id="interpy-broad">Load settings from a configuration file</h2>
 <p>Run the scraper with the provided URL list, which includes one malformed URL. Does
 it process all the valid URLs? Check whether anything is silently discarded.</p>
-<div data-inc="broad.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
+<div data-inc="broad.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/broad.py" class="inc-path" role="img" tabindex="0" title="interpy/broad.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
 
 
 <span class="n">URLS</span> <span class="o">=</span> <span class="p">[</span>
@@ -223,7 +223,7 @@ the wrong exception type.</p>
 <h2 id="interpy-commas">Read addresses from a spreadsheet export</h2>
 <p>Run the script with the provided CSV file and read the traceback. Which line in the
 file triggers the error? Examine that line carefully.</p>
-<div data-inc="commas.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div data-inc="commas.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/commas.py" class="inc-path" role="img" tabindex="0" title="interpy/commas.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">top_scorer</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -248,7 +248,7 @@ file triggers the error? Examine that line carefully.</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Top scorer: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="commas.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name,score
+<div data-inc="commas.csv"><span aria-label="Source: interpy/commas.csv" class="inc-path" role="img" tabindex="0" title="interpy/commas.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name,score
 Alice Johnson,95
 Bob Smith,87
 Martinez, Carlos,92
@@ -271,7 +271,7 @@ quoted.</p>
 <h2 id="interpy-lexisort">Rank files by version number</h2>
 <p>Run the sort function and examine the output order. Where does <code>file10</code> appear
 relative to <code>file2</code>?</p>
-<div data-inc="lexisort.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sorted_logs</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
+<div data-inc="lexisort.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/lexisort.py" class="inc-path" role="img" tabindex="0" title="interpy/lexisort.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sorted_logs</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return filenames sorted by their embedded sequence number."""</span>
     <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
 
@@ -300,7 +300,7 @@ alphabetical order, where <code>"10" &lt; "2"</code> because <code>"1" &lt; "2"<
 <h2 id="interpy-exhaust">Process a pipeline of records twice</h2>
 <p>Run the script and look at both outputs. Does each one produce the values you
 expected?</p>
-<div data-inc="exhaust.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">positive_numbers</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div data-inc="exhaust.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/exhaust.py" class="inc-path" role="img" tabindex="0" title="interpy/exhaust.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">positive_numbers</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Yield each positive number from data."""</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
 
@@ -334,7 +334,7 @@ returns an empty list, proving the generator was exhausted on the first pass.</p
 <h2 id="interpy-cachekey">Cache results of an expensive calculation</h2>
 <p>Call the cached function twice with the same positional argument but a different
 keyword argument each time. Do both calls return the correct result?</p>
-<div data-inc="cachekey.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">memoize</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div data-inc="cachekey.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/cachekey.py" class="inc-path" role="img" tabindex="0" title="interpy/cachekey.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">memoize</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Cache the results of func calls."""</span>
     <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -373,7 +373,7 @@ key is identical for both calls.</p>
 <h2 id="interpy-super">Extend a base class with new attributes</h2>
 <p>Create an instance of the subclass and try to access an attribute that is set in
 the parent's <code>__init__</code>. Does it exist?</p>
-<div data-inc="super.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+<div data-inc="super.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/super.py" class="inc-path" role="img" tabindex="0" title="interpy/super.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">sound</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sound</span> <span class="o">=</span> <span class="n">sound</span>
@@ -414,7 +414,7 @@ attribute. The <code>AttributeError</code> names the missing attribute. Search t
 <h2 id="interpy-unclosed">Write results to disk when processing fails</h2>
 <p>Run the script so that it raises an exception part-way through writing. Then open
 the output file. Does it contain complete data?</p>
-<div data-inc="unclosed.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div data-inc="unclosed.py" data-scrub="\s*# BUG.*"><span aria-label="Source: interpy/unclosed.py" class="inc-path" role="img" tabindex="0" title="interpy/unclosed.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
@@ -447,7 +447,7 @@ the output file. Does it contain complete data?</p>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">line</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="unclosed.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>first line
+<div data-inc="unclosed.txt"><span aria-label="Source: interpy/unclosed.txt" class="inc-path" role="img" tabindex="0" title="interpy/unclosed.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>first line
 second line
 
 fourth line after blank

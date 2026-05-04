@@ -54,7 +54,7 @@
 <h2 id="diot-quotecsv">Read a contact list from a CSV export</h2>
 <p>Run the parser with the provided CSV file. Do all rows produce the correct number
 of fields? Pay particular attention to rows that contain commas.</p>
-<div data-inc="quotecsv.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div data-inc="quotecsv.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/quotecsv.py" class="inc-path" role="img" tabindex="0" title="diot/quotecsv.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">parse_scores</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -77,7 +77,7 @@ of fields? Pay particular attention to rows that contain commas.</p>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="quotecsv.csv"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name,city,score
+<div data-inc="quotecsv.csv"><span aria-label="Source: diot/quotecsv.csv" class="inc-path" role="img" tabindex="0" title="diot/quotecsv.csv">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>name,city,score
 Alice,New York,95
 Bob,"Los Angeles, CA",87
 Carol,Chicago,92
@@ -97,7 +97,7 @@ quoted field that <code>line.split(',')</code> does not recognize as quoted.</p>
 <h2 id="diot-walltime">Benchmark an image processing function</h2>
 <p>Run the benchmarking function several times and examine the elapsed time values.
 Do any of them look unusual?</p>
-<div data-inc="walltime.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<div data-inc="walltime.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/walltime.py" class="inc-path" role="img" tabindex="0" title="diot/walltime.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">patch</span>
 
 
@@ -144,7 +144,7 @@ snapshot restore.</p>
 <p>Call the date arithmetic function with a date near a daylight saving transition.
 Compare the result from the naive datetime path with the result from the
 timezone-aware path.</p>
-<div data-inc="daylight.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<div data-inc="daylight.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/daylight.py" class="inc-path" role="img" tabindex="0" title="diot/daylight.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">add_days</span><span class="p">(</span><span class="n">start_str</span><span class="p">,</span> <span class="n">days</span><span class="p">):</span>
@@ -198,7 +198,7 @@ exactly 86,400 seconds without accounting for the 23-hour day.</p>
 <h2 id="diot-missparse">Scrape prices from a product page</h2>
 <p>Run the script with the provided HTML file and check whether it finds all the
 expected elements. What happens when an element is not found?</p>
-<div data-inc="missparse.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<div data-inc="missparse.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/missparse.py" class="inc-path" role="img" tabindex="0" title="diot/missparse.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
@@ -221,7 +221,7 @@ expected elements. What happens when an element is not found?</p>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"No prices found."</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="missparse.html"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div data-inc="missparse.html"><span aria-label="Source: diot/missparse.html" class="inc-path" role="img" tabindex="0" title="diot/missparse.html">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"product"</span><span class="p">&gt;</span>
@@ -254,7 +254,7 @@ in the HTML.</p>
 <h2 id="diot-overexp">Extract phone numbers from a text file</h2>
 <p>Test the regular expression against a few valid email addresses and a few strings
 that look like email addresses but are not. Does it reject the invalid ones?</p>
-<div data-inc="overexp.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<div data-inc="overexp.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/overexp.py" class="inc-path" role="img" tabindex="0" title="diot/overexp.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 <span class="n">EMAIL_PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\w+@\w+"</span>
 
@@ -293,7 +293,7 @@ instead of <code>None</code> for either, the pattern is too permissive.</p>
 <h2 id="diot-noassert">Write a test for a data validation function</h2>
 <p>Run the test suite. Does it pass? Now deliberately break the function the test is
 testing. Does the test still pass?</p>
-<div data-inc="noassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<div data-inc="noassert.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/noassert.py" class="inc-path" role="img" tabindex="0" title="diot/noassert.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return the mean of a non-empty list of numbers."""</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -332,7 +332,7 @@ no assertion that can detect the wrong return value.</p>
 <h2 id="diot-shared">Test a function that modifies a global registry</h2>
 <p>Run each test on its own. Then run both together. Do you get the same results both
 ways?</p>
-<div data-inc="shared.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Module-level registry — shared state that persists between tests</span>
+<div data-inc="shared.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/shared.py" class="inc-path" role="img" tabindex="0" title="diot/shared.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="c1"># Module-level registry — shared state that persists between tests</span>
 <span class="n">REGISTRY</span> <span class="o">=</span> <span class="p">{}</span>
 
 
@@ -382,7 +382,7 @@ when both run together, the failing test depends on state left by the other.</p>
 <h2 id="diot-abspath">Load a reference data file in a test</h2>
 <p>Run the script from a different working directory than the one where the script
 file is saved. Does it find its configuration file?</p>
-<div data-inc="abspath.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<div data-inc="abspath.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/abspath.py" class="inc-path" role="img" tabindex="0" title="diot/abspath.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">():</span>
@@ -399,7 +399,7 @@ file is saved. Does it find its configuration file?</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"output_dir:  </span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">'output_dir'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="abspath.json"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">{</span>
+<div data-inc="abspath.json"><span aria-label="Source: diot/abspath.json" class="inc-path" role="img" tabindex="0" title="diot/abspath.json">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">"threshold"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"max_retries"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"output_dir"</span><span class="p">:</span><span class="w"> </span><span class="s2">"results"</span>
@@ -420,7 +420,7 @@ not to the script's own directory.</p>
 <h2 id="diot-jsondate">Save a record with a timestamp to a file</h2>
 <p>Run the script and read the error message. Which value in the data structure cannot
 be serialized?</p>
-<div data-inc="jsondate.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<div data-inc="jsondate.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/jsondate.py" class="inc-path" role="img" tabindex="0" title="diot/jsondate.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 
 
@@ -453,7 +453,7 @@ object: <code>print(type(record['timestamp']))</code> will show <code>&lt;class 
 <h2 id="diot-loglevel">Add diagnostic output to a data pipeline</h2>
 <p>Run the script and then look at the log file. Are the messages you expected to see
 present?</p>
-<div data-inc="loglevel.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<div data-inc="loglevel.py" data-scrub="\s*# BUG.*"><span aria-label="Source: diot/loglevel.py" class="inc-path" role="img" tabindex="0" title="diot/loglevel.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span>

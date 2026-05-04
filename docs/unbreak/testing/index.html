@@ -55,7 +55,7 @@
 <p>Run <code>pytest test_vacuous.py -v</code>. Does the test pass? Add a print
 statement inside <code>test_total</code> to confirm that <code>result</code> is being
 computed. Does a passing test mean the function is correct?</p>
-<div data-inc="test_vacuous.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+<div data-inc="test_vacuous.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_vacuous.py" class="inc-path" role="img" tabindex="0" title="testing/test_vacuous.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
 
 
@@ -79,7 +79,7 @@ still passes, the test has no assertion and is not checking anything.</p>
 <p>Run <code>pytest test_tupleassert.py -v</code>. Does the test pass? What value
 does <code>double(4)</code> actually return? Check the pytest warning in the
 output.</p>
-<div data-inc="test_tupleassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div data-inc="test_tupleassert.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_tupleassert.py" class="inc-path" role="img" tabindex="0" title="testing/test_tupleassert.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span>  <span class="c1"># deliberate wrong implementation</span>
 
 
@@ -106,7 +106,7 @@ confirm the test can now fail.</p>
 <h2 id="testing-floatequal">Test a running total function</h2>
 <p>Run <code>pytest test_floatequal.py -v</code>. Read the assertion error
 carefully. What value did <code>running_total</code> actually return?</p>
-<div data-inc="test_floatequal.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+<div data-inc="test_floatequal.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_floatequal.py" class="inc-path" role="img" tabindex="0" title="testing/test_floatequal.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">running_total</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
     <span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
         <span class="n">total</span> <span class="o">+=</span> <span class="n">v</span>
@@ -135,7 +135,7 @@ has accumulated. Replace <code>assert result == expected</code> with
 <p>Run <code>pytest test_broadexc.py -v</code>. Does the test pass? What exception
 does <code>parse_count(None)</code> actually raise? Is that the exception the
 test intended to check?</p>
-<div data-inc="test_broadexc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<div data-inc="test_broadexc.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_broadexc.py" class="inc-path" role="img" tabindex="0" title="testing/test_broadexc.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">parse_count</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
@@ -166,7 +166,7 @@ intended.</p>
 whether the temp file still exists. Then change <code>return path</code> to
 <code>yield path</code> and add <code>os.remove(path)</code> after the yield. Run again and
 check the filesystem.</p>
-<div data-inc="test_noyield.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div data-inc="test_noyield.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_noyield.py" class="inc-path" role="img" tabindex="0" title="testing/test_noyield.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
@@ -204,7 +204,7 @@ removed.</p>
 <p>Run <code>pytest test_orderdep.py -v</code>. Both tests pass. Now run
 <code>pytest test_orderdep.py::test_lookup -v</code> to run only the second
 test. What happens?</p>
-<div data-inc="test_orderdep.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">_registry</span> <span class="o">=</span> <span class="p">{}</span>
+<div data-inc="test_orderdep.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_orderdep.py" class="inc-path" role="img" tabindex="0" title="testing/test_orderdep.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="n">_registry</span> <span class="o">=</span> <span class="p">{}</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
@@ -240,7 +240,7 @@ the test depends on state left by another test.</p>
 <h2 id="testing-scopemut">Share a list fixture across multiple tests</h2>
 <p>Run <code>pytest test_scopemut.py -v</code>. Which test fails? Reverse the order
 of the two tests and run again. Does the other test now fail?</p>
-<div data-inc="test_scopemut.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<div data-inc="test_scopemut.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_scopemut.py" class="inc-path" role="img" tabindex="0" title="testing/test_scopemut.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"session"</span><span class="p">)</span>
@@ -276,7 +276,7 @@ through the fixture. Check the fixture for a <code>scope=</code> argument:
 <p>Run <code>pytest test_deadassert.py -v</code>. The test passes. Add a
 <code>print("reached")</code> on the line after <code>result = parse_positive(0)</code>. Run
 again. Is the print executed?</p>
-<div data-inc="test_deadassert.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<div data-inc="test_deadassert.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_deadassert.py" class="inc-path" role="img" tabindex="0" title="testing/test_deadassert.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">parse_positive</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
@@ -310,7 +310,7 @@ to after the <code>with</code> block.</p>
 <p>Run <code>pytest test_missingreturn.py -v</code>. Read the assertion error. What
 value did <code>strip_prefix</code> return? Is that what you expected from the
 code?</p>
-<div data-inc="test_missingreturn.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">strip_prefix</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+<div data-inc="test_missingreturn.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_missingreturn.py" class="inc-path" role="img" tabindex="0" title="testing/test_missingreturn.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">strip_prefix</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
         <span class="n">text</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">prefix</span><span class="p">):]</span>
 
@@ -337,7 +337,7 @@ statement.</p>
 <h2 id="testing-paramtype">Test a function that returns a sorted list</h2>
 <p>Run <code>pytest test_paramtype.py -v</code>. All three cases fail. Read the
 assertion error for the first case. What value did <code>result</code> have?</p>
-<div data-inc="test_paramtype.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<div data-inc="test_paramtype.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_paramtype.py" class="inc-path" role="img" tabindex="0" title="testing/test_paramtype.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"values,expected"</span><span class="p">,</span> <span class="p">[</span>
@@ -367,7 +367,7 @@ list. Check whether the function calls <code>list.sort()</code>, which returns
 <h2 id="testing-tmpfile">Test a function that writes JSON to a file</h2>
 <p>Run <code>pytest test_tmpfile.py -v</code>. The test passes. After it finishes,
 list the files in your working directory. What file was left behind?</p>
-<div data-inc="test_tmpfile.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">summarize</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+<div data-inc="test_tmpfile.py" data-scrub="\s*# BUG.*"><span aria-label="Source: testing/test_tmpfile.py" class="inc-path" role="img" tabindex="0" title="testing/test_tmpfile.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">summarize</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">"count"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="s2">"total"</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)}</span>
 
 

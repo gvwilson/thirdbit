@@ -54,7 +54,7 @@
 <h2 id="perfcon-repscans">Search a large log file for matching entries</h2>
 <p>Run the word-frequency function on the provided text file and time how long it
 takes. Then run <code>cProfile</code> on it to see which lines consume the most time.</p>
-<div data-inc="repscans.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div data-inc="repscans.py" data-scrub="\s*# BUG.*"><span aria-label="Source: perfcon/repscans.py" class="inc-path" role="img" tabindex="0" title="perfcon/repscans.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 
@@ -97,7 +97,7 @@ takes. Then run <code>cProfile</code> on it to see which lines consume the most 
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Fix: replace the loop with collections.Counter(text.split()).most_common(1)"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="repscans.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>the quick brown fox jumps over the lazy dog the fox was very quick
+<div data-inc="repscans.txt"><span aria-label="Source: perfcon/repscans.txt" class="inc-path" role="img" tabindex="0" title="perfcon/repscans.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>the quick brown fox jumps over the lazy dog the fox was very quick
 and the dog was very lazy the brown fox leaped high over the sleeping dog
 a quick brown fox is quicker than a lazy brown dog or so they say
 the dog slept under the tree while the fox ran quickly through the field
@@ -119,7 +119,7 @@ slow.</p>
 </details>
 <h2 id="perfcon-subproc">Run an external tool and capture its output</h2>
 <p>Run this script. Does it return promptly, or does it hang?</p>
-<div data-inc="subproc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<div data-inc="subproc.py" data-scrub="\s*# BUG.*"><span aria-label="Source: perfcon/subproc.py" class="inc-path" role="img" tabindex="0" title="perfcon/subproc.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
@@ -164,7 +164,7 @@ and blocks waiting for input that never arrives.</p>
 <h2 id="perfcon-race">Count requests handled by concurrent workers</h2>
 <p>Run this script several times and record the final counter value each time. Is the
 value always the same? Is it always the value you expect?</p>
-<div data-inc="race.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<div data-inc="race.py" data-scrub="\s*# BUG.*"><span aria-label="Source: perfcon/race.py" class="inc-path" role="img" tabindex="0" title="perfcon/race.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
 
 <span class="n">THREADS</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">INCREMENTS</span> <span class="o">=</span> <span class="mi">100_000</span>
@@ -208,7 +208,7 @@ each observed value to make the discrepancy concrete.</p>
 <h2 id="perfcon-multiproc">Share a lookup table across worker processes</h2>
 <p>Run this script and compare the contents of the shared list before and after the
 worker processes run. Did the workers modify the list you passed in?</p>
-<div data-inc="multiproc.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
+<div data-inc="multiproc.py" data-scrub="\s*# BUG.*"><span aria-label="Source: perfcon/multiproc.py" class="inc-path" role="img" tabindex="0" title="perfcon/multiproc.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -248,12 +248,12 @@ modifications inside workers are invisible to the parent.</p>
 <p>Run the test. Does it pass? Add a print statement inside the mock to check whether
 the mock is actually being called. Then look at the return value of the function
 under test.</p>
-<div data-inc="mockpatch_source.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fetch_data</span><span class="p">():</span>
+<div data-inc="mockpatch_source.py" data-scrub="\s*# BUG.*"><span aria-label="Source: perfcon/mockpatch_source.py" class="inc-path" role="img" tabindex="0" title="perfcon/mockpatch_source.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fetch_data</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">"""Return records from the data store."""</span>
     <span class="k">return</span> <span class="p">[</span><span class="s2">"alpha"</span><span class="p">,</span> <span class="s2">"beta"</span><span class="p">,</span> <span class="s2">"gamma"</span><span class="p">]</span>
 </code></pre></div>
 </div>
-<div data-inc="mockpatch_user.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">mockpatch_source</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_data</span>
+<div data-inc="mockpatch_user.py" data-scrub="\s*# BUG.*"><span aria-label="Source: perfcon/mockpatch_user.py" class="inc-path" role="img" tabindex="0" title="perfcon/mockpatch_user.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">mockpatch_source</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_data</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">():</span>
@@ -261,7 +261,7 @@ under test.</p>
     <span class="k">return</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fetch_data</span><span class="p">()]</span>
 </code></pre></div>
 </div>
-<div data-inc="mockpatch.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">patch</span>
+<div data-inc="mockpatch.py" data-scrub="\s*# BUG.*"><span aria-label="Source: perfcon/mockpatch.py" class="inc-path" role="img" tabindex="0" title="perfcon/mockpatch.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">patch</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">mockpatch_user</span>
 

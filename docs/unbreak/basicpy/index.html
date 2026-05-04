@@ -55,7 +55,7 @@
 <p>Run this code with a small list (for example, five elements and a window size of
 three) and count the windows by hand. Does the number of windows the code returns
 match the number you counted?</p>
-<div data-inc="sliding.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sliding_windows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<div data-inc="sliding.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/sliding.py" class="inc-path" role="img" tabindex="0" title="basicpy/sliding.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">sliding_windows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return all sliding windows of size k over data."""</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span><span class="p">)]</span>
 
@@ -82,7 +82,7 @@ reveals the off-by-one.</p>
 <h2 id="basicpy-catadd">Add up totals from a text file</h2>
 <p>Run this script with the provided input file and examine the total it prints. Does
 the value look like a reasonable sum of exam scores?</p>
-<div data-inc="catadd.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div data-inc="catadd.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/catadd.py" class="inc-path" role="img" tabindex="0" title="basicpy/catadd.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">average_scores</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -103,7 +103,7 @@ the value look like a reasonable sum of exam scores?</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average: </span><span class="si">{</span><span class="n">average_scores</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="catadd.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>85
+<div data-inc="catadd.txt"><span aria-label="Source: basicpy/catadd.txt" class="inc-path" role="img" tabindex="0" title="basicpy/catadd.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>85
 92
 78
 90
@@ -124,7 +124,7 @@ iterations to see the digits concatenated as a string rather than added as numbe
 <h2 id="basicpy-andor">Validate a user registration form</h2>
 <p>Call the validation function with several passwords, including one you expect to be
 accepted. Does it accept any of them?</p>
-<div data-inc="andor.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_valid_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+<div data-inc="andor.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/andor.py" class="inc-path" role="img" tabindex="0" title="basicpy/andor.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_valid_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return True if password is at least 8 characters and contains a digit."""</span>
     <span class="n">has_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">8</span>
     <span class="n">has_digit</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span>
@@ -162,7 +162,7 @@ almost never satisfy that, so the gate always rejects.</p>
 <p>Call the conversion function with a coordinate you can verify by hand—for example,
 1 degree, 30 minutes, 0 seconds should equal 1.5 decimal degrees. Does the function
 return the correct value?</p>
-<div data-inc="formula.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dms_to_decimal</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
+<div data-inc="formula.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/formula.py" class="inc-path" role="img" tabindex="0" title="basicpy/formula.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dms_to_decimal</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span> <span class="n">seconds</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Convert degrees/minutes/seconds to decimal degrees."""</span>
     <span class="k">return</span> <span class="n">degrees</span> <span class="o">+</span> <span class="n">minutes</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">seconds</span> <span class="o">/</span> <span class="mi">60</span>
 
@@ -192,7 +192,7 @@ a reference table.</p>
 </details>
 <h2 id="basicpy-sortnone">Sort a list of student scores</h2>
 <p>Run this script and examine what it prints. Is the list what you expected?</p>
-<div data-inc="sortnone.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">squared_sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<div data-inc="sortnone.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/sortnone.py" class="inc-path" role="img" tabindex="0" title="basicpy/sortnone.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">squared_sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a sorted list of squares of the input numbers."""</span>
     <span class="n">squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
     <span class="n">squared</span> <span class="o">=</span> <span class="n">squared</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
@@ -216,7 +216,7 @@ the list is always empty.</p>
 <p>Run this script with the provided input file and examine the run-length counts.
 Then trace through the loop by hand with a short example—track what the "previous
 line" variable holds at each step.</p>
-<div data-inc="indent.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div data-inc="indent.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/indent.py" class="inc-path" role="img" tabindex="0" title="basicpy/indent.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">count_runs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -249,7 +249,7 @@ line" variable holds at each step.</p>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="indent.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>apple
+<div data-inc="indent.txt"><span aria-label="Source: basicpy/indent.txt" class="inc-path" role="img" tabindex="0" title="basicpy/indent.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>apple
 apple
 apple
 banana
@@ -271,7 +271,7 @@ the update is happening outside the loop rather than at the start of each iterat
 </details>
 <h2 id="basicpy-noreturn">Check whether a number is prime</h2>
 <p>Call the function and print its return value. Is it what you expected?</p>
-<div data-inc="noreturn.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">filter_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<div data-inc="noreturn.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/noreturn.py" class="inc-path" role="img" tabindex="0" title="basicpy/noreturn.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">filter_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return a new list containing only the non-negative values."""</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
@@ -300,7 +300,7 @@ computes the result without returning it.</p>
 <p>Run this script with the provided input file. Read the full traceback carefully.
 Which line raises the error, and what does the error message tell you about what
 is missing?</p>
-<div data-inc="nokey.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div data-inc="nokey.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/nokey.py" class="inc-path" role="img" tabindex="0" title="basicpy/nokey.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">count_words</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -320,7 +320,7 @@ is missing?</p>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="nokey.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>to be or not to be that is the question
+<div data-inc="nokey.txt"><span aria-label="Source: basicpy/nokey.txt" class="inc-path" role="img" tabindex="0" title="basicpy/nokey.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>to be or not to be that is the question
 whether tis nobler in the mind to suffer
 the slings and arrows of outrageous fortune
 or to take arms against a sea of troubles
@@ -341,7 +341,7 @@ where the crash happened — the key was used before it was created.</p>
 <h2 id="basicpy-streq">Match user IDs loaded from a config file</h2>
 <p>Run this script with a user ID taken directly from the JSON file. Does it grant
 access? Use <code>type()</code> to examine the types of the two values being compared.</p>
-<div data-inc="streq.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<div data-inc="streq.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/streq.py" class="inc-path" role="img" tabindex="0" title="basicpy/streq.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
@@ -358,7 +358,7 @@ access? Use <code>type()</code> to examine the types of the two values being com
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Access granted."</span> <span class="k">if</span> <span class="n">result</span> <span class="k">else</span> <span class="s2">"Access denied."</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="streq.json"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">{</span>
+<div data-inc="streq.json"><span aria-label="Source: basicpy/streq.json" class="inc-path" role="img" tabindex="0" title="basicpy/streq.json">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">"allowed_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -376,7 +376,7 @@ why <code>==</code> always returns <code>False</code>.</p>
 </details>
 <h2 id="basicpy-recurse">Compute factorials recursively</h2>
 <p>Call the function with the argument <code>0</code>. Does it return the correct result?</p>
-<div data-inc="recurse.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div data-inc="recurse.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/recurse.py" class="inc-path" role="img" tabindex="0" title="basicpy/recurse.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Return n! for non-negative n."""</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -399,7 +399,7 @@ instead of returning 1. Replacing <code>&gt;</code> with <code>&gt;=</code> fixe
 <h2 id="basicpy-mutable">Collect results with a helper function</h2>
 <p>Call the function twice in a row with no arguments and compare the two return
 values. Are they the same?</p>
-<div data-inc="mutable.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">collect_items</span><span class="p">(</span><span class="n">new_items</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="p">[]):</span>
+<div data-inc="mutable.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/mutable.py" class="inc-path" role="img" tabindex="0" title="basicpy/mutable.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">collect_items</span><span class="p">(</span><span class="n">new_items</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="p">[]):</span>
 <span class="w">    </span><span class="sd">"""Append new_items to result and return it."""</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">new_items</span><span class="p">:</span>
         <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
@@ -431,7 +431,7 @@ list.</p>
 <p>Run this script with the provided input file. Use <code>repr()</code> on a field value that
 fails to match its expected string. Does the <code>repr()</code> output reveal anything that
 was not visible before?</p>
-<div data-inc="trailing.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<div data-inc="trailing.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/trailing.py" class="inc-path" role="img" tabindex="0" title="basicpy/trailing.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">find_value</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
@@ -457,7 +457,7 @@ was not visible before?</p>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">target</span><span class="si">!r}</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<div data-inc="trailing.txt"><div class="codehilite"><pre class="" tabindex="0"><span></span><code>North |142
+<div data-inc="trailing.txt"><span aria-label="Source: basicpy/trailing.txt" class="inc-path" role="img" tabindex="0" title="basicpy/trailing.txt">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code>North |142
 South|98
 East |201
 West|77
@@ -477,7 +477,7 @@ but visible in the <code>repr()</code> output.</p>
 <h2 id="basicpy-strmeth">Clean up user-submitted text</h2>
 <p>Call the function and print the message before and after the call. Has the message
 changed?</p>
-<div data-inc="strmeth.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">censor</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">banned_words</span><span class="p">):</span>
+<div data-inc="strmeth.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/strmeth.py" class="inc-path" role="img" tabindex="0" title="basicpy/strmeth.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">censor</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">banned_words</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Replace each banned word in message with '***'."""</span>
     <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">banned_words</span><span class="p">:</span>
         <span class="n">message</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s2">"***"</span><span class="p">)</span>
@@ -505,7 +505,7 @@ the result of <code>str.replace</code> is assigned back to a variable.</p>
 <h2 id="basicpy-mutiter">Remove expired entries from a list</h2>
 <p>Run this script and count how many items were removed. Is it the number you
 expected? Try with a list where every element should be removed.</p>
-<div data-inc="mutiter.py" data-scrub="\s*# BUG.*"><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">remove_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<div data-inc="mutiter.py" data-scrub="\s*# BUG.*"><span aria-label="Source: basicpy/mutiter.py" class="inc-path" role="img" tabindex="0" title="basicpy/mutiter.py">i</span><div class="codehilite"><pre class="" tabindex="0"><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">remove_negatives</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Remove all negative numbers from the list in place and return it."""</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>

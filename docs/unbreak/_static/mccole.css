@@ -178,6 +178,38 @@ ul.dropdown-content {
     display: block;
 }
 
+/* File inclusion container */
+div[data-inc] {
+    position: relative;
+}
+
+/* File path icon: positioned top-right of inclusion */
+.inc-path {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.4em;
+    font-size: var(--size-code);
+    font-family: var(--font-family-mono);
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    color: var(--color-grey);
+    cursor: default;
+    opacity: 0.5;
+    z-index: 1;
+}
+.inc-path:hover,
+.inc-path:focus-visible {
+    opacity: 1;
+    color: var(--color-primary);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
 /* Code block */
 pre {
     background-color: var(--bg-secondary-color);
